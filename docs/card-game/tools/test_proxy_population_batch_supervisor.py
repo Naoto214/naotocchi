@@ -13,6 +13,8 @@ class SupervisorTests(unittest.TestCase):
   # closed and is exercised without mocks by external_approval tests.
   gate=patch.object(api.external_approval,'require_operation_ready',return_value=None)
   gate.start();self.addCleanup(gate.stop)
+  auth=patch.object(api.authorization,'audit_launch',return_value=dict(launch_authorization_bound=True,consumption=dict(remote_publication=dict(fresh_remote_head_verified=True)),test_only=True))
+  auth.start();self.addCleanup(auth.stop)
 
  def test_next_row_is_never_launched_after_incomplete_or_failed_child(self):
   self.assertIsNotNone(api)
@@ -56,6 +58,7 @@ a.lock.verify_git_binding=lambda *args,**kw:dict(immutable_content_verified=True
 a.edition.audit_bundle_edition=lambda *args,**kw:dict(bundle_edition_bound=True)
 a.edition.verify=lambda *args,**kw:dict(local_edition_verified=True)
 a.generation_package.audit_committed_generation=lambda *args,**kw:dict(committed_generation_consistent=True)
+a.authorization.audit_launch=lambda *args,**kw:dict(launch_authorization_bound=True,consumption=dict(remote_publication=dict(fresh_remote_head_verified=True)),test_only=True)
 a.remote.verify=lambda *args,**kw:dict(fresh_remote_head_verified=True,test_only=True)
 """
   def isolated(command,**kwargs):

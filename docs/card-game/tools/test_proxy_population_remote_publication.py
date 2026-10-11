@@ -60,14 +60,15 @@ class RemotePublicationTests(unittest.TestCase):
   import proxy_population_batch_supervisor as supervisor
   from test_proxy_mandatory_population_input import bundle
   from contextlib import ExitStack
-  # Generation now uses the owner-claim integration, covered separately.
+  # Actual claim/remote joining is covered by generation/launch authorization tests.
+  # These entry tests isolate propagation of the rejection before side effects.
   for module in (attempt,supervisor):
    with self.subTest(entry=module.__name__),tempfile.TemporaryDirectory() as temp,ExitStack() as stack:
     root=Path(temp)/'docs'/'card-game';(root/'data').mkdir(parents=True);out=root/'data'/'must-not-exist'
     stack.enter_context(patch.object(module,'ROOT',root))
     # Isolate remote publication rejection behind the independently tested closed gate.
     stack.enter_context(patch.object(module.external_approval,'require_operation_ready',return_value=None))
-    stack.enter_context(patch.object(api,'verify',return_value=dict(fresh_remote_head_verified=False,errors=['remote head moved'])))
+    stack.enter_context(patch.object(module.authorization,'audit_launch',return_value=dict(launch_authorization_bound=False,errors=['remote head moved'])))
     stack.enter_context(patch.object(gen.os,'urandom',side_effect=AssertionError('no entropy')))
     stack.enter_context(patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('no execution')))
     stack.enter_context(patch.object(supervisor.subprocess,'run',side_effect=AssertionError('no child')))

@@ -12,6 +12,8 @@ class AttemptRunnerTests(unittest.TestCase):
   # closed and is exercised without mocks by external_approval tests.
   gate=patch.object(api.external_approval,'require_operation_ready',return_value=None)
   gate.start();self.addCleanup(gate.stop)
+  auth=patch.object(api.authorization,'audit_launch',return_value=dict(launch_authorization_bound=True,consumption=dict(remote_publication=dict(fresh_remote_head_verified=True)),test_only=True))
+  auth.start();self.addCleanup(auth.stop)
 
  def test_missing_external_reference_cannot_invoke_the_executor(self):
   self.assertIsNotNone(api)

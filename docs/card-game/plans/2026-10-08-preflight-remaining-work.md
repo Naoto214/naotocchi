@@ -801,3 +801,12 @@ P13方式の再承認は不要。P13全体・P14/15のfresh全blob/remote消費�
 移行先固定検証45件は1ERROR: 実行中に追跡済みPython3ファイルが旧HEAD版へ戻り、connected source fingerprintが正しく拒否した。前後hashで3件の変更を確認。原因未確定のため移行先を使用せず、変更が保たれている元の独立cloneへ戻して検証する。worktree-drift原本を保存し、この試行をPASSへ読み替えない。
 
 元の独立cloneで最終固定45PASS51.440s/exit0。再帰Python1060ファイル前後hash一致、設計errors=[]、保護番号付き477正本不変。移行先のcopy漏れ/実行中driftと全回帰の意図的中断を別logで保持。今回は最新全proxy完了ではない。生成/固定/400戦0、preflight-ready=false。
+
+
+### 2026-10-11 生成承認接続の追補・開始承認の実入口接続
+
+7c3ec7cに保存済みの生成承認接続について本文追補が欠けていたため、履歴を変更せず補う。generation_authorizationは実edition/registry/保存先を本人claim-only公開commitへ結合し、live照合後のsource再検査を行う。generation_entryのoperationへ証拠を保存し、entropy前に拒否する。詳細と過去の失敗/中断はverification/generation-authorization-review.md、最終45PASS/exit0を参照する。
+
+今回、同じ承認契約を400行supervisorと各attempt入口へ結合。全manifest/package/edition・400順・limit・batch保存先を対象とし、workerもlive claimと固定index/対戦ID/attempt保存先/保存済supervisor claimを再照合する。文字列だけでは実行へ進まない。sourceはnetwork後にも再照合。既存の逐次起動・不完了停止・400行保持を再利用し、自動retry/resumeは追加しない。
+
+独立review1回Important/Criticalなし、独立19PASS。最終固定51PASS52.009s/exit0、再帰Python1062前後hash一致、design errors=[]、保護番号付き477正本不変。詳細はverification/launch-authorization-review.md。合成claimと旧条件付きprefixのみ。本番gateは常時閉鎖、生成/固定/400戦0、preflight-ready=false。全proxy完了・全機会・情報利用・結果前時系列の証明へ昇格しない。次は生成operation/completionと公開packageの結合、P07–12/P14–18の残件を継続する。
