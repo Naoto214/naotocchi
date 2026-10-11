@@ -1,0 +1,83 @@
+{
+  "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "checkedAt": "2026-10-11",
+  "ci": [
+    {
+      "name": "Character",
+      "run": 38140123557,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Runtime",
+      "run": 38140131275,
+      "job": 114472126697,
+      "status": "completed",
+      "conclusion": "success",
+      "mainPass": 3022,
+      "relationshipPass": 80,
+      "fail": 0
+    },
+    {
+      "name": "Home",
+      "run": 38140131288,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "runtimeLogExcerpt": [
+    "2026-10-11T13:00:09.1314848Z # tests 3022",
+    "2026-10-11T13:00:09.1315021Z # pass 3022",
+    "2026-10-11T13:00:09.1315109Z # fail 0",
+    "2026-10-11T13:00:09.1315206Z # cancelled 0",
+    "2026-10-11T13:00:09.1315288Z # skipped 0",
+    "2026-10-11T13:00:15.0071088Z # tests 80",
+    "2026-10-11T13:00:15.0071721Z # pass 80",
+    "2026-10-11T13:00:15.0072126Z # fail 0",
+    "2026-10-11T13:00:15.0072434Z # cancelled 0",
+    "2026-10-11T13:00:15.0072740Z # skipped 0"
+  ],
+  "dedicatedLogExcerpt": [
+    "2026-10-11T12:43:49.7867639Z 4/4 controls detected; exact restoration acf11cbc091fa316065adb43228b1471fa9889c6231f1fa9203b311d10c01afb",
+    "2026-10-11T12:43:50.0785296Z 2/2 controls detected; exact restoration acf11cbc091fa316065adb43228b1471fa9889c6231f1fa9203b311d10c01afb"
+  ],
+  "dependencies": [
+    {
+      "ref": "main",
+      "sha": "0b0a6b30e8e098472b2fa965604f4901874942e3"
+    },
+    {
+      "pr": 374,
+      "draft": true,
+      "merged": false,
+      "head": "0e0ccfd20165bbb018e59e2835b041b26db6cdcf",
+      "base": "feat/meguru-3d-art-direction-v1"
+    },
+    {
+      "pr": 372,
+      "draft": true,
+      "merged": false,
+      "head": "d12ad70550b29c125f44ac2b32d7195905fb15f0",
+      "base": "main"
+    },
+    {
+      "pr": 368,
+      "title": "[Draft・merge しない] めぐる Resident Expression System — 住民の きもち → Home の 表情資産(2D / 3D billboard 共通)",
+      "state": "closed",
+      "merged": true,
+      "head": "f50bd6528614d2ca8512730f4b12042c0d529407",
+      "mergeCommit": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+      "base": "main"
+    },
+    {
+      "pr": 375,
+      "title": "Motion v2: complete L3 specials, sparse L1 and shared body personalities",
+      "state": "closed",
+      "merged": true,
+      "head": "4ebcc7768d480101fbfc9c0e7fc7aaf25ebdd2e8",
+      "mergeCommit": "cc4dce9eae9c6cd6997606213271d63540413ad8",
+      "base": "main"
+    }
+  ],
+  "scope": "Read-only dependency snapshot, not final combined-source integration or physical iPhone PASS"
+}

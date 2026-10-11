@@ -1,6 +1,6 @@
 {
   "baseCommit": "df2cbb5f67ca07bcdde3ee9a232c62e9b1ee4d19",
-  "checkpoint": "all293-image-and-source-scoped-integration-verified-human-iphone-open",
+  "checkpoint": "all293-batch-human-review-physical-iphone-final-integration-open",
   "coverage": {
     "exact": 293,
     "total": 293,
@@ -470,26 +470,26 @@
       {
         "id": 38140123557,
         "name": "Character 3D Full Rollout",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
       },
       {
         "id": 38140131275,
         "name": "Runtime smoke test",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
       },
       {
         "id": 38140131288,
         "name": "Home layout",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
       }
     ],
-    "adoptionCINote": "Observed in progress, not PASS. Local focused/protected and all24 mutation controls completed. Docs-only handoff preserves tested source."
+    "adoptionCINote": "All3 workflows SUCCESS freshly confirmed; Runtime smoke job114472126697:3022+80PASS,0FAIL. This is source00a83a4 before final integration, not actual iPhone evidence."
   },
   "currentHumanApprovals": {
     "record": "docs/qa/character-3d-full-v0/human-approvals-20261011.json",
@@ -500,6 +500,32 @@
     "iPhoneQA": "OPEN_NOT_RUN",
     "previewSource": "00a83a4c6847bc2b6609fd42e413561973c91830",
     "previewTree": "c0f2db50c2638d217aa4878dc5b44248622c4731",
-    "previewHandoff": "docs/qa/character-3d-full-v0/human-qa.md"
+    "previewHandoff": "docs/qa/character-3d-full-v0/human-qa.md",
+    "mode": "BATCH_WITH_NAMED_EXCEPTIONS"
+  },
+  "finalAcceptancePolicy": {
+    "date": "2026-10-11T22:12:55+09:00",
+    "record": "docs/character-3d/full-rollout-v0/final-acceptance-plan.md",
+    "scope": 293,
+    "archetypes": 23,
+    "humanApprovalMode": "BATCH_WITH_NAMED_EXCEPTIONS",
+    "triage": "293_STATIC_ORIGINAL_FRONT_34_SCREENED_NOT_HUMAN_APPROVAL",
+    "priorityKeys": [
+      "form:ghost:5",
+      "form:starfish:7",
+      "form:dragon:8"
+    ],
+    "ordinaryBatchCandidates": 288,
+    "frozenRepairs": [
+      "author:naoto",
+      "partner:grove_deer"
+    ],
+    "humanQA": "PENDING_BATCH_DECISION",
+    "physicalIPhone": "NOT_RUN",
+    "finalIntegration": "PENDING_AFTER_HUMAN_AND_DEVICE",
+    "finalApproval": "NOT_GRANTED",
+    "readyAllowed": false,
+    "mainMergeAllowed": false,
+    "packet": "docs/qa/character-3d-full-v0/batch-human-qa-20261011/README.md"
   }
 }

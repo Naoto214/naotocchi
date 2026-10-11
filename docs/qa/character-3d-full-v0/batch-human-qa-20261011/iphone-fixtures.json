@@ -1,0 +1,72 @@
+{
+  "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "generator": "Unchanged meguru-qa.cjs makeSave and script.js NTS1 codec; original companion order",
+  "makeSaveSha256": "9209c46a7fbd67339cb4c57fd1411467aa580980fd4cabb42b1ffc8e94bee121",
+  "verificationAdapter": "Generic runtime harness VM preloads existing LifeStages exactly as index.html does. Without that production module the generic helper uses old stage thresholds (initial dog stage assertion2 instead of3); no production or harness file edited.",
+  "saveSchemaChanged": false,
+  "deviceStatus": "NOT_RUN",
+  "fixtures": [
+    {
+      "actors": 1,
+      "file": "iphone-native-1.txt",
+      "sha256": "cdd5934a96bdad6d218bcf897367394da777c3a1fcc52e58e86ce4b1c7fca229",
+      "player": "dog:4",
+      "companions": [],
+      "codecRoundtrip": true,
+      "existingLoaderPreservesSchemaStageAndComposition": true,
+      "actualIPhoneLiveActorCount": "NOT_RUN"
+    },
+    {
+      "actors": 5,
+      "file": "iphone-native-5.txt",
+      "sha256": "f32b408619590313ad0045edf8f4198c24b21e3e6a4eafd24fb184bb02894366",
+      "player": "dog:4",
+      "companions": [
+        "shiba",
+        "cat_friend",
+        "tanuki",
+        "penguin_friend"
+      ],
+      "codecRoundtrip": true,
+      "existingLoaderPreservesSchemaStageAndComposition": true,
+      "actualIPhoneLiveActorCount": "NOT_RUN"
+    },
+    {
+      "actors": 27,
+      "file": "iphone-native-27.txt",
+      "sha256": "943017b243362f2a46771f8b4336167c604f6673a24b5d6512d87700a34edbca",
+      "player": "dog:4",
+      "companions": [
+        "shiba",
+        "cat_friend",
+        "tanuki",
+        "penguin_friend",
+        "rabbit_friend",
+        "squirrel",
+        "owl",
+        "otter",
+        "hamster",
+        "panda",
+        "monkey",
+        "parrot",
+        "sheep",
+        "seal",
+        "bat",
+        "chicken",
+        "hedgehog",
+        "snail",
+        "punyu",
+        "sekizou",
+        "chameleon",
+        "clock",
+        "unicorn",
+        "many_tail_fox",
+        "watcher",
+        "box"
+      ],
+      "codecRoundtrip": true,
+      "existingLoaderPreservesSchemaStageAndComposition": true,
+      "actualIPhoneLiveActorCount": "NOT_RUN"
+    }
+  ]
+}

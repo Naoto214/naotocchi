@@ -4,6 +4,14 @@ Status: **Human / iPhone OPEN. All293 model image gates and source-scoped automa
 
 Use the final source/tree recorded in the [checkpoint](../../character-3d/full-rollout-v0/checkpoint.json), with the matching [evidence map](../../character-3d/full-rollout-v0/final-player-evidence-map.md) and source-specific export manifests. Historical Pilot URLs and performance numbers are references, not current measurements.
 
+## Current completion policy — 2026-10-11 22:12 JST
+
+All293 remain in Human QA scope, but **batch acceptance with named exceptions is allowed**. Individual approval for every remaining character is not required. [23archetype comparison packet and priority3](batch-human-qa-20261011/README.md) / [physical iPhone matrix](batch-human-qa-20261011/iphone-device-record.json) / [final acceptance plan](../../character-3d/full-rollout-v0/final-acceptance-plan.md).
+
+After Human and real iPhone gates, audit the latest main/World/Resident Expression/Motion in an isolated combined candidate, resolve mechanical and semantic conflicts, and verify dedicated/mutation/full regression plus all three CI workflows and device protection/performance. Report the final result and unresolved items, then wait for explicit final approval. This policy is **not current Ready or main-merge authorization**. PR376 stays Draft/unmerged.
+
+The current00a83a4 source has Character/Runtime/Home SUCCESS and3022+80 full regression tests with0failures. That is pre-integration evidence, not completed iPhone or final integration QA.
+
 ## Current Human approvals — 2026-10-11
 
 The user formally approved **Naoto E plus side layers** (including the seven-three part, fringe direction and temple-to-rear continuity) and reconfirmed **deer legs**. The exact captured Naoto row is adopted without redesign; deer is unchanged. Naoto hair is frozen unless a confirmed defect is identified. [Machine-readable decisions](human-approvals-20261011.json) / [approved comparison](author-side-layer-20261011/README.md).

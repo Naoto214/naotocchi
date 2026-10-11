@@ -32,7 +32,9 @@
   "otherCharactersHumanQA": {
     "status": "OPEN",
     "remainingCharacters": 291,
-    "note": "The two approvals are repair-specific; continuous emotion/motion, gameplay and device gates are not implied."
+    "note": "The two approvals are repair-specific; continuous emotion/motion, gameplay and device gates are not implied.",
+    "approvalMode": "BATCH_WITH_NAMED_EXCEPTIONS",
+    "packet": "docs/qa/character-3d-full-v0/batch-human-qa-20261011/README.md"
   },
   "iPhoneQA": {
     "status": "OPEN_NOT_RUN",
