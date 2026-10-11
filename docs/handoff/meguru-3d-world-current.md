@@ -2,6 +2,10 @@
 
 Use fresh GitHub state as authority, not past conversation. Repository Naoto214/naotocchi; branch feat/meguru-3d-geometry-terrain-v1; Draft PR374; base feat/meguru-3d-art-direction-v1.
 
+## Target-image checkpoint — 2026-10-11, single-tree relocation c010bf2
+
+Product c010bf266c64b0db0bbc99e53a491b21c42c6185/tree4eb206e19ee86c2925889af52e53bd55e693f8a3 saved with remote/local agreement and clean. Dedicated CI38148933408/artifact11706600660 exactZIP/source/exit0 verified;6pairs/12originals inspected and retained. Four close angles show tree/wheel separation. Normal reverse shows the readable wheel; normal-road retains another foreground tree's partial occlusion. Moved tree shape/grounding and scenery coherent; independent image review no new major issue. Four close budgets identical; normal-road-14tri/-1call, reverse unchanged, not performance proof. WQ-WHEEL-TREE geometry/target-image checks now pass; fullCI38148933340 still in progress, not yet a final complete unit. Bridge38148933323SUCCESS without fresh bridge-image QA claim. Human QA/iPhone and historical smoke-overlap variation remain unresolved; World incomplete. Draft/open/unmerged protections unchanged.
+
 ## Latest continuation — 2026-10-11, approved single-tree relocation candidate
 
 User approved option2: only river_lake:68 may move with its collider; tree geometry/size and all waterwheel geometry/axis/behavior/placement remain protected. No general exception. Candidate(+64,-144), distance157.581725, selected by conservative2-unit-grid comparison including nearby trees, grasses, decorations, all solid colliders and roads. Shorter tested candidates have tree/grass/road conflicts or provoke collider shift/shrink; no claim of continuous global minimum. Guarded correction after generic placement preserves2D and every other object's descriptor. All13regions compared: only this tree's prop/object/collider coordinates and derived collision grid change; tree parts unchanged. Initial wheel-prop identity guard failed because prop and adjusted collider coordinates differ; corrected with failure retained. VQ30 RED→GREEN. See docs/qa/meguru-3d-waterwheel-supports/tree-relocation/.

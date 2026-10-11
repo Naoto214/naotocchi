@@ -21,3 +21,11 @@ VQ30 catches the original collider overlap (RED). Initial implementation guard i
 Local Chromium download failed with invalid/truncated ZIP; no local browser PASS is claimed. Dedicated Actions captures four actor-free complete-scene angles plus two normal gameplay views before/after, using exact baseline and source-bound tree/wheel checks. Actor-free views disable fade/animation and are not Human QA/performance evidence. Normal views retain normal actors/fade and record actual camera distance.
 
 PR374 remains Draft/open/unmerged. No Ready/main/production Pages changes. WQ-WHEEL-TREE stays OPEN until target images and verification are reviewed; Human QA, physical iPhone performance and historical smoke-overlap variation remain unresolved. World incomplete.
+
+## Verified target images — c010bf2
+
+Implementation saved c010bf266c64b0db0bbc99e53a491b21c42c6185/tree4eb206e19ee86c2925889af52e53bd55e693f8a3; remote/local HEAD/tree matched and clean. Dedicated CI38148933408/artifact11706600660 succeeded. ZIP SHA2561f8ed63ffb0476e986812ef194320e8e77c2ce7866f9df0e06a41e9fab8e3108, exact before/after commits, three source file hashes and exit0 verified. Six pairs/twelve originals retained in inspection-c010bf2; no duplicate ZIP saved.
+
+All4close complete-scene pairs show the former trunk removed from the hub/spokes/rim/supports. Normal reverse view shows a separate readable wheel; normal-road view retains partial occlusion from an unchanged foreground tree. Relocated tree keeps its original branching/crown form and appears grounded; no obvious new structural interference, road blockage or conspicuous scenic gap. Independent code/geometry and all6pair image reviews found no blocking/new major issue. This supports the narrow automated visual fix; Human QA remains unapproved.
+
+Four close views have identical triangle/draw-call counts. Normal-road is -14triangles/-1call, reverse unchanged; normal camera distances436.097962–447.438830 and actor/fade/culling variation mean no performance improvement is established. WQ-WHEEL-TREE geometry/target-image checks pass for this candidate; final regression/CI still pending. Historical smoke-overlap variation remains a separate unresolved issue.
