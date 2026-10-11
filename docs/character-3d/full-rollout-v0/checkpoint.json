@@ -310,7 +310,7 @@
       "partner:grove_deer",
       "author:naoto"
     ],
-    "status": "DEER_IMAGE_ACCEPTED_AUTHOR_REFINEMENT_PENDING",
+    "status": "TARGETED_TECHNICAL_IMAGE_REVIEW_ACCEPTED_HUMAN_IPHONE_OPEN",
     "focusedTests": 33,
     "geometryUnchangedOther": 291,
     "pilotHashesMatched": 28,
@@ -329,6 +329,37 @@
       "authorRegression": 11,
       "workflow": 23
     },
-    "refinementMutation": "4/4 detected and exact restoration"
+    "refinementMutation": "4/4 detected and exact restoration",
+    "productionCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
+    "technicalImageReview": "docs/qa/character-3d-full-v0/human-feedback-20261011/visual-review.json",
+    "characterRun": {
+      "id": 38131052301,
+      "conclusion": "success"
+    },
+    "baselineCandidateRuntime": {
+      "sourceCommit": "4faa3e3f5293c6993bad8e385a8fc2156d82e056",
+      "id": 38129968617,
+      "mainTests": 3022,
+      "relationshipTests": 80,
+      "fail": 0
+    },
+    "baselineCandidateHome": {
+      "id": 38129968613,
+      "conclusion": "success"
+    },
+    "review": {
+      "Critical": 0,
+      "Important": 0
+    },
+    "latestRuntime": {
+      "id": 38131058037,
+      "sourceCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
+      "status": "IN_PROGRESS_NOT_PASSED"
+    },
+    "latestHome": {
+      "id": 38131058046,
+      "sourceCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
+      "status": "IN_PROGRESS_NOT_PASSED"
+    }
   }
 }
