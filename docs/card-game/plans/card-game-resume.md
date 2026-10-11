@@ -13,6 +13,8 @@
 - 最新追補: end_dispatch.require_actual_traceを初期manifest入口へ接続。未証明終了機会・欠落/重複/別境界proofを拒否。関連18PASS41.515s、独立7PASS。verification/end-dispatch-entry-*。上記完全結合はこのgate追加前であり現在版全回帰ではない。
 - 停止表示原因調査はsession-stop-2026-10-11.mdに保存済み。原因確定不能を環境切断確定等へ読み替えない。
 
+- 2026-10-12: 共有public_sourcesの列挙を両ownerの全公開盤面slotから別に照合。開始/到来producer同時欠落を拒否し、伏せidentityを読まない。public-sources-*、固定27PASS/独立22PASS。全機会/起点証明ではない。再実装不要。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

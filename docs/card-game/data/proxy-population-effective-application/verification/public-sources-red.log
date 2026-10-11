@@ -1,0 +1,78 @@
+test_arrival_collection_rejects_shared_source_omission (test_proxy_population_public_sources.PublicSourceTests.test_arrival_collection_rejects_shared_source_omission) ... FAIL
+test_scope_restores_source_function_after_exception (test_proxy_population_public_sources.PublicSourceTests.test_scope_restores_source_function_after_exception) ... ok
+test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) ... 
+  test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='actor') ... FAIL
+  test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='slot') ... FAIL
+  test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='card_id') ... FAIL
+  test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='classification') ... FAIL
+test_start_capture_and_collection_reject_shared_source_omission (test_proxy_population_public_sources.PublicSourceTests.test_start_capture_and_collection_reject_shared_source_omission) ... FAIL
+
+======================================================================
+FAIL: test_arrival_collection_rejects_shared_source_omission (test_proxy_population_public_sources.PublicSourceTests.test_arrival_collection_rejects_shared_source_omission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_sources.py", line 31, in test_arrival_collection_rejects_shared_source_omission
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_sources.py", line 29, in run
+    with self.assertRaisesRegex(ValueError,'public source'):existing.ExistingAdapter(h).proof(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='actor')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_sources.py", line 39, in test_source_metadata_and_classification_cannot_change_together
+    with self.assertRaisesRegex(ValueError,'public source'):starts.public_sources(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='slot')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_sources.py", line 39, in test_source_metadata_and_classification_cannot_change_together
+    with self.assertRaisesRegex(ValueError,'public source'):starts.public_sources(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='card_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_sources.py", line 39, in test_source_metadata_and_classification_cannot_change_together
+    with self.assertRaisesRegex(ValueError,'public source'):starts.public_sources(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_source_metadata_and_classification_cannot_change_together (test_proxy_population_public_sources.PublicSourceTests.test_source_metadata_and_classification_cannot_change_together) (field='classification')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_sources.py", line 39, in test_source_metadata_and_classification_cannot_change_together
+    with self.assertRaisesRegex(ValueError,'public source'):starts.public_sources(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_start_capture_and_collection_reject_shared_source_omission (test_proxy_population_public_sources.PublicSourceTests.test_start_capture_and_collection_reject_shared_source_omission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_sources.py", line 20, in test_start_capture_and_collection_reject_shared_source_omission
+    with self.assertRaisesRegex(ValueError,'public source'):both()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.098s
+
+FAILED (failures=6)

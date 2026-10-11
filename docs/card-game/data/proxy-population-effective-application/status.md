@@ -1170,3 +1170,12 @@ e8d55b1から、宣言atomic delta0を107/114比較値へ昇格する経路を�
 c9bbaf2から、終了機会監査がerrors=[]でもverified=false/unprovedなら初期manifest入口で拒否するよう接続。全transitionとの1:1/厳密bool/hash bindingを要求し、部分履歴診断は保持。関連18PASS41.515s、固定Python指紋一致、独立review C0/I0/Minor0（7PASS）。verification/end-dispatch-entry-review.md参照。直前固定c9bbaf2の全結合143step181event7監査errors=[]、116.378s/exit0の完全原本も保存（新gate追加前と区別）。P10 normal UNIT/ADMITTED/MAIN_TRANSITION・response/逐次groupの実read対応をpublic-read-boundary-review.mdへ追補。
 
 未完: P09の到来/自動を含む全機会合成、P10比較側/下流helperの全許可read結合、P11残るoperandの正本根拠、P14–18生成由来・remote lock・最終共通gate/固定版検証。常時閉鎖gateはまだ開かない。preflight-ready=false、生成/固定/400戦0、独立balance標本0、全体結論null。
+
+
+### 2026-10-12 公開source共有列挙の独立盤面照合
+
+f1b1625から、開始capture/collectと到来collectが共有するpublic_sourcesの同時欠落をRED再現。現行trigger_predicates.scope内だけで両者のmain/partner/world/companions/表向きpreparedを盤面から別に列挙し、source・owner・slot・card・catalog分類を完全照合。伏せpreparedはidentity読取前に除外。historical defaultとscope復元を維持。全機会/履歴起点/標本認証ではない。
+
+新4テストで6FAILのRED、追加境界を含む関連24PASS、最終固定27PASS29.123s/exit0（初期manifest10step入口含む）、再帰Python1069前後指紋一致。独立review C0/I0、別実行22PASSと実contract_scope拒否/復元を確認。中間green出力はtool上24PASS/exit0だが保存ファイルの末尾が欠落。原因未確定のためintermediate-partial.logとして保持し、原本PASSは完全なfinal.logとsummaryの27PASS/exit0に限定。証拠public-sources-*。全proxy回帰や完全512step結合は今回再実行していない。
+
+preflight-ready=false、生成/本番固定/400戦0、policy promotion=false、独立balance標本0。次はP09自動dispatch/残機会の合成、P10 comparison/helperの許可field、P11上位/成長operandの正本根拠、P14–18の共通gate。

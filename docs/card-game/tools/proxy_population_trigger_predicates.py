@@ -32,6 +32,32 @@ FIELDS=('action_type','card_id','card_copy_id','source_instance_id','target_inst
 def _signature(row):return canonical({key:row.get(key) for key in FIELDS})
 
 
+def _public_sources(envelope,result):
+ """Check the shared producer against physical board slots, not its output.
+
+ Hidden prepared identities are never read here. Catalog/source authenticity
+ and current board membership do not authenticate the history that built it.
+ """
+ g=envelope['legacy_continuation']['game_state'];rt=envelope['runtime'];known=starts.catalog()['cards'];expected={}
+ if set(g['players'])!={'A','B'}:raise ValueError('public source player coverage differs')
+ for actor in ('A','B'):
+  board=g['players'][actor]['board']
+  for slot in ('main','partner','world','companions','prepared'):
+   members=board[slot] if slot in ('companions','prepared') else ([] if board[slot] is None else [board[slot]])
+   for source in members:
+    if slot=='prepared':
+     face=rt['public_prepared'][source]['face_up']
+     if type(face) is not bool:raise ValueError('public source visibility unknown')
+     if not face:continue
+     if source not in rt['attachments']:raise ValueError('public source attachment absent')
+    if source in expected:raise ValueError('public source duplicate board membership')
+    card=g['cards'][source]['card_id']
+    if card not in known:raise ValueError('public source capability unknown')
+    expected[source]=dict(actor=actor,slot=slot,card_id=card,classification=known[card])
+ if canonical(result)!=canonical(expected):raise ValueError('public source board projection differs')
+ return result
+
+
 def end_condition(envelope,history,source,actor):
  """Existing four source conditions, independent of opening-event membership."""
  c=envelope['legacy_continuation'];g=c['game_state'];p=g['players'][actor];b=p['board'];card=g['cards'][source]['card_id']
@@ -255,7 +281,7 @@ def _start_collection(capture,envelope,result):
 
 @contextmanager
 def scope():
- native_latched=latching.current_actions;native_start=sequential.StartAdapter.enumerate;native_existing=existing.ExistingAdapter.enumerate;native_collect=existing.ExistingAdapter.collect;native_start_collect=starts.collect
+ native_latched=latching.current_actions;native_start=sequential.StartAdapter.enumerate;native_existing=existing.ExistingAdapter.enumerate;native_collect=existing.ExistingAdapter.collect;native_start_collect=starts.collect;native_sources=starts.public_sources
  def checked(result,envelope,occurrence,audit):
   rows,proof=result;check=audit(envelope,occurrence,rows)
   if check['errors']:raise ValueError('trigger current predicates differ: '+str(check['errors']))
@@ -273,9 +299,11 @@ def scope():
   origin=envelope['legacy_continuation']['response_context']['origin_event_seq'] if origin_event_seq is None else origin_event_seq
   return _collection(envelope,adapter.history,origin,result)
  def collect_start(capture,envelope):return _start_collection(capture,envelope,native_start_collect(capture,envelope))
+ def public_sources(envelope):return _public_sources(envelope,native_sources(envelope))
  try:
+  starts.public_sources=public_sources
   starts.collect=collect_start
   existing.ExistingAdapter.collect=collect
   latching.current_actions=latched;sequential.StartAdapter.enumerate=start;existing.ExistingAdapter.enumerate=arrival
   yield
- finally:latching.current_actions=native_latched;sequential.StartAdapter.enumerate=native_start;existing.ExistingAdapter.enumerate=native_existing;existing.ExistingAdapter.collect=native_collect;starts.collect=native_start_collect
+ finally:latching.current_actions=native_latched;sequential.StartAdapter.enumerate=native_start;existing.ExistingAdapter.enumerate=native_existing;existing.ExistingAdapter.collect=native_collect;starts.collect=native_start_collect;starts.public_sources=native_sources
