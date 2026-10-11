@@ -1,21 +1,46 @@
 {
-  "sourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399",
-  "runId": 37938257303,
+  "sourceCommit": "4faa3e3f5293c6993bad8e385a8fc2156d82e056",
+  "runId": 38129962557,
   "artifactJobEvidence": true,
   "families": [
-    "dog"
+    "partner",
+    "author"
   ],
   "artifacts": [
     {
-      "id": 11619241745,
-      "label": "scene-final",
-      "name": "full-rollout-meguru-410edf9674d5937496e7acd0f255c98de11fc399",
-      "digest": "sha256:799d3bbc471dffadc73e4730213b18e2c849729e2c4fadabcdcaa31e699d3d58",
-      "jobId": 113845722634,
+      "id": 11698998038,
+      "label": "human-feedback",
+      "name": "full-rollout-nonplayer-review-4faa3e3f5293c6993bad8e385a8fc2156d82e056",
+      "digest": "sha256:8036924bb7df51af46fc542544b8d6e9be19a846c8cb529734a57acc5793900f",
+      "jobId": 114442061220,
       "evidenceMode": "successful",
       "required": [
         {
-          "pattern": "meguru-qa.json",
+          "pattern": "*-comparison.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "*-before-*.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "*-after-*.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "*-motion.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "*-distance-*.jpg",
+          "count": 4
+        },
+        {
+          "pattern": "evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "comparison-metadata.json",
           "count": 1
         }
       ]
