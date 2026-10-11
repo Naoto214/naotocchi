@@ -1,11 +1,22 @@
-# Naoto D/E: geometric seven-three part, unadopted
+# Naoto D/E — natural off-center seven-three part candidates
 
-User rejected all previous A/B/C and explicitly withdrew the no-part instruction. Source design master remains assets/characters/author/naoto.png. D has a viewer-right off-center part and a large left-flowing group; E mirrors only the new front locks, with a viewer-left part and large right-flowing group. Ten actual closed paths in unequal seven/three groups diverge from staggered roots. Tips go down to the forehead. No surface line or painted scalp is used.
+**Neither adopted. Human selection OPEN.** Previous A/B/C all HUMAN REJECTED; the no-part condition is withdrawn. Existing assets/characters/author/naoto.png remains the sole design master.
 
-Both existing crown/rear volumes and last three posterior paths remain byte-identical. Face/clothes/deer/other292 and all production code/assets remain unchanged from8daf05fe93fadc095e30bc6b79117afae6dfcd2d. The existing capture-only override is reused. Human selection OPEN; neither candidate adopted.
+![Original and D/E head comparison](author-naoto-heads.jpg)
 
-Local shape2+workflow8=10PASS/0FAIL. An actual mesh ray sees skin in the off-center upper-forehead opening at y.17/.19, hair on both flanks, and hair at center. The preserved crown closes the top of the small opening; the initial y.21 probe hit that crown, so the scalp-opening probe was bounded below it without changing the protected crown. Connected surfaces/eye clearance/front projection and immutable protected rows are tested. Earlier A/B/C fail the opening test. Image comparison PENDING, not approved. Overall Human/iPhoneOPEN; Draft376/noReady/main/Pages.
+- **D:** viewer-right part; large group flows left/down, smaller group right/down.
+- **E:** viewer-left part; large group flows right/down, smaller group left/down.
 
-Firstcapture03d0fd1/run38137127137 was actually inspected:12rawfiles verified;8views. INTERNAL REJECT: opening too broad/round. Round2 narrows the two boundary locks;2destructive controls detect broad notch and closed-part reversion, exact restoration. For E, existing QA HTML is temporarily intercepted only in the capture browser to reverse azimuth for3/4 and side; D uses right-side camera, E left-side camera, labels and cameraSide metadata explicit. Production QA HTML remains unchanged. Round2images PENDING.
+[Full body comparison](author-naoto-options.jpg). Four views each: front, three-quarter, side and back. Three-quarter/side cameras face the part: right for D, left for E; labels and raw metadata make this explicit. The single supplied2D view is repeated; side/back source art is not invented. Head comparisons are deterministic crops of original screenshots, not retouched/generated images; see crop-metadata.json.
 
-Secondcapture3d14dc0/run38137393231 was also internally REJECTED after actual8view/headcrop inspection: inward tips made a keyhole opening. All12rawfiles verified and retained. Round3 boundary locks diverge outward/downward from roots; added flow guard and2destructive controls detect wide-notch/inward-hook versions with exact restoration. Center coverage regression was detected and repaired by overlapping the adjacent long-group lock. Round3shape3+workflow8PASS; imagesPENDING.
+The two groups use actual closed3D paths in seven/three groups; root-to-tip directions diverge. The visible gap shows the existing skull rather than a painted line or added skin patch. Shape checks include off-center scalp visibility, hair on both root flanks, center coverage, eye clearance, bounded forward extent, closed-surface connectivity and outward boundary flow. Original crown/rear volumes and last3posterior paths are exact; face/clothes/deer/other292 and all production code/assets remain unchanged from8daf05fe93fadc095e30bc6b79117afae6dfcd2d. Only capture-time overrides are used. No runtime registration or formal adoption.
+
+All8final frames, full board and head crops were actually inspected. Final boundary tips flow away from the root opening rather than inward. Fine original tousled detail remains simplified into rounded locks. The visual review supports presenting alternatives, not source-likeness or Human approval.
+
+Source a6096121897b3d93a05733cc5049539218ea27c4; Character38137800237 SUCCESS; capture114465160643 SUCCESS. [Original12files, SHA256 manifest, raw metadata and direct D/E images](../export/a6096121897b3d93a05733cc5049539218ea27c4/author-sidepart-options/README.md). All12bytes/size/SHA256 and both captured spec hashes matched. Browser errors0. Existing renderer/capture/export machinery reused.
+
+Shape3+workflow8=11PASS/0FAIL. Final2destructive controls detect broad-notch and inward-hook reversions; exact restoration verified. Source Character CI passed with the final11tests. Runtime38137806535/Home38137806537 were still IN_PROGRESS at the fresh check and are not counted as PASS. No claim of rerunning full production mutations or device QA.
+
+First03d0fd1 internally REJECTED for broad round notch; second3d14dc0 internally REJECTED for keyhole hooks after real image/head-crop review. Their original12files each are retained with source-scoped manifests. [Development record](development-notes.md), [final visual review](visual-review.json), [controls](round3-controls.json).
+
+STOP for Human selection. PR376 Draft/open/unmerged; no Ready/main import/merge/Pages change. OverallHuman/iPhoneQA remain OPEN. Deer approval remains intact.

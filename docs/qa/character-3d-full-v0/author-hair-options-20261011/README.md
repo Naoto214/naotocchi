@@ -1,6 +1,6 @@
 # Naoto — three unadopted hairstyle options
 
-**Human selection OPEN. No option selected or adopted.** Original design master: `assets/characters/author/naoto.png`. Loose7:3 / bangs-down natural mash-wolf is only the user’s direction shorthand.
+**HUMAN REJECTED: all A/B/C. Superseded by the D/E side-part comparison; none adopted.** Original design master: `assets/characters/author/naoto.png`. Loose7:3 / bangs-down natural mash-wolf is only the user’s direction shorthand.
 
 ![A/B/C: original and front / three-quarter / side / back](author-naoto-options.jpg)
 
