@@ -1,0 +1,78 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "03d0fd17d928069c81012d37f71a48d097988f29",
+  "artifact": {
+    "id": 11701761109,
+    "name": "full-rollout-nonplayer-review-03d0fd17d928069c81012d37f71a48d097988f29",
+    "digest": "sha256:9fa2e246651677b3b497b14094c0204cc0a02b2d09bd02ac8f8d084b8334c790"
+  },
+  "files": [
+    {
+      "path": "author-naoto-D-34.jpg",
+      "sha256": "aa3d29666c9c4a33d03696b7ad6b1aa034268219bb9598f3d2ad9f0132a6271b",
+      "bytes": 12883
+    },
+    {
+      "path": "author-naoto-D-back.jpg",
+      "sha256": "7da7c0757f5dc676934b481db59eb46da68064cabcf92b675905ed60b395f7e3",
+      "bytes": 10864
+    },
+    {
+      "path": "author-naoto-D-front.jpg",
+      "sha256": "f197575975dce89ca2291411eeb8f5ef933366488d45d9cd271c1b043abe8200",
+      "bytes": 13201
+    },
+    {
+      "path": "author-naoto-D-side.jpg",
+      "sha256": "bf4f59a2d54b64bfb5ab4d7f62350c29c1df84b1b3fc4b9a9b36e6626eea236b",
+      "bytes": 10650
+    },
+    {
+      "path": "author-naoto-D-views.jpg",
+      "sha256": "d182e921c79179dea6d927c270eb0e2e639b0660dc3aac1d41327c892f36d13c",
+      "bytes": 70782
+    },
+    {
+      "path": "author-naoto-E-34.jpg",
+      "sha256": "8c749b76f9847c0ea192fcc46409be1ddbdd9aea54178893a542f6502f7a5a42",
+      "bytes": 12962
+    },
+    {
+      "path": "author-naoto-E-back.jpg",
+      "sha256": "516a8ec68f79bd6d8de9171c5fb6067e402532b6c4ed0e7a4f68a0eb80d6ee00",
+      "bytes": 10858
+    },
+    {
+      "path": "author-naoto-E-front.jpg",
+      "sha256": "b673a0438e49bad7dd1e806fdf506d495792571c0967c6fb340d95a3de7a2367",
+      "bytes": 13161
+    },
+    {
+      "path": "author-naoto-E-side.jpg",
+      "sha256": "260219186b291e0300f272f0c0b1a7562c890e9953047b4ae248ce7ba7f1b8a1",
+      "bytes": 10690
+    },
+    {
+      "path": "author-naoto-E-views.jpg",
+      "sha256": "657e0639af9b62c37836e152b75d2f7fbe44db4874729d04b5c7c4553f0d657f",
+      "bytes": 70376
+    },
+    {
+      "path": "author-naoto-options.jpg",
+      "sha256": "531422cb026af211c3bf7e7900bf7ee99d4ef316ddbff40a455a6ee0209e5074",
+      "bytes": 141228
+    },
+    {
+      "path": "comparison-metadata.json",
+      "sha256": "b0b3d27e436a50871c03ca423e8a288c094c7a54c728d32d6aaa47a4f6c0ca6b",
+      "bytes": 5484
+    }
+  ],
+  "sourceRun": 38137127137,
+  "sourceRunConclusion": "success",
+  "artifactJobId": 114463180634,
+  "artifactJobName": "nonplayer-candidate-review",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}
