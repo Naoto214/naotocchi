@@ -53,7 +53,9 @@ Files: `batch-human-qa-20261011/iphone-device-record.json`; reuse `character-3d/
 - [ ] Run a proposed30-minute sustained-play interval; record elapsed duration, crashes/reloads, memory pressure/heat/responsiveness, frame distribution and visible hitches. Compare2D sequentially with the same fixture/camera. Report limits; do not invent a universal FPS PASS threshold.
 - [ ] Attach actual observations and Human device acceptance. Blocked/not-run/fail are distinct from PASS.
 
-## Task 3 — Final isolated integration audit (proceed now)
+## Task 3 — Current main safety and future World compatibility
+
+**2026-10-12 supersession:** World completion/combinedWorld execution is not a Character pre-merge gate. Never import its unmerged branch. Currentmain is already included; document mechanical resolutions and verify Character-side presentation contracts now. The older combined-candidate tasks below apply only when World integration is separately authorized. See [current audit/device procedure](../../qa/character-3d-full-v0/premerge-20261012/README.md).
 
 Files: subsequent integration manifest/evidence under existing `docs/qa/character-3d-full-v0/`; candidate-only code changes as required. No production/main merge is authorized.
 

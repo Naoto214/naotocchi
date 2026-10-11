@@ -1198,3 +1198,8 @@ No-PC fixture preparation: reused existing makeSave and NTS1 encoder/decoder to 
 User removes fine293 Human approval as a pre-merge requirement; overall shape quality accepted, minor geometry/expression/motion moves to post-merge Quality Pass. Naoto and deer remain approved/frozen. Actual iPhone basic operation/27-native-actor performance and technical safety remain required; no Ready/main-merge execution authorized.
 
 Fresh source7d2200e/main0b0a6b30: complete ancestry proves main already included and merge-tree unchanged. Resident Expression368/Motion375 included. No non-doc change from00a83a4; current Character/Runtime/Home CI SUCCESS and full3022+80PASS retained source-specifically. Fresh related suites109PASS/0FAIL. World374 remains Draft/head ebec89db; isolated merge detects index.html, meguru-3d.mjs, meguru.js, package.json conflicts and billboard-only visibility diagnosis incompatible with healthy Character3D hiding its fallback board. Isolated merge aborted after evidence extraction; neither runtime nor other lane modified. See technical-merge-audit-20261011/audit.json for controls/results. Physical iPhone NOT_RUN; combinedWorld safety not certified; PR376 Draft/unmerged and final approval NOT_GRANTED.
+
+
+## 2026-10-12 — Character先行・World非取込、実機QA入口
+
+Latest user policy: World完成はCharacter merge gateではない。Fresh Character f82e9c0/main0b0a6b30祖先、Worlda0124f35で4競合再確認（merge-treeのみ）。原因/将来解消条件をpremerge-20261012/README.mdへ整理。QA専用active representation診断・実機操作ページ追加、ゲーム固定source00a83a4・造形/本体/save/World変更なし。関連44PASS、診断mutation4/4検出・完全復元。既存同一実装CI3本SUCCESS再確認・全体3022+80と保護証跡再利用。実機全項目NOT_RUN、未実施PASSなし。PR376 Draft/unmerged、明示的最終承認待ち。

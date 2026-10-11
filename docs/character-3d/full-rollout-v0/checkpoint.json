@@ -504,7 +504,7 @@
     "mode": "BATCH_WITH_NAMED_EXCEPTIONS"
   },
   "finalAcceptancePolicy": {
-    "date": "2026-10-11",
+    "date": "2026-10-12",
     "record": "docs/character-3d/full-rollout-v0/final-acceptance-plan.md",
     "scope": 293,
     "archetypes": 23,
@@ -521,14 +521,17 @@
       "partner:grove_deer"
     ],
     "humanQA": "FINE_REVIEW_NOT_A_PREMERGE_GATE",
-    "physicalIPhone": "NOT_RUN_REQUIRED_BASIC_AND_27_ACTORS",
-    "finalIntegration": "MAIN_INCLUDED_WORLD_COMBINED_CONFLICTS_OPEN",
+    "physicalIPhone": "NOT_RUN_REQUIRED_DISPLAY_MOVEMENT_EXPRESSION_REGIONS_FALLBACK_27",
+    "finalIntegration": "CURRENT_MAIN_VERIFIED_WORLD_MERGE_NOT_REQUIRED",
     "finalApproval": "NOT_GRANTED",
     "readyAllowed": false,
     "mainMergeAllowed": false,
     "packet": "docs/qa/character-3d-full-v0/batch-human-qa-20261011/README.md",
     "technicalSafety": "REQUIRED_BEFORE_FINAL_APPROVAL",
     "qualityPass": "Minor geometry/expression/motion differences may follow merge; critical technical defects remain blockers",
-    "technicalAudit": "docs/qa/character-3d-full-v0/technical-merge-audit-20261011/audit.json"
+    "technicalAudit": "docs/qa/character-3d-full-v0/premerge-20261012/README.md",
+    "worldCompletionRequired": false,
+    "worldBranchImported": false,
+    "qaPage": "docs/qa/character-3d-full-v0/premerge-20261012/iphone.html"
   }
 }

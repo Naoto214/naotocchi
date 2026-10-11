@@ -4,6 +4,10 @@ Status: **Human / iPhone OPEN. All293 model image gates and source-scoped automa
 
 Use the final source/tree recorded in the [checkpoint](../../character-3d/full-rollout-v0/checkpoint.json), with the matching [evidence map](../../character-3d/full-rollout-v0/final-player-evidence-map.md) and source-specific export manifests. Historical Pilot URLs and performance numbers are references, not current measurements.
 
+## 2026-10-12 — current main first
+
+World completion is not required for Character merge. Do not import World Draft. [Current technical resolution and iPhone procedure](premerge-20261012/README.md) supersedes prior combinedWorld prerequisite. Actual iPhone display/movement/expression/regions/fallback/27-actor performance remain NOT_RUN.
+
 ## Current completion policy — revised 2026-10-11
 
 The user accepts overall shape quality. Fine Human QA of all293 is **not a pre-merge requirement**. Minor geometry, expression and motion refinements, including the three static triage candidates, may follow in a Quality Pass. This is not a fabricated individual293 PASS. Approved Naoto and deer remain frozen.
