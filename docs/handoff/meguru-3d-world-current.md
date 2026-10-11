@@ -2,6 +2,12 @@
 
 Use fresh GitHub state as authority, not past conversation. Repository Naoto214/naotocchi; branch feat/meguru-3d-geometry-terrain-v1; Draft PR374; base feat/meguru-3d-art-direction-v1.
 
+## Latest continuation — 2026-10-11, approved single-tree relocation candidate
+
+User approved option2: only river_lake:68 may move with its collider; tree geometry/size and all waterwheel geometry/axis/behavior/placement remain protected. No general exception. Candidate(+64,-144), distance157.581725, selected by conservative2-unit-grid comparison including nearby trees, grasses, decorations, all solid colliders and roads. Shorter tested candidates have tree/grass/road conflicts or provoke collider shift/shrink; no claim of continuous global minimum. Guarded correction after generic placement preserves2D and every other object's descriptor. All13regions compared: only this tree's prop/object/collider coordinates and derived collision grid change; tree parts unchanged. Initial wheel-prop identity guard failed because prop and adjusted collider coordinates differ; corrected with failure retained. VQ30 RED→GREEN. See docs/qa/meguru-3d-waterwheel-supports/tree-relocation/.
+
+Implementation checkpoint: target image QA and final regression pending, WQ-WHEEL-TREE OPEN. Dedicated source-bound four-angle plus normal-gameplay comparisons will determine contextual result. Existing static wheel behavior is preserved; full360-degree envelope is geometric QA. Human QA/iPhone performance and historical smoke-overlap variation remain unapproved/unresolved. World incomplete. PR374 Draft/open/unmerged; no Ready/main/Pages changes. Earlier design-scope question is superseded by the user's explicit single-tree exception.
+
 ## Latest continuation — 2026-10-11, waterwheel height diagnosis (no product changes)
 
 Fresh source0e0ccfd/tree109c054 confirmed; PR374 Draft/open/unmerged. Read-only production grounding + actual trunk2 frustum calculation completed exit0; retained script/output in docs/qa/meguru-3d-waterwheel-supports/tree-conflict/diagnose-height.cjs and height-diagnostic.json. Both post foot centrelines are inside the grounded root volume. At wheel rotation-centre height34.802875 the lower-trunk inscribed radius13.524900 exceeds centre separation10.272221: root-only thinning cannot resolve the hub conflict. This is conservative centreline containment, not exact triangle intersection or fresh image QA. Existing Node module-type warning recorded in the README; no product changes or repeated full CI.

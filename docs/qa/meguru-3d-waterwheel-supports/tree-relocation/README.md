@@ -1,0 +1,23 @@
+# Single river tree relocation — approved option 2, 2026-10-11
+
+Baseline ebec89db9add8d0de28dbf07d8416f61868dc9e3 / tree c64ab4b93b2d4433b5d0f9cae9454c0f890dfed4. User approved an exception only for tree river_lake:68: move its appearance and collider together, preserve its trunk/branches/leaves/size and all waterwheel geometry/axis/behavior/location. No general relocation policy or other-object placement changes. Compare candidates, implement/verify/save without another approval unless a major new conflict or scenic issue appears.
+
+## Candidate and scope
+
+Selected offset (+64,-144), distance157.581725; tree center (1456.3585151506252,3185.7790468973562). About1.08 times nominal tree size146.5505. This is the shortest passing sampled candidate on a2-unit grid within180, using conservative enclosing geometry, not a claim of continuous/exact global optimality. Short side42 approaches tree76/decorations; +z80 approaches the road; -z80 intersects conservative grass envelopes. Short diagonal(-8,-68) clears wheel/trees but puts roots over grass343. Leftward candidates cause the existing obstacle builder to shift/shrink the collider and are rejected. Broad AABB-only tree tests were too conservative; cylinder/ellipsoid support bounds avoid those false positives. Bounds cannot prove that every rejected candidate actually intersects a triangle.
+
+Search uses production terrain grounding, enclosing cylinders for trunks/soft plants, ellipsoids for crowns, full360-degree wheel sweep box (half axial10, radial R+5), and posts/axle bounds. Required separation: wheel/support/tree/solid collider>=5; soft decorations>=0.5; road collider>=25. All solid colliders checked; visual neighbors whose original centers are within400 checked. The renderer currently builds static wheel instances; behavior remains unchanged. Full-sweep proof is geometric across every hypothetical rotation angle, not a newly animated runtime wheel or physical performance result.
+
+Reproduce with `node compare-candidates.cjs <clean baseline checkout> <output JSON>` from this directory. Baseline commit is guarded; production harness cwd is bound before initialization. candidates.json retains source SHA256, actual bounds, comparisons and limits. Source inspection and independent review found no blocking geometry/code issue. Final image QA remains pending at this implementation checkpoint.
+
+## Implementation and protection
+
+A guarded authored correction runs after generic3D placement and before obstacle/grid construction. Region, tree index/kind/layer/size/original coordinates and neighboring wheel identity/original prop coordinates must match. It cannot affect2D, another tree or another region, nor cascade into generic relocation. Future generation changes that invalidate the identity fail closed and VQ30 exposes the unresolved conflict. No renderer/runtime architecture, Character3D, Expression, save/schema or season changes.
+
+13-region comparison: every2D world unchanged;12 complete3D worlds/descriptors unchanged. In river_lake, reversing only tree68 prop/collider coordinates and rebuilding its collision grid restores the entire original world byte-for-byte; rendering differs only for tree68 x/z and collider x/z. All parts, other object descriptors, counts and residents identical. See protection.json.
+
+VQ30 catches the original collider overlap (RED). Initial implementation guard incorrectly compared the pre-collider wheel prop to its adjusted collider position and remained RED; guard-failure.log is retained. Fixed to actual wheel prop coordinates; GREEN1/0. No test weakening. Related suite80PASS/1FAIL/exit1: AD-17 failed because sparse checkout omitted the saved comparison sheet. Restored exact tracked compare.html; AD-17/18 recheck2PASS/0FAIL/exit0 is retained separately. Raw failing logs retain Node whitespace unchanged. Four seasonal mode spot checks returned the same translated tree/collider, radius24.913585. Full CI and image QA remain pending. Cache token uses existing assetHash contract.
+
+Local Chromium download failed with invalid/truncated ZIP; no local browser PASS is claimed. Dedicated Actions captures four actor-free complete-scene angles plus two normal gameplay views before/after, using exact baseline and source-bound tree/wheel checks. Actor-free views disable fade/animation and are not Human QA/performance evidence. Normal views retain normal actors/fade and record actual camera distance.
+
+PR374 remains Draft/open/unmerged. No Ready/main/production Pages changes. WQ-WHEEL-TREE stays OPEN until target images and verification are reviewed; Human QA, physical iPhone performance and historical smoke-overlap variation remain unresolved. World incomplete.

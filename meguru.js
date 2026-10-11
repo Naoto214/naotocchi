@@ -3047,7 +3047,20 @@
       }
       yield;
       // 3D prototype(forest・?meguru3d=1 だけ): 道の うえの かたい 物を 見た目ごと 道の そとへ(2D では はしらない)
-      if (world3dOn(regionId, opts)) { yield* relocateRoadSolids3dSteps(world); yield; }
+      if (world3dOn(regionId, opts)) {
+        yield* relocateRoadSolids3dSteps(world);
+        // WQ-WHEEL-TREE (2026-10-11 approved single-tree placement exception).
+        // Authored correction AFTER generic placement: never cascade into other props.
+        // Match the original identity/position so a future generator change fails closed.
+        // obstacleOf + collision grid below consume the SAME prop coordinates; no visual-only offset.
+        const tree = world.props[68], wheel = world.props[406];
+        if (regionId === 'river_lake' && tree && tree.emoji === '🌳' && tree.layer === 'wall' && tree.size === 146.5505 &&
+            Math.abs(tree.x - 1392.3585151506252) < 1e-6 && Math.abs(tree.z - 3329.7790468973562) < 1e-6 &&
+            wheel && wheel.struct === 'waterwheel' && Math.abs(wheel.x - 1383.7706555441746) < 1e-6 && Math.abs(wheel.z - 3342.307828883464) < 1e-6) {
+          tree.x += 64; tree.z -= 144;
+        }
+        yield;
+      }
       // あたりはんてい: 「絵の 四角」では なく 地面に ついて いる ところ(COLLIDER)。
       // みちの 通行帯に 食いこむ ものは 自動で 縮める/外す ので、道は ぜったいに ふさがらない
       { const obs = []; for (let i = 0; i < world.props.length; i++) { const o = obstacleOf(world.props[i], world, i); if (o) obs.push(o); if (i % 120 === 119) yield; } world.obstacles = obs; }

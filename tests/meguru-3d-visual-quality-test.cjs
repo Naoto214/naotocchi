@@ -666,3 +666,25 @@ test('VQ-29 six soft city stalls retain their bounds with subdued cloth and shal
  }
  assert.deepEqual(ids.sort(),['city:336','city:340','city:348','city:524','city:556','city:557']);
 });
+
+// Reverting only the approved tree translation must restore this failure.
+// Keep geometry hashes separate from the intentionally changed coordinates.
+test('VQ-30 river waterwheel tree is relocated with its collider and original geometry', () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const w=M.buildWorld('river_lake',M.buildRegistry(),{world3d:true});
+  const objects=M.worldObjects3d(w).objects;
+  const tree=objects.find(o=>o.id==='river_lake:68'),wheel=objects.find(o=>o.id==='river_lake:406');
+  const obstacle=w.obstacles.find(o=>o.pi===68),wheelObstacle=w.obstacles.find(o=>o.pi===406);
+  assert.equal(M.colliderPenetration(wheelObstacle,tree.x,tree.z,tree.collision.hw+8),0,'tree collider must clear waterwheel with margin');
+  const digest=x=>require('node:crypto').createHash('sha256').update(JSON.stringify(x)).digest('hex');
+  assert.equal(digest(tree.parts),'ec585eda47542a330cef33598a704b8fdde81f4353a7112d11c223340f019483','unchanged roots/trunk/branches/leaves');
+  assert.equal(digest(wheel),'4d4a51bee3d2fed38ece92f3dd4f40bc2fbc133c55cac6fd79967c188864c9b9','wheel shape, axis, placement and collider unchanged');
+  assert.equal(tree.collision.hw,24.913585);assert.equal(tree.collision.hd,24.913585);
+  assert.equal(tree.x,w.props[68].x);assert.equal(tree.z,w.props[68].z);
+  assert.equal(obstacle.x,tree.x);assert.equal(obstacle.z,tree.z);
+  assert.ok(M.collidersAt(w,tree.x,tree.z).includes(obstacle),'new position indexed in production collision grid');
+  assert.ok(M.colliderPenetration(obstacle,tree.x,tree.z,0)>0,'visible root remains solid');
+  assert.equal(M.colliderPenetration(obstacle,1392.3585151506252,3329.7790468973562,0),0,'no tree collider left at old position');
+  const np=M.nearestPath(tree,w);assert.ok(np.dist-np.half-tree.collision.hw>=20,'retain clear road');
+});
