@@ -504,11 +504,11 @@
     "mode": "BATCH_WITH_NAMED_EXCEPTIONS"
   },
   "finalAcceptancePolicy": {
-    "date": "2026-10-11T22:12:55+09:00",
+    "date": "2026-10-11",
     "record": "docs/character-3d/full-rollout-v0/final-acceptance-plan.md",
     "scope": 293,
     "archetypes": 23,
-    "humanApprovalMode": "BATCH_WITH_NAMED_EXCEPTIONS",
+    "humanApprovalMode": "OVERALL_QUALITY_ACCEPTED_FINE_REVIEW_POST_MERGE",
     "triage": "293_STATIC_ORIGINAL_FRONT_34_SCREENED_NOT_HUMAN_APPROVAL",
     "priorityKeys": [
       "form:ghost:5",
@@ -520,12 +520,15 @@
       "author:naoto",
       "partner:grove_deer"
     ],
-    "humanQA": "PENDING_BATCH_DECISION",
-    "physicalIPhone": "NOT_RUN",
-    "finalIntegration": "PENDING_AFTER_HUMAN_AND_DEVICE",
+    "humanQA": "FINE_REVIEW_NOT_A_PREMERGE_GATE",
+    "physicalIPhone": "NOT_RUN_REQUIRED_BASIC_AND_27_ACTORS",
+    "finalIntegration": "MAIN_INCLUDED_WORLD_COMBINED_CONFLICTS_OPEN",
     "finalApproval": "NOT_GRANTED",
     "readyAllowed": false,
     "mainMergeAllowed": false,
-    "packet": "docs/qa/character-3d-full-v0/batch-human-qa-20261011/README.md"
+    "packet": "docs/qa/character-3d-full-v0/batch-human-qa-20261011/README.md",
+    "technicalSafety": "REQUIRED_BEFORE_FINAL_APPROVAL",
+    "qualityPass": "Minor geometry/expression/motion differences may follow merge; critical technical defects remain blockers",
+    "technicalAudit": "docs/qa/character-3d-full-v0/technical-merge-audit-20261011/audit.json"
   }
 }

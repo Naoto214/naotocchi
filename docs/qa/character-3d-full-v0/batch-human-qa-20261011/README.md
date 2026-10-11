@@ -1,5 +1,8 @@
 # 全293体・一括Human QAパケット
 
+> **Latest merge policy (2026-10-11):** fine293 Human art review is no longer a merge prerequisite. These boards and H01–H03 remain post-merge Quality Pass evidence. Naoto/deer stay approved and frozen. Technical integration safety and physical iPhone basic/27-actor performance remain required; Ready/main merge still require explicit final approval. Historical review instructions below do not override this policy.
+
+
 対象：**全293体／23 archetype**。原画を唯一のデザイン正本とします。既存画像を使った原画・正面・斜めの全体比較を実施しました。再撮影や形状変更はありません。これは補助的な外れ値抽出であり、Human承認の代行ではありません。
 
 **291回の個別承認は不要です。** 下記全体について「重点3体以外をまとめて承認」、または「全体承認、ただし○○は修正」と返せます。対象範囲を明示した一括承認を記録し、例外だけを修正・再確認します。現在は新しい一括承認待ちです。ナオトの髪と鹿の脚は承認済みで固定します。

@@ -4,13 +4,13 @@ Status: **Human / iPhone OPEN. All293 model image gates and source-scoped automa
 
 Use the final source/tree recorded in the [checkpoint](../../character-3d/full-rollout-v0/checkpoint.json), with the matching [evidence map](../../character-3d/full-rollout-v0/final-player-evidence-map.md) and source-specific export manifests. Historical Pilot URLs and performance numbers are references, not current measurements.
 
-## Current completion policy — 2026-10-11 22:12 JST
+## Current completion policy — revised 2026-10-11
 
-All293 remain in Human QA scope, but **batch acceptance with named exceptions is allowed**. Individual approval for every remaining character is not required. [23archetype comparison packet and priority3](batch-human-qa-20261011/README.md) / [physical iPhone matrix](batch-human-qa-20261011/iphone-device-record.json) / [final acceptance plan](../../character-3d/full-rollout-v0/final-acceptance-plan.md).
+The user accepts overall shape quality. Fine Human QA of all293 is **not a pre-merge requirement**. Minor geometry, expression and motion refinements, including the three static triage candidates, may follow in a Quality Pass. This is not a fabricated individual293 PASS. Approved Naoto and deer remain frozen.
 
-After Human and real iPhone gates, audit the latest main/World/Resident Expression/Motion in an isolated combined candidate, resolve mechanical and semantic conflicts, and verify dedicated/mutation/full regression plus all three CI workflows and device protection/performance. Report the final result and unresolved items, then wait for explicit final approval. This policy is **not current Ready or main-merge authorization**. PR376 stays Draft/unmerged.
+Before requesting final approval, verify latest-main conflicts, World3D / Resident Expression / Motion semantics, save/schema protection, existing2D toggle and fallback, actor cleanup and absence of disappearing characters, plus **actual physical iPhone basic operation and27-native-actor performance**. Integration work proceeds without waiting for detailed art review. Source-specific automated evidence does not establish physical-device PASS.
 
-The current00a83a4 source has Character/Runtime/Home SUCCESS and3022+80 full regression tests with0failures. That is pre-integration evidence, not completed iPhone or final integration QA.
+Report final technical results and unresolved issues, then wait for explicit Ready/main-merge approval. PR376 remains Draft/unmerged; main and Pages are unchanged. [Acceptance plan](../../character-3d/full-rollout-v0/final-acceptance-plan.md) / [device record](batch-human-qa-20261011/iphone-device-record.json).
 
 ## Current Human approvals — 2026-10-11
 
@@ -20,7 +20,7 @@ The user formally approved **Naoto E plus side layers** (including the seven-thr
 |---|---|---|
 | `author:naoto` | Current E plus side-layer hairstyle | Continuous motion/gameplay and actual iPhone QA |
 | `partner:grove_deer` | Corrected leg proportions, taper and joints | Continuous motion/gameplay and actual iPhone QA |
-| Other 291 characters | No new Human approval recorded | Source likeness, views, motion and gameplay Human QA |
+| Other 291 characters | Overall quality accepted; no individual signoff asserted | Minor visual refinements in post-merge Quality Pass; technical safety before merge |
 
 Continue through the existing gallery: player families (248 stages), companions (26), and remaining partners (17). Filter by family/kind and follow each live link. Record the exact key/stage, view or motion condition, approve/reject/requested change and a screenshot where useful. Review known approved repairs only if a concrete defect appears. Numerical coverage and automated tests are not Human acceptance.
 

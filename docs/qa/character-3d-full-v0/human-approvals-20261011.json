@@ -30,10 +30,10 @@
     }
   ],
   "otherCharactersHumanQA": {
-    "status": "OPEN",
+    "status": "FINE_REVIEW_DEFERRED_TO_QUALITY_PASS",
     "remainingCharacters": 291,
-    "note": "The two approvals are repair-specific; continuous emotion/motion, gameplay and device gates are not implied.",
-    "approvalMode": "BATCH_WITH_NAMED_EXCEPTIONS",
+    "note": "Latest user policy: remaining fine geometry/expression/motion improvements are not pre-merge blockers. Critical technical safety and physical iPhone basic/27-actor checks remain mandatory.",
+    "approvalMode": "USER_ACCEPTS_OVERALL_QUALITY_NOT_INDIVIDUAL_SIGNOFF",
     "packet": "docs/qa/character-3d-full-v0/batch-human-qa-20261011/README.md"
   },
   "iPhoneQA": {

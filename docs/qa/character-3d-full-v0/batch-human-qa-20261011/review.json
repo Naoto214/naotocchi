@@ -16,7 +16,7 @@
       "id": "H01",
       "key": "form:ghost:5",
       "observation": "原画の大きく開いた暗色の口に対し、3D normalは小さな口と閉じた目で、怖さ・顔の印象が弱い。",
-      "decision": "HUMAN_CONFIRM_REQUIRED_NOT_AUTOMATIC_REJECTION",
+      "decision": "POST_MERGE_QUALITY_PASS_CANDIDATE_NOT_TECHNICAL_BLOCKER",
       "detail": "form-ghost-5-detail.jpg",
       "constraint": "共通Expressionを変更せず、原画の個性として必要な補正かHuman判断する。",
       "sourceFiles": [
@@ -48,7 +48,7 @@
       "id": "H02",
       "key": "form:starfish:7",
       "observation": "原画の幅広い三角形の腕に対し、3Dは細く丸い腕として見える。側面・背面も含め許容範囲を確認する。",
-      "decision": "HUMAN_CONFIRM_REQUIRED_NOT_AUTOMATIC_REJECTION",
+      "decision": "POST_MERGE_QUALITY_PASS_CANDIDATE_NOT_TECHNICAL_BLOCKER",
       "detail": "form-starfish-7-detail.jpg",
       "sourceFiles": [
         {
@@ -79,7 +79,7 @@
       "id": "H03",
       "key": "form:dragon:8",
       "observation": "原画のまとまった巻き尾・座り姿に対し、3Dは胴が直立し、翼が左右へ開いた輪郭となる。終段階の落ち着いた印象の許容範囲を確認する。",
-      "decision": "HUMAN_CONFIRM_REQUIRED_NOT_AUTOMATIC_REJECTION",
+      "decision": "POST_MERGE_QUALITY_PASS_CANDIDATE_NOT_TECHNICAL_BLOCKER",
       "detail": "form-dragon-8-detail.jpg",
       "sourceFiles": [
         {
@@ -111,7 +111,7 @@
     "key": "form:frog:4",
     "reason": "Tail not obvious in small contact sheet; full four-view source confirms tail is present. No repair."
   },
-  "humanDecision": "PENDING_BATCH_REVIEW",
-  "batchRule": "User may approve all listed groups together, or approve all except explicitly named keys. No per-character approval is required. Unmentioned keys are not inferred approved until an explicit batch approval with scope exists.",
+  "humanDecision": "OVERALL_QUALITY_ACCEPTED_FINE_REVIEW_POST_MERGE",
+  "batchRule": "Latest user directive supersedes required pre-merge batch art approval; retained observations are post-merge Quality Pass candidates, not individual approval or rejection.",
   "noGeometryChanges": true
 }
