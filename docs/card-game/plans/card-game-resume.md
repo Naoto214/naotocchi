@@ -43,6 +43,8 @@
 
 - 2026-10-12: いなか配置の終了成長条件成立時もdelta0を比較証拠にせず116 unknownへ保持。world-end-unknown-*、34PASS31.655s/独立7PASS・指摘なし、Python1075前後一致。実配置は維持。次はP09–11/P14–18共通gate合成。preflight-ready=false。
 
+- 2026-10-12: supervisorの起動直前/return後のedition検査を結合。版変更停止・全予定保持、supervisor-edition-*、26PASS29.756s/独立7PASS・指摘なし、Python1075前後一致。gate閉鎖、P09–11/P14–18共通合成は未完。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

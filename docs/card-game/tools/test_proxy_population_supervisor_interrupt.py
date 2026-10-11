@@ -13,6 +13,8 @@ class SupervisorInterruptTests(unittest.TestCase):
   gate.start();self.addCleanup(gate.stop)
   auth=patch.object(api.authorization,'audit_launch',return_value=dict(launch_authorization_bound=True,consumption=dict(remote_publication=dict(fresh_remote_head_verified=True)),test_only=True))
   auth.start();self.addCleanup(auth.stop)
+  version=patch.object(api.edition,'verify',return_value=dict(local_edition_verified=True))
+  version.start();self.addCleanup(version.stop)
 
  def test_control_interrupt_keeps_full_schedule_and_never_retries(self):
   for signal in (KeyboardInterrupt,SystemExit):

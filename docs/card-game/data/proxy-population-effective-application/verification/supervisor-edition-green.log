@@ -1,0 +1,15 @@
+test_invalid_input_cannot_launch_or_create_destination (test_proxy_population_batch_supervisor.SupervisorTests.test_invalid_input_cannot_launch_or_create_destination) ... ok
+test_isolated_transport_runs_only_the_existing_historical_prefix (test_proxy_population_batch_supervisor.SupervisorTests.test_isolated_transport_runs_only_the_existing_historical_prefix) ... ok
+test_next_row_is_never_launched_after_incomplete_or_failed_child (test_proxy_population_batch_supervisor.SupervisorTests.test_next_row_is_never_launched_after_incomplete_or_failed_child) ... ok
+test_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) ... ok
+test_changed_schedule_limit_destination_or_package_reject (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_changed_schedule_limit_destination_or_package_reject) ... ok
+test_entries_reject_reference_only_before_any_execution (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_entries_reject_reference_only_before_any_execution) ... ok
+test_exact_launch_claim_binds_but_does_not_open_preflight (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_exact_launch_claim_binds_but_does_not_open_preflight) ... ok
+test_remote_movement_source_race_and_alias_reject (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_remote_movement_source_race_and_alias_reject) ... ok
+test_supervisor_and_worker_recheck_same_claim_before_execution (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_supervisor_and_worker_recheck_same_claim_before_execution) ... ok
+test_worker_requires_exact_fixed_row_and_saved_supervisor_claim (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_worker_requires_exact_fixed_row_and_saved_supervisor_claim) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 16.760s
+
+OK

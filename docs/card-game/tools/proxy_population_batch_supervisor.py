@@ -60,9 +60,11 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
   control=dict(match_id=row['match_id'],request_sha256=digest(canonical(request)))
   try:
    write_exclusive(destination/('request-'+str(index).zfill(4)+'.json'),dict(control,execution_status='started'))
+   if edition.verify(certificate,repository)['local_edition_verified'] is not True:raise ValueError('source edition changed before worker launch')
    process=subprocess.run([sys.executable,'-I','-c',CHILD,str(Path(__file__).resolve().parent)],input=canonical(request),stdout=subprocess.PIPE,stderr=subprocess.PIPE,cwd=repository,check=False)
    control.update(returncode=process.returncode,stdout_base64=base64.b64encode(process.stdout).decode(),stderr_base64=base64.b64encode(process.stderr).decode())
    if process.returncode!=0:raise ValueError('worker process failed')
+   if edition.verify(certificate,repository)['local_edition_verified'] is not True:raise ValueError('source edition changed before worker result acceptance')
    body=(target/'receipt.json').read_bytes();record=json.loads(body,object_pairs_hook=_pairs,parse_constant=_nonfinite)
    response=json.loads(process.stdout,object_pairs_hook=_pairs,parse_constant=_nonfinite)
    if canonical(record)!=body or canonical(response)!=process.stdout or response!={'receipt_sha256':digest(body)}:raise ValueError('worker output/receipt binding differs')

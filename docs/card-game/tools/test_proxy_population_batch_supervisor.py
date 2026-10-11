@@ -15,6 +15,8 @@ class SupervisorTests(unittest.TestCase):
   gate.start();self.addCleanup(gate.stop)
   auth=patch.object(api.authorization,'audit_launch',return_value=dict(launch_authorization_bound=True,consumption=dict(remote_publication=dict(fresh_remote_head_verified=True)),test_only=True))
   auth.start();self.addCleanup(auth.stop)
+  version=patch.object(api.edition,'verify',return_value=dict(local_edition_verified=True))
+  version.start();self.addCleanup(version.stop)
 
  def test_next_row_is_never_launched_after_incomplete_or_failed_child(self):
   self.assertIsNotNone(api)
@@ -39,6 +41,32 @@ class SupervisorTests(unittest.TestCase):
     self.assertEqual(result['planned_rows'][-1]['execution_status'],'not_executed');self.assertFalse(result['whole_set']['allowed'])
     self.assertIsNone(result['whole_set']['counts']);self.assertFalse(result['automatic_retry_allowed'])
     self.assertEqual(result['status'],'stopped');self.assertFalse(result['ready_for_execution'])
+ def test_source_change_before_child_or_after_return_stops_fixed_schedule(self):
+  for when in ('before_child','after_return','before_next'):
+   with self.subTest(when=when),tempfile.TemporaryDirectory() as d:
+    root=Path(d)/'docs'/'card-game';(root/'data').mkdir(parents=True);out=root/'data'/'mock-batch';calls=[]
+    def child(command,**kwargs):
+     calls.append(command)
+     if len(calls)>1:raise OSError('unexpected next row')
+     request=json.loads(kwargs['input']);target=Path(request['destination']);target.mkdir()
+     raw=canonical(dict(schema='bound_population_connected_runtime.v1',binding=dict(match_id=request['match_id']),supplied_bundle_sha256=api.digest(canonical(request['bundle'])),completed=True));compressed=gzip.compress(raw,mtime=0);(target/'record.json.gz').write_bytes(compressed)
+     receipt=dict(schema='conditional_population_attempt_receipt.v1',match_id=request['match_id'],execution_status='completed',source_reconstructed=True,record_sha256=api.digest(raw),compressed_sha256=api.digest(compressed));body=canonical(receipt);(target/'receipt.json').write_bytes(body)
+     from types import SimpleNamespace
+     return SimpleNamespace(returncode=0,stdout=canonical(dict(receipt_sha256=api.digest(body))),stderr=b'')
+    prior_checks={'before_child':0,'after_return':1,'before_next':2}[when]
+    checks=[dict(local_edition_verified=True)]*prior_checks+[dict(local_edition_verified=False,errors=['synthetic changed source'])]
+    with patch.object(api,'ROOT',root),patch.object(api.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)),patch.object(api.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)),patch.object(api.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)),patch.object(api.edition,'verify',side_effect=checks) as verified,patch.object(api.subprocess,'run',side_effect=child):
+     result=api.run_after_external_approval(bundle(),{'commit':'1'*40,'tree':'2'*40},{},Path(d),3,out,'synthetic reference')
+    self.assertEqual(len(calls),0 if when=='before_child' else 1)
+    self.assertEqual(verified.call_count,prior_checks+1)
+    stopped=1 if when=='before_next' else 0
+    self.assertIn('source edition changed',result['planned_rows'][stopped]['stop_reason'])
+    self.assertEqual(result['not_executed_rows'],399-stopped);self.assertEqual(result['completed_rows'],stopped)
+    if stopped:self.assertEqual(result['planned_rows'][0]['execution_status'],'completed')
+    self.assertEqual(len(result['planned_rows']),400);self.assertEqual(len(result['planned_groups']),200)
+    self.assertEqual(result['status'],'stopped');self.assertIsNone(result['whole_set']['conclusion'])
+    self.assertFalse((out/('request-'+str(stopped+2).zfill(4)+'.json')).exists());self.assertTrue((out/('result-'+str(stopped+1).zfill(4)+'.json')).exists())
+
  def test_invalid_input_cannot_launch_or_create_destination(self):
   self.assertIsNotNone(api)
   with tempfile.TemporaryDirectory() as d,patch.object(api.subprocess,'run',side_effect=AssertionError('no child')):
