@@ -1129,3 +1129,10 @@ RED1FAIL（priority_unique）→既存116 fallbackと未証明候補保持を確
 関連41PASS24.465s/exit0。旧115/零rootの完全connected入口は143step/181event、ordinary118件中非fallback108件の計算を監査、接続7監査errors=[]、source1068ファイル前後一致。設計errors=[]、保護番号付き477不変。各bundle独立review C0/I0、環境整理後の復元もread-onlyで重大相違なし。未保存差分とlogが自動整理で失われ、GitHub退避済みblobから復元・保存した経緯と証拠限界はverification/ordinary-entry-review.mdへ記録。最新全proxy完了ではない。
 
 preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の全source機会・全read・比較operandの由来、P14–18の最終合成/固定版検証は未完。過去の未証明を補完せず、準備完了や開始許可へ昇格しない。
+
+
+### 2026-10-11 停止ログ確認と最小再開手順
+
+ユーザーの停止表示調査依頼に対応。環境整理による作業状態消失と再開時のUnknown process/cwd不在を確認したが、UI停止の直接reason・時間上限・通信切断のログは取得できず、原因は断定しない。検証プロセスのexit0とは分離する。詳細はverification/session-stop-2026-10-11.md。
+
+次回はplans/card-game-resume.mdから開始する。検証済み共通責務ごとにcommit/refまで保存し、blob退避や未取得結果を保存完了/PASSとしない。最新実装f38d620、preflight-ready=false、生成/固定/400戦0。次は実readの情報境界。
