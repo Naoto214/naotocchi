@@ -1,6 +1,6 @@
 # Naoto D/E — natural off-center seven-three part candidates
 
-**Neither adopted. Human selection OPEN.** Previous A/B/C all HUMAN REJECTED; the no-part condition is withdrawn. Existing assets/characters/author/naoto.png remains the sole design master.
+**E selected as direction; side-layer revision requested. Not final-approved or runtime-adopted.** Previous A/B/C all HUMAN REJECTED; the no-part condition is withdrawn. Existing assets/characters/author/naoto.png remains the sole design master.
 
 ![Original and D/E head comparison](author-naoto-heads.jpg)
 
