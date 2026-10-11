@@ -1,39 +1,38 @@
 {
-  "sourceCommit": "4faa3e3f5293c6993bad8e385a8fc2156d82e056",
-  "runId": 38129962557,
+  "sourceCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
+  "runId": 38131052301,
   "artifactJobEvidence": true,
   "families": [
-    "partner",
     "author"
   ],
   "artifacts": [
     {
-      "id": 11698998038,
+      "id": 11699390461,
       "label": "human-feedback",
-      "name": "full-rollout-nonplayer-review-4faa3e3f5293c6993bad8e385a8fc2156d82e056",
-      "digest": "sha256:8036924bb7df51af46fc542544b8d6e9be19a846c8cb529734a57acc5793900f",
-      "jobId": 114442061220,
+      "name": "full-rollout-nonplayer-review-fe2acd989f5d6f611a8251133795f83ae737800c",
+      "digest": "sha256:7c166b742ae84bfcf442bccf9b5a3025bd4c20f31a67d4c5958c6bbfea5d12a8",
+      "jobId": 114445285164,
       "evidenceMode": "successful",
       "required": [
         {
           "pattern": "*-comparison.jpg",
-          "count": 2
+          "count": 1
         },
         {
           "pattern": "*-before-*.jpg",
-          "count": 8
+          "count": 4
         },
         {
           "pattern": "*-after-*.jpg",
-          "count": 8
+          "count": 4
         },
         {
           "pattern": "*-motion.jpg",
-          "count": 2
+          "count": 1
         },
         {
           "pattern": "*-distance-*.jpg",
-          "count": 4
+          "count": 2
         },
         {
           "pattern": "evidence.json",
