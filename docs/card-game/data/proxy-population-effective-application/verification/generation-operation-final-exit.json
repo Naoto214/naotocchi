@@ -1,0 +1,22 @@
+{
+  "modules": [
+    "test_proxy_population_generation_authorization",
+    "test_proxy_population_approval_publication",
+    "test_proxy_population_external_approval",
+    "test_proxy_population_generation_entry",
+    "test_proxy_population_attempt_runner",
+    "test_proxy_population_batch_supervisor",
+    "test_proxy_population_supervisor_interrupt",
+    "test_proxy_population_remote_publication",
+    "test_proxy_population_execution_edition",
+    "test_proxy_population_generation_package",
+    "test_proxy_population_input_lock",
+    "test_proxy_population_launch_authorization",
+    "test_proxy_population_generation_operation",
+    "test_proxy_population_generation_journal"
+  ],
+  "exit_code": 0,
+  "seconds": 61.57178269900032,
+  "source_unchanged": true,
+  "python_count": 1064
+}

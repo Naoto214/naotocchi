@@ -6,6 +6,7 @@ Cursor/builder, without sampling entropy or executing any match.
 import hashlib,json,subprocess
 from pathlib import PurePosixPath
 import proxy_population_input_lock as lock
+import proxy_population_generation_operation as operation_audit
 import proxy_population_execution_edition as edition
 import proxy_population_input_history as history
 from proxy_population_generation_journal import audit_journal_bytes
@@ -15,7 +16,7 @@ from proxy_mandatory_policy_contract import ROOT,canonical
 
 
 def audit_committed_generation(bundle,receipt,certificate,repository):
- errors=[];bindings={}
+ errors=[];bindings={};operation=None
  try:
   checked=lock.verify_git_binding(bundle,receipt,repository)
   if not checked['immutable_content_verified']:raise ValueError('manifest immutable binding differs: '+str(checked['errors']))
@@ -40,15 +41,17 @@ def audit_committed_generation(bundle,receipt,certificate,repository):
   if not checked['bundle_edition_bound']:raise ValueError('execution edition differs: '+str(checked['errors']))
   registry=history.build_cutoff_registry()
   if registry.get('registry_verified') is not True or canonical(document('historical-registry.json'))!=canonical(registry):raise ValueError('saved historical registry differs')
-  material=document('material.json');journal=audit_journal_bytes(read('sampling-journal.jsonl'),material)
+  material=document('material.json');journal_bytes=read('sampling-journal.jsonl');journal=audit_journal_bytes(journal_bytes,material)
   if not journal['journal_consistent'] or not journal['complete']:raise ValueError('generation journal differs: '+str(journal['errors']))
   fixture=load_json(ROOT/'data/proxy-fixtures-107/fixture-107-normal-decision-a-first.json')
   decks={p['player_id']:p['deck_order_top_to_bottom'] for p in fixture['input']['players']}
   sources={name:row['sha256'] for name,row in certificate['files'].items()}
   rebuilt=assemble_supplied(material,registry,decks,sources,certificate['python']['version'])
   if canonical(rebuilt)!=canonical(bundle):raise ValueError('complete material-to-manifest projection differs')
+  operation=operation_audit.audit(repository,receipt,certificate,registry,document('operation.json'),document('completion.json'),material,journal_bytes,journal)
+  if not operation['operation_records_bound']:raise ValueError('generation operation unverified: '+str(operation['errors']))
  except (ValueError,TypeError,KeyError,OSError,subprocess.CalledProcessError) as error:errors.append(str(error))
  return dict(schema='committed_population_generation_package.v1',committed_generation_consistent=not errors,
-  errors=errors,artifact_bindings=bindings,scope='same_local_git_commit_registry_transcript_journal_manifest_and_current_edition',
+  errors=errors,artifact_bindings=bindings,operation_evidence=operation,scope='same_local_git_commit_registry_transcript_journal_manifest_and_current_edition',
   provenance_verified=False,input_lock_verified=False,remote_publication_verified=False,
   external_approval_verified=False,pre_outcome_ordering_verified=False,ready_for_execution=False,balance_admitted=None)

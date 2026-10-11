@@ -810,3 +810,12 @@ P13方式の再承認は不要。P13全体・P14/15のfresh全blob/remote消費�
 今回、同じ承認契約を400行supervisorと各attempt入口へ結合。全manifest/package/edition・400順・limit・batch保存先を対象とし、workerもlive claimと固定index/対戦ID/attempt保存先/保存済supervisor claimを再照合する。文字列だけでは実行へ進まない。sourceはnetwork後にも再照合。既存の逐次起動・不完了停止・400行保持を再利用し、自動retry/resumeは追加しない。
 
 独立review1回Important/Criticalなし、独立19PASS。最終固定51PASS52.009s/exit0、再帰Python1062前後hash一致、design errors=[]、保護番号付き477正本不変。詳細はverification/launch-authorization-review.md。合成claimと旧条件付きprefixのみ。本番gateは常時閉鎖、生成/固定/400戦0、preflight-ready=false。全proxy完了・全機会・情報利用・結果前時系列の証明へ昇格しない。次は生成operation/completionと公開packageの結合、P07–12/P14–18の残件を継続する。
+
+
+### 2026-10-11 生成operation/completion・公開packageの結合
+
+c1a4916から継続。generation_packageはoperation/completionを含むcanonical通常blob7件を必須にし、実certificate/registry/生成先からgeneration requestを再構成する。既存claim検査のlocal読取責務を再利用し、生成claimの直後commitが7成果物だけを追加したことを検査。完了記録は採取call/bytes・journal/material hash・200群400行・新対戦0・閉じた証明範囲へexact照合する。開始側はこの7artifact digestを承認対象に含める。
+
+独立review1回で保存remote/live証拠のscope改変受理を検出、2FAILで再現してschema/remote/ref/commit/errors・false範囲・null admissionの照合を修正。最終固定64PASS61.356s/exit0、再帰Python1064前後一致、design errors=[]、保護番号付き477正本不変。失敗と修正の詳細はverification/generation-operation-review.md。旧115 bytes/zero rootsによる合成検査で、本番seed生成/固定/400戦0。
+
+保存内容とGit親子関係の照合であり、OS由来・結果前時系列・全編集/巻戻し不存在の独立証明はfalse。現在の開始承認は別途live検査。preflight-ready=false、本番gate閉鎖、policy promotion=false、独立balance標本0、全体結論null。P07–12/P14–18の未完を維持し、保存だけで停止せず比較operand/情報利用の残件を続行する。

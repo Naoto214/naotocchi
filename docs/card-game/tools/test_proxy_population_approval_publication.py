@@ -59,6 +59,18 @@ class ApprovalPublicationTests(unittest.TestCase):
   def revoked(path,value):
    if isinstance(value,list):value.append(dict(value[0],id=18,body=approval.revocation_text(self.request,17)))
   self.assertFalse(self.check(change=revoked)['remote_consumption_bound'])
+ def test_local_claim_reader_also_rejects_false_owner_or_body(self):
+  for kind in ('author','body'):
+   self.git('reset','--hard',self.commit);row=copy.deepcopy(self.record)
+   if kind=='author':row['approval']['evidence']['comment']['user']['id']=1
+   else:row['approval']['evidence']['comment']['body']='not the approved request'
+   self.path.write_bytes(approval.canonical(row));self.git('add','.');self.git('commit','--amend','--no-edit','-q')
+   with self.assertRaises(ValueError):api._read_committed_claim(self.repo,self.request,17,self.git('rev-parse','HEAD'),self.git('rev-parse','HEAD^{tree}'))
+ def test_local_claim_saved_scope_cannot_inflate(self):
+  for key in ('provenance_verified','historical_edit_absence_proven','pre_outcome_ordering_verified','balance_admitted'):
+   self.git('reset','--hard',self.commit);row=copy.deepcopy(self.record);row['approval'][key]=True
+   self.path.write_bytes(approval.canonical(row));self.git('add','.');self.git('commit','--amend','--no-edit','-q')
+   with self.assertRaises(ValueError):api._read_committed_claim(self.repo,self.request,17,self.git('rev-parse','HEAD'),self.git('rev-parse','HEAD^{tree}'))
  def test_noncanonical_claim_and_second_claim_file_cannot_hide_in_commit(self):
   self.path.write_text(json.dumps(self.record));self.git('add','.');self.git('commit','--amend','--no-edit','-q')
   self.assertFalse(self.check(commit=self.git('rev-parse','HEAD'),tree=self.git('rev-parse','HEAD^{tree}'))['remote_consumption_bound'])

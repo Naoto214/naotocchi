@@ -14,6 +14,10 @@ class PackageTests(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
   cls.temp=tempfile.TemporaryDirectory();cls.repo=Path(cls.temp.name);cls.directory=cls.repo/'docs/card-game/data/unit-only';cls.directory.mkdir(parents=True)
+  (cls.repo/'docs/card-game/synthetic-source.txt').write_text('synthetic package fixture')
+  cls.git('init');cls.git('config','user.email','unit@example.invalid');cls.git('config','user.name','unit')
+  cls.git('add','docs/card-game/synthetic-source.txt');cls.git('commit','-m','synthetic source')
+  source_commit=cls.git('rev-parse','HEAD');source_tree=cls.git('rev-parse','HEAD^{tree}')
   fixture=population.load_json(population.ROOT/'data/proxy-fixtures-107/fixture-107-normal-decision-a-first.json')
   decks={p['player_id']:p['deck_order_top_to_bottom'] for p in fixture['input']['players']}
   historical=population.load_json(population.ROOT/'data/proxy-normal-decision-first-choice-plan-115-20260918.json')['orders'][0]
@@ -24,11 +28,30 @@ class PackageTests(unittest.TestCase):
    request=cursor.request();return seeds[request['owner']].to_bytes(16,'big') if size==16 else bytes(32)
   collect_supplied(cursor,cls.directory/'sampling-journal.jsonl',read)
   cls.material=cursor.record();sources=population.load_json(population.ROOT/population.PROTOCOL_PATH)['sources_sha256']
-  cls.certificate=dict(files={n:dict(sha256=v) for n,v in sources.items()},python=dict(version='unit-only'))
+  import proxy_population_external_approval as approval
+  import proxy_population_approval_publication as publication
+  from test_proxy_population_external_approval import replies
+  for name in approval.CONTRACTS:sources.setdefault(name,hashlib.sha256((population.ROOT/name).read_bytes()).hexdigest())
+  cls.certificate=dict(commit=source_commit,tree=source_tree,files={n:dict(sha256=v) for n,v in sources.items()},python=dict(version='unit-only'))
+  request=approval.generation_request(cls.certificate,'docs/card-game/data/unit-only',cls.registry)
+  get,_,_,pr=replies(request)
+  with patch.object(approval,'ROOT',cls.repo/'docs/card-game'),patch.object(approval,'_get',side_effect=get):approval.consume_live(request,17)
+  cls.git('add','docs/card-game/data/proxy-population-approval-consumption/17.json');cls.git('commit','-m','synthetic generation claim')
+  claim_commit=cls.git('rev-parse','HEAD');claim_tree=cls.git('rev-parse','HEAD^{tree}');pr['head']['sha']=claim_commit
+  with patch.object(publication.remote,'_query_remote',return_value=(claim_commit+'\t'+publication.remote.REF+'\n').encode()):remote=publication.remote.verify(cls.repo,claim_commit,claim_tree)
+  with patch.object(approval,'_get',side_effect=get),patch.object(publication.remote,'verify',return_value=remote):claim=publication.audit_committed_consumption(cls.repo,request,17,claim_commit,claim_tree)
+  assert claim['remote_consumption_bound'],claim
+  auth=dict(schema='population_generation_authorization_binding.v1',generation_authorization_bound=True,errors=[],request=request,consumption=claim,provenance_verified=False,pre_outcome_ordering_verified=False,input_lock_verified=False,ready_for_input_generation=False,ready_for_execution=False,balance_admitted=None)
+  cls.operation=dict(schema='population_generation_operation.v1',api='os.urandom',os_name='synthetic',platform='synthetic',approval_reference='synthetic comment',remote_publication_observation=remote,generation_authorization=auth,external_approval_verified=True,provenance_verified=False,input_lock_verified=False,execution_authorized=False,ready_for_execution=False)
+  from proxy_population_generation_journal import audit_journal_bytes
+  journal_bytes=(cls.directory/'sampling-journal.jsonl').read_bytes();journal=audit_journal_bytes(journal_bytes,cls.material)
+  collection=dict(complete=True,journal_sha256=hashlib.sha256(journal_bytes).hexdigest(),material_sha256=hashlib.sha256(canonical(cls.material)).hexdigest(),provenance_verified=False,input_lock_verified=False,resume_allowed=False,ready_for_execution=False)
+  cls.completion=dict(schema='population_generation_local_completion.v1',collection=collection,journal=journal,actual_os_read_calls=len(cls.material['calls']),returned_byte_count=sum(r['byte_count'] for r in cls.material['calls']),planned_groups=200,planned_matches=400,completed_local_generation=True,external_approval_verified=True,provenance_verified=False,input_lock_verified=False,remote_publication_verified=False,ready_for_execution=False,independent_balance_sample_count=0,new_matches=0,policy_promoted=False)
+
   cls.bundle=assemble_supplied(cls.material,cls.registry,decks,sources,'unit-only')
-  for name,value in [('manifest.json',cls.bundle),('material.json',cls.material),('historical-registry.json',cls.registry),('edition.json',cls.certificate)]:
+  for name,value in [('manifest.json',cls.bundle),('material.json',cls.material),('historical-registry.json',cls.registry),('edition.json',cls.certificate),('operation.json',cls.operation),('completion.json',cls.completion)]:
    (cls.directory/name).write_bytes(canonical(value))
-  cls.git('init');cls.git('config','user.email','unit@example.invalid');cls.git('config','user.name','unit');cls.git('add','.');cls.git('commit','-m','synthetic package')
+  cls.git('add','.');cls.git('commit','-m','synthetic package')
   cls.receipt=dict(commit=cls.git('rev-parse','HEAD'),tree=cls.git('rev-parse','HEAD^{tree}'),path='docs/card-game/data/unit-only/manifest.json',blob=cls.git('rev-parse','HEAD:docs/card-game/data/unit-only/manifest.json'),canonical_sha256=hashlib.sha256(canonical(cls.bundle)).hexdigest())
  @classmethod
  def tearDownClass(cls):cls.temp.cleanup()
@@ -42,11 +65,18 @@ class PackageTests(unittest.TestCase):
    return api.audit_committed_generation(self.bundle,receipt or self.receipt,self.certificate,self.repo)
  def test_same_commit_package_is_content_evidence_only(self):
   self.assertIsNotNone(api);r=self.check()
-  self.assertTrue(r['committed_generation_consistent'],r['errors']);self.assertEqual(len(r['artifact_bindings']),5)
+  self.assertTrue(r['committed_generation_consistent'],r['errors']);self.assertEqual(len(r['artifact_bindings']),7)
   for flag in ('provenance_verified','input_lock_verified','remote_publication_verified','external_approval_verified','ready_for_execution'):self.assertFalse(r[flag])
   # Working files are deliberately not the source of an immutable receipt.
   (self.directory/'material.json').write_text('{}')
   self.assertTrue(self.check()['committed_generation_consistent'])
+ def test_missing_operation_or_completion_cannot_be_complete_package(self):
+  for name in ('operation.json','completion.json'):
+   self.git('reset','--hard',self.receipt['commit'])
+   self.git('rm','--ignore-unmatch',str((self.directory/name).relative_to(self.repo)))
+   self.git('commit','--allow-empty','-m','synthetic missing operation evidence')
+   receipt=dict(self.receipt,commit=self.git('rev-parse','HEAD'),tree=self.git('rev-parse','HEAD^{tree}'))
+   self.assertFalse(self.check(receipt)['committed_generation_consistent'],name)
  def test_real_historical_registry_and_edition_gates_are_required(self):
   self.assertIsNotNone(api)
   self.assertFalse(self.check(registry=False)['committed_generation_consistent'])
