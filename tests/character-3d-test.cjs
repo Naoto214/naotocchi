@@ -30,6 +30,56 @@ async function presenter(opts = {}) {
 const holders = (scene) => { let n = 0; scene.traverse((o) => { if (o.name && o.name.startsWith('c3d-actor:')) n++; }); return n; };
 function frame(p, list, now) { p.beginFrame(now); const r = list.map(([a, info]) => p.present(a, Object.assign({ dt: 0.016 }, info))); p.endFrame(); return r; }
 const info = (id, stage, extra = {}) => Object.assign({ specKey: { id, stage }, emotion: 'normal' }, extra);
+
+test('groundY: presenter follows signed world height each frame without mutating actor or input', async () => {
+  const { p } = await presenter();
+  const a = Object.freeze(actor({ x: 18, z: -27, groundY: 999 }));
+  try {
+    for (const [n, groundY] of [23.5, -12, 0, 81].entries()) {
+      const input = Object.freeze(info('dog', 4, { dt: .016, groundY }));
+      p.beginFrame(n * 16);
+      assert.equal(p.present(a, input), true);
+      p.endFrame();
+      assert.deepEqual(p.instanceOf(a).holder.position.toArray(), [18, groundY, 27]);
+      assert.equal(a.groundY, 999, 'height belongs to presentation, not simulation');
+      assert.equal(input.groundY, groundY);
+    }
+    assert.equal(p.stats().created, 1, 'height updates reuse the same instance');
+  } finally { p.dispose(); }
+});
+
+test('groundY: omitted and nonfinite heights reset to legacy zero after elevated frame', async () => {
+  const { p } = await presenter(), a = actor();
+  try {
+    for (const groundY of [undefined, null, NaN, Infinity, -Infinity, '12']) {
+      frame(p, [[a, info('dog', 4, { groundY: 42 })]], 16);
+      assert.equal(p.instanceOf(a).holder.position.y, 42);
+      frame(p, [[a, info('dog', 4, { groundY })]], 32);
+      assert.equal(p.instanceOf(a).holder.position.y, 0, 'invalid height cannot poison transforms');
+    }
+  } finally { p.dispose(); }
+});
+
+test('groundY: world offset is unscaled and preserves hover animation and isolated fallback', async () => {
+  const { p, THREE } = await presenter({ animLevel: 0 }), a = actor(), b = actor({ key: 'second' });
+  try {
+    // Even reduced motion keeps a small flight sway. Freeze time to isolate terrain translation.
+    const input = info('butterfly', 8, { groundY: 36, emotion: 'normal', dt: 0 });
+    frame(p, [[a, input], [b, info('dog', 4, { groundY: -9 })]], 16);
+    const inst = p.instanceOf(a), local = inst.root.position.clone();
+    inst.holder.updateMatrixWorld(true);
+    const before = inst.root.getWorldPosition(new THREE.Vector3());
+    frame(p, [[a, { ...input, groundY: 91 }], [b, info('dog', 4, { groundY: -9 })]], 32);
+    inst.holder.updateMatrixWorld(true);
+    const after = inst.root.getWorldPosition(new THREE.Vector3());
+    assert.ok(Math.abs(after.y - before.y - 55) < 1e-9, 'world height must not be scaled by model size');
+    assert.deepEqual(inst.root.position.toArray(), local.toArray(), 'local hover remains unchanged');
+    p.setHooks({ failUpdate: candidate => candidate === a });
+    assert.deepEqual(frame(p, [[a, input], [b, info('dog', 4, { groundY: -9 })]], 48), [false, true]);
+    assert.equal(p.has(a), false);
+    assert.equal(p.instanceOf(b).holder.position.y, -9);
+  } finally { p.dispose(); }
+});
 async function inst(id, stage, mode = 'C') { const { rt } = await mods(); const t = rt.getTemplate(id, stage, mode); assert.equal(t.status, 'ok', t.error); return rt.instantiate(t); }
 function sample(i, emotion, frames = 60, opts = {}) {
   return (async () => {

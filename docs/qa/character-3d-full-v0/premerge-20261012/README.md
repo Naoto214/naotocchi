@@ -2,6 +2,18 @@
 
 2026-10-12 JST。World完成はCharacterのマージ必須条件ではない。現在main上での安全性と、将来統合の契約を分ける。PR376はDraft・未merge、Ready/main実行承認なし。細かな293体造形QAはQuality Passへ。ナオト・鹿を含め造形変更なし。
 
+## groundY復元・最終検証（2026-10-12追記）
+
+再開時のfresh remoteは `32f31491c374520a10adfce5d70cdc8a25347ea4` / tree `ef5f4297ab62084a519c88e285805214523ca390`、mainは `0b0a6b30e8e098472b2fa965604f4901874942e3`。PR376はDraft/open/unmerged。旧Character checkout・未保存groundY差分は検索範囲内に残っていなかったため、同一remoteから専用checkoutを復元。保存済み293体・診断module・QAページは作り直していない。
+
+Character presenterは従来holderの高さを0に固定していた。WorldのplaceActorは `terr.walkY(a.x,a.z)` を使うため、将来そのまま結合すると橋・起伏上の3Dキャラだけ高さが合わない。Character側に描画入力 `info.groundY` を追加し、有限数だけをワールド座標のholderへ適用する。未指定/null/非数/無限大は従来の0。モデルscaleを掛けず、局所hover/animation、actor/save、個別fallbackは変更しない。現在のCharacter-only rendererは地形高さを渡さないため従来動作のまま。
+
+将来World統合では、同じ `walkY` の値を `cp.present(a, { ...ci, groundY: wy })`、3D足元影、2D fallbackとその影へ一貫して渡すこと。Worldの地形・橋・collisionは本修正へ取り込まない。World統合後の実rendererで高さ・影・fallbackを確認するgateは未実施であり、この入力契約のNode検証を統合済みPASSとは扱わない。
+
+検証：追加3件は修正前RED、修正後GREEN。`ground-height-remove-it.cjs` の3/3 mutationを検出し、runtimeの元バイトを完全復元。浮遊モデルのreduced motionにも小さな揺れがあるため、接地高さを比較するテストだけdt=0で時間を固定した（製品animation変更なし）。初回関連・全体回帰はこのテスト条件不備を含むため成功証跡として使わず、修正済み条件で再実行する。
+
+この安全な保存単位では関連・全体回帰を実行中、修正後のCharacter/Runtime/Home CIは未完了。下記の旧実装3022+80・既存CI成功はgroundY修正後の証拠に流用しない。iPhone実機はNOT_RUN。最終結果は `ground-verification.json` へ追記する。
+
 ## 監査対象と結論
 
 - Character正本 `f82e9c0fa61dbd628d84e4d9bdfc76366aecfd2e`。main `0b0a6b30e8e098472b2fa965604f4901874942e3` は祖先（GitHub compareのmerge_base一致）。mainとの機械的競合なし。Expression368/Motion375を含む。

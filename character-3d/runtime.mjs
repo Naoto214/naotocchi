@@ -178,7 +178,9 @@ export function createCharacterPresenter(opts = {}) {
       if (inst.yaw == null) inst.yaw = target;
       else { let d = ((target - inst.yaw + Math.PI) % TAU + TAU) % TAU - Math.PI; inst.yaw += d * Math.min(1, (info.dt || 0.016) * 10); }
       const h = inst.holder;
-      h.position.set(actor.x, 0, -actor.z); h.rotation.set(0, inst.yaw, 0); h.scale.setScalar(inst.scale);
+      // World supplies terrain/bridge height in world units; local hover/animation stays below the holder.
+      const groundY = Number.isFinite(info.groundY) ? info.groundY : 0;
+      h.position.set(actor.x, groundY, -actor.z); h.rotation.set(0, inst.yaw, 0); h.scale.setScalar(inst.scale);
       h.visible = true;
       animate(inst, { moving: info.moving, dt: info.dt, animLv });
       inst.accent.visible = !!inst.anim.expr.accent && info.accent !== false;
