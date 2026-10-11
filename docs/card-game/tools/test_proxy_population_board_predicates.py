@@ -52,6 +52,29 @@ class BoardPredicateTests(unittest.TestCase):
    return {}
   with connected.contract_scope():runtime.operation(initial(),run)
 
+ def test_shared_recovery_target_omission_cannot_close_a_response_opportunity(self):
+  from unittest.mock import patch
+  from test_proxy_population_discard_recovery import fixture as recovery_fixture
+  def run(forced):
+   e,history,source,target=recovery_fixture();e=runtime.engine.payments.upgrade(e);g=e['legacy_continuation']['game_state'];p=g['players'][g['turn_player']]
+   extra=next(s for s in p['hand']+p['deck'] if g['cards'][s]['card_id']=='C-chicken');next(p[z] for z in ('hand','deck') if extra in p[z]).remove(extra);p['discard'].append(extra)
+   import proxy_continuation_state as state
+   old=runtime.engine.base.old;current=state.current(e);history[-1].update(game_state_after_sha256=old.start.opening._stop_state_sha256(g),continuation_state_after_sha256=old.start._hash(current))
+   native=recovery.targets
+   with recovery.scope():
+    inventory=runtime.engine.base.actions.response_inventory(e,initial(),history)
+    self.assertEqual(len([r for r in inventory['legal_candidate_details'] if r.get('source_instance_id')==source]),2)
+    self.assertTrue(api.audit_response(e,history,inventory)['response_board_predicates_verified'])
+    for keep in (0,1):
+     with patch.object(recovery,'targets',lambda *args:native(*args)[:keep]):
+      inventory=runtime.engine.base.actions.response_inventory(e,initial(),history)
+      self.assertEqual(len([r for r in inventory['legal_candidate_details'] if r.get('source_instance_id')==source]),keep)
+      with self.subTest(boundary='audit',keep=keep):self.assertFalse(api.audit_response(e,history,inventory)['response_board_predicates_verified'])
+      with self.subTest(boundary='actual_entry',keep=keep):
+       with self.assertRaisesRegex(ValueError,'response board predicates'):runtime._step(e,initial(),history,[],[e],forced)
+   return {}
+  with connected.contract_scope():runtime.operation(initial(),run)
+
  def test_all_current_person_world_and_equipment_sources(self):
   from test_proxy_population_first_response import game_with
   from proxy_population_start_window import _context

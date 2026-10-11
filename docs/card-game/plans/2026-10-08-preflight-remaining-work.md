@@ -949,3 +949,8 @@ e389658から共有target expanderのI-bowtie対象欠落2REDを修正。実owne
 ## 2026-10-12 支払選択肢の独立集合
 
 f46d525から共有cost_options省略の8REDを修正。55/114固定からM01任意軽減2通り、M02自伏せ1枚、M08異なるset/quick2枚全順序を監査側だけで別導出。normal expansion/core・normal/response boardへ接続、実入口3拒否も確認。review C0/I0/Minor0・別5PASS、最終47PASS19.149s/exit0、Python1073前後一致、design errors=[]。fixture/source数誤認・response history/hash不足・test module名誤りを失敗原本に保持。independent-cost-pools-*参照。新比較/価値/生成なし、preflight-ready=false。次は閉じたsource集合と全判断責務、P09〜11/P14〜18の共通gate合成。
+
+
+## 2026-10-12 回収対象集合の独立照合
+
+051e81cからC-cat_friendの共有recovery.targetsを空にすると、実response入口が合法な回収を消してpassのみで進む2REDを修正。正本72と固定114のcompanion型、actor自身の公開捨て札から、同名以外の回収対象を監査側で別導出。2対象の全省略/一部省略を単体と実入口で拒否。normal側は従来の別gateでも拒否されており、新発見の実入口bypassをnormalに拡張して報告しない。review C0/I0/Minor0・別13PASS3.932s、最終30PASS15.098s/exit0、Python1073前後一致。verification/recovery-target-pool-*参照。選択意味・全情報・全機会の証明とは別。preflight-ready=false、生成/固定/400戦0。次は固定source集合・判断機会・比較責務を現行共通preflightへ結合する。

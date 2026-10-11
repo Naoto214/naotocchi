@@ -35,6 +35,8 @@
 
 - 2026-10-12: M01任意軽減/M02伏せ支払/M08異なる捨て札全順序を固定55/114から独立照合。independent-cost-pools-*、47PASS19.149s/独立5PASS・指摘なし、design errors=[]。通常/responseへ結合、全価値/起点とは別。次はsource閉包・全判断責務と現行共通gate合成。
 
+- 2026-10-12: C-cat_friend回収先を72/114/公開捨て札から別導出し、共有helper省略による実response-passを拒否。recovery-target-pool-*、30PASS15.098s/独立13PASS・指摘なし。normal既存gateは維持。次は全責務と現行共通preflight合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

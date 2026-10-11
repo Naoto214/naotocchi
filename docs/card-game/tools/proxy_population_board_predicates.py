@@ -15,7 +15,7 @@ import proxy_population_discard_recovery as recovery
 # Preserve the source predicate before closed_start temporarily suppresses native offers.
 from proxy_board_trigger_audit_144 import matches as source_start_matches
 from proxy_population_candidate_expansions import TABLE_PATH,TABLE_SHA
-from proxy_mandatory_policy_contract import ROOT,canonical
+from proxy_mandatory_policy_contract import ROOT,canonical,load_json
 
 SOURCES={TABLE_PATH:TABLE_SHA,**{'01-core-rules.md': 'd95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71', '02-main-system.md': '6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127', '06-action-chain-checkpoint.md': '7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67', '55-insect-three-lines-card-text-draft.md': '8108f781d2e02b45139fdf7d1d573c7ac839f14cd2b8361983ecb891320f8c28', '72-companion-26-card-text-draft.md': '941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117'}}
 SOURCES['132-board-active-restart.md']='b431565b6a8de777b9745f3d2c8816d71b1e64753e537b5aa593efb6a7acc58f'
@@ -42,7 +42,11 @@ def _expected(envelope,source):
  if card=='C-cat_friend':
   cap=recovery.descriptor(card)
   if cap['source_cost']!='self_board_to_bottom' or source not in p['board']['companions']:raise ValueError('recovery current source differs')
-  targets=recovery.targets(g,actor,card);used=rules.used(envelope,source,'activated_normal_action')
+  #72: public discarded companions except this same card name. The producer
+  #also uses recovery.targets; never reuse its potentially incomplete pool.
+  companion_ids={row['card_id'] for row in load_json(ROOT/TABLE_PATH)['cards'] if row['card_type']=='companion'}
+  targets=sorted(s for s in p['discard'] if g['cards'][s]['card_id'] in companion_ids and g['cards'][s]['card_id']!='C-cat_friend')
+  used=cost_alternatives.used(envelope,source,'activated_normal_action')
   rows=[dict(action_type='activate_companion_ability',target_instance_ids=t,cost_instance_ids=None,allowed=bool(t) and not used) for t in ([[s] for s in targets] or [[]])]
   return rows,cap['reference']
  cap=rules.classification(card)
