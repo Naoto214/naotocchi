@@ -39,6 +39,8 @@
 
 - 2026-10-12: fresh実trace責務を共通入口へ結合。timing/hand/automaticの未証明3RED拒否、root8監査・全step/遷移・source80/41を照合。trace-obligations-*、23PASS70.658s/独立2PASS・指摘なし、Python1075前後一致。全情報/operand/本番gateは未完。次は保存固定版の全接続一度、P10/P11/P14–18合成。
 
+- 2026-10-12: 固定1c48304の旧115/零root完全結合143step181event、9監査errors=[]、completed=true/stop=null、114.115s/exit0、Python1075前後一致、design errors=[]。trace-connected-1c48304-*。逐次誘発0の既存unit診断であり全source証明ではない。復元で再実行不要。次はP10/P11とP14–18合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

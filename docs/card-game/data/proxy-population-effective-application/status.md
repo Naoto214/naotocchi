@@ -1249,3 +1249,8 @@ f46d525から共有cost_options省略の8REDを修正。55/114固定からM01任
 131dd45から、timing/hand timing/automaticの監査がerrors=[]・verified=falseのまま初期manifest入口を通る3REDを再現。proxy_population_trace_obligationsでfresh root8監査、実stepのordinary/automatic/逐次群分類と件数、全遷移に対するtiming/handの順序付き1対1、schema/厳密bool/hash/catalog/source数80/41、全差分partitionと既存終了dispatchを共通入口へ結合した。通常/responseのsource・expansion・閉群predicate/比較gateを再利用する。既存handler・producer・選択方式を再実装しない。
 
 最終23PASS70.658s/exit0、Python1075前後一致。独立review C0/I0/Minor0、別2PASS28.039s。初回GREEN試行はscope復元後のstate_hashが旧validateを呼び3FAIL、現行envelopeのcanonical hash比較へ修正し失敗原本保持。全ルール機会/情報/operand/生成起点は別gate、保存proofを認証する機能ではない。preflight-ready=false、生成/固定/400戦0。trace-obligations-*参照。次は保存固定版の全接続を一度検証し、P10/P11とP14–18の共通preflight合成へ進む。
+
+
+## 2026-10-12 固定1c48304の完全結合
+
+source/target/支払集合・比較copy ID・回収対象・fresh trace共通責務をまとめて、固定1c4830439682007bb11c31a3baf77f0761563852で旧115/零rootの既存入力だけを完全結合。connected.reconstruct(bundle(), 'test-1A', 512)は143step/181event、completed=true、stop=null、root9監査errors=[]、114.115s/exit0。Python1075の前後指紋一致。内訳normal30/response88/automatic25/逐次誘発0であり、全source分岐の実発生証明ではない。trace-connected-1c48304-record.json.xz/verification.json.gz/summary.jsonへ原本保存。設計検査errors=[]/exit0。生成/固定/新規標本0、preflight-ready=false。復元だけを理由に再実行しない。次はP10の全許可read/公開historyとP11残る比較根拠、P14–18共通本番gateの合成。公開GitHub repo GETで本人authority323909980を再確認したが、実承認は取得/消費していない。
