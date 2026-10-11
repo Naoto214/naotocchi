@@ -1,0 +1,11 @@
+# 比較card copy IDの現物結合
+
+基準829c8dba61c3383ee43dcb8388e0c41ef891b6cd。通常problem/partial proved_scoresのcard_copy_idを別現物・欠落・boolへ変えても監査/実入口が受理する2テスト10FAILをRED再現。既存payment監査の比較全行走査を再利用し、unit sourceの実card_copy_idへ結合する。relationship/challengeは既存batch.outcomeが示す現在partner/mainへ対応させる。これは既存operandの現物対応であり、そのtie-break意味や全operand真正性の新定義ではない。
+
+上位だけを使う既存3helper contractのverified_immediate行には消費枚数/copyを創作しない。既存upper/fallback専用routeでの未使用field欠落を保持し、供給されたcopyは照合する。通常problem/partialのfield欠落は拒否。
+
+独立review C0/I1/Minor0、別11PASS1.034s。I1:通常problemが自己申告contract+verified_immediate IDsを付け、copyを全部消すと例外を通れる。実入口1RED（review-red.log）を再現し、例外をproblem=Noneかつ既存upper/fallback routeへ限定。再レビューなし。
+
+初回関連24件はrelationshipのstanding unit source=Noneと既存outcomeのpartner source対応を漏らし1FAIL。盤面partner/main対応を追加して24PASS2.029s。既存sourceの対応漏れであり新ルール/カード修正ではない。最終固定42PASS6.832s/exit0、再帰Python1072前後一致（final.log/summary/fingerprints）。通常/partial/upper/fallback/既存116 unknownと実初期3stepを含む。全proxy/最新版完全結合ではない。
+
+preflight-ready=false、生成/固定/400戦0、未知/116除外/指定policy不変。全成長/上位/消費枚数のoperand認証はfalse。次は共有cost_options/paid cost列挙の母数と独立集合、P09〜11とP14–18共通gateの合成。

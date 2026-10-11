@@ -1227,3 +1227,8 @@ a264e37から、共有normal投影が自手札sourceを落とすとproducer/監�
 ## 2026-10-12 通常手札対象集合の独立照合
 
 e389658から共有target expanderのI-bowtie対象欠落2REDを修正。実owner/公開盤面と固定114からhand source/action/variantの対象集合を別導出、79/83公開装備・91初デートの現条件を照合。disposition/費用全多重度/全ルールの独立証明には拡張しない。review C0/I0/Minor0・別3PASS1.153s、最終31PASS18.648s/exit0、Python1072前後一致。fixtureのpaid.scope順序、先行拒否gateのmessage期待を訂正し失敗原本を保持。verification/normal-target-pool-*参照。P09全dispatch/機会、P10全read、P11残operand、P14–18共通gate/最終版は未完。preflight-ready=false、生成/固定/400戦0。次は自動event条件の正本責務との対応と共通gateの合成。
+
+
+## 2026-10-12 比較card copy IDの現物結合
+
+829c8dbから通常/partial比較行のcopy別現物・欠落・boolが通る10REDを修正。既存payment全行監査でactual sourceへ結合、relationship/challengeは既存outcomeのpartner/main対応。上位専用3helperの未使用tie fieldを創作しない。review C0/I1/Minor0の通常problemへの例外偽装を実入口1RED→GREEN。最終42PASS6.832s/exit0、Python1072前後一致。comparison-copy-id-*参照。全上位/成長/消費枚数の意味証明は別、preflight-ready=false、生成/固定/400戦0。次は共有支払option/paid costの候補母数、P09〜11/P14〜18の合成。

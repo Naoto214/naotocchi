@@ -1,8 +1,10 @@
 """Current normal comparison payment binding, not a general value proof.
 
 Reuse source-pinned core/hand/board predicate costs. Only supported admitted rows
-are certified; physical-card costs, other priorities and historical origin
-remain separate obligations. No selector, executor or value is changed.
+are certified; physical-card costs, other priority values and historical origin
+remain separate obligations. Supplied copy IDs bind to the candidate source;
+upper-only source-cost rows do not invent an unused tie-break operand.
+No selector, executor or value is changed.
 """
 import proxy_continuation_state as state
 import proxy_population_core_predicates as core
@@ -70,7 +72,20 @@ def audit_normal(envelope,events,decision):
     if type(row.get('payment_time')) is not int or row['payment_time']!=cost:raise ValueError('comparison payment differs: '+row['candidate_id'])
     remaining=time-cost
     if remaining<0 or type(row.get('time_after_certain_resolution')) is not int or row['time_after_certain_resolution']!=remaining:raise ValueError('comparison remaining time differs: '+row['candidate_id'])
-    verified.append(dict(candidate_id=row['candidate_id'],enumeration_unit_id=key,payment_time=cost,time_after_certain_resolution=remaining,source_references=unit['source_references']))
+    source=unit['source_instance_id']
+    #Existing batch outcome identifies the current partner for relationship
+    #and own main for challenge; standing inventory units have no card field.
+    if unit['action_type'] in ('relationship','challenge'):source=g['players'][actor]['board']['partner' if unit['action_type']=='relationship' else 'main']
+    copy_id=g['cards'][source]['card_copy_id'] if source is not None else ''
+    #107/114 tie-break names the actual candidate's physical card copy. The
+    #three upper-only helper contracts intentionally omit unused tie fields
+    #for their source-cost/placement rows; do not invent them here.
+    upper_only=decision.get('problem') is None and (fallback or decision.get('upper_priority_problem') is not None) and contract in ZERO_IMMEDIATE_CONTRACTS and row['candidate_id'] in decision['execution_evidence'].get('verified_immediate_candidates',[])
+    copy_bound='card_copy_id' in row
+    if copy_bound:
+     if type(row['card_copy_id']) is not str or row['card_copy_id']!=copy_id:raise ValueError('comparison card copy differs: '+row['candidate_id'])
+    elif not upper_only:raise ValueError('comparison card copy absent: '+row['candidate_id'])
+    verified.append(dict(candidate_id=row['candidate_id'],enumeration_unit_id=key,payment_time=cost,time_after_certain_resolution=remaining,source_references=unit['source_references'],card_copy_identity_verified=copy_bound,card_copy_id=copy_id if copy_bound else None))
  except (ValueError,KeyError,TypeError,IndexError,AttributeError) as error:errors.append(str(error))
  return dict(schema='normal_comparison_payment_operands.v1',applicable=applicable,
   supported_payment_operands_verified=applicable and not errors and bool(verified),errors=errors,

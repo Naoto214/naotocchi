@@ -31,6 +31,8 @@
 
 - 2026-10-12: 通常hand target集合を実状態から別照合し共有expanderの装備先省略を拒否。normal-target-pool-*、31PASS18.648s/独立3PASS・指摘なし。費用全多重度/全board target証明は別。次は自動dispatch条件と全機会/情報/operandを共通gateへ合成。preflight-ready=false。
 
+- 2026-10-12: 比較card copy IDをactual candidate sourceへ結合。comparison-copy-id-*、42PASS6.832s/独立11PASS、review I1の通常problem例外偽装を修正。上位のみの既存helperにはtie fieldを創作しない。次は共有支払options/paid costの候補母数と残工程合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

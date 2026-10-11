@@ -106,6 +106,48 @@ class PaymentOperandTests(unittest.TestCase):
    return {}
   self.run_scoped(run)
 
+ def test_comparison_copy_identity_is_bound_to_the_actual_candidate(self):
+  def run(forced):
+   for card in ('I-poop1','I-c_coin2'):
+    e,_,_,h=supplied('normal_action',card);d=execute(e,h,forced)['decision']
+    def rows(value):
+     return value['problem']['candidates'] if value.get('problem') is not None else list(value['execution_evidence']['candidate_comparison_evidence']['proved_scores'].values())
+    self.assertTrue(rows(d));self.assertEqual(api.audit_normal(e,h,d)['errors'],[])
+    for index,row in enumerate(rows(d)):
+     for mode in ('foreign','missing','type'):
+      bad=copy.deepcopy(d);target=rows(bad)[index]
+      if mode=='foreign':target['card_copy_id']='foreign-copy'
+      elif mode=='missing':target.pop('card_copy_id')
+      else:target['card_copy_id']=False
+      with self.subTest(card=card,candidate=row['candidate_id'],mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
+   return {}
+  self.run_scoped(run)
+
+ def test_actual_entry_rejects_forged_comparison_copy_identity(self):
+  prior=runtime._step
+  def tampered(*args,**kwargs):
+   step=prior(*args,**kwargs)
+   for row in step['decision']['problem']['candidates']:row['card_copy_id']='foreign-copy'
+   return step
+  def run(forced):
+   e,_,_,h=supplied('normal_action','I-poop1')
+   with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+   return {}
+  with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+
+ def test_normal_problem_cannot_claim_an_upper_only_copy_exception(self):
+  prior=runtime._step
+  def tampered(*args,**kwargs):
+   step=prior(*args,**kwargs);d=step['decision']
+   d['execution_evidence']=dict(contract='own_companion_replacement_470',verified_immediate_candidates=list(d['inventory']['legal_candidate_ids']))
+   for row in d['problem']['candidates']:row.pop('card_copy_id')
+   return step
+  def run(forced):
+   e,_,_,h=supplied('normal_action','I-poop1')
+   with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+   return {}
+  with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+
  def test_source_pins_and_other_priority_limits_remain_explicit(self):
   self.assertIsNotNone(api)
   def run(forced):
