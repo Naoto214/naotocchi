@@ -2,6 +2,10 @@
 
 Use fresh GitHub state as authority, not past conversation. Repository Naoto214/naotocchi; branch feat/meguru-3d-geometry-terrain-v1; Draft PR374; base feat/meguru-3d-art-direction-v1.
 
+## QA access preparation — 2026-10-12 JST (documentation only)
+
+Fresh remote/local a0124f35/tree45151e34 matched; clean; PR374 Draft/open/unmerged. Current-source Human/iPhone guide: docs/qa/meguru-3d-iphone-current.md. Existing githack access returned HTTP403 from this agent environment; Safari access remains unknown. Tracked QA workflows provide artifacts, not an identified preview deployment. No host provisioned or production Pages changed. Source inspection clarifies rolling600-frame p95/p99/>60, distinct >50ms diagnostic counter and90-sample adaptive-DPR behavior. Manual sequence and blank result template are prepared; no Human/device gate is closed. Prior product/CI evidence is unchanged; no full rerun. Next external dependency is an accessible current-source preview on a physical iPhone, then explicit observations/acceptance. Read-only weak-prop selection or smoke-cause investigation remain possible separately.
+
 ## Final verified checkpoint — 2026-10-11, single-tree relocation
 
 Approved option2 is complete as a bounded implementation/automated-QA unit. Only river_lake:68 and its collider moved(+64,-144); its full geometry/size and every wheel/support part, axis, behavior and placement remain unchanged. Product c010bf266c64b0db0bbc99e53a491b21c42c6185/tree4eb206e19ee86c2925889af52e53bd55e693f8a3; reviewed12target originals saved be3ee582e7ec936d4d6ee7ac6e86fd29c22fce7d/treeba87c710272df0ab982d1d82aec1ee08ddb38417. Final documents do not change product bytes.
