@@ -5916,20 +5916,19 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "front": "docs/qa/character-3d-full-v0/export/fe2acd989f5d6f611a8251133795f83ae737800c/human-feedback/author-naoto-0-front.jpg",
-        "34": "docs/qa/character-3d-full-v0/export/fe2acd989f5d6f611a8251133795f83ae737800c/human-feedback/author-naoto-0-34.jpg",
-        "side": "docs/qa/character-3d-full-v0/export/fe2acd989f5d6f611a8251133795f83ae737800c/human-feedback/author-naoto-0-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/export/fe2acd989f5d6f611a8251133795f83ae737800c/human-feedback/author-naoto-0-back.jpg"
+        "front": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-front.jpg",
+        "34": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-34.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-back.jpg"
       }
     }
   ],
   "currentVisualRepair": {
-    "status": "PASS_TARGETED_TECHNICAL_IMAGE_REVIEW",
+    "status": "TECHNICAL_IMAGE_REVIEWED_HUMAN_QA_WAIT",
     "keys": [
-      "partner:grove_deer:0",
       "author:naoto:0"
     ],
-    "note": "Human feedback repairs actually reviewed: deer4faa, authorfe2acd9; other291unchanged. Firstauthor4faa rejected and preserved. OverallHuman/iPhoneOPEN.",
-    "evidence": "docs/qa/character-3d-full-v0/human-feedback-20261011/visual-review.json"
+    "note": "Deer Human approved/no further change. Author front-only fullness896024b actually reviewed; awaits user Human QA. All other292 unchanged. OverallHuman/iPhoneOPEN.",
+    "evidence": "docs/qa/character-3d-full-v0/author-fringe-20261011/visual-review.json"
   }
 }
