@@ -11,7 +11,7 @@ async function run(out,options={}){
   for(const [y,version]of Object.keys(sets).entries()){
    const page=await browser.newPage({viewport:{width:320,height:320},deviceScaleFactor:1});page.on('pageerror',e=>errors.push(String(e)));
    if(version==='before'||options.candidates)await page.route('**/character-3d/nonplayer-spec.js',route=>route.fulfill({contentType:'text/javascript',body:'globalThis.NaotocchiNonPlayerWave=()=>('+JSON.stringify(sets[version])+');'}));
-   const cameraSide=options.candidates&&version==='E'?-1:1;
+   const cameraSide=options.candidates&&(options.cameraSides?.[version]===-1||version==='E')?-1:1;
    if(cameraSide===-1)await page.route('**/character-3d/wave-review.html?*',route=>route.fulfill({contentType:'text/html',body:fs.readFileSync(path.join(__dirname,'../../character-3d/wave-review.html'),'utf8').replace("'34':.62,side:Math.PI/2","'34':-.62,side:-Math.PI/2")}));
    tiles.push({input:original,left:0,top:40+y*360});
    for(const [x,view]of views.entries()){
@@ -20,12 +20,12 @@ async function run(out,options={}){
     const file=key.replace(':','-')+'-'+version+'-'+view+'.jpg';await page.screenshot({path:path.join(out,file),type:'jpeg',quality:92});records.push({version,file,cameraSide,...info});tiles.push({input:path.join(out,file),left:(x+1)*320,top:40+y*360});
    }await page.close();
   }
-  const names=Object.keys(sets),height=names.length*360,label=Buffer.from('<svg width="1600" height="'+height+'"><g font-family="sans-serif" font-size="18" fill="#34332f">'+names.map((v,i)=>'<text x="12" y="'+(26+i*360)+'">2D original | '+v+(options.candidates?(v==='E'?' (left-side camera)':' (right-side camera)'):'')+' — front / 3-4 / side / back</text>').join('')+'</g></svg>');
+  const names=Object.keys(sets),height=names.length*360,label=Buffer.from('<svg width="1600" height="'+height+'"><g font-family="sans-serif" font-size="18" fill="#34332f">'+names.map((v,i)=>'<text x="12" y="'+(26+i*360)+'">2D original | '+v+(options.candidates?((options.cameraSides?.[v]===-1||v==='E')?' (left-side camera)':' (right-side camera)'):'')+' — front / 3-4 / side / back</text>').join('')+'</g></svg>');
   tiles.push({input:label,left:0,top:0});const board=await sharp({create:{width:1600,height,channels:3,background:'#eee9dd'}}).composite(tiles).jpeg({quality:94}).toBuffer();await fs.promises.writeFile(path.join(out,key.replace(':','-')+(options.candidates?'-options.jpg':'-comparison.jpg')),board);
   if(options.candidates)for(const [i,id]of names.entries())await sharp(board).extract({left:0,top:i*360,width:1600,height:360}).jpeg({quality:94}).toFile(path.join(out,key.replace(':','-')+'-'+id+'-views.jpg'));
  }
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'comparison-metadata.json'),JSON.stringify({beforeCommit:options.candidates?null:before.sourceCommit,candidateBaseCommit:options.candidates?options.baseCommit:null,candidateOnly:!!options.candidates,afterCommit:process.env.GITHUB_SHA||null,renderer:'existing wave-review.html; per-model bounding-box fit; unchanged lighting and poses',originalNote:'Single original 2D repeated in each row; no invented side/back original',candidateSpecSha256:options.candidates?Object.fromEntries(Object.entries(options.candidates).map(([id,row])=>[id,crypto.createHash('sha256').update(JSON.stringify(row)).digest('hex')])):null,beforeSpecSha256:options.candidates?null:crypto.createHash('sha256').update(JSON.stringify(before.rows)).digest('hex'),records,errors},null,2)+'\n');
  }finally{await browser.close();srv.close();}
 }
-if(require.main===module)run(process.argv[2]&&process.argv[2]!=='--hair-options'?process.argv[2]:'test-results/full-rollout/nonplayer',process.argv.includes('--hair-options')?{candidates:require('./author-hair-options.cjs').create(),baseCommit:'8daf05fe93fadc095e30bc6b79117afae6dfcd2d'}:{}).catch(e=>{console.error(e);process.exitCode=1;});
+if(require.main===module)run(process.argv[2]&&process.argv[2]!=='--hair-options'?process.argv[2]:'test-results/full-rollout/nonplayer',process.argv.includes('--hair-options')?{candidates:{F:require('./author-hair-options.cjs').createSideRepair().F},cameraSides:{F:-1},baseCommit:'822cb03416ba1167c5f5b346dc0310a6495ceda2'}:{}).catch(e=>{console.error(e);process.exitCode=1;});
 module.exports={run};

@@ -1,0 +1,5 @@
+# E side-layer completion — candidate only
+
+User selected E as the direction, NOT final approval. Original assets/characters/author/naoto.png remains the design master. E fringe10paths, crown/rear2volumes and posterior3paths stay exact. F is only the internal comparison tag for E with bilateral three-layer side paths. The roots connect temple/ear-top/ear-back into posterior hair using the existing closed-path builder; no architecture change or production adoption.
+
+Baseline822cb03416ba1167c5f5b346dc0310a6495ceda2. Existing E sourcea6096121897b3d93a05733cc5049539218ea27c4 images are reused; only repaired F is captured. Same left-side camera/light/pose and existing renderer. Original E spec hash is checked against saved metadata. Face/clothes/other292/production remain unchanged. Shape4+workflow8=12PASS/0FAIL. Actual bilateral side coverage and closed connectivity tested; removing side layers fails, exact restoration verified. ImagesPENDING; no visual/Human approval. Draft376/unmerged; overallHuman/iPhoneOPEN. Stop after saving comparisons for Human QA.

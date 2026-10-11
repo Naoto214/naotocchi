@@ -29,3 +29,14 @@ function create(){
  return out;
 }
 module.exports={create,definitions};
+function createSideRepair(){
+ const E=create().E,F=structuredClone(E),h=F.spec.hair;
+ const layers=[
+  {path:[[.230,.185,.082],[.286,.130,.031],[.300,.076,-.023],[.280,.035,-.075]],radius:.056,taper:.48},
+  {path:[[.223,.205,-.022],[.293,.127,-.075],[.292,.045,-.130],[.255,-.045,-.178]],radius:.064,taper:.52},
+  {path:[[.200,.195,-.108],[.273,.097,-.157],[.270,.005,-.199],[.231,-.115,-.225]],radius:.059,taper:.58}
+ ];
+ const sides=[-1,1].flatMap(side=>layers.map(p=>({...p,path:p.path.map(([x,y,z])=>[x*side,y,z]),outwardCaps:true,steps:18,radial:10})));
+ h.closedPaths.splice(10,0,...sides);return {E,F};
+}
+module.exports.createSideRepair=createSideRepair;

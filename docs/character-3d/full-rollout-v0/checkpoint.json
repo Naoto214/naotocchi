@@ -432,8 +432,8 @@
   "authorSidepartOptions20261011": {
     "baseline": "8daf05fe93fadc095e30bc6b79117afae6dfcd2d",
     "status": "D_E_VISUALLY_INSPECTED_HUMAN_SELECTION_OPEN",
-    "selected": null,
-    "humanQA": "OPEN",
+    "selected": "E_DIRECTION_ONLY_NOT_FINAL_APPROVAL",
+    "humanQA": "REVISION_REQUESTED_SIDE_COVERAGE",
     "productionChanged": false,
     "evidence": "docs/qa/character-3d-full-v0/author-sidepart-options-20261011",
     "sourceCommit": "a6096121897b3d93a05733cc5049539218ea27c4",
@@ -445,5 +445,12 @@
       "fail": 0,
       "finalControlsDetected": 2
     }
+  },
+  "authorSideLayer20261011": {
+    "baseline": "822cb03416ba1167c5f5b346dc0310a6495ceda2",
+    "status": "E_SIDE_LAYER_CANDIDATE_IMAGE_PENDING",
+    "humanQA": "OPEN",
+    "productionChanged": false,
+    "evidence": "docs/qa/character-3d-full-v0/author-side-layer-20261011"
   }
 }
