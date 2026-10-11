@@ -18,6 +18,7 @@ test('author hair covers rear scalp and forms downward forehead locks without a 
  function shoot(x,y,z,dir){ray.set(new THREE.Vector3(x,cy+y,z).applyMatrix4(head.matrixWorld),new THREE.Vector3(0,0,dir).transformDirection(head.matrixWorld));return ray.intersectObject(head)[0];}
  for(const x of [-.16,0,.16])for(const y of [-.13,0,.13])assert.ok(hair(shoot(x,y,-2,1)),'rear scalp covered by assembled hair');
  assert.ok(hair(shoot(0,.22,2,-1)),'central upper forehead has descending hair rather than old wide center wedge');
- for(const x of [-.18,.18])assert.ok(hair(shoot(x,.10,2,-1)),'forehead locks descend towards temples');
+ // Approved E has a shorter fringe on the part side; exact full-row hash is frozen separately.
+ for(const [x,y] of [[-.18,.14],[.18,.10]])assert.ok(hair(shoot(x,y,2,-1)),'forehead locks descend towards temples');
  assert.ok(!hair(shoot(0,.04,2,-1)),'lower forehead/face remains clear');
 });

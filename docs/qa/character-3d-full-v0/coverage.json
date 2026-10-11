@@ -5916,19 +5916,20 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "front": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-front.jpg",
-        "34": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-34.jpg",
-        "side": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-back.jpg"
+        "front": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-front.jpg",
+        "34": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-34.jpg",
+        "side": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-back.jpg"
       }
     }
   ],
   "currentVisualRepair": {
-    "status": "AUTHOR_CANDIDATE_HUMAN_QA_PENDING_NOT_APPROVED",
+    "status": "HUMAN_APPROVED_NAOTO_HAIR_AND_DEER_LEGS",
     "keys": [
-      "author:naoto:0"
+      "author:naoto:0",
+      "partner:grove_deer:0"
     ],
-    "note": "Previous pointed fringe HumanREJECTED; bca beadlike candidate internallyREJECTED.26ba actual4views/32states/2distance reviewed; source likeness still HumanOPEN. Deer HumanAPPROVED and other292unchanged.",
-    "evidence": "docs/qa/character-3d-full-v0/author-soft-hair-20261011/visual-review.json"
+    "note": "Exact approved E plus side layers promoted; four captured frames reused by SHA256. Deer unchanged. Other Human and actual iPhone QA remain OPEN.",
+    "evidence": "docs/qa/character-3d-full-v0/human-approvals-20261011.json"
   }
 }

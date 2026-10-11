@@ -4,7 +4,21 @@ Status: **Human / iPhone OPEN. All293 model image gates and source-scoped automa
 
 Use the final source/tree recorded in the [checkpoint](../../character-3d/full-rollout-v0/checkpoint.json), with the matching [evidence map](../../character-3d/full-rollout-v0/final-player-evidence-map.md) and source-specific export manifests. Historical Pilot URLs and performance numbers are references, not current measurements.
 
-## Source-specific handoff
+## Current Human approvals — 2026-10-11
+
+The user formally approved **Naoto E plus side layers** (including the seven-three part, fringe direction and temple-to-rear continuity) and reconfirmed **deer legs**. The exact captured Naoto row is adopted without redesign; deer is unchanged. Naoto hair is frozen unless a confirmed defect is identified. [Machine-readable decisions](human-approvals-20261011.json) / [approved comparison](author-side-layer-20261011/README.md).
+
+| Target | Approved scope | Remaining gate |
+|---|---|---|
+| `author:naoto` | Current E plus side-layer hairstyle | Continuous motion/gameplay and actual iPhone QA |
+| `partner:grove_deer` | Corrected leg proportions, taper and joints | Continuous motion/gameplay and actual iPhone QA |
+| Other 291 characters | No new Human approval recorded | Source likeness, views, motion and gameplay Human QA |
+
+Continue through the existing gallery: player families (248 stages), companions (26), and remaining partners (17). Filter by family/kind and follow each live link. Record the exact key/stage, view or motion condition, approve/reject/requested change and a screenshot where useful. Review known approved repairs only if a concrete defect appears. Numerical coverage and automated tests are not Human acceptance.
+
+Actual iPhone Safari QA remains **OPEN / NOT_RUN**. Record device/iOS, source SHA and matched 3D/2D fixture, then initial display, continuous motion, ordinary distance, repeated transitions and sustained play. No development PC or Pages/main setting change is required.
+
+## Historical source-specific handoff
 
 Production models: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA corrections: `410edf9674d5937496e7acd0f255c98de11fc399`. Final documentation/archive commits preserve these inputs. The four formerly pending Runtime/Home runs are confirmed SUCCESS;410 full npm CI passed3022+80 tests with0failures. The workspace was restored from remote with HEAD/tree equality, clean state and final scene archive SHA256 verification; see the checkpoint.
 
@@ -25,9 +39,9 @@ SwiftShader27cast measured204.83ms average RAF/533.4ms p95 and816.6ms maximum ad
 - [Full gallery](../../../character-3d/full-gallery.html):293 exact entries, original/four-view comparisons, family/kind/stage filters and role-correct live links. Legacy cat_friend/shiba use the explicitly labelled immutable comparison board.
 - [Live gallery](../../../character-3d/gallery.html): inspect continuous motion, canonical emotion, reaction and reduced motion. Static32-state sheets do not by themselves approve continuous animation.
 - Existing Meguru QA route: `index.html?meguru3d=1&char3d=1&perf=1`; compare the same saved fixture with `index.html?meguru3d=1&perf=1`. Use a separate QA browser profile/origin and the existing QA fixtures. Do not overwrite a personal gameplay save.
-- Run repository pages through the existing development server (`npm run dev`). For an iPhone on the same network, serve the source-pinned checkout with `npm run dev -- --host 0.0.0.0` and open the development machine’s address and reported port. Device connectivity and Safari rendering remain unverified until actually opened. Do not change Pages/main for this gate.
+- Use the commit-pinned rawcdn links below directly in iPhone Safari. Actual device rendering remains unverified until observed; no development PC is required.
 
-## Human decisions (all OPEN)
+## Human review and device handoff
 
 ### iPhone preview without a development PC (2026-10-10)
 

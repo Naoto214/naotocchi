@@ -1,7 +1,7 @@
 {
-  "status": "VISUALLY_INSPECTED_E_SIDE_REPAIR_AWAITING_HUMAN_QA",
-  "runtimeAdopted": false,
-  "humanApproval": false,
+  "status": "HUMAN_APPROVED_EXACT_SHAPE_ADOPTED",
+  "runtimeAdopted": true,
+  "humanApproval": true,
   "baseline": "822cb03416ba1167c5f5b346dc0310a6495ceda2",
   "beforeSource": "a6096121897b3d93a05733cc5049539218ea27c4",
   "beforeCandidate": "E",
@@ -34,14 +34,15 @@
       {
         "id": 38138495980,
         "name": "Runtime smoke test",
-        "status": "in_progress",
-        "conclusion": null
+        "status": "completed",
+        "conclusion": "success"
       },
       {
         "id": 38138496002,
         "name": "Home layout",
-        "status": "in_progress",
-        "conclusion": null
+        "status": "completed",
+        "conclusion": "failure",
+        "reason": "chromium-landscape-safe-area CSS substitution route.fetch ECONNRESET for item-memories.css and movie.css; job114467238299. Not a PASS."
       },
       {
         "id": 38138489668,
@@ -57,5 +58,11 @@
     "number": 376,
     "draft": true,
     "merged": false
-  }
+  },
+  "historicalCaptureDecision": {
+    "status": "VISUALLY_INSPECTED_E_SIDE_REPAIR_AWAITING_HUMAN_QA",
+    "runtimeAdopted": false,
+    "humanApproval": false
+  },
+  "humanDecisionRecord": "docs/qa/character-3d-full-v0/human-approvals-20261011.json"
 }

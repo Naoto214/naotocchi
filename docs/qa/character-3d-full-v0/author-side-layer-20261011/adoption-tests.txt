@@ -1,0 +1,99 @@
+(node:36) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ image-approved author is exact, finite, grounded, closed and within triangle budget (234.019351ms)
+✔ naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states (39381.044944ms)
+✔ naoto: resting produced source shell graph reaches each owner (7107.311982ms)
+✔ naoto: every source shell reaches torso limbs and props in all 32 states (55841.605402ms)
+✔ naoto original closed white hoodie dark shirt layered wavy hair navy slim trousers pale sneaker soles (44.765347ms)
+✔ exact actual author identity resolves in production and QA and never aliases other roles (51.471156ms)
+✔ existing capture planner opt-in appends only legacy states and distance with exact model identity (38.852087ms)
+✔ legal unlock yields actual memory_lake author; bounded QA view preserves actor save and renderer restoration even failure (1094.397694ms)
+✔ author closed paths have actual outward terminal indexed winding (36.873139ms)
+✔ author humanoid opt-ins preserve frozen adult and cane default outputs (37.505903ms)
+✔ HTTP QA overlay resolves unchanged actual kind naoto consistently with production (73.641369ms)
+✔ author production exactly matches Human-approved E plus side repair (16.018377ms)
+(node:38) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ two side-part QA-only author options produce distinct hair geometry while keeping face rear and all production rows intact (244.162982ms)
+✔ each option retains eye clearance and connected closed hair surfaces (303.481368ms)
+✔ part boundary locks travel outward from root to tip without inward keyhole hooks (1.083964ms)
+✔ E side repair preserves selected fringe rear and nonhair while covering both temple-to-rear gaps (162.456508ms)
+(node:39) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ author assembled hair follows revised Human QA forehead and rear coverage (218.763295ms)
+✔ author every produced hair constituent reaches skull through actual closed-volume contacts (221.239728ms)
+✔ live gallery accepts every approved exact nonplayer key without dog fallback (2.022779ms)
+✔ full gallery live links resolve production role keys and preserve legacy and player stages (24.120699ms)
+✔ actual gallery syncUi renders approved role metadata without legacy-only dereference (26.421387ms)
+(node:47) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ deer retains slender proportions with shorter shafts and connected tapered upper legs and joints (281.620771ms)
+✖ author hair covers rear scalp and forms downward forehead locks without a wide bald center wedge (64.728606ms)
+Selected nonplayer mutation: other-mammal-remove-it.cjs
+Selected nonplayer mutation: mammal-contact-remove-it.cjs
+Selected nonplayer mutation: small-mammal-remove-it.cjs
+Selected nonplayer mutation: clock-remove-it.cjs
+Selected nonplayer mutation: clock-remove-it.cjs
+Selected nonplayer mutation: nonplayer-wave-remove-it.cjs
+✔ clock selects only clock; all existing role mappings stay explicit (1.534323ms)
+✔ shared wave and mammal tools run once in first-selected order (0.270748ms)
+✔ other mammal batch selects its shared mutation tool once (0.128183ms)
+✔ each repaired mammal adds contact coverage while passed mammals keep existing tools (0.209055ms)
+✔ mixed seven repaired mammals execute both existing batches and contacts once in selected order (1.495514ms)
+✔ birds and reptiles select their shared mutation tool once (0.184428ms)
+✔ unusual companions select their shared mutation tool once (0.111818ms)
+✔ malformed and unsupported selections fail before spawning any tool (4.057897ms)
+✔ execution uses Node with fixed paths and stops on child failure (1.000518ms)
+✔ clock executes alone and box/sunflower execute their shared tool once (1.025045ms)
+✔ five mammal partners select their scoped mutation tool once (0.213151ms)
+✔ four humanoid partners select their scoped mutation tool once (0.193882ms)
+✔ aquatic/invertebrate partners select their shared scoped mutation suite (0.198349ms)
+✔ distinct eagle/snowman partners select one explicit mutation suite (0.128904ms)
+✔ author candidate selects its exact scoped mutation suite (0.097417ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 36
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 104136.176975
+
+✖ failing tests:
+
+test at tests/character-3d-author-hair-test.cjs:14:1
+✖ author assembled hair follows revised Human QA forehead and rear coverage (218.763295ms)
+  AssertionError [ERR_ASSERTION]: descending temple fringe
+      at assertSourceHair (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-hair-test.cjs:11:35)
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-hair-test.cjs:14:91)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/character-3d-human-feedback-test.cjs:15:1
+✖ author hair covers rear scalp and forms downward forehead locks without a wide bald center wedge (64.728606ms)
+  AssertionError [ERR_ASSERTION]: forehead locks descend towards temples
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-human-feedback-test.cjs:21:35)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -8,7 +8,8 @@ function assertSourceHair({THREE,sp,head}){
  const hair=h=>h&&c.getX(h.face.a)<.09&&c.getY(h.face.a)<.06&&c.getZ(h.face.a)<.06;
  for(const x of [-.16,0,.16])for(const y of [-.13,0,.13])assert.ok(hair(shoot(x,y,-2,1)),'rear scalp covered');
  assert.ok(hair(shoot(0,.22,2,-1)),'downward central fringe');
- for(const x of [-.18,.18])assert.ok(hair(shoot(x,.10,2,-1)),'descending temple fringe');
+ // Approved E has a shorter fringe on the part side; exact full-row hash is frozen separately.
+ for(const [x,y] of [[-.18,.14],[.18,.10]])assert.ok(hair(shoot(x,y,2,-1)),'descending temple fringe');
  assert.ok(!hair(shoot(0,.04,2,-1)),'lower forehead remains clear');
 }
 test('author assembled hair follows revised Human QA forehead and rear coverage',async()=>assertSourceHair(await make()));
