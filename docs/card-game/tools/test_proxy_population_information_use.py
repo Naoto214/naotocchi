@@ -51,15 +51,13 @@ class InformationUseTests(unittest.TestCase):
      e,actor,source,history=supplied(phase,card);g=e['legacy_continuation']['game_state']
      baseline=execute(e,history,forced);view=state.visible(e,actor);self.assert_unadmitted(baseline)
      if phase=='normal_action' and card!='E-boss':
-      # Existing114 currently selects pass here despite legal reveal actions;
-      # this regression does not redefine certainty or their relative value.
-      self.assertEqual(baseline['decision']['selected_candidate'],'pass')
+      # Unrevealed growth stays unproved, so time does not dominate it via0.
       rows=baseline['decision']['inventory']['legal_candidate_details']
       self.assertEqual(sum(r.get('source_instance_id')==source for r in rows),7 if card=='G-hit-blow' else 1)
-      self.assertEqual(baseline['evaluation']['legacy_116'],'not_observed_in_this_record')
-     else:
-      self.assertEqual(baseline['decision']['selected_action']['source_instance_id'],source)
-      self.assertEqual(baseline['evaluation']['legacy_116'],'excluded')
+      self.assertEqual(baseline['decision']['choice']['resolution_mode'],'seeded_fallback')
+      self.assertIsNone(baseline['decision']['problem'])
+     else:self.assertEqual(baseline['decision']['selected_action']['source_instance_id'],source)
+     self.assertEqual(baseline['evaluation']['legacy_116'],'excluded')
      for mode in ('own_reverse','opponent_reverse','both_rotate','opponent_exchange_first','opponent_exchange_last'):
       changed=copy.deepcopy(e);cg=changed['legacy_continuation']['game_state'];own=cg['players'][actor];other=cg['players']['B' if actor=='A' else 'A']
       if mode=='own_reverse':own['deck'].reverse()

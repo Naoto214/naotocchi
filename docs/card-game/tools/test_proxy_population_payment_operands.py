@@ -40,7 +40,7 @@ class PaymentOperandTests(unittest.TestCase):
  def test_source_pins_and_other_priority_limits_remain_explicit(self):
   self.assertIsNotNone(api)
   def run(forced):
-   e,_,_,h=supplied('normal_action','G-hit-blow');d=execute(e,h,forced)['decision']
+   e,_,_,h=supplied('normal_action','I-poop1');d=execute(e,h,forced)['decision']
    with patch.dict(api.core.SOURCES,{'01-core-rules.md':'0'*64}):
     self.assertFalse(api.audit_normal(e,h,d)['supported_payment_operands_verified'])
    bad=copy.deepcopy(d)
@@ -53,7 +53,7 @@ class PaymentOperandTests(unittest.TestCase):
  def test_unknown_route_cannot_alias_a_verified_enumeration_unit(self):
   self.assertIsNotNone(api)
   def run(forced):
-   e,_,_,h=supplied('normal_action','G-hit-blow');d=execute(e,h,forced)['decision']
+   e,_,_,h=supplied('normal_action','I-poop1');d=execute(e,h,forced)['decision']
    row=copy.deepcopy(next(r for r in d['inventory']['enumeration_units'] if r['candidate_id']=='pass'))
    row.update(candidate_id='unknown-board',action_type='activate_board',source_family='board_ability',enumeration_unit_id='distinct-unknown-unit')
    d['inventory']['enumeration_units'].append(row);d['inventory']['legal_candidate_details'].append(copy.deepcopy(row))
@@ -78,7 +78,7 @@ class PaymentOperandTests(unittest.TestCase):
    for row in step['decision']['problem']['candidates']:row['payment_time']+=1;row['time_after_certain_resolution']-=1
    return step
   def run(forced):
-   e,_,_,h=supplied('normal_action','G-hit-blow')
+   e,_,_,h=supplied('normal_action','I-poop1')
    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
    return {}
   with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
@@ -86,7 +86,7 @@ class PaymentOperandTests(unittest.TestCase):
  def test_duplicate_missing_and_unbound_comparison_rows_are_not_certified(self):
   self.assertIsNotNone(api)
   def run(forced):
-   e,_,_,h=supplied('normal_action','G-hit-blow');d=execute(e,h,forced)['decision']
+   e,_,_,h=supplied('normal_action','I-poop1');d=execute(e,h,forced)['decision']
    for mode in ('duplicate','missing','foreign','unknown_time','source'):
     bad=copy.deepcopy(d);source=copy.deepcopy(e)
     if mode=='duplicate':bad['problem']['candidates'].append(copy.deepcopy(bad['problem']['candidates'][0]))

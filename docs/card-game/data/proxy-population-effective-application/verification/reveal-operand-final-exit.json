@@ -1,0 +1,25 @@
+{
+  "modules": [
+    "test_proxy_population_board_payment_binding",
+    "test_proxy_population_payment_operands",
+    "test_proxy_population_board_predicates",
+    "test_proxy_population_response_board_predicates",
+    "test_proxy_population_prepared_information",
+    "test_proxy_population_information_use",
+    "test_proxy_population_connected_entry",
+    "test_proxy_population_admission",
+    "test_proxy_population_challenge_window",
+    "test_proxy_population_paid_draw",
+    "test_proxy_population_discard_recovery",
+    "test_proxy_population_unproved_priority",
+    "test_proxy_population_response_operands",
+    "test_proxy_population_selection_basis",
+    "test_proxy_population_source_conservation",
+    "test_proxy_population_resolution_semantics",
+    "test_proxy_population_nonresolution_semantics"
+  ],
+  "exit_code": 0,
+  "seconds": 183.75056840300022,
+  "source_unchanged": true,
+  "python_count": 1064
+}

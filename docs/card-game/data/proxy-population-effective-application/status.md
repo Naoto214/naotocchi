@@ -1100,3 +1100,12 @@ c1a4916から継続。generation_packageはoperation/completionを含むcanonica
 独立review1回で保存remote/live証拠のscope改変受理を検出、2FAILで再現してschema/remote/ref/commit/errors・false範囲・null admissionの照合を修正。最終固定64PASS61.356s/exit0、再帰Python1064前後一致、design errors=[]、保護番号付き477正本不変。失敗と修正の詳細はverification/generation-operation-review.md。旧115 bytes/zero rootsによる合成検査で、本番seed生成/固定/400戦0。
 
 保存内容とGit親子関係の照合であり、OS由来・結果前時系列・全編集/巻戻し不存在の独立証明はfalse。現在の開始承認は別途live検査。preflight-ready=false、本番gate閉鎖、policy promotion=false、独立balance標本0、全体結論null。P07–12/P14–18の未完を維持し、保存だけで停止せず比較operand/情報利用の残件を続行する。
+
+
+### 2026-10-11 未公開結果の成長operandを0へ落とさない
+
+6a0328dから継続。現行population比較入口でG-hit-blow/I-c_coin2の未公開成長をgeneric growth=0としてpassに劣後させていた箇所を修正。既存116の未証明frontierへ保持し、通常/responseへのmandatory policy拡張・期待値・恣意的順位・現物同価値化は追加しない。既存効果handler/保護116/過去結果は不変。空deck等も今回新たに0と証明せず保守的に未証明とする。
+
+RED1FAIL（priority_unique）→既存116 fallbackと未証明候補保持を確認。関連22PASS4.805s・17PASS24.704s、独立review1回Important/Criticalなし・独立16PASS4.018s。最終固定85PASS183.565s/exit0、再帰Python1064前後hash一致。旧115/zero-rootの20ターン結合を含む。design errors=[]、保護番号付き477正本不変。全proxy回帰や全情報read/全機会の証明ではない。
+
+本番seed生成/入力固定/400戦0、preflight-ready=false、gate閉鎖、policy promotion=false、独立balance標本0、全体結論null。詳細はverification/reveal-operand-review.md。P07–12/P14–18の残件を維持する。

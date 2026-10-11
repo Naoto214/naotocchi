@@ -98,4 +98,27 @@ class DirectGrowthFamiliesTests(unittest.TestCase):
    return {}
   base.operation(initial(),run)
 
+class RevealGrowthOperandTests(unittest.TestCase):
+ def test_unrevealed_growth_is_not_zero_or_dominated_by_pass(self):
+  from test_proxy_population_information_use import supplied,execute,window,runtime
+  def run(forced):
+   for card in ('G-hit-blow','I-c_coin2'):
+    e,actor,source,history=supplied('normal_action',card)
+    for reverse in (False,True):
+     variant=copy.deepcopy(e)
+     if reverse:variant['legacy_continuation']['game_state']['players'][actor]['deck'].reverse()
+     decision=execute(variant,history,forced)['decision']
+     self.assertEqual(decision['choice']['resolution_mode'],'seeded_fallback',card)
+     target_ids=[a['candidate_id'] for a in decision['inventory']['legal_candidate_details'] if a['source_instance_id']==source]
+     self.assertEqual(len(target_ids),7 if card=='G-hit-blow' else 1)
+     proof=decision['execution_evidence']['candidate_comparison_evidence']
+     for cid in target_ids:
+      self.assertIn(cid,decision['choice']['seeded_fallback_candidates'])
+      self.assertNotIn(cid,proof['proved_scores']);self.assertIn(cid,proof['unproved'])
+     self.assertIn('pass',decision['choice']['seeded_fallback_candidates'])
+     self.assertEqual(base._evaluate(decision)['legacy_116'],'excluded')
+     self.assertFalse(decision['execution_evidence']['policy_eligible'])
+   return {}
+  with window.contract_scope():runtime.operation(initial(),run)
+
 if __name__=='__main__':unittest.main()
