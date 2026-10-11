@@ -974,3 +974,7 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P17 supervisor各worker境界のedition確認（2026-10-12）
 
 起動直前と成功return後/receipt受理前に既存edition.verifyを結合。従来の正常mock receipt受理/次child継続を2RED再現し、版不一致で全400行/200群・既完了行を保持して停止。最終26PASS29.756s・Python1075前後一致、独立7PASS/C0I0M0。supervisor-edition-*。本番gate閉鎖、preflight-ready=false、生成/固定/400戦0。観測間の版変更不在の証明ではない。次はP09–11/P14–18共通gate合成。
+
+### P10 初回たまご交換の公開履歴漏れ（2026-10-12）
+
+466初期producerのsource_instance_idが相手の実通常inventoryへ漏れる2REDを修正。現行scopeで相手向けIDだけ除去しraw/本人/公開eventは保持。旧producerだけを調べたpublic-read-boundary-reviewの記述を訂正。egg-private-history-*、最終21PASS15.279s・Python1075前後一致、独立5PASS/C0I0M0。全情報証明には昇格せず、preflight-ready=false、生成/固定/400戦0。次は初期manifestから最初の機会への独立結合と共通gate合成。

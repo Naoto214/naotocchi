@@ -73,6 +73,11 @@ def scope(events,shots,runtime_history=None):
   if len(actual)!=1:raise ValueError('public history actual event absent or ambiguous')
   raw=actual[0]
   if any(event.get(k)!=raw.get(k) for k in ('seq','action_type','actor')):raise ValueError('public history event identity differs')
+  # 02 makes egg exchange private. The bound initial opening records its
+  # selected card as source_instance_id; later legacy events need not do so.
+  # Keep the actual trace and owner's memory, not the rival's projected ID.
+  if raw['actor']!=actor and raw['action_type']=='egg_exchange_bottom':
+   result.pop('source_instance_id',None)
   if raw['actor']!=actor and raw['action_type']=='resolve_board_ability' and raw.get('source_reference')=='72-companion-26-card-text-draft.md#C-bat':
    target=raw.get('result',{}).get('target_instance_id');before=trace.get(raw['seq']-1);visible=False
    if before is not None:

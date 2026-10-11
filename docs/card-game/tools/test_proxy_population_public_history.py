@@ -65,6 +65,35 @@ class PublicHistoryBoundaryTests(unittest.TestCase):
    return {}
   runtime.operation(initial(),run)
 
+ def test_actual_initial_exchange_is_hidden_from_opponent_normal_inventory(self):
+  from test_proxy_mandatory_population_input import bundle
+  from proxy_population_connected_entry import reconstruct
+  record=reconstruct(bundle(),'test-1A',13)
+  raw=record['opening']['events'][1];source=raw['source_instance_id']
+  self.assertIsNotNone(source)
+  normals=[s['decision'] for s in record['runtime']['steps'] if s['decision'] and s['decision'].get('context',{}).get('decision_kind')=='normal_action']
+  for actor in ('A','B'):
+   decision=next(d for d in normals if d['context']['actor']==actor)
+   event=next(e for e in decision['inventory']['public_history'] if e['seq']==2)
+   if actor=='A':self.assertEqual(event['source_instance_id'],source)
+   else:self.assertNotIn('source_instance_id',event)
+  self.assertEqual(record['opening']['events'][1]['source_instance_id'],source)
+  self.assertFalse(record['ready_for_execution'])
+
+ def test_both_opening_owners_keep_private_exchange_and_projection_is_idempotent(self):
+  from test_proxy_mandatory_population_input import bundle
+  from proxy_population_opening import reconstruct_opening
+  native=candidates.PUBLIC_HISTORY_PROJECTION
+  for match in ('test-1A','test-1B'):
+   record=reconstruct_opening(bundle(),match);events=record['events'];raw=events[1];before=copy.deepcopy(events)
+   owner=raw['actor'];rival='B' if owner=='A' else 'A'
+   with public.scope(events,[]):
+    own=candidates.PUBLIC_HISTORY_PROJECTION(raw,owner);other=candidates.PUBLIC_HISTORY_PROJECTION(raw,rival)
+    self.assertEqual(own['source_instance_id'],raw['source_instance_id']);self.assertNotIn('source_instance_id',other)
+    self.assertEqual(candidates.PUBLIC_HISTORY_PROJECTION(other,rival),other)
+    self.assertEqual(other['seq'],2);self.assertEqual(other['action_type'],'egg_exchange_bottom')
+   self.assertEqual(events,before);self.assertIs(candidates.PUBLIC_HISTORY_PROJECTION,native)
+
  def test_scope_releases_on_invalid_trace_and_restores_projection(self):
   native=candidates.PUBLIC_HISTORY_PROJECTION
   with self.assertRaises((ValueError,KeyError)):

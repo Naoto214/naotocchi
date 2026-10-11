@@ -11,7 +11,7 @@
 | population_unproved_priority / normal_frontier | 既存114比較・未証明frontier・116 context | 未公開G-hit-blow/I-c_coin2成長を0にせず既存116除外。新しい値・順位は追加しない |
 | population_activation_legality.scope.select / response_window_seeded_restart.resolve_response_choice | 完全候補ids/details、first-date既存条件、route/context | 比較とfallback生成にraw deckを渡す経路はこのselector内にない。opportunity丸ごとのcopyは記録用であり、候補生成側の全read証明とは別 |
 | population_public_application.companion_applied | raw event/shot hashの一致、その後public main/world/companionsと公開効果receipt | 全state hashは入力整合性検査。C-chameleonの公開証拠へ出していた同hashを公開盤面参照へ分離（今回） |
-| continuation_public_history.event_projection | 許可されたevent/result項目 | draw/hand-bottomのreceipt IDを出さない。全event種の生成field対応は未完。egg_exchangeのsource fieldについて、旧producerはselected_candidateのみなので、一般的なfield可能性を現行漏れの事実とは扱わない |
+| continuation_public_history.event_projection | 許可されたevent/result項目 | draw/hand-bottomのreceipt IDを出さない。全event種の生成field対応は未完。旧producer調査ではselected_candidateのみとしたが、466初期producerのsource_instance_idを見落としていた。下記2026-10-12追補で実漏洩を訂正/修正 |
 | population_policy_bridge.Session.choose | designated frame、完全合法候補、owner root/address | full choice state照合はcallback整合性、1/Nは指定5契約のみ。normal/responseへ許容を拡張しない |
 
 ## 今回の変更
@@ -79,3 +79,7 @@ P10の残件を「全read未証明」の一語で再開しない。実adapter群
 
 
 2026-10-12: normal source inventoryのexpected母数を共有projectionから実ownerの6familyへ切替え。手札/盤面sourceの共有欠落、厳密count、hand variant/stage/card bindingを別照合（normal-source-projection-*）。全target expander/全情報利用/比較operandを証明した扱いにはしない。
+
+## 2026-10-12 初回たまご交換の読取表訂正
+
+466 reconstruct_openingはegg_exchange_bottomへ返却札source_instance_idを実際に保存する。実初期入口13stepの相手通常inventoryへ残る2REDを確認し、現行scopeで相手向けだけ除去した。02の非公開に従いrawと本人記憶は保持。egg-private-history-review.md、最終21PASS/独立5PASS。旧producerだけの調査を全初期入口へ一般化した上表の旧記述を訂正する。全event/全情報の証明ではない。

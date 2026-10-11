@@ -45,6 +45,8 @@
 
 - 2026-10-12: supervisorの起動直前/return後のedition検査を結合。版変更停止・全予定保持、supervisor-edition-*、26PASS29.756s/独立7PASS・指摘なし、Python1075前後一致。gate閉鎖、P09–11/P14–18共通合成は未完。
 
+- 2026-10-12: 初回たまご交換の返却IDが相手通常inventoryへ漏れる2REDを修正。egg-private-history-*、21PASS15.279s/独立5PASS・指摘なし。raw/本人は保持、read表の初期producer見落としを訂正。次は初期manifest/最初の機会と共通gateの結合。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
