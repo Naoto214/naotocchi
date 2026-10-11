@@ -71,7 +71,14 @@ def audit_normal(envelope,inventory):
    for row in actual:
     met=allowed[_signature(row)]
     if row['disposition']!=('admitted' if met else 'excluded') or (row['candidate_id'] is not None)!=met or bool(row['reason_codes'])==met:raise ValueError('board activation disposition differs: '+source)
-    verified.append(dict(enumeration_unit_id=row['enumeration_unit_id'],source_instance_id=source,card_id=card,activation_allowed=met,source_reference=reference))
+    #55/72 specify physical-card payments for these three active abilities,
+    #not a time payment. This says nothing about the value of those cards.
+    payment_time=None
+    if met and (card in paid.DESCRIPTORS or card=='C-cat_friend'):
+     if reference not in row['source_references']:raise ValueError('board payment source reference differs')
+     if card in paid.DESCRIPTORS and (type(row.get('base_time_cost')) is not int or row['base_time_cost']!=0):raise ValueError('board payment time differs')
+     payment_time=0
+    verified.append(dict(enumeration_unit_id=row['enumeration_unit_id'],source_instance_id=source,card_id=card,activation_allowed=met,source_reference=reference,payment_time=payment_time))
   for row in inventory['enumeration_units']:
    if row['source_family']=='hand_card_action' and row['action_type']=='activate_companion_ability':
     source=row['source_instance_id'];card=row['card_id'];cap=recovery.descriptor(card)

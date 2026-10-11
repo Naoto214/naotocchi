@@ -1,12 +1,13 @@
 """Current normal comparison payment binding, not a general value proof.
 
-Reuse source-pinned core/hand predicate costs. Only supported admitted rows
+Reuse source-pinned core/hand/board predicate costs. Only supported admitted rows
 are certified; physical-card costs, other priorities and historical origin
 remain separate obligations. No selector, executor or value is changed.
 """
 import proxy_continuation_state as state
 import proxy_population_core_predicates as core
 import proxy_population_hand_predicates as hand
+import proxy_population_board_predicates as board
 from proxy_mandatory_policy_contract import canonical
 
 
@@ -26,13 +27,13 @@ def audit_normal(envelope,events,decision):
    if len(admitted)!=len(ids) or {r['candidate_id'] for r in admitted}!=set(ids):raise ValueError('payment admitted coverage differs')
    ordered=lambda items:sorted(items,key=lambda r:r['candidate_id'])
    if canonical(ordered(admitted))!=canonical(ordered(details)):raise ValueError('payment candidate projection differs')
-   proofs=[core.audit_normal(envelope,inventory),hand.audit_normal(envelope,events,inventory)]
+   proofs=[core.audit_normal(envelope,inventory),hand.audit_normal(envelope,events,inventory),board.audit_normal(envelope,inventory)]
    for proof in proofs:
     if proof['errors']:raise ValueError('payment source predicates differ: '+str(proof['errors']))
    costs={}
    for proof in proofs:
     for unit in proof['verified_units']:
-     key=unit['enumeration_unit_id'];cost=unit['payment_time']
+     key=unit['enumeration_unit_id'];cost=unit.get('payment_time')
      #01/02 standing pass and challenge declaration spend no time. Their
      #core predicate intentionally has no charged payment field.
      if unit.get('action_type') in ('pass','challenge'):cost=0
@@ -42,7 +43,7 @@ def audit_normal(envelope,events,decision):
    for row in rows:
     unit=byid[row['candidate_id']];key=unit['enumeration_unit_id'];cost=costs.get(key)
     if type(cost) is not int or cost<0:
-     unproved.append(dict(candidate_id=row['candidate_id'],reason='payment_source_not_in_core_or_hand_scope'));continue
+     unproved.append(dict(candidate_id=row['candidate_id'],reason='payment_source_not_in_certified_predicate_scope'));continue
     if type(row.get('payment_time')) is not int or row['payment_time']!=cost:raise ValueError('comparison payment differs: '+row['candidate_id'])
     remaining=time-cost
     if remaining<0 or type(row.get('time_after_certain_resolution')) is not int or row['time_after_certain_resolution']!=remaining:raise ValueError('comparison remaining time differs: '+row['candidate_id'])
@@ -50,6 +51,6 @@ def audit_normal(envelope,events,decision):
  except (ValueError,KeyError,TypeError,IndexError,AttributeError) as error:errors.append(str(error))
  return dict(schema='normal_comparison_payment_operands.v1',applicable=applicable,
   supported_payment_operands_verified=applicable and not errors and bool(verified),errors=errors,
-  verified_candidates=verified,unproved_candidates=unproved,source_sha256=dict(core.SOURCES,**hand.SOURCES),
+  verified_candidates=verified,unproved_candidates=unproved,source_sha256={**core.SOURCES,**hand.SOURCES,**board.SOURCES},
   operand_provenance_verified=False,other_priority_operands_proven=False,information_use_proven=False,
   origin_authenticated=False,policy_eligible=None,balance_admitted=None)

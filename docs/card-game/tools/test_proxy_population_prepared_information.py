@@ -51,6 +51,32 @@ class PreparedInformationTests(unittest.TestCase):
    return {}
   self.run_scoped(run)
 
+ def test_concealed_copy_identity_is_absent_from_actual_choices(self):
+  # Alpha-renaming a local hidden copy is not a new 107 population input,
+  # a different legal card type, or authentication of its prior history.
+  def run(forced):
+   for card in ('E-boss','G-hit-blow','I-c_coin2'):
+    for phase in ('normal_action','response_window'):
+     e,actor,source,h=prepared(phase,card);baseline=execute(e,h,forced)
+     changed=copy.deepcopy(e);g=changed['legacy_continuation']['game_state'];owner='B' if actor=='A' else 'A'
+     p=g['players'][owner];old=p['board']['prepared'][0];new=owner+'-concealed-local-copy'
+     self.assertNotIn(new,g['cards']);p['board']['prepared'][0]=new
+     g['cards'][new]=g['cards'].pop(old)
+     changed['runtime']['public_prepared'][new]=changed['runtime']['public_prepared'].pop(old)
+     self.assertEqual(state.visible(e,actor),state.visible(changed,actor))
+     self.assertNotEqual(state.state_hash(e),state.state_hash(changed))
+     snapshot=copy.deepcopy(changed);actual=execute(changed,h,forced)
+     self.assertEqual(snapshot,changed)
+     before=copy.deepcopy(baseline['decision']);after=copy.deepcopy(actual['decision'])
+     if phase=='response_window':
+      self.assertEqual(before['candidate_set_evidence'].pop('envelope_sha256'),state.state_hash(e))
+      self.assertEqual(after['candidate_set_evidence'].pop('envelope_sha256'),state.state_hash(changed))
+     self.assertEqual(canonical(before),canonical(after),(card,phase))
+     self.assertEqual(baseline['evaluation'],actual['evaluation'])
+     self.assertFalse(actual['ready_for_execution']);self.assertIsNone(actual['balance_admitted'])
+   return {}
+  self.run_scoped(run)
+
  def test_response_inventory_hash_must_bind_actual_prepared_envelope(self):
   def run(forced):
    e,actor,source,h=prepared('response_window');step=execute(e,h,forced)

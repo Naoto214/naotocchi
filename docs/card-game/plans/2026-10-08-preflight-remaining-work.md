@@ -754,3 +754,16 @@ P17: request保存・child処理・result保存時のKeyboardInterrupt/SystemExi
 preflight-ready=false、生成/固定/400戦開始0、policy promotion=false、独立balance標本0、全体結論null。P07〜12の全dispatch・全source機会・情報実使用・operand由来とP13〜18の未完は既存22項目台帳で維持。今回の保存則と中断保存だけで全体完了へ昇格しない。
 
 最終固定結合: 46PASS305.038s、exit0、Ran/OKのlog末尾を確認。Python1053ファイル不変、番号付き正本477不変（475含む）、design errors=[]。既存unit response89/normal29 covered・end dispatch20 verifiedを維持。最終関連22PASS/別exit0と初回失敗・途中切れを分離保存。preflight-ready未達。
+
+
+### 2026-10-11 盤上の時支払と比較監査・伏せ現物ID非干渉
+
+基準8471f5d/tree5edcd1a、fresh PR259 Draft/open/unmerged確認。P11の既存board predicateをpayment_operandsへ結合。55/72/132に基づくM-antlion-02/08・C-cat_friendのadmitted能力だけに整数payment_time=0を付け、現物支払・対象・使用回数は既存条件で別検証。未知/除外は0にせず、現物価値・上位優先値・将来効果も証明しない。比較なしは未認証のまま。実selectorと旧116除外は不変。
+
+P10: 既存通常/response入口で相手の伏せI-poop1現物IDを置換し、同一公開viewの全判断記録・evaluation不変を検査。完全state hashは各入力へ別途照合。局所名前変更の検証であり、107現物由来や全read/全機会を認証しない。
+
+新2件RED→source辞書重複keywordの実装ERROR→絶対path修正後関連17PASS8.841s、情報制約10PASS5.593s。独立review1回重大指摘なし、独立9PASS2.909s。失敗/未適用ログを最終PASSから分離保存。固定結合結果はverification/board-payment-binding-integration-exit.jsonとlogへ。
+
+preflight-ready=false。seed生成/本番入力固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。475・過去結果は不変。P07〜12の全機会/情報実使用/operand履歴由来とP13〜18の残件を維持。外部承認方式P13の採用は今回の「続き」から導かない。
+
+最終固定結合57PASS166.369s/exit0、tools直下Python1030ファイルの前後fingerprint一致。設計errors=[]、番号付き正本477不変。実行module・終了値・全logを保存。最新全proxy回帰や全情報使用の証明ではない。
