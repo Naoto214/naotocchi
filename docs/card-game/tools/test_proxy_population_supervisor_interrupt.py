@@ -6,6 +6,12 @@ from test_proxy_mandatory_population_input import bundle
 import proxy_population_batch_supervisor as api
 
 class SupervisorInterruptTests(unittest.TestCase):
+ def setUp(self):
+  # Conditional transport/storage test only; the real operational gate remains
+  # closed and is exercised without mocks by external_approval tests.
+  gate=patch.object(api.external_approval,'require_operation_ready',return_value=None)
+  gate.start();self.addCleanup(gate.stop)
+
  def test_control_interrupt_keeps_full_schedule_and_never_retries(self):
   for signal in (KeyboardInterrupt,SystemExit):
    with self.subTest(signal=signal.__name__),tempfile.TemporaryDirectory() as directory:

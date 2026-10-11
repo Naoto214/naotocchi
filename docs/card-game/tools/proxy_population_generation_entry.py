@@ -7,6 +7,7 @@ successfully. No games, automatic retry, resume, remote publication or lock.
 import os,platform
 from pathlib import Path
 import proxy_population_execution_edition as edition
+import proxy_population_external_approval as external_approval
 import proxy_population_input_history as history
 import proxy_population_remote_publication as remote
 from proxy_population_material_protocol import Cursor
@@ -27,6 +28,7 @@ def write_exclusive(path,value):
 def generate_after_external_approval(repository,commit,destination,approval_reference):
  """Operational caller must obtain approval; reference text is not a token."""
  if type(approval_reference) is not str or not approval_reference.strip():raise ValueError('external approval reference required; text does not authenticate approval')
+ external_approval.require_operation_ready('generation')
  repository=Path(repository).resolve();destination=Path(destination).resolve()
  if repository!=ROOT.parents[1].resolve() or not destination.is_relative_to((ROOT/'data').resolve()) or destination==(ROOT/'data').resolve():raise ValueError('generation must use current source repository and a new CARD GAME data directory')
  certificate=edition.capture(repository,commit)

@@ -767,3 +767,18 @@ P10: 既存通常/response入口で相手の伏せI-poop1現物IDを置換し、
 preflight-ready=false。seed生成/本番入力固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。475・過去結果は不変。P07〜12の全機会/情報実使用/operand履歴由来とP13〜18の残件を維持。外部承認方式P13の採用は今回の「続き」から導かない。
 
 最終固定結合57PASS166.369s/exit0、tools直下Python1030ファイルの前後fingerprint一致。設計errors=[]、番号付き正本477不変。実行module・終了値・全logを保存。最新全proxy回帰や全情報使用の証明ではない。
+
+
+### 2026-10-11 P13本人コメント方式採用・live検証・本番入口閉鎖
+
+基準b65c931/tree5d6d8fa、fresh PR Draft/open/unmergedとowner ID323909980/type Userを確認。直前に方式採否を尋ねた応答への「続きお願いします」を、この具体案の準備実装の続行として受領。今回から方式採用済み。以前の退場順Aや過去の未承認状態は書換えない。生成/固定/開始の実承認ではない。
+
+新external_approval共通層はgeneration/launch requestの対象digestを分離し、GitHub本人ID・PR/branch/head・完全本文・日時・全ページ取消・最後のcomment再読を検証。対象の途中変更をdeepcopyで防止。固定local消費ファイルのO_EXCLで同local領域の二重消費を拒否。API現在観測だけを全編集/取消履歴やremote巻戻し防止に昇格しない。
+
+generation/attempt/supervisor入口へ共通preflight停止を接続。現行gateは常時閉鎖で、caller bool・文字列・認証済コメントでも開かない。既存条件付き保存/中断/old115 prefixテストだけでgateを明示mockし、本番未許可を維持。
+
+新6RED→6PASS、request変更RED→最終unit8PASS。独立review1回重大runtime指摘なし。軽微とされたdestination否定試験の誤った前提は、必要な安全gate検証を誤認するため検証上のImportantとして再分類し、拒否理由不一致のRED1FAIL→registry前提修正→8PASS0.107s。再reviewなし。初回固定32件の2FAILはpackage拒否よりpreflight拒否が先に働いたためで、packageテストも前提gateを明示mockして再実行。失敗logと最終結果は区別する。
+
+P13方式の再承認は不要。P13全体・P14/15のfresh全blob/remote消費記録/結果前時系列とP16の全証拠合成は未完。P07〜12も残る。preflight-ready=false、seed生成/本番入力固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。詳細はexternal-approval-review.mdと方式計画末尾。
+
+最終関連固定32PASS46.662s/exit0、再帰Python1056ファイル前後一致。design errors=[]、番号付き正本477不変。初回32件2FAILは別logに保持。今回の実本人コメント検証/消費0、seed/本番固定/400戦0、全proxy回帰完了ではない。

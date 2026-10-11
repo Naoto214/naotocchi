@@ -8,6 +8,7 @@ import base64,copy,gzip,hashlib,json,os,subprocess,sys
 from pathlib import Path
 import proxy_population_input_lock as lock
 import proxy_population_execution_edition as edition
+import proxy_population_external_approval as external_approval
 import proxy_population_generation_package as generation_package
 import proxy_population_remote_publication as remote
 from proxy_mandatory_population_input import audit_input_bundle
@@ -29,6 +30,7 @@ def digest(raw):return hashlib.sha256(raw).hexdigest()
 
 def run_after_external_approval(bundle,receipt,certificate,repository,limit,destination,approval_reference):
  if type(approval_reference) is not str or not approval_reference.strip():raise ValueError('external approval reference required; not an authentication token')
+ external_approval.require_operation_ready('launch')
  if type(limit) is not int or not 1<=limit<=512:raise ValueError('invalid bounded step limit')
  repository=Path(repository).resolve();destination=Path(destination).resolve()
  if repository!=ROOT.parents[1].resolve() or not destination.is_relative_to((ROOT/'data').resolve()) or destination==(ROOT/'data').resolve():raise ValueError('supervisor requires current repository and new CARD GAME data directory')

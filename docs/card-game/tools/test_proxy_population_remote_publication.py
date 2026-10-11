@@ -64,6 +64,8 @@ class RemotePublicationTests(unittest.TestCase):
    with self.subTest(entry=module.__name__),tempfile.TemporaryDirectory() as temp,ExitStack() as stack:
     root=Path(temp)/'docs'/'card-game';(root/'data').mkdir(parents=True);out=root/'data'/'must-not-exist'
     stack.enter_context(patch.object(module,'ROOT',root))
+    # Isolate remote publication rejection behind the independently tested closed gate.
+    stack.enter_context(patch.object(module.external_approval,'require_operation_ready',return_value=None))
     stack.enter_context(patch.object(api,'verify',return_value=dict(fresh_remote_head_verified=False,errors=['remote head moved'])))
     stack.enter_context(patch.object(gen.os,'urandom',side_effect=AssertionError('no entropy')))
     stack.enter_context(patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('no execution')))

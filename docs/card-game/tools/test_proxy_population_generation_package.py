@@ -69,7 +69,8 @@ class EntryPackageGateTests(unittest.TestCase):
   for entry in (attempt,supervisor):
    with self.subTest(entry=entry.__name__),tempfile.TemporaryDirectory() as d:
     root=Path(d)/'docs/card-game';(root/'data').mkdir(parents=True);out=root/'data/never-started'
-    with patch.object(entry,'ROOT',root),patch.object(entry.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)),patch.object(entry.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)),patch.object(api,'audit_committed_generation',return_value=dict(committed_generation_consistent=False,errors=['missing immutable journal'])),patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('executor must not run')),patch.object(supervisor.subprocess,'run',side_effect=AssertionError('child must not launch')):
+    # Isolate package rejection; production readiness is tested fail-closed separately.
+    with patch.object(entry.external_approval,'require_operation_ready',return_value=None),patch.object(entry,'ROOT',root),patch.object(entry.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)),patch.object(entry.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)),patch.object(api,'audit_committed_generation',return_value=dict(committed_generation_consistent=False,errors=['missing immutable journal'])),patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('executor must not run')),patch.object(supervisor.subprocess,'run',side_effect=AssertionError('child must not launch')):
      args=(bundle(),{},{},Path(d))
      if entry is attempt:args+=('test-1A',)
      with self.assertRaisesRegex(ValueError,'generation package'):entry.run_after_external_approval(*args,3,out,'unit-reference-only')

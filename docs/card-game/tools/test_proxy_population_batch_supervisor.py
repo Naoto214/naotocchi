@@ -8,6 +8,12 @@ try:import proxy_population_batch_supervisor as api
 except ImportError:api=None
 
 class SupervisorTests(unittest.TestCase):
+ def setUp(self):
+  # Conditional transport/storage test only; the real operational gate remains
+  # closed and is exercised without mocks by external_approval tests.
+  gate=patch.object(api.external_approval,'require_operation_ready',return_value=None)
+  gate.start();self.addCleanup(gate.stop)
+
  def test_next_row_is_never_launched_after_incomplete_or_failed_child(self):
   self.assertIsNotNone(api)
   for mode in ('incomplete','failure'):
@@ -45,6 +51,7 @@ class SupervisorTests(unittest.TestCase):
   prefix="""import sys
 sys.path.insert(0,sys.argv[1])
 import proxy_population_attempt_runner as a
+a.external_approval.require_operation_ready=lambda stage:None # historical fixture only
 a.lock.verify_git_binding=lambda *args,**kw:dict(immutable_content_verified=True)
 a.edition.audit_bundle_edition=lambda *args,**kw:dict(bundle_edition_bound=True)
 a.edition.verify=lambda *args,**kw:dict(local_edition_verified=True)

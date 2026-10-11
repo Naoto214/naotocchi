@@ -7,6 +7,12 @@ try:import proxy_population_attempt_runner as api
 except ImportError:api=None
 
 class AttemptRunnerTests(unittest.TestCase):
+ def setUp(self):
+  # Conditional transport/storage test only; the real operational gate remains
+  # closed and is exercised without mocks by external_approval tests.
+  gate=patch.object(api.external_approval,'require_operation_ready',return_value=None)
+  gate.start();self.addCleanup(gate.stop)
+
  def test_missing_external_reference_cannot_invoke_the_executor(self):
   self.assertIsNotNone(api)
   with tempfile.TemporaryDirectory() as d,patch.object(api.connected,'reconstruct',side_effect=AssertionError('must not execute')):

@@ -1,4 +1,4 @@
-# P13 外部承認の信頼主体・認証方式（未承認案）
+# P13 外部承認の信頼主体・認証方式（方式採用・実行未承認）
 
 基準: c75e7f1b4eebc5a7b3fe8d8a0aec4427c87ceee2。475の退場順Aとは別の、既存P13の未決事項。生成／開始の承認を求めるものではない。今回の承認取得、seed生成、本番入力固定、400戦開始は0。
 
@@ -28,3 +28,21 @@
 両stageのrequestを分離し、固定authorityとfresh取得機構を生成／attempt／supervisorの共通gateへ接続する。無承認、別著者、別repo/PR、対象差替え、編集、取消、既消費、取得不能、remote変化、版差替えを副作用前に拒否する。テストには合成コメントと既存115の条件付き入力だけを使い、本番材料は生成しない。テストのmockを運用認証に使わない。
 
 P07〜12の全dispatch／全機会／情報実使用／operand由来の未完も別に残る。P13だけが唯一のpreflight blockerであるとは扱わない。22項目台帳と旧460を維持する。
+
+
+## 2026-10-11 方式採用と実装境界
+
+直前に本人PRコメント方式の採否を明示して尋ねた応答に対する「続きお願いします」を、この具体案による準備実装の続行として受領。過去の退場順Aやそれ以前の繰り返しを遡及してP13承認にはしない。今回もseed生成・本番入力固定・実行開始は承認されていない。方式採用と個別requestへの実承認を分離する。
+
+`proxy_population_external_approval`でgeneration/launchのcanonical requestを分離した。edition全体digest、commit/tree、107/463〜465、生成先、履歴registry、または完成manifest/receipt/package全artifactのdigest・固定400順・limit・retry/resume禁止を対象へ結合する。requestはnetwork呼出前にdeepcopyして、途中の入力変更が承認対象へ混入しない。
+
+公開GitHub APIを固定repoへ直接GET（TLS、redirect拒否、timeout30秒、8MiB上限、重複JSON key拒否）。本人ID/type、repo owner、PR259 Draft/open/unmerged・head/branch、comment ID/PR/完全本文・created_at/updated_atを照合。全commentページを上限100ページまで検査し、上限到達/欠落/重複/取得不能で停止。最後にcommentを再取得する。取消は`revocation_text(request,comment_id)`の文面を含む本人コメントで扱い、既存ページの途中切りで無視しない。今回実APIはrepo名とowner IDのGETのみ成功確認し、実承認コメントを認証・投稿・消費していない。
+
+`consume_live`はfresh再検証後、comment ID単位の固定localファイルをO_EXCLで記録し、同じlocal領域での二重消費を拒否する。local claimはremote保存/巻戻し防止の証明ではない。共通`require_operation_ready`は現行preflight未完を理由に常に停止し、generation/attempt/supervisorの既存本番入口を副作用前に閉じる。既存条件付きテストだけでこのgateを明示mockし、旧115/zero-root prefix・mock child・entropyを返す前の中断検査を保持する。caller boolやコメント検証結果でgateを開けない。
+
+### 限界と残り
+
+- GitHub APIの現在のcreated_at/updated_atが一致しても、同一秒の編集・元へ戻す編集や、観測間で作成/削除された取消の完全履歴は証明できない。`historical_edit_absence_proven=false`。観測で分かる編集/取消は拒否するが、履歴不存在を保証しない。
+- API読取・local消費・remote保存は単一transactionではない。全blob/editionのfresh再照合、remote消費記録の結果前固定、P14/15の乱数由来・時系列・巻戻し境界、P16の全必須証拠合成は未完。現時点で本番入口を開かない。
+- request builderは供給された証拠へのbindingであり、それ自体はedition/package真実性を認証しない。今後既存capture/audit/remote検査と共通gate内でfresh合成する。`verify_live`のtrueは「現在の本人コメントがこのrequestを承認している」範囲のみ。
+- P07〜12の全機会/情報実使用/operand由来も未完。P13全体完了・preflight-readyを主張しない。生成・開始の実承認は準備完了後に具体的なrequestを提示して別々に取得する。
