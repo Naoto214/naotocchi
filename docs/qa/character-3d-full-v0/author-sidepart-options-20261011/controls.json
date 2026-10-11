@@ -1,0 +1,15 @@
+{
+  "results": [
+    {
+      "case": "restore_wide_notch",
+      "exitCode": 1,
+      "detected": true
+    },
+    {
+      "case": "restore_unsplit_production_fringe",
+      "exitCode": 1,
+      "detected": true
+    }
+  ],
+  "restoredSHA256": "4a04545adad272fa55e76a8b92dfe6f41bf80ebd8ad590b344bf3fe31593857c"
+}

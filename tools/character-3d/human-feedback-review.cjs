@@ -11,14 +11,16 @@ async function run(out,options={}){
   for(const [y,version]of Object.keys(sets).entries()){
    const page=await browser.newPage({viewport:{width:320,height:320},deviceScaleFactor:1});page.on('pageerror',e=>errors.push(String(e)));
    if(version==='before'||options.candidates)await page.route('**/character-3d/nonplayer-spec.js',route=>route.fulfill({contentType:'text/javascript',body:'globalThis.NaotocchiNonPlayerWave=()=>('+JSON.stringify(sets[version])+');'}));
+   const cameraSide=options.candidates&&version==='E'?-1:1;
+   if(cameraSide===-1)await page.route('**/character-3d/wave-review.html?*',route=>route.fulfill({contentType:'text/html',body:fs.readFileSync(path.join(__dirname,'../../character-3d/wave-review.html'),'utf8').replace("'34':.62,side:Math.PI/2","'34':-.62,side:-Math.PI/2")}));
    tiles.push({input:original,left:0,top:40+y*360});
    for(const [x,view]of views.entries()){
     await page.goto('http://127.0.0.1:'+srv.address().port+'/character-3d/wave-review.html?'+new URLSearchParams({id:key,stage:'0',view,emotion:'normal',walk:'0',reduced:'0'}));
     await page.waitForFunction(()=>window.__wave?.ready);const info=await page.evaluate(()=>window.__wave);assert.equal(info.id,key);assert.equal(info.view,view);
-    const file=key.replace(':','-')+'-'+version+'-'+view+'.jpg';await page.screenshot({path:path.join(out,file),type:'jpeg',quality:92});records.push({version,file,...info});tiles.push({input:path.join(out,file),left:(x+1)*320,top:40+y*360});
+    const file=key.replace(':','-')+'-'+version+'-'+view+'.jpg';await page.screenshot({path:path.join(out,file),type:'jpeg',quality:92});records.push({version,file,cameraSide,...info});tiles.push({input:path.join(out,file),left:(x+1)*320,top:40+y*360});
    }await page.close();
   }
-  const names=Object.keys(sets),height=names.length*360,label=Buffer.from('<svg width="1600" height="'+height+'"><g font-family="sans-serif" font-size="18" fill="#34332f">'+names.map((v,i)=>'<text x="12" y="'+(26+i*360)+'">2D original | '+v+' — front / 3-4 / side / back</text>').join('')+'</g></svg>');
+  const names=Object.keys(sets),height=names.length*360,label=Buffer.from('<svg width="1600" height="'+height+'"><g font-family="sans-serif" font-size="18" fill="#34332f">'+names.map((v,i)=>'<text x="12" y="'+(26+i*360)+'">2D original | '+v+(options.candidates?(v==='E'?' (left-side camera)':' (right-side camera)'):'')+' — front / 3-4 / side / back</text>').join('')+'</g></svg>');
   tiles.push({input:label,left:0,top:0});const board=await sharp({create:{width:1600,height,channels:3,background:'#eee9dd'}}).composite(tiles).jpeg({quality:94}).toBuffer();await fs.promises.writeFile(path.join(out,key.replace(':','-')+(options.candidates?'-options.jpg':'-comparison.jpg')),board);
   if(options.candidates)for(const [i,id]of names.entries())await sharp(board).extract({left:0,top:i*360,width:1600,height:360}).jpeg({quality:94}).toFile(path.join(out,key.replace(':','-')+'-'+id+'-views.jpg'));
  }
