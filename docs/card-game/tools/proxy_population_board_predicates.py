@@ -121,7 +121,33 @@ def compose(inventory,proofs):
   selection_operand_provenance_verified=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
 
 
-def audit_response(envelope,events,inventory):
+def _start_condition_at_origin(envelope,events,trace,source,actor,origin):
+ """Reuse start collection at its actual supplied boundary, never today's hand."""
+ import proxy_population_start_obligations as starts
+ from proxy_population_resolution_semantics import event_digest
+ if type(trace) is not list or not trace:return None
+ if canonical(trace[-1])!=canonical(envelope):raise ValueError('start condition trace endpoint differs')
+ sequences=[e['event_seq'] for e in trace]
+ if any(type(seq) is not int for seq in sequences) or sequences!=sorted(set(sequences)):raise ValueError('start condition trace order differs')
+ matches=[e for e in trace if e['event_seq']==origin['seq']]
+ if len(matches)!=1:return None
+ opened=matches[0];current=state.current(opened);g=current['game_state']
+ if origin.get('game_state_after_sha256')!=current['source_game_state_sha256'] or origin.get('continuation_state_after_sha256')!=current['continuation_state_sha256']:raise ValueError('start condition origin event binding differs')
+ captures=[e for e in trace if e['event_seq']<origin['seq'] and e['legacy_continuation']['game_state']['phase']=='turn_start' and e['legacy_continuation']['game_state']['turn_player']==actor and e['legacy_continuation']['game_state']['round']==g['round']]
+ if len(captures)!=1:return None
+ proof=starts.collect(starts.capture(captures[0]),opened)
+ rows=[r for r in proof['classifications'] if r['source_instance_id']==source]
+ if len(rows)!=1 or rows[0]['card_id']!='I-bowtie' or rows[0]['reason_code']!='hand_count_above_two':return None
+ if any(r['source_instance_id']==source for r in proof['occurrences']):raise ValueError('start condition negative has an occurrence')
+ now=envelope['legacy_continuation']['game_state']
+ if canonical(g['cards'].get(source))!=canonical(now['cards'][source]):raise ValueError('start condition physical source differs')
+ return dict(condition_met_at_start=False,hand_count_at_start=len(g['players'][actor]['hand']),
+  start_envelope_sha256=state.canonical_sha256(opened),capture_envelope_sha256=state.canonical_sha256(captures[0]),
+  origin_event_sha256=event_digest(origin),source_catalog_sha256=starts.CATALOG_SHA,
+  classification=rows[0],scope='actual_supplied_start_boundary_only',history_authenticated=False)
+
+
+def audit_response(envelope,events,inventory,runtime_history=None):
  """Own-turn activated board abilities and explicitly nonactivated kinds.
 
  Occurrence-dependent triggers, prepared cards and unknown classifications need
@@ -203,9 +229,11 @@ def audit_response(envelope,events,inventory):
      met=ctx['window_kind']=='turn_start' and actor==g['turn_player'] and origin['actor']==actor and kind=='turn_start'
     # Restrict this local negative to registered normal-method origins or
     # another player's turn; unknown own-turn mechanisms remain unproved.
-    if met or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS):
+    condition=_start_condition_at_origin(envelope,events,runtime_history,source,actor,origin) if met and card=='I-bowtie' and runtime_history is not None else None
+    if (met and condition is None) or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS and condition is None):
      unproved.append(dict(source_instance_id=source,card_id=card,reason='start_response_negative_not_proven'));continue
-    start_negative_audits[source]=dict(origin_event_seq=origin['seq'],origin_action=raw,normalized_origin_action=kind,timing_matches=False,source_reference=cap['reference'])
+    start_negative_audits[source]=dict(origin_event_seq=origin['seq'],origin_action=raw,normalized_origin_action=kind,timing_matches=met,source_reference=cap['reference'])
+    if condition is not None:start_negative_audits[source]['condition_at_start']=condition
    else:
     if source in b['prepared']:
      unproved.append(dict(source_instance_id=source,card_id=card,reason='event_or_prepared_response_predicate_unproved'));continue

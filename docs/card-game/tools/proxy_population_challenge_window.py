@@ -89,7 +89,7 @@ def contract_scope():
      reaction_proof=response_predicates.audit_reactions(result['source_envelope'],decision['candidate_set_evidence'])
      if reaction_proof['errors']:raise ValueError('response reaction predicates differ: '+str(reaction_proof['errors']))
      result['response_reaction_predicates']=reaction_proof
-     board_proof=board_predicates.audit_response(result['source_envelope'],events,decision['candidate_set_evidence'])
+     board_proof=board_predicates.audit_response(result['source_envelope'],events,decision['candidate_set_evidence'],runtime_history)
      if board_proof['errors']:raise ValueError('response board predicates differ: '+str(board_proof['errors']))
      result['response_board_predicates']=board_proof
      prepared_proof=prepared_predicates.audit(result['source_envelope'],events,decision['candidate_set_evidence'])

@@ -59,6 +59,8 @@
 
 - 2026-10-12: I-bowtie非開始/相手開始responseの未証明残留2REDを既存開始否定へ接続。bowtie-nonstart-*、31PASS20.922s/Python1079前後一致、独立2PASS/C0I0M0。次は自分開始時の不成立証拠を元境界から結合、41source責務対応とP10/P11/P14–18。
 
+- 2026-10-12: 元開始境界のI-bowtie手札不成立をresponseへ結合。start-condition-history-*、30PASS13.809s/Python1080前後一致、独立5PASS/C0I0M0。現在枚数から過去条件を推定しない。次は41source責務対応とP10/P11/P14–18。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

@@ -1007,3 +1007,8 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P09 I-bowtie非開始responseの否定条件（2026-10-12）
 
 c13b823から41source対応を読んで発見。既存C-chicken否定分岐へ77/source catalog由来I-bowtieの非開始/相手開始を結合。unitとsupplied実driverの2RED、最終31PASS20.922s・Python1079前後一致、独立2PASS0.500s/C0I0M0。bowtie-nonstart-*。自分開始/後続pass/未知originは未証明、現在手札3枚を開始時条件へ流用しない。次は元の開始境界からの不成立証拠の結合、全source責務/P10/P11/P14–18。preflight-ready=false、生成/固定/400戦0。
+
+
+### P09 元開始境界のI-bowtie不成立証拠（2026-10-12）
+
+659f43aから実開始draw後hand3のresponse未証明停止1REDを修正。既存capture/collectと元event両hash、trace終点/順序、sourceを結合。現在枚数を過去条件へ流用しない。start-condition-history-*、最終30PASS13.809s/Python1080前後一致、独立5PASS1.450s/C0I0M0。不存在test名の失敗原本を区別保存。supplied元境界の結合であり全履歴/機会認証ではない。次は41source全作用の責務対応とP10/P11/P14–18合成。preflight-ready=false、生成/固定/400戦0。
