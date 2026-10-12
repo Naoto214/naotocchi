@@ -1,5 +1,22 @@
 # 400戦 preflight残課題台帳
 
+## 最新状態 — positive終了証明の共通修正・検証済み（2026-10-12）
+
+修正sourceは `66199f4937400b1b93f5520bdeb95540fc297a34` / tree `3a87df847af565dd66a4be528d3c1971d6401603`。最新保存HEAD/treeはfresh remoteで確認する。ed131adの停止原本を維持したまま、positiveの実遷移検証と終了履歴証明を共通builderで接続した。C-bat/M-antlion-03/M-antlion-06/P-cliff_goatに適用し、新しいゲーム裁定・成長値の推測・期間なしの仮定は追加しない。実成長差・source・依存・typed lifetimeが未証明ならunknown停止を維持する。
+
+停止原因はR8 B終了時のC-bat発動seq188/解決seq194の終了証明欠落。保存213event/214snapshot/212envelopeを用いる監査限定診断では、修正後の未解決コードとstop codesが空、終了集合証明が成立した。監査で例外停止し次ターン処理に到達しない。既存capture/境界の再利用は診断限定で、新edition admissionの証明ではない。
+
+- 現行population/mandatory **188モジュール885件PASS**、1968.667秒、実exit0、生ログRan885/OK。Python1093ファイルの前後一致と固定source commit一致を確認。
+- 関連11モジュール49件PASS、23.230秒、実exit0/Ran49/OK、同じ1093ファイル一致。
+- 独立read-onlyレビュー1回: C0/I0/Minor1。Minorの恒久テストを追加して上記回帰で確認。レビュアーによる修正後再査読とは扱わない。
+- 固定入力・停止原本・承認消費履歴23ファイルはed131adとbytes一致、全回帰後も再確認。未完了1/未実施399、balance標本0、全体結論null、policy promotion=falseを維持。再実行/resume/新seed/旧manifest上書き/新承認代行なし。
+
+証拠は `data/proxy-population-effective-application/verification/positive-end-66199f4-*`。旧876PASS/旧current-preflight.jsonは旧sourceの履歴であり、今回の修正版のpreflight-readyへ流用しない。
+
+次の工程は新editionと旧固定入力の明示的再結合契約。現行v1は同じeditionによる生成・実行を固定しており、そのままでは新sourceを認可できない。旧7成果物を保持し、別の派生実行manifestとappend-only bindingで両editionを結ぶ設計を `positive-end-66199f4-rebinding-design.md` に整理した。初期順/全policy roots/全400行/実行順等を完全一致に拘束し、新標本として扱わない。この追加契約は未実装。新preflightと結合監査が成立してから、新しい本人launch承認requestを構成する。旧開始承認は消費済みで再利用不可。現時点で修正版の実行準備完了・開始承認済みとはしない。
+
+以下は過去時点の履歴。古い「原因未特定」「Python変更未実施」「preflight-ready=true」を今回の最新状態と混同しない。
+
 ## 最新運用状態 — 400戦初回実行は第1戦未完了で停止（2026-10-12）
 
 入力package正本は `e40a2dd2248139875b5878a66648c4e568032d2d`、開始承認消費は `6d3c40f8f8ed40cc87afd1ae57b06a20499c3968`。最新HEAD/treeはfresh remoteを確認する。generationコメント6122359186・launchコメント6122537210は本人API実認証後に消費記録を保存済み。再消費・再生成・同じ承認による再起動禁止。

@@ -1,0 +1,124 @@
+{
+  "all_original_bytes_unchanged": true,
+  "baseline_commit": "ed131ade7fad0a49301ce675b95fbc8f1d8210cc",
+  "checked_files": [
+    {
+      "blob": "f507e9b1574fbf8fedb3e4bd5f37b4b948c74362",
+      "path": "docs/card-game/data/proxy-population-400-20261012/completion.json",
+      "sha256": "71f58c37b22167a0a43ea7f8ebfc51a7abd5349654995a9144c10a9f2d02f008"
+    },
+    {
+      "blob": "aa4cfeb26903ea53abb5192c90f5c35f32f6e565",
+      "path": "docs/card-game/data/proxy-population-400-20261012/edition.json",
+      "sha256": "77e726bded94e135fed8734701f56fb60de4fccb15af11b19c0199ff2b80b2fb"
+    },
+    {
+      "blob": "6c63105291d4ffca808257bcf38b9737e7b6262d",
+      "path": "docs/card-game/data/proxy-population-400-20261012/historical-registry.json",
+      "sha256": "464ad176bbfd3cc3b1889310f308ade1db4d94260389bc3d5490853f99edb2c8"
+    },
+    {
+      "blob": "428a7ef08b1d99b905fc57e92c4a54b00fabdc4e",
+      "path": "docs/card-game/data/proxy-population-400-20261012/manifest.json",
+      "sha256": "9cdb2c953c9b4463b8ca291dca6fc4241b3b9bcecf52c05997d89d7f17ffeb66"
+    },
+    {
+      "blob": "936436f86d498d3e66e2cd26b75d944a7a29d9ad",
+      "path": "docs/card-game/data/proxy-population-400-20261012/material.json",
+      "sha256": "6cd7129208f211c0ef6de217560e4a938a8df261de4e48322e2a0e57d46df9ad"
+    },
+    {
+      "blob": "9670c3f84353c37dd033273ced1c834c6b8c6e70",
+      "path": "docs/card-game/data/proxy-population-400-20261012/operation.json",
+      "sha256": "187b2a7d6db8f1fac16dac36a57a2cfa2e1a7dee90c6b54f7059af01ea396d84"
+    },
+    {
+      "blob": "6530f416e018b9c849cd679c58161f50702b1b1a",
+      "path": "docs/card-game/data/proxy-population-400-20261012/sampling-journal.jsonl",
+      "sha256": "ed12cb3fd2f6a56d9001449075e6bf40d9128824de375b7d3d2de29cc8f0f0a3"
+    },
+    {
+      "blob": "18fe3a8d51acce720d49cf5bfb2278b38b74ded3",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/attempt-0001/receipt.json",
+      "sha256": "9e4650d5fb20bc6cc6e520f4414a78a5bdea99ce3928ae027bf67cd3eef8332e"
+    },
+    {
+      "blob": "2553ee0fd7349c216bf1853820d5e0319586ff0f",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/attempt-0001/record.json.gz",
+      "sha256": "c2bbd01817c43e56c136fe23272cf16a3d0dc4016d67b72ad77fbd575ff0e82d"
+    },
+    {
+      "blob": "34c66632e7cd1aa460918378df3f61c72fce6a23",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/attempt-0001/start.json",
+      "sha256": "4d0224ba1169b981532fbf77056e8b4faaa644f2382d8d7a75387cdbf812ec72"
+    },
+    {
+      "blob": "3b76d84d84582153fefe685e2438c9d8bea9b10b",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/request-0001.json",
+      "sha256": "7dcbee0c65c6eb62fef818000bb1419d43464dcbca19b060a6939234bcce3542"
+    },
+    {
+      "blob": "1959b63c4b2c00528ea012f5e3cabad7a5f6a05f",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/result-0001.json",
+      "sha256": "d33274f91ea7171642cb94e600340bf2e1130efd0bc8e420a3195169a7d57220"
+    },
+    {
+      "blob": "300ae716b50b50efcbff2cfc927c74cb0ed839ea",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/start.json",
+      "sha256": "c1814dc46a969ee2166bce5358eaea64be58c741268ee6c62f944b3c02e9a77f"
+    },
+    {
+      "blob": "95e66f4dcaec7888abf1f5453372d085e35474ca",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/supervisor.json",
+      "sha256": "441e57ecd98d8d9f500fcdda83b5dfd1ddd2735ce23ecd20daab563d401a0210"
+    },
+    {
+      "blob": "78cf5c84f1745515a101d57844810a95f15f19aa",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/verification/fingerprints-after.json.gz",
+      "sha256": "c901dce6d806b3362ddc139a47f88cb7903bd96159a2cd0ea7775c9557690dd3"
+    },
+    {
+      "blob": "78cf5c84f1745515a101d57844810a95f15f19aa",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/verification/fingerprints-before.json.gz",
+      "sha256": "c901dce6d806b3362ddc139a47f88cb7903bd96159a2cd0ea7775c9557690dd3"
+    },
+    {
+      "blob": "c8098f1974b7cb6657fd4df8ddf001ab2c248234",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/verification/started.json",
+      "sha256": "b799d1830663458daf44c92e0d5a7e7fe7b8fc9667d97dbf8fe0e4ccffa8bfa1"
+    },
+    {
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/verification/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "blob": "95e66f4dcaec7888abf1f5453372d085e35474ca",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/verification/stdout.json",
+      "sha256": "441e57ecd98d8d9f500fcdda83b5dfd1ddd2735ce23ecd20daab563d401a0210"
+    },
+    {
+      "blob": "2d08c61399bfb90964213bd1ceec899ef05d67cc",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/verification/stopped-summary.json",
+      "sha256": "97947f1520caebd68dda5069b3ddd424d3714b77952df8b0b9ce47722a00d6f2"
+    },
+    {
+      "blob": "594fcbfb5714931286e0670d22ab366144ce4345",
+      "path": "docs/card-game/data/proxy-population-400-run-20261012/verification/summary.json",
+      "sha256": "5831ac49ca2d015154c78fed2a6362a027345a8666977948ec0e7b1a46adc118"
+    },
+    {
+      "blob": "63afce4e58d582ac406a1f2efb9b3eae5014cf09",
+      "path": "docs/card-game/data/proxy-population-approval-consumption/6122359186.json",
+      "sha256": "784f68f241e771a27514de8a89841bf27a2b00838d7d1ed5a8c413497b765e09"
+    },
+    {
+      "blob": "0affb027d870109ea977ca0ee8e9a3d99594e293",
+      "path": "docs/card-game/data/proxy-population-approval-consumption/6122537210.json",
+      "sha256": "1aa822de0033359b2db0e61cdf3940e2eae2a69be5c89f70c382645379268fd8"
+    }
+  ],
+  "no_execution_or_entropy_performed": true,
+  "rechecked_after_full_suite": true,
+  "scope": "original generation package, stopped run including verification, approval consumption history"
+}

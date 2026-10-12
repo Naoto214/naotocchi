@@ -1,0 +1,25 @@
+{
+  "committed_python_sources_verified": true,
+  "elapsed_seconds": 23.229913295001097,
+  "exit_code": 0,
+  "fingerprints_equal": true,
+  "module_count": 11,
+  "modules": [
+    "test_proxy_population_challenge_lifetime",
+    "test_proxy_population_end_victory",
+    "test_proxy_population_growth_runtime",
+    "test_proxy_population_main_movement_effect",
+    "test_proxy_population_payment_consumption",
+    "test_proxy_population_positive_activation_effect",
+    "test_proxy_population_positive_provenance",
+    "test_proxy_population_positive_saved_history",
+    "test_proxy_population_positive_window",
+    "test_proxy_population_trigger_effects",
+    "test_proxy_population_trigger_replay"
+  ],
+  "ok": true,
+  "python_file_count": 1093,
+  "tested_commit": "66199f4937400b1b93f5520bdeb95540fc297a34",
+  "tested_tree": "3a87df847af565dd66a4be528d3c1971d6401603",
+  "tests": 49
+}
