@@ -13,3 +13,10 @@ Git push unavailable (no HTTPS credentials); use connected Git Data API non-forc
 Existing npm test baseline attempted: stopped in tests/dialogue-test.js on missing assets/characters/author/naoto.png because sparse checkout excludes assets. Not a full-suite PASS. Existing source files unchanged.
 Ruling: primary strategic policy is exact one-action lookahead with chain/height/setup evaluation; beam2 (top two immediate candidates, one further public piece) is supplementary. Neither is an optimal or human policy.
 Ruling: item policy permits at most two item actions between ordinary drops, solely to bound policy loops; manual game does not impose this limit.
+
+Task 3: browser runner authored before UI; Chromium launch blocked by environment socket EPERM (not a product test failure; no browser PASS claimed). Socket-free jsdom integration verifies real UI events.
+DOM regression found idle finishWave reset falling pose: RED→GREEN guard. Items disabled once fall motion begins; preview and stale timer tests pass.
+Fresh-context whole-branch reviewer: two Important findings, settled topout and incomplete imported configs; both fixed with failing regressions then GREEN. Re-grade two minor robustness findings as Important for uninterrupted play/import: long legal paths could never lock, and false active spawn imports freeze play. Both RED→GREEN fixed.
+Ruling: settled alternative now ends only on blocked spawn after resolution; explicit hidden rows may remain in off-spawn columns. Reran affected sensitivity-settled results; no other config affected.
+Imported sessions require all explicit rule fields (no hidden defaults); seed and active spawn validation included.
+Supplemental exposure experiments declared after observing zero baseline egg acquisition; their seed0..39 sets are fixed before outcomes and reported separately as exploratory.

@@ -1,0 +1,2014 @@
+<!doctype html>
+<html lang="ja">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>なおとっち｜成長連鎖ラボ</title
+  ><style>:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #203d50;
+  background: #eef3f6;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 30px 24px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0 28px;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #4c819f;
+  font-weight: 800;
+}
+h1 {
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  margin: 8px 0;
+}
+header p {
+  margin: 0;
+  color: #526f7f;
+}
+.badge {
+  background: #d5e5ed;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  margin-left: 10px;
+}
+.lab {
+  text-align: right;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #6a7b86;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+}
+.play,
+.panel {
+  background: #fff;
+  border: 1px solid #d7e3e9;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 25px #163c5510;
+}
+.hud {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+.playarea {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: flex-start;
+}
+#board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 6), 1fr);
+  gap: 3px;
+  background: #1c3c50;
+  padding: 7px;
+  border-radius: 12px;
+  width: min(100%, 322px);
+  aspect-ratio: 1/2;
+  box-shadow: inset 0 0 0 1px #355c70;
+}
+.cell {
+  min-width: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  position: relative;
+  border-radius: 6px !important;
+  background: #2a4b5e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1;
+  touch-action: manipulation;
+}
+.cell.piece {
+  background: var(--color);
+  color: #15354c;
+  box-shadow: inset 0 -3px 0 #00000016;
+}
+.cell.active {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+.cell.ghost {
+  opacity: 0.35;
+}
+.cell.selected {
+  outline: 3px solid #ffdd77;
+  outline-offset: -2px;
+}
+.cell small {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  font-size: 8px;
+  opacity: 0.7;
+}
+.playarea aside {
+  min-width: 65px;
+  max-width: 85px;
+}
+h3 {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #7c94a1;
+  margin: 12px 0 8px;
+}
+h3:first-child {
+  margin-top: 0;
+}
+.nextpair {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+.mini {
+  display: inline-flex;
+  min-width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color);
+  font-size: 11px;
+  font-weight: 800;
+}
+.stock {
+  font-size: 11px;
+  line-height: 1.8;
+}
+#gauge {
+  font-size: 16px;
+  color: #3c799a;
+}
+#status {
+  min-height: 44px;
+  padding: 14px 0 6px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #357997;
+}
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr 1fr 1.4fr;
+  gap: 6px;
+}
+button,
+select,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  border: 1px solid #ccdce5;
+  background: #f5f9fb;
+  color: #23475e;
+  border-radius: 9px;
+  padding: 10px 12px;
+  touch-action: manipulation;
+}
+button:hover {
+  filter: brightness(0.97);
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+button.primary {
+  background: #376f90;
+  color: white;
+  border-color: #376f90;
+}
+.hint,
+.muted {
+  font-size: 12px;
+  color: #6b8190;
+  line-height: 1.7;
+}
+.hint {
+  text-align: center;
+  margin: 12px 0;
+}
+.wavecontrols {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 11px;
+}
+.wavecontrols button {
+  font-size: 11px;
+  padding: 7px;
+}
+.wavecontrols label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+h2 {
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 11px;
+  color: #526e7d;
+}
+input,
+select,
+textarea {
+  border: 1px solid #c9dbe5;
+  background: #fff;
+  color: #224457;
+  border-radius: 7px;
+  padding: 8px;
+  min-width: 0;
+  width: 100%;
+}
+input[type="checkbox"] {
+  width: auto;
+}
+#selected {
+  font-size: 12px;
+}
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.buttons button {
+  font-size: 12px;
+}
+details {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 12px 0;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #e1eaf0;
+  margin: 22px 0;
+}
+.settings {
+  padding: 16px 20px;
+  background: #ffffffa0;
+  border: 1px solid #d7e3e9;
+  border-radius: 12px;
+  margin-top: 18px;
+}
+.settings .form {
+  grid-template-columns: repeat(4, 1fr);
+  margin: 18px 0;
+}
+textarea {
+  font: 11px/1.6 monospace;
+  resize: vertical;
+}
+footer {
+  font-size: 11px;
+  text-align: center;
+  color: #718995;
+  margin: 24px 0;
+}
+#resourceEggs,
+#resourceGauge {
+  margin-bottom: 8px;
+}
+@media (max-width: 760px) {
+  main {
+    padding: 16px 12px;
+  }
+  header {
+    margin: 4px 0 20px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .lab {
+    display: none;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .play,
+  .panel {
+    padding: 16px;
+  }
+  .playarea {
+    gap: 12px;
+  }
+  #board {
+    max-width: 280px;
+  }
+  .settings .form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .controls button {
+    padding: 12px 4px;
+    font-size: 13px;
+  }
+  .playarea aside {
+    min-width: 60px;
+  }
+  .cell {
+    font-size: 11px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+}
+</style>
+  <body>
+    <main>
+      <header>
+        <div>
+          <div class="eyebrow">NAOTOCCHI · RULE LAB / 01</div>
+          <h1>つながって、育つ。</h1>
+          <p>成長連鎖パズル <span class="badge">独立プロトタイプ</span></p>
+        </div>
+        <span class="lab">検証用仮設定<br />本編には接続しません</span>
+      </header>
+      <div class="layout">
+        <section class="play">
+          <div class="hud">
+            <span id="stats"></span><button id="pause">自動落下 OFF</button>
+          </div>
+          <div class="playarea">
+            <div id="board" aria-label="盤面"></div>
+            <aside>
+              <h3>NOW</h3>
+              <div id="current"></div>
+              <h3>NEXT 3</h3>
+              <div id="next"></div>
+              <h3>EGGS</h3>
+              <div id="eggs"></div>
+              <h3>へんしん</h3>
+              <strong id="gauge"></strong>
+            </aside>
+          </div>
+          <div id="status" role="status">準備中</div>
+          <div class="controls">
+            <button id="left" aria-label="左">←</button
+            ><button id="rotate">回転 ↻</button
+            ><button id="right" aria-label="右">→</button
+            ><button id="down">↓</button
+            ><button id="drop" class="primary">落とす</button>
+          </div>
+          <p class="hint">矢印：移動・回転　Space：落下　P：一時停止</p>
+          <div class="wavecontrols">
+            <button id="stepWave">1波進める</button
+            ><button id="finishWave">演出完了</button
+            ><label
+              ><input type="checkbox" id="manualWave" />手動で連鎖を見る</label
+            ><label
+              >演出<select id="tempo">
+                <option value="260">標準</option>
+                <option value="100">短い</option>
+              </select></label
+            >
+          </div>
+        </section>
+        <section class="panel">
+          <h2>次の一手をつくる</h2>
+          <p class="muted">盤面のマスを選び、道具の結果を確認できます。</p>
+          <div class="form">
+            <label
+              >操作<select id="action">
+                <option value="transform">へんしん · 1本</option>
+                <option value="bulk">だいへんしん · 3本</option>
+                <option value="egg">卵を置く</option>
+                <option value="edit">盤面編集</option>
+              </select></label
+            ><label>変更先／配置種<select id="species"></select></label
+            ><label
+              >卵ランク<select id="rank">
+                <option value="0">普通 · 01</option>
+                <option value="1">銀 · 02</option>
+                <option value="2">金 · 03</option>
+                <option value="3">プラチナ · 04</option>
+              </select></label
+            ><label>編集段階<select id="stage"></select></label>
+          </div>
+          <p id="selected">選択：未選択</p>
+          <div class="buttons">
+            <button id="preview">結果予告</button
+            ><button id="use" class="primary">道具を使う</button>
+          </div>
+          <p id="prediction" class="muted">
+            資源は実際に使うまで消費しません。
+          </p>
+          <details>
+            <summary>盤面エディタ・資源付与</summary>
+            <p>
+              「盤面編集」でクリックして配置。消去は下のボタン。編集後に「盤面を開始」を押してください。資源付与は自然獲得とは別の実験です。
+            </p>
+            <div class="buttons">
+              <button id="erase">選択マス消去</button
+              ><button id="empty">全消去</button
+              ><button id="applyBoard">盤面を開始</button>
+            </div>
+            <label
+              >卵4種 JSON<input id="resourceEggs" value="[0,0,0,0]" /></label
+            ><label
+              >ゲージ（本）<input
+                id="resourceGauge"
+                type="number"
+                min="0"
+                value="0"
+            /></label>
+          </details>
+          <hr />
+          <h2>連鎖を観察する</h2>
+          <div class="buttons">
+            <button id="fixture3">3連鎖の盤面</button
+            ><button id="fixture5">5連鎖の盤面</button
+            ><button id="trigger">発火</button
+            ><button id="natural3">通常プレイの3連鎖</button
+            ><button id="natural5">通常プレイの5連鎖</button>
+          </div>
+          <p class="muted">
+            合成盤面：卵1個で発火。通常プレイ由来の証跡は測定結果に別保存。
+          </p>
+          <div class="buttons">
+            <button id="strategy">連鎖狙いの1手</button
+            ><button id="random">ランダムの1手</button>
+          </div>
+        </section>
+      </div>
+      <details class="settings">
+        <summary>比較用ルール・seed（この検証画面専用）</summary>
+        <p>
+          以下はすべて仮設定です。設定変更は「新しく開始」で反映。disjointは消費範囲fiveが必要です。
+        </p>
+        <div class="form" id="rules"></div>
+        <div class="buttons">
+          <button id="restart" class="primary">新しく開始</button>
+        </div>
+      </details>
+      <details class="settings">
+        <summary>再現データ・操作ログ</summary>
+        <div class="buttons">
+          <button id="export">ログを書き出す</button
+          ><button id="exportBoard">初期状態JSON</button
+          ><button id="import">JSONを読み込む</button>
+        </div>
+        <textarea
+          id="json"
+          rows="8"
+          spellcheck="false"
+          aria-label="再現JSON"
+        ></textarea>
+        <p class="muted">
+          ログは初期状態・全設定・操作列・最終hashを含みます。初期状態JSONの卵・ゲージ・盤面も編集できます。
+        </p>
+      </details>
+      <footer>
+        検証対象：単純さ / テンポ / 大連鎖 / 長期戦略　·　v1 experimental
+      </footer>
+    </main>
+    <script>(() => {
+  // prototypes/growth-chain/natural-fixtures.mjs
+  var naturalFixtures = {
+    3: {
+      state: {
+        version: "growth-chain-lab/1",
+        seed: 0,
+        rules: {
+          width: 6,
+          height: 12,
+          kinds: 5,
+          anchor: "bottom",
+          bulkAnchor: "bottom",
+          consume: "all",
+          competition: "component",
+          pairFirst: false,
+          deathSpecies: "same",
+          eggCount: "group",
+          eggThresholds: [1, 2, 3, 4],
+          gaugeMetric: "consumed",
+          gaugeUnit: 16,
+          scoreMode: "linear",
+          topOut: "lock",
+          eggPlacement: "column",
+          bag: "fourEach"
+        },
+        board: [
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [
+            null,
+            {
+              id: 19,
+              k: 0,
+              s: 2
+            },
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              id: 7,
+              k: 4,
+              s: 2
+            },
+            {
+              id: 11,
+              k: 1,
+              s: 1
+            },
+            {
+              id: 21,
+              k: 4,
+              s: 1
+            },
+            {
+              id: 14,
+              k: 4,
+              s: 2
+            },
+            {
+              id: 23,
+              k: 0,
+              s: 1
+            },
+            {
+              id: 16,
+              k: 2,
+              s: 1
+            }
+          ],
+          [
+            {
+              id: 4,
+              k: 1,
+              s: 2
+            },
+            {
+              id: 2,
+              k: 0,
+              s: 2
+            },
+            {
+              id: 1,
+              k: 2,
+              s: 3
+            },
+            {
+              id: 13,
+              k: 3,
+              s: 1
+            },
+            {
+              id: 5,
+              k: 3,
+              s: 3
+            },
+            {
+              id: 10,
+              k: 1,
+              s: 1
+            }
+          ]
+        ],
+        eggs: [0, 0, 0, 0],
+        gauge: 22,
+        bag: {
+          state: 880024158,
+          kinds: 5,
+          mode: "fourEach",
+          index: 12,
+          items: [4, 2, 0, 3, 3, 4, 0, 3, 1, 0, 3, 1, 2, 2, 1, 1, 0, 4, 4, 2],
+          cycle: 2
+        },
+        queue: [
+          [3, 4],
+          [0, 3],
+          [1, 0],
+          [3, 1]
+        ],
+        nextId: 25,
+        score: 220,
+        drops: 12,
+        actions: 12,
+        over: null
+      },
+      action: {
+        type: "drop",
+        path: ["right", "rotate", "rotate", "rotate", "hard"]
+      },
+      chain: 3,
+      origin: "legal ordinary play",
+      seed: 0,
+      drop: 13,
+      source: "base-6x12-5-strategic-witness-3.json"
+    },
+    5: {
+      state: {
+        version: "growth-chain-lab/1",
+        seed: 11,
+        rules: {
+          width: 6,
+          height: 12,
+          kinds: 5,
+          anchor: "bottom",
+          bulkAnchor: "bottom",
+          consume: "all",
+          competition: "component",
+          pairFirst: false,
+          deathSpecies: "same",
+          eggCount: "group",
+          eggThresholds: [1, 2, 3, 4],
+          gaugeMetric: "consumed",
+          gaugeUnit: 16,
+          scoreMode: "linear",
+          topOut: "lock",
+          eggPlacement: "column",
+          bag: "fourEach"
+        },
+        board: [
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [null, null, null, null, null, null],
+          [
+            {
+              id: 91,
+              k: 2,
+              s: 3
+            },
+            null,
+            {
+              id: 94,
+              k: 3,
+              s: 2
+            },
+            {
+              id: 101,
+              k: 3,
+              s: 1
+            },
+            {
+              id: 102,
+              k: 4,
+              s: 1
+            },
+            {
+              id: 98,
+              k: 0,
+              s: 2
+            }
+          ],
+          [
+            {
+              id: 84,
+              k: 3,
+              s: 2
+            },
+            {
+              id: 81,
+              k: 4,
+              s: 2
+            },
+            {
+              id: 90,
+              k: 0,
+              s: 2
+            },
+            {
+              id: 89,
+              k: 4,
+              s: 2
+            },
+            {
+              id: 96,
+              k: 1,
+              s: 1
+            },
+            {
+              id: 80,
+              k: 2,
+              s: 2
+            }
+          ],
+          [
+            {
+              id: 68,
+              k: 1,
+              s: 3
+            },
+            {
+              id: 76,
+              k: 0,
+              s: 2
+            },
+            {
+              id: 85,
+              k: 1,
+              s: 1
+            },
+            {
+              id: 62,
+              k: 4,
+              s: 3
+            },
+            {
+              id: 71,
+              k: 3,
+              s: 2
+            },
+            {
+              id: 64,
+              k: 2,
+              s: 3
+            }
+          ],
+          [
+            {
+              id: 55,
+              k: 2,
+              s: 2
+            },
+            {
+              id: 56,
+              k: 3,
+              s: 1
+            },
+            {
+              id: 54,
+              k: 0,
+              s: 4
+            },
+            {
+              id: 60,
+              k: 1,
+              s: 2
+            },
+            {
+              id: 49,
+              k: 3,
+              s: 3
+            },
+            {
+              id: 63,
+              k: 1,
+              s: 1
+            }
+          ],
+          [
+            {
+              id: 38,
+              k: 2,
+              s: 3
+            },
+            {
+              id: 39,
+              k: 1,
+              s: 3
+            },
+            {
+              id: 34,
+              k: 3,
+              s: 2
+            },
+            {
+              id: 45,
+              k: 4,
+              s: 2
+            },
+            {
+              id: 35,
+              k: 1,
+              s: 2
+            },
+            {
+              id: 30,
+              k: 4,
+              s: 3
+            }
+          ],
+          [
+            {
+              id: 23,
+              k: 3,
+              s: 3
+            },
+            {
+              id: 32,
+              k: 0,
+              s: 2
+            },
+            {
+              id: 25,
+              k: 1,
+              s: 2
+            },
+            {
+              id: 15,
+              k: 3,
+              s: 3
+            },
+            {
+              id: 20,
+              k: 0,
+              s: 3
+            },
+            {
+              id: 22,
+              k: 2,
+              s: 2
+            }
+          ],
+          [
+            {
+              id: 9,
+              k: 1,
+              s: 3
+            },
+            {
+              id: 11,
+              k: 4,
+              s: 2
+            },
+            {
+              id: 6,
+              k: 2,
+              s: 3
+            },
+            {
+              id: 5,
+              k: 0,
+              s: 1
+            },
+            {
+              id: 1,
+              k: 0,
+              s: 2
+            },
+            {
+              id: 3,
+              k: 4,
+              s: 3
+            }
+          ]
+        ],
+        eggs: [0, 0, 0, 0],
+        gauge: 116,
+        bag: {
+          state: 2640072485,
+          kinds: 5,
+          mode: "fourEach",
+          index: 10,
+          items: [3, 4, 3, 4, 3, 0, 4, 2, 2, 1, 1, 0, 2, 4, 3, 1, 0, 1, 0, 2],
+          cycle: 6
+        },
+        queue: [
+          [3, 4],
+          [3, 0],
+          [4, 2],
+          [2, 1]
+        ],
+        nextId: 103,
+        score: 1160,
+        drops: 51,
+        actions: 51,
+        over: null
+      },
+      action: {
+        type: "drop",
+        path: ["right", "hard"]
+      },
+      chain: 5,
+      origin: "legal ordinary play",
+      seed: 11,
+      drop: 52,
+      source: "base-6x12-5-strategic-witness-5.json"
+    }
+  };
+
+  // prototypes/growth-chain/rules.mjs
+  var VERSION = "growth-chain-lab/1";
+  var OPTIONS = {
+    anchor: ["bottom", "changed"],
+    bulkAnchor: ["bottom", "changed"],
+    consume: ["all", "five"],
+    competition: ["component", "disjoint"],
+    deathSpecies: ["same", "any"],
+    eggCount: ["group", "pairs"],
+    gaugeMetric: ["consumed", "growth"],
+    scoreMode: ["linear", "chain"],
+    topOut: ["lock", "settled"],
+    eggPlacement: ["column", "free"],
+    bag: ["fourEach", "fixed20"]
+  };
+  function configuration(p = {}) {
+    const r = {
+      width: 6,
+      height: 12,
+      kinds: 5,
+      anchor: "bottom",
+      bulkAnchor: "bottom",
+      consume: "all",
+      competition: "component",
+      pairFirst: false,
+      deathSpecies: "same",
+      eggCount: "group",
+      eggThresholds: [1, 2, 3, 4],
+      gaugeMetric: "consumed",
+      gaugeUnit: 16,
+      scoreMode: "linear",
+      topOut: "lock",
+      eggPlacement: "column",
+      bag: "fourEach",
+      ...p
+    };
+    for (const k of Object.keys(p))
+      if (!(k in r) || ![
+        "width",
+        "height",
+        "kinds",
+        "pairFirst",
+        "eggThresholds",
+        "gaugeUnit",
+        ...Object.keys(OPTIONS)
+      ].includes(k))
+        throw Error("Unknown rule " + k);
+    for (const [k, vs] of Object.entries(OPTIONS))
+      if (!vs.includes(r[k])) throw Error("Invalid " + k);
+    if (![6, 7].includes(r.width) || r.height !== 12 || ![4, 5, 6].includes(r.kinds) || typeof r.pairFirst !== "boolean" || !Number.isInteger(r.gaugeUnit) || r.gaugeUnit < 1)
+      throw Error("Invalid numeric rule");
+    if (!Array.isArray(r.eggThresholds) || r.eggThresholds.length !== 4 || r.eggThresholds[0] !== 1 || r.eggThresholds.some(
+      (n, i) => !Number.isInteger(n) || n < 1 || i && n <= r.eggThresholds[i - 1]
+    ))
+      throw Error("Invalid egg thresholds");
+    if (r.competition === "disjoint" && r.consume !== "five")
+      throw Error("disjoint requires consume=five");
+    r.eggThresholds = Object.freeze([...r.eggThresholds]);
+    return Object.freeze(r);
+  }
+
+  // prototypes/growth-chain/engine.mjs
+  var HIDDEN = 2;
+  var board = (r) => Array.from({ length: r.height + HIDDEN }, () => Array(r.width).fill(null));
+  var cloneBoard = (b) => b.map((row) => row.map((c) => c ? { ...c } : null));
+  function validateBoard(b, r) {
+    if (!Array.isArray(b) || b.length !== r.height + HIDDEN || b.some((row) => !Array.isArray(row) || row.length !== r.width))
+      throw Error("Invalid board size");
+    let ids = /* @__PURE__ */ new Set();
+    for (let c of b.flat())
+      if (c !== null) {
+        if (!c || !Number.isSafeInteger(c.id) || c.id < 1 || ids.has(c.id) || !Number.isInteger(c.k) || c.k < 0 || c.k >= r.kinds || !Number.isInteger(c.s) || c.s < 1 || c.s > 8)
+          throw Error("Invalid cell");
+        ids.add(c.id);
+      }
+  }
+  function gravity(b) {
+    const z = board({ height: b.length - HIDDEN, width: b[0].length });
+    for (let x = 0; x < b[0].length; x++) {
+      let y = b.length - 1;
+      for (let j = b.length - 1; j >= 0; j--)
+        if (b[j][x]) z[y--][x] = { ...b[j][x] };
+    }
+    return z;
+  }
+  var bottom = (a, b) => b.y - a.y || a.x - b.x;
+  var adjacent = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y) === 1;
+  function groups(b, r) {
+    const seen = /* @__PURE__ */ new Set(), out = [];
+    const W = b[0].length, H = b.length;
+    for (let y = 0; y < H; y++)
+      for (let x = 0; x < W; x++) {
+        const c = b[y][x], key = y * W + x;
+        if (!c || seen.has(key)) continue;
+        const g = [], q = [{ x, y, ...c }];
+        seen.add(key);
+        for (let i = 0; i < q.length; i++) {
+          const a = q[i];
+          g.push(a);
+          for (const [dx, dy] of [
+            [-1, 0],
+            [1, 0],
+            [0, -1],
+            [0, 1]
+          ]) {
+            const nx = a.x + dx, ny = a.y + dy, n = b[ny]?.[nx], nk = ny * W + nx;
+            if (nx >= 0 && nx < W && n && !seen.has(nk) && n.s === c.s && (n.k === c.k || c.s === 8 && r.deathSpecies === "any")) {
+              seen.add(nk);
+              q.push({ x: nx, y: ny, ...n });
+            }
+          }
+        }
+        if (g.length >= 2) out.push(g.sort(bottom));
+      }
+    return out.sort((a, b2) => bottom(a[0], b2[0]));
+  }
+  function order(g, mode, priority) {
+    const rank = new Map(priority.map((id, i) => [id, i]));
+    return [...g].sort(
+      (a, b) => mode === "changed" ? (rank.get(a.id) ?? 1e9) - (rank.get(b.id) ?? 1e9) || bottom(a, b) : bottom(a, b)
+    );
+  }
+  function connectedFive(g, start) {
+    const q = [start], seen = /* @__PURE__ */ new Set([start.id]);
+    for (let i = 0; i < q.length && q.length < 5; i++)
+      for (const c of g)
+        if (!seen.has(c.id) && adjacent(q[i], c)) {
+          seen.add(c.id);
+          q.push(c);
+          if (q.length === 5) break;
+        }
+    return q;
+  }
+  function select(g, r, context) {
+    const mode = context.source === "bulk" ? r.bulkAnchor : r.anchor, ordered = order(g, mode, context.priority || []);
+    if (g[0].s === 8 || r.consume === "all" || g.length <= 5)
+      return { accepted: [ordered], rejected: [] };
+    if (r.competition === "component")
+      return {
+        accepted: [connectedFive(g, ordered[0])],
+        rejected: [
+          {
+            reason: "deferred-to-next-wave",
+            ids: g.filter(
+              (c) => !connectedFive(g, ordered[0]).some((a) => a.id === c.id)
+            ).map((c) => c.id)
+          }
+        ]
+      };
+    const used = /* @__PURE__ */ new Set(), accepted = [], rejected = [], unique = /* @__PURE__ */ new Set();
+    const candidates = ordered.map((start) => connectedFive(g, start)).sort(
+      (a, b) => b.length - a.length || ordered.findIndex((c) => c.id === a[0].id) - ordered.findIndex((c) => c.id === b[0].id)
+    );
+    for (const a of candidates) {
+      let key = a.map((c) => c.id).sort((a2, b) => a2 - b).join(",");
+      if (unique.has(key)) continue;
+      unique.add(key);
+      if (a.some((c) => used.has(c.id))) {
+        rejected.push({ reason: "overlap", ids: a.map((c) => c.id) });
+        continue;
+      }
+      accepted.push(a);
+      a.forEach((c) => used.add(c.id));
+    }
+    return { accepted, rejected };
+  }
+  function resolve(input, r, context = {}, trace = true) {
+    validateBoard(input, r);
+    let b = cloneBoard(input), waves = [], stats = {
+      eggs: [0, 0, 0, 0],
+      gauge: 0,
+      score: 0,
+      overflow: 0,
+      created08: 0,
+      deaths: 0,
+      consumed: 0
+    };
+    const pairCells = b.flatMap(
+      (row, y) => row.flatMap(
+        (c, x) => c && context.pair?.includes(c.id) ? [{ x, y, ...c }] : []
+      )
+    );
+    const pairFirst = r.pairFirst && pairCells.length === 2 && pairCells[0].k === pairCells[1].k && pairCells[0].s === pairCells[1].s && adjacent(...pairCells);
+    if (!pairFirst) b = gravity(b);
+    for (let chain = 1; chain <= input.length * input[0].length; chain++) {
+      const gs = chain === 1 && pairFirst ? [pairCells] : groups(b, r);
+      if (!gs.length) break;
+      let before = trace ? cloneBoard(b) : null, events = [], rejected = [], next = cloneBoard(b);
+      for (const g of gs) {
+        const selection = select(g, r, context);
+        rejected.push(...selection.rejected);
+        for (const a of selection.accepted) {
+          const anchor = order(
+            a,
+            context.source === "bulk" ? r.bulkAnchor : r.anchor,
+            context.priority || []
+          )[0];
+          const old = anchor.s, death = old === 8, delta = death ? 0 : Math.min(4, a.length - 1), stage = Math.min(8, old + delta), overflow = death ? 0 : Math.max(0, old + delta - 8);
+          for (const c of a) next[c.y][c.x] = null;
+          if (!death)
+            next[anchor.y][anchor.x] = { id: anchor.id, k: anchor.k, s: stage };
+          let eggRank = -1, eggCount = 0;
+          if (death) {
+            for (let i = 0; i < 4; i++)
+              if (chain >= r.eggThresholds[i]) eggRank = i;
+            eggCount = r.eggCount === "group" ? 1 : Math.floor(a.length / 2);
+            stats.eggs[eggRank] += eggCount;
+            stats.deaths += a.length;
+          }
+          stats.consumed += a.length;
+          stats.overflow += overflow;
+          stats.created08 += !death && stage === 8 ? 1 : 0;
+          stats.gauge += r.gaugeMetric === "consumed" ? a.length : stage - old;
+          stats.score += (a.length * 10 + overflow * 100) * (r.scoreMode === "chain" ? chain : 1);
+          events.push({
+            consumed: a.map((c) => c.id),
+            anchor: { x: anchor.x, y: anchor.y, id: anchor.id },
+            from: old,
+            to: death ? null : stage,
+            overflow,
+            death,
+            eggRank,
+            eggCount
+          });
+        }
+      }
+      const merged = trace ? cloneBoard(next) : null;
+      b = gravity(next);
+      waves.push({
+        chain,
+        events,
+        rejected,
+        ...trace ? { before, merged, after: cloneBoard(b) } : {}
+      });
+    }
+    if (groups(b, r).length) throw Error("resolution did not terminate");
+    return { board: b, waves, ...stats };
+  }
+
+  // prototypes/growth-chain/random.mjs
+  function random(rng) {
+    let t = rng.state = rng.state + 1831565813 >>> 0;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  }
+  function createBag(seed, r) {
+    if (!Number.isInteger(seed) || seed < 0 || seed > 4294967295)
+      throw Error("seed must be uint32");
+    return {
+      state: seed >>> 0,
+      kinds: r.kinds,
+      mode: r.bag,
+      index: 0,
+      items: [],
+      cycle: 0
+    };
+  }
+  function draw(b) {
+    if (b.index >= b.items.length) {
+      b.items = [];
+      const n = b.mode === "fixed20" ? 20 : b.kinds * 4;
+      for (let i = 0; i < n; i++)
+        b.items.push((i + b.cycle * (n % b.kinds)) % b.kinds);
+      for (let i = b.items.length - 1; i > 0; i--) {
+        let j = Math.floor(random(b) * (i + 1));
+        [b.items[i], b.items[j]] = [b.items[j], b.items[i]];
+      }
+      b.index = 0;
+      b.cycle++;
+    }
+    return b.items[b.index++];
+  }
+
+  // prototypes/growth-chain/session.mjs
+  function createSession(seed, r = configuration(), initial2 = {}) {
+    r = configuration(r);
+    const b = initial2.board ? cloneBoard(initial2.board) : board(r);
+    validateBoard(b, r);
+    if (groups(b, r).length || JSON.stringify(gravity(b)) !== JSON.stringify(b))
+      throw Error("Initial board must be stable");
+    const eggs = initial2.eggs ? [...initial2.eggs] : [0, 0, 0, 0], gauge = initial2.gauge ?? 0;
+    if (eggs.length !== 4 || eggs.some((n) => !Number.isSafeInteger(n) || n < 0) || !Number.isSafeInteger(gauge) || gauge < 0)
+      throw Error("Invalid resources");
+    const bag = createBag(seed, r), queue = Array.from({ length: 4 }, () => [draw(bag), draw(bag)]);
+    const s2 = {
+      version: VERSION,
+      seed,
+      rules: r,
+      board: b,
+      eggs,
+      gauge,
+      bag,
+      queue,
+      nextId: Math.max(
+        0,
+        ...b.flat().filter(Boolean).map((c) => c.id)
+      ) + 1,
+      score: 0,
+      drops: 0,
+      actions: 0,
+      over: null
+    };
+    if (!fits(b, spawnPose(r))) s2.over = "spawn-blocked";
+    return s2;
+  }
+  var spawnPose = (r) => ({
+    x: Math.floor(r.width / 2) - 1,
+    y: HIDDEN,
+    rot: 0
+  });
+  function poseCells(p) {
+    const [dx, dy] = [
+      [0, -1],
+      [1, 0],
+      [0, 1],
+      [-1, 0]
+    ][p.rot];
+    return [
+      { x: p.x, y: p.y },
+      { x: p.x + dx, y: p.y + dy }
+    ];
+  }
+  function fits(b, p) {
+    return poseCells(p).every(
+      (c) => c.x >= 0 && c.x < b[0].length && c.y >= 0 && c.y < b.length && !b[c.y][c.x]
+    );
+  }
+  function movePose(b, p, op) {
+    if (op === "rotate") {
+      for (const kick of [0, -1, 1]) {
+        let q2 = { ...p, x: p.x + kick, rot: (p.rot + 1) % 4 };
+        if (fits(b, q2)) return q2;
+      }
+      return null;
+    }
+    if (!["left", "right", "down"].includes(op)) throw Error("Invalid motion");
+    let q = {
+      ...p,
+      x: p.x + (op === "left" ? -1 : op === "right" ? 1 : 0),
+      y: p.y + (op === "down" ? 1 : 0)
+    };
+    return fits(b, q) ? q : null;
+  }
+  function landing(b, p) {
+    let q;
+    while (q = movePose(b, p, "down")) p = q;
+    return p;
+  }
+  function placements(s2) {
+    if (s2.over) return [];
+    const start = spawnPose(s2.rules);
+    if (!fits(s2.board, start)) return [];
+    const key = (p) => `${p.x},${p.y},${p.rot}`, seen = /* @__PURE__ */ new Set([key(start)]), landed = /* @__PURE__ */ new Set(), out = [], q = [{ p: start, path: [] }];
+    for (let i = 0; i < q.length; i++) {
+      let { p, path: path2 } = q[i], l = landing(s2.board, p), k = key(l);
+      if (!landed.has(k)) {
+        landed.add(k);
+        out.push({ type: "drop", path: [...path2, "hard"] });
+      }
+      for (const op of ["left", "right", "rotate", "down"]) {
+        let n = movePose(s2.board, p, op);
+        if (n && !seen.has(key(n))) {
+          seen.add(key(n));
+          q.push({ p: n, path: [...path2, op] });
+        }
+      }
+    }
+    return out;
+  }
+  function copy(s2) {
+    return {
+      ...s2,
+      board: cloneBoard(s2.board),
+      eggs: [...s2.eggs],
+      queue: s2.queue.map((p) => [...p]),
+      bag: { ...s2.bag, items: [...s2.bag.items] },
+      last: void 0
+    };
+  }
+  var integer = (n, min, max) => Number.isInteger(n) && n >= min && n <= max;
+  function applyAction(s2, a, trace = true) {
+    if (s2.over) throw Error("Game over");
+    let z = copy(s2), r = s2.rules, ctx = { source: a.type, priority: [] };
+    if (a.type === "drop") {
+      if (!Array.isArray(a.path) || !a.path.length || a.path.at(-1) !== "hard")
+        throw Error("Invalid drop path");
+      let p = spawnPose(r);
+      if (!fits(z.board, p)) throw Error("Blocked spawn");
+      for (let i = 0; i < a.path.length; i++) {
+        const op = a.path[i];
+        if (op === "hard") {
+          if (i !== a.path.length - 1) throw Error("Early hard drop");
+          p = landing(z.board, p);
+        } else {
+          p = movePose(z.board, p, op);
+          if (!p) throw Error("Illegal motion");
+        }
+      }
+      const cells = poseCells(p), pair = z.queue[0];
+      for (let i = 0; i < 2; i++) {
+        const c = cells[i], id = z.nextId++;
+        z.board[c.y][c.x] = { id, k: pair[i], s: 1 };
+        ctx.priority.push(id);
+      }
+      ctx.pair = [...ctx.priority];
+      ctx.priority = ctx.priority.slice(0, 1);
+      z.drops++;
+      if (r.topOut === "lock" && cells.some((c) => c.y < HIDDEN)) {
+        z.over = "lock-overflow";
+        z.actions++;
+        z.last = {
+          waves: [],
+          eggs: [0, 0, 0, 0],
+          gauge: 0,
+          score: 0,
+          created08: 0,
+          deaths: 0,
+          overflow: 0,
+          consumed: 0,
+          board: z.board
+        };
+        return z;
+      }
+      z.queue.shift();
+      z.queue.push([draw(z.bag), draw(z.bag)]);
+    } else if (a.type === "egg") {
+      if (!integer(a.rank, 0, 3) || !integer(a.k, 0, r.kinds - 1) || !integer(a.x, 0, r.width - 1) || !z.eggs[a.rank])
+        throw Error("Invalid egg");
+      let y = a.y;
+      if (r.eggPlacement === "column") {
+        y = z.board.length - 1;
+        while (y >= HIDDEN && z.board[y][a.x]) y--;
+      }
+      if (!integer(y, HIDDEN, z.board.length - 1) || z.board[y][a.x])
+        throw Error("Invalid egg cell");
+      let id = z.nextId++;
+      z.board[y][a.x] = { id, k: a.k, s: a.rank + 1 };
+      z.eggs[a.rank]--;
+      ctx.priority = [id];
+    } else if (a.type === "transform" || a.type === "bulk") {
+      if (!integer(a.to, 0, r.kinds - 1)) throw Error("Invalid target species");
+      const cost = (a.type === "bulk" ? 3 : 1) * r.gaugeUnit;
+      if (z.gauge < cost) throw Error("Insufficient gauge");
+      if (a.type === "transform") {
+        if (!integer(a.x, 0, r.width - 1) || !integer(a.y, HIDDEN, z.board.length - 1))
+          throw Error("Invalid target cell");
+        const c = z.board[a.y][a.x];
+        if (!c || c.k === a.to) throw Error("Invalid target");
+        c.k = a.to;
+        ctx.priority = [c.id];
+      } else {
+        if (!integer(a.from, 0, r.kinds - 1) || a.from === a.to)
+          throw Error("Invalid source");
+        for (let y = z.board.length - 1; y >= 0; y--)
+          for (let x = 0; x < r.width; x++) {
+            const c = z.board[y][x];
+            if (c?.k === a.from) {
+              c.k = a.to;
+              ctx.priority.push(c.id);
+            }
+          }
+        if (!ctx.priority.length) throw Error("Empty bulk");
+      }
+      z.gauge -= cost;
+    } else throw Error("Invalid action");
+    const result = resolve(z.board, r, ctx, trace);
+    z.board = result.board;
+    z.last = result;
+    z.actions++;
+    z.score += result.score;
+    z.gauge += result.gauge;
+    z.eggs = z.eggs.map((n, i) => n + result.eggs[i]);
+    if (!fits(z.board, spawnPose(r))) z.over = "spawn-blocked";
+    return z;
+  }
+  var preview = (s2, a) => applyAction(s2, a);
+  function stateData(s2) {
+    const { last, ...rest } = s2;
+    return rest;
+  }
+  function stateHash(s2) {
+    let h = 2166136261;
+    for (const c of JSON.stringify(stateData(s2))) {
+      h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0;
+    }
+    return h.toString(16).padStart(8, "0");
+  }
+  function validateSession(s2) {
+    if (!s2 || s2.version !== VERSION) throw Error("Version mismatch");
+    const normalized = configuration(s2.rules);
+    if (Object.keys(normalized).some((k) => !Object.hasOwn(s2.rules, k)))
+      throw Error("Incomplete rules");
+    if (!integer(s2.seed, 0, 4294967295)) throw Error("Invalid seed");
+    validateBoard(s2.board, s2.rules);
+    if (!Array.isArray(s2.queue) || s2.queue.length !== 4 || s2.queue.some(
+      (p) => !Array.isArray(p) || p.length !== 2 || p.some((k) => !integer(k, 0, s2.rules.kinds - 1))
+    ))
+      throw Error("Invalid queue");
+    if (!Array.isArray(s2.eggs) || s2.eggs.length !== 4 || s2.eggs.some((n) => !Number.isSafeInteger(n) || n < 0) || !Number.isSafeInteger(s2.gauge) || s2.gauge < 0)
+      throw Error("Invalid resources");
+    const b = s2.bag;
+    if (!b || !integer(b.state, 0, 4294967295) || b.kinds !== s2.rules.kinds || b.mode !== s2.rules.bag || !Array.isArray(b.items) || !integer(b.index, 0, b.items.length) || b.items.some((k) => !integer(k, 0, b.kinds - 1)) || !Number.isSafeInteger(b.cycle) || b.cycle < 0)
+      throw Error("Invalid bag");
+    for (const k of ["nextId", "score", "drops", "actions"])
+      if (!Number.isSafeInteger(s2[k]) || s2[k] < 0) throw Error("Invalid " + k);
+    if (s2.nextId <= Math.max(
+      0,
+      ...s2.board.flat().filter(Boolean).map((c) => c.id)
+    ))
+      throw Error("Invalid nextId");
+    if (![null, "lock-overflow", "settled-overflow", "spawn-blocked"].includes(
+      s2.over
+    ))
+      throw Error("Invalid end reason");
+    if (!s2.over && !fits(s2.board, spawnPose(s2.rules)))
+      throw Error("Blocked active spawn");
+    if (!s2.over && (groups(s2.board, s2.rules).length || JSON.stringify(gravity(s2.board)) !== JSON.stringify(s2.board)))
+      throw Error("Unstable session");
+    return true;
+  }
+  function replay(record) {
+    if (record.version !== VERSION || !Array.isArray(record.actions))
+      throw Error("Invalid replay");
+    validateSession(record.initial);
+    let s2 = structuredClone(record.initial);
+    for (const a of record.actions) s2 = applyAction(s2, a, false);
+    if (record.hash && stateHash(s2) !== record.hash)
+      throw Error("Replay hash mismatch");
+    return s2;
+  }
+
+  // prototypes/growth-chain/policy.mjs
+  function publicView(s2) {
+    return {
+      version: s2.version,
+      seed: 0,
+      rules: s2.rules,
+      board: s2.board,
+      eggs: s2.eggs,
+      gauge: s2.gauge,
+      queue: s2.queue,
+      nextId: s2.nextId,
+      score: s2.score,
+      drops: s2.drops,
+      actions: s2.actions,
+      over: s2.over
+    };
+  }
+  function simulation(s2) {
+    return { ...publicView(s2), bag: createBag(0, s2.rules) };
+  }
+  function evaluate(s2) {
+    if (s2.over) return -1e8;
+    let count = 0, power = 0, heights = [], potential = 0;
+    for (let x = 0; x < s2.rules.width; x++) {
+      let h = 0;
+      for (let y = HIDDEN; y < s2.board.length; y++) {
+        let c = s2.board[y][x];
+        if (c) {
+          count++;
+          power += Math.pow(c.s, 1.5);
+          if (!h) h = s2.board.length - y;
+          for (const [dx, dy] of [
+            [1, 0],
+            [0, -1]
+          ]) {
+            let n = s2.board[y + dy]?.[x + dx];
+            if (n && n.k === c.k && Math.abs(n.s - c.s) === 1) potential++;
+          }
+        }
+      }
+      heights.push(h);
+    }
+    return -count * 10 - Math.max(...heights) * 8 - heights.reduce((a, h) => a + h * h, 0) * 0.55 + power * 1.6 + potential * 2 + (s2.last?.waves.length || 0) * 12 + (s2.last?.deaths || 0) * 24;
+  }
+  function itemActions(s2, mode = "both") {
+    if (s2.over || mode === "none") return [];
+    let out = [], r = s2.rules;
+    if (mode === "eggs" || mode === "both") {
+      for (let rank = 0; rank < 4; rank++)
+        if (s2.eggs[rank])
+          for (let k = 0; k < r.kinds; k++)
+            for (let x = 0; x < r.width; x++) {
+              if (r.eggPlacement === "column") {
+                if (!s2.board[HIDDEN][x]) out.push({ type: "egg", rank, k, x });
+              } else
+                for (let y = HIDDEN; y < s2.board.length; y++)
+                  if (!s2.board[y][x]) out.push({ type: "egg", rank, k, x, y });
+            }
+    }
+    if (mode === "transform" || mode === "both") {
+      if (s2.gauge >= r.gaugeUnit)
+        for (let y = HIDDEN; y < s2.board.length; y++)
+          for (let x = 0; x < r.width; x++) {
+            let c = s2.board[y][x];
+            if (c) {
+              for (let to = 0; to < r.kinds; to++)
+                if (to !== c.k) out.push({ type: "transform", x, y, to });
+            }
+          }
+      if (s2.gauge >= 3 * r.gaugeUnit) {
+        let ks = new Set(
+          s2.board.flat().filter(Boolean).map((c) => c.k)
+        );
+        for (let from of [...ks].sort())
+          for (let to = 0; to < r.kinds; to++)
+            if (from !== to) out.push({ type: "bulk", from, to });
+      }
+    }
+    return out;
+  }
+  function chooseAction(s2, policy, rng, options = {}) {
+    let moves = placements(s2);
+    if (!moves.length) return null;
+    if (policy === "random") return moves[Math.floor(random(rng) * moves.length)];
+    if (!["strategic", "beam2"].includes(policy)) throw Error("Unknown policy");
+    const sim = simulation(s2), ranked = moves.map((a) => {
+      let z = applyAction(sim, a, false);
+      return { a, z, value: evaluate(z) };
+    }).sort((a, b) => b.value - a.value);
+    if (policy === "beam2")
+      for (let v of ranked.slice(0, 2)) {
+        let follow = placements(v.z), best2 = follow.length ? Math.max(...follow.map((a) => evaluate(applyAction(v.z, a, false)))) : -1e8;
+        v.value = 0.3 * v.value + 0.7 * best2;
+      }
+    const candidates = policy === "beam2" ? ranked.slice(0, 2) : ranked;
+    candidates.sort((a, b) => b.value - a.value);
+    let best = candidates[0];
+    if (options.items && options.items !== "none") {
+      const baseline = evaluate({ ...sim, last: void 0 });
+      let itemBest = null;
+      for (const a of itemActions(sim, options.items)) {
+        if (options.bulkOnly && a.type === "transform") continue;
+        if (options.reserve && a.type === "bulk" && sim.gauge < 6 * sim.rules.gaugeUnit)
+          continue;
+        if (options.reserve && a.type === "transform" && sim.gauge < 4 * sim.rules.gaugeUnit)
+          continue;
+        let z = applyAction(sim, a, false), value = evaluate(z) - (a.type === "bulk" ? 8 : a.type === "transform" ? 3 : 2);
+        if (!z.over && value > baseline + 8 && (!itemBest || value > itemBest.value))
+          itemBest = { a, value };
+      }
+      if (itemBest) return itemBest.a;
+    }
+    const ties = candidates.filter((v) => Math.abs(v.value - best.value) < 1e-8);
+    return ties[Math.floor(random(rng) * ties.length)].a;
+  }
+
+  // prototypes/growth-chain/fixtures.mjs
+  function chainFixture(n = 5) {
+    const r = configuration(), b = board(r);
+    for (let s2 = 1; s2 <= n; s2++) b[14 - s2][0] = { id: s2, k: 0, s: s2 };
+    return {
+      origin: "synthetic; ordinary-play reachability not claimed",
+      state: createSession(1, r, { board: b, eggs: [1, 0, 0, 0], gauge: 48 }),
+      action: { type: "egg", rank: 0, k: 0, x: 1 }
+    };
+  }
+
+  // prototypes/growth-chain/ui.mjs
+  var $ = (id) => document.getElementById(id);
+  var colors = ["#ef9fb3", "#81cce2", "#a6d594", "#f1d57f", "#bea6e4", "#efa77f"];
+  var names = ["A", "B", "C", "D", "E", "F"];
+  var s;
+  var initial;
+  var actions = [];
+  var pose;
+  var path = [];
+  var selected = null;
+  var frames = [];
+  var frameIndex = 0;
+  var busy = false;
+  var auto = false;
+  var timer = null;
+  var generation = 0;
+  var fixtureAction = null;
+  var draft = null;
+  var displayBoard = null;
+  var labels = {
+    width: "\u76E4\u9762\u306E\u5217\u6570",
+    kinds: "\u767B\u5834\u7A2E\u985E",
+    anchor: "\u9032\u5316\u4F4D\u7F6E",
+    bulkAnchor: "\u5927\u3078\u3093\u3057\u3093\u9032\u5316\u4F4D\u7F6E",
+    consume: "6\u4F53\u4EE5\u4E0A\u306E\u6D88\u8CBB",
+    competition: "\u5019\u88DC\u7AF6\u5408",
+    pairFirst: "\u30BB\u30C3\u30C8\u5185\u5148\u884C\u9032\u5316",
+    deathSpecies: "08\u7A2E\u985E\u6761\u4EF6",
+    eggCount: "\u5375\u7372\u5F97\u500B\u6570",
+    eggThresholds: "\u5375\u30E9\u30F3\u30AF\u9023\u9396\u5883\u754C",
+    gaugeMetric: "\u30B2\u30FC\u30B8\u7372\u5F97\u57FA\u6E96",
+    gaugeUnit: "1\u672C\u306E\u5FC5\u8981\u91CF",
+    scoreMode: "\u5F97\u70B9\u5F0F",
+    topOut: "\u7D42\u4E86\u6761\u4EF6",
+    eggPlacement: "\u5375\u306E\u914D\u7F6E",
+    bag: "\u30D0\u30C3\u30B0"
+  };
+  function setupRules(r) {
+    $("rules").replaceChildren();
+    for (const [key, value] of Object.entries({ seed: 1, ...r })) {
+      if (key === "height") continue;
+      const label = document.createElement("label");
+      label.textContent = labels[key] || key;
+      let input;
+      if (OPTIONS[key] || ["width", "kinds", "pairFirst"].includes(key)) {
+        input = document.createElement("select");
+        for (const v of OPTIONS[key] || (key === "width" ? [6, 7] : key === "kinds" ? [4, 5, 6] : [false, true])) {
+          let o = document.createElement("option");
+          o.value = v;
+          o.textContent = v;
+          input.append(o);
+        }
+      } else {
+        input = document.createElement("input");
+        input.type = key === "eggThresholds" ? "text" : "number";
+      }
+      input.id = "rule-" + key;
+      input.value = Array.isArray(value) ? value.join(",") : value;
+      label.append(input);
+      $("rules").append(label);
+    }
+  }
+  function readRules() {
+    let p = {};
+    for (const key of Object.keys(configuration())) {
+      if (key === "height") continue;
+      const v = $("rule-" + key).value;
+      p[key] = key === "eggThresholds" ? v.split(",").map(Number) : key === "pairFirst" ? v === "true" : ["width", "kinds", "gaugeUnit"].includes(key) ? Number(v) : v;
+    }
+    return configuration(p);
+  }
+  function reset(state, message = "\u65B0\u3057\u3044\u76E4\u9762\u3092\u958B\u59CB\u3057\u307E\u3057\u305F") {
+    generation++;
+    clearTimeout(timer);
+    busy = false;
+    frames = [];
+    displayBoard = null;
+    draft = null;
+    s = state;
+    initial = structuredClone(stateData(s));
+    actions = [];
+    path = [];
+    pose = spawnPose(s.rules);
+    selected = null;
+    fixtureAction = null;
+    auto = false;
+    $("pause").textContent = "\u81EA\u52D5\u843D\u4E0B OFF";
+    $("status").textContent = message;
+    setupRules(s.rules);
+    $("rule-seed").value = s.seed;
+    $("species").innerHTML = names.slice(0, s.rules.kinds).map((n, i) => `<option value="${i}">${n}</option>`).join("");
+    $("stage").innerHTML = Array.from(
+      { length: 8 },
+      (_, i) => `<option value="${i + 1}">${String(i + 1).padStart(2, "0")}</option>`
+    ).join("");
+    $("resourceEggs").value = JSON.stringify(s.eggs);
+    $("resourceGauge").value = s.gauge / s.rules.gaugeUnit;
+    render();
+  }
+  function render() {
+    let b = displayBoard || draft || s.board;
+    const active = /* @__PURE__ */ new Map(), ghost = /* @__PURE__ */ new Map();
+    if (!busy && !s.over && !draft) {
+      poseCells(pose).forEach(
+        (c, i) => active.set(c.y + "," + c.x, { k: s.queue[0][i], s: 1 })
+      );
+      poseCells(landing(s.board, pose)).forEach(
+        (c, i) => ghost.set(c.y + "," + c.x, { k: s.queue[0][i], s: 1 })
+      );
+    }
+    $("board").style.setProperty("--cols", s.rules.width);
+    $("board").style.aspectRatio = `${s.rules.width}/12`;
+    $("board").replaceChildren();
+    for (let y = 2; y < b.length; y++)
+      for (let x = 0; x < s.rules.width; x++) {
+        let key = y + "," + x, c = b[y][x] || active.get(key) || ghost.get(key), el = document.createElement("button");
+        el.className = "cell" + (c ? " piece" : "") + (active.has(key) ? " active" : "") + (!b[y][x] && !active.has(key) && ghost.has(key) ? " ghost" : "") + (selected?.x === x && selected?.y === y ? " selected" : "");
+        el.dataset.x = x;
+        el.dataset.y = y;
+        el.ariaLabel = `${x + 1}\u5217 ${y - 1}\u6BB5 ${c ? names[c.k] + String(c.s).padStart(2, "0") : "\u7A7A\u304D"}`;
+        if (c) {
+          el.style.setProperty("--color", colors[c.k]);
+          el.innerHTML = `<small>${names[c.k]}</small>${String(c.s).padStart(2, "0")}`;
+        }
+        el.onclick = () => selectCell(x, y);
+        $("board").append(el);
+      }
+    $("current").innerHTML = '<div class="nextpair">' + s.queue[0].map(
+      (k) => `<span class="mini" style="--color:${colors[k]}">${names[k]}01</span>`
+    ).join("") + "</div>";
+    $("next").innerHTML = s.queue.slice(1).map(
+      (p) => `<div class="nextpair">${p.map((k) => `<span class="mini" style="--color:${colors[k]}">${names[k]}01</span>`).join("")}</div>`
+    ).join("");
+    $("eggs").innerHTML = ["\u666E\u901A", "\u9280", "\u91D1", "\u30D7\u30E9\u30C1\u30CA"].map((n, i) => `<div class="stock">${n} \xD7 ${s.eggs[i]}</div>`).join("");
+    $("gauge").textContent = (s.gauge / s.rules.gaugeUnit).toFixed(2) + " \u672C";
+    $("stats").textContent = `\u843D\u4E0B ${s.drops} \xB7 \u5F97\u70B9 ${s.score}${s.over ? " \xB7 \u7D42\u4E86" : ""}`;
+    for (const id of [
+      "left",
+      "right",
+      "rotate",
+      "down",
+      "drop",
+      "use",
+      "preview",
+      "strategy",
+      "random",
+      "trigger"
+    ])
+      $(id).disabled = busy || !!s.over || !!draft;
+    for (const id of ["use", "preview"])
+      $(id).disabled = busy || !!s.over || !!draft || path.length > 0;
+    for (const id of ["stepWave", "finishWave"]) $(id).disabled = !busy;
+    if (selected)
+      $("selected").textContent = `\u9078\u629E\uFF1A${selected.x + 1}\u5217\u30FB${selected.y - 1}\u6BB5`;
+  }
+  function fail(e) {
+    $("status").textContent = e.message;
+  }
+  function selectCell(x, y) {
+    if (busy) return;
+    selected = { x, y };
+    if ($("action").value === "edit") {
+      auto = false;
+      $("pause").textContent = "\u81EA\u52D5\u843D\u4E0B OFF";
+      draft ??= cloneBoard(s.board);
+      let max = Math.max(
+        0,
+        ...draft.flat().filter(Boolean).map((c) => c.id)
+      );
+      draft[y][x] = {
+        id: max + 1,
+        k: Number($("species").value),
+        s: Number($("stage").value)
+      };
+      $("status").textContent = "\u7DE8\u96C6\u4E2D\uFF1A\u76E4\u9762\u3092\u958B\u59CB\u3067\u91CD\u529B\u9069\u7528\u30FB\u5B89\u5B9A\u6027\u78BA\u8A8D";
+    }
+    render();
+  }
+  function finish() {
+    if (!busy) return;
+    generation++;
+    clearTimeout(timer);
+    busy = false;
+    displayBoard = null;
+    frames = [];
+    path = [];
+    pose = spawnPose(s.rules);
+    render();
+  }
+  function nextFrame() {
+    clearTimeout(timer);
+    if (!busy) return;
+    if (frameIndex >= frames.length) {
+      finish();
+      return;
+    }
+    displayBoard = frames[frameIndex++];
+    render();
+    if (!$("manualWave").checked) {
+      let token = generation;
+      timer = setTimeout(
+        () => {
+          if (token === generation) nextFrame();
+        },
+        Number($("tempo").value)
+      );
+    }
+  }
+  function act(a) {
+    if (busy || draft) return;
+    if (a.type !== "drop" && path.length) {
+      fail(Error("\u9053\u5177\u306F\u843D\u4E0B\u64CD\u4F5C\u306E\u958B\u59CB\u524D\u306B\u4F7F\u7528\u3057\u3066\u304F\u3060\u3055\u3044"));
+      return;
+    }
+    try {
+      let result = applyAction(s, a);
+      actions.push(structuredClone(a));
+      s = result;
+      let n = s.last.waves.length;
+      $("status").textContent = `${n ? n + "\u9023\u9396\uFF01" : "\u914D\u7F6E\u3057\u307E\u3057\u305F"}${s.last.created08 ? " \xB7 08\u306B\u6210\u9577" : ""}${s.over ? " \xB7 \u7D42\u4E86\uFF1A" + s.over : ""}`;
+      frames = s.last.waves.map((w) => w.after);
+      frameIndex = 0;
+      busy = frames.length > 0;
+      path = [];
+      pose = spawnPose(s.rules);
+      if (busy) {
+        displayBoard = s.last.waves[0].before;
+        render();
+        if (!$("manualWave").checked) {
+          let token = ++generation;
+          timer = setTimeout(
+            () => {
+              if (token === generation) nextFrame();
+            },
+            Number($("tempo").value)
+          );
+        }
+      } else render();
+    } catch (e) {
+      fail(e);
+    }
+  }
+  function motion(op) {
+    if (busy || s.over || draft) return;
+    let q = movePose(s.board, pose, op);
+    if (q) {
+      pose = q;
+      path.push(op);
+      render();
+    } else if (op === "down") act({ type: "drop", path: [...path, "hard"] });
+  }
+  function item() {
+    if (!selected) throw Error("\u5BFE\u8C61\u306E\u30DE\u30B9\u3092\u9078\u3093\u3067\u304F\u3060\u3055\u3044");
+    const type = $("action").value, to = Number($("species").value), { x, y } = selected;
+    if (type === "egg")
+      return { type, rank: Number($("rank").value), k: to, x, y };
+    if (type === "bulk") {
+      const c = s.board[y][x];
+      if (!c) throw Error("\u5909\u66F4\u5143\u306E\u7A2E\u985E\u304C\u3044\u308B\u30DE\u30B9\u3092\u9078\u3093\u3067\u304F\u3060\u3055\u3044");
+      return { type, from: c.k, to };
+    }
+    return { type, x, y, to };
+  }
+  for (const op of ["left", "right", "down", "rotate"])
+    $(op).onclick = () => motion(op);
+  $("drop").onclick = () => act({ type: "drop", path: [...path, "hard"] });
+  $("pause").onclick = () => {
+    auto = !auto;
+    $("pause").textContent = "\u81EA\u52D5\u843D\u4E0B " + (auto ? "ON" : "OFF");
+  };
+  setInterval(() => {
+    if (auto && !document.hidden && !busy && !draft) motion("down");
+  }, 750);
+  $("restart").onclick = () => {
+    try {
+      reset(createSession(Number($("rule-seed").value), readRules()));
+    } catch (e) {
+      fail(e);
+    }
+  };
+  $("preview").onclick = () => {
+    try {
+      let z = preview(s, item());
+      $("prediction").textContent = `\u4E88\u544A\uFF1A${z.last.waves.length}\u9023\u9396 / 08\u751F\u6210 ${z.last.created08} / \u5375 +${z.last.eggs.reduce((a, b) => a + b, 0)} / \u6B8B\u30B2\u30FC\u30B8 ${(z.gauge / s.rules.gaugeUnit).toFixed(2)}\u672C${z.over ? " / \u7D42\u4E86" : ""}`;
+    } catch (e) {
+      $("prediction").textContent = e.message;
+    }
+  };
+  $("use").onclick = () => {
+    try {
+      act(item());
+    } catch (e) {
+      fail(e);
+    }
+  };
+  $("stepWave").onclick = nextFrame;
+  $("finishWave").onclick = finish;
+  for (const n of [3, 5])
+    $("fixture" + n).onclick = () => {
+      let f = chainFixture(n);
+      reset(f.state, `\u5408\u6210${n}\u9023\u9396\u76E4\u9762\uFF1A\u767A\u706B\u30DC\u30BF\u30F3\u3067\u5375\u3092\u7F6E\u304F`);
+      fixtureAction = f.action;
+    };
+  $("trigger").onclick = () => {
+    if (fixtureAction) act(fixtureAction);
+    else fail(Error("\u5148\u306B\u518D\u73FE\u76E4\u9762\u3092\u9078\u3093\u3067\u304F\u3060\u3055\u3044"));
+  };
+  for (const policy of ["strategic", "random"])
+    $(policy === "strategic" ? "strategy" : policy).onclick = () => {
+      try {
+        let a = chooseAction(
+          s,
+          policy,
+          { state: s.seed + s.actions >>> 0 },
+          { items: "none" }
+        );
+        if (a) act(a);
+      } catch (e) {
+        fail(e);
+      }
+    };
+  $("erase").onclick = () => {
+    if (busy || !selected) return;
+    draft ??= cloneBoard(s.board);
+    draft[selected.y][selected.x] = null;
+    render();
+  };
+  $("empty").onclick = () => {
+    if (busy) return;
+    draft = s.board.map((row) => row.map(() => null));
+    render();
+  };
+  $("applyBoard").onclick = () => {
+    try {
+      reset(
+        createSession(s.seed, s.rules, {
+          board: gravity(draft || s.board),
+          eggs: JSON.parse($("resourceEggs").value),
+          gauge: Number($("resourceGauge").value) * s.rules.gaugeUnit
+        }),
+        "\u7DE8\u96C6\u76E4\u9762\u3092\u958B\u59CB\uFF08\u8CC7\u6E90\u4ED8\u4E0E\u3042\u308A\uFF09"
+      );
+    } catch (e) {
+      fail(e);
+    }
+  };
+  $("export").onclick = () => {
+    $("json").value = JSON.stringify(
+      { version: VERSION, initial, actions, hash: stateHash(s) },
+      null,
+      2
+    );
+  };
+  $("exportBoard").onclick = () => {
+    $("json").value = JSON.stringify(
+      {
+        version: VERSION,
+        initial: stateData(s),
+        actions: [],
+        hash: stateHash(s)
+      },
+      null,
+      2
+    );
+  };
+  $("import").onclick = () => {
+    try {
+      let data = JSON.parse($("json").value);
+      if (data.initial && !data.actions) data.actions = [];
+      validateSession(data.initial);
+      let end = replay(data);
+      reset(end, "\u518D\u73FE\u30C7\u30FC\u30BF\u3092\u8AAD\u307F\u8FBC\u307F\u307E\u3057\u305F");
+      initial = structuredClone(data.initial);
+      actions = structuredClone(data.actions);
+    } catch (e) {
+      fail(e);
+    }
+  };
+  window.addEventListener("keydown", (e) => {
+    if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
+    let map = {
+      ArrowLeft: "left",
+      ArrowRight: "right",
+      ArrowUp: "rotate",
+      ArrowDown: "down"
+    };
+    if (map[e.key]) {
+      e.preventDefault();
+      motion(map[e.key]);
+    } else if (e.code === "Space") {
+      e.preventDefault();
+      $("drop").click();
+    } else if (e.key.toLowerCase() === "p") $("pause").click();
+  });
+  setupRules(configuration());
+  reset(createSession(1));
+  for (const n of [3, 5])
+    $("natural" + n).onclick = () => {
+      let f = structuredClone(naturalFixtures[n]);
+      reset(
+        f.state,
+        `\u901A\u5E38\u30D7\u30EC\u30A4\u7531\u6765 ${n}\u9023\u9396 \xB7 seed ${f.seed} \xB7 ${f.drop}\u7D44\u76EE\uFF08\u767A\u706B\u3067\u518D\u73FE\uFF09`
+      );
+      fixtureAction = f.action;
+    };
+})();
+</script>
+  </body>
+</html>

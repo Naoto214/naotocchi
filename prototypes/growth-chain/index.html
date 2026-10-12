@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>なおとっち｜成長連鎖ラボ</title
+  ><link rel="stylesheet" href="style.css" />
+  <body>
+    <main>
+      <header>
+        <div>
+          <div class="eyebrow">NAOTOCCHI · RULE LAB / 01</div>
+          <h1>つながって、育つ。</h1>
+          <p>成長連鎖パズル <span class="badge">独立プロトタイプ</span></p>
+        </div>
+        <span class="lab">検証用仮設定<br />本編には接続しません</span>
+      </header>
+      <div class="layout">
+        <section class="play">
+          <div class="hud">
+            <span id="stats"></span><button id="pause">自動落下 OFF</button>
+          </div>
+          <div class="playarea">
+            <div id="board" aria-label="盤面"></div>
+            <aside>
+              <h3>NOW</h3>
+              <div id="current"></div>
+              <h3>NEXT 3</h3>
+              <div id="next"></div>
+              <h3>EGGS</h3>
+              <div id="eggs"></div>
+              <h3>へんしん</h3>
+              <strong id="gauge"></strong>
+            </aside>
+          </div>
+          <div id="status" role="status">準備中</div>
+          <div class="controls">
+            <button id="left" aria-label="左">←</button
+            ><button id="rotate">回転 ↻</button
+            ><button id="right" aria-label="右">→</button
+            ><button id="down">↓</button
+            ><button id="drop" class="primary">落とす</button>
+          </div>
+          <p class="hint">矢印：移動・回転　Space：落下　P：一時停止</p>
+          <div class="wavecontrols">
+            <button id="stepWave">1波進める</button
+            ><button id="finishWave">演出完了</button
+            ><label
+              ><input type="checkbox" id="manualWave" />手動で連鎖を見る</label
+            ><label
+              >演出<select id="tempo">
+                <option value="260">標準</option>
+                <option value="100">短い</option>
+              </select></label
+            >
+          </div>
+        </section>
+        <section class="panel">
+          <h2>次の一手をつくる</h2>
+          <p class="muted">盤面のマスを選び、道具の結果を確認できます。</p>
+          <div class="form">
+            <label
+              >操作<select id="action">
+                <option value="transform">へんしん · 1本</option>
+                <option value="bulk">だいへんしん · 3本</option>
+                <option value="egg">卵を置く</option>
+                <option value="edit">盤面編集</option>
+              </select></label
+            ><label>変更先／配置種<select id="species"></select></label
+            ><label
+              >卵ランク<select id="rank">
+                <option value="0">普通 · 01</option>
+                <option value="1">銀 · 02</option>
+                <option value="2">金 · 03</option>
+                <option value="3">プラチナ · 04</option>
+              </select></label
+            ><label>編集段階<select id="stage"></select></label>
+          </div>
+          <p id="selected">選択：未選択</p>
+          <div class="buttons">
+            <button id="preview">結果予告</button
+            ><button id="use" class="primary">道具を使う</button>
+          </div>
+          <p id="prediction" class="muted">
+            資源は実際に使うまで消費しません。
+          </p>
+          <details>
+            <summary>盤面エディタ・資源付与</summary>
+            <p>
+              「盤面編集」でクリックして配置。消去は下のボタン。編集後に「盤面を開始」を押してください。資源付与は自然獲得とは別の実験です。
+            </p>
+            <div class="buttons">
+              <button id="erase">選択マス消去</button
+              ><button id="empty">全消去</button
+              ><button id="applyBoard">盤面を開始</button>
+            </div>
+            <label
+              >卵4種 JSON<input id="resourceEggs" value="[0,0,0,0]" /></label
+            ><label
+              >ゲージ（本）<input
+                id="resourceGauge"
+                type="number"
+                min="0"
+                value="0"
+            /></label>
+          </details>
+          <hr />
+          <h2>連鎖を観察する</h2>
+          <div class="buttons">
+            <button id="fixture3">3連鎖の盤面</button
+            ><button id="fixture5">5連鎖の盤面</button
+            ><button id="trigger">発火</button
+            ><button id="natural3">通常プレイの3連鎖</button
+            ><button id="natural5">通常プレイの5連鎖</button>
+          </div>
+          <p class="muted">
+            合成盤面：卵1個で発火。通常プレイ由来の証跡は測定結果に別保存。
+          </p>
+          <div class="buttons">
+            <button id="strategy">連鎖狙いの1手</button
+            ><button id="random">ランダムの1手</button>
+          </div>
+        </section>
+      </div>
+      <details class="settings">
+        <summary>比較用ルール・seed（この検証画面専用）</summary>
+        <p>
+          以下はすべて仮設定です。設定変更は「新しく開始」で反映。disjointは消費範囲fiveが必要です。
+        </p>
+        <div class="form" id="rules"></div>
+        <div class="buttons">
+          <button id="restart" class="primary">新しく開始</button>
+        </div>
+      </details>
+      <details class="settings">
+        <summary>再現データ・操作ログ</summary>
+        <div class="buttons">
+          <button id="export">ログを書き出す</button
+          ><button id="exportBoard">初期状態JSON</button
+          ><button id="import">JSONを読み込む</button>
+        </div>
+        <textarea
+          id="json"
+          rows="8"
+          spellcheck="false"
+          aria-label="再現JSON"
+        ></textarea>
+        <p class="muted">
+          ログは初期状態・全設定・操作列・最終hashを含みます。初期状態JSONの卵・ゲージ・盤面も編集できます。
+        </p>
+      </details>
+      <footer>
+        検証対象：単純さ / テンポ / 大連鎖 / 長期戦略　·　v1 experimental
+      </footer>
+    </main>
+    <script type="module" src="ui.mjs"></script>
+  </body>
+</html>
