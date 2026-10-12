@@ -286,12 +286,24 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
 // change and starts the CSS fade. Flush the style and wait for actual hint
 // transitions to finish; the existing opacity/layout assertions remain strict.
 const measure2 = async (page) => {
-  await page.waitForFunction(() => {
-    const hint = document.getElementById('mgrHint');
-    if (!hint) return false;
-    getComputedStyle(hint).opacity; // Flush the class change before inspecting animations.
-    return hint.getAnimations().every(animation => !animation.pending && animation.playState !== 'running');
-  }, null, { polling: 'raf', timeout: 10000 });
+  await page.evaluate(() => new Promise((resolve, reject) => {
+    const deadline = performance.now() + 10000;
+    let previous = null;
+    const frame = () => {
+      const hint = document.getElementById('mgrHint');
+      if (!hint) { reject(new Error('Discovery hint is missing')); return; }
+      const opacity = getComputedStyle(hint).opacity; // Commit pending style changes.
+      const idle = hint.getAnimations().every(animation => !animation.pending && animation.playState !== 'running');
+      const state = hint.className + '|' + opacity;
+      // Empty getAnimations before a scheduled class change is not settled yet.
+      // Require the same idle state across consecutive rendering opportunities.
+      if (idle && previous === state) { resolve(); return; }
+      previous = idle ? state : null;
+      if (performance.now() >= deadline) { reject(new Error('Discovery hint transition did not settle')); return; }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }));
   return page.evaluate(measure);
 };
 // Shared only with the focused CSS scheduling regression; the suite entry stays callable.

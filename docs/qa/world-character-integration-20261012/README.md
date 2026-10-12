@@ -24,3 +24,8 @@ Parent PR367/369/371/374 exact heads are ancestors of bfdce764 (GitHub compare: 
 
 ## Full-suite follow-up
 The local unmodified npm pipeline completed its first Node batch3126tests:3122PASS/4FAIL; later relationship batch was not reached. Four default2D scenery count fixtures still expected the World3D water level distribution. Restored their main-compatible distribution (L0=184,L1=0,L2=216,L3=71). The explicit3D foundation suite still requires L0=184,L1=17,L2=199,L3=71. Related five suites63/63PASS after correction. This is a test-only follow-up: production and all browser-executed source hashes remain bfdce764-identical. Fresh full Runtime/World regression is required; historical failed runs are not PASS.
+
+## Home timing and full pipeline follow-up
+Runtime38226403132 on c700a0bb passed the full npm pipeline:3130/3130 plus80/80 relationship tests. No production changes after this passing commit.
+
+Home uncovered a genuine test scheduling race in discovery: fixed280ms could elapse before a slow3D frame started the opacity fade. Actual390px RED opacity0.709307; focused production-CSS RED1. First transition-idle fix passed390/375/360px (all9 opacity measurements0.38), but independent repetition caught an empty-animation-list-before-start race. Final helper requires idle unchanged class+computed opacity across consecutive render opportunities. Focused delayed-frame regression passed20/20 independent launches after that correction. Strict opacity<0.6 and layout assertions remain unchanged. Dedicated browser regression is included in Home CI. Latest CI must still complete; no merge claim at this checkpoint. Physical iPhone NOT_RUN.

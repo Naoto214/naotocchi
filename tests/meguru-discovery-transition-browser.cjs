@@ -11,13 +11,17 @@ const { measureAfterHintTransition } = require('./meguru-discovery-browser.cjs')
     const page = await browser.newPage();
     const css = fs.readFileSync(path.join(__dirname, '../style.css'), 'utf8');
     await page.setContent('<style>' + css + '</style><section class="minigame-overlay"><div id="mgrHint" class="mgr-hint">操作説明</div></section>');
-    await page.evaluate(() => new Promise(requestAnimationFrame));
-    await page.evaluate(() => requestAnimationFrame(() => {
+    const initial = await measureAfterHintTransition(page);
+    assert.equal(initial.hintQuiet, false, 'an unchanged hint without a transition is valid');
+    assert.equal(initial.hintOpacity, 1);
+    // Initially there is no animation: readiness must not return before the
+    // queued render-frame class mutation has had its rendering opportunity.
+    await page.evaluate(() => requestAnimationFrame(() => requestAnimationFrame(() => {
       document.getElementById('mgrHint').classList.add('mgr-hint-quiet');
       // Controlled scheduling delay, not a longer readiness wait or app mutation.
       const start = performance.now();
       while (performance.now() - start < 400) { /* simulate main-thread render work */ }
-    }));
+    })));
     const result = await measureAfterHintTransition(page);
     assert.equal(result.hintQuiet, true);
     assert.ok(result.hintOpacity < 0.6, 'quiet CSS transition is settled before measuring: ' + result.hintOpacity);
