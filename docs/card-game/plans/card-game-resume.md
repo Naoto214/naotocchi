@@ -71,6 +71,8 @@
 
 - 2026-10-12: 承認return後/metadata保存後の生成collector直前・単独attempt実行直前にedition再照合。operation-edition-*、45PASS31.127s/Python1082一致、独立2PASS/C0I0M0。既存authorization内照合は再実装せず、本番gate閉鎖。次はP11上位operand/unknownとP09/P14–18合成。
 
+- 2026-10-12確認待ち: P11の具体的比較診断と未採用案をplans/2026-10-12-comparison-proof-boundary-decision.mdへ保存。既存I-poop1/passは上位0の根拠未証明のまま時差でpriority_unique。局面別に全候補unknownとなる結果を含む変更は未実装。提案を承認済みと扱わない。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
