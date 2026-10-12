@@ -1300,3 +1300,8 @@ c13b823から41source対応を読んで発見。既存C-chicken否定分岐へ77
 ### P09 元開始境界のI-bowtie不成立証拠（2026-10-12）
 
 659f43aから実開始draw後hand3のresponse未証明停止1REDを修正。既存capture/collectと元event両hash、trace終点/順序、sourceを結合。現在枚数を過去条件へ流用しない。start-condition-history-*、最終30PASS13.809s/Python1080前後一致、独立5PASS1.450s/C0I0M0。不存在test名の失敗原本を区別保存。supplied元境界の結合であり全履歴/機会認証ではない。次は41source全作用の責務対応とP10/P11/P14–18合成。preflight-ready=false、生成/固定/400戦0。
+
+
+### P09 41source全作用の責務対応（2026-10-12）
+
+d3338d4からcurrent-source-responsibilities.mdを追加。native11/start2/latched4/activated3/passive4/replacement2/quick15と、重なる手札1/typed10/配置/継続/指定選択を既存predicate・全差分・閉群へ対応。独立read-only review C0/I0/Minor2の参照名とG-archery自world条件を訂正。コード/テスト変更なし。未割当の主要sourceなしと全未来機会証明は区別。次はP10情報・P11全比較operandの根拠／unknownを実記録へ合成し、P14–18共通gateへ結合。preflight-ready=false、生成/固定/400戦0。

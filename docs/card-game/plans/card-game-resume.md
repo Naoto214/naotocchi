@@ -61,6 +61,8 @@
 
 - 2026-10-12: 元開始境界のI-bowtie手札不成立をresponseへ結合。start-condition-history-*、30PASS13.809s/Python1080前後一致、独立5PASS/C0I0M0。現在枚数から過去条件を推定しない。次は41source責務対応とP10/P11/P14–18。
 
+- 2026-10-12: current-source-responsibilities.mdに41sourceと追加作用の引受け先を対応。read-only review C0/I0/M2訂正、コード/再検証なし。次はP10/P11の根拠／unknownの実記録結合とP14–18。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
