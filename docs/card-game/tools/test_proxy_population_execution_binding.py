@@ -97,6 +97,8 @@ class PublishedBindingTests(unittest.TestCase):
    current=dict(preflight_ready=True,errors=[],execution_edition_sha256=api.approval.digest(new))
    with ExitStack() as stack:
     stack.enter_context(patch.object(api,'ROOT',root))
+    # Original-blob preservation is exercised against each artifact separately.
+    stack.enter_context(patch.object(api,'require_preserved_package',return_value=None))
     stack.enter_context(patch.object(edition,'verify',return_value={'local_edition_verified':True}))
     stack.enter_context(patch.object(prep,'audit',return_value=current))
     stack.enter_context(patch.object(api,'audit_historical',return_value={'package':{'committed_generation_consistent':True},'preparation':{'preflight_ready':True}}))
@@ -119,3 +121,14 @@ class PublishedBindingTests(unittest.TestCase):
     with patch.object(prep,'audit',return_value={'preflight_ready':False,'errors':['unproved']}):
      with self.assertRaisesRegex(ValueError,'preflight'):api.audit(context,derived,manifest_receipt,new,f.repo)
   finally:f.tearDownClass()
+
+class PreservationTests(unittest.TestCase):
+ def test_current_edition_cannot_rewrite_original_package(self):
+  import proxy_population_execution_binding as api
+  self.assertTrue(hasattr(api,'require_preserved_package'),'package preservation gate missing')
+  artifacts={name:{'path':'docs/card-game/data/original/'+name,'blob':str(i)*40} for i,name in enumerate(('completion.json','edition.json','historical-registry.json','manifest.json','material.json','operation.json','sampling-journal.jsonl'),1)}
+  files={r['path'].removeprefix('docs/card-game/'):dict(blob=r['blob']) for r in artifacts.values()}
+  api.require_preserved_package({'files':files},{'artifact_bindings':artifacts})
+  for name in files:
+   bad=copy.deepcopy(files);bad[name]['blob']='0'*40
+   with self.subTest(name=name),self.assertRaises(ValueError):api.require_preserved_package({'files':bad},{'artifact_bindings':artifacts})

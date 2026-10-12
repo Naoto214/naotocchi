@@ -115,6 +115,15 @@ def audit_historical(repository,receipt):
   if canonical(proof)!=result.stdout or proof['package']['committed_generation_consistent'] is not True or proof['preparation']['preflight_ready'] is not True:raise ValueError('old audit response differs')
   return proof
 
+def require_preserved_package(certificate,package):
+ from proxy_population_generation_operation import ARTIFACTS
+ artifacts=package['artifact_bindings']
+ if set(artifacts)!=set(ARTIFACTS):raise ValueError('original seven artifacts missing')
+ for name,row in artifacts.items():
+  path=row['path']
+  if not path.startswith('docs/card-game/') or PurePosixPath(path).name!=name:raise ValueError('original artifact path differs')
+  if certificate['files'].get(path.removeprefix('docs/card-game/'),{}).get('blob')!=row['blob']:raise ValueError('original package overwritten: '+name)
+
 def build(repository,original_receipt,certificate,allowed_delta):
  import proxy_population_execution_edition as edition
  import proxy_population_current_preflight as preparation
@@ -129,6 +138,7 @@ def build(repository,original_receipt,certificate,allowed_delta):
    if certificate['files'].get(name)!=row:raise ValueError('binding protected original changed: '+name)
  git(repository,'merge-base','--is-ancestor',original_receipt['commit'],certificate['commit'])
  historical=audit_historical(repository,original_receipt)
+ require_preserved_package(certificate,historical['package'])
  current=preparation.audit(certificate,repository)
  if current['preflight_ready'] is not True:raise ValueError('binding new preflight incomplete: '+str(current['errors']))
  material=sibling(repository,original_receipt,'material.json');registry=sibling(repository,original_receipt,'historical-registry.json')
