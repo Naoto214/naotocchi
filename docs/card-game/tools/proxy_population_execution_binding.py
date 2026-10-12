@@ -124,6 +124,29 @@ def require_preserved_package(certificate,package):
   if not path.startswith('docs/card-game/') or PurePosixPath(path).name!=name:raise ValueError('original artifact path differs')
   if certificate['files'].get(path.removeprefix('docs/card-game/'),{}).get('blob')!=row['blob']:raise ValueError('original package overwritten: '+name)
 
+PRESERVATION_POLICY='plans/execution-rebinding-preservation.json'
+
+def require_preserved_history(files,baseline):
+ import re
+ from proxy_population_current_preflight import PROGRESS
+ protected={n:b for n,b in baseline.items() if n not in PROGRESS and (n.startswith('data/') or re.fullmatch(r'[0-9]+-[^/]+\.md',n))}
+ for name,blob in protected.items():
+  if files.get(name,{}).get('blob')!=blob:raise ValueError('protected history changed or deleted: '+name)
+ return protected
+
+def preservation_policy(repository,certificate,original_receipt):
+ from proxy_population_current_preflight import _tested_sources
+ raw=(ROOT/PRESERVATION_POLICY).read_bytes()
+ if hashlib.sha256(raw).hexdigest()!=certificate['files'][PRESERVATION_POLICY]['sha256']:raise ValueError('preservation policy not in execution edition')
+ policy=document(raw)
+ if canonical(policy)!=raw or set(policy)!={'schema','commit','tree','scope'} or policy['schema']!='population_execution_preservation_policy.v1' or policy['scope']!='all_existing_data_and_numbered_rules_except_designated_progress':raise ValueError('preservation policy shape differs')
+ approval._sha(policy['commit'],40);approval._sha(policy['tree'],40)
+ if git(repository,'rev-parse',policy['commit']+'^{tree}').decode().strip()!=policy['tree']:raise ValueError('preservation baseline tree differs')
+ git(repository,'merge-base','--is-ancestor',original_receipt['commit'],policy['commit'])
+ git(repository,'merge-base','--is-ancestor',policy['commit'],certificate['commit'])
+ baseline=_tested_sources(repository,policy['commit']);protected=require_preserved_history(certificate['files'],baseline)
+ return dict(policy=policy,policy_sha256=hashlib.sha256(raw).hexdigest(),protected_file_count=len(protected),protected_blobs_sha256=approval.digest(protected))
+
 def build(repository,original_receipt,certificate,allowed_delta):
  import proxy_population_execution_edition as edition
  import proxy_population_current_preflight as preparation
@@ -131,11 +154,7 @@ def build(repository,original_receipt,certificate,allowed_delta):
  if repository!=ROOT.parents[1].resolve():raise ValueError('binding source repository differs')
  if not edition.verify(certificate,repository)['local_edition_verified']:raise ValueError('binding current edition differs')
  original=read_receipt(repository,original_receipt);old=sibling(repository,original_receipt,'edition.json')
- # Original saved data and numbered rule texts cannot be retrospectively repaired.
- import re
- for name,row in old['files'].items():
-  if name.startswith('data/') or re.fullmatch(r'[0-9]+-[^/]+\.md',name):
-   if certificate['files'].get(name)!=row:raise ValueError('binding protected original changed: '+name)
+ preserved=preservation_policy(repository,certificate,original_receipt)
  git(repository,'merge-base','--is-ancestor',original_receipt['commit'],certificate['commit'])
  historical=audit_historical(repository,original_receipt)
  require_preserved_package(certificate,historical['package'])
@@ -146,7 +165,7 @@ def build(repository,original_receipt,certificate,allowed_delta):
  result=dict(schema='population_execution_binding.v1',original_receipt=copy.deepcopy(original_receipt),
   old_edition=approval._edition(old),new_edition=approval._edition(certificate),
   original_manifest_sha256=approval.digest(original),derived_manifest_sha256=approval.digest(derived),
-  source_delta=copy.deepcopy(allowed_delta),historical_audit=historical,current_preparation=current,
+  source_delta=copy.deepcopy(allowed_delta),preservation=preserved,historical_audit=historical,current_preparation=current,
   equivalent_except=['source_versions'],new_independent_samples=0,operation_authorized=False,
   automatic_retry_allowed=False,automatic_resume_allowed=False)
  return result,derived

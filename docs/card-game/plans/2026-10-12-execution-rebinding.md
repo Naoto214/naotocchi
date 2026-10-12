@@ -25,3 +25,9 @@ Forged old proof booleans; coherent hash/root mutations; generator/Python drift 
 
 Pre-flight: historical audit and projection feed binding audit; binding audit feeds request and both entries; saved new preparation feeds all launch gates.
 Ruling: retain user-designated dedicated checkout; independent temporary old checkout. No repeated baseline run solely for restoration. User authorizes intermediate work without further confirmation.
+
+Implementation checkpoints: 2de50b87 (binding/entries; related67 PASS/exit0/Python1096 unchanged), 0e45c957 (original seven-artifact preservation; two focused PASS). The related suite began before its identical source was committed; it is supplemental evidence, not the final fixed-source suite.
+
+Final review: one read-only independent review of 2cfc1ca3..0e45c957; C0/I2/M0. Both Important findings entered one author TDD fix pass: mutable designated progress vs immutable data; explicit pre-repair preservation baseline for claims and stopped run. Two missing-gate tests RED; four focused tests GREEN. Actual baseline audit covers all pre-repair data and numbered rules, not only the known 23 files. Review report is verification/execution-rebinding-independent-review.md. No independent re-review claimed.
+
+Ruling: preservation policy is a source-bound JSON document, requiring original package ancestry into baseline and baseline ancestry into new edition. Future repairs must explicitly maintain/advance the pre-repair baseline before their immutable source is verified. Changing the policy is an edition change covered by new verification and a new request, never a runtime allowlist relaxation. Cost if wrong: historical evidence loss; all selected protected blobs are compared and missing/changed files fail closed.

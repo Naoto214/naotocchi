@@ -99,6 +99,7 @@ class PublishedBindingTests(unittest.TestCase):
     stack.enter_context(patch.object(api,'ROOT',root))
     # Original-blob preservation is exercised against each artifact separately.
     stack.enter_context(patch.object(api,'require_preserved_package',return_value=None))
+    stack.enter_context(patch.object(api,'preservation_policy',return_value={'synthetic':'baseline'}))
     stack.enter_context(patch.object(edition,'verify',return_value={'local_edition_verified':True}))
     stack.enter_context(patch.object(prep,'audit',return_value=current))
     stack.enter_context(patch.object(api,'audit_historical',return_value={'package':{'committed_generation_consistent':True},'preparation':{'preflight_ready':True}}))
@@ -132,3 +133,33 @@ class PreservationTests(unittest.TestCase):
   for name in files:
    bad=copy.deepcopy(files);bad[name]['blob']='0'*40
    with self.subTest(name=name),self.assertRaises(ValueError):api.require_preserved_package({'files':bad},{'artifact_bindings':artifacts})
+
+class PreservationBaselineTests(unittest.TestCase):
+ def api(self):
+  import proxy_population_execution_binding as api
+  self.assertTrue(hasattr(api,'require_preserved_history'),'explicit preservation baseline missing')
+  return api
+ def test_actual_old_status_is_mutable_but_immutable_data_stays_frozen(self):
+  api=self.api()
+  import proxy_population_current_preflight as prep
+  repo=fixtures.population.ROOT.parents[1]
+  old=prep._tested_sources(repo,'3e1dd698aea7b4c95e023a816ebd8d42ce56fc3e')
+  current=prep._tested_sources(repo,'0e45c957f68412552bcd090686ae3b3579914be1')
+  name='data/proxy-population-effective-application/status.md'
+  self.assertNotEqual(old[name],current[name])
+  api.require_preserved_history({n:{'blob':b} for n,b in current.items()},old)
+ def test_claims_stop_records_and_all_prior_data_reject_change_and_deletion(self):
+  api=self.api()
+  import proxy_population_current_preflight as prep
+  repo=fixtures.population.ROOT.parents[1]
+  baseline=prep._tested_sources(repo,'2cfc1ca3cdcf789aab434e8473329a6953ba892f')
+  files={n:{'blob':b} for n,b in baseline.items()}
+  names=[n for n in baseline if n.startswith(('data/proxy-population-approval-consumption/','data/proxy-population-400-run-20261012/'))]
+  self.assertGreaterEqual(len(names),16)
+  api.require_preserved_history(files,baseline)
+  for name in names:
+   for mode in ('change','delete'):
+    bad=copy.deepcopy(files)
+    if mode=='change':bad[name]['blob']='0'*40
+    else:bad.pop(name)
+    with self.subTest(path=name,mode=mode),self.assertRaisesRegex(ValueError,'protected history'):api.require_preserved_history(bad,baseline)

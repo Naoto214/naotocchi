@@ -29,7 +29,7 @@ COMPONENTS={
  'P12':['tools/proxy_population_policy_journal.py','tools/proxy_population_admission.py'],
  'P13':['tools/proxy_population_external_approval.py','plans/2026-10-10-external-approval-trust-decision.md'],
  'P14':['tools/proxy_population_generation_entry.py','tools/proxy_population_generation_operation.py'],
- 'P15':['tools/proxy_population_generation_package.py','tools/proxy_population_launch_authorization.py','tools/proxy_population_execution_binding.py','plans/2026-10-12-execution-rebinding.md'],
+ 'P15':['tools/proxy_population_generation_package.py','tools/proxy_population_launch_authorization.py','tools/proxy_population_execution_binding.py','plans/2026-10-12-execution-rebinding.md','plans/execution-rebinding-preservation.json'],
  'P16':['tools/proxy_population_current_preflight.py','tools/proxy_population_connected_entry.py'],
  'P17':['tools/proxy_population_attempt_runner.py','tools/proxy_population_batch_supervisor.py'],
  'P18':['tools/proxy_population_execution_edition.py','tools/check-design-data.py'],
