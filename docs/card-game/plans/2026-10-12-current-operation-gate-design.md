@@ -23,4 +23,4 @@ OS由来と時系列は、承認済みoperatorが保存editionを実行する信
 - 条件付き正常経路は既存115/合成資料とmockを使用し、entropy返却前・実worker前に停止する。本番seedは生成しない。
 - 最終版を保存して関連試験/完全結合/設計/保護照合を行い、独立レビュー1回。修正があればRED→GREENで固定版証拠を更新。
 
-現在は設計記録のみ。新current_preflight module/readiness reportはまだ未作成、本番gate閉鎖、preflight-ready=false、生成/固定/400戦0。
+current_preflight moduleと生成・開始の実入口への接続を実装済み。最終固定版の全対象回帰・完全結合・設計照合を含むreadiness reportはまだ未作成。本番gateは証拠欠落で閉鎖、preflight-ready=false、生成/固定/400戦0。

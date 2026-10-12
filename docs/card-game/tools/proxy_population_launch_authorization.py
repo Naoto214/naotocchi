@@ -6,6 +6,7 @@ The fixed supervisor owns sequencing; this check prevents row/path substitution.
 import copy,json
 from pathlib import Path
 import proxy_population_execution_edition as edition
+import proxy_population_current_preflight as preparation
 import proxy_population_external_approval as approval
 import proxy_population_approval_publication as publication
 from proxy_population_contract import _pairs,_nonfinite
@@ -31,6 +32,7 @@ def audit_launch(repository,bundle,receipt,certificate,package,limit,destination
    if bundle['execution_order'][schedule_index-1]!=match_id or destination!=batch/('attempt-'+str(schedule_index).zfill(4)):raise ValueError('worker row or destination differs')
   if not edition.audit_bundle_edition(bundle,certificate,repository)['bundle_edition_bound']:raise ValueError('launch bundle edition differs')
   if not edition.verify(certificate,repository)['local_edition_verified']:raise ValueError('launch source edition differs')
+  prepared=preparation.require_generated_package(package,certificate,repository)
   request=approval.launch_request(bundle,receipt,certificate,package,limit,batch.relative_to(repository).as_posix())
   claim=publication.audit_committed_consumption(repository,request,comment_id,commit,tree)
   if not claim['remote_consumption_bound']:raise ValueError('launch approval publication differs: '+str(claim['errors']))
@@ -39,6 +41,7 @@ def audit_launch(repository,bundle,receipt,certificate,package,limit,destination
    if start.is_symlink():raise ValueError('supervisor start alias')
    raw=start.read_bytes();saved=json.loads(raw,object_pairs_hook=_pairs,parse_constant=_nonfinite)
    evidence=saved['launch_authorization']
+   if canonical(saved.get('current_preparation'))!=canonical(prepared):raise ValueError('supervisor preparation edition differs')
    if canonical(saved)!=raw or saved['schema']!='fixed_population_supervisor_start.v1' or evidence['launch_authorization_bound'] is not True or evidence['request']!=request or evidence['consumption']['binding']!=claim['binding']:raise ValueError('saved supervisor approval differs')
   if not edition.verify(certificate,repository)['local_edition_verified']:raise ValueError('launch source changed during live approval checks')
  except (ValueError,TypeError,KeyError,IndexError,OSError) as error:errors.append(str(error))

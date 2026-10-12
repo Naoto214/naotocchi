@@ -128,7 +128,11 @@ class ExternalApprovalTests(unittest.TestCase):
   import proxy_population_generation_entry as gen
   import proxy_population_attempt_runner as attempt
   import proxy_population_batch_supervisor as supervisor
-  with patch.object(gen.os,'urandom',side_effect=AssertionError('no entropy')),patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('no match')),patch.object(supervisor.subprocess,'run',side_effect=AssertionError('no child')):
+  native=supervisor.subprocess.run
+  def no_worker(command,**kwargs):
+   if '-I' in command:raise AssertionError('no child')
+   return native(command,**kwargs) # Read-only Git edition queries are allowed.
+  with patch.object(gen.os,'urandom',side_effect=AssertionError('no entropy')),patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('no match')),patch.object(supervisor.subprocess,'run',side_effect=no_worker):
    for call in (lambda:gen.generate_after_external_approval(gen.ROOT.parents[1],'1'*40,gen.ROOT/'data'/'never-auth-generated','looks-approved'),
     lambda:attempt.run_after_external_approval({}, {}, {},attempt.ROOT.parents[1],'test',3,attempt.ROOT/'data'/'never-auth-run','looks-approved'),
     lambda:supervisor.run_after_external_approval({}, {}, {},supervisor.ROOT.parents[1],3,supervisor.ROOT/'data'/'never-auth-batch','looks-approved')):

@@ -4,7 +4,7 @@ Public GitHub reads only. Callers cannot supply a precomputed comment as live
 proof. Local exclusive consumption is not a remote anti-rollback guarantee.
 The operational gate stays closed until P07--18 are composed and verified.
 """
-import copy,hashlib,json,os,re
+import copy,hashlib,json,os,re,subprocess
 from datetime import datetime,timezone
 from pathlib import PurePosixPath
 from urllib.request import Request,HTTPRedirectHandler,build_opener
@@ -194,8 +194,16 @@ def consume_live(request,comment_id):
  return record
 
 
-def require_operation_ready(stage):
- # No supplied bool, comment, URL or local claim can close remaining P07--18.
- # This deliberate stop is replaced only by the source-bound composite gate.
+def require_operation_ready(stage,*,repository=None,certificate=None,commit=None):
+ # Preparedness only. Each entry must still pass its separate live approval,
+ # immutable claim/package and edition checks before any operation effects.
  if stage not in ('generation','launch'):raise ValueError('unknown operational stage')
- raise ValueError('current population preflight incomplete; operation forbidden')
+ if repository is None or stage=='generation' and (commit is None or certificate is not None) or stage=='launch' and (certificate is None or commit is not None):raise ValueError('current population preflight incomplete; actual edition required')
+ from proxy_population_current_preflight import audit
+ from proxy_population_execution_edition import capture
+ try:
+  if stage=='generation':certificate=capture(repository,commit)
+  result=audit(certificate,repository)
+ except (ValueError,KeyError,TypeError,OSError,subprocess.SubprocessError) as error:raise ValueError('current population preflight incomplete: '+str(error)) from error
+ if result['preflight_ready'] is not True:raise ValueError('current population preflight incomplete: '+str(result['errors']))
+ return result

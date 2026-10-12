@@ -81,7 +81,7 @@ class SupervisorTests(unittest.TestCase):
   prefix="""import sys
 sys.path.insert(0,sys.argv[1])
 import proxy_population_attempt_runner as a
-a.external_approval.require_operation_ready=lambda stage:None # historical fixture only
+a.external_approval.require_operation_ready=lambda stage,**kwargs:None # historical fixture only
 a.lock.verify_git_binding=lambda *args,**kw:dict(immutable_content_verified=True)
 a.edition.audit_bundle_edition=lambda *args,**kw:dict(bundle_edition_bound=True)
 a.edition.verify=lambda *args,**kw:dict(local_edition_verified=True)

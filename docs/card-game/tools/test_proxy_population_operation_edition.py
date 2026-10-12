@@ -36,7 +36,7 @@ class OperationEditionTests(unittest.TestCase):
     def store(path,value):
      write(path,value)
      if boundary=='storage' and path.name=='historical-registry.json':source.write_text('changed rules\n')
-    for target,name,value in ((generation,'ROOT',root),(generation.external_approval,'require_operation_ready',lambda stage:None),(generation.history,'build_cutoff_registry',lambda:registry),(generation.authorization,'audit_generation',authorize),(generation,'load_json',lambda path:fixture),(generation,'write_exclusive',store)):
+    for target,name,value in ((generation,'ROOT',root),(generation.external_approval,'require_operation_ready',lambda stage,**kwargs:None),(generation.history,'build_cutoff_registry',lambda:registry),(generation.authorization,'audit_generation',authorize),(generation,'load_json',lambda path:fixture),(generation,'write_exclusive',store)):
      stack.enter_context(patch.object(target,name,value))
     error=OSError('test stops before any entropy return') if boundary=='unchanged' else AssertionError('entropy must not be reached')
     read=stack.enter_context(patch.object(generation.os,'urandom',side_effect=error))
@@ -63,7 +63,7 @@ class OperationEditionTests(unittest.TestCase):
     def store(path,value):
      write(path,value)
      if boundary=='storage' and path.name=='start.json':source.write_text('changed rules\n')
-    for target,name,value in ((attempt,'ROOT',root),(attempt.external_approval,'require_operation_ready',lambda stage:None),(attempt.lock,'verify_git_binding',lambda *a:dict(immutable_content_verified=True)),(attempt.edition,'audit_bundle_edition',lambda *a:dict(bundle_edition_bound=True)),(attempt.generation_package,'audit_committed_generation',lambda *a:dict(committed_generation_consistent=True)),(attempt.authorization,'audit_launch',authorize),(attempt,'write_exclusive',store)):
+    for target,name,value in ((attempt,'ROOT',root),(attempt.external_approval,'require_operation_ready',lambda stage,**kwargs:None),(attempt.lock,'verify_git_binding',lambda *a:dict(immutable_content_verified=True)),(attempt.edition,'audit_bundle_edition',lambda *a:dict(bundle_edition_bound=True)),(attempt.generation_package,'audit_committed_generation',lambda *a:dict(committed_generation_consistent=True)),(attempt.authorization,'audit_launch',authorize),(attempt,'write_exclusive',store)):
      stack.enter_context(patch.object(target,name,value))
     execute=stack.enter_context(patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('executor must not be reached')))
     with self.assertRaisesRegex(ValueError,'source edition changed before attempt'):

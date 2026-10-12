@@ -29,7 +29,7 @@ def write_exclusive(path,value):
 def generate_after_external_approval(repository,commit,destination,approval_reference,*,comment_id=None,claim_commit=None,claim_tree=None):
  """Operational caller must obtain approval; reference text is not a token."""
  if type(approval_reference) is not str or not approval_reference.strip():raise ValueError('external approval reference required; text does not authenticate approval')
- external_approval.require_operation_ready('generation')
+ preparation=external_approval.require_operation_ready('generation',repository=repository,commit=commit)
  repository=Path(repository).resolve();destination=Path(destination)
  if not destination.is_absolute() or destination!=destination.resolve():raise ValueError('generation destination must be canonical and absolute')
  if repository!=ROOT.parents[1].resolve() or not destination.is_relative_to((ROOT/'data').resolve()) or destination==(ROOT/'data').resolve():raise ValueError('generation must use current source repository and a new CARD GAME data directory')
@@ -46,7 +46,7 @@ def generate_after_external_approval(repository,commit,destination,approval_refe
  directory=os.open(destination.parent,os.O_RDONLY|os.O_DIRECTORY)
  try:os.fsync(directory)
  finally:os.close(directory)
- metadata=dict(schema='population_generation_operation.v1',api='os.urandom',os_name=os.name,
+ metadata=dict(schema='population_generation_operation.v1',current_preparation=preparation,api='os.urandom',os_name=os.name,
   platform=platform.platform(),approval_reference=approval_reference,remote_publication_observation=publication,generation_authorization=authenticated,external_approval_verified=True,
   provenance_verified=False,input_lock_verified=False,execution_authorized=False,ready_for_execution=False)
  write_exclusive(destination/'operation.json',metadata)

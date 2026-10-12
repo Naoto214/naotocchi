@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_current_preflight",
+    "test_proxy_population_external_approval",
+    "test_proxy_population_generation_entry",
+    "test_proxy_population_attempt_runner",
+    "test_proxy_population_batch_supervisor",
+    "test_proxy_population_launch_authorization",
+    "test_proxy_population_operation_edition"
+  ],
+  "exit_code": 0,
+  "seconds": 29.256723558006343,
+  "python_file_count": 1090,
+  "fingerprints_equal": true,
+  "tests": "38",
+  "tail": " ... ok\ntest_wrong_author_target_edited_deleted_or_changed_comment_rejects (test_proxy_population_external_approval.ExternalApprovalTests.test_wrong_author_target_edited_deleted_or_changed_comment_rejects) ... ok\ntest_missing_external_reference_rejects_before_entropy_or_artifact_creation (test_proxy_population_generation_entry.GenerationEntryTests.test_missing_external_reference_rejects_before_entropy_or_artifact_creation) ... ok\ntest_new_directory_is_durable_before_first_attempted_read (test_proxy_population_generation_entry.GenerationEntryTests.test_new_directory_is_durable_before_first_attempted_read) ... ok\ntest_outside_card_game_destination_is_rejected (test_proxy_population_generation_entry.GenerationEntryTests.test_outside_card_game_destination_is_rejected) ... ok\ntest_source_edition_failure_rejects_before_entropy_or_artifact_creation (test_proxy_population_generation_entry.GenerationEntryTests.test_source_edition_failure_rejects_before_entropy_or_artifact_creation) ... ok\ntest_bad_local_lock_or_edition_cannot_invoke_the_executor (test_proxy_population_attempt_runner.AttemptRunnerTests.test_bad_local_lock_or_edition_cannot_invoke_the_executor) ... ok\ntest_missing_external_reference_cannot_invoke_the_executor (test_proxy_population_attempt_runner.AttemptRunnerTests.test_missing_external_reference_cannot_invoke_the_executor) ... ok\ntest_old_fixed_prefix_uses_real_backend_and_keeps_incomplete_record (test_proxy_population_attempt_runner.AttemptRunnerTests.test_old_fixed_prefix_uses_real_backend_and_keeps_incomplete_record) ... ok\ntest_invalid_input_cannot_launch_or_create_destination (test_proxy_population_batch_supervisor.SupervisorTests.test_invalid_input_cannot_launch_or_create_destination) ... ok\ntest_isolated_transport_runs_only_the_existing_historical_prefix (test_proxy_population_batch_supervisor.SupervisorTests.test_isolated_transport_runs_only_the_existing_historical_prefix) ... ok\ntest_next_row_is_never_launched_after_incomplete_or_failed_child (test_proxy_population_batch_supervisor.SupervisorTests.test_next_row_is_never_launched_after_incomplete_or_failed_child) ... ok\ntest_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) ... ok\ntest_changed_schedule_limit_destination_or_package_reject (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_changed_schedule_limit_destination_or_package_reject) ... ok\ntest_entries_reject_reference_only_before_any_execution (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_entries_reject_reference_only_before_any_execution) ... ok\ntest_exact_launch_claim_binds_but_does_not_open_preflight (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_exact_launch_claim_binds_but_does_not_open_preflight) ... ok\ntest_remote_movement_source_race_and_alias_reject (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_remote_movement_source_race_and_alias_reject) ... ok\ntest_supervisor_and_worker_recheck_same_claim_before_execution (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_supervisor_and_worker_recheck_same_claim_before_execution) ... ok\ntest_worker_requires_exact_fixed_row_and_saved_supervisor_claim (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_worker_requires_exact_fixed_row_and_saved_supervisor_claim) ... ok\ntest_attempt_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_attempt_rechecks_real_edition_after_authorization_and_storage) ... ok\ntest_generation_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_generation_rechecks_real_edition_after_authorization_and_storage) ... ok\n\n----------------------------------------------------------------------\nRan 38 tests in 29.084s\n\nOK\n",
+  "base_commit": "0a33ffe090028559dc614a45d866842f132ea76d",
+  "preflight_ready": false,
+  "new_matches": 0
+}

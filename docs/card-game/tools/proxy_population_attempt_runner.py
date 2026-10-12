@@ -21,7 +21,7 @@ from proxy_mandatory_policy_contract import ROOT,canonical
 
 def run_after_external_approval(bundle,receipt,certificate,repository,match_id,limit,destination,approval_reference,*,comment_id=None,claim_commit=None,claim_tree=None,launch_destination=None,schedule_index=None):
  if type(approval_reference) is not str or not approval_reference.strip():raise ValueError('external approval reference required; not an authentication token')
- external_approval.require_operation_ready('launch')
+ preparation=external_approval.require_operation_ready('launch',repository=repository,certificate=certificate)
  if type(limit) is not int or not 1<=limit<=512:raise ValueError('invalid bounded step limit')
  repository=Path(repository).resolve();destination=Path(destination)
  if repository!=ROOT.parents[1].resolve() or not destination.is_relative_to((ROOT/'data').resolve()) or destination==(ROOT/'data').resolve():raise ValueError('attempt requires current repository and a new CARD GAME data directory')
@@ -40,7 +40,7 @@ def run_after_external_approval(bundle,receipt,certificate,repository,match_id,l
  directory=os.open(destination.parent,os.O_RDONLY|os.O_DIRECTORY)
  try:os.fsync(directory)
  finally:os.close(directory)
- start=dict(schema='conditional_population_attempt_start.v1',match_id=match_id,reconstruction_step_limit=limit,
+ start=dict(schema='conditional_population_attempt_start.v1',current_preparation=preparation,match_id=match_id,reconstruction_step_limit=limit,
   supplied_bundle_sha256=hashlib.sha256(canonical(bundle)).hexdigest(),immutable_local_receipt=receipt,
   execution_edition_sha256=hashlib.sha256(canonical(certificate)).hexdigest(),approval_reference=approval_reference,generation_package_evidence=package,
   remote_publication_observation=publication,launch_authorization=authenticated,external_approval_verified=True,input_lock_verified=False,ready_for_execution=False)

@@ -13,6 +13,9 @@ class LaunchAuthorizationTests(unittest.TestCase):
  def setUp(self):
   fixtures.GenerationAuthorizationTests.setUp(self)
   self.assertIsNotNone(api,'launch authorization integration missing')
+  # This suite isolates claim authentication; current preparation/blob binding
+  # has its own immutable-Git negative tests. No production gate is bypassed.
+  prepared=patch.object(api.preparation,'require_generated_package',return_value=None);prepared.start();self.addCleanup(prepared.stop)
   self.git('reset','--hard',self.cert['commit']);(self.root/'data').mkdir(exist_ok=True)
   self.bundle=bundle();self.receipt=dict(commit=self.cert['commit'],tree=self.cert['tree'])
   self.package=dict(committed_generation_consistent=True,artifact_bindings={'synthetic':'package'})
