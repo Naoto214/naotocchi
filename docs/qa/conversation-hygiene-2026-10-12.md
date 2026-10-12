@@ -21,8 +21,8 @@
 |---|---|---|---|
 | CA-07 | 上部お知らせ欄と吹き出しで同じギャグが同時に出る | **修正** | 表示上の重複。本文は変えずに「いま上部に出ている文と同じ文を吹き出しで選ばない」だけにした |
 | CA-10 | 告白相手がいないのに「振られた」台詞と、仲間の反応が出る | **修正** | コード上のコメントで「相手がいない時は失敗ではない」と明記されているのに `court_fail` を呼んでいた。吹き出しを出さず、上部のお知らせだけにした |
-| CA-13 | めぐるで world master の `hook`(設計メモ)をこいびとが話す | **修正** | 設計メモ「仕事人なのにデートのため普通にサボる」等は台詞ではない。同じ枠に、そのこいびとの既存の本人台詞(Home の放置台詞と同じ正本)を出す |
-| CA-14 | めぐるで三人称の出会い文(flavor)・図鑑説明を本人が話す | **修正** | 仲間の flavor → その仲間の本人台詞に。図鑑説明の読み上げ分岐は削除(植物系 6 系統の住民が対象。図鑑には残る) |
+| CA-13 | めぐるで world master の `hook`(設計メモ)をこいびとが話す | **修正(bridge 側)** | 設計メモ「仕事人なのにデートのため普通にサボる」等は台詞ではない。同じ枠に、そのこいびとの既存の本人台詞(Home の放置台詞と同じ正本)を出す |
+| CA-14 | めぐるで三人称の出会い文(flavor)・図鑑説明を本人が話す | **修正(bridge 側)** | 仲間の flavor → その仲間の本人台詞に。図鑑説明は めぐるへ渡さない(植物系 6 系統の住民が対象。図鑑には残る) |
 | CA-23 | 交際・結婚の固有台詞が「」付きのまま吹き出しに出る | **修正** | 記念日ムービー側(既存)と同じく外側の「」を外す |
 | CA-25 | 旧 ID(alias)の恋人が専用台詞を使えず汎用へ落ちる | **修正** | 記念日・手紙・ムービーは既に `partnerAliases` で正規化していた。Home の 3 箇所(放置・日常反応・交際/結婚)だけ未正規化だった |
 | CA-20(一部) | 表示されない date traitLine の抽選が会話の重複回避履歴を消費 | **修正** | 見えない抽選をやめた(データは保存)。表示内容は変わらない |
@@ -63,8 +63,13 @@
 | H3 / CA-23 | script.js `speakEvent` | `PARTNER_RELATIONSHIP_LINES` を吹き出しへ出すとき外側の「」を外す(記念日ムービーと同じ正規表現) |
 | H4 / CA-25 | script.js `partnerDailyLine` / `speakEvent` / `scheduleIdleGreeting` | `canonicalPartnerId(state.partner.id)` で引く |
 | H5 / CA-20 | script.js `goOnDate` | 表示されない `traitLine` の抽選を削除(引数は `null`)。DATE_TRAIT_LINES / DATE_PLAN_VARIATIONS / money に休眠理由のコメントを追加 |
-| H6 / CA-13・14 | meguru.js `talkLine`、script.js `meguruBridge.characterTalkLines` | こいびと・なかまの「その子らしい一言」の枠は `PARTNER_CHARACTER_IDLE_LINES` / `COMPANION_CHARACTER_IDLE_LINES`(alias 正規化)から。`hook` / `flavor` / 図鑑説明は吹き出しに出さない。データ(hook・flavor・図鑑)は削除していない |
-| — | index.html | script.js と meguru.js の `?v=` だけ更新(`tools/bump-versions.js` は全アセットの日付を書きかえてしまうため、2 ファイルだけ同じハッシュ関数で更新) |
+| H6 / CA-13・14 | script.js `meguruBridge`(**meguru.js は無変更**) | `partners` を getter にし、`hook` 欄へ world master の設計メモではなく そのこいびとの本人台詞(`PARTNER_CHARACTER_IDLE_LINES`、alias 正規化)を1つ渡す(住民名簿を作るたびに選び直す)。めぐる向けの `allCompanionsById` は `flavor` 欄を そのなかまの本人台詞(`COMPANION_CHARACTER_IDLE_LINES`)に差し替えた写しを返す。`speciesStageDesc` はめぐるへ渡さない。world master の hook・出会いカードの flavor・図鑑の説明文のデータは削除していない |
+| — | index.html | script.js の `?v=` だけ更新(`tools/bump-versions.js` は全アセットの日付を書きかえてしまうため、変更したファイルだけ同じハッシュ関数で更新) |
+
+### meguru.js を変えずに bridge 側で直した理由
+最初は meguru.js の `talkLine` を直したが、`tests/character-3d-test.cjs` の 17・30 が meguru.js を SHA-1 で固定している(Character 3D lane の保護。`tests/fixtures/character-3d-protected-hashes.json`)。他レーンのガードを書き換えないため、meguru.js は main と同一に戻し、Conversation 側の script.js(めぐるへ渡す bridge)だけで同じ結果にした。`talkLine` が `hook` / `flavor` / `speciesStageDesc` を読む既存の分岐はそのまま生きており、そこへ渡す中身だけが変わっている。
+
+将来の整理案(Character 3D lane と調整後): meguru.js 側で `hook` / `flavor` という名前の欄を使わず、本人台詞用の欄を明示的に読む形にする。
 
 ### 到達可能な会話の増減
 - 増: めぐるの同行こいびと・こいびと住民・なかま住民で、そのキャラの本人台詞(こいびと各3行、なかま各3〜5行)が出るようになった。
@@ -79,10 +84,10 @@
 3. CA-10 告白相手がいないとき吹き出しが出ない
 4. CA-23 交際台詞が「」なしで出る
 5. CA-25 旧 ID `ceo-cat` の恋人が cat_ceo の専用台詞・結婚台詞を使う
-6. CA-13/14 めぐるで hook・flavor・図鑑説明を一切話さず、本人台詞が出る
-7. CA-13 alias 正規化と未知 ID の安全なフォールバック
+6. CA-13/14 本番と同じ bridge → `buildRegistry` → `talkLine` の経路で、hook・flavor・図鑑説明を一切話さず、本人台詞が出る(住民名簿 30 回 × 話者 5 × 20 回)
+7. CA-13/14 hook・flavor・図鑑説明のデータは本来の場所に残り、meguru.js は Character 3D lane の保護ハッシュと一致したまま
 
-**修正前の main で同じテストを実行すると 6/7 が失敗**(2 は防御の確認なので修正前も通る)し、修正後は 7/7 通ることを確認した。
+**修正前の main で同じテストを実行すると 5/7 が失敗**(2 と 7 は不変条件の確認なので修正前も通る)し、修正後は 7/7 通ることを確認した。
 
 ### 変更: `tests/dialogue-test.js`
 - 交際・結婚台詞の期待値を「外側の「」を外した文」に変更(H3 の意図どおりの変化)。

@@ -14576,6 +14576,10 @@
       return !!(c.getContext && c.getContext('webgl2'));
     } catch (_) { return false; }
   })();
+  // めぐるの吹き出しへ渡す「その子らしい一言」(Home の放置台詞と同じ正本から1つ)
+  function meguruOwnLine(lines) {
+    return Array.isArray(lines) && lines.length ? lines[Math.floor(Math.random() * lines.length)] : '';
+  }
   const meguruBridge = {
     clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
     getState: () => state,
@@ -14587,14 +14591,21 @@
     selectedLocality: () => selectedLocality(),
     dailyKey: () => dailyKey(),
     SPECIES,
-    speciesStageDesc: (line, i) => stageDesc(line, i),
-    // めぐるの吹き出し用: こいびと・なかま本人の台詞(Home の放置台詞と同じ正本。id は alias を正規化)
-    characterTalkLines: (kind, id) => kind === 'partner' ? (PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(id)] || null)
-      : kind === 'companion' ? (COMPANION_CHARACTER_IDLE_LINES[canonicalCompanionId(id)] || null) : null,
-    allCompanionsById, canonicalCompanionId,
+    // めぐるの talkLine は speciesStageDesc(図鑑の三人称の説明)を住民の吹き出しで読み上げるため渡さない。
+    // 図鑑の表示は script.js の stageDesc のまま(Conversation Hygiene CA-14)。
+    // なかまの flavor は出会いカードの地の文。めぐるでは吹き出しに出るので、その子の本人台詞に差し替えて渡す(CA-14)。
+    allCompanionsById: (id) => {
+      const def = allCompanionsById(id);
+      return def ? {...def, flavor:meguruOwnLine(COMPANION_CHARACTER_IDLE_LINES[canonicalCompanionId(def.id)])} : def;
+    },
+    canonicalCompanionId,
     // けしきの かんさ よう: なかま・レアなかま ぜんいんの emoji を しる ため
     allCompanions: () => [...COMPANIONS, ...RARE_COMPANIONS],
-    partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
+    // hook はめぐるで こいびとの一言として吹き出しに出る。world master の hook は設計メモなので渡さず、
+    // 本人の台詞を1つ渡す。めぐるが住民名簿を作るたびに読み直すので getter にしてある(CA-13)。
+    get partners() {
+      return (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: meguruOwnLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(p.id)]), asset: p.asset }));
+    },
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
     playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),

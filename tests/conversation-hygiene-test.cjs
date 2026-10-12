@@ -108,46 +108,61 @@ test('CA-25: a partner saved under a legacy alias id still uses its own lines', 
   assert.equal(h.get('speechText').textContent, 'これからの予定、ふたりで組もう');
 });
 
+// めぐるの住民名簿は本番と同じ bridge → buildRegistry の経路で作る(meguru.js 本体は変えていない)
+function meguruActors(h, s) {
+  s.lifetime.partnersRecorded = ['rock_octopus', 'swamp_croc'];
+  s.lifetime.companionsRecruited = ['otter'];
+  s.lifetime.rareCompanionsRecruited = ['box'];
+  addPartner(h, s, 'rock_octopus');
+  s.companions = [];
+  return h.api.meguruMod.buildRegistry().residents;
+}
+
 test('CA-13/14: meguru speech never reads out design hooks, encounter flavor or dex narration', () => {
-  const {h} = setup();
+  const {h, s} = setup();
   const M = h.api.meguruMod;
   const hooks = new Set(master.partners.map(p => p.hook));
   const flavors = new Set([...h.api.normalCompanions, ...h.api.rareCompanions].map(c => c.flavor).filter(Boolean));
   const descs = new Set([...stageDescText.matchAll(/^ {6}"([^"\n]+。)",?$/gm)].map(m => m[1]));
   assert.ok(hooks.size >= 18 && flavors.size >= 20 && descs.size > 200, 'reference sets are populated');
-  const partner = master.partners.find(p => p.id === 'rock_octopus');
-  const companion = [...h.api.normalCompanions].find(c => c.id === 'otter');
-  const actors = [
-    {kind:'partner', id:partner.id, hook:partner.hook, withPlayer:true, emotion:'normal', region:'sea'},
-    {kind:'partner', id:partner.id, hook:partner.hook, withPlayer:false, emotion:'normal', region:'sea'},
-    {kind:'companion', id:companion.id, withPlayer:false, emotion:'normal', region:'forest'},
-    {kind:'form', id:'dandelion', line:'dandelion', stage:2, withPlayer:false, emotion:'normal', region:'countryside'},
-  ];
-  const seenOwn = new Set();
-  for (const a of actors) {
-    for (let i = 0; i < 200; i++) {
-      let n = 0;
-      M.setRandom(() => ((i * 7 + (n++) * 13) % 200 + 0.5) / 200);
-      const line = M.talkLine(a);
-      assert.ok(typeof line === 'string' && line.length > 0);
-      assert.ok(!hooks.has(line), `${a.kind} said a design hook: ${line}`);
-      assert.ok(!flavors.has(line), `${a.kind} said its encounter flavor: ${line}`);
-      assert.ok(!descs.has(line), `${a.kind} said a dex description: ${line}`);
-      if (a.kind !== 'form') seenOwn.add(line);
+  const seen = new Map();
+  for (let build = 0; build < 30; build++) {
+    const reg = meguruActors(h, s);
+    const pick = (key) => reg.find(a => a.key === key);
+    const actors = [pick('partner:rock_octopus'), pick('partner:swamp_croc'), pick('companion:otter'), pick('companion:box'),
+      {kind:'form', key:'form:dandelion', line:'dandelion', stage:2, withPlayer:false, region:'countryside'}];
+    assert.ok(actors.every(Boolean), 'registry contains the partner, companions and form');
+    assert.equal(actors[0].withPlayer, true);
+    assert.ok(!hooks.has(actors[0].hook) && !hooks.has(actors[1].hook), 'registry hook is not a design memo');
+    for (const a of actors) {
+      for (let i = 0; i < 20; i++) {
+        let n = 0;
+        M.setRandom(() => ((i * 7 + build * 3 + (n++) * 13) % 20 + 0.5) / 20);
+        const line = M.talkLine({...a, emotion:'normal'});
+        assert.ok(typeof line === 'string' && line.length > 0);
+        assert.ok(!hooks.has(line), `${a.key} said a design hook: ${line}`);
+        assert.ok(!flavors.has(line), `${a.key} said its encounter flavor: ${line}`);
+        assert.ok(!descs.has(line), `${a.key} said a dex description: ${line}`);
+        if (!seen.has(a.key)) seen.set(a.key, new Set());
+        seen.get(a.key).add(line);
+      }
     }
   }
   // かわりに本人の台詞(Home の放置台詞と同じ正本)が出る
-  for (const own of ['お茶と本と手、全部持てるよ', '転がすのにちょうどいい石ない?']) assert.ok(seenOwn.has(own), `missing own line: ${own}`);
+  for (const [key, own] of [['partner:rock_octopus', 'お茶と本と手、全部持てるよ'], ['partner:swamp_croc', '……来たなら座っていけば'], ['companion:otter', '転がすのにちょうどいい石ない?'], ['companion:box', '……ただのはこです']]) {
+    assert.ok(seen.get(key).has(own), `${key} missing own line: ${own}`);
+  }
 });
 
-test('CA-13: characterTalkLines resolves legacy aliases and unknown ids safely', () => {
+test('CA-13/14: the meguru bridge keeps hooks, flavor and dex text in their own places', () => {
   const {h} = setup();
-  const M = h.api.meguruMod;
-  let n = 0;
-  M.setRandom(() => (n++ % 2 ? 0.1 : 0.99));
-  const line = M.talkLine({kind:'partner', id:'ceo-cat', hook:'仕事人なのにデートのため普通にサボる', withPlayer:true, emotion:'normal', region:'city'});
-  assert.notEqual(line, '仕事人なのにデートのため普通にサボる');
-  M.setRandom(() => 0.99);
-  const unknown = M.talkLine({kind:'partner', id:'nobody', hook:'設計メモ', withPlayer:true, emotion:'normal', region:'city'});
-  assert.equal(unknown, 'ずっと そばに いるよ', 'falls back to the existing generic line, not the hook');
+  // 出会いカードの flavor・図鑑の説明文は本来の場所(Home 側のデータ)にそのまま残っている
+  const otter = [...h.api.normalCompanions].find(c => c.id === 'otter');
+  assert.match(otter.flavor, /カワウソが石をひとつ差しだしてきた/);
+  assert.match(stageDescText, /箱に入る。箱がなければ、箱の形をした空気に入る。/);
+  assert.equal(master.partners.find(p => p.id === 'cat_ceo').hook, '仕事人なのにデートのため普通にサボる');
+  // meguru.js は Character 3D lane の保護対象なので本体は変えない(このブランチでは main と同一)
+  const crypto = require('node:crypto');
+  const fx = require('./fixtures/character-3d-protected-hashes.json');
+  assert.equal(crypto.createHash('sha1').update(fs.readFileSync('meguru.js')).digest('hex'), fx.groups['meguru.js'].sha1);
 });
