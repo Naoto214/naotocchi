@@ -1337,3 +1337,8 @@ P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒
 ### 2026-10-12 P11後のW-city起点／typed手札形式
 
 6152e4aから、現在逐次activationの実起点を既存終了provenanceへ結合（26PASS10.549s）、native手札linkの省略source_zoneをtyped全差分監査へ接続（22PASS5.194s）。独立read-only各C0/I0/Minor0、Python1084前後一致。verification/group-origin-review.md参照。複数turnはR7/B・199step214eventまで進み、I-bowtieの挑戦宣言後非開始否定が未接続でFAIL。group-origin-multiturn2-record.json.xzへ原本保存、完走PASSではない。次は既存非開始監査への接続、P09/P10/P14–18共通gate。計画plans/2026-10-12-current-preflight-composition.mdを保存。preflight-ready=false、生成/固定/400戦0。保存時点の実行中試験なし。
+
+
+### 2026-10-12 挑戦境界の開始時否定
+
+667232bから、65固定のchallenge_declared/challenge_comparedを既存C-chicken/I-bowtie非開始根拠へ結合。関連23PASS11.965s/exit0、Python1084一致、独立read-only C0/I0/Minor0。古い4sourcefixtureのtiming起点不足は正しく拒否する期待へ訂正し、監査は弱めない。verification/challenge-start-negative-review.md。全turn再実行は未実施で、次の共通責務接続後にまとめる。P09/P10/P14–18へ継続。preflight-ready=false、生成/固定/400戦0。実行中試験なし。
