@@ -14772,6 +14772,7 @@
       const cancel = document.createElement('button');
       cancel.type = 'button'; cancel.textContent = 'もどる'; cancel.onclick = stopMeguru;
       el.meguruOverlay.appendChild(cancel);
+      render(); // Commit closed menus now, so the loading/cancel UI is reachable.
       meguruStartTimer = setTimeout(() => {
         if (!meguruActive || token !== meguruStartToken) return;
         disableMeguru3d(new Error('3D module load timed out (5000ms)'));

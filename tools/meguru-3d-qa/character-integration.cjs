@@ -44,11 +44,11 @@ async function run(out) {
   try {
     browser = await require('playwright').chromium.launch({ ...(process.env.PLAYWRIGHT_CHROMIUM ? {executablePath:process.env.PLAYWRIGHT_CHROMIUM}:{}), args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'] });
     result.browserVersion=browser.version(); srv=await serve(); const base='http://127.0.0.1:'+srv.address().port;
-    async function open(query, reducedMotion='no-preference') {
+    async function open(query, reducedMotion='no-preference', save=makeSave()) {
       const ctx=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,reducedMotion});const page=await ctx.newPage();
       page.on('pageerror',e=>result.errors.push(String(e)));
       await page.addInitScript(installSaveCounter);await page.addInitScript(installAppearanceProbe);await page.addInitScript(installProbe);
-      await page.addInitScript(s=>localStorage.setItem('naotocchi-save-v1',s),makeSave());
+      await page.addInitScript(s=>localStorage.setItem('naotocchi-save-v1',s),save);
       await page.goto(base+'/index.html'+query);await page.locator('.device.ui-home-active').waitFor({timeout:60000});
       await page.locator('#travelBtn').click();await page.locator('#meguruEnterBtn').waitFor({state:'visible'});await page.locator('#meguruEnterBtn').click();await page.locator('#mgrCanvas').waitFor({state:'visible'});
       await page.waitForFunction(()=>!!globalThis.__meguruRun?.world,null,{timeout:60000});return page;
@@ -84,6 +84,25 @@ async function run(out) {
       });for(const q of detail.samples){validateSample(q.sample);validateBoundary(q.proof);}validateSample(detail.restored);validateBoundary(detail.proof);assert.equal(detail.oldDetached,true);return detail;
     });
     await page.context().close();
+    await record('normal URL 27 actors and portrait-landscape cleanup',async()=>{
+      const h=require('../../tests/helpers/runtime-harness.cjs').harness({deterministic:true});
+      const save=JSON.parse(makeSave());
+      const ids=[...h.api.normalCompanions,...h.api.rareCompanions].map(c=>c.id);
+      assert.equal(ids.length,26);save.companions=ids.map(id=>({id,bond:100}));save.lifetime.companionsRecruited=ids;
+      const pg=await open('', 'no-preference', JSON.stringify(save));
+      try{
+        await pg.waitForFunction(()=>{const r=__meguruRun,p=r.renderer.char3dPresenter;return r.party.length===26&&p?.has(r.sim.player)&&r.party.every(a=>p.has(a));},null,{timeout:120000});
+        const samples=[];
+        for(const viewport of [{width:844,height:390},{width:390,height:844}]){
+          await pg.setViewportSize(viewport);
+          const sample=await pg.evaluate(async()=>{const r=__meguruRun,rd=r.renderer,start=rd.frames3d();while(rd.frames3d()-start<30)await new Promise(requestAnimationFrame);return {party:r.party.length,player:rd.playerVisible,failed:rd.failed,canvasCount:document.querySelectorAll('.meguru-3d-canvas').length,stats:rd.char3dPresenter.stats(),frames:rd.frames3d()-start};});
+          assert.equal(sample.party+1,27);assert.equal(sample.player.mode,'3d');assert.equal(sample.player.ok,true);assert.equal(sample.failed,false);assert.equal(sample.canvasCount,1);samples.push({viewport,...sample});
+        }
+        await pg.screenshot({path:path.join(out,'normal-27-actors.png')});result.screenshots.push('normal-27-actors.png');
+        await pg.locator('#mgrHome').click();assert.equal(await pg.locator('.meguru-3d-canvas').count(),0);
+        return {samples,physicalIPhone:'NOT_RUN',RAM:'NOT_MEASURED',performanceComparison:'NOT_MEASURED'};
+      }finally{await pg.context().close();}
+    });
     for(const mode of [
       {name:'no flags',query:'',world:true,char:true},
       {name:'explicit legacy 2D',query:'?meguru3d=0',world:false,char:false},

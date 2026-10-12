@@ -45,3 +45,11 @@ test('real WebGL constructor failure removes partially inserted canvas',()=>{
  const c={THREE:{WebGLRenderer:class{constructor(){throw Error('GPU creation fault');}}},Error};vm.createContext(c);vm.runInContext(src.slice(a,b).replaceAll('import.meta.url', JSON.stringify('file:///meguru-3d.mjs'))+'\nthis.create=create3DRenderer;',c);
  assert.throws(()=>c.create({}, {canvas},()=>{}),/GPU creation fault/);assert.equal(attached,false,'no stale WebGL canvas');assert.equal(canvas.style.position,'absolute');assert.equal(canvas.style.zIndex,'7');
 });
+test('shader link failure is fatal and releases the partially initialized renderer',()=>{
+ const a=src.indexOf('function create3DRenderer('),b=src.indexOf('\n}',a)+2;let attached=false,disposed=false;
+ const parent={insertBefore(gl){attached=true;gl.parentNode=this;},removeChild(gl){attached=false;gl.parentNode=null;}},gl={style:{},addEventListener(){},removeEventListener(){}};
+ const canvas={style:{},parentNode:parent,ownerDocument:{createElement:()=>gl}};
+ class GPU {constructor(){this.debug={};}setClearColor(){if(this.debug.onShaderError)this.debug.onShaderError();throw Error('shader error silently ignored');}dispose(){disposed=true;}forceContextLoss(){}}
+ const c={THREE:{WebGLRenderer:GPU},Error};vm.createContext(c);vm.runInContext(src.slice(a,b).replaceAll('import.meta.url',JSON.stringify('file:///meguru-3d.mjs'))+'\nthis.create=create3DRenderer;',c);
+ assert.throws(()=>c.create({}, {canvas},()=>{}),/WebGL shader program failed/);assert.equal(disposed,true);assert.equal(attached,false);
+});
