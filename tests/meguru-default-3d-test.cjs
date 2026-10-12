@@ -21,3 +21,34 @@ test('cancel and reopen cannot let old completion start a stale run',async()=>{c
 test('module error and unavailable WebGL use Canvas without retries',async()=>{for(const available of [true,false]){const h=setup('',available);h.ctx.start();if(available)h.tags[0].onerror();await flush();assert.equal(h.starts,1);assert.equal(h.options,undefined);h.ctx.stop();h.ctx.start();await flush();assert.equal(h.starts,2);assert.equal(h.options,undefined);assert.equal(h.tags.length,available?1:0);}});
 test('runtime fallback locks subsequent visits to Canvas',async()=>{const h=setup();h.loaded();h.ctx.start();await flush();h.ctx.rendererOpts.onFallback(Error('lost'));h.ctx.stop();h.ctx.start();await flush();assert.equal(h.starts,2);assert.equal(h.options,undefined);});
 test('diagnostic logger failure cannot interrupt fallback',async()=>{const h=setup();h.ctx.console.warn=()=>{throw Error('logger');};h.ctx.start();assert.doesNotThrow(()=>h.tags[0].onerror());await flush();assert.equal(h.starts,1);assert.equal(h.options,undefined);});
+
+// Execute the shipped camera block with real Three matrices: verify framing,
+// yaw and terrain following, without constructing a WebGL renderer.
+async function cameraPose(W,H,yaw=0,terrain=0,height=1) {
+ const THREE=await import('../vendor/three-0.170.0/three.module.min.js');
+ const src=fs.readFileSync('meguru-3d.mjs','utf8');
+ const block=src.slice(src.indexOf('    const F = W * 0.95'),src.indexOf('    // ひかり(時間'));
+ const camera=new THREE.PerspectiveCamera(50,1,20,12000), c={x:100,z:300,dist:430,yaw,height};
+ vm.runInNewContext(block,{W,H,c,camera,HOR_BASE:.30,FEET_FRAC:.80,built:{terr:{walkY:()=>terrain}},view:{player:{x:c.x,z:c.z}},Math});
+ camera.updateMatrixWorld(true);
+ return {camera,feet:new THREE.Vector3(c.x,terrain,-c.z).project(camera),direction:camera.getWorldDirection(new THREE.Vector3())};
+}
+test('wide 3D camera keeps useful elevation and feet framing at every yaw',async()=>{
+ for(const yaw of [0,.7,Math.PI/2,Math.PI,-1.1]) for(const terrain of [0,250]) {
+  const p=await cameraPose(600,220,yaw,terrain);
+  assert.ok(p.camera.position.y-terrain>=145,'wide view must not sink towards the ground');
+  assert.ok(p.direction.y<-.08,'wide view gently looks down');
+  assert.ok(Math.abs(p.feet.x)<1e-10,'yaw does not roll or displace target');
+  assert.ok(Math.abs(p.feet.y+.6)<1e-10,'feet stay at 80% of canvas height');
+ }
+});
+test('portrait projection is unchanged; wide compensation joins continuously',async()=>{
+ for(const [W,H] of [[343,400],[600,400]]) for(const height of [.8,1,1.2]) {
+  const p=await cameraPose(W,H,0,0,height), hor=Math.round(H*(.30+.07*(height-1)));
+  assert.equal(p.camera.position.y,(.8-hor/H)*H*430/(W*.95));
+  assert.ok(Math.abs(p.direction.y)<1e-12);
+ }
+ const a=await cameraPose(600,400), b=await cameraPose(600,399.999);
+ assert.ok(Math.abs(a.camera.position.y-b.camera.position.y)<.001);
+ assert.ok(Math.abs(a.direction.y-b.direction.y)<.00001);
+});

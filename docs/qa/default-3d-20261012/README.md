@@ -74,8 +74,14 @@ across default 3D, billboard, same-World Canvas and legacy 2D. It is wired into
 Home CI for Chromium and WebKit. Linux WebKit's renderer mode is recorded; Canvas
 fallback there must not be reported as physical Safari 3D validation.
 
-**The landscape fix still requires the user's physical-device retest. Keep Draft;
-do not merge or deploy production.** Full physical QA remains incomplete.
+The user retested candidate `44a1415` and confirmed 「ボタンなど配置問題なし」.
+They reported a low viewpoint and authorized camera adjustment. The new camera
+candidate holds elevation at a 3:2 reference for wider canvases and adds downward
+pitch while keeping the camera target's feet at 80% height. Portrait projection
+and both Canvas renderers are unchanged. See `camera-adjustment/README.md`.
+
+**Camera retest and full physical QA remain incomplete. Keep Draft; do not merge
+or deploy production.**
 
 ## Remaining physical iPhone Safari steps
 
