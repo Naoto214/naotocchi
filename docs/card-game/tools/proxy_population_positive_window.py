@@ -16,6 +16,7 @@ import proxy_population_trigger_effects as effects
 import proxy_population_hand_timing as hand_timing
 import proxy_population_timing_occurrence as timing_occurrence
 import proxy_population_paid_draw as paid
+import proxy_population_positive_provenance as positive_provenance
 import proxy_continuation_batch as batch
 import proxy_continuation_actions as actions
 import proxy_continuation_triggers as triggers
@@ -105,7 +106,9 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
      else:return original(before,after,event,history) if original else False
      return canonical(expected)==canonical(after) and canonical(raw(generated[0]))==canonical(event)
     except (ValueError,KeyError,TypeError,StopIteration,IndexError):return False
-   try:end.RUNTIME_TRANSITION_VERIFIER=verify;yield
+   try:
+    end.RUNTIME_TRANSITION_VERIFIER=verify
+    with positive_provenance.scope(verify):yield
    finally:end.RUNTIME_TRANSITION_VERIFIER=original
  @contextmanager
  def recovery_scope():
