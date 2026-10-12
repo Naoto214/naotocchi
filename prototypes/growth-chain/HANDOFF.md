@@ -81,3 +81,9 @@
 
 再測定前にREADME記載の証拠アーカイブを展開し、既存ログを活用する。実装・測定を最初からやり直す必要はない。
 ローカルgit pushはHTTPS認証不足で失敗したため、接続済みGitHub Git Data APIでexpected_sha付き非force更新を使用した。再開時はリモートHEADとDraft状態を確認し、並行変更を上書きしない。
+
+## 2026-10-13 継続QA追記
+
+実装HEAD 323e94b8から継続し、実装・測定は再作成していない。詳細は `QA-20261013.md`。
+完全checkoutでルートnpm testを完走: smoke/dialogue/visual QA成功、主要3,130/3,130＋Relationship80/80 PASS、exit 0。画像欠落の制約は解消済み。専用45/45も再確認。
+実Chromium起動は同じsocket EPERMで停止したため、PC/スマホ実ブラウザとHuman QAは引き続き未確認。次はstandaloneで試遊。未決定ルール・Draft・保護境界は維持。

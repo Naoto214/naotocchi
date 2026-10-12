@@ -20,3 +20,7 @@ Fresh-context whole-branch reviewer: two Important findings, settled topout and 
 Ruling: settled alternative now ends only on blocked spawn after resolution; explicit hidden rows may remain in off-spawn columns. Reran affected sensitivity-settled results; no other config affected.
 Imported sessions require all explicit rule fields (no hidden defaults); seed and active spawn validation included.
 Supplemental exposure experiments declared after observing zero baseline egg acquisition; their seed0..39 sets are fixed before outcomes and reported separately as exploratory.
+
+2026-10-13 continuation: fresh remote/local 323e94b8, tree cc2d6d39, main e98b35e1; PR380 open Draft unmerged. Read all five requested documents; archive hash matches.
+Full sparse checkout hydration completed. Earlier temporary copy run was interrupted because Git metadata was absent; not counted. Reran npm test in original complete checkout: exit0, smoke/dialogue/visual QA PASS, 3130/3130 + 80/80, no failures/skips. Prototype 45/45 PASS. Logs committed under qa-20261013/.
+Browser launch remains blocked by socket EPERM before page load. Human QA pending; instructions in QA-20261013.md. No implementation or experiment changes; no rule selected.
