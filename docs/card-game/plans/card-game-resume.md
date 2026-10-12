@@ -129,3 +129,7 @@ P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒
 P14–18共通gateを実装。保存されたtested editionと現行editionの差分、全対象試験の実終了/再帰Python指紋、完全結合13責務、設計、独立レビュー、P01–19/P22の参照を要求する。生成operationへ準備結果を保存し、開始時に公開operation blobと現行準備を結合。実承認・claim・edition・package・全400予定保持は既存gateを再利用。準備証拠だけで実行を許可しない。
 
 独立レビューC0/I0/Minor2、削除拒否と表記を修正。参照先2件も実在処理へ修正。RED→GREEN最終38件PASS・29.257秒・1090 Python前後一致。詳細はverification/current-preflight-gate-review.md。preflight-ready=false、最終readiness reportなし、生成/固定/400戦0。次は保存固定版の全population+mandatory回帰、旧115/零root完全結合、設計検査を合成し、保存済み証拠で実auditを確認する。
+
+## 2026-10-12 resolution restart start-negative
+
+固定81e46ee完全結合は289step310event、13監査errors=[]、400.914秒/exit1でR10/B I-bowtie否定未接続に停止。原本current-connected-81e46ee-*を保持。06既存解決後response起点resolve_payment_modifierを登録否定へ1行追加。RED2は2FAIL、関連26PASS11.126秒、1090 Python一致、独立read-only C0/I0/Minor0。verification/resolution-start-negative-review.md参照。186module回帰は版変更のため中断、exit130、PIPE原本log未保存（PASS不可）、両process終了確認後に編集。次は保存版全回帰/完全結合/設計→保存証拠の実gate確認。preflight-ready=false、生成/固定/400戦0。

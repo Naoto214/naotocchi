@@ -238,7 +238,7 @@ def audit_response(envelope,events,inventory,runtime_history=None):
     # Restrict this local negative to registered normal-method/end/challenge origins or
     # another player's turn; unknown own-turn mechanisms remain unproved.
     condition=_start_condition_at_origin(envelope,events,runtime_history,source,actor,origin) if met and card=='I-bowtie' and runtime_history is not None else None
-    if (met and condition is None) or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS|{'normal_pass_end_request','open_turn_end_triggers','challenge_declared','challenge_compared','relationship_progress','relationship_marriage'} and condition is None):
+    if (met and condition is None) or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS|{'normal_pass_end_request','open_turn_end_triggers','challenge_declared','challenge_compared','relationship_progress','relationship_marriage','resolve_payment_modifier'} and condition is None):
      unproved.append(dict(source_instance_id=source,card_id=card,reason='start_response_negative_not_proven'));continue
     start_negative_audits[source]=dict(origin_event_seq=origin['seq'],origin_action=raw,normalized_origin_action=kind,timing_matches=met,source_reference=cap['reference'])
     if condition is not None:start_negative_audits[source]['condition_at_start']=condition
