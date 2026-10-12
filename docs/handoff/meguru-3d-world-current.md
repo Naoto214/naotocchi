@@ -1,5 +1,23 @@
 # World Visual Quality — current checkpoint
 
+## Current authority — integration completed, 2026-10-12 JST
+
+This section supersedes the historical status and restrictions below. Always fresh-check remote main before new work; do not reconstruct already merged implementations or merge the parent PRs again.
+
+- World × Character integration PR #377 is merged. Verified product merge: 499eee66714ad7f33ba7ecd881aa757ba92d0bd7; tree 29f1e077568eaffde61d9d8eacba06c7415a404b.
+- Final candidate b74dd3834df3147db18b44573c5a2db3846ffded had Runtime38228638085, Home38228638142 and World38228630956 all SUCCESS (World6jobs).
+- Post-merge main Runtime38232298565 and Home38232298557 SUCCESS; full npm3130+80 PASS/0FAIL. Pages38232294570 SUCCESS. Dedicated/mutation/browser evidence: docs/qa/world-character-integration-20261012/ and PR #377.
+- Parent #367 is merged/closed; #369/#371/#374 are closed after proving their exact heads are ancestors of main. No duplicate merge.
+- Preserve URL-flag-only3D, existing2D/Expression assets, save/schema/gameplay semantics, all293Character models and approved Naoto/deer forms.
+- At2026-10-12 19:28 JST, after receiving the production iPhone QA link and sequence, the user reported「良さそうです」. Record this as favorable initial subjective feedback for the viewed/used scope. Do not infer completion of every requested step, a duration, regions, device metrics or a benchmark from this brief report.
+- Long-duration physical-device performance, heat, quantitative p95/p99/>60ms and sustained adaptive-resolution behavior remain NOT_RUN/unmeasured. This does not reopen the completed, explicitly approved integration merge.
+- No new uniquely specified product change is authorized by the current integration task. Minor post-merge Quality Pass remains optional. The existing vending-machine front-panel proposal needs a bounded design decision; default-on3D is a separate behavior change requiring a new decision.
+
+## Historical checkpoints
+
+The text below is retained as historical evidence, not current instructions to reopen completed gates, undo the merge, or rebuild saved code.
+
+
 Use fresh GitHub state as authority, not past conversation. Repository Naoto214/naotocchi; branch feat/meguru-3d-geometry-terrain-v1; Draft PR374; base feat/meguru-3d-art-direction-v1.
 
 ## Conditional main-merge approval — 2026-10-12 JST
