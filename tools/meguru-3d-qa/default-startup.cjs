@@ -37,7 +37,11 @@ async function run(out){
     await enter(p);
     if(['cold','cancel','timeout'].includes(mode)){
      await p.locator('#meguruOverlay [role=status]').waitFor();assert.equal(await p.locator('#mgrCanvas').count(),0);
-     if(mode!=='cancel')await p.screenshot({path:path.join(out,mode+'-loading.png')});
+     if(mode!=='cancel'){
+      // The deliberately held module can keep document.fonts.ready pending.
+      // Capture current pixels without Playwright waiting for page-load font readiness.
+      const cdp=await ctx.newCDPSession(p);try{const shot=await cdp.send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(out,mode+'-loading.png'),Buffer.from(shot.data,'base64'));}finally{await cdp.detach();}
+     }
      // Repeated real button events must not spawn another pending start.
      await p.evaluate(()=>{for(let i=0;i<8;i++)document.querySelector('#meguruEnterBtn').click();});
      if(mode==='cancel'){
