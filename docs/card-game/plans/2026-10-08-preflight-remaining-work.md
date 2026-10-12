@@ -1,5 +1,18 @@
 # 400戦 preflight残課題台帳
 
+## 最新運用状態 — 400戦初回実行は第1戦未完了で停止（2026-10-12）
+
+入力package正本は `e40a2dd2248139875b5878a66648c4e568032d2d`、開始承認消費は `6d3c40f8f8ed40cc87afd1ae57b06a20499c3968`。最新HEAD/treeはfresh remoteを確認する。generationコメント6122359186・launchコメント6122537210は本人API実認証後に消費記録を保存済み。再消費・再生成・同じ承認による再起動禁止。
+
+固定200群/400行のsupervisorを一度だけ実行。`group-001-A-first`は184step/211event（最終seq213）で`incomplete`となり規定停止。完走0、未完了1、未実施399。512step上限未到達。停止はturn_endの`unsupported_contract_boundary`、詳細は`unresolved_expiration` / `missing_growth_reach_history`、起点コード`unresolved_effect_provenance`。OS/プロセス異常ではなく未対応証明境界による停止。根本の個別eventは未特定。
+
+supervisor実exit0・555.982秒、worker実exit0。これは400戦成功ではない。Python1090ファイル前後一致。実recordの再構成は成功し、原本13root監査errors=[]だが、完走・適格性・全体結論を意味しない。116除外/未証明を保持、全体結論null、独立balance標本0、policy promotion=false。
+
+原本は `data/proxy-population-400-run-20261012/`、終了ログ・指紋・要約は同`verification/`。全400行/200群を保持。再試行・resume・第2戦開始・seed差替え・Python変更は未実施。現状は実行中ではなく停止済み。次は原本に基づくread-only原因調査。修正版での実行は保存済み試行を上書きせず、既存承認を流用せず、別の対象・承認を必要とする。
+
+以下は保存時点の履歴。過去の「生成未実施」「承認待ち」を現在状態と混同しない。
+
+
 基準: aeeca7f0f21e583355401467269d12738f73cd0e / tree5641cee980ce9119bdb19c71fc9dba514dfaf7b4。2026-10-08開始時live exact-ref一致、PR259 Draft/open/unmerged。変更はdocs/card-game内。
 
 **現在preflight-ready=true（直下の最新追補参照）。** この台帳の分類は作業順と完了条件であり、既存admissionの未証明を解除しない。生成準備完了、生成/固定の承認、完全manifest保存、400戦開始承認は別の段階。今回、生成・固定・本番対戦は一切行わない。
