@@ -14,3 +14,10 @@ Original nine failures:
 Focused86/86 PASS. Integration9/9, ground3/3, Character13/13 controls detected and source bytes restored. See adjacent logs. Default2D world data13/13 matches main; discovery/map45/45, new mode-protection4/4. See protection/.
 
 Full npm, browser QA and fresh Runtime/Home/World CI still pending at this checkpoint. No merge claim. World existing5jobs reused on integration branch plus combined browser job. Physical iPhone performance NOT_RUN, deferred to postmerge Human QA by user authorization. Shapes of all293Character models, approved Naoto/deer and2D/Expression assets unchanged.
+
+## Browser and independent review update
+Combined browser24/24 PASS, zero page errors; source SHA256 verified against bfdce764. Raw report began while local HEAD still named de0b38d; source-binding.json pins all six executed source/runner files to the saved bfdce764 tree. Thirteen regional screenshots, individual failure fallback and all-2D screenshots inspected; active actors visibly present at sampled views. Terrain8samples include4bridge crossings and slope; checks both actual3Dholder and textured billboard alignment. Corridor uses production views at5positions; natural input traversal is a separate World CI job.
+
+Independent reviewer found one Important QA gap: media preference alone did not prove application reduced motion. Fixed before bfdce764: require actual cameraMotion=false and Character animLevel=0, with negative controls. Final browser verifies both. No production issue found in 2D restoration. Font fallback boxes observed in headless software screenshot speech only; do not infer an iPhone rendering defect. Pixel coverage is limited to inspected views, not exhaustive occlusion proof. World visibility CI remains separate.
+
+Parent PR367/369/371/374 exact heads are ancestors of bfdce764 (GitHub compare: behind_by0 and merge_base==parent head), so no duplicate merge is needed. Their status will be reconciled only after PR377 successfully merges. Runtime38225349296, Home38225349309, World38225342697 are pending at evidence-save time. No completion/merge claim.
