@@ -2,6 +2,12 @@
 
 Use fresh GitHub state as authority, not past conversation. Repository Naoto214/naotocchi; branch feat/meguru-3d-geometry-terrain-v1; Draft PR374; base feat/meguru-3d-art-direction-v1.
 
+## Conditional main-merge approval — 2026-10-12 JST
+
+User accepts current World forms/scenery; minor art goes to post-merge Quality Pass. User authorizes final integration against Character-integrated latest main, then Ready/main merge of PR374 only after dedicated/mutation/full regression and Runtime/Home/World CI with no major unresolved issue. iPhone performance remains NOT_RUN, explicitly deferred until after merge; do not keep it as a pre-merge blocker or mark it PASS. This approval supersedes older no-main/no-Ready/no-merge and appearance-pending instructions for this operation.
+
+Fresh API exact-ref + git ls-remote instead show main0b0a6b30/treeaceec6a5: Character PR376 merged only into pilot(d10a432b), parentPR372 remains Draft/open/unmerged. Pilotf5a9ede3 has contemporaneous CI in_progress. Do not touch the active Character lane or assume it is in main. Read-only merge-tree against pilot confirms the four historical conflicts, but actual final-main integration/test/CI remains NOT_RUN. WorldPR374 stays Draft/unmerged. Full approval, source states and next integration plan: docs/qa/meguru-3d-final-integration-20261012/README.md. Resume from fresh main after Character lands; saved product code unchanged.
+
 ## Remaining-gate investigation — 2026-10-12 JST (no product changes)
 
 Read-only deterministic simulation diagnosis now demonstrates a timing-schedule-sensitive palm/log joint-contact residual in jungle. Same80ms schedule repeated exactly0.003990106070830279;100ms control4.973799150320701e-14;120ms0.004184211850848385. The production50ms dt cap means schedules change step counts/trajectory; this is not actual browser/iPhone performance. Three-pass resolution and the existing0.01 move tolerance permit a shallow residual; copied coordinates converge with additional unchanged resolver calls. Independent review rerun PASS. Exact historical CI maxima cannot be assigned to these contacts because old aggregates lack event witnesses. No collision changes or zero-chasing fullCI reruns. See docs/qa/meguru-3d-smoke-overlap-diagnosis/README.md and result.json.
