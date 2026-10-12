@@ -148,10 +148,25 @@ test('CA-13/14: meguru speech never reads out design hooks, encounter flavor or 
       }
     }
   }
-  // かわりに本人の台詞(Home の放置台詞と同じ正本)が出る
-  for (const [key, own] of [['partner:rock_octopus', 'お茶と本と手、全部持てるよ'], ['partner:swamp_croc', '……来たなら座っていけば'], ['companion:otter', '転がすのにちょうどいい石ない?'], ['companion:box', '……ただのはこです']]) {
-    assert.ok(seen.get(key).has(own), `${key} missing own line: ${own}`);
+  // かわりに本人の台詞(Home の放置台詞と同じ正本。キャラと日付で1つ)が出る
+  const own = {
+    'partner:rock_octopus': ['お茶と本と手、全部持てるよ', '空いた手だけで拍手してる', '片づけながらでも話は聞けるよ'],
+    'partner:swamp_croc': ['……来たなら座っていけば', '隣、あいてる。荷物はどかす', '……笑ってた?そりゃ、少しは'],
+    'companion:otter': ['転がすのにちょうどいい石ない?', '石ひとつでずっと遊べる!', '石の名前、まだ決まらない'],
+    'companion:box': ['……ただのはこです', '中の話はまだしません', '置いてあっても参加してる'],
+  };
+  for (const [key, lines] of Object.entries(own)) {
+    assert.ok([...seen.get(key)].some(line => lines.includes(line)), `${key} never used its own line: ${[...seen.get(key)].join(' / ')}`);
   }
+});
+
+test('CA-13/14: the meguru own line is stable within a day and does not consume page randomness', () => {
+  const {h, s} = setup();
+  const first = meguruActors(h, s).find(a => a.key === 'partner:rock_octopus').hook;
+  vm.runInContext('globalThis.__calls=0;{const r=Math.random;Math.random=()=>{globalThis.__calls++;return r();};}', h.sandbox);
+  const again = meguruActors(h, s).find(a => a.key === 'partner:rock_octopus').hook;
+  assert.equal(again, first, 'same registry within a day (meguru preloads the next world from it)');
+  assert.equal(vm.runInContext('globalThis.__calls', h.sandbox), 0, 'registry building draws no page randomness');
 });
 
 test('CA-13/14: the meguru bridge keeps hooks, flavor and dex text in their own places', () => {

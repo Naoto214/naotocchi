@@ -63,7 +63,7 @@
 | H3 / CA-23 | script.js `speakEvent` | `PARTNER_RELATIONSHIP_LINES` を吹き出しへ出すとき外側の「」を外す(記念日ムービーと同じ正規表現) |
 | H4 / CA-25 | script.js `partnerDailyLine` / `speakEvent` / `scheduleIdleGreeting` | `canonicalPartnerId(state.partner.id)` で引く |
 | H5 / CA-20 | script.js `goOnDate` | 表示されない `traitLine` の抽選を削除(引数は `null`)。DATE_TRAIT_LINES / DATE_PLAN_VARIATIONS / money に休眠理由のコメントを追加 |
-| H6 / CA-13・14 | script.js `meguruBridge`(**meguru.js は無変更**) | `partners` を getter にし、`hook` 欄へ world master の設計メモではなく そのこいびとの本人台詞(`PARTNER_CHARACTER_IDLE_LINES`、alias 正規化)を1つ渡す(住民名簿を作るたびに選び直す)。めぐる向けの `allCompanionsById` は `flavor` 欄を そのなかまの本人台詞(`COMPANION_CHARACTER_IDLE_LINES`)に差し替えた写しを返す。`speciesStageDesc` はめぐるへ渡さない。world master の hook・出会いカードの flavor・図鑑の説明文のデータは削除していない |
+| H6 / CA-13・14 | script.js `meguruBridge`(**meguru.js は無変更**) | `partners` を getter にし、`hook` 欄へ world master の設計メモではなく そのこいびとの本人台詞(`PARTNER_CHARACTER_IDLE_LINES`、alias 正規化)を1つ渡す。どの1行かは**キャラ ID と日付のハッシュ**で決める(乱数を使わない。同じ日の住民名簿が同一になり、めぐるの先読み world の再利用条件と、シード付き乱数列を崩さない。最初に `Math.random` で選んだ版では `meguru-party-lod` / `phase4e3` / `phase4e4a` の 27 人パーティ先読みテスト 3 件が失敗したため変更)。めぐる向けの `allCompanionsById` は `flavor` 欄を そのなかまの本人台詞(`COMPANION_CHARACTER_IDLE_LINES`)に差し替えた写しを返す。`speciesStageDesc` はめぐるへ渡さない。world master の hook・出会いカードの flavor・図鑑の説明文のデータは削除していない |
 | — | index.html | script.js の `?v=` だけ更新(`tools/bump-versions.js` は全アセットの日付を書きかえてしまうため、変更したファイルだけ同じハッシュ関数で更新) |
 
 ### meguru.js を変えずに bridge 側で直した理由
@@ -78,16 +78,17 @@
 
 ## 4. テスト
 
-### 追加: `tests/conversation-hygiene-test.cjs`(7 件、`npm test` に追加)
+### 追加: `tests/conversation-hygiene-test.cjs`(8 件、`npm test` に追加)
 1. CA-07 上部欄と同じ文が吹き出しに出ない(sleep / medicine_cure / wake、乱数を 0〜1 で 40 点走査、全 beat)
 2. CA-07 除外でプールが空にならない
 3. CA-10 告白相手がいないとき吹き出しが出ない
 4. CA-23 交際台詞が「」なしで出る
 5. CA-25 旧 ID `ceo-cat` の恋人が cat_ceo の専用台詞・結婚台詞を使う
 6. CA-13/14 本番と同じ bridge → `buildRegistry` → `talkLine` の経路で、hook・flavor・図鑑説明を一切話さず、本人台詞が出る(住民名簿 30 回 × 話者 5 × 20 回)
-7. CA-13/14 hook・flavor・図鑑説明のデータは本来の場所に残り、meguru.js は Character 3D lane の保護ハッシュと一致したまま
+7. CA-13/14 めぐる向けの本人台詞は同じ日なら同一で、ページの乱数を1回も消費しない
+8. CA-13/14 hook・flavor・図鑑説明のデータは本来の場所に残り、meguru.js は Character 3D lane の保護ハッシュと一致したまま
 
-**修正前の main で同じテストを実行すると 5/7 が失敗**(2 と 7 は不変条件の確認なので修正前も通る)し、修正後は 7/7 通ることを確認した。
+**修正前の main で同じテストを実行すると 5 件が失敗**(2・7・8 は不変条件の確認なので修正前も通る)し、修正後は 8/8 通ることを確認した。
 
 ### 変更: `tests/dialogue-test.js`
 - 交際・結婚台詞の期待値を「外側の「」を外した文」に変更(H3 の意図どおりの変化)。

@@ -14576,9 +14576,14 @@
       return !!(c.getContext && c.getContext('webgl2'));
     } catch (_) { return false; }
   })();
-  // めぐるの吹き出しへ渡す「その子らしい一言」(Home の放置台詞と同じ正本から1つ)
-  function meguruOwnLine(lines) {
-    return Array.isArray(lines) && lines.length ? lines[Math.floor(Math.random() * lines.length)] : '';
+  // めぐるの吹き出しへ渡す「その子らしい一言」(Home の放置台詞と同じ正本から1つ)。
+  // 乱数は使わず、キャラと日付で決める(住民名簿が同じ日に同じになり、めぐるの先読み world と
+  // 一致する。シード付きの乱数列もずらさない)。日がかわると別の一言になる。
+  function meguruOwnLine(lines, id) {
+    if (!Array.isArray(lines) || !lines.length) return '';
+    let h = 2166136261;
+    for (const ch of `${id}:${dailyKey()}`) h = Math.imul(h ^ ch.codePointAt(0), 16777619) >>> 0;
+    return lines[h % lines.length];
   }
   const meguruBridge = {
     clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
@@ -14596,15 +14601,15 @@
     // なかまの flavor は出会いカードの地の文。めぐるでは吹き出しに出るので、その子の本人台詞に差し替えて渡す(CA-14)。
     allCompanionsById: (id) => {
       const def = allCompanionsById(id);
-      return def ? {...def, flavor:meguruOwnLine(COMPANION_CHARACTER_IDLE_LINES[canonicalCompanionId(def.id)])} : def;
+      return def ? {...def, flavor:meguruOwnLine(COMPANION_CHARACTER_IDLE_LINES[canonicalCompanionId(def.id)], def.id)} : def;
     },
     canonicalCompanionId,
     // けしきの かんさ よう: なかま・レアなかま ぜんいんの emoji を しる ため
     allCompanions: () => [...COMPANIONS, ...RARE_COMPANIONS],
     // hook はめぐるで こいびとの一言として吹き出しに出る。world master の hook は設計メモなので渡さず、
-    // 本人の台詞を1つ渡す。めぐるが住民名簿を作るたびに読み直すので getter にしてある(CA-13)。
+    // 本人の台詞を1つ渡す(日ごとに選び直すため getter。CA-13)。
     get partners() {
-      return (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: meguruOwnLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(p.id)]), asset: p.asset }));
+      return (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: meguruOwnLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(p.id)], p.id), asset: p.asset }));
     },
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
