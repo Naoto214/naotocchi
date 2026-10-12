@@ -1332,3 +1332,8 @@ a93265cから、指定5契約のrule prefix/本人候補と乱数材料、指定
 02e9921の未採用案についてユーザー明示承認を受領。現行通常候補の比較根拠をsource/unit/許可view/履歴へ結合し、未証明上位はunknown、下位支払による排除を禁止。既知上位差/同値の算術は保持するが、現行実カードのknown根拠は未供給。全未知・116除外を維持する。承認正本はplans/2026-10-12-approved-normal-comparison-evidence.md、証拠はverification/p11-comparison-evidence-report.md。関連164PASS（最終接続前）＋終了起点17PASS＋見送りprovenance24PASS、各Python1084前後一致。独立9PASS/C0I0M1説明訂正。複数ターンcheck1〜4はFAILを保存、check5はscope引数中継ERRORを修正。check6はR5終了時のshared trigger provenance不一致でFAIL（W-city群の起点146と元response起点145の接続を次に検査）。局所PASSでpreflightを開けない。P09/P10/P14–18の共通合成と最終版検証へ継続。preflight-ready=false、生成/固定/400戦0。
 
 P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒、exit0、Python1084前後一致。positive_windowのrecords中継と旧helper形テストを修正。check6の複数ターンFAILは別に未解消として保持し、p11-multiturn-check6-record.json.xz/.jsonへ原本保存。保存後はこの起点接続を次にTDDで修正し、P09/P10/P14–18へ継続する。現在実行中試験なし。
+
+
+### 2026-10-12 P11後のW-city起点／typed手札形式
+
+6152e4aから、現在逐次activationの実起点を既存終了provenanceへ結合（26PASS10.549s）、native手札linkの省略source_zoneをtyped全差分監査へ接続（22PASS5.194s）。独立read-only各C0/I0/Minor0、Python1084前後一致。verification/group-origin-review.md参照。複数turnはR7/B・199step214eventまで進み、I-bowtieの挑戦宣言後非開始否定が未接続でFAIL。group-origin-multiturn2-record.json.xzへ原本保存、完走PASSではない。次は既存非開始監査への接続、P09/P10/P14–18共通gate。計画plans/2026-10-12-current-preflight-composition.mdを保存。preflight-ready=false、生成/固定/400戦0。保存時点の実行中試験なし。

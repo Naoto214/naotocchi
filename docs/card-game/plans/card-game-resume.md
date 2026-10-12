@@ -98,3 +98,8 @@
 preflight-ready=false。seed生成/本番入力固定/400戦開始は未実施。このメモは生成・開始の承認ではない。A裁定475・B裁定474・指定mandatory1/N・旧116除外・114/116/119/過去結果の保護を維持。未知を0/同価値にしない。全体結論null、policy promotion=false、独立balance標本0。main/フロントエンド/World/Character3Dには触れない。
 
 P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒、exit0、Python1084前後一致。positive_windowのrecords中継と旧helper形テストを修正。check6の複数ターンFAILは別に未解消として保持し、p11-multiturn-check6-record.json.xz/.jsonへ原本保存。保存後はこの起点接続を次にTDDで修正し、P09/P10/P14–18へ継続する。現在実行中試験なし。
+
+
+### 2026-10-12 P11後のW-city起点／typed手札形式
+
+6152e4aから、現在逐次activationの実起点を既存終了provenanceへ結合（26PASS10.549s）、native手札linkの省略source_zoneをtyped全差分監査へ接続（22PASS5.194s）。独立read-only各C0/I0/Minor0、Python1084前後一致。verification/group-origin-review.md参照。複数turnはR7/B・199step214eventまで進み、I-bowtieの挑戦宣言後非開始否定が未接続でFAIL。group-origin-multiturn2-record.json.xzへ原本保存、完走PASSではない。次は既存非開始監査への接続、P09/P10/P14–18共通gate。計画plans/2026-10-12-current-preflight-composition.mdを保存。preflight-ready=false、生成/固定/400戦0。保存時点の実行中試験なし。

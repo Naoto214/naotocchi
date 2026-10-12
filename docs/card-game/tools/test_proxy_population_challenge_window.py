@@ -52,9 +52,18 @@ class MultiTurnConnectionTests(unittest.TestCase):
    with api.contract_scope():proof=existing.ExistingAdapter(prefix['events']).proof(upgraded)
    return dict(envelope=upgraded,proof=proof)
   prepared=base.operation(i,prepare);e=prepared['envelope']
-  r=api.segment(e,i,prefix['events'],shots,[e],512,prepared['proof'],session)
   import json,lzma
   from pathlib import Path
+  from unittest.mock import patch
+  import proxy_population_trigger_coverage as coverage
+  prior_audit=coverage.audit
+  def audit_with_diagnostic(result,*args,**kwargs):
+   try:return prior_audit(result,*args,**kwargs)
+   except Exception:
+    Path('/tmp/card-game-multiturn-coverage-failed.json.xz').write_bytes(lzma.compress(json.dumps(result).encode()))
+    raise
+  with patch.object(coverage,'audit',audit_with_diagnostic):
+   r=api.segment(e,i,prefix['events'],shots,[e],512,prepared['proof'],session)
   Path('/tmp/card-game-multiturn-diagnostic.json').write_text(json.dumps(dict(stop=r['stop'],events=[x['action_type'] for x in r['events']],last=r['final_envelope']['legacy_continuation']['game_state']['round']),indent=2))
   if r['stop'] is not None:Path('/tmp/card-game-multiturn-failed-record.json.xz').write_bytes(lzma.compress(json.dumps(r).encode()))
   self.assertIsNone(r['stop']);self.assertTrue(r['completed']);self.assertEqual(r['events'][-1]['action_type'],'r10_final_comparison')

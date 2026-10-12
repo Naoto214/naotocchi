@@ -17,7 +17,7 @@ QUICKS=('E-fateful-transform','E-big-illness','G-beach-volley','G-baseball-batti
 CARDS=QUICKS+('M-antlion-03','P-cliff_goat','M-antlion-07','P-anglerfish')
 
 
-def transition(card,invalid=False,restart=None,outer=False):
+def transition(card,invalid=False,restart=None,outer=False,implicit_hand=False):
  if card in QUICKS:e=quick_case(card)
  elif card in ('M-antlion-03','P-cliff_goat'):
   e,row=board_case(card);action=latching.current_actions(e,row)[0][0];e,_=effects.activate(e,action,row);e=resolving(e)
@@ -38,6 +38,7 @@ def transition(card,invalid=False,restart=None,outer=False):
   c=e['legacy_continuation'];g=c['game_state'];link=c['activation_zone'][-1]
   target=link['target_instance_ids'][0] if link['target_instance_ids'] else g['players']['A']['board']['main']
   owner=next(p for p in g['players'].values() if p['board']['main']==target);owner['board']['main']=None;owner['discard'].append(target)
+ if implicit_hand:e['legacy_continuation']['activation_zone'][-1].pop('source_zone')
  if card in QUICKS:r=payments.resolve(e,initial())
  elif card in ('M-antlion-03','P-cliff_goat'):r=effects.resolve(e,initial())
  else:r=payments.resolve_board_stat(e)
@@ -60,6 +61,17 @@ class TypedResolutionTests(unittest.TestCase):
      b,a,ev,choices=transition(card,restart=restart);proof=api.audit(b,a,ev,choices)
      with self.subTest(card=card,restart=restart):
       self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_typed_resolution_verified']);self.assertFalse(proof['choice_proven']);self.assertIsNone(proof['balance_admitted'])
+   return {}
+  self.run_case(run)
+ def test_native_quick_implicit_hand_zone_and_invalid_explicit_zones(self):
+  # Native quick.activate omits source_zone; this remains the hand route.
+  def run():
+   for card in QUICKS:
+    b,a,ev,choices=transition(card,implicit_hand=True)
+    self.assertEqual(api.audit(b,a,ev,choices)['errors'],[],card)
+    for zone in ('prepared','deck',None,False):
+     bad=copy.deepcopy(b);bad['legacy_continuation']['activation_zone'][-1]['source_zone']=zone
+     self.assertTrue(api.audit(bad,a,ev,choices)['errors'],(card,zone))
    return {}
   self.run_case(run)
  def test_outer_board_link_is_preserved_for_all_ten_routes(self):

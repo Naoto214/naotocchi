@@ -24,7 +24,9 @@ def audit(before,after,event,decisions):
    if not link or card not in CARDS:raise ValueError('typed full resolution source differs')
    row_proof=creation.audit(before,after,event)
    if row_proof['errors'] or not row_proof['typed_creation_verified']:raise ValueError('typed row prerequisite differs: '+str(row_proof['errors']))
-   source=link['source_instance_id'];actor=link['actor'];board=link['source_zone']=='board';met=row_proof['created_effect_count']==1
+   zone=link.get('source_zone','hand')
+   if zone not in ('hand','board'):raise ValueError('typed source zone differs')
+   source=link['source_instance_id'];actor=link['actor'];board=zone=='board';met=row_proof['created_effect_count']==1
    if board and event.get('source_zone')!='board':raise ValueError('typed board receipt zone differs')
    if type(decisions) is not list:raise ValueError('typed resolution decisions differ')
    if card=='M-antlion-03' and met:
