@@ -55,6 +55,8 @@
 
 - 2026-10-12: 共有公開履歴投影の秘密hash混入1REDを独立許可field照合で拒否。normal実入口/traceへ結合、allowed-history-*、19PASS63.921s・Python1079前後一致。review I1のraw履歴3binding-field正規化修正済み、再reviewなし。全情報/起点/operandは未証明。次はP09/P11/P14–18共通合成。
 
+- 2026-10-12: current-source-closure-composition.mdへ既存初期/全遷移/敵人物予約不変条件の合成範囲を整理。独立読取review C0/I0M0、コード変更・再検証なし。次は41sourceの全作用とnative外の別責務対応、P10/P11/P14–18。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

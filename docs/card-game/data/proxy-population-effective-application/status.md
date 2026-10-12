@@ -1285,3 +1285,8 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P10 実通常履歴の許可field独立照合（2026-10-12）
 
 4cc8be2から共有projectorが秘密由来hashを再投影でも保持する実入口1REDを修正。producerを呼ばず許可field/本人記憶/公開reveal/準備表裏から投影を別照合し、normal stepとtraceへentry/actor/count/raw-prefix/projected hashを結合。独立review C0/I1/Minor0のraw履歴binding-field正規化を修正、再reviewなし。最終19PASS63.921s/exit0、Python1079前後一致。allowed-history-review.md/summary.json/verification.logが最終証拠。初期fixture誤り・無効並行probe・修正前review ERRORは区別して保存。全情報利用/履歴起点/operand証明へ昇格せず、preflight-ready=false、生成/固定/400戦0。次はP09 source閉包/P11残operand/P14–18共通合成。
+
+
+### P06/P09 source閉包の合成境界（2026-10-12）
+
+1538eaaの初期/typed起点/80物理保存/敵人物・予約不変条件/解決・非解決全差分/trace10rootの既存接続をcurrent-source-closure-composition.mdへ整理。受理supplied traceの不変条件と全合法機会の証明を区別。独立read-only review C0/I0/Minor0、コード変更・テスト再実行なし。次は41sourceの各作用/機会を既存の別責務へ完全対応させ、native外分類の引受け先を明示する。P10/P11/P14–18は未完、preflight-ready=false、生成/固定/400戦0。
