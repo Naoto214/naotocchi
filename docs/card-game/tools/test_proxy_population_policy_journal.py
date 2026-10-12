@@ -66,8 +66,9 @@ class BoundPolicyJournalTests(unittest.TestCase):
  def test_existing_unit_trace_binds_all_turns_and_designated_choice_entries(self):
   from test_proxy_mandatory_population_input import bundle
   import proxy_population_connected_entry as connected
-  r=connected.reconstruct(bundle(),'test-1A',220)
-  self.assertTrue(r['completed']);self.assertTrue(r['mandatory_origin_audit']['origin_sequence_verified'])
+  # Approved P11 unknown preservation lengthens this existing diagnostic path.
+  r=connected.reconstruct(bundle(),'test-1A',512)
+  self.assertTrue(r['completed'],(r['runtime']['stop'],len(r['runtime']['steps'])));self.assertTrue(r['mandatory_origin_audit']['origin_sequence_verified'])
   proof=r['mandatory_opportunity_audit'];self.assertTrue(proof['designated_opportunities_covered'])
   self.assertGreater(r['mandatory_origin_audit']['resolution_entry_count'],0)
   # This one existing unit's supplied source rows are locally covered; no

@@ -139,3 +139,12 @@ P14–18共通gateを実装。保存されたtested editionと現行editionの�
 固定7872fea全対象186module/876testは7FAIL2ERROR、1258.571秒/exit1、1090 Python前後一致。完全結合300step321event/13監査errors=[]、423.300秒/exit1でR10/B resolve_immediate_effect後のI-bowtie未接続に停止。原本を保持しPASSと数えない。
 
 既存8解決名＋after_normal_action境界を開始時否定へ合成、未登録/誤windowは拒否。残る回帰は既存board_links scope・copy ID・P11後の期待/拒否順・current474 scopeと初期group対応へfixtureを修正。関連26PASS44.975秒/1090 Python一致、独立read-only C0/I0/Minor0。verification/current-regression-repair-review.md参照。次は保存固定版の全回帰/完全結合/設計、保存証拠による実準備gate確認。preflight-ready=false、生成/固定/400戦0。
+
+
+## 2026-10-12 final diagnostic limit fixture
+
+固定4ab6deaの完全結合は307step328event、13監査errors=[]、逐次誘発9、completed=true/stop=null、465.535秒/exit0、1090 Python前後一致。current-connected-4ab6dea-*を原本保存。設計検査exit0/errors=[]。同版の186module/876test回帰は1FAIL/0ERROR、1321.749秒/exit1、指紋一致。残るFAILはpolicy journal全turnテストの旧220step上限でcompletedを要求したもの。失敗をPASSと数えない。
+
+保存済み実307step原本で同テストの後続全assertを再使用診断し1PASS/6.831秒、指紋一致（reconstructは保存recordへ置換、fresh再構成GREENではない）。policy-journal-completed-record-diagnostic-*参照。テスト上限を既存許容512へ変更し、未完時stop/step数を表示。完走/各履歴/指定choice/改変拒否のassertを維持し、実処理は変更しない。
+
+この保存は最終固定版検証前のpending checkpoint。次に全186module回帰・完全結合・設計を固定版で実行し、当該fixture変更の独立レビュー、readiness証拠保存、実gate照合まで継続する。preflight-ready=false、生成/固定/400戦/実承認取得消費0。
