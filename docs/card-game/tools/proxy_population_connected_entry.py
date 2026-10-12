@@ -18,6 +18,7 @@ import proxy_population_end_dispatch as end_dispatch
 import proxy_population_trace_obligations as trace_obligations
 import proxy_population_initial_obligations as initial_obligations
 import proxy_population_source_responsibilities as source_responsibilities
+import proxy_population_permitted_inputs as permitted_inputs
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 _LOCK=Lock()
@@ -83,6 +84,9 @@ def reconstruct(bundle,match_id,limit):
   responsibility=source_responsibilities.audit(result)
   if responsibility['current107_responsibilities_joined'] is not True:raise ValueError('actual source responsibilities differ: '+str(responsibility['errors']))
   result['source_responsibility_audit']=responsibility
+  permitted=permitted_inputs.audit(result)
+  if permitted['current_permitted_inputs_joined'] is not True:raise ValueError('actual permitted inputs differ: '+str(permitted['errors']))
+  result['permitted_input_audit']=permitted
   if fingerprint()!=before:raise ValueError('connected tools source changed during reconstruction')
   result.update(schema='bound_population_connected_runtime.v1',connected_tools_sha256=before,reconstruction_step_limit=limit,ready_for_execution=False,ready_for_input_generation=False)
   return result

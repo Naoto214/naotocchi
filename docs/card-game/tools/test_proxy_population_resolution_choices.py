@@ -93,6 +93,21 @@ class ResolutionChoiceTests(unittest.TestCase):
     with self.assertRaisesRegex(ValueError,'resolution choice'):runtime._step(e,initial(),[],[],[],extra)
    return {}
   runtime.operation(initial(),run)
+ def test_connected_step_rejects_unverified_no_choice_even_without_errors(self):
+  from unittest.mock import patch
+  from test_proxy_population_effect_application_runtime import fixture as actual_fixture
+  import proxy_population_challenge_window as connected
+  import proxy_continuation_payments as payments
+  native=api.audit
+  def unproved(*args):
+   result=native(*args);result['resolution_choice_obligation_verified']=False;return result
+  def run(forced):
+   e,_,_=actual_fixture(growth=20)
+   with connected.contract_scope(),patch.object(api,'audit',unproved):
+    with self.assertRaisesRegex(ValueError,'resolution choice'):
+     runtime._step(e,initial(),[],[],[],lambda e,i,*unused:payments.resolve(e,i))
+   return {}
+  runtime.operation(initial(),run)
  def test_legacy_search_failure_is_explicit_no_choice_not_designated_policy(self):
   self.assertIsNotNone(api)
   def run(forced):

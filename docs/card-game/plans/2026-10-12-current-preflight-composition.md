@@ -51,9 +51,9 @@ Interface: require_actual(record) returns a current107 responsibility join, cons
 
 Reuse the static read tables and fresh actual-entry projection/predicate/comparison/policy checks. Bind all current decision kinds to their existing adapters and actual histories; separate integrity/recording reads from value/seed materials. No arbitrary finite substitution suite is promoted to universal noninterference. Any concrete omitted entry is TDD-connected before recording completion.
 
-- [ ] Check every current ordinary/sequential/resolution/no-choice entry against the saved read table and actual source generation.
-- [ ] Test absent or misbound permitted-input/comparison evidence at the connected gate.
-- [ ] Preserve explicit unknown and116 status through export/admission; verify focused regressions and save.
+- [x] Check every current ordinary/sequential/resolution/no-choice entry against the saved read table and actual source generation.
+- [x] Test absent or misbound permitted-input/comparison evidence at the connected gate.
+- [x] Preserve explicit unknown and116 status through export/admission; verify focused regressions and save.
 
 ## Task4: Compose preparation and operational gates
 

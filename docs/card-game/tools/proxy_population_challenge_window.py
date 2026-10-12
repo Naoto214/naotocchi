@@ -121,8 +121,10 @@ def contract_scope():
     if proof['errors'] or proof['applicable'] and not proof['legacy_choice_coverage_verified']:raise ValueError('legacy effect choice obligations differ: '+str(proof['errors']))
     result['legacy_effect_choice_obligations']=proof
     obligation=resolution_choices.audit(result['source_envelope'],initial,result['mandatory_decisions'])
-    if obligation['errors'] or obligation['route']=='unproved':raise ValueError('resolution choice obligation unproved: '+str(obligation['errors']))
+    if obligation['errors'] or obligation['route']=='unproved' or obligation['route']!='designated_465_journal_required' and obligation['resolution_choice_obligation_verified'] is not True:raise ValueError('resolution choice obligation unproved: '+str(obligation['errors']))
     result['resolution_choice_obligation']=obligation
+    from proxy_population_permitted_inputs import resolution_binding
+    result['resolution_choice_input_binding']=resolution_binding(result,initial)
    return result
  def operation(initial,callback):
   def connected(forced):

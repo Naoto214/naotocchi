@@ -1347,3 +1347,8 @@ P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒
 ### 2026-10-12 P09 source責務の共通入口結合
 
 9238831から41source固定表・native外担当・追加hand/typedと全実境界を既存traceへ結合。独立read-only C0/I1/Minor0のP-cat_ceo正常否定誤拒否を1RED→修正。最終18PASS77.924s/exit0、Python1086前後一致。verification/source-responsibility-review.mdと同final原本。P09担当joinは済、保存proof認証/全情報/適格性へ昇格しない。全turnの最終再検証は共通bundle後にまとめる。次はP10各判断の許可read/選択証拠とP14–18共通gate。preflight-ready=false、生成/固定/400戦0。実行中試験なし。
+
+
+### 2026-10-12 P10許可read責務の共通入口結合
+
+2ae5cd5から既存read表をSHA固定して各通常/response/逐次/解決choice責務へ接続。legacy/no-choiceのerrors=[]/falseを実stepで拒否。逐次116 addressは実群/ordinal、解決はbefore/初期識別子/records/routeへ結合。最終25PASS23.091s/exit0、Python1088一致、独立read-only C0/I0/Minor0。verification/permitted-input-review.md。全情報非干渉/適格性へ昇格しない。次は固定版全turnの確認、P14–18準備/運用gate。preflight-ready=false、生成/固定/400戦0。保存時実行中試験なし。
