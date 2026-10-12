@@ -1,5 +1,21 @@
 # 400戦 preflight残課題台帳
 
+## 最新状態 — edition再結合契約の実装・固定source検証完了（2026-10-12）
+
+ユーザー承認の追加4契約をinline逐次TDDで実装。固定sourceは `fb1f22b0a565d077744c0c80ba6178ffefc6a988` / tree `83789185e679f2946496d84b92fee658f982edba`。保存済みpositive共通修正を維持し、旧edition独立checkout監査、既存materialだけからの派生manifest、append-only binding、同一bindingへのv2 launch/claim/supervisor/attempt拘束を追加した。新乱数・seed・初期順生成なし。
+
+- 現行population/mandatory **190モジュール901件PASS**。2315.591秒、実exit0、生ログRan901/OK、再帰Python1096ファイル前後および固定source一致。
+- 診断用旧115/零root完全結合はcompleted=true、328event、stop=null、706.489秒、実exit0、13監査成立、Python1096一致。固定400戦の実行や新しい独立標本ではない。
+- 設計検査exit0/errors=[]。独立read-onlyレビュー1回 C0/I2/M0。親担当が2件をTDDで修正し最終901件で確認。修正後の独立再査読は行っていない。先行の中断/初回design失敗/関連67件は補足履歴として区別して保存。
+- manifestはsource_versions以外の全キー・値を完全一致。Pythonの完全identityと生成器16ファイルも固定。全400行/200群、初期順、policy roots、デッキ、入力hash、実行順、registry、protocolを推定で同一扱いしない。
+- 明示的保存基準 `plans/execution-rebinding-preservation.json` は修正前2cfc1ca3/tree0de92cad。既存dataと番号付き正本3,668ファイルを、従来指定の進捗文書以外は変更/削除禁止。停止原本・旧package・承認消費履歴23ファイルは全回帰後もed131adのblob/bytes一致。
+
+新preflightの証拠は `verification/execution-rebinding-preflight.json` と `execution-rebinding-fb1f22b-*`。この証拠保存の後、保存editionの実preflightと旧生成来歴を再監査し、別ディレクトリのbinding.json/manifest.jsonだけを直接子commitとして追記する。再結合の正本はその保存済みbindingを再構成して確認する。本人requestは両監査成立後にのみ構成する。古いreadyや承認を流用しない。
+
+本番は引き続き未完了1/未実施399、balance標本0、全体結論null、policy promotion=false。400戦再実行/resume/第2戦開始/承認消費は未実施。新本人launch承認を得るまで実行禁止。新destinationへの全固定予定実行も新しい独立標本とは数えない。PR259 Draft/open/unmergedを維持。
+
+以下は過去時点の履歴。最新のbinding公開HEADと実監査結果をfresh remoteから確認する。復元だけを理由に保存済み全回帰を再実行しない。
+
 ## 最新状態 — positive終了証明の共通修正・検証済み（2026-10-12）
 
 修正sourceは `66199f4937400b1b93f5520bdeb95540fc297a34` / tree `3a87df847af565dd66a4be528d3c1971d6401603`。最新保存HEAD/treeはfresh remoteで確認する。ed131adの停止原本を維持したまま、positiveの実遷移検証と終了履歴証明を共通builderで接続した。C-bat/M-antlion-03/M-antlion-06/P-cliff_goatに適用し、新しいゲーム裁定・成長値の推測・期間なしの仮定は追加しない。実成長差・source・依存・typed lifetimeが未証明ならunknown停止を維持する。
