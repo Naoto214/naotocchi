@@ -139,7 +139,9 @@ class SharedCostPoolTests(unittest.TestCase):
     else:
      p['deck']+=p['hand'];p['hand']=[];native=paid.cost_options;guard=patch.object(paid,'cost_options',lambda *args:[] if args[2]=='M-antlion-02' else native(*args)[:1])
     with self.subTest(card=card),paid.scope(),guard:
-     with self.assertRaisesRegex(ValueError,'candidate expansions'):runtime._step(e,initial(),[],[],[e],forced)
+     # P11 reconstructs payment/source operands before candidate export.
+     expected='candidate expansions' if card=='M-antlion-01' else 'normal payment operands differ: source predicates'
+     with self.assertRaisesRegex(ValueError,expected):runtime._step(e,initial(),[],[],[e],forced)
    return {}
   with window.contract_scope():runtime.operation(initial(),run)
 

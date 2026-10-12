@@ -56,7 +56,7 @@ class BoardPaymentBindingTests(unittest.TestCase):
     time=g['players'][g['turn_player']]['time']
     d=dict(context=dict(decision_kind='normal_action'),inventory=inv,
      problem=dict(legal_candidate_ids=inv['legal_candidate_ids'],candidates=[
-      dict(candidate_id=r['candidate_id'],payment_time=0,time_after_certain_resolution=time)
+      dict(candidate_id=r['candidate_id'],card_copy_id=g['cards'][r['source_instance_id']]['card_copy_id'] if r.get('source_instance_id') is not None else '',payment_time=0,time_after_certain_resolution=time)
       for r in inv['legal_candidate_details']]))
     # Other hand/core costs keep their independently derived actual values.
     for proof in (operands.core.audit_normal(e,inv), operands.hand.audit_normal(e,events,inv)):

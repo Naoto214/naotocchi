@@ -22,6 +22,9 @@ SOURCES['77-current-items-card-text-draft.md']='ec0a630c5616f6a50ca97afcebaab22f
 SOURCES['132-board-active-restart.md']='b431565b6a8de777b9745f3d2c8816d71b1e64753e537b5aa593efb6a7acc58f'
 SOURCES['64-turn-boundaries-and-victory-timing.md']='00f9845b5b79774c48bac002e26f6b08096563a4bf1611f408aed0e2c9089a64'
 SOURCES['65-challenge-participants-and-resolution.md']='65a8dfef2f97aa982173f1e767215a9da557e29e5adedbc4173250a4de1441a0'
+# Existing full-delta resolver families in resolution_semantics.FAMILIES plus
+# designated_effects. Resolution restarts response; it does not start a turn (06).
+RESOLUTION_ORIGINS={'resolve_payment_modifier','resolve_board_stat','resolve_board_ability','resolve_event','resolve_targeted_zone_move','resolve_immediate_effect','resolve_item','resolve_play'}
 PASSIVE_KINDS={'none','continuous','past_trigger','passive','triggered','response_triggered','cost_modifier'}
 
 
@@ -238,7 +241,8 @@ def audit_response(envelope,events,inventory,runtime_history=None):
     # Restrict this local negative to registered normal-method/end/challenge origins or
     # another player's turn; unknown own-turn mechanisms remain unproved.
     condition=_start_condition_at_origin(envelope,events,runtime_history,source,actor,origin) if met and card=='I-bowtie' and runtime_history is not None else None
-    if (met and condition is None) or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS|{'normal_pass_end_request','open_turn_end_triggers','challenge_declared','challenge_compared','relationship_progress','relationship_marriage','resolve_payment_modifier'} and condition is None):
+    resolved_response=raw in RESOLUTION_ORIGINS and ctx['window_kind']=='after_normal_action'
+    if (met and condition is None) or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS|{'normal_pass_end_request','open_turn_end_triggers','challenge_declared','challenge_compared','relationship_progress','relationship_marriage'} and not resolved_response and condition is None):
      unproved.append(dict(source_instance_id=source,card_id=card,reason='start_response_negative_not_proven'));continue
     start_negative_audits[source]=dict(origin_event_seq=origin['seq'],origin_action=raw,normalized_origin_action=kind,timing_matches=met,source_reference=cap['reference'])
     if condition is not None:start_negative_audits[source]['condition_at_start']=condition

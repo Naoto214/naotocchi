@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_response_start_negative",
+    "test_proxy_population_automatic_binding",
+    "test_proxy_population_board_payment_binding",
+    "test_proxy_population_candidate_expansions",
+    "test_proxy_population_selection_entry",
+    "test_proxy_population_trigger_multiturn"
+  ],
+  "exit_code": 0,
+  "seconds": 44.97455192600319,
+  "python_file_count": 1090,
+  "fingerprints_equal": true,
+  "tests": "26",
+  "tail": "Tests.test_end_automatic_batch_cannot_consume_next_ordinary_response) ... ok\ntest_ordinary_entry_cannot_be_relabelled_automatic (test_proxy_population_automatic_binding.AutomaticBindingTests.test_ordinary_entry_cannot_be_relabelled_automatic) ... ok\ntest_rehashed_runtime_cannot_diverge_from_native_snapshots (test_proxy_population_automatic_binding.AutomaticBindingTests.test_rehashed_runtime_cannot_diverge_from_native_snapshots) ... ok\ntest_resolution_and_next_turn_bind_all_outputs (test_proxy_population_automatic_binding.AutomaticBindingTests.test_resolution_and_next_turn_bind_all_outputs) ... ok\ntest_comparison_joins_board_proof_and_rejects_balanced_tampering (test_proxy_population_board_payment_binding.BoardPaymentBindingTests.test_comparison_joins_board_proof_and_rejects_balanced_tampering) ... ok\ntest_source_costs_are_explicit_without_valuing_physical_payment (test_proxy_population_board_payment_binding.BoardPaymentBindingTests.test_source_costs_are_explicit_without_valuing_physical_payment) ... ok\ntest_actual_normal_entries_export_expansion_evidence (test_proxy_population_candidate_expansions.ConnectedExpansionTests.test_actual_normal_entries_export_expansion_evidence) ... ok\ntest_current_first_date_target_and_item_targets_expand_from_state (test_proxy_population_candidate_expansions.ExpansionTests.test_current_first_date_target_and_item_targets_expand_from_state) ... ok\ntest_paid_order_omission_is_distinct_from_source_coverage (test_proxy_population_candidate_expansions.ExpansionTests.test_paid_order_omission_is_distinct_from_source_coverage) ... ok\ntest_shared_target_expander_cannot_hide_an_attachment_alternative (test_proxy_population_candidate_expansions.ExpansionTests.test_shared_target_expander_cannot_hide_an_attachment_alternative) ... ok\ntest_optional_discount_is_a_separate_candidate_even_when_unaffordable (test_proxy_population_candidate_expansions.PaymentExpansionTests.test_optional_discount_is_a_separate_candidate_even_when_unaffordable) ... ok\ntest_actual_entry_rejects_shared_payment_omissions (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_actual_entry_rejects_shared_payment_omissions) ... ok\ntest_independent_paid_pool_preserves_multiple_quick_costs_and_usage (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_independent_paid_pool_preserves_multiple_quick_costs_and_usage) ... ok\ntest_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) ... ok\ntest_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) ... ok\ntest_connected_entry_stops_before_exporting_unverified_computation (test_proxy_population_selection_entry.SelectionEntryTests.test_connected_entry_stops_before_exporting_unverified_computation) ... ok\ntest_normal_invalid_selection_cannot_pass_current_gate (test_proxy_population_selection_entry.SelectionEntryTests.test_normal_invalid_selection_cannot_pass_current_gate) ... ok\ntest_normal_payment_missing_candidate_cannot_pass_current_gate (test_proxy_population_selection_entry.SelectionEntryTests.test_normal_payment_missing_candidate_cannot_pass_current_gate) ... ok\ntest_response_invalid_selection_cannot_pass_current_gate (test_proxy_population_selection_entry.SelectionEntryTests.test_response_invalid_selection_cannot_pass_current_gate) ... ok\ntest_response_priority_requires_premises_but_fallback_stays_excluded (test_proxy_population_selection_entry.SelectionEntryTests.test_response_priority_requires_premises_but_fallback_stays_excluded) ... ok\ntest_actual_next_start_captures_pre_draw_sources_across_turns (test_proxy_population_trigger_multiturn.MultiTurnTests.test_actual_next_start_captures_pre_draw_sources_across_turns) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 44.784s\n\nOK\n",
+  "base_commit": "7872feaf00e8c8e9c6b86a30243b529c9911c6c1",
+  "preflight_ready": false,
+  "new_matches": 0
+}

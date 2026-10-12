@@ -1079,3 +1079,9 @@ P14–18共通gateを実装。保存されたtested editionと現行editionの�
 ## 2026-10-12 resolution restart start-negative
 
 固定81e46ee完全結合は289step310event、13監査errors=[]、400.914秒/exit1でR10/B I-bowtie否定未接続に停止。原本current-connected-81e46ee-*を保持。06既存解決後response起点resolve_payment_modifierを登録否定へ1行追加。RED2は2FAIL、関連26PASS11.126秒、1090 Python一致、独立read-only C0/I0/Minor0。verification/resolution-start-negative-review.md参照。186module回帰は版変更のため中断、exit130、PIPE原本log未保存（PASS不可）、両process終了確認後に編集。次は保存版全回帰/完全結合/設計→保存証拠の実gate確認。preflight-ready=false、生成/固定/400戦0。
+
+## 2026-10-12 current regression repair
+
+固定7872fea全対象186module/876testは7FAIL2ERROR、1258.571秒/exit1、1090 Python前後一致。完全結合300step321event/13監査errors=[]、423.300秒/exit1でR10/B resolve_immediate_effect後のI-bowtie未接続に停止。原本を保持しPASSと数えない。
+
+既存8解決名＋after_normal_action境界を開始時否定へ合成、未登録/誤windowは拒否。残る回帰は既存board_links scope・copy ID・P11後の期待/拒否順・current474 scopeと初期group対応へfixtureを修正。関連26PASS44.975秒/1090 Python一致、独立read-only C0/I0/Minor0。verification/current-regression-repair-review.md参照。次は保存固定版の全回帰/完全結合/設計、保存証拠による実準備gate確認。preflight-ready=false、生成/固定/400戦0。

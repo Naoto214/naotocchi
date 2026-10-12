@@ -11,17 +11,15 @@ import proxy_continuation_state as state
 
 class MultiTurnTests(unittest.TestCase):
  def test_actual_next_start_captures_pre_draw_sources_across_turns(self):
-  prefix=reconstruct_opening(bundle(),'test-1A');e=prefix['final_envelope'];cards=e['legacy_continuation']['game_state']['cards'];shots=[]
-  for snap in prefix['snapshots'][:2]:
-   g=copy.deepcopy(snap['state']);g['cards']=copy.deepcopy(cards);shots.append(dict(event_seq=snap['seq'],game_state=g,game_state_sha256=snap['state_sha256'],continuation_state=None,continuation_state_sha256=None))
-  shots.append(base.engine.base.old._snapshot(state.current(e)));i=initial();i.update(path_id='test-1A',order_id='test-1');i['inputs']['path_id']=i['path_id']
-  captured=copy.deepcopy(e);captured['event_seq']=0;captured['legacy_continuation']['game_state']['phase']='turn_start';proof=starts.collect(starts.capture(captured),e)
-  s=Session(dict(protocol_id='policy_conditional_population.v1',group_id='test-1',mirror_side='A_first'),{'A':'00'*32,'B':'00'*32});s.turn_start('A','opening')
-  result=api.segment(e,i,prefix['events'],shots,[e],40,proof,session=s)
+  # Use the current entry scopes (including474/first-date), preserving the
+  # historical115/zero-root input and actual pre-draw capture assertions.
+  import proxy_population_connected_entry as connected
+  result=connected.reconstruct(bundle(),'test-1A',40)['runtime']
   self.assertIsNone(result['stop']);self.assertGreater(len(result['start_occurrence_proofs']),2)
-  self.assertEqual(len(result['closed_turn_trigger_ledgers']),len(result['start_occurrence_proofs'])-1)
+  # Current opening enters an existing group; each later start closes one turn.
+  self.assertEqual(len(result['closed_turn_trigger_ledgers']),len(result['start_occurrence_proofs'])+int(result['completed']))
   self.assertTrue(all(r['supplied_occurrences_closed'] and not r['opportunity_completeness_proven'] for r in result['closed_turn_trigger_ledgers']))
-  for record in result['start_occurrence_proofs'][1:]:
+  for record in result['start_occurrence_proofs']:
    self.assertGreater(record['origin_event_seq'],record['capture']['event_seq']);self.assertFalse(record['start_execution_authenticated'])
   self.assertEqual(result['independent_balance_samples'],0);self.assertFalse(result['ready_for_execution'])
 if __name__=='__main__':unittest.main()

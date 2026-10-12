@@ -3,6 +3,7 @@ import copy,unittest
 from test_proxy_mandatory_population_input import bundle
 import proxy_population_connected_entry as connected
 import proxy_continuation_payments as payments
+import proxy_continuation_board_links as board_links
 try:import proxy_population_automatic_binding as api
 except ImportError:api=None
 
@@ -11,7 +12,7 @@ class AutomaticBindingTests(unittest.TestCase):
  def setUpClass(cls):
   cls.record=connected.reconstruct(bundle(),'test-1A',16)
  def check(self,step):
-  with payments.scope():return api.audit_step(step)
+  with payments.scope(),board_links.scope():return api.audit_step(step)
  def test_resolution_and_next_turn_bind_all_outputs(self):
   self.assertIsNotNone(api)
   rows=[s for s in self.record['runtime']['steps'] if s['forced_record'] is not None]
@@ -45,7 +46,7 @@ class AutomaticBindingTests(unittest.TestCase):
   bad=copy.deepcopy(original)
   for key in ('events','envelopes','snapshots'):bad[key]+=copy.deepcopy(following[key])
   bad['final_envelope']=copy.deepcopy(following['final_envelope'])
-  with payments.scope():
+  with payments.scope(),board_links.scope():
    current=state.current(bad['final_envelope']);f=bad['forced_record']
    f.update(new_events=[{k:v for k,v in e.items() if k not in BIND_KEYS} for e in bad['events']],new_envelopes=copy.deepcopy(bad['envelopes']),new_snapshots=copy.deepcopy(bad['snapshots']),final_continuation_state=old.start._payload(current),last_valid_event_seq=bad['final_envelope']['event_seq'])
    for key,value in (('final_game_state_sha256',old.start.opening._stop_state_sha256(current['game_state'])),('final_continuation_state_sha256',old.start._hash(current))):
@@ -72,7 +73,7 @@ class AutomaticBindingTests(unittest.TestCase):
   from proxy_population_runtime import BIND_KEYS
   original=next(s for s in self.record['runtime']['steps'] if s['forced_record'] is not None and not s['forced_record'].get('new_envelopes'))
   bad=copy.deepcopy(original);prior=bad['source_envelope']
-  with payments.scope():
+  with payments.scope(),board_links.scope():
    for event,after in zip(bad['events'],bad['envelopes']):
     g=after['legacy_continuation']['game_state']
     after['runtime']['ability_uses'].append(dict(source_instance_id=next(iter(g['cards'])),ability_key='forged-runtime-use',turn_player=g['turn_player'],round=g['round'],count=1))

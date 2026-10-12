@@ -18,9 +18,10 @@ class SelectionEntryTests(unittest.TestCase):
  def test_normal_invalid_selection_cannot_pass_current_gate(self):
   def run(forced):
    e,_,_,h=fixture.supplied('normal_action','I-poop1');s=fixture.execute(e,h,forced)
-   d=s['decision'];self.assertEqual(d['choice']['resolution_mode'],'priority_unique')
-   for row in d['problem']['candidates']:row['time_after_certain_resolution']=0
-   with self.assertRaisesRegex(ValueError,'current selection computation incomplete'):binding.require_current_predicates(s)
+   d=s['decision'];self.assertEqual(d['choice']['resolution_mode'],'seeded_fallback')
+   self.assertIsNone(d['problem']);self.assertEqual(s['evaluation']['legacy_116'],'excluded')
+   d['choice']['selected_candidate']='foreign'
+   with self.assertRaisesRegex(ValueError,'current normal comparison evidence incomplete'):binding.require_current_predicates(s)
    return {}
   self.scoped(run)
  def test_response_invalid_selection_cannot_pass_current_gate(self):
