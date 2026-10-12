@@ -12,20 +12,20 @@ import proxy_continuation_quick as quick
 class ResponseStartNegativeTests(unittest.TestCase):
  def test_placement_and_opponent_start_are_negative_but_own_start_stays_unproved(self):
   def run(forced):
-   for mode in ('placement','end_open','end_request','challenge_declared','challenge_compared','opponent_start','own_start','own_start_three','unknown_own_origin','later_pass'):
+   for mode in ('placement','end_open','end_request','challenge_declared','challenge_compared','relationship_progress','relationship_marriage','opponent_start','own_start','own_start_three','unknown_own_origin','later_pass'):
     e,j,proof=both();c=e['legacy_continuation'];e['event_seq']=5;c['response_context']['origin_event_seq']=5;g=c['game_state'];sources=[next(s for s in g['players']['A']['board'][slot] if g['cards'][s]['card_id']==card) for card,slot in (('C-chicken','companions'),('I-bowtie','prepared'))]
-    if mode=='placement':c['response_context'].update(window_kind='after_normal_action',source_phase='post_placement_response');g['phase']='post_placement_response'
+    if mode in ('placement','relationship_progress','relationship_marriage'):c['response_context'].update(window_kind='after_normal_action',source_phase='post_placement_response');g['phase']='post_placement_response'
     if mode in ('end_open','end_request'):c['response_context'].update(window_kind='after_normal_action',source_phase='turn_end');g['phase']='turn_end_response'
     if mode in ('challenge_declared','challenge_compared'):c['response_context'].update(window_kind='after_normal_action',source_phase='challenge_declaration' if mode=='challenge_declared' else 'challenge_result');g['phase']='response_window'
     if mode=='opponent_start':g['turn_player']='B';c['response_context']['turn_player']='B'
     if mode=='own_start_three':g['players']['A']['hand'].append(g['players']['A']['deck'].pop(0))
-    h=[origin(e,'person_placement' if mode=='placement' else 'open_turn_end_triggers' if mode=='end_open' else 'normal_pass_end_request' if mode=='end_request' else mode if mode in ('challenge_declared','challenge_compared') else 'unregistered_own_origin' if mode=='unknown_own_origin' else 'turn_start_and_normal_draw',g['turn_player'])]
+    h=[origin(e,'person_placement' if mode=='placement' else 'open_turn_end_triggers' if mode=='end_open' else 'normal_pass_end_request' if mode=='end_request' else mode if mode in ('challenge_declared','challenge_compared','relationship_progress','relationship_marriage') else 'unregistered_own_origin' if mode=='unknown_own_origin' else 'turn_start_and_normal_draw',g['turn_player'])]
     if mode=='later_pass':
      e['event_seq']+=1;h.append(origin(e,'response_pass','B'))
     with window.closed_start():
      inv=quick.actions.response_inventory(e,initial(),h);out=api.audit_response(e,h,inv)
     self.assertEqual(out['errors'],[],mode)
-    if mode in ('placement','end_open','end_request','challenge_declared','challenge_compared','opponent_start'):
+    if mode in ('placement','end_open','end_request','challenge_declared','challenge_compared','relationship_progress','relationship_marriage','opponent_start'):
      for source in sources:
       self.assertIn(source,out['verified_source_ids'],(mode,g['cards'][source]['card_id']));self.assertFalse(out['start_negative_audits'][source]['timing_matches'])
       bad=copy.deepcopy(inv);bad['legal_candidate_details'].append(dict(action_type='activate_board_ability',source_instance_id=source));self.assertTrue(api.audit_response(e,h,bad)['errors'])
