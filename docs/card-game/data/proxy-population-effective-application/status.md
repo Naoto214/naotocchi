@@ -1305,3 +1305,8 @@ c13b823から41source対応を読んで発見。既存C-chicken否定分岐へ77
 ### P09 41source全作用の責務対応（2026-10-12）
 
 d3338d4からcurrent-source-responsibilities.mdを追加。native11/start2/latched4/activated3/passive4/replacement2/quick15と、重なる手札1/typed10/配置/継続/指定選択を既存predicate・全差分・閉群へ対応。独立read-only review C0/I0/Minor2の参照名とG-archery自world条件を訂正。コード/テスト変更なし。未割当の主要sourceなしと全未来機会証明は区別。次はP10情報・P11全比較operandの根拠／unknownを実記録へ合成し、P14–18共通gateへ結合。preflight-ready=false、生成/固定/400戦0。
+
+
+### 固定2b0b075の初期／履歴／開始条件完全結合（2026-10-12）
+
+直近の初期配札／typed空起点／fresh collection／許可履歴／開始条件を、保存115・零rootの既存test-1Aで完全結合。143step181event、completed=true/stop=null、11監査errors=[]、120.065s/exit0、Python1080前後一致。normal30/response88/automatic25/逐次0。source-history-connected-2b0b075-*原本、design errors=[]/exit0。独立read-only review C0/I0/Minor0。全source/全proxy結果へ昇格せず、復元理由で再実行不要。次は比較根拠/unknown・情報・P14–18共通gate。preflight-ready=false、生成/固定/400戦0。

@@ -63,6 +63,8 @@
 
 - 2026-10-12: current-source-responsibilities.mdに41sourceと追加作用の引受け先を対応。read-only review C0/I0/M2訂正、コード/再検証なし。次はP10/P11の根拠／unknownの実記録結合とP14–18。
 
+- 2026-10-12: 固定2b0b075の完全結合143step181event/11監査errors[]/120.065s・Python1080一致、design errors[]、独立read-only C0I0M0。source-history-connected-2b0b075-*。逐次誘発0の旧入力診断であり全proxyではない。復元再実行不要。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

@@ -1,0 +1,35 @@
+{
+  "base_head": "2b0b0751f3f2ff6174b6e77ad22b6833ab3b010b",
+  "production_generation": false,
+  "new_matches": 0,
+  "command": "connected.reconstruct(bundle(), 'test-1A', 512)",
+  "trace_step_counts": {
+    "ordinary_normal_count": 30,
+    "ordinary_response_count": 88,
+    "automatic_step_count": 25,
+    "sequential_trigger_step_count": 0
+  },
+  "completed": true,
+  "stop": null,
+  "steps": 143,
+  "events": 181,
+  "audits": {
+    "initial_obligation_audit": [],
+    "initial_runtime_root_audit": [],
+    "mandatory_policy_entry_audit": [],
+    "mandatory_origin_audit": [],
+    "mandatory_opportunity_audit": [],
+    "resolution_semantics_audit": [],
+    "nonresolution_semantics_audit": [],
+    "decision_projection_audit": [],
+    "source_conservation_audit": [],
+    "end_dispatch_obligation_audit": [],
+    "trace_obligations_audit": []
+  },
+  "record_sha256": "898db2a29433340a67ccc0280895aecdaf34a5a6694314145d02c2fd7b49c5a3",
+  "exit_code": 0,
+  "seconds": 120.06523313199432,
+  "source_unchanged": true,
+  "python_count": 1080,
+  "verification_raw_sha256": "3c88d8d601747d7c3ee4a0dbf596cd71fa4fb8c3a568141f550b4a995a210051"
+}
