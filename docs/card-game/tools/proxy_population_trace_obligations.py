@@ -10,6 +10,7 @@ import proxy_population_start_obligations as starts
 from proxy_mandatory_policy_contract import canonical
 
 ROOT_PROOFS={
+ 'initial_obligation_audit':('bound107_initial_obligations.v1','initial_deal_and_first_opportunities_verified'),
  'mandatory_policy_entry_audit':('registered_mandatory_policy_entry_audit.v1','local_entries_verified'),
  'mandatory_origin_audit':('runtime_policy_origin_sequence.v1','origin_sequence_verified'),
  'mandatory_opportunity_audit':('designated_mandatory_opportunity_coverage.v1','designated_opportunities_covered'),
@@ -32,6 +33,8 @@ def same(actual,expected,label):
 def require_actual_trace(record):
  """Require the fresh evidence bundle, while retaining all separate gaps."""
  for key,(schema,flag) in ROOT_PROOFS.items():require(record.get(key),schema,flag)
+ same(record['initial_obligation_audit']['initial_game_state_sha256'],state.canonical_sha256(record['opening']['initial']['initial_game_state']),'initial deal root')
+ same(record['initial_obligation_audit']['final_envelope_sha256'],state.canonical_sha256(record['opening']['final_envelope']),'initial response root')
  runtime=record['runtime'];coverage=runtime['supported_trigger_coverage'];steps=runtime['steps']
  if coverage.get('schema')!='supported_trigger_coverage.v1' or coverage.get('covered') is not True or coverage.get('missing_occurrence_ids')!=[] or coverage.get('extra_occurrence_ids')!=[]:raise ValueError('trace obligations trigger coverage incomplete')
  same(coverage['expected_count'],coverage['recorded_count'],'occurrence denominator')

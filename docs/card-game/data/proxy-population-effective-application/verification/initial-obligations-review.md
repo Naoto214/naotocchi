@@ -1,0 +1,11 @@
+# manifestから初期配札・最初の機会への独立照合
+
+基準3b2ef3a。従来load_match/source_conservationは同じbuild_initial_stateを使うため、共有dealerが初手と山札先頭を入替えても現行入口を通過した。実1stepで1RED（2.461s）を再現。新initial_obligations監査はproducerを呼ばず、供給manifestの所有者ごとの順序と固定01/02/64/107/465源から、初手5・そだち20・空board/予約、通常6・たまご7枚、選択物理IDの非公開山札下返却、初反応context、ledger/event/snapshotを照合する。
+
+選択方針の正当性は既存mandatory監査へ委ね、返却の物理処理を別に検査。現行connected入口でfresh監査を必須にし、trace_obligationsへ初期state/初反応envelopeの2hashを結合。歴史opening/dealer/正本は変更しない。外部入力由来と全rule機会をこの検査だけで認証しない。
+
+両鏡像・15種改変・未証明fresh監査・root2hash改変拒否。初期GREEN3PASS29.786s、拡張3PASS6.286s。最終25PASS205.923s/exit0、docs再帰Python1077前後一致。独立review1回C0/I0/Minor0、別実行3PASS6.040s。initial-obligations-final.log/summary.json/fingerprints.json.gz。
+
+最終検査には既存115/零rootの全turn policy-journal unitを含みcompletedを確認（normal30/response88、終了dispatch20）。新規標本ではない。そのunitの完全record別原本は保存しておらず、完全record保存原本は固定1c48304版を維持する。現在版全proxy回帰完了とはしない。
+
+preflight-ready=false、生成/固定/400戦0、policy promotion=false、独立balance標本0。P09–11/P14–18の共通gate合成・最終固定版検証が残る。開始collection/既存初期handlerを再実装したものではなく、共有生成と監査の同時誤りを拒否する追加監査である。

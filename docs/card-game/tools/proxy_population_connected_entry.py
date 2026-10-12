@@ -16,6 +16,7 @@ import proxy_population_nonresolution_semantics as nonresolution
 import proxy_population_source_conservation as source_conservation
 import proxy_population_end_dispatch as end_dispatch
 import proxy_population_trace_obligations as trace_obligations
+import proxy_population_initial_obligations as initial_obligations
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 _LOCK=Lock()
@@ -46,6 +47,9 @@ def reconstruct(bundle,match_id,limit):
  try:
   before=fingerprint()
   runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+  initial_proof=initial_obligations.audit(result,bundle)
+  if initial_proof['initial_deal_and_first_opportunities_verified'] is not True:raise ValueError('actual initial obligations differ: '+str(initial_proof['errors']))
+  result['initial_obligation_audit']=initial_proof
   local=result['opening']['mandatory_record']['local_record']
   decisions=[dict(decision_kind='mandatory_choice',local_policy_evidence=local)]+result['runtime']['decisions']
   binding={k:result['binding'][k] for k in ('protocol_id','group_id','mirror_side')}

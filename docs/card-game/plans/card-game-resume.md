@@ -47,6 +47,8 @@
 
 - 2026-10-12: 初回たまご交換の返却IDが相手通常inventoryへ漏れる2REDを修正。egg-private-history-*、21PASS15.279s/独立5PASS・指摘なし。raw/本人は保持、read表の初期producer見落としを訂正。次は初期manifest/最初の機会と共通gateの結合。
 
+- 2026-10-12: 共有dealerの配札入替を初期manifestから別照合して拒否。initial-obligations-*、25PASS205.923s（既存全turn完走unit含む）/独立3PASS・指摘なし、Python1077前後一致。2root hashをtraceへ結合。外部由来/全機会/本番gateは未完。次はP09–11/P14–18共通合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

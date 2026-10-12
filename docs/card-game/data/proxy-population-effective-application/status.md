@@ -1266,3 +1266,7 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P10 初回たまご交換の公開履歴漏れ（2026-10-12）
 
 466初期producerのsource_instance_idが相手の実通常inventoryへ漏れる2REDを修正。現行scopeで相手向けIDだけ除去しraw/本人/公開eventは保持。旧producerだけを調べたpublic-read-boundary-reviewの記述を訂正。egg-private-history-*、最終21PASS15.279s・Python1075前後一致、独立5PASS/C0I0M0。全情報証明には昇格せず、preflight-ready=false、生成/固定/400戦0。次は初期manifestから最初の機会への独立結合と共通gate合成。
+
+### P09 初期manifest/配札/最初の機会の独立結合（2026-10-12）
+
+共有dealerの初手/山札先頭入替が再照合も通る実入口REDを修正。新initial_obligationsは供給manifest順から初手5→通常6→たまご7→返却→反応、空board/予約、event/snapshot/ledgerを別照合。connected fresh必須化、traceへ2root hash結合。initial-obligations-*、最終25PASS205.923s（既存全turn完走unit含むnormal30/response88/end20）・Python1077前後一致、独立3PASS/C0I0M0。完全record保存原本は旧固定1c48304のまま。外部由来/全機会へ昇格せずpreflight-ready=false、生成/固定/400戦0。次はP09–11とP14–18共通gate合成。
