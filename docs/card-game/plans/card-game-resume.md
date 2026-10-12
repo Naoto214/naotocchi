@@ -67,6 +67,8 @@
 
 - 2026-10-12: partial/helperもfresh支払監査のexport gateへ結合。payment-gate-*、40PASS29.291s/Python1081一致、独立3PASS/C0I0M0。全未知は空verified/false・116除外を保持。固定2b0b075完全結合は本gate前。次はP10/P11残根拠とP14–18。
 
+- 2026-10-12: 指定5契約／指定外3familyの情報・seed材料・no-choiceを読取表へ追補。resolution-choice-read-review.md、独立read-only C0/I0/Minor0。コード／再試験なし。次はP11残operand/unknownとP09/P14–18合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

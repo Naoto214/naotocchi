@@ -88,3 +88,26 @@ P10の残件を「全read未証明」の一語で再開しない。実adapter群
 ### P10 実通常履歴の許可field独立照合（2026-10-12）
 
 4cc8be2から共有projectorが秘密由来hashを再投影でも保持する実入口1REDを修正。producerを呼ばず許可field/本人記憶/公開reveal/準備表裏から投影を別照合し、normal stepとtraceへentry/actor/count/raw-prefix/projected hashを結合。独立review C0/I1/Minor0のraw履歴binding-field正規化を修正、再reviewなし。最終19PASS63.921s/exit0、Python1079前後一致。allowed-history-review.md/summary.json/verification.logが最終証拠。初期fixture誤り・無効並行probe・修正前review ERRORは区別して保存。全情報利用/履歴起点/operand証明へ昇格せず、preflight-ready=false、生成/固定/400戦0。次はP09 source閉包/P11残operand/P14–18共通合成。
+
+
+## 2026-10-12 指定選択・指定外解決選択の入力と乱数境界
+
+基準a93265c。下表は実関数から乱数関数へ渡す引数の静的追跡である。full stateを受け取る局所rule sliceと、選択材料を受け取る純粋乱数関数を分けて記す。秘密を含むhashを全て無視する許可でも、実履歴の認証でもない。
+
+| 実経路 | 条件・候補・選択材料 | full state／秘密領域の用途と境界 |
+|---|---|---|
+| mandatory_choice_boundary.prepare: egg_exchange_bottom | normal draw後、規則の追加drawを適用した本人手札の全copy ID | drawは規則処理。追加draw前の山札identityで候補を評価せず、draw後の本人手札から全候補を列挙する |
+| prepare: ability_hand_bottom | M-beetle-01/P-cat_ceoの本人手札全copy ID。P-cat_ceoは本人main不在なら選択なし | 返却後drawのidentityを候補順位へ使わない。apply_choiceが選択後にdrawする |
+| prepare: ability_draw_then_hand_bottom / final_time_hand_bottom | 本文のdraw後の本人手札全copy ID。final-timeは本人公開discardの対象適正を先に検査 | 解決prefixのdrawと許可後の手札選択を分離。final-timeの対象不適正はno-choice。未公開topを先に評価して候補を間引かない |
+| prepare: ability_topdeck_order | 空山札ならno-choice、それ以外はtop/bottomの2候補 | looked_topは本文が本人に許す確認結果として保持。1/Nの材料は2位置IDであり、確認した札のidentityではない |
+| mandatory_policy_local.build_local_record → mandatory_policy_random.build_proof | owner policy root、protocol/group/owner/mirror、8要素opportunity_address、完全候補ID列 | frame全体のentry_sha256とroot commitmentは記録。build_proofはframe/game/state hashを受け取らない。mirror分離HMAC→address/候補digest/count/counter、拒否抽選。唯一候補も算入証明にはしない |
+| population_policy_bridge.Session.context/choose | 実turn owner・own turn回数・actor・発生種別・解決ordinal・指定契約名・selection/0 | occurrence_keyはfull continuationのhashだがjournal登録/重複検出のkeyだけ。乱数addressにkey/hashを含めない。choice_game全体の一致はcallback整合性の検査。全解決のordinal登録は別のpolicy_journal監査に依存する |
+| legacy_choice_obligations: board_turn_stat_parameter | M03が現在mainならpower/wisdomの2候補 | 相手手札/山札は候補材料にならない。指定5種へ追加せず旧116除外 |
+| legacy_choice_obligations: ability_topdeck_order | G-animal-shogiの本人公開discard対象が現在も適正、かつ本人山札非空ならtop/bottom | 対象や残存山札の適否と位置選択を分離。山札topのidentityを候補IDやcontextへ入れない。旧116除外 |
+| legacy_choice_obligations: revealed_item_search | 本文指定の公開枚数、公開した札のitem/cost条件、全取得部分集合と残余全順序 | reveal後の札だけを候補に符号化。current107では別の条件付き非到達証拠が必要であり、この表で到達不能へ昇格しない |
+| continuation_choices.resolve → 116 build_seed_proof | canonical全option ID、order_id/actor/round/phase/mandatory_choice/kind+link_id | current full hashはseed生成後にcandidate_set_evidence.state_refへ添付。seedの引数ではない。旧116戦略未解決/除外を保持 |
+| population_resolution_choices.no_choice_route/audit | source分類/descriptorと既存handlerによる固定対象・発動時parameter・draw/reveal等 | 決定リストが空という理由でno-choiceにしない。指定465はjournalへ委譲、指定外3familyはlegacy監査、未対応routeはunproved |
+
+乱数への直接引数に秘密hashがないことだけでは、候補母数・発生ordinal・履歴prefixの生成が真正であるとは証明できない。候補/局所効果はsource-pinned boundary、全発生順はpolicy journal/opportunity order、初期入力と全遷移はinitial/trace監査へ別に結合する。通常/response/逐次群の旧116と指定policyの適格性は混合しない。
+
+現行通常履歴はhistory_projectionの独立許可field照合でraw prefix/actorへ結合済み。これは公開projectionの検査であり、raw履歴を生成した全ruleと外部初期入力の真正性は別責務である。上表と先行候補/比較表は、現行固定scopeの読取経路を記録した証拠として使う。全情報利用の普遍証明、P11比較operandの意味、P14–18の共通gateがこの追補だけで成立したとはしない。コード変更・試験再実行なし。

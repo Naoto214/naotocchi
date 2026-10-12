@@ -1315,3 +1315,8 @@ d3338d4からcurrent-source-responsibilities.mdを追加。native11/start2/latch
 ### P11 partial/helper支払監査のexport gate（2026-10-12）
 
 ee4fff1から、fresh支払監査errors=[]・未証明でもpartial/helper比較のexport gateが通る2REDを修正。全通常routeの既知／未知完全分割、厳密bool、未知理由を結合。全未知の空verified/falseは保持し116除外。payment-gate-*、最終40PASS29.291s/Python1081一致、独立3PASS0.527s/C0I0M0。実manifest34stepでexport前停止。path誤り・summary欠落logは完了証拠と区別。次は上位/成長根拠と明示unknown、P10/P14–18共通合成。preflight-ready=false、生成/固定/400戦0。
+
+
+### P10 指定／指定外解決選択の読取追跡（2026-10-12）
+
+a93265cから、指定5契約のrule prefix/本人候補と乱数材料、指定外3family、no-choice routeをpublic-read-boundary-review.mdへ対応。full state hashの整合性／journal用途と、実seed引数を分離。独立read-only review C0/I0/Minor0（resolution-choice-read-review.md）。コード変更・試験再実行なし。候補母数/ordinal/履歴起点は別監査、全情報利用やoperand意味の証明へ昇格しない。次はP11残operand/unknownとP09/P14–18共通合成。preflight-ready=false、生成/固定/400戦0。
