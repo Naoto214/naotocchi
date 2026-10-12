@@ -186,9 +186,9 @@ test('counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル �
   assert.equal(secretSpots + secretPaths, 107, 'secret(spot 50 + path 57)');
   const C = M.worldCountable();
   assert.equal(C.tier1, 17); assert.equal(C.links.length, 12, 'link の 分母'); assert.equal(C.zones, 103);
-  // 2026-10-01 はっけんの しらせの 段階づけ(meguru-discovery-test ⑦-7 と 同じ 表): 目じるしの ない 水辺は L1(しらせ なし・きろく だけ)。
-  // spot / path / zone / secret / 分母 / 遠景 は かわらない。L0 184 / L1 17 / L2 199 / L3 71(合計 471)
-  assert.deepEqual(lv, { 0: 184, 1: 17, 2: 199, 3: 71 }, 'L0 / L1 / L2 / L3');
+  // Default 2D retains main discovery levels. Explicit 3D distribution is protected in meguru-3d-foundation-v2-test.
+  // spot / path / zone / secret / 分母 / 遠景 は かわらない。L0 184 / L1 0 / L2 216 / L3 71(合計 471)
+  assert.deepEqual(lv, { 0: 184, 1: 0, 2: 216, 3: 71 }, 'L0 / L1 / L2 / L3');
   const reg = M.distantRegistry();
   const df = Object.values(reg).reduce((a, v) => a + (Array.isArray(v) ? v.length : Object.keys(v).length), 0);
   assert.equal(df, 37, 'DistantFeature 37');
