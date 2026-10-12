@@ -244,9 +244,9 @@ test('13. flag なし: 2D billboard の まま(character module を よまない
   assert.match(src, /if \(cp && ci && cp\.present\(a, \{ \.\.\.ci, groundY: wy \}\)\) \{/, '3D が えがけた ときだけ 立て看板を かくす');
   assert.ok(!/character-3d/.test(fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8')), 'index.html は よまない');
 });
-test('14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ', () => {
+test('14. Character 3D defaults on; URL char3d=0 explicitly selects billboard', () => {
   const s = SCRIPT();
-  assert.match(s, /char3d: \/\[\?&\]char3d=1\(\?:&\|\$\)\/\.test\(q\)/);
+  assert.match(s, /char3d: !\/\[\?&\]char3d=0\(\?:&\|\$\)\/\.test\(q\)/);
   assert.match(s, /playerKey: \(\) => meguruBridge\.currentPetKey\(\)/);
   assert.match(M3D(), /const char3dOpts = \{ on: !!opts\.char3d,/);
 });

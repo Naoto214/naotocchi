@@ -53,7 +53,7 @@ async function run(out) {
       await page.locator('#travelBtn').click();await page.locator('#meguruEnterBtn').waitFor({state:'visible'});await page.locator('#meguruEnterBtn').click();await page.locator('#mgrCanvas').waitFor({state:'visible'});
       await page.waitForFunction(()=>!!globalThis.__meguruRun?.world,null,{timeout:60000});return page;
     }
-    const page=await open('?meguru3d=1&char3d=1&perf=1');
+    const page=await open('?perf=1');
     const ready=()=>page.waitForFunction(()=>{const r=globalThis.__meguruRun,p=r?.renderer.char3dPresenter;return r?.renderer.is3D&&p?.has(r.sim.player)&&r.party.every(a=>p.has(a));},null,{timeout:60000});
     const shot=async name=>{const file=name+'.png';await page.screenshot({path:path.join(out,file),clip:await page.locator('#mgrCanvas').boundingBox()});result.screenshots.push(file);};
     await record('initial production appearance',async()=>{await ready();const s=await page.evaluate(()=>__qa.sample());validateSample(s);await shot('forest-production');return {sample:s,appearance:appearanceWindows(await page.evaluate(()=>__integrationAppearance))};});
@@ -85,9 +85,10 @@ async function run(out) {
     });
     await page.context().close();
     for(const mode of [
-      {name:'no flags',query:'',world:false,char:false},
-      {name:'character flag only',query:'?char3d=1',world:false,char:false},
-      {name:'world only',query:'?meguru3d=1&perf=1',world:true,char:false},
+      {name:'no flags',query:'',world:true,char:true},
+      {name:'explicit legacy 2D',query:'?meguru3d=0',world:false,char:false},
+      {name:'character flag only',query:'?char3d=1',world:true,char:true},
+      {name:'world only',query:'?meguru3d=1&char3d=0&perf=1',world:true,char:false},
       {name:'forced 2D',query:'?meguru3d=1&char3d=1&m3d2d=1&perf=1',world:false,char:false},
       {name:'reduced motion',query:'?meguru3d=1&char3d=1&perf=1',world:true,char:true,reduced:'reduce'}
     ]) await record('URL flags / '+mode.name,async()=>{const pg=await open(mode.query,mode.reduced);try{if(mode.world)await pg.waitForFunction(want=>{const r=__meguruRun;return r.renderer.is3D&&(!want||r.renderer.char3dPresenter?.has(r.sim.player));},mode.char,{timeout:60000});const d=await pg.evaluate(()=>{const r=__meguruRun;return {world:!!r.renderer.is3D,char:!!r.renderer.char3dPresenter?.has(r.sim.player),reduced:matchMedia('(prefers-reduced-motion: reduce)').matches,cameraMotion:r.sim.cameraMotion,animLevel:r.renderer.char3dPresenter?.animLevel};});assert.equal(d.world,mode.world);assert.equal(d.char,mode.char);if(mode.reduced)validateReducedMotion(d);return d;}finally{await pg.context().close();}});

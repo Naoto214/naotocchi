@@ -161,7 +161,7 @@ function createHybridRenderer(M, o, opts) {
     failed = true; failReason = String((err && err.message) || err || 'unknown');
     if (r3d) { try { r3d.destroy(); } catch (_) { /* もう こわれて いる */ } r3d = null; }
     setActive(false);
-    if (opts.onFallback) opts.onFallback(err);
+    if (opts.onFallback) { try { opts.onFallback(err); } catch (_) { /* diagnostics must not interrupt Canvas */ } }
   }
   function setActive(on) {
     if (on === active) return;
@@ -184,8 +184,8 @@ function createHybridRenderer(M, o, opts) {
       r2d.draw(view, now);
       if (opts.perf) perfText(now);
     },
-    resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; r2d.resize(n); if (r3d) r3d.resize({ ctx, W, H }); },
-    destroy() { if (r3d) r3d.destroy(); r3d = null; r2d.destroy(); },
+    resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; r2d.resize(n); if (r3d) { try { r3d.resize({ ctx, W, H }); } catch (err) { fail(err); } } },
+    destroy() { try { if (r3d) r3d.destroy(); } catch (err) { fail(err); } finally { r3d = null; setActive(false); r2d.destroy(); } },
     setAnimLevel(v) { animLv = v; if (r2d.setAnimLevel) r2d.setAnimLevel(v); if (r3d) r3d.setAnimLevel(v); },
     setDistant(v) { if (r2d.setDistant) r2d.setDistant(v); },
     project: (x, z) => (r2d.project ? r2d.project(x, z) : null),
@@ -578,8 +578,22 @@ function create3DRenderer(M, o, onLost) {
     canvas2d.style.position = 'relative'; canvas2d.style.zIndex = '1';
   };
   let lost = false;
-  gl.addEventListener('webglcontextlost', (e) => { e.preventDefault(); lost = true; onLost(); }, false);
-  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
+  const onContextLost = (e) => { e.preventDefault(); lost = true; onLost(); };
+  gl.addEventListener('webglcontextlost', onContextLost, false);
+  const oldStyle = { position: canvas2d.style.position, zIndex: canvas2d.style.zIndex };
+  let renderer = null, released = false;
+  function releaseRenderer() {
+    if (released) return;
+    released = true;
+    gl.removeEventListener('webglcontextlost', onContextLost, false);
+    try { if (renderer) { try { renderer.dispose(); } finally { renderer.forceContextLoss(); } } }
+    finally {
+      if (gl.parentNode) gl.parentNode.removeChild(gl);
+      Object.assign(canvas2d.style, oldStyle);
+    }
+  }
+  try {
+  renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
   // 残像(まえの frame が のこる)を ふせぐ きまり: canvas は 不透明(alpha: false)・drawing buffer は のこさない・まい frame いろ と depth を けす。
   // すかしの ghost は frame ごとに visible を 入れなおし、hidden の 物は 線分から はずれた frame で もとに もどす(fadeOccluders)
   renderer.autoClear = true; renderer.autoClearColor = true; renderer.autoClearDepth = true; renderer.setClearColor(0x000000, 1);
@@ -1585,14 +1599,18 @@ function create3DRenderer(M, o, onLost) {
     triBreakdown() { if (!built) return null; const out = {}; for (const [k, m] of Object.entries(built.meshes)) { const g = m.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3; out[k] = { inst: m.count, tri: n, total: n * m.count }; } return out; },
     setAdaptiveDpr(on) { diag.adaptive = !!on; },
     destroy() {
+      try {
       if (built) disposeScene(built);
       charPresenter = null;
       for (const t of texCache.values()) if (t && t.tex) t.tex.dispose();
       for (const st of pngState.values()) if (st.t && st.t.tex) st.t.tex.dispose();
       pngState.clear(); if (solidTex) { solidTex.tex.dispose(); solidTex = null; }
-      texCache.clear(); renderer.dispose();
-      if (gl.parentNode) gl.parentNode.removeChild(gl);
-      canvas2d.style.zIndex = ''; canvas2d.style.position = '';
+      texCache.clear();
+      } finally { releaseRenderer(); }
     },
   };
+  } catch (err) {
+    try { releaseRenderer(); } catch (_) { /* preserve original initialization error */ }
+    throw err;
+  }
 }
