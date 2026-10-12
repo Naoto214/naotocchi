@@ -1,0 +1,82 @@
+{
+  "when": "2026-10-04T01:32:40.210Z",
+  "revision": "quality2-31fe18f",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "butterfly:8": {
+      "requestedStage": 8,
+      "harnessStageIndex": 7,
+      "playerKey": "butterfly:7",
+      "player3d": true,
+      "specKey": {
+        "id": "butterfly",
+        "stage": 8,
+        "exact": true
+      },
+      "front": "test-results/character-3d-quality/focus-second/player-butterfly-8-front.png",
+      "back": "test-results/character-3d-quality/focus-second/player-butterfly-8-back.png",
+      "live": {
+        "live": 1,
+        "templates": 1,
+        "built": 1,
+        "tris": 4236,
+        "meshes": 8,
+        "bones": 5,
+        "materials": 1,
+        "atlases": 1,
+        "eyeGeos": 4,
+        "cpuMsAvg": 1.326,
+        "cpuMsP95": 0.2,
+        "buildMsTotal": 88.9,
+        "buildMsMax": 88.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 1,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "dandelion:8": {
+      "requestedStage": 8,
+      "harnessStageIndex": 7,
+      "playerKey": "dandelion:7",
+      "player3d": true,
+      "specKey": {
+        "id": "dandelion",
+        "stage": 8,
+        "exact": true
+      },
+      "front": "test-results/character-3d-quality/focus-second/player-dandelion-8-front.png",
+      "back": "test-results/character-3d-quality/focus-second/player-dandelion-8-back.png",
+      "live": {
+        "live": 1,
+        "templates": 1,
+        "built": 1,
+        "tris": 5864,
+        "meshes": 13,
+        "bones": 7,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 0,
+        "cpuMsAvg": 2.133,
+        "cpuMsP95": 0.2,
+        "buildMsTotal": 141.2,
+        "buildMsMax": 141.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 1,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

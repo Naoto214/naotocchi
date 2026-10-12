@@ -1,0 +1,223 @@
+{
+  "source": "bc9103327e133c8a6bd4b18661c2000c7d5f2c4c",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8232,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7166849112774426,
+          0.19578016030167578,
+          -0.424306906578247
+        ],
+        [
+          0.7383429867750446,
+          1.323962935712899,
+          0.41563364826993865
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8232,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7166849112774426,
+          0.19578016030167578,
+          -0.424306906578247
+        ],
+        [
+          0.7383429867750446,
+          1.323962935712899,
+          0.41563364826993865
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8232,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7166849112774426,
+          0.19578016030167578,
+          -0.424306906578247
+        ],
+        [
+          0.7383429867750446,
+          1.323962935712899,
+          0.41563364826993865
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8232,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7166849112774426,
+          0.19578016030167578,
+          -0.424306906578247
+        ],
+        [
+          0.7383429867750446,
+          1.323962935712899,
+          0.41563364826993865
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13210,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7954415387817719,
+          0.2101694776748193,
+          -0.20181374795816534
+        ],
+        [
+          0.7747679079253726,
+          1.7702886615728635,
+          0.2902922533098338
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13210,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7954415387817719,
+          0.2101694776748193,
+          -0.20181374795816534
+        ],
+        [
+          0.7747679079253726,
+          1.7702886615728635,
+          0.2902922533098338
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13210,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7954415387817719,
+          0.2101694776748193,
+          -0.20181374795816534
+        ],
+        [
+          0.7747679079253726,
+          1.7702886615728635,
+          0.2902922533098338
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "star",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13210,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7954415387817719,
+          0.2101694776748193,
+          -0.20181374795816534
+        ],
+        [
+          0.7747679079253726,
+          1.7702886615728635,
+          0.2902922533098338
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

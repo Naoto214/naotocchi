@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "b2a3009709bab478749fc77634899d0d2b76a860",
+  "runs": {
+    "runtime": {
+      "id": 37466987152,
+      "conclusion": "success"
+    },
+    "home": {
+      "id": 37466987016,
+      "conclusion": "success"
+    },
+    "character": {
+      "id": 37466975115,
+      "conclusion": "failure",
+      "job": 112280351266,
+      "step": "Existing mechanism mutations",
+      "message": "plant-remove-it bulb feet selector matched twice after grub feet addition; unique selector assertion 3 !== 2"
+    }
+  },
+  "correction": "Retarget the same bulb-foot color mutation with its unique plant position expression; local failure reproduced, same9cases RED after correction. No assertion removed."
+}

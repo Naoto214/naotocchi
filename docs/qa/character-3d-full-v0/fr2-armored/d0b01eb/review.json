@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "d0b01eb1db15e4f85dc3e3b3d1ae00f3e1da19fe",
+  "waveArtifact": 11425887918,
+  "distanceArtifact": 11426091958,
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "inspected": "32 four views,256 canonical motion states,16 normal-distance front/back",
+  "acceptedStages": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8
+  ],
+  "stage04": "rear legs remain above soil; accepted in four views,32states and normal front/back",
+  "stage05": "geometry/depth attachment accepted; normal closed eyes inconsistent with open source eyes. Earlier05 gate incomplete and superseded. Recapture after normalEye correction.",
+  "simplifications": "smooth cuticle,bands/claws/veins reduced,open exuvia with simplified folded legs",
+  "runtimePromotion": false
+}

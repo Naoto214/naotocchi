@@ -1,0 +1,155 @@
+{
+  "when": "2026-10-06T12:21:07.542Z",
+  "revision": "quality3",
+  "sourceCommit": "cd81b79c1f3f22efdf9a17cf8a9d8f31839cd184",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2 GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "beetle:5": {
+      "requestedStage": 5,
+      "harnessStageIndex": 4,
+      "playerKey": "beetle:4",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 5,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-5-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-5-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40410,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 6.055,
+        "cpuMsP95": 51,
+        "buildMsTotal": 370.5,
+        "buildMsMax": 82.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:6": {
+      "requestedStage": 6,
+      "harnessStageIndex": 5,
+      "playerKey": "beetle:5",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 6,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-6-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-6-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40410,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 4.675,
+        "cpuMsP95": 42,
+        "buildMsTotal": 323.4,
+        "buildMsMax": 76.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "beetle:6",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40402,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.368,
+        "cpuMsP95": 51.5,
+        "buildMsTotal": 389.9,
+        "buildMsMax": 98.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:8": {
+      "requestedStage": 8,
+      "harnessStageIndex": 7,
+      "playerKey": "beetle:7",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 8,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-8-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-8-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40370,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 12,
+        "cpuMsAvg": 5.289,
+        "cpuMsP95": 48.4,
+        "buildMsTotal": 341.9,
+        "buildMsMax": 68.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

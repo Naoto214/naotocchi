@@ -1,0 +1,30 @@
+{
+  "sourceCommit": "8523a522bf8967a2679ed7cbfdcdd63b328d354b",
+  "run": 37915318261,
+  "conclusion": "failure",
+  "dedicated": {
+    "job": 113769954538,
+    "conclusion": "success"
+  },
+  "capture": {
+    "job": 113769954286,
+    "conclusion": "failure",
+    "artifact": 11609677554,
+    "partialFiles": 80,
+    "metadataComplete": false,
+    "actualImageApproval": false
+  },
+  "cause": "Legacy cat_friend/shiba model IDs were absent from the wave review page's candidate lookup. The first legacy state waits for readiness and times out. Do not infer approval from earlier partial files.",
+  "fix": "Resolve only known ARCHETYPE_REUSE IDs at exact stage zero using existing SPEC. No model or production runtime change.",
+  "regression": {
+    "before": {
+      "pass": 1,
+      "fail": 1
+    },
+    "after": {
+      "pass": 2,
+      "fail": 0
+    }
+  },
+  "logExcerpt": "2026-10-09T10:07:47.3289256Z page.waitForFunction: Timeout 30000ms exceeded.\n2026-10-09T10:07:47.3290155Z     at shot (/home/runner/work/naotocchi/naotocchi/tools/character-3d/nonplayer-review.cjs:38:248)\n2026-10-09T10:07:47.3291042Z     at async run (/home/runner/work/naotocchi/naotocchi/tools/character-3d/nonplayer-review.cjs:41:342) {\n2026-10-09T10:07:47.3431147Z ##[error]Process completed with exit code 1.\n2026-10-09T10:07:47.5168877Z With the provided path, there will be 80 files uploaded\n2026-10-09T10:07:48.8752026Z Artifact full-rollout-nonplayer-review-8523a522bf8967a2679ed7cbfdcdd63b328d354b.zip successfully finalized. Artifact ID 11609677554"
+}

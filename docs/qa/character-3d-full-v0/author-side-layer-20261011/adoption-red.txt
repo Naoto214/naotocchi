@@ -1,0 +1,32 @@
+✖ author production exactly matches Human-approved E plus side repair (11.180743ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.057025
+
+✖ failing tests:
+
+test at tests/character-3d-author-fringe-test.cjs:2:1
+✖ author production exactly matches Human-approved E plus side repair (11.180743ms)
+  AssertionError [ERR_ASSERTION]: Human-approved complete row is frozen; changes require an explicit defect
+  + actual - expected
+
+  + '49ea3f0a1385a2bc1c3e5b637ed7ab3c83e8418262bd90f7087958363cf1e275'
+  - '9da8617f42a408ae8eed51b69738fbfd7ad1e1a9da1b9ca6f1d3e3f188471aec'
+
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-fringe-test.cjs:2:304)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '49ea3f0a1385a2bc1c3e5b637ed7ab3c83e8418262bd90f7087958363cf1e275',
+    expected: '9da8617f42a408ae8eed51b69738fbfd7ad1e1a9da1b9ca6f1d3e3f188471aec',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

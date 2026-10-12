@@ -1,0 +1,23 @@
+✔ scene timeout retains warmup on phase, expected and last actual composition/resources, and restoration (17.232423ms)
+✔ scene diagnostic path preserves strict hidden city cache and resource gates on completed cycles (13.068169ms)
+✔ failed scene raw result is written with failing verdict before original error propagates (6.340438ms)
+✔ scene-only marker requires runtime marker, skips only production45 step and keeps scene and native metrics (0.820218ms)
+✔ held current view waits for deferred seven-to-eleven exact actors before freezing scene composition (6.595182ms)
+✔ same count with substituted actor template cannot satisfy exact scene composition readiness (5.608072ms)
+✔ natural city cache follows actual preserved show false and rejects visibility identity and growth defects (14.926583ms)
+✔ scene save setup permits only recorded one-time city seed and retains whole-span mutation (4.233378ms)
+✔ scene save diagnostics retain dirty draw and flag proof without hiding state or leaking adapters (7.147776ms)
+✔ scene save diagnostics preserve phase and cleanup deltas when city load throws (1.970453ms)
+✔ scene browser helper serialization works and temporary helpers are cleaned even on evaluate failure (5.522834ms)
+✔ scene save contract rejects recurring cycle writes and unknown warmup state or write origin (14.803107ms)
+✔ scene save contract rejects dirty constituent proof even after state is restored and rejects adapter restoration failure (9.498072ms)
+✔ scene setup proof rejects unknown fields, storage commits and missing complete provenance (13.529916ms)
+✔ scene setup diagnostic deltas accept live undefined properties and serialized omitted properties equally (11.337948ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 224.38181

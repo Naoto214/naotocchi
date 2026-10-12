@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "f9e3831d8c35733e5bb1a3d1671b9dfdc8f7b270",
+  "artifactId": 11431680941,
+  "stages": [
+    3,
+    7
+  ],
+  "normalDistanceViews": 4,
+  "verdict": "REJECT",
+  "reason": "Dragon07 back membrane shows overlapping-face stippling. Concave outline radial fan contains 42 reversed front triangles and extra ray intersections at 51/733 sampled silhouette points. Dragon03 normal views readable. Full four-view/state artifact not yet reviewed; no expansion or runtime promotion.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

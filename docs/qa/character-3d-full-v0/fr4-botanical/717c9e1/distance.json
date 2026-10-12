@@ -1,0 +1,53 @@
+{
+  "when": "2026-10-06T13:37:34.056Z",
+  "revision": "quality3",
+  "sourceCommit": "717c9e13c6a15eb7799bd784219b6ecd23957e09",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "botanical",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "sakura:4": {
+      "requestedStage": 4,
+      "harnessStageIndex": 3,
+      "playerKey": "sakura:3",
+      "player3d": true,
+      "specKey": {
+        "id": "sakura",
+        "stage": 4,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/botanical-distance/player-sakura-4-front.png",
+      "back": "test-results/full-rollout/botanical-distance/player-sakura-4-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 55526,
+        "meshes": 83,
+        "bones": 54,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.588,
+        "cpuMsP95": 46,
+        "buildMsTotal": 350.4,
+        "buildMsMax": 70.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

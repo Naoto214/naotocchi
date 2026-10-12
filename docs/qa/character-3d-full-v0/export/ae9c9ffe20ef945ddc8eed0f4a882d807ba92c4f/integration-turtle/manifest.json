@@ -1,0 +1,1263 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613920265,
+    "name": "full-rollout-stages-turtle-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:4f70c8b9269b260e7e3f1a3a3077005ba20943555ce8c23c6be0bc7e571fced1"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "921fd08ab1b8bd67ff35bcfd97487be3c9c46cd2f6a791805f0efe711663dae8",
+      "bytes": 7531
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "fa022bfdeaa87fb970cb7cc8d2c64e993fb0a4f71ee5534911927dbc694a71cd",
+      "bytes": 131249
+    },
+    {
+      "path": "missing-motion/turtle-1-dislike-idle-normal.jpg",
+      "sha256": "064e0cefc91001bce301e72dc5331c87389afadcd8bfa4c57df7a288be21d961",
+      "bytes": 9377
+    },
+    {
+      "path": "missing-motion/turtle-1-dislike-idle-reduced.jpg",
+      "sha256": "e182a408a77e2cdaf9be422851959892c8a1f6b26476bdb968da4e316844def3",
+      "bytes": 9480
+    },
+    {
+      "path": "missing-motion/turtle-1-dislike-walk-normal.jpg",
+      "sha256": "1620f47a437e38f5e3f4ffa7195607c0c063b3cbbed323af51048f32a78538dd",
+      "bytes": 9416
+    },
+    {
+      "path": "missing-motion/turtle-1-dislike-walk-reduced.jpg",
+      "sha256": "a9252a9b71b9082dc21b78a655c3450ddf71634a999910c2fc62c92fec2e3841",
+      "bytes": 9496
+    },
+    {
+      "path": "missing-motion/turtle-1-motion.jpg",
+      "sha256": "1be3494cf81de6c1c0a186b2d81d081fcfce9878b3ad4e02379dff534a9b5e0b",
+      "bytes": 386647
+    },
+    {
+      "path": "missing-motion/turtle-1-normal-idle-normal.jpg",
+      "sha256": "c5328287dcd246b1b259da9e4d98fd599c46c73e3a346766adf65cfd27b6e8c4",
+      "bytes": 9837
+    },
+    {
+      "path": "missing-motion/turtle-1-normal-idle-reduced.jpg",
+      "sha256": "a721362feed9bd2d892399174f7c2a28e7878907b77e0e72c914dc2745b63b87",
+      "bytes": 9922
+    },
+    {
+      "path": "missing-motion/turtle-1-normal-walk-normal.jpg",
+      "sha256": "7be205471c2f1ad1cdfb19a3c70a1b210d4d92b6b474d99652a7ea481fe6d3d6",
+      "bytes": 9767
+    },
+    {
+      "path": "missing-motion/turtle-1-normal-walk-reduced.jpg",
+      "sha256": "4e73438ee7742dac736a9abaead760898c8fc163fe52fb445e72b2a56d15f2b2",
+      "bytes": 9975
+    },
+    {
+      "path": "missing-motion/turtle-1-positive-idle-normal.jpg",
+      "sha256": "148e0e6267635cc750ef4c819e969febc08b2987c8da90245109f22f9cf521a2",
+      "bytes": 9935
+    },
+    {
+      "path": "missing-motion/turtle-1-positive-idle-reduced.jpg",
+      "sha256": "60428f35bf6b1c3367d3067e389016f812e71dbdcdef10de09c6ee37d9c0fe48",
+      "bytes": 10020
+    },
+    {
+      "path": "missing-motion/turtle-1-positive-walk-normal.jpg",
+      "sha256": "c1769328a6d21560057ea792d5a474768482253618c900c3c6620506ff06b542",
+      "bytes": 10128
+    },
+    {
+      "path": "missing-motion/turtle-1-positive-walk-reduced.jpg",
+      "sha256": "1711944b2fd0910a21c5af118c43d4aea5d7eb1019446b2acc480f73158fee20",
+      "bytes": 10337
+    },
+    {
+      "path": "missing-motion/turtle-1-sick-idle-normal.jpg",
+      "sha256": "2c6cbdcc449242cfb3bf22a148942b5ca5fae0c4f7e8c9dbaa841b3a6bb9f8aa",
+      "bytes": 9888
+    },
+    {
+      "path": "missing-motion/turtle-1-sick-idle-reduced.jpg",
+      "sha256": "5aecdfa71d391cf8dd667d562bd0ce5629c6d0d7d7f0667c1569162b5eef454d",
+      "bytes": 9958
+    },
+    {
+      "path": "missing-motion/turtle-1-sick-walk-normal.jpg",
+      "sha256": "67829688fb23d90cc892bae2ce2011d0a10155859555c498e82fd4c84d88c731",
+      "bytes": 9945
+    },
+    {
+      "path": "missing-motion/turtle-1-sick-walk-reduced.jpg",
+      "sha256": "39df8e1ca1a87198e1f6ade834c72073bb35dbe9c0a7a17d38abf8113ee3a1bc",
+      "bytes": 10113
+    },
+    {
+      "path": "missing-motion/turtle-1-sleeping-idle-normal.jpg",
+      "sha256": "1665073d03d7b44ef241802d6c8beab9712417ff607e19a482a7e8efb16e8be7",
+      "bytes": 9279
+    },
+    {
+      "path": "missing-motion/turtle-1-sleeping-idle-reduced.jpg",
+      "sha256": "a06fd46b81826c232ed76a5879c9c702f0a518cad38f6d250ace676efa6744fd",
+      "bytes": 9372
+    },
+    {
+      "path": "missing-motion/turtle-1-sleeping-walk-normal.jpg",
+      "sha256": "ceeada2dae9ed301d7be969803a62602f5a025690d7b7451ac12853287b067e9",
+      "bytes": 9172
+    },
+    {
+      "path": "missing-motion/turtle-1-sleeping-walk-reduced.jpg",
+      "sha256": "c92deb94ddcf3f57b25d2f9f853ba048093bd751befeac7f88bba29f80d81edb",
+      "bytes": 9411
+    },
+    {
+      "path": "missing-motion/turtle-1-strained-idle-normal.jpg",
+      "sha256": "1bef644f255029a78bc4bf9bfa2e23f9f6ae33880a387ba843b1c2f50caf5620",
+      "bytes": 10036
+    },
+    {
+      "path": "missing-motion/turtle-1-strained-idle-reduced.jpg",
+      "sha256": "69069c30492159354917d3cf015434b60d1bceca061a3b3112153b7b76415d0a",
+      "bytes": 10107
+    },
+    {
+      "path": "missing-motion/turtle-1-strained-walk-normal.jpg",
+      "sha256": "040c840134752abe7c8b9e040045fae289af27187440d3e815a253d1984a6a27",
+      "bytes": 9802
+    },
+    {
+      "path": "missing-motion/turtle-1-strained-walk-reduced.jpg",
+      "sha256": "4b5f667f8e21d47a4398ae8e94ffb4736d4265133c86e0371d24a6ad67fb9dd8",
+      "bytes": 9920
+    },
+    {
+      "path": "missing-motion/turtle-1-tired-idle-normal.jpg",
+      "sha256": "9742896d69fe348fbe094a765a3dfcfe9063a366e4c4264718a3555cb4bbdee0",
+      "bytes": 9573
+    },
+    {
+      "path": "missing-motion/turtle-1-tired-idle-reduced.jpg",
+      "sha256": "0123a11a320e5db633773cda393d3bbff2afc3cf73e561afd2e779f1b44dd8b7",
+      "bytes": 9654
+    },
+    {
+      "path": "missing-motion/turtle-1-tired-walk-normal.jpg",
+      "sha256": "cef649ed6fa3f4b6fb7989f7cfb83d7054e02501af3d3e566986071f660fbdda",
+      "bytes": 9627
+    },
+    {
+      "path": "missing-motion/turtle-1-tired-walk-reduced.jpg",
+      "sha256": "b959d0352bc558335d1b58f1391d2e4904576308d9b1cc1739499559c16a14ca",
+      "bytes": 9659
+    },
+    {
+      "path": "missing-motion/turtle-1-wantsPlay-idle-normal.jpg",
+      "sha256": "8c61df096f2ec2ccc93ee2ea2fe8dd08fc92597fcdb42d2d89d35f0f5e89830d",
+      "bytes": 10112
+    },
+    {
+      "path": "missing-motion/turtle-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "304d3c65d69d9dfcf51a7a07fd150adddbdc5f340426c79c188343f637453617",
+      "bytes": 10233
+    },
+    {
+      "path": "missing-motion/turtle-1-wantsPlay-walk-normal.jpg",
+      "sha256": "0d86ce8971e83244731810ac98fdfefb877c62baf97637eb36661989bf4e1840",
+      "bytes": 10291
+    },
+    {
+      "path": "missing-motion/turtle-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "b34395db3931f8de3f34ca06c123998b4c252a3945d2ee7db0ebeee54a3137a4",
+      "bytes": 10425
+    },
+    {
+      "path": "missing-motion/turtle-2-dislike-idle-normal.jpg",
+      "sha256": "4b0d8b58cafa52f8014875606c840073fb3b6efac6dbb44bd9e5e0a79bc590df",
+      "bytes": 9521
+    },
+    {
+      "path": "missing-motion/turtle-2-dislike-idle-reduced.jpg",
+      "sha256": "fed488fc3eb78361229b17bcf72cecf1c8f60f02c899d471ecba3388c19a04a8",
+      "bytes": 9624
+    },
+    {
+      "path": "missing-motion/turtle-2-dislike-walk-normal.jpg",
+      "sha256": "8dc2729a36e8f6ef32def892a966cb4afd6916ffffbc08c9c7da938c2ccf708a",
+      "bytes": 9499
+    },
+    {
+      "path": "missing-motion/turtle-2-dislike-walk-reduced.jpg",
+      "sha256": "fa04f0033489a0de186ac3f94b5eb3b6663388ffae1f406fcbac10efaae49db2",
+      "bytes": 9708
+    },
+    {
+      "path": "missing-motion/turtle-2-motion.jpg",
+      "sha256": "5778c403fce6d377d08b599417ca102e4b53d29c2fa57a3cc5ff1cb9e120dba7",
+      "bytes": 423476
+    },
+    {
+      "path": "missing-motion/turtle-2-normal-idle-normal.jpg",
+      "sha256": "0e54dab1687b1211e14d3d0b835c26652b8ddffb3d704cc80ac52b5bdef4a429",
+      "bytes": 10318
+    },
+    {
+      "path": "missing-motion/turtle-2-normal-idle-reduced.jpg",
+      "sha256": "14420cb246824bc12b6011f0608f71f8f2d0be76d1982e380bf0ebdf5f478336",
+      "bytes": 10402
+    },
+    {
+      "path": "missing-motion/turtle-2-normal-walk-normal.jpg",
+      "sha256": "c8ef6242d9bf122d1b637cde11e2d894f2850365c8092f317e15de148643fd31",
+      "bytes": 10307
+    },
+    {
+      "path": "missing-motion/turtle-2-normal-walk-reduced.jpg",
+      "sha256": "eadcae4fa641aa98ed937d2b562b4067d64bc985423b1aa1fedf2ccb60af5185",
+      "bytes": 10406
+    },
+    {
+      "path": "missing-motion/turtle-2-positive-idle-normal.jpg",
+      "sha256": "802a5db123d4705757502b6d4fb36a6e5c1f15261653433b86a008c39ebccb1a",
+      "bytes": 10409
+    },
+    {
+      "path": "missing-motion/turtle-2-positive-idle-reduced.jpg",
+      "sha256": "f0762b3d92af3cadd4d50f148711b5998892cf19c0dbe8dddf605e1e135729f5",
+      "bytes": 10505
+    },
+    {
+      "path": "missing-motion/turtle-2-positive-walk-normal.jpg",
+      "sha256": "4aa786888d2f8c7508ffc94616bd985815848f9509c5bcce53fdedc63741be18",
+      "bytes": 10462
+    },
+    {
+      "path": "missing-motion/turtle-2-positive-walk-reduced.jpg",
+      "sha256": "6eb4f408fda80aeeeeced1d4df8b6c83e8514ec230d5f1a4a519c685159dd41f",
+      "bytes": 10658
+    },
+    {
+      "path": "missing-motion/turtle-2-sick-idle-normal.jpg",
+      "sha256": "39dbce0a5cec708a18fc614310f31f64609c7074ca086b16e3495f002ef6dd62",
+      "bytes": 10252
+    },
+    {
+      "path": "missing-motion/turtle-2-sick-idle-reduced.jpg",
+      "sha256": "760789271ff47eaae5213304dc167eba6f3df1b636e369aa618ee052f3e762d7",
+      "bytes": 10320
+    },
+    {
+      "path": "missing-motion/turtle-2-sick-walk-normal.jpg",
+      "sha256": "0c6b39e0933c62474de4fcb67328455f43f31f73f00e4e53b85cd3af337a4200",
+      "bytes": 10213
+    },
+    {
+      "path": "missing-motion/turtle-2-sick-walk-reduced.jpg",
+      "sha256": "0031bae17eb760139bcb7b74896151792b84713434bd5cf3617837134a339886",
+      "bytes": 10344
+    },
+    {
+      "path": "missing-motion/turtle-2-sleeping-idle-normal.jpg",
+      "sha256": "496267b5130c87bbc0d48288647e0b7496c259b1fe97ec4583dd4b723d07f591",
+      "bytes": 9510
+    },
+    {
+      "path": "missing-motion/turtle-2-sleeping-idle-reduced.jpg",
+      "sha256": "25cdaa7e380acfb04d79c435c23251f9e4520d6774b355b663a8390f261380d3",
+      "bytes": 9614
+    },
+    {
+      "path": "missing-motion/turtle-2-sleeping-walk-normal.jpg",
+      "sha256": "5d63f0bb5a45c9a32b8a824a07083e6e267835ef4a45481eca30021c4e01bcd4",
+      "bytes": 9399
+    },
+    {
+      "path": "missing-motion/turtle-2-sleeping-walk-reduced.jpg",
+      "sha256": "2930d1f0c32921ca788645fc3359a64c6e4cc593db9c275c59550bb779ff3b0b",
+      "bytes": 9638
+    },
+    {
+      "path": "missing-motion/turtle-2-strained-idle-normal.jpg",
+      "sha256": "3ce295fccf21512ac4bd6fecd67d21f98b9071c4d4aaaa832ac0e6c8f74d13e6",
+      "bytes": 10337
+    },
+    {
+      "path": "missing-motion/turtle-2-strained-idle-reduced.jpg",
+      "sha256": "288964e4561f2d6c7d1c0973e3cb62be2ad3e13223e17bd796518593352a50f4",
+      "bytes": 10417
+    },
+    {
+      "path": "missing-motion/turtle-2-strained-walk-normal.jpg",
+      "sha256": "b73189a1de98f9d92c6cd205eb1188c6ac68af3889a5514ca1d9110f310bb357",
+      "bytes": 10076
+    },
+    {
+      "path": "missing-motion/turtle-2-strained-walk-reduced.jpg",
+      "sha256": "c898d05f25da86f67c1459c3a2915b573f817e45fba22ea71afc041a47d6fb26",
+      "bytes": 10369
+    },
+    {
+      "path": "missing-motion/turtle-2-tired-idle-normal.jpg",
+      "sha256": "6d9ff8836fae20dac7dbd9e4469e24958de3a66f4070cef26cc599f4d6f5c699",
+      "bytes": 9711
+    },
+    {
+      "path": "missing-motion/turtle-2-tired-idle-reduced.jpg",
+      "sha256": "bf322fcbb5b15e28a0850a0417e68522dc6ce81dadf3406c7c453e9210dddbc3",
+      "bytes": 9801
+    },
+    {
+      "path": "missing-motion/turtle-2-tired-walk-normal.jpg",
+      "sha256": "fe128ebf4048dc6545a717327867c0e2fca0eb3445f6023a4bf980afd873897d",
+      "bytes": 9912
+    },
+    {
+      "path": "missing-motion/turtle-2-tired-walk-reduced.jpg",
+      "sha256": "ae4380fbe17680396d6a3c83b44b8be39240163bdbb266d94e3dbbb16a14f31a",
+      "bytes": 10022
+    },
+    {
+      "path": "missing-motion/turtle-2-wantsPlay-idle-normal.jpg",
+      "sha256": "cdac5d69c9de210c6a21fbe1aac087f73d9d1dbea127c58cf51f8f6f60883c97",
+      "bytes": 10469
+    },
+    {
+      "path": "missing-motion/turtle-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "1e1cce7d3a7967839269587cde3bd3a2d1058171787b1cd00cb8ab1c253721f7",
+      "bytes": 10585
+    },
+    {
+      "path": "missing-motion/turtle-2-wantsPlay-walk-normal.jpg",
+      "sha256": "070424ee6a865c4dc9630954fc14fa1a0d1a6e1084eca1c7ed9e9d491edddb99",
+      "bytes": 10592
+    },
+    {
+      "path": "missing-motion/turtle-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "719146b5635cd8b5d7dd836367e02b16b2f87cbbb6a81c91b63922ab22269525",
+      "bytes": 10752
+    },
+    {
+      "path": "missing-motion/turtle-4-dislike-idle-normal.jpg",
+      "sha256": "eb1dd95fd005e2ce890efc0c2478ca3dbb1183ce237ecd4b74707ddca17ef8f4",
+      "bytes": 10192
+    },
+    {
+      "path": "missing-motion/turtle-4-dislike-idle-reduced.jpg",
+      "sha256": "b8a260642cb8175ca409cff9230f89cc84a545d447f6d2a126bf5ed2eedbcc5d",
+      "bytes": 10294
+    },
+    {
+      "path": "missing-motion/turtle-4-dislike-walk-normal.jpg",
+      "sha256": "f5627b2d0d722386a38898f3601f5a14f8317a1053986c4d921ec44e11c2956d",
+      "bytes": 10334
+    },
+    {
+      "path": "missing-motion/turtle-4-dislike-walk-reduced.jpg",
+      "sha256": "1bd4286c3a598f35cbef667469c9753b4a3a89b39a0bb7ecb82a4022faa25aa2",
+      "bytes": 10283
+    },
+    {
+      "path": "missing-motion/turtle-4-motion.jpg",
+      "sha256": "2f7905716fa02d10b88a87c34cb0fc51520006600f16e78c65202fd4203b08bc",
+      "bytes": 441295
+    },
+    {
+      "path": "missing-motion/turtle-4-normal-idle-normal.jpg",
+      "sha256": "954e7ce6ac31d930b7423366c611df198ad9646cf39bffcab505b32682e648f8",
+      "bytes": 10769
+    },
+    {
+      "path": "missing-motion/turtle-4-normal-idle-reduced.jpg",
+      "sha256": "2ecf64a2302cd53a00f23d73b076c2a95d898a83cc18dd60a426cde5978fd295",
+      "bytes": 10845
+    },
+    {
+      "path": "missing-motion/turtle-4-normal-walk-normal.jpg",
+      "sha256": "8fe38464941a6c581c0646589ae140cc488ff5663a4358a842e3a0f3432fca15",
+      "bytes": 10668
+    },
+    {
+      "path": "missing-motion/turtle-4-normal-walk-reduced.jpg",
+      "sha256": "7b5800a8e64a55f3c2f8ed920f34a9f7963f8e391bf290e7a91e2eeefd0d443f",
+      "bytes": 10696
+    },
+    {
+      "path": "missing-motion/turtle-4-positive-idle-normal.jpg",
+      "sha256": "1bc50ee86611c78f85712348a8fd2995031ca006d8325cb7c27cec9fc036c30a",
+      "bytes": 10837
+    },
+    {
+      "path": "missing-motion/turtle-4-positive-idle-reduced.jpg",
+      "sha256": "d16d71c5b7c0d6aea4fa224c776925362ce3fe576eba6a7f4830538ab5971ac3",
+      "bytes": 10929
+    },
+    {
+      "path": "missing-motion/turtle-4-positive-walk-normal.jpg",
+      "sha256": "b720e8d0100d1f3d85352df79d5485c1541b1ee8e805f61cddbdc7bdf8a1399c",
+      "bytes": 10714
+    },
+    {
+      "path": "missing-motion/turtle-4-positive-walk-reduced.jpg",
+      "sha256": "e5fba3ff6d0000757e58444b217a290e09fa61913708fabc8e817ba26b98d8d7",
+      "bytes": 10905
+    },
+    {
+      "path": "missing-motion/turtle-4-sick-idle-normal.jpg",
+      "sha256": "af8d2623c818abb1f1be5ec120e228ef307ea7ba9d86297439281a6e606b0bb1",
+      "bytes": 10515
+    },
+    {
+      "path": "missing-motion/turtle-4-sick-idle-reduced.jpg",
+      "sha256": "355935146c591db78fac4e0cf043d74a66444893daf928fa0df5acc38c93abf8",
+      "bytes": 10578
+    },
+    {
+      "path": "missing-motion/turtle-4-sick-walk-normal.jpg",
+      "sha256": "58f715264ab72def44d0595c1fbb7b5cf7638c254a2dbf2077438d536f232771",
+      "bytes": 10423
+    },
+    {
+      "path": "missing-motion/turtle-4-sick-walk-reduced.jpg",
+      "sha256": "f595da3d0a229a54b35ce66915b41ef7f1021b72d9f5742f61fc29845eef9c35",
+      "bytes": 10647
+    },
+    {
+      "path": "missing-motion/turtle-4-sleeping-idle-normal.jpg",
+      "sha256": "7271292b7ae2e2ded4e3f91ec99d2d32398c2f966ad267da6e0240d77a8f890b",
+      "bytes": 10163
+    },
+    {
+      "path": "missing-motion/turtle-4-sleeping-idle-reduced.jpg",
+      "sha256": "246bb629d2e9d7396ac0f37c54a180676fb1319989d2f6ef19574e881b0757e0",
+      "bytes": 10255
+    },
+    {
+      "path": "missing-motion/turtle-4-sleeping-walk-normal.jpg",
+      "sha256": "9e7084a6ae2987cf55787ae41858eb92e950e1314ec5a50282f88da1356d890a",
+      "bytes": 10010
+    },
+    {
+      "path": "missing-motion/turtle-4-sleeping-walk-reduced.jpg",
+      "sha256": "dfd8077a7cb7e390842c74a9313176750b8f7f5ad150603aa396b8d72163f220",
+      "bytes": 10289
+    },
+    {
+      "path": "missing-motion/turtle-4-strained-idle-normal.jpg",
+      "sha256": "f79a0057223394105bd214103bba871475a191b80083430e0ed11dc91e071519",
+      "bytes": 10752
+    },
+    {
+      "path": "missing-motion/turtle-4-strained-idle-reduced.jpg",
+      "sha256": "2ae618ddb93bda7906345eae1a01a7de488af02a38975be999d90adb3b871276",
+      "bytes": 10813
+    },
+    {
+      "path": "missing-motion/turtle-4-strained-walk-normal.jpg",
+      "sha256": "2fbc2bd8693baac2dce40875164a8e16e7ac2e18fa6a011e2c1c56290cf0734d",
+      "bytes": 10680
+    },
+    {
+      "path": "missing-motion/turtle-4-strained-walk-reduced.jpg",
+      "sha256": "b3db1b9b0a85977bb4efe843ea27e14f57e283fdb0a0d1aa165ffaa5510051fd",
+      "bytes": 10853
+    },
+    {
+      "path": "missing-motion/turtle-4-tired-idle-normal.jpg",
+      "sha256": "3aa32919eb31a15b2f2f05351ef78f1fc43ff6b87e7bc391ad91c2ed125fb526",
+      "bytes": 10270
+    },
+    {
+      "path": "missing-motion/turtle-4-tired-idle-reduced.jpg",
+      "sha256": "fe163d4369e8e2347c58a2800bb45c0d601d6b826cbaef230b12a60eae41f8a6",
+      "bytes": 10356
+    },
+    {
+      "path": "missing-motion/turtle-4-tired-walk-normal.jpg",
+      "sha256": "23dd139443574e1780efc79197f90930467572b2daa22f8ec51ba6d2859a8b15",
+      "bytes": 10218
+    },
+    {
+      "path": "missing-motion/turtle-4-tired-walk-reduced.jpg",
+      "sha256": "74e3cb644c4e1e9a54ba3b2116f90a5fcf9855c1498d57966d58d9e362f3d8d8",
+      "bytes": 10428
+    },
+    {
+      "path": "missing-motion/turtle-4-wantsPlay-idle-normal.jpg",
+      "sha256": "6aa76859c436c5620fad3dfb60242c562cca1c6a75d70808d68b585599cf78f6",
+      "bytes": 10839
+    },
+    {
+      "path": "missing-motion/turtle-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "8a9db77de9d1590734a27a8672674d2bf10cbe4c40c727292e2c515da6a3ff84",
+      "bytes": 10974
+    },
+    {
+      "path": "missing-motion/turtle-4-wantsPlay-walk-normal.jpg",
+      "sha256": "392d31ddcbbb5d7a44d9ce3d11534e2d5954b5cc960068a5fe7ae289a6ee94f2",
+      "bytes": 10826
+    },
+    {
+      "path": "missing-motion/turtle-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "a2b4bf4ce5dd003efb1c13c372619806de57157d4bd870a4cffc63a9b41b7ec1",
+      "bytes": 11049
+    },
+    {
+      "path": "missing-motion/turtle-5-dislike-idle-normal.jpg",
+      "sha256": "aeb1d5d87f75d2b3985ea9e05645ba96046b6d62b4205524d3fa23c75baeb813",
+      "bytes": 10580
+    },
+    {
+      "path": "missing-motion/turtle-5-dislike-idle-reduced.jpg",
+      "sha256": "a33c93748f98ec7d2d1e4a27f88a2920793969ff394a61a573a79eb4e6dc3d45",
+      "bytes": 10682
+    },
+    {
+      "path": "missing-motion/turtle-5-dislike-walk-normal.jpg",
+      "sha256": "ab797e46680c106d1b9618f37151986f3b97a815e5da1fca4bf089e4ea61dab0",
+      "bytes": 10621
+    },
+    {
+      "path": "missing-motion/turtle-5-dislike-walk-reduced.jpg",
+      "sha256": "73c7cb9cd0a72efc7a516ec40b83e2754d4880f2d2c208c0daeea4aa09fa0453",
+      "bytes": 10665
+    },
+    {
+      "path": "missing-motion/turtle-5-motion.jpg",
+      "sha256": "e7a429c81f32585792f0d674255617b3f540a1b08055b2709d3566721b17f015",
+      "bytes": 462970
+    },
+    {
+      "path": "missing-motion/turtle-5-normal-idle-normal.jpg",
+      "sha256": "fb9254bc63fbad02e943dcd54bc5457d8d47d5b8c6db3c020b1780334bb8aa9d",
+      "bytes": 10953
+    },
+    {
+      "path": "missing-motion/turtle-5-normal-idle-reduced.jpg",
+      "sha256": "edf3cf16de4262ab5ae49468b86ed9473c206c756cc0e744733007ee84525dca",
+      "bytes": 11039
+    },
+    {
+      "path": "missing-motion/turtle-5-normal-walk-normal.jpg",
+      "sha256": "a9d34c4c7b75acea5bc4e607c0b9b07be9cfc88a422f43ba308cfb99ef7d66a3",
+      "bytes": 11021
+    },
+    {
+      "path": "missing-motion/turtle-5-normal-walk-reduced.jpg",
+      "sha256": "3c199a94ff1d2a133904de10a0302da3aa9d83dfd7f68c90b843ddaf107881c1",
+      "bytes": 11201
+    },
+    {
+      "path": "missing-motion/turtle-5-positive-idle-normal.jpg",
+      "sha256": "8704dda6d86e8439c388e6c0d2681adc2281ef9373302d8b7d8a4c0d25d2940e",
+      "bytes": 11005
+    },
+    {
+      "path": "missing-motion/turtle-5-positive-idle-reduced.jpg",
+      "sha256": "76d617110fb7d947083238440cbbf50d6bba2bfb5bb58d8119836f8497364fd8",
+      "bytes": 11100
+    },
+    {
+      "path": "missing-motion/turtle-5-positive-walk-normal.jpg",
+      "sha256": "734e40af4e035861f06d44f07e0a4662d115dd4e3299f3bc3a6e2851f568a4d2",
+      "bytes": 11146
+    },
+    {
+      "path": "missing-motion/turtle-5-positive-walk-reduced.jpg",
+      "sha256": "36f3c12d52d2ea439f15311004d8ab49cd9d9244a16d8102d8f9ee5df25b7ff0",
+      "bytes": 11158
+    },
+    {
+      "path": "missing-motion/turtle-5-sick-idle-normal.jpg",
+      "sha256": "ff7a8bbda3426c403fa22df16777c21c337cab5f06f47e31b2832f35d5f289f7",
+      "bytes": 10891
+    },
+    {
+      "path": "missing-motion/turtle-5-sick-idle-reduced.jpg",
+      "sha256": "82df4b5bf3e48ffd032e833801760c25b1c91857ca7a75a63e0a1552a75cbd8a",
+      "bytes": 10971
+    },
+    {
+      "path": "missing-motion/turtle-5-sick-walk-normal.jpg",
+      "sha256": "0b1fd72d1718e7fd5b460a59ade7c3baa866a1faf22ac085ad1a218048bcb723",
+      "bytes": 10765
+    },
+    {
+      "path": "missing-motion/turtle-5-sick-walk-reduced.jpg",
+      "sha256": "1194645f998fb56617374f1ea30e72e85008f32bad09d50e1d0205640cfe123a",
+      "bytes": 10790
+    },
+    {
+      "path": "missing-motion/turtle-5-sleeping-idle-normal.jpg",
+      "sha256": "75f415ecefcb1942028f6e5c77b59678679e13af33f233609474764c7e7fd118",
+      "bytes": 10374
+    },
+    {
+      "path": "missing-motion/turtle-5-sleeping-idle-reduced.jpg",
+      "sha256": "09895271e9b802644a2f823c7d940bbccaf21db17703f2bbead84febdba40a95",
+      "bytes": 10475
+    },
+    {
+      "path": "missing-motion/turtle-5-sleeping-walk-normal.jpg",
+      "sha256": "d93f4290fb941f710bf844ae718866096271c08abe55c49ba8be796b913cdceb",
+      "bytes": 10120
+    },
+    {
+      "path": "missing-motion/turtle-5-sleeping-walk-reduced.jpg",
+      "sha256": "cd58c22f10ec246e8f6d36f0bf3136cc00b12f5f1ecc1c2116f2a04abdcbb727",
+      "bytes": 10468
+    },
+    {
+      "path": "missing-motion/turtle-5-strained-idle-normal.jpg",
+      "sha256": "0901a110237a53b1a271d3fbfd614a2ab214fdc2ae7aa4b88a9f7e6f80aa0a87",
+      "bytes": 10955
+    },
+    {
+      "path": "missing-motion/turtle-5-strained-idle-reduced.jpg",
+      "sha256": "335f1ea13cb5e9a832d49dbab2d3c48f6c4f75e4e57cda4bd715eec560a40caf",
+      "bytes": 11040
+    },
+    {
+      "path": "missing-motion/turtle-5-strained-walk-normal.jpg",
+      "sha256": "0764149ec0825fec3eb48a9cec88442beb2851def6e124e2fba28f8d7c673fc7",
+      "bytes": 10859
+    },
+    {
+      "path": "missing-motion/turtle-5-strained-walk-reduced.jpg",
+      "sha256": "395bee96dd5f5b2b81d4b146b6dd84877006f06d15ef0eabc94490c2685120e6",
+      "bytes": 11216
+    },
+    {
+      "path": "missing-motion/turtle-5-tired-idle-normal.jpg",
+      "sha256": "5ddad6f818bcf567cb708d33d916152f2d8fba039946960f7aa7cfc697429968",
+      "bytes": 10401
+    },
+    {
+      "path": "missing-motion/turtle-5-tired-idle-reduced.jpg",
+      "sha256": "b8f7cd5e1a6591a0c86d495f3756bb015d1774c08ea5e4a7cfce04a7dd0a994a",
+      "bytes": 10494
+    },
+    {
+      "path": "missing-motion/turtle-5-tired-walk-normal.jpg",
+      "sha256": "a2cc8a7a5fa79ec17572aa3952aab2ac06adb52dbc0ec3f286a14d1189555e0d",
+      "bytes": 10371
+    },
+    {
+      "path": "missing-motion/turtle-5-tired-walk-reduced.jpg",
+      "sha256": "06d0770d9c5020cf3e3c7badb60eb6a53ddd23d25b7b3fdfd0d5cc6a04004097",
+      "bytes": 10542
+    },
+    {
+      "path": "missing-motion/turtle-5-wantsPlay-idle-normal.jpg",
+      "sha256": "0ad3ba67db8588a6684a6c4d5c2149bbddf11458b28f708ec3e3eb5e40edf7e1",
+      "bytes": 10866
+    },
+    {
+      "path": "missing-motion/turtle-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "27939139517a2550819f417b895847ab1d71f4b026bf94c44639ed832b5d5f5a",
+      "bytes": 10995
+    },
+    {
+      "path": "missing-motion/turtle-5-wantsPlay-walk-normal.jpg",
+      "sha256": "2ee244b70ddd90f3a65f2506166fcd9de8585412755e483581283781368ad08c",
+      "bytes": 11039
+    },
+    {
+      "path": "missing-motion/turtle-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "0f2a336c8ef5c15bad38a030faa5e4de5bbaa72a9be0bd1a6d879b57fb3b5785",
+      "bytes": 11157
+    },
+    {
+      "path": "missing-motion/turtle-6-dislike-idle-normal.jpg",
+      "sha256": "8e874bbfabb7b0118e6486c6af56eca4e6837d40985b57720e09579fadb62189",
+      "bytes": 11106
+    },
+    {
+      "path": "missing-motion/turtle-6-dislike-idle-reduced.jpg",
+      "sha256": "a1089822a2dc0a00f006c38790ad144fe6f29a8d57a55829724166140f3c43d9",
+      "bytes": 11211
+    },
+    {
+      "path": "missing-motion/turtle-6-dislike-walk-normal.jpg",
+      "sha256": "91885b0c8d231cf4f53479bd5eab13ca0b3a4faaa66ffa587d317505fed00299",
+      "bytes": 11028
+    },
+    {
+      "path": "missing-motion/turtle-6-dislike-walk-reduced.jpg",
+      "sha256": "73b79cc4a60d451d22cb6c0d5b7df0e8d918a88173f7a3d52080f861e8ac585e",
+      "bytes": 11201
+    },
+    {
+      "path": "missing-motion/turtle-6-motion.jpg",
+      "sha256": "c6ae05d7a060a522490a0b4215e35558e74081ba832bd12406ae3fe532438ecc",
+      "bytes": 479646
+    },
+    {
+      "path": "missing-motion/turtle-6-normal-idle-normal.jpg",
+      "sha256": "0465d0072aa1fe4cac408d1720e196fcb43becc33827fa870a9489978263c59b",
+      "bytes": 11457
+    },
+    {
+      "path": "missing-motion/turtle-6-normal-idle-reduced.jpg",
+      "sha256": "d7dbe9a4cf2265b3ee4e0958356fd1f884234ff367cd18f72dcd47abde3dc36c",
+      "bytes": 11547
+    },
+    {
+      "path": "missing-motion/turtle-6-normal-walk-normal.jpg",
+      "sha256": "ae4be266bbb5713667ee85fcf00b214914f0b288cdccdfe07626b99efdb675f6",
+      "bytes": 11476
+    },
+    {
+      "path": "missing-motion/turtle-6-normal-walk-reduced.jpg",
+      "sha256": "aba3be272b0840053dbc71aa36dd371f2eeea99a1dd97d223bed1e312a475898",
+      "bytes": 11566
+    },
+    {
+      "path": "missing-motion/turtle-6-positive-idle-normal.jpg",
+      "sha256": "5c22f13f015e1d7a32cce999f2c107843ad9c4be4ce2910d83680fb6611ecf8d",
+      "bytes": 11471
+    },
+    {
+      "path": "missing-motion/turtle-6-positive-idle-reduced.jpg",
+      "sha256": "165af51ff86704c8545d38eed1c83fb23d50fbe37b0cad2b1a86bcbe6f267265",
+      "bytes": 11557
+    },
+    {
+      "path": "missing-motion/turtle-6-positive-walk-normal.jpg",
+      "sha256": "0758a78b26e8b887a7569f4ae4d6f4dc60b4486cd492b97a4a91562a51de47e9",
+      "bytes": 11508
+    },
+    {
+      "path": "missing-motion/turtle-6-positive-walk-reduced.jpg",
+      "sha256": "aedfc1f988f76b3078632814247a2c49004b38473e2ff2823669b47a1e9ba17a",
+      "bytes": 11767
+    },
+    {
+      "path": "missing-motion/turtle-6-sick-idle-normal.jpg",
+      "sha256": "48d3fc8d77a78dc94d62975ae774c6f57040dbfec38ae6c7166dd63285505554",
+      "bytes": 11327
+    },
+    {
+      "path": "missing-motion/turtle-6-sick-idle-reduced.jpg",
+      "sha256": "ebf353649e1982aa58dfc19a2804f4e1c088e0be87ba1b8f64fa8ddbfc869abe",
+      "bytes": 11397
+    },
+    {
+      "path": "missing-motion/turtle-6-sick-walk-normal.jpg",
+      "sha256": "950892c4841314bd06e79b8b0209536da1b3bcdda6169ee26c8e9db129dfa33f",
+      "bytes": 11270
+    },
+    {
+      "path": "missing-motion/turtle-6-sick-walk-reduced.jpg",
+      "sha256": "a0d8909b9b9a5e84833eaa5fcb7dd2144111b65aa834fa78f573698c6d17018a",
+      "bytes": 11378
+    },
+    {
+      "path": "missing-motion/turtle-6-sleeping-idle-normal.jpg",
+      "sha256": "3a04cad91804dd5ca74c850c439f827641957b834e9c6c3fdea9e8e49351e69e",
+      "bytes": 10686
+    },
+    {
+      "path": "missing-motion/turtle-6-sleeping-idle-reduced.jpg",
+      "sha256": "6a56358a1a45aeb8adcf781e4441f667fc395e3b0e1adda5df0cdc7ebf226f62",
+      "bytes": 10796
+    },
+    {
+      "path": "missing-motion/turtle-6-sleeping-walk-normal.jpg",
+      "sha256": "022459cef99051755370a4d717c12a00f44c3b2624e14efa4aba7476a41f1116",
+      "bytes": 10731
+    },
+    {
+      "path": "missing-motion/turtle-6-sleeping-walk-reduced.jpg",
+      "sha256": "12c96280b6386c4e44e24ce261e69a5da523ad4562d58e7376c1a8a74cd33ffd",
+      "bytes": 10878
+    },
+    {
+      "path": "missing-motion/turtle-6-strained-idle-normal.jpg",
+      "sha256": "4ad06e153c10fafce11887640e0c7ada9c000f14fdd64810e8e0242c58879d5b",
+      "bytes": 11636
+    },
+    {
+      "path": "missing-motion/turtle-6-strained-idle-reduced.jpg",
+      "sha256": "ff7e9154ae3c56e133de6347a420238ec8134594e995e87394dfed04b2c2c49c",
+      "bytes": 11719
+    },
+    {
+      "path": "missing-motion/turtle-6-strained-walk-normal.jpg",
+      "sha256": "cd5d1a5030396d1c318824b7fc29f12968e242e57390ccf1524a7cd4464e3960",
+      "bytes": 11464
+    },
+    {
+      "path": "missing-motion/turtle-6-strained-walk-reduced.jpg",
+      "sha256": "0cd70b72b4312c8f8b7e2518dbaf7763ece4e702b2e69413535698192fd5ce8b",
+      "bytes": 11616
+    },
+    {
+      "path": "missing-motion/turtle-6-tired-idle-normal.jpg",
+      "sha256": "4884b885217d0058ba2f0d01bee0856364a6fe5e897dd73e6c1da6acfc3c6a14",
+      "bytes": 10926
+    },
+    {
+      "path": "missing-motion/turtle-6-tired-idle-reduced.jpg",
+      "sha256": "b89b996e10afb06c0b7d1cd14a0a418c8b5573b4dcd28426906efc4d7021f470",
+      "bytes": 10998
+    },
+    {
+      "path": "missing-motion/turtle-6-tired-walk-normal.jpg",
+      "sha256": "0fa2e16c3658e6168042baa32af9de4c61b0afe5553cf820dd2764fd549344e4",
+      "bytes": 10971
+    },
+    {
+      "path": "missing-motion/turtle-6-tired-walk-reduced.jpg",
+      "sha256": "bcc971edef6ebc06052598759533c1d694563af051bd8b5e01b154657b70ee70",
+      "bytes": 11009
+    },
+    {
+      "path": "missing-motion/turtle-6-wantsPlay-idle-normal.jpg",
+      "sha256": "ee4f2c6f190ada403af9199cc1670e28b879b8bb10012e8916b972c2434f991b",
+      "bytes": 11376
+    },
+    {
+      "path": "missing-motion/turtle-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "1e245e6118029b7b98df577a4dd0031dbc6662febe5a1edd4ce27b41c883c7d3",
+      "bytes": 11505
+    },
+    {
+      "path": "missing-motion/turtle-6-wantsPlay-walk-normal.jpg",
+      "sha256": "9af8797fb0d35d0f0f1a8a6cc8d8430ecc54fecda1ea2936c2a574c7bb9e3267",
+      "bytes": 11549
+    },
+    {
+      "path": "missing-motion/turtle-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "8c661ae4b85e09b7938cc3dcd66025fe7d018950446b6f7c676b2149f41e6a09",
+      "bytes": 11686
+    },
+    {
+      "path": "missing-motion/turtle-7-dislike-idle-normal.jpg",
+      "sha256": "07ef80ccd73fb0c3e6b04db3fed4b60acf4fbba952075aef672afcc547f4961f",
+      "bytes": 11192
+    },
+    {
+      "path": "missing-motion/turtle-7-dislike-idle-reduced.jpg",
+      "sha256": "8b89021d99dfe5c2f9439c15d962638e80c5736a9c25928c0102a0efe1b5ea8e",
+      "bytes": 11300
+    },
+    {
+      "path": "missing-motion/turtle-7-dislike-walk-normal.jpg",
+      "sha256": "b79a4ca23e8060c1228161a9a0750f1b6a5b0cb698f2a85fcbc770b08d2cb76b",
+      "bytes": 11289
+    },
+    {
+      "path": "missing-motion/turtle-7-dislike-walk-reduced.jpg",
+      "sha256": "132dd3062ee30768c0534c9a94d2f09b912c3d3b0714034c1c3dc861ac8873c0",
+      "bytes": 11347
+    },
+    {
+      "path": "missing-motion/turtle-7-motion.jpg",
+      "sha256": "73ff9086d22214c3f5cee79f1d2fddba125411eb9cf828c3ada0f1dc6807eed4",
+      "bytes": 495199
+    },
+    {
+      "path": "missing-motion/turtle-7-normal-idle-normal.jpg",
+      "sha256": "852b55977a3b9234a8393e8885499ae72d8b5b733b681f6058259ca26b5d37f0",
+      "bytes": 11643
+    },
+    {
+      "path": "missing-motion/turtle-7-normal-idle-reduced.jpg",
+      "sha256": "c42a64e4c17b17cab2bc603eee8ab0931fbf59c8bbdabb3266101c262650ad9d",
+      "bytes": 11733
+    },
+    {
+      "path": "missing-motion/turtle-7-normal-walk-normal.jpg",
+      "sha256": "288582fd18a0b607213675eeb8fd50ed884e70a07b697243e402585f688c0667",
+      "bytes": 11563
+    },
+    {
+      "path": "missing-motion/turtle-7-normal-walk-reduced.jpg",
+      "sha256": "5777911040a21c09dc06fc699fbea2cd02f2d851b4bcc3c333bb5b2ba9e732eb",
+      "bytes": 11806
+    },
+    {
+      "path": "missing-motion/turtle-7-positive-idle-normal.jpg",
+      "sha256": "f1b815d307e8e90306cd1e2e8317e8c6c409e09421d5ae1c7d74525b4e5a5216",
+      "bytes": 11598
+    },
+    {
+      "path": "missing-motion/turtle-7-positive-idle-reduced.jpg",
+      "sha256": "7d832e1e58b2f5f70a95fe1acc30886abab37c2fe348eb183c0304e5b8f4e811",
+      "bytes": 11699
+    },
+    {
+      "path": "missing-motion/turtle-7-positive-walk-normal.jpg",
+      "sha256": "260d62560707274befe49b344e942066ceceba4138ca49f65b0ca4d16473ed5a",
+      "bytes": 11666
+    },
+    {
+      "path": "missing-motion/turtle-7-positive-walk-reduced.jpg",
+      "sha256": "c52319a7cc3888f40b4b9763f1ae52d6aca0eb34747da117b42d3469bcbf1aea",
+      "bytes": 11804
+    },
+    {
+      "path": "missing-motion/turtle-7-sick-idle-normal.jpg",
+      "sha256": "8c528a542f78a0e1f6827731bc27f795da0d95b9b1e92ac2b2f70e7366b6f83d",
+      "bytes": 11559
+    },
+    {
+      "path": "missing-motion/turtle-7-sick-idle-reduced.jpg",
+      "sha256": "5875873b252acc50a372ff438eb1b9a847acd8fd9450cf3413f7b0377d8012ee",
+      "bytes": 11631
+    },
+    {
+      "path": "missing-motion/turtle-7-sick-walk-normal.jpg",
+      "sha256": "27a6878853cd0ca5c5f38acd663bbd8c688c2a36a554b792ee236d85db543287",
+      "bytes": 11279
+    },
+    {
+      "path": "missing-motion/turtle-7-sick-walk-reduced.jpg",
+      "sha256": "9b8a08051812c3976562072860a0bc9fc14fbf707951e5df7a2df97660baa96c",
+      "bytes": 11488
+    },
+    {
+      "path": "missing-motion/turtle-7-sleeping-idle-normal.jpg",
+      "sha256": "f20dd809e5a9436ead24f1a49921f5714dc71a96735a9e940579127a157e2338",
+      "bytes": 10905
+    },
+    {
+      "path": "missing-motion/turtle-7-sleeping-idle-reduced.jpg",
+      "sha256": "ba451ede96d501ee16538602a97da5fbf2d0be913d568960ee9b5cddf542bac2",
+      "bytes": 11008
+    },
+    {
+      "path": "missing-motion/turtle-7-sleeping-walk-normal.jpg",
+      "sha256": "637cadacadf050d6cb51029702cbe32b97040029199bbb7ada0089e0994a7aa9",
+      "bytes": 10764
+    },
+    {
+      "path": "missing-motion/turtle-7-sleeping-walk-reduced.jpg",
+      "sha256": "23de7db8953132f6ab004eff2bf3715bf6bc67f6130f29f5a7c57d251958527c",
+      "bytes": 11031
+    },
+    {
+      "path": "missing-motion/turtle-7-strained-idle-normal.jpg",
+      "sha256": "bdf984ce4fbb28005bdc4768e9ef46e10f019a8d5b61c7ce79c09edb694b7fe7",
+      "bytes": 11671
+    },
+    {
+      "path": "missing-motion/turtle-7-strained-idle-reduced.jpg",
+      "sha256": "cd3e4153f08b5517c27220b4130fcf4bfa627c495fa0978a9f333132566e03b6",
+      "bytes": 11767
+    },
+    {
+      "path": "missing-motion/turtle-7-strained-walk-normal.jpg",
+      "sha256": "13eb3eb9e723bee916b7f8b151ae7360ea8ed16c31234200f86ad5d84001346d",
+      "bytes": 11520
+    },
+    {
+      "path": "missing-motion/turtle-7-strained-walk-reduced.jpg",
+      "sha256": "bb46b961f206934d2de5c4bb1c87d5147cd7df51b9a08383008652d8aa4b7d6d",
+      "bytes": 11763
+    },
+    {
+      "path": "missing-motion/turtle-7-tired-idle-normal.jpg",
+      "sha256": "0c82bc2459f4a7e7f859c2f6966f5a2ebb109a1d1929eb20433c2b50f53cacc3",
+      "bytes": 10942
+    },
+    {
+      "path": "missing-motion/turtle-7-tired-idle-reduced.jpg",
+      "sha256": "76c59d88336e60d41112a3488a007d5ccbd623dae5b14d3531b3a7cf443826bb",
+      "bytes": 11033
+    },
+    {
+      "path": "missing-motion/turtle-7-tired-walk-normal.jpg",
+      "sha256": "8a768a4dedd91b545273dee3b7715173fdc294f254cfbab26012a2559a1eafeb",
+      "bytes": 10959
+    },
+    {
+      "path": "missing-motion/turtle-7-tired-walk-reduced.jpg",
+      "sha256": "ba0840d855cbd3e2b5689945833e8c676d83a574468733cea4c56dfdd0b6bfd1",
+      "bytes": 11074
+    },
+    {
+      "path": "missing-motion/turtle-7-wantsPlay-idle-normal.jpg",
+      "sha256": "2b9277eb831089e8a8f87c0d8ba8b13d0d698452bbb9088a11b53b680c3cfa66",
+      "bytes": 11586
+    },
+    {
+      "path": "missing-motion/turtle-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "b95deb9cb245ff6a5a41fc2d806d3626a2a491ce187cfa7007b7cb73fa0e3dc7",
+      "bytes": 11709
+    },
+    {
+      "path": "missing-motion/turtle-7-wantsPlay-walk-normal.jpg",
+      "sha256": "63c1ee906d806659d35045ee638d61aa67ecd897050d523789446d4b449950b6",
+      "bytes": 11529
+    },
+    {
+      "path": "missing-motion/turtle-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "831788f04ae5dc57d5272408aecb4c8226bb70a461016f67c199c6c24ea25e93",
+      "bytes": 11762
+    },
+    {
+      "path": "missing-motion/turtle-8-dislike-idle-normal.jpg",
+      "sha256": "03408a05892b81e9b414b145833acb236ebc1a20e64c0f933e45ba048dae7171",
+      "bytes": 11814
+    },
+    {
+      "path": "missing-motion/turtle-8-dislike-idle-reduced.jpg",
+      "sha256": "488e9325e9c100f6831a86c5f2ba78bbc93a242186698128579b2d27a160fb63",
+      "bytes": 11918
+    },
+    {
+      "path": "missing-motion/turtle-8-dislike-walk-normal.jpg",
+      "sha256": "43f2fd89f2b3c963b1c126fa95b6356b0674f37a31a369dc4691ed6538f7e8ce",
+      "bytes": 11887
+    },
+    {
+      "path": "missing-motion/turtle-8-dislike-walk-reduced.jpg",
+      "sha256": "857136f2d14d1df71f233f4b8f1bcca1e6ad37b6c1abfe5e88efaac95a91e3c6",
+      "bytes": 11993
+    },
+    {
+      "path": "missing-motion/turtle-8-motion.jpg",
+      "sha256": "dcdaf4d420611b7d3be2a03989b7886f3e0aaebcfebf0bb7793e6be0f366d420",
+      "bytes": 528072
+    },
+    {
+      "path": "missing-motion/turtle-8-normal-idle-normal.jpg",
+      "sha256": "ff4b5beed18d35f387503924f7cc081aa59ab1ebe95ab02783550537185e2019",
+      "bytes": 12326
+    },
+    {
+      "path": "missing-motion/turtle-8-normal-idle-reduced.jpg",
+      "sha256": "61d72b15bd3bbffbc710b4086309c256b8d75af3b62aa7cee7080f3876454036",
+      "bytes": 12417
+    },
+    {
+      "path": "missing-motion/turtle-8-normal-walk-normal.jpg",
+      "sha256": "ad94d64291b31ae79e3fefdb43af5da0f4d39d988e6b44e198b83a9b3ab13c35",
+      "bytes": 12466
+    },
+    {
+      "path": "missing-motion/turtle-8-normal-walk-reduced.jpg",
+      "sha256": "6f4138c539fd3ab3bc5232f2753660b4bf93f48e929beee944555ef7dfb545ab",
+      "bytes": 12490
+    },
+    {
+      "path": "missing-motion/turtle-8-positive-idle-normal.jpg",
+      "sha256": "44051b3763fa8bf09757f578d5620ce76e8cd63772d01eba1146032dd0904db0",
+      "bytes": 12219
+    },
+    {
+      "path": "missing-motion/turtle-8-positive-idle-reduced.jpg",
+      "sha256": "14a7661617c21ae60912d852d4d6b8c854f53d6ccbdbc9cd06137d428d88f83d",
+      "bytes": 12313
+    },
+    {
+      "path": "missing-motion/turtle-8-positive-walk-normal.jpg",
+      "sha256": "bc29409eb42d403c81681160db9a9708f96d7079ae04f50a8244c24894391bce",
+      "bytes": 12304
+    },
+    {
+      "path": "missing-motion/turtle-8-positive-walk-reduced.jpg",
+      "sha256": "59a272d6ea904277456e1a644ecf8bd6d1d114a022031b7576584b5bc1bdba9f",
+      "bytes": 12394
+    },
+    {
+      "path": "missing-motion/turtle-8-sick-idle-normal.jpg",
+      "sha256": "401434afb1b6fafeecc5dfd58ded7b2cae760990201c49791ab9a1e8796835cd",
+      "bytes": 12175
+    },
+    {
+      "path": "missing-motion/turtle-8-sick-idle-reduced.jpg",
+      "sha256": "7f84989f0c41b5aaa1ccc27f733ffc0897ad3418b13a3eb6cd1578f0a85a549e",
+      "bytes": 12240
+    },
+    {
+      "path": "missing-motion/turtle-8-sick-walk-normal.jpg",
+      "sha256": "b0449f3a1f0951fd22ce3c56ed879b6116b00a4ee6d14b2b12cbda69ed4f8577",
+      "bytes": 11961
+    },
+    {
+      "path": "missing-motion/turtle-8-sick-walk-reduced.jpg",
+      "sha256": "2f3db6d36bee592cde34ecdacfdc71b9fe5430a5120f3c5b3c153b30469551bf",
+      "bytes": 12260
+    },
+    {
+      "path": "missing-motion/turtle-8-sleeping-idle-normal.jpg",
+      "sha256": "78196993bd74e87c5c6680f321694286b417a3e18bed8379d459685cf38ca767",
+      "bytes": 11552
+    },
+    {
+      "path": "missing-motion/turtle-8-sleeping-idle-reduced.jpg",
+      "sha256": "db386fe160a98b67a69c64c8fc2ec59a9f16c7a4e4e0723d978736fd1e90e31e",
+      "bytes": 11648
+    },
+    {
+      "path": "missing-motion/turtle-8-sleeping-walk-normal.jpg",
+      "sha256": "49ff03a00773b83df00ac9a4b6013715936470fa90c6c4fc8ebd24ec390a8aac",
+      "bytes": 11412
+    },
+    {
+      "path": "missing-motion/turtle-8-sleeping-walk-reduced.jpg",
+      "sha256": "038af5b4f7eb8cce05406b8155b6608c37e06b944284a9cda8f73487a6318a32",
+      "bytes": 11523
+    },
+    {
+      "path": "missing-motion/turtle-8-strained-idle-normal.jpg",
+      "sha256": "0ece7bbcca7c65face1e7836d2a26c006a954fdd113284925ab2a69e72ea8899",
+      "bytes": 12347
+    },
+    {
+      "path": "missing-motion/turtle-8-strained-idle-reduced.jpg",
+      "sha256": "c1b4e30414a1f1378f7f250ded109b68b5ab17b8c4d5b530f629712d6fabad0b",
+      "bytes": 12432
+    },
+    {
+      "path": "missing-motion/turtle-8-strained-walk-normal.jpg",
+      "sha256": "36eae8e8aef26e691d0cde3152689b05d27287f9f899eaa2e2dff69272fbe1a4",
+      "bytes": 12221
+    },
+    {
+      "path": "missing-motion/turtle-8-strained-walk-reduced.jpg",
+      "sha256": "ae2785f78ee780a5c7ff2ac01c16292d6b6fb01ecf60ec8746cfcfaa79b70b64",
+      "bytes": 12331
+    },
+    {
+      "path": "missing-motion/turtle-8-tired-idle-normal.jpg",
+      "sha256": "46b46d0519aa035aa282ce31daceabe1287781f895beaf7fc7e66baca8d725ee",
+      "bytes": 11622
+    },
+    {
+      "path": "missing-motion/turtle-8-tired-idle-reduced.jpg",
+      "sha256": "0c8ebaaf6051d7be5b47c84e6a15dc43419cf1a2d8f110157420e5318bb13c0d",
+      "bytes": 11718
+    },
+    {
+      "path": "missing-motion/turtle-8-tired-walk-normal.jpg",
+      "sha256": "68c0e1785f2ad21297e0406e0708572ea35f4ce853211ff8ea0c5aaed7ba3ba3",
+      "bytes": 11707
+    },
+    {
+      "path": "missing-motion/turtle-8-tired-walk-reduced.jpg",
+      "sha256": "231f8f48892004924a8b3b4309f65965dce3b3bdd112e8b1f5fdaeba9f3f9fc3",
+      "bytes": 11801
+    },
+    {
+      "path": "missing-motion/turtle-8-wantsPlay-idle-normal.jpg",
+      "sha256": "bd947f6d239d3e4077765b64ef3ad95bfd3ae2efad5c4c58f07f1ad89e2f0548",
+      "bytes": 12207
+    },
+    {
+      "path": "missing-motion/turtle-8-wantsPlay-idle-reduced.jpg",
+      "sha256": "9fe0d02924a96ecbdbfec3c23617e6da2738c1dd18c2b7469738d9d350582973",
+      "bytes": 12335
+    },
+    {
+      "path": "missing-motion/turtle-8-wantsPlay-walk-normal.jpg",
+      "sha256": "504b044ab476dbf92a393882164afcbb8dbf664e8f91b68f49222cf7c2abecdf",
+      "bytes": 12258
+    },
+    {
+      "path": "missing-motion/turtle-8-wantsPlay-walk-reduced.jpg",
+      "sha256": "88928a17b1294421f7c6b0b29497dd5e7c04f1e1453a0ec7c10ac2711a4f9802",
+      "bytes": 12422
+    },
+    {
+      "path": "player-turtle-1-back.png",
+      "sha256": "daf057358260f75684fac9ab861b62a75474289710d4c0fbd5b13a0e316e5ce5",
+      "bytes": 306568
+    },
+    {
+      "path": "player-turtle-1-front.png",
+      "sha256": "8a86633b276b1c56f2c741d0f6881ece2a818ae2bbaf5ce7989d712da573210d",
+      "bytes": 306556
+    },
+    {
+      "path": "player-turtle-2-back.png",
+      "sha256": "d8f8dbe22c1f0a2a2e13db96cfacb75cf055234ca640daf9493049933bfabd5d",
+      "bytes": 308223
+    },
+    {
+      "path": "player-turtle-2-front.png",
+      "sha256": "cb379d8676232c736e5862c058276bdeca67534c2d1a8f623c2844b600160ebc",
+      "bytes": 308082
+    },
+    {
+      "path": "player-turtle-3-back.png",
+      "sha256": "a7f8fa148584a71c28e762d4a49634e2a17409a5bdcae2595e7b4cb8327151db",
+      "bytes": 309335
+    },
+    {
+      "path": "player-turtle-3-front.png",
+      "sha256": "3eae1f0d662ba18408d7698395a33417c7c64c27ce7aacfe7f30bc2da062629c",
+      "bytes": 311014
+    },
+    {
+      "path": "player-turtle-4-back.png",
+      "sha256": "783441b49738624bb524af9199961a5c7f9b60955edd0ebdc68a039e38f35a8b",
+      "bytes": 308758
+    },
+    {
+      "path": "player-turtle-4-front.png",
+      "sha256": "c07880cee411332498bfd08c05c2f8f923f5796d45747b6a0969a55f966ffdc6",
+      "bytes": 312681
+    },
+    {
+      "path": "player-turtle-5-back.png",
+      "sha256": "5906958055a43eb3fb3ca5007d7be6de05a70bb08e222812f9c5f5c4128cd266",
+      "bytes": 310663
+    },
+    {
+      "path": "player-turtle-5-front.png",
+      "sha256": "02cc6e34a73f77cac9ad9cea541278c38b699e54b717f26dade26a86dd7ef9f2",
+      "bytes": 314177
+    },
+    {
+      "path": "player-turtle-6-back.png",
+      "sha256": "1fece2073bb71f61830c3c3a459c535831d8961c9a3cd7c9828429a867f0fc12",
+      "bytes": 312994
+    },
+    {
+      "path": "player-turtle-6-front.png",
+      "sha256": "3d3598ecb0d6bc3a0ab96472ec29b2aa22e7ddc2066a2e10ef84bf9a3c949c51",
+      "bytes": 316280
+    },
+    {
+      "path": "player-turtle-7-back.png",
+      "sha256": "9af2fa67f490e7b95b3790676bd8736c05d12d7091f8583c34b791d7ab448154",
+      "bytes": 311925
+    },
+    {
+      "path": "player-turtle-7-front.png",
+      "sha256": "ae7f487f4b5239d594c4bc1fed70bc6b629ef429149b772c307f504b53334d2c",
+      "bytes": 315607
+    },
+    {
+      "path": "player-turtle-8-back.png",
+      "sha256": "7364a653ad1e93a15803e50d897fab808c036053e13464d0d18ce92d048aae5e",
+      "bytes": 314253
+    },
+    {
+      "path": "player-turtle-8-front.png",
+      "sha256": "65031558107e7997850ee359269e72bab40ea82c5239a1f23228b4e38aae307d",
+      "bytes": 318884
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866199,
+  "artifactJobName": "stage-evidence (turtle)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-11",
+  "authority": "Explicit user Human QA decisions in this conversation",
+  "status": "TWO_TARGETED_REPAIRS_HUMAN_APPROVED",
+  "baseline": "f1757ea0a8ba54e9b087c561b03e3bf1190230cb",
+  "decisions": [
+    {
+      "key": "author:naoto",
+      "scope": "Current E plus side-layer hairstyle: part position, fringe direction, temple-to-rear continuity",
+      "humanQA": "APPROVED",
+      "runtimeAdopted": true,
+      "freeze": "No further hairstyle change without a confirmed defect",
+      "captureSource": "5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+      "internalCandidate": "F = E plus six side-layer paths",
+      "approvedRowSha256": "9da8617f42a408ae8eed51b69738fbfd7ad1e1a9da1b9ca6f1d3e3f188471aec",
+      "views": {
+        "front": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-front.jpg",
+        "34": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-34.jpg",
+        "side": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/author-side-layer-20261011/author-naoto-F-back.jpg"
+      }
+    },
+    {
+      "key": "partner:grove_deer",
+      "scope": "Previously corrected slender tapered legs, joints and proportions",
+      "humanQA": "APPROVED_RECONFIRMED",
+      "geometryChangedThisRevision": false,
+      "freeze": "No additional changes requested",
+      "unchangedRowSha256": "28233d99f4db2b1ca0b63b33fdd5454581e9de563aaf9c2cfa64f29091661805"
+    }
+  ],
+  "otherCharactersHumanQA": {
+    "status": "FINE_REVIEW_DEFERRED_TO_QUALITY_PASS",
+    "remainingCharacters": 291,
+    "note": "Latest user policy: remaining fine geometry/expression/motion improvements are not pre-merge blockers. Critical technical safety and physical iPhone basic/27-actor checks remain mandatory.",
+    "approvalMode": "USER_ACCEPTS_OVERALL_QUALITY_NOT_INDIVIDUAL_SIGNOFF",
+    "packet": "docs/qa/character-3d-full-v0/batch-human-qa-20261011/README.md"
+  },
+  "iPhoneQA": {
+    "status": "OPEN_NOT_RUN",
+    "requires": "Actual iPhone Safari observations; Chromium/SwiftShader and URL creation do not pass this gate"
+  },
+  "pr": {
+    "number": 376,
+    "draft": true,
+    "merged": false
+  },
+  "verification": "docs/qa/character-3d-full-v0/author-side-layer-20261011/adoption-verification.json",
+  "productionCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "productionTree": "c0f2db50c2638d217aa4878dc5b44248622c4731",
+  "previewLinks": {
+    "Full Character 3D Gallery": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/full-gallery.html",
+    "Live 3D Gallery": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html",
+    "Approved Naoto": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=author%3Anaoto",
+    "Meguru Character 3D": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/index.html?meguru3d=1&char3d=1&perf=1",
+    "Same-condition 2D comparison": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/index.html?meguru3d=1&perf=1"
+  },
+  "implementationSaveVerified": {
+    "remoteLocalHeadEqual": true,
+    "remoteLocalTreeEqual": true,
+    "clean": true
+  }
+}

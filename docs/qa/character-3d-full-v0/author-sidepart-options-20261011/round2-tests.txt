@@ -1,0 +1,22 @@
+(node:19) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ two side-part QA-only author options produce distinct hair geometry while keeping face rear and all production rows intact (204.009951ms)
+✔ each option retains eye clearance and connected closed hair surfaces (324.456972ms)
+✔ reviewed missing selector is exact86 legal stages in15 families and excludes accepted136 plus Pilot26 (1.643767ms)
+✔ selector rejects duplicates accepted stages and illegal family stages (1.523165ms)
+✔ integration retains31stage aggregate gallery scene performance and dedicated while skipping accepted recaptures (1.427531ms)
+✔ ordinary unscoped and every existing family-marker combination retain previous job routing (5.268831ms)
+✔ integration reuses family capture tool with bounded separate motion child and unchanged aggregate paths (1708.153059ms)
+✔ nested motion metadata cannot pollute same-source248-stage distance aggregation (148.05315ms)
+✔ motion repair reuses selected family capture and exact open repair keys without claiming248 aggregate (247.371158ms)
+✔ independent native metrics continue after observed scene failure but not failed setup (0.538212ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2289.176092

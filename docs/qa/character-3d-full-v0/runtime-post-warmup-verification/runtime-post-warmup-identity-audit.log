@@ -1,0 +1,28 @@
+{
+  "base": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "unchangedFunctions": [
+    "functionalRows",
+    "validateFunctional",
+    "validateCityCache",
+    "installSaveCounter",
+    "functionalRun",
+    "saveDelta",
+    "saveSnapshot",
+    "observeSaveBoundary",
+    "recordFunctionalResult",
+    "retainRepeatedResult",
+    "repeatScene",
+    "installAppearanceProbe",
+    "appearanceWindows",
+    "isolatedAnimation"
+  ],
+  "count": 14,
+  "productionFilesChanged": false,
+  "qaFiles": [
+    "tests/character-3d-runtime-integration-test.cjs",
+    "tests/character-3d-runtime-scene-diagnostics-test.cjs",
+    "tools/character-3d/runtime-integration-remove-it.cjs",
+    "tools/character-3d/runtime-integration.cjs"
+  ],
+  "runtimeScriptSHA256": "45fe3afb7406298808113ae2fd7d7f2b5fb12e4fb7bea54a02e07c087072d8ea"
+}

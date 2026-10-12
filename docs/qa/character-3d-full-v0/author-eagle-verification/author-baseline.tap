@@ -1,0 +1,80 @@
+TAP version 13
+# (node:10) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: author candidates remain runtime-isolated, finite, grounded, closed and within triangle budget
+ok 1 - author candidates remain runtime-isolated, finite, grounded, closed and within triangle budget
+  ---
+  duration_ms: 120.448752
+  type: 'test'
+  ...
+# Subtest: naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states
+ok 2 - naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states
+  ---
+  duration_ms: 15251.345882
+  type: 'test'
+  ...
+# Subtest: naoto: resting produced source shell graph reaches each owner
+ok 3 - naoto: resting produced source shell graph reaches each owner
+  ---
+  duration_ms: 313.568539
+  type: 'test'
+  ...
+# Subtest: naoto: every source shell reaches torso limbs and props in all 32 states
+ok 4 - naoto: every source shell reaches torso limbs and props in all 32 states
+  ---
+  duration_ms: 3264.759054
+  type: 'test'
+  ...
+# Subtest: naoto original closed white hoodie dark shirt center-parted wavy hair navy slim trousers pale sneaker soles
+ok 5 - naoto original closed white hoodie dark shirt center-parted wavy hair navy slim trousers pale sneaker soles
+  ---
+  duration_ms: 22.262784
+  type: 'test'
+  ...
+# Subtest: exact actual author identity resolves only in QA overlay and never aliases other roles
+ok 6 - exact actual author identity resolves only in QA overlay and never aliases other roles
+  ---
+  duration_ms: 69.99917
+  type: 'test'
+  ...
+# Subtest: existing capture planner opt-in appends only legacy states and distance with exact model identity
+ok 7 - existing capture planner opt-in appends only legacy states and distance with exact model identity
+  ---
+  duration_ms: 45.821244
+  type: 'test'
+  ...
+# Subtest: legal unlock yields actual memory_lake author; bounded QA view preserves actor save and renderer restoration even failure
+ok 8 - legal unlock yields actual memory_lake author; bounded QA view preserves actor save and renderer restoration even failure
+  ---
+  duration_ms: 1254.455596
+  type: 'test'
+  ...
+# Subtest: author closed paths have actual outward terminal indexed winding
+ok 9 - author closed paths have actual outward terminal indexed winding
+  ---
+  duration_ms: 11.624722
+  type: 'test'
+  ...
+# Subtest: author humanoid opt-ins preserve frozen adult and cane default outputs
+ok 10 - author humanoid opt-ins preserve frozen adult and cane default outputs
+  ---
+  duration_ms: 32.092205
+  type: 'test'
+  ...
+# Subtest: HTTP QA overlay resolves unchanged actual kind naoto and keeps production fallback
+ok 11 - HTTP QA overlay resolves unchanged actual kind naoto and keeps production fallback
+  ---
+  duration_ms: 76.515213
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 20611.960616

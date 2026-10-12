@@ -1,0 +1,23 @@
+{
+  "sourceCommit": "a6096121897b3d93a05733cc5049539218ea27c4",
+  "sourceOriginalFrames": "source-scoped raw-evidence.zip",
+  "cropXYXY": [
+    90,
+    24,
+    234,
+    168
+  ],
+  "resize": [
+    320,
+    320
+  ],
+  "interpolation": "Lanczos",
+  "original2DcropXYXY": [
+    28,
+    8,
+    100,
+    74
+  ],
+  "originalInterpolation": "nearest",
+  "note": "Deterministic crops only; no generated or retouched geometry/images."
+}

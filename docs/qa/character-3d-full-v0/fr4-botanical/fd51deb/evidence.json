@@ -1,0 +1,115 @@
+{
+  "source": "fd51debce20418db17feb6bbd8e3945a4a844eef",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13672,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6138414740562439,
+          0.010881478061758085,
+          -0.3499999940395355
+        ],
+        [
+          0.653841495513916,
+          1.2696565477885653,
+          0.3440000116825104
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13672,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6138414740562439,
+          0.010881478061758085,
+          -0.3499999940395355
+        ],
+        [
+          0.653841495513916,
+          1.2696565477885653,
+          0.3440000116825104
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13672,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6138414740562439,
+          0.010881478061758085,
+          -0.3499999940395355
+        ],
+        [
+          0.653841495513916,
+          1.2696565477885653,
+          0.3440000116825104
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13672,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6138414740562439,
+          0.010881478061758085,
+          -0.3499999940395355
+        ],
+        [
+          0.653841495513916,
+          1.2696565477885653,
+          0.3440000116825104
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

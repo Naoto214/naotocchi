@@ -1,0 +1,101 @@
+TAP version 13
+# Subtest: Dragon explicit eight-stage candidates retain juvenile support, small wings, breath and seated elder identity
+not ok 1 - Dragon explicit eight-stage candidates retain juvenile support, small wings, breath and seated elder identity
+  ---
+  duration_ms: 5.457514
+  type: 'test'
+  location: '/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:3:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    -   '1',
+    -   '2',
+        '3',
+    -   '4',
+    -   '5',
+    -   '6',
+        '7',
+    -   '8'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: '1'
+    1: '2'
+    2: '3'
+    3: '4'
+    4: '5'
+    5: '6'
+    6: '7'
+    7: '8'
+  actual:
+    0: '3'
+    1: '7'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:4:29)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: Dragon06 flame volumes stay owned by the head without hiding the canonical eye targets
+not ok 2 - Dragon06 flame volumes stay owned by the head without hiding the canonical eye targets
+  ---
+  duration_ms: 0.753656
+  type: 'test'
+  location: '/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:17:1'
+  failureType: 'testCodeFailure'
+  error: 'sixth stage'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:18:30)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: Dragon all8 candidates preserve one canonical face and finite owned motion across32 states
+not ok 3 - Dragon all8 candidates preserve one canonical face and finite owned motion across32 states
+  ---
+  duration_ms: 0.863317
+  type: 'test'
+  location: '/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:27:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 8
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 8
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:28:29)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 0
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 92.150489

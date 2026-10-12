@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "4819e20dc78faaad67d5eefafe33be7234986273",
+  "artifacts": {
+    "waveMotion": 11436742215,
+    "normalDistance": 11436246250
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "REJECT",
+  "reason": "Face/arms/halo/flames remain owned and readable, but body silhouette is an elongated tapered leaf rather than the rounded original with a tail curling upward to the left. Broaden middle and physically turn terminal tip upward before expansion.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

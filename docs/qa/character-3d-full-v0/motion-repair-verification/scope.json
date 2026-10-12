@@ -1,0 +1,11 @@
+{
+  "sourceEvidence": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "motionInspectedStages": 86,
+  "motionInspectedCells": 2752,
+  "motionStagePass": 78,
+  "motionStageReject": ["mushroom:5", "mushroom:6", "mushroom:7", "clownfish:2", "clownfish:3", "clownfish:5", "clownfish:6", "clownfish:7"],
+  "replacementImageGate": "OPEN",
+  "normalDistanceEarlyFive": "PASS_80_ACTUALLY_VIEWED",
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

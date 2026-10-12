@@ -1,0 +1,216 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "980b692577c87e7efc62298a42d0923c1eb71852",
+  "artifact": {
+    "id": 11596077173,
+    "name": "full-rollout-nonplayer-review-980b692577c87e7efc62298a42d0923c1eb71852",
+    "digest": "sha256:1daf30789b5a5c66b3e34ab7f120b14a0e912ff0a114de407c3fa2d5f4a0f201"
+  },
+  "files": [
+    {
+      "path": "companion-parrot-0-34.jpg",
+      "sha256": "5690c802dcf52c99317169ecaa42f578097eac45d97a7e81aa705b89b5f8656b",
+      "bytes": 11533
+    },
+    {
+      "path": "companion-parrot-0-back.jpg",
+      "sha256": "007c3fb3d57ec8cac0e543c3dd099a9c55b186df718c9d6321f26d1435ed39f8",
+      "bytes": 9933
+    },
+    {
+      "path": "companion-parrot-0-dislike-idle-normal.jpg",
+      "sha256": "e76224f7e45a1981b29dfc180401304098dc1be7a0e2855c1df6e55b941373d4",
+      "bytes": 10945
+    },
+    {
+      "path": "companion-parrot-0-dislike-idle-reduced.jpg",
+      "sha256": "8eaf5a78f26398475ed489f7bc562706668bc5439d44b977ff9d221db75d9713",
+      "bytes": 11033
+    },
+    {
+      "path": "companion-parrot-0-dislike-walk-normal.jpg",
+      "sha256": "4d509a3d1289db19bef3d40fd9a6c300eda3dcad669d865232fea87efcd62d31",
+      "bytes": 10902
+    },
+    {
+      "path": "companion-parrot-0-dislike-walk-reduced.jpg",
+      "sha256": "19b0df60420fb572fa617c0253a43524ea89fba1a8e043433f0efd786683ba2c",
+      "bytes": 11011
+    },
+    {
+      "path": "companion-parrot-0-front.jpg",
+      "sha256": "c9fb45908460f6227f78c305cf7444f0ad7dd0d19e9ff8f86aadc9ad225ea559",
+      "bytes": 11096
+    },
+    {
+      "path": "companion-parrot-0-normal-idle-normal.jpg",
+      "sha256": "5690c802dcf52c99317169ecaa42f578097eac45d97a7e81aa705b89b5f8656b",
+      "bytes": 11533
+    },
+    {
+      "path": "companion-parrot-0-normal-idle-reduced.jpg",
+      "sha256": "3ee8e62518b02e3f82f18c9af5a5bfa0d4f31f7df5493df1f3c0a8f3e613464c",
+      "bytes": 11541
+    },
+    {
+      "path": "companion-parrot-0-normal-walk-normal.jpg",
+      "sha256": "0c345e470dcff43fde4a91ecf0175466d5f01f61955b3d37e76a7065f55c2d1d",
+      "bytes": 11707
+    },
+    {
+      "path": "companion-parrot-0-normal-walk-reduced.jpg",
+      "sha256": "b801e6ec58d26b9b31ba021c02bf88725e673a77f40025949a2a14cdafe6c885",
+      "bytes": 11597
+    },
+    {
+      "path": "companion-parrot-0-positive-idle-normal.jpg",
+      "sha256": "55a802dee7426ed0eacf2b71d00281515f15dc5ab74be0a2b42eee123795a33d",
+      "bytes": 11677
+    },
+    {
+      "path": "companion-parrot-0-positive-idle-reduced.jpg",
+      "sha256": "faa814ce7b7fb3a69399fc5e636a9c59693cd6a46918ac14eaf4a4902260a70e",
+      "bytes": 11444
+    },
+    {
+      "path": "companion-parrot-0-positive-walk-normal.jpg",
+      "sha256": "cb4d4e608cadc83c6e549d73d434cc9c15b9ab1d2e3e78c8233c9515b66c86fb",
+      "bytes": 11700
+    },
+    {
+      "path": "companion-parrot-0-positive-walk-reduced.jpg",
+      "sha256": "f023ae022a4b19622e1da98dd6933f11c036e3cf7bec2f642f5ac6f393432780",
+      "bytes": 11506
+    },
+    {
+      "path": "companion-parrot-0-sick-idle-normal.jpg",
+      "sha256": "feb63df0b1a3b6ee3b16bcc15751ce74f8e210d245dfda151fcd20c03752d1bc",
+      "bytes": 11211
+    },
+    {
+      "path": "companion-parrot-0-sick-idle-reduced.jpg",
+      "sha256": "825a652ddc1be8a9c0b431d4832d0dad7d9be803430401ff3aba096316959786",
+      "bytes": 11427
+    },
+    {
+      "path": "companion-parrot-0-sick-walk-normal.jpg",
+      "sha256": "cd59399c721c0b2a7118738f9d165ef353c7f53e50410f0eb965f11e808acb77",
+      "bytes": 11325
+    },
+    {
+      "path": "companion-parrot-0-sick-walk-reduced.jpg",
+      "sha256": "3cceb4beb9fc8077248aa099ad58e59fe010cb17224efefada9ae6fc71dac3af",
+      "bytes": 11595
+    },
+    {
+      "path": "companion-parrot-0-side.jpg",
+      "sha256": "107919fc0c4d4ccd655188b32f86b45403c0e44bee3f4c43f97b17b4cdd85e63",
+      "bytes": 10485
+    },
+    {
+      "path": "companion-parrot-0-sleeping-idle-normal.jpg",
+      "sha256": "9a09fe36cf9802c387bcbb50eaa82e0eb016c1a052c43734133d748c7422c043",
+      "bytes": 11337
+    },
+    {
+      "path": "companion-parrot-0-sleeping-idle-reduced.jpg",
+      "sha256": "e7358e50cf469f3935311a8320918ce17b95ad4f59cfdffa6bacb14b7e53cb4f",
+      "bytes": 11369
+    },
+    {
+      "path": "companion-parrot-0-sleeping-walk-normal.jpg",
+      "sha256": "0277d6f82f559a01732b07a53bcc28035a654a79ed3a63619959eb2f51767f81",
+      "bytes": 11258
+    },
+    {
+      "path": "companion-parrot-0-sleeping-walk-reduced.jpg",
+      "sha256": "521073a97b86fb1a09fa2bfdc90bdee0b6a7dd6fd2c93b3f73823c9df3d7fa64",
+      "bytes": 11466
+    },
+    {
+      "path": "companion-parrot-0-strained-idle-normal.jpg",
+      "sha256": "503b4c84b0f86623920133fdba6da7b527989e4b727ff8909f3c65919a1afba1",
+      "bytes": 11543
+    },
+    {
+      "path": "companion-parrot-0-strained-idle-reduced.jpg",
+      "sha256": "27993dad655451f2a94be024c813e5324f2fdc683caa28f176bb23fceab943e5",
+      "bytes": 11605
+    },
+    {
+      "path": "companion-parrot-0-strained-walk-normal.jpg",
+      "sha256": "d3ffcbe2285826bad10a038f8f271b0f1fb5b1cb63abd6791281e060f4b9357d",
+      "bytes": 11492
+    },
+    {
+      "path": "companion-parrot-0-strained-walk-reduced.jpg",
+      "sha256": "b808d3a2436f243d9697caa644b29fd84f880df069ba03766c82b06d7492e484",
+      "bytes": 11686
+    },
+    {
+      "path": "companion-parrot-0-tired-idle-normal.jpg",
+      "sha256": "68dd9c764d4c076ac5a14de7a0a5e2ea8db321163a651422f7e530479b5e791b",
+      "bytes": 11164
+    },
+    {
+      "path": "companion-parrot-0-tired-idle-reduced.jpg",
+      "sha256": "19ac4f1cb602407cf5f2562a50e1a7852faa0f07aacd074a2e8efa20d13fec3f",
+      "bytes": 11460
+    },
+    {
+      "path": "companion-parrot-0-tired-walk-normal.jpg",
+      "sha256": "936e9a07ce883dae0b40f9435cc072488d16d6d6c7fa7d2998b785c131b8e7e2",
+      "bytes": 11395
+    },
+    {
+      "path": "companion-parrot-0-tired-walk-reduced.jpg",
+      "sha256": "364d078aeb7133e954dfd51c7270231bc77dad19c585ab8c8ccea2246a651b31",
+      "bytes": 11547
+    },
+    {
+      "path": "companion-parrot-0-wantsPlay-idle-normal.jpg",
+      "sha256": "85e17ca310f5f3ba29ce14f9b1993dba72ebbf623b775c3db90172f35a1842ee",
+      "bytes": 11584
+    },
+    {
+      "path": "companion-parrot-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "6585f4ceb5a9429eab09943d46e790817b325bdca9dd81793761d61ef966bc16",
+      "bytes": 11619
+    },
+    {
+      "path": "companion-parrot-0-wantsPlay-walk-normal.jpg",
+      "sha256": "a061be400fe6bb4509b627f062cd35823b9b5ce38606af8926ba6dd23c51130b",
+      "bytes": 11557
+    },
+    {
+      "path": "companion-parrot-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "e5bf284a63b7595aea87b5c259b83ac200852bae63798f17ee9250de01c987c0",
+      "bytes": 11675
+    },
+    {
+      "path": "companion-parrot-distance-back.jpg",
+      "sha256": "c8c96d0b526896d87ea3c82e1c104a9422f52cdade632fa76cfa899f2f27d3a5",
+      "bytes": 118223
+    },
+    {
+      "path": "companion-parrot-distance-front.jpg",
+      "sha256": "59a0a8f9b3acdea714ceeebe1bd625f3a408c1485c882b58b71affca01908039",
+      "bytes": 126678
+    },
+    {
+      "path": "companion-parrot-motion.jpg",
+      "sha256": "ef6bf9cb3bd17fce48109211735e2f09a745bc6fc50ffe13add3a77d338bf39c",
+      "bytes": 481347
+    },
+    {
+      "path": "companion-parrot-views.jpg",
+      "sha256": "4787f08a99ca94ad220be4ea9865b4155eb270588893b2191a70d498749a0a1c",
+      "bytes": 57732
+    },
+    {
+      "path": "evidence.json",
+      "sha256": "939788092f22993418d60b56e3b435aa50b040cc2ef874fec6f7f3cae1a1d946",
+      "bytes": 25593
+    }
+  ]
+}

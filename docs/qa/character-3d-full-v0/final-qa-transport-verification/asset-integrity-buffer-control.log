@@ -1,0 +1,9 @@
+1MiB buffer control: RED ENOBUFS on actual tracked inventory
+{
+  "trackedOutputBytes": 1094209,
+  "trackedPaths": 14501,
+  "greaterThanDefault": true,
+  "identicalRawBytes": true,
+  "semantics": "same git arguments/default path quoting, UTF8 decode and newline splitting",
+  "restoredSHA256": "ce486a5f5bc9e85a871ec8bf5f8e2781a91d2a442f07d6214fc147bfc1bf8b75"
+}

@@ -1,0 +1,40 @@
+(node:6) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/nonplayer-author/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/nonplayer-author/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+PILOT/man:1 humanoid exact PASS SHA256 fd1a2f962af8c528de65d35aa86485e79eafbd10a8c938bafb23aca5e87cd7b6
+PILOT/man:4 humanoid exact PASS SHA256 304a066afcf39a01655220d2f61957f3177ae472fbd18b7b45aba7e663186b01
+PILOT/man:8 humanoid exact PASS SHA256 35237336fe60c166582414097cf3cb32bdee8e9b4704f81ee767f5762ebcd80b
+ROLLOUT/man:1 humanoid exact PASS SHA256 fd1a2f962af8c528de65d35aa86485e79eafbd10a8c938bafb23aca5e87cd7b6
+ROLLOUT/man:2 humanoid exact PASS SHA256 89fe4d047d3e9d2aa7ad703f155834d0f36af7199670bb15b8240f6d270f8994
+ROLLOUT/man:3 humanoid exact PASS SHA256 93be6145dbd3268c5a77b5678de20bce606e455147baded5e6cea33b9a6a02ad
+ROLLOUT/man:4 humanoid exact PASS SHA256 304a066afcf39a01655220d2f61957f3177ae472fbd18b7b45aba7e663186b01
+ROLLOUT/man:5 humanoid exact PASS SHA256 c1b2f1d2a56f77a53df1acad1d23d2f709fda0a9002dea364b4f6e80efeda9b4
+ROLLOUT/man:6 humanoid exact PASS SHA256 e51065945817754e32792bd459f1de3591511f1c0f23f96c5269c5c4202c4db6
+ROLLOUT/man:7 humanoid exact PASS SHA256 d889f5678705653d7b6aadeb2879c2ddb10c1d354b1637d807825135c91c4ce1
+ROLLOUT/man:8 humanoid exact PASS SHA256 35237336fe60c166582414097cf3cb32bdee8e9b4704f81ee767f5762ebcd80b
+ROLLOUT/woman:1 humanoid exact PASS SHA256 b15e07f6e87c736e368b1a1e5f96fe02a82a33539da8f2ce4e3de4cea790c3c1
+ROLLOUT/woman:2 humanoid exact PASS SHA256 0b9cde57206e889cea8a0fa7e8f1da62cd5e9f0d6e393abf288cb1157e33e0ed
+ROLLOUT/woman:3 humanoid exact PASS SHA256 c5bdb96df0eee95b28b36fa1aa98c3381164e3fd1043740dba693a71e286d1b0
+ROLLOUT/woman:4 humanoid exact PASS SHA256 e490a671948a088ecece64cc2ba54c3b2522fc9c3d368596735aecf8bcf33d87
+ROLLOUT/woman:5 humanoid exact PASS SHA256 f5a3179ed61d7fdedd7e149ee053172f1431fe833326b621a69e96eadc3f85e8
+ROLLOUT/woman:6 humanoid exact PASS SHA256 1ea7468f98941ec6fcbad43a0b2a882a4ccfcb204d147ef6c2e7bdb3d6b2f04e
+ROLLOUT/woman:7 humanoid exact PASS SHA256 215f684f3d85660313ecbb35797062a9bca3c8df42cf4d20ed9472509b029803
+ROLLOUT/woman:8 humanoid exact PASS SHA256 a2a45726a25f6ae49a6d2729ec6a5eee750093394a62afc297123e1a2e16d65b
+ROLLOUT/ren:1 humanoid exact PASS SHA256 56f893264cafe8f78dc2c1a3a4c9e9a6002d67457ac6e98e6664cdb53c868450
+ROLLOUT/ren:2 humanoid exact PASS SHA256 83f9118dbcebf9bf7102d0b0ba7ccae9b4925c38568fd1f655f0dd096f7a7902
+ROLLOUT/ren:3 humanoid exact PASS SHA256 fac69b1be9572c50426526ab58d054cd1c4923c7fdec8a84f94ba8eb329cfc56
+ROLLOUT/ren:4 humanoid exact PASS SHA256 cb814a302bc626bd2348f5fca181ada15de37800ed15372fd31214de2b775374
+ROLLOUT/ren:5 humanoid exact PASS SHA256 75e72bcd51f065bc7aabd3803f2896577251ac6be162317b1b057d1caa9b0bfc
+ROLLOUT/ren:6 humanoid exact PASS SHA256 1de9dedd8f5ebad3f6b697cb063acba53c9cfb2eac1aba36e58d5c65a4518de1
+ROLLOUT/ren:7 humanoid exact PASS SHA256 53aee711945d3635ae2ab051811b56c04c0b6bc9257b9118fc62c7af60719ec3
+ROLLOUT/ren:8 humanoid exact PASS SHA256 aad4f5cc41bbd4cb213e9542109d1b8d86531a991e09a6c764bdcc7dc46c0567
+ROLLOUT/god:1 celestial_humanoid exact PASS SHA256 e32d5a4fa7b0f6d326b1e02196f26769c89cba695348e0db088220fd6c35e87c
+ROLLOUT/god:2 celestial_humanoid exact PASS SHA256 7944ef0fd00ac545f18f7221f95124eef7004b91aa810a178ca33e78b728f17e
+ROLLOUT/god:3 celestial_humanoid exact PASS SHA256 4d3706e4833ff8ff8a67405d229ac93d1e4c3f91a188088aa99a625a8c5bc557
+ROLLOUT/god:4 celestial_humanoid exact PASS SHA256 80690fb2d1680e56a46de17dd30dc54f504a851bf5a6a6e894dd3deefb0e9e51
+ROLLOUT/god:5 celestial_humanoid exact PASS SHA256 3d3e6d40b0e6bc1ea426009476a809068bb5e3718261f7fbfd745cb6e3615107
+ROLLOUT/god:6 celestial_humanoid exact PASS SHA256 0820f66cea7397640f3c0998e785038609a622d948aa74f4e9664abea640c3fd
+ROLLOUT/god:7 celestial_humanoid exact PASS SHA256 237793b35b94d10d14f25030e4fc7fb916a3db5b7325212dbc28dd4f4c5019e7
+ROLLOUT/god:8 celestial_humanoid exact PASS SHA256 3ce720ac4228dd1dad93bd86253f8809eee1ab21caec70e931bc4b5663046340
+35/35 actual humanoid-family inputs exact mesh attributes/index/bones/transforms/meta/faceSpec; 40/40 prior rows identical

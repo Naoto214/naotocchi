@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: reviewed missing selector is exact86 legal stages in15 families and excludes accepted136 plus Pilot26
+ok 1 - reviewed missing selector is exact86 legal stages in15 families and excludes accepted136 plus Pilot26
+  ---
+  duration_ms: 1.896594
+  type: 'test'
+  ...
+# Subtest: selector rejects duplicates accepted stages and illegal family stages
+ok 2 - selector rejects duplicates accepted stages and illegal family stages
+  ---
+  duration_ms: 1.435979
+  type: 'test'
+  ...
+# Subtest: integration retains31stage aggregate gallery scene performance and dedicated while skipping accepted recaptures
+ok 3 - integration retains31stage aggregate gallery scene performance and dedicated while skipping accepted recaptures
+  ---
+  duration_ms: 1.359173
+  type: 'test'
+  ...
+# Subtest: ordinary unscoped and every existing family-marker combination retain previous job routing
+ok 4 - ordinary unscoped and every existing family-marker combination retain previous job routing
+  ---
+  duration_ms: 4.250669
+  type: 'test'
+  ...
+# Subtest: integration reuses family capture tool with bounded separate motion child and unchanged aggregate paths
+ok 5 - integration reuses family capture tool with bounded separate motion child and unchanged aggregate paths
+  ---
+  duration_ms: 1937.043583
+  type: 'test'
+  ...
+# Subtest: nested motion metadata cannot pollute same-source248-stage distance aggregation
+ok 6 - nested motion metadata cannot pollute same-source248-stage distance aggregation
+  ---
+  duration_ms: 165.173235
+  type: 'test'
+  ...
+# Subtest: actual wave page resolves reviewed legacy models at exact stage zero without widening identities
+ok 7 - actual wave page resolves reviewed legacy models at exact stage zero without widening identities
+  ---
+  duration_ms: 891.831835
+  type: 'test'
+  ...
+# Subtest: actual wave page retains player and role-specific candidate resolution
+ok 8 - actual wave page retains player and role-specific candidate resolution
+  ---
+  duration_ms: 199.422655
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2287.804515

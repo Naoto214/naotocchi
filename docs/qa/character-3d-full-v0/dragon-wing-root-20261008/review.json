@@ -1,0 +1,16 @@
+{
+  "sourceCommit": "a65ceb526e0e62da9fab4bc99bba3f57785cffc4",
+  "waveArtifact": 11551466631,
+  "distanceArtifact": 11551441285,
+  "counts": {
+    "fourviews": 32,
+    "states": 256,
+    "normalDistance": 16
+  },
+  "status": "REJECT_STAGE04_WING_ROOT",
+  "review": "All32fourviews,8full32-state sheets and16normal-distance images inspected. Spine detachment is resolved.04small wing still floats from body in34views and motion;physical root regression confirms. No runtime promotion.",
+  "fix": "Only04 wing root [.19,.27,-.16] -> [.12,.18,-.09];root now inside trunk;RED->GREEN.03/07 and other stages unchanged by this edit.",
+  "next": "Fresh04fourviews/32states/2distance;compare other stages unchanged before completing all8gate.",
+  "packaging": "Per-stage ZIP preserves source bytes with manifest hashes;all312individual/board/distance files in8archives.",
+  "limits": "No iPhone/Human approval. No all8 PASS yet."
+}

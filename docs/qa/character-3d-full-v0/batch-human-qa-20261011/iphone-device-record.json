@@ -1,0 +1,322 @@
+{
+  "status": "NOT_RUN_NO_PHYSICAL_DEVICE_OBSERVATIONS",
+  "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "deviceModel": null,
+  "iOS": null,
+  "SafariVersion": null,
+  "viewport": null,
+  "powerThermalState": null,
+  "fixtureIdentity": null,
+  "representatives": [
+    {
+      "archetype": "armored_insect",
+      "key": "form:hermit_crab:8",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=hermit_crab&stage=8",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "avian",
+      "key": "form:penguin:4",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=penguin&stage=4",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "blob",
+      "key": "companion:punyu:0",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=companion%3Apunyu&stage=0",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "branch_organism",
+      "key": "form:world_tree:8",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=world_tree&stage=8",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "celestial_humanoid",
+      "key": "form:god:7",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=god&stage=7",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "cluster",
+      "key": "form:dandelion:8",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=dandelion&stage=8",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "cosmic",
+      "key": "form:star:3",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=star&stage=3",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "fish",
+      "key": "form:clownfish:5",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=clownfish&stage=5",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "fungus",
+      "key": "form:mushroom:6",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=mushroom&stage=6",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "humanoid",
+      "key": "author:naoto:0",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=author%3Anaoto&stage=0",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "jellyfish",
+      "key": "form:jellyfish:8",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=jellyfish&stage=8",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "larva",
+      "key": "form:butterfly:4",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=butterfly&stage=4",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "mystery_blob",
+      "key": "form:unknown:5",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=unknown&stage=5",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "plant",
+      "key": "form:dandelion:7",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=dandelion&stage=7",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "plumed_bird",
+      "key": "form:phoenix:7",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=phoenix&stage=7",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "pod",
+      "key": "form:antlion:5",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=antlion&stage=5",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "quadruped",
+      "key": "partner:grove_deer:0",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=partner%3Agrove_deer&stage=0",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "radial",
+      "key": "form:starfish:8",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=starfish&stage=8",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "rigid_object",
+      "key": "companion:clock:0",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=companion%3Aclock&stage=0",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "soft_toy",
+      "key": "partner:knitting_spider:0",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=partner%3Aknitting_spider&stage=0",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "spectral",
+      "key": "form:ghost:5",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=ghost&stage=5",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "winged_insect",
+      "key": "form:butterfly:7",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=butterfly&stage=7",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    },
+    {
+      "archetype": "winged_reptile",
+      "key": "form:dragon:8",
+      "liveUrl": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=dragon&stage=8",
+      "status": "NOT_RUN",
+      "device": null,
+      "iOS": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+      "observations": null
+    }
+  ],
+  "cases": [
+    {
+      "id": "native-1-actor",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "native-5-actors",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "native-27-actors",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "canonical-8-emotions",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "idle-walk-reactions",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "reduced-motion",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "growth-archetype-transition",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "supported-region-transitions",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "actor-isolated-fallback",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "background-foreground",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "repeated-2d-3d-toggle",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "sustained-play-30min",
+      "status": "NOT_RUN",
+      "evidence": null
+    }
+  ],
+  "extraMorphologySamples": [
+    "form:frog:1",
+    "form:frog:8",
+    "partner:sea_mermaid:0"
+  ],
+  "measurements": [
+    "RAF/frame p50/p95/max and visible hitches",
+    "first-appearance timing",
+    "actual active actor count/composition",
+    "presenter/build/cache/fallback counters",
+    "memory pressure/reload/crash",
+    "duration/thermal/responsiveness",
+    "same fixture 2D comparison"
+  ],
+  "performanceAcceptance": "No invented FPS budget or unmeasured PASS; report measurements and unresolved limits for final user acceptance. 30min is the proposed sustained-run test duration, not a completed measurement.",
+  "fixtureConstraint": "Existing NTS1 save-code import provides native1/5/27 setup without a development PC. Codec/production-module-aware loader checked; actual physical-Safari live count and camera conditions NOT_RUN. Isolated fallback injection/restoration via existing char3dHooks still requires verified device execution. Use QA-only profile, never personal save.",
+  "rerunAfterIntegration": "Rerun affected device/display/save/performance cases on final combined candidate; retain explicit source mapping for unchanged evidence.",
+  "fixtureFiles": "iphone-fixtures.json"
+}

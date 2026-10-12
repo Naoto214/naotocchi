@@ -1,0 +1,53 @@
+{
+  "when": "2026-10-06T13:26:07.916Z",
+  "revision": "quality3",
+  "sourceCommit": "eac6e1fd60b77248b70a3d56050ccb10d4ae6921",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "cicada:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "cicada:6",
+      "player3d": true,
+      "specKey": {
+        "id": "cicada",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-cicada-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-cicada-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 43014,
+        "meshes": 98,
+        "bones": 67,
+        "materials": 2,
+        "atlases": 11,
+        "eyeGeos": 11,
+        "cpuMsAvg": 4.79,
+        "cpuMsP95": 45,
+        "buildMsTotal": 318.9,
+        "buildMsMax": 78.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

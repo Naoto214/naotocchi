@@ -1,0 +1,96 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "8b6fcaee4af82dfe266fc4b08bdd56ae215b5275",
+  "artifact": {
+    "id": 11592169925,
+    "name": "full-rollout-mythic-distance-unknown-8b6fcaee4af82dfe266fc4b08bdd56ae215b5275",
+    "digest": "sha256:a03be863ca0367ad10adde1bf0d03c501b87469bae335abac2bcfb8c0e3e97c8"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "69501fe4087986301ffe79185223b945e7d68dbe50381c19e9339041f150f2ec",
+      "bytes": 7537
+    },
+    {
+      "path": "player-unknown-1-back.png",
+      "sha256": "e3a8eb80f795fb7e96c51171fb41da0cbc6b217b32adb70ae4d0affaa9685537",
+      "bytes": 306417
+    },
+    {
+      "path": "player-unknown-1-front.png",
+      "sha256": "50efe0f4b62b6e8df018f33426e5e80e8140f02b1fd6a502405f03c362c9b675",
+      "bytes": 307684
+    },
+    {
+      "path": "player-unknown-2-back.png",
+      "sha256": "c1fa6fbe50431dbcd6c8dec3a1a086479019fe2ccc908bf061cf4ac53d4ed075",
+      "bytes": 309267
+    },
+    {
+      "path": "player-unknown-2-front.png",
+      "sha256": "0d1626c288f96e32f476317b826084457d6bf2282cc4b5f5a8ef02bd7c4f47cf",
+      "bytes": 311611
+    },
+    {
+      "path": "player-unknown-3-back.png",
+      "sha256": "9a1d65d2eb42ff4d535df3f70088675764738a3e9b4f7a45037f8dc4ad01c80e",
+      "bytes": 310449
+    },
+    {
+      "path": "player-unknown-3-front.png",
+      "sha256": "b64b4f555ca3cf2c97c1edeac153cabfbefbebd8f953b71959962c2980b57606",
+      "bytes": 315015
+    },
+    {
+      "path": "player-unknown-4-back.png",
+      "sha256": "4b44c709c45543d5a56f362b6886fbba02e3079bd2485d7ef52add005c81281b",
+      "bytes": 311097
+    },
+    {
+      "path": "player-unknown-4-front.png",
+      "sha256": "5b8001c247f3ba4e95d66a1a75321f84d8eb6787123310af89c069483b60f1b5",
+      "bytes": 315778
+    },
+    {
+      "path": "player-unknown-5-back.png",
+      "sha256": "90438b30418fd1941445b920b4079b2a628233e63ce14878d3a765888d5e49f5",
+      "bytes": 313594
+    },
+    {
+      "path": "player-unknown-5-front.png",
+      "sha256": "e0ecda5b8a43a5b266d0d25b3734766e9a97409d420558439dc0c4296b10180f",
+      "bytes": 316948
+    },
+    {
+      "path": "player-unknown-6-back.png",
+      "sha256": "80c140de7d92ca7eb91d7ffea9c20c66f4806583523d1076452cb40f07c49271",
+      "bytes": 315855
+    },
+    {
+      "path": "player-unknown-6-front.png",
+      "sha256": "65439c3b2f1bbe635c464aecd96991288f1a07dfacd8511728171d2297e98459",
+      "bytes": 321245
+    },
+    {
+      "path": "player-unknown-7-back.png",
+      "sha256": "a8e798e1677ddae781172b96968496cf7ff996d5e4f850c5330c5be1d6fc3047",
+      "bytes": 307726
+    },
+    {
+      "path": "player-unknown-7-front.png",
+      "sha256": "0c246358ea5f33b805cf9c47e2a1609dc4f0dc359d8523fcaf8e6025f5bf7bcc",
+      "bytes": 309367
+    },
+    {
+      "path": "player-unknown-8-back.png",
+      "sha256": "d26eb140096f0e61a5b587f7471a8ae3317b90f25f8b0b3643effdf2af959548",
+      "bytes": 303294
+    },
+    {
+      "path": "player-unknown-8-front.png",
+      "sha256": "cd7c629e65c64dd4a454e4d3ca587a5aa721b17c3b9d819b1a9000ac652fb4a7",
+      "bytes": 305328
+    }
+  ]
+}

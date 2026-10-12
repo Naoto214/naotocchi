@@ -1,0 +1,31 @@
+{
+  "sourceCommit": "e1c536fec5927d6fa7de6002a4d51a0db5f7f700",
+  "artifacts": {
+    "wave": 11418472697,
+    "beetleDistance": 11417549935,
+    "stagDistance": 11418292299
+  },
+  "checks": {
+    "fourViews": 64,
+    "canonicalMotionStates": 512,
+    "ordinaryDistanceViews": 32,
+    "exactStages": 16,
+    "fallbacks": 0,
+    "errors": 0
+  },
+  "verdict": "full16 beetle/stag visual gate accepted; runtime promotion prepared",
+  "review": "All8 original/four-view sheets reviewed at717; beetle01 normal-eye correction recaptured at e1 and checked in motion/ordinary distance. New01/02 all128 canonical states reviewed at e1;03/04 acceptedfd51 and05\u201308 acceptedc5 retain anatomy/motion. All16 ordinary front/back reviewed at e1. Complete immutable e1 image/raw records retained.",
+  "simplifications": [
+    "Smooth shell surfaces and sparse scratch detail",
+    "Simplified horn and jaw teeth",
+    "Plain gray grub tails without pixel speckles",
+    "Simplified folded pupal cases/rings"
+  ],
+  "dedicatedCI": {
+    "job": 112304368415,
+    "conclusion": "success",
+    "TAPOutputRepair": "4/4 botanical mutations on immutable source pass after bounded boolean assertion"
+  },
+  "postPromotionAggregate": "18families144playerstages expected; pending after save",
+  "environment": "Chromium/SwiftShader, not iPhone"
+}

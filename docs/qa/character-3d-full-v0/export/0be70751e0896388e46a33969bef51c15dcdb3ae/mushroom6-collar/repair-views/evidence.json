@@ -1,0 +1,907 @@
+{
+  "source": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 1,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6876,
+      "meshes": 24,
+      "drawCalls": 24,
+      "box": [
+        [
+          -0.6671150343476174,
+          0.07682692437935609,
+          -0.24969653540255327
+        ],
+        [
+          0.6803998825454611,
+          1.1630426094280897,
+          0.2819702766183473
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6876,
+      "meshes": 24,
+      "drawCalls": 24,
+      "box": [
+        [
+          -0.6671150343476174,
+          0.07682692437935609,
+          -0.24969653540255327
+        ],
+        [
+          0.6803998825454611,
+          1.1630426094280897,
+          0.2819702766183473
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 1,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6876,
+      "meshes": 24,
+      "drawCalls": 24,
+      "box": [
+        [
+          -0.6671150343476174,
+          0.07682692437935609,
+          -0.24969653540255327
+        ],
+        [
+          0.6803998825454611,
+          1.1630426094280897,
+          0.2819702766183473
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 1,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6876,
+      "meshes": 24,
+      "drawCalls": 24,
+      "box": [
+        [
+          -0.6671150343476174,
+          0.07682692437935609,
+          -0.24969653540255327
+        ],
+        [
+          0.6803998825454611,
+          1.1630426094280897,
+          0.2819702766183473
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.09240860836577935,
+          -0.22875535033356506
+        ],
+        [
+          0.6539219046555439,
+          1.4588192813887697,
+          0.23795702274206784
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.09240860836577935,
+          -0.22875535033356506
+        ],
+        [
+          0.6539219046555439,
+          1.4588192813887697,
+          0.23795702274206784
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.09240860836577935,
+          -0.22875535033356506
+        ],
+        [
+          0.6539219046555439,
+          1.4588192813887697,
+          0.23795702274206784
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.09240860836577935,
+          -0.22875535033356506
+        ],
+        [
+          0.6539219046555439,
+          1.4588192813887697,
+          0.23795702274206784
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.05823582038283348,
+          -0.49588782248483676
+        ],
+        [
+          0.5077596306800842,
+          0.8388941482960447,
+          0.4963782632315844
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.05823582038283348,
+          -0.49588782248483676
+        ],
+        [
+          0.5077596306800842,
+          0.8388941482960447,
+          0.4963782632315844
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.05823582038283348,
+          -0.49588782248483676
+        ],
+        [
+          0.5077596306800842,
+          0.8388941482960447,
+          0.4963782632315844
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.05823582038283348,
+          -0.49588782248483676
+        ],
+        [
+          0.5077596306800842,
+          0.8388941482960447,
+          0.4963782632315844
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5057522058486938,
+          -0.04882046580314636,
+          -0.43242219330006965
+        ],
+        [
+          0.5011023283004761,
+          1.234961469740783,
+          0.4365361798468568
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5057522058486938,
+          -0.04882046580314636,
+          -0.43242219330006965
+        ],
+        [
+          0.5011023283004761,
+          1.234961469740783,
+          0.4365361798468568
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5057522058486938,
+          -0.04882046580314636,
+          -0.43242219330006965
+        ],
+        [
+          0.5011023283004761,
+          1.234961469740783,
+          0.4365361798468568
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5057522058486938,
+          -0.04882046580314636,
+          -0.43242219330006965
+        ],
+        [
+          0.5011023283004761,
+          1.234961469740783,
+          0.4365361798468568
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.037590570747852325,
+          -0.9267223247039393
+        ],
+        [
+          0.7271240343098443,
+          1.4313722484264737,
+          0.6930643710318427
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.037590570747852325,
+          -0.9267223247039393
+        ],
+        [
+          0.7271240343098443,
+          1.4313722484264737,
+          0.6930643710318427
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.037590570747852325,
+          -0.9267223247039393
+        ],
+        [
+          0.7271240343098443,
+          1.4313722484264737,
+          0.6930643710318427
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.037590570747852325,
+          -0.9267223247039393
+        ],
+        [
+          0.7271240343098443,
+          1.4313722484264737,
+          0.6930643710318427
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.04050067067146301,
+          -0.9609869844489122
+        ],
+        [
+          0.8845982342568615,
+          1.3235347999916145,
+          0.8980339195966952
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.04050067067146301,
+          -0.9609869844489122
+        ],
+        [
+          0.8845982342568615,
+          1.3235347999916145,
+          0.8980339195966952
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.04050067067146301,
+          -0.9609869844489122
+        ],
+        [
+          0.8845982342568615,
+          1.3235347999916145,
+          0.8980339195966952
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.04050067067146301,
+          -0.9609869844489122
+        ],
+        [
+          0.8845982342568615,
+          1.3235347999916145,
+          0.8980339195966952
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9935855316685914,
+          -0.09152270681295593,
+          -0.9327236558021785
+        ],
+        [
+          0.9985039765647125,
+          1.6129935229964296,
+          0.7623845903603343
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9935855316685914,
+          -0.09152270681295593,
+          -0.9327236558021785
+        ],
+        [
+          0.9985039765647125,
+          1.6129935229964296,
+          0.7623845903603343
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9935855316685914,
+          -0.09152270681295593,
+          -0.9327236558021785
+        ],
+        [
+          0.9985039765647125,
+          1.6129935229964296,
+          0.7623845903603343
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9935855316685914,
+          -0.09152270681295593,
+          -0.9327236558021785
+        ],
+        [
+          0.9985039765647125,
+          1.6129935229964296,
+          0.7623845903603343
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 8,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4676,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.829793357763079,
+          -0.03571028262376785,
+          -0.9132285118579583
+        ],
+        [
+          1.1958471085556563,
+          1.3872314463608517,
+          0.8255563678165535
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4676,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.829793357763079,
+          -0.03571028262376785,
+          -0.9132285118579583
+        ],
+        [
+          1.1958471085556563,
+          1.3872314463608517,
+          0.8255563678165535
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 8,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4676,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.829793357763079,
+          -0.03571028262376785,
+          -0.9132285118579583
+        ],
+        [
+          1.1958471085556563,
+          1.3872314463608517,
+          0.8255563678165535
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 8,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4676,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.829793357763079,
+          -0.03571028262376785,
+          -0.9132285118579583
+        ],
+        [
+          1.1958471085556563,
+          1.3872314463608517,
+          0.8255563678165535
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

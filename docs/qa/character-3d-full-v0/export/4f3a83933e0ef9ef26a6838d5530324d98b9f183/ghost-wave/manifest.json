@@ -1,0 +1,1506 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "4f3a83933e0ef9ef26a6838d5530324d98b9f183",
+  "artifact": {
+    "id": 11591341783,
+    "name": "full-rollout-mythic-review-4f3a83933e0ef9ef26a6838d5530324d98b9f183",
+    "digest": "sha256:1c9f9c9840aa25dc511ccef899689180340fbfbc79c744f6e0188f84a909ff7a"
+  },
+  "files": [
+    {
+      "path": "mythic-motion/ghost-1-dislike-idle-normal.jpg",
+      "sha256": "ef407e06b6cfd994ec2170078b5dd8564cfa0c32825cb021b44fed5523e26db0",
+      "bytes": 7155
+    },
+    {
+      "path": "mythic-motion/ghost-1-dislike-idle-reduced.jpg",
+      "sha256": "bff5b866620675f11e7122b2aa041d4422a15fb08b4521232d7e24ccf72e4c2d",
+      "bytes": 7350
+    },
+    {
+      "path": "mythic-motion/ghost-1-dislike-walk-normal.jpg",
+      "sha256": "9d6099086b13b0f504df8a6dbcecc8091c05c4d0d0ea5008f275165a920a19c9",
+      "bytes": 7364
+    },
+    {
+      "path": "mythic-motion/ghost-1-dislike-walk-reduced.jpg",
+      "sha256": "1929a26ecee2f316a53cc0f726c3cd6e68565821dbaa6b19dd52ac0f645a110b",
+      "bytes": 7466
+    },
+    {
+      "path": "mythic-motion/ghost-1-motion.jpg",
+      "sha256": "8f5cc9be1fdf710c5ac1c0514758fe0777c3b3eeeda82d55fa4b1b801bda15e0",
+      "bytes": 289217
+    },
+    {
+      "path": "mythic-motion/ghost-1-normal-idle-normal.jpg",
+      "sha256": "855eee498b33af9f03f3ba17a784abfb46c2e78e8bdc920c6fc3a50fb6a717db",
+      "bytes": 7200
+    },
+    {
+      "path": "mythic-motion/ghost-1-normal-idle-reduced.jpg",
+      "sha256": "4c3aa4101e4aa5c5813243ef4bf5d8f1b653ca3df41ae1964f498c87e9f41c18",
+      "bytes": 7380
+    },
+    {
+      "path": "mythic-motion/ghost-1-normal-walk-normal.jpg",
+      "sha256": "70e0df1849e09cd68d76a244f3e4e9f0b4e54ce86a4d34d718754e275dd0a430",
+      "bytes": 7170
+    },
+    {
+      "path": "mythic-motion/ghost-1-normal-walk-reduced.jpg",
+      "sha256": "a20865b9929ceb527ea942d95a6786b5219817abf79656980eee58f3e7639f23",
+      "bytes": 7386
+    },
+    {
+      "path": "mythic-motion/ghost-1-positive-idle-normal.jpg",
+      "sha256": "c948efb1905616e4583d64b6cd2b4d22d0f7bb0929ea974d0b1c126dae660eef",
+      "bytes": 7351
+    },
+    {
+      "path": "mythic-motion/ghost-1-positive-idle-reduced.jpg",
+      "sha256": "23b1d5d12ddbb862a5a38b8f0e50bd80f2165e944eba161221a03bd034c64f91",
+      "bytes": 7489
+    },
+    {
+      "path": "mythic-motion/ghost-1-positive-walk-normal.jpg",
+      "sha256": "aa3032a3c080ceb2edb5bcfdeef4bb77df7f79fef084203e01c19a0220462651",
+      "bytes": 7336
+    },
+    {
+      "path": "mythic-motion/ghost-1-positive-walk-reduced.jpg",
+      "sha256": "8533da2ce81f1cf09bf96f37a1d2b423419818727cf7f8715e21fcdc5a5f6d07",
+      "bytes": 7535
+    },
+    {
+      "path": "mythic-motion/ghost-1-sick-idle-normal.jpg",
+      "sha256": "01b21b2b5ef6c1c122e170c1e396a3479527dcaae4a46999b85bf1bc8dc78deb",
+      "bytes": 7157
+    },
+    {
+      "path": "mythic-motion/ghost-1-sick-idle-reduced.jpg",
+      "sha256": "7ab70e0d540b25fd1529ca2feca664d7d2f65f5dfc7100d750038ee65fa630a4",
+      "bytes": 7338
+    },
+    {
+      "path": "mythic-motion/ghost-1-sick-walk-normal.jpg",
+      "sha256": "66c1f8c1661f3d2aa611e42e25d20b25a1ceee452ec760909a8aa15ba760cdec",
+      "bytes": 7160
+    },
+    {
+      "path": "mythic-motion/ghost-1-sick-walk-reduced.jpg",
+      "sha256": "ba679ea4e3ce1cea65317ef371240848bbf45b9c7437c0a26e3906827748e731",
+      "bytes": 7410
+    },
+    {
+      "path": "mythic-motion/ghost-1-sleeping-idle-normal.jpg",
+      "sha256": "b5ffdd1b3e5a6db040494e4c22b3ea868d97d95a5fe64e4a013139417fcff0b5",
+      "bytes": 7063
+    },
+    {
+      "path": "mythic-motion/ghost-1-sleeping-idle-reduced.jpg",
+      "sha256": "6c70fd299b029864ec5f450f74392317ea9e0995cdadc2f62db294a03ac6f8f8",
+      "bytes": 7269
+    },
+    {
+      "path": "mythic-motion/ghost-1-sleeping-walk-normal.jpg",
+      "sha256": "e0a377bff58ada6d39c708628223716f02bdd6deec9644c353d63137f1ad952d",
+      "bytes": 7169
+    },
+    {
+      "path": "mythic-motion/ghost-1-sleeping-walk-reduced.jpg",
+      "sha256": "3454bd0d06ca6b39c0bef75234b94a7ecff17ebe8b85e0a5d539e78f7a6d1e20",
+      "bytes": 7288
+    },
+    {
+      "path": "mythic-motion/ghost-1-strained-idle-normal.jpg",
+      "sha256": "706f023c438eafe7e686bac06d44076af27e689908f534a21b5aa6a14c8d65a4",
+      "bytes": 7326
+    },
+    {
+      "path": "mythic-motion/ghost-1-strained-idle-reduced.jpg",
+      "sha256": "ad8b38c1e34b4cae5f8bc5d7e3adbc76a2fb726878d1f187eba6894773246e14",
+      "bytes": 7555
+    },
+    {
+      "path": "mythic-motion/ghost-1-strained-walk-normal.jpg",
+      "sha256": "6c39d36904c8dccd28a791d1612fc144e8d9e28aabbb93d63a027294f7b4c93e",
+      "bytes": 7410
+    },
+    {
+      "path": "mythic-motion/ghost-1-strained-walk-reduced.jpg",
+      "sha256": "ede3a1a349dc3a941be7f90bf6d77be3d7d5121c2c183894870e5d9d623feb18",
+      "bytes": 7602
+    },
+    {
+      "path": "mythic-motion/ghost-1-tired-idle-normal.jpg",
+      "sha256": "d4c1fba975e03c292f60660d790a6d8d732db6fdba3136900492cbb8dc840208",
+      "bytes": 7054
+    },
+    {
+      "path": "mythic-motion/ghost-1-tired-idle-reduced.jpg",
+      "sha256": "2fa5d061cf72dcb9914503d6960992604386b121c17f03120175a7209b01cc07",
+      "bytes": 7284
+    },
+    {
+      "path": "mythic-motion/ghost-1-tired-walk-normal.jpg",
+      "sha256": "dfe026babb7f706f0736596a9d04dda48b1432466482e441b768c9c9da34e7eb",
+      "bytes": 7129
+    },
+    {
+      "path": "mythic-motion/ghost-1-tired-walk-reduced.jpg",
+      "sha256": "edc15931f840895b20179810b8412f001e30cbf7e2a4e1bbe7d0a5fe2346e35c",
+      "bytes": 7286
+    },
+    {
+      "path": "mythic-motion/ghost-1-wantsPlay-idle-normal.jpg",
+      "sha256": "fe5a3c8367a6f4b793f08b81b3f2465070222c5a19ae52bec9a4f107c12d7f58",
+      "bytes": 7473
+    },
+    {
+      "path": "mythic-motion/ghost-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "f4df40d785c0a492dd54a794e42e222b988929c6d18ea4e5a07ea80ee2a695d7",
+      "bytes": 7751
+    },
+    {
+      "path": "mythic-motion/ghost-1-wantsPlay-walk-normal.jpg",
+      "sha256": "8fce365df8149cb8f6ea883033a8a945bcd0196032bafd4a67cd673e70ba60e3",
+      "bytes": 7515
+    },
+    {
+      "path": "mythic-motion/ghost-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "49a14fd96d73d6570de65905a6335ea048627ef2dee4cc828053a48b63bf51cd",
+      "bytes": 7750
+    },
+    {
+      "path": "mythic-motion/ghost-2-dislike-idle-normal.jpg",
+      "sha256": "a590cd22afb0e5da96e4cdcb2e0f3b00fb7e2620bb649b6ff1be956a84d11416",
+      "bytes": 8034
+    },
+    {
+      "path": "mythic-motion/ghost-2-dislike-idle-reduced.jpg",
+      "sha256": "6aca243d8bd527f245de88dd92c11c3b0d52322e26585c9361ef301d6df0f23c",
+      "bytes": 8270
+    },
+    {
+      "path": "mythic-motion/ghost-2-dislike-walk-normal.jpg",
+      "sha256": "4afe4b8963091cd90c228b4f5efa9cdfe3b955029bfff4b398ee5701776aed30",
+      "bytes": 8181
+    },
+    {
+      "path": "mythic-motion/ghost-2-dislike-walk-reduced.jpg",
+      "sha256": "419674eb19d3dbda072e1ec772461f1d2d3e190590c8727cb6c9a0d7a1024023",
+      "bytes": 8350
+    },
+    {
+      "path": "mythic-motion/ghost-2-motion.jpg",
+      "sha256": "2970557be9f86ae0a3faec8e482ee1205fe4fd683c9f459a1fc10af11e16712f",
+      "bytes": 338831
+    },
+    {
+      "path": "mythic-motion/ghost-2-normal-idle-normal.jpg",
+      "sha256": "1d59eb447dd5b0f8efd8cbf7a1c2827792e376b21e5336a6cf7e8fc2beda07ae",
+      "bytes": 8106
+    },
+    {
+      "path": "mythic-motion/ghost-2-normal-idle-reduced.jpg",
+      "sha256": "b1a824b30a3f9ddb57169c8018a6b5ca137cbda5ca54aada7885c52ff04a1c25",
+      "bytes": 8403
+    },
+    {
+      "path": "mythic-motion/ghost-2-normal-walk-normal.jpg",
+      "sha256": "49e92a7e05527be73f8873c18add9393b839a9463c9a487c3ac38617e0b451a2",
+      "bytes": 7977
+    },
+    {
+      "path": "mythic-motion/ghost-2-normal-walk-reduced.jpg",
+      "sha256": "b1a4960c578ad9198282c476f6495ceb7ea11588e38ed044c04d704d1d97ffb7",
+      "bytes": 8157
+    },
+    {
+      "path": "mythic-motion/ghost-2-positive-idle-normal.jpg",
+      "sha256": "3bf3bb37d5804207f33a9b10d2efa761b0e092e1b1ca1f1ad1034284e748aa98",
+      "bytes": 8301
+    },
+    {
+      "path": "mythic-motion/ghost-2-positive-idle-reduced.jpg",
+      "sha256": "02aea6bfcae496efaca65b67fb8260ad0e2c565322b05b40e9b939320b015c18",
+      "bytes": 8517
+    },
+    {
+      "path": "mythic-motion/ghost-2-positive-walk-normal.jpg",
+      "sha256": "6e7fc91cf071fe916b2ecdf29ad672992e0456e3899b6b09927ec96c441925e0",
+      "bytes": 8325
+    },
+    {
+      "path": "mythic-motion/ghost-2-positive-walk-reduced.jpg",
+      "sha256": "347defbd14033b2fc5560e9ef53e1c8fc10f7253701b2316205aa7a38ba6786b",
+      "bytes": 8509
+    },
+    {
+      "path": "mythic-motion/ghost-2-sick-idle-normal.jpg",
+      "sha256": "f979174ea542c311bbf6f65ad8d7c1cd56cefaadb0c9ec5a0d28f9223f534ffb",
+      "bytes": 8081
+    },
+    {
+      "path": "mythic-motion/ghost-2-sick-idle-reduced.jpg",
+      "sha256": "e1b5e7c53ea8b4d891d162e757b9bf367225a4b09656b3e74334469efd9967a4",
+      "bytes": 8325
+    },
+    {
+      "path": "mythic-motion/ghost-2-sick-walk-normal.jpg",
+      "sha256": "f8054a54ea6c8723fcf54b8180ae40c0d9f88226d4d33740098f13f6bb461f38",
+      "bytes": 8118
+    },
+    {
+      "path": "mythic-motion/ghost-2-sick-walk-reduced.jpg",
+      "sha256": "1474b7cb5f514598c97e3e377513b5fe1abbaa3f2a5fd71b44fe359424eb7caa",
+      "bytes": 8264
+    },
+    {
+      "path": "mythic-motion/ghost-2-sleeping-idle-normal.jpg",
+      "sha256": "8f4b37e764d197ec59e51ff748465d95fdf703bc81e87127825d2625e4efb843",
+      "bytes": 7708
+    },
+    {
+      "path": "mythic-motion/ghost-2-sleeping-idle-reduced.jpg",
+      "sha256": "9e2fa0f805129c5f9bce20870dff8a11514303a4aa6efcb204901a653209e3aa",
+      "bytes": 7841
+    },
+    {
+      "path": "mythic-motion/ghost-2-sleeping-walk-normal.jpg",
+      "sha256": "1e8c7f40897740ab9f14240347b3fbf858f02ff98ec0721d56ad9b85918fc921",
+      "bytes": 7726
+    },
+    {
+      "path": "mythic-motion/ghost-2-sleeping-walk-reduced.jpg",
+      "sha256": "5e8c1c29ac5504612c1b1f479cb0a83a186588abd7f0c5eff13e8bb374909576",
+      "bytes": 7729
+    },
+    {
+      "path": "mythic-motion/ghost-2-strained-idle-normal.jpg",
+      "sha256": "36ff533670f162649ab959f6ea3dc4b0ff74d7d80a27d324030289b3819c3f0a",
+      "bytes": 8303
+    },
+    {
+      "path": "mythic-motion/ghost-2-strained-idle-reduced.jpg",
+      "sha256": "d9b41bfe86b9d99bc7bbfc70245d65aa6fd76ebd0b48b6db6337be3574df698b",
+      "bytes": 8435
+    },
+    {
+      "path": "mythic-motion/ghost-2-strained-walk-normal.jpg",
+      "sha256": "c91181408d750430ae8da7aed820e6fa19d1ced5e3df615109f56007ec8ba1f7",
+      "bytes": 8375
+    },
+    {
+      "path": "mythic-motion/ghost-2-strained-walk-reduced.jpg",
+      "sha256": "65778c86789a4ba144f91187005659a5b98b6daffcf78eba27801ac92af961c8",
+      "bytes": 8559
+    },
+    {
+      "path": "mythic-motion/ghost-2-tired-idle-normal.jpg",
+      "sha256": "2c4713f51d7f0eafda3f97b135bb2973881dcfbd56119cc95a76227ffdb08544",
+      "bytes": 7819
+    },
+    {
+      "path": "mythic-motion/ghost-2-tired-idle-reduced.jpg",
+      "sha256": "79285282997b55cd4bdbf01a9cb361b75813db9909cb905b761a5d0a21326121",
+      "bytes": 8139
+    },
+    {
+      "path": "mythic-motion/ghost-2-tired-walk-normal.jpg",
+      "sha256": "2cc32467321e438748d7874ce100ce966319e363393afc4abef0384217fe89bc",
+      "bytes": 7837
+    },
+    {
+      "path": "mythic-motion/ghost-2-tired-walk-reduced.jpg",
+      "sha256": "5ca245605fd72dab5e2cc5cd4fbe0829b620468c26a4e9143168327756a03140",
+      "bytes": 7956
+    },
+    {
+      "path": "mythic-motion/ghost-2-wantsPlay-idle-normal.jpg",
+      "sha256": "23e865c9e9b1cbcaf466a225b8288abbf41e489728d012925e37bdcb6e662e39",
+      "bytes": 8518
+    },
+    {
+      "path": "mythic-motion/ghost-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "22744d05a87f9225d0a0f395c801e44b3c9222a0dcc459976b2cee7ce0e47328",
+      "bytes": 8745
+    },
+    {
+      "path": "mythic-motion/ghost-2-wantsPlay-walk-normal.jpg",
+      "sha256": "88ebe823d48c8328446145b5c550a053f2026c2f8531022a2c01f592494a9a89",
+      "bytes": 8546
+    },
+    {
+      "path": "mythic-motion/ghost-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "7870dc04b722ee9baed865cc3d6443423a0f457fad3bf0ba63d3cc1b3df3c776",
+      "bytes": 8611
+    },
+    {
+      "path": "mythic-motion/ghost-3-dislike-idle-normal.jpg",
+      "sha256": "10207781226b733ab26beb2f8d2dc142ed9bc638e16cd11ade5aa0f4d0d3c04b",
+      "bytes": 8583
+    },
+    {
+      "path": "mythic-motion/ghost-3-dislike-idle-reduced.jpg",
+      "sha256": "54fffbdd64752ac7fe7ba3433114108afe9dde22fba49d8ed58e56533e37fc12",
+      "bytes": 8835
+    },
+    {
+      "path": "mythic-motion/ghost-3-dislike-walk-normal.jpg",
+      "sha256": "fb058dd98aeddbf839e3d1f2049b6b3d90b245916227f8faed4b44748188395b",
+      "bytes": 8790
+    },
+    {
+      "path": "mythic-motion/ghost-3-dislike-walk-reduced.jpg",
+      "sha256": "ec4b74be20b2621588afd8231109af615aaac4e47ea04bb33db1f5488c72cef0",
+      "bytes": 9029
+    },
+    {
+      "path": "mythic-motion/ghost-3-motion.jpg",
+      "sha256": "0d3fa6031631426a6a9c6101cca4414f0cb15d69ed7216484bdc96dc4bbc00a3",
+      "bytes": 377582
+    },
+    {
+      "path": "mythic-motion/ghost-3-normal-idle-normal.jpg",
+      "sha256": "cb2b1f81c4f907ecc177f75df4d26556c97bcc16296ca8a6419417afd85ee269",
+      "bytes": 8627
+    },
+    {
+      "path": "mythic-motion/ghost-3-normal-idle-reduced.jpg",
+      "sha256": "95f27ae4be7aeca7f268640a8dd9974b0f13d7a23e180c9baa2b06881bc54275",
+      "bytes": 8867
+    },
+    {
+      "path": "mythic-motion/ghost-3-normal-walk-normal.jpg",
+      "sha256": "6aa4aeb474c45d120af91031d97f79fb632d148a77a70b5363d4ecc6920bb3cd",
+      "bytes": 8584
+    },
+    {
+      "path": "mythic-motion/ghost-3-normal-walk-reduced.jpg",
+      "sha256": "f7e0e2433bd9bd79b0884a602eb58037ab6962cccfba9bc5d9094482fe8c95bf",
+      "bytes": 8697
+    },
+    {
+      "path": "mythic-motion/ghost-3-positive-idle-normal.jpg",
+      "sha256": "f69d3286af15da3c756ae3cbabc605f04f3b3ec2d2d9ba2aedaab6eace811aa9",
+      "bytes": 8883
+    },
+    {
+      "path": "mythic-motion/ghost-3-positive-idle-reduced.jpg",
+      "sha256": "dc00e7d8a77e2555e23d5cbe3fc8f829617d6df03e6ab8f4ab8fda92ba785bb3",
+      "bytes": 9047
+    },
+    {
+      "path": "mythic-motion/ghost-3-positive-walk-normal.jpg",
+      "sha256": "bd9d0f261edd85e5ce9ec09487dd8f7fe97605282a626f211c0365380355b2c0",
+      "bytes": 8830
+    },
+    {
+      "path": "mythic-motion/ghost-3-positive-walk-reduced.jpg",
+      "sha256": "17d071296c4f3c5961b71b073bc5e9b9759c8dea3efd0b9383508ffcd35ff530",
+      "bytes": 8996
+    },
+    {
+      "path": "mythic-motion/ghost-3-sick-idle-normal.jpg",
+      "sha256": "c887c517febe3bf035aee5c83efa8791186e21ee89abe04d8f5260823a970a5d",
+      "bytes": 8631
+    },
+    {
+      "path": "mythic-motion/ghost-3-sick-idle-reduced.jpg",
+      "sha256": "ab2233f8d6aa67864a298e97bab329b2dfe5f7ae2a05767be706781dbfa7a6ac",
+      "bytes": 8810
+    },
+    {
+      "path": "mythic-motion/ghost-3-sick-walk-normal.jpg",
+      "sha256": "92dd0ecf7fd4cdc32b8ac132e1e7b02e6ff2f2f4be8ccd9666d64d0b3572e200",
+      "bytes": 8498
+    },
+    {
+      "path": "mythic-motion/ghost-3-sick-walk-reduced.jpg",
+      "sha256": "475b2d241beabb6583026916221c70f82bb60996fc5d09f07204b85a5fa2ab63",
+      "bytes": 8716
+    },
+    {
+      "path": "mythic-motion/ghost-3-sleeping-idle-normal.jpg",
+      "sha256": "82f7b539172499eedf8892b207eb73d001dc349a27ab5baaefd15686b38a7b3f",
+      "bytes": 8045
+    },
+    {
+      "path": "mythic-motion/ghost-3-sleeping-idle-reduced.jpg",
+      "sha256": "b0648d3f15c3c35baefc7982cffeca88434df19faa7c6b45a9b28450ad60fd35",
+      "bytes": 8370
+    },
+    {
+      "path": "mythic-motion/ghost-3-sleeping-walk-normal.jpg",
+      "sha256": "837fffc2776b7bca4f87e178bb6e5e091c873d5d47a300a6b5b6e17368a05b74",
+      "bytes": 8096
+    },
+    {
+      "path": "mythic-motion/ghost-3-sleeping-walk-reduced.jpg",
+      "sha256": "5684f52f98646f4f1585f624d60a6a281ef755181db69a559aaa7deec15d8427",
+      "bytes": 8305
+    },
+    {
+      "path": "mythic-motion/ghost-3-strained-idle-normal.jpg",
+      "sha256": "667aa072b1c03e773f41e3c7feb61986e854a5932ab84500c76d7ac7e8f8e85c",
+      "bytes": 8838
+    },
+    {
+      "path": "mythic-motion/ghost-3-strained-idle-reduced.jpg",
+      "sha256": "4be56e65f15776520caffcd6b4c5a207cf372782d8beeb0d7dfd06cfa75a864b",
+      "bytes": 9028
+    },
+    {
+      "path": "mythic-motion/ghost-3-strained-walk-normal.jpg",
+      "sha256": "baabeda26714dd169949d36b987ffe85b6de47384f976aa3f959b6147c313a69",
+      "bytes": 8896
+    },
+    {
+      "path": "mythic-motion/ghost-3-strained-walk-reduced.jpg",
+      "sha256": "ea0bb5207ffe757dead84b3dd5cce44a387e6ee347001706203a4a87f8f4409a",
+      "bytes": 9062
+    },
+    {
+      "path": "mythic-motion/ghost-3-tired-idle-normal.jpg",
+      "sha256": "d1c78454972637ec3a15905572070b049445497b1fad49333288f2f9c141bacb",
+      "bytes": 8233
+    },
+    {
+      "path": "mythic-motion/ghost-3-tired-idle-reduced.jpg",
+      "sha256": "58ac9cf93b998cbd5cd0b3ca2e1378f79b1711123600cf664574c15041a55d13",
+      "bytes": 8389
+    },
+    {
+      "path": "mythic-motion/ghost-3-tired-walk-normal.jpg",
+      "sha256": "c0863dd48acd11fd88e40933c234d02dfdfffa57d973709b7aa2accf542a130d",
+      "bytes": 8263
+    },
+    {
+      "path": "mythic-motion/ghost-3-tired-walk-reduced.jpg",
+      "sha256": "b1cf161413858bfb7b86c9f51dce3a4b1e7efdf8a7ddfb875d6c5814f64aee94",
+      "bytes": 8445
+    },
+    {
+      "path": "mythic-motion/ghost-3-wantsPlay-idle-normal.jpg",
+      "sha256": "908b37ac3c35058fddf1c23966c8c9f1aec652ca07c232cf93583578a9288767",
+      "bytes": 8916
+    },
+    {
+      "path": "mythic-motion/ghost-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "aaa3f4bb76f87cee1b74026745ff95c9af7e05dee469daabd42ddb5eeb2c8250",
+      "bytes": 9334
+    },
+    {
+      "path": "mythic-motion/ghost-3-wantsPlay-walk-normal.jpg",
+      "sha256": "af1cd80de8e91c14be3dcf8a0ce9c4ed6a084a320dedd7c14d34679b737df18a",
+      "bytes": 8832
+    },
+    {
+      "path": "mythic-motion/ghost-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "79023675e6b4939a3afdcf26d2c15422e398ef461e5f9433274fdfdd4bd38d7e",
+      "bytes": 9152
+    },
+    {
+      "path": "mythic-motion/ghost-4-dislike-idle-normal.jpg",
+      "sha256": "ca6a4bf01d83d3c5ecb14c9baa8a8f102272edb9e396efd890ccb5260164f23d",
+      "bytes": 8825
+    },
+    {
+      "path": "mythic-motion/ghost-4-dislike-idle-reduced.jpg",
+      "sha256": "f11cbaea6ac552eed3e6afa084477da6f1110717a8f5f63180d2ec922e09f1eb",
+      "bytes": 8901
+    },
+    {
+      "path": "mythic-motion/ghost-4-dislike-walk-normal.jpg",
+      "sha256": "940f54ac75cc20c87aad6e5bd669c7df2af98ccc8d7617b91b882a887d3ffb57",
+      "bytes": 8845
+    },
+    {
+      "path": "mythic-motion/ghost-4-dislike-walk-reduced.jpg",
+      "sha256": "a62a4aa1c5e68ee1db0190b5aacca860e072f3af3befad56065aac31271985e7",
+      "bytes": 9083
+    },
+    {
+      "path": "mythic-motion/ghost-4-motion.jpg",
+      "sha256": "6b10c688cf7229c2e2a9535876c656898b08e86a5f0d7750fd5edccd57b27565",
+      "bytes": 383746
+    },
+    {
+      "path": "mythic-motion/ghost-4-normal-idle-normal.jpg",
+      "sha256": "ee0181bd315b990c6363e56602ec0e14ae5055ef205ee12669689878cb6b2702",
+      "bytes": 8707
+    },
+    {
+      "path": "mythic-motion/ghost-4-normal-idle-reduced.jpg",
+      "sha256": "a59fcb676bc797bcc6c8f0dd4498b6d605d940e2850e84313c1f2e286a634742",
+      "bytes": 8958
+    },
+    {
+      "path": "mythic-motion/ghost-4-normal-walk-normal.jpg",
+      "sha256": "9de1f1235fa80869e1a4fdeddb106681f445e3dda249b34170403f2e6923d144",
+      "bytes": 8701
+    },
+    {
+      "path": "mythic-motion/ghost-4-normal-walk-reduced.jpg",
+      "sha256": "2f05d2d8dae03b74891eb31a96bb93589c6a6b7dade20b237ab32e5ea9d5bd80",
+      "bytes": 8981
+    },
+    {
+      "path": "mythic-motion/ghost-4-positive-idle-normal.jpg",
+      "sha256": "32630f79e834287d32de8fb25ee0b7ab9d5c276daded1f7e30b47044123e81eb",
+      "bytes": 8980
+    },
+    {
+      "path": "mythic-motion/ghost-4-positive-idle-reduced.jpg",
+      "sha256": "61013ad0576637d7edf3d0b178f531b2d909d95dcfdb04ad43d177c1009e0f17",
+      "bytes": 9191
+    },
+    {
+      "path": "mythic-motion/ghost-4-positive-walk-normal.jpg",
+      "sha256": "e8154e3bcba4cd77ee912d1df9f6dfc5e9fd38132473e21d03d3695069456370",
+      "bytes": 8946
+    },
+    {
+      "path": "mythic-motion/ghost-4-positive-walk-reduced.jpg",
+      "sha256": "98c288f20b32792fe531ee19a62b7a09d0e772038bf631b05c18a7096d55f863",
+      "bytes": 9167
+    },
+    {
+      "path": "mythic-motion/ghost-4-sick-idle-normal.jpg",
+      "sha256": "f9c812ac48aa25a9340324daab5b55edbc58ab183627523b0bcd74402a9d19a9",
+      "bytes": 8705
+    },
+    {
+      "path": "mythic-motion/ghost-4-sick-idle-reduced.jpg",
+      "sha256": "459a0a62b295e4c89beee27c2dbd2c24508b7291c4733080a7dda2f6cbd045a4",
+      "bytes": 8847
+    },
+    {
+      "path": "mythic-motion/ghost-4-sick-walk-normal.jpg",
+      "sha256": "1c169797e298b4f5f7b272968c4aaf0f119d30cd69a5c62fc89cd64ac8043169",
+      "bytes": 8639
+    },
+    {
+      "path": "mythic-motion/ghost-4-sick-walk-reduced.jpg",
+      "sha256": "08f7ac3156248a041df76c788d68ac0326fafd574e05e85852a23fcb3e936a30",
+      "bytes": 8796
+    },
+    {
+      "path": "mythic-motion/ghost-4-sleeping-idle-normal.jpg",
+      "sha256": "ee3d670c90c77ff47fdd5f9e9141a361eb3be989a90e8942478c511c75825869",
+      "bytes": 8234
+    },
+    {
+      "path": "mythic-motion/ghost-4-sleeping-idle-reduced.jpg",
+      "sha256": "5376de5c6b82dc2c7160b3bbc9f4255f8a7e542ca00c501b2fc79791823bc3bd",
+      "bytes": 8334
+    },
+    {
+      "path": "mythic-motion/ghost-4-sleeping-walk-normal.jpg",
+      "sha256": "85b42d4aa4356b11c556c054bdaee1fb2d5f6aa56e6a6ee1d0b719c0e0da3174",
+      "bytes": 8160
+    },
+    {
+      "path": "mythic-motion/ghost-4-sleeping-walk-reduced.jpg",
+      "sha256": "f7a2f3ae26a1d43f5f54a9204b1af8c9cfa287f9864b0dcc610c3f83172d6131",
+      "bytes": 8276
+    },
+    {
+      "path": "mythic-motion/ghost-4-strained-idle-normal.jpg",
+      "sha256": "f7b1722b9e6b5991377ca4f7d8043fd6121859bbf6b1306a09c223b9d84403ae",
+      "bytes": 8924
+    },
+    {
+      "path": "mythic-motion/ghost-4-strained-idle-reduced.jpg",
+      "sha256": "0ac3e0fc1d1363eecf8e2aa2f89f597e9eb99c9937e8440197ce3b45ff9b42bc",
+      "bytes": 9052
+    },
+    {
+      "path": "mythic-motion/ghost-4-strained-walk-normal.jpg",
+      "sha256": "03aede7c02dc1382e7df2fc372d53858b556787fcba367b90c9fc7d836bfd094",
+      "bytes": 8927
+    },
+    {
+      "path": "mythic-motion/ghost-4-strained-walk-reduced.jpg",
+      "sha256": "31336ee57f5fe6903ab59c5406835fe656b9b31c84c9abf4b17e51fe9eb47e28",
+      "bytes": 9187
+    },
+    {
+      "path": "mythic-motion/ghost-4-tired-idle-normal.jpg",
+      "sha256": "1fbb5451608996abdfa5c4578bc29617562a5417deb94ed7e9299ca4b0f8b704",
+      "bytes": 8511
+    },
+    {
+      "path": "mythic-motion/ghost-4-tired-idle-reduced.jpg",
+      "sha256": "5734ac3e9891550040bbdfaf4f21182cea16dd689c8ec46a631fb15dc57252ba",
+      "bytes": 8665
+    },
+    {
+      "path": "mythic-motion/ghost-4-tired-walk-normal.jpg",
+      "sha256": "1c7118d1667eaf5ae5e9c4e3b4facc4c5194ddebfbe032cf666ba3bf1fc1464e",
+      "bytes": 8317
+    },
+    {
+      "path": "mythic-motion/ghost-4-tired-walk-reduced.jpg",
+      "sha256": "16f24b34bac3160d585af944ade907a10915b073695d37cd96c7d76a6b55e812",
+      "bytes": 8475
+    },
+    {
+      "path": "mythic-motion/ghost-4-wantsPlay-idle-normal.jpg",
+      "sha256": "ddacd8c1aae90290a8ad02c9276fc72330ae5d4718b4a7190a539ac6bd3de8db",
+      "bytes": 9118
+    },
+    {
+      "path": "mythic-motion/ghost-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "86f5a669522c3f96bb8c87ca4d5ddb4e356af0defe05fd3c61b7a96ae58ccf44",
+      "bytes": 9420
+    },
+    {
+      "path": "mythic-motion/ghost-4-wantsPlay-walk-normal.jpg",
+      "sha256": "5104853912adcc488beaa993dfbf435673e48934c4f8ff54e79899cc9c9599c1",
+      "bytes": 9114
+    },
+    {
+      "path": "mythic-motion/ghost-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "5ae0095731981885069a41ffbd34cf90af499843b0be4020eabab265a8d74498",
+      "bytes": 9249
+    },
+    {
+      "path": "mythic-motion/ghost-5-dislike-idle-normal.jpg",
+      "sha256": "4ee442c756a5f27fd06b269fe6a208e48fbb00952a35de782db1254a8571e48f",
+      "bytes": 9856
+    },
+    {
+      "path": "mythic-motion/ghost-5-dislike-idle-reduced.jpg",
+      "sha256": "7d8e261217f04bb5236d6c37fc8b0e55e679bbaed0993d3faf6dc54d1dfa7858",
+      "bytes": 10015
+    },
+    {
+      "path": "mythic-motion/ghost-5-dislike-walk-normal.jpg",
+      "sha256": "b4cfdec46c6059eeb58ffd59e738af42ecaf7fb9131f46445847866b8d9a1b22",
+      "bytes": 9961
+    },
+    {
+      "path": "mythic-motion/ghost-5-dislike-walk-reduced.jpg",
+      "sha256": "933518f9fd065578e9df9d9365aa9f2513124da2d5c9b173cdb32476dd72fb7c",
+      "bytes": 10189
+    },
+    {
+      "path": "mythic-motion/ghost-5-motion.jpg",
+      "sha256": "06aaabbbb7bdfb5b4c37fff06b1c434cab89f124e4008865209dde3085d3250a",
+      "bytes": 450109
+    },
+    {
+      "path": "mythic-motion/ghost-5-normal-idle-normal.jpg",
+      "sha256": "064e93a7c5688b24c9083471f2763d434dbf5871fe7d0455eabd6e755e1273c4",
+      "bytes": 9632
+    },
+    {
+      "path": "mythic-motion/ghost-5-normal-idle-reduced.jpg",
+      "sha256": "9e04eee657ea4caf37e38e650a276a18bd217199097cf65530718674ae2746b4",
+      "bytes": 9790
+    },
+    {
+      "path": "mythic-motion/ghost-5-normal-walk-normal.jpg",
+      "sha256": "ab1cfed2b5c410a017fa5992b5e2f49d339aac0329d624827f34852cf31de38a",
+      "bytes": 9595
+    },
+    {
+      "path": "mythic-motion/ghost-5-normal-walk-reduced.jpg",
+      "sha256": "81d125fbede31a93edae647e4d9dce65e1c047a8a192d15ab350ac53b2031fd8",
+      "bytes": 9823
+    },
+    {
+      "path": "mythic-motion/ghost-5-positive-idle-normal.jpg",
+      "sha256": "b888a4f70e7a2cff5a77e6f42846588cd105f3f09fa11df9f9e25fedee868247",
+      "bytes": 9897
+    },
+    {
+      "path": "mythic-motion/ghost-5-positive-idle-reduced.jpg",
+      "sha256": "cda15aa0a8824f641680175a962e5db117557c82459b99b3dcdde3879dde4b44",
+      "bytes": 10175
+    },
+    {
+      "path": "mythic-motion/ghost-5-positive-walk-normal.jpg",
+      "sha256": "a5986c2bba6c4b49970885dc8307d34a107d57f0dd3a0d3201677fa1e08a9fee",
+      "bytes": 10012
+    },
+    {
+      "path": "mythic-motion/ghost-5-positive-walk-reduced.jpg",
+      "sha256": "b41b503e06ae82eb6934d759d1919344cebad7899008c9d3ac66cc66b0c4d0f6",
+      "bytes": 10223
+    },
+    {
+      "path": "mythic-motion/ghost-5-sick-idle-normal.jpg",
+      "sha256": "5cd32bbeefafbb9bb7605c8cdb8330a8bcb62482d668e2ab8e2fe55f354e2ebb",
+      "bytes": 9788
+    },
+    {
+      "path": "mythic-motion/ghost-5-sick-idle-reduced.jpg",
+      "sha256": "d4aab76472401c53fb7e9878a3bf374971d57ca93ea00b8f73467b26f7ffc2fb",
+      "bytes": 9944
+    },
+    {
+      "path": "mythic-motion/ghost-5-sick-walk-normal.jpg",
+      "sha256": "0046f97edcff1ee0184c7a866120de67d5086a183c03aea4881b6d97f6491e9a",
+      "bytes": 9503
+    },
+    {
+      "path": "mythic-motion/ghost-5-sick-walk-reduced.jpg",
+      "sha256": "79654eea6c219f2971e52e765ae95df7b60582635066309407ae6857d39a04e3",
+      "bytes": 9889
+    },
+    {
+      "path": "mythic-motion/ghost-5-sleeping-idle-normal.jpg",
+      "sha256": "09993eb7e1c8f326b90792e6c9084b5b32ab772a5ab7f4d18313d759bb3aa72e",
+      "bytes": 9582
+    },
+    {
+      "path": "mythic-motion/ghost-5-sleeping-idle-reduced.jpg",
+      "sha256": "622b9fa9a93d92a8ad0d3218b7baa64e8fd8dfe0f3135a25dcff8cf5c934c570",
+      "bytes": 9571
+    },
+    {
+      "path": "mythic-motion/ghost-5-sleeping-walk-normal.jpg",
+      "sha256": "bbe9057bb461ea4bb781062f12c3c6e3464968580090591380a87c0e1e5a2bf7",
+      "bytes": 9539
+    },
+    {
+      "path": "mythic-motion/ghost-5-sleeping-walk-reduced.jpg",
+      "sha256": "1b59e554f1535b06373a7ef7bc50ba4bcf7f02095f503613b403a0c18843c603",
+      "bytes": 9747
+    },
+    {
+      "path": "mythic-motion/ghost-5-strained-idle-normal.jpg",
+      "sha256": "cb8808b1579f80111e74ad8097f7e84cf26a65d8b341855ce5ac4de2d8ed7a2d",
+      "bytes": 9939
+    },
+    {
+      "path": "mythic-motion/ghost-5-strained-idle-reduced.jpg",
+      "sha256": "79d0d64fcb74acbe105c06ca0566d71a9656539ba293d6c90a4d18d380788391",
+      "bytes": 10266
+    },
+    {
+      "path": "mythic-motion/ghost-5-strained-walk-normal.jpg",
+      "sha256": "14a27241192f3f2f4eb40a8b99cdfeb17d98339e61291789062807eab8dba8b6",
+      "bytes": 9879
+    },
+    {
+      "path": "mythic-motion/ghost-5-strained-walk-reduced.jpg",
+      "sha256": "f6c7a5f4892bd2465c227e0b72c4038688219fcd7fae5bec3f31ebb9c510b355",
+      "bytes": 10223
+    },
+    {
+      "path": "mythic-motion/ghost-5-tired-idle-normal.jpg",
+      "sha256": "3e7af825236ad4490a75e58e7fd4bccdad79d38132c15ccf1264a1be7ff9f312",
+      "bytes": 9553
+    },
+    {
+      "path": "mythic-motion/ghost-5-tired-idle-reduced.jpg",
+      "sha256": "65ba98250c78ec51ddcfe517f4c2ff22f49c0ee494392ee05b5ab61a1caaf2e4",
+      "bytes": 9704
+    },
+    {
+      "path": "mythic-motion/ghost-5-tired-walk-normal.jpg",
+      "sha256": "ecbe205c8a1dff1d0f0caad5aa715ad24eba262cde42a4e880d607a1557c67eb",
+      "bytes": 9492
+    },
+    {
+      "path": "mythic-motion/ghost-5-tired-walk-reduced.jpg",
+      "sha256": "90a79cb2aba430cd4843db339989e17736ad7a5e898a0a3bb3e8aa6117746397",
+      "bytes": 9742
+    },
+    {
+      "path": "mythic-motion/ghost-5-wantsPlay-idle-normal.jpg",
+      "sha256": "e7094054ae8e6055ad385d2a3fb444bf5df6a1d266ac99681a09d1cfda3f393f",
+      "bytes": 10038
+    },
+    {
+      "path": "mythic-motion/ghost-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "a5d463dbe1706b3b0b0572cea06199e851f6bc6f6f2b7802f23b82379daeeb6e",
+      "bytes": 10523
+    },
+    {
+      "path": "mythic-motion/ghost-5-wantsPlay-walk-normal.jpg",
+      "sha256": "8e8d1362bf03026b523d1c6d637bae190608db0fdca4106e095fe083ab5d23f2",
+      "bytes": 10163
+    },
+    {
+      "path": "mythic-motion/ghost-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "53a1f865631c2b9bdb49967ddc7751ef115ea8837992c3608a91ff8350f8c75c",
+      "bytes": 10390
+    },
+    {
+      "path": "mythic-motion/ghost-6-dislike-idle-normal.jpg",
+      "sha256": "d1db917c10023c19a298996e11ba8b48c4cd7041c26fbf73793ebaf9137f84be",
+      "bytes": 9806
+    },
+    {
+      "path": "mythic-motion/ghost-6-dislike-idle-reduced.jpg",
+      "sha256": "40d18e00b2e0f57e805c5212654b67356d4aec1411759da699bb1c3823bea14b",
+      "bytes": 10073
+    },
+    {
+      "path": "mythic-motion/ghost-6-dislike-walk-normal.jpg",
+      "sha256": "e55a6605c1e323268214f3801926dcc341a2ed20f61fd35cef7848c087ad314b",
+      "bytes": 9941
+    },
+    {
+      "path": "mythic-motion/ghost-6-dislike-walk-reduced.jpg",
+      "sha256": "c6832fd5e304d3923d718768f0dca3bacc1d9f2da28e5583f3b5e015059cf843",
+      "bytes": 9986
+    },
+    {
+      "path": "mythic-motion/ghost-6-motion.jpg",
+      "sha256": "ca237a8c159ec37637b7f65ad7175dc12d2fa05878fe06bd44a5fdccb526e9e1",
+      "bytes": 446616
+    },
+    {
+      "path": "mythic-motion/ghost-6-normal-idle-normal.jpg",
+      "sha256": "f00a5a1d031cc5e38ee5fb20078f5b800b98c3867940349e7a8225e3c3f71025",
+      "bytes": 9591
+    },
+    {
+      "path": "mythic-motion/ghost-6-normal-idle-reduced.jpg",
+      "sha256": "efdef9c8cd0afbb97572832936e803193f4bd1a587a3ee31635264fca27b060f",
+      "bytes": 9684
+    },
+    {
+      "path": "mythic-motion/ghost-6-normal-walk-normal.jpg",
+      "sha256": "b9b784607c948a9546d57b4befb54e3307d29f1910e4be2d63b064d554fe04b7",
+      "bytes": 9522
+    },
+    {
+      "path": "mythic-motion/ghost-6-normal-walk-reduced.jpg",
+      "sha256": "9e6e074184efb178792f0af47c0091b7121e7bdd40a1f82a20c9809e55e3840e",
+      "bytes": 9809
+    },
+    {
+      "path": "mythic-motion/ghost-6-positive-idle-normal.jpg",
+      "sha256": "9ce08aa3f4b397154e3226152f8f912187e63cb0acfdbdf9cfb5c6b13c190084",
+      "bytes": 9802
+    },
+    {
+      "path": "mythic-motion/ghost-6-positive-idle-reduced.jpg",
+      "sha256": "5d7ccbdb271b5d7b00a05c0822c5185e6c58128da31ad755766aa7e8b153ac0a",
+      "bytes": 10052
+    },
+    {
+      "path": "mythic-motion/ghost-6-positive-walk-normal.jpg",
+      "sha256": "94215c4ea89c0319d18d84d1e7e502b672b946a4ade10966729222bfb2250505",
+      "bytes": 9803
+    },
+    {
+      "path": "mythic-motion/ghost-6-positive-walk-reduced.jpg",
+      "sha256": "44de9d8d3b25c85d47d964a54c5bacb15d4109339fd57e01939f790e79e6c91c",
+      "bytes": 10121
+    },
+    {
+      "path": "mythic-motion/ghost-6-sick-idle-normal.jpg",
+      "sha256": "ed32750a9a346eceb0e6fabfc11793a2da290fca701dba1bc6b72e3b4bab0059",
+      "bytes": 9538
+    },
+    {
+      "path": "mythic-motion/ghost-6-sick-idle-reduced.jpg",
+      "sha256": "4c25edc4346873aa3d5cf1cea1b342c61b9aabfd90dc43db6f746a3a5294f56f",
+      "bytes": 9729
+    },
+    {
+      "path": "mythic-motion/ghost-6-sick-walk-normal.jpg",
+      "sha256": "f839361b5e428487d8694cab984309cf3e4654173c4ce1e1955f1db6698519f0",
+      "bytes": 9446
+    },
+    {
+      "path": "mythic-motion/ghost-6-sick-walk-reduced.jpg",
+      "sha256": "b91de154f45df7173fdb8aec2d8ba79136498f668e55b857769632c2f707f676",
+      "bytes": 9760
+    },
+    {
+      "path": "mythic-motion/ghost-6-sleeping-idle-normal.jpg",
+      "sha256": "c5ebfa03ee354232fa70d29d03d43b22cbdbad5501bda93853891c9f8f3a661a",
+      "bytes": 9368
+    },
+    {
+      "path": "mythic-motion/ghost-6-sleeping-idle-reduced.jpg",
+      "sha256": "2518362adf0700cdf2919f6021ffd0c780888ce20a7196daa7a96748e0a83d9a",
+      "bytes": 9807
+    },
+    {
+      "path": "mythic-motion/ghost-6-sleeping-walk-normal.jpg",
+      "sha256": "5907a1bb7755fc4d5a12f42ec350dad105592fded417a79f12c718545e7ffb23",
+      "bytes": 9407
+    },
+    {
+      "path": "mythic-motion/ghost-6-sleeping-walk-reduced.jpg",
+      "sha256": "743b8be3fbf0d639f80f390971fb6dc4072bf8c506742de5e7c8b5fbb55e4769",
+      "bytes": 9609
+    },
+    {
+      "path": "mythic-motion/ghost-6-strained-idle-normal.jpg",
+      "sha256": "a13a6d5abb8f313fc58db34fc6bd5b9cf8d8d8fe9321ff43614d0e64e791f61d",
+      "bytes": 9743
+    },
+    {
+      "path": "mythic-motion/ghost-6-strained-idle-reduced.jpg",
+      "sha256": "3329cfb34b6b4dd9a2471c7921eea1fb050c0acee2f5857daedb6928d6299997",
+      "bytes": 9963
+    },
+    {
+      "path": "mythic-motion/ghost-6-strained-walk-normal.jpg",
+      "sha256": "0efdd67d161896a8946301d50f7711fc23a0fa33c1edd0450ef42d47587f4380",
+      "bytes": 9862
+    },
+    {
+      "path": "mythic-motion/ghost-6-strained-walk-reduced.jpg",
+      "sha256": "6e1d6fd3c45d9f7ac049b3790f4cb181d5d821960e502067fb8e2ddffade6f26",
+      "bytes": 10030
+    },
+    {
+      "path": "mythic-motion/ghost-6-tired-idle-normal.jpg",
+      "sha256": "d0d6cf21dab99fff9ba28dcade99e0a7a4489d25019ff95b4641b8516742f6b6",
+      "bytes": 9354
+    },
+    {
+      "path": "mythic-motion/ghost-6-tired-idle-reduced.jpg",
+      "sha256": "cb02501cbcf17abf742fd11fbced7fe9f6559d24bcb1586c31412fefad6e72f1",
+      "bytes": 9743
+    },
+    {
+      "path": "mythic-motion/ghost-6-tired-walk-normal.jpg",
+      "sha256": "47ae73b405d97c074147272b2c72a118e2f1dc28ea1b770c58f74c541ed96bb8",
+      "bytes": 9479
+    },
+    {
+      "path": "mythic-motion/ghost-6-tired-walk-reduced.jpg",
+      "sha256": "be809b6e02cad847120deb83c35d2b6d50e5f33996396ff720546c202473cc22",
+      "bytes": 9631
+    },
+    {
+      "path": "mythic-motion/ghost-6-wantsPlay-idle-normal.jpg",
+      "sha256": "e069b81f019cb4fa914b1adf12bc75fb80271f7fc6fe26a93e745c1858f05a39",
+      "bytes": 10122
+    },
+    {
+      "path": "mythic-motion/ghost-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "d75a437d87215b75de7be01e6f9a11fdecf3e6cfa42377311960eb646c7c8527",
+      "bytes": 10287
+    },
+    {
+      "path": "mythic-motion/ghost-6-wantsPlay-walk-normal.jpg",
+      "sha256": "0e243a9d4c40a3a35f96dfce575b8944cf0d7fec0f513774bb61876ade645de6",
+      "bytes": 10004
+    },
+    {
+      "path": "mythic-motion/ghost-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "ae136711698ca24ad9c0d2e65da2ad5da08a180923723546ee225387faa44958",
+      "bytes": 10059
+    },
+    {
+      "path": "mythic-motion/ghost-7-dislike-idle-normal.jpg",
+      "sha256": "a0a5dad0db7617ffd9668d4730720d05921665de76c706fc44cfecadf4861ab8",
+      "bytes": 10913
+    },
+    {
+      "path": "mythic-motion/ghost-7-dislike-idle-reduced.jpg",
+      "sha256": "f369038b7a3aa08a37898a394ad01c06119039543d79a8a6c20d17df2fa2be3e",
+      "bytes": 11117
+    },
+    {
+      "path": "mythic-motion/ghost-7-dislike-walk-normal.jpg",
+      "sha256": "41218913ec1f3307dfe9efe37f24718a4db6796f95f99e2205a40e7c2e3455b5",
+      "bytes": 11079
+    },
+    {
+      "path": "mythic-motion/ghost-7-dislike-walk-reduced.jpg",
+      "sha256": "aa554577e5cc1784ed6fcb28f79191e1965b589f45db09d72ff8473371771d2e",
+      "bytes": 11335
+    },
+    {
+      "path": "mythic-motion/ghost-7-motion.jpg",
+      "sha256": "3a741f7ef40a3b11c919b80a8509f8472302ce79ea3fc707963dd3b4dd8cfe9e",
+      "bytes": 488548
+    },
+    {
+      "path": "mythic-motion/ghost-7-normal-idle-normal.jpg",
+      "sha256": "b15932ab362c4d1582e61c67cf4107e83644d707d63641a1c3ad8237511147e2",
+      "bytes": 10739
+    },
+    {
+      "path": "mythic-motion/ghost-7-normal-idle-reduced.jpg",
+      "sha256": "348f8558214743f80ad73a0cec0bb57832a9cf34f79f7d1ba6c9fa456d6be9f3",
+      "bytes": 10986
+    },
+    {
+      "path": "mythic-motion/ghost-7-normal-walk-normal.jpg",
+      "sha256": "a7e93f9c522f5605c48dbfd6a359c91c6d726eea1136ba4d648b01d4004e5acf",
+      "bytes": 10743
+    },
+    {
+      "path": "mythic-motion/ghost-7-normal-walk-reduced.jpg",
+      "sha256": "36d0a899fcdb4ad3d80f64786e90a3055d167bd7e1fa459c5db00416d23b5e53",
+      "bytes": 11119
+    },
+    {
+      "path": "mythic-motion/ghost-7-positive-idle-normal.jpg",
+      "sha256": "b98191fefea3f0287305e4dfd95d327de58832ffb235beaac940346e27290d8f",
+      "bytes": 10909
+    },
+    {
+      "path": "mythic-motion/ghost-7-positive-idle-reduced.jpg",
+      "sha256": "43bdbeaef638b5273c63020fee7d9a914cf6fa5f49d8956fd157917e5f983f87",
+      "bytes": 11216
+    },
+    {
+      "path": "mythic-motion/ghost-7-positive-walk-normal.jpg",
+      "sha256": "ee563d2fbfa4630cb9b2a96304ab7461de67d07d17723b37114061ba47d04295",
+      "bytes": 10862
+    },
+    {
+      "path": "mythic-motion/ghost-7-positive-walk-reduced.jpg",
+      "sha256": "21ca364962d2093e695f84748380f72019ba90017b9c977658a1b4703281cf7b",
+      "bytes": 11173
+    },
+    {
+      "path": "mythic-motion/ghost-7-sick-idle-normal.jpg",
+      "sha256": "5c03f2eae2e2610e9428477ec2428282f25d7a4069c7b96f9c821a4d006c7207",
+      "bytes": 10780
+    },
+    {
+      "path": "mythic-motion/ghost-7-sick-idle-reduced.jpg",
+      "sha256": "39bc29d8c15bbe98290f9b1c012017879bb9e49dc6f18ece9a538f19e72b6db4",
+      "bytes": 10884
+    },
+    {
+      "path": "mythic-motion/ghost-7-sick-walk-normal.jpg",
+      "sha256": "29525e309d495974f2f1fd27f313fea59d045de3dec4341e4934af2a7a78efb0",
+      "bytes": 10677
+    },
+    {
+      "path": "mythic-motion/ghost-7-sick-walk-reduced.jpg",
+      "sha256": "5f9f1f04d3d8fa77168b6de6f533abf14c65e8c192f629e8de716b1e050f7ca3",
+      "bytes": 10945
+    },
+    {
+      "path": "mythic-motion/ghost-7-sleeping-idle-normal.jpg",
+      "sha256": "102979891d2a1b3d8619894b54a80308ad21dd560b746bea19ee77cf74f0acc4",
+      "bytes": 10737
+    },
+    {
+      "path": "mythic-motion/ghost-7-sleeping-idle-reduced.jpg",
+      "sha256": "acc14d883b31961f53d2b30e70f008dc749f9ecea23749fe0efdcb9c74e045a0",
+      "bytes": 11125
+    },
+    {
+      "path": "mythic-motion/ghost-7-sleeping-walk-normal.jpg",
+      "sha256": "498225b4368ab2fb9b0305f506ad7f52f8e093d61f0128ba2560a7f006912fe4",
+      "bytes": 10742
+    },
+    {
+      "path": "mythic-motion/ghost-7-sleeping-walk-reduced.jpg",
+      "sha256": "54969418990591bf3a6e19d6c13387f9553857338c118c93182b2e600b4b883f",
+      "bytes": 10929
+    },
+    {
+      "path": "mythic-motion/ghost-7-strained-idle-normal.jpg",
+      "sha256": "3fdfcb05f137103df6ce46cb6d953b736a31579b02ff796310ce5d09f75a938c",
+      "bytes": 11078
+    },
+    {
+      "path": "mythic-motion/ghost-7-strained-idle-reduced.jpg",
+      "sha256": "2cc688a4a9ab980041f9fbb12c5adca6ae6183e2fa9e3d0746616f9f402ad1dc",
+      "bytes": 11264
+    },
+    {
+      "path": "mythic-motion/ghost-7-strained-walk-normal.jpg",
+      "sha256": "3f4e83cad7d90342f64b0163f1df76ef567abc15543477bd38144901f2053914",
+      "bytes": 11109
+    },
+    {
+      "path": "mythic-motion/ghost-7-strained-walk-reduced.jpg",
+      "sha256": "1054eecb828a477a7dacdcfdbe12b137365892d5030fa3455239369e844383e1",
+      "bytes": 11316
+    },
+    {
+      "path": "mythic-motion/ghost-7-tired-idle-normal.jpg",
+      "sha256": "d14874658d0d620a7c9a456bc6e863ed496d2de2ba17d17f5bb4de7c6ae5c52f",
+      "bytes": 10610
+    },
+    {
+      "path": "mythic-motion/ghost-7-tired-idle-reduced.jpg",
+      "sha256": "eab70ed8cae1baa9f7a62e9210395a050592de46198dadf583e2a6326cb8cf90",
+      "bytes": 10952
+    },
+    {
+      "path": "mythic-motion/ghost-7-tired-walk-normal.jpg",
+      "sha256": "eb9de4d8fb32fc8d1a3f78766f1c1f5c6090d1aee21540ccb9142d4e5169e094",
+      "bytes": 10703
+    },
+    {
+      "path": "mythic-motion/ghost-7-tired-walk-reduced.jpg",
+      "sha256": "5b77b5de47aa652211b6f1ce3490b3385ba8a9bb6a71486f9597e4cbff27da1d",
+      "bytes": 10948
+    },
+    {
+      "path": "mythic-motion/ghost-7-wantsPlay-idle-normal.jpg",
+      "sha256": "0443771d93c89f11ee12bfce1be182f0604eaf80e5d13290fa9534c2ae001a05",
+      "bytes": 11093
+    },
+    {
+      "path": "mythic-motion/ghost-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "9710b4ae97b3d55bce416b87fcfaa25ec460e2f91b6b835dad246716afcca801",
+      "bytes": 11429
+    },
+    {
+      "path": "mythic-motion/ghost-7-wantsPlay-walk-normal.jpg",
+      "sha256": "326ba50b1a51c68a4a26473f54e700f66d15572a4490f7a48be737bc1d3dec9a",
+      "bytes": 10904
+    },
+    {
+      "path": "mythic-motion/ghost-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "40092863a96ba4736f50660ab150b21d6396b737f2974f50f29f72030143b282",
+      "bytes": 11184
+    },
+    {
+      "path": "mythic-motion/ghost-8-dislike-idle-normal.jpg",
+      "sha256": "21f2bc1fa3e0267bd7b88e79bf4aebc51ecaf60eaf6415260a3411a1209268e1",
+      "bytes": 10204
+    },
+    {
+      "path": "mythic-motion/ghost-8-dislike-idle-reduced.jpg",
+      "sha256": "26267d60c36514808c0483fa7d5f6e08c4330812066b311f8c3c2a4715d0143c",
+      "bytes": 10365
+    },
+    {
+      "path": "mythic-motion/ghost-8-dislike-walk-normal.jpg",
+      "sha256": "fb2f39fdcff61b61a2e4c55f8f836e16848a92a2bf0a1422db79b91797e0c71d",
+      "bytes": 10339
+    },
+    {
+      "path": "mythic-motion/ghost-8-dislike-walk-reduced.jpg",
+      "sha256": "ea95fbf1e7b7d7f7e27d84e8beaccb812872b5c93281506887fab978bb09e540",
+      "bytes": 10579
+    },
+    {
+      "path": "mythic-motion/ghost-8-motion.jpg",
+      "sha256": "cf592ed3295a2a576223e9928a86b73d061da626c493035b067a02057510df4a",
+      "bytes": 436159
+    },
+    {
+      "path": "mythic-motion/ghost-8-normal-idle-normal.jpg",
+      "sha256": "8125a34b57847c06e91bc25e9968e59c7cf1fac0daff6da14af0c08c4365434b",
+      "bytes": 10238
+    },
+    {
+      "path": "mythic-motion/ghost-8-normal-idle-reduced.jpg",
+      "sha256": "c3bc14d6ba1a05dfbfbff4526b114daef4f4c4bdd4b4d48cb2351b8ecf5092b4",
+      "bytes": 10452
+    },
+    {
+      "path": "mythic-motion/ghost-8-normal-walk-normal.jpg",
+      "sha256": "f24304e0208a3ebb13339b19dda23ed4ed43473d967713e5e41b6a6dfc4915f7",
+      "bytes": 9867
+    },
+    {
+      "path": "mythic-motion/ghost-8-normal-walk-reduced.jpg",
+      "sha256": "4269e756fc566edad9561e82be0e19b48e82dfb2029445eeb3d2fc2f4c0b5a35",
+      "bytes": 10141
+    },
+    {
+      "path": "mythic-motion/ghost-8-positive-idle-normal.jpg",
+      "sha256": "2789a0175d8a923fbab955de6dcb53df35a94dafd864dc57220f51c6b7e78272",
+      "bytes": 9965
+    },
+    {
+      "path": "mythic-motion/ghost-8-positive-idle-reduced.jpg",
+      "sha256": "d8ee2501d89815898c78c68aba929201b7dad45fa6e0a107b5a800cf57085fee",
+      "bytes": 10162
+    },
+    {
+      "path": "mythic-motion/ghost-8-positive-walk-normal.jpg",
+      "sha256": "c657357cf4216d98b70b27b2aa903f19f925458a4c980097aef013fc8016c0b5",
+      "bytes": 9922
+    },
+    {
+      "path": "mythic-motion/ghost-8-positive-walk-reduced.jpg",
+      "sha256": "c33ea44bc0c2af5c4a3a7d725433019a7aed652d35dacc1d1e9bd802b39876ce",
+      "bytes": 10120
+    },
+    {
+      "path": "mythic-motion/ghost-8-sick-idle-normal.jpg",
+      "sha256": "0415cdf763d816d00908b6a14b14b833226c266cc896ed36b2cafc2d6add4b1a",
+      "bytes": 10186
+    },
+    {
+      "path": "mythic-motion/ghost-8-sick-idle-reduced.jpg",
+      "sha256": "ba67686357770a3cace25cdca818baf07b3a7982bbd684431822a85d3138103b",
+      "bytes": 10322
+    },
+    {
+      "path": "mythic-motion/ghost-8-sick-walk-normal.jpg",
+      "sha256": "57f2f9319832cc33d7cea91150ad59b2d4fa51ee14d47caf67db78dd7fc49e1a",
+      "bytes": 10017
+    },
+    {
+      "path": "mythic-motion/ghost-8-sick-walk-reduced.jpg",
+      "sha256": "1fbe09b541d8dbd4d7b8c41c27a9b7f8c405344cc0739dee7e03d0512fab55ff",
+      "bytes": 10201
+    },
+    {
+      "path": "mythic-motion/ghost-8-sleeping-idle-normal.jpg",
+      "sha256": "9edcb7d5fa27bbf87b869abd4f69c96339424a68a48382f4f36ef00447b50bb1",
+      "bytes": 10153
+    },
+    {
+      "path": "mythic-motion/ghost-8-sleeping-idle-reduced.jpg",
+      "sha256": "485e873a505c2d8bda7a59b376871905dffa82316c52508c7b684b237f72b70d",
+      "bytes": 10484
+    },
+    {
+      "path": "mythic-motion/ghost-8-sleeping-walk-normal.jpg",
+      "sha256": "1ce70ea502fa11d53e4667e570ef3f7f1c888a466387f300487f11cd26c1e9a6",
+      "bytes": 9866
+    },
+    {
+      "path": "mythic-motion/ghost-8-sleeping-walk-reduced.jpg",
+      "sha256": "335f2c68f3adca3735c9b0a93be33d23652224f894062be75a1d7af8607993aa",
+      "bytes": 10099
+    },
+    {
+      "path": "mythic-motion/ghost-8-strained-idle-normal.jpg",
+      "sha256": "cdbee97b9c5c0c2b6e21de9f9e16e0712eac5f1357201f1b8797154b212fef5d",
+      "bytes": 10273
+    },
+    {
+      "path": "mythic-motion/ghost-8-strained-idle-reduced.jpg",
+      "sha256": "6fccdcaa44f6fba837da85d5c437a2d515a2d1d3e8b891f68a0a13f46c8d8f64",
+      "bytes": 10604
+    },
+    {
+      "path": "mythic-motion/ghost-8-strained-walk-normal.jpg",
+      "sha256": "b3055a107c972361d3c0a375a2eae5cd8ddc28dd6190f150c69eac5c7c02cea2",
+      "bytes": 10358
+    },
+    {
+      "path": "mythic-motion/ghost-8-strained-walk-reduced.jpg",
+      "sha256": "d9df924bbbd08779a98d666e471a15209ec0a3a8b6838ab7c121bbb30fc58907",
+      "bytes": 10688
+    },
+    {
+      "path": "mythic-motion/ghost-8-tired-idle-normal.jpg",
+      "sha256": "33270b5e82d1ede2bbffdc1204ca8448f4fd2ee0f2f55f5e415774ea5b221e99",
+      "bytes": 10144
+    },
+    {
+      "path": "mythic-motion/ghost-8-tired-idle-reduced.jpg",
+      "sha256": "2c4b381639156307812d6fd8156e5cd7a5a437c7f18a1bf6e2cd592084594f5b",
+      "bytes": 10409
+    },
+    {
+      "path": "mythic-motion/ghost-8-tired-walk-normal.jpg",
+      "sha256": "623b2af7eee96c05ac8ad405509df4587a45e45cf117a9fba34a64a0953fb743",
+      "bytes": 9916
+    },
+    {
+      "path": "mythic-motion/ghost-8-tired-walk-reduced.jpg",
+      "sha256": "e26c8b51234817fcd0a23e6e50b154dbd15e0b8628d31e5d28afdbd08feaef64",
+      "bytes": 10267
+    },
+    {
+      "path": "mythic-motion/ghost-8-wantsPlay-idle-normal.jpg",
+      "sha256": "7b1f37a62262287adf0af927301557d41be6195e668b9117d7f256380c06cbed",
+      "bytes": 10135
+    },
+    {
+      "path": "mythic-motion/ghost-8-wantsPlay-idle-reduced.jpg",
+      "sha256": "800d627d9ab7f9960bf2550fe361ea5276af417917eb9a18e01b986268e37f78",
+      "bytes": 10299
+    },
+    {
+      "path": "mythic-motion/ghost-8-wantsPlay-walk-normal.jpg",
+      "sha256": "48c3129a0fbf441118ac9db88007a468b1869ae0b781888cad6e800365fabb40",
+      "bytes": 9799
+    },
+    {
+      "path": "mythic-motion/ghost-8-wantsPlay-walk-reduced.jpg",
+      "sha256": "3c737e1af3a7acfd70a9074d18b98d696b92fe790816c65bbf2474d5d1cc1e0f",
+      "bytes": 10116
+    },
+    {
+      "path": "mythic-motion/motion-evidence.json",
+      "sha256": "33759b4e79e867011f510b908b475c0ec2f1d81a0efc749bad1d019580beed88",
+      "bytes": 148928
+    },
+    {
+      "path": "mythic/evidence.json",
+      "sha256": "e6524a430c907a710dc3adf46f484ff843377b963a374d5e4a8744a3035faa54",
+      "bytes": 17145
+    },
+    {
+      "path": "mythic/ghost-1-34.jpg",
+      "sha256": "855eee498b33af9f03f3ba17a784abfb46c2e78e8bdc920c6fc3a50fb6a717db",
+      "bytes": 7200
+    },
+    {
+      "path": "mythic/ghost-1-back.jpg",
+      "sha256": "a24c904efa9b094313ddaad79a1e9c5c846466f998094d86fbbb4f23ab2755de",
+      "bytes": 6984
+    },
+    {
+      "path": "mythic/ghost-1-front.jpg",
+      "sha256": "2040f8280a28450c27b51e537cc2bfa262486c6bb7ac6bc7558c62a8231c7e96",
+      "bytes": 7520
+    },
+    {
+      "path": "mythic/ghost-1-side.jpg",
+      "sha256": "c18e713498fa1ba0a8ebbb2f58a000d53d4e72ebf698ae931dbcf333617f7952",
+      "bytes": 6537
+    },
+    {
+      "path": "mythic/ghost-2-34.jpg",
+      "sha256": "1d59eb447dd5b0f8efd8cbf7a1c2827792e376b21e5336a6cf7e8fc2beda07ae",
+      "bytes": 8106
+    },
+    {
+      "path": "mythic/ghost-2-back.jpg",
+      "sha256": "e81ee13b3cdf545364a5ada3f3c3908bc17919a3dbb950c64c617306f0dbebfe",
+      "bytes": 7511
+    },
+    {
+      "path": "mythic/ghost-2-front.jpg",
+      "sha256": "9ae2c3f872ebba4ff86112ba852af4ab1b5e37a3a4abf972b39f7494ac4b1032",
+      "bytes": 8736
+    },
+    {
+      "path": "mythic/ghost-2-side.jpg",
+      "sha256": "2b0bc67e8aa0f6eb5d726ce09ddb15135f85758ebbe8203708100579ed9695ca",
+      "bytes": 6899
+    },
+    {
+      "path": "mythic/ghost-3-34.jpg",
+      "sha256": "cb2b1f81c4f907ecc177f75df4d26556c97bcc16296ca8a6419417afd85ee269",
+      "bytes": 8627
+    },
+    {
+      "path": "mythic/ghost-3-back.jpg",
+      "sha256": "5d365c5d7fabfaf4b960bb12c55c2208e50b551642136614be543f849442f2ff",
+      "bytes": 7861
+    },
+    {
+      "path": "mythic/ghost-3-front.jpg",
+      "sha256": "1bc16ed52cdf1b7e319f7aadfc4e96143cde4868d4ed9f94ea9509ad76e23470",
+      "bytes": 9427
+    },
+    {
+      "path": "mythic/ghost-3-side.jpg",
+      "sha256": "e1b348ffce40f39b74a44117f3159114a13c773bfc58b6bd652b66956fd23cec",
+      "bytes": 7273
+    },
+    {
+      "path": "mythic/ghost-4-34.jpg",
+      "sha256": "ee0181bd315b990c6363e56602ec0e14ae5055ef205ee12669689878cb6b2702",
+      "bytes": 8707
+    },
+    {
+      "path": "mythic/ghost-4-back.jpg",
+      "sha256": "bbaa47d18e395116f421a40da488cb3d24ce5040183fbd70e3346b347ab309ed",
+      "bytes": 7930
+    },
+    {
+      "path": "mythic/ghost-4-front.jpg",
+      "sha256": "1704158ecdca4892fc9de5d56e5f70bd20c79c83080a9ca31f31ed67b6abb31c",
+      "bytes": 9524
+    },
+    {
+      "path": "mythic/ghost-4-side.jpg",
+      "sha256": "e8725b5d288845fb0061c29acd93b2041a7b7d9d9077b7e4c8b7a708bb8e6325",
+      "bytes": 7254
+    },
+    {
+      "path": "mythic/ghost-5-34.jpg",
+      "sha256": "064e93a7c5688b24c9083471f2763d434dbf5871fe7d0455eabd6e755e1273c4",
+      "bytes": 9632
+    },
+    {
+      "path": "mythic/ghost-5-back.jpg",
+      "sha256": "df65750f1bae95f273d4586446409b8f8f3b2ab70ccdc1a0a4f306814a8ceae9",
+      "bytes": 9625
+    },
+    {
+      "path": "mythic/ghost-5-front.jpg",
+      "sha256": "507e8925264f950303a6466aa9bb41da60bc25aa4c40cbcf24d398fb58ec7099",
+      "bytes": 10417
+    },
+    {
+      "path": "mythic/ghost-5-side.jpg",
+      "sha256": "f9cf91c19c55bee503fd7bb3f26d0c18321175e39bd7f234a2762f2d1f0c4585",
+      "bytes": 7289
+    },
+    {
+      "path": "mythic/ghost-6-34.jpg",
+      "sha256": "f00a5a1d031cc5e38ee5fb20078f5b800b98c3867940349e7a8225e3c3f71025",
+      "bytes": 9591
+    },
+    {
+      "path": "mythic/ghost-6-back.jpg",
+      "sha256": "c346b1d7ac5b1d364c7193ffabf1f0e65222850e43b5d50b7c0dc9d38d96770f",
+      "bytes": 9166
+    },
+    {
+      "path": "mythic/ghost-6-front.jpg",
+      "sha256": "45c4973cdd486e1ceeeca9ae72899c8fac02fa324f99857c6f7fc852907bb757",
+      "bytes": 10116
+    },
+    {
+      "path": "mythic/ghost-6-side.jpg",
+      "sha256": "98a9111f84812aa5f8b5c04ee2923bcfe18dd87eb913748a7767814958ebb1cf",
+      "bytes": 7435
+    },
+    {
+      "path": "mythic/ghost-7-34.jpg",
+      "sha256": "b15932ab362c4d1582e61c67cf4107e83644d707d63641a1c3ad8237511147e2",
+      "bytes": 10739
+    },
+    {
+      "path": "mythic/ghost-7-back.jpg",
+      "sha256": "3c00567327d9497c5b1ad9fb44b964d3951191accbf6803c74ee6419834507c0",
+      "bytes": 9934
+    },
+    {
+      "path": "mythic/ghost-7-front.jpg",
+      "sha256": "c0896498074f77d6d320f1931b2e8ada34e934f2c5b2248f3403b0fc287cac06",
+      "bytes": 11560
+    },
+    {
+      "path": "mythic/ghost-7-side.jpg",
+      "sha256": "51d7ed5eb82fbe3ce9da0c8059ebb10a2618fa60547576ee4fed5803284ad4e5",
+      "bytes": 8071
+    },
+    {
+      "path": "mythic/ghost-8-34.jpg",
+      "sha256": "8125a34b57847c06e91bc25e9968e59c7cf1fac0daff6da14af0c08c4365434b",
+      "bytes": 10238
+    },
+    {
+      "path": "mythic/ghost-8-back.jpg",
+      "sha256": "ae172c0a9161444a5b821121c7a1ec1ca8cb7ca03942fba04a83c093ac37e8a7",
+      "bytes": 9702
+    },
+    {
+      "path": "mythic/ghost-8-front.jpg",
+      "sha256": "c732fcd22ffa0df58a3814803330c70a774c55ce218a2bcff257a659b4884187",
+      "bytes": 10855
+    },
+    {
+      "path": "mythic/ghost-8-side.jpg",
+      "sha256": "acb031ae27147a6a7f6387f0b405b18f406bd291a6e8c9f7e06aea40c018dcc8",
+      "bytes": 7959
+    },
+    {
+      "path": "mythic/ghost-stages.jpg",
+      "sha256": "7033e20e6c2ad914e78658cea644e2d81cbeb0228f2b60032940a81f06a06d56",
+      "bytes": 372196
+    }
+  ]
+}

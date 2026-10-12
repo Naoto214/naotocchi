@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: scene timeout retains warmup on phase, expected and last actual composition/resources, and restoration
+ok 1 - scene timeout retains warmup on phase, expected and last actual composition/resources, and restoration
+  ---
+  duration_ms: 20.770188
+  type: 'test'
+  ...
+# Subtest: scene diagnostic path preserves strict hidden city cache and resource gates on completed cycles
+ok 2 - scene diagnostic path preserves strict hidden city cache and resource gates on completed cycles
+  ---
+  duration_ms: 6.480477
+  type: 'test'
+  ...
+# Subtest: failed scene raw result is written with failing verdict before original error propagates
+ok 3 - failed scene raw result is written with failing verdict before original error propagates
+  ---
+  duration_ms: 4.264266
+  type: 'test'
+  ...
+# Subtest: scene-only marker requires runtime marker, skips only production45 step and keeps scene and native metrics
+ok 4 - scene-only marker requires runtime marker, skips only production45 step and keeps scene and native metrics
+  ---
+  duration_ms: 0.581629
+  type: 'test'
+  ...
+# Subtest: held current view waits for deferred seven-to-eleven exact actors before freezing scene composition
+ok 5 - held current view waits for deferred seven-to-eleven exact actors before freezing scene composition
+  ---
+  duration_ms: 2.913304
+  type: 'test'
+  ...
+# Subtest: same count with substituted actor template cannot satisfy exact scene composition readiness
+ok 6 - same count with substituted actor template cannot satisfy exact scene composition readiness
+  ---
+  duration_ms: 5.45783
+  type: 'test'
+  ...
+# Subtest: natural city cache follows actual preserved show false and rejects visibility identity and growth defects
+ok 7 - natural city cache follows actual preserved show false and rejects visibility identity and growth defects
+  ---
+  duration_ms: 7.056647
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 142.185845

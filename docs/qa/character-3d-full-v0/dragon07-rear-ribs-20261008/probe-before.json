@@ -1,0 +1,95 @@
+{
+  "sourceCommit": "df26408db1a448eee4e6971981522d2b6a537961",
+  "samples": [
+    {
+      "finger": 0,
+      "t": 0.25,
+      "rearProjection": 0,
+      "frontProjection": 0.022551502687390812
+    },
+    {
+      "finger": 0,
+      "t": 0.5,
+      "rearProjection": 0,
+      "frontProjection": 0.025521405562817456
+    },
+    {
+      "finger": 0,
+      "t": 0.75,
+      "rearProjection": 0,
+      "frontProjection": 0.016378954182607597
+    },
+    {
+      "finger": 1,
+      "t": 0.25,
+      "rearProjection": 0,
+      "frontProjection": 0.02303965199168112
+    },
+    {
+      "finger": 1,
+      "t": 0.5,
+      "rearProjection": 0,
+      "frontProjection": 0.019015398336803102
+    },
+    {
+      "finger": 1,
+      "t": 0.75,
+      "rearProjection": 0,
+      "frontProjection": 0.01616839511467605
+    },
+    {
+      "finger": 2,
+      "t": 0.25,
+      "rearProjection": 0,
+      "frontProjection": 0.023222405546516667
+    },
+    {
+      "finger": 2,
+      "t": 0.5,
+      "rearProjection": 0,
+      "frontProjection": 0.02103066531828679
+    },
+    {
+      "finger": 2,
+      "t": 0.75,
+      "rearProjection": null,
+      "frontProjection": null
+    },
+    {
+      "finger": 3,
+      "t": 0.25,
+      "rearProjection": 0,
+      "frontProjection": 0.023873381048373554
+    },
+    {
+      "finger": 3,
+      "t": 0.5,
+      "rearProjection": 0,
+      "frontProjection": 0.021205794224090413
+    },
+    {
+      "finger": 3,
+      "t": 0.75,
+      "rearProjection": 0,
+      "frontProjection": 0.01541614310543471
+    },
+    {
+      "finger": 4,
+      "t": 0.25,
+      "rearProjection": 0,
+      "frontProjection": 0.02166804342338402
+    },
+    {
+      "finger": 4,
+      "t": 0.5,
+      "rearProjection": 0,
+      "frontProjection": 0.018113110756683204
+    },
+    {
+      "finger": 4,
+      "t": 0.75,
+      "rearProjection": 0,
+      "frontProjection": 0.015022053154456483
+    }
+  ]
+}

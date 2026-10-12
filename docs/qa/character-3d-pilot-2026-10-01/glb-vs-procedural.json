@@ -1,0 +1,221 @@
+{
+ "rows": [
+  {
+   "key": "dog:1",
+   "tris": 5418,
+   "proceduralBuildMs": 96.8,
+   "glbBytes": 212556,
+   "glbGzip": 58532,
+   "glbParseMs": 11.5
+  },
+  {
+   "key": "dog:4",
+   "tris": 5418,
+   "proceduralBuildMs": 59.4,
+   "glbBytes": 212884,
+   "glbGzip": 58689,
+   "glbParseMs": 6.2
+  },
+  {
+   "key": "dog:8",
+   "tris": 5634,
+   "proceduralBuildMs": 31.2,
+   "glbBytes": 220468,
+   "glbGzip": 62533,
+   "glbParseMs": 3.1
+  },
+  {
+   "key": "penguin:1",
+   "tris": 3996,
+   "proceduralBuildMs": 12.7,
+   "glbBytes": 162020,
+   "glbGzip": 49962,
+   "glbParseMs": 2.5
+  },
+  {
+   "key": "penguin:4",
+   "tris": 3996,
+   "proceduralBuildMs": 11,
+   "glbBytes": 161904,
+   "glbGzip": 50036,
+   "glbParseMs": 2.3
+  },
+  {
+   "key": "penguin:8",
+   "tris": 3848,
+   "proceduralBuildMs": 13.3,
+   "glbBytes": 158176,
+   "glbGzip": 44717,
+   "glbParseMs": 2.5
+  },
+  {
+   "key": "clownfish:1",
+   "tris": 3944,
+   "proceduralBuildMs": 29,
+   "glbBytes": 147688,
+   "glbGzip": 51025,
+   "glbParseMs": 4.5
+  },
+  {
+   "key": "clownfish:4",
+   "tris": 3944,
+   "proceduralBuildMs": 39.5,
+   "glbBytes": 147460,
+   "glbGzip": 51081,
+   "glbParseMs": 2.3
+  },
+  {
+   "key": "clownfish:8",
+   "tris": 3944,
+   "proceduralBuildMs": 7.3,
+   "glbBytes": 147384,
+   "glbGzip": 51183,
+   "glbParseMs": 3.2
+  },
+  {
+   "key": "man:1",
+   "tris": 5096,
+   "proceduralBuildMs": 16.6,
+   "glbBytes": 196360,
+   "glbGzip": 59128,
+   "glbParseMs": 13.9
+  },
+  {
+   "key": "man:4",
+   "tris": 5956,
+   "proceduralBuildMs": 17.2,
+   "glbBytes": 225592,
+   "glbGzip": 71880,
+   "glbParseMs": 2.3
+  },
+  {
+   "key": "man:8",
+   "tris": 5192,
+   "proceduralBuildMs": 20.7,
+   "glbBytes": 201168,
+   "glbGzip": 60818,
+   "glbParseMs": 2.5
+  },
+  {
+   "key": "butterfly:1",
+   "tris": 4492,
+   "proceduralBuildMs": 22,
+   "glbBytes": 180292,
+   "glbGzip": 54757,
+   "glbParseMs": 2
+  },
+  {
+   "key": "butterfly:4",
+   "tris": 4142,
+   "proceduralBuildMs": 29.4,
+   "glbBytes": 159896,
+   "glbGzip": 54154,
+   "glbParseMs": 2.2
+  },
+  {
+   "key": "butterfly:5",
+   "tris": 2752,
+   "proceduralBuildMs": 7.5,
+   "glbBytes": 110996,
+   "glbGzip": 34498,
+   "glbParseMs": 1.9
+  },
+  {
+   "key": "butterfly:8",
+   "tris": 5248,
+   "proceduralBuildMs": 21.5,
+   "glbBytes": 215124,
+   "glbGzip": 62316,
+   "glbParseMs": 2.8
+  },
+  {
+   "key": "dandelion:1",
+   "tris": 3864,
+   "proceduralBuildMs": 9.3,
+   "glbBytes": 167984,
+   "glbGzip": 48005,
+   "glbParseMs": 2.5
+  },
+  {
+   "key": "dandelion:4",
+   "tris": 4368,
+   "proceduralBuildMs": 8.8,
+   "glbBytes": 169372,
+   "glbGzip": 58313,
+   "glbParseMs": 7.2
+  },
+  {
+   "key": "dandelion:6",
+   "tris": 4326,
+   "proceduralBuildMs": 21.4,
+   "glbBytes": 173768,
+   "glbGzip": 56407,
+   "glbParseMs": 2
+  },
+  {
+   "key": "dandelion:8",
+   "tris": 3190,
+   "proceduralBuildMs": 48,
+   "glbBytes": 134892,
+   "glbGzip": 43453,
+   "glbParseMs": 2
+  },
+  {
+   "key": "mushroom:1",
+   "tris": 2880,
+   "proceduralBuildMs": 51.9,
+   "glbBytes": 126508,
+   "glbGzip": 30747,
+   "glbParseMs": 3.3
+  },
+  {
+   "key": "mushroom:4",
+   "tris": 3324,
+   "proceduralBuildMs": 18.7,
+   "glbBytes": 166956,
+   "glbGzip": 47577,
+   "glbParseMs": 2.2
+  },
+  {
+   "key": "mushroom:8",
+   "tris": 3748,
+   "proceduralBuildMs": 29.6,
+   "glbBytes": 182700,
+   "glbGzip": 53651,
+   "glbParseMs": 2.7
+  },
+  {
+   "key": "starfish:1",
+   "tris": 3084,
+   "proceduralBuildMs": 9,
+   "glbBytes": 122104,
+   "glbGzip": 38050,
+   "glbParseMs": 2
+  },
+  {
+   "key": "starfish:4",
+   "tris": 3212,
+   "proceduralBuildMs": 12,
+   "glbBytes": 124588,
+   "glbGzip": 42999,
+   "glbParseMs": 2.7
+  },
+  {
+   "key": "starfish:8",
+   "tris": 5208,
+   "proceduralBuildMs": 29.4,
+   "glbBytes": 215208,
+   "glbGzip": 61674,
+   "glbParseMs": 2.2
+  }
+ ],
+ "totals": {
+  "templates": 26,
+  "glbBytes": 4444048,
+  "glbGzip": 1356185,
+  "proceduralCodeBytes": 131709,
+  "proceduralCodeGzip": 44334,
+  "avgBuildMs": 25.9,
+  "avgGlbParseMs": 3.6
+ }
+}
