@@ -43,9 +43,9 @@ Files: new tools/proxy_population_source_responsibilities.py and test counterpar
 
 Interface: require_actual(record) returns a current107 responsibility join, consuming the already fresh trace audit. The source map must exactly cover all41 catalog cards, primary mechanism and additional hand/typed roles. Native-excluded public rows are assigned to their own source responsibility, never discarded. Source-root physical/invariant and resolution/nonresolution partitions remain required. No new collector, executor or card rule.
 
-- [ ] Test omitted/misclassified source, wrong additional responsibility, missing fresh boundary evidence and changed pinned source rejection.
-- [ ] Implement source-bound responsibility and actual boundary joins.
-- [ ] Run focused source/trace/initial/trigger regressions; independent review and save.
+- [x] Test omitted/misclassified source, wrong additional responsibility, missing fresh boundary evidence and changed pinned source rejection.
+- [x] Implement source-bound responsibility and actual boundary joins.
+- [x] Run focused source/trace/initial/trigger regressions; independent review and save (source-responsibility-review.md).
 
 ## Task3: Join current permitted inputs and comparison evidence
 

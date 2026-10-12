@@ -1054,3 +1054,8 @@ P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒
 ### 2026-10-12 挑戦境界の開始時否定
 
 667232bから、65固定のchallenge_declared/challenge_comparedを既存C-chicken/I-bowtie非開始根拠へ結合。関連23PASS11.965s/exit0、Python1084一致、独立read-only C0/I0/Minor0。古い4sourcefixtureのtiming起点不足は正しく拒否する期待へ訂正し、監査は弱めない。verification/challenge-start-negative-review.md。全turn再実行は未実施で、次の共通責務接続後にまとめる。P09/P10/P14–18へ継続。preflight-ready=false、生成/固定/400戦0。実行中試験なし。
+
+
+### 2026-10-12 P09 source責務の共通入口結合
+
+9238831から41source固定表・native外担当・追加hand/typedと全実境界を既存traceへ結合。独立read-only C0/I1/Minor0のP-cat_ceo正常否定誤拒否を1RED→修正。最終18PASS77.924s/exit0、Python1086前後一致。verification/source-responsibility-review.mdと同final原本。P09担当joinは済、保存proof認証/全情報/適格性へ昇格しない。全turnの最終再検証は共通bundle後にまとめる。次はP10各判断の許可read/選択証拠とP14–18共通gate。preflight-ready=false、生成/固定/400戦0。実行中試験なし。

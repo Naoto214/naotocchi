@@ -1,0 +1,11 @@
+# P09 current107 source責務の実trace結合
+
+基準923883123678fe174e2a8815b56a7dc6dddec766。既存41source対応表をSHA固定し、native11/start2/latched4/activated3/passive4/replacement2/quick15と追加hand/typed10を照合。初期と全eventの公開source母数を実slotへ照合し、native外も担当routeへ割当てる。既存trace・物理不変条件・全typed遷移監査の件数/順序/厳密bool/前後hashを結合する。collector/resolverは再実装しない。
+
+実入口18stepはM02のnative外行を含む。scope欠落、catalog変更、別境界、outside欠落/偽identity、typed監査欠落/別境界、false gateを拒否。初回RED2FAIL（module未実装）、初回GREENのnative card_id形式不一致、GREEN2の10stepにはoutsideがないfixture誤りを区別して保存。GREEN3は10PASS77.506s。
+
+独立read-onlyレビュー1回: Critical0/Important1/Minor0、試験なし。P-cat_ceo早期否定では外側proofにsource_referenceがなく、正常scanをKeyErrorで拒否する指摘。実relationship_progressの否定scanを1REDとして再現し、全nativeが持つfresh current_predicate_auditのsource_referenceへ結合した。conditional fixtureのtracejoinだけをmockし、実全履歴証明とはしない。偽referenceも拒否する。
+
+最終source-responsibility-final: **18PASS、77.924s、exit0、Python1086ファイル前後指紋一致**。実Ran/OKの全logとfingerprintsを併置。レビュー後再レビューなし。既存全proxy回帰・全turn完走とは報告しない。
+
+新出力はcurrent107のfresh責務結合のみ。保存proof認証、未来全実行、全情報利用、選択根拠、入力由来、適格性へ昇格しない。P09共通入口の担当結合は済、P10とP14–18および最終固定全turn検証へ継続。preflight-ready=false、生成/固定/400戦0、policy promotion=false、独立balance標本0。
