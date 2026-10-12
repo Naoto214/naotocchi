@@ -83,3 +83,8 @@ P10の残件を「全read未証明」の一語で再開しない。実adapter群
 ## 2026-10-12 初回たまご交換の読取表訂正
 
 466 reconstruct_openingはegg_exchange_bottomへ返却札source_instance_idを実際に保存する。実初期入口13stepの相手通常inventoryへ残る2REDを確認し、現行scopeで相手向けだけ除去した。02の非公開に従いrawと本人記憶は保持。egg-private-history-review.md、最終21PASS/独立5PASS。旧producerだけの調査を全初期入口へ一般化した上表の旧記述を訂正する。全event/全情報の証明ではない。
+
+
+### P10 実通常履歴の許可field独立照合（2026-10-12）
+
+4cc8be2から共有projectorが秘密由来hashを再投影でも保持する実入口1REDを修正。producerを呼ばず許可field/本人記憶/公開reveal/準備表裏から投影を別照合し、normal stepとtraceへentry/actor/count/raw-prefix/projected hashを結合。独立review C0/I1/Minor0のraw履歴binding-field正規化を修正、再reviewなし。最終19PASS63.921s/exit0、Python1079前後一致。allowed-history-review.md/summary.json/verification.logが最終証拠。初期fixture誤り・無効並行probe・修正前review ERRORは区別して保存。全情報利用/履歴起点/operand証明へ昇格せず、preflight-ready=false、生成/固定/400戦0。次はP09 source閉包/P11残operand/P14–18共通合成。

@@ -1280,3 +1280,8 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P09/P11 初期typed runtimeの実起点（2026-10-12）
 
 0613e34から、payments.upgradeへ未解決の正しい形の軽減2行を挿入しても実初期入口が通る1REDを修正。初期監査済み最終envelopeからv2識別子+空typed3領域以外の変更を認めず、producerを呼ばず全envelopeを照合。connected fresh必須gateとtrace10root/両端hashへ接続。最終23PASS72.000s・Python1077前後一致、独立2PASS7.071s/C0I0M0。initial-runtime-root-*。全起点/全機会へ昇格せずpreflight-ready=false、生成/固定/400戦0。次は実選択へ渡す公開履歴の許可項目照合、P09 source閉包/P11/P14–18の共通合成。
+
+
+### P10 実通常履歴の許可field独立照合（2026-10-12）
+
+4cc8be2から共有projectorが秘密由来hashを再投影でも保持する実入口1REDを修正。producerを呼ばず許可field/本人記憶/公開reveal/準備表裏から投影を別照合し、normal stepとtraceへentry/actor/count/raw-prefix/projected hashを結合。独立review C0/I1/Minor0のraw履歴binding-field正規化を修正、再reviewなし。最終19PASS63.921s/exit0、Python1079前後一致。allowed-history-review.md/summary.json/verification.logが最終証拠。初期fixture誤り・無効並行probe・修正前review ERRORは区別して保存。全情報利用/履歴起点/operand証明へ昇格せず、preflight-ready=false、生成/固定/400戦0。次はP09 source閉包/P11残operand/P14–18共通合成。

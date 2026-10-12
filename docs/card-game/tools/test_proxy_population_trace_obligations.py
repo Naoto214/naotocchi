@@ -76,6 +76,9 @@ class TraceObligationsTests(unittest.TestCase):
   for field in ('opening_envelope_sha256','runtime_envelope_sha256'):
    changed=copy.deepcopy(record);changed['initial_runtime_root_audit'][field]='0'*64
    with self.subTest(runtime_root=field),self.assertRaisesRegex(ValueError,'trace obligations'):require_actual_trace(changed)
+  for field,value in (('allowed_history_projection_verified',1),('entry_envelope_sha256','0'*64),('projected_history_sha256','0'*64),('raw_history_sha256','0'*64),('actor','unknown'),('event_count',-1)):
+   changed=copy.deepcopy(record);normal=next(s for s in changed['runtime']['steps'] if s.get('normal_allowed_history'));normal['normal_allowed_history'][field]=value
+   with self.subTest(normal_history=field),self.assertRaisesRegex(ValueError,'trace obligations'):require_actual_trace(changed)
   for mode in ('omit_timing','duplicate_timing','reorder_timing','timing_hash','hand_hash','catalog','scope','bool_flag','count','pending','coverage','ordinary_binding','source_inventory','expansion','automatic_handoff'):
    changed=copy.deepcopy(record);runtime=changed['runtime'];coverage=runtime['supported_trigger_coverage'];rows=coverage['timing_occurrence_audits'];row=rows[0]
    if mode=='omit_timing':rows.pop()

@@ -37,6 +37,7 @@ import proxy_population_response_composition as response_composition
 import proxy_population_payment_operands as payment_operands
 import proxy_population_response_operands as response_operands
 import proxy_population_departure_order as departure_order
+import proxy_population_history_projection as history_projection
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -52,6 +53,9 @@ def contract_scope():
    decision=result['decision']
    if decision is not None:
     if decision.get('context',{}).get('decision_kind')=='normal_action':
+     history_proof=history_projection.audit(result['source_envelope'],events,runtime_history,decision['inventory'])
+     if history_proof['allowed_history_projection_verified'] is not True:raise ValueError('normal allowed history differs: '+str(history_proof['errors']))
+     result['normal_allowed_history']=history_proof
      coverage=source_inventory.audit_normal(result['source_envelope'],decision['inventory'])
      expansion=candidate_expansions.audit_normal(result['source_envelope'],decision['inventory'])
      if expansion['errors']:raise ValueError('normal candidate expansions differ: '+str(expansion['errors']))

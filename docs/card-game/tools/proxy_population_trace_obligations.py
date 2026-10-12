@@ -109,6 +109,15 @@ def require_actual_trace(record):
    response=decision.get('decision_kind')=='response_action'
    if normal==response:raise ValueError('trace obligations ordinary decision kind differs')
    kind='ordinary_normal_count' if normal else 'ordinary_response_count'
+   if normal:
+    history=require(step.get('normal_allowed_history'),'current_normal_allowed_history.v1','allowed_history_projection_verified')
+    same(history['entry_envelope_sha256'],state.canonical_sha256(before),'normal history boundary')
+    same(history['projected_history_sha256'],state.canonical_sha256(decision['inventory']['public_history']),'normal history projection')
+    same(history['actor'],decision['context']['actor'],'normal history actor')
+    same(history['event_count'],len(decision['inventory']['public_history']),'normal history count')
+    # Runtime supplies raw history without its three transition-binding fields.
+    prefix=[{k:v for k,v in e.items() if k not in ('execution_contract_id','envelope_before_sha256','envelope_after_sha256')} for e in record['opening']['events']+runtime['events'] if e['seq']<=seq]
+    same(history['raw_history_sha256'],state.canonical_sha256(prefix),'normal actual history prefix')
    proof=require(step.get('ordinary_entry_binding'),'ordinary_entry_transition_binding.v1','entry_and_transition_binding_verified')
    same(proof['identity']['entry_envelope_sha256'],state.canonical_sha256(before),'ordinary boundary')
    same(proof['identity']['decision_sha256'],state.canonical_sha256(decision),'ordinary decision')

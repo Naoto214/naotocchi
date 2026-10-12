@@ -53,6 +53,8 @@
 
 - 2026-10-12: 初期upgradeへの未生成軽減挿入1REDを修正。初期最終→v2/空typed3領域の完全境界、trace10root/両端hash結合。initial-runtime-root-*、23PASS72.000s/Python1077前後一致、独立2PASS/C0I0M0。次は実選択へ渡す公開履歴の許可項目照合と共通gate。
 
+- 2026-10-12: 共有公開履歴投影の秘密hash混入1REDを独立許可field照合で拒否。normal実入口/traceへ結合、allowed-history-*、19PASS63.921s・Python1079前後一致。review I1のraw履歴3binding-field正規化修正済み、再reviewなし。全情報/起点/operandは未証明。次はP09/P11/P14–18共通合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
