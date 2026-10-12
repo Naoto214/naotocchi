@@ -14768,9 +14768,10 @@
     };
     if (meguru3dSettled) begin();
     else {
-      el.meguruOverlay.innerHTML = '<div role="status" aria-live="polite" style="padding:24px;text-align:center">箱庭を よみこんでいます…<br><small>時間がかかるときは 2Dで はじめます</small></div>';
+      el.meguruOverlay.innerHTML = '<div role="status" aria-live="polite" style="margin:28vh 16px 12px;padding:24px;text-align:center;background:rgba(255,255,255,.96);color:#26352c;border-radius:16px">箱庭を よみこんでいます…<br><small>時間がかかるときは 2Dで はじめます</small></div>';
       const cancel = document.createElement('button');
-      cancel.type = 'button'; cancel.textContent = 'もどる'; cancel.onclick = stopMeguru;
+      cancel.type = 'button'; cancel.className = 'mg-tap-btn'; cancel.textContent = 'もどる'; cancel.onclick = stopMeguru;
+      Object.assign(cancel.style, { display: 'block', margin: '12px auto' });
       el.meguruOverlay.appendChild(cancel);
       render(); // Commit closed menus now, so the loading/cancel UI is reachable.
       meguruStartTimer = setTimeout(() => {

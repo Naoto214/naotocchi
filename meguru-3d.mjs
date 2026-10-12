@@ -185,7 +185,7 @@ function createHybridRenderer(M, o, opts) {
       if (opts.perf) perfText(now);
     },
     resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; r2d.resize(n); if (r3d) { try { r3d.resize({ ctx, W, H }); } catch (err) { fail(err); } } },
-    destroy() { try { if (r3d) r3d.destroy(); } catch (err) { fail(err); } finally { r3d = null; setActive(false); r2d.destroy(); } },
+    destroy() { const old = r3d; r3d = null; try { if (old) old.destroy(); } catch (err) { fail(err); } finally { setActive(false); r2d.destroy(); } },
     setAnimLevel(v) { animLv = v; if (r2d.setAnimLevel) r2d.setAnimLevel(v); if (r3d) r3d.setAnimLevel(v); },
     setDistant(v) { if (r2d.setDistant) r2d.setDistant(v); },
     project: (x, z) => (r2d.project ? r2d.project(x, z) : null),

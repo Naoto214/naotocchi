@@ -5,7 +5,7 @@ const src=fs.readFileSync(require('node:path').join(__dirname,'../meguru-3d.mjs'
 const start=src.indexOf('function createHybridRenderer('),end=src.indexOf('\n// すかす 物を',start);
 function setup(opts={}){
   const calls={canvas:0,gl:0,diag:[],anim:[],show:[],destroy:0,create:0};
-  const gl={draw(){calls.gl++;if(opts.throwDraw)throw Error('lost');},setDiag(v){calls.diag.push(v);},setAnimLevel(v){calls.anim.push(v);},setOccluderFade(){},setAdaptiveDpr(){},show(v){calls.show.push(v);},destroy(){calls.destroy++;}};
+  const gl={draw(){calls.gl++;if(opts.throwDraw)throw Error('lost');},setDiag(v){calls.diag.push(v);},setAnimLevel(v){calls.anim.push(v);},setOccluderFade(){},setAdaptiveDpr(){},show(v){calls.show.push(v);},destroy(){calls.destroy++;if(opts.throwDestroy)throw Error('dispose');}};
   const M={WORLD3D_REGIONS:new Set(['forest','city']),createCanvasRenderer(){return {draw(){calls.canvas++;},setAnimLevel(){},destroy(){}};}};
   const context={create3DRenderer(){calls.create++;return gl;},Error};vm.createContext(context);
   vm.runInContext(src.slice(start,end)+'\nthis.build=createHybridRenderer;',context);
@@ -53,3 +53,5 @@ test('shader link failure is fatal and releases the partially initialized render
  const c={THREE:{WebGLRenderer:GPU},Error};vm.createContext(c);vm.runInContext(src.slice(a,b).replaceAll('import.meta.url',JSON.stringify('file:///meguru-3d.mjs'))+'\nthis.create=create3DRenderer;',c);
  assert.throws(()=>c.create({}, {canvas},()=>{}),/WebGL shader program failed/);assert.equal(disposed,true);assert.equal(attached,false);
 });
+
+test('failed destroy is not called twice on the same GPU renderer',()=>{const {renderer:r,calls:c}=setup({throwDestroy:true});r.draw({world:{regionId:'forest',world3d:true}},0);assert.doesNotThrow(()=>r.destroy());assert.equal(c.destroy,1);assert.equal(r.is3D,false);});

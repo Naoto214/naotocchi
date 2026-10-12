@@ -62,11 +62,12 @@ async function run(out){
       if(mode==='context-loss'){
        const canvas=document.querySelector('.meguru-3d-canvas');
        // Real browser WEBGL_lose_context, with event-boundary snapshots around production listener.
-       canvas.addEventListener('webglcontextlost',()=>{globalThis.__contextAfter=true;});r.renderer.loseContext();
+       canvas.addEventListener('webglcontextlost',()=>{globalThis.__contextBefore=snap();},{capture:true});
+       canvas.addEventListener('webglcontextlost',()=>{globalThis.__contextUnchanged=__contextBefore===snap();globalThis.__contextAfter=true;});r.renderer.loseContext();
       }
       return {synchronousSaveAndActorsUnchanged:before===snap()};
      },mode);
-     if(mode==='context-loss')await p.waitForFunction(()=>globalThis.__contextAfter);
+     if(mode==='context-loss'){await p.waitForFunction(()=>globalThis.__contextAfter);assert.equal(await p.evaluate(()=>__contextUnchanged),true,'context event preserves state, save, actors and coordinates');}
      await p.waitForFunction(()=>__meguruRun.renderer.failed&&!__meguruRun.renderer.is3D);
      const same=await p.evaluate(()=>{const b=__beforeFailure,r=__meguruRun;return b.r===r&&b.sim===r.sim&&b.world===r.world&&b.party===r.party&&b.player===r.sim.player&&b.obstacles===r.world.obstacles;});
      assert.equal(same,true,'same simulation, world, player, party and collision array');assert.equal(proof.synchronousSaveAndActorsUnchanged,true);
