@@ -13,7 +13,29 @@ const TAU = Math.PI * 2;
 const approach = (v, to, d) => (v < to ? Math.min(to, v + d) : Math.max(to, v - d));
 const lerp = (a, b, t) => a + (b - a) * t;
 export const REACTION_MS = { hop: 700, huff: 800, yawn: 1400, wobble: 1100 };
-export const GAIT_HZ = { quadWalk: 2.1, waddle: 2.4, swimHover: 1.6, humanWalk: 1.9, crawl: 1.5, inchCrawl: 1.3, hangSway: 0.6, hopSway: 1.8, flutter: 1.0, plantSway: 1.6, squashHop: 1.7, clusterBob: 1.6, radialShuffle: 1.7, blobFloat: 1.2 };
+export const GAIT_HZ = { quadWalk: 2.1, waddle: 2.4, swimHover: 1.6, humanWalk: 1.9, crawl: 1.5, inchCrawl: 1.3, hangSway: 0.6, hopSway: 1.8, flutter: 1.0, plantSway: 1.6, squashHop: 1.7, clusterBob: 1.6, radialShuffle: 1.7, blobFloat: 1.2, insectWalk: 2.2 };
+
+// Grafted fish reuse the owning actor's gait phase; only their appendages move.
+// No extra actor state, root hover, emotion vocabulary or gameplay events.
+function swimAppendages(B,s,m,k,prefix='',offset=0){
+  const ph=s.phase*TAU+offset,tail=B[prefix+'tail'],left=B[prefix+'finL'],right=B[prefix+'finR'];
+  if(tail)tail.rotation.y+=Math.sin(ph+.9)*(.3+.25*m)*Math.max(k.amp,.4);
+  if(left&&right){left.rotation.y+=Math.sin(s.t*7+offset)*.35*Math.max(k.idle,.3);right.rotation.y-=Math.sin(s.t*7+offset)*.35*Math.max(k.idle,.3);}
+}
+
+// Soft composite parts pulse from their owner's time/phase, without a second root float.
+function celestialAppendages(B,s,m,k,meta){
+if(meta.celestialWings)for(const name of meta.celestialWings){const side=name.endsWith('L')?-1:1;B[name].rotation.y+=side*Math.sin(s.t*2.1)*(.055*k.idle+.08*m*k.amp);}
+}
+
+function blobPulse(body,s,m,k){
+  const q=1+Math.sin(s.t*2)*.035*k.idle;body.scale.set(1/Math.sqrt(q),q,1/Math.sqrt(q));
+  body.rotation.z+=Math.sin(s.phase*TAU)*.08*m;
+}
+
+function clusterPulse(B,s,k,units,prefix=''){
+  for(let i=0;i<units;i++){const b=B[prefix+'u'+i];b.position.y+=Math.sin(s.t*2+i*1.3)*.035*k.idle;b.rotation.z+=Math.sin(s.t*1.3+i)*.07*k.idle;}
+}
 
 export function createAnimState(seed = 0) {
   return { t: (seed % 97) * 0.37, phase: 0, move: 0, blinkIn: 1.5 + (seed % 7) * 0.4, blinkT: -1, reaction: null, emotion: null, expr: SPEC.expressionParams('normal') };
@@ -36,14 +58,29 @@ function restore(bones) {
 
 // ---------------- base locomotion
 const LOCO = {
+  insectWalk(B,s,m,k) {
+    const ph=s.phase*TAU;
+    for(let i=0;i<6;i++) {
+      // Opposite front/rear and the intervening middle leg form each tripod.
+      const phase=ph+([0,Math.PI,Math.PI,0,0,Math.PI][i]);
+      B['leg'+i].rotation.y+=Math.sin(phase)*.24*m*k.amp;
+      B['leg'+i].rotation.z+=(i%2?1:-1)*Math.max(0,Math.cos(phase))*.12*m*k.amp;
+    }
+    for(let i=0;i<4;i++)if(B['wing'+i])B['wing'+i].rotation.y+=Math.sin(s.t*9+i*.3)*.08*m*k.amp;
+    B.body.position.y+=Math.abs(Math.sin(ph))*.012*m*k.amp;
+    B.head.rotation.y+=Math.sin(s.t*1.5)*.025*k.idle;
+  },
   quadWalk(B, s, m, k, meta) {
     const ph = s.phase * TAU, sw = 0.6 * m * k.amp;
     if (B.legFL) { B.legFL.rotation.x += Math.sin(ph) * sw; B.legBR.rotation.x += Math.sin(ph) * sw; B.legFR.rotation.x += Math.sin(ph + Math.PI) * sw; B.legBL.rotation.x += Math.sin(ph + Math.PI) * sw; }
     B.body.position.y += Math.abs(Math.sin(ph)) * 0.03 * m * k.amp;
     B.head.rotation.x += Math.sin(ph * 2) * 0.04 * m * k.amp;
     if (B.tail) B.tail.rotation.y += Math.sin(s.t * (5 + 6 * s.expr.body.bounce)) * (0.25 + 0.45 * s.expr.body.bounce) * k.idle + Math.sin(ph) * 0.2 * m * k.amp;
+    if(meta.membraneWings){const flap=Math.sin(s.t*2.3)*(.055*k.idle+.08*m*k.amp);B.wingL.rotation.y-=flap;B.wingR.rotation.y+=flap;}
     // idle の 姿勢(ふせ / おすわり)。あるくと 立つ
     const w = 1 - m, pose = meta.idlePose;
+    const lifted = meta.poseProfile?.pawLift;
+    if (lifted && B[lifted]) B[lifted].rotation.x += (meta.poseProfile.pawLiftAngle ?? -1) * w;
     if (pose === 'recline' && w > 0) {
       const p=meta.poseProfile;
       B.body.position.y=lerp(B.body.position.y,meta.bodyR*.89,w);
@@ -56,6 +93,12 @@ const LOCO = {
       for (const n of ['legFL', 'legFR']) B[n].rotation.x += -1.38 * w;
       for (const n of ['legBL', 'legBR']) B[n].rotation.x += -1.25 * w;
       B.head.position.y -= meta.bodyR * 0.25 * w; B.head.rotation.x += 0.18 * w;
+    } else if (pose === 'stretchPlay' && w > 0) {
+      const stretch=(meta.poseProfile?.stretch ?? 1)*w;
+      B.body.position.y -= meta.bodyR*.12*w;
+      B.legFL.rotation.x -= 1.10*stretch; B.legFR.rotation.x -= 1.30*stretch;
+      B.legBL.rotation.x += .72*stretch; B.legBR.rotation.x += 1.10*stretch;
+      B.head.rotation.x -= .08*w;
     } else if (pose === 'playBow' && w > 0) {
       const bw=w*w*w, bow=(meta.poseProfile?.bow || .55)*bw, pr=meta.pawR, L=meta.legTop;
       B.body.rotation.x += bow;
@@ -86,19 +129,30 @@ const LOCO = {
     if (B.footL) { B.footL.position.z += Math.sin(ph) * 0.07 * m * k.amp; B.footL.position.y += Math.max(0, Math.sin(ph)) * 0.04 * m * k.amp; B.footR.position.z -= Math.sin(ph) * 0.07 * m * k.amp; B.footR.position.y += Math.max(0, -Math.sin(ph)) * 0.04 * m * k.amp; }
     const flap = s.expr.body.bounce * Math.abs(Math.sin(s.t * 9)) * 0.7 * k.idle + Math.abs(Math.sin(ph)) * 0.18 * m;
     if (B.wingL) { B.wingL.rotation.z -= flap; B.wingR.rotation.z += flap; }
+    if(meta.featherTail)B.tail.rotation.y+=Math.sin(s.t*2.1)*.08*k.idle+Math.sin(ph)*.10*m*k.amp;
     if (meta.idlePose === 'sit') B.body.position.y -= 0.02 * (1 - m);
   },
   swimHover(B, s, m, k, meta, R) {
     R.position.y += meta.hover + Math.sin(s.t * 2.1) * 0.035 * k.idle;
     const ph = s.phase * TAU;
     B.body.rotation.y += Math.sin(ph) * (0.06 + 0.06 * m) * k.amp;
-    if (B.tail) B.tail.rotation.y += Math.sin(ph + 0.9) * (0.3 + 0.25 * m) * Math.max(k.amp, 0.4);
-    if (B.finL) { B.finL.rotation.y += Math.sin(s.t * 7) * 0.35 * Math.max(k.idle, 0.3); B.finR.rotation.y -= Math.sin(s.t * 7) * 0.35 * Math.max(k.idle, 0.3); }
+    swimAppendages(B,s,m,k);
+    if(meta.swimSubrigs)for(const sub of meta.swimSubrigs)swimAppendages(B,s,m,k,sub.prefix,sub.phase);
   },
   humanWalk(B, s, m, k, meta) {
+    celestialAppendages(B,s,m,k,meta);
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;
+    if(meta.poseProfile?.armSpread){const a=meta.poseProfile.armSpread*(1-m);B.armL.rotation.z-=a*(meta.poseProfile.armSpreadSides?.[0]??1);B.armR.rotation.z+=a*(meta.poseProfile.armSpreadSides?.[1]??1);}
+    if(meta.poseProfile?.seated){
+      const rest=1-m;B.body.position.y=lerp(B.body.position.y,meta.sittingHip,rest);
+      B.legL.rotation.x-=1.4*rest;B.legR.rotation.x-=1.4*rest;B.kneeL.rotation.x+=1.4*rest;B.kneeR.rotation.x+=1.4*rest;
+      if(B.skirt)B.skirt.scale.multiplyScalar(Math.max(.001,m));
+      if(B.seatedSkirt)B.seatedSkirt.scale.multiplyScalar(Math.max(.001,rest));
+      if(B.chair)B.chair.scale.multiplyScalar(Math.max(.001,rest));
+    }
+    if(meta.poseProfile?.stride){B.legL.rotation.x+=meta.poseProfile.stride[0]*(1-m);B.legR.rotation.x+=meta.poseProfile.stride[1]*(1-m);}
     B.legL.rotation.x += Math.sin(ph) * sw; B.legR.rotation.x -= Math.sin(ph) * sw;
-    if(meta.hold !== 'backpack')B.armL.rotation.x -= Math.sin(ph)*sw*.8; if(meta.hold !== 'cane')B.armR.rotation.x += Math.sin(ph)*sw*.8;
+    if(meta.hold !== 'backpack' && meta.hold !== 'shoulderBag' && meta.hold !== 'heldPet')B.armL.rotation.x -= Math.sin(ph)*sw*.8; if(meta.hold !== 'cane' && meta.hold !== 'heldPet')B.armR.rotation.x += Math.sin(ph)*sw*.8;
     B.body.position.y += Math.abs(Math.sin(ph)) * 0.025 * m * k.amp;
     B.body.scale.y *= 1 + Math.sin(s.t * 2.2) * 0.008 * k.idle;
     if (meta.stoop) { B.body.rotation.x += meta.stoop; B.head.rotation.x -= meta.stoop * 0.7; }
@@ -111,8 +165,9 @@ const LOCO = {
     B.armL.rotation.x += -1.12 + Math.sin(ph) * 0.35 * m * k.amp; B.armR.rotation.x += -1.12 - Math.sin(ph) * 0.35 * m * k.amp;
     B.legL.rotation.x += 0.42 - Math.sin(ph) * 0.25 * m * k.amp; B.legR.rotation.x += 0.42 + Math.sin(ph) * 0.25 * m * k.amp;
   },
-  inchCrawl(B, s, m, k, meta) {
+  inchCrawl(B, s, m, k, meta, R) {
     const ph = s.phase * TAU;
+    if(meta.curveLocked){R.rotation.z+=Math.sin(ph)*.035*m*k.amp+Math.sin(s.t*1.3)*.008*k.idle;R.position.y+=Math.abs(Math.sin(ph))*.02*m*k.amp;return;}
     // しゃくとり: うしろ → まえ へ もちあがりが はしる + 体が のびちぢみ
     for (let i = 0; i < meta.segs; i++) { const b = B['seg' + i]; b.position.y += Math.max(0, Math.sin(ph - i * 1.4)) * 0.08 * m * k.amp; b.position.z += Math.sin(ph - i * 1.4) * 0.03 * m * k.amp; b.scale.y *= 1 + Math.sin(s.t * 2 + i * 0.6) * 0.03 * k.idle; }
     B.head.position.y += Math.max(0, Math.sin(ph - meta.segs * 1.4)) * 0.05 * m * k.amp + Math.sin(s.t * 1.6) * 0.02 * k.idle;
@@ -152,7 +207,7 @@ const LOCO = {
   },
   clusterBob(B, s, m, k, meta, R) {
     R.position.y += meta.hover + Math.abs(Math.sin(s.phase * TAU)) * 0.08 * m * k.amp;
-    for (let i = 0; i < meta.units; i++) { const b = B['u' + i]; b.position.y += Math.sin(s.t * 2 + i * 1.3) * 0.035 * k.idle; b.rotation.z += Math.sin(s.t * 1.3 + i) * 0.07 * k.idle; }
+    clusterPulse(B,s,k,meta.units);
   },
   radialShuffle(B, s, m, k, meta, R) {
     const ph = s.phase * TAU;
@@ -160,9 +215,9 @@ const LOCO = {
     R.position.y += Math.abs(Math.sin(ph)) * 0.05 * m * k.amp;
   },
   blobFloat(B, s, m, k, meta, R) {
+    celestialAppendages(B,s,m,k,meta);
     R.position.y += meta.hover + Math.sin(s.t * 2) * 0.05 * Math.max(k.idle, 0.3);
-    const q = 1 + Math.sin(s.t * 2) * 0.035 * k.idle; B.body.scale.set(1 / Math.sqrt(q), q, 1 / Math.sqrt(q));
-    B.body.rotation.z += Math.sin(s.phase * TAU) * 0.08 * m;
+    blobPulse(B.body,s,m,k);
   },
 };
 
@@ -178,6 +233,13 @@ export function animate(inst, input) {
   s.phase += dt * (GAIT_HZ[inst.locomotion] || 1.5) * (0.25 + 0.75 * s.move) * e.tempo;
   restore(B);
   (LOCO[inst.locomotion] || LOCO.hopSway)(B, s, s.move, k, meta, R);
+  for(const name of meta.blobSubrigs||[])blobPulse(B[name],s,s.move,k);
+  for(const sub of meta.clusterSubrigs||[])clusterPulse(B,s,k,sub.units,sub.prefix);
+  // Optional attached appendage groups share the owning actor's clock.
+  for(let i=0;i<(meta.tentacleGroups||0);i++){
+    const b=B['tentacle'+i];b.rotation.z+=Math.sin(s.t*1.8+i*1.4)*.035*k.idle;
+    b.rotation.x+=Math.sin(s.phase*TAU+i)*.045*s.move*k.amp;
+  }
   // ---- emotion posture
   const head = B.head || B.cap || B.body;
   if (head && head !== R) { head.rotation.x += e.droop * 0.32; head.rotation.y += e.turn; }

@@ -1,0 +1,170 @@
+{
+  "status": "PASS_SOURCE_SCOPED_AUTOMATED_AND_IMAGE_GATES_HUMAN_IPHONE_OPEN",
+  "productionSource": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "qaSource": "410edf9674d5937496e7acd0f255c98de11fc399",
+  "counts": {
+    "exact": 293,
+    "playerFamilies": 31,
+    "playerStages": 248,
+    "nonplayer": 45,
+    "currentFourViewRows": 293,
+    "additionalMotionStages": 86,
+    "additionalMotionCells": 2752,
+    "playerFull32Stages": 222,
+    "playerNarrowerPilotStages": 26
+  },
+  "scene": {
+    "run": 37938257303,
+    "job": 113845722634,
+    "verdict": {
+      "pass": true
+    },
+    "phaseCount": 17,
+    "boundaries": 38,
+    "dirtyBoundaries": 0,
+    "cycles": 3,
+    "setup": {
+      "kind": "one-time-empty-city-map-seed",
+      "beforeWrites": 20,
+      "afterWrites": 23,
+      "fields": [
+        "lifetime.meguru.marks.city",
+        "lifetime.meguru.paths.city",
+        "lifetime.meguru.zones.city",
+        "lifetime.saveRevision",
+        "savedAt"
+      ]
+    },
+    "initialUnchanged": {
+      "save": false,
+      "storage": false,
+      "getter": true,
+      "saveWrites": false
+    },
+    "strictUnchanged": {
+      "save": true,
+      "storage": true,
+      "getter": true,
+      "saveWrites": true
+    },
+    "restored": {
+      "step": true,
+      "region": true,
+      "draw": true,
+      "charFlag": true
+    },
+    "plateau": {
+      "templates": 11,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "textures": 44,
+      "geometries": 106
+    },
+    "raw": {
+      "sha": "9495a337e8f372d69869c8a8fe81cf74655ed3d9",
+      "bytes": 630363,
+      "method": "Decoded UTF8 roundtripped through Git Data create_blob yields exact prepared Git blob identity; manifest bytes exact; original exporter SHA256 retained"
+    },
+    "manifest": "docs/qa/character-3d-full-v0/export/410edf9674d5937496e7acd0f255c98de11fc399/scene-final/manifest.json",
+    "review": "docs/qa/character-3d-full-v0/export/410edf9674d5937496e7acd0f255c98de11fc399/final-scene-review.md"
+  },
+  "sourceReuse": {
+    "nonplayerFunctional": "6df4db58dc505b272fe365748b3f55b9c7780ff0:45roles only, original later failure retained",
+    "playerAggregateGalleryHumanFish": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "nativeMetrics": "f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca:dog04+companions1/5/27; no devicePASS",
+    "imageRepairs": [
+      "ddaf1edf5c4d13254151308996a1727bc705829b:7rows",
+      "0be70751e0896388e46a33969bef51c15dcdb3ae:Mushroom06"
+    ],
+    "protected": "production0be:11groups+28Pilot exact"
+  },
+  "npm": {
+    "originalMain": {
+      "tests": 3022,
+      "pass": 3018,
+      "fail": 4,
+      "exit": 1
+    },
+    "repairAssetFile": {
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "exit": 0
+    },
+    "separateRelationship": {
+      "tests": 80,
+      "pass": 80,
+      "fail": 0,
+      "exit": 0
+    },
+    "scope": "Original local0be attempt and incremental repairs retained; subsequent completed410 full npm CI separately confirms3022+80 PASS/0FAIL.",
+    "report": "docs/qa/character-3d-full-v0/final-npm-0be/result.json",
+    "completedFullCi": {
+      "sourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399",
+      "runId": 37938268351,
+      "jobId": 113845760165,
+      "conclusion": "success",
+      "fullNpmStep": "success",
+      "main": {
+        "tests": 3022,
+        "pass": 3022,
+        "fail": 0,
+        "durationMs": 870338.994728
+      },
+      "relationship": {
+        "tests": 80,
+        "pass": 80,
+        "fail": 0,
+        "durationMs": 4659.386426
+      },
+      "scope": "Completed full npm CI execution after buffer fix; original0be local failure remains unchanged. This is not a rerun performed during closure."
+    }
+  },
+  "asyncCI": [
+    {
+      "id": 37938268351,
+      "source": "410edf9674d5937496e7acd0f255c98de11fc399",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37938268352,
+      "source": "410edf9674d5937496e7acd0f255c98de11fc399",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37938899218,
+      "source": "b92338e9e176eabb2af91fe6619a130bba4f67a2",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37938899211,
+      "source": "b92338e9e176eabb2af91fe6619a130bba4f67a2",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "independentReview": {
+    "critical": 0,
+    "important": 0
+  },
+  "humanQA": "OPEN",
+  "iPhoneQA": "NOT_RUN_OPEN",
+  "localFinalSync": {
+    "status": "PASS",
+    "verifiedOn": "2026-10-10",
+    "restoredHead": "df2cbb5f67ca07bcdde3ee9a232c62e9b1ee4d19",
+    "restoredTree": "e0f48ddc2d3153a9c901aa905b0a751ee7571ee3",
+    "trackedAndUntrackedClean": true,
+    "finalSceneArchive": "Local ZIP and JSON exact against manifest size/SHA256",
+    "note": "Prior scratch removed by workspace maintenance; restored from remote, not reimplemented. Final documentation publication is followed by a fresh remote/local HEAD/tree/clean check."
+  },
+  "constraints": {
+    "draft376": true,
+    "base": "feat/character-3d-pilot",
+    "noReadyMainMergeOrV1": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "sourceCommit": "c5b7fe8e72c7ea3eb01cd407e8b93f3cc9eb4bd7",
+  "coverageArtifact": 11415036808,
+  "runs": {
+    "runtime": {
+      "id": 37464575968,
+      "conclusion": "success"
+    },
+    "home": {
+      "id": 37464575958,
+      "conclusion": "success"
+    },
+    "character": {
+      "id": 37464569406,
+      "conclusion": "success"
+    }
+  },
+  "independentValidation": {
+    "families": 16,
+    "uniqueStages": 128,
+    "sameSource": true,
+    "exactRequestedSpec": true,
+    "live3d": true,
+    "fallbacks": 0,
+    "errors": 0
+  },
+  "notClaimed": [
+    "actual iPhone acceptance",
+    "complete293",
+    "later candidate-headCI"
+  ],
+  "priorFailure": "cd81 Home viewport failure retained; c5 Home passed with unchanged Home inputs, cause not conclusively isolated"
+}

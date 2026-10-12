@@ -1,0 +1,28 @@
+{
+  "sourceCommit": "0e5cdcefb6e4b9b6d07493f3d41b25d5c2efb598",
+  "waveArtifact": 11413044339,
+  "distanceArtifact": 11412509040,
+  "environment": "Chromium/SwiftShader; not iPhone acceptance",
+  "review": {
+    "fourViewStages": 8,
+    "fourViewCaptures": 32,
+    "motionCaptures": 256,
+    "distanceCaptures": 16,
+    "savedImages": 313,
+    "verdict": "accepted for exact runtime connection; not final Human QA",
+    "findings": [
+      "03 continuous eight-lobe ephyra replaces rejected stalk-and-ball silhouette",
+      "Bell-stage face remains readable through lowered-opacity shell in normal-distance front views",
+      "All eight canonical emotions preserved across idle/walk and normal/reduced motion",
+      "Rooted01/02 and detached03/04-08 have distinct support/locomotion",
+      "Known simplifications: smoother and sparser tentacles than source; faceted03 lobe tips; large smooth inner core"
+    ]
+  },
+  "checks": {
+    "fourViewReady": 32,
+    "coherentOwnedEmotionStates": 256,
+    "distanceExactLiveNoFallbackNoErrors": 8
+  },
+  "distanceEncoding": "Original PNGs retained in artifact11412509040; JPEG copies quality92 saved here. Raw record paths retain original artifact names.",
+  "ciNote": "Source0e5 dedicated mutation selector failed; fixed atcd81 whose dedicated job112265146848 succeeded. Source0e5 failure remains historical failure; post-promotion CI and16family128stage aggregate still required."
+}

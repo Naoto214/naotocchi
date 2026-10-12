@@ -1,0 +1,53 @@
+{
+  "baseline": "f1757ea0a8ba54e9b087c561b03e3bf1190230cb",
+  "unchangedOtherNonplayerRows": 42,
+  "unchangedPlayerStages": 248,
+  "unchangedLegacyRows": 2,
+  "unchangedOtherCharacters": 292,
+  "authorNonHairUnchanged": true,
+  "approvedRowSha256": "9da8617f42a408ae8eed51b69738fbfd7ad1e1a9da1b9ca6f1d3e3f188471aec",
+  "deerRowSha256": "28233d99f4db2b1ca0b63b33fdd5454581e9de563aaf9c2cfa64f29091661805",
+  "onlyProductionFileChanged": "character-3d/nonplayer-spec.js",
+  "rawFramesReused": 4,
+  "mutation": {
+    "author": 18,
+    "humanFeedback": 4,
+    "fringe": 2,
+    "detected": 24,
+    "exactRestoration": true
+  },
+  "tests": {
+    "uniqueFocused": 38,
+    "finalFocusedPass": 5,
+    "finalAuthorMutationBaselinePass": 11,
+    "protectedGroupsAndSavePass": 3
+  },
+  "remainingHumanQA": "OPEN",
+  "iPhoneQA": "OPEN_NOT_RUN",
+  "productionCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "productionTree": "c0f2db50c2638d217aa4878dc5b44248622c4731",
+  "captureBuilderRigAnimationRuntimeUnchangedSince": "5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+  "ci": [
+    {
+      "id": 38140123557,
+      "name": "Character 3D Full Rollout",
+      "status": "in_progress",
+      "conclusion": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+    },
+    {
+      "id": 38140131275,
+      "name": "Runtime smoke test",
+      "status": "in_progress",
+      "conclusion": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+    },
+    {
+      "id": 38140131288,
+      "name": "Home layout",
+      "status": "in_progress",
+      "conclusion": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+    }
+  ]
+}

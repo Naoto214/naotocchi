@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-11",
+  "characterHead": "7d2200e04a5200ce5e937d81bc77a1db5cfac354",
+  "characterTree": "8a6ac38a187f265d7bc58ea565e2c1ff63c2bb52",
+  "runtimeSource": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "main": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+  "mainIsAncestor": true,
+  "mainMergeTreeUnchanged": true,
+  "world": {
+    "pr": 374,
+    "head": "ebec89db9add8d0de28dbf07d8416f61868dc9e3",
+    "draft": true,
+    "merged": false,
+    "mechanicalConflicts": [
+      "index.html",
+      "meguru-3d.mjs",
+      "meguru.js",
+      "package.json"
+    ],
+    "semanticFindings": [
+      {
+        "id": "WORLD-C3D-VISIBILITY",
+        "severity": "IMPORTANT_IN_COMBINED_CANDIDATE",
+        "status": "OPEN",
+        "evidence": "World billboardVisible returns hidden when !m.visible; Character placeActor intentionally sets m.visible=false when cp.present succeeds. Naive combined playerVis=billboardVisible(pm,...) yields false disappearance diagnostics for healthy3D.",
+        "requiredResolution": "Visibility checks must inspect the active representation and retain real frustum/fog/geometry checks, with controls for genuine3D disappearance and2D fallback. Do not merely force ok=true."
+      }
+    ],
+    "adopted": false
+  },
+  "residentExpression": {
+    "pr": 368,
+    "merged": true,
+    "includedViaMain": true,
+    "meguruJsIdenticalToMain": true
+  },
+  "motion": {
+    "pr": 375,
+    "merged": true,
+    "includedViaMain": true
+  },
+  "sourceReuse": {
+    "nonDocsDiffFromRuntimeSource": [],
+    "ci": "../batch-human-qa-20261011/current-ci-and-dependencies.json",
+    "freshCiAllSuccess": true,
+    "fullRegression": "3022 +80 pass,0fail; same runtime source, not combinedWorld certification"
+  },
+  "saveReview": "Only script.js change from main is URL-only Character renderer options/playerKey; no schema/save writer changes. Protected suites verify schema5 and no persisted3D fields.",
+  "physicalIPhone": "NOT_RUN_REQUIRED_BASIC_AND_27_ACTORS",
+  "readyAllowed": false,
+  "mainMergeAllowed": false,
+  "finalVerdict": "NOT_READY_TECHNICAL_WORLD_INTEGRATION_AND_PHYSICAL_IPHONE_OPEN",
+  "focusedTests": {
+    "tests": 109,
+    "pass": 109,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "exit": 0,
+    "log": "current-main-focused.tap"
+  },
+  "mutation": {
+    "detected": 29,
+    "total": 29,
+    "exactRestore": true,
+    "restoredSha256": "5a6358976385f279e39ac950f6af7585613d127dc770dbdb0b42cf80aa536b05",
+    "log": "runtime-controls.txt"
+  },
+  "protectedGroups": {
+    "matched": 11,
+    "changed": 0
+  }
+}

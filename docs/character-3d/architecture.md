@@ -1,7 +1,21 @@
-# Character 3D System — architecture(Pilot・Human QA 前)
+# Character 3D System — architecture / Full Rollout v0
 
-状態: **pilot / needs_human_review**。Human QA の 前に 全 species へ ひろげない。main へ merge しない。
+状態: **Full Rollout v0 全293モデル・画像・source別統合QA確認済み。Human／iPhone QAはOPEN**。2026-10-04のHuman QAでPilotから全量展開へ進むことを承認。全量採用・Ready・main mergeの承認ではない。Pilot正本 `d12ad70550b29c125f44ac2b32d7195905fb15f0` / #372を保持し、#376（Draft、base=Pilot）で展開する。
+現在の正本: [Full Rollout設計](full-rollout-v0/design.md)・[Visual Translation Rules](full-rollout-v0/visual-translation-rules.md)・[checkpoint](full-rollout-v0/checkpoint.json)。以下のPilot仕様・測定はreference implementationの記録であり、Full Rollout完了値ではない。
 QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot-2026-10-01.md)
+
+## Full Rollout v0 current implementation (production0be70751)
+
+全293件のexact登録と歴史的な四方向の実画像記録が揃った。現在の修正画像の承認はcheckpointを正本とする。31 player families ×8 stages、companion26、partner18、author1。これは最終統合・Human QAの完了宣言ではない。[現在のgate](full-rollout-v0/checkpoint.json)と[残工程](full-rollout-v0/roadmap.md)を参照。以下のPilot inventory分類・nearest-stage説明・性能値は歴史的baselineであり、現在の登録仕様ではない。
+
+- `rollout-spec.js`とfamily別specが明示的なplayer stage入力を供給する。登録familyの欠けた段階をnearest stageで成功扱いしない。
+- `nonplayer-spec.js`の43 factoryモデルと既存Pilot2モデルを、`spec.js`のkind/id/stage境界で解決する。playerの同名IDはcompanion/partnerに置換しない。作者の実actor kind `naoto`は正しいIDだけauthorモデルへ解決する。
+- 既存archetype dispatchに `branch_organism`、`jellyfish`、`armored_insect`、`winged_reptile`、`plumed_bird`、`celestial_humanoid`、`spectral`、`cosmic`、`mystery_blob`、`soft_toy`、`rigid_object`の共有factory責務を追加。species専用rendererを並立させず、元画像由来の部品・色・比率・接続を入力で指定する。
+- canonical emotion、rig、locomotion、lazy presenter、actor-local fallbackの既存契約を保持する。元2D／Expression画像・save/gameplay・World/Homeは変更対象外。Authorの自然なmemory_lake表示を変えず、QAでは同じactorを一時的なforest presentation fixtureで検証して復元する。
+- `full-gallery.html`は293件のinventoryと保存済み画像を遅延表示し、exactなroleのlive galleryへ接続する。legacy2件の比較画像は右側四方向の再利用を明示する。
+- Actions artifactは既存のGit-object exportでbranch上へ保存できる。元run失敗時はartifactごとの成功jobを厳密に紐付ける。失敗runtimeのJSONは診断専用。exportは画像承認でもref更新でもなく、SHA256照合・実画像レビュー後に別の判定を保存する。
+
+最終統合の追加player motion86段階は実画像を確認し、全86段階を承認。Mushroom06のcollar修正後も実画像で確認済み。初期5family通常距離80画像と非player45件の実画像gateは確認済み。既存136段階の32状態とPilot26段階の狭い既承認protocolを保持し、全248×32を確認済みとはしない。ae9の248登録集計・45role gallery、6dfの45role functionalをsource別に再利用する。f07で初回cityの自然な地図初期化saveと38境界の無変更を特定し、410edf9で初期化内容を厳密に制限した後の3往復QAが実動PASS。初回city初期化による保存と、その後の厳密な無変更を区別して記録する。f07 native dog04+companions1/5/27性能・clone animation・appearance windowは実測監査済み。28Pilot identityと11保護群はproduction0beで一致。SwiftShader結果からiPhone性能やHuman採用を推定しない。
 
 ## 1. Goals / Non-goals
 
@@ -12,8 +26,8 @@ QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot
 - 既存の Expression System(canonical emotion)を そのまま 入力に する(3D 専用の 感情体系を つくらない)。
 - めぐる の 同じ actor state を 2D billboard / 3D model の どちらでも presentation できる(状態は 複製しない)。
 
-**Non-goals(今回 やらない)**
-- 全 species の 3D 化(pilot 8 系統だけ)。
+**Non-goals(Pilot時点。全量展開の開始承認は上記へ更新)**
+- Pilotは8系統に限定した。現在はarchetype wave方式で全speciesへ展開する。
 - セーブ / schema / 2D 画像 / Expression PNG / Home・Relationship の runtime の 変更。
 - World 3D の Art Direction(ひかり・きり・カメラ)の 変更。未 merge の World lane(#367 / #369)・#368 の 取りこみ。
 - 外部の 3D asset(ライセンス 不明の model)。Blender 前提の 制作(この 環境に Blender は ない → `NOT_RUN`)。
@@ -177,4 +191,21 @@ headless は SwiftShader(ソフトウェア GPU)なので **GPU 時間は iPhone
 ## 15. Rollout strategy
 
 1. **Character 3D Pilot**(この branch)→ 2. **Human QA**(iPhone)→ 3. **architecture 確定**(採用 / 条件付き / 不採用)→ 4. 後日 **full rollout**。
-Human QA の 前に 全量化しない。full rollout の 見積もりは QA doc。
+Pilot Human QAによる全量展開開始承認済み。Full Rollout v0完成後は全量Human QAで停止し、Ready/main merge/Quality Pass v1へ自動で進まない。
+
+## Full Rollout v0追加契約
+
+- `tools/character-3d/inventory.cjs`がlatest masterと全PNGを交差監査する。current masterは293 active designs。旧routing表の数字をcoverageの証拠にしない。
+- `rollout-spec.js`に原画分析済みのexact stageを追加し、`spec.js`が展開済みfamilyを優先する。`PILOT` / `STAGE_KEYS`は歴史的referenceとして不変。live galleryは`ROLLOUT_STAGE_KEYS`を参照する。
+- 展開済みfamilyに欠けたstageがあればnull。近い年齢へ置換してexact成功としない。未展開Pilot familyの旧動作は段階的移行中のみ保持し、全量coverageは`exact`のみ数える。
+- `tools/character-3d/coverage.cjs --require-full`はexact stageまたは保存4方向が欠けている限り失敗する。spec-readyはHuman QA採用済みを意味しない。
+- 新しい共通parameter: quadrupedの左右ear profile、持ち上げた前足、水平に伸びた遊び姿勢、身体を回り込むtail family、avianの左右wing pose。既存parameterがない場合のPilot挙動を保持する。
+- canonical emotion / actor state / Motion意味論 / save / Worldは変更しない。新poseはpresentation内でidle→locomotionへblendする。
+- 全active familyの実装・exact登録は完了。測定したfixtureのresource plateauを全端末・長時間の上限保証へ広げない。現在の統合gateと最終実機QAはcheckpointで区別する。
+
+### Humanoid rollout presentation parameters
+
+- `humanoid-spec.js` supplies all24 exact man/woman/ren stages. Optional wardrobe/skirt/hood/number, long/swept/tied hair, hat/hand-prop and per-arm pose profiles reuse the builder; Pilot man01/04/08 data stays unchanged.
+- A neutral per-eye shape may differ left/right; non-normal canonical expressions still use the shared emotion parameters. No new emotion vocabulary.
+- Optional articulated knees and seated cloth/support blend from signature resting pose to existing human locomotion. Chair is presentation support only, not World furniture/state. Held animals build via shared quadruped geometry, merge nonwalking secondary meshes, and retain a projected canonical face in the same actor.
+- QA candidate specs are overlaid only in the QA HTTP/Node harness before promotion; production spec files and saves are never rewritten by that harness.

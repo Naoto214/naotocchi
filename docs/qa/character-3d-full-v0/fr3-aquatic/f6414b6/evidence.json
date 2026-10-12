@@ -1,0 +1,547 @@
+{
+  "source": "f6414b6c5a80232553587f5e736c6b728e2b3ae1",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.0562341623710934,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.0562341623710934,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.0562341623710934,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.0562341623710934,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 2,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5228,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4609299898147583,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.45092999935150146,
+          1.1505714814709795,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5228,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4609299898147583,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.45092999935150146,
+          1.1505714814709795,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 2,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5228,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4609299898147583,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.45092999935150146,
+          1.1505714814709795,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 2,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5228,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4609299898147583,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.45092999935150146,
+          1.1505714814709795,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4096,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5796583382888674,
+          0.10254093801482209,
+          -0.1378240247847906
+        ],
+        [
+          0.5881295381169955,
+          1.2996389554502732,
+          0.15352227894352366
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4096,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5796583382888674,
+          0.10254093801482209,
+          -0.1378240247847906
+        ],
+        [
+          0.5881295381169955,
+          1.2996389554502732,
+          0.15352227894352366
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4096,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5796583382888674,
+          0.10254093801482209,
+          -0.1378240247847906
+        ],
+        [
+          0.5881295381169955,
+          1.2996389554502732,
+          0.15352227894352366
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4096,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5796583382888674,
+          0.10254093801482209,
+          -0.1378240247847906
+        ],
+        [
+          0.5881295381169955,
+          1.2996389554502732,
+          0.15352227894352366
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.20013222245002693,
+          -0.3740937752717643
+        ],
+        [
+          0.5266846897179523,
+          1.0566037586697399,
+          0.3740937752717643
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.20013222245002693,
+          -0.3740937752717643
+        ],
+        [
+          0.5266846897179523,
+          1.0566037586697399,
+          0.3740937752717643
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.20013222245002693,
+          -0.3740937752717643
+        ],
+        [
+          0.5266846897179523,
+          1.0566037586697399,
+          0.3740937752717643
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.20013222245002693,
+          -0.3740937752717643
+        ],
+        [
+          0.5266846897179523,
+          1.0566037586697399,
+          0.3740937752717643
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.1261199409969852,
+          -0.4922286578500297
+        ],
+        [
+          0.5266846897179523,
+          1.2808081172711088,
+          0.4922286578500297
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.1261199409969852,
+          -0.4922286578500297
+        ],
+        [
+          0.5266846897179523,
+          1.2808081172711088,
+          0.4922286578500297
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.1261199409969852,
+          -0.4922286578500297
+        ],
+        [
+          0.5266846897179523,
+          1.2808081172711088,
+          0.4922286578500297
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.1261199409969852,
+          -0.4922286578500297
+        ],
+        [
+          0.5266846897179523,
+          1.2808081172711088,
+          0.4922286578500297
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

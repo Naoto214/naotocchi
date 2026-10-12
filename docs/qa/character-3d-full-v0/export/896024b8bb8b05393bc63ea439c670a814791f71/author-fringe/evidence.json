@@ -1,0 +1,1535 @@
+{
+  "sourceCommit": "896024b8bb8b05393bc63ea439c670a814791f71",
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "candidateOnly": true,
+  "includeLegacyStatesDistance": false,
+  "plans": [
+    {
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "fourViews": [
+        "front",
+        "34",
+        "side",
+        "back"
+      ],
+      "states": [
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": true
+        }
+      ],
+      "distanceViews": [
+        "front",
+        "back"
+      ],
+      "reuseFourViews": false,
+      "reuse": null
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7391165721607114,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7391165721607114,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7391165721607114,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7391165721607114,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7391165721607114,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.049641857737296124,
+          -0.36336250443666057
+        ],
+        [
+          0.3216627764727591,
+          1.7641034001372367,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -2.050399772191014e-8,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7316676191329956,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.004107109473041826,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7441610331212583,
+          0.409080365896225
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.059672108358193476,
+          -0.3889040203977778
+        ],
+        [
+          0.3216627764727591,
+          1.8314703587922772,
+          0.39740446098543847
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.053800957433389085,
+          -0.3889040203977778
+        ],
+        [
+          0.3216627764727591,
+          1.8202526692821097,
+          0.39740446098543847
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.0015805336453548202,
+          -0.3887205662919493
+        ],
+        [
+          0.3216627764727591,
+          1.7620631679134098,
+          0.3974808992449463
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.002214350089761563,
+          -0.3887205662919493
+        ],
+        [
+          0.3216627764727591,
+          1.7719147796334287,
+          0.3974808992449463
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.41666375907104886,
+          -0.014455000229652626,
+          -0.3901232989361141
+        ],
+        [
+          0.43925630982253633,
+          1.786254419604406,
+          0.615854345155635
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.41666375907104886,
+          0.008556132329767485,
+          -0.3901232989361141
+        ],
+        [
+          0.43925630982253633,
+          1.8014693010074878,
+          0.615854345155635
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.41666375907104886,
+          -0.010710327319988222,
+          -0.3903125855470253
+        ],
+        [
+          0.43925630982253633,
+          1.7786108874265238,
+          0.615423613416297
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.41666375907104886,
+          -0.007591257107838589,
+          -0.3903125855470253
+        ],
+        [
+          0.43925630982253633,
+          1.7862183281280648,
+          0.615423613416297
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.01884894236220369,
+          -0.3502940615933746
+        ],
+        [
+          0.3216627764727591,
+          1.66405259645018,
+          0.4874387825069718
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.017852797350422223,
+          -0.3502940615933746
+        ],
+        [
+          0.3216627764727591,
+          1.669945659096364,
+          0.4874387825069718
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.015327011326950912,
+          -0.3501247374314602
+        ],
+        [
+          0.3216627764727591,
+          1.6567244483033723,
+          0.4877796875001258
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.013283751237896713,
+          -0.3501247374314602
+        ],
+        [
+          0.3216627764727591,
+          1.6596709796264641,
+          0.4877796875001258
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.022017489381269684,
+          -0.35340229618931707
+        ],
+        [
+          0.3216627764727591,
+          1.6327134528765606,
+          0.5054905659572185
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.01153091355763125,
+          -0.35340229618931707
+        ],
+        [
+          0.3216627764727591,
+          1.6474510826088098,
+          0.5054905659572185
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.018572390304378406,
+          -0.353192946215718
+        ],
+        [
+          0.3216627764727591,
+          1.625496001722175,
+          0.5058894313484765
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.016997159997137024,
+          -0.353192946215718
+        ],
+        [
+          0.3216627764727591,
+          1.6328648165882997,
+          0.5058894313484765
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.32116848398177816,
+          -0.010129207419276365,
+          -0.3164932381201436
+        ],
+        [
+          0.32215706896374,
+          1.6915608541606049,
+          0.4799911578900481
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.32116848398177816,
+          -0.006116570244381947,
+          -0.3164932381201436
+        ],
+        [
+          0.32215706896374,
+          1.7018272880570677,
+          0.4799911578900481
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.006528966279207071,
+          -0.3165700797305814
+        ],
+        [
+          0.3216627764727591,
+          1.6842864987409012,
+          0.4798093057060414
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.008479219533460647,
+          -0.3165700797305814
+        ],
+        [
+          0.3216627764727591,
+          1.6894197156891324,
+          0.4798093057060414
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.026380163622738317,
+          -0.41799645860011536
+        ],
+        [
+          0.3216627764727591,
+          1.8056399710385205,
+          0.3805301234399511
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.017902782403001694,
+          -0.41799645860011536
+        ],
+        [
+          0.3216627764727591,
+          1.8040753000504575,
+          0.3805301234399511
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0007960764178026603,
+          -0.41755412114689555
+        ],
+        [
+          0.3216627764727591,
+          1.7672033240042666,
+          0.38071100564517274
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.0010305227862708044,
+          -0.41755412114689555
+        ],
+        [
+          0.3216627764727591,
+          1.7741512167477864,
+          0.38071100564517274
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3204270452453068,
+          -0.012638900631829597,
+          -0.3270816910203557
+        ],
+        [
+          0.3228985077002114,
+          1.718436291021146,
+          0.502713691740336
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3204270452453068,
+          -0.015740830493615077,
+          -0.3270816910203557
+        ],
+        [
+          0.3228985077002114,
+          1.72547933951674,
+          0.502713691740336
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.009000019888877775,
+          -0.3270816910203557
+        ],
+        [
+          0.3216627764727591,
+          1.7109505807611152,
+          0.502713691740336
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.012367867244404196,
+          -0.3270816910203557
+        ],
+        [
+          0.3216627764727591,
+          1.714472105008912,
+          0.502713691740336
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-walk-reduced.jpg"
+    }
+  ],
+  "distance": [
+    {
+      "kind": "author",
+      "id": "naoto",
+      "key": "author:naoto",
+      "modelKey": "author:naoto",
+      "view": "front",
+      "actorIdentity": {
+        "key": "naoto",
+        "kind": "naoto",
+        "id": "naoto",
+        "asset": "assets/characters/author/naoto.png"
+      },
+      "authorProvenance": {
+        "originalRegion": "memory_lake",
+        "originalSpot": "deep",
+        "originalCoordinates": {
+          "x": -160,
+          "z": 4300,
+          "heading": 3.141592653589793
+        },
+        "naturalPresentation": "2D",
+        "qaPlacementRegion": "forest",
+        "qaPlacement": "same actual resident object in existing forest simulation resident list; bounded renderer.draw view adapter",
+        "actor": {
+          "key": "naoto",
+          "kind": "naoto",
+          "id": "naoto",
+          "asset": "assets/characters/author/naoto.png"
+        },
+        "sameActorObject": true,
+        "party": false,
+        "saveObjectChanged": false,
+        "bridgeGetterChanged": false
+      },
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 3.141592653589793
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "author:naoto",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15150,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 6.996,
+        "cpuMsP95": 61.3,
+        "buildMsTotal": 155,
+        "buildMsMax": 94.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "author-naoto-distance-front.jpg"
+    },
+    {
+      "kind": "author",
+      "id": "naoto",
+      "key": "author:naoto",
+      "modelKey": "author:naoto",
+      "view": "back",
+      "actorIdentity": {
+        "key": "naoto",
+        "kind": "naoto",
+        "id": "naoto",
+        "asset": "assets/characters/author/naoto.png"
+      },
+      "authorProvenance": {
+        "originalRegion": "memory_lake",
+        "originalSpot": "deep",
+        "originalCoordinates": {
+          "x": -160,
+          "z": 4300,
+          "heading": 3.141592653589793
+        },
+        "naturalPresentation": "2D",
+        "qaPlacementRegion": "forest",
+        "qaPlacement": "same actual resident object in existing forest simulation resident list; bounded renderer.draw view adapter",
+        "actor": {
+          "key": "naoto",
+          "kind": "naoto",
+          "id": "naoto",
+          "asset": "assets/characters/author/naoto.png"
+        },
+        "sameActorObject": true,
+        "party": false,
+        "saveObjectChanged": false,
+        "bridgeGetterChanged": false
+      },
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 0
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "author:naoto",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15150,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 2.391,
+        "cpuMsP95": 0.2,
+        "buildMsTotal": 155,
+        "buildMsMax": 94.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "author-naoto-distance-back.jpg"
+    }
+  ],
+  "errors": []
+}

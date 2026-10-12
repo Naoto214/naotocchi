@@ -1,0 +1,23 @@
+(node:35) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ image-approved author is exact, finite, grounded, closed and within triangle budget (133.236719ms)
+✔ naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states (21880.092569ms)
+✔ naoto: resting produced source shell graph reaches each owner (1547.71748ms)
+✔ naoto: every source shell reaches torso limbs and props in all 32 states (12475.552282ms)
+✔ naoto original closed white hoodie dark shirt layered wavy hair navy slim trousers pale sneaker soles (17.878794ms)
+✔ exact actual author identity resolves in production and QA and never aliases other roles (43.923334ms)
+✔ existing capture planner opt-in appends only legacy states and distance with exact model identity (27.195393ms)
+✔ legal unlock yields actual memory_lake author; bounded QA view preserves actor save and renderer restoration even failure (1066.915811ms)
+✔ author closed paths have actual outward terminal indexed winding (19.079982ms)
+✔ author humanoid opt-ins preserve frozen adult and cane default outputs (31.331705ms)
+✔ HTTP QA overlay resolves unchanged actual kind naoto consistently with production (70.903185ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37462.084005

@@ -1,0 +1,62 @@
+{
+  "sourceCommit": "26ba5558c031e6fc72c62c94448df84917ac928c",
+  "comparisonBefore": "5c4cf9182b6cfb1869e4af1329e8160a9b7bfbc2",
+  "status": "ACTUAL_IMAGES_REVIEWED_CANDIDATE_FOR_HUMAN_QA",
+  "humanQA": "AWAITING_USER_NOT_APPROVED",
+  "overallHumanQA": "OPEN",
+  "actualIphoneQA": "OPEN",
+  "deerHumanQA": "APPROVED_UNCHANGED",
+  "history": [
+    {
+      "source": "896024b8bb8b05393bc63ea439c670a814791f71",
+      "verdict": "HUMAN_REJECTED",
+      "reason": "central pointed V, stronger central part and bilateral flow"
+    },
+    {
+      "source": "bca25c1bb5b58c43c6a2f9d3733faac9fad8e3aa",
+      "verdict": "INTERNAL_IMAGE_REJECTED",
+      "reason": "seven rounded layers read as beads/curls"
+    }
+  ],
+  "actualReview": {
+    "views": [
+      "front",
+      "34",
+      "side",
+      "back"
+    ],
+    "states": 32,
+    "normalDistance": [
+      "front",
+      "back"
+    ],
+    "observations": [
+      "No central dangling V point or strong central split in inspected images.",
+      "Continuous shallow layers replace bead-like fringe; asymmetric side flow remains.",
+      "Both eyes visible across32states; no detached hair constituents.",
+      "Original posterior geometry retained and observed rear continuity preserved."
+    ],
+    "remainingJudgment": "Fine tousled source texture is simplified; source likeness and aesthetic acceptance require Human QA."
+  },
+  "evidenceRoot": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair",
+  "rawFilesVerified": 51,
+  "comparison": "docs/qa/character-3d-full-v0/author-soft-hair-20261011/author-naoto-comparison.jpg",
+  "comparisonSha256": "0d295e004c1c6790385c0a61735a884584c0fc01c18bc551a23106365d44785f",
+  "verification": {
+    "characterRun": 38133919846,
+    "characterConclusion": "success",
+    "localFinalShapeTests": 5,
+    "newMutation": "2/2 detected and exact restoration",
+    "ciMutations": "scoped author plus4feedback plus2soft-layer controls succeeded",
+    "independentReview": "Critical0/Important0",
+    "latestRuntime": {
+      "run": 38133925343,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    },
+    "latestHome": {
+      "run": 38133925347,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    }
+  },
+  "scope": "Only author hair; other292characters and production architecture unchanged. No rollout promotion."
+}

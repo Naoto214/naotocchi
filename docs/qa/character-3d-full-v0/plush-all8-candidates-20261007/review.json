@@ -1,0 +1,36 @@
+{
+  "baseCommit": "2ff1b9684fa0b9d22ac86486ebb3934979761c64",
+  "status": "CANDIDATES_ONLY_IMAGE_GATE_PENDING",
+  "source": "assets/characters/plush/01.png through08.png directly inspected",
+  "stages": {
+    "1": "seated intact teddy with red bow",
+    "2": "single lifted paw,red bow",
+    "4": "head/body center seam and asymmetric eyes",
+    "5": "worn fabric,center seams,exposed pale cotton at paws",
+    "6": "blue sewn repair patches on head,body,arm and feet",
+    "8": "held red heart and red scarf"
+  },
+  "preserved": "03/07 specs,mesh buffers and bone transforms exactly match2ff1b968 baseline. No runtimepromotion.",
+  "simplifications": [
+    "smooth fabric replaces pixel texture",
+    "08scarf uses closed collar and two broad hanging ends; detached decorative sparkle marks omitted"
+  ],
+  "verification": {
+    "dedicatedPass": 225,
+    "representativeMutations": 7,
+    "newStageMutations": 6,
+    "pilotHashesUnchanged": 28,
+    "neckwearMouth": "6new stages,3front angles,tired/sleeping projected mouth unoccluded",
+    "fullNpmAfterVenus": {
+      "pass": 3008,
+      "fail": 2,
+      "failures": [
+        "tired resident canonical picture/line",
+        "expression save keys/schema boundary"
+      ],
+      "sameKnownProtectedFailures": true,
+      "allGreen": false
+    }
+  },
+  "next": "All8 fourviews,256canonical state captures and16real Meguru distance images before imagegate or runtimepromotion."
+}

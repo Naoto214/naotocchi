@@ -1,0 +1,87 @@
+{
+  "when": "2026-10-08T14:39:11.869Z",
+  "revision": "quality3",
+  "sourceCommit": "9fadab27a5abacedfb40add609f95fb14f2c69a3",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "mythic",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "god:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "god:2",
+      "player3d": true,
+      "specKey": {
+        "id": "god",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-god-3-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-god-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 43628,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.664,
+        "cpuMsP95": 56.9,
+        "buildMsTotal": 360.9,
+        "buildMsMax": 64.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "god:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "god:6",
+      "player3d": true,
+      "specKey": {
+        "id": "god",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-god-7-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-god-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 51620,
+        "meshes": 95,
+        "bones": 66,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 6.882,
+        "cpuMsP95": 46.8,
+        "buildMsTotal": 461.3,
+        "buildMsMax": 136.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

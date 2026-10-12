@@ -1,0 +1,1428 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11612782291,
+    "name": "full-rollout-stages-cat-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:ec920876b37d88e1be6639099d94f7be511b006e3b551da05973ea56256b6ff0"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "9983a7521f11b1470cf14b6edaac2dff423a01e24a034286730f41e7cbe76c36",
+      "bytes": 7372
+    },
+    {
+      "path": "missing-motion/cat-1-dislike-idle-normal.jpg",
+      "sha256": "8c48527ff9f79caa2b52c40aadb62312c20b1f9a257e654b0d27a2886edc1b58",
+      "bytes": 8513
+    },
+    {
+      "path": "missing-motion/cat-1-dislike-idle-reduced.jpg",
+      "sha256": "adacaf2ac41fdcc10a76cb18e1b5f37c0d0adfe23e63bad6a52d3ee62d418822",
+      "bytes": 8875
+    },
+    {
+      "path": "missing-motion/cat-1-dislike-walk-normal.jpg",
+      "sha256": "92434f2498f949bafc2f82cfb013eabd1d01e23f460c53074f8c38e6c33e590f",
+      "bytes": 9534
+    },
+    {
+      "path": "missing-motion/cat-1-dislike-walk-reduced.jpg",
+      "sha256": "82b08a6d06ec865366264b55e94ce6f060355c009b9ac06336f25071835ca1d9",
+      "bytes": 10192
+    },
+    {
+      "path": "missing-motion/cat-1-motion.jpg",
+      "sha256": "f3de591c038a986581fa1550bbfb86ddc52bd1fb5db368e87e1e0ae04c9ba5b4",
+      "bytes": 377840
+    },
+    {
+      "path": "missing-motion/cat-1-normal-idle-normal.jpg",
+      "sha256": "c7fef5f389f6a63692bb39711233de8cc4e7775e6570cfc77efb88896849ae77",
+      "bytes": 8729
+    },
+    {
+      "path": "missing-motion/cat-1-normal-idle-reduced.jpg",
+      "sha256": "21ba80a28e8e3b9a11cb18b2e4f9d12f63688fcdbd3cf36f2f8fde796e2df14b",
+      "bytes": 9155
+    },
+    {
+      "path": "missing-motion/cat-1-normal-walk-normal.jpg",
+      "sha256": "98bf75db6292425cda2c1d0939f9c34e293e976c1a2a8f89f7cba677bafa96ed",
+      "bytes": 9956
+    },
+    {
+      "path": "missing-motion/cat-1-normal-walk-reduced.jpg",
+      "sha256": "03fbe4bdbb60d65799207dd9e3f901e757ebfabeb95ca6024ada3a8e3e0f07eb",
+      "bytes": 10603
+    },
+    {
+      "path": "missing-motion/cat-1-positive-idle-normal.jpg",
+      "sha256": "9d5b70c2647b04147bbec2a38e3b7c8cf0248f853587bea20461405ae14c5765",
+      "bytes": 8670
+    },
+    {
+      "path": "missing-motion/cat-1-positive-idle-reduced.jpg",
+      "sha256": "15a9a630713af0307d5a37e918aa030f77baefab9589699293855e30b32ddc66",
+      "bytes": 9659
+    },
+    {
+      "path": "missing-motion/cat-1-positive-walk-normal.jpg",
+      "sha256": "928b7bdaa1642217a7a9e3dadc53063c31d4fed8aa4f5af9364a4b8cbe26d7cb",
+      "bytes": 9812
+    },
+    {
+      "path": "missing-motion/cat-1-positive-walk-reduced.jpg",
+      "sha256": "fabc05f0289dbc125a466fff99f0bbcdb6555dde4dbaafbdd44261204948615e",
+      "bytes": 10563
+    },
+    {
+      "path": "missing-motion/cat-1-sick-idle-normal.jpg",
+      "sha256": "37d05b5859eaa9b36dee654a5ffc2d1806dad4fb9f7ce82cb64612925fcc0b9f",
+      "bytes": 8677
+    },
+    {
+      "path": "missing-motion/cat-1-sick-idle-reduced.jpg",
+      "sha256": "38ade0ee7cc7135de6f3462269d6e2a227473d4eef4f189e7a9b520eb1b83f77",
+      "bytes": 9142
+    },
+    {
+      "path": "missing-motion/cat-1-sick-walk-normal.jpg",
+      "sha256": "86f31608db363084081972b27fbc160d2b8f5c528c03f53dab262750fc1201db",
+      "bytes": 10201
+    },
+    {
+      "path": "missing-motion/cat-1-sick-walk-reduced.jpg",
+      "sha256": "d164079ea448049c9f06419cd3f87d19e8ecac32ec5baabba94dfae453a219a8",
+      "bytes": 10588
+    },
+    {
+      "path": "missing-motion/cat-1-sleeping-idle-normal.jpg",
+      "sha256": "5ea6be3e52feb4ca6ffe075c44a5db6c68ad6ec2a57d63ae1285d2156ad36473",
+      "bytes": 8295
+    },
+    {
+      "path": "missing-motion/cat-1-sleeping-idle-reduced.jpg",
+      "sha256": "321b5fb376a5fb3608ff56a8c6d9c46db9361b57e6c113b7fdc60d7e07c7eaf6",
+      "bytes": 8537
+    },
+    {
+      "path": "missing-motion/cat-1-sleeping-walk-normal.jpg",
+      "sha256": "1dcc7436b4dd63ade74a3abbb9d1c5aa595de8f543fd29cd49924b167cbc9e36",
+      "bytes": 9247
+    },
+    {
+      "path": "missing-motion/cat-1-sleeping-walk-reduced.jpg",
+      "sha256": "976252bee02040928aea83b4324b869ef904f62268499644ea734f198e8cffe3",
+      "bytes": 9799
+    },
+    {
+      "path": "missing-motion/cat-1-strained-idle-normal.jpg",
+      "sha256": "9a00dfda0805d12383d6c8435f938a6af8679e729110b004fd6325bd6b233ccf",
+      "bytes": 8758
+    },
+    {
+      "path": "missing-motion/cat-1-strained-idle-reduced.jpg",
+      "sha256": "52f8034038da5cd522eef068da618822e2eacb7aef40697aa674b4c0019cdd1c",
+      "bytes": 9161
+    },
+    {
+      "path": "missing-motion/cat-1-strained-walk-normal.jpg",
+      "sha256": "9cc04a6af00fa70c883848885232082acda1cb4cc6e40d51855ae087184582d6",
+      "bytes": 9550
+    },
+    {
+      "path": "missing-motion/cat-1-strained-walk-reduced.jpg",
+      "sha256": "b85f0d78af72ae1ff03bf96ab81bc4c7d204347ec82fcc7e12867dc564bea367",
+      "bytes": 10458
+    },
+    {
+      "path": "missing-motion/cat-1-tired-idle-normal.jpg",
+      "sha256": "a663ab03d844c84f8bf448744962a50cccc4139846707b72c930cba4a40de0f6",
+      "bytes": 8443
+    },
+    {
+      "path": "missing-motion/cat-1-tired-idle-reduced.jpg",
+      "sha256": "b83fabde85b752dbad7ecd60b58acd64894cb5034816b15cc961fb82f4013428",
+      "bytes": 8842
+    },
+    {
+      "path": "missing-motion/cat-1-tired-walk-normal.jpg",
+      "sha256": "043d45384283c489fb6d65641cd04140c629016f5c296a902457643f3d4c8c93",
+      "bytes": 9664
+    },
+    {
+      "path": "missing-motion/cat-1-tired-walk-reduced.jpg",
+      "sha256": "b8dc8f059725acda0016dd69f79d11f6d1f8a68bd8c364c4f85171da422b8e27",
+      "bytes": 10263
+    },
+    {
+      "path": "missing-motion/cat-1-wantsPlay-idle-normal.jpg",
+      "sha256": "1f628ff081cff6fda51b4dedb6961f66b56752675074b78832e8a0266ce843c9",
+      "bytes": 9336
+    },
+    {
+      "path": "missing-motion/cat-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "6e26591af16381f875fce10e9267c87fc49bd85e60246b606ba5fa5479075b05",
+      "bytes": 9781
+    },
+    {
+      "path": "missing-motion/cat-1-wantsPlay-walk-normal.jpg",
+      "sha256": "030232b62c2e14c2fe88974e2e7296edc2b7efaf3891dc11eb4fbf4e8a1265dd",
+      "bytes": 10387
+    },
+    {
+      "path": "missing-motion/cat-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "05c59db21cfa8241d763107c52f685f8024ce0673f660b7ca72a9727e3edebac",
+      "bytes": 10990
+    },
+    {
+      "path": "missing-motion/cat-2-dislike-idle-normal.jpg",
+      "sha256": "b45d5544cbb6cccbe6fa83fa39828a4be876264e616075e89645114f93c1fc76",
+      "bytes": 12137
+    },
+    {
+      "path": "missing-motion/cat-2-dislike-idle-reduced.jpg",
+      "sha256": "eecb3bbc166a9f7d2506a0891351b0e77086e360fc78597d24da75f45a9b3c82",
+      "bytes": 12306
+    },
+    {
+      "path": "missing-motion/cat-2-dislike-walk-normal.jpg",
+      "sha256": "53646691477ddc960b28b607f66116ea8c5fc5982bc075cf4460041a299f732a",
+      "bytes": 11514
+    },
+    {
+      "path": "missing-motion/cat-2-dislike-walk-reduced.jpg",
+      "sha256": "04570506bc19854f99d1cd9fbd57ae41f14c813cff32c0532313e29c8bcac318",
+      "bytes": 11839
+    },
+    {
+      "path": "missing-motion/cat-2-motion.jpg",
+      "sha256": "a48dd47ab1d1f29209306a48b1614ae0d1842ac6515c69cfdd7319fdf165892d",
+      "bytes": 477422
+    },
+    {
+      "path": "missing-motion/cat-2-normal-idle-normal.jpg",
+      "sha256": "9d609fa985af40fe77ceceb0269f56a65408a175b386680a619cd5ee1efdeb5f",
+      "bytes": 11816
+    },
+    {
+      "path": "missing-motion/cat-2-normal-idle-reduced.jpg",
+      "sha256": "8a6f7b78b314229c3ee1f76ada5755dc4a90cd2db6af0b4b00875eb629cf2692",
+      "bytes": 11871
+    },
+    {
+      "path": "missing-motion/cat-2-normal-walk-normal.jpg",
+      "sha256": "9d2d32d77061d6bde94218787ff5db4a558baee44d56bc7cb6bd77c8d86c47e3",
+      "bytes": 12016
+    },
+    {
+      "path": "missing-motion/cat-2-normal-walk-reduced.jpg",
+      "sha256": "f750e6e616e7d065cd9ca5be91f703a6ff3e08040f27b0081c8d1c9b93c39975",
+      "bytes": 12302
+    },
+    {
+      "path": "missing-motion/cat-2-positive-idle-normal.jpg",
+      "sha256": "43ecf2ec38165e6cc2e5da97d5d6c08c92e8f06f7bb5024a8988978145961cfd",
+      "bytes": 11665
+    },
+    {
+      "path": "missing-motion/cat-2-positive-idle-reduced.jpg",
+      "sha256": "c6b0b673862680c1b7630f98b5f2e7fe5ebfd67cd707cd22967ca7f17d07538b",
+      "bytes": 12046
+    },
+    {
+      "path": "missing-motion/cat-2-positive-walk-normal.jpg",
+      "sha256": "e88bf12be733a854d26235c3558eff914d5cd7ba7e05d3fb517d23f03017922a",
+      "bytes": 11996
+    },
+    {
+      "path": "missing-motion/cat-2-positive-walk-reduced.jpg",
+      "sha256": "d4299aea93c19e4d37057e5b0ee5b43e622d78e3939277ef2198ca4256d3e257",
+      "bytes": 12491
+    },
+    {
+      "path": "missing-motion/cat-2-sick-idle-normal.jpg",
+      "sha256": "06670986ff563decee5f5a8dc4ef6a1eec6adf8b2e5047113ba14af5eac5eba9",
+      "bytes": 12165
+    },
+    {
+      "path": "missing-motion/cat-2-sick-idle-reduced.jpg",
+      "sha256": "b1fe80969df505210b2456f6d221b4d5b5f34d655b5fdf01240dbbf1dc1e82f8",
+      "bytes": 12136
+    },
+    {
+      "path": "missing-motion/cat-2-sick-walk-normal.jpg",
+      "sha256": "ea77d1bc9b4613447db73c3fca6fe428801fda146fa5acc3f8361d45f044f973",
+      "bytes": 11862
+    },
+    {
+      "path": "missing-motion/cat-2-sick-walk-reduced.jpg",
+      "sha256": "c40f0c73ced592b5785e798e761f39e973bfcb7d5f0ae4d5fb3607e7f1f7b2d9",
+      "bytes": 12046
+    },
+    {
+      "path": "missing-motion/cat-2-sleeping-idle-normal.jpg",
+      "sha256": "c2a8321e18256208572efcbbcaae21339b45ac51d65e7892f611c59785e469cd",
+      "bytes": 11715
+    },
+    {
+      "path": "missing-motion/cat-2-sleeping-idle-reduced.jpg",
+      "sha256": "97055bfd92bef1d7e359b9cf948cc4a9c6e8337464199e50102cb01dfa26207e",
+      "bytes": 11773
+    },
+    {
+      "path": "missing-motion/cat-2-sleeping-walk-normal.jpg",
+      "sha256": "6065e14e592ff2ab6606c9b1c04e04f4b45032f582b1200ef955eec2c019afe3",
+      "bytes": 10829
+    },
+    {
+      "path": "missing-motion/cat-2-sleeping-walk-reduced.jpg",
+      "sha256": "fa58ddb18ad2f5ece7c380e8cec4aebb12d4292f7960f7018dee34866b428d3d",
+      "bytes": 11312
+    },
+    {
+      "path": "missing-motion/cat-2-strained-idle-normal.jpg",
+      "sha256": "25865fcb5df3887f799505ec2cf48636d7f222901a9828775b79f03fef6d06a4",
+      "bytes": 12187
+    },
+    {
+      "path": "missing-motion/cat-2-strained-idle-reduced.jpg",
+      "sha256": "4417c1f59cf34266f4605d65ce0b32b3e2dfbfc2645c7d628b242db3749a2db4",
+      "bytes": 12406
+    },
+    {
+      "path": "missing-motion/cat-2-strained-walk-normal.jpg",
+      "sha256": "ab77cd275752cb3927d24b4228bec025ace4e858565849770f7041399ca0da52",
+      "bytes": 11730
+    },
+    {
+      "path": "missing-motion/cat-2-strained-walk-reduced.jpg",
+      "sha256": "11ce583a342790b18602edeff57f906687ea8c3d3691740570dc9495d78659bc",
+      "bytes": 12113
+    },
+    {
+      "path": "missing-motion/cat-2-tired-idle-normal.jpg",
+      "sha256": "72919f9f3ed459cb1a4c69aafd5e52df9383131c9d0e31976b70844adced17f2",
+      "bytes": 11764
+    },
+    {
+      "path": "missing-motion/cat-2-tired-idle-reduced.jpg",
+      "sha256": "f100503cc89b1398a88e366b5413ceb8d5c2ed2802864053dd0c20acd0f86a51",
+      "bytes": 11864
+    },
+    {
+      "path": "missing-motion/cat-2-tired-walk-normal.jpg",
+      "sha256": "68373d9fc43758bcd9a86c0d9a07f27c23e1296a24bc1527288c4dfa358fc14f",
+      "bytes": 11321
+    },
+    {
+      "path": "missing-motion/cat-2-tired-walk-reduced.jpg",
+      "sha256": "3155dd6286c394d24e581e472dd590a3d367491044d81810006eea9ad7a1657f",
+      "bytes": 11588
+    },
+    {
+      "path": "missing-motion/cat-2-wantsPlay-idle-normal.jpg",
+      "sha256": "4122542ae160cdf7e8b5daa293883f474b2e133f3236277c5116d3d353df36dc",
+      "bytes": 11905
+    },
+    {
+      "path": "missing-motion/cat-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "120857cc94c219961db230e49ce3dbfa57bbf332491d4a0ed4edd31e0e762619",
+      "bytes": 12157
+    },
+    {
+      "path": "missing-motion/cat-2-wantsPlay-walk-normal.jpg",
+      "sha256": "9ad5908c80d8f987a6674322c8124a80dc04d4793d13cc46e5662ee7d951c220",
+      "bytes": 11231
+    },
+    {
+      "path": "missing-motion/cat-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "efe0d241fb57ce3d31f59eca8798998f71c9570aaaf152b55b2e6ee9bf1cca28",
+      "bytes": 12407
+    },
+    {
+      "path": "missing-motion/cat-3-dislike-idle-normal.jpg",
+      "sha256": "a8695409d4f42a062d058dcbcb3996fc029b5f15b022b5d766657dcf328838b3",
+      "bytes": 11406
+    },
+    {
+      "path": "missing-motion/cat-3-dislike-idle-reduced.jpg",
+      "sha256": "417248a3dec53dbee4fc6420fa99605a7ca46b70a6fd437ba7e122cbbc5ea8fc",
+      "bytes": 11659
+    },
+    {
+      "path": "missing-motion/cat-3-dislike-walk-normal.jpg",
+      "sha256": "f22a8decbc249480ce6cfac3c2cc6845432f7f7b3d2e405e4f8d0dd4fb0fab8b",
+      "bytes": 11162
+    },
+    {
+      "path": "missing-motion/cat-3-dislike-walk-reduced.jpg",
+      "sha256": "6b262a53b2669fb75f9f742468a3b3f3b97a70e36fbc9ed7ec0403705a4809a8",
+      "bytes": 11534
+    },
+    {
+      "path": "missing-motion/cat-3-motion.jpg",
+      "sha256": "995e045571d9e395ab8ac93738f9dad012cfa8ac014e22b48a457893c874b752",
+      "bytes": 482441
+    },
+    {
+      "path": "missing-motion/cat-3-normal-idle-normal.jpg",
+      "sha256": "6bc135f9eae93cf1ca0cc65138735260051aa4a8022bba7f1ab0c9b26ef55d4f",
+      "bytes": 11844
+    },
+    {
+      "path": "missing-motion/cat-3-normal-idle-reduced.jpg",
+      "sha256": "6cab25b24d3b4f8925e266a9852dd499b1f74ac8f7c695fbeda81dd2b0b17b18",
+      "bytes": 12132
+    },
+    {
+      "path": "missing-motion/cat-3-normal-walk-normal.jpg",
+      "sha256": "0ecab087b5ce7d4e9aaf54f411ca742e6e797f1e9c32c1daf8781c50ca7a7817",
+      "bytes": 11596
+    },
+    {
+      "path": "missing-motion/cat-3-normal-walk-reduced.jpg",
+      "sha256": "b74d3687fee4fb324293c091407a69d5edd090ae9c77c2a099f98e00249425e0",
+      "bytes": 12097
+    },
+    {
+      "path": "missing-motion/cat-3-positive-idle-normal.jpg",
+      "sha256": "74146cd042d696d2671aa77864a30f66bb190225eb6d606ffad7d621ac8e3c05",
+      "bytes": 11731
+    },
+    {
+      "path": "missing-motion/cat-3-positive-idle-reduced.jpg",
+      "sha256": "3de1b3e6afb44f7e5470de299a6cf891789ddf9694d8f66176a907d954cd56e5",
+      "bytes": 12278
+    },
+    {
+      "path": "missing-motion/cat-3-positive-walk-normal.jpg",
+      "sha256": "5dd6d454047f89314c153c1d41c26b0c288f0251606d25cbfbebf7b140bee3cf",
+      "bytes": 11626
+    },
+    {
+      "path": "missing-motion/cat-3-positive-walk-reduced.jpg",
+      "sha256": "9922c9eb2275ec5ff5d9a1a334a8207e1c81ddca8291e0a03c2e43d6aec07498",
+      "bytes": 12136
+    },
+    {
+      "path": "missing-motion/cat-3-sick-idle-normal.jpg",
+      "sha256": "a7f088b4a8bea9799990492943eabf03571a823e2635921bf927bad390f7a98f",
+      "bytes": 11700
+    },
+    {
+      "path": "missing-motion/cat-3-sick-idle-reduced.jpg",
+      "sha256": "d5a8b9c4380daedb74063ff3646886a6222e28ebce03763c187d3aca833666bb",
+      "bytes": 11970
+    },
+    {
+      "path": "missing-motion/cat-3-sick-walk-normal.jpg",
+      "sha256": "08b3d1afa9e739fd3932e187cbb7285b5b01a840678d54596b07c5421b828bb7",
+      "bytes": 11574
+    },
+    {
+      "path": "missing-motion/cat-3-sick-walk-reduced.jpg",
+      "sha256": "12a0462539d394f8b6e9fe0b9ed4c29060969a24962df70efd9abefd8d8de404",
+      "bytes": 11746
+    },
+    {
+      "path": "missing-motion/cat-3-sleeping-idle-normal.jpg",
+      "sha256": "822638fe114bf86548726c359d1e51d0be202ef013fc2a30a269ffdf545e0cc5",
+      "bytes": 10984
+    },
+    {
+      "path": "missing-motion/cat-3-sleeping-idle-reduced.jpg",
+      "sha256": "6f978a27287df8da01505dbba07921e014f14a71888e00986b0f2c52cf4d7507",
+      "bytes": 11217
+    },
+    {
+      "path": "missing-motion/cat-3-sleeping-walk-normal.jpg",
+      "sha256": "76756c40780086b77079a986780534ec6181b3ba90f8cc9aaeea6619f4338b15",
+      "bytes": 10639
+    },
+    {
+      "path": "missing-motion/cat-3-sleeping-walk-reduced.jpg",
+      "sha256": "ee782dc2b8b95c5e42c5c37fb7a56864d55aa53cfdac208588fcfe81f892e7ff",
+      "bytes": 11102
+    },
+    {
+      "path": "missing-motion/cat-3-strained-idle-normal.jpg",
+      "sha256": "5dac8cb08cdb2ea2308b677ff2734b5de4561cefff58bef5cd14c66bc008f3c9",
+      "bytes": 11845
+    },
+    {
+      "path": "missing-motion/cat-3-strained-idle-reduced.jpg",
+      "sha256": "1e3f260e19db88b0e42b20cb0e49946361cbe10d99a53a2706f942833b4c2488",
+      "bytes": 12138
+    },
+    {
+      "path": "missing-motion/cat-3-strained-walk-normal.jpg",
+      "sha256": "37be7708f8cbb8aaaa700db789b626a2986ae057f536b4b224552ceb426f2c8e",
+      "bytes": 11503
+    },
+    {
+      "path": "missing-motion/cat-3-strained-walk-reduced.jpg",
+      "sha256": "5a9f1f8eb60a9a0cc6fa045b53d28e2064628b9b849b72c828b5ab2e46ccca00",
+      "bytes": 11955
+    },
+    {
+      "path": "missing-motion/cat-3-tired-idle-normal.jpg",
+      "sha256": "6c6e4b96ca44fb525c950f1f2633cf9f3d9eb62eada8e563edbf245070d1a48a",
+      "bytes": 11239
+    },
+    {
+      "path": "missing-motion/cat-3-tired-idle-reduced.jpg",
+      "sha256": "08e0bc567fe0515db79171c52d509b024fa9dad22992905cc2fcdcbe027e8ebf",
+      "bytes": 11493
+    },
+    {
+      "path": "missing-motion/cat-3-tired-walk-normal.jpg",
+      "sha256": "e84c8f6902090eb8fdf8f40c6a5851008320c1a422e75af60cf9802366db4f30",
+      "bytes": 11169
+    },
+    {
+      "path": "missing-motion/cat-3-tired-walk-reduced.jpg",
+      "sha256": "1e44d11c22444365d9a3b66948ede2fe8c05e55bf0dcbe801a722e85f561fb5e",
+      "bytes": 11279
+    },
+    {
+      "path": "missing-motion/cat-3-wantsPlay-idle-normal.jpg",
+      "sha256": "c9c91b2d1f6e33f49e6de1e979da63bf51a2bf44c5d22399593025bdcbeecb09",
+      "bytes": 11423
+    },
+    {
+      "path": "missing-motion/cat-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "13d1ac40195ce09751bb21360861551f3caff72ae0336f23ffecc6e08ff06167",
+      "bytes": 12309
+    },
+    {
+      "path": "missing-motion/cat-3-wantsPlay-walk-normal.jpg",
+      "sha256": "abeae860d5699f73e337499ebfbf4a1537175399b281a923cb7506b3c8b9ec79",
+      "bytes": 10865
+    },
+    {
+      "path": "missing-motion/cat-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "5d7f682f8de3a49e640f23c97f068d1f418d5c3de249c60e6ac4d7e50f26b0d4",
+      "bytes": 12064
+    },
+    {
+      "path": "missing-motion/cat-4-dislike-idle-normal.jpg",
+      "sha256": "b7e502f0868b5ee5a97e161b9e25ad701a1241e0e960ea0de25baf4a907fe6a8",
+      "bytes": 10501
+    },
+    {
+      "path": "missing-motion/cat-4-dislike-idle-reduced.jpg",
+      "sha256": "489904428cad611a2220da82be137a7f43e950ffe66cc99e627bdaff59b85b06",
+      "bytes": 10678
+    },
+    {
+      "path": "missing-motion/cat-4-dislike-walk-normal.jpg",
+      "sha256": "d14ac840a8c62ea5016e2a1450549256abc80409fd4df4b38a719bae1c71bad7",
+      "bytes": 10625
+    },
+    {
+      "path": "missing-motion/cat-4-dislike-walk-reduced.jpg",
+      "sha256": "a1d7825b2d6a0dc9e49806ab8aed095b004e52ff4682e302fdd905fee6eac92c",
+      "bytes": 10900
+    },
+    {
+      "path": "missing-motion/cat-4-motion.jpg",
+      "sha256": "b976fa2fb94f90c04beb986504cdfebac30491af66c00d7a6d8da75a9a06a71f",
+      "bytes": 442598
+    },
+    {
+      "path": "missing-motion/cat-4-normal-idle-normal.jpg",
+      "sha256": "a015c49d56d95e17037c700e0c02a17ec501318d680c3563b098aade574acfb5",
+      "bytes": 10870
+    },
+    {
+      "path": "missing-motion/cat-4-normal-idle-reduced.jpg",
+      "sha256": "cafc25a45d67b829f1dbb454b65d5fc62df23e6c8c499ecf60c5378484ae7fe9",
+      "bytes": 11013
+    },
+    {
+      "path": "missing-motion/cat-4-normal-walk-normal.jpg",
+      "sha256": "8124ef286dbd2e3edc7fe6e65b0d6d3eb1154ed1711165ff0bb183056834f5a4",
+      "bytes": 11154
+    },
+    {
+      "path": "missing-motion/cat-4-normal-walk-reduced.jpg",
+      "sha256": "9a101ba4902781919891f2ae7a1562bfe4c06e3f8b8354164e605391ed49a78b",
+      "bytes": 11448
+    },
+    {
+      "path": "missing-motion/cat-4-positive-idle-normal.jpg",
+      "sha256": "293b82c3cd599fb5e265d9aebaced07dfbf448f4dbbcfe198595589ef4536807",
+      "bytes": 10531
+    },
+    {
+      "path": "missing-motion/cat-4-positive-idle-reduced.jpg",
+      "sha256": "b7eed172c8b8f13bced7576b8a94879c8344a5b24f7ec3f2acda670d4199b75c",
+      "bytes": 11181
+    },
+    {
+      "path": "missing-motion/cat-4-positive-walk-normal.jpg",
+      "sha256": "6b9c687fea508a9f73a0aeaa19a895d0fdaeeeb8c8394d7d8a63b585486bb5a4",
+      "bytes": 11010
+    },
+    {
+      "path": "missing-motion/cat-4-positive-walk-reduced.jpg",
+      "sha256": "f831edfbbd4decec881fb944987cd785d9ec5282ce95ab825b835fbf21bcba3c",
+      "bytes": 11292
+    },
+    {
+      "path": "missing-motion/cat-4-sick-idle-normal.jpg",
+      "sha256": "e543e3dc4d63d93dc61b431c366c0010ee3234377eae2a953bc75808949b0cf1",
+      "bytes": 10648
+    },
+    {
+      "path": "missing-motion/cat-4-sick-idle-reduced.jpg",
+      "sha256": "b6b68c779aba8e46dbebcef2ca56f047fce2199862ffadb1cca9363bc4f9d9b2",
+      "bytes": 10947
+    },
+    {
+      "path": "missing-motion/cat-4-sick-walk-normal.jpg",
+      "sha256": "b129f0a442ec2b0fa1d1703d63645bd4fff7f27199c16238f088f61807450a44",
+      "bytes": 11045
+    },
+    {
+      "path": "missing-motion/cat-4-sick-walk-reduced.jpg",
+      "sha256": "98c2472eddf6cd9acce0e6d90fe4503aaa7833bf097f68bde190b3100710e29c",
+      "bytes": 10893
+    },
+    {
+      "path": "missing-motion/cat-4-sleeping-idle-normal.jpg",
+      "sha256": "f4503b60e8f37914144888eb96640b2f8b98da1632b9862854890794f95b2da0",
+      "bytes": 10467
+    },
+    {
+      "path": "missing-motion/cat-4-sleeping-idle-reduced.jpg",
+      "sha256": "26aac738ab769f1dcc6e04cedc4b1c3efbbf2a1fe285af88ae64c3e2aa085216",
+      "bytes": 10646
+    },
+    {
+      "path": "missing-motion/cat-4-sleeping-walk-normal.jpg",
+      "sha256": "d926c25ca7fb7d31204ffb98ee51faf2563217f542c0d8fc38b9fbd97f005b73",
+      "bytes": 10308
+    },
+    {
+      "path": "missing-motion/cat-4-sleeping-walk-reduced.jpg",
+      "sha256": "9d92c68917da432272dfb8f19be8eb1bd2433d68827d37b89eada8dcf792f4b9",
+      "bytes": 10654
+    },
+    {
+      "path": "missing-motion/cat-4-strained-idle-normal.jpg",
+      "sha256": "efcbe34df951fbdcbb36f2d41ae83a04b12745b1f4b1527ec29d039b9efb6819",
+      "bytes": 10728
+    },
+    {
+      "path": "missing-motion/cat-4-strained-idle-reduced.jpg",
+      "sha256": "3daf262d6f23d9940cd121f2cc5a133720742c6c3087ac2560de2c08c6494a8e",
+      "bytes": 11057
+    },
+    {
+      "path": "missing-motion/cat-4-strained-walk-normal.jpg",
+      "sha256": "c89bdfd3242021354009180328d6f2bec530dc1ab9c734891321571078ccdd9f",
+      "bytes": 11009
+    },
+    {
+      "path": "missing-motion/cat-4-strained-walk-reduced.jpg",
+      "sha256": "15fee9fac9e93e2e515fa5b52a942964f2bb0d8c0643031cbf5b8d333eb84127",
+      "bytes": 11145
+    },
+    {
+      "path": "missing-motion/cat-4-tired-idle-normal.jpg",
+      "sha256": "c124d0eecee8a67c0e806e916bdaa47cea441d8986fc402530d46db367e3190d",
+      "bytes": 10449
+    },
+    {
+      "path": "missing-motion/cat-4-tired-idle-reduced.jpg",
+      "sha256": "1184511afa1d08be9309114e6e9403462b722d9799cdecb8f289f9aea9994465",
+      "bytes": 10631
+    },
+    {
+      "path": "missing-motion/cat-4-tired-walk-normal.jpg",
+      "sha256": "d1c89c4dfdd9ebe7d71afe719d4284164dada7cc7fcb9b6c877460565b219f5b",
+      "bytes": 10421
+    },
+    {
+      "path": "missing-motion/cat-4-tired-walk-reduced.jpg",
+      "sha256": "d8c0ad4e32069fdf92dcd49bff8128d1fa376299181761d194539cdcfdf7ff8f",
+      "bytes": 10683
+    },
+    {
+      "path": "missing-motion/cat-4-wantsPlay-idle-normal.jpg",
+      "sha256": "9f15f853c4d5f1b1f24aae90be4942e9283e3dc1cd844fe639927e44e69f61d2",
+      "bytes": 10533
+    },
+    {
+      "path": "missing-motion/cat-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "818a2a1b95e263a644ebe6b6c088a64c4dbbcd5fe3fbce4de37b34f26ce29097",
+      "bytes": 11296
+    },
+    {
+      "path": "missing-motion/cat-4-wantsPlay-walk-normal.jpg",
+      "sha256": "5513d14db1a142cc09b0919242c3f925c34a8c2c39b37d8af29c8ebb833c1d3d",
+      "bytes": 10569
+    },
+    {
+      "path": "missing-motion/cat-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "26d3f895573e65f8aea8f00cc840e6df8f3398ebd202e845d70fd07e103b801a",
+      "bytes": 11292
+    },
+    {
+      "path": "missing-motion/cat-5-dislike-idle-normal.jpg",
+      "sha256": "cbd4b311ecd83beec7d1b14191da4ed05e2fa56e884032f62caee328131749d4",
+      "bytes": 11072
+    },
+    {
+      "path": "missing-motion/cat-5-dislike-idle-reduced.jpg",
+      "sha256": "0b190052e211ce85e354d48f8ed0ee285ce110c6a483a933204c06ce5a990034",
+      "bytes": 11397
+    },
+    {
+      "path": "missing-motion/cat-5-dislike-walk-normal.jpg",
+      "sha256": "b4cc8b3b2125fd1f55a4f9e767994c113fd8be58bf301215084e8b47f602c112",
+      "bytes": 11037
+    },
+    {
+      "path": "missing-motion/cat-5-dislike-walk-reduced.jpg",
+      "sha256": "ca62eac2d5fab02b7141f7cc885fde2372a4a37e9f20ff7deea78c113018e3c1",
+      "bytes": 11430
+    },
+    {
+      "path": "missing-motion/cat-5-motion.jpg",
+      "sha256": "e1af5f08817baaa055abdba6956c0ac6333d5f96d91f5d29fb77919e94d8d0af",
+      "bytes": 474125
+    },
+    {
+      "path": "missing-motion/cat-5-normal-idle-normal.jpg",
+      "sha256": "5cd1751b9e55f70ea2493a3aee0b2ffb51718cecd3dea24ec2b8176d7ac31152",
+      "bytes": 11394
+    },
+    {
+      "path": "missing-motion/cat-5-normal-idle-reduced.jpg",
+      "sha256": "49ac1e040a1665eb29a98db62c39c5be71ed448deba9df835f063941bf77ef1d",
+      "bytes": 11873
+    },
+    {
+      "path": "missing-motion/cat-5-normal-walk-normal.jpg",
+      "sha256": "ed8e90e6c12089e99037b89b42588027985ec98ab0d809bc67bce7042327089f",
+      "bytes": 11477
+    },
+    {
+      "path": "missing-motion/cat-5-normal-walk-reduced.jpg",
+      "sha256": "0bb2c85f8f2f7e69ada69e63dd85a0c944db1889ac834ba3b423c27898c881c8",
+      "bytes": 11825
+    },
+    {
+      "path": "missing-motion/cat-5-positive-idle-normal.jpg",
+      "sha256": "354cfd1535772e169db38fa19e73e07af7a6f0587f428e88e51a961b37cd7525",
+      "bytes": 11391
+    },
+    {
+      "path": "missing-motion/cat-5-positive-idle-reduced.jpg",
+      "sha256": "7a6efdf5e47e51fde222311d0755fee312c0da6e6206c2431397f1b8565a2b2e",
+      "bytes": 11968
+    },
+    {
+      "path": "missing-motion/cat-5-positive-walk-normal.jpg",
+      "sha256": "10ea52045a1c4053e2f60df144ff4a419fb8b692c7c30b9dac87ef9d4255eff6",
+      "bytes": 11478
+    },
+    {
+      "path": "missing-motion/cat-5-positive-walk-reduced.jpg",
+      "sha256": "93e33d613a8009197e09fa2c9e66a2ca180d2e0fe2ea4f0afa4415b9612a8016",
+      "bytes": 11964
+    },
+    {
+      "path": "missing-motion/cat-5-sick-idle-normal.jpg",
+      "sha256": "a4b2ac5eacbf83641beedcbc5b5408a2b1e5f5ae281cc6dd8c0850ea11361e00",
+      "bytes": 11360
+    },
+    {
+      "path": "missing-motion/cat-5-sick-idle-reduced.jpg",
+      "sha256": "ba2c619ab6b7767034a764f75c13b4e2f294afed90a51810e99776d04de46a28",
+      "bytes": 11613
+    },
+    {
+      "path": "missing-motion/cat-5-sick-walk-normal.jpg",
+      "sha256": "264d86144135bd5d52d10523fddad1ae2a61609501e9f47c1a70541023ed9209",
+      "bytes": 11200
+    },
+    {
+      "path": "missing-motion/cat-5-sick-walk-reduced.jpg",
+      "sha256": "5205097f46a1f51af86e818dcc21f11ff195612c2702ce2497d0654ee341bf0a",
+      "bytes": 11407
+    },
+    {
+      "path": "missing-motion/cat-5-sleeping-idle-normal.jpg",
+      "sha256": "3ffd9783a36b25fac60999a547e6f3248ef11b3d1b7110b01a601874bea8ad46",
+      "bytes": 10760
+    },
+    {
+      "path": "missing-motion/cat-5-sleeping-idle-reduced.jpg",
+      "sha256": "2d90e15b7f51622c67f3145398626734e209d614d6b0e10678d2d6b8051d737e",
+      "bytes": 11017
+    },
+    {
+      "path": "missing-motion/cat-5-sleeping-walk-normal.jpg",
+      "sha256": "03161b185d63419368133980265f8888a337e3c52cbb4353f4305b4201acac90",
+      "bytes": 10734
+    },
+    {
+      "path": "missing-motion/cat-5-sleeping-walk-reduced.jpg",
+      "sha256": "47e38e19d21d70beaee0629769156441c83835f40c95dd89580161977f8d69c3",
+      "bytes": 10965
+    },
+    {
+      "path": "missing-motion/cat-5-strained-idle-normal.jpg",
+      "sha256": "925919fef93041809696463924a2323697e7636dd23e246d226745a0530c4f89",
+      "bytes": 11641
+    },
+    {
+      "path": "missing-motion/cat-5-strained-idle-reduced.jpg",
+      "sha256": "17ad354376fddfe371255dcc748317c6923a6651db034444b8cf39afb32da13e",
+      "bytes": 11808
+    },
+    {
+      "path": "missing-motion/cat-5-strained-walk-normal.jpg",
+      "sha256": "499728cb43e27d8c99c3e93ea7bb8b9eb7a78d787aaf564c4b70ac1ec9761049",
+      "bytes": 11252
+    },
+    {
+      "path": "missing-motion/cat-5-strained-walk-reduced.jpg",
+      "sha256": "9a4aad8d21334823dadbf84dde7f18bbc2d19d81112d227e29fa2863e2d3f83d",
+      "bytes": 11831
+    },
+    {
+      "path": "missing-motion/cat-5-tired-idle-normal.jpg",
+      "sha256": "4c1a8b882dffe5ead9e99d099d72822175e51aed55428f2bb9c9e199628cca03",
+      "bytes": 10947
+    },
+    {
+      "path": "missing-motion/cat-5-tired-idle-reduced.jpg",
+      "sha256": "6ee9e20be56d316ee77bd465b81f0a1fdfa0b5eef9dbddb7c352bc572663bbe2",
+      "bytes": 11291
+    },
+    {
+      "path": "missing-motion/cat-5-tired-walk-normal.jpg",
+      "sha256": "2874a65c372d477453cab2fbc71ce16772462e33a064c30892538abe473fb60e",
+      "bytes": 10948
+    },
+    {
+      "path": "missing-motion/cat-5-tired-walk-reduced.jpg",
+      "sha256": "7577633fcc9e8e366e5b25b84273ab8e6b77c55f44a5adc699a0af921644de65",
+      "bytes": 11193
+    },
+    {
+      "path": "missing-motion/cat-5-wantsPlay-idle-normal.jpg",
+      "sha256": "b5c17d064e82d2cfc32727dc2f0290582dfd2c195dfcdea4f17fe51de372fd08",
+      "bytes": 11167
+    },
+    {
+      "path": "missing-motion/cat-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "6d0f6f78daad322baf80980bce427c099484a9b919851242ed90a2d525e856e3",
+      "bytes": 11840
+    },
+    {
+      "path": "missing-motion/cat-5-wantsPlay-walk-normal.jpg",
+      "sha256": "6d6991ca6d194e4ea0f8456b1156f699e9c848d6b560e9addf1fb8334e9daa58",
+      "bytes": 10806
+    },
+    {
+      "path": "missing-motion/cat-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "2080c2905a77310ff15ca28dbbade5df7d179864aa6a00d7b235354bd188c3de",
+      "bytes": 11682
+    },
+    {
+      "path": "missing-motion/cat-6-dislike-idle-normal.jpg",
+      "sha256": "2bcae6c61fe4fcca0f8e756f3e37ace792d7e82df7a68911c8ad79437f3a9875",
+      "bytes": 11792
+    },
+    {
+      "path": "missing-motion/cat-6-dislike-idle-reduced.jpg",
+      "sha256": "0a4bac46e28ffde7ef704af4667378d5b7dd3952b2b139070935569afc106364",
+      "bytes": 12114
+    },
+    {
+      "path": "missing-motion/cat-6-dislike-walk-normal.jpg",
+      "sha256": "655c415eabb94ddd10bdcc208ca639b76c1cc0a68483148708761d2c64d75daa",
+      "bytes": 11219
+    },
+    {
+      "path": "missing-motion/cat-6-dislike-walk-reduced.jpg",
+      "sha256": "d37e4489f50cac317bff8e1f36a32987e946ad7423ab0b506ddacbb992ad237f",
+      "bytes": 11608
+    },
+    {
+      "path": "missing-motion/cat-6-motion.jpg",
+      "sha256": "ce7b58c1be1e64289b1357a9cc0270be2354a399719ea94f6ced487a5eb594c5",
+      "bytes": 483828
+    },
+    {
+      "path": "missing-motion/cat-6-normal-idle-normal.jpg",
+      "sha256": "2c983dd66d79bc94ab74099b82675c9a4d816c0f8f3d5db85d37155fafc33000",
+      "bytes": 11786
+    },
+    {
+      "path": "missing-motion/cat-6-normal-idle-reduced.jpg",
+      "sha256": "c681258ca90bfa4b1390ab8e03e8fd25f487d79c019ab981b6ac7bb863a3604c",
+      "bytes": 12100
+    },
+    {
+      "path": "missing-motion/cat-6-normal-walk-normal.jpg",
+      "sha256": "b7f4080261cfc4d4d7c8270b7c74b82f05655cebda4edf2b56d21ffead669686",
+      "bytes": 11761
+    },
+    {
+      "path": "missing-motion/cat-6-normal-walk-reduced.jpg",
+      "sha256": "49b40ad6ac0e22f8c271dd1f8d8cd1793cbe3f1cae9256d5d7885bc195ff692b",
+      "bytes": 11845
+    },
+    {
+      "path": "missing-motion/cat-6-positive-idle-normal.jpg",
+      "sha256": "d4a8fb6cb87e75e30800a460091b648dc74091333ef43b33ae373d7f31795526",
+      "bytes": 11759
+    },
+    {
+      "path": "missing-motion/cat-6-positive-idle-reduced.jpg",
+      "sha256": "acce0a32c6adeda25c6ab2eb55cf9ffd27d4be90fcb804ee4a0577d8f596d7fd",
+      "bytes": 12175
+    },
+    {
+      "path": "missing-motion/cat-6-positive-walk-normal.jpg",
+      "sha256": "14b72f099f0a23feb72f38ea6562535bf060e942761dd2409b3f00edac82f1e2",
+      "bytes": 11632
+    },
+    {
+      "path": "missing-motion/cat-6-positive-walk-reduced.jpg",
+      "sha256": "f9703aa62997e2e46999e04567bf1c5eb663a58441631d9c3e02d30545dcf037",
+      "bytes": 12128
+    },
+    {
+      "path": "missing-motion/cat-6-sick-idle-normal.jpg",
+      "sha256": "5601c004aae80d9c954f9130210202e68bae843403e8d1f07508297f1e97f4a9",
+      "bytes": 12158
+    },
+    {
+      "path": "missing-motion/cat-6-sick-idle-reduced.jpg",
+      "sha256": "fb008ce249db1be74253a02c4349a4e53c7095f86a6d29314f26135f77f7bdb7",
+      "bytes": 12284
+    },
+    {
+      "path": "missing-motion/cat-6-sick-walk-normal.jpg",
+      "sha256": "ccb26265d62536013984d44a5d56f7e76966de0644365500a2c847aa480f3c63",
+      "bytes": 11477
+    },
+    {
+      "path": "missing-motion/cat-6-sick-walk-reduced.jpg",
+      "sha256": "1152f2080030eb0431388244aa96ff2eaa2f8b8446ec7f86c9f1c06868ddf1c7",
+      "bytes": 11528
+    },
+    {
+      "path": "missing-motion/cat-6-sleeping-idle-normal.jpg",
+      "sha256": "adf5aec67f7249f57d054b494082eb85344a94f375f739310fe7a7602320b731",
+      "bytes": 11851
+    },
+    {
+      "path": "missing-motion/cat-6-sleeping-idle-reduced.jpg",
+      "sha256": "a111607978119f33b107c87cc46d766f2fd3e5c87eda43037b8251c6a99d373b",
+      "bytes": 12216
+    },
+    {
+      "path": "missing-motion/cat-6-sleeping-walk-normal.jpg",
+      "sha256": "9827f3d6bfc3b7cab5cea4c7531964f90c9c1f97e5407be5fef73ed6447f0474",
+      "bytes": 10681
+    },
+    {
+      "path": "missing-motion/cat-6-sleeping-walk-reduced.jpg",
+      "sha256": "4d1e4986ba36a3909fcaa1edfd97a1b5ff3bf01e990e5e658b0dd6a12ec903dd",
+      "bytes": 11087
+    },
+    {
+      "path": "missing-motion/cat-6-strained-idle-normal.jpg",
+      "sha256": "18aa235a39987398c2e3d105d0ac730590b696a9c5a3335440258d38bd2bcf04",
+      "bytes": 12402
+    },
+    {
+      "path": "missing-motion/cat-6-strained-idle-reduced.jpg",
+      "sha256": "46ef02647ab2860839a18c3c074215c4aea9bd229e7beb2285b42ebd80a62efd",
+      "bytes": 12608
+    },
+    {
+      "path": "missing-motion/cat-6-strained-walk-normal.jpg",
+      "sha256": "8b0cf9b85b000ddf0fc2c08e44db415f8264d8cb62932debd7d55564f3bd5097",
+      "bytes": 11450
+    },
+    {
+      "path": "missing-motion/cat-6-strained-walk-reduced.jpg",
+      "sha256": "7d94e069ee3ef883a47d0a216c134a4262f0e9f7f2fd4f607b2b095f2bfeb83d",
+      "bytes": 11938
+    },
+    {
+      "path": "missing-motion/cat-6-tired-idle-normal.jpg",
+      "sha256": "e3612fefb0c6051c07aef171865919a8573b5e6dbe18f003b6e7abde582db3a7",
+      "bytes": 12022
+    },
+    {
+      "path": "missing-motion/cat-6-tired-idle-reduced.jpg",
+      "sha256": "d91231516d0020d5c56a8d17b1eb91968c77835a1d6428ef1f479675cf7e2d81",
+      "bytes": 12027
+    },
+    {
+      "path": "missing-motion/cat-6-tired-walk-normal.jpg",
+      "sha256": "616473c03b411dec61ac98a9ff77c277b8a561c675cd4ba1723c11620796ffc0",
+      "bytes": 11089
+    },
+    {
+      "path": "missing-motion/cat-6-tired-walk-reduced.jpg",
+      "sha256": "260584870f8e871d9088b9d30d70c14a481d555461d1b6dc34b48f04e30276da",
+      "bytes": 11442
+    },
+    {
+      "path": "missing-motion/cat-6-wantsPlay-idle-normal.jpg",
+      "sha256": "05b2bf4631c716d26d93c3e770d4ca21b9ba4a86a9cf242fbe6b39ae9477c5e4",
+      "bytes": 12047
+    },
+    {
+      "path": "missing-motion/cat-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "37ed22fa01f7b9c6bd6e36e812e4f9acb0aa47b8785e7bc6d17e9c16875da493",
+      "bytes": 12368
+    },
+    {
+      "path": "missing-motion/cat-6-wantsPlay-walk-normal.jpg",
+      "sha256": "32e570333780be450fa774c501cbee2327600c9b8a30e9e38076edf10a133717",
+      "bytes": 11018
+    },
+    {
+      "path": "missing-motion/cat-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "aa684e764b2f01681af1725e0a8ce7e2e23c7b21b801a825facb845a1fd095aa",
+      "bytes": 11913
+    },
+    {
+      "path": "missing-motion/cat-7-dislike-idle-normal.jpg",
+      "sha256": "9d7584e8b5b3d7edc04842f7057f514f6b20eecfe9ee895bb4def61bc87f9274",
+      "bytes": 9937
+    },
+    {
+      "path": "missing-motion/cat-7-dislike-idle-reduced.jpg",
+      "sha256": "08dbf245559be44a601a243c292ba6067a611fcbb944c2ed7bde5c3d577b06e2",
+      "bytes": 10012
+    },
+    {
+      "path": "missing-motion/cat-7-dislike-walk-normal.jpg",
+      "sha256": "efb6199452f0917c9dfae9d77e9f118a069230044e496ca06e73cfdcb141f161",
+      "bytes": 9589
+    },
+    {
+      "path": "missing-motion/cat-7-dislike-walk-reduced.jpg",
+      "sha256": "0df8f785e18ec9111fac000416d53b4e981b878c9864dd61d23fcb58c023b707",
+      "bytes": 9629
+    },
+    {
+      "path": "missing-motion/cat-7-motion.jpg",
+      "sha256": "744bf549b9939485dd0eae2f023a4086b8e39174f6656aae5519c0c04437bd1f",
+      "bytes": 410220
+    },
+    {
+      "path": "missing-motion/cat-7-normal-idle-normal.jpg",
+      "sha256": "18321d20a9430a046e644c91d5af97d692011fac2c7ea2e99b0ea2ddc0a302f0",
+      "bytes": 10189
+    },
+    {
+      "path": "missing-motion/cat-7-normal-idle-reduced.jpg",
+      "sha256": "a749ff71f9cbaad5b19a1e13751769cda7591fffcb2da0f437df2a05bd8cf5d2",
+      "bytes": 10223
+    },
+    {
+      "path": "missing-motion/cat-7-normal-walk-normal.jpg",
+      "sha256": "d764fed33210a9f77f7f1931f6bcb8e95e5780e55f4e703509338e752a6b301f",
+      "bytes": 9639
+    },
+    {
+      "path": "missing-motion/cat-7-normal-walk-reduced.jpg",
+      "sha256": "2047fb89a80948fbff1bfda83aa2843e193edba842ca29dc3ab971f6b986f71b",
+      "bytes": 9573
+    },
+    {
+      "path": "missing-motion/cat-7-positive-idle-normal.jpg",
+      "sha256": "3acf8d53a2069fe39ca8ba92129e918357ad7fc35151cde8a0a64d7c671bc1ea",
+      "bytes": 10892
+    },
+    {
+      "path": "missing-motion/cat-7-positive-idle-reduced.jpg",
+      "sha256": "d92bcba7a66a50c543619c8acef019bb8ec1b3203d9591418bda27446a059e0c",
+      "bytes": 10421
+    },
+    {
+      "path": "missing-motion/cat-7-positive-walk-normal.jpg",
+      "sha256": "84dcc512781cf8cbd4b7ba73d044781974848aded529ef39da70c0db5dc8a974",
+      "bytes": 10642
+    },
+    {
+      "path": "missing-motion/cat-7-positive-walk-reduced.jpg",
+      "sha256": "bf9aa639c2848b238fd8514d11f45eb20948306626e72300374845f3844266bb",
+      "bytes": 9944
+    },
+    {
+      "path": "missing-motion/cat-7-sick-idle-normal.jpg",
+      "sha256": "efd5c094669a7f8056abd3fd54748b117bf0cbcd4bea7f19cdc55bbfb47580cb",
+      "bytes": 10309
+    },
+    {
+      "path": "missing-motion/cat-7-sick-idle-reduced.jpg",
+      "sha256": "a1b707a6e951a50bbf39232414ac32898fa20adab31ffdb6e246178d3ba83363",
+      "bytes": 10296
+    },
+    {
+      "path": "missing-motion/cat-7-sick-walk-normal.jpg",
+      "sha256": "4c6fb3c683c0fd3542ac625dc0700b5340c55580c57a04f3eec705d711676d48",
+      "bytes": 9441
+    },
+    {
+      "path": "missing-motion/cat-7-sick-walk-reduced.jpg",
+      "sha256": "ebd7e43024efc199410db4d0a061af7676e51e67e6ed4c75f096118be230216e",
+      "bytes": 9623
+    },
+    {
+      "path": "missing-motion/cat-7-sleeping-idle-normal.jpg",
+      "sha256": "95ec21fe930e67d431869c7f71883edaeb8c98b379fcc50af2ef241e808e3dad",
+      "bytes": 9933
+    },
+    {
+      "path": "missing-motion/cat-7-sleeping-idle-reduced.jpg",
+      "sha256": "29bfdd4f9f2701dc0198148b9ae3d50465425d5df2c380d3ac16b804516f3b44",
+      "bytes": 9835
+    },
+    {
+      "path": "missing-motion/cat-7-sleeping-walk-normal.jpg",
+      "sha256": "2b5cda2a7837ede7ce81467d77218af193ef8505e33aad7f5526e08b4d54cda3",
+      "bytes": 9294
+    },
+    {
+      "path": "missing-motion/cat-7-sleeping-walk-reduced.jpg",
+      "sha256": "77e23ad30112b60770a1edf3059d88dc0ae21064a7c3fcc4730d281a29a23266",
+      "bytes": 9294
+    },
+    {
+      "path": "missing-motion/cat-7-strained-idle-normal.jpg",
+      "sha256": "0dfa182c8a5b31b4aa1b475ce624bcb561b03d741cd98087c8eba1bf4e12f745",
+      "bytes": 10277
+    },
+    {
+      "path": "missing-motion/cat-7-strained-idle-reduced.jpg",
+      "sha256": "b11567b766016c76b3613e9a59e0e005ebe9ac64560bee2a4f30a02fc0cd0f86",
+      "bytes": 10277
+    },
+    {
+      "path": "missing-motion/cat-7-strained-walk-normal.jpg",
+      "sha256": "955920bd369a02dfa91ca5662b003fb9540e6494db5ab938f6b5b528bdc04fac",
+      "bytes": 9794
+    },
+    {
+      "path": "missing-motion/cat-7-strained-walk-reduced.jpg",
+      "sha256": "699d8457983f55c90838f3e5de8cdb8ab15ae8bbd712a2c18ec41b7aa985a2e6",
+      "bytes": 9899
+    },
+    {
+      "path": "missing-motion/cat-7-tired-idle-normal.jpg",
+      "sha256": "2786837f0c011b33cbb61da95cc05f69d58abdf5160dfd94ac270991cd9bc000",
+      "bytes": 10035
+    },
+    {
+      "path": "missing-motion/cat-7-tired-idle-reduced.jpg",
+      "sha256": "53c5ba7ae762edf735bf17bd1d27c3176b278c70e7dd797d09a62735a1088515",
+      "bytes": 9978
+    },
+    {
+      "path": "missing-motion/cat-7-tired-walk-normal.jpg",
+      "sha256": "a4101ea511232aaf9a2bf0a37035291630b7ef723cd7b7d291de84ac2bf023ea",
+      "bytes": 9396
+    },
+    {
+      "path": "missing-motion/cat-7-tired-walk-reduced.jpg",
+      "sha256": "6647ef66444c17d9a1209b543f1180185ae4f9c44b72294ff37d112288324904",
+      "bytes": 9371
+    },
+    {
+      "path": "missing-motion/cat-7-wantsPlay-idle-normal.jpg",
+      "sha256": "69615d395f641aa222cc21f8e25621e9856cc348a887f2b8c345121afb409fdb",
+      "bytes": 10202
+    },
+    {
+      "path": "missing-motion/cat-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "7859c3a7df2ddaa62c8602dce89e4f77dd770c61d6997d437f32974698ff342d",
+      "bytes": 10624
+    },
+    {
+      "path": "missing-motion/cat-7-wantsPlay-walk-normal.jpg",
+      "sha256": "d9b6f9c762ea547eedc40d16729d425998bcd09d0119fae16cfff53a457bb0ab",
+      "bytes": 9696
+    },
+    {
+      "path": "missing-motion/cat-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "daf48d10220314c5957b4477d73444cf138b81fb3cbb9e8fadb2609648f64b55",
+      "bytes": 9884
+    },
+    {
+      "path": "missing-motion/cat-8-dislike-idle-normal.jpg",
+      "sha256": "b5c4b11302db1596f7ee68dfae025aa135fd041d9d5144df5e7ea9da6b8249c6",
+      "bytes": 8523
+    },
+    {
+      "path": "missing-motion/cat-8-dislike-idle-reduced.jpg",
+      "sha256": "221f6f486e9305edc975920e0c29e543ae3d1d8098cf5f84bad63baad216a738",
+      "bytes": 8847
+    },
+    {
+      "path": "missing-motion/cat-8-dislike-walk-normal.jpg",
+      "sha256": "32e938a76872ea6473e8a71a582f81640e98bcbc7e761362e32edce933d47e7d",
+      "bytes": 9382
+    },
+    {
+      "path": "missing-motion/cat-8-dislike-walk-reduced.jpg",
+      "sha256": "5cd88dc79c6e225fbbf87f859208a8702dcdde6221cab2eed5b6d6484c7017b1",
+      "bytes": 10041
+    },
+    {
+      "path": "missing-motion/cat-8-motion.jpg",
+      "sha256": "a0c8c9a0ef0e39d0991cbcfd5a56eff2c0be5f97b2e8beddb17e972ad8542a46",
+      "bytes": 420961
+    },
+    {
+      "path": "missing-motion/cat-8-normal-idle-normal.jpg",
+      "sha256": "d0bb1d58d918ce2378c72b0a3250dc870bb2e45fd9bd73f4edda32d880795a0b",
+      "bytes": 8780
+    },
+    {
+      "path": "missing-motion/cat-8-normal-idle-reduced.jpg",
+      "sha256": "3f5a613cb6a17eb7a220bb1c002fd85b9f563b307d9806f6e19213e38115481f",
+      "bytes": 9283
+    },
+    {
+      "path": "missing-motion/cat-8-normal-walk-normal.jpg",
+      "sha256": "28160bb26a4364ac52931a0f7111d9d20d747d9f72a4529c1705bf1100f39a98",
+      "bytes": 9992
+    },
+    {
+      "path": "missing-motion/cat-8-normal-walk-reduced.jpg",
+      "sha256": "e588a7c7116f66907730d1cb2ee9d39033a8c4be9d03534440a844b9823b0cde",
+      "bytes": 10531
+    },
+    {
+      "path": "missing-motion/cat-8-positive-idle-normal.jpg",
+      "sha256": "78b5024809c839de53c4430aa7df284a8a9c775ad57cdb5c4ea9bd4e2618c9e3",
+      "bytes": 8566
+    },
+    {
+      "path": "missing-motion/cat-8-positive-idle-reduced.jpg",
+      "sha256": "24763482517605b728cb4e0cab1994d29b95b1cb677380e6701dedaa1e37660e",
+      "bytes": 9535
+    },
+    {
+      "path": "missing-motion/cat-8-positive-walk-normal.jpg",
+      "sha256": "5129f8063fe946f6cb11e29aff51a752945cb3c2be9bd12bef315ecf7361999c",
+      "bytes": 9667
+    },
+    {
+      "path": "missing-motion/cat-8-positive-walk-reduced.jpg",
+      "sha256": "83d11949305312ddc8af8848b8bcdfd7aa9aeb3855a018a2c7fc8e14fb2f9ac8",
+      "bytes": 10770
+    },
+    {
+      "path": "missing-motion/cat-8-sick-idle-normal.jpg",
+      "sha256": "c18ca29ad6455b08d18de3c0c3ed2e2387da79ff9e33653b141ded92fc042bdb",
+      "bytes": 8701
+    },
+    {
+      "path": "missing-motion/cat-8-sick-idle-reduced.jpg",
+      "sha256": "9809339602d4ac5e30ba3b9947f70163575cd142f84bc4f2764a9819feee9cd3",
+      "bytes": 9165
+    },
+    {
+      "path": "missing-motion/cat-8-sick-walk-normal.jpg",
+      "sha256": "27894ef88c77e8332feeca673d71dad72e6d2cc60a136a301b5226359988b1db",
+      "bytes": 10002
+    },
+    {
+      "path": "missing-motion/cat-8-sick-walk-reduced.jpg",
+      "sha256": "d508846bf5ed7d293e88a448f75fd0cddf53c98f5b1943127bbdcdcc5721beec",
+      "bytes": 10399
+    },
+    {
+      "path": "missing-motion/cat-8-sleeping-idle-normal.jpg",
+      "sha256": "71dcc22bede8ad4376d789e7dffdb930ad2c67fcb21b86eaeed282ac1152438a",
+      "bytes": 8317
+    },
+    {
+      "path": "missing-motion/cat-8-sleeping-idle-reduced.jpg",
+      "sha256": "f9143d484f162feef265a36c8ba0d79682ed580664ae43e0743d728aecc25a17",
+      "bytes": 8690
+    },
+    {
+      "path": "missing-motion/cat-8-sleeping-walk-normal.jpg",
+      "sha256": "e6324328ca27f2d4522d49490266f809abfe9670072be2123f42642138807e01",
+      "bytes": 9093
+    },
+    {
+      "path": "missing-motion/cat-8-sleeping-walk-reduced.jpg",
+      "sha256": "14e01f604b1368cf55c90f37b32787ef3ac555f50b1f12e397d899fc806ae068",
+      "bytes": 9790
+    },
+    {
+      "path": "missing-motion/cat-8-strained-idle-normal.jpg",
+      "sha256": "9c37b200a28a89dcaeffef823aa348cbcb2955b499593ba6baac932cfdefa27c",
+      "bytes": 8759
+    },
+    {
+      "path": "missing-motion/cat-8-strained-idle-reduced.jpg",
+      "sha256": "f613ef519ac87a148f67c6b70c310aef21803e201ca3387c1951534de0004871",
+      "bytes": 9174
+    },
+    {
+      "path": "missing-motion/cat-8-strained-walk-normal.jpg",
+      "sha256": "8491a6015812b48f50f1ccd143e3b8ffd99dac55a1a2f1308bbf0a5dedaa4cc4",
+      "bytes": 9535
+    },
+    {
+      "path": "missing-motion/cat-8-strained-walk-reduced.jpg",
+      "sha256": "7d7d5b635fdbf73731ecf0489682641c38e58f5f7ff6bc524acf3805bdeeaadd",
+      "bytes": 10245
+    },
+    {
+      "path": "missing-motion/cat-8-tired-idle-normal.jpg",
+      "sha256": "828946e5fe816b6d177783f8ec95554c6872ee530fa5a220f04dd9b163efb806",
+      "bytes": 8350
+    },
+    {
+      "path": "missing-motion/cat-8-tired-idle-reduced.jpg",
+      "sha256": "8d479c7321464741503b256cab9a1ed9675fa5624137aa63cb7172e6be092146",
+      "bytes": 8882
+    },
+    {
+      "path": "missing-motion/cat-8-tired-walk-normal.jpg",
+      "sha256": "1bb4090ee9d34f3346b385826775e7f835144f17e01cfb458784906dab8e8799",
+      "bytes": 9723
+    },
+    {
+      "path": "missing-motion/cat-8-tired-walk-reduced.jpg",
+      "sha256": "57c123cb53235ebe0e291fe75ac95fd06a62ec95e8908bafd5da412ef559ee0b",
+      "bytes": 10264
+    },
+    {
+      "path": "missing-motion/cat-8-wantsPlay-idle-normal.jpg",
+      "sha256": "fd1a26847a0cc63f163c18dccbf1a089bc94ba34160571df98039efa38c53f50",
+      "bytes": 9438
+    },
+    {
+      "path": "missing-motion/cat-8-wantsPlay-idle-reduced.jpg",
+      "sha256": "a9b918d92a6c9cc8b64b4aa5bfe5047e405cdb149bdb7cdc2e9668acb1b60ee9",
+      "bytes": 9808
+    },
+    {
+      "path": "missing-motion/cat-8-wantsPlay-walk-normal.jpg",
+      "sha256": "9c28e082189a7eac74da59bdc093b9fbd7488829c2f15f70d26f337f62e13d1b",
+      "bytes": 10406
+    },
+    {
+      "path": "missing-motion/cat-8-wantsPlay-walk-reduced.jpg",
+      "sha256": "5fe9d015efddc168cfbe904909c5e51298671e25c014bdf83c51e3b08db988e4",
+      "bytes": 10800
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "ed80d23fafdb943d33c897b159a9d27bbd2cdbea5eaaaec162f1b6c6271ceefd",
+      "bytes": 148320
+    },
+    {
+      "path": "player-cat-1-back.png",
+      "sha256": "8de7d0778760a87aabaf9638021f09c47991a495d86d283899e8f64b7afe11ac",
+      "bytes": 304879
+    },
+    {
+      "path": "player-cat-1-front.png",
+      "sha256": "bcebab0685f3c494b7046f6b9a5e340153e8434b7f8668d1c17d62d7ef408f59",
+      "bytes": 308336
+    },
+    {
+      "path": "player-cat-2-back.png",
+      "sha256": "5ea6ba52d33ce2097d59ea5cf95b479f3e3b00fb3e3384d2247aabfa9feeff3b",
+      "bytes": 306138
+    },
+    {
+      "path": "player-cat-2-front.png",
+      "sha256": "6f3f324f59e8b372eac49d890201a9f4ac2ca80a49eae67c2a21dd078490a506",
+      "bytes": 307779
+    },
+    {
+      "path": "player-cat-3-back.png",
+      "sha256": "c5e415130e0013b1bcb18a7f20d8bc86b0ca0b5891bbb0e343d27f41af851a2f",
+      "bytes": 307157
+    },
+    {
+      "path": "player-cat-3-front.png",
+      "sha256": "666616e95a86507377dd06aa466083300d1d12d219055bf85919830254294daa",
+      "bytes": 309457
+    },
+    {
+      "path": "player-cat-4-back.png",
+      "sha256": "9fb2ae84a811f6a060302d22c079372b6fc1e1c7b5cf678624a3b915b1ad9092",
+      "bytes": 308635
+    },
+    {
+      "path": "player-cat-4-front.png",
+      "sha256": "84bcbe0a19296539d47c343f0d53256fcf7f89da3ac0e8c7260d1e47bb41c2da",
+      "bytes": 312295
+    },
+    {
+      "path": "player-cat-5-back.png",
+      "sha256": "96dc6481e05bbe7d7841a159f75b388adbb6b647440ce286212b5d7406ee5b5f",
+      "bytes": 307310
+    },
+    {
+      "path": "player-cat-5-front.png",
+      "sha256": "a82cdd69f35fb3af1c995ba4925105380f7b154d66ed76d4e2e9720c99ecfeea",
+      "bytes": 312702
+    },
+    {
+      "path": "player-cat-6-back.png",
+      "sha256": "87911b5ca859183940e22dde8a6bdb32011b7b7f1602faf2d9b22761c66a8c67",
+      "bytes": 306484
+    },
+    {
+      "path": "player-cat-6-front.png",
+      "sha256": "f8118757daf9138b35c200633fb4e162bb0ee449ca3919d0469b35d14f32e604",
+      "bytes": 311773
+    },
+    {
+      "path": "player-cat-7-back.png",
+      "sha256": "b95d1e732380c0b8498f08c05e618baad3f5a64a8fa5dbe6b8add5984d940082",
+      "bytes": 305500
+    },
+    {
+      "path": "player-cat-7-front.png",
+      "sha256": "0b07d388949e7076c5df2841b007fdb0e389329396b5e37feeb8b1e0fd4da343",
+      "bytes": 309692
+    },
+    {
+      "path": "player-cat-8-back.png",
+      "sha256": "d32708c57d1e81ba8209ead6dcbdc57286f27e12aad31845a4d2749e111f947b",
+      "bytes": 307890
+    },
+    {
+      "path": "player-cat-8-front.png",
+      "sha256": "651ad7ce234ae73d47f1a8f696b73ea793fcc60fac2a0b6f8efd9f9297a9a8bc",
+      "bytes": 311995
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866162,
+  "artifactJobName": "stage-evidence (cat)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

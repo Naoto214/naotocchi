@@ -9,12 +9,13 @@
 // ・トポロジーが ほんとうに かわる 段(いもむし → さなぎ → ちょう など)だけ archetype を かえる(mesh variant)
 // ・表情は 新しい 3D 専用の 体系を つくらない。canonical emotion(#368 Resident Expression と おなじ 8 語)を
 //   そのまま うけて、3D の 顔 / からだ の 数字へ かえる adapter だけ ここに おく
-// ・pilot。Human QA の まえに 全 species へ ひろげない(docs/character-3d/architecture.md)
+// ・Pilot Human QA 承認後の Full Rollout v0。確認済み family から展開。Draft / main merge gate は維持。
 (function (root, factory) {
-  const api = factory();
+  const rollout = typeof module === 'object' && module.exports ? require('./rollout-spec.js') : root.NaotocchiCharacter3DRollout;
+  const api = factory(rollout);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.NaotocchiCharacter3DSpec = api;
-})(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null), function () {
+})(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null), function (createRollout, nonPlayerCandidates) {
   'use strict';
   const freeze = (o) => { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); for (const v of Object.values(o)) freeze(v); } return o; };
 
@@ -92,7 +93,7 @@
     cat: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: [] },
     penguin: { stages: [A, A, A, A, A, A, A, A], attachments: ['cane(08)'] },
     turtle: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: ['shell(01-08)', 'moss(08)'] },
-    frog: { stages: [F, F, F, Q, Q, Q, Q, Q], attachments: ['tail(04-05)'] },
+    frog: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: ['membrane-tail(01-05)', 'folded-limbs(03-08)'] },
     salmon: { stages: [F, F, F, F, F, F, F, F], attachments: ['yolk(01)'] },
     clownfish: { stages: [F, F, F, F, F, F, F, F], attachments: ['school(05)'] },
     butterfly: { stages: [L, L, L, L, P, W, W, W], attachments: ['branch(04-06)', 'empty-pupa(06)'] },
@@ -104,10 +105,10 @@
     jellyfish: { stages: [TE, TE, R, TE, TE, TE, TE, TE], attachments: ['rock(01-02)', 'bubbles'] },
     starfish: { stages: [B, B, R, R, R, R, R, R], attachments: ['bubbles(08)'] },
     coral: { stages: [B, TE, TE, TE, TE, C, C, C], attachments: ['rock-base(02-08)'] },
-    dandelion: { stages: [P, P, PL, PL, PL, PL, PL, C], attachments: ['pappus(01,07-08)'] },
+    dandelion: { stages: [P, PL, PL, PL, PL, PL, PL, C], attachments: ['pappus(01,07-08)'] },
     sakura: { stages: [P, P, T, T, C, C, C, T], attachments: ['dirt(02)'] },
     venus_flytrap: { stages: [P, PL, PL, PL, PL, PL, PL, PL], attachments: ['traps(02-08)', 'flowers(08)'] },
-    mushroom: { stages: [C, TE, FU, FU, FU, FU, FU, FU], attachments: ['dirt(03-08)', 'spores(07)', 'child(08)'] },
+    mushroom: { stages: [C, FU, FU, FU, FU, FU, FU, FU], attachments: ['dirt(03-08)', 'spores(07)', 'child(08)'] },
     dragon: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: ['horns(03-08)', 'wings(04-08)', 'fire(06)'] },
     phoenix: { stages: [A, A, A, A, A, A, A, CE], attachments: ['flame'] },
     god: { stages: [B, H, H, H, H, H, H, CE], attachments: ['halo', 'wings', 'staff'] },
@@ -245,7 +246,17 @@
       ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'hook', len: 0.87, r: 0.085 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#332a29', patch2: '#d89449' }, patches: true },
   });
 
+  // Only these role-specific entries have passed four-view/state/distance image gates.
+  const nonPlayerFactory = typeof module === 'object' && module.exports ? require('./nonplayer-spec.js') : globalThis.NaotocchiNonPlayerWave;
+  const approvedNonPlayers = typeof nonPlayerFactory === 'function' ? nonPlayerFactory() : {};
+  const NON_PLAYER = freeze(nonPlayerCandidates || Object.fromEntries(['author:naoto','partner:high_eagle','partner:knitting_spider','partner:snowman','partner:sea_mermaid','partner:rock_octopus','partner:anglerfish','partner:swamp_croc','partner:desert_scorpion','companion:unicorn','partner:cat_ceo','partner:robot_neighbor','partner:snow_spirit','companion:box','companion:clock','companion:owl','companion:punyu','companion:parrot','companion:chicken','companion:penguin_friend','companion:panda','companion:sheep','companion:seal','companion:bat','companion:snail','companion:chameleon','companion:sekizou','companion:rabbit_friend','companion:tanuki','companion:squirrel','companion:hamster','companion:otter','companion:monkey','companion:hedgehog','companion:many_tail_fox','companion:watcher','partner:sunflower_partner','partner:oasis_cactus','partner:field_cow','partner:forest_bear','partner:grove_deer','partner:cliff_goat','partner:gentle_gorilla'].filter(key=>approvedNonPlayers[key]).map(key=>[key,approvedNonPlayers[key]])));
+  for (const [key,row] of Object.entries(NON_PLAYER)) {
+    if (!['companion','partner','author'].includes(row.kind) || !/^[a-z_]+$/.test(row.id) || key !== row.kind+':'+row.id || !row.spec || !row.asset) throw new Error('Invalid non-player identity '+key);
+  }
   const STAGE_KEYS = freeze(Object.fromEntries(Object.entries(PILOT).map(([id, p]) => [id, Object.keys(p.stages).map(Number)])));
+  // Only visually reviewed family waves are included here. Pilot remains an immutable reference.
+  const ROLLOUT = freeze(typeof createRollout === 'function' ? createRollout(PILOT, ARCHETYPE_REUSE) : {});
+  const ROLLOUT_STAGE_KEYS = freeze(Object.fromEntries(Object.entries(ROLLOUT).map(([id,p])=>[id,Object.keys(p.stages).map(Number)])));
   // 1〜8 の どの 段も、pilot で つくった いちばん ちかい 段(おなじ archetype の なかで)へ。ない ときは null(→ 2D)
   function pilotStageFor(id, stage) {
     const p = PILOT[id];
@@ -261,19 +272,26 @@
   //   stage: めぐるの form は 0 はじまり(0〜7)。ここでは 1〜8
   function specKeyFor(ref) {
     if (!ref) return null;
-    if (ref.kind === 'companion' || ref.kind === 'partner') return Object.hasOwn(ARCHETYPE_REUSE, ref.id) ? { id: ref.id, stage: 0, exact: true } : null;
+    if(ref.kind==='naoto')return ref.id==='naoto'&&Object.hasOwn(NON_PLAYER,'author:naoto')?{id:'author:naoto',stage:0,exact:true}:null;
+    if (ref.kind && ref.kind !== 'form' && Object.hasOwn(NON_PLAYER,ref.kind+':'+ref.id)) return {id:ref.kind+':'+ref.id,stage:0,exact:true};
+    if (ref.kind && ref.kind !== 'form') return Object.hasOwn(ARCHETYPE_REUSE, ref.id) && ARCHETYPE_REUSE[ref.id].kind === ref.kind ? { id: ref.id, stage: 0, exact: true } : null;
     const id = ref.line || ref.id, n = ref.stage != null ? Number(ref.stage) + (ref.zeroBased === false ? 0 : 1) : null;
+    if (!Number.isInteger(n) || n < 1 || n > 8) return null;
+    if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[n] ? {id,stage:n,exact:true} : null;
     if (!Object.hasOwn(PILOT, id) || !Number.isInteger(n) || n < 1 || n > 8) return null;
     const s = pilotStageFor(id, n);
     return s == null ? null : { id, stage: s, exact: s === n };
   }
   function stageSpec(id, stage) {
+    if (Object.hasOwn(NON_PLAYER,id)) return stage === 0 ? NON_PLAYER[id].spec : null;
     if (Object.hasOwn(ARCHETYPE_REUSE, id)) return ARCHETYPE_REUSE[id];
+    if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[stage] || null;
     const p = PILOT[id];
     return p && p.stages[stage] ? p.stages[stage] : null;
   }
   // 2D の 正本画像(QA の となりに ならべる・大きさを あわせる)
   function referenceAsset(id, stage, emotion) {
+    if (Object.hasOwn(NON_PLAYER,id)) return stage === 0 ? NON_PLAYER[id].asset : null;
     if (Object.hasOwn(ARCHETYPE_REUSE, id)) return `assets/characters/${ARCHETYPE_REUSE[id].kind}s/${id}.png`;
     const st = '0' + stage, e = REFERENCE_EXPRESSION[emotion || 'normal'];
     return !emotion || e === 'normal' ? `assets/characters/${id}/${st}.png` : `assets/characters/expressions/${id}/${st}-${e}.png`;
@@ -283,6 +301,6 @@
     CANONICAL_EMOTIONS, PILOT_EMOTIONS, REFERENCE_EXPRESSION, PRE368_LIFE_EMOTION, canonicalEmotion,
     EXPRESSION_3D, expressionParams,
     ARCHETYPES, PLAYER_LINES, COMPANIONS, PARTNERS, AUTHOR, inventory, archetypeCoverage,
-    PILOT, ARCHETYPE_REUSE, STAGE_KEYS, pilotStageFor, specKeyFor, stageSpec, referenceAsset,
+    PILOT, ARCHETYPE_REUSE, NON_PLAYER, STAGE_KEYS, ROLLOUT, ROLLOUT_STAGE_KEYS, pilotStageFor, specKeyFor, stageSpec, referenceAsset,
   });
 });

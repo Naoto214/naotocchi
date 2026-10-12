@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "e0ea84427c9f8ccd5899cd5d50a71e7181a652e0",
+  "waveArtifact": 11430433672,
+  "distanceArtifact": 11431017261,
+  "verdict": "REJECT03/07 separated early shell whorls; no expansion/promotion",
+  "counts": {
+    "fourViews": 8,
+    "motionStates": 64,
+    "normalDistance": 4
+  },
+  "review": "All views/states/distance inspected. Physical cavity,one face with stalk eyes,claws and owner motion render; early shell whorls appear as a detached slender curl instead of compact source cone. Increase early radial growth while keeping aperture/inner wall and original axis; recapture gate.",
+  "environment": "Chromium / SwiftShader; not iPhone"
+}

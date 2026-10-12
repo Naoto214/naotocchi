@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "eac6e1fd60b77248b70a3d56050ccb10d4ae6921",
+  "waveArtifact": 11416787822,
+  "distanceArtifact": 11417341773,
+  "verdict": "corrected adult07 representative gate accepted; no runtime promotion",
+  "checks": {
+    "fourViews": 4,
+    "canonicalMotion": 32,
+    "ordinaryDistanceViews": 2,
+    "fallbacks": 0,
+    "errors": 0
+  },
+  "review": "Tapered tail visible at ordinary rear distance; four sloped layered membranes retain veins and body attachment. Source left wink visible. All canonical emotion/idle/walk/reduced captures inspected.",
+  "simplifications": [
+    "Smooth broad head instead of detailed compound eyes",
+    "Simplified opaque wing veins and abdomen rings",
+    "Pixel wear marks remain limited"
+  ],
+  "dedicatedCI": {
+    "job": 112292895514,
+    "conclusion": "success",
+    "plantMutationRepair": "same9cases successful; earlier b2/fd51 failure retained"
+  },
+  "environment": "Chromium/SwiftShader, not iPhone"
+}

@@ -1069,9 +1069,9 @@ save の配列要素の型が壊れていても、起動不能にならないよ
 
 **順番(この 順を まもる)**
 
-1. **Character 3D Pilot** — 形の 差が 大きい 8 系統(いぬ・ペンギン・カクレクマノミ・おとこのひと・ちょう・タンポポ・キノコ・ヒトデ)× 01 / 04 / 08 等 × 5 表情。`?meguru3d=1&char3d=1` の ときだけ。← いま ここ
+1. **Character 3D Pilot** — 形の 差が 大きい 8 系統(いぬ・ペンギン・カクレクマノミ・おとこのひと・ちょう・タンポポ・キノコ・ヒトデ)× 01 / 04 / 08 等 × 5 表情。`?meguru3d=1&char3d=1` の ときだけ。第3回Human QAまで完了。
 2. **Human QA**(iPhone)— 同じ 子に 見えるか・side / back・成長・表情・うごき・箱庭に なじむか・2D より よいか・27 体・全量展開したいか。
 3. **architecture 確定** — 採用 / 条件付き採用(archetype・顔・うごき を なおして pilot 再確認)/ 不採用(2D billboard を 維持し、pilot は 研究成果として のこす)。
-4. **full rollout**(後日)— 残り 5 archetype(arthropod / tentacled / tree / object / celestial)と 全 species × 8 段 の 数字。
+4. **Full Rollout v0** — 2026-10-04開始承認、Draft #376で制作中。fresh inventoryは31 species × 8 stages、26 companions、18 partners、author 1の293 active designs。archetype数は固定せず、原画から不足責務を再評価。dog/cat/penguin/salmon/clownfish/man/woman/ren/dandelion/butterfly/mushroom/starfish/turtle/frog全stageを展開し、exact spec114/293、未実装179。turtle/frog全16段階は原画・4方向・通常距離確認後にruntimeへ接続。全量採用・iPhone合格は未判定。進捗は[checkpoint](../character-3d/full-rollout-v0/progress.md)。
 
-**Human QA の 前に 全量化しない。** 実装側から「採用」を きめない。save / schema・2D 画像・Expression System の 正本は かえない。
+**全量展開開始は承認済み。全量の採用・Ready・main mergeは未承認。** v0完成後は全量Human QAで停止。iPhone実機・27体・long play・latest main統合QAは最終merge gate。save/schema・2D画像・Expression Systemの正本はかえない。

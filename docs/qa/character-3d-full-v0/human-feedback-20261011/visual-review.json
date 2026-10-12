@@ -1,0 +1,56 @@
+{
+  "baseline": "216887bd2613b36838d1ba641d616a6d5aa08aee",
+  "productionCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
+  "review": "ACTUAL_TECHNICAL_IMAGE_REVIEW_ACCEPTED",
+  "overallHumanQA": "OPEN",
+  "actualIphoneQA": "OPEN",
+  "unchangedOtherModels": 291,
+  "firstAuthorCandidate": {
+    "sourceCommit": "4faa3e3f5293c6993bad8e385a8fc2156d82e056",
+    "verdict": "REJECTED",
+    "reason": "Helmet-like crown and overly uniform fringe; preserved as historical evidence."
+  },
+  "accepted": {
+    "partner:grove_deer": {
+      "sourceCommit": "4faa3e3f5293c6993bad8e385a8fc2156d82e056",
+      "fourViews": [
+        "front",
+        "34",
+        "side",
+        "back"
+      ],
+      "states": 32,
+      "normalDistanceViews": [
+        "front",
+        "back"
+      ],
+      "comparison": "docs/qa/character-3d-full-v0/human-feedback-20261011/partner-grove_deer-comparison.jpg",
+      "comparisonSha256": "e59f2b2d4ec65d427ea073ec5197cdc562869222dfd86290ed3c5272b0e5af1b",
+      "evidenceRoot": "docs/qa/character-3d-full-v0/export/4faa3e3f5293c6993bad8e385a8fc2156d82e056/human-feedback",
+      "observation": "Shorter slender legs, proximal taper and small joints remain attached in all views/states; unchanged in author refinement."
+    },
+    "author:naoto": {
+      "sourceCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
+      "fourViews": [
+        "front",
+        "34",
+        "side",
+        "back"
+      ],
+      "states": 32,
+      "normalDistanceViews": [
+        "front",
+        "back"
+      ],
+      "comparison": "docs/qa/character-3d-full-v0/human-feedback-20261011/author-naoto-comparison.jpg",
+      "comparisonSha256": "9038d187df23fa3238ed0ff0d9bad44e72f80d7adbda15b05e55dc595169ceed",
+      "evidenceRoot": "docs/qa/character-3d-full-v0/export/fe2acd989f5d6f611a8251133795f83ae737800c/human-feedback",
+      "observation": "Staggered curved fringe, lifted crown and continuous temple/rear coverage; no uniform helmet edge, obscured eyes or disconnected locks in reviewed frames."
+    }
+  },
+  "limits": [
+    "Single original2D is repeated; side/back originals are not invented.",
+    "Per-model bbox framing; identical renderer, pose and lighting, not fixed world scale.",
+    "Chromium/SwiftShader images do not establish iPhone performance or full Human approval."
+  ]
+}

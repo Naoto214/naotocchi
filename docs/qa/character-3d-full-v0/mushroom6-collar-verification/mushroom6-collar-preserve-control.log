@@ -1,0 +1,74 @@
+mushroom6 source collar omitted: RED
+TAP version 13
+# (node:127) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/mushroom6-collar-face-clearance/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/mushroom6-collar-face-clearance/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mushroom 5: assembled cap and collar clear complete canonical face in32states
+ok 1 - mushroom 5: assembled cap and collar clear complete canonical face in32states
+  ---
+  duration_ms: 2365.328853
+  type: 'test'
+  ...
+# Subtest: mushroom 6: assembled cap and collar clear complete canonical face in32states
+ok 2 - mushroom 6: assembled cap and collar clear complete canonical face in32states
+  ---
+  duration_ms: 610.033873
+  type: 'test'
+  ...
+# Subtest: mushroom 7: assembled cap and collar clear complete canonical face in32states
+ok 3 - mushroom 7: assembled cap and collar clear complete canonical face in32states
+  ---
+  duration_ms: 1284.748664
+  type: 'test'
+  ...
+# Subtest: clownfish 2: both produced pectoral roots stay embedded in32states
+ok 4 - clownfish 2: both produced pectoral roots stay embedded in32states
+  ---
+  duration_ms: 683.662
+  type: 'test'
+  ...
+# Subtest: clownfish 3: both produced pectoral roots stay embedded in32states
+ok 5 - clownfish 3: both produced pectoral roots stay embedded in32states
+  ---
+  duration_ms: 662.686763
+  type: 'test'
+  ...
+# Subtest: clownfish 5: both produced pectoral roots stay embedded in32states
+ok 6 - clownfish 5: both produced pectoral roots stay embedded in32states
+  ---
+  duration_ms: 2015.516037
+  type: 'test'
+  ...
+# Subtest: clownfish 6: both produced pectoral roots stay embedded in32states
+ok 7 - clownfish 6: both produced pectoral roots stay embedded in32states
+  ---
+  duration_ms: 635.500405
+  type: 'test'
+  ...
+# Subtest: clownfish 7: both produced pectoral roots stay embedded in32states
+ok 8 - clownfish 7: both produced pectoral roots stay embedded in32states
+  ---
+  duration_ms: 624.574645
+  type: 'test'
+  ...
+# Subtest: fish optional root inset preserves frozen Pilot and spread-fin default geometry
+ok 9 - fish optional root inset preserves frozen Pilot and spread-fin default geometry
+  ---
+  duration_ms: 25.115418
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9074.318373
+
+character-3d/topology-spec.js: original/restored SHA256 0171f17059d9cdaa8edfa92d617777f9b56caee670a149835a1d886f54575c7a
+character-3d/fish-spec.js: original/restored SHA256 50a104845360e2c2e1161a4b8f268070ba9175496ea22e5e4d53a4a4dabd6edf
+character-3d/archetypes.mjs: original/restored SHA256 6b95503c5ab853ee3d936150a639ea05327d0f5a83acd10790117c8d58a3d01b
+1/1 mutations detected; restored focused baseline GREEN; exact production bytes verified

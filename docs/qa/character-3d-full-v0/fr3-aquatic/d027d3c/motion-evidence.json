@@ -1,0 +1,2709 @@
+{
+  "source": "d027d3c36743f4ffba6f95bf195f6fd7844745e6",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "jellyfish",
+      "stage": 1
+    },
+    {
+      "id": "jellyfish",
+      "stage": 4
+    },
+    {
+      "id": "jellyfish",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.0562341623710934,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.011798288143085513,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.0753835877587952,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.010351632721722126,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.0360549688339233,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.0007769200278712612,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.0456296815277741,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          0.03389411236962351,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.1262857718018289,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          0.01325939740878141,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.105651056840987,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.007351632721722126,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.0443184959524354,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.002208533727040489,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.049461594947117,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.03594771353078724,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.0740577757988112,
+          0.37900942190106485
+        ]
+      ],
+      "file": "jellyfish-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          0.053285672642251945,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.1632911619718502,
+          0.37900942190106485
+        ]
+      ],
+      "file": "jellyfish-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.01783590319769317,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.0540760155676347,
+          0.3761935543838793
+        ]
+      ],
+      "file": "jellyfish-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          0.02678078988882643,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.0986927086541542,
+          0.3761935543838793
+        ]
+      ],
+      "file": "jellyfish-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4452,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.042090850718940004,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          0.9837623036429303,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4452,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          0.05131215205108454,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.077165306412955,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4452,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.022730534758418797,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          0.9650301336715478,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4452,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          0.023970966626593468,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.01173163505656,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.044471896448324263,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          0.9568384574127972,
+          0.3135928221038732
+        ]
+      ],
+      "file": "jellyfish-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          -0.0355198854146256,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          0.9657904684464959,
+          0.3135928221038732
+        ]
+      ],
+      "file": "jellyfish-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.025523502103984356,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          0.9386290530373312,
+          0.3096629749013721
+        ]
+      ],
+      "file": "jellyfish-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.021047496587135023,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          0.9431050585541806,
+          0.3096629749013721
+        ]
+      ],
+      "file": "jellyfish-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4238838348019894,
+          -0.03370980498955575,
+          -0.2546935975551605
+        ],
+        [
+          0.3957808961392266,
+          1.0153575566200972,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4238838348019894,
+          0.05612057705161452,
+          -0.2546935975551605
+        ],
+        [
+          0.3957808961392266,
+          1.1051879386612675,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.01393756741285324,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          0.9960622031024344,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          0.030977623607731895,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.0409773941230196,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          0.001973199419418134,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.09479397432369,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4243781272929703,
+          0.0861690040782036,
+          -0.2546935975551605
+        ],
+        [
+          0.3952866036482457,
+          1.1789897789824757,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.008351632721722126,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.043779205966055,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4252,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          0.041476497845221956,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.093607336532999,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.423142396065518,
+          -0.03901928212486362,
+          -0.2546935975551605
+        ],
+        [
+          0.396522334875698,
+          1.0202547299796796,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.423142396065518,
+          0.028699142466963173,
+          -0.2546935975551605
+        ],
+        [
+          0.396522334875698,
+          1.0879731545715063,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          -0.019041083740070464,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.000883503150523,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4092,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.4184279441833496,
+          0.014818128555842934,
+          -0.2546935975551605
+        ],
+        [
+          0.3952564597129822,
+          1.0347427154464364,
+          0.2761576473712921
+        ]
+      ],
+      "file": "jellyfish-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.20013222245002693,
+          -0.3740937752717643
+        ],
+        [
+          0.5266846897179523,
+          1.0566037586697399,
+          0.3740937752717643
+        ]
+      ],
+      "file": "jellyfish-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5126164788033892,
+          0.19963181208472897,
+          -0.3740937752717643
+        ],
+        [
+          0.5351600929699418,
+          1.074077685725474,
+          0.3740937752717643
+        ]
+      ],
+      "file": "jellyfish-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.18735540450045352,
+          -0.3799999952316284
+        ],
+        [
+          0.5350000262260437,
+          1.0136394554419208,
+          0.3799999952316284
+        ]
+      ],
+      "file": "jellyfish-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5199620027374678,
+          0.18368130295151958,
+          -0.3799999952316284
+        ],
+        [
+          0.5431859250309955,
+          1.0314085235718045,
+          0.3799999952316284
+        ]
+      ],
+      "file": "jellyfish-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.2726406827759926,
+          -0.3994371751311337
+        ],
+        [
+          0.5266846897179523,
+          1.1477683545005293,
+          0.3730974449791469
+        ]
+      ],
+      "file": "jellyfish-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.49921269176404814,
+          0.2426344426402572,
+          -0.39960519500217506
+        ],
+        [
+          0.5278472811347588,
+          1.119144993682615,
+          0.3732659672680501
+        ]
+      ],
+      "file": "jellyfish-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.19807151980878002,
+          -0.4045152477559115
+        ],
+        [
+          0.5350000262260437,
+          1.04342266299803,
+          0.3789879348032807
+        ]
+      ],
+      "file": "jellyfish-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5069977128012274,
+          0.1964176597220223,
+          -0.4046859437656822
+        ],
+        [
+          0.5361262904372985,
+          1.0457568094224479,
+          0.37915911773444044
+        ]
+      ],
+      "file": "jellyfish-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.48616669821247155,
+          0.17934205547250748,
+          -0.48141004139587107
+        ],
+        [
+          0.5270896046684652,
+          1.1159115897332272,
+          0.5318044865528377
+        ]
+      ],
+      "file": "jellyfish-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4942912693206959,
+          0.17104553189874416,
+          -0.484035118858651
+        ],
+        [
+          0.5432349527404154,
+          1.097760107700104,
+          0.5271732342990634
+        ]
+      ],
+      "file": "jellyfish-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4938423336991026,
+          0.16097227490754495,
+          -0.4890105784358305
+        ],
+        [
+          0.5354113340034915,
+          1.074127351562212,
+          0.5378506677295715
+        ]
+      ],
+      "file": "jellyfish-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5016499812838804,
+          0.1601518850660954,
+          -0.49167710081411486
+        ],
+        [
+          0.5510252364496923,
+          1.05566655878949,
+          0.5334846731271158
+        ]
+      ],
+      "file": "jellyfish-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3600,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.1631686666644867,
+          -0.36943404267765656
+        ],
+        [
+          0.5266846897179523,
+          1.0400364891197627,
+          0.42625687562358
+        ]
+      ],
+      "file": "jellyfish-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3600,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5059307860892635,
+          0.16145317891131178,
+          -0.3723446176983997
+        ],
+        [
+          0.5426224826243431,
+          1.056798131452041,
+          0.4290979389323995
+        ]
+      ],
+      "file": "jellyfish-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3600,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.1486077802145005,
+          -0.3752666944375821
+        ],
+        [
+          0.5350000262260437,
+          0.9987444879940517,
+          0.43033689565436384
+        ]
+      ],
+      "file": "jellyfish-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3600,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.513480677821821,
+          0.14482591964481,
+          -0.378223221830213
+        ],
+        [
+          0.5504161923878456,
+          1.0157898882639211,
+          0.433226055339964
+        ]
+      ],
+      "file": "jellyfish-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.156402609205275,
+          -0.3669311560789654
+        ],
+        [
+          0.5266846897179523,
+          1.0283767529084,
+          0.4372620463332206
+        ]
+      ],
+      "file": "jellyfish-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5141067769482247,
+          0.1634593128799564,
+          -0.37076444717405865
+        ],
+        [
+          0.5359446248269355,
+          1.0456873382999965,
+          0.440997915677002
+        ]
+      ],
+      "file": "jellyfish-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.14125986146841824,
+          -0.37272429208171026
+        ],
+        [
+          0.5350000262260437,
+          0.9875579749624431,
+          0.44088591087574625
+        ]
+      ],
+      "file": "jellyfish-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5214007371024105,
+          0.14138858695787515,
+          -0.3766181034577447
+        ],
+        [
+          0.5439403291026906,
+          1.0051629114710159,
+          0.444685305356855
+        ]
+      ],
+      "file": "jellyfish-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4966566472432908,
+          0.18054903757885438,
+          -0.37261315459502664
+        ],
+        [
+          0.5271789822089332,
+          1.046706423288538,
+          0.40471210041588845
+        ]
+      ],
+      "file": "jellyfish-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4974346217295147,
+          0.17477474613215954,
+          -0.3727501441064717
+        ],
+        [
+          0.5285561044916658,
+          1.0481772287103632,
+          0.40484881750465496
+        ]
+      ],
+      "file": "jellyfish-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.1666966807248701,
+          -0.37849599840705833
+        ],
+        [
+          0.5350000262260437,
+          1.0047339603127363,
+          0.40960489096937913
+        ]
+      ],
+      "file": "jellyfish-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5057537772794068,
+          0.16355652432562412,
+          -0.37863515071895687
+        ],
+        [
+          0.5363344643910124,
+          1.0062281235837998,
+          0.40974377926114797
+        ]
+      ],
+      "file": "jellyfish-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.2431431957936495,
+          -0.4056896551376633
+        ],
+        [
+          0.5266846897179523,
+          1.1223655070121064,
+          0.3725117267587608
+        ]
+      ],
+      "file": "jellyfish-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5199462010505906,
+          0.2192604339171373,
+          -0.40807173275986536
+        ],
+        [
+          0.5389573688904081,
+          1.1327241069708531,
+          0.3749794408634314
+        ]
+      ],
+      "file": "jellyfish-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.1963551125318026,
+          -0.4105475644257564
+        ],
+        [
+          0.5350000262260437,
+          1.0490700034341207,
+          0.37839296922067495
+        ]
+      ],
+      "file": "jellyfish-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3400,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5270323257241156,
+          0.185152614808979,
+          -0.41297124385321093
+        ],
+        [
+          0.5468307761606191,
+          1.075339976894163,
+          0.3808996437766111
+        ]
+      ],
+      "file": "jellyfish-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4959152085068194,
+          0.169540641141796,
+          -0.3702218686070463
+        ],
+        [
+          0.5279204209454047,
+          1.0687169222514967,
+          0.422046328806882
+        ]
+      ],
+      "file": "jellyfish-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5076458666130356,
+          0.16488742914789267,
+          -0.37386243965378724
+        ],
+        [
+          0.5494493769926336,
+          1.0922723782390216,
+          0.42556759393953714
+        ]
+      ],
+      "file": "jellyfish-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.15560761548846436,
+          -0.3760669586205239
+        ],
+        [
+          0.5350000262260437,
+          1.0270207484088356,
+          0.42629295586835725
+        ]
+      ],
+      "file": "jellyfish-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3240,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5163154652118136,
+          0.14937526492963077,
+          -0.3797650072699487
+        ],
+        [
+          0.5558084069622443,
+          1.0509853163375846,
+          0.42987537845068136
+        ]
+      ],
+      "file": "jellyfish-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.1261199409969852,
+          -0.4922286578500297
+        ],
+        [
+          0.5266846897179523,
+          1.2808081172711088,
+          0.4922286578500297
+        ]
+      ],
+      "file": "jellyfish-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5126164788033892,
+          0.11917370719704268,
+          -0.4922286578500297
+        ],
+        [
+          0.5351600929699418,
+          1.3056075546906794,
+          0.4922286578500297
+        ]
+      ],
+      "file": "jellyfish-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.12419334590861086,
+          -0.5
+        ],
+        [
+          0.5350000262260437,
+          1.2386394494814563,
+          0.5
+        ]
+      ],
+      "file": "jellyfish-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5199620027374678,
+          0.11303911776258224,
+          -0.5
+        ],
+        [
+          0.5431859250309955,
+          1.2638483078531089,
+          0.5
+        ]
+      ],
+      "file": "jellyfish-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.17683281380494653,
+          -0.511989481492393
+        ],
+        [
+          0.5266846897179523,
+          1.3522241815262879,
+          0.49129397877955217
+        ]
+      ],
+      "file": "jellyfish-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.49921269176404814,
+          0.14708599415837376,
+          -0.5122108194146974
+        ],
+        [
+          0.5278472811347588,
+          1.3245412733807984,
+          0.49151571145875667
+        ]
+      ],
+      "file": "jellyfish-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.11272724150540192,
+          -0.5190901923217698
+        ],
+        [
+          0.5350000262260437,
+          1.2483591304960178,
+          0.49903301742232015
+        ]
+      ],
+      "file": "jellyfish-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5069977128012274,
+          0.11068197932726065,
+          -0.519315043486371
+        ],
+        [
+          0.5361262904372985,
+          1.2516485546450078,
+          0.4992582511680212
+        ]
+      ],
+      "file": "jellyfish-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.639693031990868,
+          0.08607859481816937,
+          -0.634154193584388
+        ],
+        [
+          0.639693031990868,
+          1.315814038001147,
+          0.6737498299269055
+        ]
+      ],
+      "file": "jellyfish-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.6392818311486446,
+          0.08108655983168123,
+          -0.6375045810683202
+        ],
+        [
+          0.6535504586077336,
+          1.2916790527710054,
+          0.6713988153665615
+        ]
+      ],
+      "file": "jellyfish-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.6497925524947464,
+          0.07668706594968078,
+          -0.6441326952577637
+        ],
+        [
+          0.6497925524947464,
+          1.2765740181700986,
+          0.6825070519668722
+        ]
+      ],
+      "file": "jellyfish-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.6493627618976768,
+          0.08175908749156391,
+          -0.6475408128507188
+        ],
+        [
+          0.6631912907569671,
+          1.2520398009746767,
+          0.680389620383234
+        ]
+      ],
+      "file": "jellyfish-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.07918366413741595,
+          -0.48690918542763306
+        ],
+        [
+          0.5266846897179523,
+          1.225460560076189,
+          0.5315556980000086
+        ]
+      ],
+      "file": "jellyfish-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5059307860892635,
+          0.05509817394061667,
+          -0.49073789642590077
+        ],
+        [
+          0.5426224826243431,
+          1.247726880044681,
+          0.5353297926520044
+        ]
+      ],
+      "file": "jellyfish-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.07440748837336864,
+          -0.49455868971731426
+        ],
+        [
+          0.5350000262260437,
+          1.1865124431871632,
+          0.5378281344725266
+        ]
+      ],
+      "file": "jellyfish-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5616,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5136615450152981,
+          0.051565005836299305,
+          -0.49844789499220266
+        ],
+        [
+          0.5504161923878456,
+          1.2091456045679716,
+          0.5416644079764528
+        ]
+      ],
+      "file": "jellyfish-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.07196273928496655,
+          -0.48380888579215986
+        ],
+        [
+          0.5266846897179523,
+          1.214365439047182,
+          0.5390688721950067
+        ]
+      ],
+      "file": "jellyfish-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5141067769482247,
+          0.0748099014953042,
+          -0.48885129818864526
+        ],
+        [
+          0.5359446248269355,
+          1.2373753604913713,
+          0.5440347389280806
+        ]
+      ],
+      "file": "jellyfish-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.06626284963958518,
+          -0.49140044366771896
+        ],
+        [
+          0.5350000262260437,
+          1.1758911449132605,
+          0.5449560024575719
+        ]
+      ],
+      "file": "jellyfish-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5214007371024105,
+          0.06007385085034944,
+          -0.49652253094033005
+        ],
+        [
+          0.5439403291026906,
+          1.1992811889453172,
+          0.5500039050254121
+        ]
+      ],
+      "file": "jellyfish-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4966566472432908,
+          0.10022435160166288,
+          -0.4907390290910417
+        ],
+        [
+          0.5271789822089332,
+          1.235580294679165,
+          0.5159596299279439
+        ]
+      ],
+      "file": "jellyfish-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4974346217295147,
+          0.09640205603844854,
+          -0.4909192745587156
+        ],
+        [
+          0.5285561044916658,
+          1.2375360910735203,
+          0.5161396613492228
+        ]
+      ],
+      "file": "jellyfish-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.09658114452589917,
+          -0.49846546953346893
+        ],
+        [
+          0.5350000262260437,
+          1.1939508610952576,
+          0.5229081713645817
+        ]
+      ],
+      "file": "jellyfish-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5057537772794068,
+          0.09373923306840537,
+          -0.4986485609112853
+        ],
+        [
+          0.5363344643910124,
+          1.1959376626500795,
+          0.5230910552980058
+        ]
+      ],
+      "file": "jellyfish-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4971509397342717,
+          0.14196012905904654,
+          -0.5166893583117796
+        ],
+        [
+          0.5266846897179523,
+          1.3217168642496981,
+          0.4906209854465313
+        ]
+      ],
+      "file": "jellyfish-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5199462010505906,
+          0.11449239015927093,
+          -0.5198678414080784
+        ],
+        [
+          0.5389573688904081,
+          1.343051833423833,
+          0.4938667543519488
+        ]
+      ],
+      "file": "jellyfish-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.10866180068796139,
+          -0.5236091687759717
+        ],
+        [
+          0.5350000262260437,
+          1.2488195280230308,
+          0.49834484342194507
+        ]
+      ],
+      "file": "jellyfish-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5416,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5270323257241156,
+          0.09315573238410946,
+          -0.5268410287078136
+        ],
+        [
+          0.5468307761606191,
+          1.2862360747148702,
+          0.5016419138132994
+        ]
+      ],
+      "file": "jellyfish-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4959152085068194,
+          0.08386607745280261,
+          -0.48787439318106324
+        ],
+        [
+          0.5279204209454047,
+          1.25832523330652,
+          0.5285936127960109
+        ]
+      ],
+      "file": "jellyfish-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5076458666130356,
+          0.04939664976114744,
+          -0.49266291393248174
+        ],
+        [
+          0.5494493769926336,
+          1.2897309038941676,
+          0.5332883931843211
+        ]
+      ],
+      "file": "jellyfish-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5049999952316284,
+          0.08007829800121047,
+          -0.49554246600513485
+        ],
+        [
+          0.5350000262260437,
+          1.2190272594299985,
+          0.535005750416166
+        ]
+      ],
+      "file": "jellyfish-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "jellyfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5256,
+      "meshes": 10,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5268490954608159,
+          0.04771912556508762,
+          -0.5004066677513287
+        ],
+        [
+          0.5558084069622443,
+          1.2509585383884327,
+          0.5397791031076601
+        ]
+      ],
+      "file": "jellyfish-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

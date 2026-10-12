@@ -45,7 +45,7 @@ baseline=$(node --test --test-reporter=tap "$TEST" 2>&1)
 printf '%s\n' "$baseline" | grep -E '^# (tests|pass|fail)'
 [ "$(printf '%s\n' "$baseline" | grep -c '^ok ' || true)" -eq 34 ]
 run "A archetype mapping 削除(quadruped の builder)" character-3d/archetypes.mjs \
-  "export const BUILDERS = { quadruped, avian," "export const BUILDERS = { avian,"
+  " quadruped, avian," " avian,"
 run "B stage parameter 削除(どの 段も 最初の 段の 数字)" character-3d/archetypes.mjs \
   "  const sp = SPEC.stageSpec(id, stage);" "  const sp = SPEC.stageSpec(id, (SPEC.STAGE_KEYS[id] || [stage])[0]);"
 run "C emotion mapping 削除(いつも normal)" character-3d/spec.js \

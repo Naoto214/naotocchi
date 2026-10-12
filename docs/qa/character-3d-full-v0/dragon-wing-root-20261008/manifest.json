@@ -1,0 +1,1562 @@
+[
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic/dragon-1-front.jpg",
+    "sha256": "ad18f8bbb1a5685a8cafef7b60822c594d88bfc7e4ecf06352d54752bd9ea2a0"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic/dragon-1-34.jpg",
+    "sha256": "5a337452f256d2e4f47b9df9a8bce07c21db2c2e823e9dfc6c05e78d4f089582"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic/dragon-1-back.jpg",
+    "sha256": "ebc5247f74749a40eae4d7ba50d0ad1f620ff74881b931eb81b4a2762cf51d7f"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic/dragon-1-side.jpg",
+    "sha256": "a67c64a599e05db6971a7275fcac62cf4989c6346e71e47625717e93fd5c9c27"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-dislike-walk-normal.jpg",
+    "sha256": "0449853ca62da2d327f517c044b555cc32f8c7380957e8919e5eb215130e6cf0"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-positive-walk-reduced.jpg",
+    "sha256": "b1fa3895da8a80cae4a855447ccf5a60eba4548ff3a2449bf6b05b93250f4b10"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-positive-idle-normal.jpg",
+    "sha256": "8c1bb8010bf997153add347a516f6afb83d8d1e26598af80cb1462efce34a29d"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sleeping-walk-normal.jpg",
+    "sha256": "c585c16199ffb4f02e8e6a93e9a9bc3aa66c9f7388c013c5ac953067c746acec"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-tired-walk-reduced.jpg",
+    "sha256": "b6eea97ae88dd23abe762787b206bfe98a900f807d269acf11f8adb44d0be3cd"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-wantsPlay-idle-reduced.jpg",
+    "sha256": "6929a9c3c4d0cf5d6a8d8f058b7425d935626545bcd15c8be2c7daedc8f9e7fc"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sleeping-idle-reduced.jpg",
+    "sha256": "a05dcb01ee4bef8b86a5234db93fcd69b6fbd6cde53c80b6f2cb22b7e6e81aef"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-dislike-walk-reduced.jpg",
+    "sha256": "a5c1082587872802bb92dc30135a8418a96a6240e1dba69c3e08e47318d295b5"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-normal-walk-normal.jpg",
+    "sha256": "92d6d357c83f6504d6ed29dc52f04724dc9341cd020f14f18f9aa65526e53cc2"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sick-walk-reduced.jpg",
+    "sha256": "aac02680daf0516463fac2c5391b3e98d90792545837ce2315cab02e9cd8c00d"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sick-idle-reduced.jpg",
+    "sha256": "d3d8957107b3e1a0d068304b00c355f498f493c9a5b64c29683b3a097ede2387"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-wantsPlay-idle-normal.jpg",
+    "sha256": "0f5cf3812ceb39731a5ec0754fe5245d7f6c7359a0c4d48c43bdde6929f35cad"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sick-idle-normal.jpg",
+    "sha256": "b244c77c555873917fca0d8f4b8f76c2a6875189abc759b84b1bb144665c08bf"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-positive-idle-reduced.jpg",
+    "sha256": "ec50565c57d74fe4e3b3671946edd1f81cab34efc9477a011a5cc05554a0c3c2"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-strained-walk-normal.jpg",
+    "sha256": "e1372107e15d24c34d1cd3c7054ecf04da4a0a6e8fae7b2bcd417dcd3edebd4b"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-wantsPlay-walk-reduced.jpg",
+    "sha256": "752cfc8e66193f3a77359e90c746f074cba5b1f662880d578286b93be07414b9"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-tired-idle-normal.jpg",
+    "sha256": "e94eab6ddaf3c649c06c95b72b01cd5402e656c2565726faf405671fc2e6a7e3"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-strained-walk-reduced.jpg",
+    "sha256": "056b46c481bab753916e9f551924caadea8dfa27fc0436f66f081bc928ca672a"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sleeping-idle-normal.jpg",
+    "sha256": "cfb5436a7c84f9c058a3c0dc4f6a0e833f671984390b05d0d0199cd7c104482b"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-motion.jpg",
+    "sha256": "618717f63939bc62a4575677a2e5f5d9744dd9836143ca96c8b47816156c4700"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-normal-idle-normal.jpg",
+    "sha256": "5a337452f256d2e4f47b9df9a8bce07c21db2c2e823e9dfc6c05e78d4f089582"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-normal-walk-reduced.jpg",
+    "sha256": "badf88487241e4e3c56ffbaccfd958d1f681b9e33f72c3b360f78b34a9f285a4"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-dislike-idle-normal.jpg",
+    "sha256": "8105a0ac87ffca2ddf80300ed7f66b6552849c189758d53e2d4aacf41164baec"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-dislike-idle-reduced.jpg",
+    "sha256": "f438acde111d96d570372c371ff9cc1aaea7a24b72da483785a7b3de1f4caeab"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-normal-idle-reduced.jpg",
+    "sha256": "4ba91fdcdf1821ef5f4dc4c02ba7d8ab12945f093d958eafb3a07070acff9647"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sick-walk-normal.jpg",
+    "sha256": "bcb8d33ca98b375889b34e4a17e5f2129373d0ea9f59d522e2609966d6f8bf74"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-positive-walk-normal.jpg",
+    "sha256": "f06a76535b652ee9717a830d4b5772da210794ecda4283d9440d7df218eaace5"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-strained-idle-normal.jpg",
+    "sha256": "8e1bc7183d97c6a47df055473e774d160f562183c4bb3c28d5e43d2ac835af46"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-sleeping-walk-reduced.jpg",
+    "sha256": "e3cb124aa77bafd5a047bb4ad8ca72226f4fc2962c14e9f14f6906f8313098d5"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-wantsPlay-walk-normal.jpg",
+    "sha256": "03103b1db0f0e2ee2a6c2c96c22d0877db64b6548689a127b7bee4484b464a02"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-tired-idle-reduced.jpg",
+    "sha256": "6e79f0234b5528ac20aad2c3297633a88fb57805bef21386e5da8fff8d28b6d9"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-strained-idle-reduced.jpg",
+    "sha256": "26129ce858a5d4483e2b88385bca3c212231c7554614d7a43d00fb014432fa94"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "mythic-motion/dragon-1-tired-walk-normal.jpg",
+    "sha256": "f216b2c5fe43c5d060b16812897b28d142d82572e916121b19aa0421fb462785"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "normal-distance/player-dragon-1-back.png",
+    "sha256": "95ad3ec38198164384ba10c410130df66b686cf4981aa74d3d3fcc3d46053c86"
+  },
+  {
+    "archive": "stage-01.zip",
+    "path": "normal-distance/player-dragon-1-front.png",
+    "sha256": "c7640adeb88640cfd4813611520777c4b171db38e5f795f8966fce5c4093f5b3"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic/dragon-2-34.jpg",
+    "sha256": "e931f7c21bd8ad8b873423ca6854cf6dffff232d625ece425ca04fe40497e8b8"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic/dragon-2-side.jpg",
+    "sha256": "8def06c0750691a8fed4461c987f1158474dcd23afe74c631b2d53ae498fb70e"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic/dragon-2-front.jpg",
+    "sha256": "03242def5bcae6cccf1d65ad6bb8ca85ae1b870ac84172cba378faca8703ff94"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic/dragon-2-back.jpg",
+    "sha256": "33ec5f6ac0c9f08a3e3f31bcb96ece9db4a168fdcd55e1e3a86b3ca0bc958650"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-positive-walk-reduced.jpg",
+    "sha256": "436b89cd1314eea614e30b344e83574350b05c1a6dbdc07ba994b9f4a5d0e688"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-tired-idle-reduced.jpg",
+    "sha256": "51f277fe6b36c4f765c58950ff1b029f40d90c57a39b9cf73189bc65932e68e9"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-positive-walk-normal.jpg",
+    "sha256": "bb0002e334f34a56787f1031977ac72dc7ef4fa723334e0bc2ed1e1212c42e7d"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-tired-idle-normal.jpg",
+    "sha256": "e14f79f8f4d5a9bcde65696f1c5acbf2c37b3a05886e381b0b2484e374dd5037"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-wantsPlay-walk-reduced.jpg",
+    "sha256": "1a6823c0d21bf1030f7fb0932db70e26345ca334825afec6bac0ef6ebed1fcf7"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sick-walk-normal.jpg",
+    "sha256": "4660c155fecd2403e24c11be2812e8b29e4a5db3880c6f65e4befc6fc376423e"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-normal-idle-normal.jpg",
+    "sha256": "e931f7c21bd8ad8b873423ca6854cf6dffff232d625ece425ca04fe40497e8b8"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-normal-walk-reduced.jpg",
+    "sha256": "be76e32df4e16d9344fde7cfdce92059cdc95eab4ec54b1689f161f1bd88132d"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sick-idle-reduced.jpg",
+    "sha256": "dcdd943e7f0b6a075e071c5242983e9da36c42eee5a66754bd65d3f6aa26d6f4"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-wantsPlay-idle-reduced.jpg",
+    "sha256": "70cb3ea80f43ae49336250e07b7e9eab837f643cc4d9d6416955e04a8fa84ba1"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-positive-idle-reduced.jpg",
+    "sha256": "b801b1d951ac70d3a88924e9e4a4e30232c87a52527b0e38c27763631a0c66df"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sleeping-walk-normal.jpg",
+    "sha256": "4523073f443e5ddc8c9c4bef6ade1c1350dc3e81fff68416dd04485095882cd6"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-normal-idle-reduced.jpg",
+    "sha256": "8abe1abdd1083e6eb3a561812e7feb5c25299b381c16472a5d351aa10ffe4230"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sick-idle-normal.jpg",
+    "sha256": "69141b657aef2daf878139acd49e7863a2a20f8e0fe10d0740081e3c0f1e2160"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-strained-idle-reduced.jpg",
+    "sha256": "be5c0d72d25bddc95ba89834fd173e41a7e8c6326fa53daf86cdb07551e6f8b1"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-wantsPlay-walk-normal.jpg",
+    "sha256": "8759c225659ee3f0bc0b3baf17f32fa19952cb6bf8a8708d731945da89d957f1"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sleeping-idle-normal.jpg",
+    "sha256": "17c0d40274f5ec85dde0f7452be20af397e4a3d212f8ced8cb30efca7f29b947"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-motion.jpg",
+    "sha256": "82cf03cbf04e0874db4e9b785d773c14580ee84b106a896f034f6997301a24b6"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-dislike-walk-normal.jpg",
+    "sha256": "c17ca3885546313bee0993c3b28b86db71b1c3155678272eaf1f86feadca0c42"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-strained-walk-reduced.jpg",
+    "sha256": "f941ff2ea4a8eb8b9d3b4caa4d1d6cab9f4aeb6ecd23cd290e898c631c734d62"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sick-walk-reduced.jpg",
+    "sha256": "1f097881dcc3808d9df0099c07f1e1205c23bc0264456ce64d80aebf88b65798"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-normal-walk-normal.jpg",
+    "sha256": "6658d91a9d961a33416d132384b73b7b83e94c4d16780dce77b94a10e8988b76"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-strained-walk-normal.jpg",
+    "sha256": "8c85c618e7182a4332f6fb6568c85955b930017222359d7550e246658913be80"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-wantsPlay-idle-normal.jpg",
+    "sha256": "9deef71e5cef675750ad0d126814e6d0699751755b3ad54799fc45f2385872b6"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-tired-walk-normal.jpg",
+    "sha256": "6cf6b0942a0623235b0f2f2000239312f36ccb754245c0f5912d209ddce37676"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-tired-walk-reduced.jpg",
+    "sha256": "bcfd5cce5b0d5a36266e9c308847ae9401bb8a48fdae6ad61c2702f15190d334"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sleeping-idle-reduced.jpg",
+    "sha256": "87738bef1b55afa54069f2c5bea7101ba414291ff057981a711f809bf00af9e0"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-dislike-walk-reduced.jpg",
+    "sha256": "5d2fbacb5993b28da033fd5652c525b0527b811b652d2fc586a0204ba0c66761"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-dislike-idle-normal.jpg",
+    "sha256": "af049a64e79721d3f20e3c1102dab94058f6ce464d626dfc979185f638ac3904"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-positive-idle-normal.jpg",
+    "sha256": "63265c87e12a766eec0b095a5364c15779694b266fa9ecb3d898df7c1e0e40e2"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-sleeping-walk-reduced.jpg",
+    "sha256": "ada03c91cb24b71f432c3c62bebb689085e39dfd16618076761e2de4d9695166"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-dislike-idle-reduced.jpg",
+    "sha256": "892310353f7a6a67d7767679ba929dab9fe6d2b303109e4728e71eb7c50d905f"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "mythic-motion/dragon-2-strained-idle-normal.jpg",
+    "sha256": "3266923e590406ba155b75490d1d689daba1415111cad477a3d70da070cbcf9d"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "normal-distance/player-dragon-2-back.png",
+    "sha256": "a2337a74b695f34eeae7573c4a352f3784c0f449be72e4daa9dac41885c6d2ce"
+  },
+  {
+    "archive": "stage-02.zip",
+    "path": "normal-distance/player-dragon-2-front.png",
+    "sha256": "ae0a5ca217cada2d23c3f4698cba562f95743954f53d513050684bd44ba40b99"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic/dragon-3-side.jpg",
+    "sha256": "a1f2897c3a6c8918e0a3199b7ba09b7e71546e2a283bddf5dcaf207b69b88720"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic/dragon-3-front.jpg",
+    "sha256": "a6868749d47b603d9fd1826fd86a2c8f7f5dd81dd8a5d50be4cfa14b0ae7ca32"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic/dragon-3-back.jpg",
+    "sha256": "7e36b07f6c6a060ab3201e50df07245de6c8c04fd173fc7065ecc9ea7039c0ad"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic/dragon-3-34.jpg",
+    "sha256": "b3e4484bac780658bd5d2d698cba24995ce38e22fb45aa8d94ca12d131fd733b"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-tired-walk-reduced.jpg",
+    "sha256": "84fbc8e7ebfbdb825d38712182c96217a686f4ddcc2879c7b68ef39a7a33e76f"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-normal-walk-normal.jpg",
+    "sha256": "45e363ff012c15bec95d4ed59fcbaced87cb92cc11dcc66a83e597a415b2474f"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-wantsPlay-idle-normal.jpg",
+    "sha256": "87ee4a020ab377f7f9f861274286f33f61ae793100ea20df2895fc3871861770"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sick-walk-normal.jpg",
+    "sha256": "7169ac5e183b449fe7cb40a477a3b62b33901c45fd34713971b05175ef652a89"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-strained-idle-normal.jpg",
+    "sha256": "ac5c9fd0f8acc8cb1494903f7b98a53c4af856e06d62742769fc83f955a88cb1"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sleeping-idle-normal.jpg",
+    "sha256": "d18409fe03ebc515a4d064d8f0445e01d42951d0e53d7171503f5e2c0df97bb8"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-dislike-walk-reduced.jpg",
+    "sha256": "6f2b7333559757aaa0e636a22c5fee4998164e062cea86da72da8771eb2921c4"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-positive-walk-reduced.jpg",
+    "sha256": "0f33e3af63b80233eda0afe2eff178eddb3789e6cdd6dba3d1dbf446e909682d"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sleeping-idle-reduced.jpg",
+    "sha256": "d593497fc4cbadd5c3c94feafb76cf56737489c62e0805a0617165e3ff0317b7"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-wantsPlay-walk-normal.jpg",
+    "sha256": "91fdaea70d2457369106f64df7b06d2a181f10739373d97f66769bc1fb2cdc76"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-wantsPlay-walk-reduced.jpg",
+    "sha256": "2f0205f759be19941546816bfae92472ca8a455941839e83c2becc59e6b34bf0"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sleeping-walk-reduced.jpg",
+    "sha256": "4d8863b900c7acaffe756bb71be064af0a6ee0a4de08caa475a4ac5edf26c47f"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-normal-idle-reduced.jpg",
+    "sha256": "05ea561952d6f40e567153faf01470c28a0e7c9d65be3c0cd955c8647a08c1b2"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-tired-idle-normal.jpg",
+    "sha256": "86f2fd42290bbbc587d56e43efa703fa4332f66cbc646ed0cdf530ba437a1965"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sick-walk-reduced.jpg",
+    "sha256": "305bdaa4ffd772e0640a5b6328b9900a194a2652771f314fb3977b2f36372bea"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-tired-idle-reduced.jpg",
+    "sha256": "b139f1e8565bc96f89cf08b0f73c7624b7fabac5a5b6c68cadb205a2c6d46bb5"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sick-idle-normal.jpg",
+    "sha256": "e101cd4456177b13ee3df1946627fd314aebf71c02d1cd03f58f15f55d1758ca"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-positive-idle-reduced.jpg",
+    "sha256": "c0ceb23948a6252b8ebc4cf3a3e226986edc0e53ad643b1ada43cd744bf06f5c"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-dislike-idle-reduced.jpg",
+    "sha256": "ad13d58cc5c48d592b35162143ff22f8bd80fa47c34d2bbf4bc98a92fe1de606"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-dislike-idle-normal.jpg",
+    "sha256": "1d46636d5727f932027f3e43a796e8efd83f67c04623fec3171e53f5c2df4e67"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sick-idle-reduced.jpg",
+    "sha256": "d187e2d65d10b139b6922496f830d1c1cd8bf046fe33d7f9093518c4faba032b"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-normal-walk-reduced.jpg",
+    "sha256": "5caecb94a252c66af9067f094ffb98019067040c878f69b93d5765f436dc4702"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-motion.jpg",
+    "sha256": "a5f9cb17e7d917b5ce1acf924d41e494b9f5b217d0296d7750661f7b1a8ebf89"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-sleeping-walk-normal.jpg",
+    "sha256": "1ca436c4054d2387f48d87ce40fec7e75c00819bf11e8077f5a905d4142d7fc6"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-tired-walk-normal.jpg",
+    "sha256": "ebafbc7d8929d8f10380a904c17ea60cbeea8aa500dc507f1ad8bf74d933cb98"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-dislike-walk-normal.jpg",
+    "sha256": "b8ff87d580f0854691ffbef818e7d2b41c4879d034deaa106bafa0ade7fa6605"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-strained-walk-normal.jpg",
+    "sha256": "464cc7b3a74b801fc4b87fc4c37cca516cceafe257dbaf790475e157495b651a"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-strained-idle-reduced.jpg",
+    "sha256": "03ef8d7604177ad1c3e7e22c030450cdc883dac269f755fc00871383bf9a6a34"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-strained-walk-reduced.jpg",
+    "sha256": "5afb6b6910505bf61a7624188b99cf5cb135d228c80f7b86435adfaa5a2acd9e"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-positive-idle-normal.jpg",
+    "sha256": "245f588275c41eac0cbbaa763a01501dda518011ca6141de1f13ad2a03456bf3"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-normal-idle-normal.jpg",
+    "sha256": "b3e4484bac780658bd5d2d698cba24995ce38e22fb45aa8d94ca12d131fd733b"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-wantsPlay-idle-reduced.jpg",
+    "sha256": "20879a90cf3418f09149cc81c6993be1cf4ca936055675a0201df756266be80f"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "mythic-motion/dragon-3-positive-walk-normal.jpg",
+    "sha256": "0388058278c505a286164fcc009966eeecd0276f0a9e3d65291d12a118820987"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "normal-distance/player-dragon-3-front.png",
+    "sha256": "46e4aef7fa36ebd56acb40d4cd992c1f5174718a21c22c30d169a1f76bfc7fdf"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "normal-distance/player-dragon-3-back.png",
+    "sha256": "a12de2e19746e0e9920a7eaa00cdca6191190b03e299c55c27a5905905cd8b30"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic/dragon-4-front.jpg",
+    "sha256": "17c417c7bdcf4065b541de8cce79c70c6845f61c9feb013dd83cd99d0a38465d"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic/dragon-4-back.jpg",
+    "sha256": "ff289c60bf563a58d7ce376836332f6d2d152391f64f0a6848a42a8efcb5daa9"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic/dragon-4-34.jpg",
+    "sha256": "3e22c3085f412fa6a8493a6123e368dfb5658d7d0f03eec84eb7d167bd79002c"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic/dragon-4-side.jpg",
+    "sha256": "fe249768fa6357236897a7e3d816bc9a28ae02006e240e55bfbe27ef8880eaf2"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-normal-idle-reduced.jpg",
+    "sha256": "09a97116df66801a364c93f68a97b009e1d036c998d40fe6a61d125ba62d83fe"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-normal-walk-normal.jpg",
+    "sha256": "100c045057bee95d2412521d6ead23d6ee2fc3dd1bbc5faa6bb0ac2d8ef57bc9"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sleeping-walk-normal.jpg",
+    "sha256": "0553208c0f60a5a80d8b7ee0b104f1a55a1d9e48d41bfda31650da2d603f493a"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-wantsPlay-walk-normal.jpg",
+    "sha256": "c60cf67667e5b098b0af23ab693a8e7caf567b880662ada0c1b1aeae25cfa34b"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-positive-idle-normal.jpg",
+    "sha256": "c60dc8c54a88eba0c0bc90e995a0ed5ce03f624fb2cd7199e9af7dd9432b3132"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-strained-idle-reduced.jpg",
+    "sha256": "6ec38c0fda15c8214ece8904d82a4306c8bceb0194163ae8dacd4c82ba7559c6"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sleeping-idle-normal.jpg",
+    "sha256": "be992959cf04c3ec4806c19d3796c2579cc61335848c28b8703aae84eb7530e6"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sick-idle-reduced.jpg",
+    "sha256": "6a0878779dcfb8a4d51a105067fca71ec891202ef577b8d4f1486f6c69e91e7b"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-positive-walk-reduced.jpg",
+    "sha256": "96b92cd2963f69546d58f63d479a172b998d239f516c6586cebfd6d7ac4ba20c"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-strained-walk-normal.jpg",
+    "sha256": "f0628175e3e4b01967768b3021a56f64fe2488b831e358b9314cabe74f5efe54"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sick-walk-reduced.jpg",
+    "sha256": "bc7ceb5134e4789a825a27177c7faa077cfbe4167c4b5e8dc601a9b147d32768"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-wantsPlay-idle-reduced.jpg",
+    "sha256": "68a8f0511f918ec602653b3d032c1cf3cd3207b46e524d2ffd33b58e9abeeacf"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-tired-walk-normal.jpg",
+    "sha256": "42a1482204b1ff95a4d6915ebc69130dce1037c82df818663955c34c55444667"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-dislike-walk-normal.jpg",
+    "sha256": "652f3843e84e285a1f52c8f937c649b26b9481f9ad876b62cb3fb8d6c8935601"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-dislike-walk-reduced.jpg",
+    "sha256": "1c425c6abc833f0d705852eee5f39611c0467b2a72f9d366a895b643dce07484"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-tired-idle-normal.jpg",
+    "sha256": "a545dbd080b6be0db60a959dfc3c822eb6143f141a7c014207321f610f9aba00"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-motion.jpg",
+    "sha256": "7d0ce5cc32aa9ed66ac2d8c59467cf6ad6a6150f4b8bf08192379c575f1360f2"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sick-idle-normal.jpg",
+    "sha256": "f6cfe03db89bf4caf9aee78459055553223b5fee758ac84e62954006240cf4eb"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-wantsPlay-idle-normal.jpg",
+    "sha256": "3129759d953c204735fbdbf0a938fccaab18612822f0b3a03ea9fbbdeec1bb8c"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-positive-idle-reduced.jpg",
+    "sha256": "4e64738478c4c675c8a6e7bc6b656cd1f42b63bd3a2f599f14f4109321239466"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-dislike-idle-normal.jpg",
+    "sha256": "849401bba54136e78681a9b958707fef1a046188c5799a50c873fe41e84f2fbb"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-strained-idle-normal.jpg",
+    "sha256": "5a4cd935939aaf0c4eee8d4bb8992e45b417948b5f5682844c71f61aab444ecc"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sick-walk-normal.jpg",
+    "sha256": "1f8356960d7768f8d4a5658ab0c4f36ccc5d7a8595ad94c6cb74c9de8e56e614"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-normal-walk-reduced.jpg",
+    "sha256": "63ea7d7173b23c5323500837fa7f9da83a6e470f2178413e8af50e1c9e85f0b0"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-strained-walk-reduced.jpg",
+    "sha256": "59eebe8ddc23971de25f6cb1d44425138748575b29cb81f8306fd4fec6aff4a6"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-tired-idle-reduced.jpg",
+    "sha256": "f6f55c7ca30f1959efbf3fe687cb99bc13e52bb0a8f946a3d41ea2a3c0ddd7df"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-normal-idle-normal.jpg",
+    "sha256": "3e22c3085f412fa6a8493a6123e368dfb5658d7d0f03eec84eb7d167bd79002c"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-wantsPlay-walk-reduced.jpg",
+    "sha256": "8606c5c721128d3b70968cd236a08755f30fa225761b9261e9d7f9a0ab195d87"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sleeping-idle-reduced.jpg",
+    "sha256": "90ac311f9676b80b1f73e8657c102a2a2d878fd732b3014150c8068573ab1648"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-tired-walk-reduced.jpg",
+    "sha256": "6cd641a108fc64116dad5ed37c4436ecb94895e3b041327c67266a0e40a4320e"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-sleeping-walk-reduced.jpg",
+    "sha256": "7e294032c61cac8aecc7548fe08344696a3dd076844d1594fa6a0e4127876776"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-dislike-idle-reduced.jpg",
+    "sha256": "ef7bd0969a5e5343029eb97ce6722a481b0cd86d17aa369c06646fa924b9ad7f"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "mythic-motion/dragon-4-positive-walk-normal.jpg",
+    "sha256": "d0b8081259f23e0719ee8248e77ad136e5c6ce4cf7316b1e594ced249de7f055"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "normal-distance/player-dragon-4-back.png",
+    "sha256": "24dfd16f7526578d2dab19e95c72e879a1d005f50c63f22abee96a04a62ed5c8"
+  },
+  {
+    "archive": "stage-04.zip",
+    "path": "normal-distance/player-dragon-4-front.png",
+    "sha256": "5353b7feefe4834723c9e0d0c1801e1c3a06b79f9fc6e4ff9dfda85e92790fa8"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic/dragon-5-front.jpg",
+    "sha256": "d2382163c19a89c09ad8c58e93ce99877c27a3bb67e0263331d170de6e75c297"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic/dragon-5-34.jpg",
+    "sha256": "76e958978dd67843e6310d2624004a99aa7a82aeecf7f274d6517faa1e3c2379"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic/dragon-5-back.jpg",
+    "sha256": "e365a90647c4d92232ed66e2dc246ec303fa9881d1eff8395bfaeb342e78feb5"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic/dragon-5-side.jpg",
+    "sha256": "d23350344a0fd4960a2bb5d4c1234df57c5f33aafe309f287e0bfa3cb0be5826"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sleeping-idle-normal.jpg",
+    "sha256": "5937de861c87f59c140194437a65af36ea9302b73018a2d7dd79c8273253d525"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-positive-idle-normal.jpg",
+    "sha256": "542462cc88797294be43716c054f4ed00f938ca74e0445f2ce4f31e7c50cba19"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-positive-walk-reduced.jpg",
+    "sha256": "f1adf04958974fe2456b680231b23ca962e2576952eb97006a9d66213e35cb4a"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sleeping-walk-normal.jpg",
+    "sha256": "5b67cfa5494e5bb581e258cef5cb89d865bfbc5d291f2cdedff1086fbfbcac22"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-normal-idle-reduced.jpg",
+    "sha256": "c5f397485e544d0db2deb2490ae09b5521250696f82aeb3604382387cf31f3dc"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-wantsPlay-idle-normal.jpg",
+    "sha256": "c572d43f788e9e53be8774e0465bb7291a086601fff8a39d9fc9890a31c7ebfc"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-positive-idle-reduced.jpg",
+    "sha256": "0b304ce45cfa491ffcf1ed9330a4a79c44a36f30768da2ba09c2816250980ca2"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-dislike-walk-normal.jpg",
+    "sha256": "21753c403c424feaa113548ab1aa09e723e2da8ad004bc7fb44e040b80f1cc54"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-normal-walk-normal.jpg",
+    "sha256": "10b274c979eaf169976de8622792d70cc3d64a166ab8c25e3bc5427feb73c216"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sick-walk-reduced.jpg",
+    "sha256": "603ea722d2859632ca1f22f559b1be03cb567963c44fcdbd31416986324e6f1e"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sick-idle-reduced.jpg",
+    "sha256": "2bb32075a0febe68f29d7b59a5fbd023bcbc3c45d4bfb4ac7017ffea42976f0f"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-strained-idle-normal.jpg",
+    "sha256": "b5f253f5a0bd441374d5cdbfc81cd9252e87c17e8bc3cd5e483c0cc81c533606"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-wantsPlay-idle-reduced.jpg",
+    "sha256": "d9f3e6e514060ba19769a3ee5fee9b55b40d8e8063538692e936e99cef7cf6d3"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-normal-walk-reduced.jpg",
+    "sha256": "197ea833784c23f7411bf0965bdf38710a8b45520052e2c2276162dc3b43e04d"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-normal-idle-normal.jpg",
+    "sha256": "76e958978dd67843e6310d2624004a99aa7a82aeecf7f274d6517faa1e3c2379"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-strained-walk-normal.jpg",
+    "sha256": "baeb9eb98cdc7005de4680519a2f33d2447e089edfdd04458d5b14d038726596"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-wantsPlay-walk-reduced.jpg",
+    "sha256": "39817d44cbaa5d0d08b200c9965600239ec76a38338bc4c46e5f1cae9fc0e7e2"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-dislike-walk-reduced.jpg",
+    "sha256": "3960e2f34f18d8bee4e2f79b701a77c3562e6567c7a5bdf25a847e8905df023f"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-positive-walk-normal.jpg",
+    "sha256": "14adf3a9311ca352739057c8b82cf8962523419b302279bc408a3de0bcdb882c"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sick-idle-normal.jpg",
+    "sha256": "f6614c6a55a133ea0cec74e92b405ea84d1da66ecef8183b90acb28b09012049"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-tired-walk-normal.jpg",
+    "sha256": "c3cdba1a4ae255750acc9dbf94f0234eb43e6e8ff3f1d1b73274fe59bf2abafc"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-tired-idle-normal.jpg",
+    "sha256": "c2b35030c0672cf8743f6df0380cc2f654e2e502e1c7bccb5fa8b002723bfb0a"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-dislike-idle-normal.jpg",
+    "sha256": "6d21c832f22fb7413a05d3eadcddc4d4361b01904b73492f7876c8358ad5f5c8"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-strained-walk-reduced.jpg",
+    "sha256": "76346f839b46d6d713a787d283db346f00874b95e9cb57696139d7f15cd3a310"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-dislike-idle-reduced.jpg",
+    "sha256": "942f634a2d490ee740b52cec7f29f70c02519387205200301b14d498b8472b49"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sleeping-idle-reduced.jpg",
+    "sha256": "bbe0229480e938f00c974c063bb614bbb118f248fb2a16213e4fb5710df8af97"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sick-walk-normal.jpg",
+    "sha256": "5df1220344d1ef91f5733ecf38da97c8bf261e17404577cbee7657e157af4ca8"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-tired-idle-reduced.jpg",
+    "sha256": "8c4547aef9c9a489de308bf9d36f7a1460332725cf76fd023553b1a57f2f66f3"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-wantsPlay-walk-normal.jpg",
+    "sha256": "456a1f1557987a7653a4e98c1125dac83c99f46e446c9de2ac399ed6f5542d1a"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-tired-walk-reduced.jpg",
+    "sha256": "fbe6002180d9d8dc2fbf845115036f55c87046be9c400dbf6fd40fb5d74f8a40"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-strained-idle-reduced.jpg",
+    "sha256": "d47fe0b619e9f8ec34dc1fa6f6da53e4fb65583388b7d95edd3575c56892fce6"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-sleeping-walk-reduced.jpg",
+    "sha256": "26585cc26eeff0067413e9453ffaab2421fff3d4b2418d8a509fbe96db3ed68b"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "mythic-motion/dragon-5-motion.jpg",
+    "sha256": "90eab48023b2bfdb829e3b8abb6914c08ff0d85a033acfda05876475c6771c9b"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "normal-distance/player-dragon-5-front.png",
+    "sha256": "0e239243063400025dfebc661d1fa4162322d3f6a5cfe096757958bf0c43b052"
+  },
+  {
+    "archive": "stage-05.zip",
+    "path": "normal-distance/player-dragon-5-back.png",
+    "sha256": "bf997d7b9bc30a697f6330e21041f55b68c296d814ca8b2c4c2dd57031ba32b1"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic/dragon-6-side.jpg",
+    "sha256": "52880f9c4f88ff68fd6cff43f2e0649125862b2e1d1676860ceefa95f7d63e4c"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic/dragon-6-back.jpg",
+    "sha256": "a80b781b3ec47cc2154f5369c61ec396a4132a6e92b53257e4e5caa001f62673"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic/dragon-6-34.jpg",
+    "sha256": "19e379830d5abd3ccb18bad20cb4721641a9a889179d7b2b684cb938bfbb2ea0"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic/dragon-6-front.jpg",
+    "sha256": "07849f2e06b9930e01942dfb5897ff65798ce18d18048e4569812d6a96fea0a3"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-positive-walk-reduced.jpg",
+    "sha256": "cca211b93d6a7d5ac747bf093313b90f5cf3da9ef3fb3a9b5a55e9d949ff1522"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-tired-idle-reduced.jpg",
+    "sha256": "8f9d2b52de56f4f52de3df9203cba31c0fdc368825011dcaadb66cae7775e85d"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-normal-walk-reduced.jpg",
+    "sha256": "d2b8a80fd8b94dcbe56a7a6bab5e2ed86183bb0b1ec83156066d3350db1b9573"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-normal-idle-reduced.jpg",
+    "sha256": "9eb44f6f6e38cf568ebd9df5a0aac0ae1afc9ebc11341f834307b4fc0dbb3d83"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sleeping-idle-normal.jpg",
+    "sha256": "ecd519a29ad68b5a826da1d77b4e28828aeeebe74bf11ff7e653bc96210ee89c"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-tired-walk-reduced.jpg",
+    "sha256": "d79ebea8d199364f63a9544dd0e5bbc7922c15149707f154453ada355b09b4f3"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-positive-idle-normal.jpg",
+    "sha256": "c629bd1a930c5198edd9d67ce7dc382b3d9dd8e916877d8fae2ee2f61dafd9ff"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-normal-walk-normal.jpg",
+    "sha256": "8cc543f1bb4db7c1eef6327d8412906f1c240207fc1b55c06c63dc22adb7aa0d"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sick-idle-normal.jpg",
+    "sha256": "0d78ee82d445794ba2ec9b10af4a1d82d4457443d5bb24b645a4efbae99647b5"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-strained-idle-normal.jpg",
+    "sha256": "314982ad679e822b28fc8b68777741320f62e8cd87b1f35b5d26d0a727610fb7"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sick-idle-reduced.jpg",
+    "sha256": "b3c994b7e3f096de68acbcbaeed018fcf9d88e9b036d9abdd8e6ac655e745313"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-normal-idle-normal.jpg",
+    "sha256": "19e379830d5abd3ccb18bad20cb4721641a9a889179d7b2b684cb938bfbb2ea0"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-wantsPlay-walk-reduced.jpg",
+    "sha256": "d9e4a58834139aad5633d81a11c63f1bc409c8b77506edc69b3c7a0be1d5b6bd"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-wantsPlay-walk-normal.jpg",
+    "sha256": "40c8bd9c984f12b156c163531940ae471b2669b8fd55e71154509b8722d84e88"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-strained-walk-reduced.jpg",
+    "sha256": "fdaa889641b26c90de390d8f351f9c9a7604d69ad9d53eb79c3705e8a3d1cc79"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-positive-idle-reduced.jpg",
+    "sha256": "7cc1c19739f7d2027ea3fd503e277770269008dc136c32ca4e3ca352b1313cab"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-tired-walk-normal.jpg",
+    "sha256": "f75594d1b73fd4727ca2f8cee1bd7f8fd74a9762df8b22d536fea26accb1990b"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-dislike-walk-normal.jpg",
+    "sha256": "043aed26ce0b189a53070720b96a11d792c5ff506e9789ae6c51d56118bc7c51"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sick-walk-normal.jpg",
+    "sha256": "65225faceb9bdc8bbda57ef00850cb9d470f074d595d0de93301b1b67e2ac542"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-dislike-idle-reduced.jpg",
+    "sha256": "6a1ee9d2eb3a72fe92ed52b72b1f7040e2d1ec91d1a4646463f80114c4475c53"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-tired-idle-normal.jpg",
+    "sha256": "d3a7057451d7e2345455e64e7839f560f1bedb6ecd5c489d3ca99f6cb75c7760"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-positive-walk-normal.jpg",
+    "sha256": "2cbe3492fe2b36aa84676e9b36d0a9d52b91fd8351e370a6a07d37ea4c802eb9"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-motion.jpg",
+    "sha256": "4f346e1468b3edc54e74c6478e44d42585087ee9b64af55472186c8b5c94db36"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sleeping-walk-normal.jpg",
+    "sha256": "23f9137f9ec0fbfbf4cab51dac87e3591c9b53cbdca1af41f7d3b92a869b3efa"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sleeping-walk-reduced.jpg",
+    "sha256": "9390765478dd1844b945b8195dd39c813b472a626f9b1516fda105a93cf5c05e"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-wantsPlay-idle-reduced.jpg",
+    "sha256": "4032f8aca5da3dec1fbe4b185d0179a5500e1998aeef7604bfedea4072322b28"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sleeping-idle-reduced.jpg",
+    "sha256": "f73000201c92045e82a900a94b1aa3362e988e93ba94f294204ffbf3a6b36b24"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-dislike-idle-normal.jpg",
+    "sha256": "05a51d6f469ac0104900b008a796f2bcef338a53e947fbe3621699bf03a77558"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-dislike-walk-reduced.jpg",
+    "sha256": "ae5db2288cb47cc3e179006cfd663b4615fd0546f0a5472c6f4c5649aef4373a"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-strained-idle-reduced.jpg",
+    "sha256": "bf6ba2294c2a758950ffa61e9f524f7bbc5b195b13014bc9a41faa8735249d36"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-wantsPlay-idle-normal.jpg",
+    "sha256": "884b7791569a8e6e04035fc0206c104920ab0c013a07bfa9140af5b7e342a18a"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-sick-walk-reduced.jpg",
+    "sha256": "a70e1a1fa376f698cd30bc936001e70e8f055725d5b1feb8c4d5734e7e4cc82c"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "mythic-motion/dragon-6-strained-walk-normal.jpg",
+    "sha256": "28dd66c2179c3e2fe9821bd303b3efe1c37e6ec277a3ee75371c114fc78b7311"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "normal-distance/player-dragon-6-front.png",
+    "sha256": "b3f381998e8eb3738062b6da93c116c0875aea890353b3072696d3f08ca341ae"
+  },
+  {
+    "archive": "stage-06.zip",
+    "path": "normal-distance/player-dragon-6-back.png",
+    "sha256": "d3e920d3b10801d3ba3fbb3fdfd7a6e6a50cd8e51bd06babbd4eccd87f3bae16"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic/dragon-7-side.jpg",
+    "sha256": "1e4766ab8cb16e81dc8db90fc41260a3ff368b129b91c0ae5fe953b4b60beda1"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic/dragon-7-34.jpg",
+    "sha256": "8f21ccfb9e06e90ce2f72c6e80ede98bbc8ce784a952f8492c96f5ba71170ae5"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic/dragon-7-front.jpg",
+    "sha256": "9f2ad7a62beb29c04eaf64cbe3345439ceb2a446fe1fc8e7d2541eed72e94460"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic/dragon-7-back.jpg",
+    "sha256": "c9fc21404991f80ef1125d170f201965c75a16c69379cd6788a16309a0109403"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sleeping-idle-reduced.jpg",
+    "sha256": "af4e7e07c15c1c0f0468beaee5f1a123444fb68ccc1dbfa44c913f918f161778"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-wantsPlay-idle-reduced.jpg",
+    "sha256": "0ff9dba20274fab64bddfe37212c0add855c395ea0656065424100c4b80369d5"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-strained-walk-reduced.jpg",
+    "sha256": "34478a8a2ef3c65060cf6bf31628675eabb3e1f187ff615a097bd3924b764c1d"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-normal-idle-reduced.jpg",
+    "sha256": "e816b2b17866315f947ac115ae7febd97785b1f1e6a7ea521438699c9e436842"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-positive-idle-reduced.jpg",
+    "sha256": "9d44923e2f7d47781faf291aa09c1c067e76a3da2272f9806c9724c7ce223999"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-dislike-walk-normal.jpg",
+    "sha256": "8462efb49cbbe654d20f2a6fb141276cee13766cb37e92a3b270a098cf8f6973"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-tired-walk-normal.jpg",
+    "sha256": "4566634371e8d8bdf3cf52de4235eefdcbd633fcc5ca25a30fbdf3b4f52dfdf8"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-dislike-walk-reduced.jpg",
+    "sha256": "1195087a02281f9298ae318cf19c95a0057f744808744ccbd1e8b4f09ab0a7ab"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sick-idle-normal.jpg",
+    "sha256": "233ce442dacd6301ec4c7dee17b12f620c94dd090ca8b184132ed8e18c41a7d3"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sleeping-walk-reduced.jpg",
+    "sha256": "9118914416e691e9b55fa7b549266de4d2674536659276c289e9dcbd1b74cf95"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sick-walk-reduced.jpg",
+    "sha256": "677343e258be43e2b8484a4361248a75f3e547633b7ca73a1da6edaba47d77bd"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-strained-walk-normal.jpg",
+    "sha256": "b3b3cd3f3210b159a3ab11ce0cc80b60ea59eae9e528681c6ad63a19579f8a1e"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-positive-idle-normal.jpg",
+    "sha256": "5a69641ec6530c87b488316415487aef2085673f6ab0ec0a16d44c0b14c39dce"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-normal-walk-normal.jpg",
+    "sha256": "d65ffff3bba32d25e54c4e767a348c4923b632ba63ac6aca45919c98b73f1282"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sleeping-walk-normal.jpg",
+    "sha256": "8dbdc219bea693c99fd70e3bd7ac19208ba08849946ff9cbe34f21df983c278f"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sleeping-idle-normal.jpg",
+    "sha256": "b757ba2fc27a3af3d27c5363b675ecc1563f281b2e5722c099f188434310cf03"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-normal-walk-reduced.jpg",
+    "sha256": "07e40f3e4ef93eae53f68c58e90f8446feeb4b6af18549f1229cdc8fc5d7f79e"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-motion.jpg",
+    "sha256": "ad40aa365f5d128f4becef0a8d50af8adb9850018b576e8c796cc5d551ef6bfe"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-tired-idle-normal.jpg",
+    "sha256": "481def1440b3e9095f93cda619bdaa32a0a2e2e9a864fa1d72c6b63e82a13e9a"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-strained-idle-reduced.jpg",
+    "sha256": "2ffa55d78d27272d6983bf26abf9e58e52201a780f2e92ece24264e3f03f1a1b"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-wantsPlay-idle-normal.jpg",
+    "sha256": "f792efac961197baf959c4badf901b31e5cd374271aee523df1bd6746d893ef5"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-normal-idle-normal.jpg",
+    "sha256": "8f21ccfb9e06e90ce2f72c6e80ede98bbc8ce784a952f8492c96f5ba71170ae5"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-wantsPlay-walk-reduced.jpg",
+    "sha256": "fca25b4dd3da94fb1a327c642a4d7a8ecd4eb36c44d30c38a04ba35cc0e9171f"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-wantsPlay-walk-normal.jpg",
+    "sha256": "ce8d1243146f2c8bd26c2f36b967a83302e560637d5ed2aee48a6f6e030058ed"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-dislike-idle-normal.jpg",
+    "sha256": "2ae9319cc903dd48ddc06d2452b43f653dff6019328b3f11c78e7499b9f90324"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sick-idle-reduced.jpg",
+    "sha256": "cf482b0c99b71eb4ba2cb8b3e6f5fc69d000f10036c816a5b3a4ca2fdee91540"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-dislike-idle-reduced.jpg",
+    "sha256": "63aca3d26199dd145c8bd486c128d2c9789ad1c48b75e9c566ae5d5da8a1829e"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-tired-walk-reduced.jpg",
+    "sha256": "af926b3bcde851850a7b8c68316bb8432254da11eda1f1e003e200594e6b81b4"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-sick-walk-normal.jpg",
+    "sha256": "5b95900e7f64b093f733e60c4ce390c663c22bb649233d8e5c0d659575419293"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-positive-walk-normal.jpg",
+    "sha256": "cc4130e8aabdfa43a5a37f165fd9eeaae1cd1ff124f293a2e2f19edc4aa80ca9"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-tired-idle-reduced.jpg",
+    "sha256": "d36c6bcda8ebc92ce715bfae7008c3f7124f50a27e781604004c2ccfe3f559fe"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-positive-walk-reduced.jpg",
+    "sha256": "3d2c98b935f0ce7ad0ef4efe282055b3df8316b7702952f1f7c1ba3b21ee5662"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "mythic-motion/dragon-7-strained-idle-normal.jpg",
+    "sha256": "a11af17c45c79735db66f20b86bfa636260fe2a8e64a77a9a2968c3c60524b7c"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "normal-distance/player-dragon-7-front.png",
+    "sha256": "d973627bf562bf4d0fd0213ac1d8f87ec33efb04198072cec5ffe1ee2d14fe63"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "normal-distance/player-dragon-7-back.png",
+    "sha256": "0415d7c8534cbfca8cc3f1bf26477ec9582c51bc5eb9d654d0550328159dd353"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic/dragon-8-side.jpg",
+    "sha256": "5f3bec8e7ba30ca241489a1fac869358450ad5f30e2a0a1f8cb6fdf816c2d875"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic/dragon-8-back.jpg",
+    "sha256": "a448ea46ad7a2274863899584cf6a2a1e41ec498b9ee0f736210d0fcbae1f76f"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic/dragon-8-34.jpg",
+    "sha256": "abba79c1db20a1ce43c656de815217f35da2d489d7e2c162a35ef35aaeb78679"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic/dragon-8-front.jpg",
+    "sha256": "c56c768c948e8bc81dde3937a946d156590b83188f8f23993193bc2cb692ec1e"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sleeping-walk-normal.jpg",
+    "sha256": "0d0e0bbf3a5769a818986c5003e329e609e242c9d6e72dc45363190852373ed4"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-tired-walk-normal.jpg",
+    "sha256": "af8b7cd2134d7e17650dd2120cd6f76984af2304d36052b70f413acbe0b25fbb"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-dislike-walk-normal.jpg",
+    "sha256": "a04c49cc53f7c3aa66162b70ba1a831d2e248e4912e09da33b68adf7d2d3f6df"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-strained-walk-normal.jpg",
+    "sha256": "7458a5b1b68fd71ab247f498536b9e7bfe071eed2526edc681c35b1c024ee37d"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-wantsPlay-idle-normal.jpg",
+    "sha256": "37ded168e1665e8e823430dc0f3d8396049aceebc373bc6cbfb1f690ad85e44c"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-tired-idle-normal.jpg",
+    "sha256": "d11fab79a1ddd6c666060d641722bd7b411b473dde93d6cfed694eef2b7b0878"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-dislike-walk-reduced.jpg",
+    "sha256": "93cedc69b164e31f9cf08e7124c258615c056dde4739b1aeeb13b75c70286990"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-dislike-idle-normal.jpg",
+    "sha256": "03a8fe6cfa344d8289f86e6aeabeabe80b0ad0c80bc0b77c66dfdf0f3029b239"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sleeping-idle-normal.jpg",
+    "sha256": "d6abde10fd0d67ca358659b177e454158a4be115f0a8110d7adfcee026c72dad"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sleeping-idle-reduced.jpg",
+    "sha256": "b0a8d0c41887622b10b25f5565624936163a5babbc8cd373d0305a4312f95d26"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-strained-idle-normal.jpg",
+    "sha256": "1bf2fd8c7211bb84bb4b06c7365d6e1905aac52c34dba2850d5d64f1f480b58c"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-positive-idle-normal.jpg",
+    "sha256": "209658038267f8df43dcdcec820f75f82e45c2fb6ac3bf06f477bb9bca507e54"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-tired-idle-reduced.jpg",
+    "sha256": "30c62cd18e3919463622a16b6a5877e84ef2f965a0788525fd9124c488e176a4"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-motion.jpg",
+    "sha256": "f4908cc349ce3506ed52204b69c57ff982fcbe796484a6a2725c4594e3fb71c7"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-normal-idle-reduced.jpg",
+    "sha256": "95457b42200b41c55503d06bb9ab9dcb6196c9dfcbbd299caf1cd4deb9c9e7d3"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-positive-walk-normal.jpg",
+    "sha256": "3e115f56489d2510658c5a414d159e92b382635de85c0955ada41fcafba6b079"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-wantsPlay-idle-reduced.jpg",
+    "sha256": "8105003f2e1807789dd78fd7f2045a1fb0321c13b67ad96b8393b1193d2c74c0"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sick-idle-normal.jpg",
+    "sha256": "b8b6dcc7b66440449e430d7ce99851b9c973487895b3f768165ffe274aea3718"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-normal-idle-normal.jpg",
+    "sha256": "abba79c1db20a1ce43c656de815217f35da2d489d7e2c162a35ef35aaeb78679"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-normal-walk-normal.jpg",
+    "sha256": "198668c0f3530a98f2d4e490acda536c0432f1ac0df362078af23763c7a2f001"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sick-idle-reduced.jpg",
+    "sha256": "9481f8b903bcfedbaa211388c9a60e50057849f78c293eaf3bead7d9a4d1c94e"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-normal-walk-reduced.jpg",
+    "sha256": "36e7a1052b019eac111fd650adce09a0b26a74c47dfc3020d93ad171e37bb599"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-wantsPlay-walk-reduced.jpg",
+    "sha256": "73308de9049c45f49e02cd2c792daad19827adabfce74e9e8347b64c37263fed"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-tired-walk-reduced.jpg",
+    "sha256": "309ab9b320f2b88cb1ea5fb623f15c3d75cb9852a76e09486173e2bef56fd82c"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-dislike-idle-reduced.jpg",
+    "sha256": "db56073474330db7597d1c60fcbec797640869be2d0bd72e7a87df79b11c4261"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sleeping-walk-reduced.jpg",
+    "sha256": "e1b21325a6be67b762a17edff7ac28461d894acc0947ed17870b7714f78f8c2b"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-wantsPlay-walk-normal.jpg",
+    "sha256": "14bad9b48aab79365e027e0ca0dd300561bc5c3bc92f7280f12b8fd687a0045b"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sick-walk-normal.jpg",
+    "sha256": "87f6b31dd107c27b1b44692721db3b158fa3b2495d511093ce99298a7a50d5f6"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-positive-idle-reduced.jpg",
+    "sha256": "64c434410d62ff50161776c134467b3c7e9f390b03dcafa6dfc687c87bf0b3f2"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-positive-walk-reduced.jpg",
+    "sha256": "cd76b64c0326f396cb61d296fa2798896bda0cf569b915d61e06b4a65f7d6092"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-strained-idle-reduced.jpg",
+    "sha256": "9c22a3018e024b9be9c5ffa910deca6e749598f4717f8cfd954cc56af87c32b7"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-strained-walk-reduced.jpg",
+    "sha256": "dc098046214a2eb3af8a8615a36362cf70a1e2d0f4fe5af041abf482489fd139"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "mythic-motion/dragon-8-sick-walk-reduced.jpg",
+    "sha256": "32ff6bba628f59b27357f3003cc78fd73fbef632cf9a18f82b5de1de395a8c87"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "normal-distance/player-dragon-8-front.png",
+    "sha256": "1a79a3feb3e6d4907c0630d6ded5d4a2dc568fcf65c4cbf97df4e6eee45536c1"
+  },
+  {
+    "archive": "stage-08.zip",
+    "path": "normal-distance/player-dragon-8-back.png",
+    "sha256": "d588a2fced05f392d9ccdf4f1114ee8e2f6a0ae8108a2bb1707f875c6a1b90ae"
+  }
+]

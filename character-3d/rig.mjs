@@ -90,11 +90,12 @@ const DARK = '#2a1610', SHINE = '#ffffff';
 export function eyeGeometry(shape, side, profile) {
   const key = shape + ':' + side + (profile ? ':' + JSON.stringify(profile) : '');
   if (EYE.has(key)) return EYE.get(key);
+  const ink=profile?.ink||DARK;
   let g;
   const arc = (bend, w = 0.9, r = 0.16) => sweep([[-w, -bend * 0.3, 0], [0, bend * 0.55, 0], [w, -bend * 0.3, 0]], () => r, 6, { steps: 10 });
   switch (shape) {
     case 'round': {
-      const ball = solid(ellipsoid(0.62, 0.86, 0.32, 12, 8), DARK);
+      const ball = solid(ellipsoid(0.62, 0.86, 0.32, 12, 8), ink);
       const hl = solid(xform(ellipsoid(0.22, 0.24, 0.1, 8, 6), { pos: [side * -0.18, 0.3, 0.3] }), SHINE);
       const hl2 = solid(xform(ellipsoid(0.1, 0.1, 0.06, 6, 4), { pos: [side * 0.2, -0.28, 0.3] }), SHINE);
       g = merge([ball, hl, hl2]); break;
@@ -102,17 +103,17 @@ export function eyeGeometry(shape, side, profile) {
     case 'droop': {   // 半目: まるい 目の 上を まぶたで たいらに
       const ball = ellipsoid(0.62, 0.86, 0.32, 12, 8); const p = ball.attributes.position;
       for (let i = 0; i < p.count; i++) if (p.getY(i) > 0.05) p.setY(i, 0.05 + (p.getY(i) - 0.05) * 0.08);
-      ball.computeVertexNormals(); solid(ball, DARK);
-      const lid = solid(sweep([[-0.66, 0.08, 0.22], [0, 0.12, 0.3], [0.66, 0.08, 0.22]], () => 0.11, 6, { steps: 8 }), DARK);
+      ball.computeVertexNormals(); solid(ball, ink);
+      const lid = solid(sweep([[-0.66, 0.08, 0.22], [0, 0.12, 0.3], [0.66, 0.08, 0.22]], () => 0.11, 6, { steps: 8 }), ink);
       const hl = solid(xform(ellipsoid(0.14, 0.12, 0.06, 6, 4), { pos: [side * -0.18, -0.12, 0.3] }), SHINE);
       g = merge([ball, lid, hl]); break;
     }
-    case 'happy': g = solid(arc(1.0), DARK); break;           // ^
-    case 'content': g = solid(arc(-0.8), DARK); break;        // ︶(2D の おだやかな とじ目)
-    case 'flat': g = solid(arc(-0.25, 0.8, 0.13), DARK); break;
+    case 'happy': g = solid(arc(1.0), ink); break;           // ^
+    case 'content': g = solid(arc(-0.8), ink); break;        // ︶(2D の おだやかな とじ目)
+    case 'flat': g = solid(arc(-0.25, 0.8, 0.13), ink); break;
     case 'squeeze': {                                          // > <
       const s = side;   // 左目は >、右目は <
-      g = solid(sweep([[-0.7 * s, 0.55, 0], [0.55 * s, 0, 0], [-0.7 * s, -0.55, 0]], () => 0.15, 6, { steps: 10 }), DARK); break;
+      g = solid(sweep([[-0.7 * s, 0.55, 0], [0.55 * s, 0, 0], [-0.7 * s, -0.55, 0]], () => 0.15, 6, { steps: 10 }), ink); break;
     }
     default: throw new Error('eye shape ' + shape);
   }
@@ -152,13 +153,14 @@ function drawFace(g, ox, emotion, style, withEyes) {
   }
   // 目(A 方式だけ)
   if (withEyes) {
-    g.fillStyle = style.ink; g.strokeStyle = style.ink; g.lineWidth = 4.6;
+    const eyeInk=style.eyeProfile?.ink||style.ink;
+    g.fillStyle = eyeInk; g.strokeStyle = eyeInk; g.lineWidth = 4.6;
     for (const s of [-1, 1]) {
-      const cx = 64 + s * L.eyeX, cy = L.eyeY, sh = e.eye.shape === 'round' && style.normalEye && emotion === 'normal' ? style.normalEye : e.eye.shape;
+      const cx = 64 + s * L.eyeX, cy = L.eyeY, sh = e.eye.shape === 'round' && style.normalEye && emotion === 'normal' ? (typeof style.normalEye==='object'?style.normalEye[s<0?'left':'right']:style.normalEye) : e.eye.shape;
       g.save();
       if(style.eyeProfile){g.translate(cx,cy);g.transform(style.eyeScale*(style.eyeProfile.width||1),-s*(style.eyeProfile.tilt||0)*style.eyeScale,0,style.eyeScale,0,0);g.translate(-cx,-cy);}
       g.beginPath();
-      if (sh === 'round') { g.ellipse(cx, cy, 7.5, 10.5, 0, 0, Math.PI * 2); g.fill(); g.fillStyle = '#fff'; g.beginPath(); g.arc(cx - s * 2.4, cy - 4, 2.8, 0, Math.PI * 2); g.fill(); g.fillStyle = style.ink; }
+      if (sh === 'round') { g.ellipse(cx, cy, 7.5, 10.5, 0, 0, Math.PI * 2); g.fill(); g.fillStyle = '#fff'; g.beginPath(); g.arc(cx - s * 2.4, cy - 4, 2.8, 0, Math.PI * 2); g.fill(); g.fillStyle = eyeInk; }
       else if (sh === 'droop') { g.ellipse(cx, cy + 2, 7.5, 6, 0, 0, Math.PI); g.fill(); g.beginPath(); g.moveTo(cx - 9, cy + 1); g.lineTo(cx + 9, cy + 1); g.stroke(); }
       else if (sh === 'happy') { g.arc(cx, cy + 4, 8, Math.PI * 1.1, Math.PI * 1.9); g.stroke(); }
       else if (sh === 'content' || sh === 'flat') { g.arc(cx, cy - 4, 8, Math.PI * 0.15, Math.PI * 0.85); g.stroke(); }
@@ -210,9 +212,10 @@ export function atlasCount() { return ATLAS.size; }
 
 // ---------------- B 方式の 口・まゆ・ほお(立体)
 const FEAT = new Map();
-function featureGeo(kind) {
-  if (FEAT.has(kind)) return FEAT.get(kind);
-  const ink = DARK; let g;
+function featureGeo(kind, customInk) {
+  const key=customInk?kind+':'+customInk:kind;
+  if (FEAT.has(key)) return FEAT.get(key);
+  const ink = customInk||DARK; let g;
   const arc = (pts, r = 0.11) => solid(sweep(pts, () => r, 5, { steps: 10 }), ink);
   switch (kind) {
     case 'smile': g = arc([[-0.8, 0.15, 0], [0, -0.45, 0], [0.8, 0.15, 0]]); break;
@@ -226,7 +229,7 @@ function featureGeo(kind) {
     case 'gloom': g = merge([-0.45, -0.15, 0.15, 0.45].map((x) => solid(xform(ellipsoid(0.05, 0.36, 0.03, 4, 4), { pos: [x, 0, 0] }), '#5078dc'))); break;
     default: throw new Error(kind);
   }
-  FEAT.set(kind, g);
+  FEAT.set(key, g);
   return g;
 }
 
@@ -267,7 +270,7 @@ export function attachFace(rig, spec, mode = 'C') {
     const put = (kind, px, py, k, sd = 0, name = kind) => {
       const [u, v] = uv(px, py); const hit = projectPoint(proj, fr, u, v, half * 0.012);
       if (!hit) return null;
-      const m = new THREE.Mesh(featureGeo(kind), material('opaque')); m.name = 'face:' + name; m.position.copy(hit.p); m.lookAt(hit.p.clone().add(hit.n));
+      const m = new THREE.Mesh(featureGeo(kind,spec.style?.ink), material('opaque')); m.name = 'face:' + name; m.position.copy(hit.p); m.lookAt(hit.p.clone().add(hit.n));
       m.scale.setScalar(k * half); m.userData.side = sd; m.userData.kind = kind; bone.add(m); return m;
     };
     face.feats = {
@@ -287,8 +290,8 @@ export function applyFaceExpression(face, emotion) {
   if (face.multi) { for (const f of face.multi) applyFaceExpression(f, emotion); face.emotion = emotion; return; }
   const e = SPEC.expressionParams(emotion);
   if (face.decal) face.decal.material = face.decal.userData.atlas.mats[SPEC.CANONICAL_EMOTIONS.includes(emotion) ? emotion : 'normal'];
-  const shape = emotion === 'normal' && face.normalEye ? face.normalEye : e.eye.shape;
   for (const m of face.eyes) {
+    const shape = emotion === 'normal' && face.normalEye ? (typeof face.normalEye==='object'?face.normalEye[m.userData.side<0?'left':'right']:face.normalEye) : e.eye.shape;
     if (m.userData.shape !== shape) { m.geometry = eyeGeometry(shape, m.userData.side, m.userData.eyeProfile); m.userData.shape = shape; }
     const k = shape === 'round' ? Math.max(0.6, e.eye.open) : 1;
     m.userData.open = k;

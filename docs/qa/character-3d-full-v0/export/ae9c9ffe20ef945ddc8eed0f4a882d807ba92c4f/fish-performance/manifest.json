@@ -1,0 +1,23 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11611719794,
+    "name": "full-rollout-fish-performance-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:43aa4906d0541c72ee69b1a4ce6bc4e6e90ec5139ca371a1074880b51a4538c2"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "f8fb277d2468e506df51512e36cef44070e47b1f9ce9794b9a7b41ed4f8e0ff0",
+      "bytes": 7424
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792592103,
+  "artifactJobName": "fish-performance",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

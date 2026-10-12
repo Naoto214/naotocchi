@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "c19398918b3529a3572cf8a25d1fa27675e59fe3",
+  "waveArtifact": 11413504806,
+  "distanceArtifacts": [
+    11413169486,
+    11414048902
+  ],
+  "verdict": "juvenile representative gate rejected; corrections require recapture",
+  "reviewed": "two original/four-view sheets and ordinary-distance juvenile front images; motion metadata retained but no completed juvenile motion pass claimed",
+  "issues": [
+    "rounded grub tail has a visible central hole in side/34 views",
+    "pupal abdomen rings are buried within the main profile",
+    "stag03 source wink/open eye incorrectly resolves to closed default larva eyes",
+    "pale larval antennae are not present in these originals",
+    "stag04 source has drooping eyes, not closed default pod eyes"
+  ],
+  "corrections": "tail seal, protruding ring envelope, antenna opt-out and source normal-eye overrides; regressions first RED then GREEN; immutable correction gate pending",
+  "fullImages": "Individual captures retained in listed immutable artifacts; these are historical rejected sheets, not promotion evidence.",
+  "environment": "Chromium/SwiftShader; not iPhone"
+}

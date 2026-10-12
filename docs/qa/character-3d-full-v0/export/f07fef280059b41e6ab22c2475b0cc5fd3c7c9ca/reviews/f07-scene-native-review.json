@@ -1,0 +1,1023 @@
+{
+  "review": "f07-scene-native-review",
+  "sourceCommit": "f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca",
+  "method": "Read actual recovered source JSON and original harness/spec semantics; independently compare resources/save observations, native maps, sample arithmetic and appearance maxima. No tests/code/capture or failed-data normalization. Root verified raw archive/direct bytes.",
+  "inputs": [
+    {
+      "path": "docs/qa/character-3d-full-v0/export/f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca/scene-save-and-native-metrics-diagnostic/meguru/meguru-qa.json",
+      "bytes": 501718,
+      "sha256": "bce649d5e8feb3e616fce90306f9dff1c434e74e786242a83cd0506e5056d42d"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca/scene-save-and-native-metrics-diagnostic/performance/meguru-qa.json",
+      "bytes": 49206,
+      "sha256": "70d55574142f75eb3b3e548e113fb50bfe09c425326e67d821451e7d2f0471fe"
+    }
+  ],
+  "artifactProvenance": {
+    "status": "DIAGNOSTIC_NOT_APPROVED",
+    "sourceCommit": "f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca",
+    "artifact": {
+      "id": 11616792990,
+      "name": "full-rollout-meguru-f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca",
+      "digest": "sha256:1e17be9cd8845f8c397e053fbd4912efc9706f19e1793231ae93b3ef0a3f60a9"
+    },
+    "sourceRun": 37932498805,
+    "sourceRunConclusion": "failure",
+    "artifactJobId": 113826398450,
+    "artifactJobName": "meguru-wave",
+    "artifactJobStatus": "completed",
+    "artifactJobConclusion": "failure",
+    "artifactEvidenceMode": "diagnostic"
+  },
+  "overallSceneVerdict": "FAILURE_RETAINED_DIAGNOSTIC_ONLY",
+  "rawSceneVerdict": {
+    "pass": false,
+    "fails": [
+      "unchanged save\n\nfalse !== true\n"
+    ]
+  },
+  "rawPerformanceVerdict": {
+    "pass": true
+  },
+  "diagnosticFindings": "C0/I0 unexplained presentation mutation observed; original save gate remains failed pending reviewed contract/setup and fresh execution.",
+  "scene": {
+    "resourcesAndComposition": "NO_DISCREPANCY_RECORDED",
+    "phases": [
+      {
+        "name": "baseline/current-view",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "warmup/characters-off",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "warmup/characters-on",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "warmup/city",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "warmup/forest",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "cycle-1/characters-off",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "cycle-1/characters-on",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "cycle-1/city",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "cycle-1/forest",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "cycle-2/characters-off",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "cycle-2/characters-on",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "cycle-2/city",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "cycle-2/forest",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "cycle-3/characters-off",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "cycle-3/characters-on",
+        "status": "ready",
+        "frames": 1
+      },
+      {
+        "name": "cycle-3/city",
+        "status": "ready",
+        "frames": 2
+      },
+      {
+        "name": "cycle-3/forest",
+        "status": "ready",
+        "frames": 2
+      }
+    ],
+    "fixtureComposition": [
+      {
+        "key": "companion:cat_friend",
+        "modelId": "cat_friend",
+        "modelStage": 0
+      },
+      {
+        "key": "companion:penguin_friend",
+        "modelId": "companion:penguin_friend",
+        "modelStage": 0
+      },
+      {
+        "key": "companion:shiba",
+        "modelId": "shiba",
+        "modelStage": 0
+      },
+      {
+        "key": "companion:tanuki",
+        "modelId": "companion:tanuki",
+        "modelStage": 0
+      },
+      {
+        "key": "form:butterfly:1",
+        "modelId": "butterfly",
+        "modelStage": 2
+      },
+      {
+        "key": "form:butterfly:3",
+        "modelId": "butterfly",
+        "modelStage": 4
+      },
+      {
+        "key": "form:butterfly:7",
+        "modelId": "butterfly",
+        "modelStage": 8
+      },
+      {
+        "key": "form:mushroom:3",
+        "modelId": "mushroom",
+        "modelStage": 4
+      },
+      {
+        "key": "form:mushroom:5",
+        "modelId": "mushroom",
+        "modelStage": 6
+      },
+      {
+        "key": "form:mushroom:7",
+        "modelId": "mushroom",
+        "modelStage": 8
+      },
+      {
+        "key": "player",
+        "modelId": "dog",
+        "modelStage": 4
+      }
+    ],
+    "threeCycles": [
+      {
+        "cycle": 1,
+        "offLiveHolders": [
+          0,
+          0
+        ],
+        "onForestExactAttachedCount": 11,
+        "cityCacheAndResourceEquality": true,
+        "forestResourcePlateau": {
+          "templates": 11,
+          "materials": 1,
+          "atlases": 12,
+          "eyeGeos": 10,
+          "textures": 44,
+          "geometries": 106
+        },
+        "createdRemovedLive": [
+          72,
+          61,
+          11
+        ],
+        "saveInterval": {
+          "label": "cycle-1",
+          "scope": "QA placement and natural application operations; no attribution to presentation",
+          "beforeWrites": 23,
+          "afterWrites": 23,
+          "getterSame": true,
+          "delta": [],
+          "storageDelta": [],
+          "saveCalls": [],
+          "eventLimitReached": false
+        }
+      },
+      {
+        "cycle": 2,
+        "offLiveHolders": [
+          0,
+          0
+        ],
+        "onForestExactAttachedCount": 11,
+        "cityCacheAndResourceEquality": true,
+        "forestResourcePlateau": {
+          "templates": 11,
+          "materials": 1,
+          "atlases": 12,
+          "eyeGeos": 10,
+          "textures": 44,
+          "geometries": 106
+        },
+        "createdRemovedLive": [
+          94,
+          83,
+          11
+        ],
+        "saveInterval": {
+          "label": "cycle-2",
+          "scope": "QA placement and natural application operations; no attribution to presentation",
+          "beforeWrites": 23,
+          "afterWrites": 23,
+          "getterSame": true,
+          "delta": [],
+          "storageDelta": [],
+          "saveCalls": [],
+          "eventLimitReached": false
+        }
+      },
+      {
+        "cycle": 3,
+        "offLiveHolders": [
+          0,
+          0
+        ],
+        "onForestExactAttachedCount": 11,
+        "cityCacheAndResourceEquality": true,
+        "forestResourcePlateau": {
+          "templates": 11,
+          "materials": 1,
+          "atlases": 12,
+          "eyeGeos": 10,
+          "textures": 44,
+          "geometries": 106
+        },
+        "createdRemovedLive": [
+          116,
+          105,
+          11
+        ],
+        "saveInterval": {
+          "label": "cycle-3",
+          "scope": "QA placement and natural application operations; no attribution to presentation",
+          "beforeWrites": 23,
+          "afterWrites": 23,
+          "getterSame": true,
+          "delta": [],
+          "storageDelta": [],
+          "saveCalls": [],
+          "eventLimitReached": false
+        }
+      }
+    ],
+    "warmResourceBaseline": {
+      "templates": 11,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "textures": 44,
+      "geometries": 106
+    },
+    "finalResourceCounts": {
+      "templates": 11,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "textures": 44,
+      "geometries": 106,
+      "created": 116,
+      "removed": 105,
+      "live": 11,
+      "holders": 11
+    },
+    "unchanged": {
+      "save": false,
+      "storage": false,
+      "getter": true,
+      "saveWrites": false
+    },
+    "saveCounters": {
+      "before": 20,
+      "after": 23
+    },
+    "restored": {
+      "step": true,
+      "region": true,
+      "draw": true,
+      "charFlag": true
+    },
+    "cleanSynchronousBoundaries": {
+      "count": 38,
+      "draw": 30,
+      "charFlag": 8,
+      "allStateStorageGetterWritesClean": true,
+      "phases": [
+        "baseline/current-view",
+        "cycle-1/characters-off",
+        "cycle-1/characters-on",
+        "cycle-1/city",
+        "cycle-1/forest",
+        "cycle-2/characters-off",
+        "cycle-2/characters-on",
+        "cycle-2/city",
+        "cycle-2/forest",
+        "cycle-3/characters-off",
+        "cycle-3/characters-on",
+        "cycle-3/city",
+        "cycle-3/forest",
+        "warmup/characters-off",
+        "warmup/characters-on",
+        "warmup/city",
+        "warmup/forest"
+      ]
+    },
+    "wholeStateDeltas": [
+      {
+        "path": "lifetime.meguru.marks.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.meguru.paths.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.meguru.zones.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.saveRevision",
+        "before": 6,
+        "after": 7
+      },
+      {
+        "path": "savedAt",
+        "before": 1791550263986,
+        "after": 1791550277600
+      }
+    ],
+    "warmupStateDeltas": [
+      {
+        "path": "lifetime.meguru.marks.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.meguru.paths.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.meguru.zones.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.saveRevision",
+        "before": 6,
+        "after": 7
+      },
+      {
+        "path": "savedAt",
+        "before": 1791550263986,
+        "after": 1791550277600
+      }
+    ],
+    "warmupCityStateDeltas": [
+      {
+        "path": "lifetime.meguru.marks.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.meguru.paths.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.meguru.zones.city",
+        "after": []
+      },
+      {
+        "path": "lifetime.saveRevision",
+        "before": 6,
+        "after": 7
+      },
+      {
+        "path": "regionId",
+        "before": "forest",
+        "after": "city"
+      },
+      {
+        "path": "savedAt",
+        "before": 1791550263986,
+        "after": 1791550277600
+      }
+    ],
+    "warmupCityCalls": [
+      {
+        "key": "naotocchi-save-v1-backup",
+        "timestampMs": 21904.199999999983,
+        "stack": "Error: observed save call\n    at Storage.setItem (<anonymous>:5:280)\n    at saveState (http://127.0.0.1:43595/script.js?v=20261002-194f3480:2877:26)\n    at Object.seedMapRecords (http://127.0.0.1:43595/script.js?v=20261002-194f3480:14687:20)\n    at loadMapRecords (http://127.0.0.1:43595/meguru.js?v=20261002-4241ceac:7902:78)\n    at Object.enterWorld (http://127.0.0.1:43595/meguru.js?v=20261002-4241ceac:8320:9)\n    at eval (eval at evaluate (:311:30), <anonymous>:26:113)\n    at interval (eval at evaluate (:311:30), <anonymous>:13:264)\n    at eval (eval at evaluate (:311:30), <anonymous>:26:24)\n    at async interval (eval at evaluate (:311:30), <anonymous>:13:258)\n    at async repeatSceneInBrowser (eval at evaluate (:311:30), <anonymous>:44:21)"
+      },
+      {
+        "key": "naotocchi-save-v1-writer",
+        "timestampMs": 21904.599999999977,
+        "stack": "Error: observed save call\n    at Storage.setItem (<anonymous>:5:280)\n    at markSaveWriter (http://127.0.0.1:43595/script.js?v=20261002-194f3480:52:39)\n    at saveState (http://127.0.0.1:43595/script.js?v=20261002-194f3480:2880:7)\n    at Object.seedMapRecords (http://127.0.0.1:43595/script.js?v=20261002-194f3480:14687:20)\n    at loadMapRecords (http://127.0.0.1:43595/meguru.js?v=20261002-4241ceac:7902:78)\n    at Object.enterWorld (http://127.0.0.1:43595/meguru.js?v=20261002-4241ceac:8320:9)\n    at eval (eval at evaluate (:311:30), <anonymous>:26:113)\n    at interval (eval at evaluate (:311:30), <anonymous>:13:264)\n    at eval (eval at evaluate (:311:30), <anonymous>:26:24)\n    at async interval (eval at evaluate (:311:30), <anonymous>:13:258)"
+      },
+      {
+        "key": "naotocchi-save-v1",
+        "timestampMs": 21904.599999999977,
+        "stack": "Error: observed save call\n    at Storage.setItem (<anonymous>:5:280)\n    at saveState (http://127.0.0.1:43595/script.js?v=20261002-194f3480:2881:20)\n    at Object.seedMapRecords (http://127.0.0.1:43595/script.js?v=20261002-194f3480:14687:20)\n    at loadMapRecords (http://127.0.0.1:43595/meguru.js?v=20261002-4241ceac:7902:78)\n    at Object.enterWorld (http://127.0.0.1:43595/meguru.js?v=20261002-4241ceac:8320:9)\n    at eval (eval at evaluate (:311:30), <anonymous>:26:113)\n    at interval (eval at evaluate (:311:30), <anonymous>:13:264)\n    at eval (eval at evaluate (:311:30), <anonymous>:26:24)\n    at async interval (eval at evaluate (:311:30), <anonymous>:13:258)\n    at async repeatSceneInBrowser (eval at evaluate (:311:30), <anonymous>:44:21)"
+      }
+    ],
+    "storageKeysChanged": [
+      "naotocchi-save-v1",
+      "naotocchi-save-v1-backup"
+    ],
+    "eventLogTruncated": false,
+    "cause": "For this f07 execution, natural first-city map initialization through enterWorld\u2192loadMapRecords\u2192seedMapRecords\u2192saveState creates city map arrays, saveRevision/savedAt and three storage writes (backup/writer/main); one normal save operation. Only warmup/city has new save calls. The temporary QA region assignments are separately visible in city/forest phase deltas. Clean presentation boundaries and clean subsequent aggregate cycles support this attribution.",
+    "causalLimits": [
+      "Does not retroactively prove uninstrumented ae9/ad96 failed intervals had exactly this cause.",
+      "Synchronous proofs cover observed draw/flag calls; they do not establish every unobserved/deferred future operation. Three bounded cycles are the scoped evidence.",
+      "Raw whole prewarmup save/storage/write flags remain false; no scene PASS until approved strict setup/postwarmup contract executes independently."
+    ]
+  },
+  "nativePerformance": {
+    "environment": "chromium + SwiftShader(\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2 GPU)",
+    "throttle": 1,
+    "reportedMixLabel": "fixed Pilot QA stand-ins",
+    "actualCast": "dog04 + first4/all26 exact native companions, zero substitutes; no partner/author cast",
+    "integrationMetrics": true,
+    "samples": [
+      {
+        "actors": 1,
+        "actualNativeComposition": {
+          "dog:4": 1
+        },
+        "frameMetrics": {
+          "frames": 72,
+          "avgMs": 108.56,
+          "p95Ms": 200.1,
+          "over60": 37,
+          "calls": 38,
+          "tris": 100738,
+          "jsDrawMs": 11.5,
+          "jsDrawP95": 5.5,
+          "heapMB": 21.7,
+          "load": {
+            "domContentLoadedMs": 274.1000000000058,
+            "maxFrameMs": 1049.9,
+            "maxLongTaskMs": 273,
+            "longTasks": 6
+          }
+        },
+        "presenter": {
+          "live": 1,
+          "templates": 1,
+          "built": 1,
+          "tris": 4062,
+          "meshes": 13,
+          "bones": 10,
+          "materials": 1,
+          "atlases": 1,
+          "eyeGeos": 2,
+          "cpuMsAvg": 0.416,
+          "cpuMsP95": 0.2,
+          "buildMsTotal": 38.1,
+          "buildMsMax": 38.1,
+          "fallbacks": 0,
+          "removed": 1,
+          "created": 2,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "isolatedAnimation": {
+          "label": "Isolated QA animate() on clones of the actual declared templates; not main render CPU",
+          "actors": 1,
+          "warmupFrames": 30,
+          "measuredFrames": 120,
+          "dtSeconds": 0.016666666666666666,
+          "moving": true,
+          "animLevel": 2,
+          "composition": {
+            "dog:4": 1
+          },
+          "avgFrameMs": 0.0066666666665696536,
+          "p95FrameMs": 0.10000000000582077,
+          "liveActorsUnchanged": true
+        },
+        "animationSamplesAudit": {
+          "samples": 120,
+          "finiteNonnegative": true,
+          "derivedAverageAndP95Match": true,
+          "zeroSamples": 112
+        },
+        "appearance": {
+          "label": "Observed appearance-window RAF intervals, including neighbor frames; not isolated first-build CPU",
+          "sampleCount": 234,
+          "maxAppearanceWindowIntervalMs": 200
+        },
+        "appearanceWindowsCount": 2,
+        "appearanceCounterWindows": [
+          {
+            "timestampMs": 2858.9,
+            "live": 1,
+            "created": 1,
+            "templates": 1,
+            "built": 1,
+            "maxIntervalMs": 116.59999999999991
+          },
+          {
+            "timestampMs": 5425.5,
+            "live": 1,
+            "created": 2,
+            "templates": 1,
+            "built": 1,
+            "maxIntervalMs": 200
+          }
+        ]
+      },
+      {
+        "actors": 5,
+        "actualNativeComposition": {
+          "dog:4": 1,
+          "shiba:0": 1,
+          "cat_friend:0": 1,
+          "companion:tanuki:0": 1,
+          "companion:penguin_friend:0": 1
+        },
+        "frameMetrics": {
+          "frames": 61,
+          "avgMs": 130.05,
+          "p95Ms": 266.6,
+          "over60": 34,
+          "calls": 93,
+          "tris": 135830,
+          "jsDrawMs": 21.25,
+          "jsDrawP95": 169.3,
+          "heapMB": 33.1,
+          "load": {
+            "domContentLoadedMs": 269.29999999998836,
+            "maxFrameMs": 683.3,
+            "maxLongTaskMs": 296,
+            "longTasks": 7
+          }
+        },
+        "presenter": {
+          "live": 5,
+          "templates": 5,
+          "built": 5,
+          "tris": 36982,
+          "meshes": 64,
+          "bones": 49,
+          "materials": 1,
+          "atlases": 5,
+          "eyeGeos": 6,
+          "cpuMsAvg": 4.15,
+          "cpuMsP95": 2.5,
+          "buildMsTotal": 415,
+          "buildMsMax": 163.1,
+          "fallbacks": 0,
+          "removed": 5,
+          "created": 10,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "isolatedAnimation": {
+          "label": "Isolated QA animate() on clones of the actual declared templates; not main render CPU",
+          "actors": 5,
+          "warmupFrames": 30,
+          "measuredFrames": 120,
+          "dtSeconds": 0.016666666666666666,
+          "moving": true,
+          "animLevel": 2,
+          "composition": {
+            "dog:4": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1
+          },
+          "avgFrameMs": 0.02249999999961195,
+          "p95FrameMs": 0.1000000000349246,
+          "liveActorsUnchanged": true
+        },
+        "animationSamplesAudit": {
+          "samples": 120,
+          "finiteNonnegative": true,
+          "derivedAverageAndP95Match": true,
+          "zeroSamples": 94
+        },
+        "appearance": {
+          "label": "Observed appearance-window RAF intervals, including neighbor frames; not isolated first-build CPU",
+          "sampleCount": 214,
+          "maxAppearanceWindowIntervalMs": 216.69999999999982
+        },
+        "appearanceWindowsCount": 6,
+        "appearanceCounterWindows": [
+          {
+            "timestampMs": 2590.6,
+            "live": 1,
+            "created": 1,
+            "templates": 1,
+            "built": 1,
+            "maxIntervalMs": 66.79999999999973
+          },
+          {
+            "timestampMs": 2640.5,
+            "live": 2,
+            "created": 2,
+            "templates": 2,
+            "built": 2,
+            "maxIntervalMs": 33.30000000000018
+          },
+          {
+            "timestampMs": 2807.1,
+            "live": 3,
+            "created": 3,
+            "templates": 3,
+            "built": 3,
+            "maxIntervalMs": 150
+          },
+          {
+            "timestampMs": 2990.5,
+            "live": 4,
+            "created": 4,
+            "templates": 4,
+            "built": 4,
+            "maxIntervalMs": 166.69999999999982
+          },
+          {
+            "timestampMs": 3023.9,
+            "live": 5,
+            "created": 5,
+            "templates": 5,
+            "built": 5,
+            "maxIntervalMs": 16.700000000000273
+          },
+          {
+            "timestampMs": 5273.8,
+            "live": 5,
+            "created": 10,
+            "templates": 5,
+            "built": 5,
+            "maxIntervalMs": 216.69999999999982
+          }
+        ]
+      },
+      {
+        "actors": 27,
+        "actualNativeComposition": {
+          "dog:4": 1,
+          "shiba:0": 1,
+          "cat_friend:0": 1,
+          "companion:tanuki:0": 1,
+          "companion:penguin_friend:0": 1,
+          "companion:rabbit_friend:0": 1,
+          "companion:squirrel:0": 1,
+          "companion:owl:0": 1,
+          "companion:otter:0": 1,
+          "companion:hamster:0": 1,
+          "companion:panda:0": 1,
+          "companion:monkey:0": 1,
+          "companion:parrot:0": 1,
+          "companion:sheep:0": 1,
+          "companion:seal:0": 1,
+          "companion:bat:0": 1,
+          "companion:chicken:0": 1,
+          "companion:hedgehog:0": 1,
+          "companion:snail:0": 1,
+          "companion:punyu:0": 1,
+          "companion:sekizou:0": 1,
+          "companion:chameleon:0": 1,
+          "companion:clock:0": 1,
+          "companion:unicorn:0": 1,
+          "companion:many_tail_fox:0": 1,
+          "companion:watcher:0": 1,
+          "companion:box:0": 1
+        },
+        "frameMetrics": {
+          "frames": 31,
+          "avgMs": 204.83,
+          "p95Ms": 533.4,
+          "over60": 17,
+          "calls": 330,
+          "tris": 384576,
+          "jsDrawMs": 65.78,
+          "jsDrawP95": 352.8,
+          "heapMB": 50.4,
+          "load": {
+            "domContentLoadedMs": 261.79999999998836,
+            "maxFrameMs": 816.6000000000004,
+            "maxLongTaskMs": 517,
+            "longTasks": 14
+          }
+        },
+        "presenter": {
+          "live": 27,
+          "templates": 27,
+          "built": 27,
+          "tris": 287308,
+          "meshes": 330,
+          "bones": 258,
+          "materials": 2,
+          "atlases": 27,
+          "eyeGeos": 9,
+          "cpuMsAvg": 51.314,
+          "cpuMsP95": 215.7,
+          "buildMsTotal": 3692.6,
+          "buildMsMax": 370.6,
+          "fallbacks": 0,
+          "removed": 12,
+          "created": 39,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "isolatedAnimation": {
+          "label": "Isolated QA animate() on clones of the actual declared templates; not main render CPU",
+          "actors": 27,
+          "warmupFrames": 30,
+          "measuredFrames": 120,
+          "dtSeconds": 0.016666666666666666,
+          "moving": true,
+          "animLevel": 2,
+          "composition": {
+            "dog:4": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1,
+            "companion:rabbit_friend:0": 1,
+            "companion:squirrel:0": 1,
+            "companion:owl:0": 1,
+            "companion:otter:0": 1,
+            "companion:hamster:0": 1,
+            "companion:panda:0": 1,
+            "companion:monkey:0": 1,
+            "companion:parrot:0": 1,
+            "companion:sheep:0": 1,
+            "companion:seal:0": 1,
+            "companion:bat:0": 1,
+            "companion:chicken:0": 1,
+            "companion:hedgehog:0": 1,
+            "companion:snail:0": 1,
+            "companion:punyu:0": 1,
+            "companion:sekizou:0": 1,
+            "companion:chameleon:0": 1,
+            "companion:clock:0": 1,
+            "companion:unicorn:0": 1,
+            "companion:many_tail_fox:0": 1,
+            "companion:watcher:0": 1,
+            "companion:box:0": 1
+          },
+          "avgFrameMs": 0.09333333333343034,
+          "p95FrameMs": 0.20000000001164153,
+          "liveActorsUnchanged": true
+        },
+        "animationSamplesAudit": {
+          "samples": 120,
+          "finiteNonnegative": true,
+          "derivedAverageAndP95Match": true,
+          "zeroSamples": 45
+        },
+        "appearance": {
+          "label": "Observed appearance-window RAF intervals, including neighbor frames; not isolated first-build CPU",
+          "sampleCount": 147,
+          "maxAppearanceWindowIntervalMs": 816.6000000000004
+        },
+        "appearanceWindowsCount": 26,
+        "appearanceCounterWindows": [
+          {
+            "timestampMs": 2947.4,
+            "live": 1,
+            "created": 1,
+            "templates": 1,
+            "built": 1,
+            "maxIntervalMs": 116.70000000000027
+          },
+          {
+            "timestampMs": 2997.4,
+            "live": 2,
+            "created": 2,
+            "templates": 2,
+            "built": 2,
+            "maxIntervalMs": 33.30000000000018
+          },
+          {
+            "timestampMs": 3264.1,
+            "live": 3,
+            "created": 3,
+            "templates": 3,
+            "built": 3,
+            "maxIntervalMs": 250
+          },
+          {
+            "timestampMs": 3464.1,
+            "live": 4,
+            "created": 4,
+            "templates": 4,
+            "built": 4,
+            "maxIntervalMs": 183.4000000000001
+          },
+          {
+            "timestampMs": 3564.1,
+            "live": 5,
+            "created": 5,
+            "templates": 5,
+            "built": 5,
+            "maxIntervalMs": 83.40000000000009
+          },
+          {
+            "timestampMs": 3680.8,
+            "live": 6,
+            "created": 6,
+            "templates": 6,
+            "built": 6,
+            "maxIntervalMs": 100.10000000000036
+          },
+          {
+            "timestampMs": 3797.4,
+            "live": 7,
+            "created": 7,
+            "templates": 7,
+            "built": 7,
+            "maxIntervalMs": 100
+          },
+          {
+            "timestampMs": 3997.4,
+            "live": 8,
+            "created": 8,
+            "templates": 8,
+            "built": 8,
+            "maxIntervalMs": 183.4000000000001
+          },
+          {
+            "timestampMs": 4164.1,
+            "live": 9,
+            "created": 9,
+            "templates": 9,
+            "built": 9,
+            "maxIntervalMs": 150.10000000000036
+          },
+          {
+            "timestampMs": 4397.3,
+            "live": 10,
+            "created": 10,
+            "templates": 10,
+            "built": 10,
+            "maxIntervalMs": 216.60000000000036
+          },
+          {
+            "timestampMs": 5230.6,
+            "live": 11,
+            "created": 11,
+            "templates": 11,
+            "built": 11,
+            "maxIntervalMs": 816.6000000000004
+          },
+          {
+            "timestampMs": 5764,
+            "live": 13,
+            "created": 25,
+            "templates": 13,
+            "built": 13,
+            "maxIntervalMs": 250
+          },
+          {
+            "timestampMs": 6097.2,
+            "live": 14,
+            "created": 26,
+            "templates": 14,
+            "built": 14,
+            "maxIntervalMs": 316.59999999999945
+          },
+          {
+            "timestampMs": 6680.6,
+            "live": 15,
+            "created": 27,
+            "templates": 15,
+            "built": 15,
+            "maxIntervalMs": 383.3000000000002
+          },
+          {
+            "timestampMs": 6963.9,
+            "live": 16,
+            "created": 28,
+            "templates": 16,
+            "built": 16,
+            "maxIntervalMs": 266.6999999999998
+          },
+          {
+            "timestampMs": 7230.6,
+            "live": 17,
+            "created": 29,
+            "templates": 17,
+            "built": 17,
+            "maxIntervalMs": 250
+          },
+          {
+            "timestampMs": 7397.3,
+            "live": 18,
+            "created": 30,
+            "templates": 18,
+            "built": 18,
+            "maxIntervalMs": 150
+          },
+          {
+            "timestampMs": 7763.9,
+            "live": 19,
+            "created": 31,
+            "templates": 19,
+            "built": 19,
+            "maxIntervalMs": 350
+          },
+          {
+            "timestampMs": 7930.5,
+            "live": 20,
+            "created": 32,
+            "templates": 20,
+            "built": 20,
+            "maxIntervalMs": 150
+          },
+          {
+            "timestampMs": 8013.9,
+            "live": 21,
+            "created": 33,
+            "templates": 21,
+            "built": 21,
+            "maxIntervalMs": 66.69999999999982
+          },
+          {
+            "timestampMs": 8047.2,
+            "live": 22,
+            "created": 34,
+            "templates": 22,
+            "built": 22,
+            "maxIntervalMs": 16.699999999999818
+          },
+          {
+            "timestampMs": 8280.5,
+            "live": 23,
+            "created": 35,
+            "templates": 23,
+            "built": 23,
+            "maxIntervalMs": 216.60000000000036
+          },
+          {
+            "timestampMs": 8480.5,
+            "live": 24,
+            "created": 36,
+            "templates": 24,
+            "built": 24,
+            "maxIntervalMs": 183.29999999999927
+          },
+          {
+            "timestampMs": 8880.6,
+            "live": 25,
+            "created": 37,
+            "templates": 25,
+            "built": 25,
+            "maxIntervalMs": 383.39999999999964
+          },
+          {
+            "timestampMs": 8913.9,
+            "live": 26,
+            "created": 38,
+            "templates": 26,
+            "built": 26,
+            "maxIntervalMs": 116.60000000000036
+          },
+          {
+            "timestampMs": 9063.8,
+            "live": 27,
+            "created": 39,
+            "templates": 27,
+            "built": 27,
+            "maxIntervalMs": 116.60000000000036
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "120 synchronous warm clone animation iterations after30 warmup, moving=true dt1/60 animLevel2; excludes main rendering/face projection/material/build/game simulation and browser scheduling. Coarse approximately0.1ms timer with many zero intervals limits tiny-average precision.",
+      "Live-unchanged flag compares animation/bone snapshots of actual instances, not complete gameplay/save/resource identity.",
+      "Appearance windows detect counter increases using adjacent RAF intervals over observed startup window; includes normal boot/recreation and neighbor frames, not isolated first-build CPU/GPU or one window per actor. 27cast has26observed windows.",
+      "Short single software-GPU samples and coarse heap endpoints are not statistical speed improvement, sustained frame-rate, leak/temperature/long-play or iPhone Safari performance approval.",
+      "Raw performance pass establishes exact composition/error and measurement presence; scene/save source failure remains."
+    ]
+  },
+  "comparisonIssues": []
+}

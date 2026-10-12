@@ -1,0 +1,933 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11612468637,
+    "name": "full-rollout-stages-penguin-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:66bbf9a0dc83c21d832722d760de6c864f5a1a5e24d31ea0c8b854f3acbd776f"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "421e9756d94e82ca2000aef8840cb654d953ec0c1d3e10c45fe118d203ccc56b",
+      "bytes": 7596
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "c1229c59b1056498fb3af23ce597242295dd76ee535a7fdeac4a0081e3179a1d",
+      "bytes": 93110
+    },
+    {
+      "path": "missing-motion/penguin-2-dislike-idle-normal.jpg",
+      "sha256": "78e3d22ebe86c178c923ca62c4854b3728218d89e550ba8d0b3bae95aad5ecff",
+      "bytes": 10166
+    },
+    {
+      "path": "missing-motion/penguin-2-dislike-idle-reduced.jpg",
+      "sha256": "ef08be2953d4f891c86009c2726a36e16d2121503784ed59a2c559ae49aa998c",
+      "bytes": 10448
+    },
+    {
+      "path": "missing-motion/penguin-2-dislike-walk-normal.jpg",
+      "sha256": "f08557b57b134ad0abd0672ee399323838ad4e25f07eb7e3394d55e20517f414",
+      "bytes": 10069
+    },
+    {
+      "path": "missing-motion/penguin-2-dislike-walk-reduced.jpg",
+      "sha256": "58a3c6c747a92c4b8ff393872dc1b54d2993a319cfb0fb0f081ba75e0fe06d0c",
+      "bytes": 10285
+    },
+    {
+      "path": "missing-motion/penguin-2-motion.jpg",
+      "sha256": "897cd4c3f84f71be42673315d7298029196e615e52b27203063407aa3a9c9499",
+      "bytes": 443283
+    },
+    {
+      "path": "missing-motion/penguin-2-normal-idle-normal.jpg",
+      "sha256": "f2ffa6d4f62e714be8df90dd742519ced88e016284ca7d761128091371fbdb3b",
+      "bytes": 10588
+    },
+    {
+      "path": "missing-motion/penguin-2-normal-idle-reduced.jpg",
+      "sha256": "593209e1bb5c8346be6ca1fef88b741587e74f30e97ce20d0ce1f28fb1fb8a96",
+      "bytes": 10752
+    },
+    {
+      "path": "missing-motion/penguin-2-normal-walk-normal.jpg",
+      "sha256": "705a87c4e1bf6e14258e1fa939bf9706d644d020fe80ca742df1674ec9b62e82",
+      "bytes": 10273
+    },
+    {
+      "path": "missing-motion/penguin-2-normal-walk-reduced.jpg",
+      "sha256": "5ac97f8c4773902cab3cbf5ce221668d0368d8d58916067ac3e9a211c9180d8f",
+      "bytes": 10777
+    },
+    {
+      "path": "missing-motion/penguin-2-positive-idle-normal.jpg",
+      "sha256": "1e9c119c6d2251f108b7a4d24d7a7fc474444ed9555d8d4fcfc826ca05aca836",
+      "bytes": 10759
+    },
+    {
+      "path": "missing-motion/penguin-2-positive-idle-reduced.jpg",
+      "sha256": "dc63c1bd2a409695b64a45ba4018ea229e90c0f80a87b232cab7e8d90f5d81bd",
+      "bytes": 10810
+    },
+    {
+      "path": "missing-motion/penguin-2-positive-walk-normal.jpg",
+      "sha256": "7b8e5bd9a678c1cc5c72c098e5ad763c8dee1e5e48ab4d91e132c51ea555df01",
+      "bytes": 10583
+    },
+    {
+      "path": "missing-motion/penguin-2-positive-walk-reduced.jpg",
+      "sha256": "931860f86d62c232cccb5587222fda7d3b9fa6801c41e444fb95258d59274387",
+      "bytes": 10929
+    },
+    {
+      "path": "missing-motion/penguin-2-sick-idle-normal.jpg",
+      "sha256": "ab2be805f636d8052d23c43b7f6004cce690da46229d18da87d00593b2a68b2c",
+      "bytes": 10638
+    },
+    {
+      "path": "missing-motion/penguin-2-sick-idle-reduced.jpg",
+      "sha256": "3b9c4afdd283442fee9ca0f590667b33f09096167a886ba5c9afb5bf10ef27f0",
+      "bytes": 10771
+    },
+    {
+      "path": "missing-motion/penguin-2-sick-walk-normal.jpg",
+      "sha256": "f4b4a2960c5b13a37c7a1fafa96b29e0c8102450b902f4df85c5eaeaa2b46bab",
+      "bytes": 10343
+    },
+    {
+      "path": "missing-motion/penguin-2-sick-walk-reduced.jpg",
+      "sha256": "b8a0e4d5e928b63164640729f7e3850554198d12cc3bc196e57e397bca78b7e8",
+      "bytes": 10666
+    },
+    {
+      "path": "missing-motion/penguin-2-sleeping-idle-normal.jpg",
+      "sha256": "68a1c2f3d842e5561324b95f3807cb0f4bd1c80522dd96aae55df10ca7dcca6a",
+      "bytes": 10164
+    },
+    {
+      "path": "missing-motion/penguin-2-sleeping-idle-reduced.jpg",
+      "sha256": "485e1ba2bb79a6b36a8cfc23e401adfa6c3fdfc6005a1825f741a3bf1ca70277",
+      "bytes": 10335
+    },
+    {
+      "path": "missing-motion/penguin-2-sleeping-walk-normal.jpg",
+      "sha256": "34a44bc272435375f5ec195aa99cd331e88a6c3d0f43db6b9efe08071eead6f9",
+      "bytes": 9909
+    },
+    {
+      "path": "missing-motion/penguin-2-sleeping-walk-reduced.jpg",
+      "sha256": "3247e5e901d7c80003851cc99333469aff86ab33dfdc63a6da4187f586e2708c",
+      "bytes": 10145
+    },
+    {
+      "path": "missing-motion/penguin-2-strained-idle-normal.jpg",
+      "sha256": "43af7c888f26db8232902006bcb9bfbfefb02615b4cdc15fabeafaa227c1f6ea",
+      "bytes": 10692
+    },
+    {
+      "path": "missing-motion/penguin-2-strained-idle-reduced.jpg",
+      "sha256": "b50923b3c08e98f7837e3a75f06cfcb769fc077d907c1b9886f6a743cc1337d4",
+      "bytes": 11038
+    },
+    {
+      "path": "missing-motion/penguin-2-strained-walk-normal.jpg",
+      "sha256": "5d4da766b4dcc781b7beb55020d15a2783c46e973cd799e957d9e9149679d2ba",
+      "bytes": 10814
+    },
+    {
+      "path": "missing-motion/penguin-2-strained-walk-reduced.jpg",
+      "sha256": "ae6d42a5610f9b88c8313e47c9489d13671cfb7432d07142255be9b476f4e4dc",
+      "bytes": 11010
+    },
+    {
+      "path": "missing-motion/penguin-2-tired-idle-normal.jpg",
+      "sha256": "cb8f2971efe748406cf695e8ec7188a367b1685695403ac25c042fa18364bf93",
+      "bytes": 10370
+    },
+    {
+      "path": "missing-motion/penguin-2-tired-idle-reduced.jpg",
+      "sha256": "cb23c4a01d3508b527624a243326855e44baaf5f7bc184eac11dac23a811ff3e",
+      "bytes": 10473
+    },
+    {
+      "path": "missing-motion/penguin-2-tired-walk-normal.jpg",
+      "sha256": "e16f6a1a1c634328d55a388e8e92637e607cd26b30631ac8ad4906260aa3c91b",
+      "bytes": 9917
+    },
+    {
+      "path": "missing-motion/penguin-2-tired-walk-reduced.jpg",
+      "sha256": "69c9efb03763e76eda6fb676f214d7c58ed8f6f818b125a167a072f4fe90fa18",
+      "bytes": 10274
+    },
+    {
+      "path": "missing-motion/penguin-2-wantsPlay-idle-normal.jpg",
+      "sha256": "641f0d7979e3178fa6187a5c24c3ff5a017f63abae826b0967cb8691ad63daba",
+      "bytes": 10828
+    },
+    {
+      "path": "missing-motion/penguin-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "34a9b4c27205402d2802e72a8c09bbd3da08a941f5958b7eac31f9c94e28b562",
+      "bytes": 10970
+    },
+    {
+      "path": "missing-motion/penguin-2-wantsPlay-walk-normal.jpg",
+      "sha256": "c266093c2f3e66099484fd3d1a05668a5be7e4e0bccd9ae36ad80467d2ae356d",
+      "bytes": 10684
+    },
+    {
+      "path": "missing-motion/penguin-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "44f5caedf26ba9a84e43de22dc321358828eadb41c73217f04b397a8a3308f89",
+      "bytes": 10837
+    },
+    {
+      "path": "missing-motion/penguin-3-dislike-idle-normal.jpg",
+      "sha256": "05ae17e438eb2c94b7a07c638085047f9586587db0300600a71bf1fa34cb25eb",
+      "bytes": 9597
+    },
+    {
+      "path": "missing-motion/penguin-3-dislike-idle-reduced.jpg",
+      "sha256": "069ff8fdce1c5f0deaa464ff1a246c8ca90ec3366b7278515a822b2ffcd8a148",
+      "bytes": 9759
+    },
+    {
+      "path": "missing-motion/penguin-3-dislike-walk-normal.jpg",
+      "sha256": "6d426e763a1abf3749f54bac77dbbd63f964895687ad6e747fe9fb755a6de786",
+      "bytes": 9720
+    },
+    {
+      "path": "missing-motion/penguin-3-dislike-walk-reduced.jpg",
+      "sha256": "af558d8fa7d9697a63659b26cf456f72e5fc722a562503b0dad4df18866ee275",
+      "bytes": 9867
+    },
+    {
+      "path": "missing-motion/penguin-3-motion.jpg",
+      "sha256": "67f3cfa66fb686a5f27bb5ea63bf7dc5576db1aacdbe844cfde693be756d544b",
+      "bytes": 401373
+    },
+    {
+      "path": "missing-motion/penguin-3-normal-idle-normal.jpg",
+      "sha256": "47e251cefaea15a3b0b36bbce8f6b5d1eeae97c39e9262500d0ec70f9765d30f",
+      "bytes": 9598
+    },
+    {
+      "path": "missing-motion/penguin-3-normal-idle-reduced.jpg",
+      "sha256": "851e8fbb54841d819eec285f270ca17f306d059637760ad75bb4a5707e7d8e4a",
+      "bytes": 9726
+    },
+    {
+      "path": "missing-motion/penguin-3-normal-walk-normal.jpg",
+      "sha256": "8e15f8948b292f89ca58eaaf33b7830331bfd785d431db7432688566d0d73a20",
+      "bytes": 9856
+    },
+    {
+      "path": "missing-motion/penguin-3-normal-walk-reduced.jpg",
+      "sha256": "89bd976b1dbe63bf4c7d71423925e6e98d6cf7d1e05f59c7de44de3d73ccda65",
+      "bytes": 9964
+    },
+    {
+      "path": "missing-motion/penguin-3-positive-idle-normal.jpg",
+      "sha256": "888c9d349e47a177e4898844dd029684c8789d6cd2f8bc24a4e8f25c025c0840",
+      "bytes": 10146
+    },
+    {
+      "path": "missing-motion/penguin-3-positive-idle-reduced.jpg",
+      "sha256": "ed51701fda02ba6887e2017dfde1cc23acfe65a4b8046b02d575cfab0e71db62",
+      "bytes": 9968
+    },
+    {
+      "path": "missing-motion/penguin-3-positive-walk-normal.jpg",
+      "sha256": "8da61d322045c49dd6a7be54636293ad1c378e09c9c53f570b7d7cd208ad1ca7",
+      "bytes": 10139
+    },
+    {
+      "path": "missing-motion/penguin-3-positive-walk-reduced.jpg",
+      "sha256": "1518102465230757310cc843b7fa82500b5e6a7a9e39415514c685992a912ad1",
+      "bytes": 10134
+    },
+    {
+      "path": "missing-motion/penguin-3-sick-idle-normal.jpg",
+      "sha256": "847e1e912d6dea0035d9a4bc53b9a139e53eabb9d0e1274c5a9ae9f2110a7f9a",
+      "bytes": 9725
+    },
+    {
+      "path": "missing-motion/penguin-3-sick-idle-reduced.jpg",
+      "sha256": "43fda7de6801434b898fa0d10283e529df0f04e782f5dce6aa8c1ff8c43c6ba1",
+      "bytes": 9747
+    },
+    {
+      "path": "missing-motion/penguin-3-sick-walk-normal.jpg",
+      "sha256": "b54da251b186a68a783879e4e9e1f298ce0370787a6182f103da00538eef4656",
+      "bytes": 9808
+    },
+    {
+      "path": "missing-motion/penguin-3-sick-walk-reduced.jpg",
+      "sha256": "6d101ee5ec285f247ac573f00aeab64668d58552ea655eb5d431387cc56fed17",
+      "bytes": 10014
+    },
+    {
+      "path": "missing-motion/penguin-3-sleeping-idle-normal.jpg",
+      "sha256": "956fcd664fd389c497bbb0a6e90a48d002b729b6ac8dcc842ec116ff2ce3a839",
+      "bytes": 9188
+    },
+    {
+      "path": "missing-motion/penguin-3-sleeping-idle-reduced.jpg",
+      "sha256": "654f58034a8772c409f130fe2f349b4f645db52597b89836ceb07273a0565446",
+      "bytes": 9355
+    },
+    {
+      "path": "missing-motion/penguin-3-sleeping-walk-normal.jpg",
+      "sha256": "15af1d1244417a031ee07f41fe6901164a90121ec499b3c182ee169157ec3988",
+      "bytes": 9387
+    },
+    {
+      "path": "missing-motion/penguin-3-sleeping-walk-reduced.jpg",
+      "sha256": "1c442c6556fc5a01e7e59b97da7a5142299dc3023c23496b941115ec6a68e79e",
+      "bytes": 9470
+    },
+    {
+      "path": "missing-motion/penguin-3-strained-idle-normal.jpg",
+      "sha256": "b588deaacf3e9784957b9803d30c9b50bd4203fedc663ce107a726fc48044135",
+      "bytes": 9680
+    },
+    {
+      "path": "missing-motion/penguin-3-strained-idle-reduced.jpg",
+      "sha256": "2acb6059393039ea3f3c83cfd3980d4e048377df31755bc7939838473de80956",
+      "bytes": 9781
+    },
+    {
+      "path": "missing-motion/penguin-3-strained-walk-normal.jpg",
+      "sha256": "ae94cc77a25560b9c44de28e6b505f9ec2d95472cfa19c7679f98a6e276d4893",
+      "bytes": 9728
+    },
+    {
+      "path": "missing-motion/penguin-3-strained-walk-reduced.jpg",
+      "sha256": "33648fc116e606e96594bca21225fba6fe72e2059695137beb58ddf2140be46e",
+      "bytes": 9814
+    },
+    {
+      "path": "missing-motion/penguin-3-tired-idle-normal.jpg",
+      "sha256": "279aa18e45668a4c4b6d86dff3cef538d3fbf8d8f6f960097d36a19f68da771d",
+      "bytes": 9271
+    },
+    {
+      "path": "missing-motion/penguin-3-tired-idle-reduced.jpg",
+      "sha256": "6ee760b3dd273e522d5a03dfd8ed641f2f51051a7714190f9414ff93600ce957",
+      "bytes": 9313
+    },
+    {
+      "path": "missing-motion/penguin-3-tired-walk-normal.jpg",
+      "sha256": "6cfc462aa2792948facd7ed38525f90335136ece769ecc6573687d285085c325",
+      "bytes": 9497
+    },
+    {
+      "path": "missing-motion/penguin-3-tired-walk-reduced.jpg",
+      "sha256": "574ad8cabe1a7cfe5b7ca3c32bc43f9d0de97422ff82b7f9fe86daf2ed911b67",
+      "bytes": 9566
+    },
+    {
+      "path": "missing-motion/penguin-3-wantsPlay-idle-normal.jpg",
+      "sha256": "06c23046ab6f62c1337e3781d3dfa976844ce273b3c4f9c77301b3190d33a43f",
+      "bytes": 10338
+    },
+    {
+      "path": "missing-motion/penguin-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "ad1d35d9ea3228192378208f947ae10e89ea9285d5374ef31249ab23d8149025",
+      "bytes": 10286
+    },
+    {
+      "path": "missing-motion/penguin-3-wantsPlay-walk-normal.jpg",
+      "sha256": "c020e08fb423b2ccdb4b81ee6c2eb4069a5e1ddab8188c122980a4c606f6046b",
+      "bytes": 10390
+    },
+    {
+      "path": "missing-motion/penguin-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "e1ce2a2392e98958ccb0c82a9378cd3a43a9d2a32913894670e175c6c57fb70f",
+      "bytes": 10461
+    },
+    {
+      "path": "missing-motion/penguin-5-dislike-idle-normal.jpg",
+      "sha256": "cfa8e94a2335e3151d06f433ff292b52d9208a38db38df21bd0e1d37ef94cf41",
+      "bytes": 11569
+    },
+    {
+      "path": "missing-motion/penguin-5-dislike-idle-reduced.jpg",
+      "sha256": "dd17f90add200e5453216954011919f07dd745b39e8841b766f8d7c7374e5081",
+      "bytes": 11627
+    },
+    {
+      "path": "missing-motion/penguin-5-dislike-walk-normal.jpg",
+      "sha256": "6f3dc8df252cb2b85a0276430b78598f5cd754662ef7fef6bb35ea9b91f15525",
+      "bytes": 11487
+    },
+    {
+      "path": "missing-motion/penguin-5-dislike-walk-reduced.jpg",
+      "sha256": "dfd5c05a548324ad0dcfdc564a4cb842e46413d08edb5fd632f9d3e06c9b2840",
+      "bytes": 11726
+    },
+    {
+      "path": "missing-motion/penguin-5-motion.jpg",
+      "sha256": "e6571af61e80dad7f51d863d61d99883adca9c130f9f13bcf3fc73e81d6244f9",
+      "bytes": 465869
+    },
+    {
+      "path": "missing-motion/penguin-5-normal-idle-normal.jpg",
+      "sha256": "a7804369270c2578d81228c5002a722e6b070b8cd390b6b28380af552c07262a",
+      "bytes": 11854
+    },
+    {
+      "path": "missing-motion/penguin-5-normal-idle-reduced.jpg",
+      "sha256": "9eb1e160445be413324ddce2f849e19fa7e11e8bf4ea70772ae9e9ca916b23ed",
+      "bytes": 11931
+    },
+    {
+      "path": "missing-motion/penguin-5-normal-walk-normal.jpg",
+      "sha256": "ac964d6d173c286da4f1c5c4ccf9bb8a17888386f8ad8b43d9bc01f11e637841",
+      "bytes": 11673
+    },
+    {
+      "path": "missing-motion/penguin-5-normal-walk-reduced.jpg",
+      "sha256": "256304dcdebc83932c343c7b43cce099cb0ae7ee52dbe6240c8ecd892d154b6a",
+      "bytes": 12107
+    },
+    {
+      "path": "missing-motion/penguin-5-positive-idle-normal.jpg",
+      "sha256": "4aee377475e0a1414dd62712a731ea525d9d7831d0aedc205d72820ab6932969",
+      "bytes": 11996
+    },
+    {
+      "path": "missing-motion/penguin-5-positive-idle-reduced.jpg",
+      "sha256": "25ed09d8ee6c8c692b7b5456fc59d6c67d4ce12bd54573a0397740bd5b5f93c2",
+      "bytes": 12072
+    },
+    {
+      "path": "missing-motion/penguin-5-positive-walk-normal.jpg",
+      "sha256": "335f71a360152c2b440430fd03455dada7a001f34c90e5511785403c76299ec4",
+      "bytes": 11920
+    },
+    {
+      "path": "missing-motion/penguin-5-positive-walk-reduced.jpg",
+      "sha256": "a8de4924b95ff978ae08d07c83c5f31c8db8fd9693c2ec1e5c5d6e8db11486ea",
+      "bytes": 12325
+    },
+    {
+      "path": "missing-motion/penguin-5-sick-idle-normal.jpg",
+      "sha256": "46e6f4ffda716513ca130de810e1da1bc997ec7320ced14ce8a79fa9bde3bdb6",
+      "bytes": 11476
+    },
+    {
+      "path": "missing-motion/penguin-5-sick-idle-reduced.jpg",
+      "sha256": "e718576ad8c5b98fab9431bf8160a5ad71989ea2dd943cfc5725b6aae62d0d4d",
+      "bytes": 11786
+    },
+    {
+      "path": "missing-motion/penguin-5-sick-walk-normal.jpg",
+      "sha256": "a9bf2a8a9eb13128325c2854cf8e26a0ddabd1ca92db8e0d4cbf8e6ebff27a41",
+      "bytes": 11417
+    },
+    {
+      "path": "missing-motion/penguin-5-sick-walk-reduced.jpg",
+      "sha256": "daa201c77e793c433ba5ecb233b946b8f1615b75ad9f131ba0ee7ec6eada25d2",
+      "bytes": 11820
+    },
+    {
+      "path": "missing-motion/penguin-5-sleeping-idle-normal.jpg",
+      "sha256": "88ac17b9817443e9e447a9132f4ce94a3e5f191ec9dd0041aa882bafe3f70d4f",
+      "bytes": 11484
+    },
+    {
+      "path": "missing-motion/penguin-5-sleeping-idle-reduced.jpg",
+      "sha256": "c10f6e1dd5de50b4e1e223af6e44ca950cf21e4218c01d210195394a819ec12e",
+      "bytes": 11727
+    },
+    {
+      "path": "missing-motion/penguin-5-sleeping-walk-normal.jpg",
+      "sha256": "7d07ceb459161c6fd6972949a76c58da45b44bb5d970592bfc7aa46e6e741b3d",
+      "bytes": 11450
+    },
+    {
+      "path": "missing-motion/penguin-5-sleeping-walk-reduced.jpg",
+      "sha256": "745e1bd7862f3cca6f203e038ed662ac512db8d6ed9a2ca709e383fe128b8825",
+      "bytes": 11622
+    },
+    {
+      "path": "missing-motion/penguin-5-strained-idle-normal.jpg",
+      "sha256": "2d961f943521329cf9ef7aa87521ac1f84caaf8b8637af20886f8c3469fba8cd",
+      "bytes": 11919
+    },
+    {
+      "path": "missing-motion/penguin-5-strained-idle-reduced.jpg",
+      "sha256": "e0ac54b79e29b7403fa333505971e46136710c7623472a4af5246f5efe6c79cf",
+      "bytes": 12125
+    },
+    {
+      "path": "missing-motion/penguin-5-strained-walk-normal.jpg",
+      "sha256": "426e16ff98aa6c259e24b61958cf221063afc0aa205d0f6129ff015f7b23fd8e",
+      "bytes": 11951
+    },
+    {
+      "path": "missing-motion/penguin-5-strained-walk-reduced.jpg",
+      "sha256": "5d09cea7fce784e558385e4108538accc8dbbae8c067732cfe413e535d9740b7",
+      "bytes": 12091
+    },
+    {
+      "path": "missing-motion/penguin-5-tired-idle-normal.jpg",
+      "sha256": "73e28645e9df94fe7c48df7b7bfbf024511810712a86a9e998a7ccf38f609b00",
+      "bytes": 11460
+    },
+    {
+      "path": "missing-motion/penguin-5-tired-idle-reduced.jpg",
+      "sha256": "471d0cb230a1f9b951e8f702183930d1fb4636f5fbdee5c41dff86808d72beaf",
+      "bytes": 11592
+    },
+    {
+      "path": "missing-motion/penguin-5-tired-walk-normal.jpg",
+      "sha256": "575a716a8fc6ae8d89658eba5c2f4809938bd50d11f06da7350f46e89393da79",
+      "bytes": 11264
+    },
+    {
+      "path": "missing-motion/penguin-5-tired-walk-reduced.jpg",
+      "sha256": "dff7971ad2e320b0778a5b54e50db5f7f0ddcd8779a587979326a95fe13d0ee3",
+      "bytes": 11687
+    },
+    {
+      "path": "missing-motion/penguin-5-wantsPlay-idle-normal.jpg",
+      "sha256": "fa8c920c75077820225d6b13ba7c2ff0ca398ac465cf5e900eb89e07f6172feb",
+      "bytes": 12127
+    },
+    {
+      "path": "missing-motion/penguin-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "99db2b6cafb21e0496b0f6cd2cf65c1fc9a23404d1f280cfffcd6e77feeb4385",
+      "bytes": 12254
+    },
+    {
+      "path": "missing-motion/penguin-5-wantsPlay-walk-normal.jpg",
+      "sha256": "015bbfa4dd3e93333b5fafd0ee8d61ac5df1323d4d2f78db00c8d1f55a2634d8",
+      "bytes": 12097
+    },
+    {
+      "path": "missing-motion/penguin-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "f49578f7c01d4f4956a9308a2fabb828d5e4ddd888694ca78eedb04c5b7cf4ed",
+      "bytes": 12289
+    },
+    {
+      "path": "missing-motion/penguin-6-dislike-idle-normal.jpg",
+      "sha256": "0898bb7d6d6d1d40f04dc700650705470e9cff73ad66a112c1b0453ccaa940b2",
+      "bytes": 11338
+    },
+    {
+      "path": "missing-motion/penguin-6-dislike-idle-reduced.jpg",
+      "sha256": "b0c938cc12a528e1cbf18b0a593c89c8e7318e71760abbdfd1a3e193fb7cc980",
+      "bytes": 11523
+    },
+    {
+      "path": "missing-motion/penguin-6-dislike-walk-normal.jpg",
+      "sha256": "9e226366b7384fd51e97a254e5152043cb70245b581c2e3a225e4c66baeb2c65",
+      "bytes": 11454
+    },
+    {
+      "path": "missing-motion/penguin-6-dislike-walk-reduced.jpg",
+      "sha256": "a882034842a5b6408c7d96480f741aab5d3fd4a951ceec269f6d434ca774fa79",
+      "bytes": 11715
+    },
+    {
+      "path": "missing-motion/penguin-6-motion.jpg",
+      "sha256": "bd8495a96fd9aaa3bf9ea5009ad38c188df4649fdacdb18bb6fabf51c3d2c721",
+      "bytes": 472267
+    },
+    {
+      "path": "missing-motion/penguin-6-normal-idle-normal.jpg",
+      "sha256": "e07fadab01fa9139c8c9aadd33f5d1f31cf1e11e756c8b49a829aefa1cbf902e",
+      "bytes": 11827
+    },
+    {
+      "path": "missing-motion/penguin-6-normal-idle-reduced.jpg",
+      "sha256": "e513b85717e93cc8fd22091eee3c2da5861520737dee4f632df81eff6ea95404",
+      "bytes": 11876
+    },
+    {
+      "path": "missing-motion/penguin-6-normal-walk-normal.jpg",
+      "sha256": "c35cf9cb9f6817abb50a16d42f545d1760ac7f2316df33bebdd219d8efeae341",
+      "bytes": 11563
+    },
+    {
+      "path": "missing-motion/penguin-6-normal-walk-reduced.jpg",
+      "sha256": "11fec891132f9b654bca4f9f20539e9e3d1fd13e7bc1078b53b74765f8696139",
+      "bytes": 12123
+    },
+    {
+      "path": "missing-motion/penguin-6-positive-idle-normal.jpg",
+      "sha256": "f800f307b0b2e2a2a750fa3ec10bd4337adbe544823bef3188745957f4aed7a6",
+      "bytes": 11691
+    },
+    {
+      "path": "missing-motion/penguin-6-positive-idle-reduced.jpg",
+      "sha256": "a9d27055894ea30b5e65b927cfee57da41085c058f0e6a9d4641459b13531ea3",
+      "bytes": 12220
+    },
+    {
+      "path": "missing-motion/penguin-6-positive-walk-normal.jpg",
+      "sha256": "d8b0bffe0840a4f6467a934d419d698eea2fb683bde2ea48fa6f03e625553e20",
+      "bytes": 11626
+    },
+    {
+      "path": "missing-motion/penguin-6-positive-walk-reduced.jpg",
+      "sha256": "c6b51152aa0535969815f26964cc3e1d9187639c3fe52c8cf6fb5900e1011351",
+      "bytes": 12195
+    },
+    {
+      "path": "missing-motion/penguin-6-sick-idle-normal.jpg",
+      "sha256": "29436106b8b8c1f66f0819f5bd7b7a5319cc9b8c5450f62a611233e6c1d34bd8",
+      "bytes": 11454
+    },
+    {
+      "path": "missing-motion/penguin-6-sick-idle-reduced.jpg",
+      "sha256": "b4153d577d199266aac9507863a0f5375e5e7932251f558cf8cace6c26767a1b",
+      "bytes": 11670
+    },
+    {
+      "path": "missing-motion/penguin-6-sick-walk-normal.jpg",
+      "sha256": "446b8368d563c0c2c90b18e36c75470da540d9a29fd1d17434c141d494fd9ab2",
+      "bytes": 11493
+    },
+    {
+      "path": "missing-motion/penguin-6-sick-walk-reduced.jpg",
+      "sha256": "9558f3d17db7a04bc2b7d384b852d80d92400c94d43a3af2d649e223b6e1fccb",
+      "bytes": 11853
+    },
+    {
+      "path": "missing-motion/penguin-6-sleeping-idle-normal.jpg",
+      "sha256": "a447651a0c2f6573f7118a5657ef12c8e1ac5b2a4e0d4a4dea457dd51b822148",
+      "bytes": 11368
+    },
+    {
+      "path": "missing-motion/penguin-6-sleeping-idle-reduced.jpg",
+      "sha256": "7400f203dee878672cc0d121b491d5082558ccb12fb20d02629e050a6bbb3c8c",
+      "bytes": 11728
+    },
+    {
+      "path": "missing-motion/penguin-6-sleeping-walk-normal.jpg",
+      "sha256": "539805178eb4a4b4f587a0126b83ab66c13372202d970bd238d310b257af504d",
+      "bytes": 11318
+    },
+    {
+      "path": "missing-motion/penguin-6-sleeping-walk-reduced.jpg",
+      "sha256": "807027b961c9dd1d48a469f56b46715d2dca8951b3a92b2c0ddbfb0de93153f0",
+      "bytes": 11672
+    },
+    {
+      "path": "missing-motion/penguin-6-strained-idle-normal.jpg",
+      "sha256": "b936392ea8d0f60c564c03a74946d6136853cc360634e8b02a86cedd5518fcef",
+      "bytes": 11903
+    },
+    {
+      "path": "missing-motion/penguin-6-strained-idle-reduced.jpg",
+      "sha256": "bb1149607e4113ed38e6fea772c4419d25dc55a57c51a311ae8dcddaad58abdf",
+      "bytes": 11966
+    },
+    {
+      "path": "missing-motion/penguin-6-strained-walk-normal.jpg",
+      "sha256": "f0fb56414aa58d7e92925c819ea4688cc30e84d5681d3d20f4bee3c7e24bf2f5",
+      "bytes": 11990
+    },
+    {
+      "path": "missing-motion/penguin-6-strained-walk-reduced.jpg",
+      "sha256": "0fcdbced318332da386e88aecc5e5c810cf123e5e0b6b0b1a9f3dc9f5105fb8f",
+      "bytes": 12052
+    },
+    {
+      "path": "missing-motion/penguin-6-tired-idle-normal.jpg",
+      "sha256": "3445c0e77c373476b701eae21e81f06b4671d9468b6deadbc828272df242b581",
+      "bytes": 11421
+    },
+    {
+      "path": "missing-motion/penguin-6-tired-idle-reduced.jpg",
+      "sha256": "fb58a779449454bb4f56b3437591ba17af7a1941d5cbbba08aef72e10b595bc7",
+      "bytes": 11441
+    },
+    {
+      "path": "missing-motion/penguin-6-tired-walk-normal.jpg",
+      "sha256": "f04cc88041dc95c8b9eb9ccbbd97b91d924f4e63eb8fe13648104b0523a24a6b",
+      "bytes": 11205
+    },
+    {
+      "path": "missing-motion/penguin-6-tired-walk-reduced.jpg",
+      "sha256": "d10c4b6d80d4e43984a7391ed9e3af899a73ce42edf6d596e0fb7e2ce8eb2972",
+      "bytes": 11669
+    },
+    {
+      "path": "missing-motion/penguin-6-wantsPlay-idle-normal.jpg",
+      "sha256": "37ec5cd559ffdf55c0fbaf3bd6b922f6da181ea2828ef6896b69e903a47a252f",
+      "bytes": 12010
+    },
+    {
+      "path": "missing-motion/penguin-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "3a6df7db4bc1bcbcf7809a1c101f226a383fdb18bab0330effb81b6ab3dfc96d",
+      "bytes": 12221
+    },
+    {
+      "path": "missing-motion/penguin-6-wantsPlay-walk-normal.jpg",
+      "sha256": "fdd7c842ad34a74d089c7a0a1edd9d0768ba19c0c3ce6eb37a21194ea27d880e",
+      "bytes": 12076
+    },
+    {
+      "path": "missing-motion/penguin-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "0ee0dfc64d5474fced14e99d0c4694bc943ca59c2f57f201502de23dcd5fdd57",
+      "bytes": 12264
+    },
+    {
+      "path": "missing-motion/penguin-7-dislike-idle-normal.jpg",
+      "sha256": "3299cf91ccc3cca447dcf0385a88e4d6dcd924c44d570efe9ee0096bfd6fe76b",
+      "bytes": 11654
+    },
+    {
+      "path": "missing-motion/penguin-7-dislike-idle-reduced.jpg",
+      "sha256": "d6cd72b7592ba87c5eb5129d6041b236eb22fd8121e1448f0c362765297340f1",
+      "bytes": 11692
+    },
+    {
+      "path": "missing-motion/penguin-7-dislike-walk-normal.jpg",
+      "sha256": "b5a10367bc2c5f13f68815b326559f803239187b99f0abcf7e94ad995e625750",
+      "bytes": 11473
+    },
+    {
+      "path": "missing-motion/penguin-7-dislike-walk-reduced.jpg",
+      "sha256": "a95b41e5069c49d569e63e15bb7672dbed2df2d57dc2cfc3e19e355d30eb4bae",
+      "bytes": 11778
+    },
+    {
+      "path": "missing-motion/penguin-7-motion.jpg",
+      "sha256": "712949cef83b9241fea8f67c9f446ae70a77f02e74ab0529b44ea25c9d0e2e6d",
+      "bytes": 472498
+    },
+    {
+      "path": "missing-motion/penguin-7-normal-idle-normal.jpg",
+      "sha256": "23a61fd0121d801a5bf29d08cbc898ab070c4dffc5b667ef054d1c2b833e5061",
+      "bytes": 11858
+    },
+    {
+      "path": "missing-motion/penguin-7-normal-idle-reduced.jpg",
+      "sha256": "290528be3f53bc18bd01d47171e94fe2260b91c6afb977d61e38caec079b88b4",
+      "bytes": 12082
+    },
+    {
+      "path": "missing-motion/penguin-7-normal-walk-normal.jpg",
+      "sha256": "fd7c5c99a390f9787aab222093a86094c5e53ff726d51365361826256ea80e3f",
+      "bytes": 11642
+    },
+    {
+      "path": "missing-motion/penguin-7-normal-walk-reduced.jpg",
+      "sha256": "60a5fe274d1d436d482e5cf0450f28fa67e29f20f3e0334270a430bc3ca2224d",
+      "bytes": 12068
+    },
+    {
+      "path": "missing-motion/penguin-7-positive-idle-normal.jpg",
+      "sha256": "56a2e8c552b5705f319b934a22f61840010589e2e2317f6fe9d88aae83b0b582",
+      "bytes": 11588
+    },
+    {
+      "path": "missing-motion/penguin-7-positive-idle-reduced.jpg",
+      "sha256": "16248a45a7ffbe774ea426ad3e0068557daf801eee599e767f18c8adbc6d1cfd",
+      "bytes": 12122
+    },
+    {
+      "path": "missing-motion/penguin-7-positive-walk-normal.jpg",
+      "sha256": "5650716b22753021d14b439982308f160bf7e0aaf27c16e619ac4606532a3728",
+      "bytes": 11450
+    },
+    {
+      "path": "missing-motion/penguin-7-positive-walk-reduced.jpg",
+      "sha256": "ca7692756911007fcb02918bc3dc3bec18c0d6590163fc76243a70fd1f3dad8b",
+      "bytes": 12154
+    },
+    {
+      "path": "missing-motion/penguin-7-sick-idle-normal.jpg",
+      "sha256": "3cfb637b89fe71b41cdcbf2c9aa5cf75e93b7806bd3c0b783c80e944e6055c55",
+      "bytes": 11723
+    },
+    {
+      "path": "missing-motion/penguin-7-sick-idle-reduced.jpg",
+      "sha256": "fd2c395678a9159b430b645ca8cb6f7caf304107c885b40e6265d76178648ca1",
+      "bytes": 11807
+    },
+    {
+      "path": "missing-motion/penguin-7-sick-walk-normal.jpg",
+      "sha256": "45c2de7874f8d23c6e3b331a55ad700b40e60ad3a154efaf0e0682fc16c9fd0e",
+      "bytes": 11397
+    },
+    {
+      "path": "missing-motion/penguin-7-sick-walk-reduced.jpg",
+      "sha256": "ed4bb111737a468ab8c8fc6f671b23eadcb7fccc0de83196be7458d9dccc856e",
+      "bytes": 11917
+    },
+    {
+      "path": "missing-motion/penguin-7-sleeping-idle-normal.jpg",
+      "sha256": "d288f39182a0a297fc72067c8e05a9f8344509c66edd92df3a2fed93b382e255",
+      "bytes": 11530
+    },
+    {
+      "path": "missing-motion/penguin-7-sleeping-idle-reduced.jpg",
+      "sha256": "cd8c03a5e71a57846ac92c8346d4191e89b752070296ddd1cff030fa49dfc142",
+      "bytes": 11711
+    },
+    {
+      "path": "missing-motion/penguin-7-sleeping-walk-normal.jpg",
+      "sha256": "a56f2d7500db9fd0101babfa5584cd0c18fd6a274e4eb664ff746241e8148292",
+      "bytes": 11509
+    },
+    {
+      "path": "missing-motion/penguin-7-sleeping-walk-reduced.jpg",
+      "sha256": "00010748129dab98038cd18f1872ce5d49ae9055b1a93760ea960fe70b6b18f6",
+      "bytes": 11662
+    },
+    {
+      "path": "missing-motion/penguin-7-strained-idle-normal.jpg",
+      "sha256": "89ffd524f990a20cf7e6f00f73da865beaa7c82dc6523663c088380b8706a88b",
+      "bytes": 11913
+    },
+    {
+      "path": "missing-motion/penguin-7-strained-idle-reduced.jpg",
+      "sha256": "ce351df94743fbed197257bfa6ebdcff322644313be0e9672b7f64efa34ef599",
+      "bytes": 12081
+    },
+    {
+      "path": "missing-motion/penguin-7-strained-walk-normal.jpg",
+      "sha256": "9fa11e85b6ff05097c132f3ee7893444c51c7b14a087cdda9ee334e5bf617b38",
+      "bytes": 12079
+    },
+    {
+      "path": "missing-motion/penguin-7-strained-walk-reduced.jpg",
+      "sha256": "3380a830ec3b545c8810c20794f8eefa46710d53b1b922fc6a772715add6868b",
+      "bytes": 12154
+    },
+    {
+      "path": "missing-motion/penguin-7-tired-idle-normal.jpg",
+      "sha256": "a3337f1c33da247b9f94676f06b32dec79213ff6d8ad6598e738ae200df2e7cb",
+      "bytes": 11416
+    },
+    {
+      "path": "missing-motion/penguin-7-tired-idle-reduced.jpg",
+      "sha256": "6101903542776afd46215af8149cb4ea86bbe0b5f19a06fa9af145f599c80c5b",
+      "bytes": 11589
+    },
+    {
+      "path": "missing-motion/penguin-7-tired-walk-normal.jpg",
+      "sha256": "0bfa94f8661b2658b5dbbcb9aff85e865592f589d27c1113d4b82c52e779a85a",
+      "bytes": 11285
+    },
+    {
+      "path": "missing-motion/penguin-7-tired-walk-reduced.jpg",
+      "sha256": "aa6904d58787a298151172b233795617d7e7434d87e5cd27ce94f78661222b7e",
+      "bytes": 11746
+    },
+    {
+      "path": "missing-motion/penguin-7-wantsPlay-idle-normal.jpg",
+      "sha256": "8f2a516b92418726e26cebc6cdb3d7368534247c4f228e7f104e10289bbb6ab3",
+      "bytes": 12364
+    },
+    {
+      "path": "missing-motion/penguin-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "0071f581615d4e94e36d49f9970840b470a2163bf8b474691d3b73cea0374216",
+      "bytes": 12222
+    },
+    {
+      "path": "missing-motion/penguin-7-wantsPlay-walk-normal.jpg",
+      "sha256": "9c03227646648011726c84d18ce05f2c2b4469e4941d8a75cb54962243b3c4eb",
+      "bytes": 12020
+    },
+    {
+      "path": "missing-motion/penguin-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "657aba0d49e1afc36e2bc14242c6d4de86fa0eddb5c401077a96866c5eb04863",
+      "bytes": 12182
+    },
+    {
+      "path": "player-penguin-1-back.png",
+      "sha256": "ba67c46fc6b019283074e3d568e936b42355a7c929c6e120fa1b97c90b31d109",
+      "bytes": 305579
+    },
+    {
+      "path": "player-penguin-1-front.png",
+      "sha256": "ea4f976db83fed0f262e5e97af4f767a807eef01bd5136e3f8d5ed4d24bfe828",
+      "bytes": 308731
+    },
+    {
+      "path": "player-penguin-2-back.png",
+      "sha256": "c5962a9c7feeba76e6f8b62fc09b9b946e85ff34d74da1e298c4650196f098a1",
+      "bytes": 305279
+    },
+    {
+      "path": "player-penguin-2-front.png",
+      "sha256": "35bfa3b7d0d81fabf2be6918f610a9b40982e61baae4cf75cfa5ec8c74066f9d",
+      "bytes": 307384
+    },
+    {
+      "path": "player-penguin-3-back.png",
+      "sha256": "fae2546f2af5b46a0ac4d09715c4d43ae182668f8b277b5f88991ba3baf2e3ee",
+      "bytes": 303999
+    },
+    {
+      "path": "player-penguin-3-front.png",
+      "sha256": "ddc5c9b84a446ace73037a07dd2fd7536e70a362d71775182ef5affc8d4ab26f",
+      "bytes": 308020
+    },
+    {
+      "path": "player-penguin-4-back.png",
+      "sha256": "56a9533f03e489a58ae89ae0a295e18d00f7987fc2e61f5d3842a818d779664c",
+      "bytes": 307112
+    },
+    {
+      "path": "player-penguin-4-front.png",
+      "sha256": "b55b5f741d04ff700bf03b25a896dcfad508489ba9b1d55a25f693503207ebcc",
+      "bytes": 311789
+    },
+    {
+      "path": "player-penguin-5-back.png",
+      "sha256": "dfbdeb55dfa1dfd31b188632223b38cc2d68c5dd86063e0be845c7c7660e8dc0",
+      "bytes": 305426
+    },
+    {
+      "path": "player-penguin-5-front.png",
+      "sha256": "0e5e08e9ba8a3316f10e025dbdda2dbb617521a308e0d49e1773b13045d6168b",
+      "bytes": 309809
+    },
+    {
+      "path": "player-penguin-6-back.png",
+      "sha256": "07bb02159aac37b4981d0fb958306f0738b9a8a148c1698b72ecf11db6682388",
+      "bytes": 305539
+    },
+    {
+      "path": "player-penguin-6-front.png",
+      "sha256": "45390f62240056ac9f3b6dcffe4314c3788cf180cb5370a6c9b38fb497363430",
+      "bytes": 310866
+    },
+    {
+      "path": "player-penguin-7-back.png",
+      "sha256": "c1db95ff952f665f51bc6094a5a77a181bb62d233dc7a33ae6592baeadd33c9b",
+      "bytes": 304620
+    },
+    {
+      "path": "player-penguin-7-front.png",
+      "sha256": "2dc4bf5b8fe8de856398c771cd9022d5c477ce77c204fe58f9fc70996f139d92",
+      "bytes": 310304
+    },
+    {
+      "path": "player-penguin-8-back.png",
+      "sha256": "23e4b1f4bb9dbeab99b98ae4bd5ad678a103ab5acd2c097a4f9f0b582a4787ac",
+      "bytes": 306229
+    },
+    {
+      "path": "player-penguin-8-front.png",
+      "sha256": "3f27ee14c8fef1693d8f646ba960aedf093f8725397a2f81543c59bea4567f8d",
+      "bytes": 310647
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866119,
+  "artifactJobName": "stage-evidence (penguin)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

@@ -1,0 +1,420 @@
+{
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "status": "PASS_NORMAL_DISTANCE_ONLY",
+  "actualImagesViewed": 80,
+  "method": "Root opened all20 lossless 2-stage front/back contact sheets, full pixels no resizing/cropping. Existing captured bytes, no recapture.",
+  "notes": {
+    "dog": "Low infant pose, stage4 playbow, stage7 raised paw/asymmetric ears and stage8 elder remain readable with connected limbs/tails.",
+    "cat": "Faces and tails readable; existing stage1/8 curl simplification and stage4 shared happy eyes retained.",
+    "penguin": "Downy chicks, lifted wing, molt patches, navy adults and elder cane remain distinct; feet/supports connected.",
+    "salmon": "Small alevin/yolk, parr, silver adults and spawning/elder colors read at normal distance; narrow fish silhouette remains visible.",
+    "clownfish": "Larval pale stages and striped adults remain legible; stage5 offspring visible. No additional normal-distance blocker; separate stage2 motion fin blocker is not cleared by this review."
+  },
+  "rows": [
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-1-front.png",
+      "sha256": "2705f7ff16490a1e6269569cb93bc8abafee1389615c8d007339f02e7eeed8ce",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-1-back.png",
+      "sha256": "ef915e2e3ae0c9ee4934d16001f5bc4782ffeb210d132f8974557c44b1ef2f2c",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-2-front.png",
+      "sha256": "c9fa18e091df731bceba804384d2a852fe3a9160940a0ba39855f044252375af",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-2-back.png",
+      "sha256": "abb75a3a4a08c6250c7f36d94e3300933368bbac99933b6af31496eb6bf9270b",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-3-front.png",
+      "sha256": "ade3f1104d1d5ab1ca765a98767ad503cb575fe17fce637c0d4e2d6bca5c6d0f",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-3-back.png",
+      "sha256": "21a274b0c658f9d21df7658e4f4ae6334c0d157acd35297ca54b867f20af1660",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-4-front.png",
+      "sha256": "16ca9bfc009a285b8b1660d121f6ad14f8273bd47aa3c698172b15f17faf5027",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-4-back.png",
+      "sha256": "afc2bea316f002359d2050d6b2809d754d4d83da1bfbd198420a7d4c2fb8fbd2",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-5-front.png",
+      "sha256": "b437bf0532a73c8e825ec0be4b5d1ef8ece1ff84475a1df0d787ba2639ce21ae",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-5-back.png",
+      "sha256": "bda8987d19596b6ff81373408380f9d2e1af682dea13cd8d5f00b8a0f28ab117",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-6-front.png",
+      "sha256": "e65b7c69ce12e6cd766dc6bd633cff118baf7c1bafb7324f51943c31a47df623",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-6-back.png",
+      "sha256": "5a25e8e79c9ab43ecf1b097346b5ab2e20a145ec4579f8b91c345ab38ecfc238",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-7-front.png",
+      "sha256": "8abfd699a33cc0d309206cde819fe0dd56c0f376f98196d47da61fb56a52f864",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-7-back.png",
+      "sha256": "452857c106d25d2653cac7a027224b1e20d6e8dd031406057230e820bbdc9ad6",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-8-front.png",
+      "sha256": "52704605742166c87e2aabde10fc6c9526014479e2e5d256aa5aa27503218778",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/player-dog-8-back.png",
+      "sha256": "24475d76e60488e161548681236b30d0ef4ac816e3501473ca63fc7792dcc313",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-1-front.png",
+      "sha256": "bcebab0685f3c494b7046f6b9a5e340153e8434b7f8668d1c17d62d7ef408f59",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-1-back.png",
+      "sha256": "8de7d0778760a87aabaf9638021f09c47991a495d86d283899e8f64b7afe11ac",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-2-front.png",
+      "sha256": "6f3f324f59e8b372eac49d890201a9f4ac2ca80a49eae67c2a21dd078490a506",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-2-back.png",
+      "sha256": "5ea6ba52d33ce2097d59ea5cf95b479f3e3b00fb3e3384d2247aabfa9feeff3b",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-3-front.png",
+      "sha256": "666616e95a86507377dd06aa466083300d1d12d219055bf85919830254294daa",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-3-back.png",
+      "sha256": "c5e415130e0013b1bcb18a7f20d8bc86b0ca0b5891bbb0e343d27f41af851a2f",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-4-front.png",
+      "sha256": "84bcbe0a19296539d47c343f0d53256fcf7f89da3ac0e8c7260d1e47bb41c2da",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-4-back.png",
+      "sha256": "9fb2ae84a811f6a060302d22c079372b6fc1e1c7b5cf678624a3b915b1ad9092",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-5-front.png",
+      "sha256": "a82cdd69f35fb3af1c995ba4925105380f7b154d66ed76d4e2e9720c99ecfeea",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-5-back.png",
+      "sha256": "96dc6481e05bbe7d7841a159f75b388adbb6b647440ce286212b5d7406ee5b5f",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-6-front.png",
+      "sha256": "f8118757daf9138b35c200633fb4e162bb0ee449ca3919d0469b35d14f32e604",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-6-back.png",
+      "sha256": "87911b5ca859183940e22dde8a6bdb32011b7b7f1602faf2d9b22761c66a8c67",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-7-front.png",
+      "sha256": "0b07d388949e7076c5df2841b007fdb0e389329396b5e37feeb8b1e0fd4da343",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-7-back.png",
+      "sha256": "b95d1e732380c0b8498f08c05e618baad3f5a64a8fa5dbe6b8add5984d940082",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-8-front.png",
+      "sha256": "651ad7ce234ae73d47f1a8f696b73ea793fcc60fac2a0b6f8efd9f9297a9a8bc",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/player-cat-8-back.png",
+      "sha256": "d32708c57d1e81ba8209ead6dcbdc57286f27e12aad31845a4d2749e111f947b",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-1-front.png",
+      "sha256": "ea4f976db83fed0f262e5e97af4f767a807eef01bd5136e3f8d5ed4d24bfe828",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-1-back.png",
+      "sha256": "ba67c46fc6b019283074e3d568e936b42355a7c929c6e120fa1b97c90b31d109",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-2-front.png",
+      "sha256": "35bfa3b7d0d81fabf2be6918f610a9b40982e61baae4cf75cfa5ec8c74066f9d",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-2-back.png",
+      "sha256": "c5962a9c7feeba76e6f8b62fc09b9b946e85ff34d74da1e298c4650196f098a1",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-3-front.png",
+      "sha256": "ddc5c9b84a446ace73037a07dd2fd7536e70a362d71775182ef5affc8d4ab26f",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-3-back.png",
+      "sha256": "fae2546f2af5b46a0ac4d09715c4d43ae182668f8b277b5f88991ba3baf2e3ee",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-4-front.png",
+      "sha256": "b55b5f741d04ff700bf03b25a896dcfad508489ba9b1d55a25f693503207ebcc",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-4-back.png",
+      "sha256": "56a9533f03e489a58ae89ae0a295e18d00f7987fc2e61f5d3842a818d779664c",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-5-front.png",
+      "sha256": "0e5e08e9ba8a3316f10e025dbdda2dbb617521a308e0d49e1773b13045d6168b",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-5-back.png",
+      "sha256": "dfbdeb55dfa1dfd31b188632223b38cc2d68c5dd86063e0be845c7c7660e8dc0",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-6-front.png",
+      "sha256": "45390f62240056ac9f3b6dcffe4314c3788cf180cb5370a6c9b38fb497363430",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-6-back.png",
+      "sha256": "07bb02159aac37b4981d0fb958306f0738b9a8a148c1698b72ecf11db6682388",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-7-front.png",
+      "sha256": "2dc4bf5b8fe8de856398c771cd9022d5c477ce77c204fe58f9fc70996f139d92",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-7-back.png",
+      "sha256": "c1db95ff952f665f51bc6094a5a77a181bb62d233dc7a33ae6592baeadd33c9b",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-8-front.png",
+      "sha256": "3f27ee14c8fef1693d8f646ba960aedf093f8725397a2f81543c59bea4567f8d",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/player-penguin-8-back.png",
+      "sha256": "23e4b1f4bb9dbeab99b98ae4bd5ad678a103ab5acd2c097a4f9f0b582a4787ac",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-1-front.png",
+      "sha256": "596118ce487715f29e7ce65ff4475a31cd34c1daa84a69bea0974af2325fdb0c",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-1-back.png",
+      "sha256": "d83cd2b02feabdca6968335814db21d0ed5966d95c302613bb3f8229c410e504",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-2-front.png",
+      "sha256": "1c1559c2d71ab091a1a7d9bec437c0e3eeaa3ab025091c7066bfe1fc411a07e2",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-2-back.png",
+      "sha256": "5f3376d1580ae79f14b5abce7c86e0f98d910570393bfb0b93f7d3addb3c0d8c",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-3-front.png",
+      "sha256": "ac7813796f56a6edd7776119d7e8b30819eb15c4fd4d0bdba368cc35b1937c8d",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-3-back.png",
+      "sha256": "5ad706cc208b9cb0ecd4a12fd6ee0641c86d5b101ec76a76d6325b544e54ced4",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-4-front.png",
+      "sha256": "995cfde3dc272f3021b8023adb69ea11cc6a8a00689820df8c406891e5a1e5fa",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-4-back.png",
+      "sha256": "b857e3d7442a2e56164296848c24734dd2daa439606db27904204c2d753f5342",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-5-front.png",
+      "sha256": "510b4ccf7f3dc5018ebd532c056f3acae9736c37b61236853718e058f0379378",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-5-back.png",
+      "sha256": "90b18ee0c0716a420bba4165325e27b922da173fae1a0f36aedc5faa42fc5687",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-6-front.png",
+      "sha256": "afce4507dd5f845bffd4464553a8243bb6028346601af1ca4b9f8697f7277473",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-6-back.png",
+      "sha256": "5a22c3b467234c4e3956f34c86d8bb4aaf0c380de22155ea84951dd712f9a30a",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-7-front.png",
+      "sha256": "219bfd0232185fe7f9e4fcde9f70145ca299139062448486144bc6368fe3282b",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-7-back.png",
+      "sha256": "922333e7d254cdec48b278e6fe413ddcd76100e30ae6734fd53e788b5663cf0a",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-8-front.png",
+      "sha256": "3457aa10d1204cf3a1b32c1fc6cb600daafa0c3952ca7eaebc8939be787a733c",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/player-salmon-8-back.png",
+      "sha256": "9fbb6746800283715cbce8e5287ed1b12f277ae1227cf2af99504a5582f18f07",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-1-front.png",
+      "sha256": "eba397a306319c47c27cd7eebded63d77f44e0d139f1ecb54f56815f9ea6f434",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-1-back.png",
+      "sha256": "45ee6a129a440740e02040328a3d66c23389d462f2636233e4369a6de9425886",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-2-front.png",
+      "sha256": "aec4a425316e21637f7fdb8c0fb146e99451cb50b308da5388b4bf3518bba4be",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-2-back.png",
+      "sha256": "60a13ca5fdf269b235a8f80bba599d7cfb13ba851c35ce0e81d26da3ec8d1b66",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-3-front.png",
+      "sha256": "fd02f067e448837a29f9d65183015a99a76871172d4e24ca7a2b1cdd1436c535",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-3-back.png",
+      "sha256": "bcbde9d170f57194464d5464fbe843b8369c2229138e269fc1f72e8e8ae3c9c9",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-4-front.png",
+      "sha256": "43816a1c19b80b6ea45a031266b290ff31a17197a4869f3efb45cc6763890713",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-4-back.png",
+      "sha256": "fb315c9ceda9021dffd3be80358c310126ba9c6ceb528c304b6299f41d37eec3",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-5-front.png",
+      "sha256": "ace4d6885dc740366777a68ee072e41b7495349680534127edb009426d2c672c",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-5-back.png",
+      "sha256": "917b7c506c37443a410f917201f702828eb8f93331d2f4baf3a0adb4a2564a7e",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-6-front.png",
+      "sha256": "79d3dd2d352e88e6f2db76f484bfbaa0c6408cc0044b73bc836a484481873e7e",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-6-back.png",
+      "sha256": "ee91f31f7f8d8da017d17e16da7026cb88a16d99d2858b02c7cbebd3d997562d",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-7-front.png",
+      "sha256": "9486e2475ab9226638e78c050019bb174c6f7cbf5e882ac4af2dbcca2eda7dd5",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-7-back.png",
+      "sha256": "6fce1e55ef924ac55cec08a635d1ca42ea7504820dfcb07762d8bf5387bd9523",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-8-front.png",
+      "sha256": "d900f69d62eb7d608a84e91d9a5084519a0f0c0519881adbd9eec9d9e85a4f09",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/player-clownfish-8-back.png",
+      "sha256": "3ae2280a74ed4c58cd0daec208f320c6371cc85ca454f88d8643a30b9003d54a",
+      "verdict": "PASS_NORMAL_DISTANCE_ONLY"
+    }
+  ],
+  "limits": [
+    "Does not clear separate motion blockers.",
+    "Chromium/SwiftShader is not Human/iPhone approval.",
+    "Does not approve source workflow overall; original run FAILURE retained."
+  ]
+}

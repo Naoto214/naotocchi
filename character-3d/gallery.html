@@ -72,7 +72,7 @@ const { animate, setEmotion, react, GAIT_HZ } = await import(prefix + 'animate.m
 
 const q = new URLSearchParams(location.search);
 if (q.get('bare') === '1') document.body.classList.add('bare');
-const ALL = [...Object.keys(SPEC.PILOT), ...Object.keys(SPEC.ARCHETYPE_REUSE)];
+const ALL = [...new Set([...Object.keys(SPEC.PILOT), ...Object.keys(SPEC.ROLLOUT || {}), ...Object.keys(SPEC.ARCHETYPE_REUSE), ...Object.keys(SPEC.NON_PLAYER || {})])];
 const st = {
   id: ALL.includes(q.get('id')) ? q.get('id') : 'dog',
   stage: Number(q.get('stage')) || null,
@@ -81,7 +81,7 @@ const st = {
   layout: q.get('layout') || 'single', walk: q.get('walk') === '1', reduced: q.get('reduced') === '1', auto: q.get('auto') === '1',
   freeze: q.has('t') ? Number(q.get('t')) : null,
 };
-const stagesOf = (id) => (SPEC.STAGE_KEYS[id] || [0]);
+const stagesOf = (id) => (SPEC.ROLLOUT_STAGE_KEYS?.[id] || SPEC.STAGE_KEYS[id] || [0]);
 if (!st.stage || !stagesOf(st.id).includes(st.stage)) st.stage = stagesOf(st.id)[Math.min(1, stagesOf(st.id).length - 1)];
 const VIEWS = { front: 0, '34': 0.62, side: Math.PI / 2, back: Math.PI, '34back': Math.PI - 0.62 };
 let az = VIEWS[st.view] != null ? VIEWS[st.view] : 0.62, el = q.has('el') ? Number(q.get('el')) : 0.32;
@@ -179,13 +179,13 @@ function syncUi() {
   clearRow('react'); for (const k of ['hop', 'huff', 'yawn', 'wobble']) btn('react', k, false, () => { for (const it of items) react(it.inst, k); });
   clearRow('modes'); for (const m of ['A', 'B', 'C']) btn('modes', { A: 'A texture', B: 'B geometry', C: 'C hybrid' }[m], m === st.mode, () => { st.mode = m; rebuild(); });
   clearRow('layouts'); for (const [k, v] of [['1 体', 'single'], ['stage 比較', 'stages'], ['表情 比較', 'emotions'], ['顔方式 比較', 'modes'], ['4 方向', 'views'], ['全 pilot', 'lineup']]) btn('layouts', k, st.layout === v, () => { st.layout = v; rebuild(); });
-  const p = SPEC.PILOT[st.id];
+  const p = SPEC.ROLLOUT?.[st.id] || SPEC.PILOT[st.id];
   $('refTitle').textContent = '2D 正本: ' + st.id + (st.stage ? ' 0' + st.stage : '');
   $('refBase').src = '../' + SPEC.referenceAsset(st.id, st.stage);
   const ex = SPEC.REFERENCE_EXPRESSION[st.emotion];
   $('refExpr').src = '../' + SPEC.referenceAsset(st.id, st.stage, p ? st.emotion : null);
   $('refExprCap').textContent = p ? '表情 PNG: ' + ex + '(= ' + st.emotion + ')' : '(なかまは 表情 PNG なし)';
-  $('why').textContent = p ? p.why : 'archetype 再利用(' + SPEC.ARCHETYPE_REUSE[st.id].basedOn + ' と おなじ builder + 数字)';
+  $('why').textContent = p ? p.why : SPEC.NON_PLAYER?.[st.id] ? '原画に基づく3D: ' + st.id : 'archetype 再利用(' + SPEC.ARCHETYPE_REUSE[st.id].basedOn + ' と おなじ builder + 数字)';
   $('fill').textContent = p ? '補完(side/back): ' + p.designFill : '';
   const url = new URL(location.href); for (const [k, v] of Object.entries({ id: st.id, stage: st.stage, emotion: st.emotion, mode: st.mode, layout: st.layout })) url.searchParams.set(k, v); history.replaceState(null, '', url);
 }

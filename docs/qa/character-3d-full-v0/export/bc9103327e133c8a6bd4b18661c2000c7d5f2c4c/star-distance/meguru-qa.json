@@ -1,0 +1,87 @@
+{
+  "when": "2026-10-09T02:28:39.129Z",
+  "revision": "quality3",
+  "sourceCommit": "bc9103327e133c8a6bd4b18661c2000c7d5f2c4c",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "mythic",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "star:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "star:2",
+      "player3d": true,
+      "specKey": {
+        "id": "star",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-star-3-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-star-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40202,
+        "meshes": 86,
+        "bones": 56,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 4.216,
+        "cpuMsP95": 34.2,
+        "buildMsTotal": 284.7,
+        "buildMsMax": 56.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "star:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "star:6",
+      "player3d": true,
+      "specKey": {
+        "id": "star",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-star-7-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-star-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 45180,
+        "meshes": 86,
+        "bones": 56,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.639,
+        "cpuMsP95": 57.4,
+        "buildMsTotal": 389.4,
+        "buildMsMax": 85.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

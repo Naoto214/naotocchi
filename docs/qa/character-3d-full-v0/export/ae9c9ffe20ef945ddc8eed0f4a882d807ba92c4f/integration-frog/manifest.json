@@ -1,0 +1,933 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613510710,
+    "name": "full-rollout-stages-frog-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:5180830c1e947394abcebdf44d86a8530192c62ff8ac65498f39ff1033b58779"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "8a73182a507574f36f5d41ac0183198525a0005b61476cdb46c1b4f8857564e5",
+      "bytes": 7428
+    },
+    {
+      "path": "missing-motion/frog-1-dislike-idle-normal.jpg",
+      "sha256": "d3f20664d9351e92a9716b2cc960be45d90ec62a6c684f8e13cef887a8938dcb",
+      "bytes": 8595
+    },
+    {
+      "path": "missing-motion/frog-1-dislike-idle-reduced.jpg",
+      "sha256": "c8382dfd95a47bbee6cfee4be154e2d1bdac42f0f245f6dc07f45db48c39a1cb",
+      "bytes": 8480
+    },
+    {
+      "path": "missing-motion/frog-1-dislike-walk-normal.jpg",
+      "sha256": "05b019ecfc893e3a08a64d1da83445eac61bb4faeaf10b1950ef99833980ed94",
+      "bytes": 8628
+    },
+    {
+      "path": "missing-motion/frog-1-dislike-walk-reduced.jpg",
+      "sha256": "be8c359f8cec41b80545ea655f9a2509776ce8a52ee42501004686096383f82c",
+      "bytes": 8513
+    },
+    {
+      "path": "missing-motion/frog-1-motion.jpg",
+      "sha256": "9e3a4beef84212d97522181c65df1c6660feb691085c7c2eff2f79abd5c3b3d7",
+      "bytes": 333327
+    },
+    {
+      "path": "missing-motion/frog-1-normal-idle-normal.jpg",
+      "sha256": "08d75b4a30605c64e520bfd321efcc569fe43db1dfc28df4a558af150af72a30",
+      "bytes": 8640
+    },
+    {
+      "path": "missing-motion/frog-1-normal-idle-reduced.jpg",
+      "sha256": "c90cfc545ebff9be9495bb96a45cf5f0dce78ed3625d10944ee687be0df84f34",
+      "bytes": 8447
+    },
+    {
+      "path": "missing-motion/frog-1-normal-walk-normal.jpg",
+      "sha256": "35eee063b1d0009c42d9f3f5cb4ed37c9681f3c414714176f6771af084839296",
+      "bytes": 8745
+    },
+    {
+      "path": "missing-motion/frog-1-normal-walk-reduced.jpg",
+      "sha256": "66cca0d5fed07473727c246759ed771884cf656d37d3482d0733a464014bfca0",
+      "bytes": 8479
+    },
+    {
+      "path": "missing-motion/frog-1-positive-idle-normal.jpg",
+      "sha256": "6df8e8e8ae4fadc2faf7d30971d0148c957066c8de57d5ac05834480476f821a",
+      "bytes": 9741
+    },
+    {
+      "path": "missing-motion/frog-1-positive-idle-reduced.jpg",
+      "sha256": "3be57b9246ffee856f83781c94bbd06075efd6e0237368ca117085666346f374",
+      "bytes": 8845
+    },
+    {
+      "path": "missing-motion/frog-1-positive-walk-normal.jpg",
+      "sha256": "06ca92e9c6cc9c98ef703be716c54312f8d1e66cb417262af382db510f85a384",
+      "bytes": 10108
+    },
+    {
+      "path": "missing-motion/frog-1-positive-walk-reduced.jpg",
+      "sha256": "822be73ebed57a70f71f35ae8e5e1e2f3a6c61a2612d2d76bc95afddc5ea8b64",
+      "bytes": 8956
+    },
+    {
+      "path": "missing-motion/frog-1-sick-idle-normal.jpg",
+      "sha256": "92f6662d53a52ae3957838e03d4d2f7ef282e0f09549192ceeb44a3fd93e26e1",
+      "bytes": 8799
+    },
+    {
+      "path": "missing-motion/frog-1-sick-idle-reduced.jpg",
+      "sha256": "7502371dc446350238f46af802a1faa1df9b9e62c9a57566971d4bee8c847e8d",
+      "bytes": 8661
+    },
+    {
+      "path": "missing-motion/frog-1-sick-walk-normal.jpg",
+      "sha256": "c48ecfb75ab2fe99a5af0663745dc26875140a00fb827f895fa975de680ec3ac",
+      "bytes": 8654
+    },
+    {
+      "path": "missing-motion/frog-1-sick-walk-reduced.jpg",
+      "sha256": "a52bedfb01d0581e04f281854e168e0421afb0e6066a799ff4ce06a8b1ff939c",
+      "bytes": 8470
+    },
+    {
+      "path": "missing-motion/frog-1-sleeping-idle-normal.jpg",
+      "sha256": "32252de2bafc896ed28de8526987177d5680f6fe07ea78feb6e6535a4f8cc67e",
+      "bytes": 8269
+    },
+    {
+      "path": "missing-motion/frog-1-sleeping-idle-reduced.jpg",
+      "sha256": "96d42aa8191d1d261d682b58150cc7f7b79f0f745c8eab758bcc1368f8c3c72b",
+      "bytes": 8085
+    },
+    {
+      "path": "missing-motion/frog-1-sleeping-walk-normal.jpg",
+      "sha256": "31541c56c85b6be95a708347078c9accb323210af73be017ca0504c70010e1e4",
+      "bytes": 8380
+    },
+    {
+      "path": "missing-motion/frog-1-sleeping-walk-reduced.jpg",
+      "sha256": "dd0a2b90b7c6bb1aab4c3d0f1509a8edcb2de49e1f691d9cbd79263fe062684a",
+      "bytes": 8118
+    },
+    {
+      "path": "missing-motion/frog-1-strained-idle-normal.jpg",
+      "sha256": "ed5cdb045be79feee9cbd40ce5708ceb06b2bfefde62a37e20d9441802883023",
+      "bytes": 8888
+    },
+    {
+      "path": "missing-motion/frog-1-strained-idle-reduced.jpg",
+      "sha256": "8ee7cfd09f4848a0eeb88f48bc3845c9e5c840400e7c279a8070d62e87e4ceb2",
+      "bytes": 8730
+    },
+    {
+      "path": "missing-motion/frog-1-strained-walk-normal.jpg",
+      "sha256": "0909b63a3fbd141599ac56d9c99090a39cd2a1481262fb23e0039ef47a46f36c",
+      "bytes": 9173
+    },
+    {
+      "path": "missing-motion/frog-1-strained-walk-reduced.jpg",
+      "sha256": "1e455bd35bfc0e0a4abf339a0de20530d9a73fe0404c96d51346d951c1177182",
+      "bytes": 8817
+    },
+    {
+      "path": "missing-motion/frog-1-tired-idle-normal.jpg",
+      "sha256": "6eddbe14014f92e514e967b1b4575b9bb8a02a6172deffb204801027b93c3a00",
+      "bytes": 8423
+    },
+    {
+      "path": "missing-motion/frog-1-tired-idle-reduced.jpg",
+      "sha256": "b2106d7441f12cd7c9649d11138fe3d99b2aaaaaace220a5440db70d328a58f4",
+      "bytes": 8262
+    },
+    {
+      "path": "missing-motion/frog-1-tired-walk-normal.jpg",
+      "sha256": "db99257991c0aea0aa9248442dae965fb444e11bc23f96b2b31dffc3e9343b9e",
+      "bytes": 8314
+    },
+    {
+      "path": "missing-motion/frog-1-tired-walk-reduced.jpg",
+      "sha256": "c85fd7fb35257e6312e4339226727a673631a325bdb8fc59b21694081e983403",
+      "bytes": 8216
+    },
+    {
+      "path": "missing-motion/frog-1-wantsPlay-idle-normal.jpg",
+      "sha256": "d4b65a7b729d04db36a7cd2aef15b02ae9635072313b8216be161bb5c48724b4",
+      "bytes": 8079
+    },
+    {
+      "path": "missing-motion/frog-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "cc062729e766712958f70e5543937f0cacb52d576659c1cebf60465abd698773",
+      "bytes": 9040
+    },
+    {
+      "path": "missing-motion/frog-1-wantsPlay-walk-normal.jpg",
+      "sha256": "973c0421d11e521b0a8023ac64e330cb29b04b292606aed1b0ae506ec81c124c",
+      "bytes": 8323
+    },
+    {
+      "path": "missing-motion/frog-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "cd368b9bf4810eface5c1b0aea6146f2071c1dc697b5174bb611734bbd9d9025",
+      "bytes": 8996
+    },
+    {
+      "path": "missing-motion/frog-2-dislike-idle-normal.jpg",
+      "sha256": "e8d6c3808d21205cb1b9a9b29170f1c7172c2d2d23e1c6a76df01afc9d407913",
+      "bytes": 8199
+    },
+    {
+      "path": "missing-motion/frog-2-dislike-idle-reduced.jpg",
+      "sha256": "37e33685295f62100e28c847c4e7edd95a4a41b368892410f5f12cf02d2a86d9",
+      "bytes": 7989
+    },
+    {
+      "path": "missing-motion/frog-2-dislike-walk-normal.jpg",
+      "sha256": "3ccfbd2d11176fbcc78291469f081b2802ba57946c5eee54401e87b64ce1aa30",
+      "bytes": 8274
+    },
+    {
+      "path": "missing-motion/frog-2-dislike-walk-reduced.jpg",
+      "sha256": "c397e0552d4e0186b553721975e8bf64c97becb5777f713d9c7455d451589242",
+      "bytes": 8113
+    },
+    {
+      "path": "missing-motion/frog-2-motion.jpg",
+      "sha256": "74eb501ad2ed959b0d343019e29d01b715338f82d90e2f54f709e6cc5c8449b8",
+      "bytes": 307415
+    },
+    {
+      "path": "missing-motion/frog-2-normal-idle-normal.jpg",
+      "sha256": "2573d1cf456db63921597c0c0e28f34ae40e3e9f970565f4e25d1ed6f8e220d8",
+      "bytes": 8144
+    },
+    {
+      "path": "missing-motion/frog-2-normal-idle-reduced.jpg",
+      "sha256": "e56341e49a8107625648051276920fcfec9d2e43cbacb315a65f7d789f046fa8",
+      "bytes": 8033
+    },
+    {
+      "path": "missing-motion/frog-2-normal-walk-normal.jpg",
+      "sha256": "f397c412062ceb3531df0ea0689209843129b56460f4a1bd92c4fd68a2210ac4",
+      "bytes": 8417
+    },
+    {
+      "path": "missing-motion/frog-2-normal-walk-reduced.jpg",
+      "sha256": "d4ac9c8a3a3b7912af9dab57690dd8acf44cc4aaf5dc845b15ef421864804735",
+      "bytes": 8152
+    },
+    {
+      "path": "missing-motion/frog-2-positive-idle-normal.jpg",
+      "sha256": "85b5ab39a483938f26c0c2386574689b9392a0c83068c319ddb9b2a56422c407",
+      "bytes": 9231
+    },
+    {
+      "path": "missing-motion/frog-2-positive-idle-reduced.jpg",
+      "sha256": "fe7a6268889b85be561308aede46db694303981d8b9ae6b5d59c0f07e5ce968c",
+      "bytes": 8069
+    },
+    {
+      "path": "missing-motion/frog-2-positive-walk-normal.jpg",
+      "sha256": "5a960f065fc6c55dda5a593084f8a0f03ab32a16bb2a0ffcee03b238039b1cb8",
+      "bytes": 9555
+    },
+    {
+      "path": "missing-motion/frog-2-positive-walk-reduced.jpg",
+      "sha256": "7ac54abbfe6f8aeeac1848f21a6eba4cb725656bccf21058df6879e1b4c78b11",
+      "bytes": 8264
+    },
+    {
+      "path": "missing-motion/frog-2-sick-idle-normal.jpg",
+      "sha256": "68a31c09a15e0094ec453fc136f412ea6cf6813772cdbd8f7a707a21539f7244",
+      "bytes": 8055
+    },
+    {
+      "path": "missing-motion/frog-2-sick-idle-reduced.jpg",
+      "sha256": "6a48e0b794200d2f4036032cdcdd2283da6c98acc06d341258a4f8c90d306265",
+      "bytes": 7915
+    },
+    {
+      "path": "missing-motion/frog-2-sick-walk-normal.jpg",
+      "sha256": "cf191c4317aaaf79ddb5754db13c43922ca187b7a3bf56946bf14f7b1db1d340",
+      "bytes": 7943
+    },
+    {
+      "path": "missing-motion/frog-2-sick-walk-reduced.jpg",
+      "sha256": "57a9e8edae430a880925d08ad9caf80ad7171b6ca5ec4707718119b64a0c7a75",
+      "bytes": 7806
+    },
+    {
+      "path": "missing-motion/frog-2-sleeping-idle-normal.jpg",
+      "sha256": "1c03fa85da3441de85d9460a91a11d3fcd6601e74b25daaa5add6f8e6ca96d4c",
+      "bytes": 7679
+    },
+    {
+      "path": "missing-motion/frog-2-sleeping-idle-reduced.jpg",
+      "sha256": "2a4ac1b1e9bea054283eb061eb9bdb7ef62a62f5e85962a5ed971ac13212a937",
+      "bytes": 7557
+    },
+    {
+      "path": "missing-motion/frog-2-sleeping-walk-normal.jpg",
+      "sha256": "11007f2a2d95d803fef251c2ca2e533d14e2ce2d79c7845e1a339e2602f6571f",
+      "bytes": 8027
+    },
+    {
+      "path": "missing-motion/frog-2-sleeping-walk-reduced.jpg",
+      "sha256": "04d2b36f67530b4d4272fc546071eb7dde45e4b22c8abd5feb4dd1fb7cb351c7",
+      "bytes": 7762
+    },
+    {
+      "path": "missing-motion/frog-2-strained-idle-normal.jpg",
+      "sha256": "95cae0481959fb39067138c68585870cec2510d8b7da737871af04523a014cbd",
+      "bytes": 8236
+    },
+    {
+      "path": "missing-motion/frog-2-strained-idle-reduced.jpg",
+      "sha256": "963163d411f4d75e016c6ed6346bb9be16fae47f4675ed816a6fef856ac65b86",
+      "bytes": 8041
+    },
+    {
+      "path": "missing-motion/frog-2-strained-walk-normal.jpg",
+      "sha256": "8f03b3bbe764499275dd2e4a53ccec028dc303e8af3aef1c1ff108ca98d5ca0d",
+      "bytes": 8662
+    },
+    {
+      "path": "missing-motion/frog-2-strained-walk-reduced.jpg",
+      "sha256": "ce1498e12efcfb6e0ebec33ab7c2ad58ced023cda08a336eb3e96e055fc7c49d",
+      "bytes": 8194
+    },
+    {
+      "path": "missing-motion/frog-2-tired-idle-normal.jpg",
+      "sha256": "fe4b2b5a6f0913185e0e77a74c9a5c1fb18c2c342dbfd1557bc9d60c7c3d77e7",
+      "bytes": 7779
+    },
+    {
+      "path": "missing-motion/frog-2-tired-idle-reduced.jpg",
+      "sha256": "21110f289c86b3bb7f5f647a8cc9e5ff6d7175fce5fc11c7f6581d4cdeda4c97",
+      "bytes": 7654
+    },
+    {
+      "path": "missing-motion/frog-2-tired-walk-normal.jpg",
+      "sha256": "c1ea0d1c3b0664a23cd3f3a614c4439f5af60b15ee60bf587945c1534bce7e81",
+      "bytes": 7787
+    },
+    {
+      "path": "missing-motion/frog-2-tired-walk-reduced.jpg",
+      "sha256": "93d51d06a56ecf1c6977ea3787db655d0754ae682fda34623b4609c76f2ffd1b",
+      "bytes": 7664
+    },
+    {
+      "path": "missing-motion/frog-2-wantsPlay-idle-normal.jpg",
+      "sha256": "985e4f9db3c98d353bb2529dc5134af122abd5ca41cff804bdfe0cf81c75c3ca",
+      "bytes": 7407
+    },
+    {
+      "path": "missing-motion/frog-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "87e515379c99080f79b1de75a18e90927c36788799b59a7418bf1311f06b6f66",
+      "bytes": 8219
+    },
+    {
+      "path": "missing-motion/frog-2-wantsPlay-walk-normal.jpg",
+      "sha256": "f1a96ff058e08269697272752c26a3da78ee7bb98c930b1015ea76cafe89414a",
+      "bytes": 7588
+    },
+    {
+      "path": "missing-motion/frog-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "80b333d5df09e326a224715eab296af31d0a2f3d6c72787bcf96134f18b6e99b",
+      "bytes": 8200
+    },
+    {
+      "path": "missing-motion/frog-4-dislike-idle-normal.jpg",
+      "sha256": "b2c1abe31df063799a8c0942d675b8010c63db15a0cb7391be8adcca4314268a",
+      "bytes": 9720
+    },
+    {
+      "path": "missing-motion/frog-4-dislike-idle-reduced.jpg",
+      "sha256": "13062d83a227a2b907eb8823258c76f928a2c3c0fbfa79f0087460d72b29839b",
+      "bytes": 9539
+    },
+    {
+      "path": "missing-motion/frog-4-dislike-walk-normal.jpg",
+      "sha256": "432cacd0191329e5e6b43b3ed38b83dc9dd5f040f2ddab88e4a29cd19bd31a3d",
+      "bytes": 9918
+    },
+    {
+      "path": "missing-motion/frog-4-dislike-walk-reduced.jpg",
+      "sha256": "9d38e4004d56841a0e5950e031b735e048d9b3bec61f0443af13b77de81cefeb",
+      "bytes": 9616
+    },
+    {
+      "path": "missing-motion/frog-4-motion.jpg",
+      "sha256": "150a34aadf0702defd34a69e1bbbdcb1897135c9c0f6e45a5aa2077739a23ace",
+      "bytes": 395113
+    },
+    {
+      "path": "missing-motion/frog-4-normal-idle-normal.jpg",
+      "sha256": "f57de021032de21b90b30aaace4e59fd6727c71bbdcb7a60c79f8e71f4e7017c",
+      "bytes": 10095
+    },
+    {
+      "path": "missing-motion/frog-4-normal-idle-reduced.jpg",
+      "sha256": "205258acb0b718ebb5a628cecba9d54a4acc32f81b79396086a3e87ad576a981",
+      "bytes": 9891
+    },
+    {
+      "path": "missing-motion/frog-4-normal-walk-normal.jpg",
+      "sha256": "59b7057beeff0ac2e9d9703fedade19ac560fc12794b2b0a15c09b0e9d5e504f",
+      "bytes": 10329
+    },
+    {
+      "path": "missing-motion/frog-4-normal-walk-reduced.jpg",
+      "sha256": "8711f28b0e8ba45ea750f28b736719f22fae8b47e9b49c89c5dd836c0118c560",
+      "bytes": 9993
+    },
+    {
+      "path": "missing-motion/frog-4-positive-idle-normal.jpg",
+      "sha256": "c3cb202eb1f4433918568e05d11ec076851aacd3a5aa4cb8600bd954701cc666",
+      "bytes": 11346
+    },
+    {
+      "path": "missing-motion/frog-4-positive-idle-reduced.jpg",
+      "sha256": "d26b2e246d69c55782b0abac0ab0fa0211798a5e4b9fc722f9e397f98cd5ad95",
+      "bytes": 10107
+    },
+    {
+      "path": "missing-motion/frog-4-positive-walk-normal.jpg",
+      "sha256": "0144e158fb068046935c7ae3abc7e6ce54d36d18e9e3e727210b490c58c8b439",
+      "bytes": 11508
+    },
+    {
+      "path": "missing-motion/frog-4-positive-walk-reduced.jpg",
+      "sha256": "a824d0dea0e69e7ba10a83abca997f09ea03b5d541ebe465537c61e6bcad0766",
+      "bytes": 10033
+    },
+    {
+      "path": "missing-motion/frog-4-sick-idle-normal.jpg",
+      "sha256": "8ed2a067c5ae1438f553afbc051c55e4d65355d1305c228591dfcc5041fb8e6c",
+      "bytes": 9928
+    },
+    {
+      "path": "missing-motion/frog-4-sick-idle-reduced.jpg",
+      "sha256": "7ce8d86c8286c1fb4cde5c35dc8b5bfad5e5fcdb2adfb0ce4ba013613cb89e97",
+      "bytes": 9707
+    },
+    {
+      "path": "missing-motion/frog-4-sick-walk-normal.jpg",
+      "sha256": "4d728c6adc69d8abc00829f81f8f248e59e0709de9b30e3c4aabadb5962e4b34",
+      "bytes": 9528
+    },
+    {
+      "path": "missing-motion/frog-4-sick-walk-reduced.jpg",
+      "sha256": "a9c892150af268a8453cf34ab50ddb3ea393810af39922fea02cf5bb1615f55e",
+      "bytes": 9594
+    },
+    {
+      "path": "missing-motion/frog-4-sleeping-idle-normal.jpg",
+      "sha256": "243a15f733c6a1124879629c7461c1d6cd9e88fa7ea7ea1f169a614c32879723",
+      "bytes": 9550
+    },
+    {
+      "path": "missing-motion/frog-4-sleeping-idle-reduced.jpg",
+      "sha256": "57ae8ea286bcdbe464ab1f29faec5cfa31de9d689baba458dc5f835584d185d1",
+      "bytes": 9347
+    },
+    {
+      "path": "missing-motion/frog-4-sleeping-walk-normal.jpg",
+      "sha256": "8826ea158a1e3f76edfae1661ae4c6fb74bce35058427966651b6d4ad929e607",
+      "bytes": 9632
+    },
+    {
+      "path": "missing-motion/frog-4-sleeping-walk-reduced.jpg",
+      "sha256": "50198a64d3bf50dc0de2a9aa080497705cd519e443f8c627050975f5297dcfd3",
+      "bytes": 9399
+    },
+    {
+      "path": "missing-motion/frog-4-strained-idle-normal.jpg",
+      "sha256": "c592cc7d6a2ffc76c077f7c7adb89178ee67af5ff3fe17b13bbb532f76730406",
+      "bytes": 10138
+    },
+    {
+      "path": "missing-motion/frog-4-strained-idle-reduced.jpg",
+      "sha256": "88f1cf3cc8be02b3cecd7ef17e0f2cb662769357989e76a0ec777986e75bbb33",
+      "bytes": 9942
+    },
+    {
+      "path": "missing-motion/frog-4-strained-walk-normal.jpg",
+      "sha256": "038fdc922e0378e12fd2f94d890ddbbac5736f406fe71f463fef0e11a0fe5a9e",
+      "bytes": 10104
+    },
+    {
+      "path": "missing-motion/frog-4-strained-walk-reduced.jpg",
+      "sha256": "c3503a7f187b1692c2c2aea63aa0e3da725eb3dee198ed055ac9936eddbc013f",
+      "bytes": 9982
+    },
+    {
+      "path": "missing-motion/frog-4-tired-idle-normal.jpg",
+      "sha256": "c5e1221cdcb16dbfe38eb7bce44c35e301fa7fb18f5dc651d6de923c2f3e12f8",
+      "bytes": 9555
+    },
+    {
+      "path": "missing-motion/frog-4-tired-idle-reduced.jpg",
+      "sha256": "1578f0a6fdfd74125f5308865261d14436811d7f17e7e1fdb5cf0c32c1544f07",
+      "bytes": 9388
+    },
+    {
+      "path": "missing-motion/frog-4-tired-walk-normal.jpg",
+      "sha256": "78f669c303c557b901fa04bc1f1d3b5b32e9ed86a5ba0766cf23e6b3ca6b9d30",
+      "bytes": 9292
+    },
+    {
+      "path": "missing-motion/frog-4-tired-walk-reduced.jpg",
+      "sha256": "7b5ad6714f9db742bd16c1e4028477c366feabf272d12d0c172bb7668800df54",
+      "bytes": 9301
+    },
+    {
+      "path": "missing-motion/frog-4-wantsPlay-idle-normal.jpg",
+      "sha256": "be09c95903407c79f59df74433f415915df6767619a3c55ddae31ca22ccaf7d0",
+      "bytes": 9668
+    },
+    {
+      "path": "missing-motion/frog-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "c22508421e8ad507543c4729a219f08d54d6eb54804fb33148ea71b5405c1610",
+      "bytes": 10064
+    },
+    {
+      "path": "missing-motion/frog-4-wantsPlay-walk-normal.jpg",
+      "sha256": "1d2f5cd19af29d5adc29b2e7d7716a687ef77699dc6a12a5874763716b3fb6dd",
+      "bytes": 9665
+    },
+    {
+      "path": "missing-motion/frog-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "041d1048969f1b5593e4dca01c71b71f7ca72cade4da681ef3a58378adee277a",
+      "bytes": 9919
+    },
+    {
+      "path": "missing-motion/frog-6-dislike-idle-normal.jpg",
+      "sha256": "79b75eb22531817ac7a0342ef32481f5a7eff02cd1f20d178df26bdc53611fd8",
+      "bytes": 12661
+    },
+    {
+      "path": "missing-motion/frog-6-dislike-idle-reduced.jpg",
+      "sha256": "3ae5e4e2b609be00ea13739b108dd94cadf0c482f46016434d9540a05a4d846f",
+      "bytes": 12751
+    },
+    {
+      "path": "missing-motion/frog-6-dislike-walk-normal.jpg",
+      "sha256": "e4ce996b47cb86334a61f34477d8c7c0e39a10b9421e2f516b14032f64586f07",
+      "bytes": 12634
+    },
+    {
+      "path": "missing-motion/frog-6-dislike-walk-reduced.jpg",
+      "sha256": "85e6daf70282e3fd3950c80416f0dd2f9c283b0b0256d23fc00014280cb90f26",
+      "bytes": 12645
+    },
+    {
+      "path": "missing-motion/frog-6-motion.jpg",
+      "sha256": "49c16bf036f1476eb19c5f5be93d9bc5e8ce9686103947bfa1bfd9aa41e96adf",
+      "bytes": 515005
+    },
+    {
+      "path": "missing-motion/frog-6-normal-idle-normal.jpg",
+      "sha256": "b8298ec54fdf5263e0063776644233ee88a9957ffbd7ca3f8669ee1cbd5e3b09",
+      "bytes": 12548
+    },
+    {
+      "path": "missing-motion/frog-6-normal-idle-reduced.jpg",
+      "sha256": "74b37a88a9bbbe067595077ed81523670515095555e39a0e8c03e4f7da042128",
+      "bytes": 12637
+    },
+    {
+      "path": "missing-motion/frog-6-normal-walk-normal.jpg",
+      "sha256": "65f9df591f9560d6396c42504064dd87d4cf690d0d60b4e1500bd6db17ee4659",
+      "bytes": 13179
+    },
+    {
+      "path": "missing-motion/frog-6-normal-walk-reduced.jpg",
+      "sha256": "d6bcb13dc702d5c9e9fdf100feb05c5ae7211f2c9a660fe376c2103eede3d1f6",
+      "bytes": 12970
+    },
+    {
+      "path": "missing-motion/frog-6-positive-idle-normal.jpg",
+      "sha256": "0ce0602617eb48a865ece4e80182d38f666b01c3a5e09bc67025f419855b71bc",
+      "bytes": 12682
+    },
+    {
+      "path": "missing-motion/frog-6-positive-idle-reduced.jpg",
+      "sha256": "593c1e11fc1675bbe7183edfe6925655651c2bdded3e1b9b7750b7ba33995875",
+      "bytes": 12790
+    },
+    {
+      "path": "missing-motion/frog-6-positive-walk-normal.jpg",
+      "sha256": "fd3942754b5234ee7ebfea9dd0688e35d9f8b78602063b535bfb4e994e03dc98",
+      "bytes": 13456
+    },
+    {
+      "path": "missing-motion/frog-6-positive-walk-reduced.jpg",
+      "sha256": "cc6a52f149f9eb51e59004dcafca91c33fc72caa266a469feae583b404639acf",
+      "bytes": 13350
+    },
+    {
+      "path": "missing-motion/frog-6-sick-idle-normal.jpg",
+      "sha256": "7ed6e7c3ff12ae969d6249ea5a5d5aaef610309d76d87864c76606a6aee9cbd9",
+      "bytes": 12103
+    },
+    {
+      "path": "missing-motion/frog-6-sick-idle-reduced.jpg",
+      "sha256": "4e8e4f53cd48f80cbb2fa303ea78138d30149c7119461df378c393d0383928bd",
+      "bytes": 12204
+    },
+    {
+      "path": "missing-motion/frog-6-sick-walk-normal.jpg",
+      "sha256": "3ad991e9be06cd77eb5e74e432b0a8af24cbfbc3069629ad5a0ca7984459a44a",
+      "bytes": 12338
+    },
+    {
+      "path": "missing-motion/frog-6-sick-walk-reduced.jpg",
+      "sha256": "d364812e7321f446215f5bf14dfaa46824aafdb000a1d98ea206a732ccb8d564",
+      "bytes": 12457
+    },
+    {
+      "path": "missing-motion/frog-6-sleeping-idle-normal.jpg",
+      "sha256": "2cddefbb70a3bd48e46948ee3cb66f6cd5b8e90e0005680e17a8a2e5432284ce",
+      "bytes": 11950
+    },
+    {
+      "path": "missing-motion/frog-6-sleeping-idle-reduced.jpg",
+      "sha256": "7b95dbc5c6334375e6b3e169e749c83922f4cf6b975354f0c328a2a20016c9c4",
+      "bytes": 12035
+    },
+    {
+      "path": "missing-motion/frog-6-sleeping-walk-normal.jpg",
+      "sha256": "bb9efe309d55418cc8ef792a352dde7dec215f4deb936e4524e9442a4ac54706",
+      "bytes": 12489
+    },
+    {
+      "path": "missing-motion/frog-6-sleeping-walk-reduced.jpg",
+      "sha256": "8d7c0f2496890c46e6d5d240bb16ca0b20471e82f5a67b2ca6b502738b525f06",
+      "bytes": 12447
+    },
+    {
+      "path": "missing-motion/frog-6-strained-idle-normal.jpg",
+      "sha256": "a0a51538dbf7d59ef02d54c8b4a6259f151e05a9d684d343ce6de4f602f50f79",
+      "bytes": 12277
+    },
+    {
+      "path": "missing-motion/frog-6-strained-idle-reduced.jpg",
+      "sha256": "7a90c4945654da59e8f563fc02fb7ee6249a59e959dc6728a88debd549fe4dd6",
+      "bytes": 12359
+    },
+    {
+      "path": "missing-motion/frog-6-strained-walk-normal.jpg",
+      "sha256": "6ad629e2c182bc0a69198d8637b7b133c5ac62c9e298b17d12e780c919095177",
+      "bytes": 13000
+    },
+    {
+      "path": "missing-motion/frog-6-strained-walk-reduced.jpg",
+      "sha256": "15a668ad79bb7f53f5baa19ec896e61847321d195a2fbff41512de58d6a20763",
+      "bytes": 12745
+    },
+    {
+      "path": "missing-motion/frog-6-tired-idle-normal.jpg",
+      "sha256": "0bfc06cc04504a86a2a2cc955736b6863166cfbb74e62188d593df82864612d3",
+      "bytes": 11779
+    },
+    {
+      "path": "missing-motion/frog-6-tired-idle-reduced.jpg",
+      "sha256": "3c273070d0a269fe0f250f7e3b4a6c1c59b2cd4a10d9682d5568ba0ecf354873",
+      "bytes": 11869
+    },
+    {
+      "path": "missing-motion/frog-6-tired-walk-normal.jpg",
+      "sha256": "03a3427183445ecfcee319e2a7dfeb1cb63bf235fe6605c7c0198f67758dbb2f",
+      "bytes": 12056
+    },
+    {
+      "path": "missing-motion/frog-6-tired-walk-reduced.jpg",
+      "sha256": "9d3745492242fd04aab802908bcd3db3e1a419166b9a3372152e4d20d56daf62",
+      "bytes": 11939
+    },
+    {
+      "path": "missing-motion/frog-6-wantsPlay-idle-normal.jpg",
+      "sha256": "f7e5c3d40b817268b01dacd65d4eee5d98a40db2401eb40329070a1a85244d16",
+      "bytes": 12697
+    },
+    {
+      "path": "missing-motion/frog-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "b766968dc5e1c49071581fa05406b11163161fd025b0712b5cee5e4a868a541d",
+      "bytes": 12764
+    },
+    {
+      "path": "missing-motion/frog-6-wantsPlay-walk-normal.jpg",
+      "sha256": "b088a31d3ff94bd2aa60a865e52095a6efe8bc4b8e8a24fe04ecc3260df67c4d",
+      "bytes": 13271
+    },
+    {
+      "path": "missing-motion/frog-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "38e313bbe17ab942ee00638f804bed87c5ebdd722e91aaaac7f4d04821182ebb",
+      "bytes": 13086
+    },
+    {
+      "path": "missing-motion/frog-8-dislike-idle-normal.jpg",
+      "sha256": "64303fdab7da9fc00c0ed35e0986b987897b614a9d26504f9af99efae14539dc",
+      "bytes": 12470
+    },
+    {
+      "path": "missing-motion/frog-8-dislike-idle-reduced.jpg",
+      "sha256": "31c0d82fc50671a03db2f0a43f42ddb90632757d3d365c4491d5870ec0b30b5d",
+      "bytes": 12566
+    },
+    {
+      "path": "missing-motion/frog-8-dislike-walk-normal.jpg",
+      "sha256": "05eeb1220e2ed2ba9f7f60dd48d195d372e2f1efb653051294287de98ae0f356",
+      "bytes": 12461
+    },
+    {
+      "path": "missing-motion/frog-8-dislike-walk-reduced.jpg",
+      "sha256": "87b2e21159b3d917e023be7ca98d75f7a7c9d0337e0d82f5a6be595a1f7e5b3c",
+      "bytes": 12454
+    },
+    {
+      "path": "missing-motion/frog-8-motion.jpg",
+      "sha256": "140aa50c35363f3b0367e869e70fb6ee726f01cc53724be7710adbb0545f13a4",
+      "bytes": 532988
+    },
+    {
+      "path": "missing-motion/frog-8-normal-idle-normal.jpg",
+      "sha256": "9c97b1c5014b0ae00d3f6c17cb659b56a1d1d949ea07cd5ee10c7dcf88212a6f",
+      "bytes": 12358
+    },
+    {
+      "path": "missing-motion/frog-8-normal-idle-reduced.jpg",
+      "sha256": "4f016d2d1fd1c8f9e48cefe66c4f111c1f4d3cf3883dbaa8d28d568c23c0fe41",
+      "bytes": 12445
+    },
+    {
+      "path": "missing-motion/frog-8-normal-walk-normal.jpg",
+      "sha256": "e40579c67496f29d8b8caa7a85e2ca908c40ec27a0912e6bff8baa80ea3780b8",
+      "bytes": 12749
+    },
+    {
+      "path": "missing-motion/frog-8-normal-walk-reduced.jpg",
+      "sha256": "a5ab538cf7153ae3ff96408c587c00fb0211563914d36037e0a5866505fc4f4a",
+      "bytes": 12607
+    },
+    {
+      "path": "missing-motion/frog-8-positive-idle-normal.jpg",
+      "sha256": "f99d70ef653ca75b656f2eb35e8c72622e1c3c32d62e8a2bc438d52ed4188142",
+      "bytes": 12553
+    },
+    {
+      "path": "missing-motion/frog-8-positive-idle-reduced.jpg",
+      "sha256": "3175e13633c0574abd8d2e683266cedb816662bc924b35768f169e49133e156d",
+      "bytes": 12668
+    },
+    {
+      "path": "missing-motion/frog-8-positive-walk-normal.jpg",
+      "sha256": "002cb7a0a40158829d4020712f79265a7d961a06a3eb253c0d98ba7373d6f66c",
+      "bytes": 12993
+    },
+    {
+      "path": "missing-motion/frog-8-positive-walk-reduced.jpg",
+      "sha256": "fbd39b3d27fd1a25d6ce7830ffe875aa46e5c42a862b385e109d028800097fba",
+      "bytes": 13165
+    },
+    {
+      "path": "missing-motion/frog-8-sick-idle-normal.jpg",
+      "sha256": "45f4b93a54ba870cc0e7e1bc1eed0744a14e439efb9c6e25d46be69ea23dfaa2",
+      "bytes": 11855
+    },
+    {
+      "path": "missing-motion/frog-8-sick-idle-reduced.jpg",
+      "sha256": "2100ffc42b6ae227f55ec547d717e3a1c6dd3773970efe98d2e94a8713c37a26",
+      "bytes": 11954
+    },
+    {
+      "path": "missing-motion/frog-8-sick-walk-normal.jpg",
+      "sha256": "1cd845ce290f284394bf84dc2a325c4eef60892de128632fbae2447b56d257cb",
+      "bytes": 12270
+    },
+    {
+      "path": "missing-motion/frog-8-sick-walk-reduced.jpg",
+      "sha256": "3f08f2e683629093b21280260d61caf8d127806daf4b48656fa95a06cea7c38f",
+      "bytes": 12213
+    },
+    {
+      "path": "missing-motion/frog-8-sleeping-idle-normal.jpg",
+      "sha256": "4382b36f3ed669b802f9254b0ea32605103754ca1887d3a14651b6a758323f85",
+      "bytes": 11815
+    },
+    {
+      "path": "missing-motion/frog-8-sleeping-idle-reduced.jpg",
+      "sha256": "19928dcae60488b511178662ae4d670efb161d1dfa6fe5401cd6610a45309e2c",
+      "bytes": 11887
+    },
+    {
+      "path": "missing-motion/frog-8-sleeping-walk-normal.jpg",
+      "sha256": "a633dc0d5489ef26bfe1bff192dc9001f824c6e58ec405f37a48ed050c115f2f",
+      "bytes": 12279
+    },
+    {
+      "path": "missing-motion/frog-8-sleeping-walk-reduced.jpg",
+      "sha256": "df9c51fc60b2a35b3b0ec89bb9369e462dc711c67d4aed5d097c9e3fc8288a52",
+      "bytes": 12229
+    },
+    {
+      "path": "missing-motion/frog-8-strained-idle-normal.jpg",
+      "sha256": "0d7776b236a43cce86434deed660d7425bc791851ee3c4f2b0e802e47fe1488a",
+      "bytes": 12199
+    },
+    {
+      "path": "missing-motion/frog-8-strained-idle-reduced.jpg",
+      "sha256": "7405ef451607ac57c4c22d4be2154e019e9945c1ce6dc80e3fa8ffa97481187e",
+      "bytes": 12288
+    },
+    {
+      "path": "missing-motion/frog-8-strained-walk-normal.jpg",
+      "sha256": "34e6b3996463a1c31a4b4db51bb02b1668b937d93567f3693b9a03c9f48d0112",
+      "bytes": 12537
+    },
+    {
+      "path": "missing-motion/frog-8-strained-walk-reduced.jpg",
+      "sha256": "f71471213123def5d3b966736e55f4fb6dfd7c0a5a8cfa8eb8795edb4186f483",
+      "bytes": 12451
+    },
+    {
+      "path": "missing-motion/frog-8-tired-idle-normal.jpg",
+      "sha256": "e5e62e18ada94cc9bc75af6e16c9327ff68b13ee8e81d89286ee48c9eaed525d",
+      "bytes": 11743
+    },
+    {
+      "path": "missing-motion/frog-8-tired-idle-reduced.jpg",
+      "sha256": "f8d4bc22d7de2365a1265910802bd1226e0f727899a49d5b626b5aeac9d5f842",
+      "bytes": 11851
+    },
+    {
+      "path": "missing-motion/frog-8-tired-walk-normal.jpg",
+      "sha256": "3a21309ba16f009e10289f3fb5d042349805e3ccb23a27a3b1a71229e3b16928",
+      "bytes": 11652
+    },
+    {
+      "path": "missing-motion/frog-8-tired-walk-reduced.jpg",
+      "sha256": "c30cec72ce84d9f9210de8bd63cf7af421399ee1b93936c24d82eeb7b42fe167",
+      "bytes": 11862
+    },
+    {
+      "path": "missing-motion/frog-8-wantsPlay-idle-normal.jpg",
+      "sha256": "94ed64f9ad9c74216e370833eec29f629c114d1e60ed3890fc3f95daec7432b1",
+      "bytes": 12746
+    },
+    {
+      "path": "missing-motion/frog-8-wantsPlay-idle-reduced.jpg",
+      "sha256": "1140fd91d89f052c0e454af25650bbe32952f8498fb0b54fa56e6729a3f8d8f0",
+      "bytes": 12834
+    },
+    {
+      "path": "missing-motion/frog-8-wantsPlay-walk-normal.jpg",
+      "sha256": "49c9d3b99348abbb9ad68fbdc0b58ddfff23b8c55d08de176d126139471d1216",
+      "bytes": 13133
+    },
+    {
+      "path": "missing-motion/frog-8-wantsPlay-walk-reduced.jpg",
+      "sha256": "d1ba102eb4bd1a8a95a96daf3318c36806bbdd6d63e3ee316a22968186177c18",
+      "bytes": 12834
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "6bc55acb33c50420026ce19dbd821ff4f14ef37d0de73ebc807f0c1da7bd07f5",
+      "bytes": 92904
+    },
+    {
+      "path": "player-frog-1-back.png",
+      "sha256": "9e6058c37934ff8fc94ba71be88be375e3d6f98443cb3e2fca7cddeb2d05f1d0",
+      "bytes": 300526
+    },
+    {
+      "path": "player-frog-1-front.png",
+      "sha256": "7eda54e791b923237946d8a19ffdf5237c3f3a0b24934c23c3922ebb199bd3b1",
+      "bytes": 304669
+    },
+    {
+      "path": "player-frog-2-back.png",
+      "sha256": "01075d4eecbc8d87fd84d0f33444906f88402014006b1fb1246ec69834a668e6",
+      "bytes": 302372
+    },
+    {
+      "path": "player-frog-2-front.png",
+      "sha256": "92dc1ad8c12daa3558712eedb297d5cf95b326e9c32b37e7ec43de6f715baa2b",
+      "bytes": 305712
+    },
+    {
+      "path": "player-frog-3-back.png",
+      "sha256": "08fe85daa7537c7ef8151185940deaabf8f18e21b013c496a506f75b4a9b3666",
+      "bytes": 303800
+    },
+    {
+      "path": "player-frog-3-front.png",
+      "sha256": "a95f92bfb25f083fd2f5ba77ab00156388615ae38d1dc3615fd5f12785840196",
+      "bytes": 305589
+    },
+    {
+      "path": "player-frog-4-back.png",
+      "sha256": "a15488ea19fee2ac9d339d28dacf20feeb802f8fd22e5e971b023492d3e921e5",
+      "bytes": 306237
+    },
+    {
+      "path": "player-frog-4-front.png",
+      "sha256": "cbb0bc82f890098bdc99375b710ae47820708aca548eaa20a12df8c9d9e21254",
+      "bytes": 309194
+    },
+    {
+      "path": "player-frog-5-back.png",
+      "sha256": "2f137661c0777282baa734b1beec3bcdfcae798739794b861bd4b9632453b5d7",
+      "bytes": 306489
+    },
+    {
+      "path": "player-frog-5-front.png",
+      "sha256": "65372de47cbaa956ad8e01f866154db4c69c0d8d4ced313ceac50c95fd3869be",
+      "bytes": 309152
+    },
+    {
+      "path": "player-frog-6-back.png",
+      "sha256": "a2991617d7191ba3f455222bb0527745ff4abd2ccc85b68adc0165a1595cab6f",
+      "bytes": 307279
+    },
+    {
+      "path": "player-frog-6-front.png",
+      "sha256": "79249b58b6ffc17284d84ac76b1a5c3a7cca85db38f82a81b1e3b9f0990544d6",
+      "bytes": 310746
+    },
+    {
+      "path": "player-frog-7-back.png",
+      "sha256": "a06c4c17d4868dc48ab3694c483e634c8a4c9d3a6cc4cad415a2ee07624559f1",
+      "bytes": 310665
+    },
+    {
+      "path": "player-frog-7-front.png",
+      "sha256": "9695d17f580a633297e2509620e084dd332de8b90292bbc1b223e579e65d11b6",
+      "bytes": 314433
+    },
+    {
+      "path": "player-frog-8-back.png",
+      "sha256": "3a6a2b7b7f37e81fac58fbe0babc5e08a76c8a80033157ce35e74e1b5b4a7a40",
+      "bytes": 311245
+    },
+    {
+      "path": "player-frog-8-front.png",
+      "sha256": "5c0e1f9530e3525e8a6e7f85c38268307747f59faeff871e949c0188b3d0c129",
+      "bytes": 316953
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866035,
+  "artifactJobName": "stage-evidence (frog)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

@@ -1,0 +1,9 @@
+{
+  "sourceCommit": "aa03582df17b597c5fbe4fa663a0840941783880",
+  "run": 37926707950,
+  "job": 113807265407,
+  "conclusion": "failure",
+  "failure": "HTTP502 at final git/trees after all selected blobs; no ref update or image approval",
+  "verification": "21Python tests PASS; previous18 preserved; new3 tests RED on old exporter (8errors including subcases), GREEN after scoped fix",
+  "change": "Bounded502/503/504 JSON API retry and retained verified-blob checkpoint before tree creation; no403 or rate-limit retry"
+}

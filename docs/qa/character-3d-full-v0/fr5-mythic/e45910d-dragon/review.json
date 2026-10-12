@@ -1,0 +1,18 @@
+{
+  "sourceCommit": "e45910d13bf793051391907d971a59fdb61447d1",
+  "waveArtifact": 11544673447,
+  "distanceArtifact": 11544520720,
+  "status": "PASS_REPRESENTATIVE_IMAGE_GATE",
+  "counts": {
+    "fourviews": 8,
+    "states": 64,
+    "distance": 4
+  },
+  "review": "Direct inspection of front/three-quarter/side/back, both32-state sheets and all4normal-distance captures. Dragon07 rear support fingers now read at game distance; no vanished membrane, detached root or face obstruction.03 retains its wingless juvenile silhouette.",
+  "simplifications": "Rounded Pilot-style body and canonical face retained; pixel-scale surface highlights and scales are not copied as noise.",
+  "limits": "03/07 only; remaining6 need all8 capture. No runtime promotion, full QA or iPhone acceptance.",
+  "archiveSha256": {
+    "11544673447": "0230b0340737661e0f018eb1f11cd0964cf9b2ec99456bed77771cce479d8629",
+    "11544520720": "64db6d359622c24de1b9b4f131174435d79010adea3de430034c6fb224bf631f"
+  }
+}

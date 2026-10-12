@@ -1,0 +1,1162 @@
+{
+  "sourceCommit": "980b692577c87e7efc62298a42d0923c1eb71852",
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "candidateOnly": true,
+  "evidence": [
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          0.010013546466827394,
+          -0.5245917329703411
+        ],
+        [
+          0.34834359966874834,
+          1.1544346209264948,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          0.010013546466827394,
+          -0.5245917329703411
+        ],
+        [
+          0.34834359966874834,
+          1.1544346209264948,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          0.010013546466827394,
+          -0.5245917329703411
+        ],
+        [
+          0.34834359966874834,
+          1.1544346209264948,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          0.010013546466827394,
+          -0.5245917329703411
+        ],
+        [
+          0.34834359966874834,
+          1.1544346209264948,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          0.010013546466827394,
+          -0.5245917329703411
+        ],
+        [
+          0.34834359966874834,
+          1.1544346209264948,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5276896236821615,
+          0.010013546466827394,
+          -0.5278447134443773
+        ],
+        [
+          0.4253393142992448,
+          1.1692470771848515,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          0.010013546466827394,
+          -0.5199999856948853
+        ],
+        [
+          0.3427818560600281,
+          1.1500000083446502,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5529407172342276,
+          0.010013546466827394,
+          -0.5233855922896077
+        ],
+        [
+          0.41261671400993616,
+          1.1602584835804866,
+          0.2915297639369965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6028440318362528,
+          0.07485537236723816,
+          -0.5214818655596518
+        ],
+        [
+          0.4405671628636235,
+          1.2380921498044553,
+          0.2961820598827341
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6150851723103044,
+          0.04393445941703278,
+          -0.5205941271237507
+        ],
+        [
+          0.4453561704692861,
+          1.203610991341976,
+          0.2960859685039498
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          0.013013546466827397,
+          -0.5168580648845583
+        ],
+        [
+          0.3427818560600281,
+          1.171820858998208,
+          0.29606397561304953
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5146510472164131,
+          0.013013546466827397,
+          -0.5174973117671102
+        ],
+        [
+          0.3504172015868485,
+          1.173680372666627,
+          0.29611168164294444
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          0.00501354646682739,
+          -0.5385560401965575
+        ],
+        [
+          0.34834359966874834,
+          1.19415037127684,
+          0.42261782160345385
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5917732121096524,
+          0.00401382902594738,
+          -0.5358547474832883
+        ],
+        [
+          0.38184668294134905,
+          1.2008188343417667,
+          0.4229672192568525
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          0.00501354646682739,
+          -0.5340552678208634
+        ],
+        [
+          0.3427818560600281,
+          1.193212681351596,
+          0.42274504862727724
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5845620505309175,
+          0.00501354646682739,
+          -0.5373743838316628
+        ],
+        [
+          0.3907405074438818,
+          1.191479287584356,
+          0.42294347671205246
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12016,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          -0.003587266321182281,
+          -0.518046088957955
+        ],
+        [
+          0.34834359966874834,
+          1.1183147834771372,
+          0.3412400071476539
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12016,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5281596091217369,
+          -0.010288573906918064,
+          -0.5214234844994461
+        ],
+        [
+          0.42622899221218413,
+          1.131692694017139,
+          0.3428464207721568
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12016,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          -0.003587266321182281,
+          -0.5133931246081347
+        ],
+        [
+          0.3427818560600281,
+          1.114168929375289,
+          0.3409947935315355
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12016,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5536435124103984,
+          -0.003587266321182281,
+          -0.5170196989537164
+        ],
+        [
+          0.4134894929845787,
+          1.1237985707646965,
+          0.3416685327146736
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5035872595873716,
+          -0.0067875372505187825,
+          -0.5165809979136186
+        ],
+        [
+          0.34834359966874834,
+          1.1002862698797706,
+          0.353185810340944
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5913369239140773,
+          -0.00758881730543759,
+          -0.5146764202849499
+        ],
+        [
+          0.38166725153558023,
+          1.1099864877289745,
+          0.3543131709054683
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          -0.0067875372505187825,
+          -0.5119171813605325
+        ],
+        [
+          0.3427818560600281,
+          1.0962339349993877,
+          0.35289192937842884
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5841598812596136,
+          -0.0067875372505187825,
+          -0.5157490672995213
+        ],
+        [
+          0.39048166012702146,
+          1.1057848968142805,
+          0.35371567026112
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5030929670963906,
+          0.0056130046081543095,
+          -0.5306426749258082
+        ],
+        [
+          0.34883789215972927,
+          1.1313549079312388,
+          0.33816450393905945
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5040695796829017,
+          0.0056130046081543095,
+          -0.5300957324932066
+        ],
+        [
+          0.3524320251398358,
+          1.1291084620381735,
+          0.338105754757752
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          0.0056130046081543095,
+          -0.526086843022202
+        ],
+        [
+          0.3427818560600281,
+          1.127105161817274,
+          0.33805351228532066
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5098487587026914,
+          0.0056130046081543095,
+          -0.5264897091378362
+        ],
+        [
+          0.34789210365022794,
+          1.1283064751400738,
+          0.33808482496391284
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5518957264245294,
+          0.04293445941703278,
+          -0.5165809979136186
+        ],
+        [
+          0.39715962386505604,
+          1.2107273761276192,
+          0.287822881232427
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6190322493853749,
+          0.027474002941930087,
+          -0.5130935598461068
+        ],
+        [
+          0.42256208495771364,
+          1.2031353258835618,
+          0.288452564355943
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          0.012013546466827396,
+          -0.5119171813605325
+        ],
+        [
+          0.3427818560600281,
+          1.175382370941384,
+          0.2875397004489177
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11816,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.569080948894701,
+          0.012013546466827396,
+          -0.5150572828322114
+        ],
+        [
+          0.38106564093881823,
+          1.1840343389802603,
+          0.2881349752535713
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5023515283599194,
+          0.0007131400728225545,
+          -0.5245917329703411
+        ],
+        [
+          0.34957933089620064,
+          1.1541934267798606,
+          0.35271336676999315
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5243348879666524,
+          0.0007131400728225545,
+          -0.5277477292947796
+        ],
+        [
+          0.42250941948417103,
+          1.1676045772773518,
+          0.35271336676999315
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5000000143051148,
+          0.0007131400728225545,
+          -0.5199999856948853
+        ],
+        [
+          0.3427818560600281,
+          1.1499050241267252,
+          0.35271336676999315
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:parrot",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11656,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.549770702375769,
+          0.0007131400728225545,
+          -0.5231994196959957
+        ],
+        [
+          0.4086579479282495,
+          1.1592471824608708,
+          0.35271336676999315
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "parrot",
+      "file": "companion-parrot-0-sick-walk-reduced.jpg"
+    }
+  ],
+  "distance": [
+    {
+      "kind": "companion",
+      "id": "parrot",
+      "key": "companion:parrot",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "companion:parrot",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15878,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 3.126,
+        "cpuMsP95": 16.4,
+        "buildMsTotal": 67.1,
+        "buildMsMax": 51.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-parrot-distance-front.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "parrot",
+      "key": "companion:parrot",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "companion:parrot",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15878,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 1.089,
+        "cpuMsP95": 1.2,
+        "buildMsTotal": 67.1,
+        "buildMsMax": 51.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-parrot-distance-back.jpg"
+    }
+  ],
+  "errors": []
+}
