@@ -1,5 +1,19 @@
 # 承認B後の接続作業 — 準備完了・生成確認待ち
 
+## 最新状態 — 新edition 400戦は第1戦R10で規定停止（2026-10-13）
+
+本人コメント `6127373548` をGitHub APIで認証し、開始承認request `6f65a4befc71db7b5b7684c5a6342f7ba62981010d4dd49ca2a5109915e3ecca` の消費記録を `e1467d68480fc2650f4ad45f4765d1d1c94ef7b6` に単独保存。再消費禁止。execution editionは `bd514e5c1830a0f7e599643024358d5b7b6beae3`、binding/派生manifest公開は `7ff9524989d507bcf12f9bd82386c43a0306226d`。旧・新preflight、旧独立checkout生成来歴、公開binding再構成の実監査が成立してから、一度だけsupervisorを起動した。
+
+- 新出力先: `data/proxy-population-400-rebound-run-20261013/`。固定200群/400行を保持。完走0、未完了1、未実施399。第2戦・retry・resume・新seed生成なし。
+- `group-001-A-first`: R10 A normal_action、245step/275event、最終seq277。`unsupported_contract_boundary`: `prior field-entry history not captured by conditional root`。512step上限未到達。前回R8停止地点より進んだが完走ではない。
+- 停止原本のsource再構成成立、13root監査errors=[]。supervisor実exit0・885.231858秒、worker実exit0。これは400戦成功ではない。Python1096ファイル前後一致、baseline保護3668ファイルのbytes/Git blob一致。
+- 独立balance標本0、全体結論null、policy promotion=false。既存116除外と未証明を保持。同じ固定入力の別edition実行を新しい独立標本に数えない。
+- エラー発生箇所は `tools/proxy_population_incarnation_runtime.py` の場への再登場履歴ガード。個別カード・根本原因は未特定。修正・試験追加・新実行はしていない。
+
+次は保存原本からのread-only原因調査。今回の開始承認は消費済みであり、修正版での実行へ流用しない。既存の旧停止原本・旧7成果物・今回の原本を変更しない。保存済み901件や独立レビューを復元だけを理由に繰り返さない。最新remote HEAD/treeをfresh確認し、PR259 Draft/open/unmergedを維持する。
+
+以下は過去時点の履歴。「本人承認待ち」「新edition未実行」は今回の状態ではない。
+
 ## 最新状態 — edition再結合契約の実装・固定source検証完了（2026-10-12）
 
 ユーザー承認の追加4契約をinline逐次TDDで実装。固定sourceは `fb1f22b0a565d077744c0c80ba6178ffefc6a988` / tree `83789185e679f2946496d84b92fee658f982edba`。保存済みpositive共通修正を維持し、旧edition独立checkout監査、既存materialだけからの派生manifest、append-only binding、同一bindingへのv2 launch/claim/supervisor/attempt拘束を追加した。新乱数・seed・初期順生成なし。
