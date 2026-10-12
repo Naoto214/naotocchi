@@ -1,0 +1,57 @@
+{
+  "run": 38032036173,
+  "artifact": 11662965494,
+  "zipSha256": "bc480d2583f40d91811ce9f9be6f7fde2ad200f2a1bb922534012c269d309706",
+  "sourceVerification": {
+    "before": {
+      "commit": "f817ad49ce4ecd715bcc0cdeb678987d98c56a8c",
+      "source": {
+        "meguru.js": "5d2e07b0e5b6b6051a81bf157b13c6dc9f6dfce18f31c5b29de14a6a8c21fab5",
+        "meguru-3d.mjs": "15635346d858c454fd9b78aec92f2a991d242ca118d768da4ec56b3e0a5996af",
+        "index.html": "67f882e4c8b8bba0e536a35a66fd8aeb92c61f5228e97fcf7688cf8594b1b684"
+      }
+    },
+    "after": {
+      "commit": "61412b0b0dcb097e738476fda7a69cb142a0786c",
+      "source": {
+        "meguru.js": "dbd2e57d329e52345f04bd01f19c38d27b4db551ad385848df56dc99d77d1d40",
+        "meguru-3d.mjs": "83999bae172fc91bd60ad354265c05b7f34703f6a8688303dc30e9603c18d920",
+        "index.html": "f0e3fada1056b661b9a24dd2aac483fa87e4b8cfcc03ff669d7b355641576ef7"
+      }
+    }
+  },
+  "exit": 0,
+  "imagesInspected": 8,
+  "gallery": {
+    "cameraMatch": true,
+    "deltaTriangles": 56,
+    "deltaCalls": 0,
+    "assessment": "Front: small shallow eyes and nose ridge; side: no projection; oblique: shallow eye carving visible. Original outer shape retained."
+  },
+  "gameplay": {
+    "beforeCameraDistance": 440.4883412595629,
+    "afterCameraDistance": 440.60812071931696,
+    "deltaTriangles": 56,
+    "deltaCalls": 0,
+    "assessment": "Actor party obscures statue body and much of its head. Not sufficient for normal-distance facial readability; repeat only target shot with lateral player offset, no actor/world removal. Natural camera settling differs slightly; not pixel-identical cameras."
+  },
+  "originalFiles": {
+    "source-sha256.txt": "a6fcdb2bbd5c8e8ed7a41d8d914227112fabca5e97d5a33fe766fa3737aae474",
+    "before-gallery.log": "7083d2fd3f38487b1c42bc01b6380ec5c4bdeb343320edf5f0d3488b1702a358",
+    "runner-exit-code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "commit.txt": "cd6e054c7d5c9058650e46b4f2ed705bfe67429a3e68dcec42d553b142b48357",
+    "after-gallery.log": "194d19e8d7c2e29a2948d0cbbc74c09d44df7de166f63c43985b11058a950446",
+    "before-commit.txt": "38514434c884eb5f42bbc56c7f6b2380c1c1e319360645a0cebd02084052cf6c",
+    "before-play.log": "7145a4009d64c42b4e1f51f4251e054e9d7c5640e6aa32fee50629069545824a",
+    "before-source-sha256.txt": "be287aa823b55598512dbd7f8177b133c73af34f832b304a7bf85bf77deb656c",
+    "after-play.log": "15f77812d163157fefc39e78b69211903bb0b60c47d78b132b17bcb689a6f6ee",
+    "before/statue-front.jpg": "c7fe428fb6b0bb755c8a7670fbdfa6ac022b35bf8b8f6197c9f7e62cf86d4584",
+    "before/statue-side.jpg": "b030fa85cc171999483658a84bc760a5def23750e214743c22cb60fbb1479359",
+    "before/statue-oblique.jpg": "cee314575a6f1ac160a00a47ab3dcc658694897c257a1d9239a50e766548703f",
+    "before/statue-normal-play.jpg": "051536e7af865aee45d0b9808a60d8065ec3b44ca78c11195fda2638cc41df57",
+    "after/statue-front.jpg": "ca524215932770937c51a54222520d5d0769eece89440c4243d4635cba7d397f",
+    "after/statue-side.jpg": "b7a8bc5c69b5bf4575f4ed152f2c6593a259855843455d096103522132ddd23f",
+    "after/statue-oblique.jpg": "74e59ab3fdbf74831dcc4865ce041bdf833ba8ca912b525a311f8e3b242e2704",
+    "after/statue-normal-play.jpg": "609bb17e4a71f59c453098a62cacbcb6a932761e9e24274b3f62f5de47f80926"
+  }
+}

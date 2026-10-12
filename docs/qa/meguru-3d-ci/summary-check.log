@@ -1,0 +1,12 @@
+historical fixture accepted smoke {"kind":"smoke","coverage":13,"issues":[],"samples":0,"hidden":0,"partial":0,"maxPartyObstacleOverlap":0.002591405357044607,"caveat":"ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"}
+missing coverage rejected smoke
+runner exception rejected smoke
+historical fixture accepted corridor {"kind":"corridor","coverage":8,"issues":[],"samples":0,"hidden":0,"partial":0,"maxPartyObstacleOverlap":0,"caveat":"ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"}
+missing coverage rejected corridor
+runner exception rejected corridor
+missing arrival rejected
+historical fixture accepted visibility {"kind":"visibility","coverage":13,"issues":[],"samples":2832,"hidden":0,"partial":1,"maxPartyObstacleOverlap":0,"caveat":"ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"}
+missing coverage rejected visibility
+runner exception rejected visibility
+fully hidden sample rejected; historical partial 1 remains accepted
+same count with wrong region ID rejected

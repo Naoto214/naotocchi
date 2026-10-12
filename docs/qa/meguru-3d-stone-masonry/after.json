@@ -1,0 +1,113 @@
+{
+  "home": {
+    "canonical": "f86c3d5aab09e7c99b98fcccc3b4efcee10cdf8c76ab7e5d6eccaa5698012192",
+    "collision": "37c071fef6adb0ae07aab7d335a6e2f365b7653921baa5a71e7c920f0b85a8c4",
+    "objects": 283,
+    "other": "ba00e026843447d40d71daa2d0d23a75807d038b5117657c92b0e8d6e2994e28",
+    "stone": []
+  },
+  "city": {
+    "canonical": "2ebde62eb7f0b88b70041eeea3501c9181b273c919cee84bdc38806ff0f878eb",
+    "collision": "ba2ab6bef81895acda1878093cf9666de0bbe658db23c1f309985b64e8630596",
+    "objects": 1096,
+    "other": "025aaab5d35f0f67f449e09c58618e0c916443f6941c3640f7fa990af4c82b21",
+    "stone": []
+  },
+  "countryside": {
+    "canonical": "46c144336fbca66ecde632ec0cb56b95e2654709c78ef4812eed84a2f2305fa5",
+    "collision": "e46dfcd8f0a29c275711b47c949a741689606c70d7fe518e23f4c12b01410bd6",
+    "objects": 899,
+    "other": "900f4b8d85dbd5377e62f213f255a74a6a592eb60366aadff4fbf4ade6c30d1e",
+    "stone": []
+  },
+  "forest": {
+    "canonical": "ccb9b4c41a2af77c1f464ead930093a6d78d69efe182f698de388db4f3ccef12",
+    "collision": "1795181d1f1de86c900a599d27fee96c9ef8d622e853a92e140e01b8f963db35",
+    "objects": 1315,
+    "other": "47656a821a5d432de529d57af1d5bbb3cde1a895697dcfb21f66aae60ba76310",
+    "stone": [
+      {
+        "id": "forest:615",
+        "parts": 19,
+        "placement": "328822cae49a6335a89e67f6c9713921c19f6471f53ac6388f99f33765476e6c",
+        "deck": "f1f69609a9621543c170b96ac3e4719701fdf43cb64844edf8955f40f30272f6"
+      }
+    ]
+  },
+  "mountain": {
+    "canonical": "785f7d3aaa8fcc133c42f0abce1130eb26798f8e9abf4b32c6b622fa4a97e016",
+    "collision": "45e47df832f9416bd7f5842001b069d266c2bbe16b01fec0434aa25676e56ba4",
+    "objects": 781,
+    "other": "71f4e0460ed845b70510cd0ee01c823390ba2ec44bd995a27a47bf686b26427b",
+    "stone": []
+  },
+  "snow": {
+    "canonical": "a0ff25df1cec328bac5e5625fb2c5493cdf11ef85e0c7c2b760ba9f63da43d99",
+    "collision": "68a21a03f2ef9e5f8823879df260456f8a30c20d827db229ed7320ef11c276b3",
+    "objects": 527,
+    "other": "3c90afb70b77f083c9aa926c9a86cef503898190cdc037968f6f7b7899582966",
+    "stone": []
+  },
+  "sea": {
+    "canonical": "ef631beb75701b8297b6aac7545a5c97ea17974129320697e5d55d680fa6173d",
+    "collision": "ca0789b75f65b41e73f816294de2aaa104eedcc56593847c76f3ef59133c11f8",
+    "objects": 529,
+    "other": "d3f0220e92d97cd5d6023ebb6b1c7d2810d515d4768e1a45ee193b3a7ffaca60",
+    "stone": []
+  },
+  "deepsea": {
+    "canonical": "6906a797462cd3b2ca28dafacc406d150340bde0cb82a2e9d43e22fa6263a3a3",
+    "collision": "a03015b4dd6d5c986c6ee2e618b4ab3203c0dd0f211ca6077a1f2973b7ad6482",
+    "objects": 712,
+    "other": "c3d2bf1708965d73a60724716e543e7cc1fadf87807d9effb8e1366d2ebd6e2c",
+    "stone": []
+  },
+  "river_lake": {
+    "canonical": "dd76763ec3d0e3bc66670398784a801fa6c7069d4a8a50c3f467b20a31d41b2f",
+    "collision": "bdb03f7675afb0fada3fe144f11816ed11be9799a33d5b2b378c8373eb22ccd4",
+    "objects": 831,
+    "other": "33abd33931e1fec6fe81b73417c98fe6ef9e0dd8fb3156422e7b19d708694f19",
+    "stone": [
+      {
+        "id": "river_lake:313",
+        "parts": 25,
+        "placement": "05223efa7b6c14a8eec6d555938354598f86a5e8ee84a638ac634d542136b68a",
+        "deck": "fe6a5df5823ad8760aed0f01f5204de3159b040745a25318bffc1c7a269d5eda"
+      },
+      {
+        "id": "river_lake:bridge:river:0,2250",
+        "parts": 27,
+        "placement": "76ae457bc19bb947c90e79d896a4510506f6c800131e5d7d3e67f4b98ea4df44",
+        "deck": "44db047b0e4f4d943af4fc1c2a4a0bd2af034605848d6479729b0646c4344f6b"
+      }
+    ]
+  },
+  "jungle": {
+    "canonical": "e911a1665c16d07481954471a9a32cf89a84bf8f2114f5ec9c2be114d455583e",
+    "collision": "5c67d5f6efb0b4806d984ba7bfc05d457e303f2615f355b0b68ff6e63cac82c0",
+    "objects": 1482,
+    "other": "c45f60d43e3a88287ff5d642ec1cbac1df22232ee5d5df3f222b87e0d206ec96",
+    "stone": []
+  },
+  "desert": {
+    "canonical": "30b435111daf8709497a0db66b83b1b2b53332946b30adfda0947fe368b30da8",
+    "collision": "2138e507527ce61a576bda989d72e1aaf86e8521fa2832a9ee725af51a0c5218",
+    "objects": 611,
+    "other": "c76ff10f111581e148720626d9093d4a490c1eb612d98d4376c3e6af02b1f180",
+    "stone": []
+  },
+  "star_stop": {
+    "canonical": "ee1ac2ead0e830c07657416fa2f6652edf4996e11b0739f2d324f413222db70c",
+    "collision": "269f5becc29fd6dd4c449c9d16c44af95ce492fded6cb04c2a8f2535fbd22115",
+    "objects": 463,
+    "other": "31ddd3df630a1c4aa2058f52de67e28e0d2f594ab4e1a346573f46029dc7f886",
+    "stone": []
+  },
+  "memory_lake": {
+    "canonical": "1049bf97a1af727bd19f3390d62c060f745ffabde75cef914f343cbbaa0e1b25",
+    "collision": "1611a191bf610e3eda52b1a86f81b709d6fb7e88c9aea75061241568e541c038",
+    "objects": 352,
+    "other": "5ecccf6e0fe12d6056a9b88eb338b3570707976335e8cfe721f2965b561dba90",
+    "stone": []
+  }
+}

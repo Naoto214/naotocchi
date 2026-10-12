@@ -1,0 +1,19 @@
+{
+  "branch": "feat/meguru-3d-geometry-terrain-v1",
+  "head": "5d9ebd4890ce707faa76cf0dccd32094ecdea6e5",
+  "tree": "34a8e682d309cd4bb68dc1e09e5a4073cb48c769",
+  "pr": 374,
+  "draft": true,
+  "base": "69a8857bacfa597fa65dcb433536b2f603f26b7d",
+  "main": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+  "api_compare_main": {
+    "ahead": 67,
+    "behind": 44
+  },
+  "api_compare_base": {
+    "ahead": 40,
+    "behind": 0
+  },
+  "ci_run": 37339291552,
+  "note": "GitHub API comparison; local checkout shallow, local rev-list counts not authoritative."
+}

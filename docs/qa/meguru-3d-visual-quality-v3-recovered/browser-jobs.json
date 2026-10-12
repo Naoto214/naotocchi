@@ -1,0 +1,15 @@
+[
+  {
+    "job": "world-after",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/scratch/9a73a007e273/world/tools/meguru-3d-qa/shot.cjs",
+      "/workspace/scratch/9a73a007e273/world",
+      "/workspace/scratch/9a73a007e273/world/docs/qa/meguru-3d-visual-quality-v3-recovered/after",
+      "[{\"region\": \"home\", \"spot\": \"yard\", \"yaw\": 0, \"dz\": -150, \"name\": \"home-vq\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"summer\"]}, {\"region\": \"home\", \"spot\": \"house\", \"yaw\": 90, \"dx\": 200, \"name\": \"home-house-vq\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"summer\"]}, {\"region\": \"countryside\", \"spot\": \"village\", \"yaw\": 0, \"dz\": -200, \"name\": \"countryside-vq\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"summer\"]}, {\"region\": \"countryside\", \"spot\": \"meadow\", \"yaw\": 0, \"dz\": -250, \"dist\": 650, \"name\": \"countryside-river-vq\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"summer\"]}, {\"region\": \"countryside\", \"spot\": \"village\", \"yaw\": 0, \"dz\": -200, \"name\": \"countryside-autumn-vq\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"autumn\"]}, {\"region\": \"home\", \"spot\": \"yard\", \"yaw\": 0, \"dz\": -150, \"name\": \"home-spring-vq\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"spring\"]}, {\"region\": \"home\", \"x\": -277.72033321897754, \"z\": 656.1054989935475, \"yaw\": -90, \"dist\": 260, \"name\": \"entrance-196\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"summer\"]}, {\"region\": \"home\", \"x\": -638.3747465346364, \"z\": 1879.4778416139975, \"yaw\": -90, \"dist\": 260, \"name\": \"entrance-45\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"summer\"]}, {\"region\": \"home\", \"x\": -502.32953638504716, \"z\": 834.2467820576167, \"yaw\": -90, \"dist\": 260, \"name\": \"entrance-19\", \"jpg\": 1, \"env\": [\"day\", \"sunny\", \"summer\"]}]"
+    ],
+    "start": 1791077330.1883402,
+    "exit": 2,
+    "end": 1791077335.5292642
+  }
+]

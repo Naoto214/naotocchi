@@ -168,7 +168,11 @@ test('an old save that only knows spots is turned into a map without losing anyt
   sim.loadMapRecords(seeded);
   for (const id of old) sim.discovered.add(id);
   const md = sim.mapData();
-  for (const id of old) assert.ok(md.spots.some((q) => q.id === id), `${id} stays discovered`);
+  // Default 2D preserves every discovered spot from an old save.
+  for (const id of old) assert.ok(sim.discovered.has(id), `${id} stays discovered`);
+  for (const id of old) assert.ok(md.spots.some((q) => q.id === id), `${id} stays visible in 2D`);
+  assert.equal(md.spotsHidden, 0);
+  assert.equal(md.spots.length + md.spotsHidden, old.length, 'みつけた spot = ちずに 出す + かくす');
 });
 
 test('the map save stays small: ids only, no coordinates, and it fits in the existing save shape', () => {

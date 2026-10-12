@@ -1,0 +1,140 @@
+{
+  "run": 38148933408,
+  "artifact": 11706600660,
+  "zipSha256": "1f8ed63ffb0476e986812ef194320e8e77c2ce7866f9df0e06a41e9fab8e3108",
+  "source": "c010bf266c64b0db0bbc99e53a491b21c42c6185",
+  "before": "ebec89db9add8d0de28dbf07d8416f61868dc9e3",
+  "zipDigestSourceHashesAndExitVerified": true,
+  "exit": 0,
+  "pairs": 6,
+  "originalImages": 12,
+  "inspection": "All four complete-scene close pairs and two normal gameplay pairs inspected. Trunk/wheel conflict removed; no new major scenic defect found. Normal-road view has pre-existing foreground-tree occlusion; reverse view shows cleared wheel. Independent review inspected all6pairs plus full-size close2/reverse and found no new major visual issue.",
+  "budgets": {
+    "close4Pairs": "identical triangles and draw calls",
+    "normalRoad": "-14 triangles/-1 call; natural camera/fade/culling variation, not proven performance improvement",
+    "normalReverse": "identical"
+  },
+  "limits": [
+    "Actor-free close fixture, fade off; not gameplay performance.",
+    "Normal views retain actors and fade; camera distance436.097962\u2013447.438830, not pixel-identical.",
+    "Static renderer wheel behavior retained. All-angle sweep clearance is geometric, not an animation test.",
+    "Human QA and physical iPhone performance remain unapproved."
+  ],
+  "files": [
+    {
+      "path": "after/inspection.json",
+      "size": 14135,
+      "sha256": "68524daa8581323019ee9b28c71ecfcf3ff935430a57de482ee008c75baf9590"
+    },
+    {
+      "path": "after/prop-wheel-river-0.jpg",
+      "size": 55117,
+      "sha256": "617022046f82a88dbf77a04db4e7a619d59d5168a80e4c0a37a301cf0d34733d"
+    },
+    {
+      "path": "after/prop-wheel-river-1.jpg",
+      "size": 68148,
+      "sha256": "ce62a81f10bca79517c573ba7642b07746ebfb247f52d28a8b31707ef6aa092c"
+    },
+    {
+      "path": "after/prop-wheel-river-2.jpg",
+      "size": 64292,
+      "sha256": "2ef6694ca1e4e7d0158867e05a56bc0b6b122b325a109f0268c1019f1ac4d9f7"
+    },
+    {
+      "path": "after/prop-wheel-river-3.jpg",
+      "size": 72243,
+      "sha256": "5939d2ed14912ba0d461983613f4a82f869ef357e5585aeb09f0e7d721d4f221"
+    },
+    {
+      "path": "after/wheel-normal-reverse.jpg",
+      "size": 72556,
+      "sha256": "5be9c80c0e1c21ece1aa6c0e48794f9260c800323e069cda49cb223e882d3dc5"
+    },
+    {
+      "path": "after/wheel-normal-road.jpg",
+      "size": 76476,
+      "sha256": "c8db5d9d0354d251e2f83835a4b9f725fd068e4acb30b38789c80701175fd12b"
+    },
+    {
+      "path": "after-gallery.log",
+      "size": 750,
+      "sha256": "ac6302c2705c74b20d9c29a8c41ae1ab9afb2c057e0e90b7448c10fe0ebff838"
+    },
+    {
+      "path": "after-play.log",
+      "size": 754,
+      "sha256": "b3bac7527dbd9da957f559c4ef87ffd75996909134e2612d4be4746fca94c0c5"
+    },
+    {
+      "path": "before/inspection.json",
+      "size": 14135,
+      "sha256": "3f82492b7406a705c1b098eeb5a6de6d2a4d8657710784ac621737abd0b957e8"
+    },
+    {
+      "path": "before/prop-wheel-river-0.jpg",
+      "size": 49738,
+      "sha256": "6e9c834704f9c9af5b8432c3366668c7c1d4c29bec733a33ccd85b1af64af9ef"
+    },
+    {
+      "path": "before/prop-wheel-river-1.jpg",
+      "size": 66227,
+      "sha256": "3aa6eee36c424597c227995e6e2462b209bb1e5ec0f84b9f07cd46f447d82e86"
+    },
+    {
+      "path": "before/prop-wheel-river-2.jpg",
+      "size": 58979,
+      "sha256": "3c20607aca3521b5148d53f51f9500d09bb06795ad74a9bca87bc37c61b7b2de"
+    },
+    {
+      "path": "before/prop-wheel-river-3.jpg",
+      "size": 68196,
+      "sha256": "fc82098adb8c78856aecee6db39aeca29d7ac1a55a5e15a22159dc917237adfd"
+    },
+    {
+      "path": "before/wheel-normal-reverse.jpg",
+      "size": 70676,
+      "sha256": "130e8a8193ba8e90b74828c5dde1c244e91869b3e2a03f0e6ac3d0b4cae570ed"
+    },
+    {
+      "path": "before/wheel-normal-road.jpg",
+      "size": 73730,
+      "sha256": "0cc8632f87448bb9c14132983e5c8f955c5c2aa54a2012f83c1e15e8faf8faf5"
+    },
+    {
+      "path": "before-commit.txt",
+      "size": 41,
+      "sha256": "15a69ecff525fab0124f247716a63596329425b1144536babd9a5204adf25524"
+    },
+    {
+      "path": "before-gallery.log",
+      "size": 750,
+      "sha256": "ac6302c2705c74b20d9c29a8c41ae1ab9afb2c057e0e90b7448c10fe0ebff838"
+    },
+    {
+      "path": "before-play.log",
+      "size": 758,
+      "sha256": "045f1e237c034427de59042d7d6df2f12bceb09fd7d4c78bc3bbca9d78678ee4"
+    },
+    {
+      "path": "before-source-sha256.txt",
+      "size": 233,
+      "sha256": "47dcf74ca9aba768278d096ca2619760a5ab9df74ba8717593a7db2247c127c8"
+    },
+    {
+      "path": "commit.txt",
+      "size": 41,
+      "sha256": "a3c992bd11108cfde23cd6bb02c95e060f5d437bcd7e270571feed9295151682"
+    },
+    {
+      "path": "runner-exit-code.txt",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "source-sha256.txt",
+      "size": 233,
+      "sha256": "381e95c5e17eae3b37c4e74ebf0b61c68b8ca20d47bfc594dd82655a61886017"
+    }
+  ]
+}

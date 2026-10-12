@@ -1,0 +1,93 @@
+{
+  "run": 38032036132,
+  "source": "61412b0b0dcb097e738476fda7a69cb142a0786c",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 114154815326,
+      "name": "regression",
+      "conclusion": "success",
+      "started_at": "2026-10-10T06:45:27Z",
+      "completed_at": "2026-10-10T07:06:40Z"
+    },
+    {
+      "id": 114154815393,
+      "name": "browser (visibility)",
+      "conclusion": "success",
+      "started_at": "2026-10-10T06:45:28Z",
+      "completed_at": "2026-10-10T07:00:35Z"
+    },
+    {
+      "id": 114154815437,
+      "name": "browser (captures)",
+      "conclusion": "success",
+      "started_at": "2026-10-10T06:45:28Z",
+      "completed_at": "2026-10-10T06:55:46Z"
+    },
+    {
+      "id": 114154815449,
+      "name": "browser (smoke)",
+      "conclusion": "success",
+      "started_at": "2026-10-10T06:45:28Z",
+      "completed_at": "2026-10-10T06:51:22Z"
+    },
+    {
+      "id": 114154815537,
+      "name": "browser (corridor)",
+      "conclusion": "success",
+      "started_at": "2026-10-10T06:45:28Z",
+      "completed_at": "2026-10-10T06:51:47Z"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11663212267,
+      "name": "world-regression-61412b0b0dcb097e738476fda7a69cb142a0786c",
+      "digest": "sha256:478ce1452ce19dd6d825ca6602f2b89f571351614d6a2a9c3a36921cc5e77578",
+      "expires_at": "2026-11-09T07:06:38Z",
+      "archiveBytesVerified": true
+    },
+    {
+      "id": 11662961021,
+      "name": "world-smoke-61412b0b0dcb097e738476fda7a69cb142a0786c",
+      "digest": "sha256:b613aee855b759c75323c588b1ec892896c0b42086144360da3dfc0a3b0ed515",
+      "expires_at": "2026-11-09T06:51:19Z",
+      "archiveBytesVerified": false
+    },
+    {
+      "id": 11662312102,
+      "name": "world-captures-61412b0b0dcb097e738476fda7a69cb142a0786c",
+      "digest": "sha256:811b85a587b70d73e1c64e1fae28e12679223335ee58ce8f8262d713f164eb38",
+      "expires_at": "2026-11-09T06:55:42Z",
+      "archiveBytesVerified": false
+    },
+    {
+      "id": 11662246948,
+      "name": "world-corridor-61412b0b0dcb097e738476fda7a69cb142a0786c",
+      "digest": "sha256:8014f6505ed1cad619eeb2662003a5b4a8cbb486db607b52ed4bd18f281b1ff0",
+      "expires_at": "2026-11-09T06:51:43Z",
+      "archiveBytesVerified": false
+    },
+    {
+      "id": 11662158515,
+      "name": "world-visibility-61412b0b0dcb097e738476fda7a69cb142a0786c",
+      "digest": "sha256:ce0506412c2daccbbc71cbc1ca18a0d6ede8eeea57c1ca791d3714fc57ea661d",
+      "expires_at": "2026-11-09T07:00:31Z",
+      "archiveBytesVerified": false
+    }
+  ],
+  "bridge": {
+    "run": 38032036122,
+    "source": "61412b0b0dcb097e738476fda7a69cb142a0786c",
+    "conclusion": "success",
+    "newImagesInspected": false
+  },
+  "limits": [
+    "CI concurrency4 pipeline is not an unmodified npm test.",
+    "General browser summary evidence is decoded job logs; their ZIP bytes were not downloaded.",
+    "General capture success is not image inspection; statue-specific paired image artifacts were verified and inspected separately.",
+    "Historical wheel/tree interference and overlap differences remain unresolved.",
+    "Human QA and physical iPhone performance remain unapproved."
+  ]
+}

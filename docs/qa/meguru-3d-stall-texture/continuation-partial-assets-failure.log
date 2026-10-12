@@ -1,0 +1,134 @@
+✔ cat_friend real Home rerenders relation threshold, rescue and expiry (28.985625ms)
+✔ rabbit_friend real Home rerenders relation threshold, rescue and expiry (18.636239ms)
+✔ tanuki real Home rerenders relation threshold, rescue and expiry (22.777834ms)
+✔ squirrel real Home rerenders relation threshold, rescue and expiry (17.289008ms)
+✔ owl real Home rerenders relation threshold, rescue and expiry (24.447962ms)
+✔ otter real Home rerenders relation threshold, rescue and expiry (21.132584ms)
+✔ hamster real Home rerenders relation threshold, rescue and expiry (15.487212ms)
+✔ panda real Home rerenders relation threshold, rescue and expiry (15.40676ms)
+✔ monkey real Home rerenders relation threshold, rescue and expiry (16.173597ms)
+✔ parrot real Home rerenders relation threshold, rescue and expiry (17.274647ms)
+✔ sheep real Home rerenders relation threshold, rescue and expiry (17.994992ms)
+✔ seal real Home rerenders relation threshold, rescue and expiry (15.566682ms)
+✔ bat real Home rerenders relation threshold, rescue and expiry (24.094299ms)
+✔ chicken real Home rerenders relation threshold, rescue and expiry (16.070171ms)
+✔ penguin_friend real Home rerenders relation threshold, rescue and expiry (16.679529ms)
+✔ hedgehog real Home rerenders relation threshold, rescue and expiry (26.08409ms)
+✔ shiba real Home rerenders relation threshold, rescue and expiry (14.499252ms)
+✔ snail real Home rerenders relation threshold, rescue and expiry (15.094069ms)
+✔ punyu real Home rerenders relation threshold, rescue and expiry (15.124144ms)
+✔ sekizou real Home rerenders relation threshold, rescue and expiry (14.264908ms)
+✔ chameleon real Home rerenders relation threshold, rescue and expiry (16.704538ms)
+✔ clock real Home rerenders relation threshold, rescue and expiry (16.914694ms)
+✔ unicorn real Home rerenders relation threshold, rescue and expiry (17.080785ms)
+✔ many_tail_fox real Home rerenders relation threshold, rescue and expiry (18.496028ms)
+✔ watcher real Home rerenders relation threshold, rescue and expiry (16.716615ms)
+✔ box real Home rerenders relation threshold, rescue and expiry (16.38748ms)
+✔ ordinary success reacts once, rescues all, rejected play does not react (25.622979ms)
+✔ cat_ceo shared court reinforcement overrides lonely, expiry re-resolves current affection (82.287964ms)
+✔ robot_neighbor shared court reinforcement overrides lonely, expiry re-resolves current affection (53.791848ms)
+✔ field_cow shared court reinforcement overrides lonely, expiry re-resolves current affection (51.799984ms)
+✔ sunflower_partner shared court reinforcement overrides lonely, expiry re-resolves current affection (43.616516ms)
+✔ forest_bear shared court reinforcement overrides lonely, expiry re-resolves current affection (46.321554ms)
+✔ grove_deer shared court reinforcement overrides lonely, expiry re-resolves current affection (43.842266ms)
+✔ cliff_goat shared court reinforcement overrides lonely, expiry re-resolves current affection (56.316384ms)
+✔ high_eagle shared court reinforcement overrides lonely, expiry re-resolves current affection (50.140887ms)
+✔ snow_spirit shared court reinforcement overrides lonely, expiry re-resolves current affection (35.975474ms)
+✔ snowman shared court reinforcement overrides lonely, expiry re-resolves current affection (42.776568ms)
+✔ rock_octopus shared court reinforcement overrides lonely, expiry re-resolves current affection (45.051119ms)
+✔ sea_mermaid shared court reinforcement overrides lonely, expiry re-resolves current affection (30.749073ms)
+✔ anglerfish shared court reinforcement overrides lonely, expiry re-resolves current affection (50.227333ms)
+✔ swamp_croc shared court reinforcement overrides lonely, expiry re-resolves current affection (46.969731ms)
+✔ gentle_gorilla shared court reinforcement overrides lonely, expiry re-resolves current affection (45.877399ms)
+✔ knitting_spider shared court reinforcement overrides lonely, expiry re-resolves current affection (42.634245ms)
+✔ desert_scorpion shared court reinforcement overrides lonely, expiry re-resolves current affection (42.62829ms)
+✔ oasis_cactus shared court reinforcement overrides lonely, expiry re-resolves current affection (42.052026ms)
+✔ replacement partner with same ID cannot inherit positive (45.79546ms)
+✔ real save excludes reactions; reload re-resolves all companion values and partner at 20 (40.128465ms)
+✔ real save excludes reactions; reload re-resolves all companion values and partner at 50 (40.186394ms)
+✖ full supported catalog matches canonical runtime IDs and all assets exactly (4.179582ms)
+✔ 26 companions use one ordinary representative, all threshold rescues and annoyed does not start positive (28.567314ms)
+✖ development Home fixtures directly expose both pilot partners and both companions without gameplay (325.795216ms)
+✔ expanded partner court actual event path triggers positive without changing progress rules (48.339537ms)
+✔ expanded partner repair actual event path triggers positive without changing progress rules (38.531188ms)
+✔ expanded partner marriage actual event path triggers positive without changing progress rules (121.66072ms)
+✔ expanded partner date actual event path triggers positive without changing progress rules (41.556099ms)
+✔ new court success uses actual event result (49.813468ms)
+✔ new court failure uses actual event result (13.905457ms)
+✔ annoyed during positive does not extend reaction or retain positive after original expiry (14.522577ms)
+✔ real play gives only positive individuals motion and head hearts; expiry removes cues (14.785634ms)
+✔ ordinary play and all-inviting dialogue do not animate non-target companions (14.893968ms)
+✔ every possible representative in a dense 26-companion Home receives one safe heart (994.443382ms)
+✔ 26 simultaneous expiries coalesce Home work while removing every transient (28.487033ms)
+✔ partner three visual states retain marriage ring=false and replace one heart (51.533272ms)
+✔ partner three visual states retain marriage ring=true and replace one heart (134.310455ms)
+✔ companion aura and heart belong to the actor; positive replaces cold and expires back to current value (16.305356ms)
+✔ married ring preserves exact layout coordinates through every partner expression rebuild (138.779533ms)
+✔ reload reconstructs marriage ring from existing married flag at affection 20 (278.647401ms)
+✔ reload reconstructs marriage ring from existing married flag at affection 50 (281.971308ms)
+✔ full resolver prioritizes positive, then lonely below 30, then normal without mutating input (2.172356ms)
+✔ unregistered characters and wrong-kind IDs always use original PNG (1.027199ms)
+✔ one ordinary representative plus all rescued individuals, deduplicated (0.52404ms)
+✔ temporary reaction expiry, refresh, object identity and JSON non-persistence (0.339562ms)
+✔ every registered relationship image is a new 128px transparent PNG (2.531717ms)
+✔ reaction exposes an ephemeral start token and expiry without persisting entity fields (1.588264ms)
+✔ heart remains immediately above its owner even if a neighbour occupies that space (0.241624ms)
+✔ positive companion layer is raised locally so neighbours cannot hide its owner-attached heart (0.595308ms)
+✔ only partner positive heart grows 1.2 times; anchor keeps face gap and stage bounds (0.605273ms)
+✔ approved marriage ring uses fixed scale and tone without comparison overrides (0.35169ms)
+✔ browser ring geometry checks approved scale and rejects obsolete or oversized values (1.610167ms)
+✔ painted ring excludes transparent atlas margin without allowing actual character overlap (47.271977ms)
+ℹ tests 80
+ℹ suites 0
+ℹ pass 78
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4344.295413
+
+✖ failing tests:
+
+test at tests/relationship-expression-integration-test.cjs:42:1
+✖ full supported catalog matches canonical runtime IDs and all assets exactly (4.179582ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(fs.existsSync(normal))
+  
+      at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/world/tests/relationship-expression-integration-test.cjs:49:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/relationship-expression-integration-test.cjs:68:1
+✖ development Home fixtures directly expose both pilot partners and both companions without gameplay (325.795216ms)
+  node:fs:622
+    return binding.open(
+                   ^
+  
+  Error: ENOENT: no such file or directory, open 'assets/characters/companions/cat_friend.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at evalmachine.<anonymous>:687:18
+      at Script.runInContext (node:vm:149:12)
+      at Script.runInNewContext (node:vm:154:17)
+      at Object.runInNewContext (node:vm:310:38)
+      at createFixtures (/workspace/scratch/dfba51ced877/world/tests/visual-qa.cjs:10:13)
+      at visualQaPlugin (/workspace/scratch/dfba51ced877/world/tests/visual-qa.cjs:244:20)
+      at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/world/tests/relationship-expression-integration-test.cjs:69:37)
+      at Test.runInAsyncScope (node:async_hooks:227:14) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'assets/characters/companions/cat_friend.png'
+  }
