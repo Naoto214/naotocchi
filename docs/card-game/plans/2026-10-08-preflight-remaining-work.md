@@ -2,9 +2,23 @@
 
 基準: aeeca7f0f21e583355401467269d12738f73cd0e / tree5641cee980ce9119bdb19c71fc9dba514dfaf7b4。2026-10-08開始時live exact-ref一致、PR259 Draft/open/unmerged。変更はdocs/card-game内。
 
-**preflight-ready=false。** この台帳の分類は作業順と完了条件であり、既存admissionの未証明を解除しない。生成準備完了、生成/固定の承認、完全manifest保存、400戦開始承認は別の段階。今回、生成・固定・本番対戦は一切行わない。
+**現在preflight-ready=true（直下の最新追補参照）。** この台帳の分類は作業順と完了条件であり、既存admissionの未証明を解除しない。生成準備完了、生成/固定の承認、完全manifest保存、400戦開始承認は別の段階。今回、生成・固定・本番対戦は一切行わない。
 
-## 判定基準
+## 現在の到達点 — preflight-ready=true／生成・固定の最終確認待ち
+
+実装の固定検証版は48575aaaf709601e86d2b1c364e73a00311a188e、tree923d575c476527dea7b117794bec3dd980868909。証拠を保存したc7e44beadcd99dc26a6925d0f7cc5abc5a0fce2cで実external_approval.require_operation_ready('generation')がpreflight_ready=true/errors=[]を返した。原本はverification/current-preflight-live-check-c7e44be.json、共通証拠はverification/current-preflight.json。この追補を含む最終保存版もfresh gateで照合する。最新HEAD/treeはremote exact-refを正とする。
+
+- 全population/mandatory186module・876件PASS、1567.019秒/exit0、実log末尾Ran876/OK。1090 Python前後一致。全legacy proxy/npmの現在版全回帰という意味ではない。
+- 旧115/零rootの完全結合307step328event、13監査errors=[]、452.701秒/exit0。normal55/response181/automatic62/逐次誘発9。1090 Python一致。旧入力1件の診断で、本番入力・新標本ではない。
+- 設計errors=[]。独立レビューと修正証拠はcurrent-preflight-independent-review-48575aa.mdおよび参照先に保存。最終fixtureレビューC0/I0/Minor0。先行のFAIL/中断は原本を保持しPASSへ読み替えない。
+- P01–19/P22の現行準備責務を共通gateへ合成。P11未証明上位は候補・局面別unknownのまま、下位支払だけの除外を禁止し、116除外を維持。P09/P10は現在scopeの実入口責務結合であり、全未来局面や全情報非干渉の普遍的証明へ昇格しない。
+- 準備範囲は採用済みGitHub account/API＋保存editionを実行するoperatorの信頼モデル。generation_authorized=false、launch_authorized=false、production_inputs_generated=false。全体結論null、policy promotion=false、独立balance標本0。保護正本・過去結果は不変。
+
+次の一手は、fresh remote/local HEAD・tree・PR259 Draft/open/unmergedを確認し、保存最終editionで実準備gateを再確認したうえで、本人に生成・固定の具体的requestを提示すること。生成先候補はdocs/card-game/data/proxy-population-400-20261012（未作成）。過去registryはverification/current-historical-registry-4ab6dea.json.gzに保存済み。requestは最終HEADのeditionとこのregistryから再構成する。採用済みの本人PRコメント方式で最終承認を得るまで、seed生成・本番入力固定を行わない。完全manifestの保存後も、400戦開始には別request・別の最終承認が必要。P20実結果/P21実時間はその後の工程。全400行/200群を保持し、自動retry/resumeしない。
+
+最終検証プロセスは終了済み。以後は生成・固定の最終確認待ちとし、復元を理由に保存済み全検証を再実行しない。以下の古い未完/ready=false表記は各保存時点の履歴で、現在の状態はこの追補とfresh gateを正とする。
+
+## 初期台帳の判定基準（履歴）
 
 - **必須**: preflight-ready宣言前に実装・条件付きfixture検証・入口結合が必要。実際の本番値やユーザー承認は生成/開始の各最終確認へ残す。
 - **条件付き**: 107固定80枚から到達可能なら必須。除外するには正本・状態生成/遷移に基づく到達不能の証明が必要。静的カード一覧や過去試走に現れないだけでは免除不可。
