@@ -98,11 +98,41 @@
 
 ## 5. チェックポイント
 
-| # | HEAD | 内容 | テスト |
-|---|---|---|---|
-| CP1 | (このコミット) | Phase 1 修正 + テスト + 本記録 + シミュレーション tool | 下記 |
+| # | commit | 内容 |
+|---|---|---|
+| CP0 | `537997b3` | `origin/main` `249a954f` から分岐し、監査ブランチ(docs のみ)を merge |
+| CP1 | `8d1fa3b6` | Phase 1 修正 + テスト + 本記録 + Director 設計書 + シミュレーション tool |
+| CP2 | `79f0391e` | めぐる修正を bridge 側へ移し meguru.js を main と同一に(Character 3D の保護ハッシュ)。baseline JSON |
+| CP3 | `b6a755e9` | めぐる向け本人台詞を「キャラ×日付」の決定的選択に(先読み world・シード乱数を崩さない) |
+| CP4 | (本記録の更新コミット) | テスト結果の記録 |
 
-テスト結果の詳細はコミット時点で本節に追記する。
+### テスト結果(CP3 時点、`npm test` 全体)
+
+`npm test` は `&&` でつないだ 4 段(smoke → dialogue → visual-qa → 大きな `node --test` 群 → relationship 群)。大きな群が 1 件でも落ちると最後の relationship 群は走らないため、最後の群は別に実行した。
+
+| 段 | main `249a954f`(baseline) | 本ブランチ CP3 |
+|---|---|---|
+| smoke / dialogue / visual-qa | 通過 | 通過 |
+| 大きな `node --test` 群 | 3,024 / 3,025(失敗 1) | 3,023 / 3,025(失敗 2) |
+| relationship 群(+本ブランチは conversation-hygiene) | 80 / 80 | 88 / 88 |
+
+失敗の内訳:
+- `#585 every shipped UI/game emoji has an illustrated display definition`(`tests/illustration-catalog-test.cjs`): **main でも失敗**(「unmapped symbols: ★ ♡」。games.js / script.js / style.css 由来)。本ブランチの変更を stash しても同じく失敗することを確認。Conversation の範囲外なので触れていない。
+- `#2788 every quick game can be solved from its own target hint…`(`tests/quick-mode-test.cjs`): 本ブランチの 1 回目・2 回目の全体実行と main では通過。単独で 3 回再実行して 3/3 通過。quick モードは無変更で、テストが乱数(シードなし)で 20 本を選ぶため「入力の種類が 3 つ以上出る」条件がまれに外れる **flaky** と判断。
+
+途中で検出して直したもの:
+- CP1 時点で `tests/character-3d-test.cjs` 17・30(meguru.js の SHA-1 固定)が失敗 → CP2 で meguru.js を main に戻して解消。
+- CP2 時点で `meguru-party-lod` 6 / `meguru-phase4e3` 10 / `meguru-phase4e4a` 3(27 人パーティの先読み world 再利用)が失敗 → CP3 で乱数をやめて解消(単独実行 27/27)。
+
+### 環境が切れたときの復元
+```
+git fetch origin claude/conversation-hygiene-20261012
+git checkout -B claude/conversation-hygiene-20261012 origin/claude/conversation-hygiene-20261012
+npm ci
+node --test tests/conversation-hygiene-test.cjs      # 8/8
+node tools/conversation-sim.cjs --quick              # 約 1 秒
+```
+保存済みの実装(Phase 1 の修正・テスト・sim tool)は再作成しない。次の作業は §6 の判断待ちと、Director 設計書 §10 の承認。
 
 ## 6. 未解決(人間の判断待ち)
 1. money 31 行を新しいコイン入手(どれか)に接続するか(§2)
