@@ -1248,13 +1248,12 @@ function create3DRenderer(M, o, onLost) {
     if ((view.frame || 0) % 30 === 0) refreshGlyphs();
     if (charPresenter && charPresenter.scene !== built.sc) charPresenter.setScene(built.sc);
     const c = view.camera, env = view.env || {}, mood = view.mood || {};
-    // 縦は従来のピンホール。横長では高さを保ち、足元の位置を保つ俯角を加える。
-    const F = W * 0.95, HOR = Math.round(H * (HOR_BASE + 0.07 * ((c.height || 1) - 1)));
-    const baseCamH = (FEET_FRAC - HOR / H) * H * c.dist / F;
-    // At aspect > 3:2 the old height shrank with H/W, giving a ground-level
-    // view. Hold the 3:2 elevation; pitch locally after yaw so turns stay level.
-    const camH = baseCamH * Math.max(1, W / H / 1.5);
-    const pitch = Math.atan2(camH, c.dist) - Math.atan2(baseCamH, c.dist);
+    // Preserve portrait framing. Above 3:2 keep the vertical frustum instead of
+    // narrowing it with W; wider canvases reveal more scenery on either side.
+    // The existing off-axis horizon/feet anchors provide the box-garden view.
+    // Do not add pitch: that pushes the horizon above a short landscape canvas.
+    const F = Math.min(W, H * 1.5) * 0.95, HOR = Math.round(H * (HOR_BASE + 0.07 * ((c.height || 1) - 1)));
+    const camH = (FEET_FRAC - HOR / H) * H * c.dist / F;
     const Hv = 2 * Math.max(HOR, H - HOR);
     camera.fov = (2 * Math.atan((Hv / 2) / F)) * 180 / Math.PI; camera.aspect = W / Hv;
     camera.setViewOffset(W, Hv, 0, Hv / 2 - HOR, W, H);
@@ -1262,7 +1261,7 @@ function create3DRenderer(M, o, onLost) {
     // Terrain v1: カメラは player の 足もとの 高さに ついていく(ゆっくり。段で カメラが はねない)
     const pyT = built.terr ? built.terr.walkY(view.player.x, view.player.z) : 0;
     built.camY = built.camY == null ? pyT : built.camY + (pyT - built.camY) * 0.15;
-    camera.position.set(c.x - sinY * c.dist, camH + built.camY, -(c.z - cosY * c.dist)); camera.rotation.set(-pitch, -c.yaw, 0, 'YXZ');
+    camera.position.set(c.x - sinY * c.dist, camH + built.camY, -(c.z - cosY * c.dist)); camera.rotation.set(0, -c.yaw, 0);
     camera.updateProjectionMatrix();
     // ひかり(時間・天気・場所の きぶん)。2D の TIME_LIGHT / WEATHER_LIGHT を そのまま つかう
     const TL = M.TIME_LIGHT[env.time] || M.TIME_LIGHT.day, wl = M.WEATHER_LIGHT[env.weather] || 1;

@@ -27,17 +27,18 @@ test('diagnostic logger failure cannot interrupt fallback',async()=>{const h=set
 async function cameraPose(W,H,yaw=0,terrain=0,height=1) {
  const THREE=await import('../vendor/three-0.170.0/three.module.min.js');
  const src=fs.readFileSync('meguru-3d.mjs','utf8');
- const block=src.slice(src.indexOf('    const F = W * 0.95'),src.indexOf('    // ひかり(時間'));
+ const block=src.slice(src.indexOf('    const F = '),src.indexOf('    // ひかり(時間'));
  const camera=new THREE.PerspectiveCamera(50,1,20,12000), c={x:100,z:300,dist:430,yaw,height};
  vm.runInNewContext(block,{W,H,c,camera,HOR_BASE:.30,FEET_FRAC:.80,built:{terr:{walkY:()=>terrain}},view:{player:{x:c.x,z:c.z}},Math});
  camera.updateMatrixWorld(true);
- return {camera,feet:new THREE.Vector3(c.x,terrain,-c.z).project(camera),direction:camera.getWorldDirection(new THREE.Vector3())};
+ return {camera,feet:new THREE.Vector3(c.x,terrain,-c.z).project(camera),direction:camera.getWorldDirection(new THREE.Vector3()), horizon:new THREE.Vector3(c.x+Math.sin(yaw)*1e9,terrain,-c.z-Math.cos(yaw)*1e9).project(camera)};
 }
-test('wide 3D camera keeps useful elevation and feet framing at every yaw',async()=>{
+test('wide 3D framing retains horizon, elevation and feet at every yaw',async()=>{
  for(const yaw of [0,.7,Math.PI/2,Math.PI,-1.1]) for(const terrain of [0,250]) {
   const p=await cameraPose(600,220,yaw,terrain);
   assert.ok(p.camera.position.y-terrain>=145,'wide view must not sink towards the ground');
-  assert.ok(p.direction.y<-.08,'wide view gently looks down');
+  assert.ok(Math.abs(p.direction.y)<1e-12,'no additional pitch that hides the distance');
+  assert.ok(Math.abs((1-p.horizon.y)/2-.3)<1e-6,'horizon stays at 30%, not outside the top');
   assert.ok(Math.abs(p.feet.x)<1e-10,'yaw does not roll or displace target');
   assert.ok(Math.abs(p.feet.y+.6)<1e-10,'feet stay at 80% of canvas height');
  }
@@ -51,4 +52,15 @@ test('portrait projection is unchanged; wide compensation joins continuously',as
  const a=await cameraPose(600,400), b=await cameraPose(600,399.999);
  assert.ok(Math.abs(a.camera.position.y-b.camera.position.y)<.001);
  assert.ok(Math.abs(a.direction.y-b.direction.y)<.00001);
+});
+
+test('wide camera retains vertical field of view instead of cropping the distance',async()=>{
+ const ref=await cameraPose(600,400);
+ for(const W of [600,700,800]) {
+  const p=await cameraPose(W,220);
+  assert.ok(Math.abs(p.camera.fov-ref.camera.fov)<1e-10,'same vertical frustum across wide aspects');
+  assert.ok(Math.abs(p.camera.position.y-ref.camera.position.y)<1e-10,'same elevation');
+  const halfFov=Math.atan(W/(2*1.425*220))*180/Math.PI;
+  assert.ok(halfFov<55,'supported wide framing avoids extreme >110 degree horizontal field');
+ }
 });

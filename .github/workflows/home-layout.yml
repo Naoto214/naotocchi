@@ -51,6 +51,12 @@ jobs:
       - run: node tests/home-layout-regressions-browser.cjs
       - run: node tests/meguru-discovery-transition-browser.cjs
       - run: node tests/meguru-landscape-browser.cjs
+      - name: Camera framing and regional rotation regression
+        run: node tools/meguru-3d-qa/camera-framing.cjs
+        env:
+          FRAMING_VARIANTS: candidate
+          FRAMING_OUT: test-results/home-layout/camera-framing
+      - run: node tools/meguru-3d-qa/camera-framing-mutation.cjs
       - run: node tests/home-layout-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()

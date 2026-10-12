@@ -75,13 +75,16 @@ Home CI for Chromium and WebKit. Linux WebKit's renderer mode is recorded; Canva
 fallback there must not be reported as physical Safari 3D validation.
 
 The user retested candidate `44a1415` and confirmed 「ボタンなど配置問題なし」.
-They reported a low viewpoint and authorized camera adjustment. The new camera
-candidate holds elevation at a 3:2 reference for wider canvases and adds downward
-pitch while keeping the camera target's feet at 80% height. Portrait projection
-and both Canvas renderers are unchanged. See `camera-adjustment/README.md`.
+They reported a low viewpoint and authorized camera adjustment. The subsequent
+`6ba125c` candidate was rejected on physical iPhone: 「だいぶ視点さがって、前より悪化した」.
+Its extra downward pitch is removed in the current framing candidate. The new
+calculation preserves vertical view above canvas aspect 3:2, keeps horizon/feet
+anchors and reveals more surrounding scenery. See `camera-framing/README.md` for
+root cause, identical-pose comparisons and current evidence. The earlier
+`camera-adjustment/` directory is historical evidence of the rejected candidate.
 
-**Camera retest and full physical QA remain incomplete. Keep Draft; do not merge
-or deploy production.**
+**Current framing needs physical acceptance. Full Human QA remains incomplete.
+Keep Draft; do not merge or deploy production.**
 
 ## Remaining physical iPhone Safari steps
 
