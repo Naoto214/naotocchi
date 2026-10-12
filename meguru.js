@@ -688,7 +688,7 @@
     function spotDiscoveryLevel(s) {
       if (!s) return 0;
       if (s.secret || s.landmark) return 3;
-      if (s.kind === 'water') return s.prop && !FOUND_PLAIN_PROP.has(s.prop) ? 2 : 1;   // ふつうの 池 は しずかに(しるしの ある 水べ だけ かるく)
+      if (s.kind === 'water') return !S.meguru3d || s.prop && !FOUND_PLAIN_PROP.has(s.prop) ? 2 : 1;   // ふつうの 池 は しずかに(しるしの ある 水べ だけ かるく)
       // view: その ばしょ だけの けしきを もつ(みはらし など)。画面を 見て わかる
       if (s.view && s.view.length) return 2;
       if (!s.prop || FOUND_PLAIN_PROP.has(s.prop)) return 0;
@@ -704,6 +704,12 @@
     //   きろく(recordSpot / ちず / save)は 1 つも かわらない(しらせない ≠ 見つけて いない)
     function discoveryNotice(s) {
       const lv = spotDiscoveryLevel(s);
+      // Default 2D keeps the original discovery presentation; World QA is URL opt-in.
+      if (!S.meguru3d) return lv > 0 ? {
+        kind: s.secret ? 'secret' : s.landmark ? 'landmark' : 'spot',
+        icon: s.secret ? '🔍' : s.landmark ? '✨' : '',
+        title: s.secret ? 'ひみつのばしょを みつけた！' : `${s.label}を みつけた${s.landmark ? '！' : ''}`,
+      } : null;
       if (lv < 2) return null;
       if (s.secret) return { kind: 'secret', icon: '🔍', title: 'ひみつのばしょを みつけた！' };
       if (s.landmark) return { kind: 'landmark', icon: '✨', title: `${s.label}を みつけた！`, quiet: true };
@@ -2502,6 +2508,7 @@
     const MAP_SHOW_KIND = new Set(['plaza', 'shop']);
     function mapSpotShown(world, q, rec) {
       if (!q) return false;
+      if (!world.world3d) return true; // 2D maps retain every discovered spot.
       if (rec && q.id === rec.hereSpot) return true;
       if (q.secret || q.landmark || q.hub) return true;
       if (MAP_SHOW_KIND.has(q.kind)) return true;
@@ -9318,7 +9325,7 @@
       // 住民に ちかづいた ことは はっけん では ない(下の「はなす」だけ)。
       // めじるし(mark)は かずが 多く、ちずに のる だけ なので しらせない。
       const FOUND_RANK = { secret: 1, landmark: 2, link: 3, zone: 4, spot: 5 };
-      const FOUND_MS = { secret: 2400, landmark: 2000, link: 1800, zone: 1600, spot: 1100 };   // ふつうの spot の かるい しらせは みじかく
+      const FOUND_MS = { secret: 2400, landmark: 2000, link: 1800, zone: 1600, spot: S.meguru3d ? 1100 : 1500 };   // ふつうの spot の かるい しらせは みじかく
       const FOUND_STRONG = { secret: true, landmark: true };   // すこし つよい えんしゅつ に する もの
       const FOUND_GAP = 180;          // つぎの しらせ までの あいだ(かさならない ように)
       const FOUND_MAX = 4;            // ためこむ かず。これ いじょうは よわい ものから すてる
@@ -9408,6 +9415,11 @@
       // 2026-10-01 3D v2(F5): 地区に 入った toast は 出さない(左上の 名まえが 地区名に かわる だけ)。きろく(ちず)は これまで どおり
       function noteZoneFound(zn) {
         saveMapBits('zones', zn.id); mapAdded = true;
+        if (!S.meguru3d) {
+          const rid = sim.world.regionId;
+          queueFound({ key: `zone:${rid}:${zn.id}`, kind: 'zone', region: rid, icon: '🗺',
+            title: `${zn.label}に きた`, sub: mapNote() ? 'ちずが すこし ひろがった' : '' });
+        }
       }
       // ランドマークを はじめて 見つけた とき: 左上の 名まえを 1.6 秒 だけ 静かに 強調(toast・音 なし。v2 F4)
       let quietMarkUntil = 0, quietMarkId = null;

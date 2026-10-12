@@ -351,9 +351,12 @@ test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し
 });
 
 test('10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない', () => {
+  const { h, M } = setup();
+  h.api.meguruBridge.meguru3d = true; // Explicit World v2 notification policy.
+  const reg = M.buildRegistry();
   for (const rid of Object.keys(M.WORLDS)) {
     // 2026-10-01 3D v2(Human QA v1 F4 / F5): toast は ひみつ だけ。ランドマークは quiet(左上の 静かな 強調)、その ほかは null
-    const w = M.buildWorld(rid, reg, {}); let strong = 0, light = 0, quiet = 0;
+    const w = M.buildWorld(rid, reg, { world3d: false }); let strong = 0, light = 0, quiet = 0;
     for (const s of w.spots) { const n = M.discoveryNotice(s); if (n && !n.quiet) assert.ok(s.secret, rid + ' toast は ひみつ だけ: ' + s.id); if (n && n.quiet) assert.ok(s.landmark, rid + ' quiet は ランドマーク だけ: ' + s.id); if (!n) assert.ok(!s.secret, rid + ' ひみつは toast: ' + s.id); }
     for (const s of w.spots) { const n = M.discoveryNotice(s); if (!n) quiet++; else if (n.kind === 'landmark' || n.kind === 'secret') { strong++; assert.match(n.title, /みつけた！$/); assert.ok(s.landmark || s.secret); } else { light++; assert.match(n.title, /が ある$/); assert.ok(!s.landmark && !s.secret); } }
     assert.ok(strong <= Math.max(3, Math.ceil(w.spots.length * 0.3)), rid + ' つよい しらせ ' + strong + ' / ' + w.spots.length);
@@ -361,7 +364,7 @@ test('10. はっけんの しらせ(全地域): ランドマーク / ひみつ �
     for (const s of w.spots) if (s.kind === 'water' && !s.secret && !s.landmark && (!s.prop || M.spotDiscoveryLevel(s) < 2)) assert.equal(M.discoveryNotice(s), null, rid + ' ふつうの 池 ' + s.id + ' は しずか');
   }
   // forest の 例
-  const f = M.buildWorld('forest', reg, {});
+  const f = M.buildWorld('forest', reg, { world3d: false });
   const at = (id) => M.discoveryNotice(f.spots.find((s) => s.id === id));
   assert.equal(at('falls').kind, 'landmark'); assert.equal(at('hiddenpond').kind, 'secret'); assert.equal(at('creekdeep'), null); assert.equal(at('thicket1'), null);
 });

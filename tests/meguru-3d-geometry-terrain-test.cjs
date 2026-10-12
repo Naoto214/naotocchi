@@ -43,7 +43,9 @@ test('GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに
   assert.match(SRC3D, /m\.instanceMatrix\.addUpdateRange\(i \* 16, 16\)/, 'かわった instance だけ 送る');
   assert.match(SRC3D, /frame - \(oc\.lastWant \|\| 0\) <= FADE_HOLD/, 'ちらつかない(線分の ふちで 出入り しない)');
   assert.match(SRC3D, /shadows\.frustumCulled = false/, 'かげが きえない');
-  assert.match(SRC3D, /r3d\.setDiag\(!!opts\.perf\)/, '診断は &perf=1 の ときだけ(production の UI に 出さない)');
+  assert.match(SRC3D, /diagWant = false/);
+  assert.match(SRC3D, /if \(opts\.perf\) perfText\(now\);/);
+  assert.match(SRC3D, /r3d\.setDiag\(diagWant \|\| !!opts\.perf\)/, '診断は perf または明示QA opt-inのみ');
   assert.match(SRC3D, /if \(diag\.on && \(view\.frame \|\| 0\) % 4 === 0\) \{ diag\.ray = rayProbe/);
   assert.match(SRC3D, /'ray ' \+ st\.diag\.ray\.seen \+ '\/' \+ st\.diag\.ray\.of/, 'perf 表示に ray の 見え かた');
   assert.match(SRC3D, /if \(med > 22 && dpr > 1\.5 \+ 1e-6\)/, '解像度の 自動調整(1.5 まで)');

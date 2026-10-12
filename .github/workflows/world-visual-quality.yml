@@ -1,8 +1,8 @@
-name: World visual quality (Draft branch)
+name: World visual quality
 
 on:
   push:
-    branches: [feat/meguru-3d-geometry-terrain-v1]
+    branches: [feat/meguru-3d-geometry-terrain-v1, integration/world-character-3d-20261012]
     paths:
       - meguru.js
       - meguru-3d.mjs
@@ -87,4 +87,26 @@ jobs:
         with:
           name: world-${{ matrix.audit }}-${{ github.sha }}
           path: current/qa-artifacts
+          retention-days: 30
+
+  character-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: |
+          npm ci
+          npm install --no-save --package-lock=false playwright@1.51.1
+          npx playwright install --with-deps chromium
+          echo "PLAYWRIGHT_CHROMIUM=$(node -p 'require("playwright").chromium.executablePath()')" >> "$GITHUB_ENV"
+      - name: Combined Character and World browser contract
+        run: node tools/meguru-3d-qa/character-integration.cjs --out qa-artifacts/character-integration
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: world-character-integration-${{ github.sha }}
+          path: qa-artifacts/character-integration
           retention-days: 30

@@ -33,6 +33,7 @@ function fakeCtx() {
 }
 function setup(regionId = 'forest', patch = {}, options = {}) {
   const h = harness({ fullDisplay: true, canvasContext: fakeCtx(), ...options });
+  h.api.meguruBridge.meguru3d = true; // World v2 presentation is explicitly opt-in.
   const s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80,
     speciesLine: 'dog', stageIndex: 4, ageTicks: 500 });
@@ -630,7 +631,7 @@ const VIEW_SPOTS = [
 function fixedWorld(h, M, regionId) {
   Object.assign(h.api.state().lifetime, { timeMode: 'day', weatherMode: 'sunny', seasonMode: 'spring' });
   h.api.render();
-  return M.buildWorld(regionId, M.buildRegistry(), {});
+  return M.buildWorld(regionId, M.buildRegistry(), { world3d: false }); // These checks protect original 2D scenery.
 }
 
 test('⑧-1 4つの みはらしに、その ばしょ だけの けしきが ある', () => {

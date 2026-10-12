@@ -14,6 +14,7 @@ const ROOT = path.join(__dirname, '..');
 const SRC = fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'), 'utf8');
 function setup() {
   const h = harness({ deterministic: true, fullDisplay: true });
+  h.api.meguruBridge.meguru3d = true; // World v2 presentation is explicitly opt-in.
   const M = h.api.meguruMod, s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, regionId: 'forest' });
   h.api.render();
@@ -177,9 +178,9 @@ test('v2-8. しらせ: ふつうの spot と 地区は toast なし、ランド�
   assert.deepEqual(lv, { 0: 184, 1: 17, 2: 199, 3: 71 });
   // 地区の toast は なくなった(きろくは のこる): source の 契約
   const src = fs.readFileSync(path.join(ROOT, 'meguru.js'), 'utf8');
-  assert.match(src, /function noteZoneFound\(zn\) \{\s*saveMapBits\('zones', zn\.id\); mapAdded = true;\s*\}/, '地区は きろく だけ');
+  assert.match(src, /function noteZoneFound\(zn\) \{\s*saveMapBits\('zones', zn\.id\); mapAdded = true;\s*if \(!S\.meguru3d\)/, '3D は きろく だけ、2D は 元の toast');
   assert.match(src, /if \(dn && dn\.quiet\) quietSpotMark\(s\);/, 'ランドマークは quietSpotMark');
-  assert.ok(!/kind: 'zone', region: rid, icon: '🗺'/.test(src), '地区の toast が のこって いない');
+  // The behavioral protection suite verifies original zone toasts remain in 2D.
 });
 
 test('v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない', () => {

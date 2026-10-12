@@ -93,7 +93,9 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
     save.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {}, spots: {}, zones: {}, paths: {}, marks: {}, world: { regions: [], links: [] } };
     await page.addInitScript((s) => localStorage.setItem('naotocchi-save-v1', JSON.stringify(s)), save);
     try {
-      await page.goto(baseURL);
+      const worldURL = new URL(baseURL);
+      worldURL.searchParams.set('meguru3d', '1'); // This suite asserts World v2 presentation.
+      await page.goto(worldURL.href);
       await page.locator('.device.ui-home-active').waitFor();
       await page.evaluate(() => document.fonts.ready);
       await page.locator('#travelBtn').click();
