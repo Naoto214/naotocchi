@@ -1,0 +1,11 @@
+# Final fixed-source review composition — 2026-10-12
+
+Frozen source: 48575aaaf709601e86d2b1c364e73a00311a188e, tree923d575c476527dea7b117794bec3dd980868909. The parent4ab6dea implementation review composition is preserved in current-preflight-independent-review-4ab6dea.md, including the P11, P09, P10 and P14–18 reviews and the root-TDD resolution of the gate review's minor findings. No production Python implementation changed between that parent and this frozen source.
+
+The sole Python change is in test_proxy_population_policy_journal.py: the existing full-trace test uses the already allowed512-step ceiling instead of220 and reports stop/step count on failed completion. It retains completion, both players reaching R10, source/choice/resolution coverage, automatic output checks, altered-result and journal rejection, and the distinction between local coverage and whole-rule/strategic eligibility.
+
+Independent read-only review by /root/review_p11_evidence: Critical0 / Important0 / Minor0. The reviewer ran no tests or Python scripts and made no edits. Saved parent evidence supports the bound adjustment: the real complete connection has307step/328event, exceeding220. Parent full regression remains876 tests with1 failure and is not counted as PASS. The1-test saved-record diagnostic checked the remaining assertions with reconstruct replaced by the actual parent record; it explicitly is not a fresh GREEN reconstruction.
+
+No unresolved review findings. This review was performed while the final frozen48575aa regression and complete connection were running; it does not assume their results or claim readiness. Their actual exit/logs/fingerprints and the design result are separate required evidence. The companion review JSON binds the recursive current Python source hashes and this report under the approved operator trust model, without inventing cryptographic reviewer authentication.
+
+Production seed generation, input fixation, approval consumption and400-match execution remain unperformed. Unknown upper operands retain the existing116 exclusion; no policy promotion or independent balance samples are introduced. Preparation, generation approval and launch approval remain separate gates.
