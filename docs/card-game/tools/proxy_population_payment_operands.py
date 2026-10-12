@@ -92,3 +92,31 @@ def audit_normal(envelope,events,decision):
   verified_candidates=verified,unproved_candidates=unproved,source_sha256={**core.SOURCES,**hand.SOURCES,**board.SOURCES},
   operand_provenance_verified=False,other_priority_operands_proven=False,information_use_proven=False,
   origin_authenticated=False,policy_eligible=None,balance_admitted=None)
+
+
+def require_actual_comparison(step):
+ """Join a fresh payment audit on every current normal comparison route.
+
+ Unknown rows remain unknown. An all-unknown partition has no verified
+ payment rows and must not acquire a true payment-certification flag.
+ """
+ decision=step['decision'];proof=step.get('normal_payment_operands',{})
+ try:
+  ids=decision['inventory']['legal_candidate_ids']
+  if ids!=sorted(set(ids)):raise ValueError('candidate partition')
+  if decision.get('execution_evidence',{}).get('contract')=='existing116_unproved_upper_comparison.v1':
+   evidence=decision['execution_evidence']['candidate_comparison_evidence']
+   known=sorted(evidence['proved_scores']);unknown=sorted(evidence['unproved'])
+   if set(known)&set(unknown) or sorted(known+unknown)!=ids:raise ValueError('partial partition')
+   expected_unknown=[dict(candidate_id=cid,reason='comparison_operand_unproved',comparison_reason=evidence['unproved'][cid]) for cid in unknown]
+  else:
+   problems=[decision[k] for k in ('problem','upper_priority_problem','fallback_priority_problem') if decision.get(k) is not None]
+   if len(problems)!=1 or problems[0]['legal_candidate_ids']!=ids:raise ValueError('comparison route')
+   known=ids;expected_unknown=[]
+  rows=proof.get('verified_candidates')
+  if proof.get('schema')!='normal_comparison_payment_operands.v1' or proof.get('errors')!=[] or proof.get('applicable') is not True or proof.get('supported_payment_operands_verified') is not bool(known):raise ValueError('payment proof')
+  if type(rows) is not list or sorted(r['candidate_id'] for r in rows)!=known:raise ValueError('verified partition')
+  unknown_rows=proof.get('unproved_candidates')
+  if type(unknown_rows) is not list or canonical(sorted(unknown_rows,key=lambda r:r['candidate_id']))!=canonical(expected_unknown):raise ValueError('unknown partition')
+ except (ValueError,KeyError,TypeError,AttributeError) as error:
+  raise ValueError('current comparison payment coverage incomplete') from error

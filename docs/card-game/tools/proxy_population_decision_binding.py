@@ -137,11 +137,9 @@ def require_current_comparison(step):
   if proof['errors'] or proof['selection_computation_verified'] is not True:
    raise ValueError('current selection computation incomplete: '+str(proof['errors']))
   step['selection_computation_audit']=proof
- if decision.get('context',{}).get('decision_kind')=='normal_action' and (decision.get('problem') is not None or decision.get('upper_priority_problem') is not None):
-  proof=step.get('normal_payment_operands',{});rows=proof.get('verified_candidates',[])
-  ids=decision['inventory']['legal_candidate_ids']
-  if proof.get('schema')!='normal_comparison_payment_operands.v1' or proof.get('errors')!=[] or proof.get('applicable') is not True or proof.get('supported_payment_operands_verified') is not True or proof.get('unproved_candidates')!=[] or len(rows)!=len(ids) or sorted(r.get('candidate_id','') for r in rows)!=ids:
-   raise ValueError('current comparison payment coverage incomplete')
+ if decision.get('context',{}).get('decision_kind')=='normal_action':
+  from proxy_population_payment_operands import require_actual_comparison
+  require_actual_comparison(step)
  if decision.get('decision_kind')=='response_action' and mode=='priority_unique':
   proof=step.get('response_comparison_operands',{})
   if proof.get('schema')!='supplied_response_comparison_operands.v1' or proof.get('errors')!=[] or proof.get('applicable') is not True or proof.get('existing_comparison_operands_verified') is not True or proof.get('supplied_resolution_premises_verified') is not True or proof.get('unproved')!=[]:

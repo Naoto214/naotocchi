@@ -1022,3 +1022,8 @@ d3338d4からcurrent-source-responsibilities.mdを追加。native11/start2/latch
 ### 固定2b0b075の初期／履歴／開始条件完全結合（2026-10-12）
 
 直近の初期配札／typed空起点／fresh collection／許可履歴／開始条件を、保存115・零rootの既存test-1Aで完全結合。143step181event、completed=true/stop=null、11監査errors=[]、120.065s/exit0、Python1080前後一致。normal30/response88/automatic25/逐次0。source-history-connected-2b0b075-*原本、design errors=[]/exit0。独立read-only review C0/I0/Minor0。全source/全proxy結果へ昇格せず、復元理由で再実行不要。次は比較根拠/unknown・情報・P14–18共通gate。preflight-ready=false、生成/固定/400戦0。
+
+
+### P11 partial/helper支払監査のexport gate（2026-10-12）
+
+ee4fff1から、fresh支払監査errors=[]・未証明でもpartial/helper比較のexport gateが通る2REDを修正。全通常routeの既知／未知完全分割、厳密bool、未知理由を結合。全未知の空verified/falseは保持し116除外。payment-gate-*、最終40PASS29.291s/Python1081一致、独立3PASS0.527s/C0I0M0。実manifest34stepでexport前停止。path誤り・summary欠落logは完了証拠と区別。次は上位/成長根拠と明示unknown、P10/P14–18共通合成。preflight-ready=false、生成/固定/400戦0。

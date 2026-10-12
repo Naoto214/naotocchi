@@ -65,6 +65,8 @@
 
 - 2026-10-12: 固定2b0b075の完全結合143step181event/11監査errors[]/120.065s・Python1080一致、design errors[]、独立read-only C0I0M0。source-history-connected-2b0b075-*。逐次誘発0の旧入力診断であり全proxyではない。復元再実行不要。
 
+- 2026-10-12: partial/helperもfresh支払監査のexport gateへ結合。payment-gate-*、40PASS29.291s/Python1081一致、独立3PASS/C0I0M0。全未知は空verified/false・116除外を保持。固定2b0b075完全結合は本gate前。次はP10/P11残根拠とP14–18。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
