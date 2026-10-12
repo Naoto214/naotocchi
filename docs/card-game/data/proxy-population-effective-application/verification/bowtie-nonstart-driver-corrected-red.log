@@ -1,0 +1,23 @@
+E
+======================================================================
+ERROR: test_supplied_nonstart_driver_exports_both_start_sources_as_negative (test_proxy_population_response_start_negative.ResponseStartNegativeTests.test_supplied_nonstart_driver_exports_both_start_sources_as_negative)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_response_start_negative.py", line 46, in test_supplied_nonstart_driver_exports_both_start_sources_as_negative
+    upgraded,proof=runtime.operation(initial(),prepare)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 128, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 45, in run_route
+    result.update(coverage_revision=COVERAGE,run_id=COVERAGE+':'+policy+':'+initial['path_id'],
+    ^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'update'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.050s
+
+FAILED (errors=1)

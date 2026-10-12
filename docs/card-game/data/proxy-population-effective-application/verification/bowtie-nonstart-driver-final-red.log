@@ -1,0 +1,18 @@
+E
+======================================================================
+ERROR: test_supplied_nonstart_driver_exports_both_start_sources_as_negative (test_proxy_population_response_start_negative.ResponseStartNegativeTests.test_supplied_nonstart_driver_exports_both_start_sources_as_negative)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_response_start_negative.py", line 47, in test_supplied_nonstart_driver_exports_both_start_sources_as_negative
+    result=window.segment(upgraded,initial(),h,[quick.old._snapshot(state.current(upgraded))],[upgraded],1,proof)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 92, in current
+    validate(envelope)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 29, in validate
+    raise ValueError('invalid continuation envelope')
+ValueError: invalid continuation envelope
+
+----------------------------------------------------------------------
+Ran 1 test in 0.046s
+
+FAILED (errors=1)

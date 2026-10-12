@@ -1290,3 +1290,8 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P06/P09 source閉包の合成境界（2026-10-12）
 
 1538eaaの初期/typed起点/80物理保存/敵人物・予約不変条件/解決・非解決全差分/trace10rootの既存接続をcurrent-source-closure-composition.mdへ整理。受理supplied traceの不変条件と全合法機会の証明を区別。独立read-only review C0/I0/Minor0、コード変更・テスト再実行なし。次は41sourceの各作用/機会を既存の別責務へ完全対応させ、native外分類の引受け先を明示する。P10/P11/P14–18は未完、preflight-ready=false、生成/固定/400戦0。
+
+
+### P09 I-bowtie非開始responseの否定条件（2026-10-12）
+
+c13b823から41source対応を読んで発見。既存C-chicken否定分岐へ77/source catalog由来I-bowtieの非開始/相手開始を結合。unitとsupplied実driverの2RED、最終31PASS20.922s・Python1079前後一致、独立2PASS0.500s/C0I0M0。bowtie-nonstart-*。自分開始/後続pass/未知originは未証明、現在手札3枚を開始時条件へ流用しない。次は元の開始境界からの不成立証拠の結合、全source責務/P10/P11/P14–18。preflight-ready=false、生成/固定/400戦0。

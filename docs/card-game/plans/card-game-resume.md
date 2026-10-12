@@ -57,6 +57,8 @@
 
 - 2026-10-12: current-source-closure-composition.mdへ既存初期/全遷移/敵人物予約不変条件の合成範囲を整理。独立読取review C0/I0M0、コード変更・再検証なし。次は41sourceの全作用とnative外の別責務対応、P10/P11/P14–18。
 
+- 2026-10-12: I-bowtie非開始/相手開始responseの未証明残留2REDを既存開始否定へ接続。bowtie-nonstart-*、31PASS20.922s/Python1079前後一致、独立2PASS/C0I0M0。次は自分開始時の不成立証拠を元境界から結合、41source責務対応とP10/P11/P14–18。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

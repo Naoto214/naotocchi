@@ -180,16 +180,27 @@ def audit_response(envelope,events,inventory):
     if proof['errors'] or proof['current_trigger_predicates_verified'] is not True or proof['verified_candidate_count']!=0:
      unproved.append(dict(source_instance_id=source,card_id=card,reason='latched_response_negative_not_proven'));continue
     latched_negative_audits[source]=proof
-   elif card=='C-chicken':
+   elif card in ('C-chicken','I-bowtie'):
     import proxy_continuation_batch as batch
-    if source not in b['companions']:raise ValueError('start companion current source differs')
+    import proxy_population_start_obligations as starts
+    if card=='C-chicken' and source not in b['companions']:raise ValueError('start companion current source differs')
+    if card=='I-bowtie':
+     public=envelope['runtime']['public_prepared'].get(source,{})
+     if source not in b['prepared'] or public.get('face_up') is not True or source not in envelope['runtime']['attachments']:raise ValueError('start equipment current source differs')
+     known=starts.catalog()['cards'][card]
+     if known['start_kind']!='own_start_hand_at_most_two_draw':raise ValueError('start equipment source contract differs')
     cap=rules.classification(card)
     if cap['kind']!='triggered' or cap['timing']!='own_turn_start':raise ValueError('start companion source contract differs')
     origins=[e for e in events if e['seq']==ctx['origin_event_seq']]
     if len(origins)!=1:
      unproved.append(dict(source_instance_id=source,card_id=card,reason='start_response_origin_unproved'));continue
     origin=origins[0];raw=origin['action_type'];kind='turn_start' if raw in ('turn_start_and_normal_draw','turn_start_and_egg_draw','egg_exchange_bottom') else raw
-    met=source_start_matches(card,ctx['window_kind'],actor,g['turn_player'],kind,origin['actor'])
+    if card=='C-chicken':met=source_start_matches(card,ctx['window_kind'],actor,g['turn_player'],kind,origin['actor'])
+    else:
+     if cap['reference']!=known['reference']:raise ValueError('start equipment reference differs')
+     #77 is own-start only. Do not infer the original hand condition from
+     #the current hand, or reuse144's C-chicken-only registration for this card.
+     met=ctx['window_kind']=='turn_start' and actor==g['turn_player'] and origin['actor']==actor and kind=='turn_start'
     # Restrict this local negative to registered normal-method origins or
     # another player's turn; unknown own-turn mechanisms remain unproved.
     if met or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS):
