@@ -35,7 +35,7 @@ PY
   pass=$(printf '%s\n' "$out" | grep -c '^ok ' || true)
   fail=$(printf '%s\n' "$out" | grep -c '^not ok ' || true)
   which=$(printf '%s\n' "$out" | sed -nE 's/^not ok [0-9]+ - ([0-9]+)\..*/\1/p' | tr '\n' ',' | sed 's/,$//')
-  if [ "$rc" -eq 1 ] && [ "$fail" -gt 0 ] && [ "$((pass + fail))" -eq 34 ]; then verdict=RED;
+  if [ "$rc" -eq 1 ] && [ "$fail" -gt 0 ] && [ "$((pass + fail))" -eq "$TOTAL" ]; then verdict=RED;
   else verdict="ERROR: mutation not detected or test runner incomplete"; failures=$((failures + 1)); printf '%s\n' "$out"; fi
   echo "$name | $file | pass $pass / fail $fail | red tests: $which | $verdict"
   cp "$BACKUP/$file" "$file"
@@ -43,7 +43,9 @@ PY
 echo "baseline:"
 baseline=$(node --test --test-reporter=tap "$TEST" 2>&1)
 printf '%s\n' "$baseline" | grep -E '^# (tests|pass|fail)'
-[ "$(printf '%s\n' "$baseline" | grep -c '^ok ' || true)" -eq 34 ]
+# テストの 数は 固定しない(baseline が 全部 通り、0 本では ない こと)
+TOTAL=$(printf '%s\n' "$baseline" | sed -nE 's/^# tests ([0-9]+)$/\1/p')
+[ "${TOTAL:-0}" -gt 0 ] && [ "$(printf '%s\n' "$baseline" | grep -c '^ok ' || true)" -eq "$TOTAL" ]
 run "A archetype mapping 削除(quadruped の builder)" character-3d/archetypes.mjs \
   " quadruped, avian," " avian,"
 run "B stage parameter 削除(どの 段も 最初の 段の 数字)" character-3d/archetypes.mjs \
