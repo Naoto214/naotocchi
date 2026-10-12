@@ -12,6 +12,7 @@ import proxy_population_external_approval as external_approval
 import proxy_population_generation_package as generation_package
 import proxy_population_remote_publication as remote
 import proxy_population_launch_authorization as authorization
+import proxy_population_execution_binding as rebinding
 from proxy_mandatory_population_input import audit_input_bundle
 from proxy_population_generation_entry import write_exclusive
 from proxy_mandatory_policy_contract import ROOT,canonical
@@ -29,21 +30,23 @@ sys.stdout.buffer.write(canonical(dict(receipt_sha256=hashlib.sha256(canonical(r
 
 def digest(raw):return hashlib.sha256(raw).hexdigest()
 
-def run_after_external_approval(bundle,receipt,certificate,repository,limit,destination,approval_reference,*,comment_id=None,claim_commit=None,claim_tree=None):
+def run_after_external_approval(bundle,receipt,certificate,repository,limit,destination,approval_reference,*,comment_id=None,claim_commit=None,claim_tree=None,execution_binding=None):
  if type(approval_reference) is not str or not approval_reference.strip():raise ValueError('external approval reference required; not an authentication token')
  preparation=external_approval.require_operation_ready('launch',repository=repository,certificate=certificate)
  if type(limit) is not int or not 1<=limit<=512:raise ValueError('invalid bounded step limit')
  repository=Path(repository).resolve();destination=Path(destination)
  if repository!=ROOT.parents[1].resolve() or not destination.is_relative_to((ROOT/'data').resolve()) or destination==(ROOT/'data').resolve():raise ValueError('supervisor requires current repository and new CARD GAME data directory')
  bundle=copy.deepcopy(bundle);receipt=copy.deepcopy(receipt);certificate=copy.deepcopy(certificate)
+ if execution_binding is not None:rebinding.require_context(execution_binding)
+ execution_binding=copy.deepcopy(execution_binding)
  if not audit_input_bundle(bundle)['structure_verified']:raise ValueError('manifest structure unverified')
  if not lock.verify_git_binding(bundle,receipt,repository)['immutable_content_verified']:raise ValueError('immutable local manifest binding unverified')
  if not edition.audit_bundle_edition(bundle,certificate,repository)['bundle_edition_bound']:raise ValueError('local execution edition unverified')
  rows=[dict(match_id=mid,execution_status='not_executed',attempt_directory=None) for mid in bundle['execution_order']]
  groups=[dict(group_id=g['group_id'],match_ids=[r['match_id'] for r in bundle['matches'] if r['group_id']==g['group_id']]) for g in bundle['groups']]
- package=generation_package.audit_committed_generation(bundle,receipt,certificate,repository)
- if not package['committed_generation_consistent']:raise ValueError('committed generation package unverified')
- authenticated=authorization.audit_launch(repository,bundle,receipt,certificate,package,limit,destination,comment_id,claim_commit,claim_tree)
+ package=generation_package.audit_committed_generation(bundle,receipt,certificate,repository) if execution_binding is None else None
+ if execution_binding is None and not package['committed_generation_consistent']:raise ValueError('committed generation package unverified')
+ authenticated=authorization.audit_launch(repository,bundle,receipt,certificate,package,limit,destination,comment_id,claim_commit,claim_tree,execution_binding=execution_binding)
  if not authenticated['launch_authorization_bound']:raise ValueError('launch approval unverified: '+str(authenticated['errors']))
  publication=authenticated['consumption']['remote_publication']
  destination.mkdir();directory=os.open(destination.parent,os.O_RDONLY|os.O_DIRECTORY)
@@ -52,11 +55,13 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
  start=dict(schema='fixed_population_supervisor_start.v1',current_preparation=preparation,supplied_bundle_sha256=digest(canonical(bundle)),immutable_local_receipt=receipt,
   execution_edition_sha256=digest(canonical(certificate)),reconstruction_step_limit=limit,approval_reference=approval_reference,
   planned_rows=copy.deepcopy(rows),planned_groups=groups,generation_package_evidence=package,remote_publication_observation=publication,launch_authorization=authenticated,external_approval_verified=True,input_lock_verified=False,ready_for_execution=False)
+ if execution_binding is not None:start['execution_binding']=execution_binding
  write_exclusive(destination/'start.json',start)
  interruption=None
  for index,row in enumerate(rows,1):
   target=destination/('attempt-'+str(index).zfill(4));row.update(execution_status='started',attempt_directory=target.name)
   request=dict(bundle=bundle,receipt=receipt,certificate=certificate,repository=str(repository),match_id=row['match_id'],limit=limit,destination=str(target),approval_reference=approval_reference,comment_id=comment_id,claim_commit=claim_commit,claim_tree=claim_tree,launch_destination=str(destination),schedule_index=index)
+  if execution_binding is not None:request['execution_binding']=execution_binding
   control=dict(match_id=row['match_id'],request_sha256=digest(canonical(request)))
   try:
    write_exclusive(destination/('request-'+str(index).zfill(4)+'.json'),dict(control,execution_status='started'))

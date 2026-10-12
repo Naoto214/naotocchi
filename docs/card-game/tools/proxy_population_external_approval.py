@@ -64,9 +64,26 @@ def launch_request(bundle,receipt,certificate,package,limit,destination):
  return request
 
 
+def rebinding_request(bundle,receipt,certificate,context,limit,destination):
+ from proxy_population_execution_binding import require_context
+ require_context(context)
+ if type(limit) is not int or limit!=512:raise ValueError('rebinding requires 512 step bound')
+ binding=context['binding']
+ if binding['new_edition']!=_edition(certificate) or binding['derived_manifest_sha256']!=digest(bundle):raise ValueError('binding request edition/manifest differs')
+ request=_base('launch',certificate,destination,context['binding_receipt'])
+ request['schema']='population_external_approval_request.v2'
+ request['target']=dict(manifest_sha256=digest(bundle),receipt_sha256=digest(receipt),
+  execution_binding_sha256=digest(binding),binding_receipt_sha256=digest(context['binding_receipt']),
+  original_package_receipt_sha256=digest(binding['original_receipt']),old_edition=copy.deepcopy(binding['old_edition']),
+  execution_order=list(bundle['execution_order']),reconstruction_step_limit=limit,
+  automatic_retry_allowed=False,automatic_resume_allowed=False)
+ _validate_request(request)
+ return request
+
+
 def _validate_request(request):
  expected={'schema','repository','pull_request','authority_user_id','stage','edition','publication','destination','planned_groups','planned_matches','contract_sha256','target'}
- if type(request) is not dict or set(request)!=expected or request['schema']!='population_external_approval_request.v1' or request['repository']!=REPOSITORY or type(request['pull_request']) is not int or request['pull_request']!=PR or type(request['authority_user_id']) is not int or request['authority_user_id']!=AUTHORITY:raise ValueError('approval request identity differs')
+ if type(request) is not dict or set(request)!=expected or request['schema'] not in ('population_external_approval_request.v1','population_external_approval_request.v2') or request['repository']!=REPOSITORY or type(request['pull_request']) is not int or request['pull_request']!=PR or type(request['authority_user_id']) is not int or request['authority_user_id']!=AUTHORITY:raise ValueError('approval request identity differs')
  if type(request['planned_groups']) is not int or request['planned_groups']!=200 or type(request['planned_matches']) is not int or request['planned_matches']!=400:raise ValueError('approval schedule differs')
  _destination(request['destination'])
  if set(request['edition'])!={'commit','tree','sha256'} or set(request['publication'])!={'commit','tree'}:raise ValueError('approval edition shape differs')
@@ -76,13 +93,23 @@ def _validate_request(request):
  if set(request['contract_sha256'])!=set(CONTRACTS):raise ValueError('approval contracts differ')
  for value in request['contract_sha256'].values():_sha(value,64)
  target=request['target']
+ if request['schema']=='population_external_approval_request.v2' and request['stage']!='launch':raise ValueError('rebinding is launch only')
  if request['stage']=='generation':
   if set(target)!={'historical_registry_sha256','entropy_api','initial_order_and_policy_roots_separated','mirror_initial_order_shared','mirror_policy_randomness_separated'}:raise ValueError('generation target shape differs')
   _sha(target['historical_registry_sha256'],64)
   if request['publication']!={k:request['edition'][k] for k in ('commit','tree')} or target['entropy_api']!='os.urandom' or any(target[k] is not True for k in ('initial_order_and_policy_roots_separated','mirror_initial_order_shared','mirror_policy_randomness_separated')):raise ValueError('generation contract differs')
  elif request['stage']=='launch':
-  if set(target)!={'manifest_sha256','receipt_sha256','package_artifact_bindings_sha256','execution_order','reconstruction_step_limit','automatic_retry_allowed','automatic_resume_allowed'}:raise ValueError('launch target shape differs')
-  for key in ('manifest_sha256','receipt_sha256','package_artifact_bindings_sha256'):_sha(target[key],64)
+  keys={'manifest_sha256','receipt_sha256','execution_order','reconstruction_step_limit','automatic_retry_allowed','automatic_resume_allowed'}
+  hashes=['manifest_sha256','receipt_sha256']
+  if request['schema']=='population_external_approval_request.v2':
+   hashes+=['execution_binding_sha256','binding_receipt_sha256','original_package_receipt_sha256'];keys.add('old_edition')
+   old=target.get('old_edition',{})
+   if set(old)!={'commit','tree','sha256'}:raise ValueError('old edition identity missing')
+   _sha(old['commit'],40);_sha(old['tree'],40);_sha(old['sha256'],64)
+   if target.get('reconstruction_step_limit')!=512:raise ValueError('rebinding step bound differs')
+  else:hashes+=['package_artifact_bindings_sha256']
+  if set(target)!=keys|set(hashes):raise ValueError('launch target shape differs')
+  for key in hashes:_sha(target[key],64)
   order=target['execution_order'];limit=target['reconstruction_step_limit']
   if type(order) is not list or len(order)!=400 or any(type(v) is not str or not v for v in order) or len(set(order))!=400 or type(limit) is not int or not 1<=limit<=512 or target['automatic_retry_allowed'] is not False or target['automatic_resume_allowed'] is not False:raise ValueError('launch supervisor settings differ')
  else:raise ValueError('unknown approval stage')
