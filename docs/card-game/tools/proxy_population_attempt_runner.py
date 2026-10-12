@@ -46,6 +46,7 @@ def run_after_external_approval(bundle,receipt,certificate,repository,match_id,l
   remote_publication_observation=publication,launch_authorization=authenticated,external_approval_verified=True,input_lock_verified=False,ready_for_execution=False)
  write_exclusive(destination/'start.json',start)
  try:
+  if edition.verify(certificate,repository)['local_edition_verified'] is not True:raise ValueError('source edition changed before attempt')
   record=connected.reconstruct(bundle,match_id,limit)
   raw=canonical(record);compressed=gzip.compress(raw,mtime=0)
   with (destination/'record.json.gz').open('xb') as stream:

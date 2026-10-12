@@ -1032,3 +1032,8 @@ ee4fff1から、fresh支払監査errors=[]・未証明でもpartial/helper比較
 ### P10 指定／指定外解決選択の読取追跡（2026-10-12）
 
 a93265cから、指定5契約のrule prefix/本人候補と乱数材料、指定外3family、no-choice routeをpublic-read-boundary-review.mdへ対応。full state hashの整合性／journal用途と、実seed引数を分離。独立read-only review C0/I0/Minor0（resolution-choice-read-review.md）。コード変更・試験再実行なし。候補母数/ordinal/履歴起点は別監査、全情報利用やoperand意味の証明へ昇格しない。次はP11残operand/unknownとP09/P14–18共通合成。preflight-ready=false、生成/固定/400戦0。
+
+
+### P14/P17 生成・単独workerの実処理直前edition照合（2026-10-12）
+
+02c0a91から、承認return後の記録保存と実処理開始の間を既存edition.verifyへ接続。実authorization内のlive照会後照合は既存実装にあり、今回の修正対象と区別する。synthetic Gitの実source変更＋metadata保存で2件4FAILを再現し、生成collector前・attempt reconstruct前で拒否。attemptは既存interruptionを保存、生成はsampling journal作成前に停止。正常版はmock読取に到達しbytes返却前中断。実entropy返却0、新規試合0。関連45PASS31.127s/exit0・Python1082前後一致、独立2PASS1.614s/C0I0M0。operation-edition-*原本。局所時点照合でありatomic lock/loaded code認証ではない。P09–11/P14–18の共通合成は未完、preflight-ready=false、本番gate閉鎖。次は上位operandの証明範囲とunknown境界、現行edition共通gateを接続する。

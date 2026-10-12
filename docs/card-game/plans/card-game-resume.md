@@ -69,6 +69,8 @@
 
 - 2026-10-12: 指定5契約／指定外3familyの情報・seed材料・no-choiceを読取表へ追補。resolution-choice-read-review.md、独立read-only C0/I0/Minor0。コード／再試験なし。次はP11残operand/unknownとP09/P14–18合成。
 
+- 2026-10-12: 承認return後/metadata保存後の生成collector直前・単独attempt実行直前にedition再照合。operation-edition-*、45PASS31.127s/Python1082一致、独立2PASS/C0I0M0。既存authorization内照合は再実装せず、本番gate閉鎖。次はP11上位operand/unknownとP09/P14–18合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

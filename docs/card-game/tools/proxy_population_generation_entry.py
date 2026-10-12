@@ -52,6 +52,7 @@ def generate_after_external_approval(repository,commit,destination,approval_refe
  write_exclusive(destination/'operation.json',metadata)
  write_exclusive(destination/'edition.json',certificate)
  write_exclusive(destination/'historical-registry.json',registry)
+ if edition.verify(certificate,repository)['local_edition_verified'] is not True:raise ValueError('source edition changed before generation')
  collected=collect_supplied(cursor,destination/'sampling-journal.jsonl',os.urandom)
  material=cursor.record();write_exclusive(destination/'material.json',material)
  journal=audit_journal(destination/'sampling-journal.jsonl',material)
