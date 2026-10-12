@@ -50,7 +50,34 @@ terrain/billboard ground planes, reduced motion, URL modes, and a normal-URL
 invalid GLSL; context loss uses the browser's actual WEBGL_lose_context extension.
 Software WebGL numbers are **not iPhone performance measurements**.
 
-## Physical iPhone Safari steps (NOT RUN)
+## Physical iPhone observations — 2026-10-12, initial candidate `6c9f4ca`
+
+The user opened the commit-pinned preview and confirmed display. After being asked
+to walk/travel, rotate portrait → landscape → portrait, and exit/re-enter, the user
+reported: 「横にすると操作パッドなど表示されない あとは問題ない」.
+Their snow-region screenshot shows the 3D world/player, with the lower controls
+outside the visible landscape area. These are user observations, not measurements
+of all 13 regions, 27 actors, fallback, or sustained performance. Exact device/OS
+and standalone Safari versus an in-app Safari view have not been confirmed.
+
+The landscape issue is reproduced by `tests/meguru-landscape-browser.cjs` on the
+production HTML/CSS: at 852×320, the pad extends to y≈444. The existing 220px canvas
+minimum plus a vertically stacked HUD/hint/pad cannot fit the short viewport.
+The fix uses a landscape-only two-column layout, retaining the canvas minimum,
+putting the pad/actions beside the world and removing the redundant app title
+only while exploration is running. Portrait, startup/cancel UI, other games,
+World/Character renderers and simulation code retain their existing paths.
+
+The regression test checks control bounds/hit targets, scroll overflow, preserved
+simulation identities through rotations, real pad movement, map, exit and reentry
+across default 3D, billboard, same-World Canvas and legacy 2D. It is wired into
+Home CI for Chromium and WebKit. Linux WebKit's renderer mode is recorded; Canvas
+fallback there must not be reported as physical Safari 3D validation.
+
+**The landscape fix still requires the user's physical-device retest. Keep Draft;
+do not merge or deploy production.** Full physical QA remains incomplete.
+
+## Remaining physical iPhone Safari steps
 
 Use the commit-pinned candidate URL from PR #379 in Safari. Do not use the mutable
 branch URL or production main for acceptance. The CDN returned HTTP 403 to this

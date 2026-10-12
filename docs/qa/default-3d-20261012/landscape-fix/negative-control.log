@@ -1,0 +1,12 @@
+PASS chromium-?m3d2d=1-393x760
+AssertionError [ERR_ASSERTION]: chromium-?m3d2d=1-852x320: control/canvas offscreen {"selector":".mg-pad","x":173,"y":343.78125,"width":412,"height":100,"right":585,"bottom":443.78125,"hit":false}
+    at check (/workspace/scratch/0b3c9b0df346/naotocchi/tests/landscape-negative-local.cjs:23:12)
+    at settledMeasurement (/workspace/scratch/0b3c9b0df346/naotocchi/tests/landscape-negative-local.cjs:36:11)
+    at async run (/workspace/scratch/0b3c9b0df346/naotocchi/tests/landscape-negative-local.cjs:75:23) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
