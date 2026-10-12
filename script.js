@@ -4276,6 +4276,8 @@
   // ================================================================
   // 事実説明は setMessage / 上部イベント表示へ残し、キャラの感情・ツッコミ・
   // ひとりごとはここへ流す。本人→恋人/仲間の順に会話が続くこともある。
+  // 休眠中のキー: money は 2026-09-17 アイテムV2(#274)でそだち到達時のコイン報酬が撤去され、
+  // 呼び出し元がなくなった(31行・followUps含む)。新しいコイン源へつなぐかは仕様判断として保留。
   const CONVERSATION_POOLS = {
     "feed": {
       "pet": [
@@ -4978,9 +4980,17 @@
     const pool = fresh.length && (!fallback?.length || Math.random() < 0.7) ? fresh : fallback;
     return pickConversationLine(pool, ctx);
   }
+  // 上部のお知らせ欄(#message)にいま出ている文と同じギャグを、吹き出しで重ねない。
+  function conversationLineEchoesMessage(line) {
+    if (!message) return false;
+    const shown = conversationLineKey(String(message).replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu, ''));
+    return !!shown && conversationLineKey(line) === shown;
+  }
   function pickConversationLine(lines, ctx) {
     if (!lines || !lines.length) return null;
     let pool = lines.map((x) => fillConversationLine(x, ctx || {}));
+    const unechoed = pool.filter((x) => !conversationLineEchoesMessage(x));
+    if (unechoed.length) pool = unechoed;
     const fresh = pool.filter((x) => !conversationLineIsRecent(x));
     if (fresh.length) pool = fresh;
     const line = pool[Math.floor(Math.random() * pool.length)];
@@ -6208,7 +6218,7 @@
 
   function partnerDailyLine(eventKey, ctx) {
     if (!state.partner) return null;
-    const lines = PARTNER_DAILY_REACTIONS[state.partner.id]?.[eventKey];
+    const lines = PARTNER_DAILY_REACTIONS[canonicalPartnerId(state.partner.id)]?.[eventKey];
     return pickCharacterConversationLine(lines, CONVERSATION_POOLS[eventKey]?.partner, ctx || {});
   }
 
@@ -6232,7 +6242,8 @@
       const ps = partnerSpeaker();
       // 成立・結婚の固有セリフは、必ず恋人の吹き出しへ。
       const relationshipKey = eventKey === 'partner_new' ? 'court' : eventKey === 'marriage' ? 'marriage' : null;
-      const relationshipLine = PARTNER_RELATIONSHIP_LINES[state.partner.id]?.[relationshipKey];
+      // 記念日ムービーと同じく、吹き出しでは外側の「」を外す。
+      const relationshipLine = PARTNER_RELATIONSHIP_LINES[canonicalPartnerId(state.partner.id)]?.[relationshipKey]?.replace(/^「|」$/g, '');
       const line = relationshipLine || partnerDailyLine(dialogueKey, ctx);
       if (ps && line) beats.push({ speaker: ps, text: line });
     }
@@ -8959,6 +8970,8 @@
 
   // こいびとの せいかく(affinityTrait)ごとの リアクション。おなじ プランでも
   // あいてが かわると まったく ちがう デートに なる
+  // 休眠データ: 2026-09-15 に movie-dialogue.js の小話(出来事と返事をセット)へ置き換え済み。
+  // 現在は表示されない。削除せず保存し、再利用するかは仕様判断として保留。
   const DATE_PLAN_VARIATIONS = {
     "walk": [
       "曲がり角で、ふたりとも同じほうを指さした。",
@@ -9077,6 +9090,7 @@
     ]
   };
 
+  // 休眠データ: 上の DATE_PLAN_VARIATIONS と同じく movie-dialogue.js 化で表示されなくなった。
   const DATE_TRAIT_LINES = {
     "gentle": [
       "ずっとにこにこして、何度も「ありがとう」と言ってくれた",
@@ -9549,7 +9563,8 @@
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
-    const traitLine = pickCharacterConversationLine(PARTNER_SIGNATURE_LINES[partner.id], DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle);
+    // traitLine は 2026-09-15 の movie-dialogue.js 化(小話は出来事と返事をセット)で表示されなくなった。
+    // 見えない台詞で会話の重複回避履歴を消費しないよう、ここでは抽選しない(データは保存)。
     const closing = pickConversationLine(DATE_CLOSINGS);
 
     state.dateCooldownTicks = DATE_COOLDOWN_TICKS;
@@ -9571,7 +9586,7 @@
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing);
+    playOrdinaryDateMovie(plan, partner, null, closing);
     render();
   }
 
@@ -11094,7 +11109,7 @@
         const expanded = choices.flatMap((x) => Array(x.weight).fill(x.kind));
         const kind = expanded[Math.floor(Math.random() * expanded.length)];
         if (kind === 'partner') {
-          setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[state.partner.id], PARTNER_IDLE_LINES), partnerSpeaker());
+          setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(state.partner.id)], PARTNER_IDLE_LINES), partnerSpeaker());
         } else if (kind === 'companion') {
           const speaker = companionSpeaker();
           setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker?.id], COMPANION_IDLE_LINES), speaker);
@@ -14573,6 +14588,9 @@
     dailyKey: () => dailyKey(),
     SPECIES,
     speciesStageDesc: (line, i) => stageDesc(line, i),
+    // めぐるの吹き出し用: こいびと・なかま本人の台詞(Home の放置台詞と同じ正本。id は alias を正規化)
+    characterTalkLines: (kind, id) => kind === 'partner' ? (PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(id)] || null)
+      : kind === 'companion' ? (COMPANION_CHARACTER_IDLE_LINES[canonicalCompanionId(id)] || null) : null,
     allCompanionsById, canonicalCompanionId,
     // けしきの かんさ よう: なかま・レアなかま ぜんいんの emoji を しる ため
     allCompanions: () => [...COMPANIONS, ...RARE_COMPANIONS],
@@ -17439,8 +17457,8 @@
     if (!candidate) {
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (!checkMeters()) {
+        // 相手がいないのは告白の失敗ではない。court_fail の「振られた」台詞を出さない。
         setMessage('💞いまは気持ちをつたえたいあいてがいない');
-        speakEvent('court_fail', { partnerChance: 0, companionChance: 0.35 });
       }
       emotePet('happy');
       return;

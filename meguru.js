@@ -20,7 +20,7 @@
 //             おなじ view を うけとる three.js などの レンダラーに さしかえられる(start(container, { renderer }))
 // S: clamp, lerp, escapeHtml, sfx, createMgCanvas, createTouchPad, createPadRow,
 //    getState, currentEnvironment, findRegion, regionLabel, regionPlainLabel, selectedLocality, dailyKey,
-//    SPECIES, speciesStageDesc, allCompanionsById, canonicalCompanionId, partners, partnerAsset, currentPetKey, playerGlyph,
+//    SPECIES, speciesStageDesc, allCompanionsById, canonicalCompanionId, characterTalkLines, partners, partnerAsset, currentPetKey, playerGlyph,
 //    isAuthorUnlocked, authorAsset, perfTier, onExit, openTravel, recordMet, recordTalk, recordSpot, discoveredSpots,
 //    recordMapBits, mapRecords, seedMapRecords (ちずの「あるいた きろく」。どれも なくても うごく)
 (() => {
@@ -2678,11 +2678,13 @@
       const X = residentExpression();
       if (X && a.emotion && a.emotion !== 'normal') { const line = X.dialogueFor(X.canonicalEmotion(a.emotion), pick); if (line) return line; }
       const r = rand();
-      if (a.withPlayer) return a.kind === 'partner' ? pick(['いっしょに あるけて うれしい', 'つぎは どこへ いく？', a.hook || 'ずっと そばに いるよ']) : pick(['いっしょに いこう！', 'ここ、きに いった？', 'つぎは あっちへ いってみよう']);
+      // こいびと・なかまの「その子らしい一言」は Home と同じ本人の台詞から。
+      // world master の hook(設計メモ)、出会いの flavor・図鑑の説明(三人称の地の文)は吹き出しで読み上げない。
+      const ownLine = () => { const ls = typeof S.characterTalkLines === 'function' ? S.characterTalkLines(a.kind, a.id) : null; return ls && ls.length ? pick(ls) : null; };
+      if (a.withPlayer) return a.kind === 'partner' ? pick(['いっしょに あるけて うれしい', 'つぎは どこへ いく？', ownLine() || 'ずっと そばに いるよ']) : pick(['いっしょに いこう！', 'ここ、きに いった？', 'つぎは あっちへ いってみよう']);
       if (a.spot && a.spot.secret && r < 0.6) return pick(SECRET_LINE);
-      if (a.kind === 'partner') return r < 0.5 ? (a.hook || g) : g;
-      if (a.kind === 'companion') { const def = typeof S.allCompanionsById === 'function' ? S.allCompanionsById(a.id) : null; return r < 0.4 && def && def.flavor ? def.flavor : r < 0.6 && a.spot && SPOT_LINE[a.spot.kind] ? pick(SPOT_LINE[a.spot.kind]) : g; }
-      if (r < 0.3) { const d = typeof S.speciesStageDesc === 'function' ? S.speciesStageDesc(a.line, a.stage) : ''; if (d) return d; }
+      if (a.kind === 'partner') return r < 0.5 ? (ownLine() || g) : g;
+      if (a.kind === 'companion') { const own = r < 0.4 ? ownLine() : null; return own ? own : r < 0.6 && a.spot && SPOT_LINE[a.spot.kind] ? pick(SPOT_LINE[a.spot.kind]) : g; }
       if (r < 0.5 && a.spot && SPOT_LINE[a.spot.kind]) return pick(SPOT_LINE[a.spot.kind]);
       if (r < 0.62 && WEATHER_LINE[e.weather]) return WEATHER_LINE[e.weather];
       if (r < 0.74 && SEASON_LINE[e.season]) return SEASON_LINE[e.season];
