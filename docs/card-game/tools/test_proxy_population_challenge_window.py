@@ -52,10 +52,11 @@ class MultiTurnConnectionTests(unittest.TestCase):
    with api.contract_scope():proof=existing.ExistingAdapter(prefix['events']).proof(upgraded)
    return dict(envelope=upgraded,proof=proof)
   prepared=base.operation(i,prepare);e=prepared['envelope']
-  r=api.segment(e,i,prefix['events'],shots,[e],220,prepared['proof'],session)
-  import json
+  r=api.segment(e,i,prefix['events'],shots,[e],512,prepared['proof'],session)
+  import json,lzma
   from pathlib import Path
   Path('/tmp/card-game-multiturn-diagnostic.json').write_text(json.dumps(dict(stop=r['stop'],events=[x['action_type'] for x in r['events']],last=r['final_envelope']['legacy_continuation']['game_state']['round']),indent=2))
+  if r['stop'] is not None:Path('/tmp/card-game-multiturn-failed-record.json.xz').write_bytes(lzma.compress(json.dumps(r).encode()))
   self.assertIsNone(r['stop']);self.assertTrue(r['completed']);self.assertEqual(r['events'][-1]['action_type'],'r10_final_comparison')
   self.assertTrue(r['supported_trigger_coverage']['covered'],r['supported_trigger_coverage'])
   self.assertEqual(len(r['supported_trigger_coverage']['transitions']),len(r['events']))

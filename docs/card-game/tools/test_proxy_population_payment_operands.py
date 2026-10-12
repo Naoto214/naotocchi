@@ -6,13 +6,31 @@ try:import proxy_population_payment_operands as api
 except ImportError:api=None
 
 
+def legacy_decision(envelope,history):
+ """Retain compatibility tests of the prior partial/full payment schemas.
+
+ Invoke the unchanged legacy selector directly, not the current entry which
+ now has candidate-local unknown operands and independent payment evidence.
+ """
+ import proxy_continuation_candidates as candidates
+ import proxy_population_unproved_priority as unresolved
+ from proxy_normal_decision_fallback_contract import CONTRACT_VERSION
+ g=envelope['legacy_continuation']['game_state']
+ context=dict(contract_version=CONTRACT_VERSION,order_id=initial()['order_id'],actor=g['turn_player'],actor_turn_index=g['round'],round=g['round'],phase='normal_action',decision_kind='normal_action',choice_kind='normal_action_resource_frontier')
+ with unresolved.scope():return candidates.select(envelope,candidates.audit(envelope,history),context,runtime.POLICY)
+
+
+def payment_rows(decision):
+ return [r['payment'] for r in decision['execution_evidence']['comparison_operands']['candidates'].values()]
+
+
 class PaymentOperandTests(unittest.TestCase):
  def run_scoped(self,body):
   with window.contract_scope():runtime.operation(initial(),body)
 
  def test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns(self):
   def run(forced):
-   e,_,source,h=supplied('normal_action','I-c_coin2');d=execute(e,h,forced)['decision']
+   e,_,source,h=supplied('normal_action','I-c_coin2');d=legacy_decision(e,h)
    evidence=d['execution_evidence']['candidate_comparison_evidence']
    self.assertIn('pass',evidence['proved_scores']);self.assertTrue(evidence['unproved'])
    for mode in ('cost','missing','overlap','identity','evidence','reason','cost_bool','foreign_route'):
@@ -51,7 +69,7 @@ class PaymentOperandTests(unittest.TestCase):
   prior=runtime._step
   def tampered(*args,**kwargs):
    step=prior(*args,**kwargs)
-   row=step['decision']['execution_evidence']['candidate_comparison_evidence']['proved_scores']['pass']
+   row=step['decision']['execution_evidence']['comparison_operands']['candidates']['pass']['payment']
    row['payment_time']=1;row['time_after_certain_resolution']-=1
    return step
   def run(forced):
@@ -82,21 +100,15 @@ class PaymentOperandTests(unittest.TestCase):
    for card in ('E-boss','G-hit-blow','I-c_coin2','M-antlion-02','C-box','P-anglerfish','W-city','I-poop1'):
     e,actor,source,h=supplied('normal_action',card);step=execute(e,h,forced);d=step['decision']
     proof=api.audit_normal(e,h,d)
-    if d['problem'] is None:
-     self.assertTrue(proof['applicable']);self.assertEqual(proof['errors'],[])
-     evidence=d['execution_evidence']['candidate_comparison_evidence']
-     self.assertEqual({r['candidate_id'] for r in proof['unproved_candidates']},set(evidence['unproved']))
-     self.assertEqual({r['candidate_id'] for r in proof['verified_candidates']},set(evidence['proved_scores']))
-     self.assertEqual(step['normal_payment_operands'],proof);continue
     self.assertTrue(proof['supported_payment_operands_verified'],proof)
     self.assertEqual(proof['unproved_candidates'],[])
-    self.assertEqual(len(proof['verified_candidates']),len(d['problem']['candidates']))
+    self.assertEqual(len(proof['verified_candidates']),len(payment_rows(d)))
     self.assertEqual(step['normal_payment_operands'],proof)
     self.assertFalse(proof['operand_provenance_verified']);self.assertFalse(proof['origin_authenticated'])
     self.assertIsNone(proof['balance_admitted'])
-    for row_index in range(len(d['problem']['candidates'])):
+    for row_index in range(len(payment_rows(d))):
      for mode in ('both','cost_bool','remaining_bool','missing_cost','missing_time'):
-      bad=copy.deepcopy(d);row=bad['problem']['candidates'][row_index]
+      bad=copy.deepcopy(d);row=payment_rows(bad)[row_index]
       if mode=='both':row['payment_time']+=1;row['time_after_certain_resolution']-=1
       elif mode=='cost_bool':row['payment_time']=bool(row['payment_time'])
       elif mode=='remaining_bool':row['time_after_certain_resolution']=bool(row['time_after_certain_resolution'])
@@ -111,7 +123,7 @@ class PaymentOperandTests(unittest.TestCase):
    for card in ('I-poop1','I-c_coin2'):
     e,_,_,h=supplied('normal_action',card);d=execute(e,h,forced)['decision']
     def rows(value):
-     return value['problem']['candidates'] if value.get('problem') is not None else list(value['execution_evidence']['candidate_comparison_evidence']['proved_scores'].values())
+     return payment_rows(value)
     self.assertTrue(rows(d));self.assertEqual(api.audit_normal(e,h,d)['errors'],[])
     for index,row in enumerate(rows(d)):
      for mode in ('foreign','missing','type'):
@@ -127,7 +139,7 @@ class PaymentOperandTests(unittest.TestCase):
   prior=runtime._step
   def tampered(*args,**kwargs):
    step=prior(*args,**kwargs)
-   for row in step['decision']['problem']['candidates']:row['card_copy_id']='foreign-copy'
+   for row in payment_rows(step['decision']):row['card_copy_id']='foreign-copy'
    return step
   def run(forced):
    e,_,_,h=supplied('normal_action','I-poop1')
@@ -139,6 +151,7 @@ class PaymentOperandTests(unittest.TestCase):
   prior=runtime._step
   def tampered(*args,**kwargs):
    step=prior(*args,**kwargs);d=step['decision']
+   d['problem']=dict(legal_candidate_ids=d['inventory']['legal_candidate_ids'],candidates=copy.deepcopy(payment_rows(d)))
    d['execution_evidence']=dict(contract='own_companion_replacement_470',verified_immediate_candidates=list(d['inventory']['legal_candidate_ids']))
    for row in d['problem']['candidates']:row.pop('card_copy_id')
    return step
@@ -151,7 +164,7 @@ class PaymentOperandTests(unittest.TestCase):
  def test_source_pins_and_other_priority_limits_remain_explicit(self):
   self.assertIsNotNone(api)
   def run(forced):
-   e,_,_,h=supplied('normal_action','I-poop1');d=execute(e,h,forced)['decision']
+   e,_,_,h=supplied('normal_action','I-poop1');d=legacy_decision(e,h)
    with patch.dict(api.core.SOURCES,{'01-core-rules.md':'0'*64}):
     self.assertFalse(api.audit_normal(e,h,d)['supported_payment_operands_verified'])
    bad=copy.deepcopy(d)
@@ -164,7 +177,7 @@ class PaymentOperandTests(unittest.TestCase):
  def test_unknown_route_cannot_alias_a_verified_enumeration_unit(self):
   self.assertIsNotNone(api)
   def run(forced):
-   e,_,_,h=supplied('normal_action','I-poop1');d=execute(e,h,forced)['decision']
+   e,_,_,h=supplied('normal_action','I-poop1');d=legacy_decision(e,h)
    row=copy.deepcopy(next(r for r in d['inventory']['enumeration_units'] if r['candidate_id']=='pass'))
    row.update(candidate_id='unknown-board',action_type='activate_board',source_family='board_ability',enumeration_unit_id='distinct-unknown-unit')
    d['inventory']['enumeration_units'].append(row);d['inventory']['legal_candidate_details'].append(copy.deepcopy(row))
@@ -186,7 +199,7 @@ class PaymentOperandTests(unittest.TestCase):
   self.assertIsNotNone(api);prior=runtime._step
   def tampered(*args,**kwargs):
    step=prior(*args,**kwargs)
-   for row in step['decision']['problem']['candidates']:row['payment_time']+=1;row['time_after_certain_resolution']-=1
+   for row in payment_rows(step['decision']):row['payment_time']+=1;row['time_after_certain_resolution']-=1
    return step
   def run(forced):
    e,_,_,h=supplied('normal_action','I-poop1')
@@ -197,7 +210,7 @@ class PaymentOperandTests(unittest.TestCase):
  def test_duplicate_missing_and_unbound_comparison_rows_are_not_certified(self):
   self.assertIsNotNone(api)
   def run(forced):
-   e,_,_,h=supplied('normal_action','I-poop1');d=execute(e,h,forced)['decision']
+   e,_,_,h=supplied('normal_action','I-poop1');d=legacy_decision(e,h)
    for mode in ('duplicate','missing','foreign','unknown_time','source'):
     bad=copy.deepcopy(d);source=copy.deepcopy(e)
     if mode=='duplicate':bad['problem']['candidates'].append(copy.deepcopy(bad['problem']['candidates'][0]))

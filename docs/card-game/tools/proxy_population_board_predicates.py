@@ -18,7 +18,9 @@ from proxy_population_candidate_expansions import TABLE_PATH,TABLE_SHA
 from proxy_mandatory_policy_contract import ROOT,canonical,load_json
 
 SOURCES={TABLE_PATH:TABLE_SHA,**{'01-core-rules.md': 'd95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71', '02-main-system.md': '6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127', '06-action-chain-checkpoint.md': '7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67', '55-insect-three-lines-card-text-draft.md': '8108f781d2e02b45139fdf7d1d573c7ac839f14cd2b8361983ecb891320f8c28', '72-companion-26-card-text-draft.md': '941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117'}}
+SOURCES['77-current-items-card-text-draft.md']='ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02'
 SOURCES['132-board-active-restart.md']='b431565b6a8de777b9745f3d2c8816d71b1e64753e537b5aa593efb6a7acc58f'
+SOURCES['64-turn-boundaries-and-victory-timing.md']='00f9845b5b79774c48bac002e26f6b08096563a4bf1611f408aed0e2c9089a64'
 PASSIVE_KINDS={'none','continuous','past_trigger','passive','triggered','response_triggered','cost_modifier'}
 
 
@@ -50,6 +52,11 @@ def _expected(envelope,source):
   rows=[dict(action_type='activate_companion_ability',target_instance_ids=t,cost_instance_ids=None,allowed=bool(t) and not used) for t in ([[s] for s in targets] or [[]])]
   return rows,cap['reference']
  cap=rules.classification(card)
+ #77's companion-departure replacement supplies no normal board activation.
+ #This negative is independent of whether its departure condition is reachable.
+ if card=='I-bond1':
+  if cap['kind']!='replacement' or cap['timing']!='companion_departure' or cap['reference']!='77-current-items-card-text-draft.md#I-bond1':raise ValueError('bond normal replacement source differs')
+  return [dict(action_type='board_passive',target_instance_ids=[],cost_instance_ids=None,allowed=False)],cap['reference']
  if cap['kind'] not in PASSIVE_KINDS:return None,cap['reference']
  return [dict(action_type='board_passive',target_instance_ids=[],cost_instance_ids=None,allowed=False)],cap['reference']
 
@@ -227,10 +234,10 @@ def audit_response(envelope,events,inventory,runtime_history=None):
      #77 is own-start only. Do not infer the original hand condition from
      #the current hand, or reuse144's C-chicken-only registration for this card.
      met=ctx['window_kind']=='turn_start' and actor==g['turn_player'] and origin['actor']==actor and kind=='turn_start'
-    # Restrict this local negative to registered normal-method origins or
+    # Restrict this local negative to registered normal-method/end-boundary origins or
     # another player's turn; unknown own-turn mechanisms remain unproved.
     condition=_start_condition_at_origin(envelope,events,runtime_history,source,actor,origin) if met and card=='I-bowtie' and runtime_history is not None else None
-    if (met and condition is None) or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS and condition is None):
+    if (met and condition is None) or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS|{'normal_pass_end_request','open_turn_end_triggers'} and condition is None):
      unproved.append(dict(source_instance_id=source,card_id=card,reason='start_response_negative_not_proven'));continue
     start_negative_audits[source]=dict(origin_event_seq=origin['seq'],origin_action=raw,normalized_origin_action=kind,timing_matches=met,source_reference=cap['reference'])
     if condition is not None:start_negative_audits[source]['condition_at_start']=condition

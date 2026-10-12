@@ -133,10 +133,10 @@ class RevealGrowthOperandTests(unittest.TestCase):
      self.assertEqual(decision['choice']['resolution_mode'],'seeded_fallback',card)
      target_ids=[a['candidate_id'] for a in decision['inventory']['legal_candidate_details'] if a['source_instance_id']==source]
      self.assertEqual(len(target_ids),7 if card=='G-hit-blow' else 1)
-     proof=decision['execution_evidence']['candidate_comparison_evidence']
+     proof=decision['execution_evidence']['comparison_operands']['candidates']
      for cid in target_ids:
       self.assertIn(cid,decision['choice']['seeded_fallback_candidates'])
-      self.assertNotIn(cid,proof['proved_scores']);self.assertIn(cid,proof['unproved'])
+      self.assertEqual(proof[cid]['operands']['certain_growth_difference']['status'],'unknown');self.assertIsNone(proof[cid]['operands']['certain_growth_difference']['value'])
      self.assertIn('pass',decision['choice']['seeded_fallback_candidates'])
      self.assertEqual(base._evaluate(decision)['legacy_116'],'excluded')
      self.assertFalse(decision['execution_evidence']['policy_eligible'])

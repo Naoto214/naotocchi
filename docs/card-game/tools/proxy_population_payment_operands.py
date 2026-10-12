@@ -15,9 +15,39 @@ from proxy_mandatory_policy_contract import canonical
 ZERO_IMMEDIATE_CONTRACTS=frozenset(('own_companion_replacement_470','source_cost_discard_recovery_470','existing_own_turn_paid_draw'))
 
 
-def audit_normal(envelope,events,decision):
+def source_payments(envelope,events,inventory):
+ """Source-certified payment/identity facts, without upper-value promotion."""
+ state.validate(envelope);g=envelope['legacy_continuation']['game_state'];actor=g['turn_player']
+ proofs=[core.audit_normal(envelope,inventory),hand.audit_normal(envelope,events,inventory),board.audit_normal(envelope,inventory)]
+ if any(p['errors'] for p in proofs):raise ValueError('normal payment operands differ: source predicates')
+ costs={}
+ for proof in proofs:
+  for unit in proof['verified_units']:
+   key=unit['enumeration_unit_id'];cost=0 if unit.get('action_type') in ('pass','challenge') else unit.get('payment_time')
+   if key in costs and costs[key]!=cost:raise ValueError('normal payment operands differ: source disagreement')
+   costs[key]=cost
+ rows={}
+ for unit in inventory['legal_candidate_details']:
+  cid=unit['candidate_id'];cost=costs.get(unit['enumeration_unit_id']);source=unit['source_instance_id']
+  if type(cost) is not int or cost<0:raise ValueError('normal payment operands differ: uncertified payment '+cid)
+  if unit['action_type'] in ('relationship','challenge'):source=g['players'][actor]['board']['partner' if unit['action_type']=='relationship' else 'main']
+  rows[cid]=dict(candidate_id=cid,payment_time=cost,time_after_certain_resolution=g['players'][actor]['time']-cost,card_copy_id=g['cards'][source]['card_copy_id'] if source is not None else '')
+ return rows
+
+
+def _audit_normal(envelope,events,decision):
  errors=[];verified=[];unproved=[]
  contract=decision.get('execution_evidence',{}).get('contract')
+ if contract=='current_normal_comparison_evidence.v1':
+  import copy
+  try:
+   if any(decision.get(k) is not None for k in ('problem','upper_priority_problem','fallback_priority_problem')):raise ValueError('conflicting normal payment route')
+   rows=decision['execution_evidence']['comparison_operands']['candidates']
+   projected=copy.deepcopy(decision);projected['execution_evidence']={}
+   projected['problem']=dict(legal_candidate_ids=decision['inventory']['legal_candidate_ids'],candidates=[row['payment'] for row in rows.values()])
+   return _audit_normal(envelope,events,projected)
+  except (ValueError,KeyError,TypeError,AttributeError) as error:
+   return dict(schema='normal_comparison_payment_operands.v1',applicable=True,supported_payment_operands_verified=False,errors=[str(error)],verified_candidates=[],unproved_candidates=[])
  partial=contract=='existing116_unproved_upper_comparison.v1'
  fallback=contract in ZERO_IMMEDIATE_CONTRACTS and decision.get('choice',{}).get('resolution_mode')=='seeded_fallback'
  applicable=partial or fallback or any(decision.get(k) is not None for k in ('problem','upper_priority_problem','fallback_priority_problem'))
@@ -94,17 +124,24 @@ def audit_normal(envelope,events,decision):
   origin_authenticated=False,policy_eligible=None,balance_admitted=None)
 
 
+def audit_normal(envelope,events,decision):
+ return _audit_normal(envelope,events,decision)
+
+
 def require_actual_comparison(step):
  """Join a fresh payment audit on every current normal comparison route.
 
- Unknown rows remain unknown. An all-unknown partition has no verified
- payment rows and must not acquire a true payment-certification flag.
+ Legacy partial payment rows remain unknown when unproved; an all-unknown
+ legacy payment partition cannot be certified. The current comparison route
+ proves payment rows separately from unknown upper comparison operands.
  """
  decision=step['decision'];proof=step.get('normal_payment_operands',{})
  try:
   ids=decision['inventory']['legal_candidate_ids']
   if ids!=sorted(set(ids)):raise ValueError('candidate partition')
-  if decision.get('execution_evidence',{}).get('contract')=='existing116_unproved_upper_comparison.v1':
+  if decision.get('execution_evidence',{}).get('contract')=='current_normal_comparison_evidence.v1':
+   known=ids;expected_unknown=[]
+  elif decision.get('execution_evidence',{}).get('contract')=='existing116_unproved_upper_comparison.v1':
    evidence=decision['execution_evidence']['candidate_comparison_evidence']
    known=sorted(evidence['proved_scores']);unknown=sorted(evidence['unproved'])
    if set(known)&set(unknown) or sorted(known+unknown)!=ids:raise ValueError('partial partition')

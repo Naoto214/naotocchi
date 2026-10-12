@@ -83,9 +83,9 @@ class ConnectionTests(unittest.TestCase):
     self.assertEqual({a['candidate_id'] for a in proof['verified_candidates']},set(inv['legal_candidate_ids']))
     import proxy_population_decision_binding as binding
     step=dict(decision=r,normal_payment_operands=proof)
-    binding.require_current_comparison(step)
+    payment.require_actual_comparison(step)
     bad=copy.deepcopy(step);bad['normal_payment_operands']['verified_candidates'].pop()
-    with self.assertRaisesRegex(ValueError,'payment coverage incomplete'):binding.require_current_comparison(bad)
+    with self.assertRaisesRegex(ValueError,'payment coverage incomplete'):payment.require_actual_comparison(bad)
     bad=copy.deepcopy(r)
     for row in bad['upper_priority_problem']['candidates']:row['certain_growth_difference']=0
     self.assertFalse(selection.audit(bad)['selection_computation_verified'])
@@ -98,9 +98,12 @@ class ConnectionTests(unittest.TestCase):
   def current_entry(forced):
    with api.scope():step=runtime._step(e,initial(),[],[],[e],forced)
    binding.require_current_predicates(step)
-   self.assertEqual(step['decision']['selected_action']['action_type'],'relationship')
-   self.assertTrue(step['selection_computation_audit']['selection_computation_verified'])
-   self.assertFalse(step['selection_computation_audit']['operand_provenance_verified'])
+   # Historical helper arithmetic above remains unchanged. Current P11
+   # does not promote its literal upper zeroes to source-proved priorities.
+   self.assertEqual(step['decision']['choice']['resolution_mode'],'seeded_fallback')
+   self.assertEqual(step['decision']['choice']['seeded_fallback_candidates'],step['decision']['inventory']['legal_candidate_ids'])
+   self.assertTrue(step['normal_comparison_evidence']['comparison_evidence_verified'])
+   self.assertFalse(step['normal_comparison_evidence']['strategic_proof'])
    self.assertIsNone(step['evaluation']['balance_admitted'])
    return {}
   with current_window.contract_scope():runtime.operation(initial(),current_entry)

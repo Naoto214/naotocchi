@@ -17,6 +17,9 @@ from proxy_mandatory_policy_contract import ROOT,canonical
 
 NONACTIVATIONS=frozenset(('turn_start_and_egg_draw','turn_start_and_normal_draw','egg_exchange_bottom',
  'open_turn_end_triggers','normal_pass_end_request','main_movement','person_placement','place_world',
+ # Native placement aliases have no direct opponent-person removal. Arrival
+ # abilities are separate links; the all-links inspection below still applies.
+ 'place_companion','place_partner','play_main_birth',
  'set_item','attach_item','relationship_start','relationship_progress','relationship_marriage',
  'challenge_declared','challenge_compared','resolve_board_stat','resolve_payment_modifier',
  'resolve_immediate_effect','resolve_event','resolve_item','resolve_play','resolve_board_ability','resolve_targeted_zone_move'))

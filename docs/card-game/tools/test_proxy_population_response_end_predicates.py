@@ -8,10 +8,17 @@ from test_proxy_mandatory_population_input import bundle
 
 class ResponseEndPredicateTests(unittest.TestCase):
  def test_actual_non_end_scorpion_is_bound_to_existing_end_negative(self):
-  r=connected.reconstruct(bundle(),'test-1A',4);steps=[s for s in r['runtime']['steps'] if 'response_board_predicates' in s];step=steps[-1]
-  g=step['source_envelope']['legacy_continuation']['game_state'];source=g['players']['A']['board']['partner'];self.assertEqual(g['cards'][source]['card_id'],'P-desert_scorpion')
-  p=step['response_board_predicates'];self.assertIn(source,p['verified_source_ids']);self.assertTrue(p['end_negative_audits'][source]['current_trigger_predicates_verified']);self.assertEqual(p['end_negative_audits'][source]['verified_candidate_count'],0)
-  self.assertTrue(step['response_source_predicate_coverage']['supplied_response_source_predicates_covered']);self.assertFalse(p['all_rule_opportunities_proven'])
+  # Pin the rule condition, not a card selected by the former comparison.
+  from test_proxy_population_end_predicates import end_fixture
+  from test_proxy_population_runtime import initial
+  import proxy_population_runtime as runtime
+  def run(forced):
+   e,h,o=end_fixture('P-desert_scorpion');source=o['source_instance_id'];h[-1]=origin(e,'response_pass','A')
+   step=runtime._step(e,initial(),h,[],[e],forced)
+   p=step['response_board_predicates'];self.assertIn(source,p['verified_source_ids']);self.assertTrue(p['end_negative_audits'][source]['current_trigger_predicates_verified']);self.assertEqual(p['end_negative_audits'][source]['verified_candidate_count'],0)
+   self.assertTrue(step['response_source_predicate_coverage']['supplied_response_source_predicates_covered']);self.assertFalse(p['all_rule_opportunities_proven'])
+   return {}
+  with window.contract_scope():runtime.operation(initial(),run)
 
  def test_four_negative_sources_reoffers_and_incomplete_history(self):
   from test_proxy_population_end_predicates import end_fixture

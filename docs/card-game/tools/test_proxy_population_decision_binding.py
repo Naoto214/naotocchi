@@ -14,9 +14,11 @@ class BindingTests(unittest.TestCase):
  def setUpClass(cls):
   cls.record=connected.reconstruct(bundle(),'test-1A',4)
   if len(cls.record['runtime']['steps'])!=4:raise AssertionError(cls.record['runtime']['stop'])
+  cls.ordinary=[s for s in cls.record['runtime']['steps'] if s['decision'] and (s['decision'].get('context',{}).get('decision_kind')=='normal_action' or s['decision'].get('decision_kind')=='response_action')]
+  if len(cls.ordinary)!=3:raise AssertionError('expected two responses and one normal, plus one sequential trigger')
  def test_each_ordinary_entry_binds_identity_selection_and_all_transition_hashes(self):
   self.assertIsNotNone(api)
-  for step in self.record['runtime']['steps']:
+  for step in self.ordinary:
    proof=audit(step,'test-1')
    self.assertTrue(proof['entry_and_transition_binding_verified'],proof['errors'])
    self.assertFalse(proof['complete_legal_set_proven']);self.assertFalse(proof['effect_semantics_proven'])
@@ -35,7 +37,7 @@ class BindingTests(unittest.TestCase):
     self.assertFalse(audit(bad,'test-1')['entry_and_transition_binding_verified'])
  def test_context_relabel_and_inventory_projection_differ(self):
   self.assertIsNotNone(api)
-  for step in self.record['runtime']['steps']:
+  for step in self.ordinary:
    bad=copy.deepcopy(step);d=bad['decision']
    context=d['context'] if 'context' in d else d
    context['phase']='turn_end'
@@ -65,7 +67,7 @@ class BindingTests(unittest.TestCase):
    bad['decision']['seed_context'][field]=value+1 if type(value) is int else 'wrong'
    self.assertFalse(audit(bad,'test-1')['entry_and_transition_binding_verified'],field)
  def test_connected_entries_export_the_verified_binding(self):
-  for step in self.record['runtime']['steps']:
+  for step in self.ordinary:
    self.assertTrue(step['ordinary_entry_binding']['entry_and_transition_binding_verified'])
   self.assertTrue(self.record['decision_projection_audit']['decision_projection_verified'])
  def test_exported_decisions_are_exact_step_projection(self):

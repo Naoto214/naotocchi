@@ -14,6 +14,7 @@ import proxy_population_challenge_arithmetic as arithmetic
 import proxy_population_runtime as runtime
 import proxy_population_end_victory as victory
 import proxy_population_unproved_priority as unresolved
+import proxy_population_comparison_evidence as comparison_evidence
 import proxy_population_activation_legality as legality
 import proxy_population_loss_reward as loss_reward
 import proxy_population_hand_predicates as hand_predicates
@@ -47,7 +48,7 @@ def contract_scope():
  if not _LOCK.acquire(blocking=False):raise ValueError('challenge connection concurrency/reentry forbidden')
  supported=existing.SUPPORTED;observed=window.OBSERVED_EVENTS;prior_operation=runtime.operation;prior_step=runtime._step
  def step(envelope,initial,events,shots,runtime_history,forced,session=None):
-  with unresolved.scope(),public_application.scope(events,shots,runtime_history):
+  with unresolved.scope(),comparison_evidence.scope(),public_application.scope(events,shots,runtime_history):
    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
    current=result['source_envelope']['legacy_continuation']
    decision=result['decision']
@@ -75,6 +76,9 @@ def contract_scope():
      payment_proof=payment_operands.audit_normal(result['source_envelope'],events,decision)
      if payment_proof['errors']:raise ValueError('normal payment operands differ: '+str(payment_proof['errors']))
      result['normal_payment_operands']=payment_proof
+     comparison_proof=comparison_evidence.audit(result['source_envelope'],decision)
+     if comparison_proof['errors']:raise ValueError('normal comparison evidence differs: '+str(comparison_proof['errors']))
+     result['normal_comparison_evidence']=comparison_proof
     elif decision.get('decision_kind')=='response_action':
      coverage=source_inventory.audit_response(result['source_envelope'],decision['candidate_set_evidence'])
      expansion=response_expansions.audit(result['source_envelope'],events,decision['candidate_set_evidence'])

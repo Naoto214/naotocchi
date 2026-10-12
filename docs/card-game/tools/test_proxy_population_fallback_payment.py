@@ -63,15 +63,16 @@ class FallbackPaymentTests(unittest.TestCase):
      return {}
     runtime.operation(initial(),run)
 
- def test_actual_entry_rejects_missing_fallback_comparison_record(self):
-  native=departure.select_verified_zero_immediate
+ def test_actual_entry_rejects_missing_current_comparison_record(self):
+  # Legacy helper schema omission remains covered above. Current entry uses
+  # the general P11 contract and must reject its missing operand evidence.
+  native=runtime._step
   def missing(*args,**kwargs):
-   result=native(*args,**kwargs);result.pop('fallback_priority_problem',None);return result
+   result=native(*args,**kwargs);result['decision']['execution_evidence'].pop('comparison_operands');return result
   def run(forced):
    e=supplied()
-   with patch.object(departure,'select_verified_zero_immediate',missing),departure.scope():
-    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):runtime._step(e,initial(),[],[],[e],forced)
+   with departure.scope(),self.assertRaisesRegex(ValueError,'normal payment operands differ'):runtime._step(e,initial(),[],[],[e],forced)
    return {}
-  with window.contract_scope():runtime.operation(initial(),run)
+  with patch.object(runtime,'_step',missing),window.contract_scope():runtime.operation(initial(),run)
 
 if __name__=='__main__':unittest.main()

@@ -124,9 +124,24 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
             new_ledger=ledger.observe(ledger.create(c['game_state']['turn_player']),new_proof['occurrences'],'empty')
             current_proof=new_proof;current_ledger=new_ledger;active=True;mode='start';start_proofs.append(copy.deepcopy(new_proof))
             return result
+        def compose_response(r,e,history,full):
+            if 'response_source_predicate_coverage' in r:
+                import proxy_population_response_group_closure as response_closure
+                import proxy_population_response_composition as composition
+                inv=r['decision']['candidate_set_evidence']
+                closed=response_closure.audit(e,history,inv,current_ledger,records,full,r['response_source_predicate_coverage']['unproved_source_ids'])
+                if closed['errors']:raise ValueError('response group closure differs: '+str(closed['errors']))
+                r['response_group_closure']=closed
+                composed=composition.audit(e,inv,{name:r[name] for name in composition.FAMILIES},closed)
+                if composed['errors']:raise ValueError('response closed-group composition differs: '+str(composed['errors']))
+                r['response_source_predicate_coverage']=composed
+            return r
         def step_body(e,i,history,legacy,full,original_forced,supplied_session=None):
             nonlocal current_ledger,active
-            if not active:return observe_start(original_step(e,i,history,legacy,full,original_forced,supplied_session),history,e)
+            if not active:
+                # Group inactivity is not absence of source timing obligations.
+                r=original_step(e,i,history,legacy,full,original_forced,supplied_session)
+                return observe_start(compose_response(r,e,history,full),history,e)
             if ledger.offer(current_ledger) is not None:
                 record=sequential.step(e,i,current_ledger,observation.Adapter(history))
                 current_ledger=record['after_ledger'];records.append(copy.deepcopy(record))
@@ -139,16 +154,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                     boundaries[state.canonical_sha256(before)]=dict(kind=mode,turn_player=current_proof['capture']['turn_player'],origin_event_seq=current_proof['origin_event_seq'])
                 return original_forced(before,*args)
             with closed_start() if mode=='start' else closed_native(current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
-            if 'response_source_predicate_coverage' in r:
-                import proxy_population_response_group_closure as response_closure
-                import proxy_population_response_composition as composition
-                inv=r['decision']['candidate_set_evidence']
-                closed=response_closure.audit(e,history,inv,current_ledger,records,full,r['response_source_predicate_coverage']['unproved_source_ids'])
-                if closed['errors']:raise ValueError('response group closure differs: '+str(closed['errors']))
-                r['response_group_closure']=closed
-                composed=composition.audit(e,inv,{name:r[name] for name in composition.FAMILIES},closed)
-                if composed['errors']:raise ValueError('response closed-group composition differs: '+str(composed['errors']))
-                r['response_source_predicate_coverage']=composed
+            r=compose_response(r,e,history,full)
             if r['final_envelope']['legacy_continuation']['game_state']['phase']==('turn_end' if mode=='end' else 'normal_action'):active=False
             return observe_existing(r,e,history)
         def step(*args,**kwargs):
@@ -165,7 +171,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 boundaries.clear();boundaries.update(saved_boundaries)
                 del records[lengths[0]:];del start_proofs[lengths[1]:];del other_proofs[lengths[2]:];del closed_turns[lengths[3]:]
                 raise
-        with departure.scope(),recovery.scope(),instances.scope(),references.scope(),replay.scope(),resolution_boundaries(boundaries):
+        with departure.scope(),recovery.scope(),instances.scope(),references.scope(),replay.scope(records),resolution_boundaries(boundaries):
             try:
                 base.operation=reuse;base._step=step
                 result=base.segment(envelope,initial,events,shots,runtime,limit,session)

@@ -56,6 +56,6 @@ class PositiveWindowTests(unittest.TestCase):
    return dict(envelope=e,history=history,proof=existing.ExistingAdapter(history).proof(e,3))
   with api.contract_scope():source=base.operation(initial(),build)
   e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['events']),1)
-  decision=r['decisions'][0];self.assertEqual(len(decision['inventory']['legal_candidate_ids']),3);self.assertEqual(decision['choice']['reason_code'],'strategic_unresolved_seeded_fallback');self.assertEqual(len(decision['execution_evidence']['verified_immediate_candidates']),2)
+  decision=r['decisions'][0];self.assertEqual(len(decision['inventory']['legal_candidate_ids']),3);self.assertEqual(decision['choice']['reason_code'],'strategic_unresolved_seeded_fallback');self.assertEqual(len(decision['execution_evidence']['comparison_operands']['candidates']),3);self.assertTrue(all(v['status']=='unknown' for row in decision['execution_evidence']['comparison_operands']['candidates'].values() for v in row['operands'].values()));self.assertEqual(decision['choice']['seeded_fallback_candidates'],decision['inventory']['legal_candidate_ids'])
 
 if __name__=='__main__':unittest.main()

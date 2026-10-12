@@ -52,23 +52,27 @@ class PaymentGateTests(unittest.TestCase):
    return {}
   with window.contract_scope():runtime.operation(initial(),run)
 
- def test_all_unknown_actual_comparison_remains_excluded_without_empty_payment_certificate(self):
+ def test_all_unknown_upper_comparisons_keep_independently_proved_payments(self):
   from test_proxy_population_pass_end_unknown import supplied as unknown
   def run(forced):
    e,events=unknown();step=runtime._step(e,initial(),events,[],[e],forced)
-   evidence=step['decision']['execution_evidence']['candidate_comparison_evidence']
-   self.assertEqual(evidence['proved_scores'],{});self.assertTrue(evidence['unproved'])
-   proof=step['normal_payment_operands'];self.assertEqual(proof['verified_candidates'],[])
-   self.assertFalse(proof['supported_payment_operands_verified']);gate.require_current_predicates(step)
+   evidence=step['decision']['execution_evidence']['comparison_operands']['candidates']
+   self.assertTrue(evidence)
+   for row in evidence.values():
+    for operand in row['operands'].values():
+     self.assertEqual(operand['status'],'unknown');self.assertIsNone(operand['value'])
+   proof=step['normal_payment_operands']
+   self.assertEqual({r['candidate_id'] for r in proof['verified_candidates']},set(evidence))
+   self.assertTrue(proof['supported_payment_operands_verified']);gate.require_current_predicates(step)
    self.assertEqual(step['evaluation']['legacy_116'],'excluded');self.assertFalse(proof['operand_provenance_verified'])
-   for mode in ('promote','omit_unknown','change_reason','duplicate_unknown'):
-    bad=copy.deepcopy(step);p=bad['normal_payment_operands']
-    if mode=='promote':p['supported_payment_operands_verified']=True
-    elif mode=='omit_unknown':p['unproved_candidates'].pop()
-    elif mode=='change_reason':p['unproved_candidates'][0]['comparison_reason']='invented'
-    else:p['unproved_candidates'].append(copy.deepcopy(p['unproved_candidates'][0]))
+   for mode in ('promote','omit','change_reason'):
+    bad=copy.deepcopy(step);operands=bad['decision']['execution_evidence']['comparison_operands']['candidates']
+    key=next(iter(operands));operand=operands[key]['operands']['avoid_loss_or_abort']
+    if mode=='promote':operand.update(status='known',value=0)
+    elif mode=='omit':del operands[key]
+    else:operand['reason']='invented'
     with self.subTest(mode=mode):
-     with self.assertRaisesRegex(ValueError,'current comparison payment coverage incomplete'):gate.require_current_predicates(bad)
+     with self.assertRaisesRegex(ValueError,'current normal comparison evidence incomplete'):gate.require_current_predicates(bad)
    return {}
   with window.contract_scope():runtime.operation(initial(),run)
 
@@ -78,13 +82,13 @@ class PaymentGateTests(unittest.TestCase):
   native=payment.audit_normal;seen=[]
   def incomplete(envelope,events,decision):
    proof=native(envelope,events,decision)
-   if decision.get('execution_evidence',{}).get('contract')=='existing116_unproved_upper_comparison.v1':
-    self.assertTrue(proof['verified_candidates']);self.assertTrue(proof['unproved_candidates']);self.assertEqual(proof['errors'],[])
+   if decision.get('execution_evidence',{}).get('contract')=='current_normal_comparison_evidence.v1':
+    self.assertTrue(proof['verified_candidates']);self.assertEqual(proof['unproved_candidates'],[]);self.assertEqual(proof['errors'],[])
     proof['supported_payment_operands_verified']=False;seen.append(True)
    return proof
   with patch.object(payment,'audit_normal',incomplete):result=connected.reconstruct(bundle(),'test-1A',34)
   self.assertTrue(seen);self.assertIsNotNone(result['runtime']['stop'])
   self.assertIn('current comparison payment coverage incomplete',result['runtime']['stop']['detail'])
-  self.assertFalse(any(s['decision'] and s['decision'].get('execution_evidence',{}).get('contract')=='existing116_unproved_upper_comparison.v1' for s in result['runtime']['steps']))
+  self.assertFalse(any(s['decision'] and s['decision'].get('execution_evidence',{}).get('contract')=='current_normal_comparison_evidence.v1' for s in result['runtime']['steps']))
 
 if __name__=='__main__':unittest.main()

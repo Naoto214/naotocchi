@@ -21,8 +21,8 @@ class PassEndUnknownTests(unittest.TestCase):
  def test_current_eligible_end_growth_keeps_pass_unknown_at_actual_entry(self):
   def run(forced):
    e,h=supplied();r=runtime._step(e,initial(),h,[],[e],forced);d=r['decision']
-   proof=d.get('execution_evidence',{}).get('candidate_comparison_evidence',{})
-   self.assertIn('pass',proof.get('unproved',{}));self.assertNotIn('pass',proof.get('proved_scores',{}))
+   proof=d['execution_evidence']['comparison_operands']['candidates']
+   self.assertEqual(proof['pass']['operands']['certain_growth_difference']['status'],'unknown');self.assertIsNone(proof['pass']['operands']['certain_growth_difference']['value'])
    self.assertIn('pass',d['choice']['seeded_fallback_candidates']);self.assertEqual(r['evaluation']['legacy_116'],'excluded')
    self.assertFalse(d['execution_evidence']['policy_eligible'])
    return {}
@@ -42,9 +42,9 @@ class PassEndUnknownTests(unittest.TestCase):
   def run(forced):
    e,h=supplied();g=e['legacy_continuation']['game_state'];p=g['players']['A']
    item=next(s for s in p['deck'] if g['cards'][s]['card_id']=='I-poop1');p['deck'].remove(item);p['hand'].append(item)
-   d=runtime._step(e,initial(),h,[],[e],forced)['decision'];proof=d['execution_evidence']['candidate_comparison_evidence']
+   d=runtime._step(e,initial(),h,[],[e],forced)['decision'];proof=d['execution_evidence']['comparison_operands']['candidates']
    target=next(a['candidate_id'] for a in d['inventory']['legal_candidate_details'] if a['source_instance_id']==item)
-   self.assertIn(target,proof['proved_scores']);self.assertNotIn('pass',proof['proved_scores'])
+   self.assertEqual(proof[target]['operands']['avoid_loss_or_abort']['status'],'unknown');self.assertEqual(proof['pass']['operands']['avoid_loss_or_abort']['status'],'unknown')
    self.assertEqual(set(d['choice']['seeded_fallback_candidates']),{'pass',target})
    return {}
   with connected.contract_scope():runtime.operation(initial(),run)
@@ -85,8 +85,8 @@ class PassEndUnknownTests(unittest.TestCase):
    p['board']['world']=None;p['hand']=[source];p['time']=2
    d=runtime._step(e,initial(),h,[],[e],forced)['decision']
    cid=next(a['candidate_id'] for a in d['inventory']['legal_candidate_details'] if a.get('source_instance_id')==source)
-   proof=d.get('execution_evidence',{}).get('candidate_comparison_evidence',{})
-   self.assertIn(cid,proof.get('unproved',{}));self.assertNotIn(cid,proof.get('proved_scores',{}))
+   proof=d['execution_evidence']['comparison_operands']['candidates']
+   self.assertEqual(proof[cid]['operands']['certain_growth_difference']['status'],'unknown');self.assertIsNone(proof[cid]['operands']['certain_growth_difference']['value'])
    self.assertIn(cid,d['choice']['seeded_fallback_candidates']);self.assertEqual(runtime._evaluate(d)['legacy_116'],'excluded')
    self.assertFalse(d['execution_evidence']['policy_eligible'])
    return {}
@@ -103,10 +103,10 @@ class PassEndUnknownTests(unittest.TestCase):
     inv=candidates.audit(e,h);action=next(a for a in inv['legal_candidate_details'] if a.get('source_instance_id')==source)
     with self.subTest(count=count):
      d=runtime._step(e,initial(),h,[],[e],forced)['decision']
-     if count==1:
-      proof=d['execution_evidence']['candidate_comparison_evidence']
-      self.assertEqual(proof['unproved'][action['candidate_id']],unresolved.WORLD_END_GAP)
-     else:self.assertEqual(d['choice']['resolution_mode'],'priority_unique')
+     # Neither a satisfied nor an absent end condition proves all uppers.
+     proof=d['execution_evidence']['comparison_operands']['candidates']
+     self.assertEqual(proof[action['candidate_id']]['operands']['certain_growth_difference']['status'],'unknown')
+     self.assertEqual(d['choice']['resolution_mode'],'seeded_fallback')
      after,events=batch.transition(e,action,h)
      self.assertEqual(after['legacy_continuation']['game_state']['players']['A']['board']['world'],source)
      self.assertEqual(after['legacy_continuation']['game_state']['players']['A']['growth'],p['growth'])

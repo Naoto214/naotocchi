@@ -81,8 +81,8 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
   except Exception:
    pairs.clear();pairs.update(saved_pairs);captures.clear();captures.update(saved_captures);raise
  @contextmanager
- def replay_scope():
-  with original_replay():
+ def replay_scope(records=()):
+  with original_replay(records):
    original=end.RUNTIME_TRANSITION_VERIFIER
    def verify(before,after,event,history=None):
     card=before['legacy_continuation']['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id')

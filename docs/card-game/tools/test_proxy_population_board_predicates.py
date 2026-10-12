@@ -83,15 +83,17 @@ class BoardPredicateTests(unittest.TestCase):
    table=candidates.rules.table()
    for card in table['cards']:
     kind=card['card_type']
-    if kind not in ('main','companion','partner','world') and card['card_id'] not in ('I-poop1','I-bowtie','I-sleepboost1'):continue
+    if kind not in ('main','companion','partner','world') and card['card_id'] not in ('I-poop1','I-bowtie','I-sleepboost1','I-bond1'):continue
     g,actor,source=game_with(card['card_id']);g['phase']='normal_action';p=g['players'][actor];p['hand'].remove(source)
     slot={'main':'main','companion':'companions','partner':'partner','world':'world'}.get(kind,'prepared')
     if slot in ('companions','prepared'):p['board'][slot].append(source)
     else:p['board'][slot]=source
     if slot=='partner':p['board']['partner_stage']=0
     if slot=='prepared' and card['card_id']!='I-poop1':
-     main=next(x for x in p['hand']+p['deck'] if g['cards'][x]['card_id'].startswith('M-'))
-     (p['hand'] if main in p['hand'] else p['deck']).remove(main);p['board']['main']=main
+     main=next(x for x in p['hand']+p['deck'] if g['cards'][x]['card_id'].startswith('C-' if card['card_id']=='I-bond1' else 'M-'))
+     (p['hand'] if main in p['hand'] else p['deck']).remove(main)
+     if card['card_id']=='I-bond1':p['board']['companions'].append(main)
+     else:p['board']['main']=main
     c=dict(game_state=g,response_context=_context(actor,actor),activation_zone=[],pending_triggers=[],return_target='normal_action_opportunity')
     e=dict(schema=state.SCHEMA,execution_contract_id=state.CONTRACT,event_seq=3,legacy_continuation=c,runtime={k:({} if k in ('attachments','public_prepared') else []) for k in state.RUNTIME_KEYS})
     if slot=='prepared':

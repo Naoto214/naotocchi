@@ -111,3 +111,8 @@ P10の残件を「全read未証明」の一語で再開しない。実adapter群
 乱数への直接引数に秘密hashがないことだけでは、候補母数・発生ordinal・履歴prefixの生成が真正であるとは証明できない。候補/局所効果はsource-pinned boundary、全発生順はpolicy journal/opportunity order、初期入力と全遷移はinitial/trace監査へ別に結合する。通常/response/逐次群の旧116と指定policyの適格性は混合しない。
 
 現行通常履歴はhistory_projectionの独立許可field照合でraw prefix/actorへ結合済み。これは公開projectionの検査であり、raw履歴を生成した全ruleと外部初期入力の真正性は別責務である。上表と先行候補/比較表は、現行固定scopeの読取経路を記録した証拠として使う。全情報利用の普遍証明、P11比較operandの意味、P14–18の共通gateがこの追補だけで成立したとはしない。コード変更・試験再実行なし。
+
+
+## 2026-10-12 P11承認後の現行通常selector
+
+comparison_evidence.scopeはchallenge_window.step内で旧selectを置換する。上表の旧_scores/helperは現在の通常選択値の生成元ではなく、旧単独経路互換性として保持。現在は合法inventoryとcore/hand/board支払事実、許可view/public_history hash、candidate/source/unitから各operandの未証明を記録する。未知は0にも同値にもならない。比較kernelはoperand行だけ、116は規定contextと未解決frontierのみを読む。envelope全体のvalidate/hashは監査の結合で、seed addressへ渡さない。実入口auditは独立した根拠受理を経てfresh再構成し、exportはdecision/entry hashを結合する。秘密置換の有限テストは補助証拠で、全情報非干渉証明とはしない。支払の実証は上位値/解決全体の時収支証明とは別。p11-comparison-evidence-report.mdを参照。

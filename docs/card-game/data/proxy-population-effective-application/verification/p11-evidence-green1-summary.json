@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_comparison_evidence"
+  ],
+  "exit_code": 0,
+  "seconds": 0.6634993159968872,
+  "python_file_count": 1084,
+  "fingerprints_equal": true,
+  "tests": "6",
+  "tail": "test_boolean_and_missing_proofs_are_not_numeric_equality (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_boolean_and_missing_proofs_are_not_numeric_equality) ... ok\ntest_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) ... ok\ntest_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion) ... ok\ntest_hidden_order_and_opponent_hand_do_not_change_proof_or_selection (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection) ... ok\ntest_proved_upper_equalities_allow_time_order_without_replacing_unknown (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_proved_upper_equalities_allow_time_order_without_replacing_unknown) ... ok\ntest_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.518s\n\nOK\n",
+  "base_commit": "02e99210e7cf81c4d7b246490fac86ff84e17d40",
+  "preflight_ready": false,
+  "new_matches": 0
+}

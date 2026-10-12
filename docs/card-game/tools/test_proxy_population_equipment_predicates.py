@@ -47,6 +47,25 @@ class EquipmentPredicateTests(unittest.TestCase):
    return {}
   runtime.operation(initial(),run)
 
+ def test_native_placement_origins_do_not_create_removal_but_all_links_still_checked(self):
+  def run(forced):
+   with paid.scope():
+    for origin in ('place_companion','place_partner','play_main_birth','person_placement'):
+     with self.subTest(origin=origin):
+      e,h,source,hidden=equipment();h[-1]['action_type']=origin
+      inv=quick.actions.response_inventory(e,initial(),h);proof=api.audit(e,h,inv)
+      self.assertEqual(proof['errors'],[])
+      self.assertTrue(proof['equipment_predicates_verified'],proof['unproved_public_effects'])
+      self.assertTrue(proof['prepared_predicates_verified'])
+      self.assertEqual([r['source_instance_id'] for r in proof['verified_equipment']],[source])
+      # A nonactivation origin is not permission to skip a later public link.
+      row=link(e,'I-c_coin2');row['source_zone']='board'
+      inv['response_context']=copy.deepcopy(e['legacy_continuation']['response_context'])
+      bad=api.audit(e,h,inv)
+      self.assertFalse(bad['equipment_predicates_verified']);self.assertFalse(bad['prepared_predicates_verified'])
+   return {}
+  runtime.operation(initial(),run)
+
  def test_all_active_quick_links_required_and_board_routes_remain_unproved(self):
   def run(forced):
    with paid.scope():

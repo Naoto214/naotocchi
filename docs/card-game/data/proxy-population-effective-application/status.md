@@ -1325,3 +1325,10 @@ a93265cから、指定5契約のrule prefix/本人候補と乱数材料、指定
 ### P14/P17 生成・単独workerの実処理直前edition照合（2026-10-12）
 
 02c0a91から、承認return後の記録保存と実処理開始の間を既存edition.verifyへ接続。実authorization内のlive照会後照合は既存実装にあり、今回の修正対象と区別する。synthetic Gitの実source変更＋metadata保存で2件4FAILを再現し、生成collector前・attempt reconstruct前で拒否。attemptは既存interruptionを保存、生成はsampling journal作成前に停止。正常版はmock読取に到達しbytes返却前中断。実entropy返却0、新規試合0。関連45PASS31.127s/exit0・Python1082前後一致、独立2PASS1.614s/C0I0M0。operation-edition-*原本。局所時点照合でありatomic lock/loaded code認証ではない。P09–11/P14–18の共通合成は未完、preflight-ready=false、本番gate閉鎖。次は上位operandの証明範囲とunknown境界、現行edition共通gateを接続する。
+
+
+### 2026-10-12 P11明示承認後の通常比較一般契約
+
+02e9921の未採用案についてユーザー明示承認を受領。現行通常候補の比較根拠をsource/unit/許可view/履歴へ結合し、未証明上位はunknown、下位支払による排除を禁止。既知上位差/同値の算術は保持するが、現行実カードのknown根拠は未供給。全未知・116除外を維持する。承認正本はplans/2026-10-12-approved-normal-comparison-evidence.md、証拠はverification/p11-comparison-evidence-report.md。関連164PASS（最終接続前）＋終了起点17PASS＋見送りprovenance24PASS、各Python1084前後一致。独立9PASS/C0I0M1説明訂正。複数ターンcheck1〜4はFAILを保存、check5はscope引数中継ERRORを修正。check6はR5終了時のshared trigger provenance不一致でFAIL（W-city群の起点146と元response起点145の接続を次に検査）。局所PASSでpreflightを開けない。P09/P10/P14–18の共通合成と最終版検証へ継続。preflight-ready=false、生成/固定/400戦0。
+
+P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒、exit0、Python1084前後一致。positive_windowのrecords中継と旧helper形テストを修正。check6の複数ターンFAILは別に未解消として保持し、p11-multiturn-check6-record.json.xz/.jsonへ原本保存。保存後はこの起点接続を次にTDDで修正し、P09/P10/P14–18へ継続する。現在実行中試験なし。

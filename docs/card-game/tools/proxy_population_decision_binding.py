@@ -132,7 +132,7 @@ def require_current_comparison(step):
  """
  import proxy_population_selection_basis as selection
  decision=step['decision'];choice=decision.get('choice',decision);mode=choice.get('resolution_mode')
- if mode not in ('seeded_fallback','response_seeded_fallback'):
+ if mode not in ('seeded_fallback','response_seeded_fallback') and decision.get('execution_evidence',{}).get('contract')!='current_normal_comparison_evidence.v1':
   proof=selection.audit(decision)
   if proof['errors'] or proof['selection_computation_verified'] is not True:
    raise ValueError('current selection computation incomplete: '+str(proof['errors']))
@@ -140,6 +140,8 @@ def require_current_comparison(step):
  if decision.get('context',{}).get('decision_kind')=='normal_action':
   from proxy_population_payment_operands import require_actual_comparison
   require_actual_comparison(step)
+  from proxy_population_comparison_evidence import require_actual
+  require_actual(step)
  if decision.get('decision_kind')=='response_action' and mode=='priority_unique':
   proof=step.get('response_comparison_operands',{})
   if proof.get('schema')!='supplied_response_comparison_operands.v1' or proof.get('errors')!=[] or proof.get('applicable') is not True or proof.get('existing_comparison_operands_verified') is not True or proof.get('supplied_resolution_premises_verified') is not True or proof.get('unproved')!=[]:

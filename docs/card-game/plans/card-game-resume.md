@@ -73,6 +73,11 @@
 
 - 2026-10-12確認待ち: P11の具体的比較診断と未採用案をplans/2026-10-12-comparison-proof-boundary-decision.mdへ保存。既存I-poop1/passは上位0の根拠未証明のまま時差でpriority_unique。局面別に全候補unknownとなる結果を含む変更は未実装。提案を承認済みと扱わない。
 
+
+### 2026-10-12 P11明示承認後の通常比較一般契約
+
+02e9921の未採用案についてユーザー明示承認を受領。現行通常候補の比較根拠をsource/unit/許可view/履歴へ結合し、未証明上位はunknown、下位支払による排除を禁止。既知上位差/同値の算術は保持するが、現行実カードのknown根拠は未供給。全未知・116除外を維持する。承認正本はplans/2026-10-12-approved-normal-comparison-evidence.md、証拠はverification/p11-comparison-evidence-report.md。関連164PASS（最終接続前）＋終了起点17PASS＋見送りprovenance24PASS、各Python1084前後一致。独立9PASS/C0I0M1説明訂正。複数ターンcheck1〜4はFAILを保存、check5はscope引数中継ERRORを修正。check6はR5終了時のshared trigger provenance不一致でFAIL（W-city群の起点146と元response起点145の接続を次に検査）。局所PASSでpreflightを開けない。P09/P10/P14–18の共通合成と最終版検証へ継続。preflight-ready=false、生成/固定/400戦0。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
@@ -91,3 +96,5 @@
 ## 保護と承認
 
 preflight-ready=false。seed生成/本番入力固定/400戦開始は未実施。このメモは生成・開始の承認ではない。A裁定475・B裁定474・指定mandatory1/N・旧116除外・114/116/119/過去結果の保護を維持。未知を0/同価値にしない。全体結論null、policy promotion=false、独立balance標本0。main/フロントエンド/World/Character3Dには触れない。
+
+P11保存時点追補: 最終接続後p11-closure-final2は42件PASS、13.185秒、exit0、Python1084前後一致。positive_windowのrecords中継と旧helper形テストを修正。check6の複数ターンFAILは別に未解消として保持し、p11-multiturn-check6-record.json.xz/.jsonへ原本保存。保存後はこの起点接続を次にTDDで修正し、P09/P10/P14–18へ継続する。現在実行中試験なし。

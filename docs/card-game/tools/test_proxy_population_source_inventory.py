@@ -127,7 +127,7 @@ class ConnectedSourceTests(unittest.TestCase):
   from test_proxy_mandatory_population_input import bundle
   import proxy_population_connected_entry as connected
   record=connected.reconstruct(bundle(),'test-1A',4)
-  audits=[step['decision_source_inventory'] for step in record['runtime']['steps'] if step['decision'] is not None]
+  audits=[step['decision_source_inventory'] for step in record['runtime']['steps'] if step['decision'] is not None and (step['decision'].get('context',{}).get('decision_kind')=='normal_action' or step['decision'].get('decision_kind')=='response_action')]
   self.assertTrue(audits)
   self.assertTrue(any(a['schema'].startswith('current_normal') for a in audits))
   self.assertTrue(any(a['schema'].startswith('current_response') for a in audits))

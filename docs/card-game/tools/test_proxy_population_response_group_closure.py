@@ -66,6 +66,24 @@ class ResponseGroupClosureTests(unittest.TestCase):
     out=api.audit(*args);self.assertEqual(out['errors'],[]);self.assertEqual(out['verified_source_ids'],[]);self.assertEqual(len(out['unproved_sources']),len(wanted))
    return {}
   self.run_case(run)
+ def test_inactive_group_driver_still_proves_no_latched_occurrence_in_response(self):
+  from test_proxy_population_response_latched_predicates import fixture as latched_fixture
+  import proxy_population_trigger_existing as existing
+  def prepare(forced):
+   e,h,source=latched_fixture('C-bat');g=e['legacy_continuation']['game_state'];c=e['legacy_continuation']
+   for p in g['players'].values():p['deck'].extend(p['hand']);p['hand']=[];p['time']=0
+   c['response_context'].update(priority_actor='B',turn_player='B')
+   h=[origin(e,'set_item','B')]
+   with connected.contract_scope():proof=existing.ExistingAdapter(h).proof(e)
+   return dict(envelope=e,history=h,source=source,proof=proof)
+  built=runtime.operation(initial(),prepare);e,h,source,proof=(built[k] for k in ('envelope','history','source','proof'))
+  result=connected.segment(e,initial(),h,[],[e],4,proof)
+  self.assertIsNone(result['stop'],result['stop']);self.assertEqual(len(result['steps']),4)
+  step=result['steps'][-1];self.assertEqual(step['source_envelope']['legacy_continuation']['game_state']['phase'],'turn_end_response')
+  self.assertIn(source,step['response_group_closure']['verified_source_ids'])
+  self.assertEqual(step['response_group_closure']['latched_window_audits'][source]['occurrence_count'],0)
+  self.assertTrue(step['response_source_predicate_coverage']['supplied_response_source_predicates_covered'])
+
  def test_real_driver_attaches_fresh_closure_to_response_composition(self):
   from test_proxy_population_trigger_connection import both
   import proxy_continuation_state as state
