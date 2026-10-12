@@ -282,6 +282,17 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
   }
   return results;
 };
-// しらせが 出た すぐ あとは そうさ せつめいが まだ うすく なりきって いない
-// (0.18s の フェード)。おちついて から はかる
-const measure2 = async (page) => { await page.waitForTimeout(280); return page.evaluate(measure); };
+// A wall-clock sleep may expire before a slow World3D frame commits the class
+// change and starts the CSS fade. Flush the style and wait for actual hint
+// transitions to finish; the existing opacity/layout assertions remain strict.
+const measure2 = async (page) => {
+  await page.waitForFunction(() => {
+    const hint = document.getElementById('mgrHint');
+    if (!hint) return false;
+    getComputedStyle(hint).opacity; // Flush the class change before inspecting animations.
+    return hint.getAnimations().every(animation => !animation.pending && animation.playState !== 'running');
+  }, null, { polling: 'raf', timeout: 10000 });
+  return page.evaluate(measure);
+};
+// Shared only with the focused CSS scheduling regression; the suite entry stays callable.
+module.exports.measureAfterHintTransition = measure2;
