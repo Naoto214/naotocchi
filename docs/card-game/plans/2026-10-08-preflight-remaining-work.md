@@ -982,3 +982,8 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P09 初期manifest/配札/最初の機会の独立結合（2026-10-12）
 
 共有dealerの初手/山札先頭入替が再照合も通る実入口REDを修正。新initial_obligationsは供給manifest順から初手5→通常6→たまご7→返却→反応、空board/予約、event/snapshot/ledgerを別照合。connected fresh必須化、traceへ2root hash結合。initial-obligations-*、最終25PASS205.923s（既存全turn完走unit含むnormal30/response88/end20）・Python1077前後一致、独立3PASS/C0I0M0。完全record保存原本は旧固定1c48304のまま。外部由来/全機会へ昇格せずpreflight-ready=false、生成/固定/400戦0。次はP09–11とP14–18共通gate合成。
+
+
+### P09 fresh source collectionの全実境界結合（2026-10-12）
+
+21ad370からnative監査未証明とstart記録欠落の実初期10step通過2REDを修正。既存collectorを再実装せず、初期native+全event native+実開始startのfresh結果をcoverageへ保存、traceへ順序/件数/bool/schema/hash/seq/catalog/owner/母数を結合。20改変負例、最終34PASS50.923s・Python1077前後一致、独立1PASS8.541s/C0I0M0。collection-trace-*。保存proof認証/全ルール/情報/operandへ昇格せず、preflight-ready=false、生成/固定/400戦0。次は正本source閉包と全判断責務、P10/P11/P14–18の共通gate合成。

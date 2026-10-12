@@ -17,12 +17,56 @@ class TraceObligationsTests(unittest.TestCase):
     with self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
    self.assertTrue(seen);self.assertFalse(entry._LOCK.locked())
 
+ def test_initial_entry_requires_fresh_native_and_start_collection_binding(self):
+  import proxy_population_trigger_existing as existing
+  import proxy_population_trigger_coverage as coverage
+  native=existing.ExistingAdapter.proof
+  def unproved(adapter,*args,**kwargs):
+   result=native(adapter,*args,**kwargs);result['current_collection_audit']['current_source_collection_bound']=False;return result
+  with self.subTest(case='native_unproved'),patch.object(existing.ExistingAdapter,'proof',unproved),self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+  audit=coverage.audit
+  def missing(result,*args,**kwargs):
+   proof=audit(result,*args,**kwargs);self.assertTrue(result['start_occurrence_proofs']);result['start_occurrence_proofs']=[];return proof
+  with self.subTest(case='start_missing'),patch.object(coverage,'audit',missing),self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+
  def test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps(self):
   from proxy_population_trace_obligations import require_actual_trace,ROOT_PROOFS
   record=entry.reconstruct(bundle(),'test-1A',10)
   joined=record['trace_obligations_audit'];self.assertTrue(joined['fresh_trace_responsibilities_joined'])
   self.assertEqual(joined['step_count'],10);self.assertEqual(sum(joined['step_counts'].values()),10)
   self.assertFalse(joined['all_rule_opportunities_proven']);self.assertFalse(joined['information_use_proven']);self.assertFalse(joined['comparison_operand_provenance_verified']);self.assertFalse(joined['preflight_ready']);self.assertIsNone(joined['policy_eligible'])
+  collections=joined['source_collection_binding']
+  self.assertIs(collections['fresh_source_collections_bound'],True)
+  self.assertEqual(collections['native_scan_count'],joined['transition_count']+1)
+  self.assertGreater(collections['start_scan_count'],0)
+  self.assertFalse(collections['saved_proofs_authenticated']);self.assertFalse(collections['all_rule_opportunities_proven'])
+  for mode in ('initial_missing','native_missing','native_duplicate','native_reorder','native_sequence','native_hash','native_audit_hash','native_scope','native_bool','native_count','start_missing','start_duplicate','start_capture_hash','start_final_hash','start_catalog','start_sequence','start_capture_sequence','start_owner','start_count','start_recorded_difference'):
+   changed=copy.deepcopy(record);runtime=changed['runtime'];coverage=runtime['supported_trigger_coverage']
+   natives=coverage['native_source_collections'];starts=coverage['start_source_collections']
+   native=natives[0];start=starts[0]
+   if mode=='initial_missing':del coverage['initial_source_collection']
+   elif mode=='native_missing':natives.pop()
+   elif mode=='native_duplicate':natives.append(copy.deepcopy(native))
+   elif mode=='native_reorder':natives.reverse()
+   elif mode=='native_sequence':native['origin_event_seq']+=1
+   elif mode=='native_hash':native['current_envelope_sha256']='0'*64
+   elif mode=='native_audit_hash':native['current_collection_audit']['current_envelope_sha256']='0'*64
+   elif mode=='native_scope':native['current_collection_audit']['scope']='all'
+   elif mode=='native_bool':native['current_collection_audit']['current_source_collection_bound']=1
+   elif mode=='native_count':native['current_collection_audit']['public_source_count']+=1
+   elif mode=='start_missing':starts.pop()
+   elif mode=='start_duplicate':starts.append(copy.deepcopy(start))
+   elif mode=='start_capture_hash':start['capture']['envelope_sha256']='0'*64
+   elif mode=='start_final_hash':start['current_envelope_sha256']='0'*64
+   elif mode=='start_catalog':start['source_catalog_sha256']='0'*64
+   elif mode=='start_sequence':start['origin_event_seq']+=1
+   elif mode=='start_capture_sequence':start['capture']['event_seq']+=1
+   elif mode=='start_owner':start['capture']['turn_player']='wrong'
+   elif mode=='start_count':start['classifications'].append({})
+   elif mode=='start_recorded_difference':runtime['start_occurrence_proofs']=[]
+   # Mutate both fresh and recorded copies to exercise actual boundary checks.
+   if mode.startswith('start_') and mode!='start_recorded_difference':runtime['start_occurrence_proofs']=copy.deepcopy(starts)
+   with self.subTest(collection=mode),self.assertRaisesRegex(ValueError,'trace obligations'):require_actual_trace(changed)
   for key in ROOT_PROOFS:
    changed=copy.deepcopy(record);del changed[key]
    with self.subTest(missing=key),self.assertRaisesRegex(ValueError,'trace obligations'):require_actual_trace(changed)
