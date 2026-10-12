@@ -1,0 +1,37 @@
+{
+  "run": 38032036132,
+  "job": 114154815326,
+  "artifact": 11663212267,
+  "zipSha256": "478ce1452ce19dd6d825ca6602f2b89f571351614d6a2a9c3a36921cc5e77578",
+  "sourceCommit": "61412b0b0dcb097e738476fda7a69cb142a0786c",
+  "sourceSha256": {
+    "meguru.js": "dbd2e57d329e52345f04bd01f19c38d27b4db551ad385848df56dc99d77d1d40",
+    "meguru-3d.mjs": "83999bae172fc91bd60ad354265c05b7f34703f6a8688303dc30e9603c18d920",
+    "index.html": "f0e3fada1056b661b9a24dd2aac483fa87e4b8cfcc03ff669d7b355641576ef7"
+  },
+  "exit": 0,
+  "nodeVersion": "v22.23.3",
+  "counts": {
+    "tests": [
+      2885,
+      80
+    ],
+    "pass": [
+      2885,
+      80
+    ],
+    "fail": [
+      0,
+      0
+    ]
+  },
+  "exactPackageCommandWithConcurrency4": true,
+  "files": {
+    "source-sha256.txt": "a6fcdb2bbd5c8e8ed7a41d8d914227112fabca5e97d5a33fe766fa3737aae474",
+    "node-version.txt": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+    "commit.txt": "cd6e054c7d5c9058650e46b4f2ed705bfe67429a3e68dcec42d553b142b48357",
+    "command.txt": "48f7c62f57fc40310f81244be423ff378d931a00d28de90223b0a9c84a202652",
+    "full.log": "e8c0489424f615db41505926d0c628f36734918c4906773a1362ab4a1215d373",
+    "exit-code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  }
+}

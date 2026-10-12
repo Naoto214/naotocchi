@@ -1,0 +1,62 @@
+{
+  "run": 38148933340,
+  "source": "c010bf266c64b0db0bbc99e53a491b21c42c6185",
+  "visibility": {
+    "job": 114498084026,
+    "summary": {
+      "kind": "visibility",
+      "coverage": 13,
+      "issues": [],
+      "samples": 2832,
+      "hidden": 0,
+      "partial": 1,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    "artifact": 11706013080,
+    "zipSHA256": "aa64c288cd87c3df9572c1694de541e317f9619c94475c79994c4cbbe6e58498"
+  },
+  "captures": {
+    "job": 114498083988,
+    "source": "c010bf266c64b0db0bbc99e53a491b21c42c6185",
+    "worldCaptureLines": 86,
+    "galleryActiveLines": 50,
+    "exceptions": 0,
+    "nonzeroErrors": 0,
+    "artifact": 11706516987,
+    "zipSHA256": "07aed430ab39036630a7c8d2ae5cc21242c7e0b89ee351ebf5ca474f1a68d587",
+    "scope": "decoded completed job log; broad ZIP/images not downloaded or visually re-reviewed"
+  },
+  "scope": "Completed decoded job logs and artifact metadata inspected. Browser ZIPs not downloaded. Broad captures have no new image QA claim. Dedicated six target pairs independently reviewed separately.",
+  "artifactExpiration": "2026-11-10; compact results and dedicated comparison originals preserved in git; browser archives not duplicated.",
+  "smoke": {
+    "job": 114498083957,
+    "source": "c010bf266c64b0db0bbc99e53a491b21c42c6185",
+    "summary": {
+      "kind": "smoke",
+      "coverage": 13,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 4.973799150320701e-14,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    "scope": "decoded job log; browser artifact ZIP not downloaded"
+  },
+  "corridor": {
+    "job": 114498083950,
+    "source": "c010bf266c64b0db0bbc99e53a491b21c42c6185",
+    "summary": {
+      "kind": "corridor",
+      "coverage": 8,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    "scope": "decoded job log; browser artifact ZIP not downloaded"
+  }
+}

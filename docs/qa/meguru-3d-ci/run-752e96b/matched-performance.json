@@ -1,0 +1,352 @@
+{
+  "home-vq": {
+    "before": {
+      "triangles": 35272,
+      "calls": 42
+    },
+    "after": {
+      "triangles": 35132,
+      "calls": 42
+    }
+  },
+  "home-house-vq": {
+    "before": {
+      "triangles": 34836,
+      "calls": 40
+    },
+    "after": {
+      "triangles": 34696,
+      "calls": 40
+    }
+  },
+  "forest-vq": {
+    "before": {
+      "triangles": 147752,
+      "calls": 60
+    },
+    "after": {
+      "triangles": 147752,
+      "calls": 60
+    }
+  },
+  "jungle-vq": {
+    "before": {
+      "triangles": 172794,
+      "calls": 62
+    },
+    "after": {
+      "triangles": 172794,
+      "calls": 62
+    }
+  },
+  "city-vq": {
+    "before": {
+      "triangles": 130476,
+      "calls": 50
+    },
+    "after": {
+      "triangles": 130406,
+      "calls": 50
+    }
+  },
+  "city-arcade-vq": {
+    "before": {
+      "triangles": 130452,
+      "calls": 49
+    },
+    "after": {
+      "triangles": 130382,
+      "calls": 49
+    }
+  },
+  "city-market-vq": {
+    "before": {
+      "triangles": 130204,
+      "calls": 43
+    },
+    "after": {
+      "triangles": 130134,
+      "calls": 43
+    }
+  },
+  "countryside-vq": {
+    "before": {
+      "triangles": 119248,
+      "calls": 54
+    },
+    "after": {
+      "triangles": 119108,
+      "calls": 54
+    }
+  },
+  "mountain-vq": {
+    "before": {
+      "triangles": 106342,
+      "calls": 54
+    },
+    "after": {
+      "triangles": 106342,
+      "calls": 54
+    }
+  },
+  "snow-vq": {
+    "before": {
+      "triangles": 69408,
+      "calls": 45
+    },
+    "after": {
+      "triangles": 69408,
+      "calls": 45
+    }
+  },
+  "sea-vq": {
+    "before": {
+      "triangles": 70000,
+      "calls": 50
+    },
+    "after": {
+      "triangles": 69804,
+      "calls": 50
+    }
+  },
+  "deepsea-vq": {
+    "before": {
+      "triangles": 73332,
+      "calls": 36
+    },
+    "after": {
+      "triangles": 73332,
+      "calls": 36
+    }
+  },
+  "river_lake-vq": {
+    "before": {
+      "triangles": 112210,
+      "calls": 43
+    },
+    "after": {
+      "triangles": 112210,
+      "calls": 43
+    }
+  },
+  "river-bridge-vq": {
+    "before": {
+      "triangles": 113074,
+      "calls": 55
+    },
+    "after": {
+      "triangles": 113074,
+      "calls": 55
+    }
+  },
+  "desert-vq": {
+    "before": {
+      "triangles": 90304,
+      "calls": 41
+    },
+    "after": {
+      "triangles": 90304,
+      "calls": 41
+    }
+  },
+  "oasis-vq": {
+    "before": {
+      "triangles": 90544,
+      "calls": 43
+    },
+    "after": {
+      "triangles": 90544,
+      "calls": 43
+    }
+  },
+  "star_stop-vq": {
+    "before": {
+      "triangles": 65984,
+      "calls": 30
+    },
+    "after": {
+      "triangles": 65984,
+      "calls": 30
+    }
+  },
+  "memory_lake-vq": {
+    "before": {
+      "triangles": 51204,
+      "calls": 35
+    },
+    "after": {
+      "triangles": 51204,
+      "calls": 35
+    }
+  },
+  "forest-creek-vq": {
+    "before": {
+      "triangles": 147994,
+      "calls": 65
+    },
+    "after": {
+      "triangles": 147994,
+      "calls": 65
+    }
+  },
+  "forest-bridge-vq": {
+    "before": {
+      "triangles": 147034,
+      "calls": 50
+    },
+    "after": {
+      "triangles": 147034,
+      "calls": 50
+    }
+  },
+  "river-stonebridge-vq": {
+    "before": {
+      "triangles": 113038,
+      "calls": 56
+    },
+    "after": {
+      "triangles": 113038,
+      "calls": 56
+    }
+  },
+  "countryside-river-vq": {
+    "before": {
+      "triangles": 119500,
+      "calls": 55
+    },
+    "after": {
+      "triangles": 119360,
+      "calls": 55
+    }
+  },
+  "mountain-summer-vq": {
+    "before": {
+      "triangles": 106354,
+      "calls": 55
+    },
+    "after": {
+      "triangles": 106354,
+      "calls": 55
+    }
+  },
+  "mountain-winter-vq": {
+    "before": {
+      "triangles": 104146,
+      "calls": 54
+    },
+    "after": {
+      "triangles": 104146,
+      "calls": 54
+    }
+  },
+  "river-bridge2-vq": {
+    "before": {
+      "triangles": 110342,
+      "calls": 46
+    },
+    "after": {
+      "triangles": 110342,
+      "calls": 46
+    }
+  },
+  "mountain-slope-vq": {
+    "before": {
+      "triangles": 106924,
+      "calls": 63
+    },
+    "after": {
+      "triangles": 106924,
+      "calls": 63
+    }
+  },
+  "desert-slope-vq": {
+    "before": {
+      "triangles": 89914,
+      "calls": 34
+    },
+    "after": {
+      "triangles": 89914,
+      "calls": 34
+    }
+  },
+  "forest-autumn-vq": {
+    "before": {
+      "triangles": 147752,
+      "calls": 60
+    },
+    "after": {
+      "triangles": 147752,
+      "calls": 60
+    }
+  },
+  "countryside-autumn-vq": {
+    "before": {
+      "triangles": 119248,
+      "calls": 54
+    },
+    "after": {
+      "triangles": 119108,
+      "calls": 54
+    }
+  },
+  "forest-winter-vq": {
+    "before": {
+      "triangles": 152314,
+      "calls": 46
+    },
+    "after": {
+      "triangles": 152314,
+      "calls": 46
+    }
+  },
+  "home-spring-vq": {
+    "before": {
+      "triangles": 35272,
+      "calls": 42
+    },
+    "after": {
+      "triangles": 35132,
+      "calls": 42
+    }
+  },
+  "entrance-15": {
+    "before": {
+      "triangles": 34380,
+      "calls": 34
+    },
+    "after": {
+      "triangles": 34240,
+      "calls": 34
+    }
+  },
+  "entrance-45": {
+    "before": {
+      "triangles": 34596,
+      "calls": 43
+    },
+    "after": {
+      "triangles": 34456,
+      "calls": 43
+    }
+  },
+  "entrance-64": {
+    "before": {
+      "triangles": 34996,
+      "calls": 40
+    },
+    "after": {
+      "triangles": 34856,
+      "calls": 40
+    }
+  },
+  "entrance-196": {
+    "before": {
+      "triangles": 34380,
+      "calls": 34
+    },
+    "after": {
+      "triangles": 34240,
+      "calls": 34
+    }
+  }
+}

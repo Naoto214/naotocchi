@@ -1,0 +1,80 @@
+{
+  "home": {
+    "elevated": 96,
+    "ground": 297,
+    "min": 7,
+    "max": 59.984
+  },
+  "city": {
+    "elevated": 29,
+    "ground": 627,
+    "min": 59.524,
+    "max": 60.288
+  },
+  "countryside": {
+    "elevated": 54,
+    "ground": 927,
+    "min": 59.512,
+    "max": 133
+  },
+  "forest": {
+    "elevated": 0,
+    "ground": 426,
+    "min": null,
+    "max": 0
+  },
+  "mountain": {
+    "elevated": 4,
+    "ground": 410,
+    "min": 59.54,
+    "max": 59.942
+  },
+  "snow": {
+    "elevated": 1,
+    "ground": 0,
+    "min": 32,
+    "max": 32
+  },
+  "sea": {
+    "elevated": 10,
+    "ground": 387,
+    "min": 59.674,
+    "max": 60.15
+  },
+  "deepsea": {
+    "elevated": 0,
+    "ground": 0,
+    "min": null,
+    "max": 0
+  },
+  "river_lake": {
+    "elevated": 2,
+    "ground": 373,
+    "min": 60.116,
+    "max": 60.116
+  },
+  "jungle": {
+    "elevated": 0,
+    "ground": 606,
+    "min": null,
+    "max": 0
+  },
+  "desert": {
+    "elevated": 0,
+    "ground": 39,
+    "min": null,
+    "max": 0
+  },
+  "star_stop": {
+    "elevated": 0,
+    "ground": 304,
+    "min": null,
+    "max": 0
+  },
+  "memory_lake": {
+    "elevated": 0,
+    "ground": 74,
+    "min": null,
+    "max": 0
+  }
+}

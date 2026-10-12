@@ -1,0 +1,27 @@
+✖ VQ-16 single-family main windows reserve the existing bay projection (438.935939ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 571.266736
+
+✖ failing tests:
+
+test at tests/meguru-3d-visual-quality-test.cjs:327:1
+✖ VQ-16 single-family main windows reserve the existing bay projection (438.935939ms)
+  AssertionError [ERR_ASSERTION]: home:15: main sill clears bay cap
+      at TestContext.<anonymous> (/workspace/scratch/28c7e6574f23/naotocchi/tests/meguru-3d-visual-quality-test.cjs:337:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

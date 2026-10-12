@@ -4603,6 +4603,9 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
    見きれる。ここで はっきり ぎょうの たかさを あたえる */
 .mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; line-height: 1.45; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mgr-spot.hidden { display: none; }
+/* 3D v2(2026-10-01): ランドマークを はじめて 見つけた とき、toast の かわりに 左上の 名まえを 1.6 秒 だけ 静かに 強調 */
+.mgr-spot.mgr-spot-found { animation: mgr-spot-found 1.6s ease-out 1; }
+@keyframes mgr-spot-found { 0% { background: rgba(255, 236, 160, 0.78); color: #3a2a10; } 100% { background: rgba(0, 0, 0, 0.42); color: #fff; } }
 
 /* ===== めぐる: みつけた しらせ(はっけん つうち) =====
    おび(.mgr-banner)は 地域の おしらせ せんよう。ばしょの はっけんは ここ。

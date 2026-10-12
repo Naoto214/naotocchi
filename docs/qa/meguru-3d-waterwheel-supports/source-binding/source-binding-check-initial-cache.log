@@ -1,0 +1,41 @@
+RED: baseline contamination reproduced; both hashes are AFTER
+[{"name":"prop-wheel","hash":"6575148cb3887fccf771f85657d1534ee3ca22bcd7df1e7d4f29aff4e4bc9c9d","parts":16,"objects":899},{"name":"prop-wheel-river","hash":"4d4a51bee3d2fed38ece92f3dd4f40bc2fbc133c55cac6fd79967c188864c9b9","parts":16,"objects":831}]
+RED: after target hashes verified
+[{"name":"prop-wheel","hash":"6575148cb3887fccf771f85657d1534ee3ca22bcd7df1e7d4f29aff4e4bc9c9d","parts":16,"objects":899},{"name":"prop-wheel-river","hash":"4d4a51bee3d2fed38ece92f3dd4f40bc2fbc133c55cac6fd79967c188864c9b9","parts":16,"objects":831}]
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
++   '6575148cb3887fccf771f85657d1534ee3ca22bcd7df1e7d4f29aff4e4bc9c9d',
++   '4d4a51bee3d2fed38ece92f3dd4f40bc2fbc133c55cac6fd79967c188864c9b9'
+-   'f532706d935d261070629de1762a85137c8c8fd828aa2ebd64284df06c328732',
+-   '9809f658ba25c0b842e84012b3d437c8f8cce190891df3da98610979853ff2bf'
+  ]
+
+    at Object.<anonymous> (/workspace/scratch/dfba51ced877/artifacts/check-source-binding.cjs:17:18)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [
+    '6575148cb3887fccf771f85657d1534ee3ca22bcd7df1e7d4f29aff4e4bc9c9d',
+    '4d4a51bee3d2fed38ece92f3dd4f40bc2fbc133c55cac6fd79967c188864c9b9'
+  ],
+  expected: [
+    'f532706d935d261070629de1762a85137c8c8fd828aa2ebd64284df06c328732',
+    '9809f658ba25c0b842e84012b3d437c8f8cce190891df3da98610979853ff2bf'
+  ],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

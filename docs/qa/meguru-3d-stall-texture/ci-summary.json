@@ -1,0 +1,68 @@
+{
+  "product": "8c124eb7c992f70cd9f70d9c606e83bb7e88d43b",
+  "product_tree": "5da2c3dac0f73776a5b298eaa622904eee9619be",
+  "run": 38130678263,
+  "jobs": [
+    {
+      "id": 114444168531,
+      "name": "regression",
+      "conclusion": "success"
+    },
+    {
+      "id": 114444168674,
+      "name": "browser (captures)",
+      "conclusion": "success"
+    },
+    {
+      "id": 114444168710,
+      "name": "browser (smoke)",
+      "conclusion": "success"
+    },
+    {
+      "id": 114444168712,
+      "name": "browser (corridor)",
+      "conclusion": "success"
+    },
+    {
+      "id": 114444168730,
+      "name": "browser (visibility)",
+      "conclusion": "success"
+    }
+  ],
+  "regression": {
+    "artifact": 11699985000,
+    "pass": [
+      2886,
+      80
+    ],
+    "fail": [
+      0,
+      0
+    ],
+    "exit": 0,
+    "command_scope": "Node test concurrency4 package pipeline; not unmodified npm test"
+  },
+  "target_images": {
+    "run": 38129380378,
+    "artifact": 11699066689,
+    "pairs": 18,
+    "source": "8b228fea786cdb187655f9755b3bc1dd7d53a1d9",
+    "geometry_and_renderer_unchanged_by_token_correction": true
+  },
+  "failed_run": {
+    "run": 38129380354,
+    "pass": 2884,
+    "fail": 2,
+    "exit": 1,
+    "later80": "not executed",
+    "cause": "invalid cache token; fixed without changing tests"
+  },
+  "unresolved": [
+    "WQ-WHEEL-TREE",
+    "historical smoke overlap variability",
+    "Human QA",
+    "physical iPhone performance",
+    "next weak-prop / bridge-composition design"
+  ],
+  "world_complete": false
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "gallery-before",
+    "args": [
+      "node",
+      "/workspace/scratch/9a73a007e273/world/tools/meguru-3d-qa/object-gallery.cjs",
+      "/workspace/scratch/9a73a007e273/baseline",
+      "/workspace/scratch/9a73a007e273/world/docs/qa/meguru-3d-visual-quality-v2/recovered-dea2f17/gallery-before",
+      "/workspace/scratch/9a73a007e273/world/tools/meguru-3d-qa/shots-visual-quality-v2-gallery.json"
+    ],
+    "cwd": "/workspace/scratch/9a73a007e273/baseline",
+    "exit": 0
+  },
+  {
+    "name": "gallery-after",
+    "args": [
+      "node",
+      "/workspace/scratch/9a73a007e273/world/tools/meguru-3d-qa/object-gallery.cjs",
+      "/workspace/scratch/9a73a007e273/world",
+      "/workspace/scratch/9a73a007e273/world/docs/qa/meguru-3d-visual-quality-v2/recovered-dea2f17/gallery-after",
+      "/workspace/scratch/9a73a007e273/world/tools/meguru-3d-qa/shots-visual-quality-v2-gallery.json"
+    ],
+    "cwd": "/workspace/scratch/9a73a007e273/world",
+    "exit": 0
+  },
+  {
+    "name": "smoke",
+    "args": [
+      "node",
+      "/workspace/scratch/9a73a007e273/world/tools/meguru-3d-qa/regions-smoke.cjs",
+      "/workspace/scratch/9a73a007e273/world",
+      "/workspace/scratch/9a73a007e273/world/docs/qa/meguru-3d-visual-quality-v2/recovered-dea2f17/smoke"
+    ],
+    "cwd": "/workspace/scratch/9a73a007e273/world",
+    "exit": 0
+  },
+  {
+    "name": "corridor",
+    "args": [
+      "node",
+      "/workspace/scratch/9a73a007e273/world/tools/meguru-3d-qa/corridor-qa.cjs",
+      "/workspace/scratch/9a73a007e273/world",
+      "/workspace/scratch/9a73a007e273/world/docs/qa/meguru-3d-visual-quality-v2/recovered-dea2f17/corridor",
+      "home|forest|home,forest|mountain|forest,city|sea|city,countryside|forest|countryside,home|forest|forest,forest|mountain|mountain,city|sea|sea,countryside|forest|forest"
+    ],
+    "cwd": "/workspace/scratch/9a73a007e273/world",
+    "exit": 0
+  },
+  {
+    "name": "visibility",
+    "args": [
+      "node",
+      "/workspace/scratch/9a73a007e273/visibility-portable.cjs",
+      "/workspace/scratch/9a73a007e273/world",
+      "/workspace/scratch/9a73a007e273/world/docs/qa/meguru-3d-visual-quality-v2/recovered-dea2f17/visibility",
+      "",
+      "1000"
+    ],
+    "cwd": "/workspace/scratch/9a73a007e273/world",
+    "exit": 0
+  }
+]
