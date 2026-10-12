@@ -1,0 +1,15 @@
+test_runtime_upgrade_cannot_introduce_an_uncreated_effect (test_proxy_population_initial_obligations.InitialObligationsTests.test_runtime_upgrade_cannot_introduce_an_uncreated_effect) ... FAIL
+
+======================================================================
+FAIL: test_runtime_upgrade_cannot_introduce_an_uncreated_effect (test_proxy_population_initial_obligations.InitialObligationsTests.test_runtime_upgrade_cannot_introduce_an_uncreated_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_initial_obligations.py", line 28, in test_runtime_upgrade_cannot_introduce_an_uncreated_effect
+    with patch.object(payments,'upgrade',injected),self.assertRaisesRegex(ValueError,'initial.*(runtime|obligation)'):
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 2.425s
+
+FAILED (failures=1)

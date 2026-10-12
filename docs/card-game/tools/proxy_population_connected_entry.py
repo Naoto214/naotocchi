@@ -50,6 +50,9 @@ def reconstruct(bundle,match_id,limit):
   initial_proof=initial_obligations.audit(result,bundle)
   if initial_proof['initial_deal_and_first_opportunities_verified'] is not True:raise ValueError('actual initial obligations differ: '+str(initial_proof['errors']))
   result['initial_obligation_audit']=initial_proof
+  runtime_root=initial_obligations.audit_runtime_root(result)
+  if runtime_root['initial_runtime_root_verified'] is not True:raise ValueError('actual initial runtime root differs: '+str(runtime_root['errors']))
+  result['initial_runtime_root_audit']=runtime_root
   local=result['opening']['mandatory_record']['local_record']
   decisions=[dict(decision_kind='mandatory_choice',local_policy_evidence=local)]+result['runtime']['decisions']
   binding={k:result['binding'][k] for k in ('protocol_id','group_id','mirror_side')}

@@ -51,6 +51,8 @@
 
 - 2026-10-12: fresh native/start collectionを初期/全event/実開始境界へ順序付き結合。未証明/記録欠落2RED、20改変負例。collection-trace-*、34PASS50.923s/Python1077前後一致、独立1PASS/C0I0M0。既存条件判定は再実装しない。全ルール/情報/operand/共通gateは未完。
 
+- 2026-10-12: 初期upgradeへの未生成軽減挿入1REDを修正。初期最終→v2/空typed3領域の完全境界、trace10root/両端hash結合。initial-runtime-root-*、23PASS72.000s/Python1077前後一致、独立2PASS/C0I0M0。次は実選択へ渡す公開履歴の許可項目照合と共通gate。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

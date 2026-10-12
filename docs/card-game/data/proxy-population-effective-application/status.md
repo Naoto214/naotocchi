@@ -1275,3 +1275,8 @@ source/target/支払集合・比較copy ID・回収対象・fresh trace共通責
 ### P09 fresh source collectionの全実境界結合（2026-10-12）
 
 21ad370からnative監査未証明とstart記録欠落の実初期10step通過2REDを修正。既存collectorを再実装せず、初期native+全event native+実開始startのfresh結果をcoverageへ保存、traceへ順序/件数/bool/schema/hash/seq/catalog/owner/母数を結合。20改変負例、最終34PASS50.923s・Python1077前後一致、独立1PASS8.541s/C0I0M0。collection-trace-*。保存proof認証/全ルール/情報/operandへ昇格せず、preflight-ready=false、生成/固定/400戦0。次は正本source閉包と全判断責務、P10/P11/P14–18の共通gate合成。
+
+
+### P09/P11 初期typed runtimeの実起点（2026-10-12）
+
+0613e34から、payments.upgradeへ未解決の正しい形の軽減2行を挿入しても実初期入口が通る1REDを修正。初期監査済み最終envelopeからv2識別子+空typed3領域以外の変更を認めず、producerを呼ばず全envelopeを照合。connected fresh必須gateとtrace10root/両端hashへ接続。最終23PASS72.000s・Python1077前後一致、独立2PASS7.071s/C0I0M0。initial-runtime-root-*。全起点/全機会へ昇格せずpreflight-ready=false、生成/固定/400戦0。次は実選択へ渡す公開履歴の許可項目照合、P09 source閉包/P11/P14–18の共通合成。

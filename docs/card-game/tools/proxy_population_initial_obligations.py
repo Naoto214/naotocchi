@@ -72,3 +72,28 @@ def audit(record,bundle):
   scope='supplied_manifest_to_initial_response_only',source_manifest_sha256=opening.SOURCES_SHA,
   external_input_provenance_verified=False,all_rule_opportunities_proven=False,information_use_proven=False,
   policy_eligible=None,balance_admitted=None,preflight_ready=False)
+
+
+def audit_runtime_root(record):
+ """Join the checked opening to the typed runtime without trusting upgrade()."""
+ errors=[];opening_hash=None;runtime_hash=None
+ try:
+  opening.verify_sources()
+  proof=record['initial_obligation_audit']
+  if proof.get('schema')!='bound107_initial_obligations.v1' or proof.get('initial_deal_and_first_opportunities_verified') is not True or proof.get('errors')!=[]:raise ValueError('initial runtime root requires fresh initial obligations')
+  final=record['opening']['final_envelope'];opening_hash=digest(final)
+  same(proof['final_envelope_sha256'],opening_hash,'initial runtime opening boundary')
+  expected=copy.deepcopy(final)
+  # The initial prefix has only draw/private bottom/response creation: no
+  # card effect has resolved. V2 adds empty typed containers, no game event.
+  # Literal storage contract; never call the producer or replay its output.
+  expected.update(schema='naotocchi.card_game.continuation_envelope.v2',execution_contract_id='continuation_contract_v2')
+  expected['runtime'].update(payment_effects=[],stat_effects=[],conditional_effects=[])
+  actual=record['runtime']['source_envelope']
+  same(actual,expected,'initial runtime root upgrade')
+  runtime_hash=digest(actual)
+ except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
+ return dict(schema='bound107_initial_runtime_root.v1',initial_runtime_root_verified=not errors,errors=errors,
+  opening_envelope_sha256=opening_hash,runtime_envelope_sha256=runtime_hash,
+  scope='checked_initial_prefix_to_empty_typed_runtime_only',source_manifest_sha256=opening.SOURCES_SHA,
+  external_input_provenance_verified=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
