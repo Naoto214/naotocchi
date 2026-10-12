@@ -1,0 +1,13 @@
+{
+  "status": "PASS_REPRESENTATIVE_IMAGE_GATE",
+  "sourceCommit": "025d4bbdd63d467512e9d58b26c442350e7bfd91",
+  "waveArtifact": 11552082313,
+  "distanceArtifact": 11552087590,
+  "counts": {
+    "fourviews": 8,
+    "states": 64,
+    "distance": 4
+  },
+  "review": "03 bright upright crest and asymmetric layered wings/tail readable;07 corrected cream borders and overlapping breast feathers visible from four views and normal distance. All64 state cells inspected:canonical expressions readable,attached limbs/wings/tails and motion coherent. Supersedes6a07513 color rejection.",
+  "limits": "03/07 representatives only;remaining6 stages not implemented or accepted;runtime stays212/293. Chromium/SwiftShader,not iPhone/Human QA."
+}

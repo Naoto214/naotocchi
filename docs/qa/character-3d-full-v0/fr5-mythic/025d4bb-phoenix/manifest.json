@@ -1,0 +1,392 @@
+[
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-34.jpg",
+    "sha256": "26b5faf46718e0470f93e3ba09b4851fc2da6d79f41dcc9daf285a5f453278f2"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-back.jpg",
+    "sha256": "45dd59c1479c6e176066bc287b57f3c81d724cfb51999ce2aa3dafd48e28906f"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-front.jpg",
+    "sha256": "38704d06789808b79b4beb28dbe814ae749e46378c548283a750b0fd29be32f2"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-side.jpg",
+    "sha256": "fb7894f106fcaba431a60c22ba60bfc917702c7603ba9d22525825c118b97815"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-dislike-idle-normal.jpg",
+    "sha256": "261529143b843d4d97487497cae128f51d6ed7325466df75fc2dde3d9d445af9"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-dislike-idle-reduced.jpg",
+    "sha256": "b9211b2d6dc29b13022a0621085c352779c36c173013dd516d7999e789c32c97"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-dislike-walk-normal.jpg",
+    "sha256": "80a18ae2fb0d09b7feb253ab25bf4dbd9adfeac3a669786432fad93fe9bee11a"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-dislike-walk-reduced.jpg",
+    "sha256": "0e731f08d8fbe76d47619a3e91c8fb90bdd99793203051e373d2d20fc175fc76"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-motion.jpg",
+    "sha256": "861ee13402a3c4982208a3efaf343ea70691b63410cd155478e160f4d3970f3e"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-normal-idle-normal.jpg",
+    "sha256": "26b5faf46718e0470f93e3ba09b4851fc2da6d79f41dcc9daf285a5f453278f2"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-normal-idle-reduced.jpg",
+    "sha256": "57d54d31c7bf5962a9867179fa4182948a8f766138ad2141b3813cd38fdfb586"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-normal-walk-normal.jpg",
+    "sha256": "9b7b66dcd88ae3a6286b9e8c4d98d198e75da47b7e6edc40c40fe9945e9f178a"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-normal-walk-reduced.jpg",
+    "sha256": "5dc0bc1e0355d026f3cecfc541f61c5d4a44c3f2a7bc8578d5b15897c164ebad"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-positive-idle-normal.jpg",
+    "sha256": "e48a15c896f603c3ff8648e832023a14cf7479fdfeda08d17b501a7c91da83b6"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-positive-idle-reduced.jpg",
+    "sha256": "bbb832a6774de99212ba57c4dcad242810a8d74e530fc88a09100574f9337ed7"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-positive-walk-normal.jpg",
+    "sha256": "3ee1aaf6428f00b4756f22e805bb48ef792cb82e2fb49399207e97b575afd716"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-positive-walk-reduced.jpg",
+    "sha256": "4e51760c2b66906b4802d683d063bc6f5beac90b21453108edca53d304e99d54"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sick-idle-normal.jpg",
+    "sha256": "202202512dc77088457fa32287dd3487dd967604414e903c68133b13dc4ed65c"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sick-idle-reduced.jpg",
+    "sha256": "d949c66f86af6b8745b3b3f1f732e5c3a245dc12d022f38d52c01236bde98c33"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sick-walk-normal.jpg",
+    "sha256": "a86ef8ab16192d8dfbd8444776a971883efdb1265a2d593ec262cc03932e819e"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sick-walk-reduced.jpg",
+    "sha256": "5270be3003abdfff11d9a70df20c1d5fb1bfc60dbbbb1dec23fd22a78aa64f25"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sleeping-idle-normal.jpg",
+    "sha256": "1e02c97447b3131f4b0b55e4e3fb46821ba4edc8001963f23e20a999b0c3e50c"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sleeping-idle-reduced.jpg",
+    "sha256": "abd1af6886822a64d95bb4799cb7e7fc0d869a0d6e6e11e25278805ec28b4e9f"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sleeping-walk-normal.jpg",
+    "sha256": "8da30c607ac46dbde539d9ce8b3c5a85b7ebff025da0b94ec8cf2d442f6b9291"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-sleeping-walk-reduced.jpg",
+    "sha256": "d1f39f782a926d32e35d6a875be6e0b024d9df0ce2474758bd42cb47e756f88f"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-strained-idle-normal.jpg",
+    "sha256": "6572bd3bb340c6c912c976ed308f0d931bca3f2419906b578bef6e6524f47c76"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-strained-idle-reduced.jpg",
+    "sha256": "087e930df47cc1e65cb86c1890d3c1f9d10d37971203fc9a2a5e51212ed969ee"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-strained-walk-normal.jpg",
+    "sha256": "618b5cc310b800bda0bafd0d84538e3822f670297c807089de006f6a12bceff6"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-strained-walk-reduced.jpg",
+    "sha256": "26727e77fae4e8dde8bf4c244f8375293d1b16e0b92bf23d73949856d3dc4609"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-tired-idle-normal.jpg",
+    "sha256": "4dc5c84f9b580be63dab9960470cd13afd999002b53e825525200acecaea0d79"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-tired-idle-reduced.jpg",
+    "sha256": "18a16cf06ae4991d19f021d2ee2afce9b6c1b0dbd215c2813715a4196646201d"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-tired-walk-normal.jpg",
+    "sha256": "ce6b3103c11b506aa06fd4ed5e2ec78431ade1db3fefca1a886e11cb7a961e02"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-tired-walk-reduced.jpg",
+    "sha256": "4c69e962e8b49a017e615b07ba42b0dbf810bc0feca2b9ac20c39406e67374b6"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-wantsPlay-idle-normal.jpg",
+    "sha256": "f2e9fce3909cdf8489ac97e8e1bfb6889f7700f9de6feef8aa8e4a7d6b5117e9"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-wantsPlay-idle-reduced.jpg",
+    "sha256": "9238d8d4a758941cbab9cf8374274e858723d9fc95950b44301f5ca988e846fd"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-wantsPlay-walk-normal.jpg",
+    "sha256": "3f72cd49f504f5d546ee4d74be426cd4560bcc60c2433b896bbc66ee5716acf8"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "phoenix-3-wantsPlay-walk-reduced.jpg",
+    "sha256": "ca795f3a1a73d21fba89a70a01bfbcaaf707a69077bb1d727ae18e362a583c6b"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "player-phoenix-3-back.png",
+    "sha256": "d35426df3e05ca03dc699e26e768f3626c5e46e5665860cc1cc2dd5d3d1b913e"
+  },
+  {
+    "archive": "stage-03.zip",
+    "path": "player-phoenix-3-front.png",
+    "sha256": "7b57eaeb393f72bd208f6ee9450d1411f5babc12499c8bff35b2c311d3d52388"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-34.jpg",
+    "sha256": "15980c0cc941f2f2b88f735c7d9b2ac1fbfcb79846b31d8a6a7974dd0fad21c0"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-back.jpg",
+    "sha256": "5e93d877ad16c2411f515d57a9857b48fda2d4c16b91046b8b0908ba8f9d049b"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-front.jpg",
+    "sha256": "503dbecea9dafe4fe38fa1f90337ced33bb0ba347414df15dc4900e2d377d0b7"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-side.jpg",
+    "sha256": "1354166dda3b3cd224864fa0a38ae9b4d6ef65ea923aee7ddc7580703e5aa4d9"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-dislike-idle-normal.jpg",
+    "sha256": "af5631cb8d3b61f81787791f692c99e0366a6e70be6f405b3862434fc873dd77"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-dislike-idle-reduced.jpg",
+    "sha256": "fb062860a68b6b59725e65e51ff9c9edb48e25fb327bd7e0b32689701fbd4e2d"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-dislike-walk-normal.jpg",
+    "sha256": "81a896d1f9bdb022df048032818028804aa055c13c7784d5e87665cd85e78c52"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-dislike-walk-reduced.jpg",
+    "sha256": "465941b91db1dad040e91aa9bfcb8093456253716046889da3e0bf9eb4902bdf"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-motion.jpg",
+    "sha256": "c0c635cf149cb53865f0447b017524595f96a3e277ed10769a941da04a21e4e4"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-normal-idle-normal.jpg",
+    "sha256": "15980c0cc941f2f2b88f735c7d9b2ac1fbfcb79846b31d8a6a7974dd0fad21c0"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-normal-idle-reduced.jpg",
+    "sha256": "21048053fa7760b70706810e6f4b56607118da5f0c08d742cee91e74dd561817"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-normal-walk-normal.jpg",
+    "sha256": "aec5cc8801411a93cfde1335b10bc67b10719d5402d3a2bce20a1780211b1a75"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-normal-walk-reduced.jpg",
+    "sha256": "9ca0beb9a8af24a4f181cb3210f74d557fb2e0e4fa6515361b4e5fee591e9943"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-positive-idle-normal.jpg",
+    "sha256": "0e5d941b0f4507271f2475088faa50d89986c20eeb356dc5dfa00b4629631690"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-positive-idle-reduced.jpg",
+    "sha256": "e5e7701449064f887680343c7ca085d60b9e0469a6ead78e2879a58323b730d2"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-positive-walk-normal.jpg",
+    "sha256": "976b713f7db00f1b00a6a72ef5809cb45138183ac934a6d1ea666132c0dd7406"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-positive-walk-reduced.jpg",
+    "sha256": "0e15ec289e4c16b85ba6991f2640a0a3838571f3a496a39b412ecb0b0d4af281"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sick-idle-normal.jpg",
+    "sha256": "7c8ff2614b1ffd6fb63457f7c713f61463653e6e62af7155fc3e39d4d65d92bb"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sick-idle-reduced.jpg",
+    "sha256": "08f5d96b9a32d6823e32a879be066af43233b12bad0d76b980ddb331fe4064a1"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sick-walk-normal.jpg",
+    "sha256": "988d9852b374e875ae621d8ff5096027836a1f41a13b64ebc2a1288884921ba8"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sick-walk-reduced.jpg",
+    "sha256": "dbc827e90c719f528cd1f79009d3f7ea404547dc39e2a81310a52fae671b66c6"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sleeping-idle-normal.jpg",
+    "sha256": "2eb587c396fd5899ab7035e38ad822f88f8a45087cae1659fde841aecfab3f48"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sleeping-idle-reduced.jpg",
+    "sha256": "c018b2d6c05339089c5692c12e051a212165863c68b8ff3374a42e35521a5327"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sleeping-walk-normal.jpg",
+    "sha256": "f8c2a4d4f1dfddf6e2603b5915088bd01d91bada57262f2ea68ea71d9ade9f62"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-sleeping-walk-reduced.jpg",
+    "sha256": "795e497443bc947df6a1142c9fa6d9dc571a3a714cd14fbae8df298526311be8"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-strained-idle-normal.jpg",
+    "sha256": "65700fb9c216b16aba3370389353d3f3b5b623e7ff49ecbacab81c55993c1833"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-strained-idle-reduced.jpg",
+    "sha256": "de4017dad0b1867c40e5d75f0b62c27d08130223319c987f3ad950cdf6e4a52c"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-strained-walk-normal.jpg",
+    "sha256": "0feaa10405c11b7f97138b9eb57a6d5bf5ba8aec6250ca29b0c093b219e18b0a"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-strained-walk-reduced.jpg",
+    "sha256": "2d81256ae65b5fbaf2cd2a244ca4119a89f624e3ea57a4f0929610a401002054"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-tired-idle-normal.jpg",
+    "sha256": "249d511bae71020dad672c18aefd0de2adaa1b0b4d29ee68ca8ac06a474b230e"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-tired-idle-reduced.jpg",
+    "sha256": "2a75c601274f587e6a91972a4ef5e4a5bd034eb00bf9d6d13b23bdd33e9dc142"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-tired-walk-normal.jpg",
+    "sha256": "0a69e0aa060de9d34962b9c12a6c71a8d7a18e1e5a803d5cde337ac81e44a7b5"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-tired-walk-reduced.jpg",
+    "sha256": "9a4078dd0e0add9bb66d2ad5f2e31fc440a86fd82f3157ef6042ebf5d7f24467"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-wantsPlay-idle-normal.jpg",
+    "sha256": "16493ab36e85afb21bfb257fa70b534ab745c9d0f65c6b01f8de3cd427b60282"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-wantsPlay-idle-reduced.jpg",
+    "sha256": "88f680353d4df97c8031191023417a5aa0349560826b173f3864497c646a8905"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-wantsPlay-walk-normal.jpg",
+    "sha256": "173c54d77208a25dd619dc1852f0484f6d727a36e2b4ada6345e8779f148edd1"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "phoenix-7-wantsPlay-walk-reduced.jpg",
+    "sha256": "f7496548addc24c82663afa75bf8e6674990cf17825bdaa814ba5f08e0995bdd"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "player-phoenix-7-back.png",
+    "sha256": "337b8d3fcf7e84b02f91576ec3facc6b9da903e4f6987ebae4e2a5ceb594b118"
+  },
+  {
+    "archive": "stage-07.zip",
+    "path": "player-phoenix-7-front.png",
+    "sha256": "ada66d60ed4784ddca57b6916cfe836a1b2341d93449b8b4f6924da97a98efd9"
+  }
+]

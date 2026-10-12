@@ -1,0 +1,81 @@
+{
+  "sourceCommit": "d1f7199204d319ba6fe649b6cac2d7c01f92940d",
+  "archiveCommit": "ccd767875bde42c7196a8dee560d108132696a0e",
+  "sourceRun": 37896316097,
+  "artifactId": 11600044828,
+  "rawFilesSHA256Verified": 281,
+  "status": "PARTIAL_PASS_4_REJECT_3",
+  "actualInspection": {
+    "fourViewBoards": [
+      "bat",
+      "snail",
+      "chameleon",
+      "sekizou",
+      "watcher",
+      "unicorn",
+      "many_tail_fox"
+    ],
+    "full32StateBoards": [
+      "bat",
+      "snail",
+      "chameleon",
+      "sekizou",
+      "unicorn",
+      "many_tail_fox"
+    ],
+    "twoNormalDistanceImages": [
+      "bat",
+      "snail",
+      "chameleon",
+      "sekizou"
+    ],
+    "remaining": "Watcher state/distance and rejected unicorn/fox distance stopped at confirmed defect; no full-gate PASS claimed."
+  },
+  "verdicts": {
+    "companion:bat": {
+      "status": "PASS",
+      "fourViews": 4,
+      "states": 32,
+      "normalDistance": 2,
+      "notes": "Actual source-identity and corrected physical structure checked, expression clearance and normal-distance display accepted."
+    },
+    "companion:snail": {
+      "status": "PASS",
+      "fourViews": 4,
+      "states": 32,
+      "normalDistance": 2,
+      "notes": "Actual source-identity and corrected physical structure checked, expression clearance and normal-distance display accepted."
+    },
+    "companion:chameleon": {
+      "status": "PASS",
+      "fourViews": 4,
+      "states": 32,
+      "normalDistance": 2,
+      "notes": "Actual source-identity and corrected physical structure checked, expression clearance and normal-distance display accepted."
+    },
+    "companion:sekizou": {
+      "status": "PASS",
+      "fourViews": 4,
+      "states": 32,
+      "normalDistance": 2,
+      "notes": "Actual source-identity and corrected physical structure checked, expression clearance and normal-distance display accepted."
+    },
+    "companion:watcher": {
+      "status": "REJECT",
+      "finding": "Source dark central pupil absent; actual canonical eye is pale cyan with0darkvertices.",
+      "freshCorrectedFullImageGateRequired": true
+    },
+    "companion:unicorn": {
+      "status": "REJECT",
+      "finding": "Stiff parallel blunt mane and inverted-U tail lose source flowing curls.",
+      "freshCorrectedFullImageGateRequired": true
+    },
+    "companion:many_tail_fox": {
+      "status": "REJECT",
+      "finding": "Closed tip caps have inverted endpoint normals (dot≈-1), producing recessed rings; not missing mesh caps.",
+      "freshCorrectedFullImageGateRequired": true
+    }
+  },
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

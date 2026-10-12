@@ -1,0 +1,1506 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
+  "artifact": {
+    "id": 11591451520,
+    "name": "full-rollout-mythic-review-86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
+    "digest": "sha256:e85488d4ca41f44ede6a4b46689535967509426842703ecc85f1ce5fd4707151"
+  },
+  "files": [
+    {
+      "path": "mythic-motion/god-1-dislike-idle-normal.jpg",
+      "sha256": "63100c6399aea567843d40d41482e678d7b2fb41477b234fc258e88339a19609",
+      "bytes": 8431
+    },
+    {
+      "path": "mythic-motion/god-1-dislike-idle-reduced.jpg",
+      "sha256": "8d499c4075d46795f39b80cc08dcdb499926897ea6491f465e8a8e1f1938defc",
+      "bytes": 8671
+    },
+    {
+      "path": "mythic-motion/god-1-dislike-walk-normal.jpg",
+      "sha256": "6a48e2feb2b11d5e864023488543b0c44f951338d41aa2660ce8b1d59847d10a",
+      "bytes": 8668
+    },
+    {
+      "path": "mythic-motion/god-1-dislike-walk-reduced.jpg",
+      "sha256": "89d1bfa268710407ebc3c14bba556fed0cc7fbc8fb9e8c6c1420bf330dccf10f",
+      "bytes": 8906
+    },
+    {
+      "path": "mythic-motion/god-1-motion.jpg",
+      "sha256": "2e837174b69e98b03d8840950044cd6ae1e641d835c178107b76f3b1a8b0c8d6",
+      "bytes": 365286
+    },
+    {
+      "path": "mythic-motion/god-1-normal-idle-normal.jpg",
+      "sha256": "441a215d6b0c938076088eeb57019e837cd72255fe82ece9b16077ff5f775700",
+      "bytes": 8589
+    },
+    {
+      "path": "mythic-motion/god-1-normal-idle-reduced.jpg",
+      "sha256": "699983ce9ae6c12f429874e5532018f5648ac1240aa586da06577a6310f74635",
+      "bytes": 8849
+    },
+    {
+      "path": "mythic-motion/god-1-normal-walk-normal.jpg",
+      "sha256": "ba6a217a53dc49f71ee7efd2138933a9f6f53761f14252c61a4e877004272cb6",
+      "bytes": 8601
+    },
+    {
+      "path": "mythic-motion/god-1-normal-walk-reduced.jpg",
+      "sha256": "7d3a7c84d4f930765da1bbb4e9bf52f3f18d9d516d1f979e9c8661b1790a0d90",
+      "bytes": 8771
+    },
+    {
+      "path": "mythic-motion/god-1-positive-idle-normal.jpg",
+      "sha256": "c2c9e6aa0d26b7d0243e91c45bbf8e006843f58e36d9630349090c8ff49f5908",
+      "bytes": 8787
+    },
+    {
+      "path": "mythic-motion/god-1-positive-idle-reduced.jpg",
+      "sha256": "3a8141c1b9002b1dc8ed91b753d92cde6bb002c09fc43762c92627bd875062c5",
+      "bytes": 8891
+    },
+    {
+      "path": "mythic-motion/god-1-positive-walk-normal.jpg",
+      "sha256": "98bf742c26f1638c92ef5889d0f6539234b0800d170672798bbd05e9d14ae6b0",
+      "bytes": 8839
+    },
+    {
+      "path": "mythic-motion/god-1-positive-walk-reduced.jpg",
+      "sha256": "6e3cb1f075ed4d8f2b375f38e88863ea925db43c316ffb6c9eae8450092bf28c",
+      "bytes": 8990
+    },
+    {
+      "path": "mythic-motion/god-1-sick-idle-normal.jpg",
+      "sha256": "f78738aefb650bf5c4bf2fbb22bd72daccb3b41397cf99ffbb692d92415f9dff",
+      "bytes": 8735
+    },
+    {
+      "path": "mythic-motion/god-1-sick-idle-reduced.jpg",
+      "sha256": "00d85a290d539ed3c8cf7c31a4f67ee1b5cbd6618fcebea736aba0fd9ac7cef9",
+      "bytes": 9003
+    },
+    {
+      "path": "mythic-motion/god-1-sick-walk-normal.jpg",
+      "sha256": "a2a4d124adcc6b98e8aecd84a5426e147936eb465b71e518508eccf1c5375425",
+      "bytes": 8508
+    },
+    {
+      "path": "mythic-motion/god-1-sick-walk-reduced.jpg",
+      "sha256": "c8335d8100b8c2649e1f420b47eadc26c65385981d992bba78afb1ad99e857a6",
+      "bytes": 8758
+    },
+    {
+      "path": "mythic-motion/god-1-sleeping-idle-normal.jpg",
+      "sha256": "07f0395dcf8194d399c308c09ec3383cdb61d4fea32b95c4d5f8ecca948f6227",
+      "bytes": 8173
+    },
+    {
+      "path": "mythic-motion/god-1-sleeping-idle-reduced.jpg",
+      "sha256": "c0b9304569575b9809bd385224edb1e1bcc8bdc712cd9c0210a64746f7a13e8e",
+      "bytes": 8460
+    },
+    {
+      "path": "mythic-motion/god-1-sleeping-walk-normal.jpg",
+      "sha256": "36e000afc234d59409b62a6b5eff2f8adf3c2c5d88b2e20c8acabb7022f7d834",
+      "bytes": 8256
+    },
+    {
+      "path": "mythic-motion/god-1-sleeping-walk-reduced.jpg",
+      "sha256": "dbb9ab14f6f98dcaf3b3aa5034e762fdc388b96f58c2443d02e1f246777d054a",
+      "bytes": 8355
+    },
+    {
+      "path": "mythic-motion/god-1-strained-idle-normal.jpg",
+      "sha256": "48bc3590f24e436e11949548640fc3dd5f875364dca555593aa3a2a3d432ee25",
+      "bytes": 8857
+    },
+    {
+      "path": "mythic-motion/god-1-strained-idle-reduced.jpg",
+      "sha256": "b07ad111f9ba43359afb8d25c8793ac6ada2855b52ffb02f44480e6f38f958fe",
+      "bytes": 9176
+    },
+    {
+      "path": "mythic-motion/god-1-strained-walk-normal.jpg",
+      "sha256": "23b7244c7e8d587eadb1207282b80e2160324abf9bb34194515327696b4e40d3",
+      "bytes": 8932
+    },
+    {
+      "path": "mythic-motion/god-1-strained-walk-reduced.jpg",
+      "sha256": "9db3bdb967afdf8529b6427223796cd4a8260031f8874aa6a9cc50936771f1a1",
+      "bytes": 9183
+    },
+    {
+      "path": "mythic-motion/god-1-tired-idle-normal.jpg",
+      "sha256": "4e1fa464a713ae6a009980c35e5abb2d8d3b6310122503600fe2a2183b0c9d6a",
+      "bytes": 8448
+    },
+    {
+      "path": "mythic-motion/god-1-tired-idle-reduced.jpg",
+      "sha256": "b98cff23829d5c8305c3608841b10bf03a286e45e9165935681b664a74196a41",
+      "bytes": 8597
+    },
+    {
+      "path": "mythic-motion/god-1-tired-walk-normal.jpg",
+      "sha256": "ae9ff6667ec3fc76f021edd918635780f992d288385f1843c39da0b2f9f40d0b",
+      "bytes": 8389
+    },
+    {
+      "path": "mythic-motion/god-1-tired-walk-reduced.jpg",
+      "sha256": "44f0ace5564bdb8a29b409c3ac7be5b8d73fcf52fb8ec3b1b2850b2aa0f6a57c",
+      "bytes": 8603
+    },
+    {
+      "path": "mythic-motion/god-1-wantsPlay-idle-normal.jpg",
+      "sha256": "42885367ee3c016c23988d16d6c641132559265543667de709db42af341bf58c",
+      "bytes": 8766
+    },
+    {
+      "path": "mythic-motion/god-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "c7462c472e965e9f379c4879b8178b9d3eb40278aedb4a2dad80cac68ec306c3",
+      "bytes": 9013
+    },
+    {
+      "path": "mythic-motion/god-1-wantsPlay-walk-normal.jpg",
+      "sha256": "e75872ce7aca2111aa92159af97117c07e01a73a5050710ba8e0ffc443101ace",
+      "bytes": 8704
+    },
+    {
+      "path": "mythic-motion/god-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "45d7ccf5458051fe1d4384555f6a803382c093ad255ba567171e3b1b625a314d",
+      "bytes": 8987
+    },
+    {
+      "path": "mythic-motion/god-2-dislike-idle-normal.jpg",
+      "sha256": "87f5d2d7af508d7e7b5e6cba8125724f24e5049747659df410e82ddcad0848d0",
+      "bytes": 11178
+    },
+    {
+      "path": "mythic-motion/god-2-dislike-idle-reduced.jpg",
+      "sha256": "e05409768534735d8892b9a733fa3a834fcc9f864a6220860efd6b3bb8a19e57",
+      "bytes": 11299
+    },
+    {
+      "path": "mythic-motion/god-2-dislike-walk-normal.jpg",
+      "sha256": "b545381bba6bbfbff4c0ca56ce40d14454f2ff8b9063d082ac1313d179cc6d7a",
+      "bytes": 11365
+    },
+    {
+      "path": "mythic-motion/god-2-dislike-walk-reduced.jpg",
+      "sha256": "e041f07c8304a850c611c664c3071d51d3dda5ac31d116537d676dce6fabd3ef",
+      "bytes": 11729
+    },
+    {
+      "path": "mythic-motion/god-2-motion.jpg",
+      "sha256": "c63f669abbeb159076d2222962d221222f456c7432de318e64156cb6832bd5e1",
+      "bytes": 440953
+    },
+    {
+      "path": "mythic-motion/god-2-normal-idle-normal.jpg",
+      "sha256": "8b3bb3a08cdeac5ae4fcd4843f987d3d538e57241274a7a2d90d59f10fec3d2f",
+      "bytes": 10769
+    },
+    {
+      "path": "mythic-motion/god-2-normal-idle-reduced.jpg",
+      "sha256": "2270a5fd5b08184307cc7f19c4adc931afcb03d507afdab0715e0b8919ed21a5",
+      "bytes": 10944
+    },
+    {
+      "path": "mythic-motion/god-2-normal-walk-normal.jpg",
+      "sha256": "b036259e5da27f7149709faf19e74a3cd797b8ef6a78db4ccc633a2f5af35948",
+      "bytes": 10607
+    },
+    {
+      "path": "mythic-motion/god-2-normal-walk-reduced.jpg",
+      "sha256": "668c6abd72f8aae204f25294ec68b18f46fc4ac4a242a4a8df4093639e008c49",
+      "bytes": 10643
+    },
+    {
+      "path": "mythic-motion/god-2-positive-idle-normal.jpg",
+      "sha256": "b2936085c88b68c3a79a222f72f1c08ab44cc88fe8358b3b107340f68a2e602b",
+      "bytes": 10597
+    },
+    {
+      "path": "mythic-motion/god-2-positive-idle-reduced.jpg",
+      "sha256": "b97fd5226298b986ba67f8af5b558245382109afaae3d907fa1004acab9b76e2",
+      "bytes": 10851
+    },
+    {
+      "path": "mythic-motion/god-2-positive-walk-normal.jpg",
+      "sha256": "c9f512ade16c60e230924eb73d71c7db7ccebdf9d87c34d3580f1c7b664b2bd5",
+      "bytes": 10557
+    },
+    {
+      "path": "mythic-motion/god-2-positive-walk-reduced.jpg",
+      "sha256": "3b8c4bc78ec3ad8089d6d061f98e2b3749f728b622b7eb010223c7532f9da25c",
+      "bytes": 10828
+    },
+    {
+      "path": "mythic-motion/god-2-sick-idle-normal.jpg",
+      "sha256": "f678f12939dff7dcd01313e3fbe7d8a442bbc3b555fd09d75a65a86ac703f693",
+      "bytes": 11060
+    },
+    {
+      "path": "mythic-motion/god-2-sick-idle-reduced.jpg",
+      "sha256": "34b02c67e62bfc04e30e225ac65701bcda719815c8d94d6209c0a60bc457b591",
+      "bytes": 11368
+    },
+    {
+      "path": "mythic-motion/god-2-sick-walk-normal.jpg",
+      "sha256": "3a795c2b62136422d8841e485756c6f7886b0a00d2b36f9c77001200ad47f7e6",
+      "bytes": 10815
+    },
+    {
+      "path": "mythic-motion/god-2-sick-walk-reduced.jpg",
+      "sha256": "db777dcbfdb39f225f0bf679310853584052cfbf6c545e0432434b9e3e98bb9f",
+      "bytes": 11068
+    },
+    {
+      "path": "mythic-motion/god-2-sleeping-idle-normal.jpg",
+      "sha256": "c15209f409804b17d4d424f019e2006c745946faa919e4af2017488b722ef499",
+      "bytes": 10734
+    },
+    {
+      "path": "mythic-motion/god-2-sleeping-idle-reduced.jpg",
+      "sha256": "b331939ac06d538b67c0b9ee28229a1210ab61aba205b1e04dde8dcbb366408f",
+      "bytes": 10792
+    },
+    {
+      "path": "mythic-motion/god-2-sleeping-walk-normal.jpg",
+      "sha256": "b88688f2b1c5d27a6a272f5bd8ca7ed12597690a71553afc9e88d596673afff5",
+      "bytes": 10443
+    },
+    {
+      "path": "mythic-motion/god-2-sleeping-walk-reduced.jpg",
+      "sha256": "438be62dea87631ab1561a6f6f0344fa77bc63992987f1125cecd78d9f905068",
+      "bytes": 10471
+    },
+    {
+      "path": "mythic-motion/god-2-strained-idle-normal.jpg",
+      "sha256": "7626324cca7700febb759d9181f0fbc11f7ca7328ad792cc05bf807f2fd70cac",
+      "bytes": 11237
+    },
+    {
+      "path": "mythic-motion/god-2-strained-idle-reduced.jpg",
+      "sha256": "9cb0e6a40cd2139c30f9e99c530c828de428f550e9a0f08ea467ca7b3ea5c53b",
+      "bytes": 11347
+    },
+    {
+      "path": "mythic-motion/god-2-strained-walk-normal.jpg",
+      "sha256": "44a340923ab3641fe0b4810c21eec35217ea541a54d24c455635a2b1220cd0eb",
+      "bytes": 11219
+    },
+    {
+      "path": "mythic-motion/god-2-strained-walk-reduced.jpg",
+      "sha256": "190ee235768e64957d91eb821e05af0a9a58a0ac1cd5c273c85a17a8060a4c48",
+      "bytes": 11336
+    },
+    {
+      "path": "mythic-motion/god-2-tired-idle-normal.jpg",
+      "sha256": "16f5b489005d2f5c59b0216840cfe3b594dda229b8d508f1f2c34ec948e10353",
+      "bytes": 10884
+    },
+    {
+      "path": "mythic-motion/god-2-tired-idle-reduced.jpg",
+      "sha256": "049fb108c9b4df76ac23fbfdcfdb4e9c80a239ce1fedcb61f93a98dc15b8cfd5",
+      "bytes": 11129
+    },
+    {
+      "path": "mythic-motion/god-2-tired-walk-normal.jpg",
+      "sha256": "cc78abefd855e072394fae6486179ea7259f9021b490190f633cfc88a71739e6",
+      "bytes": 10773
+    },
+    {
+      "path": "mythic-motion/god-2-tired-walk-reduced.jpg",
+      "sha256": "d733b6f6d0b35fc13a59b85bb1a975a163ba6cf263ce843fb2e3f87731ae8b14",
+      "bytes": 10887
+    },
+    {
+      "path": "mythic-motion/god-2-wantsPlay-idle-normal.jpg",
+      "sha256": "aff394d041343768dbdcf81c3d433c45e8ab412dd1e2e494d5b13bf0432894ed",
+      "bytes": 10539
+    },
+    {
+      "path": "mythic-motion/god-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "d0c83cd5aa86ac6d45aed9d6fc15ae4ae1c4b9a8d682ffc8f26963c1dbc54751",
+      "bytes": 10834
+    },
+    {
+      "path": "mythic-motion/god-2-wantsPlay-walk-normal.jpg",
+      "sha256": "e1fabec68f4e468feefaf17447f61d56399bf931c4baa730de40d422efd69854",
+      "bytes": 10343
+    },
+    {
+      "path": "mythic-motion/god-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "6b1b278f7e1e67650d9330e95e363d4866e2b720ee2c5c73abe99d7c6f198785",
+      "bytes": 10530
+    },
+    {
+      "path": "mythic-motion/god-3-dislike-idle-normal.jpg",
+      "sha256": "1f8cceeb3f669810178d980e72c08cc1aa56a5a3e201ca84e884372ca44d4e15",
+      "bytes": 13253
+    },
+    {
+      "path": "mythic-motion/god-3-dislike-idle-reduced.jpg",
+      "sha256": "1a26e258c8b448429f0b6de161021a5a53787b03ede47ee703f908ed2ef0c108",
+      "bytes": 13282
+    },
+    {
+      "path": "mythic-motion/god-3-dislike-walk-normal.jpg",
+      "sha256": "89327458f3727341576dee50ea3d530dfa773b3ea8f7abb11dd3d3059675c080",
+      "bytes": 12994
+    },
+    {
+      "path": "mythic-motion/god-3-dislike-walk-reduced.jpg",
+      "sha256": "280d97fb68789e5477ccc9a8129fdb345ac9c0746aa3d040fdb63a56df3844c2",
+      "bytes": 13262
+    },
+    {
+      "path": "mythic-motion/god-3-motion.jpg",
+      "sha256": "1020eaf1e3a107bbb4905a2db8ed0969298b94cc1b811718976edce0a4d63c80",
+      "bytes": 559032
+    },
+    {
+      "path": "mythic-motion/god-3-normal-idle-normal.jpg",
+      "sha256": "98e672a683a506f5e6350ed2cf3ba14f9b816d53ed259ca756a1e67ac98d98f4",
+      "bytes": 13459
+    },
+    {
+      "path": "mythic-motion/god-3-normal-idle-reduced.jpg",
+      "sha256": "5a3ac891126f9ddbb3d7f70f12ecdd516b34c164926633880631519986789af9",
+      "bytes": 13545
+    },
+    {
+      "path": "mythic-motion/god-3-normal-walk-normal.jpg",
+      "sha256": "6c4391f9588f0d159aeb3bcebb0d528128b0c881b56f5f8d6bfba149807e8701",
+      "bytes": 13150
+    },
+    {
+      "path": "mythic-motion/god-3-normal-walk-reduced.jpg",
+      "sha256": "6d44b65e08feab8458da5630ae8e726018b00e46b6c572b6892c73e711475f4e",
+      "bytes": 13359
+    },
+    {
+      "path": "mythic-motion/god-3-positive-idle-normal.jpg",
+      "sha256": "f9460990d6e60cdc9d26190019b4cf196c38766efc6b1135c192ccc29eb6c945",
+      "bytes": 13410
+    },
+    {
+      "path": "mythic-motion/god-3-positive-idle-reduced.jpg",
+      "sha256": "307b0f91f26b57d32ff62f824b584f6797abcfa49acc047681863cd9743c3122",
+      "bytes": 13468
+    },
+    {
+      "path": "mythic-motion/god-3-positive-walk-normal.jpg",
+      "sha256": "8b74c54fc687d033b4daab2a723a40892a69abd67781f99206fe51cf8834c237",
+      "bytes": 13148
+    },
+    {
+      "path": "mythic-motion/god-3-positive-walk-reduced.jpg",
+      "sha256": "6dc1624f944b81ce58d4a03cfacc24db8ac403b234439d578468d7d501977af7",
+      "bytes": 13303
+    },
+    {
+      "path": "mythic-motion/god-3-sick-idle-normal.jpg",
+      "sha256": "c726b7d7e4246f6fc5f1b379fd0adb9b092c222b274fb216671e1abc26972cdc",
+      "bytes": 13297
+    },
+    {
+      "path": "mythic-motion/god-3-sick-idle-reduced.jpg",
+      "sha256": "42618ec887c302ee93ff0b00103f9f8f096c6353658a03072d20c34211ddf027",
+      "bytes": 13408
+    },
+    {
+      "path": "mythic-motion/god-3-sick-walk-normal.jpg",
+      "sha256": "26036486c9977a02a515934d2df474f777e97b96f812c7084e9ab7336d0ec198",
+      "bytes": 13167
+    },
+    {
+      "path": "mythic-motion/god-3-sick-walk-reduced.jpg",
+      "sha256": "496685cb356daa7793c3e5b5e65e1b19572b8bf09d02577f282964fc949dcc9c",
+      "bytes": 13282
+    },
+    {
+      "path": "mythic-motion/god-3-sleeping-idle-normal.jpg",
+      "sha256": "47488f1c2435e1be1f11ba3e0eaa505bd4507533bafe62b8f81ed0a14be8e6e4",
+      "bytes": 13359
+    },
+    {
+      "path": "mythic-motion/god-3-sleeping-idle-reduced.jpg",
+      "sha256": "c79892a63e43cb020a040f68c3f02430c5120e98f096e26aed000da9d7ccc831",
+      "bytes": 13492
+    },
+    {
+      "path": "mythic-motion/god-3-sleeping-walk-normal.jpg",
+      "sha256": "d05e7c23c09e0dc14a2d28e408490643110a4f86baf31fd75e8eae601146b75b",
+      "bytes": 13243
+    },
+    {
+      "path": "mythic-motion/god-3-sleeping-walk-reduced.jpg",
+      "sha256": "f7636c0965cd61eacc1dcb106091008b379c9ef83bdbabe2c48e1ae3947d561e",
+      "bytes": 13530
+    },
+    {
+      "path": "mythic-motion/god-3-strained-idle-normal.jpg",
+      "sha256": "0ce4834ec12792fef7cd222dca8ceebff931c8d4cba05a048e4142ab8b1a7c63",
+      "bytes": 13645
+    },
+    {
+      "path": "mythic-motion/god-3-strained-idle-reduced.jpg",
+      "sha256": "08df4667599ebd8de2db4713e625fe21c8f77366116cc6b638b93d58f4bfa681",
+      "bytes": 13757
+    },
+    {
+      "path": "mythic-motion/god-3-strained-walk-normal.jpg",
+      "sha256": "ec00cdd63a740ddb226cd6b883898d4e7533d086ab17a6c7819f1318816ffc18",
+      "bytes": 13563
+    },
+    {
+      "path": "mythic-motion/god-3-strained-walk-reduced.jpg",
+      "sha256": "79526dc2fec53631a1554eb407430371c90c21d59e973822c216dcf73672af61",
+      "bytes": 13664
+    },
+    {
+      "path": "mythic-motion/god-3-tired-idle-normal.jpg",
+      "sha256": "7563a41eed065411d8b7bdf909e2af6308573ee370c41e12b1bf02191063a346",
+      "bytes": 13321
+    },
+    {
+      "path": "mythic-motion/god-3-tired-idle-reduced.jpg",
+      "sha256": "66000e5adb2bc2e4c3ceea04bd87112f4c6f0df3ababcafa1c7963da9123a883",
+      "bytes": 13510
+    },
+    {
+      "path": "mythic-motion/god-3-tired-walk-normal.jpg",
+      "sha256": "5ff2d5fec874e8dc1a69c59c1271fe5e36e684789cfdb81e1b9b594cbc190a10",
+      "bytes": 13371
+    },
+    {
+      "path": "mythic-motion/god-3-tired-walk-reduced.jpg",
+      "sha256": "dafb9b5e215953f1a42208a08f151bef1b263705ade9646dd3cc4b36f3881349",
+      "bytes": 13562
+    },
+    {
+      "path": "mythic-motion/god-3-wantsPlay-idle-normal.jpg",
+      "sha256": "a9f8cfc7a23d44bee0ee3b0f073e4abd676727f172b3603e3771a3601e6b8e67",
+      "bytes": 13222
+    },
+    {
+      "path": "mythic-motion/god-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "d6bb7fd5c255bdcae16f89580ae3c6ddef1d4faa978ddf2698dbf682ed3bd311",
+      "bytes": 13358
+    },
+    {
+      "path": "mythic-motion/god-3-wantsPlay-walk-normal.jpg",
+      "sha256": "a23354b54361ee3aa7f77a2e5515c5dca1bafeb584da3b10f926ccb6e3ebb32e",
+      "bytes": 13138
+    },
+    {
+      "path": "mythic-motion/god-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "eed3802e8f1bb1bf7b1b17d64c3c46e3650a8d4bf2317c8dbbd692baba2eb5e9",
+      "bytes": 13387
+    },
+    {
+      "path": "mythic-motion/god-4-dislike-idle-normal.jpg",
+      "sha256": "53e2a028220669d7a5844c05b958b70482302fa56df896801259f244cfd3e12a",
+      "bytes": 13342
+    },
+    {
+      "path": "mythic-motion/god-4-dislike-idle-reduced.jpg",
+      "sha256": "2dd2e7bab48b092fc2e8f229ec3439f2b63158f73923e4d45efbe3bcc928214a",
+      "bytes": 13375
+    },
+    {
+      "path": "mythic-motion/god-4-dislike-walk-normal.jpg",
+      "sha256": "982cae4c9aaa781a8312fedbb1e446221647771685c8361cf93e9f418cc73343",
+      "bytes": 13324
+    },
+    {
+      "path": "mythic-motion/god-4-dislike-walk-reduced.jpg",
+      "sha256": "e1b5a844440207d52d2c9dc895d6ac3a1a4f07df89ed4443aaefee31ac98e8f1",
+      "bytes": 13401
+    },
+    {
+      "path": "mythic-motion/god-4-motion.jpg",
+      "sha256": "a8aca984c8ab979bc08b30e5c58258d667a271591a33286002d9a62537189400",
+      "bytes": 587701
+    },
+    {
+      "path": "mythic-motion/god-4-normal-idle-normal.jpg",
+      "sha256": "34e0cc46b555c630f49b67c81830223e47582ebc4ecc6baf9d57910d11d2c084",
+      "bytes": 13646
+    },
+    {
+      "path": "mythic-motion/god-4-normal-idle-reduced.jpg",
+      "sha256": "0798920e1e5a176e11c84be44fdda7825d95d93ae97f1e8b1c3d9f93b965f7ba",
+      "bytes": 13759
+    },
+    {
+      "path": "mythic-motion/god-4-normal-walk-normal.jpg",
+      "sha256": "a12d4c71bb6639138bc1ad0c1cb94602b8ff0be1f5f355bcd3e9bbf0c541054e",
+      "bytes": 13546
+    },
+    {
+      "path": "mythic-motion/god-4-normal-walk-reduced.jpg",
+      "sha256": "657aa9e3d85fff89a7b252ecc1f3dcccf6c6560c34f8c675bed9fa16f4464eee",
+      "bytes": 13726
+    },
+    {
+      "path": "mythic-motion/god-4-positive-idle-normal.jpg",
+      "sha256": "d42d31cd42b352ae48e6d67092416aa0af0d21cf4fa8f87927e1f524af0d94ed",
+      "bytes": 13693
+    },
+    {
+      "path": "mythic-motion/god-4-positive-idle-reduced.jpg",
+      "sha256": "be8b3455f542b719dd0bdbe4e1acf4f7637f19e49fb60918a19bbc39a0b4df35",
+      "bytes": 13832
+    },
+    {
+      "path": "mythic-motion/god-4-positive-walk-normal.jpg",
+      "sha256": "1dd7a84e72d00feb73103f9e614a225b890f2a777766b0b24395dc5e074c456d",
+      "bytes": 13435
+    },
+    {
+      "path": "mythic-motion/god-4-positive-walk-reduced.jpg",
+      "sha256": "de44a76739560a5cfcfb556704537d2d96843ea92c0a20caac13a474d97a9204",
+      "bytes": 13611
+    },
+    {
+      "path": "mythic-motion/god-4-sick-idle-normal.jpg",
+      "sha256": "1ea60964693650c7a704d87f8efac8596964db568aefb0f9a82704d614f9234c",
+      "bytes": 13476
+    },
+    {
+      "path": "mythic-motion/god-4-sick-idle-reduced.jpg",
+      "sha256": "19741a4d9693193128386cadddcd6c952cc2dd9b2a64c2387ded4251fc7f6d38",
+      "bytes": 13606
+    },
+    {
+      "path": "mythic-motion/god-4-sick-walk-normal.jpg",
+      "sha256": "3f39fc3db9116dd082fcce91bc350ec461bb18cf2165f2edbc5d266fbd9a3b98",
+      "bytes": 13431
+    },
+    {
+      "path": "mythic-motion/god-4-sick-walk-reduced.jpg",
+      "sha256": "06e1073d553de1e19e103c6f8e1a27091e6b3011a728d531ea8bcf5a12f1da11",
+      "bytes": 13429
+    },
+    {
+      "path": "mythic-motion/god-4-sleeping-idle-normal.jpg",
+      "sha256": "02ef0ab3d57808385bcb7a411e6439affd17448b2fd55d4cfbba6979a9791df2",
+      "bytes": 13677
+    },
+    {
+      "path": "mythic-motion/god-4-sleeping-idle-reduced.jpg",
+      "sha256": "37e41291b8d922624943fdf8a91f4cdf7903cc665724a3e611d28a2f6d212fc8",
+      "bytes": 13858
+    },
+    {
+      "path": "mythic-motion/god-4-sleeping-walk-normal.jpg",
+      "sha256": "a2e00bdb0c4215272784d32b7f65469dfff30d961834f37c2b18600b38368467",
+      "bytes": 13672
+    },
+    {
+      "path": "mythic-motion/god-4-sleeping-walk-reduced.jpg",
+      "sha256": "8024c4f68af6be0882ac99d74a56628db04f68e38c435d14625facb3c36682c1",
+      "bytes": 13932
+    },
+    {
+      "path": "mythic-motion/god-4-strained-idle-normal.jpg",
+      "sha256": "4ce8a2e884b446b4f0e5b192dabdea0324829de9a365a50da8e3ffd867a60d89",
+      "bytes": 13947
+    },
+    {
+      "path": "mythic-motion/god-4-strained-idle-reduced.jpg",
+      "sha256": "95fb0bdd7d7a01cc81674861a7b29b66839fb2f3c963a879c774158167c69927",
+      "bytes": 13994
+    },
+    {
+      "path": "mythic-motion/god-4-strained-walk-normal.jpg",
+      "sha256": "79946c9870a3e043f8db70779f7f6a2ff20f867e8d55bf3226137d8e32a71fda",
+      "bytes": 13762
+    },
+    {
+      "path": "mythic-motion/god-4-strained-walk-reduced.jpg",
+      "sha256": "555c413e9569717ba50f22ab0da6510c3a5c0659bd24fcd76986b1b96b0eb846",
+      "bytes": 13854
+    },
+    {
+      "path": "mythic-motion/god-4-tired-idle-normal.jpg",
+      "sha256": "66891fbebd80a2ff941d1d393a84a3a63b4f3acda3e760de9fddb930cf59da2c",
+      "bytes": 13563
+    },
+    {
+      "path": "mythic-motion/god-4-tired-idle-reduced.jpg",
+      "sha256": "b53e544b46dbec57f1e98d631c6e2112992715e03059629d38dfb3c9fb184663",
+      "bytes": 13727
+    },
+    {
+      "path": "mythic-motion/god-4-tired-walk-normal.jpg",
+      "sha256": "b3b10f35b44ae47fa1e1173d78af6c2a975cf3e915ac0a3849552c352b4e4ad0",
+      "bytes": 13651
+    },
+    {
+      "path": "mythic-motion/god-4-tired-walk-reduced.jpg",
+      "sha256": "640e2c7f95ac3c5c3a8ad00aac02575de1cdb4a5728442b0b2e492760ed6981e",
+      "bytes": 13799
+    },
+    {
+      "path": "mythic-motion/god-4-wantsPlay-idle-normal.jpg",
+      "sha256": "98302d58c1bd19201ac5909762240640191e9dea0a7d634de52fdccaa4f42ea9",
+      "bytes": 13661
+    },
+    {
+      "path": "mythic-motion/god-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "59389e99702576b15b04a30bf49837517a448edc705f460ba4f0c7ada264f899",
+      "bytes": 13865
+    },
+    {
+      "path": "mythic-motion/god-4-wantsPlay-walk-normal.jpg",
+      "sha256": "8bdfefcc92faf1bbac3b725965c830cfb623a76ce310bad177656821f54a8fdb",
+      "bytes": 13584
+    },
+    {
+      "path": "mythic-motion/god-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "3d98f14452db5aafc2cd9ffc74191dd0989d43c548c5f1f13d0e71f7d57662ab",
+      "bytes": 13854
+    },
+    {
+      "path": "mythic-motion/god-5-dislike-idle-normal.jpg",
+      "sha256": "77e4243009db8a7af4ca51f7b71fb14e975e3c3c73f759572484fc1fcba09023",
+      "bytes": 14573
+    },
+    {
+      "path": "mythic-motion/god-5-dislike-idle-reduced.jpg",
+      "sha256": "16631a935df89bbb064ddf6e5bab187f7b75a7f25554fbff001d88dfb7024662",
+      "bytes": 14619
+    },
+    {
+      "path": "mythic-motion/god-5-dislike-walk-normal.jpg",
+      "sha256": "01bf2aefbd3391a276a925f67e14379eca1147c44abdbc292063c00028ecbfa4",
+      "bytes": 14475
+    },
+    {
+      "path": "mythic-motion/god-5-dislike-walk-reduced.jpg",
+      "sha256": "465a88c8ae2386f3e5fff04ea6e1e2d18550bb36e91a7ce6223bbf8ec911272c",
+      "bytes": 14725
+    },
+    {
+      "path": "mythic-motion/god-5-motion.jpg",
+      "sha256": "0fece50f421b3d5b77e5b9cdac073aaaa65256cce9165eea4a6b048a1db98080",
+      "bytes": 686709
+    },
+    {
+      "path": "mythic-motion/god-5-normal-idle-normal.jpg",
+      "sha256": "ff92a882e230a9174060ca9fbabca53e0c0c8340938fb4040e260580a2917649",
+      "bytes": 14785
+    },
+    {
+      "path": "mythic-motion/god-5-normal-idle-reduced.jpg",
+      "sha256": "7b60b6db449bb496046b8549f8869a96fc19455bc347da22fe1712df34b42234",
+      "bytes": 14801
+    },
+    {
+      "path": "mythic-motion/god-5-normal-walk-normal.jpg",
+      "sha256": "43fb7f0fc5888932e5aad92d442389353b2ae4c45977ddb7215e1391bd2ace26",
+      "bytes": 15179
+    },
+    {
+      "path": "mythic-motion/god-5-normal-walk-reduced.jpg",
+      "sha256": "ffc3dc2c177487ccebd3ba0d80e08d5ede2dcda350ad1375fe26ac16d2c22906",
+      "bytes": 15086
+    },
+    {
+      "path": "mythic-motion/god-5-positive-idle-normal.jpg",
+      "sha256": "e00adfa468a7d9676bf096abf225d539ff8b3f46866d3088ad9fa482e55033f7",
+      "bytes": 14773
+    },
+    {
+      "path": "mythic-motion/god-5-positive-idle-reduced.jpg",
+      "sha256": "4f2cb3b68cd914e8746cbcd037d97fdb36df1fe35f5cc805519c5b1b33491768",
+      "bytes": 14656
+    },
+    {
+      "path": "mythic-motion/god-5-positive-walk-normal.jpg",
+      "sha256": "d08325f3157114b332fa90f70191ed1c914c0b5b62db301155e311daa347a768",
+      "bytes": 14650
+    },
+    {
+      "path": "mythic-motion/god-5-positive-walk-reduced.jpg",
+      "sha256": "a00741799fb48bd8bd968b4ddbd01afa6c218d2c5203f5ba591ca40ed19ec1e8",
+      "bytes": 14755
+    },
+    {
+      "path": "mythic-motion/god-5-sick-idle-normal.jpg",
+      "sha256": "b9edb6f9c1ff000967521894bb34b59633ac5d06a7cf7c013d0084dbddbedc4f",
+      "bytes": 14286
+    },
+    {
+      "path": "mythic-motion/god-5-sick-idle-reduced.jpg",
+      "sha256": "fd8c2ac4047bdbd025db5042c99dd3be7de03d91430b54ea544a26273c4cea28",
+      "bytes": 14293
+    },
+    {
+      "path": "mythic-motion/god-5-sick-walk-normal.jpg",
+      "sha256": "8ae706c1e156fcbd86c4d40f78a6618bbb33f332a1dc67ead7602251e0494bcb",
+      "bytes": 14394
+    },
+    {
+      "path": "mythic-motion/god-5-sick-walk-reduced.jpg",
+      "sha256": "fca9affd734a0becac0b3217e43a09e5bd47ea57c8cb5d60c754b70a08a7c505",
+      "bytes": 14328
+    },
+    {
+      "path": "mythic-motion/god-5-sleeping-idle-normal.jpg",
+      "sha256": "22b19867f45e46d72ecacb461b2cb20f4e0d0da96d0b5fe2fd386cc7c7892628",
+      "bytes": 14020
+    },
+    {
+      "path": "mythic-motion/god-5-sleeping-idle-reduced.jpg",
+      "sha256": "afcf6ad9c7db9ab93393e5bf60e26ff85bab77990c70ee5c712d5aa114437ca6",
+      "bytes": 14056
+    },
+    {
+      "path": "mythic-motion/god-5-sleeping-walk-normal.jpg",
+      "sha256": "935f8eae9c8f91120ec3ff8fe4007e2542164f483d866cdbd9600dba56c91547",
+      "bytes": 14491
+    },
+    {
+      "path": "mythic-motion/god-5-sleeping-walk-reduced.jpg",
+      "sha256": "c4a830df7b15755f209c9aaef3193173fed17a15b1ea6cb90378ab6a4dbccc5a",
+      "bytes": 14215
+    },
+    {
+      "path": "mythic-motion/god-5-strained-idle-normal.jpg",
+      "sha256": "f3c70c115a67eef7ed286c5ab6ee61fe868e103a73c5ea50f97fea9cfccb9f07",
+      "bytes": 14540
+    },
+    {
+      "path": "mythic-motion/god-5-strained-idle-reduced.jpg",
+      "sha256": "e452b093766b2ac1acec5f20763c3642ee92f233512d63c018a3bae6423c5f0f",
+      "bytes": 14710
+    },
+    {
+      "path": "mythic-motion/god-5-strained-walk-normal.jpg",
+      "sha256": "e0741c6cb76bedc1171c34a2e4ef948787816949bf688c1cb86ea8448f02770c",
+      "bytes": 14882
+    },
+    {
+      "path": "mythic-motion/god-5-strained-walk-reduced.jpg",
+      "sha256": "651baac928c2de21aee0dc0f159eda5dbbb340c07d37a86b323a3f15e2aaaf6a",
+      "bytes": 14762
+    },
+    {
+      "path": "mythic-motion/god-5-tired-idle-normal.jpg",
+      "sha256": "b121aa151ed21052b34c402925c8dca2282e434260b0b822d8867cf20ccba9ae",
+      "bytes": 14128
+    },
+    {
+      "path": "mythic-motion/god-5-tired-idle-reduced.jpg",
+      "sha256": "a8c2bfbf9844e920ad4e90d37044d399ba1fb709ebe43d0e31032b4fa689c0f7",
+      "bytes": 14132
+    },
+    {
+      "path": "mythic-motion/god-5-tired-walk-normal.jpg",
+      "sha256": "e95716c6994ee912a84a771cc825224cad1cdae0c3736a9a7d63426a137910e2",
+      "bytes": 14374
+    },
+    {
+      "path": "mythic-motion/god-5-tired-walk-reduced.jpg",
+      "sha256": "329a59553b02785cb90f25d52adbecbeb72c9ba0c9060de918c738d79a581019",
+      "bytes": 14286
+    },
+    {
+      "path": "mythic-motion/god-5-wantsPlay-idle-normal.jpg",
+      "sha256": "4e7e77809527e341117129bcf3d47b12f2f931738448029b32ab381bad281575",
+      "bytes": 14706
+    },
+    {
+      "path": "mythic-motion/god-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "6e7346fa733037ab7cae38f79feb60ea2c1d47f394fda4127e09aa9b8bd47c36",
+      "bytes": 14927
+    },
+    {
+      "path": "mythic-motion/god-5-wantsPlay-walk-normal.jpg",
+      "sha256": "01fa633f62383656eb061dc3518fb566d48e145a6b29bbfd025f685532a4b5ec",
+      "bytes": 14872
+    },
+    {
+      "path": "mythic-motion/god-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "5930c00e2686179b751ed5e43fa7fe1d8125511cdd5ccb4915eca2ec70bfee91",
+      "bytes": 14941
+    },
+    {
+      "path": "mythic-motion/god-6-dislike-idle-normal.jpg",
+      "sha256": "fd253a6702570b50738d6ce6f8678c3910adcb24e8f00bd959fbcf3e2c758b6f",
+      "bytes": 13584
+    },
+    {
+      "path": "mythic-motion/god-6-dislike-idle-reduced.jpg",
+      "sha256": "b1dfec14bb05e119e0e93913f5ff89d466cc292467ac25193164d235d7601fdd",
+      "bytes": 13685
+    },
+    {
+      "path": "mythic-motion/god-6-dislike-walk-normal.jpg",
+      "sha256": "616976fa43e6412b64ebdc469f4c27c850ff7415dd65988d42072563163fae99",
+      "bytes": 13496
+    },
+    {
+      "path": "mythic-motion/god-6-dislike-walk-reduced.jpg",
+      "sha256": "f5c3c1d8474cc4be8c54576a51900eb2ae653c169a5273fdb96d0940dbc707b6",
+      "bytes": 13650
+    },
+    {
+      "path": "mythic-motion/god-6-motion.jpg",
+      "sha256": "dda7cb8fd66902da672fca325adced10020f0bd0470ab9278322c53d2f54a474",
+      "bytes": 669917
+    },
+    {
+      "path": "mythic-motion/god-6-normal-idle-normal.jpg",
+      "sha256": "f4096fc7335c367fe257173f0893715bd43a220757aa6954f586ad94e1630277",
+      "bytes": 13791
+    },
+    {
+      "path": "mythic-motion/god-6-normal-idle-reduced.jpg",
+      "sha256": "5997d69c5cf628e5964f1d6b07a89a8955195d5b6b80c4720faa3cc9d41c2d03",
+      "bytes": 13980
+    },
+    {
+      "path": "mythic-motion/god-6-normal-walk-normal.jpg",
+      "sha256": "3177b1af35b98f65193f9aca2b19d23446d5777a73b4a7bc23f89148635c1f94",
+      "bytes": 14171
+    },
+    {
+      "path": "mythic-motion/god-6-normal-walk-reduced.jpg",
+      "sha256": "0d7df42e74f9b77c917ed5a0e364f27372e14395aed923c16ee8673dd1e0f4fb",
+      "bytes": 14093
+    },
+    {
+      "path": "mythic-motion/god-6-positive-idle-normal.jpg",
+      "sha256": "b7fd98aeb0d646cf6e2824c022e01baa6af1337f01e18dad0328c50c913ef6c5",
+      "bytes": 13820
+    },
+    {
+      "path": "mythic-motion/god-6-positive-idle-reduced.jpg",
+      "sha256": "1a8cfac9981f2030f158958cc761eeea85555fb34c751b3be44b212112e4d7d1",
+      "bytes": 13945
+    },
+    {
+      "path": "mythic-motion/god-6-positive-walk-normal.jpg",
+      "sha256": "c8fcac13490425cc72d0a1c3ecf49d0ba792461a5e195314dc54649c11f33fda",
+      "bytes": 13922
+    },
+    {
+      "path": "mythic-motion/god-6-positive-walk-reduced.jpg",
+      "sha256": "5a168cb78c6ce1f21c318dc93f62bb0e42120577cbfd317b385ff4158722cc21",
+      "bytes": 14005
+    },
+    {
+      "path": "mythic-motion/god-6-sick-idle-normal.jpg",
+      "sha256": "becb8afe2f4f0f3f7cfe8dd8c6314cfcec34a499f92937914a6a85e70063311a",
+      "bytes": 13790
+    },
+    {
+      "path": "mythic-motion/god-6-sick-idle-reduced.jpg",
+      "sha256": "26090bc714841bb7dc0fb1fc65cf18f3cd365c561ee8589b8c8f3eb911c11ccc",
+      "bytes": 14016
+    },
+    {
+      "path": "mythic-motion/god-6-sick-walk-normal.jpg",
+      "sha256": "c3bf258423388d85cf8275054b0e9a642e4b6dcb4f747cd97a9005e70b6da82f",
+      "bytes": 13875
+    },
+    {
+      "path": "mythic-motion/god-6-sick-walk-reduced.jpg",
+      "sha256": "86486a274c71075d56a4ae8ca0a2780be7f24198525dc4ee9621f23a8c52d88c",
+      "bytes": 13927
+    },
+    {
+      "path": "mythic-motion/god-6-sleeping-idle-normal.jpg",
+      "sha256": "9a231300436eb82d90c7d2c9f581235c9748fe00f1367d94de273222fdf53bac",
+      "bytes": 14418
+    },
+    {
+      "path": "mythic-motion/god-6-sleeping-idle-reduced.jpg",
+      "sha256": "2c0cfa49e78a7c8713272be7ac6063d68e1c2f3d2284da0b4d4b5dadc25f75d1",
+      "bytes": 14462
+    },
+    {
+      "path": "mythic-motion/god-6-sleeping-walk-normal.jpg",
+      "sha256": "d054de7ced04a9379ca7ce1e241c394073bc4d3798b530e8049e2a2b7f26d5e0",
+      "bytes": 14527
+    },
+    {
+      "path": "mythic-motion/god-6-sleeping-walk-reduced.jpg",
+      "sha256": "9dee781d08ec3761871ee6423b5e2b8ddcc3e0409e1ecb63aa49f48da129165d",
+      "bytes": 14672
+    },
+    {
+      "path": "mythic-motion/god-6-strained-idle-normal.jpg",
+      "sha256": "f98ec103c0027831bf584f1fbe55391cc19fc02835de7582b50f3ae9bd10452a",
+      "bytes": 14111
+    },
+    {
+      "path": "mythic-motion/god-6-strained-idle-reduced.jpg",
+      "sha256": "51ae2fbe9a387a65fcc282ed58c77717f6f58c796f36df5b6b179f8811cf3cac",
+      "bytes": 14347
+    },
+    {
+      "path": "mythic-motion/god-6-strained-walk-normal.jpg",
+      "sha256": "e39eddeb4935815e9ef213a93108d34411574aa30ddaffb04d9b1a23918ff6d2",
+      "bytes": 14381
+    },
+    {
+      "path": "mythic-motion/god-6-strained-walk-reduced.jpg",
+      "sha256": "c96f333f2e4c30811ad961089a51f06cb6bd93fde979812c2c9e01c8aa02cade",
+      "bytes": 14367
+    },
+    {
+      "path": "mythic-motion/god-6-tired-idle-normal.jpg",
+      "sha256": "8e00b997e6282814ad3045b4f8678e20d4db145f168c0dec51da9ea0a08e001f",
+      "bytes": 13972
+    },
+    {
+      "path": "mythic-motion/god-6-tired-idle-reduced.jpg",
+      "sha256": "1794c1b9b9ef756b7cc0ea53c55a9c5177ef1d7e17dc3f24d8e5bebbb39c2f91",
+      "bytes": 14130
+    },
+    {
+      "path": "mythic-motion/god-6-tired-walk-normal.jpg",
+      "sha256": "701f748e533dd30a9b5af592ee2f0fa4e033d0ff6574ae3e5fcc3d90fd96ad19",
+      "bytes": 14125
+    },
+    {
+      "path": "mythic-motion/god-6-tired-walk-reduced.jpg",
+      "sha256": "4efb7c4977ff54254b87eb1615591945268ac19bc0509edfdb898b34af903219",
+      "bytes": 14236
+    },
+    {
+      "path": "mythic-motion/god-6-wantsPlay-idle-normal.jpg",
+      "sha256": "b00c8817b78582a391fe09eb68c77b0e08d086e9e3643df68d3656317f6408a1",
+      "bytes": 13860
+    },
+    {
+      "path": "mythic-motion/god-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "2c984f4daa7857b8c8571add7a9fae7dfc82eadb2b9673b71186f881c0583e52",
+      "bytes": 14100
+    },
+    {
+      "path": "mythic-motion/god-6-wantsPlay-walk-normal.jpg",
+      "sha256": "fbd665769f41dfc5cb37390d4835da9d482174f18100ef77d48fd0a3778bde57",
+      "bytes": 13986
+    },
+    {
+      "path": "mythic-motion/god-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "e71982a9402a438e44abafc5949f12c97e782ef4fac4402e5859498cca751f1f",
+      "bytes": 14059
+    },
+    {
+      "path": "mythic-motion/god-7-dislike-idle-normal.jpg",
+      "sha256": "ff28ef0bd9e62a7ac715eccfb2f07737c7149680b5d4188e0897d948006f4ee8",
+      "bytes": 13208
+    },
+    {
+      "path": "mythic-motion/god-7-dislike-idle-reduced.jpg",
+      "sha256": "43c4c5df77a9ea3966c49b8ebff99f4acee4286a47e2626448d594ec7ec78865",
+      "bytes": 13325
+    },
+    {
+      "path": "mythic-motion/god-7-dislike-walk-normal.jpg",
+      "sha256": "ff4dbffe9911ceea42e1206bd6b4dc111f148c836a44980daf665d57205e8d30",
+      "bytes": 13299
+    },
+    {
+      "path": "mythic-motion/god-7-dislike-walk-reduced.jpg",
+      "sha256": "bb187eca2cae99d4f003dca14bce9fc0e36ff9cad0385f41ac3e442480224060",
+      "bytes": 13368
+    },
+    {
+      "path": "mythic-motion/god-7-motion.jpg",
+      "sha256": "826593320b9389220efed1aa17866e0fca4e6bc21344386d5cb5ca5c536d79fd",
+      "bytes": 628821
+    },
+    {
+      "path": "mythic-motion/god-7-normal-idle-normal.jpg",
+      "sha256": "916e372ba814a7826f28b9779b46f57e7f7422e441898e0f18d54fdcecfded81",
+      "bytes": 13326
+    },
+    {
+      "path": "mythic-motion/god-7-normal-idle-reduced.jpg",
+      "sha256": "667e76847090307f5f62c4c4485086c58609ce46b0b21b0865e6a3bae40a7b64",
+      "bytes": 13582
+    },
+    {
+      "path": "mythic-motion/god-7-normal-walk-normal.jpg",
+      "sha256": "311030c54ab59fb8db17b3a4232745717566597c5e1faae4c44f9bc7ca4ff12f",
+      "bytes": 13321
+    },
+    {
+      "path": "mythic-motion/god-7-normal-walk-reduced.jpg",
+      "sha256": "d3ea7067fe10b16defbba2f0b6f4fa71a99ea42fe6b3d16976dc153d3c9b32fd",
+      "bytes": 13506
+    },
+    {
+      "path": "mythic-motion/god-7-positive-idle-normal.jpg",
+      "sha256": "9d585d638d821333ce4b32fa0a0c41d48d98fad4c00f75e85f97cb5c103d3f3c",
+      "bytes": 13340
+    },
+    {
+      "path": "mythic-motion/god-7-positive-idle-reduced.jpg",
+      "sha256": "27dbf91fdf037801ad939b18a233ef37285fe2c131d30ffea84ca5508ec0dd98",
+      "bytes": 13439
+    },
+    {
+      "path": "mythic-motion/god-7-positive-walk-normal.jpg",
+      "sha256": "d43442c92f8704dd3a2030db11f55a1ac80db772bb4f7fc60e79946a0c9fe7ae",
+      "bytes": 13316
+    },
+    {
+      "path": "mythic-motion/god-7-positive-walk-reduced.jpg",
+      "sha256": "5eec02d0c6af18368437419bc9355befa27e2b2db3371a06031ec39ce68c05f7",
+      "bytes": 13544
+    },
+    {
+      "path": "mythic-motion/god-7-sick-idle-normal.jpg",
+      "sha256": "fa9fa1fabd77192890f40a82a88314eb1c90aa91249de5b099478dab71f34867",
+      "bytes": 13453
+    },
+    {
+      "path": "mythic-motion/god-7-sick-idle-reduced.jpg",
+      "sha256": "9c940591c61e8c3039e181d918027bb5bcf9775700547770809236ded7127f74",
+      "bytes": 13572
+    },
+    {
+      "path": "mythic-motion/god-7-sick-walk-normal.jpg",
+      "sha256": "123ead338309179c725bd51c20ad05df113243f8ba82c59a742fbcabb3706da5",
+      "bytes": 13450
+    },
+    {
+      "path": "mythic-motion/god-7-sick-walk-reduced.jpg",
+      "sha256": "64f5fbdfe779d203e7bf358f5e5ce40e598c9d6a96d4dcdc48358ec7dd9066e0",
+      "bytes": 13588
+    },
+    {
+      "path": "mythic-motion/god-7-sleeping-idle-normal.jpg",
+      "sha256": "36bfaadc5ed7aec164ae1d9da5274c836bb9dfe0e8986ed0cff7f6527e5c4336",
+      "bytes": 13685
+    },
+    {
+      "path": "mythic-motion/god-7-sleeping-idle-reduced.jpg",
+      "sha256": "2e2b2f25d69df11a29e788293c5876651cc03fc5dfd2ec1964b4b0fa164b66e7",
+      "bytes": 13740
+    },
+    {
+      "path": "mythic-motion/god-7-sleeping-walk-normal.jpg",
+      "sha256": "86c0e920fab05871549f38a9fc5c3811cf07cde92f35f4fa2683256496caa505",
+      "bytes": 13650
+    },
+    {
+      "path": "mythic-motion/god-7-sleeping-walk-reduced.jpg",
+      "sha256": "b6e2804b3ee860bb1404ee729bb0017beabdcf11d2ceff8ffa9ed456ef2e134d",
+      "bytes": 13865
+    },
+    {
+      "path": "mythic-motion/god-7-strained-idle-normal.jpg",
+      "sha256": "3b827a17369ca3cbf85febff0eff74b051bd2dbc668d5288f301a368fd308352",
+      "bytes": 13658
+    },
+    {
+      "path": "mythic-motion/god-7-strained-idle-reduced.jpg",
+      "sha256": "8e7af681e82a59c07ed5db3c700176724e2f89199a430f4946777556042e5cb9",
+      "bytes": 13920
+    },
+    {
+      "path": "mythic-motion/god-7-strained-walk-normal.jpg",
+      "sha256": "04c453b6ad9464771cd9ea2ecc0a41057c5be2fffd804f47086a6fac88ad28a7",
+      "bytes": 13673
+    },
+    {
+      "path": "mythic-motion/god-7-strained-walk-reduced.jpg",
+      "sha256": "19fafcca86c5f8070dc121ec71f67acc1f10db0d1abd6431ee02baa749d684e7",
+      "bytes": 13785
+    },
+    {
+      "path": "mythic-motion/god-7-tired-idle-normal.jpg",
+      "sha256": "6a6b324dd5a6a21c8b6a8766c2c26fcd13e646137d0b71ea546f7441917dea7f",
+      "bytes": 13546
+    },
+    {
+      "path": "mythic-motion/god-7-tired-idle-reduced.jpg",
+      "sha256": "b5414c4f29ddf40b9dd6c4d3c85e6531e8464266c171fd7231419e330f33f076",
+      "bytes": 13635
+    },
+    {
+      "path": "mythic-motion/god-7-tired-walk-normal.jpg",
+      "sha256": "0e818f2238397dc401e932c155de7381ca4434ecef0de63e499aa06e7b704506",
+      "bytes": 13590
+    },
+    {
+      "path": "mythic-motion/god-7-tired-walk-reduced.jpg",
+      "sha256": "a33391db200e5707649cb1df5d2eadc2bfa0ffa09ad29909656494c7c0112a2b",
+      "bytes": 13762
+    },
+    {
+      "path": "mythic-motion/god-7-wantsPlay-idle-normal.jpg",
+      "sha256": "2b41dedefe039e0448a81bbcabd2f08b60c382600bf1d243d1477235e4e3c2a0",
+      "bytes": 13396
+    },
+    {
+      "path": "mythic-motion/god-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "8897c44bb87cffca181b210c0bacf5eefd8244399114e68509922c19f7923139",
+      "bytes": 13463
+    },
+    {
+      "path": "mythic-motion/god-7-wantsPlay-walk-normal.jpg",
+      "sha256": "cd5f48c872840ef8e1a2a811898b3cd289c89dcaf1a242a2a85a8b6d413a2f9a",
+      "bytes": 13480
+    },
+    {
+      "path": "mythic-motion/god-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "d0c500baebc7a0f25624ef0d1add4e18008cba68018dd64462a3140a8c7d7ddc",
+      "bytes": 13558
+    },
+    {
+      "path": "mythic-motion/god-8-dislike-idle-normal.jpg",
+      "sha256": "e30efcdef53031e0ba9a6ae21d127d49c7b553c9df8310f725166bb525923644",
+      "bytes": 10864
+    },
+    {
+      "path": "mythic-motion/god-8-dislike-idle-reduced.jpg",
+      "sha256": "c61a8c2e19ace7907dc6176755098c8a4289319a633f512e52db0196e533c187",
+      "bytes": 11005
+    },
+    {
+      "path": "mythic-motion/god-8-dislike-walk-normal.jpg",
+      "sha256": "be6608a29eb45bd71e66e05955f120bcefc02df59cf118339005da756c1df98e",
+      "bytes": 11443
+    },
+    {
+      "path": "mythic-motion/god-8-dislike-walk-reduced.jpg",
+      "sha256": "430db227120a7d3c04036a020886e45ca7674a24e2f1c97441a3c5525e0b39fc",
+      "bytes": 11717
+    },
+    {
+      "path": "mythic-motion/god-8-motion.jpg",
+      "sha256": "d7cdebbfae3470ec65a2e1fe5710864d00cbe857a3f85949bd70f048d1afd52c",
+      "bytes": 531326
+    },
+    {
+      "path": "mythic-motion/god-8-normal-idle-normal.jpg",
+      "sha256": "ca651b37d8fa95fcc73e262414c86c76086ee68032c3830ea89478d43f17491e",
+      "bytes": 10988
+    },
+    {
+      "path": "mythic-motion/god-8-normal-idle-reduced.jpg",
+      "sha256": "b4577a368d818d354a4e6a53dd43c08720403147e5b454057c34ef95aee81a83",
+      "bytes": 11245
+    },
+    {
+      "path": "mythic-motion/god-8-normal-walk-normal.jpg",
+      "sha256": "ac1d0e8650a78f20944395ea93fdd93ec3d67c11c993ea23cbc05ca4afbdb881",
+      "bytes": 10461
+    },
+    {
+      "path": "mythic-motion/god-8-normal-walk-reduced.jpg",
+      "sha256": "45a233b0411186e4b7c11ddf8f94071442cd7d41a51d51e1742058501e3023ee",
+      "bytes": 10962
+    },
+    {
+      "path": "mythic-motion/god-8-positive-idle-normal.jpg",
+      "sha256": "15cbcf0d435b588a618e13ea6bf218ed42a64181662d406b1a6ed992a2251a03",
+      "bytes": 10943
+    },
+    {
+      "path": "mythic-motion/god-8-positive-idle-reduced.jpg",
+      "sha256": "f3eea33a307058f76c57c3c2506fab8277aee58be3679a3cce8be6a27886403d",
+      "bytes": 11260
+    },
+    {
+      "path": "mythic-motion/god-8-positive-walk-normal.jpg",
+      "sha256": "6ed81eeb7c908eae439460d778e8097486f3e91b9de7e410215feab842a826a9",
+      "bytes": 10967
+    },
+    {
+      "path": "mythic-motion/god-8-positive-walk-reduced.jpg",
+      "sha256": "4c12af7d8a472b071a61a4b92d69c450a1e49adbadf5408215e706c24371316b",
+      "bytes": 11251
+    },
+    {
+      "path": "mythic-motion/god-8-sick-idle-normal.jpg",
+      "sha256": "7073288f4c726a0bd489e225e71611f0e064b34e3a8a2450171e2f8c08a53f9c",
+      "bytes": 11315
+    },
+    {
+      "path": "mythic-motion/god-8-sick-idle-reduced.jpg",
+      "sha256": "2ae1374c571555517eda5ffcc7f50a8fc836ee44630f22fc5ff242b50ca6af61",
+      "bytes": 11408
+    },
+    {
+      "path": "mythic-motion/god-8-sick-walk-normal.jpg",
+      "sha256": "22d723e707efe3fe6c8bafc509e1d97ce99b539eb622898118d507c8290c59a9",
+      "bytes": 10941
+    },
+    {
+      "path": "mythic-motion/god-8-sick-walk-reduced.jpg",
+      "sha256": "be8d831b35f8a6ca3c6e46229391f7f0324f81deaafb18f6cf7784972201db70",
+      "bytes": 10858
+    },
+    {
+      "path": "mythic-motion/god-8-sleeping-idle-normal.jpg",
+      "sha256": "8af3083add83f818c0fff2b0aeb477743656b7150d0bf403c9a4f7f4f88aefc9",
+      "bytes": 10899
+    },
+    {
+      "path": "mythic-motion/god-8-sleeping-idle-reduced.jpg",
+      "sha256": "5e91c33ab647a70da9b7c8f30df58a891a56f85d9ac274a99d1e2947305c18b0",
+      "bytes": 10877
+    },
+    {
+      "path": "mythic-motion/god-8-sleeping-walk-normal.jpg",
+      "sha256": "54dd4e472d404eadbc3cec87488c008cb41518d4b05c2af3944b7307d100de0e",
+      "bytes": 10594
+    },
+    {
+      "path": "mythic-motion/god-8-sleeping-walk-reduced.jpg",
+      "sha256": "c15b37d7c2847f45ab3fa65ddec3bf5078cc3faf82dfecb9ecd0452bbd1116b2",
+      "bytes": 10565
+    },
+    {
+      "path": "mythic-motion/god-8-strained-idle-normal.jpg",
+      "sha256": "95628525beb5e802830f27e318a3e90766f9a830b215d7a49a158b0527864201",
+      "bytes": 11398
+    },
+    {
+      "path": "mythic-motion/god-8-strained-idle-reduced.jpg",
+      "sha256": "88aeed3ca87605b9340407c26cddb1b4d13d3d5ad818e60f7055537af5b4e820",
+      "bytes": 11453
+    },
+    {
+      "path": "mythic-motion/god-8-strained-walk-normal.jpg",
+      "sha256": "2b09e13b4700b57756eb954a37a0dabac731c556d9cf4b29b4d6489e13d72503",
+      "bytes": 11402
+    },
+    {
+      "path": "mythic-motion/god-8-strained-walk-reduced.jpg",
+      "sha256": "6fd1f9fb890056a2eeb7e5303c7b71cd079f7bc9b79941ae4ecd7eb5b71c44cc",
+      "bytes": 11460
+    },
+    {
+      "path": "mythic-motion/god-8-tired-idle-normal.jpg",
+      "sha256": "6e8536a1817ec32cede80449db3560057a2ba45fcd2551e305a61478200cee93",
+      "bytes": 11016
+    },
+    {
+      "path": "mythic-motion/god-8-tired-idle-reduced.jpg",
+      "sha256": "224620de6d48b0d416dd17e5fccf6d5eb884d4aea2161771bac1fffb5b0d6dbf",
+      "bytes": 10992
+    },
+    {
+      "path": "mythic-motion/god-8-tired-walk-normal.jpg",
+      "sha256": "456ef11c33817517b260e9e99aa47c08a174e0d6b24462c333a26aabcd58673b",
+      "bytes": 10619
+    },
+    {
+      "path": "mythic-motion/god-8-tired-walk-reduced.jpg",
+      "sha256": "4d2aa539e7b6f6140d65d7455d273abf55e4cf2767a55a5c9098a89991c8f069",
+      "bytes": 10632
+    },
+    {
+      "path": "mythic-motion/god-8-wantsPlay-idle-normal.jpg",
+      "sha256": "1c239e28eaac230a8c42fd2c2ca7dfa2a615dea57d55ab124c7ba3129a9527a0",
+      "bytes": 11054
+    },
+    {
+      "path": "mythic-motion/god-8-wantsPlay-idle-reduced.jpg",
+      "sha256": "06a95a425f9c05c255f2a36bc4b93c2ef4d4949bc38dd9d72b7d66970d181657",
+      "bytes": 11347
+    },
+    {
+      "path": "mythic-motion/god-8-wantsPlay-walk-normal.jpg",
+      "sha256": "b1325877b34b31cd773eea56ea744112bed0350386ba51de62bed77a4eb50ed2",
+      "bytes": 10622
+    },
+    {
+      "path": "mythic-motion/god-8-wantsPlay-walk-reduced.jpg",
+      "sha256": "4b5f43223aa7a2fc6a7af0f839cdc7df4f646b0a06398180e042aedcd56c99ba",
+      "bytes": 10928
+    },
+    {
+      "path": "mythic-motion/motion-evidence.json",
+      "sha256": "1152ba08abc783efd45f7c50ef34b0339b777056f271df7e6263f5299426aba5",
+      "bytes": 148026
+    },
+    {
+      "path": "mythic/evidence.json",
+      "sha256": "6f5570b0fe44528156e75fbb2feeec13308eb0f6e433b2ad23a9fb6e60279ae4",
+      "bytes": 17133
+    },
+    {
+      "path": "mythic/god-1-34.jpg",
+      "sha256": "441a215d6b0c938076088eeb57019e837cd72255fe82ece9b16077ff5f775700",
+      "bytes": 8589
+    },
+    {
+      "path": "mythic/god-1-back.jpg",
+      "sha256": "ba41cb1c0676a35e47d54b176644084d9ae27135a10db7850f1554feeefe0106",
+      "bytes": 7587
+    },
+    {
+      "path": "mythic/god-1-front.jpg",
+      "sha256": "d5702466a818a93c0001c885f97acd4733cb59d61836754575543b7629b5bd72",
+      "bytes": 8969
+    },
+    {
+      "path": "mythic/god-1-side.jpg",
+      "sha256": "9d4ca6004ec71c4a9288189e000522fa5e9e332fed8d488673d5e5f2fb7291ce",
+      "bytes": 7361
+    },
+    {
+      "path": "mythic/god-2-34.jpg",
+      "sha256": "8b3bb3a08cdeac5ae4fcd4843f987d3d538e57241274a7a2d90d59f10fec3d2f",
+      "bytes": 10769
+    },
+    {
+      "path": "mythic/god-2-back.jpg",
+      "sha256": "377474d71c9b6dee22458c476ea728a1704cef3a137aea301627cb1779e699e1",
+      "bytes": 9278
+    },
+    {
+      "path": "mythic/god-2-front.jpg",
+      "sha256": "a5855cd563a2904aa485a2d7831e056a602b170efc7dfa87a2871ac37126e345",
+      "bytes": 11311
+    },
+    {
+      "path": "mythic/god-2-side.jpg",
+      "sha256": "d8567d62758b0d3922d9ba7bed00eebc0071e6417025f89db06d3760a17446fc",
+      "bytes": 9220
+    },
+    {
+      "path": "mythic/god-3-34.jpg",
+      "sha256": "98e672a683a506f5e6350ed2cf3ba14f9b816d53ed259ca756a1e67ac98d98f4",
+      "bytes": 13459
+    },
+    {
+      "path": "mythic/god-3-back.jpg",
+      "sha256": "3e43c7a88004f521eca5494c89030a1a1c255499d968e5f5e76b7b963c18ed90",
+      "bytes": 10703
+    },
+    {
+      "path": "mythic/god-3-front.jpg",
+      "sha256": "b3a4c905bc25ab4a017d39fc38c1e44c4b8ae50f1cfe14dd177cef9b2f053a80",
+      "bytes": 14093
+    },
+    {
+      "path": "mythic/god-3-side.jpg",
+      "sha256": "d3be7cc0d02c650640ca67e1f492d19ad9987c6340029be83edb4ec01b94343e",
+      "bytes": 10607
+    },
+    {
+      "path": "mythic/god-4-34.jpg",
+      "sha256": "34e0cc46b555c630f49b67c81830223e47582ebc4ecc6baf9d57910d11d2c084",
+      "bytes": 13646
+    },
+    {
+      "path": "mythic/god-4-back.jpg",
+      "sha256": "2c3974044f9c075d685bd07be7b4f1d4db369d9467ed5b6e053cb647f3a2526d",
+      "bytes": 10993
+    },
+    {
+      "path": "mythic/god-4-front.jpg",
+      "sha256": "415d764e390c818b8599395e207c4b5caeb2b2199ce109ec6f0bd3cee1d7f892",
+      "bytes": 14493
+    },
+    {
+      "path": "mythic/god-4-side.jpg",
+      "sha256": "065f99f7fae549fcd695d886d4dca7e810e5a7d37b43b591c8f4deeb0ee4a3e9",
+      "bytes": 10666
+    },
+    {
+      "path": "mythic/god-5-34.jpg",
+      "sha256": "ff92a882e230a9174060ca9fbabca53e0c0c8340938fb4040e260580a2917649",
+      "bytes": 14785
+    },
+    {
+      "path": "mythic/god-5-back.jpg",
+      "sha256": "90d6005275ff80f16741d3b20ab3d046541b2817d960cf218cd1322540fadd33",
+      "bytes": 12236
+    },
+    {
+      "path": "mythic/god-5-front.jpg",
+      "sha256": "d07f87fbcca0d7ccad261759b24237263ffa1bbf420c94f980c1f37f8490cbf8",
+      "bytes": 15986
+    },
+    {
+      "path": "mythic/god-5-side.jpg",
+      "sha256": "c1a51ca96da09961630da98113be4d6bac9611da2a1746ffb3292e4e6b489bd1",
+      "bytes": 11203
+    },
+    {
+      "path": "mythic/god-6-34.jpg",
+      "sha256": "f4096fc7335c367fe257173f0893715bd43a220757aa6954f586ad94e1630277",
+      "bytes": 13791
+    },
+    {
+      "path": "mythic/god-6-back.jpg",
+      "sha256": "0c9c0138157dbc3e1ae6022a5244b582e0eff878d901c70176da4ff9f5e94b8b",
+      "bytes": 12061
+    },
+    {
+      "path": "mythic/god-6-front.jpg",
+      "sha256": "c9bd5bf0d4905bf6cd53b66f50cf1aabfa57b0c4e32fc857d85abcdc2cdc176c",
+      "bytes": 15094
+    },
+    {
+      "path": "mythic/god-6-side.jpg",
+      "sha256": "e47ff432aa829d25b459ccda50507b298447f6ee016c03ed893eb5a3de25c70a",
+      "bytes": 11017
+    },
+    {
+      "path": "mythic/god-7-34.jpg",
+      "sha256": "916e372ba814a7826f28b9779b46f57e7f7422e441898e0f18d54fdcecfded81",
+      "bytes": 13326
+    },
+    {
+      "path": "mythic/god-7-back.jpg",
+      "sha256": "2ecf52597ba5f7d7b4106bbe25bd3aac9a4221bd13572a9e3c29ffd393e2ee4b",
+      "bytes": 12078
+    },
+    {
+      "path": "mythic/god-7-front.jpg",
+      "sha256": "bcdd3ea5bdac29b742616fa757a30970353029348cc00d63e71150a506acfb4e",
+      "bytes": 14464
+    },
+    {
+      "path": "mythic/god-7-side.jpg",
+      "sha256": "425885f52bc582e367f6dccaa8d5022d897a71b80b84a4621f1aacd11fb19889",
+      "bytes": 11012
+    },
+    {
+      "path": "mythic/god-8-34.jpg",
+      "sha256": "ca651b37d8fa95fcc73e262414c86c76086ee68032c3830ea89478d43f17491e",
+      "bytes": 10988
+    },
+    {
+      "path": "mythic/god-8-back.jpg",
+      "sha256": "340c23a16333ae49fe9187ad258413a86572690185456cd103670fd41eaf59b8",
+      "bytes": 11077
+    },
+    {
+      "path": "mythic/god-8-front.jpg",
+      "sha256": "09e80351f04df6c3b8971f748596fd95e018de8817c006783f3fd22857a1929b",
+      "bytes": 11641
+    },
+    {
+      "path": "mythic/god-8-side.jpg",
+      "sha256": "4edc106d1453df9a15b5869cfbe8dc2fe432f891d7157dcaaa43d0f0eb5335f6",
+      "bytes": 8671
+    },
+    {
+      "path": "mythic/god-stages.jpg",
+      "sha256": "682ff3a703af2a92e185f8bb5b8aa65e1613e5b9faf77a2f6814d0297941820d",
+      "bytes": 513093
+    }
+  ]
+}

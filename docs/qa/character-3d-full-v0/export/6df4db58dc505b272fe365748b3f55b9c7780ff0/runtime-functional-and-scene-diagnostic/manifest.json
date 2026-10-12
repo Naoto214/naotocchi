@@ -1,0 +1,23 @@
+{
+  "status": "DIAGNOSTIC_NOT_APPROVED",
+  "sourceCommit": "6df4db58dc505b272fe365748b3f55b9c7780ff0",
+  "artifact": {
+    "id": 11613667094,
+    "name": "full-rollout-meguru-6df4db58dc505b272fe365748b3f55b9c7780ff0",
+    "digest": "sha256:6fc3eeed5489d28082c68fcd2c3e4b2715c0347f7bcfbac3c84774fbfbf3d33d"
+  },
+  "files": [
+    {
+      "path": "production-nonplayer/production-nonplayer.json",
+      "sha256": "2775adae07e4bdac172ad7f57f6bf1d5e9bb10b29eaff8519e25b99aa56b76aa",
+      "bytes": 94675
+    }
+  ],
+  "sourceRun": 37924802873,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113801069134,
+  "artifactJobName": "meguru-wave",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "failure",
+  "artifactEvidenceMode": "diagnostic"
+}

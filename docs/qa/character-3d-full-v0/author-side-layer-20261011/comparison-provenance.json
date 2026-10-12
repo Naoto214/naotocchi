@@ -1,0 +1,31 @@
+{
+  "beforeSource": "a6096121897b3d93a05733cc5049539218ea27c4",
+  "afterSource": "5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+  "beforeReused": true,
+  "beforeCandidate": "E",
+  "afterCandidate": "F = E side repair only",
+  "views": [
+    "front",
+    "34",
+    "side",
+    "back"
+  ],
+  "cameraSide": -1,
+  "headCropXYXY": [
+    90,
+    24,
+    234,
+    168
+  ],
+  "headResize": [
+    320,
+    320
+  ],
+  "originalCropXYXY": [
+    28,
+    8,
+    100,
+    74
+  ],
+  "note": "Deterministic original-image crops/composite; no image generation or retouch. One2D source view repeated. Existing per-model bounding-box-fit camera."
+}

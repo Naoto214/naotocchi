@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "d2a4c70586efb70943507ef426c022fbe7c47fc7",
+  "waveArtifact": 11549443483,
+  "distanceArtifact": 11549359550,
+  "status": "REJECT_SPINE_ATTACHMENT",
+  "finding": "Side views show floating dorsal spines on01/02 and tail spines on02. Root-volume probe found analogous candidate-stage attachment defects in04/05/06/08. No all8 approval or promotion.",
+  "rootCause": "Authored spine positions did not follow new trunk/neck/tail geometry. Same bone ownership alone did not establish physical contact.",
+  "fix": "Only new six stages get explicit surface-root coordinates;03/07 and shared builder unchanged. Regression ray test fails before and passes after.",
+  "verification": "Source fourviews and distance inspected;256state artifact exists but no full state image acceptance claimed after rejection. New capture required.",
+  "independentCandidateReview": "d2a4c70 C0/I0;targeted9PASS. Visual gate subsequently found geometry defect.",
+  "limitations": "Chromium/SwiftShader;Human/iPhoneQA pending"
+}

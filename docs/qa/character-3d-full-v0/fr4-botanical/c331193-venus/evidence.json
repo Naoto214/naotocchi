@@ -1,0 +1,915 @@
+{
+  "source": "c331193d0fa58ecb57c87e5b9937d3fb40e78e65",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.7951919938742303,
+          0.20856551276162924
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.7951919938742303,
+          0.20856551276162924
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.7951919938742303,
+          0.20856551276162924
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.7951919938742303,
+          0.20856551276162924
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -1.822966807777545e-09,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6500414323457877,
+          0.2849999964237213
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -1.822966807777545e-09,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6500414323457877,
+          0.2849999964237213
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -1.822966807777545e-09,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6500414323457877,
+          0.2849999964237213
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -1.822966807777545e-09,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6500414323457877,
+          0.2849999964237213
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.034741699627325234,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7601007327580054,
+          0.34303927421569824
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.034741699627325234,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7601007327580054,
+          0.34303927421569824
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.034741699627325234,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7601007327580054,
+          0.34303927421569824
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.034741699627325234,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7601007327580054,
+          0.34303927421569824
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          1.0105565116601474,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          1.0105565116601474,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          1.0105565116601474,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          1.0105565116601474,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.2870622243204717,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.2870622243204717,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.2870622243204717,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.2870622243204717,
+          0.2046717256307602
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.033324548594023895,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7613848767879325,
+          0.27490004897117615
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.033324548594023895,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7613848767879325,
+          0.27490004897117615
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.033324548594023895,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7613848767879325,
+          0.27490004897117615
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.033324548594023895,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7613848767879325,
+          0.27490004897117615
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.010201969029916214,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.312497264676435,
+          0.3321575438976288
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.010201969029916214,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.312497264676435,
+          0.3321575438976288
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.010201969029916214,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.312497264676435,
+          0.3321575438976288
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.010201969029916214,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.312497264676435,
+          0.3321575438976288
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.010380083828817999,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.587942721587989,
+          0.34303927421569824
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.010380083828817999,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.587942721587989,
+          0.34303927421569824
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.010380083828817999,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.587942721587989,
+          0.34303927421569824
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.010380083828817999,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.587942721587989,
+          0.34303927421569824
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

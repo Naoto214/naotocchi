@@ -1,0 +1,1428 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11612323630,
+    "name": "full-rollout-stages-salmon-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:ae85f96025f388ed3fd894e4c1a5c9509eb553a7104fee53c1e48c6afc363e87"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "ee704155320f4f7dd096cb56622b20f69d54eb6f3f01f78ea16a99d80d5c2c2f",
+      "bytes": 7536
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "ea8b99a92a025cdfea6566458a126e2c6ff1d50f5339e68a1453501f60d80e23",
+      "bytes": 149201
+    },
+    {
+      "path": "missing-motion/salmon-1-dislike-idle-normal.jpg",
+      "sha256": "32f8756827b333700244111cbf21d016ca9bf7349428d051f8f8ba9760214491",
+      "bytes": 7261
+    },
+    {
+      "path": "missing-motion/salmon-1-dislike-idle-reduced.jpg",
+      "sha256": "fc860861db786a3c28d69ae180be3e7d5c6b8cbad53b9384c177e9e8e916931a",
+      "bytes": 7259
+    },
+    {
+      "path": "missing-motion/salmon-1-dislike-walk-normal.jpg",
+      "sha256": "1272c4858bd6022a586d847ea5c61350c546ae1b8cea361f622c5d16e13b942c",
+      "bytes": 7522
+    },
+    {
+      "path": "missing-motion/salmon-1-dislike-walk-reduced.jpg",
+      "sha256": "7b088c20e4e88b3ada232779500f6bd8bb1e2a1634cd23c59a9cf54f2b952561",
+      "bytes": 7481
+    },
+    {
+      "path": "missing-motion/salmon-1-motion.jpg",
+      "sha256": "42e66b17ff749144945550b05567a203501f1673716dc4a253323f79ff44cfda",
+      "bytes": 308153
+    },
+    {
+      "path": "missing-motion/salmon-1-normal-idle-normal.jpg",
+      "sha256": "7165eeea7bec695da20ae0441b117f78e04ebe37ea938d7dbd1fe4aa420c9c30",
+      "bytes": 7957
+    },
+    {
+      "path": "missing-motion/salmon-1-normal-idle-reduced.jpg",
+      "sha256": "1f9aeadc8800dd781829f7b2ae640d5207db63e923e22a13892a16da110152f5",
+      "bytes": 8092
+    },
+    {
+      "path": "missing-motion/salmon-1-normal-walk-normal.jpg",
+      "sha256": "9933dda9b17c79220f1765605db82e58293a247d3db7a1365d631d36b996f5b7",
+      "bytes": 8237
+    },
+    {
+      "path": "missing-motion/salmon-1-normal-walk-reduced.jpg",
+      "sha256": "ee377f216dfb3f288bc718c7dca9a5f0168001589da5ab824dfad0bd151b34bf",
+      "bytes": 8199
+    },
+    {
+      "path": "missing-motion/salmon-1-positive-idle-normal.jpg",
+      "sha256": "3712eaea3ddc46ab090763eeab10d2f612d060aff07b9ade7c90f3b8544b9146",
+      "bytes": 8161
+    },
+    {
+      "path": "missing-motion/salmon-1-positive-idle-reduced.jpg",
+      "sha256": "84b6f2ad7097e3d65ce16178b042436a6cd9cd42e5573910f845c2d08dec08e4",
+      "bytes": 8155
+    },
+    {
+      "path": "missing-motion/salmon-1-positive-walk-normal.jpg",
+      "sha256": "b9d33c1b04906bf970b051bd8afda8e043193357c834a5953376d5fcd3098253",
+      "bytes": 7842
+    },
+    {
+      "path": "missing-motion/salmon-1-positive-walk-reduced.jpg",
+      "sha256": "43d5e0ed0631e2409cf5ca6b22ab75200075a68a254300f04778fd6b3e2fc914",
+      "bytes": 8169
+    },
+    {
+      "path": "missing-motion/salmon-1-sick-idle-normal.jpg",
+      "sha256": "fa37af653eccf48b693addab1082236930567c24d498b6ed268ca352990dc43f",
+      "bytes": 7400
+    },
+    {
+      "path": "missing-motion/salmon-1-sick-idle-reduced.jpg",
+      "sha256": "bb15de895046cf49f59ebc0651b6e9b3fde82cc879e289bed35e85b6cbc8d5bf",
+      "bytes": 7644
+    },
+    {
+      "path": "missing-motion/salmon-1-sick-walk-normal.jpg",
+      "sha256": "e17e0b40442cadafedbe68e8b54131dcccb484d6df4b2d791a20de606af45f26",
+      "bytes": 7995
+    },
+    {
+      "path": "missing-motion/salmon-1-sick-walk-reduced.jpg",
+      "sha256": "332689a4c0517d913c8960dde023e8cc1c7be04d0cace9f20b271f6acf4ecb64",
+      "bytes": 7980
+    },
+    {
+      "path": "missing-motion/salmon-1-sleeping-idle-normal.jpg",
+      "sha256": "6e695e9bf2e85d84fee431e9a1e2afb2b61a41970516a67c8f0648e14f26e22b",
+      "bytes": 7481
+    },
+    {
+      "path": "missing-motion/salmon-1-sleeping-idle-reduced.jpg",
+      "sha256": "6deedcb351a16728d787ee6d415604ebfffcf11aa8176ae8abbcacb074ac3745",
+      "bytes": 7795
+    },
+    {
+      "path": "missing-motion/salmon-1-sleeping-walk-normal.jpg",
+      "sha256": "65bf7490431fdc7e62ea59f5ac64490ca12116f2e384f98d23c5f0704bbb5f6d",
+      "bytes": 7987
+    },
+    {
+      "path": "missing-motion/salmon-1-sleeping-walk-reduced.jpg",
+      "sha256": "232c4ed4e4de51547b2ec0a67fe4945b541b85a1d63d230e5a968c3f16a49f06",
+      "bytes": 7994
+    },
+    {
+      "path": "missing-motion/salmon-1-strained-idle-normal.jpg",
+      "sha256": "3f6d70b084fc3c23c15ef090076411812c043ba9fdf33d65fc858dff19b511c0",
+      "bytes": 7837
+    },
+    {
+      "path": "missing-motion/salmon-1-strained-idle-reduced.jpg",
+      "sha256": "8a3e759f6e488695b1512f3622a67c1b330c7cfb2619166646496f59999f502f",
+      "bytes": 8001
+    },
+    {
+      "path": "missing-motion/salmon-1-strained-walk-normal.jpg",
+      "sha256": "68a07087568a95f1eaf1a093da5e19ac8f3aa03674581ab7beada573c2a9dfa4",
+      "bytes": 7704
+    },
+    {
+      "path": "missing-motion/salmon-1-strained-walk-reduced.jpg",
+      "sha256": "62eb2148d570e90a8341e5cf50beebafa105b21a749d7d4a22ea074350017925",
+      "bytes": 7992
+    },
+    {
+      "path": "missing-motion/salmon-1-tired-idle-normal.jpg",
+      "sha256": "82e7d8f489cd9a483fa3cd49abc14aee84eebcf1ca033a675e6b8e7ce4cf4be8",
+      "bytes": 7434
+    },
+    {
+      "path": "missing-motion/salmon-1-tired-idle-reduced.jpg",
+      "sha256": "0feae791fb21cb81ac47306be7aea2952735ca72d3151eecd5db70524fc71541",
+      "bytes": 7627
+    },
+    {
+      "path": "missing-motion/salmon-1-tired-walk-normal.jpg",
+      "sha256": "015c29d82e0e6872b6a0064eae0b261036f92d7e76d2e849997d1f718de5741f",
+      "bytes": 7946
+    },
+    {
+      "path": "missing-motion/salmon-1-tired-walk-reduced.jpg",
+      "sha256": "9a6008bbf2127ac962402b6f9856b4750d5a2e06aa87ead27e189c30df2a7b0d",
+      "bytes": 7959
+    },
+    {
+      "path": "missing-motion/salmon-1-wantsPlay-idle-normal.jpg",
+      "sha256": "31f02fb04869ca246ed4f224e41fd8c30d53e84a268f4624b2706e1d54dbf36e",
+      "bytes": 8334
+    },
+    {
+      "path": "missing-motion/salmon-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "7efabcc9bb0069131e904e5e522bcc746d4d85f089bac5e06d27d3b53487c912",
+      "bytes": 8415
+    },
+    {
+      "path": "missing-motion/salmon-1-wantsPlay-walk-normal.jpg",
+      "sha256": "3d4e8801634a36d319c368657704386eec5bf98740d4b30bc4618425a4b41666",
+      "bytes": 8747
+    },
+    {
+      "path": "missing-motion/salmon-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "a558fe78aa575ba9ceaafb5a40ff9e87fb16dea015214ed2676daee522b8ce8e",
+      "bytes": 8636
+    },
+    {
+      "path": "missing-motion/salmon-2-dislike-idle-normal.jpg",
+      "sha256": "0abebaa850bbe50671645a352c937d8709608de43b5aacd8d4f609b7160a561c",
+      "bytes": 6877
+    },
+    {
+      "path": "missing-motion/salmon-2-dislike-idle-reduced.jpg",
+      "sha256": "cff7c10a9df540b1e3899d78aeb96c641da41be62908f2e1a7257b7e40a2b3f3",
+      "bytes": 6909
+    },
+    {
+      "path": "missing-motion/salmon-2-dislike-walk-normal.jpg",
+      "sha256": "fe52bcfcfdd2b2bece9fec0f8bfa95afb6d2758fc93767a71bbbb048431a9843",
+      "bytes": 7244
+    },
+    {
+      "path": "missing-motion/salmon-2-dislike-walk-reduced.jpg",
+      "sha256": "f59703c8b8edba240e6f2efe4c2d8a22cfe5dda7391bbb2a0224939746a9b56d",
+      "bytes": 7071
+    },
+    {
+      "path": "missing-motion/salmon-2-motion.jpg",
+      "sha256": "441f7d191c4ce41373c209ded067a69e082a34efc2ad3e7da4d9b900f7f0a4a2",
+      "bytes": 298933
+    },
+    {
+      "path": "missing-motion/salmon-2-normal-idle-normal.jpg",
+      "sha256": "4158610068c180039f2fcfd21efb959f2cb329ef7c85dcf62148099280a2c4af",
+      "bytes": 7614
+    },
+    {
+      "path": "missing-motion/salmon-2-normal-idle-reduced.jpg",
+      "sha256": "c36bfffb6174875f8cf9bdcfe988c7bf73da2fba30aac1cbe729eda05bbc6312",
+      "bytes": 7734
+    },
+    {
+      "path": "missing-motion/salmon-2-normal-walk-normal.jpg",
+      "sha256": "3d2a67985032aba58582444583257ff7137d23aa144b848ad361d0868619c024",
+      "bytes": 7892
+    },
+    {
+      "path": "missing-motion/salmon-2-normal-walk-reduced.jpg",
+      "sha256": "f5c1ffb70ed721966b331bfef2d83eeef37d3eddad2fd6e93fa24915d8e4abc7",
+      "bytes": 7889
+    },
+    {
+      "path": "missing-motion/salmon-2-positive-idle-normal.jpg",
+      "sha256": "7dc22a7cb4b7bc58a53790f5bed2e4f143197a99397e1b4b846237ce43a3a3eb",
+      "bytes": 7934
+    },
+    {
+      "path": "missing-motion/salmon-2-positive-idle-reduced.jpg",
+      "sha256": "99470806c910de0236e884c9c700ef722a8ce220a5e6dfde974f1ba81163b6f1",
+      "bytes": 7855
+    },
+    {
+      "path": "missing-motion/salmon-2-positive-walk-normal.jpg",
+      "sha256": "cd4381323b7a86af1d6a090510c002768d9da3c5a4e5a40b6aeefea0604bda9b",
+      "bytes": 7546
+    },
+    {
+      "path": "missing-motion/salmon-2-positive-walk-reduced.jpg",
+      "sha256": "ea9aa091223ec9c00fd723e3ef19c3ff0eb5e69e9ad347ecdfb193a2dd449eca",
+      "bytes": 7858
+    },
+    {
+      "path": "missing-motion/salmon-2-sick-idle-normal.jpg",
+      "sha256": "abec8c382a8f488a31a3a560fb40ee90dceb988fb18d9a0ef5eec6229256a46e",
+      "bytes": 7152
+    },
+    {
+      "path": "missing-motion/salmon-2-sick-idle-reduced.jpg",
+      "sha256": "3deb0d233d81645619626c017dd4caa6125671c106f23687971ee0b327bfbaa5",
+      "bytes": 7461
+    },
+    {
+      "path": "missing-motion/salmon-2-sick-walk-normal.jpg",
+      "sha256": "bbbccba4426b3a5a07fb3f328980b8b0f9614adce5f821139de1c036ffe9ed0c",
+      "bytes": 7617
+    },
+    {
+      "path": "missing-motion/salmon-2-sick-walk-reduced.jpg",
+      "sha256": "63319d38d36beeec1bdb8b20664944135d2a17043c5e43aa6ba682bd063b219a",
+      "bytes": 7754
+    },
+    {
+      "path": "missing-motion/salmon-2-sleeping-idle-normal.jpg",
+      "sha256": "21ef9b69260e826e09df0ca48f9c99c06b4f3955759dc66e7f88d2e81b5f55ed",
+      "bytes": 7094
+    },
+    {
+      "path": "missing-motion/salmon-2-sleeping-idle-reduced.jpg",
+      "sha256": "e2405b435a4c4fcad7bcbe81b9f3db83dea3ea13b1e37399ec358a5ca241a4c3",
+      "bytes": 7421
+    },
+    {
+      "path": "missing-motion/salmon-2-sleeping-walk-normal.jpg",
+      "sha256": "76846ce1a6d3b9e4c1eada0e1d07d43ecee2723135c3f8345293af38d9520435",
+      "bytes": 7627
+    },
+    {
+      "path": "missing-motion/salmon-2-sleeping-walk-reduced.jpg",
+      "sha256": "d0218833f571255677de803926a8bae19bb14b0b86379e7467c0242b846a48e6",
+      "bytes": 7819
+    },
+    {
+      "path": "missing-motion/salmon-2-strained-idle-normal.jpg",
+      "sha256": "f19e5e5a2eca152e182be9da3306b37cc8181a605a8ad872610c3227912d4412",
+      "bytes": 7522
+    },
+    {
+      "path": "missing-motion/salmon-2-strained-idle-reduced.jpg",
+      "sha256": "09e8fd50184ba9e9ec810999233e90e13509b8340ca79c4e8b2ea15572ab6948",
+      "bytes": 7642
+    },
+    {
+      "path": "missing-motion/salmon-2-strained-walk-normal.jpg",
+      "sha256": "93eac4673ba10db846202b6b8411685a9fd8b27b1d6954fd6f7698f172284602",
+      "bytes": 7399
+    },
+    {
+      "path": "missing-motion/salmon-2-strained-walk-reduced.jpg",
+      "sha256": "91d1ad77e85ef0baeae6fa4c3895f2b3fb6f63e322667df6ac073df134e7eacf",
+      "bytes": 7622
+    },
+    {
+      "path": "missing-motion/salmon-2-tired-idle-normal.jpg",
+      "sha256": "ea6ae31998515cf2acfd01dfa5cfa632da6ae084e032b01cfa3b0f1808237882",
+      "bytes": 7053
+    },
+    {
+      "path": "missing-motion/salmon-2-tired-idle-reduced.jpg",
+      "sha256": "39ca13e4e2b3b6a20598885f6611f1d1fb3099fd46caf564d27173e7009832d2",
+      "bytes": 7307
+    },
+    {
+      "path": "missing-motion/salmon-2-tired-walk-normal.jpg",
+      "sha256": "35019890782fb520c8920e751f397c82da1440fc1b90030c1fc16fc387f07a7c",
+      "bytes": 7685
+    },
+    {
+      "path": "missing-motion/salmon-2-tired-walk-reduced.jpg",
+      "sha256": "b76ac6a85e13c20a85881bcde42b390be90c4d72c5883b963c78090431f076f0",
+      "bytes": 7748
+    },
+    {
+      "path": "missing-motion/salmon-2-wantsPlay-idle-normal.jpg",
+      "sha256": "96cb68906d79837dff7baf3458450c3cde3880640e65c802c70431865a3bd1df",
+      "bytes": 7996
+    },
+    {
+      "path": "missing-motion/salmon-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "76950ac2117a36543bfd7b741c59c3139c6a57a6d48fd9cfa86f27a0ceaf4c98",
+      "bytes": 8098
+    },
+    {
+      "path": "missing-motion/salmon-2-wantsPlay-walk-normal.jpg",
+      "sha256": "9ea23b595159a98a7283b7a82b1bbc44ebfe806e0d1e8f473ade48aa3a46c824",
+      "bytes": 8333
+    },
+    {
+      "path": "missing-motion/salmon-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "3a27d7849a9f209e081363b301aa9913c710953990b756519968e66e64197ad3",
+      "bytes": 8378
+    },
+    {
+      "path": "missing-motion/salmon-3-dislike-idle-normal.jpg",
+      "sha256": "2d46a22092f707358c724fbb24b69d8a9245a2b478026033dc8939edd77203d3",
+      "bytes": 6810
+    },
+    {
+      "path": "missing-motion/salmon-3-dislike-idle-reduced.jpg",
+      "sha256": "916f85019813ec3edceb8382e9f93f91002a57577e1fe04176b4a755e9790702",
+      "bytes": 6873
+    },
+    {
+      "path": "missing-motion/salmon-3-dislike-walk-normal.jpg",
+      "sha256": "84e3da04c8b3c1c5de4bc241906817f1ecea005a38f728e437cd4ab2074151ed",
+      "bytes": 7082
+    },
+    {
+      "path": "missing-motion/salmon-3-dislike-walk-reduced.jpg",
+      "sha256": "cb59919d1695ff04471aa981aa504d8745ad6c590091d3c61009d0dde987ced8",
+      "bytes": 6991
+    },
+    {
+      "path": "missing-motion/salmon-3-motion.jpg",
+      "sha256": "b5001983fb647988a8bfc408a607e106fed6dd0150de3fae8723c64e59f3e932",
+      "bytes": 312491
+    },
+    {
+      "path": "missing-motion/salmon-3-normal-idle-normal.jpg",
+      "sha256": "06b2d0f58ce9cb7a78e840dcc6b59de2ab2c0d2d5d968edad8503e80b6d82507",
+      "bytes": 7641
+    },
+    {
+      "path": "missing-motion/salmon-3-normal-idle-reduced.jpg",
+      "sha256": "1ac0c6462b94b38470687daa3c00e5ba3062a0dd3a2499241138735167bb8298",
+      "bytes": 7795
+    },
+    {
+      "path": "missing-motion/salmon-3-normal-walk-normal.jpg",
+      "sha256": "d31e29bc9036108667ce36dc5de97f5d0a42b7a89b3207e85da29dfac8a2e243",
+      "bytes": 7846
+    },
+    {
+      "path": "missing-motion/salmon-3-normal-walk-reduced.jpg",
+      "sha256": "ac52333e0ccf411f58a7b6dce8ea77edd9ae92223c2efed4b8027438e0a35906",
+      "bytes": 7922
+    },
+    {
+      "path": "missing-motion/salmon-3-positive-idle-normal.jpg",
+      "sha256": "303f158b8b99395a8a7a0b8fe2774b659aa8ff8ea8b55654c349f559c2ca43ab",
+      "bytes": 8028
+    },
+    {
+      "path": "missing-motion/salmon-3-positive-idle-reduced.jpg",
+      "sha256": "4828d08d685e2aba6e44b2090fb6c7eee0228a4df8b4df5b6f51043d0e7369ea",
+      "bytes": 7942
+    },
+    {
+      "path": "missing-motion/salmon-3-positive-walk-normal.jpg",
+      "sha256": "846ca2313483b036390eede40f257f8f1491123aa05893e5990a0fa2d00609b2",
+      "bytes": 7752
+    },
+    {
+      "path": "missing-motion/salmon-3-positive-walk-reduced.jpg",
+      "sha256": "ea512aad4d9c3d26ba2a8b3aad25d783b5f79d742c3fb629677ba9fb5631ce32",
+      "bytes": 7963
+    },
+    {
+      "path": "missing-motion/salmon-3-sick-idle-normal.jpg",
+      "sha256": "54acd58ff7f6cf86b7d6c20f14f017d7f8d61e5e6fac4d20b2fca04b1b0f905c",
+      "bytes": 7197
+    },
+    {
+      "path": "missing-motion/salmon-3-sick-idle-reduced.jpg",
+      "sha256": "430169e09f5cd970f9ca123cb21171bf25f11a99b8f0cc8bec2f1e1117fb15cd",
+      "bytes": 7436
+    },
+    {
+      "path": "missing-motion/salmon-3-sick-walk-normal.jpg",
+      "sha256": "333fb14120d2161fdda21aa41b4d76fb738202734104f1509c56de8b7e6de366",
+      "bytes": 7732
+    },
+    {
+      "path": "missing-motion/salmon-3-sick-walk-reduced.jpg",
+      "sha256": "ed774b9138451bca703e0945eb2e49e80c73ad78803d94e1680ccead8ba8b91f",
+      "bytes": 7793
+    },
+    {
+      "path": "missing-motion/salmon-3-sleeping-idle-normal.jpg",
+      "sha256": "41cf2f2c336fcc024cf8851e675ac0fd935ab6983a8ef12fb325ed30f75c15ad",
+      "bytes": 7191
+    },
+    {
+      "path": "missing-motion/salmon-3-sleeping-idle-reduced.jpg",
+      "sha256": "a79d500f985645c37a1b22d89de348b2c20f72acf5d5ab9c79ea380a64bd8bac",
+      "bytes": 7505
+    },
+    {
+      "path": "missing-motion/salmon-3-sleeping-walk-normal.jpg",
+      "sha256": "a91cad5c73d17dec3b597a0829a878ca80a07b5137448fb9a2cd1074e9cbe148",
+      "bytes": 7722
+    },
+    {
+      "path": "missing-motion/salmon-3-sleeping-walk-reduced.jpg",
+      "sha256": "2b462e18db23a3f3fadbf2046639b19a8957238f81232b6098d65b5eda72c92b",
+      "bytes": 7775
+    },
+    {
+      "path": "missing-motion/salmon-3-strained-idle-normal.jpg",
+      "sha256": "76a4bff78084f25369ed2a55e04267d5bfd8460e81d50607438cc757f3523391",
+      "bytes": 7534
+    },
+    {
+      "path": "missing-motion/salmon-3-strained-idle-reduced.jpg",
+      "sha256": "b570367150119fd9a9b95fb7b4285b72be276661851168bb711a9f25446d00f7",
+      "bytes": 7680
+    },
+    {
+      "path": "missing-motion/salmon-3-strained-walk-normal.jpg",
+      "sha256": "cc8e093eb58d32f354951156e551b04b78b6eb35a98bf0a8ff303a4c4d5ac8e0",
+      "bytes": 7423
+    },
+    {
+      "path": "missing-motion/salmon-3-strained-walk-reduced.jpg",
+      "sha256": "ca2c21973651ad72e5bf9f1254472792f6536e1edde1c5bd4b4a90bc9980aba5",
+      "bytes": 7658
+    },
+    {
+      "path": "missing-motion/salmon-3-tired-idle-normal.jpg",
+      "sha256": "6b513fb3db3b74f68b997abf3f1519d4b58f9b1b9e5c3963ac6fe6caec11d069",
+      "bytes": 7103
+    },
+    {
+      "path": "missing-motion/salmon-3-tired-idle-reduced.jpg",
+      "sha256": "db3a18b8ed9eba23345b116954cc9fc59a707f043c2e390eb3786cd4bee1662b",
+      "bytes": 7285
+    },
+    {
+      "path": "missing-motion/salmon-3-tired-walk-normal.jpg",
+      "sha256": "d5128553c426f6c73bd6bdb8e2b52bcb67d6cbfbb4c815f65f7c8b83ffc40a22",
+      "bytes": 7786
+    },
+    {
+      "path": "missing-motion/salmon-3-tired-walk-reduced.jpg",
+      "sha256": "ec1288f96a77f3ded3d6b0cef39e2d595517c71149a8bb6a23b7e3d9d188f347",
+      "bytes": 7733
+    },
+    {
+      "path": "missing-motion/salmon-3-wantsPlay-idle-normal.jpg",
+      "sha256": "c0a7bcfb4b6e530d3a4ab9f67165e84cda569e205ab7364d200ad73f3fbd26d2",
+      "bytes": 8106
+    },
+    {
+      "path": "missing-motion/salmon-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "88bda5157a98ed5453845f766b7292cdae1914d3a2f439c29f3bf35a4ee659d5",
+      "bytes": 8112
+    },
+    {
+      "path": "missing-motion/salmon-3-wantsPlay-walk-normal.jpg",
+      "sha256": "c461c8c2f98d8367052ffe0962fad52d8564f673866b81b96d069130376b431b",
+      "bytes": 8441
+    },
+    {
+      "path": "missing-motion/salmon-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "90d4748967325f49696fa9c3fea2b8c9a9f6d908a9db44eb89ca463d50d7dac9",
+      "bytes": 8400
+    },
+    {
+      "path": "missing-motion/salmon-4-dislike-idle-normal.jpg",
+      "sha256": "cbf117bfb52eb0ffadba065a76a5955cc12c0e2ca90dc429802157436145c1cd",
+      "bytes": 6670
+    },
+    {
+      "path": "missing-motion/salmon-4-dislike-idle-reduced.jpg",
+      "sha256": "62034b10438daee8afbaf80f2fd61ff4e6432800ac19481e16d7f6f08cefa6c7",
+      "bytes": 6674
+    },
+    {
+      "path": "missing-motion/salmon-4-dislike-walk-normal.jpg",
+      "sha256": "bd52ee1cd2628d48898f8fbfec3c9bd772ba841afb63751b845cdc3cb11a7970",
+      "bytes": 6918
+    },
+    {
+      "path": "missing-motion/salmon-4-dislike-walk-reduced.jpg",
+      "sha256": "5ef3743a582641c03e3106ad2688c03afc9b3e329c096fc4e1ee980457f0d084",
+      "bytes": 6771
+    },
+    {
+      "path": "missing-motion/salmon-4-motion.jpg",
+      "sha256": "fd0281e92c7f275702294ed776007bc195be070f35efa3c083d138a20fddb146",
+      "bytes": 296036
+    },
+    {
+      "path": "missing-motion/salmon-4-normal-idle-normal.jpg",
+      "sha256": "17bd49b6686e5fa546b6ed52cbace0a69b9b096c6a3fc80eda8fdbcfaad4d542",
+      "bytes": 7406
+    },
+    {
+      "path": "missing-motion/salmon-4-normal-idle-reduced.jpg",
+      "sha256": "ed625f93be1138f9a00758fa2ae46808e259115441300c0127002126f8a65b0a",
+      "bytes": 7512
+    },
+    {
+      "path": "missing-motion/salmon-4-normal-walk-normal.jpg",
+      "sha256": "504d977c5fa025660bcd85f396f038194d5279ea90e6261d0705357335fe30cc",
+      "bytes": 7587
+    },
+    {
+      "path": "missing-motion/salmon-4-normal-walk-reduced.jpg",
+      "sha256": "6e34888bc4d7e3e661b5559c41e9a1b1d8ab57c14e9ba1f75cc4c99e7e0493fb",
+      "bytes": 7688
+    },
+    {
+      "path": "missing-motion/salmon-4-positive-idle-normal.jpg",
+      "sha256": "5b9f90ac40632813c4e5a8105da275861bb056bbffac5440c2f1babd9a9ce4be",
+      "bytes": 7669
+    },
+    {
+      "path": "missing-motion/salmon-4-positive-idle-reduced.jpg",
+      "sha256": "34ac1511431a47c159a74f9f9e1c2344cc7444f01802ba79c45c02b76a19a52e",
+      "bytes": 7601
+    },
+    {
+      "path": "missing-motion/salmon-4-positive-walk-normal.jpg",
+      "sha256": "5a1a528540f56c89a449e38fa26f02727440cb3bfe61d6aad57f499cf6869f5f",
+      "bytes": 7484
+    },
+    {
+      "path": "missing-motion/salmon-4-positive-walk-reduced.jpg",
+      "sha256": "771fcd0dced316d38afa609eecb8ec8cde410eeb4fa5420fde1958942f73da19",
+      "bytes": 7643
+    },
+    {
+      "path": "missing-motion/salmon-4-sick-idle-normal.jpg",
+      "sha256": "2652025a465ec36325abd476d77a4460413b02371b88eeb0d731c48480926ebe",
+      "bytes": 6918
+    },
+    {
+      "path": "missing-motion/salmon-4-sick-idle-reduced.jpg",
+      "sha256": "9cd9e6feb29973d5bac1e254bb662a982e9fa97a2fd3cc4a0ae3f26328474aaf",
+      "bytes": 7155
+    },
+    {
+      "path": "missing-motion/salmon-4-sick-walk-normal.jpg",
+      "sha256": "afeeab5ad6a7cbefdd8c947d0c1de871dab4e61474169d0c0e5ae3e3940550c3",
+      "bytes": 7443
+    },
+    {
+      "path": "missing-motion/salmon-4-sick-walk-reduced.jpg",
+      "sha256": "7d360698ac11941b13caf9d6a800e53bdec9561106c938cf7bae402236630553",
+      "bytes": 7413
+    },
+    {
+      "path": "missing-motion/salmon-4-sleeping-idle-normal.jpg",
+      "sha256": "8d340439437d613ffb930592ca4764704c20cccb59acce44c371c40a1fe727f5",
+      "bytes": 7085
+    },
+    {
+      "path": "missing-motion/salmon-4-sleeping-idle-reduced.jpg",
+      "sha256": "db41de12514aba34c7acd6150f6affa12863b603314697dbff34aa1a3f156c91",
+      "bytes": 7351
+    },
+    {
+      "path": "missing-motion/salmon-4-sleeping-walk-normal.jpg",
+      "sha256": "d81a86cecdf5a9879d5ce6edf14a6ab37c55487e3f8f71ee695b6140201db571",
+      "bytes": 7475
+    },
+    {
+      "path": "missing-motion/salmon-4-sleeping-walk-reduced.jpg",
+      "sha256": "9e0584db825cd35fb10297e82bb102591d71c1d34b933a65d681c35c4e68e5d3",
+      "bytes": 7546
+    },
+    {
+      "path": "missing-motion/salmon-4-strained-idle-normal.jpg",
+      "sha256": "8757aba855c8b0d15cc9b5a02ef92111ae45b5ee6dd5b5e9bade522a62dd1f22",
+      "bytes": 7300
+    },
+    {
+      "path": "missing-motion/salmon-4-strained-idle-reduced.jpg",
+      "sha256": "5504fce09b65c85ad2ac097cd74ac1f12dec3b96008a6c47d8b263c32cc4c498",
+      "bytes": 7404
+    },
+    {
+      "path": "missing-motion/salmon-4-strained-walk-normal.jpg",
+      "sha256": "2fec3db0d90e8b5428c4cc75636f5de849329d3750bfa2cdd385c0c7f7dcc313",
+      "bytes": 7189
+    },
+    {
+      "path": "missing-motion/salmon-4-strained-walk-reduced.jpg",
+      "sha256": "385c53c08990646237d2157d2fb1ce9d80ddd870541e3720aeecf4011198ec31",
+      "bytes": 7472
+    },
+    {
+      "path": "missing-motion/salmon-4-tired-idle-normal.jpg",
+      "sha256": "d1d0756e012d9d6a17e5f2aac1d975035428e682c7d95298e494043210815fe7",
+      "bytes": 7015
+    },
+    {
+      "path": "missing-motion/salmon-4-tired-idle-reduced.jpg",
+      "sha256": "66b05c6b72abf5bf3ee8d3713c27c2b8bac51dbe7f7a1351a877e3741a76a0bf",
+      "bytes": 7117
+    },
+    {
+      "path": "missing-motion/salmon-4-tired-walk-normal.jpg",
+      "sha256": "269165ad29c5610768b488031181c4d0743c55cb85ae132974d2305a4032112d",
+      "bytes": 7472
+    },
+    {
+      "path": "missing-motion/salmon-4-tired-walk-reduced.jpg",
+      "sha256": "5345b4d0462461cea19bd8a62aec1acaaa3cf4a5dfa5f94ccec2dad57b9ac06b",
+      "bytes": 7460
+    },
+    {
+      "path": "missing-motion/salmon-4-wantsPlay-idle-normal.jpg",
+      "sha256": "02e82412020656201b325ee53a9c63e4fe136429eeee0c32b90530fdbea2dd01",
+      "bytes": 7803
+    },
+    {
+      "path": "missing-motion/salmon-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "ba8b90cfaa49eb95ff1e21ff967956fdb13f4c32165607128e926cab45dcb548",
+      "bytes": 7848
+    },
+    {
+      "path": "missing-motion/salmon-4-wantsPlay-walk-normal.jpg",
+      "sha256": "1c2aa7b6803b5c1444b8c6cee61ee20c175d3ec2becdb9c4fa3323b911993dc3",
+      "bytes": 8128
+    },
+    {
+      "path": "missing-motion/salmon-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "7bc91c50be892cf6c227032593011052c8f491de9cb3c99b66358091d1b50fb6",
+      "bytes": 8023
+    },
+    {
+      "path": "missing-motion/salmon-5-dislike-idle-normal.jpg",
+      "sha256": "d425bbea9d65a71b5dd6ecb760d12907b0c7f52231a2ec6c0eeff8a47150ce44",
+      "bytes": 6993
+    },
+    {
+      "path": "missing-motion/salmon-5-dislike-idle-reduced.jpg",
+      "sha256": "a5e2b4b1ec147d11085655cae6672ce4c4b1e8616b0d8b8a3106c6b52bb9a772",
+      "bytes": 6988
+    },
+    {
+      "path": "missing-motion/salmon-5-dislike-walk-normal.jpg",
+      "sha256": "aced9367a25d26fe74f9d97ce0194dec8c373a8b0f331ba6610203bce78efadd",
+      "bytes": 7140
+    },
+    {
+      "path": "missing-motion/salmon-5-dislike-walk-reduced.jpg",
+      "sha256": "c865e2051fd2087f3a7b5d70ca40c64079b79aedc0dba1927b0db585a47ed90b",
+      "bytes": 7156
+    },
+    {
+      "path": "missing-motion/salmon-5-motion.jpg",
+      "sha256": "0212382e2aa0599240db95e1bf79935a90497f0c034282a7d3da8b27bca2fb70",
+      "bytes": 317272
+    },
+    {
+      "path": "missing-motion/salmon-5-normal-idle-normal.jpg",
+      "sha256": "b1681a6eb93381d87f2ac35eb7ad7866eb69f47ce79528b1cd9074899c08755a",
+      "bytes": 7706
+    },
+    {
+      "path": "missing-motion/salmon-5-normal-idle-reduced.jpg",
+      "sha256": "1a609174380c5d7bf896e88c4f00c63b97b658a3a7ffe0e83383fede97f6077c",
+      "bytes": 7845
+    },
+    {
+      "path": "missing-motion/salmon-5-normal-walk-normal.jpg",
+      "sha256": "55bfc57cf9cc3c8b8c64b511ec746a42614aafe33d6491e30e543462c0a74136",
+      "bytes": 7968
+    },
+    {
+      "path": "missing-motion/salmon-5-normal-walk-reduced.jpg",
+      "sha256": "73b1efb8e3bf4d1ac4b7132903c648c5a34f0b56c821c5f953bb91ce0d6d23fd",
+      "bytes": 7995
+    },
+    {
+      "path": "missing-motion/salmon-5-positive-idle-normal.jpg",
+      "sha256": "5d1e3363ebc9501fde987b7bc43b9f4e715bc5e0d804ea353e3e923bec9781ee",
+      "bytes": 7962
+    },
+    {
+      "path": "missing-motion/salmon-5-positive-idle-reduced.jpg",
+      "sha256": "231d90cc120b409c5fb8aa181b7a4f412cc42eaf299c85c05781ffb6d78b176a",
+      "bytes": 7853
+    },
+    {
+      "path": "missing-motion/salmon-5-positive-walk-normal.jpg",
+      "sha256": "96d0dd5cabe7a0e3e8050bfe57e3c142b55a758a72408c181a718d5ce37ef477",
+      "bytes": 7572
+    },
+    {
+      "path": "missing-motion/salmon-5-positive-walk-reduced.jpg",
+      "sha256": "ede19a8f59c066ab81eb18e0fd3a7f3123a00e38583176593b933787d723cf59",
+      "bytes": 7865
+    },
+    {
+      "path": "missing-motion/salmon-5-sick-idle-normal.jpg",
+      "sha256": "ee994dc905dce2d70e78f35c9ce1d47785ad9472e2c564c621fb802ada3d5fb0",
+      "bytes": 7230
+    },
+    {
+      "path": "missing-motion/salmon-5-sick-idle-reduced.jpg",
+      "sha256": "533833b260d372e9213a4daeca5ff6785374701ec954a4be960deeb5c828d664",
+      "bytes": 7442
+    },
+    {
+      "path": "missing-motion/salmon-5-sick-walk-normal.jpg",
+      "sha256": "c07fc8b36573aa49966048431018a7c0bf1bb5dcbc68a80f2ad2300da05e5468",
+      "bytes": 7660
+    },
+    {
+      "path": "missing-motion/salmon-5-sick-walk-reduced.jpg",
+      "sha256": "0689ba5ff5ff0fd60287abf8ada9e62e4eb772eca569c37bc82b79f9b4aab3ac",
+      "bytes": 7647
+    },
+    {
+      "path": "missing-motion/salmon-5-sleeping-idle-normal.jpg",
+      "sha256": "48cd4dc6805544db0b29f17985d3a4d75d3052a35cca68e9d476f25d1d0ea6e6",
+      "bytes": 7208
+    },
+    {
+      "path": "missing-motion/salmon-5-sleeping-idle-reduced.jpg",
+      "sha256": "d2447013a95fac43fc169d591c5cdb6ba022e993b4d163d5ffcd78bd77b1fb8a",
+      "bytes": 7598
+    },
+    {
+      "path": "missing-motion/salmon-5-sleeping-walk-normal.jpg",
+      "sha256": "60d5273996a04d074c5190e07d6976a2c2c73b1aebc22611acb543c63e454e70",
+      "bytes": 7723
+    },
+    {
+      "path": "missing-motion/salmon-5-sleeping-walk-reduced.jpg",
+      "sha256": "432ce4cfbb5546d35690bde6a0c7797c9213f2d22441b56ba41c2ea2b36d772f",
+      "bytes": 7841
+    },
+    {
+      "path": "missing-motion/salmon-5-strained-idle-normal.jpg",
+      "sha256": "ad32444276b2219939590268b3b9cb575fc4c3672a8b2fe1235cbd91e41c2c12",
+      "bytes": 7496
+    },
+    {
+      "path": "missing-motion/salmon-5-strained-idle-reduced.jpg",
+      "sha256": "bea303e93ad11504476510019d019e02b8e423a0c7cf28aa6f69a334107a087c",
+      "bytes": 7760
+    },
+    {
+      "path": "missing-motion/salmon-5-strained-walk-normal.jpg",
+      "sha256": "329d78cd5cc381389f3d80ab2faadc082980c578fcff9757cff3fdd7e1cf0931",
+      "bytes": 7489
+    },
+    {
+      "path": "missing-motion/salmon-5-strained-walk-reduced.jpg",
+      "sha256": "fea2c387de5d700710f20dfe551c6df3f61a7eb9683a87cf9db116d8ba1ae808",
+      "bytes": 7659
+    },
+    {
+      "path": "missing-motion/salmon-5-tired-idle-normal.jpg",
+      "sha256": "a1c222c37cf63fddaa73c377d24b7592d7c96009eb97a188cd78ffd249154717",
+      "bytes": 7069
+    },
+    {
+      "path": "missing-motion/salmon-5-tired-idle-reduced.jpg",
+      "sha256": "5521d8253c3ff9880679be4218a7c4a567d1af24ecd613a3652ba023d948794e",
+      "bytes": 7383
+    },
+    {
+      "path": "missing-motion/salmon-5-tired-walk-normal.jpg",
+      "sha256": "4e6557b9070d440190a488fe22a816ec0f0e3cec3d254356ff604afd2cc43387",
+      "bytes": 7663
+    },
+    {
+      "path": "missing-motion/salmon-5-tired-walk-reduced.jpg",
+      "sha256": "a70f75ba90777e709032d4489716b59f6e3a501b674ad4401cd9bd991ef2e1f6",
+      "bytes": 7711
+    },
+    {
+      "path": "missing-motion/salmon-5-wantsPlay-idle-normal.jpg",
+      "sha256": "425fd7736ebdf636e2fb9d65ef2d588bd391c32424321e260b4c022683e77dd2",
+      "bytes": 8002
+    },
+    {
+      "path": "missing-motion/salmon-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "2d6a90ec266e73ff06ba85f2332403f91b2642a00eef4ed3e1aba595dc78ec0e",
+      "bytes": 8060
+    },
+    {
+      "path": "missing-motion/salmon-5-wantsPlay-walk-normal.jpg",
+      "sha256": "738e8a74be87f156b11ce42822305361870bba44431b6a23866dc7611f1854ae",
+      "bytes": 8343
+    },
+    {
+      "path": "missing-motion/salmon-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "53727784b08dd70b822b918b8f85eb68fe87d3a2fc9a38c1d544d9b8af6bdd13",
+      "bytes": 8325
+    },
+    {
+      "path": "missing-motion/salmon-6-dislike-idle-normal.jpg",
+      "sha256": "d9fec6a77ea224b8840280171a549735a87d1d8873f94bd9ecde5099b720d889",
+      "bytes": 7194
+    },
+    {
+      "path": "missing-motion/salmon-6-dislike-idle-reduced.jpg",
+      "sha256": "5418f499d9c0b1db4728693ad4bc7025de62f125929e2cbcbdb066a61c3e40a7",
+      "bytes": 7237
+    },
+    {
+      "path": "missing-motion/salmon-6-dislike-walk-normal.jpg",
+      "sha256": "80367b57d4f0ad28a34075d3b242bec3fe4f97921521a5cd2c28afe2b6676164",
+      "bytes": 7449
+    },
+    {
+      "path": "missing-motion/salmon-6-dislike-walk-reduced.jpg",
+      "sha256": "3abce483edbb9fadab5fbf9fcf0412b7ccfc2c88c76b7f161fe29eb9b4f764d5",
+      "bytes": 7400
+    },
+    {
+      "path": "missing-motion/salmon-6-motion.jpg",
+      "sha256": "d786b236d9d22591f87400783bafbb8483049c36cd3f61dc4956fd92dac674c4",
+      "bytes": 327718
+    },
+    {
+      "path": "missing-motion/salmon-6-normal-idle-normal.jpg",
+      "sha256": "889be146ac3481b67a38f070e856da6ee62eff9fad0797d29f431ac733a12936",
+      "bytes": 7907
+    },
+    {
+      "path": "missing-motion/salmon-6-normal-idle-reduced.jpg",
+      "sha256": "6dcde2dca7e25c6b8083193311c733fe3342a644d0514c3e9ac8463c533a380d",
+      "bytes": 8013
+    },
+    {
+      "path": "missing-motion/salmon-6-normal-walk-normal.jpg",
+      "sha256": "371ac4c82852ba74f036ee251ef8e2a9688e43d8c84fecad7e9b07f0668c6125",
+      "bytes": 8179
+    },
+    {
+      "path": "missing-motion/salmon-6-normal-walk-reduced.jpg",
+      "sha256": "5511b92364f583d438bdcd878d821b3858b027d803593831058354ba320f7daa",
+      "bytes": 8172
+    },
+    {
+      "path": "missing-motion/salmon-6-positive-idle-normal.jpg",
+      "sha256": "3a571ed0853551e5b01774837dd69c4913b1de4af6c00c0ff5cd861b58ba87e3",
+      "bytes": 8075
+    },
+    {
+      "path": "missing-motion/salmon-6-positive-idle-reduced.jpg",
+      "sha256": "60064152016a132a2ba9e976648040b710772c216acd7993f792a04b352015d5",
+      "bytes": 8034
+    },
+    {
+      "path": "missing-motion/salmon-6-positive-walk-normal.jpg",
+      "sha256": "d562010dfd14deead7c789277fc46ddf5654bfb68a11d9f9e4601acfda2ee075",
+      "bytes": 7778
+    },
+    {
+      "path": "missing-motion/salmon-6-positive-walk-reduced.jpg",
+      "sha256": "f34c8f9a692d79d439567b7b4e931a7cde1aad1d08cefa031bbd86d69629e133",
+      "bytes": 8075
+    },
+    {
+      "path": "missing-motion/salmon-6-sick-idle-normal.jpg",
+      "sha256": "9ae23b4081d1d5dc1676885473e3f33b3920d18564dd41a7029bc00bd464bd2e",
+      "bytes": 7351
+    },
+    {
+      "path": "missing-motion/salmon-6-sick-idle-reduced.jpg",
+      "sha256": "519362c1b2d57604b6d9988684324122de5807c198e77a3b094a09546b501dc5",
+      "bytes": 7639
+    },
+    {
+      "path": "missing-motion/salmon-6-sick-walk-normal.jpg",
+      "sha256": "386f6ce8c719bf0066751c18cc3ff13e1cefc941b875f5c4a8f96fdcd079ac47",
+      "bytes": 7895
+    },
+    {
+      "path": "missing-motion/salmon-6-sick-walk-reduced.jpg",
+      "sha256": "a3ca2312a54fac64bf6814c4fb096bd3552904764239ef6abd216040edefdebf",
+      "bytes": 7921
+    },
+    {
+      "path": "missing-motion/salmon-6-sleeping-idle-normal.jpg",
+      "sha256": "2bf17e30714579d9dce945241bfbf933159fb0653ade2400528c255068180572",
+      "bytes": 7372
+    },
+    {
+      "path": "missing-motion/salmon-6-sleeping-idle-reduced.jpg",
+      "sha256": "269e67886d39ee289ae0cd3dd19a8a85be0e1c70134b84ec5024c5f753be7c5f",
+      "bytes": 7736
+    },
+    {
+      "path": "missing-motion/salmon-6-sleeping-walk-normal.jpg",
+      "sha256": "4970a52b3a1a458ee505d466cbc2c9e52e808a2f93c06a00a2dbb9eb52a83e24",
+      "bytes": 7880
+    },
+    {
+      "path": "missing-motion/salmon-6-sleeping-walk-reduced.jpg",
+      "sha256": "5e5461a9aa37561ee408ae4020ca92b296338d0c1e46cf300169b779c1f0c69e",
+      "bytes": 7976
+    },
+    {
+      "path": "missing-motion/salmon-6-strained-idle-normal.jpg",
+      "sha256": "0593abffce6fa2f274da3fb47731b37d816b87065cc20d44f2f8b8b539ca0f64",
+      "bytes": 7741
+    },
+    {
+      "path": "missing-motion/salmon-6-strained-idle-reduced.jpg",
+      "sha256": "7ec64bdf3d037bf810da8fe7ed056da487e8b1eef8e46d4972687b11aea73d30",
+      "bytes": 7994
+    },
+    {
+      "path": "missing-motion/salmon-6-strained-walk-normal.jpg",
+      "sha256": "a485ddb2186d4ca1ac102514bb851c4d0bf5b51ff372aa47cd18363314e9a767",
+      "bytes": 7604
+    },
+    {
+      "path": "missing-motion/salmon-6-strained-walk-reduced.jpg",
+      "sha256": "f4c7b788df588c8f54d9bb3265ef3dddc00d9a19237559af7fde32d95c22fd57",
+      "bytes": 7847
+    },
+    {
+      "path": "missing-motion/salmon-6-tired-idle-normal.jpg",
+      "sha256": "4b61748abf22a42db47b0b128b24cddc817c1289f17f706099ad3279f99858d7",
+      "bytes": 7247
+    },
+    {
+      "path": "missing-motion/salmon-6-tired-idle-reduced.jpg",
+      "sha256": "c48efeeb72464e9725b115717116957ece29b1a1a27b3e336cc83b98e08cd5da",
+      "bytes": 7579
+    },
+    {
+      "path": "missing-motion/salmon-6-tired-walk-normal.jpg",
+      "sha256": "9cfeaf2ee52d268f979e394aee2eb32da23ad65191533a477bb988dd66384b67",
+      "bytes": 7916
+    },
+    {
+      "path": "missing-motion/salmon-6-tired-walk-reduced.jpg",
+      "sha256": "2efb715587edd7034d6193dcde35ac87f722669e8459b1317b6e61d1a2e96052",
+      "bytes": 7940
+    },
+    {
+      "path": "missing-motion/salmon-6-wantsPlay-idle-normal.jpg",
+      "sha256": "9a06157f9b4adc5e27c3b2abdbf01e42bba4a7ee7b7a2065d119a20dffb69022",
+      "bytes": 8230
+    },
+    {
+      "path": "missing-motion/salmon-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "ef89ad5961ff4784b0babd0f1d7357cf4a5c3f93beb2fd3ac931b23f62f5ed3b",
+      "bytes": 8276
+    },
+    {
+      "path": "missing-motion/salmon-6-wantsPlay-walk-normal.jpg",
+      "sha256": "4b903006be175383c228bb1f60ae4c6fd43fe7fc4c7eb00fbf7eb0d74c72a340",
+      "bytes": 8641
+    },
+    {
+      "path": "missing-motion/salmon-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "58de6e94710393c6845b31238d9e565017d221a504b9310e3f235185c3b6a2ea",
+      "bytes": 8537
+    },
+    {
+      "path": "missing-motion/salmon-7-dislike-idle-normal.jpg",
+      "sha256": "9c09fd8374dd7ee2b6ffe1dcd2979ea54c479498685a193409a3232da100c3e5",
+      "bytes": 7577
+    },
+    {
+      "path": "missing-motion/salmon-7-dislike-idle-reduced.jpg",
+      "sha256": "323493230305fd029382c9ec9eb2683e9ba56297e0d61d999e27f21774fc7ce4",
+      "bytes": 7495
+    },
+    {
+      "path": "missing-motion/salmon-7-dislike-walk-normal.jpg",
+      "sha256": "1e7feadaf9721fe6888c3573e661249c8345e1b002e68c3741f950091a09e7c9",
+      "bytes": 7759
+    },
+    {
+      "path": "missing-motion/salmon-7-dislike-walk-reduced.jpg",
+      "sha256": "474e89b0413dc7415f09faaa527b716e6219f94276704766c9b403fa296eb81e",
+      "bytes": 7699
+    },
+    {
+      "path": "missing-motion/salmon-7-motion.jpg",
+      "sha256": "735d3e678d50fc157dd8dc5d1fcfe226d4d80fff4e71f1f6f0024871949967b5",
+      "bytes": 348108
+    },
+    {
+      "path": "missing-motion/salmon-7-normal-idle-normal.jpg",
+      "sha256": "7743a45f5ee31146e239edaf6e56d53f6e0d87146556fcaab2df5482e0330e08",
+      "bytes": 8216
+    },
+    {
+      "path": "missing-motion/salmon-7-normal-idle-reduced.jpg",
+      "sha256": "019c0e9c4258d72cc3ac6eabc7d87923cc9ae34bd8c7aa33fed71854ac1772fa",
+      "bytes": 8432
+    },
+    {
+      "path": "missing-motion/salmon-7-normal-walk-normal.jpg",
+      "sha256": "61b11efafc7092ac23d8fadb7382cfbb095ed2d691e153dd8adc74957638a192",
+      "bytes": 8479
+    },
+    {
+      "path": "missing-motion/salmon-7-normal-walk-reduced.jpg",
+      "sha256": "c13602fb3b9d0c27f6f388f1f356be87f46738f1965244c03d465679bdb34c9b",
+      "bytes": 8574
+    },
+    {
+      "path": "missing-motion/salmon-7-positive-idle-normal.jpg",
+      "sha256": "56ef9a56fbf2fe6dff363bb248aecebbc0f560b764090f67867f10c3164b1a14",
+      "bytes": 8392
+    },
+    {
+      "path": "missing-motion/salmon-7-positive-idle-reduced.jpg",
+      "sha256": "24f4e4d9f17d310ff0254a4b639c5d15eae19ade682ef1aba484826135b60a21",
+      "bytes": 8345
+    },
+    {
+      "path": "missing-motion/salmon-7-positive-walk-normal.jpg",
+      "sha256": "6ae9bd1b66ae3cd56ca050f2df55923d7f600001aa4e7ffc270cb9f23b4b3a8b",
+      "bytes": 8103
+    },
+    {
+      "path": "missing-motion/salmon-7-positive-walk-reduced.jpg",
+      "sha256": "75482381e1916604c44194cf739c6e6263c73b21a67aec6c5e775e39df8d2db8",
+      "bytes": 8395
+    },
+    {
+      "path": "missing-motion/salmon-7-sick-idle-normal.jpg",
+      "sha256": "a7a368c6de881d96fe041e3c39f47d1adc2ee9c64d486f2358afd3d13fce172d",
+      "bytes": 7869
+    },
+    {
+      "path": "missing-motion/salmon-7-sick-idle-reduced.jpg",
+      "sha256": "246af84ae91c181a082a08fe1960ac5d8505c6a54f49ccde5ab2b4a191b5eb25",
+      "bytes": 8011
+    },
+    {
+      "path": "missing-motion/salmon-7-sick-walk-normal.jpg",
+      "sha256": "d6cce9f08b2e1d3549a92af370779b418a30741efbab2f5447f47640945c5176",
+      "bytes": 8306
+    },
+    {
+      "path": "missing-motion/salmon-7-sick-walk-reduced.jpg",
+      "sha256": "1344d17b67b3555269be19cf6dbaebe8dcd3020ea11f4c3f9e9a90e1edd2982d",
+      "bytes": 8309
+    },
+    {
+      "path": "missing-motion/salmon-7-sleeping-idle-normal.jpg",
+      "sha256": "6b595fa27e99511e8e2a76730ea5d6aa297f4eeb3f8a3b74e9112a49b04201ed",
+      "bytes": 7716
+    },
+    {
+      "path": "missing-motion/salmon-7-sleeping-idle-reduced.jpg",
+      "sha256": "0533f07f77161773cdbf6aed444b7fb1bf8c24763dd23cea3a851a85bd3c8220",
+      "bytes": 8015
+    },
+    {
+      "path": "missing-motion/salmon-7-sleeping-walk-normal.jpg",
+      "sha256": "6b0f7f4cd7b3e2a7647e2e8e08784f42dfae2c0001fa8b12ff37d1a4e73b5a31",
+      "bytes": 8196
+    },
+    {
+      "path": "missing-motion/salmon-7-sleeping-walk-reduced.jpg",
+      "sha256": "e8f1fd45bd5c1c2b3018adcdaa7dce3f3c54afaf0143e48643e362634a80715c",
+      "bytes": 8296
+    },
+    {
+      "path": "missing-motion/salmon-7-strained-idle-normal.jpg",
+      "sha256": "3a29df8418a3092c36ff5c7d11dbe3493a19aae07c72ddb0c99d88167869ccac",
+      "bytes": 8051
+    },
+    {
+      "path": "missing-motion/salmon-7-strained-idle-reduced.jpg",
+      "sha256": "06e5e2518e5f296b93f07a68e8ee6ad7a6b41e393d4bf0240b630f762ed8c36b",
+      "bytes": 8195
+    },
+    {
+      "path": "missing-motion/salmon-7-strained-walk-normal.jpg",
+      "sha256": "900e4a3dad7ea35d09bc6f1c795563ba69edffbe99edc41e958d6df1e457e71b",
+      "bytes": 7961
+    },
+    {
+      "path": "missing-motion/salmon-7-strained-walk-reduced.jpg",
+      "sha256": "f6877b04bc576f7e627c9dd982834d665fae8db40c956b1e658eb58114cc2b70",
+      "bytes": 8184
+    },
+    {
+      "path": "missing-motion/salmon-7-tired-idle-normal.jpg",
+      "sha256": "718e57a2834a45968158e78c15e98aae54cd9868fbbdd5b288eaa1a34c8f08af",
+      "bytes": 7698
+    },
+    {
+      "path": "missing-motion/salmon-7-tired-idle-reduced.jpg",
+      "sha256": "4a79ed4fca908e5cd91ffbe17a3cbbf9b66fd46dac6f9f7c977461fd138e1785",
+      "bytes": 7859
+    },
+    {
+      "path": "missing-motion/salmon-7-tired-walk-normal.jpg",
+      "sha256": "2a7b4a719d3345631bb9740aeb48176258fb2159507fbf0af622192fc33a36c1",
+      "bytes": 8297
+    },
+    {
+      "path": "missing-motion/salmon-7-tired-walk-reduced.jpg",
+      "sha256": "2aeac67245e7d5b785d57fe4cb3be9dcf1835c67f1163a20140adc6d2700d661",
+      "bytes": 8319
+    },
+    {
+      "path": "missing-motion/salmon-7-wantsPlay-idle-normal.jpg",
+      "sha256": "48708e244533b8b8a55028341b549bb08f2de9913e66add25a406cdfcd3b13ef",
+      "bytes": 8614
+    },
+    {
+      "path": "missing-motion/salmon-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "0a2f0fb6fd8f0ba58988fc311df80df4076765661a52c03d7a7a4cd24ce779cf",
+      "bytes": 8643
+    },
+    {
+      "path": "missing-motion/salmon-7-wantsPlay-walk-normal.jpg",
+      "sha256": "161d872d0b115e6cc6f27e45ff399668e7ab413d82cade4cebc45eedba76aef8",
+      "bytes": 9034
+    },
+    {
+      "path": "missing-motion/salmon-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "c816971caef6215c84c42c82523cd2f66cfa8b221b05a02b5c59178b5c1e2ce9",
+      "bytes": 8888
+    },
+    {
+      "path": "missing-motion/salmon-8-dislike-idle-normal.jpg",
+      "sha256": "87ab9a134003bf0af6a51b107563d46c67114d3fad4455d3b7cd8f14a7794c8e",
+      "bytes": 7520
+    },
+    {
+      "path": "missing-motion/salmon-8-dislike-idle-reduced.jpg",
+      "sha256": "63613651bf2ccf6d11c9fe559a5d083dd2830f2c76b4bee98a9166659aaa36dc",
+      "bytes": 7492
+    },
+    {
+      "path": "missing-motion/salmon-8-dislike-walk-normal.jpg",
+      "sha256": "9e143d564c44f1eee59c72c7ef81a1571ab0ec0705b2f8559f4dddb6e451e72a",
+      "bytes": 7563
+    },
+    {
+      "path": "missing-motion/salmon-8-dislike-walk-reduced.jpg",
+      "sha256": "a91bfab996dde69b1c3d4295edb62f69dd92a6578f803f449e090947064bdf60",
+      "bytes": 7597
+    },
+    {
+      "path": "missing-motion/salmon-8-motion.jpg",
+      "sha256": "495b3b33157331703356ecf6ea6dc5c103d6082519b09997d17f06d72860e26d",
+      "bytes": 331424
+    },
+    {
+      "path": "missing-motion/salmon-8-normal-idle-normal.jpg",
+      "sha256": "d4fcb58956d1a4c412176ee19cea1d26a411d10cc4d225b7124229e75c5dab73",
+      "bytes": 8050
+    },
+    {
+      "path": "missing-motion/salmon-8-normal-idle-reduced.jpg",
+      "sha256": "e5b878842ea1634fe9dace683614e554d2cd90a4edb3ace1c1e45adaee568996",
+      "bytes": 8195
+    },
+    {
+      "path": "missing-motion/salmon-8-normal-walk-normal.jpg",
+      "sha256": "1dc110097fb87677382f63cd26a68e08b22c6857792da4096f71bcbadbf1b1aa",
+      "bytes": 8308
+    },
+    {
+      "path": "missing-motion/salmon-8-normal-walk-reduced.jpg",
+      "sha256": "251eb84db7e27f9150e499188ab2f6ae35cd5ed3aaf782fb90443f7e7b521f49",
+      "bytes": 8334
+    },
+    {
+      "path": "missing-motion/salmon-8-positive-idle-normal.jpg",
+      "sha256": "2211d76df984e2def64304402617a48cb53dd1b7d1c12fc04b5c0faa8eec8cca",
+      "bytes": 8160
+    },
+    {
+      "path": "missing-motion/salmon-8-positive-idle-reduced.jpg",
+      "sha256": "c0333a291e5818cbed7328cb541d18c186216ab8f1874762bd5c7585383eed75",
+      "bytes": 8169
+    },
+    {
+      "path": "missing-motion/salmon-8-positive-walk-normal.jpg",
+      "sha256": "aaf433517715b90479241f4d028266e058eeba7c1d9ddee411c8e1ca27a3bf27",
+      "bytes": 7883
+    },
+    {
+      "path": "missing-motion/salmon-8-positive-walk-reduced.jpg",
+      "sha256": "91e7fd249b203fe137903e4786751ca9f1feec8cc37d6c74e96d87218f75b83b",
+      "bytes": 8185
+    },
+    {
+      "path": "missing-motion/salmon-8-sick-idle-normal.jpg",
+      "sha256": "d1e6f2c8c4a3325840a3efeb8bb37567726601c56f17fd2d3cf314cab100ce1e",
+      "bytes": 7700
+    },
+    {
+      "path": "missing-motion/salmon-8-sick-idle-reduced.jpg",
+      "sha256": "24248a062a43fbf846e87cb1711bd804e596296e9aa785a1e8b4aead0b704c67",
+      "bytes": 7822
+    },
+    {
+      "path": "missing-motion/salmon-8-sick-walk-normal.jpg",
+      "sha256": "274716157fecb4a0d57032c9cf18e5211fedee5ec5baffd74ce068b1be39a16d",
+      "bytes": 8054
+    },
+    {
+      "path": "missing-motion/salmon-8-sick-walk-reduced.jpg",
+      "sha256": "ff512f897c7d869b7a2c087f8d300fa4397d45fda11c48666ba063c3caef3d80",
+      "bytes": 8078
+    },
+    {
+      "path": "missing-motion/salmon-8-sleeping-idle-normal.jpg",
+      "sha256": "59f2e86e894cf28dc963ce88ecb27b33dab5f22351365c5fbc00f208e49b7207",
+      "bytes": 7538
+    },
+    {
+      "path": "missing-motion/salmon-8-sleeping-idle-reduced.jpg",
+      "sha256": "3324110247e02c45d2fbd60482bf85669ad9cf55b5a86a8e4005b9bff5a6cc4f",
+      "bytes": 7871
+    },
+    {
+      "path": "missing-motion/salmon-8-sleeping-walk-normal.jpg",
+      "sha256": "1970a00c882566513d4c01d7bb79592186fa1867d40a6f26a947f83a32240bfd",
+      "bytes": 8047
+    },
+    {
+      "path": "missing-motion/salmon-8-sleeping-walk-reduced.jpg",
+      "sha256": "f1d2ddf8d5b45b63f44e90b55ae6ce5e7e27bac517567d6732e922f066403b71",
+      "bytes": 8153
+    },
+    {
+      "path": "missing-motion/salmon-8-strained-idle-normal.jpg",
+      "sha256": "12743d4caf1cbb4e0d71da708919136b2774a51d2b81e9c1fdc202bc071a08f6",
+      "bytes": 7866
+    },
+    {
+      "path": "missing-motion/salmon-8-strained-idle-reduced.jpg",
+      "sha256": "1b23bef6412fb88c956aebb6c64e92f7d18ba0fc1c5d2be0f4276417fee58b99",
+      "bytes": 8050
+    },
+    {
+      "path": "missing-motion/salmon-8-strained-walk-normal.jpg",
+      "sha256": "b0126f27f749a44180fbeb272875959caa6e221bce7543bfe3b81a18bf53df3e",
+      "bytes": 7688
+    },
+    {
+      "path": "missing-motion/salmon-8-strained-walk-reduced.jpg",
+      "sha256": "526c3de58c93abd8a0be09e14142ec76d702fd909b0980df576988d014f551b0",
+      "bytes": 8028
+    },
+    {
+      "path": "missing-motion/salmon-8-tired-idle-normal.jpg",
+      "sha256": "502315461c20eb85de65624395f6fa5d7b86d5c3b1cc00c6ce84c0839c37aae3",
+      "bytes": 7464
+    },
+    {
+      "path": "missing-motion/salmon-8-tired-idle-reduced.jpg",
+      "sha256": "45f5b45a348b949680d72abb575577bf99fb5f420e17ce67cbca9f7181ad62da",
+      "bytes": 7773
+    },
+    {
+      "path": "missing-motion/salmon-8-tired-walk-normal.jpg",
+      "sha256": "68ab1ae9ad26f960ef54d675dd7c95df965827b26f2879614f9174d4adad8d35",
+      "bytes": 8045
+    },
+    {
+      "path": "missing-motion/salmon-8-tired-walk-reduced.jpg",
+      "sha256": "79962850ecdcfe26d1c4711312edb4b107ab18f3dea3619d6a977d8d13cfba83",
+      "bytes": 8033
+    },
+    {
+      "path": "missing-motion/salmon-8-wantsPlay-idle-normal.jpg",
+      "sha256": "40c4798a80cf516deb273345151684d8c5f60d2136b3ad763b4125054981f9db",
+      "bytes": 8372
+    },
+    {
+      "path": "missing-motion/salmon-8-wantsPlay-idle-reduced.jpg",
+      "sha256": "64234b6b3b4bbe3e42c2c7ea12dc6753a6223acc430a8f5af8c362b5968431d6",
+      "bytes": 8405
+    },
+    {
+      "path": "missing-motion/salmon-8-wantsPlay-walk-normal.jpg",
+      "sha256": "4fa34ce6eac6b3b0628f717f4877c5148752135e11ee18bdc8558831ebe1368e",
+      "bytes": 8922
+    },
+    {
+      "path": "missing-motion/salmon-8-wantsPlay-walk-reduced.jpg",
+      "sha256": "9651a3190c201c9ff9868411bbd0bdcd35c5560ec85c43bf492b64fa7dcce2f2",
+      "bytes": 8669
+    },
+    {
+      "path": "player-salmon-1-back.png",
+      "sha256": "d83cd2b02feabdca6968335814db21d0ed5966d95c302613bb3f8229c410e504",
+      "bytes": 301519
+    },
+    {
+      "path": "player-salmon-1-front.png",
+      "sha256": "596118ce487715f29e7ce65ff4475a31cd34c1daa84a69bea0974af2325fdb0c",
+      "bytes": 303554
+    },
+    {
+      "path": "player-salmon-2-back.png",
+      "sha256": "5f3376d1580ae79f14b5abce7c86e0f98d910570393bfb0b93f7d3addb3c0d8c",
+      "bytes": 302198
+    },
+    {
+      "path": "player-salmon-2-front.png",
+      "sha256": "1c1559c2d71ab091a1a7d9bec437c0e3eeaa3ab025091c7066bfe1fc411a07e2",
+      "bytes": 304498
+    },
+    {
+      "path": "player-salmon-3-back.png",
+      "sha256": "5ad706cc208b9cb0ecd4a12fd6ee0641c86d5b101ec76a76d6325b544e54ced4",
+      "bytes": 303360
+    },
+    {
+      "path": "player-salmon-3-front.png",
+      "sha256": "ac7813796f56a6edd7776119d7e8b30819eb15c4fd4d0bdba368cc35b1937c8d",
+      "bytes": 306344
+    },
+    {
+      "path": "player-salmon-4-back.png",
+      "sha256": "b857e3d7442a2e56164296848c24734dd2daa439606db27904204c2d753f5342",
+      "bytes": 302282
+    },
+    {
+      "path": "player-salmon-4-front.png",
+      "sha256": "995cfde3dc272f3021b8023adb69ea11cc6a8a00689820df8c406891e5a1e5fa",
+      "bytes": 304970
+    },
+    {
+      "path": "player-salmon-5-back.png",
+      "sha256": "90b18ee0c0716a420bba4165325e27b922da173fae1a0f36aedc5faa42fc5687",
+      "bytes": 302476
+    },
+    {
+      "path": "player-salmon-5-front.png",
+      "sha256": "510b4ccf7f3dc5018ebd532c056f3acae9736c37b61236853718e058f0379378",
+      "bytes": 305784
+    },
+    {
+      "path": "player-salmon-6-back.png",
+      "sha256": "5a22c3b467234c4e3956f34c86d8bb4aaf0c380de22155ea84951dd712f9a30a",
+      "bytes": 303851
+    },
+    {
+      "path": "player-salmon-6-front.png",
+      "sha256": "afce4507dd5f845bffd4464553a8243bb6028346601af1ca4b9f8697f7277473",
+      "bytes": 307118
+    },
+    {
+      "path": "player-salmon-7-back.png",
+      "sha256": "922333e7d254cdec48b278e6fe413ddcd76100e30ae6734fd53e788b5663cf0a",
+      "bytes": 302957
+    },
+    {
+      "path": "player-salmon-7-front.png",
+      "sha256": "219bfd0232185fe7f9e4fcde9f70145ca299139062448486144bc6368fe3282b",
+      "bytes": 305603
+    },
+    {
+      "path": "player-salmon-8-back.png",
+      "sha256": "9fbb6746800283715cbce8e5287ed1b12f277ae1227cf2af99504a5582f18f07",
+      "bytes": 303403
+    },
+    {
+      "path": "player-salmon-8-front.png",
+      "sha256": "3457aa10d1204cf3a1b32c1fc6cb600daafa0c3952ca7eaebc8939be787a733c",
+      "bytes": 305049
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866074,
+  "artifactJobName": "stage-evidence (salmon)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

@@ -1,0 +1,46 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来 (4.196755ms)
+✔ 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある) (1.865396ms)
+✔ 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある (41.87861ms)
+✔ 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか) (454.216279ms)
+✔ 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ (1.260874ms)
+✔ 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる) (0.381425ms)
+✔ 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない (4.077335ms)
+✔ 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら (2.403028ms)
+✔ 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも (9.523597ms)
+✔ 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし (2.610661ms)
+✔ 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし (1.568018ms)
+✔ 12. canonical emotion と 意味が 一致(#368 の 語彙・Home の Expression PNG の 対応) (7.077024ms)
+✔ 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま) (0.762771ms)
+✔ 14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ (5.218558ms)
+✔ 15. flag・QA の 状態は セーブしない(schema も そのまま) (94.483121ms)
+✔ 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない) (3.351399ms)
+✔ 17. movement logic(めぐるの シミュレーション)は かえない: meguru.js は main と 同一 (1.367464ms)
+✔ 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D (16.415281ms)
+✔ 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない) (13.325666ms)
+✔ 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない) (6.114511ms)
+✔ 21. 表情の きりかえで texture / material を つくりなおさない (23.309047ms)
+✔ 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱) (13.33467ms)
+✔ 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない (19.446125ms)
+✔ 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない (17.891289ms)
+✔ 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ) (14.120096ms)
+✔ 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D (19.500678ms)
+✔ 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。#368 の expr が あれば それを 優先 (2.099119ms)
+✔ 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分) (1.641839ms)
+✔ 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる (2.387384ms)
+✔ 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない (80.151346ms)
+✔ 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし) (17.956237ms)
+✔ 32. 既存の World 3D は かわらない(forest だけ・hybrid の fallback は そのまま) (0.387294ms)
+✔ 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない) (0.675499ms)
+✔ 34. Relationship Expression の 回帰: relationship-expression.js は そのまま (0.233032ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1017.69991

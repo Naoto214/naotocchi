@@ -1,0 +1,46 @@
+{
+ "assets/characters/expressions": {
+  "count": 2484,
+  "sha1": "806b4f39140b22ecf281c62735a266d6a7b01933"
+ },
+ "assets/characters/relationship": {
+  "count": 88,
+  "sha1": "e27ef0c3b2908f7f5aea8625250f42d1ea7149c6"
+ },
+ "assets/characters (stage / companion / partner / author PNG)": {
+  "count": 297,
+  "sha1": "fba1430cfb2b88707aa3d81186d5f8602a4fb386"
+ },
+ "pet-expression.js": {
+  "count": 1,
+  "sha1": "77a295edffab4dffb510c4595c2abbae3060825f"
+ },
+ "pet-expression.css": {
+  "count": 1,
+  "sha1": "31f071f1e736d03ecace4d5b35474c55f23663da"
+ },
+ "relationship-expression.js": {
+  "count": 1,
+  "sha1": "dedbb693869ba394dc9fa7986750cf13a6dea65e"
+ },
+ "emotion-state.js": {
+  "count": 1,
+  "sha1": "0c9ca2453f4ee8bd4120710e96ff9f38fc22c39a"
+ },
+ "cast-bounds.js": {
+  "count": 1,
+  "sha1": "19da126ad301dac42f3b9470ed0ca824c7d82dfb"
+ },
+ "character-world-master.v1.js": {
+  "count": 1,
+  "sha1": "12e308e0962074b0b2bedae01cfbcd144647b1cc"
+ },
+ "life-stage-profiles.js": {
+  "count": 1,
+  "sha1": "1a189f0f6a1fcb13fe4251a420661790c0503cbf"
+ },
+ "meguru.js": {
+  "count": 1,
+  "sha1": "4241ceac38f64e518901cf976d794f4f0a49f8be"
+ }
+}

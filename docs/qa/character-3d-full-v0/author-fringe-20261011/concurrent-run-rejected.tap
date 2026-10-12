@@ -1,0 +1,142 @@
+TAP version 13
+# (node:11) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: image-approved author is exact, finite, grounded, closed and within triangle budget
+ok 1 - image-approved author is exact, finite, grounded, closed and within triangle budget
+  ---
+  duration_ms: 310.034415
+  type: 'test'
+  ...
+# Subtest: naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states
+ok 2 - naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states
+  ---
+  duration_ms: 23370.519161
+  type: 'test'
+  ...
+# Subtest: naoto: resting produced source shell graph reaches each owner
+ok 3 - naoto: resting produced source shell graph reaches each owner
+  ---
+  duration_ms: 1560.358169
+  type: 'test'
+  ...
+# Subtest: naoto: every source shell reaches torso limbs and props in all 32 states
+ok 4 - naoto: every source shell reaches torso limbs and props in all 32 states
+  ---
+  duration_ms: 12251.245377
+  type: 'test'
+  ...
+# Subtest: naoto original closed white hoodie dark shirt layered wavy hair navy slim trousers pale sneaker soles
+ok 5 - naoto original closed white hoodie dark shirt layered wavy hair navy slim trousers pale sneaker soles
+  ---
+  duration_ms: 18.355205
+  type: 'test'
+  ...
+# Subtest: exact actual author identity resolves in production and QA and never aliases other roles
+ok 6 - exact actual author identity resolves in production and QA and never aliases other roles
+  ---
+  duration_ms: 58.902049
+  type: 'test'
+  ...
+# Subtest: existing capture planner opt-in appends only legacy states and distance with exact model identity
+ok 7 - existing capture planner opt-in appends only legacy states and distance with exact model identity
+  ---
+  duration_ms: 29.632508
+  type: 'test'
+  ...
+# Subtest: legal unlock yields actual memory_lake author; bounded QA view preserves actor save and renderer restoration even failure
+not ok 8 - legal unlock yields actual memory_lake author; bounded QA view preserves actor save and renderer restoration even failure
+  ---
+  duration_ms: 1180.714093
+  type: 'test'
+  location: '/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-candidate-test.cjs:49:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(run.renderer.draw===draw)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-candidate-test.cjs:49:2854)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: author closed paths have actual outward terminal indexed winding
+ok 9 - author closed paths have actual outward terminal indexed winding
+  ---
+  duration_ms: 30.921321
+  type: 'test'
+  ...
+# Subtest: author humanoid opt-ins preserve frozen adult and cane default outputs
+ok 10 - author humanoid opt-ins preserve frozen adult and cane default outputs
+  ---
+  duration_ms: 55.743767
+  type: 'test'
+  ...
+# Subtest: HTTP QA overlay resolves unchanged actual kind naoto consistently with production
+ok 11 - HTTP QA overlay resolves unchanged actual kind naoto consistently with production
+  ---
+  duration_ms: 134.641855
+  type: 'test'
+  ...
+# (node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: author fringe fills upper forehead and projects forward without enlarging rear or head
+ok 12 - author fringe fills upper forehead and projects forward without enlarging rear or head
+  ---
+  duration_ms: 520.758147
+  type: 'test'
+  ...
+# (node:23) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: author assembled hair follows revised Human QA forehead and rear coverage
+ok 13 - author assembled hair follows revised Human QA forehead and rear coverage
+  ---
+  duration_ms: 390.306499
+  type: 'test'
+  ...
+# Subtest: author every produced hair constituent reaches skull through actual closed-volume contacts
+ok 14 - author every produced hair constituent reaches skull through actual closed-volume contacts
+  ---
+  duration_ms: 267.997441
+  type: 'test'
+  ...
+# (node:24) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: deer retains slender proportions with shorter shafts and connected tapered upper legs and joints
+ok 15 - deer retains slender proportions with shorter shafts and connected tapered upper legs and joints
+  ---
+  duration_ms: 386.304211
+  type: 'test'
+  ...
+# Subtest: author hair covers rear scalp and forms downward forehead locks without a wide bald center wedge
+ok 16 - author hair covers rear scalp and forms downward forehead locks without a wide bald center wedge
+  ---
+  duration_ms: 82.683674
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 15
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 39203.516963

@@ -1,0 +1,50 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/player-motion-image-blockers/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/player-motion-image-blockers/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ mushroom 5: assembled cap clears complete canonical face in32states (297.834199ms)
+✔ mushroom 6: assembled cap clears complete canonical face in32states (572.454424ms)
+✖ mushroom 7: assembled cap clears complete canonical face in32states (232.702626ms)
+✔ clownfish 2: both produced pectoral roots stay embedded in32states (56.938803ms)
+✔ clownfish 3: both produced pectoral roots stay embedded in32states (54.420005ms)
+✔ clownfish 5: both produced pectoral roots stay embedded in32states (85.095003ms)
+✔ clownfish 6: both produced pectoral roots stay embedded in32states (58.812097ms)
+✔ clownfish 7: both produced pectoral roots stay embedded in32states (54.497922ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1585.010464
+
+✖ failing tests:
+
+test at tests/character-3d-player-image-blockers-test.cjs:15:24
+✖ mushroom 5: assembled cap clears complete canonical face in32states (297.834199ms)
+  AssertionError [ERR_ASSERTION]: mushroom5/tired/false/0/frame6: cap covers canonical feature at 0.12140337750315666,0.3923804246964164,0.17444971628659614 distance 1.7498802392319999
+      at checkMushroom (/workspace/scratch/150320e8a2fd/player-motion-image-blockers/tests/character-3d-player-image-blockers-test.cjs:13:252)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/character-3d-player-image-blockers-test.cjs:15:24
+✖ mushroom 7: assembled cap clears complete canonical face in32states (232.702626ms)
+  AssertionError [ERR_ASSERTION]: mushroom7/dislike/false/0/frame6: cap covers canonical feature at -0.18455421702348265,0.4316258402203431,0.21727073114696985 distance 1.562864150406157
+      at checkMushroom (/workspace/scratch/150320e8a2fd/player-motion-image-blockers/tests/character-3d-player-image-blockers-test.cjs:13:252)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,36 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "9fadab27a5abacedfb40add609f95fb14f2c69a3",
+  "artifact": {
+    "id": 11558400918,
+    "name": "full-rollout-mythic-distance-god-9fadab27a5abacedfb40add609f95fb14f2c69a3",
+    "digest": "sha256:558167b87bb6e341bea3f1bc4566abaab88d30754977496b3ffbba6952f7f6d2"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "1a4540e8c1b830ed10669c20654e0ce7df2dcf77aa34c7bc84dd922a2b449a2d",
+      "bytes": 2175
+    },
+    {
+      "path": "player-god-3-back.png",
+      "sha256": "25966f2a4cca29f527d631702efadee75270780c96fbf24458f4df88ecfc92fc",
+      "bytes": 307135
+    },
+    {
+      "path": "player-god-3-front.png",
+      "sha256": "ca1fd1e51c55c548b07553696e2f30a7647a8b0df2753d3735efbab414ce7613",
+      "bytes": 308413
+    },
+    {
+      "path": "player-god-7-back.png",
+      "sha256": "722e47a740691224a88681e4581d9e9e0f465f8f37f24076bb0489907ca43f73",
+      "bytes": 312723
+    },
+    {
+      "path": "player-god-7-front.png",
+      "sha256": "e3a5636ac9f4c4c0ed2ee944f7eba42b2c758caef4e39cd6c02959367d02db8f",
+      "bytes": 314606
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "fd51debce20418db17feb6bbd8e3945a4a844eef",
+  "waveArtifact": 11416777058,
+  "distanceArtifact": 11416306638,
+  "verdict": "rejected representative side-depth gate",
+  "reviewed": [
+    "front/34/side/back",
+    "ordinary-distance front"
+  ],
+  "finding": "All blossoms share a nearly parallel plane; side canopy is sparse and flat. Add outward flower orientations and branch-depth layers, preserve trunk face. No remaining-stage expansion or promotion.",
+  "environment": "Chromium/SwiftShader, not iPhone"
+}

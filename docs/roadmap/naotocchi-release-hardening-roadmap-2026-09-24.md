@@ -1060,3 +1060,18 @@ save の配列要素の型が壊れていても、起動不能にならないよ
 - **save**: なにも 書かない。`schemaVersion 5` の まま。URL flag(`?mgexpr=0` / `?mgexprforce=<emotion>` / `?mgexprqa=1`)も セーブ・localStorage に のこさない。`?mgexprqa=1` は save に よらず 代表住民 6 体を forest に ならべる QA 専用モード(ふだんの URL では 完全に 無効。QA の あいだは met / talk / spot の 記録も 止める)。
 - **3D**: 現在の PNG billboard(`?meguru3d=1`)に 完成ずみ Expression PNG が そのまま のる。将来 3D character model へ うつる ときは `resolve` を Blend Shape / animation の 解決に 差しかえる(emotion → expression は そのまま)。
 - **残り**: sick / wantsPlay の 自然発火(住民生活 v2 の 信号待ち)、なかま・こいびとの positive 以外、3D texture の LRU、iPhone 実機確認。#367(All Regions 3D v0)とは `index.html` の token 1 か所だけ 機械的に 衝突し、semantic conflict は ない。
+
+---
+
+## 15. Character 3D System(2026-10-01 追記。独立 lane・Draft PR・main merge なし)
+
+正本: [`docs/character-3d/architecture.md`](../character-3d/architecture.md)・QA: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot-2026-10-01.md)。
+
+**順番(この 順を まもる)**
+
+1. **Character 3D Pilot** — 形の 差が 大きい 8 系統(いぬ・ペンギン・カクレクマノミ・おとこのひと・ちょう・タンポポ・キノコ・ヒトデ)× 01 / 04 / 08 等 × 5 表情。`?meguru3d=1&char3d=1` の ときだけ。第3回Human QAまで完了。
+2. **Human QA**(iPhone)— 同じ 子に 見えるか・side / back・成長・表情・うごき・箱庭に なじむか・2D より よいか・27 体・全量展開したいか。
+3. **architecture 確定** — 採用 / 条件付き採用(archetype・顔・うごき を なおして pilot 再確認)/ 不採用(2D billboard を 維持し、pilot は 研究成果として のこす)。
+4. **Full Rollout v0** — 2026-10-04開始承認、Draft #376で制作中。fresh inventoryは31 species × 8 stages、26 companions、18 partners、author 1の293 active designs。archetype数は固定せず、原画から不足責務を再評価。dog/cat/penguin/salmon/clownfish/man/woman/ren/dandelion/butterfly/mushroom/starfish/turtle/frog全stageを展開し、exact spec114/293、未実装179。turtle/frog全16段階は原画・4方向・通常距離確認後にruntimeへ接続。全量採用・iPhone合格は未判定。進捗は[checkpoint](../character-3d/full-rollout-v0/progress.md)。
+
+**全量展開開始は承認済み。全量の採用・Ready・main mergeは未承認。** v0完成後は全量Human QAで停止。iPhone実機・27体・long play・latest main統合QAは最終merge gate。save/schema・2D画像・Expression Systemの正本はかえない。

@@ -1,0 +1,53 @@
+{
+  "when": "2026-10-04T22:10:38.567Z",
+  "revision": "quality3",
+  "sourceCommit": "273fe849bc2303467201479e21e25906621859a4",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "topology",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "turtle:5": {
+      "requestedStage": 5,
+      "harnessStageIndex": 4,
+      "playerKey": "turtle:4",
+      "player3d": true,
+      "specKey": {
+        "id": "turtle",
+        "stage": 5,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/topology-distance/player-turtle-5-front.png",
+      "back": "test-results/full-rollout/topology-distance/player-turtle-5-back.png",
+      "live": {
+        "live": 7,
+        "templates": 7,
+        "built": 7,
+        "tris": 29992,
+        "meshes": 76,
+        "bones": 55,
+        "materials": 1,
+        "atlases": 9,
+        "eyeGeos": 8,
+        "cpuMsAvg": 4.123,
+        "cpuMsP95": 24.4,
+        "buildMsTotal": 286.8,
+        "buildMsMax": 95,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 7,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

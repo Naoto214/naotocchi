@@ -1,0 +1,66 @@
+name: Character 3D QA artifact packaging
+# Pair sheets use front and three-quarter views; individual sheets include all four directions.
+on:
+  push:
+    branches: [feat/character-3d-pilot]
+    paths: ['.github/workflows/character-3d-qa-package.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Wait for the exact verified source run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 100); do
+            gh api repos/Naoto214/naotocchi/actions/runs/37114001769 > run.json
+            test "$(jq -r .head_sha run.json)" = d6608d393a76aa452c04eaa85253df2a21e5fe2d
+            if test "$(jq -r .status run.json)" = completed; then
+              test "$(jq -r .conclusion run.json)" = success
+              exit $?
+            fi
+            sleep 20
+          done
+          exit 1
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: Naoto214/naotocchi
+          run-id: 37114001769
+          name: character-3d-quality-d6608d393a76aa452c04eaa85253df2a21e5fe2d
+          path: qa
+      - name: Verify source and assemble immutable QA images
+        run: |
+          git diff --exit-code d6608d393a76aa452c04eaa85253df2a21e5fe2d -- character-3d meguru.js meguru-3d.mjs index.html
+          node docs/qa/character-3d-quality2-2026-10-03/package.cjs qa
+      - name: Save only QA evidence to the existing Draft branch
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          git fetch origin feat/character-3d-pilot
+          test "$(git rev-parse origin/feat/character-3d-pilot)" = "$EXPECTED_HEAD"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/qa/character-3d-quality2-2026-10-03
+          git commit -m 'Save verified round-two Character 3D Human QA images and measurements'
+          git push origin HEAD:feat/character-3d-pilot
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-quality2-human-qa
+          path: docs/qa/character-3d-quality2-2026-10-03
+          retention-days: 14

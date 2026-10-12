@@ -1,0 +1,54 @@
+{
+  "sourceCommit": "896024b8bb8b05393bc63ea439c670a814791f71",
+  "beforeCommit": "1f29df975e7b9bff34a048abc478864a3d146da2",
+  "technicalImageReview": "ACTUALLY_REVIEWED_ACCEPTED_FOR_HUMAN_REVIEW",
+  "authorHumanQA": "AWAITING_USER",
+  "deerHumanQA": "APPROVED_BY_USER_NO_FURTHER_CHANGE",
+  "overallHumanQA": "OPEN",
+  "actualIphoneQA": "OPEN",
+  "views": [
+    "front",
+    "34",
+    "side",
+    "back"
+  ],
+  "states": 32,
+  "normalDistance": [
+    "front",
+    "back"
+  ],
+  "rawFilesSha256Verified": 51,
+  "errors": [],
+  "observations": [
+    "Front locks visibly thicker with reduced forehead gaps and forward overlap.",
+    "Both eyes remain visible; no lower-face occlusion in32states.",
+    "Head size and posterior volume/path definitions remain exact; rear appearance preserved."
+  ],
+  "comparison": "docs/qa/character-3d-full-v0/author-fringe-20261011/author-naoto-comparison.jpg",
+  "comparisonSha256": "e62fec90cbf4a3fdb47efb9ecaad69dc68682625a8fd6fa45a153afa4c9b9833",
+  "evidenceRoot": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe",
+  "validation": {
+    "focusedTests": 34,
+    "workflowTests": 8,
+    "existingAuthorMutation": 18,
+    "newFringeMutation": 2,
+    "existingHumanFeedbackMutation": 4,
+    "characterRun": 38132401763,
+    "characterConclusion": "success",
+    "previousSourceFullNpm": {
+      "source": "fe2acd989f5d6f611a8251133795f83ae737800c",
+      "main": 3022,
+      "relationship": 80,
+      "fail": 0
+    },
+    "latestRuntime": {
+      "id": 38132407816,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    },
+    "latestHome": {
+      "id": 38132407819,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    }
+  },
+  "stop": "Human QA wait; no additional character work or promotion without user review"
+}

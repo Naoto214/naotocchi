@@ -1,0 +1,74 @@
+FE.FFE............
+======================================================================
+ERROR: test_failed_runtime_diagnostic_exports_only_json_and_never_image_approval (__main__.ArtifactJobTests.test_failed_runtime_diagnostic_exports_only_json_and_never_image_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 153, in test_failed_runtime_diagnostic_exports_only_json_and_never_image_approval
+    result,blobs,calls=self.execute(self.bound(True));manifest=next(json.loads(b) for b in blobs if b.startswith(b'{') and b'"files"' in b);self.assertEqual(manifest['status'],'DIAGNOSTIC_NOT_APPROVED');self.assertEqual(manifest['artifactJobConclusion'],'failure')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 76, in execute
+    with patch.dict(os.environ,env),patch.object(m.urllib.request,'urlopen',api),patch.object(m.urllib.request,'build_opener',return_value=Download()),contextlib.redirect_stdout(io.StringIO()):m.main()
+                                                                                                                                                                                                 ^^^^^^^^
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/character_qa_export.py", line 61, in main
+    if run.get('id')!=run_id or run.get('head_sha')!=source or run.get('head_branch')!=BRANCH or run.get('status')!='completed' or run.get('conclusion') not in (('success','failure') if capture_requested else ('success',)):raise ValueError('unverified source run')
+                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: unverified source run
+
+======================================================================
+ERROR: test_successful_stage_from_failed_run_preserves_bytes_and_pending_verdict (__main__.ArtifactJobTests.test_successful_stage_from_failed_run_preserves_bytes_and_pending_verdict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 148, in test_successful_stage_from_failed_run_preserves_bytes_and_pending_verdict
+    result,blobs,calls=self.execute(self.bound());self.assertEqual(result['sourceRunConclusion'],'failure');self.assertEqual(result['artifactJobs'][0]['artifactJobName'],'stage-evidence (dog)');self.assertEqual(result['artifactJobs'][0]['artifactJobConclusion'],'success')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 76, in execute
+    with patch.dict(os.environ,env),patch.object(m.urllib.request,'urlopen',api),patch.object(m.urllib.request,'build_opener',return_value=Download()),contextlib.redirect_stdout(io.StringIO()):m.main()
+                                                                                                                                                                                                 ^^^^^^^^
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/character_qa_export.py", line 61, in main
+    if run.get('id')!=run_id or run.get('head_sha')!=source or run.get('head_branch')!=BRANCH or run.get('status')!='completed' or run.get('conclusion') not in (('success','failure') if capture_requested else ('success',)):raise ValueError('unverified source run')
+                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: unverified source run
+
+======================================================================
+FAIL: test_explicit_job_identity_and_mode_required_and_old_capture_mode_stays_separate (__main__.ArtifactJobTests.test_explicit_job_identity_and_mode_required_and_old_capture_mode_stays_separate)
+----------------------------------------------------------------------
+ValueError: unverified source run
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 177, in test_explicit_job_identity_and_mode_required_and_old_capture_mode_stays_separate
+    with self.assertRaisesRegex(ValueError,'explicit artifact job'):self.execute(f)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "explicit artifact job" does not match "unverified source run"
+
+======================================================================
+FAIL: test_job_mode_never_accepts_unfinished_cancelled_source_or_wrong_diagnostic_job (__main__.ArtifactJobTests.test_job_mode_never_accepts_unfinished_cancelled_source_or_wrong_diagnostic_job)
+----------------------------------------------------------------------
+ValueError: unverified source run
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 171, in test_job_mode_never_accepts_unfinished_cancelled_source_or_wrong_diagnostic_job
+    with self.assertRaisesRegex(ValueError,'diagnostic export restricted'):self.execute(f)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "diagnostic export restricted" does not match "unverified source run"
+
+======================================================================
+FAIL: test_job_mode_retains_digest_branch_expiration_count_and_lease_guards (__main__.ArtifactJobTests.test_job_mode_retains_digest_branch_expiration_count_and_lease_guards)
+----------------------------------------------------------------------
+ValueError: unverified source run
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 189, in test_job_mode_retains_digest_branch_expiration_count_and_lease_guards
+    with self.assertRaisesRegex(ValueError,'branch moved'):self.execute(self.bound(),move_at=at)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "branch moved" does not match "unverified source run"
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.089s
+
+FAILED (failures=3, errors=2)

@@ -1,0 +1,54 @@
+{
+  "status": "VISUALLY_INSPECTED_OPTIONS_AWAITING_HUMAN_SELECTION",
+  "selected": null,
+  "productionChanged": false,
+  "baseline": "1b8ef62aa3cbfe79b6f05150f4cd520eaa8c7284",
+  "sourceCommit": "e4c85576e96cfbeb7f8b83e66fd99f936178b0bd",
+  "sourceRun": 38136126011,
+  "sourceRunConclusion": "success",
+  "captureJob": 114460238257,
+  "artifactId": 11700744062,
+  "artifactDigest": "sha256:edda71d7a84476d5b7961f99eb2be3288502c59ac7b02a42cee39c8f1004f03f",
+  "verifiedOriginalFiles": 17,
+  "viewsPerCandidate": [
+    "front",
+    "34",
+    "side",
+    "back"
+  ],
+  "candidateSpecHashesMatch": true,
+  "browserErrors": [],
+  "observations": {
+    "A": "Downward fuller fringe with subtle directional flow; eyes visible; rounded overlapping ends.",
+    "B": "Stronger one-way sweep, shorter uneven lower edge; side flow most visible.",
+    "C": "Lower, more uneven finer fringe; small irregular overlaps instead of a central pointed lock."
+  },
+  "sharedVisualReview": "All12frames and all3source/four-view boards inspected. No exposed central part, isolated centralV, slab fringe or comb-like uniformly spaced tips observed in round2. Preserved posterior remains covered in side/back. Original fine tousled detail is still simplified into round locks; resemblance/choice is not approved.",
+  "originalLimitation": "Existing original is a single2D view, repeated beside each four-view3D row. No side/back originals invented.",
+  "internalRejectedSource": "cd32a105882f6582039285418dbfe19f229dfb73",
+  "rejectedReason": "Uniform fine tubular ends read as a comb. Immutable images retained.",
+  "tests": {
+    "localShapeAndWorkflow": {
+      "pass": 10,
+      "fail": 0
+    },
+    "characterCI": "SUCCESS",
+    "productionMutations": "Not rerun: QA-only overrides, no production spec/builder/runtime change; no new mutation PASS claimed.",
+    "runtimeCI": {
+      "run": 38136132370,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    },
+    "homeCI": {
+      "run": 38136132439,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    }
+  },
+  "humanQA": "OPEN_UNSELECTED",
+  "iPhoneQA": "OPEN",
+  "fullHumanQA": "OPEN",
+  "pr": {
+    "number": 376,
+    "draft": true,
+    "merged": false
+  }
+}

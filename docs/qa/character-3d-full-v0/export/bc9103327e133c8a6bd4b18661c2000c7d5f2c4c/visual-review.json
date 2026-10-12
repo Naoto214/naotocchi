@@ -1,0 +1,27 @@
+{
+  "status": "PASS_REPRESENTATIVE_IMAGE_GATE",
+  "sourceCommit": "bc9103327e133c8a6bd4b18661c2000c7d5f2c4c",
+  "archiveCommit": "35859c50bfbb2bcded7633d9ba75d9c421c419ee",
+  "family": "star",
+  "stages": [
+    3,
+    7
+  ],
+  "actualReview": {
+    "fourViews": 8,
+    "stateImages": 64,
+    "normalDistance": 4
+  },
+  "integrity": {
+    "waveFiles": 77,
+    "distanceFiles": 5,
+    "sha256": "All raw ZIP entries matched manifest"
+  },
+  "findings": [
+    "03 central gold face is inside the spiral disk after core/tilt correction; no hanging face.",
+    "03/07 canonical expressions remain visible throughout idle/walk and normal/reduced motion.",
+    "07 irregular curved rays and purple rear remain readable; no clipping or detached parts in four views.",
+    "Normal-distance front/back screenshots inspected; Chromium/SwiftShader only, not Human/iPhone acceptance."
+  ],
+  "next": "Expand remaining six source-derived stages; runtime remains unregistered until all8 image gate."
+}

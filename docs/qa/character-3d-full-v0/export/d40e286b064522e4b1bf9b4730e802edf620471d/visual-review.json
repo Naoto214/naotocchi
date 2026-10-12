@@ -1,0 +1,47 @@
+{
+  "sourceCommit": "d40e286b064522e4b1bf9b4730e802edf620471d",
+  "archiveCommit": "b9e0cf9555fc62597807bb3f2bb5ca7392c2d3d5",
+  "integrity": {
+    "rawFiles": 121,
+    "allHashesVerified": true
+  },
+  "results": {
+    "partner:oasis_cactus": {
+      "status": "PASS_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 32,
+        "normalDistance": 2
+      },
+      "findings": [
+        "Closed green column, raised arms, attached ribs/spines, roots and pink flower remain legible.",
+        "One unobstructed canonical face across states; front/back normal distance inspected."
+      ]
+    },
+    "companion:owl": {
+      "status": "REJECT_WING_VOLUME_AND_MOUTH_OCCLUSION",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 0,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Raised wing emerges as a flat rectangular patch and obscures mouth.",
+        "Current smooth avian flipper does not preserve source overlapping feather silhouette; structural reconsideration required before another fix."
+      ]
+    },
+    "companion:punyu": {
+      "status": "REJECT_SURFACE_CREASES",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 0,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Hook/notch and opaque body improved; core leak absent.",
+        "Triangulation/nearest-edge shading creates unnatural creases on broad soft surface."
+      ]
+    }
+  },
+  "platform": "Chromium/SwiftShader; not Human/iPhone acceptance"
+}

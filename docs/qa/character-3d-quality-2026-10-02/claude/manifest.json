@@ -1,0 +1,34 @@
+{
+  "source": "e12f7208427c2f1035849ab4319c78fc31305c65",
+  "usage": "QA only; never imported by Meguru; import path/global namespace relocation only",
+  "files": {
+    "spec.js": {
+      "originalSha256": "d5c21f74d25beb21118628c2d6536dad236318a311b448d20caa0815f4566c88",
+      "relocatedSha256": "dd8480b807a9bfae56c54f273eccc5171471cfa2e4c0a001be99395745a85ad9"
+    },
+    "spec-esm.mjs": {
+      "originalSha256": "43e0b0b3a578e0f94907f6a6a0038476539777e8739cd07189b1cc50572ba597",
+      "relocatedSha256": "d20397d3739ce2ccbd38af24febd996ff17949a1d16f9db7ad75b15e3a296014"
+    },
+    "geometry.mjs": {
+      "originalSha256": "6e8d03eadcd0f2184ea3bad2c4f3e07e5986a538f4e13a0accc2546860ba09f0",
+      "relocatedSha256": "7d4befac47df7875d59661ed218a4a514b4f224aea4e23858c6fa2d56e5a0579"
+    },
+    "rig.mjs": {
+      "originalSha256": "93e880e63f362b4ffff92cedd8f6858c30c2d7571a225fa51f052327e945921b",
+      "relocatedSha256": "93e880e63f362b4ffff92cedd8f6858c30c2d7571a225fa51f052327e945921b"
+    },
+    "archetypes.mjs": {
+      "originalSha256": "a13c2b998a25e53e125f5a52cba7478a1157610d5878b83d837091143ac33512",
+      "relocatedSha256": "a13c2b998a25e53e125f5a52cba7478a1157610d5878b83d837091143ac33512"
+    },
+    "animate.mjs": {
+      "originalSha256": "7f4f42748a045635b13720ae65e73d1d0379fae81bf693213a0941a5453abb4b",
+      "relocatedSha256": "7f4f42748a045635b13720ae65e73d1d0379fae81bf693213a0941a5453abb4b"
+    },
+    "runtime.mjs": {
+      "originalSha256": "856c405874ab9b6b02b329c1cb3e3fb95e8a6e6a276683c455f8765dfa4252bd",
+      "relocatedSha256": "856c405874ab9b6b02b329c1cb3e3fb95e8a6e6a276683c455f8765dfa4252bd"
+    }
+  }
+}

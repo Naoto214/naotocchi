@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "717c9e13c6a15eb7799bd784219b6ecd23957e09",
+  "waveArtifact": 11417862241,
+  "distanceArtifact": 11416609421,
+  "verdict": "flowering-tree04 representative visual gate accepted; independent dedicated CI failure retained in ci.json",
+  "checks": {
+    "fourViews": 4,
+    "canonicalMotion": 32,
+    "ordinaryDistanceStages": 1,
+    "fallbacks": 0,
+    "errors": 0
+  },
+  "review": "Side canopy now has outward-facing flower volumes, front/back depth layers and attached branches; single trunk face remains visible and all32 states coherent. Normal front distance remains recognizable.",
+  "simplifications": [
+    "29 large five-petal clusters stand in for denser pixel blossom crown",
+    "Smooth branches omit bark scoring"
+  ],
+  "environment": "Chromium/SwiftShader, not iPhone"
+}

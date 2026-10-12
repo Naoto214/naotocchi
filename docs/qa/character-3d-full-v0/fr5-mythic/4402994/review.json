@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "4402994ab2e760a6fcc1a23f5816b26fe9031cae",
+  "artifacts": {
+    "waveMotion": 11438346256,
+    "normalDistance": 11437402913
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "REJECT",
+  "reason": "Seated toy, heart, one ear and sewn patches read;03heart obscures drooped mouth in tired/sleeping states. Lower held heart and reimage before expansion.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}
