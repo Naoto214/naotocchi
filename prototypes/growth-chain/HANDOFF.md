@@ -87,3 +87,16 @@
 実装HEAD 323e94b8から継続し、実装・測定は再作成していない。詳細は `QA-20261013.md`。
 完全checkoutでルートnpm testを完走: smoke/dialogue/visual QA成功、主要3,130/3,130＋Relationship80/80 PASS、exit 0。画像欠落の制約は解消済み。専用45/45も再確認。
 実Chromium起動は同じsocket EPERMで停止したため、PC/スマホ実ブラウザとHuman QAは引き続き未確認。次はstandaloneで試遊。未決定ルール・Draft・保護境界は維持。
+
+## 2026-10-13 スマホ試遊UIの実装追記
+
+最新の実装・制約は `MOBILE-QA-20261013.md`。上記のブラウザ起動不可は旧環境の記録。
+今回の起点は remote/local 5d8d554c、実装保存は abd87644。共通engine/sessionと測定正本は変更せず再利用した。
+ユーザー承認の試遊基準（最下段左・全成分一括・6体以上全消費/+4）を維持し、比較設定を削除していない。正式ルールの確定ではない。
+道具は着地/連鎖後から次の2体を動かす前だけ。毎ターン待機し、自動落下ONでも道具時間を飛ばさない。移動中の道具案は承認後の指示に従って採用していない。
+道具ボタン/結果プレビュー/長押し/段階別演出/検証モードを実装。standaloneも再生成。
+専用50/50、DOM3本、mutation6/6、Chromium 134の4画面サイズPASS。レビューの3指摘は回帰テストと修正後の再レビューで解消。
+iPhone実機SafariとHuman QAは未確認。実機での対象セル選択・スクロール・テンポと、根本ルールの正式判断が残る。
+今回の全体回帰結果と実行証拠は MOBILE-QA-20261013.md / qa-mobile-20261013/ を参照。
+本番統合・公開・mainマージは禁止。Draft PR380を維持し、再開時に必ずremote HEAD/treeを確認する。
+改修後のassets込みルートnpm testも完走: exit0、smoke/dialogue/visual QA、3,130/3,130＋80/80 PASS（fail/skip 0）。

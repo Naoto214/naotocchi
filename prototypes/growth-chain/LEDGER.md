@@ -24,3 +24,14 @@ Supplemental exposure experiments declared after observing zero baseline egg acq
 2026-10-13 continuation: fresh remote/local 323e94b8, tree cc2d6d39, main e98b35e1; PR380 open Draft unmerged. Read all five requested documents; archive hash matches.
 Full sparse checkout hydration completed. Earlier temporary copy run was interrupted because Git metadata was absent; not counted. Reran npm test in original complete checkout: exit0, smoke/dialogue/visual QA PASS, 3130/3130 + 80/80, no failures/skips. Prototype 45/45 PASS. Logs committed under qa-20261013/.
 Browser launch remains blocked by socket EPERM before page load. Human QA pending; instructions in QA-20261013.md. No implementation or experiment changes; no rule selected.
+
+2026-10-13 mobile implementation (user-approved play baseline, not formal rule selection):
+Fresh remote/local 5d8d554c/tree6ed78822; PR380 Draft/unmerged. Preserved engine/session/rules and results archive checksum f45cba1a...9db.
+TDD: new hold/phase module tests failed before modules existed, then passed. Mobile DOM failed on absent tool cards, then passed. Review regressions (hidden editor, tool cancellation at lab exit, manual animation leakage, focus retention) observed RED then GREEN.
+Added ready/falling/animation/tool UI states; only ready allows items. Auto mode does not skip intermission. Preview uses existing session; commit remains one action. Hold controller and animation snapshots are presentation-only modules.
+Mutation discovered a false-negative setup: jsdom default document.hidden prevented timer execution. Enabled pretendToBeVisual, then all 6 deliberate defects were detected with clean controls passing.
+Final dedicated50/50, DOM3, targeted mutation6/6 PASS. Installed Chromium headless shell134 runs normally; self-hosting test HTTP server resolves separate-process loopback isolation. Four desktop/mobile sizes pass real pointer/touch gameplay and tool preview/confirm. QA-only Noto Sans JP makes Japanese layout inspectable; no new runtime font dependency.
+Fresh-context reviewer reported three P2 issues; fixed with regressions and independently re-reviewed mobile DOM PASS. No remaining blocker in that focused re-review.
+Code saved via expected_sha/nonforce Git Data API: abd87644222013afa69cfe20e7bad387ebd5716e, tree9deed232122cde15e18f4fb493ad026ef8f6b519. Fetched and matched staged/remote tree, synchronized local HEAD and verified clean before documentation updates.
+Final QA report and evidence: MOBILE-QA-20261013.md and qa-mobile-20261013/. Human Safari/device/game-feel QA remains pending; no production integration or formal rule adoption.
+Final full-checkout root npm test completed exit0: smoke/dialogue/visual QA and 3130/3130 + 80/80 PASS, no failures/skips. Raw log compressed under qa-mobile-20261013/root-regression.log.gz. Protected-path diff outside approved prototype/design/plan scope is empty.
