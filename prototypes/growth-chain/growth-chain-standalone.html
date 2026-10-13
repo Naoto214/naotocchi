@@ -2,7 +2,7 @@
 <html lang="ja">
   <meta charset="utf-8" /><meta
     name="viewport"
-    content="width=device-width,initial-scale=1"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
   /><title>なおとっち｜成長連鎖ラボ</title
   ><style>:root {
   font-family:
@@ -362,16 +362,317 @@ footer {
     font-size: 16px;
   }
 }
+
+/* Play surface. Laboratory controls retain the same engine and replay format. */
+[hidden],
+body:not(.lab-mode) .lab-only {
+  display: none !important;
+}
+main {
+  max-width: 1000px;
+  padding: 14px max(12px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+}
+header {
+  margin: 0 0 10px;
+}
+h1 {
+  font-size: 24px;
+  margin: 4px 0;
+}
+header p {
+  font-size: 12px;
+}
+.eyebrow {
+  font-size: 9px;
+}
+.layout {
+  display: block;
+}
+.play {
+  max-width: 590px;
+  margin: auto;
+  padding: 14px;
+}
+.lab-mode .panel {
+  margin-top: 18px;
+}
+button {
+  min-height: 44px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.hud {
+  margin-bottom: 10px;
+}
+.hud #stats {
+  line-height: 1.5;
+}
+#board {
+  position: relative;
+  flex: 0 1 auto;
+  width: auto;
+  height: min(480px, max(240px, calc(100dvh - 345px)));
+  aspect-ratio: 1/2;
+  gap: 2px;
+  padding: 4px;
+  max-width: 100%;
+  touch-action: manipulation;
+}
+#board .cell {
+  min-height: 0;
+  font-size: 12px;
+}
+#board .cell small {
+  font-size: 8px;
+  top: 2px;
+  left: 2px;
+}
+#board .cell.connected {
+  outline: 2px solid #fff3b4;
+  outline-offset: -2px;
+  filter: brightness(1.12);
+}
+#board .cell.animation-covered {
+  color: transparent;
+  background: #2a4b5e;
+  box-shadow: none;
+}
+#board .cell.animation-covered small {
+  visibility: hidden;
+}
+#board.previewing .cell {
+  opacity: 0.22;
+}
+.preview-piece,
+.moving-piece {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color);
+  color: #173646;
+  border: 2px solid #fff8;
+  border-radius: 7px;
+  pointer-events: none;
+  font-size: 11px;
+  font-weight: 800;
+}
+.preview-piece {
+  transform: scale(0.84);
+  box-shadow: 0 0 0 1px #173646;
+}
+.moving-piece {
+  z-index: 3;
+}
+#status {
+  padding: 7px 0;
+  min-height: 30px;
+  font-size: 13px;
+}
+.toolbelt {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1.4fr;
+  gap: 6px;
+}
+.toolbelt button {
+  font-size: 12px;
+  padding: 7px 3px;
+  background: #eef6fb;
+}
+.toolbelt small,
+.toolbelt span {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+}
+.tool-sheet {
+  margin: 8px 0;
+  padding: 10px;
+  background: #edf5f9;
+  border: 1px solid #afcbdc;
+  border-radius: 12px;
+}
+.sheet-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  gap: 8px;
+}
+.sheet-heading button {
+  padding: 5px 12px;
+}
+.choice-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 7px;
+  flex-wrap: wrap;
+}
+.choice-row button {
+  flex: 1;
+  min-width: 44px;
+  padding: 6px;
+  background: var(--color, #fff);
+  font-weight: 700;
+}
+.choice-row button[aria-pressed="true"] {
+  outline: 3px solid #245c7a;
+  outline-offset: -3px;
+}
+#eggChoices button {
+  font-size: 11px;
+}
+#toolHint {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+#confirmTool {
+  width: 100%;
+}
+.turnbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+#turnHint {
+  font-size: 11px;
+  flex: 1;
+}
+#startFall {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+.controls {
+  grid-template-columns: 1fr 1.3fr 1fr 0.9fr 1.4fr;
+  gap: 7px;
+}
+.controls button {
+  min-height: 48px;
+  padding: 7px 4px;
+  font-size: 16px;
+  touch-action: none;
+}
+.controls #drop {
+  margin-left: 5px;
+  font-size: 14px;
+  background: #245a75;
+}
+.hint {
+  margin: 8px 0 0;
+  font-size: 10px;
+}
+.play-menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.play-menu button {
+  font-size: 12px;
+}
+footer {
+  font-size: 10px;
+  margin: 10px 0;
+}
+@media (max-width: 760px) {
+  main {
+    padding-top: 8px;
+  }
+  .play {
+    padding: 10px;
+    border-radius: 14px;
+  }
+  .playarea {
+    gap: 12px;
+  }
+  #board {
+    max-width: 100%;
+  }
+  .playarea aside {
+    min-width: 68px;
+    width: 68px;
+  }
+  #gauge {
+    font-size: 12px;
+  }
+  h3 {
+    margin: 9px 0 5px;
+  }
+  .mini {
+    min-width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  .hint {
+    display: none;
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  header,
+  footer {
+    display: none;
+  }
+  .play {
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(245px, 1fr);
+    gap: 5px 16px;
+  }
+  .hud {
+    grid-column: 1/-1;
+    margin: 0;
+  }
+  .playarea {
+    grid-column: 1;
+    grid-row: 2/7;
+  }
+  #board {
+    height: max(200px, calc(100dvh - 100px));
+  }
+  #status,
+  .toolbelt,
+  .tool-sheet,
+  .turnbar,
+  .controls {
+    grid-column: 2;
+  }
+  .toolbelt {
+    align-self: start;
+  }
+  .turnbar {
+    margin: 0;
+  }
+  .play-menu {
+    margin: 5px;
+  }
+  .lab-only {
+    grid-column: 1/-1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 </style>
   <body>
     <main>
       <header>
         <div>
-          <div class="eyebrow">NAOTOCCHI · RULE LAB / 01</div>
+          <div class="eyebrow">NAOTOCCHI · GROWTH CHAIN</div>
           <h1>つながって、育つ。</h1>
-          <p>成長連鎖パズル <span class="badge">独立プロトタイプ</span></p>
+          <p>成長連鎖パズル <span class="badge">試遊版</span></p>
         </div>
-        <span class="lab">検証用仮設定<br />本編には接続しません</span>
+        <span class="lab lab-only">検証用仮設定<br />本編には接続しません</span>
       </header>
       <div class="layout">
         <section class="play">
@@ -392,6 +693,40 @@ footer {
             </aside>
           </div>
           <div id="status" role="status">準備中</div>
+          <div class="toolbelt" aria-label="道具">
+            <button id="tool-egg">🥚 卵 <span id="eggCount"></span></button>
+            <button id="tool-transform">
+              ✨ へんしん <small>1体 · 1本</small>
+            </button>
+            <button id="tool-bulk">
+              🌈 だいへんしん <small>同じ種類すべて · 3本</small>
+            </button>
+          </div>
+          <section
+            id="toolSheet"
+            class="tool-sheet"
+            hidden
+            aria-label="道具を選ぶ"
+          >
+            <div class="sheet-heading">
+              <strong id="toolTitle"></strong
+              ><button id="cancelTool">やめる</button>
+            </div>
+            <div id="eggChoices" class="choice-row" aria-label="卵ランク"></div>
+            <div
+              id="kindChoices"
+              class="choice-row"
+              aria-label="変更先の種類"
+            ></div>
+            <p id="toolHint" role="status"></p>
+            <button id="confirmTool" class="primary" disabled>
+              この結果で使う
+            </button>
+          </section>
+          <div class="turnbar">
+            <span id="turnHint"></span
+            ><button id="startFall" class="primary">次の2体を動かす</button>
+          </div>
           <div class="controls">
             <button id="left" aria-label="左">←</button
             ><button id="rotate">回転 ↻</button
@@ -399,9 +734,9 @@ footer {
             ><button id="down">↓</button
             ><button id="drop" class="primary">落とす</button>
           </div>
-          <p class="hint">矢印：移動・回転　Space：落下　P：一時停止</p>
-          <div class="wavecontrols">
-            <button id="stepWave">1波進める</button
+          <p class="hint">← → は長押しで移動 · 回転して「落とす」</p>
+          <div class="wavecontrols lab-only">
+            <button id="stepWave">演出を進める</button
             ><button id="finishWave">演出完了</button
             ><label
               ><input type="checkbox" id="manualWave" />手動で連鎖を見る</label
@@ -413,7 +748,7 @@ footer {
             >
           </div>
         </section>
-        <section class="panel">
+        <section class="panel" id="labPanel" hidden>
           <h2>次の一手をつくる</h2>
           <p class="muted">盤面のマスを選び、道具の結果を確認できます。</p>
           <div class="form">
@@ -480,7 +815,7 @@ footer {
           </div>
         </section>
       </div>
-      <details class="settings">
+      <details class="settings lab-only">
         <summary>比較用ルール・seed（この検証画面専用）</summary>
         <p>
           以下はすべて仮設定です。設定変更は「新しく開始」で反映。disjointは消費範囲fiveが必要です。
@@ -490,7 +825,7 @@ footer {
           <button id="restart" class="primary">新しく開始</button>
         </div>
       </details>
-      <details class="settings">
+      <details class="settings lab-only">
         <summary>再現データ・操作ログ</summary>
         <div class="buttons">
           <button id="export">ログを書き出す</button
@@ -507,11 +842,130 @@ footer {
           ログは初期状態・全設定・操作列・最終hashを含みます。初期状態JSONの卵・ゲージ・盤面も編集できます。
         </p>
       </details>
-      <footer>
-        検証対象：単純さ / テンポ / 大連鎖 / 長期戦略　·　v1 experimental
-      </footer>
+      <div class="play-menu">
+        <button id="newGame">もう一度あそぶ</button
+        ><button id="toggleLab" aria-expanded="false">検証モード</button>
+      </div>
+      <footer>同じ種類・同じ段階がつながると成長。ルールは比較中です。</footer>
     </main>
     <script>(() => {
+  // prototypes/growth-chain/touch-input.mjs
+  function bindHold(element, action, {
+    releaseTarget = window,
+    setTimer = setTimeout,
+    clearTimer = clearTimeout,
+    delay = 280,
+    interval = 90
+  } = {}) {
+    let owner = null, timer2 = null, generation2 = 0;
+    const stop = () => {
+      owner = null;
+      generation2++;
+      clearTimer(timer2);
+    };
+    const repeat = (token) => {
+      if (token !== generation2 || owner === null) return;
+      if (element.disabled) {
+        stop();
+        return;
+      }
+      action();
+      if (token === generation2 && owner !== null)
+        timer2 = setTimer(() => repeat(token), interval);
+    };
+    const down = (e) => {
+      if (element.disabled || owner !== null || e.button !== void 0 && e.button !== 0)
+        return;
+      e.preventDefault();
+      owner = e.pointerId;
+      const token = ++generation2;
+      element.setPointerCapture?.(e.pointerId);
+      action();
+      if (token === generation2 && owner !== null)
+        timer2 = setTimer(() => repeat(token), delay);
+    };
+    const up = (e) => {
+      if (e.pointerId === owner) stop();
+    };
+    const click = (e) => {
+      if (!e.detail && !element.disabled) action();
+    };
+    element.addEventListener("pointerdown", down);
+    element.addEventListener("click", click);
+    element.addEventListener("lostpointercapture", up);
+    releaseTarget.addEventListener("pointerup", up);
+    releaseTarget.addEventListener("pointercancel", up);
+    releaseTarget.addEventListener("blur", stop);
+    return {
+      stop,
+      dispose() {
+        stop();
+        element.removeEventListener("pointerdown", down);
+        element.removeEventListener("click", click);
+        element.removeEventListener("lostpointercapture", up);
+        releaseTarget.removeEventListener("pointerup", up);
+        releaseTarget.removeEventListener("pointercancel", up);
+        releaseTarget.removeEventListener("blur", stop);
+      }
+    };
+  }
+
+  // prototypes/growth-chain/animation.mjs
+  function positions(board2) {
+    return new Map(
+      board2.flatMap(
+        (row, y) => row.flatMap((cell, x) => cell ? [[cell.id, { x, y, cell }]] : [])
+      )
+    );
+  }
+  function animationFrames(waves, tempo = 300, reduced = false) {
+    return waves.flatMap((wave) => {
+      const duration = Math.max(60, Number(tempo) / (wave.chain > 3 ? 1.2 : 1));
+      if (reduced)
+        return [
+          {
+            phase: "result",
+            chain: wave.chain,
+            board: wave.after,
+            events: wave.events,
+            moves: [],
+            duration
+          }
+        ];
+      const start = positions(wave.before), merged = positions(wave.merged), after = positions(wave.after);
+      const evolves = wave.events.flatMap(
+        (e) => e.consumed.map((id) => ({
+          from: start.get(id),
+          to: { ...e.anchor },
+          death: e.death
+        })).filter((m) => m.from)
+      );
+      const falls = [...merged].flatMap(
+        ([id, from]) => after.has(id) ? [{ from, to: after.get(id) }] : []
+      );
+      return [
+        {
+          phase: "connect",
+          board: wave.before,
+          moves: [],
+          duration: duration * 0.25
+        },
+        {
+          phase: "evolve",
+          board: wave.merged,
+          moves: evolves,
+          duration: duration * 0.4
+        },
+        {
+          phase: "fall",
+          board: wave.after,
+          moves: falls,
+          duration: duration * 0.35
+        }
+      ].map((f) => ({ ...f, chain: wave.chain, events: wave.events }));
+    });
+  }
+
   // prototypes/growth-chain/natural-fixtures.mjs
   var naturalFixtures = {
     3: {
@@ -1622,6 +2076,12 @@ footer {
   var fixtureAction = null;
   var draft = null;
   var displayBoard = null;
+  var ready = true;
+  var tool = null;
+  var targetKind = null;
+  var toolPreview = null;
+  var currentFrame = null;
+  var holds = [];
   var labels = {
     width: "\u76E4\u9762\u306E\u5217\u6570",
     kinds: "\u767B\u5834\u7A2E\u985E",
@@ -1676,8 +2136,14 @@ footer {
   }
   function reset(state, message = "\u65B0\u3057\u3044\u76E4\u9762\u3092\u958B\u59CB\u3057\u307E\u3057\u305F") {
     generation++;
+    holds.forEach((h) => h.stop());
     clearTimeout(timer);
     busy = false;
+    ready = true;
+    tool = null;
+    targetKind = null;
+    toolPreview = null;
+    currentFrame = null;
     frames = [];
     displayBoard = null;
     draft = null;
@@ -1703,9 +2169,11 @@ footer {
     render();
   }
   function render() {
+    const focused = document.activeElement;
+    const focusSelector = focused?.dataset.kind !== void 0 ? `#kindChoices [data-kind="${focused.dataset.kind}"]` : focused?.dataset.rank !== void 0 ? `#eggChoices [data-rank="${focused.dataset.rank}"]` : focused?.dataset.x !== void 0 ? `#board [data-x="${focused.dataset.x}"][data-y="${focused.dataset.y}"]` : null;
     let b = displayBoard || draft || s.board;
     const active = /* @__PURE__ */ new Map(), ghost = /* @__PURE__ */ new Map();
-    if (!busy && !s.over && !draft) {
+    if (!busy && !s.over && !draft && !tool) {
       poseCells(pose).forEach(
         (c, i) => active.set(c.y + "," + c.x, { k: s.queue[0][i], s: 1 })
       );
@@ -1716,6 +2184,7 @@ footer {
     $("board").style.setProperty("--cols", s.rules.width);
     $("board").style.aspectRatio = `${s.rules.width}/12`;
     $("board").replaceChildren();
+    $("board").dataset.phase = busy ? currentFrame?.phase || "connect" : ready ? "ready" : "falling";
     for (let y = 2; y < b.length; y++)
       for (let x = 0; x < s.rules.width; x++) {
         let key = y + "," + x, c = b[y][x] || active.get(key) || ghost.get(key), el = document.createElement("button");
@@ -1737,7 +2206,7 @@ footer {
       (p) => `<div class="nextpair">${p.map((k) => `<span class="mini" style="--color:${colors[k]}">${names[k]}01</span>`).join("")}</div>`
     ).join("");
     $("eggs").innerHTML = ["\u666E\u901A", "\u9280", "\u91D1", "\u30D7\u30E9\u30C1\u30CA"].map((n, i) => `<div class="stock">${n} \xD7 ${s.eggs[i]}</div>`).join("");
-    $("gauge").textContent = (s.gauge / s.rules.gaugeUnit).toFixed(2) + " \u672C";
+    $("gauge").textContent = `${Math.floor(s.gauge / s.rules.gaugeUnit)}\u672C \uFF0B${s.gauge % s.rules.gaugeUnit}/${s.rules.gaugeUnit}`;
     $("stats").textContent = `\u843D\u4E0B ${s.drops} \xB7 \u5F97\u70B9 ${s.score}${s.over ? " \xB7 \u7D42\u4E86" : ""}`;
     for (const id of [
       "left",
@@ -1751,12 +2220,16 @@ footer {
       "random",
       "trigger"
     ])
-      $(id).disabled = busy || !!s.over || !!draft;
+      $(id).disabled = busy || !!s.over || !!draft || !!tool;
     for (const id of ["use", "preview"])
-      $(id).disabled = busy || !!s.over || !!draft || path.length > 0;
+      $(id).disabled = busy || !!s.over || !!draft || !ready || !!tool;
     for (const id of ["stepWave", "finishWave"]) $(id).disabled = !busy;
     if (selected)
       $("selected").textContent = `\u9078\u629E\uFF1A${selected.x + 1}\u5217\u30FB${selected.y - 1}\u6BB5`;
+    renderTools();
+    renderAnimation();
+    if (focusSelector)
+      document.querySelector(focusSelector)?.focus({ preventScroll: true });
   }
   function fail(e) {
     $("status").textContent = e.message;
@@ -1764,6 +2237,11 @@ footer {
   function selectCell(x, y) {
     if (busy) return;
     selected = { x, y };
+    if (tool) {
+      updatePreview();
+      render();
+      return;
+    }
     if ($("action").value === "edit") {
       auto = false;
       $("pause").textContent = "\u81EA\u52D5\u843D\u4E0B OFF";
@@ -1786,6 +2264,8 @@ footer {
     generation++;
     clearTimeout(timer);
     busy = false;
+    ready = true;
+    currentFrame = null;
     displayBoard = null;
     frames = [];
     path = [];
@@ -1799,60 +2279,68 @@ footer {
       finish();
       return;
     }
-    displayBoard = frames[frameIndex++];
+    currentFrame = frames[frameIndex++];
+    displayBoard = currentFrame.board;
+    const phaseNames = {
+      connect: "\u3064\u306A\u304C\u308B",
+      evolve: "\u9032\u5316",
+      fall: "\u843D\u4E0B",
+      result: "\u6210\u9577"
+    };
+    const eggs = currentFrame.events.filter((e) => e.death).reduce((n, e) => n + e.eggCount, 0);
+    $("status").textContent = `${currentFrame.chain} / ${s.last.waves.length}\u9023\u9396 \xB7 ${phaseNames[currentFrame.phase]}${eggs ? ` \xB7 \u5375\uFF0B${eggs}` : ""}`;
     render();
     if (!$("manualWave").checked) {
-      let token = generation;
-      timer = setTimeout(
-        () => {
-          if (token === generation) nextFrame();
-        },
-        Number($("tempo").value)
-      );
+      const token = generation;
+      timer = setTimeout(() => {
+        if (token === generation) nextFrame();
+      }, currentFrame.duration);
     }
   }
   function act(a) {
-    if (busy || draft) return;
-    if (a.type !== "drop" && path.length) {
+    if (busy || draft || s.over || tool) return;
+    if (a.type !== "drop" && !ready) {
       fail(Error("\u9053\u5177\u306F\u843D\u4E0B\u64CD\u4F5C\u306E\u958B\u59CB\u524D\u306B\u4F7F\u7528\u3057\u3066\u304F\u3060\u3055\u3044"));
       return;
     }
     try {
+      holds.forEach((h) => h.stop());
       let result = applyAction(s, a);
       actions.push(structuredClone(a));
       s = result;
       let n = s.last.waves.length;
       $("status").textContent = `${n ? n + "\u9023\u9396\uFF01" : "\u914D\u7F6E\u3057\u307E\u3057\u305F"}${s.last.created08 ? " \xB7 08\u306B\u6210\u9577" : ""}${s.over ? " \xB7 \u7D42\u4E86\uFF1A" + s.over : ""}`;
-      frames = s.last.waves.map((w) => w.after);
+      frames = animationFrames(
+        s.last.waves,
+        Number($("tempo").value),
+        !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+      );
       frameIndex = 0;
       busy = frames.length > 0;
       path = [];
       pose = spawnPose(s.rules);
+      ready = !busy;
       if (busy) {
-        displayBoard = s.last.waves[0].before;
+        generation++;
+        nextFrame();
+      } else {
+        currentFrame = null;
         render();
-        if (!$("manualWave").checked) {
-          let token = ++generation;
-          timer = setTimeout(
-            () => {
-              if (token === generation) nextFrame();
-            },
-            Number($("tempo").value)
-          );
-        }
-      } else render();
+      }
     } catch (e) {
       fail(e);
     }
   }
   function motion(op) {
-    if (busy || s.over || draft) return;
+    if (busy || s.over || draft || tool) return;
+    ready = false;
     let q = movePose(s.board, pose, op);
     if (q) {
       pose = q;
       path.push(op);
       render();
     } else if (op === "down") act({ type: "drop", path: [...path, "hard"] });
+    else render();
   }
   function item() {
     if (!selected) throw Error("\u5BFE\u8C61\u306E\u30DE\u30B9\u3092\u9078\u3093\u3067\u304F\u3060\u3055\u3044");
@@ -1866,15 +2354,22 @@ footer {
     }
     return { type, x, y, to };
   }
-  for (const op of ["left", "right", "down", "rotate"])
-    $(op).onclick = () => motion(op);
+  for (const op of ["left", "right", "down"])
+    holds.push(bindHold($(op), () => motion(op)));
+  $("rotate").onclick = () => motion("rotate");
+  $("startFall").onclick = () => {
+    if (!ready || busy || tool || s.over || draft) return;
+    ready = false;
+    render();
+  };
   $("drop").onclick = () => act({ type: "drop", path: [...path, "hard"] });
   $("pause").onclick = () => {
     auto = !auto;
     $("pause").textContent = "\u81EA\u52D5\u843D\u4E0B " + (auto ? "ON" : "OFF");
   };
   setInterval(() => {
-    if (auto && !document.hidden && !busy && !draft) motion("down");
+    if (auto && !ready && !tool && !document.hidden && !busy && !draft)
+      motion("down");
   }, 750);
   $("restart").onclick = () => {
     try {
@@ -1997,6 +2492,38 @@ footer {
       $("drop").click();
     } else if (e.key.toLowerCase() === "p") $("pause").click();
   });
+  $("newGame").onclick = () => reset(createSession(s.seed, s.rules));
+  $("toggleLab").onclick = () => {
+    const on = !document.body.classList.contains("lab-mode");
+    if (!on && draft) {
+      fail(Error("\u7DE8\u96C6\u76E4\u9762\u3092\u958B\u59CB\u3057\u3066\u304B\u3089\u8A66\u904A\u306B\u623B\u3063\u3066\u304F\u3060\u3055\u3044"));
+      return;
+    }
+    if (!on) {
+      $("action").value = "transform";
+      selected = null;
+      tool = null;
+      toolPreview = null;
+      $("manualWave").checked = false;
+      if (busy) nextFrame();
+    }
+    document.body.classList.toggle("lab-mode", on);
+    $("labPanel").hidden = !on;
+    $("toggleLab").setAttribute("aria-expanded", String(on));
+    render();
+  };
+  window.addEventListener("blur", () => {
+    holds.forEach((h) => h.stop());
+    auto = false;
+    $("pause").textContent = "\u81EA\u52D5\u843D\u4E0B OFF";
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      holds.forEach((h) => h.stop());
+      auto = false;
+      $("pause").textContent = "\u81EA\u52D5\u843D\u4E0B OFF";
+    }
+  });
   setupRules(configuration());
   reset(createSession(1));
   for (const n of [3, 5])
@@ -2008,6 +2535,159 @@ footer {
       );
       fixtureAction = f.action;
     };
+  function beginTool(type) {
+    if (!ready || busy || s.over || draft) return;
+    holds.forEach((h) => h.stop());
+    tool = type;
+    selected = null;
+    targetKind = null;
+    toolPreview = null;
+    $("action").value = type;
+    $("rank").value = String(
+      Math.max(
+        0,
+        s.eggs.findIndex((n) => n > 0)
+      )
+    );
+    render();
+  }
+  function updatePreview() {
+    toolPreview = null;
+    if (!tool || !selected || targetKind === null) return;
+    $("species").value = String(targetKind);
+    try {
+      toolPreview = preview(s, item());
+    } catch (e) {
+      $("toolHint").textContent = e.message;
+    }
+  }
+  function renderTools() {
+    const allowed = ready && !busy && !s.over && !draft;
+    $("toolSheet").hidden = !tool;
+    $("eggCount").textContent = `\xD7${s.eggs.reduce((a, b) => a + b, 0)}`;
+    $("tool-egg").disabled = !allowed || s.eggs.every((n) => !n);
+    $("tool-transform").disabled = !allowed || s.gauge < s.rules.gaugeUnit || !s.board.flat().some(Boolean);
+    $("tool-bulk").disabled = !allowed || s.gauge < 3 * s.rules.gaugeUnit || !s.board.flat().some(Boolean);
+    $("startFall").disabled = !allowed || !!tool;
+    $("turnHint").textContent = s.over ? "\u7D42\u4E86 \xB7 \u3082\u3046\u4E00\u5EA6\u6311\u6226\u3057\u3088\u3046" : busy ? "\u9023\u9396\u4E2D" : ready ? "\u9053\u5177\u3092\u4F7F\u3046\uFF1F \u6B21\u306E2\u4F53\u3078\u9032\u3080\uFF1F" : "\u79FB\u52D5\u30FB\u56DE\u8EE2\u3057\u3066\u843D\u3068\u305D\u3046";
+    $("board").classList.toggle("previewing", !!toolPreview);
+    if (!tool) return;
+    $("toolTitle").textContent = {
+      egg: "\u{1F95A} \u5375\u3092\u7F6E\u304F",
+      transform: "\u2728 1\u4F53\u3092\u5909\u3048\u308B \xB7 1\u672C",
+      bulk: "\u{1F308} \u540C\u3058\u7A2E\u985E\u3059\u3079\u3066 \xB7 3\u672C"
+    }[tool];
+    $("eggChoices").replaceChildren();
+    $("eggChoices").hidden = tool !== "egg";
+    if (tool === "egg")
+      ["\u666E\u901A01", "\u928002", "\u91D103", "\u30D7\u30E9\u30C1\u30CA04"].forEach((label, rank) => {
+        const button = document.createElement("button");
+        button.textContent = `${label} \xD7${s.eggs[rank]}`;
+        button.dataset.rank = rank;
+        button.disabled = !s.eggs[rank];
+        button.setAttribute(
+          "aria-pressed",
+          String(Number($("rank").value) === rank)
+        );
+        button.onclick = () => {
+          $("rank").value = String(rank);
+          updatePreview();
+          render();
+        };
+        $("eggChoices").append(button);
+      });
+    $("kindChoices").replaceChildren();
+    names.slice(0, s.rules.kinds).forEach((name, k) => {
+      const button = document.createElement("button");
+      button.textContent = name;
+      button.dataset.kind = k;
+      button.style.setProperty("--color", colors[k]);
+      button.setAttribute("aria-label", `${name}\u306B\u3059\u308B`);
+      button.setAttribute("aria-pressed", String(targetKind === k));
+      button.disabled = tool !== "egg" && !!selected && s.board[selected.y][selected.x]?.k === k;
+      button.onclick = () => {
+        targetKind = k;
+        updatePreview();
+        render();
+      };
+      $("kindChoices").append(button);
+    });
+    $("toolHint").textContent = !selected ? tool === "egg" ? "\u7A2E\u985E\u3068\u7F6E\u304F\u5217\u3092\u9078\u307C\u3046" : "\u76E4\u9762\u306E\u5909\u3048\u305F\u3044\u500B\u4F53\u3092\u30BF\u30C3\u30D7" : targetKind === null ? "\u4E0A\u306E\u8272\u304B\u3089\u5909\u66F4\u5148\u3092\u9078\u307C\u3046" : !toolPreview ? "\u3053\u306E\u7D44\u5408\u305B\u306B\u306F\u4F7F\u3048\u307E\u305B\u3093\u3002\u5BFE\u8C61\u30FB\u7A2E\u985E\u30FB\u5728\u5EAB\u3092\u78BA\u8A8D\u3057\u3066\u306D" : `\u7D50\u679C\u4E88\u544A\uFF1A${toolPreview.last.waves.length}\u9023\u9396 \xB7 \u5375\uFF0B${toolPreview.last.eggs.reduce((a, b) => a + b, 0)}${toolPreview.over ? " \xB7 \u3053\u306E\u624B\u3067\u7D42\u4E86" : ""}`;
+    $("confirmTool").disabled = !toolPreview;
+    if (toolPreview) {
+      toolPreview.board.forEach(
+        (row, y) => row.forEach((c, x) => {
+          if (!c || y < 2) return;
+          const ghost = document.createElement("span");
+          ghost.className = "preview-piece";
+          ghost.style.cssText = `--color:${colors[c.k]};left:${100 * x / s.rules.width}%;top:${100 * (y - 2) / 12}%;width:${100 / s.rules.width}%;height:${100 / 12}%`;
+          ghost.textContent = `${names[c.k]}${String(c.s).padStart(2, "0")}`;
+          $("board").append(ghost);
+        })
+      );
+    }
+  }
+  function renderAnimation() {
+    if (!busy || !currentFrame) return;
+    const frame = currentFrame;
+    for (const e of frame.events)
+      for (const id of e.consumed) {
+        const c = frame.board.flatMap(
+          (row, y) => row.flatMap((c2, x) => c2?.id === id ? [{ x, y }] : [])
+        )[0];
+        if (c)
+          $("board").querySelector(`[data-x="${c.x}"][data-y="${c.y}"]`)?.classList.add("connected");
+      }
+    if (!frame.moves.length || !window.Element?.prototype.animate) return;
+    const br = $("board").getBoundingClientRect();
+    for (const m of frame.moves) {
+      if (m.from.y < 2 || m.to.y < 2 || frame.phase === "fall" && m.from.x === m.to.x && m.from.y === m.to.y)
+        continue;
+      const from = $("board").querySelector(
+        `[data-x="${m.from.x}"][data-y="${m.from.y}"]`
+      ), to = $("board").querySelector(`[data-x="${m.to.x}"][data-y="${m.to.y}"]`);
+      if (!from || !to) continue;
+      const a = from.getBoundingClientRect(), b = to.getBoundingClientRect(), actor = document.createElement("span");
+      actor.className = "moving-piece";
+      actor.style.cssText = `--color:${colors[m.from.cell.k]};left:${b.left - br.left}px;top:${b.top - br.top}px;width:${b.width}px;height:${b.height}px`;
+      actor.textContent = `${names[m.from.cell.k]}${String(m.from.cell.s).padStart(2, "0")}`;
+      to.classList.add("animation-covered");
+      $("board").append(actor);
+      actor.animate(
+        [
+          {
+            transform: `translate(${a.left - b.left}px,${a.top - b.top}px) scale(1)`,
+            opacity: 1
+          },
+          {
+            transform: `translate(0,0) scale(${m.death ? 0.15 : 1})`,
+            opacity: m.death ? 0 : 1
+          }
+        ],
+        {
+          duration: frame.duration,
+          easing: frame.phase === "fall" ? "cubic-bezier(.4,0,1,1)" : "ease-in-out",
+          fill: "forwards"
+        }
+      );
+    }
+  }
+  for (const type of ["egg", "transform", "bulk"])
+    $("tool-" + type).onclick = () => beginTool(type);
+  $("cancelTool").onclick = () => {
+    tool = null;
+    toolPreview = null;
+    selected = null;
+    render();
+  };
+  $("confirmTool").onclick = () => {
+    if (!toolPreview || !ready || busy) return;
+    const a = item();
+    tool = null;
+    toolPreview = null;
+    selected = null;
+    act(a);
+  };
 })();
 </script>
   </body>

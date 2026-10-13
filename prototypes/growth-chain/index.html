@@ -2,18 +2,18 @@
 <html lang="ja">
   <meta charset="utf-8" /><meta
     name="viewport"
-    content="width=device-width,initial-scale=1"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
   /><title>なおとっち｜成長連鎖ラボ</title
   ><link rel="stylesheet" href="style.css" />
   <body>
     <main>
       <header>
         <div>
-          <div class="eyebrow">NAOTOCCHI · RULE LAB / 01</div>
+          <div class="eyebrow">NAOTOCCHI · GROWTH CHAIN</div>
           <h1>つながって、育つ。</h1>
-          <p>成長連鎖パズル <span class="badge">独立プロトタイプ</span></p>
+          <p>成長連鎖パズル <span class="badge">試遊版</span></p>
         </div>
-        <span class="lab">検証用仮設定<br />本編には接続しません</span>
+        <span class="lab lab-only">検証用仮設定<br />本編には接続しません</span>
       </header>
       <div class="layout">
         <section class="play">
@@ -34,6 +34,40 @@
             </aside>
           </div>
           <div id="status" role="status">準備中</div>
+          <div class="toolbelt" aria-label="道具">
+            <button id="tool-egg">🥚 卵 <span id="eggCount"></span></button>
+            <button id="tool-transform">
+              ✨ へんしん <small>1体 · 1本</small>
+            </button>
+            <button id="tool-bulk">
+              🌈 だいへんしん <small>同じ種類すべて · 3本</small>
+            </button>
+          </div>
+          <section
+            id="toolSheet"
+            class="tool-sheet"
+            hidden
+            aria-label="道具を選ぶ"
+          >
+            <div class="sheet-heading">
+              <strong id="toolTitle"></strong
+              ><button id="cancelTool">やめる</button>
+            </div>
+            <div id="eggChoices" class="choice-row" aria-label="卵ランク"></div>
+            <div
+              id="kindChoices"
+              class="choice-row"
+              aria-label="変更先の種類"
+            ></div>
+            <p id="toolHint" role="status"></p>
+            <button id="confirmTool" class="primary" disabled>
+              この結果で使う
+            </button>
+          </section>
+          <div class="turnbar">
+            <span id="turnHint"></span
+            ><button id="startFall" class="primary">次の2体を動かす</button>
+          </div>
           <div class="controls">
             <button id="left" aria-label="左">←</button
             ><button id="rotate">回転 ↻</button
@@ -41,9 +75,9 @@
             ><button id="down">↓</button
             ><button id="drop" class="primary">落とす</button>
           </div>
-          <p class="hint">矢印：移動・回転　Space：落下　P：一時停止</p>
-          <div class="wavecontrols">
-            <button id="stepWave">1波進める</button
+          <p class="hint">← → は長押しで移動 · 回転して「落とす」</p>
+          <div class="wavecontrols lab-only">
+            <button id="stepWave">演出を進める</button
             ><button id="finishWave">演出完了</button
             ><label
               ><input type="checkbox" id="manualWave" />手動で連鎖を見る</label
@@ -55,7 +89,7 @@
             >
           </div>
         </section>
-        <section class="panel">
+        <section class="panel" id="labPanel" hidden>
           <h2>次の一手をつくる</h2>
           <p class="muted">盤面のマスを選び、道具の結果を確認できます。</p>
           <div class="form">
@@ -122,7 +156,7 @@
           </div>
         </section>
       </div>
-      <details class="settings">
+      <details class="settings lab-only">
         <summary>比較用ルール・seed（この検証画面専用）</summary>
         <p>
           以下はすべて仮設定です。設定変更は「新しく開始」で反映。disjointは消費範囲fiveが必要です。
@@ -132,7 +166,7 @@
           <button id="restart" class="primary">新しく開始</button>
         </div>
       </details>
-      <details class="settings">
+      <details class="settings lab-only">
         <summary>再現データ・操作ログ</summary>
         <div class="buttons">
           <button id="export">ログを書き出す</button
@@ -149,9 +183,11 @@
           ログは初期状態・全設定・操作列・最終hashを含みます。初期状態JSONの卵・ゲージ・盤面も編集できます。
         </p>
       </details>
-      <footer>
-        検証対象：単純さ / テンポ / 大連鎖 / 長期戦略　·　v1 experimental
-      </footer>
+      <div class="play-menu">
+        <button id="newGame">もう一度あそぶ</button
+        ><button id="toggleLab" aria-expanded="false">検証モード</button>
+      </div>
+      <footer>同じ種類・同じ段階がつながると成長。ルールは比較中です。</footer>
     </main>
     <script type="module" src="ui.mjs"></script>
   </body>

@@ -1,3 +1,5 @@
+import { bindHold } from "./touch-input.mjs";
+import { animationFrames } from "./animation.mjs";
 import { naturalFixtures } from "./natural-fixtures.mjs";
 import { configuration, OPTIONS, VERSION } from "./rules.mjs";
 import { cloneBoard, gravity } from "./engine.mjs";
@@ -34,6 +36,12 @@ let s,
   fixtureAction = null,
   draft = null,
   displayBoard = null;
+let ready = true,
+  tool = null,
+  targetKind = null,
+  toolPreview = null,
+  currentFrame = null;
+const holds = [];
 const labels = {
   width: "盤面の列数",
   kinds: "登場種類",
@@ -100,10 +108,17 @@ function readRules() {
 }
 function reset(state, message = "新しい盤面を開始しました") {
   generation++;
+  holds.forEach((h) => h.stop());
   clearTimeout(timer);
   busy = false;
+  ready = true;
+  tool = null;
+  targetKind = null;
+  toolPreview = null;
+  currentFrame = null;
   frames = [];
   displayBoard = null;
+
   draft = null;
   s = state;
   initial = structuredClone(stateData(s));
@@ -131,10 +146,19 @@ function reset(state, message = "新しい盤面を開始しました") {
   render();
 }
 function render() {
+  const focused = document.activeElement;
+  const focusSelector =
+    focused?.dataset.kind !== undefined
+      ? `#kindChoices [data-kind="${focused.dataset.kind}"]`
+      : focused?.dataset.rank !== undefined
+        ? `#eggChoices [data-rank="${focused.dataset.rank}"]`
+        : focused?.dataset.x !== undefined
+          ? `#board [data-x="${focused.dataset.x}"][data-y="${focused.dataset.y}"]`
+          : null;
   let b = displayBoard || draft || s.board;
   const active = new Map(),
     ghost = new Map();
-  if (!busy && !s.over && !draft) {
+  if (!busy && !s.over && !draft && !tool) {
     poseCells(pose).forEach((c, i) =>
       active.set(c.y + "," + c.x, { k: s.queue[0][i], s: 1 }),
     );
@@ -145,6 +169,11 @@ function render() {
   $("board").style.setProperty("--cols", s.rules.width);
   $("board").style.aspectRatio = `${s.rules.width}/12`;
   $("board").replaceChildren();
+  $("board").dataset.phase = busy
+    ? currentFrame?.phase || "connect"
+    : ready
+      ? "ready"
+      : "falling";
   for (let y = 2; y < b.length; y++)
     for (let x = 0; x < s.rules.width; x++) {
       let key = y + "," + x,
@@ -185,7 +214,8 @@ function render() {
   $("eggs").innerHTML = ["普通", "銀", "金", "プラチナ"]
     .map((n, i) => `<div class="stock">${n} × ${s.eggs[i]}</div>`)
     .join("");
-  $("gauge").textContent = (s.gauge / s.rules.gaugeUnit).toFixed(2) + " 本";
+  $("gauge").textContent =
+    `${Math.floor(s.gauge / s.rules.gaugeUnit)}本 ＋${s.gauge % s.rules.gaugeUnit}/${s.rules.gaugeUnit}`;
   $("stats").textContent =
     `落下 ${s.drops} · 得点 ${s.score}${s.over ? " · 終了" : ""}`;
   for (const id of [
@@ -200,13 +230,17 @@ function render() {
     "random",
     "trigger",
   ])
-    $(id).disabled = busy || !!s.over || !!draft;
+    $(id).disabled = busy || !!s.over || !!draft || !!tool;
   for (const id of ["use", "preview"])
-    $(id).disabled = busy || !!s.over || !!draft || path.length > 0;
+    $(id).disabled = busy || !!s.over || !!draft || !ready || !!tool;
   for (const id of ["stepWave", "finishWave"]) $(id).disabled = !busy;
   if (selected)
     $("selected").textContent =
       `選択：${selected.x + 1}列・${selected.y - 1}段`;
+  renderTools();
+  renderAnimation();
+  if (focusSelector)
+    document.querySelector(focusSelector)?.focus({ preventScroll: true });
 }
 function fail(e) {
   $("status").textContent = e.message;
@@ -214,6 +248,11 @@ function fail(e) {
 function selectCell(x, y) {
   if (busy) return;
   selected = { x, y };
+  if (tool) {
+    updatePreview();
+    render();
+    return;
+  }
   if ($("action").value === "edit") {
     auto = false;
     $("pause").textContent = "自動落下 OFF";
@@ -239,7 +278,10 @@ function finish() {
   generation++;
   clearTimeout(timer);
   busy = false;
+  ready = true;
+  currentFrame = null;
   displayBoard = null;
+
   frames = [];
   path = [];
   pose = spawnPose(s.rules);
@@ -252,61 +294,72 @@ function nextFrame() {
     finish();
     return;
   }
-  displayBoard = frames[frameIndex++];
+  currentFrame = frames[frameIndex++];
+  displayBoard = currentFrame.board;
+  const phaseNames = {
+    connect: "つながる",
+    evolve: "進化",
+    fall: "落下",
+    result: "成長",
+  };
+  const eggs = currentFrame.events
+    .filter((e) => e.death)
+    .reduce((n, e) => n + e.eggCount, 0);
+  $("status").textContent =
+    `${currentFrame.chain} / ${s.last.waves.length}連鎖 · ${phaseNames[currentFrame.phase]}${eggs ? ` · 卵＋${eggs}` : ""}`;
   render();
   if (!$("manualWave").checked) {
-    let token = generation;
-    timer = setTimeout(
-      () => {
-        if (token === generation) nextFrame();
-      },
-      Number($("tempo").value),
-    );
+    const token = generation;
+    timer = setTimeout(() => {
+      if (token === generation) nextFrame();
+    }, currentFrame.duration);
   }
 }
 function act(a) {
-  if (busy || draft) return;
-  if (a.type !== "drop" && path.length) {
+  if (busy || draft || s.over || tool) return;
+  if (a.type !== "drop" && !ready) {
     fail(Error("道具は落下操作の開始前に使用してください"));
     return;
   }
   try {
+    holds.forEach((h) => h.stop());
     let result = applyAction(s, a);
     actions.push(structuredClone(a));
     s = result;
     let n = s.last.waves.length;
     $("status").textContent =
       `${n ? n + "連鎖！" : "配置しました"}${s.last.created08 ? " · 08に成長" : ""}${s.over ? " · 終了：" + s.over : ""}`;
-    frames = s.last.waves.map((w) => w.after);
+    frames = animationFrames(
+      s.last.waves,
+      Number($("tempo").value),
+      !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches,
+    );
     frameIndex = 0;
     busy = frames.length > 0;
     path = [];
     pose = spawnPose(s.rules);
+    ready = !busy;
     if (busy) {
-      displayBoard = s.last.waves[0].before;
+      generation++;
+      nextFrame();
+    } else {
+      currentFrame = null;
       render();
-      if (!$("manualWave").checked) {
-        let token = ++generation;
-        timer = setTimeout(
-          () => {
-            if (token === generation) nextFrame();
-          },
-          Number($("tempo").value),
-        );
-      }
-    } else render();
+    }
   } catch (e) {
     fail(e);
   }
 }
 function motion(op) {
-  if (busy || s.over || draft) return;
+  if (busy || s.over || draft || tool) return;
+  ready = false;
   let q = movePose(s.board, pose, op);
   if (q) {
     pose = q;
     path.push(op);
     render();
   } else if (op === "down") act({ type: "drop", path: [...path, "hard"] });
+  else render();
 }
 function item() {
   if (!selected) throw Error("対象のマスを選んでください");
@@ -322,15 +375,22 @@ function item() {
   }
   return { type, x, y, to };
 }
-for (const op of ["left", "right", "down", "rotate"])
-  $(op).onclick = () => motion(op);
+for (const op of ["left", "right", "down"])
+  holds.push(bindHold($(op), () => motion(op)));
+$("rotate").onclick = () => motion("rotate");
+$("startFall").onclick = () => {
+  if (!ready || busy || tool || s.over || draft) return;
+  ready = false;
+  render();
+};
 $("drop").onclick = () => act({ type: "drop", path: [...path, "hard"] });
 $("pause").onclick = () => {
   auto = !auto;
   $("pause").textContent = "自動落下 " + (auto ? "ON" : "OFF");
 };
 setInterval(() => {
-  if (auto && !document.hidden && !busy && !draft) motion("down");
+  if (auto && !ready && !tool && !document.hidden && !busy && !draft)
+    motion("down");
 }, 750);
 $("restart").onclick = () => {
   try {
@@ -454,6 +514,38 @@ window.addEventListener("keydown", (e) => {
     $("drop").click();
   } else if (e.key.toLowerCase() === "p") $("pause").click();
 });
+$("newGame").onclick = () => reset(createSession(s.seed, s.rules));
+$("toggleLab").onclick = () => {
+  const on = !document.body.classList.contains("lab-mode");
+  if (!on && draft) {
+    fail(Error("編集盤面を開始してから試遊に戻ってください"));
+    return;
+  }
+  if (!on) {
+    $("action").value = "transform";
+    selected = null;
+    tool = null;
+    toolPreview = null;
+    $("manualWave").checked = false;
+    if (busy) nextFrame();
+  }
+  document.body.classList.toggle("lab-mode", on);
+  $("labPanel").hidden = !on;
+  $("toggleLab").setAttribute("aria-expanded", String(on));
+  render();
+};
+window.addEventListener("blur", () => {
+  holds.forEach((h) => h.stop());
+  auto = false;
+  $("pause").textContent = "自動落下 OFF";
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    holds.forEach((h) => h.stop());
+    auto = false;
+    $("pause").textContent = "自動落下 OFF";
+  }
+});
 setupRules(configuration());
 reset(createSession(1));
 
@@ -466,3 +558,186 @@ for (const n of [3, 5])
     );
     fixtureAction = f.action;
   };
+
+function beginTool(type) {
+  if (!ready || busy || s.over || draft) return;
+  holds.forEach((h) => h.stop());
+  tool = type;
+  selected = null;
+  targetKind = null;
+  toolPreview = null;
+  $("action").value = type;
+  $("rank").value = String(
+    Math.max(
+      0,
+      s.eggs.findIndex((n) => n > 0),
+    ),
+  );
+  render();
+}
+function updatePreview() {
+  toolPreview = null;
+  if (!tool || !selected || targetKind === null) return;
+  $("species").value = String(targetKind);
+  try {
+    toolPreview = preview(s, item());
+  } catch (e) {
+    $("toolHint").textContent = e.message;
+  }
+}
+function renderTools() {
+  const allowed = ready && !busy && !s.over && !draft;
+  $("toolSheet").hidden = !tool;
+  $("eggCount").textContent = `×${s.eggs.reduce((a, b) => a + b, 0)}`;
+  $("tool-egg").disabled = !allowed || s.eggs.every((n) => !n);
+  $("tool-transform").disabled =
+    !allowed || s.gauge < s.rules.gaugeUnit || !s.board.flat().some(Boolean);
+  $("tool-bulk").disabled =
+    !allowed ||
+    s.gauge < 3 * s.rules.gaugeUnit ||
+    !s.board.flat().some(Boolean);
+  $("startFall").disabled = !allowed || !!tool;
+  $("turnHint").textContent = s.over
+    ? "終了 · もう一度挑戦しよう"
+    : busy
+      ? "連鎖中"
+      : ready
+        ? "道具を使う？ 次の2体へ進む？"
+        : "移動・回転して落とそう";
+  $("board").classList.toggle("previewing", !!toolPreview);
+  if (!tool) return;
+  $("toolTitle").textContent = {
+    egg: "🥚 卵を置く",
+    transform: "✨ 1体を変える · 1本",
+    bulk: "🌈 同じ種類すべて · 3本",
+  }[tool];
+  $("eggChoices").replaceChildren();
+  $("eggChoices").hidden = tool !== "egg";
+  if (tool === "egg")
+    ["普通01", "銀02", "金03", "プラチナ04"].forEach((label, rank) => {
+      const button = document.createElement("button");
+      button.textContent = `${label} ×${s.eggs[rank]}`;
+      button.dataset.rank = rank;
+      button.disabled = !s.eggs[rank];
+      button.setAttribute(
+        "aria-pressed",
+        String(Number($("rank").value) === rank),
+      );
+      button.onclick = () => {
+        $("rank").value = String(rank);
+        updatePreview();
+        render();
+      };
+      $("eggChoices").append(button);
+    });
+  $("kindChoices").replaceChildren();
+  names.slice(0, s.rules.kinds).forEach((name, k) => {
+    const button = document.createElement("button");
+    button.textContent = name;
+    button.dataset.kind = k;
+    button.style.setProperty("--color", colors[k]);
+    button.setAttribute("aria-label", `${name}にする`);
+    button.setAttribute("aria-pressed", String(targetKind === k));
+    button.disabled =
+      tool !== "egg" && !!selected && s.board[selected.y][selected.x]?.k === k;
+    button.onclick = () => {
+      targetKind = k;
+      updatePreview();
+      render();
+    };
+    $("kindChoices").append(button);
+  });
+  $("toolHint").textContent = !selected
+    ? tool === "egg"
+      ? "種類と置く列を選ぼう"
+      : "盤面の変えたい個体をタップ"
+    : targetKind === null
+      ? "上の色から変更先を選ぼう"
+      : !toolPreview
+        ? "この組合せには使えません。対象・種類・在庫を確認してね"
+        : `結果予告：${toolPreview.last.waves.length}連鎖 · 卵＋${toolPreview.last.eggs.reduce((a, b) => a + b, 0)}${toolPreview.over ? " · この手で終了" : ""}`;
+  $("confirmTool").disabled = !toolPreview;
+  if (toolPreview) {
+    toolPreview.board.forEach((row, y) =>
+      row.forEach((c, x) => {
+        if (!c || y < 2) return;
+        const ghost = document.createElement("span");
+        ghost.className = "preview-piece";
+        ghost.style.cssText = `--color:${colors[c.k]};left:${(100 * x) / s.rules.width}%;top:${(100 * (y - 2)) / 12}%;width:${100 / s.rules.width}%;height:${100 / 12}%`;
+        ghost.textContent = `${names[c.k]}${String(c.s).padStart(2, "0")}`;
+        $("board").append(ghost);
+      }),
+    );
+  }
+}
+function renderAnimation() {
+  if (!busy || !currentFrame) return;
+  const frame = currentFrame;
+  for (const e of frame.events)
+    for (const id of e.consumed) {
+      const c = frame.board.flatMap((row, y) =>
+        row.flatMap((c, x) => (c?.id === id ? [{ x, y }] : [])),
+      )[0];
+      if (c)
+        $("board")
+          .querySelector(`[data-x="${c.x}"][data-y="${c.y}"]`)
+          ?.classList.add("connected");
+    }
+  if (!frame.moves.length || !window.Element?.prototype.animate) return;
+  const br = $("board").getBoundingClientRect();
+  for (const m of frame.moves) {
+    if (
+      m.from.y < 2 ||
+      m.to.y < 2 ||
+      (frame.phase === "fall" && m.from.x === m.to.x && m.from.y === m.to.y)
+    )
+      continue;
+    const from = $("board").querySelector(
+        `[data-x="${m.from.x}"][data-y="${m.from.y}"]`,
+      ),
+      to = $("board").querySelector(`[data-x="${m.to.x}"][data-y="${m.to.y}"]`);
+    if (!from || !to) continue;
+    const a = from.getBoundingClientRect(),
+      b = to.getBoundingClientRect(),
+      actor = document.createElement("span");
+    actor.className = "moving-piece";
+    actor.style.cssText = `--color:${colors[m.from.cell.k]};left:${b.left - br.left}px;top:${b.top - br.top}px;width:${b.width}px;height:${b.height}px`;
+    actor.textContent = `${names[m.from.cell.k]}${String(m.from.cell.s).padStart(2, "0")}`;
+    to.classList.add("animation-covered");
+    $("board").append(actor);
+    actor.animate(
+      [
+        {
+          transform: `translate(${a.left - b.left}px,${a.top - b.top}px) scale(1)`,
+          opacity: 1,
+        },
+        {
+          transform: `translate(0,0) scale(${m.death ? 0.15 : 1})`,
+          opacity: m.death ? 0 : 1,
+        },
+      ],
+      {
+        duration: frame.duration,
+        easing:
+          frame.phase === "fall" ? "cubic-bezier(.4,0,1,1)" : "ease-in-out",
+        fill: "forwards",
+      },
+    );
+  }
+}
+for (const type of ["egg", "transform", "bulk"])
+  $("tool-" + type).onclick = () => beginTool(type);
+$("cancelTool").onclick = () => {
+  tool = null;
+  toolPreview = null;
+  selected = null;
+  render();
+};
+$("confirmTool").onclick = () => {
+  if (!toolPreview || !ready || busy) return;
+  const a = item();
+  tool = null;
+  toolPreview = null;
+  selected = null;
+  act(a);
+};
