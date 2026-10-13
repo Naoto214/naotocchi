@@ -1,9 +1,8 @@
 # Landscape pad: 184 × 120 CSS px
 
-User approved only the landscape pad enlargement on 2026-10-13 (Asia/Tokyo).
-Camera appearance was accepted by the user before this change. Full physical QA
-and this new pad's physical comfort/operation remain pending. Keep PR #379 Draft;
-no main merge or production deployment.
+**HUMAN_ACCEPTED — 2026-10-13 (Asia/Tokyo).** The user formally approves the current 184×120px landscape pad, position and input method on candidate `7521848`. Keep the lower whitespace; adaptive sizing and 140/160px enlargement are not requested. Camera appearance was already accepted.
+
+PR #379 Ready/main merge is explicitly authorized after final automated gates and protection checks. Full physical QA is not implied: see the [authoritative status table](../README.md). Earlier pending/hold text and machine-generated physicalIPhone:NOT_RUN in saved results describe the historical automated run; preserve those artifacts unchanged.
 
 Baseline: `e9932859c1479b2c1e53d77b20bb3b8f104343df`.
 Fresh main: `e98b35e148ba6fa84a1013946f29ec2b3a0f585b`.
@@ -70,7 +69,7 @@ its 30-minute budget. Runtime uses the unchanged full npm test command.
 
 ## Human QA
 
-On the new commit-pinned preview, check the enlarged pad with your thumb in Safari
+Pad size/placement/input method are accepted. Remaining optional scenario coverage: check the pad in Safari
 landscape, normal and contextual buttons, small browser viewport, repeated rotation,
 long press/drag/release and Canvas fallback. Physical comfort, performance, heat and
 memory are not inferred from desktop Chromium software WebGL.

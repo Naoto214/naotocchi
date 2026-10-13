@@ -1,8 +1,29 @@
 # Default World + Character 3D — iPhone Human QA handoff
 
-PR: #379 (Draft). Base: `e98b35e148ba6fa84a1013946f29ec2b3a0f585b`.
-Main merge and production deployment are **not authorized before physical QA**.
-The PR body records the final tested commit, tree, CI runs and commit-pinned preview links.
+PR: [#379](https://github.com/Naoto214/naotocchi/pull/379). Base checked on 2026-10-13: `e98b35e148ba6fa84a1013946f29ec2b3a0f585b`.
+The user explicitly authorizes Ready/main merge after final automated gates and protection checks pass (2026-10-13 JST). This supersedes the earlier pre-merge physical-QA hold; it does not mark unperformed physical checks PASS.
+The PR body records the final tested commit, tree, CI and merge/main verification.
+
+## Final specification and Human QA authority — 2026-10-13 JST
+
+The user formally approves the iPhone landscape Meguru pad at **184 × 120 CSS px**, including its current position and input method. Keep the lower whitespace. Do not implement adaptive sizing or 140/160px variants. Portrait, canvas dimensions, accepted camera framing, real touch element and gameplay remain unchanged.
+
+| Physical item | Status and scope |
+| --- | --- |
+| Commit-pinned preview opens / 3D displays | Observed by user; earlier startup report |
+| Current camera framing | Accepted by user before pad enlargement |
+| Landscape pad size / placement / input method | **HUMAN_ACCEPTED**, formal user approval on 2026-10-13; candidate `75218480e537c68536ffd4ae0bd412879b8d0102` |
+| Portrait/landscape appearance | Favorable observations; exhaustive rotation/device matrix **NOT_RUN** |
+| Walking / travel / exit-reentry | Favorable initial report; systematic all-13-region verification **NOT_RUN** |
+| Cold/warm timing; timeout/cancel/spam/late completion on iPhone | **NOT_RUN** |
+| 27 actors on physical iPhone | **NOT_RUN** |
+| Physical WebGL failure/context loss/Canvas state-preserving fallback | **NOT_RUN** |
+| Sustained play ≥10 minutes; heat; reloads; memory/performance metrics | **NOT_RUN / unmeasured** |
+| Full physical Reduce Motion / PNG / Expression matrix | **NOT_RUN** |
+
+No exact device/OS, timing, benchmark, duration or unreported scenario is inferred from subjective acceptance. Saved software-browser evidence remains separate from physical-device evidence.
+
+The [3D completion record](../3d-system-completion-20261013.md) defines the bounded closeout. Missing physical measurements remain follow-up QA, not a reason to add art/features indefinitely.
 
 ## Scope and URL contract
 
@@ -83,8 +104,7 @@ anchors and reveals more surrounding scenery. See `camera-framing/README.md` for
 root cause, identical-pose comparisons and current evidence. The earlier
 `camera-adjustment/` directory is historical evidence of the rejected candidate.
 
-**Current framing needs physical acceptance. Full Human QA remains incomplete.
-Keep Draft; do not merge or deploy production.**
+**Historical framing hold: superseded by subsequent camera acceptance and the 2026-10-13 conditional merge authorization above. Full physical QA remains incomplete.**
 
 ## Remaining physical iPhone Safari steps
 
@@ -137,10 +157,10 @@ main to obtain a preview.
 | Safari memory / growth | 未測定 | 未測定 |
 | Physical fallback / orientation | 未実施 | 未実施 |
 
-## Protection / release hold
+## Protection / final integration
 
 No change to `meguru.js`, `character-3d/` (all 293 forms), `assets/` (2D and
 Expression PNG), gameplay, save/schema, Expression, Motion or Relationship modules.
 Only startup/presentation, their tests/QA runners, cache tokens and the narrow World
 CI branch/path selection change. Vending-machine geometry remains deferred.
-Final automated success does not imply physical QA success. Keep PR #379 Draft.
+Final automated success does not imply physical QA success. Ready/main merge is authorized only after the final gates described above pass.
