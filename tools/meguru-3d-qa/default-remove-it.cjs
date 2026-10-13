@@ -1,7 +1,7 @@
 // Isolated copy: mutation checks cannot race a full suite/browser using the checkout.
 const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),tmp=fs.mkdtempSync(path.join(os.tmpdir(),'default3d-mutation-'));
-const files=['script.js','meguru-3d.mjs','tests/meguru-default-3d-test.cjs','tests/world-character-routing-test.cjs'];
+const files=['vendor/three-0.170.0/three.module.min.js','script.js','meguru-3d.mjs','tests/meguru-default-3d-test.cjs','tests/world-character-routing-test.cjs'];
 for(const f of files){fs.mkdirSync(path.dirname(path.join(tmp,f)),{recursive:true});fs.copyFileSync(path.join(root,f),path.join(tmp,f));}
 const cases=[
  ['loading menu closure','script.js','      render(); // Commit closed menus now, so the loading/cancel UI is reachable.',''],

@@ -64,3 +64,25 @@ jobs:
           name: home-layout
           path: test-results/home-layout
           retention-days: 14
+
+  pad-size:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Paired baseline and candidate pad layout/input
+        run: |
+          git fetch --depth=1 origin e9932859c1479b2c1e53d77b20bb3b8f104343df
+          node tests/meguru-pad-size-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: meguru-pad-size
+          path: test-results/home-layout/pad-size
+          retention-days: 14

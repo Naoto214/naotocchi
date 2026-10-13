@@ -4677,8 +4677,11 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
     grid-column: 2; grid-row: 2; flex-direction: column; margin: 0; padding: 4px 0 0;
     align-self: start; gap: 6px;
   }
-  #meguruOverlay .mg-pad { flex: none; width: 100%; min-height: 100px; }
-  #meguruOverlay .mg-pad-actions { flex-direction: row; flex-wrap: wrap; width: 100%; gap: 4px; }
+  /* Keep the old row's measured height: canvas sizing subtracts offsetHeight.
+     Grow the real hit element into the free space below, then move actions by
+     the same 20px. Their visible 6px gap remains; world dimensions stay fixed. */
+  #meguruOverlay .mg-pad { flex: none; width: 100%; min-height: 120px; margin-bottom: -20px; }
+  #meguruOverlay .mg-pad-actions { flex-direction: row; flex-wrap: wrap; width: 100%; gap: 4px; position: relative; top: 20px; }
   #meguruOverlay .mg-pad-actions .mg-tap-btn { min-height: 44px; min-width: 56px; }
 }
 
