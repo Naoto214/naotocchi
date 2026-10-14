@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>なおとっち CARD GAME · ふたり対戦</title><link rel="stylesheet" href="style.css"></head>
+<body><header><div><small>NAOTOCCHI · CARD GAME</small><h1>ふたりのカード卓</h1></div><span class="badge">同じ端末で2人対戦</span></header>
+<main><section id="welcome"><h2>端末を渡して、次の一手。</h2><p>15種類・40枚のデッキで遊ぶブラウザ試作版です。交代のたびに手札を隠します。相手は画面を見ず、端末を受け取った人だけが確認してください。</p><p>成長20から開始。10ラウンドの最終比較、または成長100を所定の相手ターン終了まで維持すると決着します。行動後は2人がパスすると解決します。</p><button id="new">新しい対戦を開始</button><button id="restore">保存した対戦に戻る</button><p>この端末のブラウザへ自動保存します。保存データには両者の非公開情報を再現できる情報が含まれます。</p></section>
+<div id="game" hidden></div><p id="status" role="status" aria-live="polite"></p>
+<nav><button id="hide" hidden>手札を隠して渡す</button><button id="export" hidden>保存ファイルを書き出す</button><label class="file">保存ファイルを読み込む<input id="import" type="file" accept="application/json,.json"></label></nav>
+<p class="foot">人間用の独立試作版 · 固定400戦の実行機能はありません · <a href="README.md">対応範囲</a></p></main>
+<div id="curtain" hidden role="dialog" aria-modal="true" aria-labelledby="handoff-title"><section><small>HANDOFF</small><h2 id="handoff-title"></h2><p>前のプレイヤーは画面から目を離してください。確認するまで手札は表示されません。</p><button id="reveal">私の手札を確認する</button></section></div>
+<script type="module" src="app.mjs"></script></body></html>

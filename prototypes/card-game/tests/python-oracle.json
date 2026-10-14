@@ -1,0 +1,811 @@
+{
+  "main": [
+    {
+      "old": null,
+      "dest": "M-beetle-01",
+      "time": 0,
+      "legal": false,
+      "cost": 1
+    },
+    {
+      "old": null,
+      "dest": "M-beetle-01",
+      "time": 1,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": null,
+      "dest": "M-beetle-01",
+      "time": 2,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": null,
+      "dest": "M-antlion-01",
+      "time": 0,
+      "legal": false,
+      "cost": 1
+    },
+    {
+      "old": null,
+      "dest": "M-antlion-01",
+      "time": 1,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": null,
+      "dest": "M-antlion-01",
+      "time": 2,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": "M-beetle-01",
+      "dest": "M-beetle-01",
+      "time": 0,
+      "legal": false,
+      "cost": 0
+    },
+    {
+      "old": "M-beetle-01",
+      "dest": "M-beetle-01",
+      "time": 1,
+      "legal": false,
+      "cost": 0
+    },
+    {
+      "old": "M-beetle-01",
+      "dest": "M-beetle-01",
+      "time": 2,
+      "legal": false,
+      "cost": 0
+    },
+    {
+      "old": "M-beetle-01",
+      "dest": "M-antlion-01",
+      "time": 0,
+      "legal": false,
+      "cost": 1
+    },
+    {
+      "old": "M-beetle-01",
+      "dest": "M-antlion-01",
+      "time": 1,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": "M-beetle-01",
+      "dest": "M-antlion-01",
+      "time": 2,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": "M-antlion-01",
+      "dest": "M-beetle-01",
+      "time": 0,
+      "legal": false,
+      "cost": 1
+    },
+    {
+      "old": "M-antlion-01",
+      "dest": "M-beetle-01",
+      "time": 1,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": "M-antlion-01",
+      "dest": "M-beetle-01",
+      "time": 2,
+      "legal": true,
+      "cost": 1
+    },
+    {
+      "old": "M-antlion-01",
+      "dest": "M-antlion-01",
+      "time": 0,
+      "legal": false,
+      "cost": 0
+    },
+    {
+      "old": "M-antlion-01",
+      "dest": "M-antlion-01",
+      "time": 1,
+      "legal": false,
+      "cost": 0
+    },
+    {
+      "old": "M-antlion-01",
+      "dest": "M-antlion-01",
+      "time": 2,
+      "legal": false,
+      "cost": 0
+    }
+  ],
+  "stats": [
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": false,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": false,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": false,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": false,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": true,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": true,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": true,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 0,
+      "world": true,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": false,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": false,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": false,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": false,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": true,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": true,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": true,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 2,
+      "world": true,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": false,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": false,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": false,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": false,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": true,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": true,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": true,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 2
+      }
+    },
+    {
+      "main": "M-beetle-01",
+      "hands": 3,
+      "world": true,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": false,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": false,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": false,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": false,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": true,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": true,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": true,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 0,
+      "world": true,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 5
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": false,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": false,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": false,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": false,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": true,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": true,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": true,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 3,
+        "wisdom": 4
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 2,
+      "world": true,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 3,
+        "wisdom": 5
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": false,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": false,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": false,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": false,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": true,
+      "both": false,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": true,
+      "both": false,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": true,
+      "both": true,
+      "chameleon": false,
+      "value": {
+        "power": 2,
+        "wisdom": 3
+      }
+    },
+    {
+      "main": "M-antlion-01",
+      "hands": 3,
+      "world": true,
+      "both": true,
+      "chameleon": true,
+      "value": {
+        "power": 2,
+        "wisdom": 4
+      }
+    }
+  ],
+  "hit": [
+    {
+      "top": "M-beetle-01",
+      "declare": "main",
+      "value": {
+        "deck": [
+          "next"
+        ],
+        "hand": [
+          "top"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 25
+      }
+    },
+    {
+      "top": "M-beetle-01",
+      "declare": "companion",
+      "value": {
+        "deck": [
+          "top"
+        ],
+        "hand": [
+          "next"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 20
+      }
+    },
+    {
+      "top": "M-beetle-01",
+      "declare": "item",
+      "value": {
+        "deck": [
+          "top"
+        ],
+        "hand": [
+          "next"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 20
+      }
+    },
+    {
+      "top": "C-box",
+      "declare": "main",
+      "value": {
+        "deck": [
+          "top"
+        ],
+        "hand": [
+          "next"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 20
+      }
+    },
+    {
+      "top": "C-box",
+      "declare": "companion",
+      "value": {
+        "deck": [
+          "next"
+        ],
+        "hand": [
+          "top"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 25
+      }
+    },
+    {
+      "top": "C-box",
+      "declare": "item",
+      "value": {
+        "deck": [
+          "top"
+        ],
+        "hand": [
+          "next"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 20
+      }
+    },
+    {
+      "top": "I-c_coin2",
+      "declare": "main",
+      "value": {
+        "deck": [
+          "top"
+        ],
+        "hand": [
+          "next"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 20
+      }
+    },
+    {
+      "top": "I-c_coin2",
+      "declare": "companion",
+      "value": {
+        "deck": [
+          "top"
+        ],
+        "hand": [
+          "next"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 20
+      }
+    },
+    {
+      "top": "I-c_coin2",
+      "declare": "item",
+      "value": {
+        "deck": [
+          "next"
+        ],
+        "hand": [
+          "top"
+        ],
+        "discard": [
+          "source"
+        ],
+        "growth": 25
+      }
+    }
+  ],
+  "provenance": {
+    "proxy_continuation_rules.py": "faa4c724d5159ebbc0b9758c243771fe9758899bfec19566d7bd82616cbf1c23",
+    "proxy_continuation_challenge.py": "7e159776ecd814c1d8fde56fbe117d9468b1324e2f5404c6dbe8b9848508af52",
+    "proxy_hit_blow_response_142.py": "959cda38536d94bd241c28c8d6a0514c1748101aacdc455e521f83a155b68788"
+  }
+}
