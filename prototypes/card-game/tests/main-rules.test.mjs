@@ -11,7 +11,7 @@ test('explicit main programs bind canonical main sources without fallback',()=>{
   assert.ok(source.source.includes('#'),id);
   assert.match(source.source_sha256,/^[a-f0-9]{64}$/);
   assert.equal(rule.mode,'main');
-  if(!rule.triggers&&!rule.active&&!rule.passive)assert.equal(source.text,'能力なし。',id);
+  if(!rule.triggers&&!rule.active&&!rule.passive&&!rule.replacements)assert.equal(source.text,'能力なし。',id);
  }
  assert.equal(MAIN_RULES['M-cat-06'],undefined,'replacement must not silently become vanilla');
  assert.equal(MAIN_RULES['M-phoenix-04'],undefined,'unimplemented post-challenge effects must not be omitted');
@@ -191,4 +191,100 @@ test('phoenix challenge pays time for a computed-value deficit and printed-stat 
  const p=MAIN_RULES['M-phoenix-02'].triggers[0];assert.equal(p.cost,1);assert.deepEqual(p.condition.all[1],{value:'battleValue',op:'lt',n:{value:'opponentBattleValue'}});
  assert.match(CATALOG['M-star-05'].text,/印刷されたちえがちからより高いメイン/);
  const st=MAIN_RULES['M-star-05'].triggers[0];assert.equal(st.target,'ownDiscardWisdomHigherMain');assert.deepEqual(st.condition,{all:['won','eventPower']});
+});
+
+test('main move replacement scopes, costs and round limits match complete canonical clauses',()=>{
+ assert.equal(CATALOG['M-clownfish-06'].text,'1ラウンドに1回。自分の準備枠の伏せたカード1枚が相手の効果で捨て札に置かれるなら、手札1枚を捨て札に置くことで、その準備枠のカードを代わりに手札へ戻してもよい。');
+ const c=MAIN_RULES['M-clownfish-06'].replacements[0];assert.equal(c.scope,'ownTrap');assert.equal(c.cost,'handDiscard');assert.equal(c.replace,'hand');assert.equal(c.optional,true);assert.equal(c.limit,'round');
+ assert.equal(CATALOG['M-turtle-08'].text,'1ラウンドに1回。相手の効果でこのメインがメイン枠から捨て札に置かれる場合、自分のセカイを捨て札に置くことができる。そうしたなら、代わりにこのメインを捨て札に置かない。');
+ const t=MAIN_RULES['M-turtle-08'].replacements[0];assert.equal(t.scope,'self');assert.equal(t.cost,'worldDiscard');assert.equal(t.replace,'stay');
+ assert.equal(MAIN_RULES['M-turtle-06'].replacements[0].scope,'mainEquipment');
+ assert.equal(MAIN_RULES['M-starfish-07'].replacements[0].replace,'bottom');
+});
+
+test('filtered world and same-type discard payments preserve replacement conditions',()=>{
+ assert.equal(CATALOG['M-dandelion-04'].text,'1ラウンドに1回。自分のセカイが相手の効果で手札または捨て札に移るなら、手札のセカイ1枚を公開して捨て札に置くことで、その移動を防いでもよい。');
+ const d=MAIN_RULES['M-dandelion-04'].replacements[0];assert.equal(d.scope,'ownWorld');assert.deepEqual(d.to,['hand','discard']);assert.deepEqual(d.handFilter,{type:'world'});assert.equal(d.reveal,true);
+ assert.equal(CATALOG['M-world_tree-07'].text,'1ラウンドに1回。自分にセカイがあり、自分の盤面のメイン以外の表向きのカード1枚が相手の効果で捨て札に置かれるなら、それと同じカード種類の自分の捨て札のカード1枚を山札の一番下に置くことで、その盤面のカードを代わりに山札の一番上に置いてもよい。');
+ const w=MAIN_RULES['M-world_tree-07'].replacements[0];assert.equal(w.cost,'discardSameTypeBottom');assert.equal(w.replace,'top');assert.equal(w.condition.all[1],'moveTargetFaceUpNonMain');
+ assert.equal(MAIN_RULES['M-sakura-04'].replacements[0].timeCost,1);
+});
+
+test('hand reveal and staged hand payment are costs while return choices remain targets',()=>{
+ assert.equal(CATALOG['M-woman-03'].text,'1ターンに1回。自分の手札からカード種類が異なる2枚を公開して発動できる。このターン、このメインのちから・ちえ+1。');
+ const w=MAIN_RULES['M-woman-03'].active.select[0];assert.equal(w.cost,'reveal');assert.equal(w.distinct,'type');assert.equal(w.count,2);
+ assert.match(CATALOG['M-unknown-08'].text,/手札の①のメイン1枚を公開して山札の一番下/);
+ const u=MAIN_RULES['M-unknown-08'].triggers[0];assert.equal(u.select[0].reveal,true);assert.deepEqual(u.select[0].filter,{type:'main',minStage:1,maxStage:1});assert.equal(u.target,'ownDiscardPrintedTenMain');
+ assert.equal(MAIN_RULES['M-dandelion-08'].active.select.every(e=>!e.cost),true);
+});
+
+test('normal world-change main abilities require normal hand placement and exact name checks',()=>{
+ assert.equal(CATALOG['M-salmon-03'].text,'1ターンに1回。自分が手札からセカイカードを通常の方法で出した時、その配置前から自分にセカイがあった場合、発動できる。1枚引き、その後手札1枚を山札の一番下に置く。');
+ assert.equal(MAIN_RULES['M-salmon-03'].triggers[0].condition,'normalWorldChange');
+ assert.match(CATALOG['M-salmon-07'].text,/名前の異なるセカイから変更した時.*その出したカードと同名/);
+ assert.deepEqual(MAIN_RULES['M-salmon-07'].triggers[0].condition,{all:['normalWorldChange','changedName','discardHasCurrentWorld']});
+ assert.match(CATALOG['M-frog-04'].text,/手札からセカイカードを通常の方法で出して、名前の異なる/);
+ assert.deepEqual(MAIN_RULES['M-frog-04'].triggers[0].condition,{all:['normalWorldChange','changedName']});
+});
+
+test('starfish retrieval checks face-up field type during resolution rather than silently narrowing targets',()=>{
+ assert.equal(CATALOG['M-starfish-08'].text,'1ターンに1回。自分の捨て札のメイン以外のカード1枚を対象として発動できる。自分の盤面に、発動時の対象と同じカード種類の表向きのカードがある場合、その対象を山札の一番下に置き、1枚引き、その後手札1枚を山札の一番下に置く。');
+ const t=MAIN_RULES['M-starfish-08'].active;assert.equal(t.target,'ownDiscardNonMain');assert.equal(t.condition,undefined);assert.equal(t.steps[0].condition,'fieldHasTargetType');assert.deepEqual(t.steps[0].steps.map(e=>e.op),['move','draw','handBottom']);
+});
+
+test('coral applied-effect observers require abilities and earlier different support types',()=>{
+ assert.equal(CATALOG['M-coral-04'].text,'1ターンに1回。自分のなかまが発動した能力の効果が解決時に適用された時、自分にセカイがある場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。');
+ const c=MAIN_RULES['M-coral-04'].triggers[0];assert.equal(c.when,'effectApplied');assert.deepEqual(c.condition.all.slice(0,2),['eventAbility','eventCompanion']);
+ assert.match(CATALOG['M-coral-06'].text,/それより前にその3種類のうち別の種類/);
+ assert.equal(MAIN_RULES['M-coral-06'].triggers[0].condition.all[2],'earlierDifferentSupportAbilityApplied');
+});
+
+test('applied quick card and attached ability observers preserve source and cost contracts',()=>{
+ assert.equal(CATALOG['M-antlion-06'].text,'1ターンに1回。自分のターンに、「すぐつかう」でプレイした自分のカードの効果が適用された時、手札のセカイ1枚を公開して山札の一番下に置き、自分の捨て札のセカイ1枚を対象として発動できる。そのカードを手札に戻す。');
+ const a=MAIN_RULES['M-antlion-06'].triggers[0];assert.deepEqual(a.condition,{all:['ownTurn','eventQuickCardEffect']});assert.deepEqual(a.handCost,{destination:'bottom',type:'world',reveal:true});
+ assert.equal(CATALOG['M-hermit_crab-07'].text,'1ターンに1回。このメインにみにつけられているカードが発動した能力の効果が解決時に適用された時、発動できる。1枚引き、その後手札1枚を山札の一番下に置く。');
+ assert.equal(MAIN_RULES['M-hermit_crab-07'].triggers[0].condition.all[1],'eventAttachedToSelfMain');
+});
+
+test('trap applied history supplies opponent-turn passive and end draw exactly',()=>{
+ assert.equal(CATALOG['M-venus_flytrap-03'].text,'相手のターン中、このターンに自分がしかけていたカードの効果が1度でも適用されていた場合、このメインのちえ+1。');
+ const v=MAIN_RULES['M-venus_flytrap-03'].passive;assert.deepEqual(v.condition,{all:[{not:'ownTurn'},'ownTrapEffectAppliedThisTurn']});assert.equal(v.wisdom,1);
+ assert.match(CATALOG['M-venus_flytrap-08'].text,/相手のターン終了時.*しかけていたカードの効果が適用.*なかままたはこいびと/);
+ assert.equal(MAIN_RULES['M-venus_flytrap-08'].triggers[0].opponent,true);
+});
+
+test('mushroom retrieval filters activation names and rechecks the same name at resolution',()=>{
+ assert.equal(CATALOG['M-mushroom-06'].text,'1ターンに1回。自分のターン終了時、自分の盤面の表向きのメイン以外のカードと同名のカード1枚を自分の捨て札から対象として発動できる。解決時にも自分の盤面にその対象と同名の表向きのカードがある場合、その対象を手札に戻す。');
+ const m=MAIN_RULES['M-mushroom-06'].triggers[0];assert.equal(m.target,'ownDiscardMatchingFieldName');assert.equal(m.steps[0].condition,'fieldHasTargetName');assert.equal(m.steps[0].steps[0].destination,'hand');
+ assert.match(CATALOG['M-mushroom-04'].text,/「みにつける」でカードをプレイ.*同じカード種類/);
+ assert.deepEqual(MAIN_RULES['M-mushroom-04'].triggers[0].condition,{all:['eventEquip','discardHasEventType']});
+ assert.equal(CATALOG['M-phoenix-06'].text,'1ターンに1回。自分のターン終了時、このターン自分がカードまたは能力の発動コストとして手札を捨て札に置いていた場合、発動できる。1枚引く。');
+ assert.equal(MAIN_RULES['M-phoenix-06'].triggers[0].condition,'handDiscardCostThisTurn');
+});
+
+test('clownfish picks its second recovery only during resolution after first return succeeds',()=>{
+ assert.equal(CATALOG['M-clownfish-08'].text,'1ターンに1回。自分のターンに、自分のなかま1枚を対象として発動できる。そのカードを手札に戻す。そうしたなら、自分の準備枠のカード1枚を選び、手札に戻す。');
+ const c=MAIN_RULES['M-clownfish-08'].active;assert.equal(c.target,'ownCompanion');assert.equal(c.select,undefined);assert.equal(c.steps[1].condition,'moved');assert.equal(c.steps[1].steps[0].op,'select');
+});
+
+test('mushroom searches retain original inspected cards and exact remainder destinations',()=>{
+ assert.equal(CATALOG['M-mushroom-01'].text,'このメインがたんじょうした時、発動できる。山札上2枚を見る。その中から1枚を選んで捨て札に置き、残りを山札の一番上に置く。');
+ const m=MAIN_RULES['M-mushroom-01'].triggers[0].steps[0];assert.equal(m.destination,'discard');assert.equal(m.remainderDestination,'top');
+ assert.match(CATALOG['M-mushroom-07'].text,/手札に加え、その後、別の1枚を選んで捨て札/);
+ assert.deepEqual(MAIN_RULES['M-mushroom-07'].active.steps[0].followUp,{destination:'discard',min:1,max:1});
+});
+
+test('man recovery bonus affects its source main and remembers target type instead of moving card stats',()=>{
+ assert.equal(CATALOG['M-man-07'].text,'1ターンに1回。自分のターンに、自分の捨て札のメイン以外1枚を対象として発動できる。そのカードを山札の一番下に置く。このターン、このメインのちからかちえを1つ選び+1する。発動時の対象が「なかま」「こいびと」「セカイ」のいずれかなら、代わりに+2する。');
+ const m=MAIN_RULES['M-man-07'].active;assert.equal(m.variants,undefined);assert.equal(m.steps[1].condition,'targetSupportType');assert.equal(m.steps[1].steps[0].target,'sourceMain');assert.equal(m.steps[1].steps[0].n,2);assert.equal(m.steps[2].steps[0].n,1);
+ assert.equal(MAIN_RULES['M-beetle-08'].active.steps[1].target,'sourceMain');
+});
+
+test('declared modal types bind activation constraints while card selections occur during resolution',()=>{
+ assert.equal(CATALOG['M-god-03'].text,'1ターンに1回。自分のターンに、発動時に「なかま」「こいびと」「セカイ」から自分の盤面にない1種類を選び、時1を払って発動できる。山札上3枚を見る。その中から選んだ種類のカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。');
+ const g=MAIN_RULES['M-god-03'].active;assert.equal(g.variantCondition,'variantFieldAbsent');assert.deepEqual(g.variants,['companion','partner','world']);assert.equal(g.cost,1);
+ assert.match(CATALOG['M-unknown-04'].text,/発動時に相手の捨て札にあるカード種類/);
+ assert.equal(MAIN_RULES['M-unknown-04'].triggers[0].variantCondition,'variantInOpponentDiscard');
+ assert.equal(MAIN_RULES['M-unknown-05'].triggers[0].target,'selfMain');assert.equal(MAIN_RULES['M-unknown-05'].triggers[0].steps[0].op,'select');assert.deepEqual(MAIN_RULES['M-unknown-05'].triggers[0].steps[0].filter,{sameEventType:true});
+ assert.equal(MAIN_RULES['M-beetle-08'].active.variants,undefined);
 });

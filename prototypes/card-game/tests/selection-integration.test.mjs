@@ -23,3 +23,15 @@ test('removing a challenge participant ends comparison without crash or award',(
 test('effect ordering is chosen after responses, not in target selection',()=>{
  let s=fixture();const source=put(s,'A','E-naoto');const cards=['C-box','P-cliff_goat','W-deepsea'].map(id=>put(s,'A',id,'discard'));s=go(s,'programPlay',a=>a.source===source);for(const id of cards)s=go(s,'choose',a=>a.value===id);assert.equal(s.phase,'response');s=resolve(s);assert.equal(s.choice.kind,'selected_order');s=go(s,'choose',a=>a.value===cards[2]);s=go(s,'choose',a=>a.value===cards[0]);s=go(s,'choose',a=>a.value===cards[1]);assert.deepEqual(s.players.A.deck.slice(-3),[cards[2],cards[0],cards[1]]);assert.equal(s.players.A.growth,25);
 });
+test('resolution-time same-type selection uses the hand after responses',()=>{
+ let s=fixture();const source=put(s,'A','G-puzzle-2048'),one=put(s,'A','C-box'),two=put(s,'A','C-owl');s=go(s,'programPlay',a=>a.source===source);assert.equal(s.choice,null);s=resolve(s);assert.equal(s.choice.kind,'resolve_selection');s=go(s,'choose',a=>a.value===one);s=go(s,'choose',a=>a.value===two);assert.ok(s.players.A.deck.includes(one));assert.ok(s.players.A.deck.includes(two));e.validate(s);
+});
+test('dependent cost and target selection rejects dead-end payment types',()=>{
+ let s=fixture();const main=field(s,'A','M-mushroom-02');const payment=put(s,'A','C-box'),target=put(s,'A','C-owl','discard');s=go(s,'programAbility',a=>a.source===main);assert.ok(e.legalActions(s).some(a=>a.value===payment));assert.ok(e.legalActions(s).filter(a=>a.kind==='choose'&&a.value!=='cancel').every(a=>e.CARDS[s.cards[a.value].cardId].type==='companion'));s=go(s,'choose',a=>a.value===payment);s=go(s,'choose',a=>a.value===target);s=resolve(s);assert.equal(s.players.A.deck[0],target);e.validate(s);
+});
+test('search follow-up selects from the original inspected remainder',()=>{
+ let s=fixture();const main=field(s,'A','M-mushroom-07'),payment=put(s,'A','C-box','discard');s=go(s,'programAbility',a=>a.source===main);s=go(s,'choose',a=>a.value===payment);const peek=s.players.A.deck.slice(0,3);s=resolve(s);s=go(s,'choose',a=>a.value===peek[0]);assert.equal(s.choice.kind,'search_take');assert.ok(!s.choice.options.some(o=>o.id===peek[0]));s=go(s,'choose',a=>a.value===peek[1]);s=go(s,'choose',a=>a.value===peek[2]);assert.ok(s.players.A.hand.includes(peek[0]));assert.ok(s.players.A.discard.includes(peek[1]));assert.equal(s.players.A.deck.at(-1),peek[2]);e.validate(s);
+});
+test('recovery target and source stat target remain separate through resolution choice',()=>{
+ let s=fixture();const main=field(s,'A','M-man-07'),target=put(s,'A','C-box','discard');s=go(s,'programAbility',a=>a.source===main&&a.target===target);s=resolve(s);assert.equal(s.choice.kind,'stat_parameter');s=go(s,'choose',a=>a.value==='wisdom');assert.equal(s.players.A.deck.at(-1),target);const stat=s.effects.find(x=>x.kind==='stat');assert.equal(stat.target,main);assert.equal(stat.wisdom,2);e.validate(s);
+});

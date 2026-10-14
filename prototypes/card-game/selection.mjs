@@ -1,7 +1,7 @@
 /** Sequential physical-card selection. Existence uses grouped capacities, never combinations. */
 import {CATALOG} from './full-catalog.mjs';
 const specKeys=new Set(['zone','count','min','max','filter','same','distinct','ordered']);
-const filterKeys=new Set(['type','types','excludeType','method','rare','minStage','maxStage','species','excludeSpecies','minCost','maxCost','faceDown','attachedTo','minPower','maxPower','minWisdom','maxWisdom','sameTypeAs','notNameOf']);
+const filterKeys=new Set(['type','types','excludeType','method','rare','minStage','maxStage','species','excludeSpecies','minCost','maxCost','faceDown','attachedTo','minPower','maxPower','minWisdom','maxWisdom','sameTypeAs','notNameOf','sameEventType','sameWorldName']);
 const properties=new Set(['type','name','stage','species']);
 const definition=(s,id)=>CATALOG[s.cards?.[id]?.cardId];
 const value=(c,key)=>key==='name'?c.id:c[key];
@@ -20,7 +20,7 @@ function prepare(s,actor,spec,ctx={},selected=[]){
  const pool=[...new Set(zones[spec.zone])].filter(id=>{
   const c=definition(s,id);if(!c||spec.zone==='ownHand'&&id===ctx.source)return false;
   if(spec.same&&value(c,spec.same)===undefined||spec.distinct&&value(c,spec.distinct)===undefined)return false;
-  const type=f.type==='declared'?ctx.variant:f.type;if(f.type==='declared'&&!type)return false;
+  if(f.sameEventType&&c.type!==definition(s,ctx.event?.source)?.type)return false;if(f.sameWorldName&&c.id!==definition(s,b.world)?.id)return false;const type=f.type==='declared'?ctx.variant:f.type;if(f.type==='declared'&&!type)return false;
   if(type!==undefined&&c.type!==type||f.types&&!f.types.includes(c.type)||f.excludeType!==undefined&&c.type===f.excludeType||sameType&&c.type!==sameType||notName&&c.id===notName)return false;
   for(const k of ['method','rare','species'])if(f[k]!==undefined&&c[k]!==f[k])return false;
   if(f.excludeSpecies!==undefined&&c.species===f.excludeSpecies)return false;
