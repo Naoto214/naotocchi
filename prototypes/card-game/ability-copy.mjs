@@ -18,7 +18,7 @@ export function handle(s,l,e,h){
  const copyId=`copy:${l.source}#${l.sourceGeneration}:${s.serial}:${(s.copySequence=(s.copySequence??0)+1)}`;
  // docs/card-game/67: この名前 refers to the copier; explicit literal names remain unchanged.
  const contract=bind(clone(event.contract));
- Object.assign(contract,{copyId,limitKey:copyId,sourceBound:true,copiedFromCardId:event.sourceCardId,copiedFromSource:event.source,copyEventLinkId:event.linkId,copiedAtSerial:s.serial,copiedAtHistoryIndex:(s.history??[]).length,onceNameCardId:s.cards[l.source].cardId});
+ Object.assign(contract,{copyId,limitKey:copyId,sourceBound:true,selfChallenge:event.contract.when==='challenge'&&!['M-man-04','M-stagbeetle-07'].includes(event.sourceCardId),copiedFromCardId:event.sourceCardId,copiedFromSource:event.source,copyEventLinkId:event.linkId,copiedAtSerial:s.serial,copiedAtHistoryIndex:(s.history??[]).length,onceNameCardId:s.cards[l.source].cardId,nameScope:'copy:'+event.sourceCardId+':'+(event.contract.when??'active')});
  s.effects??=[];s.effects.push({kind:'copiedAbility',actor:l.actor,source:l.source,generation:l.sourceGeneration,contract,copyId,duration:'turn',serial:s.serial,originalContract:clone(event.contract)});
  l.applied=true;h?.log?.(s,'発動時の能力本文をコピー');return {waiting:false};
 }

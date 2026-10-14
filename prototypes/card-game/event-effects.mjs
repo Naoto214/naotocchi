@@ -4,7 +4,7 @@ export function lifetime(s,a,duration='turn'){
  return {duration,...(duration==='nextStart'||duration==='nextEnd'?{until:s.serial+(s.turn===a?2:1)}:{})};
 }
 export function reserve(s,l,e){
- if(e.challenge&&(!s.challenge||s.challenge.ended))return false;
+ if(e.challenge&&(!s.challenge||s.challenge.ended||s.challenge.aborted))return false;
  s.effects.push({kind:'reservation',actor:l.actor,...lifetime(s,l.actor,e.duration),rule:structuredClone(e),link:{...structuredClone(l),createdRevision:s.revision},remaining:e.count??e.sequence?.length??1,index:0,...(e.challenge?{challenge:s.challenge.id}:{})});return true;
 }
 export function collect(s,event,condition){

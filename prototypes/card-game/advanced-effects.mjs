@@ -5,7 +5,7 @@ function choice(s,l,kind,options,data={}){s.choice={actor:l.actor,kind:'advanced
 export function handle(s,l,e,h,api){const a=l.actor,p=s.players[a],b=p.board;
  switch(e.op){
  case 'lock':s.effects.push({kind:'actionLock',actor:a,action:e.action,...lifetime(s,a,e.duration),...(e.source?{source:l.source,generation:l.sourceGeneration}:{})});l.applied=true;break;
- case 'reverseComparison':if(s.challenge&&!s.challenge.ended){s.challenge.reverse=true;l.applied=true;}break;
+ case 'reverseComparison':if(s.challenge&&!s.challenge.ended&&!s.challenge.aborted){s.challenge.reverse=true;l.applied=true;}break;
  case 'protect':{if(e.linkOnly&&!s.chain.some(x=>x.uid===l.event?.linkId&&!x.negated))break;if(!e.scope&&!api.present(s,l))break;s.effects.push({kind:'protection',actor:a,source:l.source,target:l.target,generation:l.targetGeneration,scope:e.scope,to:e.to,replace:e.replace,remaining:e.count??null,linkOnly:e.linkOnly?l.event.linkId:null,...lifetime(s,a,e.duration),id:`protect:${s.revision}:${s.effects.length}`});l.applied=true;break;}
  case 'prevent':s.effects.push({kind:'prevention',actor:a,source:l.source,n:e.n,drawFully:e.drawFully,...lifetime(s,a,e.duration),id:`prevent:${s.revision}:${s.effects.length}`});l.applied=true;break;
  case 'eventTypeDiscount':s.program.steps.unshift({op:'discount',action:'quick_'+card(s,l.event.source).type,n:1});break;

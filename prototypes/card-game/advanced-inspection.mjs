@@ -26,7 +26,7 @@ function voxelNext(s,l,q,h){const p=s.players[l.actor];if(q.seen>=q.n||!p.deck.l
 function voxelContinue(s,l,q,h){if(q.seen>=q.n||!s.players[l.actor].deck.length)return false;return choose(s,l,q,'voxel_continue',[],l.actor,['continue','stop']);}
 function blackjackNext(s,l,q,h){const id=s.players[l.actor].deck.find(x=>!q.ids.includes(x));if(!id){for(const x of [...q.ids])move(s,l,q,x,'hand');return false;}q.ids.push(id);q.generations[id]=s.cards[id].generation;reveal(s,l,[id],h);if(new Set(q.ids.map(x=>info(s,x).type)).size<q.ids.length)return order(s,l,q,h);if(q.ids.length>=q.n||q.ids.length===s.players[l.actor].deck.length){for(const x of [...q.ids])move(s,l,q,x,'hand');return false;}return choose(s,l,q,'blackjack',[],l.actor,['continue','stop']);}
 function yacht(s,l,q,h){const fresh=s.players[l.actor].deck.filter(id=>!q.ids.includes(id));if(q.swaps<2&&q.ids.length&&fresh.length)return choose(s,l,q,'swap',q.ids,l.actor,['done']);return take(s,l,q,h);}
-export function handle(s,l,e,h){if(e.op==='inspectSnakeKeep'){const q=e.inspection;q.ids=q.ids.filter(id=>s.players[l.actor].hand.includes(id)&&s.cards[id].generation===q.generations[id]);return {waiting:q.ids.length?choose(s,l,q,'snake_keep',q.ids,other(l.actor)):false};}if(e.op!=='inspect')return null;if(e.mode==='mines'&&!validMinesweeperTarget(s,l))return {waiting:false};const p=s.players[l.actor],q={mode:e.mode,n:e.n,ids:[],generations:{},seen:0,swaps:0,taken:0,min:0,max:1};
+export function handle(s,l,e,h){if(e.op==='inspectOrder')return {waiting:order(s,l,e.inspection,h)};if(e.op==='inspectSnakeKeep'){const q=e.inspection;q.ids=q.ids.filter(id=>s.players[l.actor].hand.includes(id)&&s.cards[id].generation===q.generations[id]);return {waiting:q.ids.length?choose(s,l,q,'snake_keep',q.ids,other(l.actor)):false};}if(e.op!=='inspect')return null;if(e.mode==='mines'&&!validMinesweeperTarget(s,l))return {waiting:false};const p=s.players[l.actor],q={mode:e.mode,n:e.n,ids:[],generations:{},seen:0,swaps:0,taken:0,min:0,max:1};
  if(e.mode==='snake'){q.max=3;q.selected=[];return {waiting:p.hand.length?choose(s,l,q,'snake_select',p.hand,l.actor,['done']):false};}
  if(e.mode==='blackjack')return {waiting:blackjackNext(s,l,q,h)};
  if(e.mode==='voxel')return {waiting:voxelNext(s,l,q,h)};
@@ -43,7 +43,8 @@ export function handle(s,l,e,h){if(e.op==='inspectSnakeKeep'){const q=e.inspecti
  case 'mines':q.maxCost=info(s,l.target).cost;waiting=take(s,l,q,h);break;
  default:throw Error('Unknown inspection '+e.mode);
  }return {waiting};}
-function fruit(s,l,q,h){const ids=q.ids.filter(id=>info(s,id).type==='play');if(q.taken<2&&ids.length)return choose(s,l,q,'fruit',ids,l.actor,['done']);if(q.taken)s.program.steps.unshift({op:'growth',n:q.taken*5});return order(s,l,q,h);}
+function finishFruit(s,l,q,h){if(q.taken){s.program.steps.unshift({op:'growth',n:q.taken*5},{op:'inspectOrder',inspection:q});return false;}return order(s,l,q,h);}
+function fruit(s,l,q,h){const ids=q.ids.filter(id=>info(s,id).type==='play');if(q.taken<2&&ids.length)return choose(s,l,q,'fruit',ids,l.actor,['done']);return finishFruit(s,l,q,h);}
 export function resume(s,value,h){const c=s.choice;if(!c?.kind.startsWith('inspect_'))return false;if(!c.options.some(o=>o.id===value))throw Error('Invalid inspection choice');const l=c.link,q=c.inspection;s.choice=null;const stage=c.kind.slice(8);
  switch(stage){
  case 'order':move(s,l,q,value,'deck');return order(s,l,q,h);
@@ -55,7 +56,7 @@ export function resume(s,value,h){const c=s.choice;if(!c?.kind.startsWith('inspe
  case 'fp':if(value==='redraw'){q.redraw=true;return order(s,l,q,h);}q.min=1;return take(s,l,q,h);
  case 'road':q.blocked=value;return take(s,l,q,h);
  case 'rogue':q.min=value==='self'?1:Math.min(2,q.ids.length);q.max=q.min;q.actor=value==='self'?l.actor:other(l.actor);return take(s,l,q,h);
- case 'fruit':if(value==='done'){q.max=0;if(q.taken)s.program.steps.unshift({op:'growth',n:q.taken*5});return order(s,l,q,h);}if(move(s,l,q,value,'discard'))q.taken++;return fruit(s,l,q,h);
+ case 'fruit':if(value==='done'){q.max=0;return finishFruit(s,l,q,h);}if(move(s,l,q,value,'discard'))q.taken++;return fruit(s,l,q,h);
  case 'snake_select':if(value!=='done')q.selected.push(value);if(value!=='done'&&q.selected.length<3&&s.players[l.actor].hand.some(id=>!q.selected.includes(id)))return choose(s,l,q,'snake_select',s.players[l.actor].hand.filter(id=>!q.selected.includes(id)),l.actor,['done']);q.ids=[...q.selected];for(const id of q.ids)q.generations[id]=s.cards[id].generation;reveal(s,l,q.ids,h);if(!q.ids.length)return false;s.program.steps.unshift({op:'growth',n:q.ids.length*5},{op:'inspectSnakeKeep',inspection:q});return false;
  case 'snake_keep':for(const id of [...q.ids])if(id!==value)move(s,l,q,id,'discard');return false;
  default:throw Error('Unknown inspection choice '+stage);
