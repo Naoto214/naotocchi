@@ -56,7 +56,7 @@ export function configuration(p = {}) {
     ![6, 7].includes(r.width) ||
     r.height !== 12 ||
     !(r.scoreMode === "evolution"
-      ? Number.isInteger(r.kinds) && r.kinds >= 5 && r.kinds <= 64
+      ? Number.isInteger(r.kinds) && r.kinds >= 4 && r.kinds <= 64
       : [4, 5, 6].includes(r.kinds)) ||
     typeof r.pairFirst !== "boolean" ||
     !Number.isInteger(r.gaugeUnit) ||
