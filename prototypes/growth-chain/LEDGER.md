@@ -61,3 +61,9 @@ Task3: race comparator RED→GREEN; actions/slots are explicit experimental cloc
 Ruling: frozen prior measurement source/manifest remains frozen at5ffa4999. Reproduction uses that checkout; added verifier replays stored old logs on revised engine without rewriting provenance. Cost: old generation tools intentionally refuse current changed-source hashes.
 Minor deferred: importing legacy rules without eggReward lacks mode selector until starting a new standard game; old replay serialization stays unchanged, new standard lab supports both modes.
 192 paired-seed trials complete; replay/analysis and fresh full regression pending. No iPhone Safari hardware QA claim.
+
+
+## なおぽよ進化卵・08レース検証結果
+最新正本/手順はEGG-REVISION-20261014.md、結果はEGG-REPORT-20261014.md。進化04〜07の卵報酬を標準化。主192＋上限感度64試行、59,683操作一致。旧776試行も再生一致。卵由来の再獲得/08寿命を確認。ただし方策順位は道具操作機会の設定に敏感。対戦は独立検証のみ、標準UIはエンドレス維持。iPhone実機未確認。
+
+最終ゲート: 専用100、DOM6、mutation12＋3＋7、全体回帰3,130＋80、Chromium4サイズPASS。256試行59,683操作を独立再検算。iPhone実機Safariは未確認。詳細はEGG-REPORT-20261014.md。

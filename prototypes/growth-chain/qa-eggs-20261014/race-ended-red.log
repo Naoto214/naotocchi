@@ -1,0 +1,30 @@
+✔ race prioritizes first death, symmetric same-clock draw and explicit alternate clock (9.843693ms)
+✔ nonterminal caps remain unresolved, terminal ties draw, incompatible or illegal logs reject (10.68725ms)
+✔ finished no-death games fall back to actual replay score, not supplied totals (31.637634ms)
+✔ partial opponent history cannot lose before reaching the winning clock (0.89172ms)
+✔ same committed action compares death waves without scan-order priority (1.242699ms)
+✖ fabricated ended flag on a playable initial board cannot trigger score adjudication (0.611835ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 170.729159
+
+✖ failing tests:
+
+test at prototypes/growth-chain/tests/race.test.mjs:118:1
+✖ fabricated ended flag on a playable initial board cannot trigger score adjudication (0.611835ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/race.test.mjs:118:221)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /ended/,
+    operator: 'throws',
+    diff: 'simple'
+  }
