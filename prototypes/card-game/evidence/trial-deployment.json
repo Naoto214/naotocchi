@@ -1,0 +1,36 @@
+{
+  "github_source_commit": "9d6c14141b99a54003facf8ec03f7a92a00dbb17",
+  "github_source_tree": "c7c9d5f12c08855a862bd3b6d59a64edc4b1cc29",
+  "site_source_commit": "7b84e27cd5a44600c7d24836a509856fb130c648",
+  "supported": 196,
+  "total": 452,
+  "scope": "owner-private independent trial; main and fixed400 unchanged",
+  "deployment": {
+    "id": "appgdep_6acf768689d48191ae6a8da2819e7f2b",
+    "project_id": "appgprj_6acf7174c93c8191af3ec3af31994e7d",
+    "title": "なおとっち CARD GAME 試遊",
+    "version_id": "appgprj_6acf7174c93c8191af3ec3af31994e7d~appgver_6ce346cee0388191a4db6a3dc5eebd79",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naotocchi-card-trial.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6acf7174c93c8191af3ec3af31994e7d",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-14T12:33:25.030175+00:00"
+  },
+  "verification": {
+    "node_tests": 51,
+    "python_oracle_cases": 717,
+    "expanded_match": {
+      "commands": 346,
+      "round": 10,
+      "A": 65,
+      "B": 50,
+      "exact_save_replay": true
+    },
+    "real_iPhoneSafari": false,
+    "full452": false
+  }
+}
