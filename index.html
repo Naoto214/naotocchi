@@ -78,7 +78,7 @@
   setTimeout(function () { if (!booted()) show(); }, 6000);
 })();
 </script>
-  <link rel="stylesheet" href="style.css?v=20261002-019684e8">
+  <link rel="stylesheet" href="style.css?v=20261013-5a78d867">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20261001-140bc65e">
   <link rel="stylesheet" href="design.css?v=20260929-ae1c4ad1">
@@ -873,8 +873,8 @@
   <script src="illustration-catalog.js?v=20260929-f072008f"></script>
   <script src="display-illustrations.js?v=20260929-0eb0da4a"></script>
   <script src="canvas-illustrations.js?v=20260929-0c241de2"></script>
-  <!-- めぐる 3D prototype(?meguru3d=1 の ときだけ script.js が <script type="module"> で よむ。ふだんは よみこまない) -->
-  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261012-5225062b"></template>
+  <!-- めぐる 3D: script.js が通常起動で読み込む。URL の明示2D指定と失敗時は Canvas へ -->
+  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261013-38864ef8"></template>
   <script src="meguru.js?v=20261012-38f2031a"></script>
   <script src="quick.js?v=20260929-302dab6e"></script>
   <script src="games.js?v=20260929-5a399dc0"></script>
@@ -889,7 +889,7 @@
   <script src="item-system.js?v=20260929-b218da8f"></script>
   <script src="movie-dialogue.js?v=20260929-2b99e35a"></script>
   <script src="life-stage-profiles.js?v=20260930-1a189f0f"></script>
-  <script src="script.js?v=20261002-194f3480"></script>
+  <script src="script.js?v=20261012-09a1df66"></script>
   <script src="home-touch.js?v=20260929-36be057a"></script>
 </body>
 </html>

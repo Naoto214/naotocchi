@@ -33,7 +33,7 @@ const w2 = M.buildWorld('forest', reg, {});
 const w3 = M.buildWorld('forest', reg, { world3d: true });
 const objs = M.worldObjects3d(w3);
 
-test('1. フラグなし: forest の world は いまの 2D の まま(props・あたり・3D の しるし なし)', () => {
+test('1. 明示2D: forest の world は いまの 2D の まま(props・あたり・3D の しるし なし)', () => {
   assert.equal(w2.world3d, undefined);
   assert.equal(w2.props.length, 1233);
   assert.equal(w2.obstacles.length, 531);
@@ -299,9 +299,9 @@ test('7. レンダラー: WebGL が ない ところでは すぐ 2D(こわれ�
   assert.equal(r2.is3D, false);
 });
 
-test('8. フラグは URL だけ・セーブに のこさない。Three.js は version 固定で repo の なか。ふだんは よみこまない', () => {
+test('8. フラグは URL だけ・セーブに のこさない。Three.js は version 固定で repo の なか。明示2Dでは よみこまない', () => {
   const script = fs.readFileSync(path.join(ROOT, 'script.js'), 'utf8');
-  assert.match(script, /meguru3d=1/);
+  assert.match(script, /meguru3d=0/);
   assert.equal((script.match(/meguru3d/gi) || []).filter(() => true).length > 0, true);
   assert.ok(!/localStorage\.setItem\([^)]*meguru3d/i.test(script) && !/state\.meguru3d|lifetime\.meguru3d/.test(script), 'セーブにも localStorage にも かかない');
   // classic の script.js に 動的 import を かくと vite の dev server(npm run dev)が こわす。module は <script type="module"> で よむ
@@ -318,7 +318,7 @@ test('8. フラグは URL だけ・セーブに のこさない。Three.js は v
 });
 
 // ===== 全地域 3D v0(共通の 契約 × 地域の profile)。地域の 数は registry(WORLDS)から =====
-test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(フラグなし)は かわらない', () => {
+test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(明示2D)は かわらない', () => {
   const regions = Object.keys(M.WORLDS);
   assert.ok(regions.length >= 13, '地域 ' + regions.length);
   for (const rid of regions) {

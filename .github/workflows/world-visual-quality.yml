@@ -2,8 +2,12 @@ name: World visual quality
 
 on:
   push:
-    branches: [feat/meguru-3d-geometry-terrain-v1, integration/world-character-3d-20261012]
+    branches: [main, feat/meguru-3d-geometry-terrain-v1, integration/world-character-3d-20261012, feat/world-character-3d-default-20261012]
     paths:
+      - script.js
+      - style.css
+      - 'character-3d/**'
+      - 'vendor/**'
       - meguru.js
       - meguru-3d.mjs
       - index.html
@@ -102,6 +106,12 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.51.1
           npx playwright install --with-deps chromium
           echo "PLAYWRIGHT_CHROMIUM=$(node -p 'require("playwright").chromium.executablePath()')" >> "$GITHUB_ENV"
+      - name: Default startup fault injection
+        run: node tools/meguru-3d-qa/default-startup.cjs --out qa-artifacts/character-integration/default-startup
+      - name: Startup and fallback mutation controls
+        run: node tools/meguru-3d-qa/default-remove-it.cjs
+      - name: Existing integration mutation controls (restore before browser)
+        run: node tools/meguru-3d-qa/integration-remove-it.cjs
       - name: Combined Character and World browser contract
         run: node tools/meguru-3d-qa/character-integration.cjs --out qa-artifacts/character-integration
       - uses: actions/upload-artifact@v4

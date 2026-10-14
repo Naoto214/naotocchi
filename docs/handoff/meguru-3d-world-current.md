@@ -1,6 +1,10 @@
 # World Visual Quality — current checkpoint
 
-## Current authority — integration completed, 2026-10-12 JST
+## Current authority — 2026-10-13 major-development closeout
+
+[3D completion record](../qa/3d-system-completion-20261013.md) and [PR #379](https://github.com/Naoto214/naotocchi/pull/379) supersede the historical URL-flag-only policy and Draft/physical-QA merge holds below. Normal URL defaults to World + Character 3D. User formally accepts the 184×120 landscape pad and authorizes final verified Ready/main merge. No new art/features; stop major 3D development once merged-main gates pass. Unperformed physical checks remain NOT_RUN.
+
+## Historical authority — integration completed, 2026-10-12 JST
 
 This section supersedes the historical status and restrictions below. Always fresh-check remote main before new work; do not reconstruct already merged implementations or merge the parent PRs again.
 
