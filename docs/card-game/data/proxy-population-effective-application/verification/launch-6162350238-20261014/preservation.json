@@ -1,0 +1,17 @@
+{
+  "approved_publication": "d4e24431a1f3c9b6dae0cc9b8d8c5099db3a5e02",
+  "tracked_files_preserved": 6050,
+  "existing_tracked_changes": [],
+  "run_file_sha256": {
+    "docs/card-game/data/proxy-population-400-bounded-read-run-20261014/attempt-0001/interruption.json": "0c6aac8a6a8fdadcaa788b9914b183cc230f682f534de6b5d16cf424f5a751d6",
+    "docs/card-game/data/proxy-population-400-bounded-read-run-20261014/attempt-0001/start.json": "ac8bff8f1ee32b10abd2c18ff48a0c5ec9fb3389f4bee33a1ec5bebc5c00ea88",
+    "docs/card-game/data/proxy-population-400-bounded-read-run-20261014/request-0001.json": "68c3e3a4da0dc21600cccacb81b6c6cf6143418496d11ae7b9621cc428e8fd34",
+    "docs/card-game/data/proxy-population-400-bounded-read-run-20261014/result-0001.json": "e2f1f9adf3029a71dbb2be3307b5506e89a9d097f28b35e6c593c6a2028b2ba2",
+    "docs/card-game/data/proxy-population-400-bounded-read-run-20261014/start.json": "f039e24e39091ab0b5140c7c6e7243beb07f4ea0c6aae954b95b76d889ceb1e3",
+    "docs/card-game/data/proxy-population-400-bounded-read-run-20261014/supervisor.json": "a09d709c393d9c0800c4c3e188fddf1d68d58ba8f1bc044fa1eec3662cebac9d"
+  },
+  "worker_invocations": 1,
+  "supervisor_invocations": 1,
+  "consumption_invocations": 1,
+  "retries_or_resume": 0
+}
