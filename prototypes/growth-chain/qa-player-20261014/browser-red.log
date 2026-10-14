@@ -1,0 +1,8 @@
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#playStart')[22m
+
+    at /workspace/scratch/391d64af4dfd/naotocchi/prototypes/growth-chain/tests/player-browser.cjs:6:34 {
+  log: [ "  - waiting for locator('#playStart')" ],
+  name: 'TimeoutError'
+}
