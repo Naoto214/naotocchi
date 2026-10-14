@@ -1,0 +1,94 @@
+test_all_six_native_entries_reenter_through_outer_guard (test_proxy_population_entry_history.EntryHistoryTests.test_all_six_native_entries_reenter_through_outer_guard) ... ok
+test_hypothetical_branch_is_not_selected_history_and_retired_source_stops (test_proxy_population_entry_history.EntryHistoryTests.test_hypothetical_branch_is_not_selected_history_and_retired_source_stops) ... FAIL
+test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) ... 
+  test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='missing') ... FAIL
+  test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='truncated') ... FAIL
+  test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='reordered') ... FAIL
+  test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='duplicate') ... FAIL
+  test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='event') ... FAIL
+  test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='hash') ... FAIL
+
+======================================================================
+FAIL: test_hypothetical_branch_is_not_selected_history_and_retired_source_stops (test_proxy_population_entry_history.EntryHistoryTests.test_hypothetical_branch_is_not_selected_history_and_retired_source_stops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 122, in test_hypothetical_branch_is_not_selected_history_and_retired_source_stops
+    self.run_case(run)
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 62, in run_case
+    def run_case(self,callback):return base.operation(initial(),lambda forced:callback())
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 62, in <lambda>
+    def run_case(self,callback):return base.operation(initial(),lambda forced:callback())
+                                                                              ^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 113, in run
+    with self.assertRaisesRegex(ValueError,'history'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 95, in run
+    with self.subTest(case=label),self.assertRaisesRegex(ValueError,'history|chain'):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='truncated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 95, in run
+    with self.subTest(case=label),self.assertRaisesRegex(ValueError,'history|chain'):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='reordered')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 95, in run
+    with self.subTest(case=label),self.assertRaisesRegex(ValueError,'history|chain'):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='duplicate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 95, in run
+    with self.subTest(case=label),self.assertRaisesRegex(ValueError,'history|chain'):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='event')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 95, in run
+    with self.subTest(case=label),self.assertRaisesRegex(ValueError,'history|chain'):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) (case='hash')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 95, in run
+    with self.subTest(case=label),self.assertRaisesRegex(ValueError,'history|chain'):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.496s
+
+FAILED (failures=7)
