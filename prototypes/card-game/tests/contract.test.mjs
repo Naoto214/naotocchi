@@ -7,7 +7,7 @@ function put(s,a,c,zone){const id=take(s,a,c);s.players[a][zone].push(id);return
 function field(s,a,c,slot){const id=take(s,a,c);s.cards[id].generation++;if(slot==='companions')s.players[a].board.companions.push(id);else s.players[a].board[slot]=id;return id;}
 function doAction(s,kind,predicate=()=>true){const a=api.legalActions(s).find(a=>a.kind===kind&&predicate(a));assert.ok(a,kind);return api.act(s,api.actor(s),s.revision,a.id);}
 function resolve(s){s=doAction(s,'pass');return doAction(s,'pass');}
-test('Python oracle: 18 main payment/legality and 48 passive-stat cases',()=>{
+test('Python oracle: 660 main payment/legality and 48 passive-stat cases',()=>{
  for(const r of oracle.main){const cost=api.mainCost(r.old,r.dest);assert.equal(cost!==null&&cost<=r.time,r.legal);if(r.legal)assert.equal(cost,r.cost);}
  for(const r of oracle.stats){const s=fixture();field(s,'A',r.main,'main');if(r.world)field(s,'A','W-deepsea','world');if(r.both)field(s,'B','W-deepsea','world');if(r.chameleon)field(s,'A','C-chameleon','companions');const p=s.players.A;p.deck.push(...p.hand);p.hand=[];while(p.hand.length<r.hands)p.hand.push(p.deck.shift());assert.deepEqual(api.stats(s,'A'),r.value);}
 });

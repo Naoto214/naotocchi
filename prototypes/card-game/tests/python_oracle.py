@@ -8,11 +8,12 @@ import proxy_continuation_rules as rules
 import proxy_continuation_challenge as challenge
 import proxy_hit_blow_response_142 as hit
 ids=['M-beetle-01','M-antlion-01'];out={'main':[],'stats':[],'hit':[]}
-for old in [None,*ids]:
- for dest in ids:
-  for time in [0,1,2]:
-   variant='birth' if old is None else 'time_skip' if old==dest else 'transform'
-   value=rules.main_transition(old,dest,variant,time,ids)
+transition_ids=['M-beetle-01','M-beetle-02']+[f'M-antlion-{i:02d}' for i in range(1,9)]
+for old in [None,*transition_ids]:
+ for dest in transition_ids:
+  for time in [0,1,2,5,8,10]:
+   variant='birth' if old is None else 'time_skip' if old.rsplit('-',1)[0]==dest.rsplit('-',1)[0] else 'transform'
+   value=rules.main_transition(old,dest,variant,time,transition_ids)
    out['main'].append(dict(old=old,dest=dest,time=time,legal=value['legal'],cost=value['payment_time']))
 for main in ids:
  for hands in [0,2,3]:
