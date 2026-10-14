@@ -377,6 +377,8 @@ export function validateSession(s) {
     ].includes(s.over)
   )
     throw Error("Invalid end reason");
+  if (!s.over && s.rules.topOut === "legal" && !hasLegalPlacement(s))
+    throw Error("No legal active placement");
   if (!s.over && !fits(s.board, spawnPose(s.rules)))
     throw Error("Blocked active spawn");
   if (

@@ -117,3 +117,15 @@ test("simultaneous component outcome does not depend on cell IDs or change prior
   assert.equal(z.score, 40);
   assert.equal(z.waves.length, 1);
 });
+test("spawn can fit while no fully visible landing exists; imported false-active state is rejected", async () => {
+  const { validateSession } = await import("../session.mjs");
+  const r = standardRules(),
+    b = board(r);
+  let id = 1;
+  for (let y = 2; y < 14; y++)
+    for (let x = 0; x < 6; x++) b[y][x] = { id: id++, k: (x + y) % 5, s: 1 };
+  b[2][2] = null;
+  const s = createSession(1, r, { board: b, gauge: 24 });
+  assert.equal(s.over, "no-legal-placement");
+  assert.throws(() => validateSession({ ...s, over: null }));
+});

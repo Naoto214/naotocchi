@@ -378,11 +378,13 @@ function nextFrame() {
     fall: "落下",
     result: "成長",
   };
+  const rewardPhase =
+    currentFrame.phase === "evolve" || currentFrame.phase === "result";
   const eggs = currentFrame.events
     .filter((e) => e.death)
     .reduce((n, e) => n + e.eggCount, 0);
   $("status").textContent =
-    `${currentFrame.chain} / ${s.last.waves.length}連鎖 · ${phaseNames[currentFrame.phase]}${eggs ? ` · 卵＋${eggs}` : ""}`;
+    `${currentFrame.chain} / ${s.last.waves.length}連鎖 · ${phaseNames[currentFrame.phase]}${eggs && rewardPhase ? ` · 寿命消滅 · 卵＋${eggs}` : ""}`;
   render();
   if (!$("manualWave").checked) {
     const token = generation;

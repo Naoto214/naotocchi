@@ -86,3 +86,14 @@ test("session preserves canonical identities independently of later unlock order
     }),
   );
 });
+test("tools can use unlocked species outside the five in the bag", async () => {
+  const { applyAction } = await import("../session.mjs");
+  const s = createSession(1, standardRules({ kinds: 6 }), {
+    selected: [0, 1, 2, 3, 5],
+    eggs: [1, 0, 0, 0],
+  });
+  const z = applyAction(s, { type: "egg", rank: 0, k: 4, x: 0 });
+  assert.equal(z.board[13][0].k, 4);
+  assert.deepEqual(z.queue, s.queue);
+  assert.deepEqual(z.bag.selected, [0, 1, 2, 3, 5]);
+});

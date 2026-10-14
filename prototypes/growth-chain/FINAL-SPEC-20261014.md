@@ -16,3 +16,6 @@ Portrait board left, tools right, movement below; continuous falling while selec
 5. Review, non-force GitHub save, verify HEAD/tree/clean and draft state.
 
 iPhone hardware Safari is unavailable here and must remain unverified. Chromium evidence is separate. Historical tests and measurements are not new acceptance evidence.
+
+## Completion evidence
+See FINAL-QA-20261014.md. Source integration and all automated/browser checks completed. Human iPhone Safari QA and provisional balance decisions remain open.

@@ -110,3 +110,6 @@ iPhone実機SafariとHuman QAは未確認。実機での対象セル選択・ス
 
 ## 2026-10-14 final integration checkpoint
 Full user specification received; FINAL-SPEC-20261014.md supersedes earlier provisional intermission. Standard preset added without changing legacy configuration defaults. Canonical read-only roster, stable replay species IDs, selected20 bag, live tool transactions, character images and portrait rail implemented. Review found/fixed pre-merge egg collision and unlock-order/recreation mapping regressions. New acceptance and DOM tests exist; full regression is running at checkpoint (do not claim final PASS until QA report). PR must remain Draft/open/unmerged.
+
+### Final verification completed
+See FINAL-QA-20261014.md for the complete coverage/operations/balance/Human QA report. Dedicated77, DOM5, mutation12/12, Chromium4viewports, root3130+80 all freshly PASS. New200trials/36005actions replay PASS; legacy3840trials/554528actions replay PASS. iPhone hardware Safari remains unverified. Gauge8/24 is recommended for Human QA, not finalized. Natural egg supply was zero in all200trials; artificial16probes are separate. Source checkpointf2804c80 plus final evidence/follow-up commit. All changes confined to this prototype. No merge/deploy.

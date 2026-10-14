@@ -43,3 +43,8 @@ Final full-checkout root npm test completed exit0: smoke/dialogue/visual QA and 
 - Legacy48conditions/3840trials/554528operations replayed with matching hashes and summaries. Fixed verifier rerun bug: prior verification.json contains numeric trials, not a trial array.
 - New fixed-seed200trials/36005actions replay verified. New measurement is separate from old consumed-gauge results.
 - Full repository regression started with all assets hydrated; final result pending checkpoint.
+
+- Final: 77/77 dedicated; five DOM harnesses; 12/12 mutants; Chromium4viewports; full root3130+80 PASS, exit0. Root log compressed after completion.
+- Reviewer fixes: egg pre-merge collision, fixed canonical replay IDs, selection retention on restart/editor; false-active imported no-legal-placement state also rejected.
+- Raw new200trials archived separately in results-final-20261014.tar.gz with SHA256 file; sixteen constructed probes remain explicitly artificial.
+- Remaining: iPhone real Safari/Human QA, final gauge price/score coefficients, natural egg supply assessment; no main integration authorization.
