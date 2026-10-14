@@ -1,0 +1,245 @@
+{
+  "phase": "ablation",
+  "seeds": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307
+  ],
+  "conditions": [
+    {
+      "id": "g2-noSingle",
+      "gauge": 2,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g2-noBulk",
+      "gauge": 2,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g2-noEgg",
+      "gauge": 2,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g2-singleOnly",
+      "gauge": 2,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g2-dropOnly",
+      "gauge": 2,
+      "options": {
+        "allowedTypes": [
+          "drop"
+        ]
+      }
+    },
+    {
+      "id": "g3-noSingle",
+      "gauge": 3,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g3-noBulk",
+      "gauge": 3,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g3-noEgg",
+      "gauge": 3,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g3-singleOnly",
+      "gauge": 3,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g3-dropOnly",
+      "gauge": 3,
+      "options": {
+        "allowedTypes": [
+          "drop"
+        ]
+      }
+    },
+    {
+      "id": "g4-noSingle",
+      "gauge": 4,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g4-noBulk",
+      "gauge": 4,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g4-noEgg",
+      "gauge": 4,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g4-singleOnly",
+      "gauge": 4,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g4-dropOnly",
+      "gauge": 4,
+      "options": {
+        "allowedTypes": [
+          "drop"
+        ]
+      }
+    },
+    {
+      "id": "g8-noSingle",
+      "gauge": 8,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g8-noBulk",
+      "gauge": 8,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "egg",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g8-noEgg",
+      "gauge": 8,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform",
+          "bulk"
+        ]
+      }
+    },
+    {
+      "id": "g8-singleOnly",
+      "gauge": 8,
+      "options": {
+        "allowedTypes": [
+          "drop",
+          "transform"
+        ]
+      }
+    },
+    {
+      "id": "g8-dropOnly",
+      "gauge": 8,
+      "options": {
+        "allowedTypes": [
+          "drop"
+        ]
+      }
+    }
+  ],
+  "limits": {
+    "drops": 600,
+    "actions": 4000
+  },
+  "toolCap": 64,
+  "sources": {
+    "gauge-run.mjs": "8a4c31da7c1072ec9cac596463dbedad91d96e1a1dc095e3933c9ef15a2a8c27",
+    "gauge-comparison.mjs": "ca9f4775b51d3fc7fdb5328dbb6b49bb17dd227954d342f192715b93832d8b80",
+    "optimization.mjs": "829f0a8681456e78e3e3c2ab41e543a056371ea4df6d3de0bc70e211c73af527",
+    "rules.mjs": "7772610c607a706417959355c38ddc7d3d1d1822a2a7dc451b78283ba597a6ea",
+    "session.mjs": "4dcb850314f6b8c214290d5c9943f1bc3e9cd2305f1132fcf78c09f246afb682",
+    "catalog.mjs": "bb900eb24e9fe8a85e86f95eae1a1765059012d166d2eb6d5ba5eedc1163d72c",
+    "random.mjs": "aac4e298e0cacdbc7f7da550aba1159f7fd9c66237dbae24f40a3b888addaf36",
+    "engine.mjs": "b29244e832baf09aee9f3f6e17c85324300e15b5c977df64b8ab1e3df7787d09",
+    "live-tools.mjs": "e795690ed38e8045a9021d634f89c087307d668e59e674f21663259b2905d9eb",
+    "policy.mjs": "2a07e705ab840b6a6cd699f93a1eb163c53fc6c9379a6c9b49f62622b76cef76",
+    "egg-policy.mjs": "4d598d573721f538c919cc73689e0a35212f099cb8472ce172ead2496dac3473",
+    "balance-policy.mjs": "8ff2d8657f08961239c77bff32ab67e04fe802f75d6b27d9a731d230375e4da7",
+    "egg-economy.mjs": "fa372659b0724d23ef0284efb17636c90a3cb5de94e9cc91369c373a40a19e27",
+    "balance-manifest.mjs": "e5631c6a557fc741505fed7868577cbad71627820e2d22cddf5512d1b7ec9a7f"
+  },
+  "sourceHead": "d5022f6a4a7f96b347eec338021ed8b2dcb57535"
+}
