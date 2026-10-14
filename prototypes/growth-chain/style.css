@@ -657,3 +657,214 @@ footer {
     transition: none !important;
   }
 }
+/* Independent game portrait rail. Existing lab controls remain isolated. */
+.playarea {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 104px;
+  gap: 10px;
+}
+#board {
+  width: 100%;
+  max-width: 360px;
+  gap: 2px;
+  padding: 4px;
+}
+.playarea aside {
+  min-width: 0;
+  width: auto;
+}
+.playarea aside h3 {
+  margin: 6px 0 3px;
+  font-size: 10px;
+}
+.playarea .toolbelt {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  margin-top: 7px;
+}
+.playarea .toolbelt button {
+  min-height: 44px;
+  padding: 5px 2px;
+  font-size: 11px;
+}
+.playarea .toolbelt small {
+  font-size: 10px;
+}
+#eggs {
+  display: none;
+}
+.mini {
+  position: relative;
+  overflow: hidden;
+}
+.character {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.stage {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  min-width: 13px;
+  font-size: 10px;
+  line-height: 13px;
+  border-radius: 3px;
+  background: #fffdf0;
+  color: #142b42;
+  z-index: 2;
+}
+.image-fallback:before {
+  content: attr(data-fallback);
+  color: #21364b;
+  font-size: 20px;
+}
+.cell.image-fallback:after {
+  content: attr(aria-label);
+  font-size: 7px;
+  position: absolute;
+  top: 0;
+}
+#roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#roster label {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 4px;
+}
+.roster-panel {
+  margin: 8px 0;
+  font-size: 12px;
+}
+.preview-piece {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 8px max(8px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  }
+  header {
+    margin: 0 0 8px;
+  }
+  h1 {
+    font-size: 22px;
+    margin: 3px 0;
+  }
+  .play {
+    padding: 8px;
+  }
+  .playarea {
+    grid-template-columns: minmax(0, 1fr) 94px;
+    gap: 7px;
+  }
+  .hud {
+    margin-bottom: 7px;
+  }
+  .controls {
+    gap: 5px;
+  }
+  .controls button {
+    min-height: 48px;
+    padding: 8px 4px;
+  }
+  #board {
+    border-radius: 8px;
+  }
+  .cell {
+    min-height: 0 !important;
+  }
+  .tool-sheet {
+    padding: 8px;
+  }
+  .choice-row {
+    gap: 5px;
+  }
+  .choice-row button {
+    min-height: 44px;
+  }
+}
+#board {
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+}
+.cell {
+  overflow: hidden;
+}
+.playarea aside h3:nth-of-type(3) {
+  display: none;
+}
+@media (max-width: 600px) {
+  header p {
+    display: none;
+  }
+  .eyebrow {
+    font-size: 9px;
+  }
+  .playarea aside h3:first-child,
+  #current {
+    display: none;
+  }
+  .playarea {
+    grid-template-columns: minmax(0, 1fr) 88px;
+  }
+  .playarea #board {
+    max-height: calc(100svh - 230px);
+    justify-self: center;
+    max-width: calc((100svh - 230px) / 2);
+  }
+  .playarea .toolbelt {
+    gap: 3px;
+    margin-top: 4px;
+  }
+  .playarea .toolbelt button {
+    min-height: 44px;
+  }
+  .turnbar:has(#startFall[hidden]) {
+    display: none;
+  }
+  .hint {
+    margin: 5px 0;
+    font-size: 10px;
+  }
+  .roster-panel {
+    margin: 4px 0;
+  }
+}
+#board {
+  height: auto;
+}
+@media (max-width: 600px) {
+  .playarea #board {
+    max-height: none;
+    max-width: none;
+  }
+  .playarea aside .nextpair {
+    display: inline-flex;
+    margin: 1px;
+  }
+  .playarea aside #next {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .playarea aside .mini {
+    width: 19px;
+    height: 22px;
+  }
+  .playarea aside h3 {
+    margin: 2px 0;
+  }
+}
+@media (max-width: 600px) {
+  .playarea #board {
+    max-width: calc((100svh - 230px) / 2);
+  }
+}

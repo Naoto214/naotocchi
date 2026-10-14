@@ -1,7 +1,9 @@
+import { readRoster, selectFive, imagePath } from "./roster.mjs";
+import { toolTransaction } from "./live-tools.mjs";
 import { bindHold } from "./touch-input.mjs";
 import { animationFrames } from "./animation.mjs";
 import { naturalFixtures } from "./natural-fixtures.mjs";
-import { configuration, OPTIONS, VERSION } from "./rules.mjs";
+import { configuration, standardRules, OPTIONS, VERSION } from "./rules.mjs";
 import { cloneBoard, gravity } from "./engine.mjs";
 import {
   createSession,
@@ -20,7 +22,42 @@ import { chooseAction } from "./policy.mjs";
 import { chainFixture } from "./fixtures.mjs";
 const $ = (id) => document.getElementById(id),
   colors = ["#ef9fb3", "#81cce2", "#a6d594", "#f1d57f", "#bea6e4", "#efa77f"],
-  names = ["A", "B", "C", "D", "E", "F"];
+  availableRoster = (() => {
+    try {
+      return readRoster(window.localStorage);
+    } catch {
+      return readRoster(null);
+    }
+  })(),
+  legacyNames = ["A", "B", "C", "D", "E", "F"];
+let roster = availableRoster,
+  names = roster.map((c) => c.label);
+const standard = () => s?.rules.scoreMode === "evolution";
+let selectedSpecies = availableRoster.slice(0, 5).map((c) => c.id),
+  retainedPose = false;
+function newStandard() {
+  return createSession(1, standardRules({ kinds: availableRoster.length }), {
+    species: availableRoster.map((c) => c.id),
+    selected: selectFive(availableRoster, selectedSpecies),
+  });
+}
+function pieceHTML(c) {
+  const species = roster[c.k];
+  return species?.id
+    ? `<img class="character" src="${window.GROWTH_CHAIN_IMAGES?.[imagePath(species, c.s)] || imagePath(species, c.s)}" alt="" draggable="false"><span class="stage">${String(c.s).padStart(2, "0")}</span>`
+    : `<span>${c.k + 1}</span><span class="stage">${c.s}</span>`;
+}
+document.addEventListener(
+  "error",
+  (e) => {
+    if (e.target.matches?.("img.character")) {
+      e.target.hidden = true;
+      e.target.parentElement.classList.add("image-fallback");
+      e.target.parentElement.dataset.fallback = "●";
+    }
+  },
+  true,
+);
 let s,
   initial,
   actions = [],
@@ -73,7 +110,7 @@ function setupRules(r) {
         (key === "width"
           ? [6, 7]
           : key === "kinds"
-            ? [4, 5, 6]
+            ? [...new Set([4, 5, 6, r.kinds])]
             : [false, true])) {
         let o = document.createElement("option");
         o.value = v;
@@ -111,7 +148,7 @@ function reset(state, message = "新しい盤面を開始しました") {
   holds.forEach((h) => h.stop());
   clearTimeout(timer);
   busy = false;
-  ready = true;
+  ready = !standard();
   tool = null;
   targetKind = null;
   toolPreview = null;
@@ -121,14 +158,25 @@ function reset(state, message = "新しい盤面を開始しました") {
 
   draft = null;
   s = state;
+  roster = standard()
+    ? s.species
+      ? s.species.map(
+          (id) =>
+            availableRoster.find((c) => c.id === id) || { label: "未解放" },
+        )
+      : availableRoster.slice(0, s.rules.kinds)
+    : [];
+  names = standard() ? roster.map((c) => c.label) : legacyNames;
+  ready = !standard();
+  retainedPose = false;
   initial = structuredClone(stateData(s));
   actions = [];
   path = [];
   pose = spawnPose(s.rules);
   selected = null;
   fixtureAction = null;
-  auto = false;
-  $("pause").textContent = "自動落下 OFF";
+  auto = standard();
+  $("pause").textContent = "自動落下 " + (auto ? "ON" : "OFF");
   $("status").textContent = message;
   setupRules(s.rules);
   $("rule-seed").value = s.seed;
@@ -145,7 +193,30 @@ function reset(state, message = "新しい盤面を開始しました") {
   $("resourceGauge").value = s.gauge / s.rules.gaugeUnit;
   render();
 }
+function visibleResources() {
+  if (!busy || !standard() || !currentFrame) return s;
+  const v = {
+    score: s.score - s.last.score,
+    gauge: s.gauge - s.last.gauge,
+    eggs: s.eggs.map((n, i) => n - s.last.eggs[i]),
+  };
+  for (const wave of s.last.waves) {
+    if (
+      wave.chain > currentFrame.chain ||
+      (wave.chain === currentFrame.chain && currentFrame.phase === "connect")
+    )
+      break;
+    for (const e of wave.events) {
+      const gain = e.death ? 0 : e.to - e.from;
+      v.gauge += gain;
+      v.score += ((gain + e.overflow) * 10 + (e.death ? 100 : 0)) * wave.chain;
+      if (e.death) v.eggs[e.eggRank] += e.eggCount;
+    }
+  }
+  return v;
+}
 function render() {
+  const shown = visibleResources();
   const focused = document.activeElement;
   const focusSelector =
     focused?.dataset.kind !== undefined
@@ -158,7 +229,7 @@ function render() {
   let b = displayBoard || draft || s.board;
   const active = new Map(),
     ghost = new Map();
-  if (!busy && !s.over && !draft && !tool) {
+  if (!busy && !s.over && !draft && (!tool || standard())) {
     poseCells(pose).forEach((c, i) =>
       active.set(c.y + "," + c.x, { k: s.queue[0][i], s: 1 }),
     );
@@ -189,8 +260,10 @@ function render() {
       el.dataset.y = y;
       el.ariaLabel = `${x + 1}列 ${y - 1}段 ${c ? names[c.k] + String(c.s).padStart(2, "0") : "空き"}`;
       if (c) {
-        el.style.setProperty("--color", colors[c.k]);
-        el.innerHTML = `<small>${names[c.k]}</small>${String(c.s).padStart(2, "0")}`;
+        el.style.setProperty("--color", colors[c.k % colors.length]);
+        el.innerHTML = standard()
+          ? pieceHTML(c)
+          : `<small>${names[c.k]}</small>${String(c.s).padStart(2, "0")}`;
       }
       el.onclick = () => selectCell(x, y);
       $("board").append(el);
@@ -200,7 +273,7 @@ function render() {
     s.queue[0]
       .map(
         (k) =>
-          `<span class="mini" style="--color:${colors[k]}">${names[k]}01</span>`,
+          `<span class="mini" style="--color:${colors[k % colors.length]}">${standard() ? pieceHTML({ k, s: 1 }) : names[k] + "01"}</span>`,
       )
       .join("") +
     "</div>";
@@ -208,16 +281,16 @@ function render() {
     .slice(1)
     .map(
       (p) =>
-        `<div class="nextpair">${p.map((k) => `<span class="mini" style="--color:${colors[k]}">${names[k]}01</span>`).join("")}</div>`,
+        `<div class="nextpair">${p.map((k) => `<span class="mini" style="--color:${colors[k % colors.length]}">${standard() ? pieceHTML({ k, s: 1 }) : names[k] + "01"}</span>`).join("")}</div>`,
     )
     .join("");
   $("eggs").innerHTML = ["普通", "銀", "金", "プラチナ"]
-    .map((n, i) => `<div class="stock">${n} × ${s.eggs[i]}</div>`)
+    .map((n, i) => `<div class="stock">${n} × ${shown.eggs[i]}</div>`)
     .join("");
   $("gauge").textContent =
-    `${Math.floor(s.gauge / s.rules.gaugeUnit)}本 ＋${s.gauge % s.rules.gaugeUnit}/${s.rules.gaugeUnit}`;
+    `${Math.floor(shown.gauge / s.rules.gaugeUnit)}本 ＋${shown.gauge % s.rules.gaugeUnit}/${s.rules.gaugeUnit}`;
   $("stats").textContent =
-    `落下 ${s.drops} · 得点 ${s.score}${s.over ? " · 終了" : ""}`;
+    `落下 ${s.drops} · 得点 ${shown.score}${s.over ? " · 終了" : ""}`;
   for (const id of [
     "left",
     "right",
@@ -230,7 +303,7 @@ function render() {
     "random",
     "trigger",
   ])
-    $(id).disabled = busy || !!s.over || !!draft || !!tool;
+    $(id).disabled = busy || !!s.over || !!draft || (!!tool && !standard());
   for (const id of ["use", "preview"])
     $(id).disabled = busy || !!s.over || !!draft || !ready || !!tool;
   for (const id of ["stepWave", "finishWave"]) $(id).disabled = !busy;
@@ -247,7 +320,7 @@ function fail(e) {
 }
 function selectCell(x, y) {
   if (busy) return;
-  selected = { x, y };
+  selected = { x, y, id: s.board[y][x]?.id };
   if (tool) {
     updatePreview();
     render();
@@ -278,13 +351,16 @@ function finish() {
   generation++;
   clearTimeout(timer);
   busy = false;
-  ready = true;
+  ready = !standard();
   currentFrame = null;
   displayBoard = null;
 
   frames = [];
-  path = [];
-  pose = spawnPose(s.rules);
+  if (!retainedPose) {
+    path = [];
+    pose = spawnPose(s.rules);
+  }
+  retainedPose = false;
   render();
 }
 function nextFrame() {
@@ -316,14 +392,23 @@ function nextFrame() {
   }
 }
 function act(a) {
-  if (busy || draft || s.over || tool) return;
-  if (a.type !== "drop" && !ready) {
+  if (busy || draft || s.over || (tool && !standard())) return;
+  if (standard() && a.type === "drop") {
+    tool = null;
+    toolPreview = null;
+    selected = null;
+  }
+  if (a.type !== "drop" && !ready && !standard()) {
     fail(Error("道具は落下操作の開始前に使用してください"));
     return;
   }
   try {
     holds.forEach((h) => h.stop());
-    let result = applyAction(s, a);
+    let tx =
+      standard() && a.type !== "drop"
+        ? toolTransaction(s, pose, a, selected?.id)
+        : null;
+    let result = tx ? tx.state : applyAction(s, a);
     actions.push(structuredClone(a));
     s = result;
     let n = s.last.waves.length;
@@ -336,9 +421,10 @@ function act(a) {
     );
     frameIndex = 0;
     busy = frames.length > 0;
-    path = [];
-    pose = spawnPose(s.rules);
-    ready = !busy;
+    retainedPose = !!tx;
+    path = tx ? tx.path : [];
+    pose = tx ? tx.pose : spawnPose(s.rules);
+    ready = !standard() && !busy;
     if (busy) {
       generation++;
       nextFrame();
@@ -351,12 +437,13 @@ function act(a) {
   }
 }
 function motion(op) {
-  if (busy || s.over || draft || tool) return;
+  if (busy || s.over || draft || (tool && !standard())) return;
   ready = false;
   let q = movePose(s.board, pose, op);
   if (q) {
     pose = q;
     path.push(op);
+    if (tool) updatePreview();
     render();
   } else if (op === "down") act({ type: "drop", path: [...path, "hard"] });
   else render();
@@ -389,12 +476,25 @@ $("pause").onclick = () => {
   $("pause").textContent = "自動落下 " + (auto ? "ON" : "OFF");
 };
 setInterval(() => {
-  if (auto && !ready && !tool && !document.hidden && !busy && !draft)
+  if (
+    auto &&
+    (!ready || standard()) &&
+    (!tool || standard()) &&
+    !document.hidden &&
+    !busy &&
+    !draft
+  )
     motion("down");
 }, 750);
 $("restart").onclick = () => {
   try {
-    reset(createSession(Number($("rule-seed").value), readRules()));
+    reset(
+      createSession(
+        Number($("rule-seed").value),
+        readRules(),
+        standard() ? { species: s.species, selected: s.bag.selected } : {},
+      ),
+    );
   } catch (e) {
     fail(e);
   }
@@ -456,6 +556,7 @@ $("applyBoard").onclick = () => {
   try {
     reset(
       createSession(s.seed, s.rules, {
+        ...(standard() ? { species: s.species, selected: s.bag.selected } : {}),
         board: gravity(draft || s.board),
         eggs: JSON.parse($("resourceEggs").value),
         gauge: Number($("resourceGauge").value) * s.rules.gaugeUnit,
@@ -514,7 +615,13 @@ window.addEventListener("keydown", (e) => {
     $("drop").click();
   } else if (e.key.toLowerCase() === "p") $("pause").click();
 });
-$("newGame").onclick = () => reset(createSession(s.seed, s.rules));
+$("newGame").onclick = () => {
+  try {
+    reset(standard() ? newStandard() : createSession(s.seed, s.rules));
+  } catch (e) {
+    fail(e);
+  }
+};
 $("toggleLab").onclick = () => {
   const on = !document.body.classList.contains("lab-mode");
   if (!on && draft) {
@@ -546,8 +653,8 @@ document.addEventListener("visibilitychange", () => {
     $("pause").textContent = "自動落下 OFF";
   }
 });
-setupRules(configuration());
-reset(createSession(1));
+setupRules(standardRules());
+reset(newStandard());
 
 for (const n of [3, 5])
   $("natural" + n).onclick = () => {
@@ -560,7 +667,7 @@ for (const n of [3, 5])
   };
 
 function beginTool(type) {
-  if (!ready || busy || s.over || draft) return;
+  if ((!ready && !standard()) || busy || s.over || draft) return;
   holds.forEach((h) => h.stop());
   tool = type;
   selected = null;
@@ -580,13 +687,27 @@ function updatePreview() {
   if (!tool || !selected || targetKind === null) return;
   $("species").value = String(targetKind);
   try {
-    toolPreview = preview(s, item());
+    toolPreview = standard()
+      ? toolTransaction(s, pose, item(), selected?.id).state
+      : preview(s, item());
   } catch (e) {
     $("toolHint").textContent = e.message;
   }
 }
 function renderTools() {
-  const allowed = ready && !busy && !s.over && !draft;
+  const shown = visibleResources();
+  const allowed = (ready || standard()) && !busy && !s.over && !draft;
+  for (let rank = 0; rank < 4; rank++) {
+    const b = $("railEgg" + rank);
+    b.textContent =
+      ["普通01", "銀02", "金03", "プラチナ04"][rank] + " ×" + shown.eggs[rank];
+    b.disabled = !allowed || !s.eggs[rank];
+  }
+  $("tool-transform").innerHTML =
+    `✨ へんしん <small>1体 · ${s.rules.gaugeUnit}pt</small>`;
+  $("tool-bulk").innerHTML =
+    `🌈 だいへんしん <small>全体 · ${s.rules.gaugeUnit * 3}pt</small>`;
+  $("startFall").hidden = standard();
   $("toolSheet").hidden = !tool;
   $("eggCount").textContent = `×${s.eggs.reduce((a, b) => a + b, 0)}`;
   $("tool-egg").disabled = !allowed || s.eggs.every((n) => !n);
@@ -635,11 +756,14 @@ function renderTools() {
     const button = document.createElement("button");
     button.textContent = name;
     button.dataset.kind = k;
-    button.style.setProperty("--color", colors[k]);
+    button.style.setProperty("--color", colors[k % colors.length]);
     button.setAttribute("aria-label", `${name}にする`);
     button.setAttribute("aria-pressed", String(targetKind === k));
     button.disabled =
-      tool !== "egg" && !!selected && s.board[selected.y][selected.x]?.k === k;
+      (standard() && !roster[k]?.id) ||
+      (tool !== "egg" &&
+        !!selected &&
+        s.board[selected.y][selected.x]?.k === k);
     button.onclick = () => {
       targetKind = k;
       updatePreview();
@@ -663,8 +787,10 @@ function renderTools() {
         if (!c || y < 2) return;
         const ghost = document.createElement("span");
         ghost.className = "preview-piece";
-        ghost.style.cssText = `--color:${colors[c.k]};left:${(100 * x) / s.rules.width}%;top:${(100 * (y - 2)) / 12}%;width:${100 / s.rules.width}%;height:${100 / 12}%`;
-        ghost.textContent = `${names[c.k]}${String(c.s).padStart(2, "0")}`;
+        ghost.style.cssText = `--color:${colors[c.k % colors.length]};left:${(100 * x) / s.rules.width}%;top:${(100 * (y - 2)) / 12}%;width:${100 / s.rules.width}%;height:${100 / 12}%`;
+        ghost.innerHTML = standard()
+          ? pieceHTML(c)
+          : `${names[c.k]}${String(c.s).padStart(2, "0")}`;
         $("board").append(ghost);
       }),
     );
@@ -702,7 +828,9 @@ function renderAnimation() {
       actor = document.createElement("span");
     actor.className = "moving-piece";
     actor.style.cssText = `--color:${colors[m.from.cell.k]};left:${b.left - br.left}px;top:${b.top - br.top}px;width:${b.width}px;height:${b.height}px`;
-    actor.textContent = `${names[m.from.cell.k]}${String(m.from.cell.s).padStart(2, "0")}`;
+    actor.innerHTML = standard()
+      ? pieceHTML(m.from.cell)
+      : `${names[m.from.cell.k]}${String(m.from.cell.s).padStart(2, "0")}`;
     to.classList.add("animation-covered");
     $("board").append(actor);
     actor.animate(
@@ -734,10 +862,36 @@ $("cancelTool").onclick = () => {
   render();
 };
 $("confirmTool").onclick = () => {
-  if (!toolPreview || !ready || busy) return;
+  if (!toolPreview || (!ready && !standard()) || busy) return;
+  updatePreview();
+  if (!toolPreview) {
+    render();
+    return;
+  }
   const a = item();
   tool = null;
   toolPreview = null;
   selected = null;
   act(a);
 };
+
+for (let rank = 0; rank < 4; rank++)
+  $("railEgg" + rank).onclick = () => {
+    beginTool("egg");
+    $("rank").value = String(rank);
+    render();
+  };
+for (const c of availableRoster) {
+  const label = document.createElement("label"),
+    input = document.createElement("input");
+  input.type = "checkbox";
+  input.checked = selectedSpecies.includes(c.id);
+  input.onchange = () => {
+    selectedSpecies = [
+      ...document.querySelectorAll("#roster input:checked"),
+    ].map((el) => el.value);
+  };
+  input.value = c.id;
+  label.append(input, document.createTextNode(c.label));
+  $("roster").append(label);
+}

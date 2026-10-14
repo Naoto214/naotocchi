@@ -1,4 +1,4 @@
-// All values are laboratory hypotheses, NOT production game rules.
+// Legacy laboratory defaults are preserved for archived replay compatibility.
 export const VERSION = "growth-chain-lab/1";
 export const OPTIONS = {
   anchor: ["bottom", "changed"],
@@ -8,8 +8,8 @@ export const OPTIONS = {
   deathSpecies: ["same", "any"],
   eggCount: ["group", "pairs"],
   gaugeMetric: ["consumed", "growth"],
-  scoreMode: ["linear", "chain"],
-  topOut: ["lock", "settled"],
+  scoreMode: ["linear", "chain", "evolution"],
+  topOut: ["lock", "settled", "legal"],
   eggPlacement: ["column", "free"],
   bag: ["fourEach", "fixed20"],
 };
@@ -53,7 +53,9 @@ export function configuration(p = {}) {
   if (
     ![6, 7].includes(r.width) ||
     r.height !== 12 ||
-    ![4, 5, 6].includes(r.kinds) ||
+    !(r.scoreMode === "evolution"
+      ? Number.isInteger(r.kinds) && r.kinds >= 5 && r.kinds <= 64
+      : [4, 5, 6].includes(r.kinds)) ||
     typeof r.pairFirst !== "boolean" ||
     !Number.isInteger(r.gaugeUnit) ||
     r.gaugeUnit < 1
@@ -74,4 +76,15 @@ export function configuration(p = {}) {
     throw Error("disjoint requires consume=five");
   r.eggThresholds = Object.freeze([...r.eggThresholds]);
   return Object.freeze(r);
+}
+
+// Fixed game rules; only the gauge price remains a balance candidate.
+export function standardRules(p = {}) {
+  return configuration({
+    gaugeMetric: "growth",
+    gaugeUnit: 8,
+    scoreMode: "evolution",
+    topOut: "legal",
+    ...p,
+  });
 }

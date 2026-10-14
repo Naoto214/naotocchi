@@ -25,6 +25,11 @@ const { pathToFileURL } = require("node:url");
       click("export");
       return JSON.parse($("json").value);
     };
+  // Archived intermission behavior is still exercised via a laboratory import.
+  const legacy = await import(pathToFileURL(path.join(__dirname,"../session.mjs")));
+  const legacyState=legacy.createSession(1);
+  $("json").value=JSON.stringify({version:legacyState.version,initial:legacy.stateData(legacyState),actions:[]});
+  click("import");
   assert.ok($("tool-transform"), "visible tool card exists");
   assert.equal($("labPanel").hidden, true, "lab hidden in play mode");
   assert.equal($("board").dataset.phase, "ready");

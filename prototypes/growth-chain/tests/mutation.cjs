@@ -30,15 +30,15 @@ const cases = [
   [
     "ready intermission",
     "ui.mjs",
-    "auto && !ready && !tool",
-    "auto && !tool",
+    "auto && (!ready || standard()) && (!tool || standard())",
+    "auto && (!tool || standard())",
     "ui",
   ],
   [
     "preview writes state",
     "ui.mjs",
-    "toolPreview = preview(s, item());",
-    "toolPreview = s = preview(s, item());",
+    "toolPreview = standard() ? toolTransaction(s,pose,item(),selected?.id).state : preview(s,item());",
+    "toolPreview = s = preview(s,item());",
     "ui",
   ],
   [
@@ -48,13 +48,63 @@ const cases = [
     '$("action").value = "edit";',
     "ui",
   ],
+  [
+    "final whole component",
+    "rules.mjs",
+    "return configuration({gaugeMetric:",
+    'return configuration({consume:"five", gaugeMetric:',
+    "final",
+  ],
+  [
+    "final score",
+    "engine.mjs",
+    "(death ? 100 : 0)",
+    "(death ? 200 : 0)",
+    "final",
+  ],
+  [
+    "final growth gauge",
+    "rules.mjs",
+    'gaugeMetric: "growth", gaugeUnit: 8',
+    'gaugeMetric: "consumed", gaugeUnit: 8',
+    "final",
+  ],
+  [
+    "partial unlock",
+    "roster.mjs",
+    "c.stages.every(",
+    "c.stages.some(",
+    "roster",
+  ],
+  [
+    "live collision",
+    "live-tools.mjs",
+    "if(path===null)throw",
+    "if(false)throw",
+    "live",
+  ],
+  [
+    "selection freezes time",
+    "ui.mjs",
+    "&& (!tool || standard()) && !document.hidden",
+    "&& !tool && !document.hidden",
+    "final-ui",
+  ],
 ];
 function run(kind) {
   return spawnSync(
     process.execPath,
-    kind === "controls"
-      ? ["--test", "tests/play-controls.test.mjs"]
-      : ["tests/mobile-ui.cjs"],
+    kind === "final"
+      ? ["--test", "tests/final-rules.test.mjs"]
+      : kind === "roster"
+        ? ["--test", "tests/roster.test.mjs"]
+        : kind === "live"
+          ? ["--test", "tests/live-tools.test.mjs"]
+          : kind === "final-ui"
+            ? ["tests/final-ui.cjs"]
+            : kind === "controls"
+              ? ["--test", "tests/play-controls.test.mjs"]
+              : ["tests/mobile-ui.cjs"],
     { cwd: temp, encoding: "utf8", timeout: 30000 },
   );
 }
@@ -70,7 +120,14 @@ try {
     path.join(temp, "node_modules"),
     "dir",
   );
-  for (const kind of ["controls", "ui"]) {
+  for (const kind of [
+    "controls",
+    "ui",
+    "final",
+    "roster",
+    "live",
+    "final-ui",
+  ]) {
     const r = run(kind);
     if (r.status !== 0)
       throw Error(`baseline ${kind} failed: ${r.stderr}${r.stdout}`);
@@ -78,8 +135,14 @@ try {
   for (const [name, file, from, to, kind] of cases) {
     const dest = path.join(temp, file),
       original = fs.readFileSync(dest, "utf8");
-    if (!original.includes(from)) throw Error(`missing mutation: ${name}`);
-    fs.writeFileSync(dest, original.replace(from, to));
+    const pattern = new RegExp(
+      [...from]
+        .filter((c) => !/\s/.test(c))
+        .map((c) => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+        .join("\\s*"),
+    );
+    if (!pattern.test(original)) throw Error(`missing mutation: ${name}`);
+    fs.writeFileSync(dest, original.replace(pattern, to));
     const r = run(kind);
     fs.writeFileSync(dest, original);
     if (
@@ -91,7 +154,7 @@ try {
     console.log(`KILLED ${name}`);
   }
   console.log(
-    `${cases.length}/${cases.length} targeted mutants killed; 2 clean baselines PASS`,
+    `${cases.length}/${cases.length} targeted mutants killed; 6 clean baselines PASS`,
   );
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });

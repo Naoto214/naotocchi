@@ -20,9 +20,13 @@ export function createBag(seed, r) {
 export function draw(b) {
   if (b.index >= b.items.length) {
     b.items = [];
-    const n = b.mode === "fixed20" ? 20 : b.kinds * 4;
+    const n = b.selected ? 20 : b.mode === "fixed20" ? 20 : b.kinds * 4;
     for (let i = 0; i < n; i++)
-      b.items.push((i + b.cycle * (n % b.kinds)) % b.kinds);
+      b.items.push(
+        b.selected
+          ? b.selected[i % 5]
+          : (i + b.cycle * (n % b.kinds)) % b.kinds,
+      );
     for (let i = b.items.length - 1; i > 0; i--) {
       let j = Math.floor(random(b) * (i + 1));
       [b.items[i], b.items[j]] = [b.items[j], b.items[i]];

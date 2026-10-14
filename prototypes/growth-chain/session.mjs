@@ -1,3 +1,4 @@
+import { catalog } from "./catalog.mjs";
 import { configuration, VERSION } from "./rules.mjs";
 import { createBag, draw } from "./random.mjs";
 import {
@@ -11,6 +12,7 @@ import {
 } from "./engine.mjs";
 export function createSession(seed, r = configuration(), initial = {}) {
   r = configuration(r);
+  if (initial.species !== undefined) validateSpecies(initial.species, r.kinds);
   const b = initial.board ? cloneBoard(initial.board) : board(r);
   validateBoard(b, r);
   if (groups(b, r).length || JSON.stringify(gravity(b)) !== JSON.stringify(b))
@@ -24,9 +26,28 @@ export function createSession(seed, r = configuration(), initial = {}) {
     gauge < 0
   )
     throw Error("Invalid resources");
-  const bag = createBag(seed, r),
-    queue = Array.from({ length: 4 }, () => [draw(bag), draw(bag)]);
+  const bag = createBag(seed, r);
+  if (
+    r.scoreMode === "evolution" &&
+    r.kinds > 5 &&
+    initial.selected === undefined
+  )
+    bag.selected = [0, 1, 2, 3, 4];
+  if (initial.selected !== undefined) {
+    if (
+      !Array.isArray(initial.selected) ||
+      initial.selected.length !== 5 ||
+      new Set(initial.selected).size !== 5 ||
+      initial.selected.some(
+        (k) => !Number.isInteger(k) || k < 0 || k >= r.kinds,
+      )
+    )
+      throw Error("Invalid selected species");
+    bag.selected = [...initial.selected];
+  }
+  const queue = Array.from({ length: 4 }, () => [draw(bag), draw(bag)]);
   const s = {
+    ...(initial.species ? { species: [...initial.species] } : {}),
     version: VERSION,
     seed,
     rules: r,
@@ -49,6 +70,8 @@ export function createSession(seed, r = configuration(), initial = {}) {
     over: null,
   };
   if (!fits(b, spawnPose(r))) s.over = "spawn-blocked";
+  else if (r.topOut === "legal" && !hasLegalPlacement(s))
+    s.over = "no-legal-placement";
   return s;
 }
 export const spawnPose = (r) => ({
@@ -113,7 +136,10 @@ export function placements(s) {
     let { p, path } = q[i],
       l = landing(s.board, p),
       k = key(l);
-    if (!landed.has(k)) {
+    if (
+      !landed.has(k) &&
+      (s.rules.topOut !== "legal" || poseCells(l).every((c) => c.y >= HIDDEN))
+    ) {
       landed.add(k);
       out.push({ type: "drop", path: [...path, "hard"] });
     }
@@ -126,6 +152,14 @@ export function placements(s) {
     }
   }
   return out;
+}
+export function hasLegalPlacement(s) {
+  if (s.over || !fits(s.board, spawnPose(s.rules))) return false;
+  if (
+    poseCells(landing(s.board, spawnPose(s.rules))).every((c) => c.y >= HIDDEN)
+  )
+    return true;
+  return placements(s).length > 0;
 }
 function copy(s) {
   return {
@@ -158,6 +192,8 @@ export function applyAction(s, a, trace = true) {
         if (!p) throw Error("Illegal motion");
       }
     }
+    if (r.topOut === "legal" && poseCells(p).some((c) => c.y < HIDDEN))
+      throw Error("Illegal hidden placement");
     const cells = poseCells(p),
       pair = z.queue[0];
     for (let i = 0; i < 2; i++) {
@@ -243,6 +279,8 @@ export function applyAction(s, a, trace = true) {
   z.gauge += result.gauge;
   z.eggs = z.eggs.map((n, i) => n + result.eggs[i]);
   if (!fits(z.board, spawnPose(r))) z.over = "spawn-blocked";
+  else if (r.topOut === "legal" && !hasLegalPlacement(z))
+    z.over = "no-legal-placement";
   return z;
 }
 export const preview = (s, a) => applyAction(s, a);
@@ -257,7 +295,17 @@ export function stateHash(s) {
   }
   return h.toString(16).padStart(8, "0");
 }
+function validateSpecies(ids, kinds) {
+  if (
+    !Array.isArray(ids) ||
+    ids.length !== kinds ||
+    new Set(ids).size !== kinds ||
+    ids.some((id) => !catalog.some((c) => c.id === id))
+  )
+    throw Error("Invalid species mapping");
+}
 export function validateSession(s) {
+  if (s?.species !== undefined) validateSpecies(s.species, s.rules?.kinds);
   if (!s || s.version !== VERSION) throw Error("Version mismatch");
   const normalized = configuration(s.rules);
   if (Object.keys(normalized).some((k) => !Object.hasOwn(s.rules, k)))
@@ -285,6 +333,16 @@ export function validateSession(s) {
     throw Error("Invalid resources");
   const b = s.bag;
   if (
+    b?.selected &&
+    (!Array.isArray(b.selected) ||
+      b.selected.length !== 5 ||
+      new Set(b.selected).size !== 5 ||
+      b.selected.some((k) => !integer(k, 0, s.rules.kinds - 1)) ||
+      b.items.some((k) => !b.selected.includes(k)) ||
+      s.queue.flat().some((k) => !b.selected.includes(k)))
+  )
+    throw Error("Invalid selected bag");
+  if (
     !b ||
     !integer(b.state, 0, 4294967295) ||
     b.kinds !== s.rules.kinds ||
@@ -310,9 +368,13 @@ export function validateSession(s) {
   )
     throw Error("Invalid nextId");
   if (
-    ![null, "lock-overflow", "settled-overflow", "spawn-blocked"].includes(
-      s.over,
-    )
+    ![
+      null,
+      "lock-overflow",
+      "settled-overflow",
+      "spawn-blocked",
+      "no-legal-placement",
+    ].includes(s.over)
   )
     throw Error("Invalid end reason");
   if (!s.over && !fits(s.board, spawnPose(s.rules)))

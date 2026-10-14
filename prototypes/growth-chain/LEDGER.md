@@ -35,3 +35,11 @@ Fresh-context reviewer reported three P2 issues; fixed with regressions and inde
 Code saved via expected_sha/nonforce Git Data API: abd87644222013afa69cfe20e7bad387ebd5716e, tree9deed232122cde15e18f4fb493ad026ef8f6b519. Fetched and matched staged/remote tree, synchronized local HEAD and verified clean before documentation updates.
 Final QA report and evidence: MOBILE-QA-20261013.md and qa-mobile-20261013/. Human Safari/device/game-feel QA remains pending; no production integration or formal rule adoption.
 Final full-checkout root npm test completed exit0: smoke/dialogue/visual QA and 3130/3130 + 80/80 PASS, no failures/skips. Raw log compressed under qa-mobile-20261013/root-regression.log.gz. Protected-path diff outside approved prototype/design/plan scope is empty.
+
+
+## 2026-10-14 — Final rules integration
+- Baseline9479e7e7; fresh main095fe36f. User final twelve-section specification accepted as authority.
+- Red/green: final score/growth/reward rules, canonical roster/selected bag, live tools and reviewer-found regressions.
+- Legacy48conditions/3840trials/554528operations replayed with matching hashes and summaries. Fixed verifier rerun bug: prior verification.json contains numeric trials, not a trial array.
+- New fixed-seed200trials/36005actions replay verified. New measurement is separate from old consumed-gauge results.
+- Full repository regression started with all assets hydrated; final result pending checkpoint.

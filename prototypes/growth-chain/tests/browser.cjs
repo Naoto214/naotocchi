@@ -4,12 +4,12 @@ const http = require("node:http"),
   fs = require("node:fs"),
   path = require("node:path");
 (async () => {
-  const root = path.resolve(__dirname, "..");
+  const root = path.resolve(__dirname, "../../..");
   const { createSession, stateData, stateHash } =
     await import("../session.mjs");
   const { board } = await import("../engine.mjs");
-  const { configuration } = await import("../rules.mjs");
-  const rules = configuration(),
+  const { standardRules } = await import("../rules.mjs");
+  const rules = standardRules(),
     b = board(rules);
   b[13][0] = { id: 1, k: 0, s: 1 };
   b[13][1] = { id: 2, k: 1, s: 1 };
@@ -27,7 +27,7 @@ const http = require("node:http"),
   const server = http.createServer((req, res) => {
     const file = path.resolve(
       root,
-      "." + (req.url === "/" ? "/index.html" : req.url),
+      "." + (req.url.endsWith("/") ? req.url + "index.html" : req.url),
     );
     if (!file.startsWith(root + path.sep)) {
       res.writeHead(403);
@@ -38,7 +38,9 @@ const http = require("node:http"),
       ? "text/javascript"
       : file.endsWith(".css")
         ? "text/css"
-        : "text/html";
+        : file.endsWith(".png")
+          ? "image/png"
+          : "text/html";
     fs.readFile(file, (err, data) => {
       res.writeHead(err ? 404 : 200, { "Content-Type": type });
       res.end(err ? "missing" : data);
@@ -46,7 +48,7 @@ const http = require("node:http"),
   });
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
   server.unref();
-  const url = `http://127.0.0.1:${server.address().port}/`;
+  const url = `http://127.0.0.1:${server.address().port}/prototypes/growth-chain/`;
   const browser = await chromium.launch({
     headless: true,
     executablePath: process.env.CHROME_PATH,
@@ -79,7 +81,29 @@ const http = require("node:http"),
       await page.waitForSelector("#board .cell", { timeout: 3000 });
       assert.equal(await page.locator("#board .cell").count(), 72);
       assert.equal(await page.locator("#labPanel").isVisible(), false);
-      await page.locator("#startFall").click();
+      assert.equal(
+        await page.locator("#board").getAttribute("data-phase"),
+        "falling",
+      );
+      await page.waitForFunction(() =>
+        [...document.querySelectorAll("#board img")].every(
+          (i) => i.complete && i.naturalWidth > 0,
+        ),
+      );
+      const boardRect = await page.locator("#board").boundingBox(),
+        railRect = await page.locator(".toolbelt").boundingBox();
+      assert.ok(
+        railRect.x >= boardRect.x + boardRect.width,
+        "tools right of board",
+      );
+      assert.ok(
+        await page
+          .locator(".toolbelt button:not(.lab-only)")
+          .evaluateAll((ns) =>
+            ns.every((n) => n.getBoundingClientRect().height >= 44),
+          ),
+      );
+
       const left = await page.locator("#left").boundingBox();
       await page.mouse.move(left.x + left.width / 2, left.y + left.height / 2);
       await page.mouse.down();
@@ -89,7 +113,7 @@ const http = require("node:http"),
       await page.locator("#drop").click();
       await page.waitForTimeout(1500);
       await page.screenshot({
-        path: `/tmp/growth-play-${viewport.width}.png`,
+        path: `${path.resolve(__dirname, "../qa-final-20261014")}/growth-play-${viewport.width}.png`,
         fullPage: true,
       });
       assert.ok(
@@ -128,7 +152,7 @@ const http = require("node:http"),
         ),
       );
       await page.screenshot({
-        path: `/tmp/growth-ui-${viewport.width}.png`,
+        path: `${path.resolve(__dirname, "../qa-final-20261014")}/growth-ui-${viewport.width}.png`,
         fullPage: true,
       });
       await page.locator("#json").fill(endowedLog);
@@ -139,12 +163,12 @@ const http = require("node:http"),
       await page.locator('#kindChoices [data-kind="1"]').tap();
       assert.ok(await page.locator(".preview-piece").count());
       await page.screenshot({
-        path: `/tmp/growth-tool-${viewport.width}.png`,
+        path: `${path.resolve(__dirname, "../qa-final-20261014")}/growth-tool-${viewport.width}.png`,
         fullPage: true,
       });
       await page.locator("#confirmTool").tap();
       await page.waitForFunction(
-        () => document.getElementById("board").dataset.phase === "ready",
+        () => document.getElementById("board").dataset.phase === "falling",
       );
       await page.locator("#toggleLab").click();
       await page.locator("#export").click();
@@ -155,7 +179,9 @@ const http = require("node:http"),
       assert.deepEqual(errors, []);
       await page.close();
     }
-    console.log("browser 4 viewports PASS");
+    console.log(
+      "Chromium new-standard 4 viewports PASS; iPhone hardware Safari NOT tested",
+    );
   } finally {
     await browser.close();
     server.close();

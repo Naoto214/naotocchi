@@ -214,8 +214,10 @@ export function resolve(input, r, context = {}, trace = true) {
         stats.created08 += !death && stage === 8 ? 1 : 0;
         stats.gauge += r.gaugeMetric === "consumed" ? a.length : stage - old;
         stats.score +=
-          (a.length * 10 + overflow * 100) *
-          (r.scoreMode === "chain" ? chain : 1);
+          r.scoreMode === "evolution"
+            ? ((stage - old + overflow) * 10 + (death ? 100 : 0)) * chain
+            : (a.length * 10 + overflow * 100) *
+              (r.scoreMode === "chain" ? chain : 1);
         events.push({
           consumed: a.map((c) => c.id),
           anchor: { x: anchor.x, y: anchor.y, id: anchor.id },

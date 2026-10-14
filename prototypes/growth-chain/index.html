@@ -15,6 +15,13 @@
         </div>
         <span class="lab lab-only">検証用仮設定<br />本編には接続しません</span>
       </header>
+      <details class="roster-panel">
+        <summary>登場する5系統を選ぶ</summary>
+        <div id="roster"></div>
+        <p>
+          5系統を選んで「もう一度」で開始。本編図鑑の全8段階発見で追加解放。
+        </p>
+      </details>
       <div class="layout">
         <section class="play">
           <div class="hud">
@@ -31,18 +38,22 @@
               <div id="eggs"></div>
               <h3>へんしん</h3>
               <strong id="gauge"></strong>
+              <div class="toolbelt" aria-label="道具">
+                <button id="tool-egg" class="lab-only">
+                  🥚 卵 <span id="eggCount"></span>
+                </button>
+                <button id="railEgg0"></button><button id="railEgg1"></button
+                ><button id="railEgg2"></button><button id="railEgg3"></button
+                ><button id="tool-transform">
+                  ✨ へんしん <small>1体 · 1本</small>
+                </button>
+                <button id="tool-bulk">
+                  🌈 だいへんしん <small>同じ種類すべて · 3本</small>
+                </button>
+              </div>
             </aside>
           </div>
           <div id="status" role="status">準備中</div>
-          <div class="toolbelt" aria-label="道具">
-            <button id="tool-egg">🥚 卵 <span id="eggCount"></span></button>
-            <button id="tool-transform">
-              ✨ へんしん <small>1体 · 1本</small>
-            </button>
-            <button id="tool-bulk">
-              🌈 だいへんしん <small>同じ種類すべて · 3本</small>
-            </button>
-          </div>
           <section
             id="toolSheet"
             class="tool-sheet"

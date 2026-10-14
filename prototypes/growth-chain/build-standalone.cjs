@@ -4,6 +4,15 @@ const fs = require("node:fs"),
   esbuild = require("esbuild");
 (async () => {
   const root = __dirname;
+  const { INITIAL_SPECIES } = await import("./roster.mjs");
+  const embedded = {};
+  for (const id of INITIAL_SPECIES)
+    for (let stage = 1; stage <= 8; stage++) {
+      const relative = `../../assets/characters/${id}/${String(stage).padStart(2, "0")}.png`;
+      embedded[relative] =
+        "data:image/png;base64," +
+        fs.readFileSync(path.resolve(root, relative)).toString("base64");
+    }
   const result = await esbuild.build({
     entryPoints: [path.join(root, "ui.mjs")],
     bundle: true,
@@ -21,7 +30,9 @@ const fs = require("node:fs"),
     )
     .replace(
       '<script type="module" src="ui.mjs"></script>',
-      "<script>" +
+      "<script>window.GROWTH_CHAIN_IMAGES=" +
+        JSON.stringify(embedded) +
+        ";</script><script>" +
         result.outputFiles[0].text.replaceAll("</script", "<\\/script") +
         "</script>",
     );

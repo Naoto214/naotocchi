@@ -106,3 +106,7 @@ iPhone実機SafariとHuman QAは未確認。実機での対象セル選択・ス
 ユーザーが後続の「独立ゲーム完成・最終仕様統合」を指定。上記e32ebb5eの完了は旧仕様の範囲であり、新仕様の完了ではない。
 7項目の現物監査は FINAL-SPEC-AUDIT-20261013.md。新仕様の系統解放/2D画像/落下中道具/縦の道具右/8対12比較は未実装。新仕様受入テストは未実施。
 旧専用50を再実行してPASSしたが、新仕様の検証証拠には使用しない。元依頼全文を未回収のため、仕様情報の取得が必要。実装許可の再承認を求めるものではない。
+
+
+## 2026-10-14 final integration checkpoint
+Full user specification received; FINAL-SPEC-20261014.md supersedes earlier provisional intermission. Standard preset added without changing legacy configuration defaults. Canonical read-only roster, stable replay species IDs, selected20 bag, live tool transactions, character images and portrait rail implemented. Review found/fixed pre-merge egg collision and unlock-order/recreation mapping regressions. New acceptance and DOM tests exist; full regression is running at checkpoint (do not claim final PASS until QA report). PR must remain Draft/open/unmerged.
