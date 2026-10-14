@@ -113,3 +113,8 @@ Full user specification received; FINAL-SPEC-20261014.md supersedes earlier prov
 
 ### Final verification completed
 See FINAL-QA-20261014.md for the complete coverage/operations/balance/Human QA report. Dedicated77, DOM5, mutation12/12, Chromium4viewports, root3130+80 all freshly PASS. New200trials/36005actions replay PASS; legacy3840trials/554528actions replay PASS. iPhone hardware Safari remains unverified. Gauge8/24 is recommended for Human QA, not finalized. Natural egg supply was zero in all200trials; artificial16probes are separate. Source checkpointf2804c80 plus final evidence/follow-up commit. All changes confined to this prototype. No merge/deploy.
+
+
+## 2026-10-14 最終バランス検証
+
+[BALANCE-REPORT-20261014.md](BALANCE-REPORT-20261014.md)を参照。576試行、自然卵獲得は初期0でも成立。ただし自然な卵由来の再獲得循環は未確認。8／24推奨はユーザー決定待ち。確定ルール・本番挙動は変更なし。旧0/200と今回の探索的結果を混同しない。

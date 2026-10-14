@@ -48,3 +48,8 @@ Final full-checkout root npm test completed exit0: smoke/dialogue/visual QA and 
 - Reviewer fixes: egg pre-merge collision, fixed canonical replay IDs, selection retention on restart/editor; false-active imported no-legal-placement state also rejected.
 - Raw new200trials archived separately in results-final-20261014.tar.gz with SHA256 file; sixteen constructed probes remain explicitly artificial.
 - Remaining: iPhone real Safari/Human QA, final gauge price/score coefficients, natural egg supply assessment; no main integration authorization.
+
+
+## 2026-10-14 最終バランス検証
+
+[BALANCE-REPORT-20261014.md](BALANCE-REPORT-20261014.md)を参照。576試行、自然卵獲得は初期0でも成立。ただし自然な卵由来の再獲得循環は未確認。8／24推奨はユーザー決定待ち。確定ルール・本番挙動は変更なし。旧0/200と今回の探索的結果を混同しない。
