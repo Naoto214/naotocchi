@@ -1,0 +1,14 @@
+/** Non-activating move replacements. Choices stay inside the resolving effect. */
+import {CATALOG} from './full-catalog.mjs';
+import {RULES} from './rules.mjs';
+const card=(s,id)=>CATALOG[s.cards[id].cardId];
+const field=b=>[b.main,b.partner,b.world,...b.companions,...b.prepared.map(e=>e.id)].filter(Boolean);
+export function options(s,l,destination,condition){const owner=s.cards[l.target]?.owner;if(!owner||owner===l.actor)return [];const p=s.players[owner],b=p.board;if(!field(b).includes(l.target))return [];const out=[];
+ for(const source of field(b)){const c=card(s,source);if(c.type==='partner'&&!b.main)continue;for(const [i,r]of (RULES[c.id]?.replacements??[]).entries()){
+  if(r.kind!=='move'||!r.to.includes(destination))continue;const key=source+'#'+s.cards[source].generation+':'+i+':'+(r.limit==='round'?s.round:s.serial);if((s.replacementUsed??[]).includes(key))continue;
+  const eq=b.prepared.find(e=>e.id===source),targetEq=b.prepared.find(e=>e.id===l.target);const matches={self:l.target===source,ownMain:l.target===b.main,ownPartner:l.target===b.partner,ownCompanion:b.companions.includes(l.target),otherCompanion:b.companions.includes(l.target)&&l.target!==source,ownNonMain:l.target!==b.main,ownPrepared:!!targetEq,ownTrap:!!targetEq?.faceDown,attached:!!eq&&eq.target===l.target,mainEquipment:!!targetEq&&!targetEq.faceDown&&targetEq.target===b.main};
+  if(!matches[r.scope]||!condition(s,owner,r.condition,{source,event:{target:l.target,source:l.source}}))continue;
+  let payments=[null];if(r.cost==='selfDiscard')payments=[source];if(r.cost==='worldDiscard')payments=[b.world].filter(Boolean);if(r.cost==='handDiscard')payments=[...p.hand];if(r.cost==='preparedBottom')payments=b.prepared.map(e=>e.id);if(r.cost==='attachedDiscard')payments=b.prepared.filter(e=>e.target===source).map(e=>e.id);
+  for(const payment of payments)out.push({source,actor:owner,key,rule:r,payment});
+ }}return out;}
+export function apply(s,o,h){const p=s.players[o.actor],r=o.rule;if(r.cost){const id=o.payment;if(r.cost==='handDiscard'){p.hand.splice(p.hand.indexOf(id),1);p.discard.push(id);}else{h.discardField(s,o.actor,id);if(r.cost==='preparedBottom'){p.discard.splice(p.discard.indexOf(id),1);p.deck.push(id);}}}s.replacementUsed??=[];s.replacementUsed.push(o.key);h.log(s,`${o.actor}：${card(s,o.source).name}の置換を適用`);return r.replace;}

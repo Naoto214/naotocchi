@@ -7,12 +7,13 @@ import {CATALOG as CARDS} from './full-catalog.mjs';
 import * as legacy from './legacy-engine.mjs';
 import {RULES, supported} from './rules.mjs';
 import * as fx from './effects.mjs';
+import * as selections from './selection.mjs';
 export {CARDS};
 export const VERSION='hotseat-2';
 export const DEFAULT_DECK=Object.values(BASE_CARDS).flatMap(c=>Array(c.rare?1:c.id==='G-area-claim'?2:3).fill(c.id));
 export function validateDeck(deck){if(!Array.isArray(deck)||deck.length!==40)throw Error('デッキは40枚必要です');const counts={};for(const id of deck){if(!CARDS[id]||!supported(id))throw Error('未対応カードです：'+id);counts[id]=(counts[id]??0)+1;if(counts[id]>(CARDS[id].rare?1:3))throw Error('同名上限を超えています：'+id);}return true;}
 export {supported};
-const helpers={draw,grow,log,stats,discardField};
+const helpers={draw,grow,log,stats,discardField,emit:enqueueTriggers};
 const clone=x=>structuredClone(x),other=a=>a==='A'?'B':'A';
 const types=['main','companion','partner','world','play','item','event'];
 export const TYPE_NAMES={main:'メイン',companion:'なかま',partner:'こいびと',world:'セカイ',play:'あそび',item:'あいてむ',event:'できごと'};
@@ -77,7 +78,7 @@ function listActions(s){
  const add=(kind,label,data={})=>out.push({kind,label,...data});
  if(s.choice){for(const option of s.choice.options)add('choose',option.label,{value:option.id});return out;}
  if(s.phase==='trigger'){
-  for(const t of s.pending.filter(t=>t.actor===a)){if(t.kind==='program'){for(const o of fx.triggerOptions(s,t))add('trigger',`${title(s,t.source)}の能力を発動${t.program.cost?`（時${t.program.cost}）`:""}${o.target?' → '+title(s,o.target):''}${o.costCard?' / 支払い：'+title(s,o.costCard):''}`,{source:t.source,trigger:t.kind,index:t.index,...o});if(!t.program.mandatory)add('skip',`${title(s,t.source)}を見送る`,{source:t.source,index:t.index});continue;}add('trigger',`${title(s,t.source)}の能力を発動`,{source:t.source,trigger:t.kind});add('skip',`${title(s,t.source)}を見送る`,{source:t.source});}return out;
+  for(const t of s.pending.filter(t=>t.actor===a)){if(t.kind==='program'){for(const o of fx.triggerOptions(s,t))if(selectionAvailable(s,a,t.program,{source:t.source,variant:o.variant,event:t.event}))add('trigger',`${title(s,t.source)}の能力を発動${t.program.cost?`（時${t.program.cost}）`:""}${o.target?' → '+title(s,o.target):''}${o.costCard?' / 支払い：'+title(s,o.costCard):''}`,{source:t.source,trigger:t.kind,index:t.index,...o});if(!t.program.mandatory)add('skip',`${title(s,t.source)}を見送る`,{source:t.source,index:t.index});continue;}add('trigger',`${title(s,t.source)}の能力を発動`,{source:t.source,trigger:t.kind});add('skip',`${title(s,t.source)}を見送る`,{source:t.source});}return out;
  }
  const normal=s.phase==='normal';
  if(normal){
@@ -92,10 +93,10 @@ function listActions(s){
   if(b.main&&b.partner&&p.relationship<4&&!p.relationshipUsed&&p.time>=fx.payment(s,a,'relationship',1))add('relationship',`交際を進める ${p.relationship}→${p.relationship===3?'結婚':p.relationship+1}（時${fx.payment(s,a,'relationship',1)}）`,{cost:fx.payment(s,a,'relationship',1)});
   if(b.main&&o.board.main&&!p.challengeUsed)for(const parameter of ['power','wisdom'])add('challenge',`${parameter==='power'?'ちから':'ちえ'}でちょうせん`,{parameter});
  }
- for(const source of [b.main,b.partner,b.world,...b.companions,...b.prepared.filter(e=>!e.faceDown).map(e=>e.id)].filter(Boolean)){const r=RULES[card(s,source).id]?.active;if(!r||(card(s,source).type==='partner'&&!b.main)||p.used.includes(token(s,source)+':active')||p.time<(r.cost??0)||!fx.condition(s,a,r.condition,{source}))continue;for(const target of fx.targets(s,a,r.target,source))for(const variant of r.variants??[null])for(const payment of fx.costOptions(s,a,r,source))add('programAbility',`${title(s,source)}の能力${target?' → '+title(s,target):''}${variant?' / '+variant:''}（時${r.cost??0}）${payment.costCard?' / 支払い：'+title(s,payment.costCard):''}`,{source,target,variant,cost:r.cost??0,...payment});}
+ for(const source of [b.main,b.partner,b.world,...b.companions,...b.prepared.filter(e=>!e.faceDown).map(e=>e.id)].filter(Boolean)){const r=RULES[card(s,source).id]?.active;if(!r||(card(s,source).type==='partner'&&!b.main)||p.used.includes(token(s,source)+':active')||p.time<(r.cost??0)||!fx.condition(s,a,r.condition,{source}))continue;for(const target of fx.targets(s,a,r.target,source))for(const variant of r.variants??[null])for(const payment of fx.costOptions(s,a,r,source))if(selectionAvailable(s,a,r,{source,variant}))add('programAbility',`${title(s,source)}の能力${target?' → '+title(s,target):''}${variant?' / '+variant:''}（時${r.cost??0}）${payment.costCard?' / 支払い：'+title(s,payment.costCard):''}`,{source,target,variant,cost:r.cost??0,...payment});}
  if(s.turn===a)for(const source of b.companions)if(card(s,source).id==='C-cat_friend'&&!p.used.includes(token(s,source)))for(const target of p.discard)if(card(s,target).type==='companion'&&card(s,target).id!=='C-cat_friend')add('ability',`${title(s,source)} → ${title(s,target)}を回収`,{source,target});
  for(const source of p.hand){const c=card(s,source);if(p.time<fx.payment(s,a,'quick_'+c.type,c.cost)&&RULES[c.id]?.mode!=='trap')continue;
-  const rule=RULES[c.id];if(rule?.mode==='quick'){const values=s.challenge?{A:stats(s,'A')?.[s.challenge.parameter],B:stats(s,'B')?.[s.challenge.parameter]}:null;if(fx.condition(s,a,rule.condition,{source,values})&&(!rule.onceName||!s.history.some(e=>e.serial===s.serial&&e.actor===a&&e.kind==='play'&&e.cardId===c.id))){for(const target of fx.targets(s,a,rule.target))for(const variant of rule.variants??[null]){const cost=fx.payment(s,a,'quick_'+c.type,c.cost)+(rule.extraTime==='variant'?Number(variant):0);if(p.time>=cost)add('programPlay',`${c.name}${target?' → '+title(s,target):''}${variant!==null?' / '+(TYPE_NAMES[variant]??variant):''}（時${cost}）`,{source,target,variant,cost});}}continue;}
+  const rule=RULES[c.id];if(rule?.mode==='quick'){const values=s.challenge?{A:stats(s,'A')?.[s.challenge.parameter],B:stats(s,'B')?.[s.challenge.parameter]}:null;if(fx.condition(s,a,rule.condition,{source,values})&&(!rule.onceName||!s.history.some(e=>e.serial===s.serial&&e.actor===a&&e.kind==='play'&&e.cardId===c.id))){for(const target of fx.targets(s,a,rule.target))for(const variant of rule.variants??[null]){const cost=fx.payment(s,a,'quick_'+c.type,c.cost)+(rule.extraTime==='variant'?Number(variant):0);if(p.time>=cost&&selectionAvailable(s,a,rule,{source,variant}))add('programPlay',`${c.name}${target?' → '+title(s,target):''}${variant!==null?' / '+(TYPE_NAMES[variant]??variant):''}（時${cost}）`,{source,target,variant,cost});}}continue;}
   const play=(data={},suffix='')=>add('play',`${c.name}${suffix}（時${c.cost}）`,{source,...data});
   if(['I-c_coin2','G-area-claim'].includes(c.id))play();
   if(c.id==='G-hit-blow')for(const declare of types)play({declare},`／${TYPE_NAMES[declare]}を宣言`);
@@ -114,7 +115,8 @@ export function act(state,who,revision,id){
 }
 function activate(s,link){s.chain.push(link);s.phase='response';s.priority=link.actor;s.passes=0;if(s.window==='end_request')s.window='normal';log(s,`${link.actor}：${title(s,link.source)}を発動`);}
 function execute(s,a){const who=actor(s),p=s.players[who],b=p.board;
- if(a.kind==='choose'){if(s.choice.resume==='program'){if(!fx.resume(s,a.value,helpers))resumeWork(s);return;}if(s.choice.kind==='scheduled_order'){const i=Number(a.value);s.choice=null;runScheduled(s,i);return;}const q=s.choice;s.choice=null;
+ if(['programPlay','programAbility','trigger'].includes(a.kind)&&!a.selectionReady){const r=activationRule(s,a);if(r?.select?.length){s.activationDraft={actor:who,action:a,rule:r,index:0,selection:{},phase:s.phase,priority:s.priority};selectionPrompt(s);return;}}
+ if(a.kind==='choose'){if(s.choice.resume==='activationSelection'){chooseActivation(s,a.value);return;}if(s.choice.resume==='program'){if(!fx.resume(s,a.value,helpers))resumeWork(s);return;}if(s.choice.kind==='scheduled_order'){const i=Number(a.value);s.choice=null;runScheduled(s,i);return;}const q=s.choice;s.choice=null;
   if(['egg_bottom','birth_bottom','sleep_bottom'].includes(q.kind)){remove(p.hand,a.value);p.deck.push(a.value);if(q.kind==='birth_bottom')draw(s,who);}
   if(q.kind==='look'){if(a.value==='bottom'&&p.deck.length)p.deck.push(p.deck.shift());}
   log(s,`${who}：${q.kind==='look'?'山札の位置を選択':'手札1枚を山札下へ'}`);
@@ -122,7 +124,7 @@ function execute(s,a){const who=actor(s),p=s.players[who],b=p.board;
  }
  if(a.kind==='trigger'||a.kind==='skip'){
   const i=s.pending.findIndex(t=>t.source===a.source&&(a.index===undefined||t.index===a.index)),t=s.pending.splice(i,1)[0];
-  if(a.kind==='trigger'){if(t.kind==='program'){payAbilityCost(s,who,t.program,a,t.source);const trap=RULES[card(s,t.source).id]?.mode==='trap';if(trap)b.prepared=b.prepared.filter(e=>e.id!==t.source);const key=t.source+'#'+s.cards[t.source].generation+':'+t.index;p.used.push(key);s.chain.push({actor:who,source:t.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,kind:'program',steps:t.program.steps,event:t.event,variant:a.variant,ability:!trap});}else s.chain.push({actor:who,source:t.source,kind:t.kind,ability:true});log(s,`${who}：${title(s,t.source)}の能力を発動`);s.priority=who;}
+  if(a.kind==='trigger'){if(t.kind==='program'){payAbilityCost(s,who,t.program,a,t.source);paySelections(s,who,t.program,a);const trap=RULES[card(s,t.source).id]?.mode==='trap';if(trap)b.prepared=b.prepared.filter(e=>e.id!==t.source);const key=t.source+'#'+s.cards[t.source].generation+':'+t.index;p.used.push(key);s.history.push({kind:'ability',actor:who,serial:s.serial,round:s.round,generation:s.cards[t.source].generation,index:t.index,source:t.source,cardId:card(s,t.source).id});s.chain.push({actor:who,source:t.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,targetZone:a.target?cardZone(s,a.target):null,kind:'program',steps:t.program.steps,...selectionLink(a,t.program),event:t.event,variant:a.variant,ability:!trap});}else s.chain.push({actor:who,source:t.source,kind:t.kind,ability:true});log(s,`${who}：${title(s,t.source)}の能力を発動`);s.priority=who;}
   if(!s.pending.length){s.phase='response';s.passes=0;}if(a.kind==='trigger'&&t.kind==='program'&&RULES[card(s,t.source).id]?.mode==='trap')enqueueTriggers(s,{kind:'trapActivation',actor:who,source:t.source,setSerial:t.setSerial});return;
  }
  if(a.kind==='place'){
@@ -138,16 +140,16 @@ function execute(s,a){const who=actor(s),p=s.players[who],b=p.board;
   triggers(s,birth&&card(s,a.source).id==='M-beetle-01'?[{actor:who,source:a.source,kind:'birth'}]:[],'normal');recordPlay(s,who,a.source,a.slot);if(a.slot==='main')enqueueTriggers(s,{kind:a.variant,actor:who,source:a.source});if(a.slot==='world'&&oldWorld)enqueueTriggers(s,{kind:'worldChange',actor:who,source:a.source,changedName:oldWorld!==card(s,a.source).id});return;
  }
  if(a.kind==='relationship'){p.time-=a.cost;fx.consumeDiscount(s,who,'relationship');p.relationship++;p.relationshipUsed=true;if(p.relationship===4)grow(s,who,10);log(s,`${who}：交際${p.relationship===4?'結婚':p.relationship}`);window(s);enqueueTriggers(s,{kind:p.relationship===4?'marriage':'progress',actor:who});return;}
- if(a.kind==='challenge'){p.challengeUsed=true;s.challenge={parameter:a.parameter,participants:{A:s.players.A.board.main,B:s.players.B.board.main}};log(s,`${who}：ちょうせんを宣言`);window(s,'compare');enqueueTriggers(s,{kind:'challenge',actor:who,source:b.main});return;}
+ if(a.kind==='challenge'){p.challengeUsed=true;s.challenge={parameter:a.parameter,id:s.revision,actor:who,generations:{A:s.cards[s.players.A.board.main].generation,B:s.cards[s.players.B.board.main].generation},participants:{A:s.players.A.board.main,B:s.players.B.board.main}};log(s,`${who}：ちょうせんを宣言`);window(s,'compare');enqueueTriggers(s,{kind:'challenge',actor:who,source:b.main});return;}
  if(a.kind==='ability'){
   p.used.push(token(s,a.source));remove(b.companions,a.source);p.deck.push(a.source);for(const e of [...b.prepared])if(e.target===a.source)discardField(s,who,e.id);
   if(s.phase==='normal')s.window='normal';activate(s,{actor:who,source:a.source,target:a.target,kind:'cat',ability:true});return;
  }
- if(a.kind==='programAbility'){const r=RULES[card(s,a.source).id].active;payAbilityCost(s,who,r,a,a.source);p.used.push(token(s,a.source)+':active');if(s.phase==='normal')s.window='normal';activate(s,{actor:who,source:a.source,target:a.target,targetGeneration:a.target?s.cards[a.target].generation:null,variant:a.variant,kind:'program',steps:r.steps,ability:true});return;}
- if(a.kind==='programPlay'){if(s.phase==='normal')s.window='normal';p.time-=a.cost;fx.consumeDiscount(s,who,'quick_'+card(s,a.source).type);remove(p.hand,a.source);activate(s,{actor:who,source:a.source,target:a.target,targetGeneration:a.target?s.cards[a.target].generation:null,variant:a.variant,kind:'program',steps:RULES[card(s,a.source).id].steps,ability:false});recordPlay(s,who,a.source);return;}
+ if(a.kind==='programAbility'){const r=RULES[card(s,a.source).id].active;payAbilityCost(s,who,r,a,a.source);paySelections(s,who,r,a);p.used.push(token(s,a.source)+':active');if(s.phase==='normal')s.window='normal';activate(s,{actor:who,source:a.source,target:a.target,targetGeneration:a.target?s.cards[a.target].generation:null,targetZone:a.target?cardZone(s,a.target):null,variant:a.variant,kind:'program',steps:r.steps,...selectionLink(a,r),ability:true});return;}
+ if(a.kind==='programPlay'){paySelections(s,who,RULES[card(s,a.source).id],a);if(s.phase==='normal')s.window='normal';p.time-=a.cost;fx.consumeDiscount(s,who,'quick_'+card(s,a.source).type);remove(p.hand,a.source);activate(s,{actor:who,source:a.source,target:a.target,targetGeneration:a.target?s.cards[a.target].generation:null,targetZone:a.target?cardZone(s,a.target):null,variant:a.variant,kind:'program',steps:RULES[card(s,a.source).id].steps,...selectionLink(a,RULES[card(s,a.source).id]),ability:false});recordPlay(s,who,a.source);return;}
  if(a.kind==='play'){
   if(s.phase==='normal')s.window='normal';p.time-=fx.payment(s,who,'quick_'+card(s,a.source).type,card(s,a.source).cost);fx.consumeDiscount(s,who,'quick_'+card(s,a.source).type);remove(p.hand,a.source);
-  activate(s,{actor:who,source:a.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,declare:a.declare??null,kind:card(s,a.source).id,ability:false});recordPlay(s,who,a.source);return;
+  activate(s,{actor:who,source:a.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,targetZone:a.target?cardZone(s,a.target):null,declare:a.declare??null,kind:card(s,a.source).id,ability:false});recordPlay(s,who,a.source);return;
  }
  if(a.kind==='pass'){
   if(s.phase==='normal'){window(s,'end_request',other(who));s.passes=1;return;}
@@ -156,7 +158,8 @@ function execute(s,a){const who=actor(s),p=s.players[who],b=p.board;
   if(s.window==='end_request'){endWindow(s);return;}
   if(s.window==='end'){endTurn(s);return;}
   if(s.window==='compare'){
-   const values={A:stats(s,'A')[s.challenge.parameter],B:stats(s,'B')[s.challenge.parameter]};const winner=values.A===values.B?null:values.A>values.B?'A':'B';if(winner)grow(s,winner,5);s.history.push({serial:s.serial,kind:'comparison',winner,values,round:s.round});log(s,`ちょうせん ${values.A}対${values.B}：${winner?winner+' +5':'引き分け'}`);window(s,'challenge_end');return;
+   if(['A','B'].some(a=>s.players[a].board.main!==s.challenge.participants[a]||(s.challenge.generations&&s.cards[s.challenge.participants[a]].generation!==s.challenge.generations[a]))){log(s,'参加メインが離れたため、ちょうせんを途中終了');window(s,'challenge_end');return;}
+   const values={A:stats(s,'A')[s.challenge.parameter],B:stats(s,'B')[s.challenge.parameter]};const winner=values.A===values.B?null:values.A>values.B?'A':'B';if(winner)grow(s,winner,5);s.history.push({serial:s.serial,kind:'comparison',winner,values,round:s.round,actor:s.challenge.actor,parameter:s.challenge.parameter,participants:clone(s.challenge.participants)});log(s,`ちょうせん ${values.A}対${values.B}：${winner?winner+' +5':'引き分け'}`);window(s,'challenge_end');for(const a of ['A','B'])enqueueTriggers(s,{kind:'challengeResult',actor:a,source:s.challenge.participants[a],result:winner===null?'draw':winner===a?'win':'loss',parameter:s.challenge.parameter,ownChallenge:s.challenge.actor===a,values});return;
   }
   if(s.window==='challenge_end'){fx.cleanup(s,'challengeEnd',s.turn);s.challenge=null;}
   s.phase='normal';s.priority=s.turn;s.passes=0;
@@ -167,6 +170,7 @@ function resolveChain(s){
  while(s.chain.length){const l=s.chain.pop(),p=s.players[l.actor],b=p.board;
   const sameTarget=()=>l.target&&s.cards[l.target].generation===l.targetGeneration;
   log(s,`${l.actor}：${title(s,l.source)}を解決`);
+  if(l.kind==='program'&&card(s,l.source).type==='partner'&&!b.main)continue;
   if(l.kind==='program'){if(!l.ability)p.discard.push(l.source);if(fx.begin(s,l,l.steps,helpers))return;continue;}
   let choice=null;
   if(l.kind==='I-c_coin2'&&p.deck.length){const top=p.deck.shift();log(s,`公開：${title(s,top)}`);p.deck.push(top);if(card(s,top).type==='main')grow(s,l.actor,5);else draw(s,l.actor);}
@@ -204,13 +208,13 @@ export function view(s,viewer){
  const describe=id=>({...card(s,id),cardId:card(s,id).id,id,name:title(s,id)});
  const players={};for(const a of ['A','B']){const p=s.players[a],b=p.board;players[a]={time:p.time,growth:p.growth,relationship:p.relationship,handCount:p.hand.length,deckCount:p.deck.length,discard:p.discard.map(describe),stats:stats(s,a),board:{main:b.main?describe(b.main):null,partner:b.partner?describe(b.partner):null,world:b.world?describe(b.world):null,companions:b.companions.map(describe),prepared:b.prepared.map((e,i)=>e.faceDown&&a!==viewer?{id:'hidden:'+a+':'+i,name:'しかけたカード',text:'相手の伏せ札は確認できません',hidden:true}:{...describe(e.id),target:e.faceDown?'しかける':title(s,e.target)})}};if(a===viewer)players[a].hand=p.hand.map(describe);}
  const choice=s.choice&&s.choice.actor===viewer?{kind:s.choice.kind,peek:s.choice.peek?s.choice.peek.map(describe):s.choice.kind==='look'?describe(s.players[viewer].deck[0]):null}:null;
- return {round:s.round,turn:s.turn,actor:actor(s),phase:s.phase,revision:s.revision,result:s.result,players,choice,chain:s.chain.map(l=>({actor:l.actor,name:title(s,l.source),target:l.target?privateLabel(s,viewer,title(s,l.target)):null,declare:l.declare?TYPE_NAMES[l.declare]:null})),log:s.log.slice(-60),actions:viewer===actor(s)?legalActions(s).map((a,i)=>({kind:a.kind,source:a.source,label:privateLabel(s,viewer,a.label),id:`ui:${s.revision}:${i}`})):[]};
+ return {round:s.round,turn:s.turn,actor:actor(s),phase:s.phase,revision:s.revision,result:s.result,players,choice,chain:s.chain.map(l=>({actor:l.actor,name:title(s,l.source),target:l.publicTargets?.length?l.publicTargets.map(id=>privateLabel(s,viewer,title(s,id))).join(' / '):l.target?privateLabel(s,viewer,title(s,l.target)):null,declare:l.declare?TYPE_NAMES[l.declare]:null})),log:s.log.slice(-60),actions:viewer===actor(s)?legalActions(s).map((a,i)=>({kind:a.kind,source:a.source,label:privateLabel(s,viewer,a.label),id:`ui:${s.revision}:${i}`})):[]};
 }
 export function save(s){if(s.version===legacy.VERSION)return legacy.save(s);validate(s);return JSON.stringify({version:VERSION,seed:s.seed,decks:s.decks,commands:s.commands});}
 export function restore(text){const data=JSON.parse(text);if(data.version===legacy.VERSION)return legacy.restore(text);if(data.version!==VERSION||!Array.isArray(data.commands)||data.commands.length>10000||Object.keys(data).sort().join()!=='commands,decks,seed,version')throw Error('保存形式が異なります');let s=createGame(data.seed,data.decks);for(const id of data.commands)s=act(s,actor(s),s.revision,id);return s;}
 
 function recordPlay(s,a,source,slot){const c=card(s,source);s.history.push({serial:s.serial,actor:a,kind:'play',source,cardId:c.id,type:c.type,method:c.method??null,generation:s.cards[source].generation,faceUp:!s.players[a].board.prepared.some(e=>e.id===source&&e.faceDown)});if(slot)s.history.push({serial:s.serial,actor:a,kind:'place',slot,source});if(slot)enqueueTriggers(s,{kind:'place',actor:a,source});enqueueTriggers(s,{kind:'cardPlayed',actor:a,source,method:c.method??null,faceUp:!s.players[a].board.prepared.some(e=>e.id===source&&e.faceDown)});}
-function enqueueTriggers(s,event){s.history.push({...event,serial:s.serial,...(event.source?{generation:s.cards[event.source].generation}:{})});s.pending.push(...fx.triggerRows(s,event));if(s.pending.length)s.phase='trigger';}
+function enqueueTriggers(s,event){event={...event,stats:{A:stats(s,'A'),B:stats(s,'B')}};s.history.push({...event,serial:s.serial,...(event.source?{generation:s.cards[event.source].generation}:{})});s.pending.push(...fx.triggerRows(s,event));if(s.pending.length)s.phase='trigger';}
 function startBoundary(s,kind){const due=s.scheduled.filter(e=>e.timing===kind&&e.actor===s.turn&&e.due<=s.serial);if(!due.length)return false;s.scheduled=s.scheduled.filter(e=>!due.includes(e));s.boundary={kind,due};runScheduled(s);return true;}
 function runScheduled(s,index){const b=s.boundary;if(!b.due.length){const kind=b.kind;s.boundary=null;if(kind==='start')finishStart(s);else finishEnd(s);return;}
  if(index===undefined&&b.due.length>1){requestChoice(s,s.turn,'scheduled_order',b.due.map((e,i)=>({id:String(i),label:title(s,e.link.source)+'の予約を先に処理'})),'boundary');return;}
@@ -221,3 +225,22 @@ function resumeWork(s){if(s.boundary)runScheduled(s);else resolveChain(s);}
 function privateLabel(s,viewer,label){for(const e of ['A','B'].filter(a=>a!==viewer).flatMap(a=>s.players[a].board.prepared))if(e.faceDown)label=label.replaceAll(title(s,e.id),'しかけたカード');return label;}
 
 function payAbilityCost(s,a,r,action,source){const p=s.players[a];p.time-=r.cost??0;if(r.handCost){remove(p.hand,action.costCard);if(r.handCost.destination==='bottom')p.deck.push(action.costCard);else p.discard.push(action.costCard);log(s,`${a}：発動コストとして手札を移動${r.handCost.reveal?'（'+title(s,action.costCard)+'）':''}`);}}
+
+function activationRule(s,a){if(a.kind==='programPlay')return RULES[card(s,a.source).id];if(a.kind==='programAbility')return RULES[card(s,a.source).id].active;return s.pending.find(t=>t.source===a.source&&t.index===a.index)?.program;}
+function selectionAvailable(s,a,r,ctx){return (r.select??[]).every(spec=>selections.feasible(s,a,selectionSpec(spec),ctx));}
+function selectionPrompt(s){const d=s.activationDraft,spec=d.rule.select[d.index],ids=d.selection[spec.key]??=[],ctx={...d.action,selection:d.selection};const options=selections.candidates(s,d.actor,selectionSpec(spec),ctx,ids).map(id=>({id,label:(spec.cost?'支払い':'対象')+' '+(ids.length+1)+'：'+privateLabel(s,d.actor,title(s,id))}));if(selections.complete(s,d.actor,selectionSpec(spec),ctx,ids))options.push({id:'done',label:'この選択を確定'});options.push({id:'cancel',label:'発動を取りやめる'});s.choice={actor:d.actor,kind:'activation_selection',options,resume:'activationSelection'};s.phase='choice';}
+function chooseActivation(s,value){const d=s.activationDraft,spec=d.rule.select[d.index];if(value==='cancel'){s.phase=d.phase;s.priority=d.priority;s.activationDraft=null;s.choice=null;return;}
+ if(value==='done')d.index++;else{(d.selection[spec.key]??=[]).push(value);if(d.selection[spec.key].length===(spec.count??spec.max??1))d.index++;}
+ if(d.index<d.rule.select.length){selectionPrompt(s);return;}
+ const selection=Object.fromEntries(Object.entries(d.selection).map(([k,ids])=>[k,ids.map(id=>({id,generation:s.cards[id].generation,zone:cardZone(s,id)}))]));s.phase=d.phase;s.priority=d.priority;s.activationDraft=null;s.choice=null;execute(s,{...d.action,selection,selectionReady:true});
+}
+function paySelections(s,a,r,action){for(const spec of r.select??[]){if(!spec.cost)continue;for(const {id,generation} of action.selection[spec.key]??[]){if(s.cards[id]?.generation!==generation)throw Error('支払い対象が変わりました');const p=s.players[a];if(spec.reveal)log(s,'公開：'+title(s,id));if(spec.cost==='reveal')continue;
+ if(p.hand.includes(id))remove(p.hand,id);else if(p.discard.includes(id))remove(p.discard,id);else{discardField(s,a,id);remove(p.discard,id);}
+ if(spec.cost==='bottom')p.deck.push(id);else if(spec.cost==='top')p.deck.unshift(id);else if(spec.cost==='hand')p.hand.push(id);else if(spec.cost==='discard')p.discard.push(id);else throw Error('未対応の支払い先');s.history.push({kind:'cost',serial:s.serial,actor:a,source:action.source,card:id,destination:spec.cost});}}
+}
+
+function selectionSpec({key,cost,reveal,...spec}){return spec;}
+
+function cardZone(s,id){const p=s.players[s.cards[id].owner];return ['hand','deck','discard'].find(zone=>p[zone].includes(id))??'field';}
+
+function selectionLink(a,r){return a.selection?{selection:a.selection,publicTargets:(r.select??[]).filter(x=>!x.cost).flatMap(x=>(a.selection[x.key]??[]).map(ref=>ref.id))}:{};}

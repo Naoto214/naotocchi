@@ -6,7 +6,7 @@ function go(s,kind,fn=()=>true){const a=e.legalActions(s).find(a=>a.kind===kind&
 function resolve(s){s=go(s,'pass');return go(s,'pass');}
 function choices(s){let n=0;while(s.choice&&n++<100)s=go(s,'choose');return s;}
 test('custom decks reject unsupported and copy limits; legacy saves remain exact',()=>{
- const d=[...e.DEFAULT_DECK];d[0]='M-beetle-07';assert.equal(e.validateDeck(d),true);assert.equal(e.createGame(1,{A:d,B:e.DEFAULT_DECK}).decks.A[0],'M-beetle-07');d[0]='M-dragon-06';assert.throws(()=>e.validateDeck(d));assert.throws(()=>e.validateDeck(Array(40).fill('C-box')));assert.deepEqual(e.restore(old.save(old.createGame(7))),old.createGame(7));
+ const d=[...e.DEFAULT_DECK];d[0]='M-beetle-07';assert.equal(e.validateDeck(d),true);assert.equal(e.createGame(1,{A:d,B:e.DEFAULT_DECK}).decks.A[0],'M-beetle-07');d[0]='UNKNOWN-CARD';assert.throws(()=>e.validateDeck(d));assert.throws(()=>e.validateDeck(Array(40).fill('C-box')));assert.deepEqual(e.restore(old.save(old.createGame(7))),old.createGame(7));
 });
 test('higher main birth and time skip use stage/difference payments',()=>{
  let s=fixture();const source=put(s,'A','M-beetle-07');s=go(s,'place',a=>a.source===source);assert.equal(s.players.A.time,3);assert.deepEqual(e.stats(s,'A'),{power:10,wisdom:4});

@@ -14,7 +14,7 @@ test('explicit main programs bind canonical main sources without fallback',()=>{
   if(!rule.triggers&&!rule.active&&!rule.passive)assert.equal(source.text,'能力なし。',id);
  }
  assert.equal(MAIN_RULES['M-cat-06'],undefined,'replacement must not silently become vanilla');
- assert.equal(MAIN_RULES['M-phoenix-03'],undefined,'unimplemented activation costs must not be omitted');
+ assert.equal(MAIN_RULES['M-phoenix-04'],undefined,'unimplemented post-challenge effects must not be omitted');
 });
 
 test('birth ordering descriptors distinguish reorder from top/bottom choice',()=>{
@@ -137,4 +137,58 @@ test('main observers watch any own companion placement with exact costs and targ
  const s=MAIN_RULES['M-sakura-03'].triggers[0];assert.equal(s.when,'place');assert.equal(s.anySource,true);assert.equal(s.condition,'eventCompanion');assert.equal(s.target,'ownDiscardEquipment');assert.equal(s.cost,1);
  assert.equal(CATALOG['M-dandelion-03'].text,'1ターンに1回。自分のなかまが出た時、自分にセカイがある場合、手札1枚を捨て札に置いて発動できる。1枚引く。');
  const d=MAIN_RULES['M-dandelion-03'].triggers[0];assert.equal(d.anySource,true);assert.equal(d.condition.all[0],'eventCompanion');assert.deepEqual(d.handCost,{destination:'discard'});
+});
+
+
+test('multi-card main costs preserve exact counts, destination and distinctness',()=>{
+ assert.equal(CATALOG['M-phoenix-03'].text,'1ターンに1回。自分のターンに、時2を払い、手札2枚を好きな順で山札の一番下に置いて発動できる。3枚引く。');
+ const p=MAIN_RULES['M-phoenix-03'].active;assert.equal(p.cost,2);assert.equal(p.select[0].count,2);assert.equal(p.select[0].zone,'ownHand');assert.equal(p.select[0].cost,'bottom');assert.equal(p.steps[0].n,3);
+ assert.match(CATALOG['M-star-02'].text,/段階が異なる①〜③のメイン2枚/);
+ const st=MAIN_RULES['M-star-02'].active.select[0];assert.equal(st.distinct,'stage');assert.deepEqual(st.filter,{type:'main',minStage:1,maxStage:3});
+ assert.match(CATALOG['M-woman-07'].text,/カード種類が異なるメイン以外のカード2枚/);
+ assert.equal(MAIN_RULES['M-woman-07'].active.select[0].distinct,'type');
+ assert.equal(MAIN_RULES['M-woman-07'].active.condition,undefined);
+});
+
+test('prepared-card costs apply before targeted recovery or removal',()=>{
+ assert.match(CATALOG['M-phoenix-07'].text,/時1を払い、自分の準備枠のカード1枚を捨て札/);
+ const p=MAIN_RULES['M-phoenix-07'].active;assert.equal(p.cost,1);assert.equal(p.target,'ownDiscardMain');assert.equal(p.select[0].cost,'discard');
+ assert.match(CATALOG['M-hermit_crab-03'].text,/このメインにみにつけられているカード1枚/);
+ assert.deepEqual(MAIN_RULES['M-hermit_crab-03'].active.select[0].filter,{attachedTo:'main'});
+ assert.match(CATALOG['M-dragon-06'].text,/時3を払い、手札1枚と自分の準備枠のカード1枚を捨て札/);
+ const d=MAIN_RULES['M-dragon-06'].active;assert.equal(d.cost,3);assert.equal(d.handCost.destination,'discard');assert.equal(d.select[0].cost,'discard');
+});
+
+test('god arrival returns two distinct non-main targets and retains its full activation costs',()=>{
+ assert.equal(CATALOG['M-god-06'].text,'この名前の能力は1ターンに1回。このメインがこの段階になった時、自分のそだちが相手より10以上低い場合、時2を払い、手札1枚を山札の一番下に置き、自分の捨て札のカード種類が異なるメイン以外のカード2枚を対象として発動できる。その対象を手札に戻す。');
+ const t=MAIN_RULES['M-god-06'].triggers[0];assert.equal(t.onceName,true);assert.equal(t.cost,2);assert.deepEqual(t.handCost,{destination:'bottom'});assert.equal(t.select[0].distinct,'type');assert.equal(t.select[0].count,2);assert.equal(t.select[0].cost,undefined);assert.deepEqual(t.steps,[{op:'selectedMove',key:'recovery',destination:'hand'}]);
+});
+
+
+test('main result triggers preserve participant and result-specific canonical requirements',()=>{
+ assert.equal(CATALOG['M-butterfly-03'].text,'1ターンに1回。このメインが自分から行ったちょうせんに勝った時、このメインがこのターン開始時からメイン枠にあり、自分の準備枠にカードがある場合、発動できる。1枚引く。');
+ const b=MAIN_RULES['M-butterfly-03'].triggers[0];assert.equal(b.when,'challengeResult');assert.deepEqual(b.condition.all.slice(0,3),['won','eventOwnChallenge','sameMainSinceStart']);
+ assert.match(CATALOG['M-cicada-07'].text,/このターンにメイン枠に置かれており.*まだあそびカードを表向きでプレイしていない/);
+ const c=MAIN_RULES['M-cicada-07'].triggers[0];assert.deepEqual(c.condition.all.slice(2),[{value:'enteredThisTurn',op:'eq',n:1},{value:'plays',op:'eq',n:0}]);
+ assert.equal(MAIN_RULES['M-coral-08'].triggers[0].condition.all[0],'won');
+ assert.equal(MAIN_RULES['M-frog-05'].triggers[0].condition.all[2],'changedDifferentWorld');
+});
+
+test('plush losing challenge compares its actual result value and draws only after moving hand',()=>{
+ assert.equal(CATALOG['M-plush-05'].text,'1ターンに1回。このメインがちょうせんに負けた時、その比較でこのメインが使用した能力値が3以下だった場合、発動できる。手札1枚を山札の一番下に置く。そうしたなら、2枚引く。');
+ const p=MAIN_RULES['M-plush-05'].triggers[0];assert.deepEqual(p.condition,{all:['lost',{value:'eventOwnValue',op:'lt',n:4}]});assert.equal(p.handCost,undefined);assert.equal(p.steps[0].op,'handBottom');assert.equal(p.steps[1].condition,'handMoved');assert.equal(p.steps[1].steps[0].n,2);
+});
+
+test('received challenge bonuses retain round limits and both-direction bonus shares one trigger',()=>{
+ assert.match(CATALOG['M-turtle-02'].text,/1ラウンドに1回.*相手からちょうせんされた/);
+ for(const id of ['M-turtle-02','M-penguin-01']){const t=MAIN_RULES[id].triggers[0];assert.equal(t.opponent,true);assert.equal(t.limit,'round');}
+ assert.equal(CATALOG['M-starfish-06'].text,'1ターンに1回。このメインが自分からちょうせんする時、または相手からちょうせんを受ける時、自分の捨て札にカード種類が異なるメイン以外のカードが3種類以上ある場合、発動できる。このちょうせんの間、このメインの使用する能力値+1。');
+ const f=MAIN_RULES['M-starfish-06'];assert.equal(f.triggers.length,1);assert.equal(f.triggers[0].anyActor,true);assert.equal(f.triggers[0].once,true);
+});
+
+test('phoenix challenge pays time for a computed-value deficit and printed-stat star target stays distinct',()=>{
+ assert.equal(CATALOG['M-phoenix-02'].text,'1ターンに1回。このメインが自分からちょうせんする時、このメインの使用する能力値が相手より低い場合、時1を払って発動できる。このちょうせんの間、このメインの使用する能力値+2。');
+ const p=MAIN_RULES['M-phoenix-02'].triggers[0];assert.equal(p.cost,1);assert.deepEqual(p.condition.all[1],{value:'battleValue',op:'lt',n:{value:'opponentBattleValue'}});
+ assert.match(CATALOG['M-star-05'].text,/印刷されたちえがちからより高いメイン/);
+ const st=MAIN_RULES['M-star-05'].triggers[0];assert.equal(st.target,'ownDiscardWisdomHigherMain');assert.deepEqual(st.condition,{all:['won','eventPower']});
 });
