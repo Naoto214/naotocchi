@@ -4,7 +4,7 @@
 // 住人と おなじ はんけい(bodyRadius × STAND_CLEAR)で めりこむ 人数が 0(おかれた 直後も)。あるいた あと とまっても 0
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { harness } = require('./helpers/runtime-harness.cjs');
+const { harness } = require('./helpers/party-geometry-harness.cjs');
 
 const arr = (x) => Array.from(x || []);
 function setup() {

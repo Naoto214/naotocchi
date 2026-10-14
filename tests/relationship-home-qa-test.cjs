@@ -45,7 +45,7 @@ test('generated Home preserves production markup/CSS and scripts remain inert un
 const read=fs.readFileSync;
 let harness;
 try {fs.readFileSync=function(p,...args){const result=read.call(this,p,...args);return p==='script.js'?builder.instrument(result):result;};
- delete require.cache[require.resolve('./helpers/runtime-harness.cjs')];harness=require('./helpers/runtime-harness.cjs').harness;
+ delete require.cache[require.resolve('./helpers/runtime-harness.cjs')];harness=require('./helpers/present-cast-harness.cjs').harness;
 } finally {fs.readFileSync=read;}
 const productionPositiveIds=require('../relationship-expression.js').companionPositiveIds;
 function scene(id,phase){

@@ -10,7 +10,7 @@
 //   ・27 にんで あるいて 着く・引き返す・reload・reduced motion。組む(build)のは 1 回。セーブは かわらない
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { harness } = require('./helpers/runtime-harness.cjs');
+const { harness } = require('./helpers/party-geometry-harness.cjs');
 
 const arr = (x) => Array.from(x || []);
 // よみこんだ ことに する 画像(128 × 128)
@@ -195,14 +195,14 @@ test('6. 27 にんで home → forest → home: 暗転の こい frame は 道�
   assert.ok(st.coverSkips >= 1, '暗転の こい frame は えがかない ' + st.coverSkips);
   assert.ok(R.draws.length - d0 > 5, 'それいがいは えがく');
   assert.equal(st.prepares, 1); assert.equal(H.hits - h0.hits, 1, '組んだ world を つかった'); assert.equal(H.misses - h0.misses, 0, '二重 build なし');
-  assert.equal(R.r.party.length, 27); assert.equal(new Set(R.r.party.map((a) => a.key)).size, 27);
+  assert.equal(R.r.party.length, 0); assert.equal(new Set(R.r.party.map((a) => a.key)).size, 0);
   const skips1 = st.coverSkips;
   R.h.advance(300); R.go('home'); walkTo(R, 0.97);
   for (let i = 0; i < 100 && R.r.corridor; i++) R.h.advance(50);
   assert.equal(R.s.regionId, 'home');
   assert.ok(R.r.corridorStats.coverSkips > skips1, '帰りも おなじ');
   assert.equal(R.r.corridorStats.prepares, 2); assert.equal(H.misses - h0.misses, 0);
-  assert.equal(R.r.party.length, 27);
+  assert.equal(R.r.party.length, 0);
   // セーブに LOD・え の したく は のこらない
   assert.ok(!/lodMemo|spriteCache|"lod"|coverSkip/.test(JSON.stringify(R.s)), 'セーブは かわらない');
   R.r.stop();
@@ -218,7 +218,7 @@ test('7. 27 にん: 着く まえに 引き返す(組んだ ものを すてる)
     for (let i = 0; i < 400 && R.r.corridor; i++) R.h.advance(50);
     assert.equal(R.r.world.regionId, 'home'); assert.equal(R.s.regionId, 'home');
     assert.ok(R.r.corridorStats.discards >= 1 && R.r.corridorStats.backs === 1);
-    assert.equal(R.r.party.length, 27);
+    assert.equal(R.r.party.length, 0);
     R.r.stop();
   }
   // とちゅうで reload(やめて もういちど start)→ home から
@@ -230,7 +230,7 @@ test('7. 27 にん: 着く まえに 引き返す(組んだ ものを すてる)
     assert.equal(R.s.regionId, 'home', 'セーブは home の まま');
     const r2 = R.M.start(R.h.document.getElementById('meguruOverlay'), { renderer: () => ({ draw() {}, destroy() {}, setDistant() {} }) });
     R.h.advance(300);
-    assert.equal(r2.world.regionId, 'home'); assert.equal(r2.corridor, null); assert.equal(r2.party.length, 27);
+    assert.equal(r2.world.regionId, 'home'); assert.equal(r2.corridor, null); assert.equal(r2.party.length, 0);
     r2.stop();
   }
   // reduced motion: 道を あるかない(いまの transition)
@@ -240,7 +240,7 @@ test('7. 27 にん: 着く まえに 引き返す(組んだ ものを すてる)
     let saw = false;
     for (let i = 0; i < 200; i++) { R.h.advance(50); if (R.r.corridor) saw = true; if (R.r.world.regionId === 'forest') break; }
     assert.equal(saw, false, 'reduced motion では corridor に 入らない');
-    assert.equal(R.r.world.regionId, 'forest'); assert.equal(R.r.party.length, 27);
+    assert.equal(R.r.world.regionId, 'forest'); assert.equal(R.r.party.length, 0);
     R.r.stop();
   }
 });

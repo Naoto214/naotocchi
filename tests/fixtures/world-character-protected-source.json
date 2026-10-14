@@ -1,8 +1,8 @@
 {
-  "base": "de0b38d06a4fec8d7d4e42497b9757996d8f2f7f",
-  "note": "Reviewed World integration source plus flag-gated restoration of main 2D discovery/map behavior. Original Character asset/Expression fixture remains unchanged. See docs/qa/world-character-integration-20261012/.",
+  "base": "cee3e8726ef3078e9b349e300c976e831786bbf0",
+  "note": "Authorized relationship free-life changes: registry, simulation and optional action UI only. Character/World renderer and expression modules unchanged; see docs/qa/relationship-free-life-20261014/REPORT.md.",
   "meguru.js": {
     "count": 1,
-    "sha1": "38f2031aa834cddbc5c72c9c132e4ef4408bcb99"
+    "sha1": "9800b7a615b5be2181ef5c3cc15298a49431715e"
   }
 }

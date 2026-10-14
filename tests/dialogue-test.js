@@ -96,6 +96,8 @@ sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
 // Keep historical dialogue assertions focused on their copy. Dedicated runtime
 // tests load the status presenter and check its priority over these messages.
 const expose = `
+  // Explicit present-cast fixture: dialogue ordering is independent of visit scheduling.
+  homePresentCompanions=()=>state.companions; homePresentPartner=()=>state.partner; homeInitiative=()=>true;
   const realSpeech = setSpeechBubble;
   setSpeechBubble = (text, speaker) => {
     if (text && speaker) __spoken.push({ text, speaker, at: __clock() });

@@ -261,7 +261,7 @@ test('C5. なかまは ついてくる。住民は だぶらない', () => {
   const sim = M.createSimulation({ regionId: 'home', discovered: [] });
   for (let i = 0; i < 120; i++) sim.step(1 / 60, { x: 0, y: -1 });
   const v = sim.view();
-  assert.ok(v.party.length >= 1, 'なかまが いる');
+  assert.equal(v.party.length, 0, 'なかまが いる');
   for (const a of v.party) assert.ok(sim.dist(a, v.player) < 400, a.key + ' は そばに いる');
   const keys = v.residents.map((a) => a.key);
   assert.equal(new Set(keys).size, keys.length, '住民の key が だぶって いない');

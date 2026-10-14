@@ -408,7 +408,7 @@ test('14. **消しても うごきが 変わらない**(まだ だれにも つ�
   const rest = SRC.replace(block, '');
   const INNER = ['buildCorridor', 'orientCorridor', 'corridorCache', 'corridorOutward', 'COMPASS8'];
   // (a) しずかな しょうめい: Phase 4C の なまえは ブロックと export の ぎょう いがいに 出て こない
-  const exportLine = rest.split('\n').find((l) => l.includes('return { computeMapData,')) || '';
+  const exportLine = rest.split('\n').find((l) => /return \{ (?:socialSession, )?computeMapData,/.test(l)) || '';
   const outside = rest.replace(exportLine, '');
   for (const n of EXPORTS_4C.concat(INNER)) {
     const hit = outside.match(new RegExp('\\b' + n + '\\b', 'g')) || [];

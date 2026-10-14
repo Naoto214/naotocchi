@@ -4265,8 +4265,9 @@
   }
 
   function companionSpeaker() {
-    if (!state.companions.length) return null;
-    const sc = state.companions[Math.floor(Math.random() * state.companions.length)];
+    const present=homePresentCompanions();
+    if (!present.length) return null;
+    const sc = present[Math.floor(Math.random() * present.length)];
     const c = allCompanionsById(sc.id);
     return c ? { kind: 'companion', id: c.id, emoji: c.emoji, label: c.name } : null;
   }
@@ -6229,7 +6230,7 @@
       beats.push({ speaker: petSpeaker(), text: petLine });
     }
     if (state.partner && pool.partner && Math.random() < (ctx.partnerChance ?? 0.6)) {
-      const ps = partnerSpeaker();
+      const ps = homePresentPartner() ? partnerSpeaker() : null;
       // 成立・結婚の固有セリフは、必ず恋人の吹き出しへ。
       const relationshipKey = eventKey === 'partner_new' ? 'court' : eventKey === 'marriage' ? 'marriage' : null;
       const relationshipLine = PARTNER_RELATIONSHIP_LINES[state.partner.id]?.[relationshipKey];
@@ -11089,15 +11090,15 @@
           || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'});
         const choices = petIdleBlocked ? [] : [{ kind: 'pet', weight: 4 }];
         // 恋人・仲間がいる人生では本人だけが独占せず、周囲もかなりよく割り込む。
-        if (state.partner) choices.push({ kind: 'partner', weight: 4 });
-        if (state.companions.length) choices.push({ kind: 'companion', weight: 4 });
+        if (homePresentPartner()) choices.push({ kind: 'partner', weight: 4 });
+        if (homePresentCompanions().length) choices.push({ kind: 'companion', weight: 4 });
         const expanded = choices.flatMap((x) => Array(x.weight).fill(x.kind));
         const kind = expanded[Math.floor(Math.random() * expanded.length)];
         if (kind === 'partner') {
-          setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[state.partner.id], PARTNER_IDLE_LINES), partnerSpeaker());
+          if(homePresentPartner() && homeInitiative('affection_interaction','partner:'+state.partner.id))setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[state.partner.id], PARTNER_IDLE_LINES), partnerSpeaker());
         } else if (kind === 'companion') {
           const speaker = companionSpeaker();
-          setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker?.id], COMPANION_IDLE_LINES), speaker);
+          if(speaker && homeInitiative('greeting','companion:'+speaker.id))setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker.id], COMPANION_IDLE_LINES), speaker);
         } else if (kind === 'pet') {
           const memoryGreeting = Math.random() < 0.3 ? pickMemoryGreeting() : null;
           // 方言は本人の短い遊びとして時々。通常の独り言の大半を占めさせない。
@@ -11737,6 +11738,7 @@
   }
 
   function render() {
+    updateHomeVisits();
     scheduleHistoryLayerSync();
     // 実時間の残りだけ待つ。保存からの再開でも5秒を延長しない。
     clearTimeout(gamePassCooldownTimer);
@@ -13629,7 +13631,7 @@
   // 本体キャラの左右の列に表示する。話者の安定IDで短い反応を結びつける。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = state.companions
+    const recruited = homePresentCompanions()
       .map((sc) => {
         const def = allCompanionsById(sc.id);
         return def ? {...def, ...relationshipVisual('companion',sc,def.asset)} : null;
@@ -13649,7 +13651,7 @@
   // 状態別のハートを添える。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
-    const p = !hide && state.partner;
+    const p = !hide && homePresentPartner();
     el.partnerCompanion.classList.toggle('hidden', !p);
     if (!p) {
       el.partnerCompanion.innerHTML = '';
@@ -14063,7 +14065,7 @@
   });
 
   function homeCastMotionRadius() {
-    const count = state.companions.filter(c=>allCompanionsById(c.id)).length;
+    const count = homePresentCompanions().filter(c=>allCompanionsById(c.id)).length;
     return window.NaotocchiCastMotion?.motionRadiusFor(count) || 0;
   }
 
@@ -14177,10 +14179,10 @@
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const main = currentVisualStage();
-    const p = state.partner;
+    const p = homePresentPartner();
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[p?.id] || p?.id;
     const partnerAsset = WORLD_MASTER?.partners?.find(def => def.id === partnerId)?.asset;
-    const recruited = state.companions.map(sc => allCompanionsById(sc.id)).filter(Boolean);
+    const recruited = homePresentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
     // Let sparse scenes share more of the available height with the care keys.
     // Measure after changing this attribute, before starting a speech reaction.
     el.device.dataset.castCrowded = String(recruited.length > 0);
@@ -14685,7 +14687,30 @@
     },
   };
   // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
+  // Home is a static care stage: project visits into the existing cast, not a second movement AI.
+  var homeVisits = null, homeVisitLast = null, homeVisitLife = null;
+  function homeInitiative(type,key) {
+    const session=meguruMod?.socialSession;
+    if(!session || !session.attempt(type,key))return false;
+    session.emit(type,key,{context:'home',reason:'idle'});return true;
+  }
+  function homePresentCompanions() {
+    const key=homeVisits?.current?.key;
+    return state.companions.filter(c=>'companion:'+canonicalCompanionId(c.id)===key);
+  }
+  function homePresentPartner() {return state.partner && homeVisits?.current?.key==='partner:'+state.partner.id ? state.partner : null;}
+  function updateHomeVisits() {
+    if(!homeVisits)return;
+    const now=Date.now(),delta=homeVisitLast==null?0:(now-homeVisitLast>5000?0:Math.max(0,(now-homeVisitLast)/1000)); homeVisitLast=now;
+    if(homeVisitLife!==state){homeVisits.clear('life_changed');homeVisitLife=state;}
+    if(document.visibilityState==='hidden' || gameActive || meguruActive || state.isSleeping || state.stage!==STAGE.GROWING || isAnyMenuOverlayOpen()) {homeVisits.clear('interrupted');return;}
+    const relations=state.companions.filter(c=>(c.bond||0)>=60).map(c=>({key:'companion:'+canonicalCompanionId(c.id)}));
+    if(state.partner)relations.push({key:'partner:'+state.partner.id});
+    homeVisits.update(delta,relations);
+  }
   const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru(meguruBridge) : null;
+  homeVisits = meguruMod?.socialSession && window.NaotocchiRelationshipLife?.createVisits(meguruMod.socialSession);
+  document.addEventListener('visibilitychange',()=>{homeVisitLast=null;if(!pageVisible())homeVisits?.clear('hidden');});
   // Preload once. A failed session stays on Canvas until page reload.
   let meguru3dRenderer = null;
   let meguru3dFailed = false, meguru3dSettled = false;

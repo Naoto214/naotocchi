@@ -1,0 +1,25 @@
+const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
+const {chromium}=require('playwright');const {harness}=require('../tests/helpers/runtime-harness.cjs');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/qa/relationship-free-life-20261014');
+const h=harness({deterministic:true}),save=h.api.state();Object.assign(save,{stage:'growing',speciesLine:'dog',ageTicks:500,stageIndex:4,regionId:'city',isSleeping:false,isSick:false,hunger:100,health:100,energy:100,savedAt:0});
+save.companions=[...h.api.normalCompanions,...h.api.rareCompanions].map(c=>({id:c.id,bond:100}));save.lifetime.companionsRecruited=save.companions.map(c=>c.id);save.partner={...h.api.partnerCandidates[0],affection:100};save.lifetime.partnersRecorded=[save.partner.id];Object.assign(save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'spring'});
+const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.png':'image/png','.svg':'image/svg+xml','.json':'application/json'};
+const server=http.createServer((req,res)=>{const name=decodeURIComponent(req.url.split('?')[0]),file=path.join(root,name==='/'?'index.html':name);if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);return res.end();}res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');if(name==='/script.js'){const src=fs.readFileSync(file,'utf8').replace(/\}\)\(\);\s*$/,`window.__socialQA={state:()=>state,M:meguruMod,render,visitors:()=>({companions:homePresentCompanions(),partner:homePresentPartner()})};\n})();`);res.end(src);}else fs.createReadStream(file).pipe(res);});
+(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/root/.cache/ms-playwright/chromium_headless_shell-1161/chrome-linux/headless_shell',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-webgl']});const results=[];
+try{for(const [width,height]of [[375,667],[390,844],[430,932],[844,390]]){
+ const context=await browser.newContext({viewport:{width,height},isMobile:true,hasTouch:true,deviceScaleFactor:1,reducedMotion:'reduce'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(s=>localStorage.setItem('naotocchi-save-v1',JSON.stringify(s)),save);
+ await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('.device.ui-home-active').waitFor({timeout:20000});
+ assert.equal(await page.locator('.companion-chip-small').count(),0);
+ await page.locator('#travelBtn').click();await page.locator('#meguruEnterBtn').click();await page.locator('#mgrCanvas').waitFor({state:'visible',timeout:20000});
+ await page.waitForFunction(()=>window.__meguruRun?.running);await page.evaluate(()=>{const r=window.__meguruRun,a=r.world.residents.find(a=>a.related);if(!a)throw Error('No relation resident '+JSON.stringify({comps:window.__socialQA.state().companions,region:r.world.regionId,related:r.sim.registry.residents.filter(a=>a.related).map(a=>[a.key,a.region])}));r.setPlayer(a.x,a.z);});
+ await page.locator('#mgrAccompany').waitFor({state:'visible'});await page.locator('#mgrAccompany').click();
+ await page.locator('#mgrSocialWalk').click();await page.waitForFunction(()=>window.__meguruRun.party.length===1);
+ await page.locator('#mgrAccompany').click();await page.locator('#mgrSocialChoices').waitFor({state:'visible'});await page.waitForTimeout(700);
+ const info=await page.evaluate(()=>{const r=window.__meguruRun;return {is3D:!!r.renderer.is3D,party:r.party.length,buttons:['mgrAccompany','mgrSocialWalk','mgrSocialAdventure','mgrSocialEnd','mgrSocialClose'].map(id=>{const b=document.getElementById(id),p=b.getBoundingClientRect();return{id,x:p.x,y:p.y,w:p.width,h:p.height};}),layout:r.layoutInfo()};});
+ assert.ok(info.layout.over<=1,'overlay overflow '+JSON.stringify(info.layout));
+ assert.ok(info.buttons.every(b=>b.h>=44&&b.x>=0&&b.x+b.w<=width+1&&b.y>=0&&b.y+b.h<=height+1),JSON.stringify(info));
+ await page.screenshot({path:path.join(out,`mobile-${width}x${height}.png`)});
+ await page.locator('#mgrSocialEnd').click();assert.equal(await page.evaluate(()=>window.__meguruRun.party.length),0);
+ await page.locator('#mgrHome').click();assert.equal(await page.evaluate(()=>window.__meguruRun),null);assert.deepEqual(errors,[]);results.push({width,height,...info,errors});await context.close();
+}}finally{await browser.close();server.close();}fs.writeFileSync(path.join(out,'browser.json'),JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results,null,2));})().catch(e=>{console.error(e);server.close();process.exitCode=1;});

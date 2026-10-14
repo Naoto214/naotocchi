@@ -1,7 +1,7 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const motion=require('../cast-motion.js');
-const {harness}=require('./helpers/runtime-harness.cjs');
+const {harness}=require('./helpers/present-cast-harness.cjs');
 const fs=require('node:fs');
 function rig({reduced=false,resting=false}={}){
  const node=()=>({isConnected:true,dataset:{},style:{width:'52px'},classList:{add(){},remove(){}},animations:[],animate(frames,options){const a={frames,options,cancel(){this.cancelled=true;}};this.animations.push(a);return a;}});

@@ -330,7 +330,7 @@ test('13. **消しても うごきが 変わらない**(つかうのは Phase 4D
   const rest = strip4d2(SRC.replace(block, ''));
   const INNER = ['DISTANT_CLASS', 'DISTANT_ENV_DEFAULT', 'buildDistantFor', 'distantCache', 'exitBearings', 'specialDestination', 'makeFeature'];
   // (a) しずかな しょうめい: Phase 4D-1 の なまえは ブロックと export の ぎょう いがいに 出て こない
-  const exportLine = rest.split('\n').find((l) => l.includes('return { computeMapData,')) || '';
+  const exportLine = rest.split('\n').find((l) => /return \{ (?:socialSession, )?computeMapData,/.test(l)) || '';
   const outside = rest.replace(exportLine, '');
   for (const n of EXPORTS_4D1.concat(INNER)) {
     const hit = outside.match(new RegExp('\\b' + n + '\\b', 'g')) || [];

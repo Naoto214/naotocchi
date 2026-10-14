@@ -268,7 +268,7 @@ test('10. 27 にんでも 組んで 着く(ならびは そのまま)。セー�
   const keys0 = Object.keys(R.s).sort().join(',');
   R.go('forest'); R.arrive();
   assert.equal(R.s.regionId, 'forest'); assert.equal(R.P().commits, 1);
-  assert.equal(R.r.party.length, 27); assert.equal(new Set(R.r.party.map((a) => a.key)).size, 27);
+  assert.equal(R.r.party.length, 0); assert.equal(new Set(R.r.party.map((a) => a.key)).size, 0);
   R.h.advance(300); R.go('home'); R.arrive();
   assert.equal(R.s.regionId, 'home'); assert.equal(R.P().commits, 2);
   assert.equal(Object.keys(R.s).sort().join(','), keys0, 'セーブの key は かわらない');

@@ -257,7 +257,7 @@ test('11. **消しても うごきが 変わらない**(まだ だれにも つ�
   const block = phase4bBlock();
   const rest = SRC.replace(block, '');
   // (a) しずかな しょうめい: Phase 4B の なまえは **ブロックと export の ぎょう いがいに 出て こない**
-  const exportLine = rest.split('\n').find((l) => l.includes('return { computeMapData,')) || '';
+  const exportLine = rest.split('\n').find((l) => /return \{ (?:socialSession, )?computeMapData,/.test(l)) || '';
   const outside = rest.replace(exportLine, '');
   for (const n of NAMES) {
     const hit = outside.match(new RegExp('\\b' + n + '\\b', 'g')) || [];

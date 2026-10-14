@@ -1,5 +1,5 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const vm=require('node:vm');
-const {harness}=require('./helpers/runtime-harness.cjs');
+const {harness}=require('./helpers/present-cast-harness.cjs');
 function setup(h,patch={}){
  for(const id of ['storyFlash','lifeCardOverlay','speechBubble'])h.get(id).classList.add('hidden');
  Object.assign(h.api.state(),{stage:'growing',speciesLine:'cat',ageTicks:500,stageIndex:5,sodachi:30,maxSodachi:30,hunger:80,happiness:80,energy:80,health:80,isSick:false,isSleeping:false,deathMeter:0,dying:false,transformOptions:null,affectionStreak:0,companions:[],partner:null,...patch});
