@@ -101,7 +101,8 @@ def verify_new_events(events, shots, runtime_shots):
         if event['action_type']=='attach_item':expected,generated=actions.attach(prior,action,history)
         else:
             if cap['kind']!='cost_modifier':raise ValueError('birth arrival capability unproved')
-            expected,generated=actions.legacy_placement(prior,dict(selected_action=action,selected_candidate=action['candidate_id'],candidate_set_complete=True),dict(public_events=history))
+            continuation,generated=old.normal.transition(state.current(prior),dict(selected_action=action,selected_candidate=action['candidate_id'],candidate_set_complete=True),{})
+            expected=state.advance(prior,continuation,seq)
         raw={k:v for k,v in generated[0].items() if k not in BIND_KEYS}
         if expected!=actual or raw!=event:raise ValueError('new placement provenance replay differs')
         proofs.append(dict(event_seq=seq,card_id=action['card_id'],kind=event['action_type'],

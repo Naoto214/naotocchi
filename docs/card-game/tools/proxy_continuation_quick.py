@@ -150,10 +150,6 @@ def scope(initial=None):
   def verify(events,shots,runtime):
    proofs=verify_original(events,shots,runtime);byseq={e['event_seq']:e for e in runtime}
    for event in events:
-    # Dispatch before lookup: entry events name a successor absent before entry.
-    # Their own placement verifier must prove the transition; quick-use replay
-    # only reads pre-state identities for the event families it owns.
-    if event['action_type'] not in ('activate_response','use_item','use_play','use_event','resolve_event'):continue
     if event['seq']-1 not in byseq:continue
     prior=byseq[event['seq']-1];g=prior['legacy_continuation']['game_state'];source=event.get('source_instance_id')
     supported={'E-final-time','G-hit-blow','I-c_coin2','E-first-date'}|payments.QUICK_CARDS.keys()

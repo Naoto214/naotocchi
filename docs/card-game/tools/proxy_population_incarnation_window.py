@@ -4,6 +4,7 @@ Only a conditional reconstruction. Selected actual transitions receive their
 own lifecycle hash chain; hypothetical cache entries are not counted as steps.
 """
 import copy
+import proxy_population_history_replay as history_replay
 from contextlib import contextmanager
 from threading import Lock
 import proxy_population_positive_window as positive
@@ -38,7 +39,8 @@ def _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connect
  def handler_scope(s):return policy.handler_scope(s) if isinstance(s,policy.Session) else old_handler(s)
  try:
   window.recovery.scope=recovery_scope;bridge.handler_scope=handler_scope
-  result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
+  with history_replay.scope():
+   result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
   before=copy.deepcopy(envelope);journal=original_record;actual=[]
   for step in result['steps']:
    for event,after in zip(step['events'],step['envelopes']):
