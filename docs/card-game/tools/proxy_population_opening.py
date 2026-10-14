@@ -9,8 +9,8 @@ from proxy_population_contract import source_path
 from proxy_mandatory_population_input import audit_input_bundle
 import proxy_normal_decision_seeded_restart as opening
 
-SOURCES='data/proxy-population-opening-466/sources.json'
-SOURCES_SHA='200cd56e3959869b5920529e8998b3b148de3d19ee188d5f8ab8521821c4d71f'
+SOURCES='data/proxy-history-incarnation-dispatch-20261014/opening-sources.json'
+SOURCES_SHA='4031b5f027b88c43e3c3b9109b508ed4c3bc6cc6c69a974e633402fe7ec2d3b9'
 
 
 def verify_sources(root=ROOT):

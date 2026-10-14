@@ -7,8 +7,8 @@ import proxy_population_first_response as first
 import proxy_response_window_contract as response
 import proxy_response_window_seeded_restart as legacy
 
-SOURCES='data/proxy-population-start-window-467/sources.json'
-SOURCES_SHA='a6d7f764652e15007c59c91bf7e67198be0a18a15e3ebc50a56d51f2884394c6'
+SOURCES='data/proxy-history-incarnation-dispatch-20261014/start-sources.json'
+SOURCES_SHA='2fe32d7312e5181d6657159cf3184cd0853bc34ccefc96a35064be0d4bf13542'
 
 
 def verify_sources(root=ROOT):

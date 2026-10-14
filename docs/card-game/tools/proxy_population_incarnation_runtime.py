@@ -119,6 +119,7 @@ class Connection:
  def scope(self):
   if not _SCOPE_LOCK.acquire(blocking=False):raise ValueError('incarnation scope reentry/concurrency forbidden')
   prior_guard=guard.require_initial_entry;prior_departure=departure.replace_companion;prior_transition=batch.transition;prior_apply=actions.apply;prior_bind=actions.bind_event;prior_verify=old.extension._verify_extended_step;prior_validate=state.validate;prior_detail=response_contract._instance_detail;prior_set=preparation.set_card;prior_attach=actions.attach
+  prior_placement=actions.legacy_placement
   prior_final_verify=quick.final_time.verify_transition
   def final_verify(row,after,event):
    before=quick.final_time.contracts.current(row)
@@ -193,6 +194,7 @@ class Connection:
    return self.finish(e,result,a['source_instance_id']) if a.get('action_type') in guard.ENTRY_ACTIONS and a['source_instance_id'] in life.field(life.game(result[0])) else result
   def set_card(e,a,h=None):return self.finish(e,prior_set(e,a,h),a['source_instance_id'])
   def attach(e,a,h=None):return self.finish(e,prior_attach(e,a,h),a['source_instance_id'])
+  def legacy_placement(e,r,i):return self.finish(e,prior_placement(e,r,i),r['selected_action']['source_instance_id'])
   def apply(e,r,i):
    result=prior_apply(e,r,i);a=r.get('selected_action',{})
    return self.finish(e,result,a['source_instance_id']) if a.get('action_type') in guard.ENTRY_ACTIONS and a['source_instance_id'] in life.field(life.game(result[0])) else result
@@ -209,8 +211,10 @@ class Connection:
    private[-1].update(game_state_after_sha256=old.start.opening._stop_state_sha256(a['game_state']),continuation_state_after_sha256=old.start._hash(a))
    return prior_verify(b,a,private)
   try:
+   actions.legacy_placement=legacy_placement
    quick.final_time.verify_transition=final_verify
    preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;yield
   finally:
+   actions.legacy_placement=prior_placement
    quick.final_time.verify_transition=prior_final_verify
    preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;_SCOPE_LOCK.release()

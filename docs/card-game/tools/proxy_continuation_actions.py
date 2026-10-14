@@ -106,6 +106,23 @@ def response_inventory(envelope, initial, events):
     return dict(opportunity,equipment_exclusions=excluded,envelope_sha256=state.state_hash(envelope))
 
 
+def legacy_placement(envelope,record,inputs):
+    """Same native placement for live application and exact historical replay.
+
+    Incarnation scope finishes this boundary; callers must still compare the
+    entire event and after-envelope, never substitute a successor in the past.
+    """
+    kind=record['selected_action']['action_type'];current=state.current(envelope)
+    if kind=='play_main':after,events=old.normal.transition(current,record,inputs)
+    elif kind in ('place_companion','place_partner'):
+        candidates.placement_certificate(envelope,record['selected_action'])
+        with old.placements.partner_placement_scope():after,events=old.extension._apply_placement(current,record)
+    else:raise ValueError('legacy placement action differs')
+    if len(events)!=1:raise ValueError('multi-event placement needs full envelope snapshots')
+    result=state.advance(envelope,after,after['last_event_seq'])
+    return result,[bind_event(envelope,result,events[0])]
+
+
 def apply(envelope, record, inputs):
     if envelope['legacy_continuation']['game_state']['phase']=='normal_action':
         rebuilt=candidates.select(envelope,record['inventory'],record['context'],record['policy_id'],inputs)
@@ -113,13 +130,11 @@ def apply(envelope, record, inputs):
         action=record['selected_action'];kind=action['action_type']
         if kind=='attach_item':return attach(envelope,action,inputs.get('public_events'))
         c=state.current(envelope)
-        if kind in ('pass','play_main'):
+        if kind in ('play_main','place_companion','place_partner'):return legacy_placement(envelope,record,inputs)
+        if kind=='pass':
             after,events=old.normal.transition(c,record,inputs)
         elif kind=='use_item' and action['card_id']=='I-c_coin2':
             after,events=old._activate_normal_coin(c,record)
-        elif kind in ('place_companion','place_partner'):
-            candidates.placement_certificate(envelope,action)
-            with old.placements.partner_placement_scope():after,events=old.extension._apply_placement(c,record)
         else:raise ValueError('normal resolution adapter unavailable: '+kind)
     else:
         after,events=old.apply_selected(state.current(envelope),record,inputs)

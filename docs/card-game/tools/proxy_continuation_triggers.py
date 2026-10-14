@@ -235,15 +235,16 @@ def scope(initial):
     if event['action_type'] not in ('place_partner','place_companion'):continue
     source=event.get('source_instance_id');prior=byseq.get(event['seq']-1)
     if prior is None or source is None:continue
-    g=prior['legacy_continuation']['game_state'];card=g['cards'][source]['card_id']
+    history=[e for e in events if e['seq']<event['seq']]
+    inv=candidates.audit(prior,history);a=next((a for a in inv['legal_candidate_details'] if a['candidate_id']==event['selected_candidate']),None)
+    if a is None:raise ValueError('historical person placement absent from complete inventory')
+    g=prior['legacy_continuation']['game_state'];card=g['cards'][a['source_instance_id']]['card_id']
     if card not in batch.CAPABILITIES:continue
     cap=batch.classification(card)
     if card=='P-cat_ceo' and g['players'][event['actor']]['board']['main'] is not None:raise ValueError('historical placement omits mandatory relationship trigger')
-    inv=candidates.audit(prior,[e for e in events if e['seq']<event['seq']]);a=next((a for a in inv['legal_candidate_details'] if a['candidate_id']==event['selected_candidate']),None)
-    if a is None:raise ValueError('historical person placement absent from complete inventory')
-    with old.placements.partner_placement_scope():continuation,generated=old.extension._apply_placement(state.current(prior),dict(selected_action=a,selected_candidate=a['candidate_id']))
-    raw=generated[0];expected=state.advance(prior,continuation,event['seq'])
-    if raw!=event:raw=old._source_event_shape(raw,continuation,initial,old.POLICIES[0])
+    expected,generated=actions.legacy_placement(prior,dict(selected_action=a,selected_candidate=a['candidate_id']),dict(public_events=history))
+    raw={k:v for k,v in generated[0].items() if k not in end.BIND_KEYS}
+    if raw!=event:raw=old._source_event_shape(raw,state.current(expected),initial,old.POLICIES[0])
     if expected!=byseq[event['seq']] or raw!=event:raise ValueError('historical person placement independent replay differs')
     proofs.append(dict(event_seq=event['seq'],kind=event['action_type'],card_id=card,source_reference=cap['reference'],source_raw_sha256=cap['source_raw_sha256'],certain_growth_difference=0,duration='none'))
    for event in events:
@@ -253,7 +254,7 @@ def scope(initial):
      result=open_end(prior,history)
      if result is None:raise ValueError('historical end window was not required')
      expected=state.advance(prior,result['new_snapshots'][0]['continuation_state'],event['seq']);raw=result['new_events'][0];card=None;reference='64-turn-boundaries-and-victory-timing.md';digest=__import__('hashlib').sha256((batch.rules.ROOT/reference).read_bytes()).hexdigest();growth=0
-    elif source is not None and g['cards'][source]['card_id'] in SUPPORTED_EFFECTS and event.get('source_zone')=='board' and kind in ('activate_response','resolve_board_ability'):
+    elif kind in ('activate_response','resolve_board_ability') and event.get('source_zone')=='board' and source is not None and g['cards'][source]['card_id'] in SUPPORTED_EFFECTS:
      card=g['cards'][source]['card_id'];cap=batch.classification(card);reference=cap['reference'];digest=cap['source_raw_sha256'];growth=5 if kind=='resolve_board_ability' and card=='W-countryside' else 0
      if kind=='activate_response':
       if event.get('mandatory'):result=mandatory_pending(prior,history);expected=state.advance(prior,result['new_snapshots'][0]['continuation_state'],event['seq']);raw=result['new_events'][0]

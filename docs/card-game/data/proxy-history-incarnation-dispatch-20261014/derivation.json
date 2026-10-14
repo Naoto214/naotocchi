@@ -1,0 +1,59 @@
+[
+  {
+    "label": "mandatory",
+    "path": "data/proxy-history-incarnation-dispatch-20261014/mandatory-sources.json",
+    "sha256": "df3620147fb26ccce40115ad88e5c0439e8b785bd4fc57560e83c33ab6d3e113",
+    "previous": "data/proxy-mandatory-boundary-465/sources.json",
+    "changed": [
+      "tools/proxy_continuation_quick.py",
+      "tools/proxy_continuation_triggers.py"
+    ],
+    "added": []
+  },
+  {
+    "label": "opening",
+    "path": "data/proxy-history-incarnation-dispatch-20261014/opening-sources.json",
+    "sha256": "4031b5f027b88c43e3c3b9109b508ed4c3bc6cc6c69a974e633402fe7ec2d3b9",
+    "previous": "data/proxy-population-opening-466/sources.json",
+    "changed": [
+      "tools/proxy_mandatory_choice_boundary.py"
+    ],
+    "added": [
+      "data/proxy-history-incarnation-dispatch-20261014/mandatory-sources.json"
+    ]
+  },
+  {
+    "label": "start",
+    "path": "data/proxy-history-incarnation-dispatch-20261014/start-sources.json",
+    "sha256": "2fe32d7312e5181d6657159cf3184cd0853bc34ccefc96a35064be0d4bf13542",
+    "previous": "data/proxy-population-start-window-467/sources.json",
+    "changed": [
+      "tools/proxy_mandatory_choice_boundary.py",
+      "tools/proxy_population_opening.py"
+    ],
+    "added": [
+      "data/proxy-history-incarnation-dispatch-20261014/mandatory-sources.json",
+      "data/proxy-history-incarnation-dispatch-20261014/opening-sources.json"
+    ]
+  },
+  {
+    "label": "runtime",
+    "path": "data/proxy-history-incarnation-dispatch-20261014/runtime-sources.json",
+    "sha256": "3f985a106f2df34b0305444d42f0fad91d96340ac59644a1b91e144bd89a3159",
+    "previous": "data/proxy-population-runtime-468/sources.json",
+    "changed": [
+      "tools/proxy_continuation_actions.py",
+      "tools/proxy_continuation_end.py",
+      "tools/proxy_continuation_quick.py",
+      "tools/proxy_continuation_triggers.py",
+      "tools/proxy_mandatory_choice_boundary.py",
+      "tools/proxy_population_opening.py",
+      "tools/proxy_population_start_window.py"
+    ],
+    "added": [
+      "data/proxy-history-incarnation-dispatch-20261014/mandatory-sources.json",
+      "data/proxy-history-incarnation-dispatch-20261014/opening-sources.json",
+      "data/proxy-history-incarnation-dispatch-20261014/start-sources.json"
+    ]
+  }
+]

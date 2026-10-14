@@ -8,8 +8,8 @@ import hashlib
 from proxy_mandatory_policy_contract import ROOT, canonical, load_json
 from proxy_population_contract import source_path
 
-SOURCES = 'data/proxy-mandatory-boundary-465/sources.json'
-SOURCES_SHA = '18264119de6f71440139e512cbf0e29abd653c7c36a805b76c014f95d330f0bc'
+SOURCES='data/proxy-history-incarnation-dispatch-20261014/mandatory-sources.json'
+SOURCES_SHA='df3620147fb26ccce40115ad88e5c0439e8b785bd4fc57560e83c33ab6d3e113'
 REGISTRY = {
     'egg_exchange_bottom': (),
     'ability_hand_bottom': ('M-beetle-01', 'P-cat_ceo'),
