@@ -1,0 +1,100 @@
+{
+  "checked_at": "2026-10-14T09:18:26.255Z",
+  "main": {
+    "sha": "cee3e8726ef3078e9b349e300c976e831786bbf0",
+    "tree": "97d9a836daf44fbcf023aab1bbf9c843aa55892a"
+  },
+  "pr": {
+    "number": 380,
+    "merged": true,
+    "merged_at": "2026-10-14T08:55:21Z",
+    "head_sha": "369c8cd1cc431da445fbe601a27890776762b502",
+    "merge_commit_sha": "cee3e8726ef3078e9b349e300c976e831786bbf0"
+  },
+  "premerge": {
+    "main": "095fe36f1d752635ab20c0e330cef7a932a13d28",
+    "head": "369c8cd1cc431da445fbe601a27890776762b502",
+    "runs": [
+      {
+        "id": 38535350736,
+        "name": "Naopoyo integration",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 1,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38535350736/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38535350736/logs",
+        "workflow_id": 384103111
+      },
+      {
+        "id": 38535350691,
+        "name": "Home layout",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 858,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38535350691/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38535350691/logs",
+        "workflow_id": 355795733
+      },
+      {
+        "id": 38535350789,
+        "name": "Runtime smoke test",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 1378,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38535350789/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38535350789/logs",
+        "workflow_id": 351596585
+      }
+    ],
+    "checked": "2026-10-14T08:55:04.402Z"
+  },
+  "postmerge": [
+    {
+      "id": 38538583609,
+      "name": "Naopoyo integration",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/38538583609"
+    },
+    {
+      "id": 38538583404,
+      "name": "World visual quality",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/38538583404"
+    },
+    {
+      "id": 38538583318,
+      "name": "Runtime smoke test",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/38538583318"
+    },
+    {
+      "id": 38538583120,
+      "name": "Home layout",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/38538583120"
+    },
+    {
+      "id": 38538581753,
+      "name": "pages build and deployment",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/38538581753"
+    }
+  ],
+  "world_regression_summary": [
+    "2026-10-14T09:07:44.9615772Z # Subtest: every quick game can be solved from its own target hint and each kind of input is covered",
+    "2026-10-14T09:07:44.9616097Z ok 2887 - every quick game can be solved from its own target hint and each kind of input is covered",
+    "2026-10-14T09:07:44.9901535Z # tests 3144",
+    "2026-10-14T09:07:44.9901681Z # pass 3144",
+    "2026-10-14T09:07:44.9901753Z # fail 0",
+    "2026-10-14T09:07:44.9901901Z # skipped 0",
+    "2026-10-14T09:07:48.3425370Z # tests 80",
+    "2026-10-14T09:07:48.3425750Z # pass 80",
+    "2026-10-14T09:07:48.3425925Z # fail 0",
+    "2026-10-14T09:07:48.3426274Z # skipped 0"
+  ]
+}
