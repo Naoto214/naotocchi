@@ -1,0 +1,15 @@
+{
+  "baseline_head": "08744087a6d361624f135d1d28212d7668dddcef",
+  "reviewed_code_head": "2ec0c668af76d43e6c6fcd2af0a7ba6697da63d3",
+  "existing_tracked_files_changed": [
+    "docs/card-game/tools/proxy_population_incarnation_runtime.py",
+    "docs/card-game/tools/proxy_population_incarnation_window.py"
+  ],
+  "all_existing_data_tree_entries_unchanged": true,
+  "existing_data_file_count": 3325,
+  "fixed_input_regenerated": false,
+  "protected_stops_or_approvals_changed": false,
+  "production_supervisor_or_worker_invoked": false,
+  "matches_reexecuted": 0,
+  "approval_consumptions": 0
+}

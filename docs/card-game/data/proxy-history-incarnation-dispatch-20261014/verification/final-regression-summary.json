@@ -1,0 +1,1104 @@
+{
+  "results": [
+    {
+      "module": "test_proxy_continuation_actions",
+      "exit_code": 0,
+      "seconds": 1.2857415990001755
+    },
+    {
+      "module": "test_proxy_continuation_batch",
+      "exit_code": 0,
+      "seconds": 1.4727796879997186
+    },
+    {
+      "module": "test_proxy_continuation_board_links",
+      "exit_code": 0,
+      "seconds": 0.061263875002623536
+    },
+    {
+      "module": "test_proxy_continuation_capabilities",
+      "exit_code": 0,
+      "seconds": 0.4004309070005547
+    },
+    {
+      "module": "test_proxy_continuation_capability_runner",
+      "exit_code": 0,
+      "seconds": 29.599220828000398
+    },
+    {
+      "module": "test_proxy_continuation_challenge",
+      "exit_code": 0,
+      "seconds": 1.4459682749984495
+    },
+    {
+      "module": "test_proxy_continuation_choices",
+      "exit_code": 0,
+      "seconds": 2.4138585170003353
+    },
+    {
+      "module": "test_proxy_continuation_condition_runner",
+      "exit_code": 0,
+      "seconds": 45.32077812599891
+    },
+    {
+      "module": "test_proxy_continuation_conditions",
+      "exit_code": 0,
+      "seconds": 0.2452188040006149
+    },
+    {
+      "module": "test_proxy_continuation_end",
+      "exit_code": 0,
+      "seconds": 3.3374713730008807
+    },
+    {
+      "module": "test_proxy_continuation_end_runner",
+      "exit_code": 0,
+      "seconds": 40.32938494300106
+    },
+    {
+      "module": "test_proxy_continuation_payments",
+      "exit_code": 0,
+      "seconds": 3.9343770329978724
+    },
+    {
+      "module": "test_proxy_continuation_preparation",
+      "exit_code": 0,
+      "seconds": 0.49882879500000854
+    },
+    {
+      "module": "test_proxy_continuation_public_history",
+      "exit_code": 0,
+      "seconds": 0.44930399200165994
+    },
+    {
+      "module": "test_proxy_continuation_quick",
+      "exit_code": 0,
+      "seconds": 0.6633948839989898
+    },
+    {
+      "module": "test_proxy_continuation_rules",
+      "exit_code": 0,
+      "seconds": 3.9615130399979535
+    },
+    {
+      "module": "test_proxy_continuation_runner",
+      "exit_code": 0,
+      "seconds": 32.092563128997426
+    },
+    {
+      "module": "test_proxy_continuation_state",
+      "exit_code": 0,
+      "seconds": 1.057950319001975
+    },
+    {
+      "module": "test_proxy_continuation_triggers",
+      "exit_code": 0,
+      "seconds": 8.840604174998589
+    },
+    {
+      "module": "test_proxy_continuation_world_runner",
+      "exit_code": 0,
+      "seconds": 31.00797392900131
+    },
+    {
+      "module": "test_proxy_continuation_worlds",
+      "exit_code": 0,
+      "seconds": 0.5340347589990415
+    },
+    {
+      "module": "test_proxy_mandatory_choice_boundary",
+      "exit_code": 0,
+      "seconds": 0.14087363399812602
+    },
+    {
+      "module": "test_proxy_mandatory_policy_audit",
+      "exit_code": 0,
+      "seconds": 0.31360992200279725
+    },
+    {
+      "module": "test_proxy_mandatory_policy_contract",
+      "exit_code": 0,
+      "seconds": 0.06881697100106976
+    },
+    {
+      "module": "test_proxy_mandatory_policy_journal",
+      "exit_code": 0,
+      "seconds": 0.4997151890020177
+    },
+    {
+      "module": "test_proxy_mandatory_policy_local",
+      "exit_code": 0,
+      "seconds": 0.3771791469989694
+    },
+    {
+      "module": "test_proxy_mandatory_policy_random",
+      "exit_code": 0,
+      "seconds": 0.12798667900278815
+    },
+    {
+      "module": "test_proxy_mandatory_population_input",
+      "exit_code": 0,
+      "seconds": 14.595204883000406
+    },
+    {
+      "module": "test_proxy_population_activation_legality",
+      "exit_code": 0,
+      "seconds": 0.3641694149991963
+    },
+    {
+      "module": "test_proxy_population_activation_reference",
+      "exit_code": 0,
+      "seconds": 0.2265432200001669
+    },
+    {
+      "module": "test_proxy_population_admission",
+      "exit_code": 0,
+      "seconds": 34.66605733000324
+    },
+    {
+      "module": "test_proxy_population_approval_publication",
+      "exit_code": 0,
+      "seconds": 0.8492026940002688
+    },
+    {
+      "module": "test_proxy_population_approval_read_retry",
+      "exit_code": 0,
+      "seconds": 4.756393339001079
+    },
+    {
+      "module": "test_proxy_population_arrival_predicates",
+      "exit_code": 0,
+      "seconds": 0.6947832149999158
+    },
+    {
+      "module": "test_proxy_population_attempt_runner",
+      "exit_code": 0,
+      "seconds": 9.622031220998906
+    },
+    {
+      "module": "test_proxy_population_automatic_binding",
+      "exit_code": 0,
+      "seconds": 16.410820946999593
+    },
+    {
+      "module": "test_proxy_population_batch_supervisor",
+      "exit_code": 0,
+      "seconds": 17.282346238000173
+    },
+    {
+      "module": "test_proxy_population_board_group_effect",
+      "exit_code": 0,
+      "seconds": 1.9517021949977789
+    },
+    {
+      "module": "test_proxy_population_board_payment_binding",
+      "exit_code": 0,
+      "seconds": 0.5482828869971854
+    },
+    {
+      "module": "test_proxy_population_board_predicates",
+      "exit_code": 0,
+      "seconds": 5.426750003000052
+    },
+    {
+      "module": "test_proxy_population_boundary_response",
+      "exit_code": 0,
+      "seconds": 0.2924282359999779
+    },
+    {
+      "module": "test_proxy_population_candidate_expansions",
+      "exit_code": 0,
+      "seconds": 5.191422775002138
+    },
+    {
+      "module": "test_proxy_population_cat_activation_effect",
+      "exit_code": 0,
+      "seconds": 0.712357960997906
+    },
+    {
+      "module": "test_proxy_population_chain_resolution",
+      "exit_code": 0,
+      "seconds": 0.3280586930013669
+    },
+    {
+      "module": "test_proxy_population_challenge_declaration_effect",
+      "exit_code": 0,
+      "seconds": 1.1286597889993573
+    },
+    {
+      "module": "test_proxy_population_challenge_lifetime",
+      "exit_code": 0,
+      "seconds": 1.9046634500009532
+    },
+    {
+      "module": "test_proxy_population_challenge_operands",
+      "exit_code": 0,
+      "seconds": 1.811204228000861
+    },
+    {
+      "module": "test_proxy_population_challenge_predicates",
+      "exit_code": 0,
+      "seconds": 0.5364132889990287
+    },
+    {
+      "module": "test_proxy_population_challenge_window",
+      "exit_code": 0,
+      "seconds": 615.525343301997
+    },
+    {
+      "module": "test_proxy_population_city_predicates",
+      "exit_code": 0,
+      "seconds": 1.2226484710008663
+    },
+    {
+      "module": "test_proxy_population_closure_binding",
+      "exit_code": 0,
+      "seconds": 0.48046141500162776
+    },
+    {
+      "module": "test_proxy_population_comparison_evidence",
+      "exit_code": 0,
+      "seconds": 0.9982613619977201
+    },
+    {
+      "module": "test_proxy_population_connected_entry",
+      "exit_code": 0,
+      "seconds": 38.07374281500233
+    },
+    {
+      "module": "test_proxy_population_contract",
+      "exit_code": 0,
+      "seconds": 2.576829756002553
+    },
+    {
+      "module": "test_proxy_population_core_predicates",
+      "exit_code": 0,
+      "seconds": 5.6534423119992425
+    },
+    {
+      "module": "test_proxy_population_current_preflight",
+      "exit_code": 0,
+      "seconds": 0.21507111200116924
+    },
+    {
+      "module": "test_proxy_population_decision_binding",
+      "exit_code": 0,
+      "seconds": 5.153625252998609
+    },
+    {
+      "module": "test_proxy_population_departure",
+      "exit_code": 0,
+      "seconds": 0.49481633300092653
+    },
+    {
+      "module": "test_proxy_population_departure_order",
+      "exit_code": 0,
+      "seconds": 1.276748456999485
+    },
+    {
+      "module": "test_proxy_population_designated_effects",
+      "exit_code": 0,
+      "seconds": 7.912250330999086
+    },
+    {
+      "module": "test_proxy_population_discard_recovery",
+      "exit_code": 0,
+      "seconds": 0.4738985190015228
+    },
+    {
+      "module": "test_proxy_population_draw_effects",
+      "exit_code": 0,
+      "seconds": 3.5797940450029273
+    },
+    {
+      "module": "test_proxy_population_early_finish_effect",
+      "exit_code": 0,
+      "seconds": 0.5114008269993064
+    },
+    {
+      "module": "test_proxy_population_effect_application_runtime",
+      "exit_code": 0,
+      "seconds": 0.3686306189993047
+    },
+    {
+      "module": "test_proxy_population_effect_creation",
+      "exit_code": 0,
+      "seconds": 0.6903628010004468
+    },
+    {
+      "module": "test_proxy_population_effect_expiry",
+      "exit_code": 0,
+      "seconds": 0.41012768000291544
+    },
+    {
+      "module": "test_proxy_population_effective_application",
+      "exit_code": 0,
+      "seconds": 0.03560868299973663
+    },
+    {
+      "module": "test_proxy_population_egg_choice_effect",
+      "exit_code": 0,
+      "seconds": 4.060395377000532
+    },
+    {
+      "module": "test_proxy_population_end_dispatch",
+      "exit_code": 0,
+      "seconds": 0.6322431189983035
+    },
+    {
+      "module": "test_proxy_population_end_predicates",
+      "exit_code": 0,
+      "seconds": 0.7707300390029559
+    },
+    {
+      "module": "test_proxy_population_end_victory",
+      "exit_code": 0,
+      "seconds": 0.4050463370003854
+    },
+    {
+      "module": "test_proxy_population_end_window_effect",
+      "exit_code": 0,
+      "seconds": 0.3383272040009615
+    },
+    {
+      "module": "test_proxy_population_entry_history",
+      "exit_code": 0,
+      "seconds": 4.5237432820031245
+    },
+    {
+      "module": "test_proxy_population_equipment_effects",
+      "exit_code": 0,
+      "seconds": 1.06225264999739
+    },
+    {
+      "module": "test_proxy_population_equipment_predicates",
+      "exit_code": 0,
+      "seconds": 5.65698965500269
+    },
+    {
+      "module": "test_proxy_population_execution_binding",
+      "exit_code": 0,
+      "seconds": 46.10205922900059
+    },
+    {
+      "module": "test_proxy_population_execution_edition",
+      "exit_code": 0,
+      "seconds": 0.21433003600031952
+    },
+    {
+      "module": "test_proxy_population_external_approval",
+      "exit_code": 0,
+      "seconds": 0.24711708500035456
+    },
+    {
+      "module": "test_proxy_population_fallback_payment",
+      "exit_code": 0,
+      "seconds": 0.5139819270007138
+    },
+    {
+      "module": "test_proxy_population_final_time_boundary",
+      "exit_code": 0,
+      "seconds": 0.5088775230033207
+    },
+    {
+      "module": "test_proxy_population_final_time_outer",
+      "exit_code": 0,
+      "seconds": 1.6727358980024292
+    },
+    {
+      "module": "test_proxy_population_first_date_effect",
+      "exit_code": 0,
+      "seconds": 1.076259282999672
+    },
+    {
+      "module": "test_proxy_population_first_response",
+      "exit_code": 0,
+      "seconds": 5.66284658099903
+    },
+    {
+      "module": "test_proxy_population_generation_authorization",
+      "exit_code": 0,
+      "seconds": 0.7742335179973452
+    },
+    {
+      "module": "test_proxy_population_generation_entry",
+      "exit_code": 0,
+      "seconds": 0.10874271499778843
+    },
+    {
+      "module": "test_proxy_population_generation_journal",
+      "exit_code": 0,
+      "seconds": 0.09036959799777833
+    },
+    {
+      "module": "test_proxy_population_generation_operation",
+      "exit_code": 0,
+      "seconds": 6.280046005002077
+    },
+    {
+      "module": "test_proxy_population_generation_package",
+      "exit_code": 0,
+      "seconds": 35.91148087900001
+    },
+    {
+      "module": "test_proxy_population_growth_runtime",
+      "exit_code": 0,
+      "seconds": 0.47459773599985056
+    },
+    {
+      "module": "test_proxy_population_hand_activation_effect",
+      "exit_code": 0,
+      "seconds": 0.6054097890009871
+    },
+    {
+      "module": "test_proxy_population_hand_group_effect",
+      "exit_code": 0,
+      "seconds": 1.8050873520005553
+    },
+    {
+      "module": "test_proxy_population_hand_predicates",
+      "exit_code": 0,
+      "seconds": 5.22548959499909
+    },
+    {
+      "module": "test_proxy_population_hand_prepared_trigger",
+      "exit_code": 0,
+      "seconds": 0.19867814300232567
+    },
+    {
+      "module": "test_proxy_population_hand_timing",
+      "exit_code": 0,
+      "seconds": 5.627736286998697
+    },
+    {
+      "module": "test_proxy_population_history_incarnation_dispatch",
+      "exit_code": 0,
+      "seconds": 1.8441905500003486
+    },
+    {
+      "module": "test_proxy_population_history_projection",
+      "exit_code": 0,
+      "seconds": 12.213597737998498
+    },
+    {
+      "module": "test_proxy_population_immediate_growth",
+      "exit_code": 0,
+      "seconds": 1.9109706800009008
+    },
+    {
+      "module": "test_proxy_population_incarnation",
+      "exit_code": 0,
+      "seconds": 0.16466128600222874
+    },
+    {
+      "module": "test_proxy_population_incarnation_policy",
+      "exit_code": 0,
+      "seconds": 0.33738690199970733
+    },
+    {
+      "module": "test_proxy_population_incarnation_runtime",
+      "exit_code": 0,
+      "seconds": 1.1540575430008175
+    },
+    {
+      "module": "test_proxy_population_incarnation_window",
+      "exit_code": 0,
+      "seconds": 0.7059449150001456
+    },
+    {
+      "module": "test_proxy_population_information_use",
+      "exit_code": 0,
+      "seconds": 2.3999494730014703
+    },
+    {
+      "module": "test_proxy_population_initial_obligations",
+      "exit_code": 0,
+      "seconds": 18.70714371199938
+    },
+    {
+      "module": "test_proxy_population_input_history",
+      "exit_code": 0,
+      "seconds": 18.525724048002303
+    },
+    {
+      "module": "test_proxy_population_input_lock",
+      "exit_code": 0,
+      "seconds": 0.16463602899966645
+    },
+    {
+      "module": "test_proxy_population_instance_boundary",
+      "exit_code": 0,
+      "seconds": 0.19436823999785702
+    },
+    {
+      "module": "test_proxy_population_launch_authorization",
+      "exit_code": 0,
+      "seconds": 6.095829133002553
+    },
+    {
+      "module": "test_proxy_population_legacy_choice_obligations",
+      "exit_code": 0,
+      "seconds": 0.39901524399829214
+    },
+    {
+      "module": "test_proxy_population_loss_reward",
+      "exit_code": 0,
+      "seconds": 0.3001861310003733
+    },
+    {
+      "module": "test_proxy_population_main_movement_effect",
+      "exit_code": 0,
+      "seconds": 1.6317246910002723
+    },
+    {
+      "module": "test_proxy_population_main_routes",
+      "exit_code": 0,
+      "seconds": 1.0169121729995823
+    },
+    {
+      "module": "test_proxy_population_manifest_builder",
+      "exit_code": 0,
+      "seconds": 3.5220989959998406
+    },
+    {
+      "module": "test_proxy_population_material_protocol",
+      "exit_code": 0,
+      "seconds": 5.755339579001884
+    },
+    {
+      "module": "test_proxy_population_movement_lifetime",
+      "exit_code": 0,
+      "seconds": 0.7631774170004064
+    },
+    {
+      "module": "test_proxy_population_movement_payment",
+      "exit_code": 0,
+      "seconds": 1.2131629540017457
+    },
+    {
+      "module": "test_proxy_population_native_collection",
+      "exit_code": 0,
+      "seconds": 1.404801865999616
+    },
+    {
+      "module": "test_proxy_population_nonresolution_semantics",
+      "exit_code": 0,
+      "seconds": 4.13873414200134
+    },
+    {
+      "module": "test_proxy_population_normal_frontier",
+      "exit_code": 0,
+      "seconds": 0.6690051369987486
+    },
+    {
+      "module": "test_proxy_population_normal_pass_effect",
+      "exit_code": 0,
+      "seconds": 1.0048345319992222
+    },
+    {
+      "module": "test_proxy_population_opening",
+      "exit_code": 0,
+      "seconds": 35.62869162000061
+    },
+    {
+      "module": "test_proxy_population_operation_edition",
+      "exit_code": 0,
+      "seconds": 2.6234929929996724
+    },
+    {
+      "module": "test_proxy_population_opportunity_ledger",
+      "exit_code": 0,
+      "seconds": 0.06460113999855821
+    },
+    {
+      "module": "test_proxy_population_opportunity_order",
+      "exit_code": 0,
+      "seconds": 0.1593508469995868
+    },
+    {
+      "module": "test_proxy_population_paid_activation_effect",
+      "exit_code": 0,
+      "seconds": 0.8695491739999852
+    },
+    {
+      "module": "test_proxy_population_paid_draw",
+      "exit_code": 0,
+      "seconds": 0.42076833200189867
+    },
+    {
+      "module": "test_proxy_population_partner_cycle",
+      "exit_code": 0,
+      "seconds": 0.6875289339986921
+    },
+    {
+      "module": "test_proxy_population_partner_draw",
+      "exit_code": 0,
+      "seconds": 0.5408958359985263
+    },
+    {
+      "module": "test_proxy_population_pass_end_unknown",
+      "exit_code": 0,
+      "seconds": 0.6269999329997518
+    },
+    {
+      "module": "test_proxy_population_payment_consumption",
+      "exit_code": 0,
+      "seconds": 1.3701609009985987
+    },
+    {
+      "module": "test_proxy_population_payment_gate",
+      "exit_code": 0,
+      "seconds": 4.799386618000426
+    },
+    {
+      "module": "test_proxy_population_payment_operands",
+      "exit_code": 0,
+      "seconds": 1.5034939969991683
+    },
+    {
+      "module": "test_proxy_population_permitted_inputs",
+      "exit_code": 0,
+      "seconds": 20.651664780998544
+    },
+    {
+      "module": "test_proxy_population_person_placement_effect",
+      "exit_code": 0,
+      "seconds": 4.400165225997625
+    },
+    {
+      "module": "test_proxy_population_policy_bridge",
+      "exit_code": 0,
+      "seconds": 0.5407091919987579
+    },
+    {
+      "module": "test_proxy_population_policy_journal",
+      "exit_code": 0,
+      "seconds": 567.6108960759993
+    },
+    {
+      "module": "test_proxy_population_positive_activation_effect",
+      "exit_code": 0,
+      "seconds": 1.5223541099985596
+    },
+    {
+      "module": "test_proxy_population_positive_provenance",
+      "exit_code": 0,
+      "seconds": 1.5256411190021026
+    },
+    {
+      "module": "test_proxy_population_positive_saved_history",
+      "exit_code": 0,
+      "seconds": 3.1023576249972393
+    },
+    {
+      "module": "test_proxy_population_positive_window",
+      "exit_code": 0,
+      "seconds": 7.627659453999513
+    },
+    {
+      "module": "test_proxy_population_predicate_gate",
+      "exit_code": 0,
+      "seconds": 7.118700873001217
+    },
+    {
+      "module": "test_proxy_population_prepared_board_routes",
+      "exit_code": 0,
+      "seconds": 1.241922083998361
+    },
+    {
+      "module": "test_proxy_population_prepared_information",
+      "exit_code": 0,
+      "seconds": 2.5008551080027246
+    },
+    {
+      "module": "test_proxy_population_prepared_placement_effect",
+      "exit_code": 0,
+      "seconds": 2.585444753000047
+    },
+    {
+      "module": "test_proxy_population_prepared_predicates",
+      "exit_code": 0,
+      "seconds": 5.703211134001322
+    },
+    {
+      "module": "test_proxy_population_public_application",
+      "exit_code": 0,
+      "seconds": 0.27296755100178416
+    },
+    {
+      "module": "test_proxy_population_public_history",
+      "exit_code": 0,
+      "seconds": 15.22922738300258
+    },
+    {
+      "module": "test_proxy_population_public_sources",
+      "exit_code": 0,
+      "seconds": 0.7183732150006108
+    },
+    {
+      "module": "test_proxy_population_public_turn",
+      "exit_code": 0,
+      "seconds": 0.2630725099988922
+    },
+    {
+      "module": "test_proxy_population_quick_recovery_effect",
+      "exit_code": 0,
+      "seconds": 0.8196304689990939
+    },
+    {
+      "module": "test_proxy_population_quick_reveal",
+      "exit_code": 0,
+      "seconds": 1.8965886119985953
+    },
+    {
+      "module": "test_proxy_population_readiness",
+      "exit_code": 0,
+      "seconds": 0.2555483229989477
+    },
+    {
+      "module": "test_proxy_population_rebinding_launch",
+      "exit_code": 0,
+      "seconds": 5.454282383001555
+    },
+    {
+      "module": "test_proxy_population_relationship_consumption",
+      "exit_code": 0,
+      "seconds": 1.4761649950014544
+    },
+    {
+      "module": "test_proxy_population_relationship_predicates",
+      "exit_code": 0,
+      "seconds": 0.3084558760019718
+    },
+    {
+      "module": "test_proxy_population_remote_publication",
+      "exit_code": 0,
+      "seconds": 1.464146652000636
+    },
+    {
+      "module": "test_proxy_population_resolution_choices",
+      "exit_code": 0,
+      "seconds": 0.551481110000168
+    },
+    {
+      "module": "test_proxy_population_resolution_order",
+      "exit_code": 0,
+      "seconds": 0.23396320100073353
+    },
+    {
+      "module": "test_proxy_population_resolution_semantics",
+      "exit_code": 0,
+      "seconds": 2.9849728899971524
+    },
+    {
+      "module": "test_proxy_population_response_activation_closure",
+      "exit_code": 0,
+      "seconds": 1.9416759259984246
+    },
+    {
+      "module": "test_proxy_population_response_board_predicates",
+      "exit_code": 0,
+      "seconds": 5.781514784997853
+    },
+    {
+      "module": "test_proxy_population_response_composition",
+      "exit_code": 0,
+      "seconds": 5.067055766998237
+    },
+    {
+      "module": "test_proxy_population_response_context",
+      "exit_code": 0,
+      "seconds": 0.6478816279995954
+    },
+    {
+      "module": "test_proxy_population_response_end_predicates",
+      "exit_code": 0,
+      "seconds": 0.654507843999454
+    },
+    {
+      "module": "test_proxy_population_response_event_predicates",
+      "exit_code": 0,
+      "seconds": 0.8221576010000717
+    },
+    {
+      "module": "test_proxy_population_response_expansions",
+      "exit_code": 0,
+      "seconds": 4.964528919001168
+    },
+    {
+      "module": "test_proxy_population_response_group_closure",
+      "exit_code": 0,
+      "seconds": 4.156762032002007
+    },
+    {
+      "module": "test_proxy_population_response_latched_predicates",
+      "exit_code": 0,
+      "seconds": 0.34195789500154206
+    },
+    {
+      "module": "test_proxy_population_response_operands",
+      "exit_code": 0,
+      "seconds": 0.8368722570012324
+    },
+    {
+      "module": "test_proxy_population_response_pass_effect",
+      "exit_code": 0,
+      "seconds": 0.596198101000482
+    },
+    {
+      "module": "test_proxy_population_response_predicates",
+      "exit_code": 0,
+      "seconds": 7.900086882000323
+    },
+    {
+      "module": "test_proxy_population_response_reactions",
+      "exit_code": 0,
+      "seconds": 6.2127208189995144
+    },
+    {
+      "module": "test_proxy_population_response_start_negative",
+      "exit_code": 0,
+      "seconds": 3.3915886579998187
+    },
+    {
+      "module": "test_proxy_population_return_challenge",
+      "exit_code": 0,
+      "seconds": 1.0901419729998452
+    },
+    {
+      "module": "test_proxy_population_return_effects",
+      "exit_code": 0,
+      "seconds": 1.365186888997414
+    },
+    {
+      "module": "test_proxy_population_reveal_effects",
+      "exit_code": 0,
+      "seconds": 0.5947624830005225
+    },
+    {
+      "module": "test_proxy_population_runtime",
+      "exit_code": 0,
+      "seconds": 4.003422290003073
+    },
+    {
+      "module": "test_proxy_population_runtime_completion",
+      "exit_code": 0,
+      "seconds": 0.35993998300182284
+    },
+    {
+      "module": "test_proxy_population_runtime_entry",
+      "exit_code": 0,
+      "seconds": 6.002991972000018
+    },
+    {
+      "module": "test_proxy_population_schedule",
+      "exit_code": 0,
+      "seconds": 5.19111584699931
+    },
+    {
+      "module": "test_proxy_population_selection_basis",
+      "exit_code": 0,
+      "seconds": 0.12389931000143406
+    },
+    {
+      "module": "test_proxy_population_selection_entry",
+      "exit_code": 0,
+      "seconds": 3.4680325289991742
+    },
+    {
+      "module": "test_proxy_population_source_conservation",
+      "exit_code": 0,
+      "seconds": 16.56634422999923
+    },
+    {
+      "module": "test_proxy_population_source_invariants",
+      "exit_code": 0,
+      "seconds": 4.552906908997102
+    },
+    {
+      "module": "test_proxy_population_source_inventory",
+      "exit_code": 0,
+      "seconds": 5.323273796999274
+    },
+    {
+      "module": "test_proxy_population_source_responsibilities",
+      "exit_code": 0,
+      "seconds": 19.738255347998347
+    },
+    {
+      "module": "test_proxy_population_source_root",
+      "exit_code": 0,
+      "seconds": 4.418969033999019
+    },
+    {
+      "module": "test_proxy_population_start_condition_history",
+      "exit_code": 0,
+      "seconds": 1.02634597100041
+    },
+    {
+      "module": "test_proxy_population_start_draw_effect",
+      "exit_code": 0,
+      "seconds": 0.7730336579988943
+    },
+    {
+      "module": "test_proxy_population_start_effects",
+      "exit_code": 0,
+      "seconds": 0.14934070099843666
+    },
+    {
+      "module": "test_proxy_population_start_obligations",
+      "exit_code": 0,
+      "seconds": 0.11248944699764252
+    },
+    {
+      "module": "test_proxy_population_start_window",
+      "exit_code": 0,
+      "seconds": 25.03295154800071
+    },
+    {
+      "module": "test_proxy_population_supervisor_interrupt",
+      "exit_code": 0,
+      "seconds": 4.731610527000157
+    },
+    {
+      "module": "test_proxy_population_timing_occurrence",
+      "exit_code": 0,
+      "seconds": 0.7105246760002046
+    },
+    {
+      "module": "test_proxy_population_trace_obligations",
+      "exit_code": 0,
+      "seconds": 56.92717069900027
+    },
+    {
+      "module": "test_proxy_population_trigger_closure",
+      "exit_code": 0,
+      "seconds": 0.15306063699972583
+    },
+    {
+      "module": "test_proxy_population_trigger_closure_effect",
+      "exit_code": 0,
+      "seconds": 1.22943857700011
+    },
+    {
+      "module": "test_proxy_population_trigger_connection",
+      "exit_code": 0,
+      "seconds": 0.27635042399924714
+    },
+    {
+      "module": "test_proxy_population_trigger_coverage",
+      "exit_code": 0,
+      "seconds": 0.1790662089988473
+    },
+    {
+      "module": "test_proxy_population_trigger_effects",
+      "exit_code": 0,
+      "seconds": 0.47134851000009803
+    },
+    {
+      "module": "test_proxy_population_trigger_existing",
+      "exit_code": 0,
+      "seconds": 0.5747377260013309
+    },
+    {
+      "module": "test_proxy_population_trigger_latching",
+      "exit_code": 0,
+      "seconds": 0.40731310800038045
+    },
+    {
+      "module": "test_proxy_population_trigger_multiturn",
+      "exit_code": 0,
+      "seconds": 31.126578417002747
+    },
+    {
+      "module": "test_proxy_population_trigger_observation",
+      "exit_code": 0,
+      "seconds": 0.15632658899994567
+    },
+    {
+      "module": "test_proxy_population_trigger_predicates",
+      "exit_code": 0,
+      "seconds": 1.1441972969987546
+    },
+    {
+      "module": "test_proxy_population_trigger_replay",
+      "exit_code": 0,
+      "seconds": 1.0323674690007465
+    },
+    {
+      "module": "test_proxy_population_trigger_sequential",
+      "exit_code": 0,
+      "seconds": 0.48883136600125
+    },
+    {
+      "module": "test_proxy_population_trigger_window",
+      "exit_code": 0,
+      "seconds": 0.9253163600005792
+    },
+    {
+      "module": "test_proxy_population_turn_boundary",
+      "exit_code": 0,
+      "seconds": 0.5360875750011473
+    },
+    {
+      "module": "test_proxy_population_turn_finish_effect",
+      "exit_code": 0,
+      "seconds": 0.9420060939992254
+    },
+    {
+      "module": "test_proxy_population_typed_resolution",
+      "exit_code": 0,
+      "seconds": 2.1637894740015327
+    },
+    {
+      "module": "test_proxy_population_unproved_priority",
+      "exit_code": 0,
+      "seconds": 1.3891916959983064
+    },
+    {
+      "module": "test_proxy_population_victory_history",
+      "exit_code": 0,
+      "seconds": 0.13906279199727578
+    },
+    {
+      "module": "test_proxy_population_world_placement_effect",
+      "exit_code": 0,
+      "seconds": 2.348090694998973
+    },
+    {
+      "module": "test_proxy_population_zone_effects",
+      "exit_code": 0,
+      "seconds": 1.0970280430010462
+    }
+  ],
+  "success": true,
+  "source_unchanged": true,
+  "elapsed_seconds": 759.4074202289994,
+  "module_count": 214,
+  "test_count": 1149,
+  "completion_rechecks": [
+    {
+      "module": "test_proxy_population_approval_read_retry",
+      "exit_code": 0,
+      "seconds": 4.198046140001679
+    },
+    {
+      "module": "test_proxy_population_effect_creation",
+      "exit_code": 0,
+      "seconds": 0.6240225050023582
+    },
+    {
+      "module": "test_proxy_population_policy_bridge",
+      "exit_code": 0,
+      "seconds": 0.4152630090029561
+    },
+    {
+      "module": "test_proxy_population_start_window",
+      "exit_code": 0,
+      "seconds": 22.529746276999504
+    }
+  ],
+  "initial_log_limitation": "Four initial logs ended without unittest completion marker despite exit zero; only these modules rerun and complete OK markers verified. Cause of original incomplete logs not established.",
+  "code_head": "2ec0c668af76d43e6c6fcd2af0a7ba6697da63d3",
+  "scope": "existing unit/regression fixtures only; no production batch execution"
+}
