@@ -1,0 +1,41 @@
+{
+  "supported": 452,
+  "total": 452,
+  "node_tests": 158,
+  "python_oracle_cases": 717,
+  "python_all_new_effects_proven": false,
+  "catalog_check": true,
+  "browser_evidence": "expansion-452-browser.json",
+  "real_iPhoneSafari": false,
+  "runtime_sha256": {
+    "ability-copy.mjs": "00f51aabdd6a8a2195fbfed7da52a33914b62897919041874b6f56807e47526b",
+    "advanced-effects.mjs": "b9b844ebae604993e5c93900a9ccc41a24af113b6a816e2a1367255e26f378a5",
+    "advanced-equipment.mjs": "cedaf38d64c5f4c46b24551d6d385c95e30167b963151248548287c34036cf15",
+    "advanced-inspection.mjs": "5918ae6f58150294be9336ba64dc785f6e88181c84cf6957facc977f7000166a",
+    "app.mjs": "a9af01ea381893f0ace7ccfc83a065aa8df0006e76d1130cde8990ac383667ef",
+    "cards.mjs": "d1cb610608860d83d69a8577ac624b9d9248f3cf1cf6b5535337a5d48276563a",
+    "costs.mjs": "f500b1b421f74ee6a37aa7b2864a198b87e5ddd94671668f61ac3df6da82f1d7",
+    "effects.mjs": "e7a87fef819a2d80510d4a0f0a2fce8406328726b40131d85fd5d312be0d114c",
+    "engine.mjs": "6712c0347d544c0660f6f94771f05bffdb4ed81e87aef9bb2ebd2fca9060f29b",
+    "equipment-rules.mjs": "d81eb4bb47b72dc6a59ae19cc1161f62000876624828f32a5e553fa0093619af",
+    "event-effects.mjs": "32c57042d84713e741c02a106ca89228b91f6aea666a6d6f6d8297e20854cbf0",
+    "full-catalog.mjs": "9e573c85ce1f933973376612590b76bfa4b0e91ba05e5d4b3f3396d3800738c7",
+    "late-conditions.mjs": "3610e87155d00ccb58b0322dbedcfcb1efd5d726982cb82496746e59f5a5a202",
+    "legacy-engine.mjs": "8d78d0d9936caeeaf4cd819802e881c62a9c23c4e023111b73f4d9342dbd32bf",
+    "main-rules.mjs": "fdea46657b7a7d537e67d0194ee6b860197e041c87d780bd551c45a3cd99a8f6",
+    "remaining-rules.mjs": "99235409eac06d739a005e8875f6968d1dd931a4b6fbe78f334d90c45eba85dd",
+    "replacements.mjs": "63b5313fa654c1a95c4e766dc3585ef88deb29ffd1ad91d71c7a0ebd27af75f6",
+    "rules.mjs": "bde3a32930f9c2b2acf9764561cb19c908600dfda067d57aa5e58a0ae4a55c3b",
+    "selection.mjs": "a0b1a39293701945d114dae0461f0c5b0e3773ce9bbd6022e261040e6478430c"
+  },
+  "deck_ui": {
+    "catalog": 452,
+    "copyLimits": true,
+    "draftsPersist": true,
+    "matchSaveIsolated": true,
+    "separateSeats": true,
+    "mobileOverflow": false,
+    "handoffPrivacy": true,
+    "pageErrors": []
+  }
+}

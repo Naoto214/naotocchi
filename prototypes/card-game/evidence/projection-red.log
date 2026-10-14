@@ -1,0 +1,52 @@
+✔ human game engine exists (0.676721ms)
+✔ 40 cards, private projection, stale commands and immutable transitions (2.209777ms)
+✔ save replay validates state, commands and restores exact decisions (9.337654ms)
+✔ both human command seats complete R10 with legal cards, choices and chains (53.906468ms)
+✖ projection preserves physical identity for hand selection (2.02284ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 159.206228
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/engine.test.mjs:29:1
+✖ projection preserves physical identity for hand selection (2.02284ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'P-cliff_goat',
+  +   'G-animal-shogi',
+  +   'M-antlion-01',
+  +   'G-archery-3d',
+  +   'M-antlion-01',
+  +   'G-archery-3d',
+  +   'I-c_coin2'
+  -   'A:P-cliff_goat:3',
+  -   'A:G-animal-shogi:3',
+  -   'A:M-antlion-01:3',
+  -   'A:G-archery-3d:3',
+  -   'A:M-antlion-01:2',
+  -   'A:G-archery-3d:2',
+  -   'A:I-c_coin2:3'
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi-human/prototypes/card-game/tests/engine.test.mjs:30:37)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'P-cliff_goat', 'G-animal-shogi', 'M-antlion-01', 'G-archery-3d', 'M-antlion-01', 'G-archery-3d', 'I-c_coin2' ],
+    expected: [ 'A:P-cliff_goat:3', 'A:G-animal-shogi:3', 'A:M-antlion-01:3', 'A:G-archery-3d:3', 'A:M-antlion-01:2', 'A:G-archery-3d:2', 'A:I-c_coin2:3' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

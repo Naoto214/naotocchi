@@ -1,0 +1,49 @@
+✔ custom decks reject unsupported and copy limits; legacy saves remain exact (13.771882ms)
+✔ higher main birth and time skip use stage/difference payments (8.830066ms)
+✔ search requires private selection and explicit bottom ordering (14.290768ms)
+✔ stat changes apply, expire, and disappear after reincarnation (1.774229ms)
+✔ scheduled growth occurs after next own start and survives source departure (13.782948ms)
+✔ facedown trap is not disclosed by board, targeting labels or action IDs (3.275576ms)
+✔ start trap activates once, consumes prepared source and allows response (23.294971ms)
+✔ replacement partner relationship loss and equipment cleanup apply centrally (5.610663ms)
+✔ new custom decks complete R10 and replay exactly after choices (666.989147ms)
+✔ search reveals only selected cards, never the inspected set (10.860163ms)
+✔ trap setup does not meet face-up play conditions (0.944234ms)
+✔ companion effect enables beach volley only after successful resolution (1.633381ms)
+✔ reversi lasts through challenge end but ends with turn (1.485092ms)
+✔ explicit public searches reveal the inspected set (0.849394ms)
+✔ registered descriptors reference implemented predicates, targets and passive values (61.102648ms)
+✔ activation hand cost is paid atomically before response and cannot be omitted (1.786838ms)
+✔ trigger cost requires both time and hand card at activation (0.803266ms)
+✖ automatic scheduled companion draws do not count as a new ability effect (7.560101ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1163.18736
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/expanded.test.mjs:72:1
+✖ automatic scheduled companion draws do not count as a new ability effect (7.560101ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi/prototypes/card-game/tests/expanded.test.mjs:74:120)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
