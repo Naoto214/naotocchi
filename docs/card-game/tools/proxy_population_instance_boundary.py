@@ -11,7 +11,7 @@ import proxy_continuation_batch as batch
 ENTRY_ACTIONS={'place_companion','place_partner','play_main','place_world','attach_item','set_item'}
 ENTRY_EVENTS=ENTRY_ACTIONS|{'person_placement','main_movement','play_main_birth','relationship_start'}
 
-def require_initial_entry(action,history):
+def require_initial_entry(action,history,envelope=None):
  if action.get('action_type') not in ENTRY_ACTIONS:return
  source=action['source_instance_id']
  if any(e.get('action_type') in ENTRY_EVENTS and e.get('source_instance_id')==source for e in history):
@@ -21,10 +21,10 @@ def require_initial_entry(action,history):
 def scope():
  prior_apply=actions.apply;prior_transition=batch.transition
  def apply(envelope,record,inputs):
-  require_initial_entry(record.get('selected_action',{}),inputs.get('public_events',[]))
+  require_initial_entry(record.get('selected_action',{}),inputs.get('public_events',[]),envelope)
   return prior_apply(envelope,record,inputs)
  def transition(envelope,action,history=None):
-  require_initial_entry(action,history or [])
+  require_initial_entry(action,history or [],envelope)
   return prior_transition(envelope,action,history)
  try:
   actions.apply=apply;batch.transition=transition

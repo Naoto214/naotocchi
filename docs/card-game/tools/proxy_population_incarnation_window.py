@@ -24,7 +24,7 @@ def segment(envelope,initial,events,shots,envelopes,limit,proof,session=None,con
 
 def _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection):
  old_recovery=window.recovery.scope;old_handler=bridge.handler_scope
- connection=connection if connection is not None else runtime.Connection(envelope)
+ connection=connection if connection is not None else runtime.Connection(envelope,events)
  original_record=copy.deepcopy(connection.records[life.digest(envelope)])
  converted=None
  if session is not None:

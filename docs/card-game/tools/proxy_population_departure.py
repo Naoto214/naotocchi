@@ -8,7 +8,7 @@ import proxy_continuation_actions as actions
 
 def replace_companion(envelope,action,history):
  from proxy_population_instance_boundary import require_initial_entry
- require_initial_entry(action,history or [])
+ require_initial_entry(action,history or [],envelope)
  # Reuse current complete legality and source classification, not card/copy patches.
  proof=batch.outcome(envelope,action,history)
  game,owner=batch.ready(envelope,action,history);actor=game['turn_player'];board=owner['board'];targets=action['target_instance_ids']

@@ -44,7 +44,38 @@ def verify_hashes(before,after,events):
  if gh!=old.start.opening._stop_state_sha256(after['game_state']) or ch!=old.start._hash(after):raise ValueError('incarnation actual terminal hash differs')
 
 class Connection:
- def __init__(self,envelope):self.records={life.digest(envelope):life.create(envelope)}
+ def __init__(self,envelope,history=None):
+  self.root=life.digest(envelope);self.root_seq=envelope['event_seq']
+  self.root_history=copy.deepcopy(history)
+  self.records={self.root:life.create(envelope)};self.paths={};self.raw_destinations={}
+ def require_history(self,envelope,history,source):
+  # Conditional candidate caches prove transitions, never selection. The caller
+  # supplies the selected public prefix; every cached edge must match that prefix.
+  key=life.digest(envelope);record=self.records.get(key)
+  if record is None or record['current_envelope_sha256']!=key:raise ValueError('field-entry envelope history unproved')
+  life.check(record,envelope)
+  if source not in record['active'].values():raise ValueError('field-entry retired or inactive instance')
+  if type(history) is not list:raise ValueError('field-entry history absent')
+  seqs=[event.get('seq') for event in history]
+  if any(type(n) is not int for n in seqs) or seqs!=sorted(set(seqs)):raise ValueError('field-entry history order differs')
+  prefix=[event for event in history if event['seq']<=self.root_seq]
+  raw=lambda event:{k:v for k,v in event.items() if k not in end.BIND_KEYS}
+  if self.root_history is not None and life.digest([raw(e) for e in prefix])!=life.digest([raw(e) for e in self.root_history]):raise ValueError('field-entry root history differs')
+  suffix=[event for event in history if event['seq']>self.root_seq]
+  for event in reversed(suffix):
+   event_hash=life.digest(raw(event));edges=self.paths.get(key,{})
+   matches=[];bound=bool(set(event)&end.BIND_KEYS)
+   for (parent,raw_hash),binding in edges.items():
+    if raw_hash!=event_hash:continue
+    if bound:
+     if {k:event.get(k) for k in end.BIND_KEYS}!=binding:continue
+    elif self.raw_destinations[(parent,raw_hash)]!={key}:
+     continue  # Raw public events cannot distinguish full-runtime branches.
+    matches.append(parent)
+   if len(matches)!=1:raise ValueError('field-entry selected full-envelope history absent or ambiguous')
+   key=matches[0]
+  if key!=self.root:raise ValueError('field-entry selected history incomplete')
+  return record
  def registry(self,game):
   found=[r for r in self.records.values() if life.digest(r['metadata'])==life.digest(game['cards'])]
   if not found or any(r['active']!=found[0]['active'] for r in found):raise ValueError('incarnation metadata registry absent or ambiguous')
@@ -56,7 +87,12 @@ class Connection:
   verify_hashes(state.current(before),state.current(after),[event])
   r=life.observe(self.records[key],before,after,event.get('instance_transitions',[]));dest=life.digest(after)
   if dest in self.records and life.digest(self.records[dest])!=life.digest(r):raise ValueError('same full state has different incarnation history')
+  edge=(key,life.digest({k:v for k,v in event.items() if k not in end.BIND_KEYS}))
+  # Native layers may append evidence to an event after first binding it.
+  # Keep each validated variant; never replace a selected path with a trial.
   self.records[dest]=r
+  self.paths.setdefault(dest,{})[edge]={k:event[k] for k in end.BIND_KEYS}
+  self.raw_destinations.setdefault(edge,set()).add(dest)
  def finish(self,before,result,source):
   after,events=result
   if source not in life.field(life.game(after)):return result
@@ -132,19 +168,15 @@ class Connection:
    if record['active'].get(card['card_copy_id'])!=source:raise ValueError('retired instance cannot enter current information view')
    private=dict(g,cards=dict(g['cards']));private['cards'][source]=dict(card,initial_instance_id=source)
    return prior_detail(private,source)
-  entry_records=[]
-  def native(e,callback):
-   entry_records.append(self.records.get(life.digest(e)))
-   try:return callback()
-   finally:entry_records.pop()
-  def require(action,history):
-   source=action.get('source_instance_id')
-   prior_entry=action.get('action_type') in guard.ENTRY_ACTIONS and any(e.get('action_type') in guard.ENTRY_EVENTS and e.get('source_instance_id')==source for e in history)
+  def require(action,history,envelope=None):
+   if action.get('action_type') not in guard.ENTRY_ACTIONS:return prior_guard(action,history,envelope)
+   if envelope is None:raise ValueError('field-entry envelope history absent')
+   source=action.get('source_instance_id');record=self.require_history(envelope,history,source)
+   prior_entry=any(e.get('action_type') in guard.ENTRY_EVENTS and e.get('source_instance_id')==source for e in history)
    if prior_entry:
-    record=entry_records[-1] if entry_records else None
-    if record is None or source not in record['active'].values() or record['metadata'][source]['card_copy_id'] not in record['seen_field']:raise ValueError('prior field-entry history not captured by conditional root')
+    if record['metadata'][source]['card_copy_id'] not in record['seen_field']:raise ValueError('prior field-entry history not captured by conditional root')
     return
-   return prior_guard(action,history)
+   return prior_guard(action,history,envelope)
   def bind(before,after,event):
    result=prior_bind(before,after,event);key=life.digest(before)
    if key in self.records:
@@ -155,14 +187,14 @@ class Connection:
     if not pending:self.capture(before,after,result)
    return result
   def replaced(e,a,h):
-   result=native(e,lambda:prior_departure(e,a,h));after,events=self.finish(e,(result['envelope'],result['events']),a['source_instance_id']);return dict(result,envelope=after,events=events)
+   result=prior_departure(e,a,h);after,events=self.finish(e,(result['envelope'],result['events']),a['source_instance_id']);return dict(result,envelope=after,events=events)
   def transition(e,a,h=None):
-   result=native(e,lambda:prior_transition(e,a,h))
+   result=prior_transition(e,a,h)
    return self.finish(e,result,a['source_instance_id']) if a.get('action_type') in guard.ENTRY_ACTIONS and a['source_instance_id'] in life.field(life.game(result[0])) else result
-  def set_card(e,a,h=None):return self.finish(e,native(e,lambda:prior_set(e,a,h)),a['source_instance_id'])
-  def attach(e,a,h=None):return self.finish(e,native(e,lambda:prior_attach(e,a,h)),a['source_instance_id'])
+  def set_card(e,a,h=None):return self.finish(e,prior_set(e,a,h),a['source_instance_id'])
+  def attach(e,a,h=None):return self.finish(e,prior_attach(e,a,h),a['source_instance_id'])
   def apply(e,r,i):
-   result=native(e,lambda:prior_apply(e,r,i));a=r.get('selected_action',{})
+   result=prior_apply(e,r,i);a=r.get('selected_action',{})
    return self.finish(e,result,a['source_instance_id']) if a.get('action_type') in guard.ENTRY_ACTIONS and a['source_instance_id'] in life.field(life.game(result[0])) else result
   def verify(before,after,events):
    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_verify(before,after,events)
