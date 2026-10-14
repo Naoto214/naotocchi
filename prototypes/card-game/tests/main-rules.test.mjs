@@ -112,3 +112,29 @@ test('butterfly recovery follows successful movement and hermit crab searches me
  assert.deepEqual(t.steps[1].steps,[{op:'discount',action:'quick',n:1}]);
  assert.deepEqual(MAIN_RULES['M-hermit_crab-01'].triggers[0].steps[0].filter,{method:'みにつける'});
 });
+
+
+test('one-card activation costs remain separate from effect resolution',()=>{
+ assert.equal(CATALOG['M-clownfish-02'].text,'1ターンに1回。自分のターンに、手札のメイン1枚を公開して山札の一番下に置いて発動できる。山札上2枚を見る。その中から1枚を選んで手札に加え、残りを山札の一番下に置く。');
+ const c=MAIN_RULES['M-clownfish-02'].active;
+ assert.deepEqual(c.handCost,{destination:'bottom',type:'main',reveal:true});
+ assert.deepEqual(c.steps,[{op:'search',n:2,filter:{},min:1,max:1}]);
+ assert.equal(CATALOG['M-phoenix-01'].text,'このメインがたんじょうした時、手札1枚を捨て札に置いて発動できる。このターン、このメインのちえ+2。');
+ const p=MAIN_RULES['M-phoenix-01'].triggers[0];assert.deepEqual(p.handCost,{destination:'discard'});assert.equal(p.steps[0].wisdom,2);
+ assert.match(CATALOG['M-salmon-02'].text,/セカイを変更していない.*手札のセカイカード1枚を公開/);
+ assert.deepEqual(MAIN_RULES['M-salmon-02'].triggers[0].handCost,{destination:'bottom',type:'world',reveal:true});
+});
+
+test('numeric time costs are paid for the full canonical dragon triggers',()=>{
+ assert.equal(CATALOG['M-dragon-02'].text,'1ターンに1回。自分のターン終了時、時2を払って発動できる。次の自分のターン開始時に1枚引く。');
+ const e=MAIN_RULES['M-dragon-02'].triggers[0];assert.equal(e.cost,2);assert.equal(e.steps[0].timing,'start');
+ assert.equal(CATALOG['M-dragon-03'].text,'1ターンに1回。このメインが自分からちょうせんする時、手札が4枚以上ある場合、時1を払って発動できる。このちょうせんの間、このメインの使用する能力値+1。');
+ const c=MAIN_RULES['M-dragon-03'].triggers[0];assert.equal(c.cost,1);assert.deepEqual(c.condition,{all:['ownChallenge',{value:'hand',op:'gte',n:4}]});
+});
+
+test('main observers watch any own companion placement with exact costs and targets',()=>{
+ assert.equal(CATALOG['M-sakura-03'].text,'1ターンに1回。自分のなかまが自分の盤面に置かれた時、時1を払い、自分の捨て札の「みにつける」の使用方法を持つカード1枚を対象として発動できる。そのカードを山札の一番上に置く。');
+ const s=MAIN_RULES['M-sakura-03'].triggers[0];assert.equal(s.when,'place');assert.equal(s.anySource,true);assert.equal(s.condition,'eventCompanion');assert.equal(s.target,'ownDiscardEquipment');assert.equal(s.cost,1);
+ assert.equal(CATALOG['M-dandelion-03'].text,'1ターンに1回。自分のなかまが出た時、自分にセカイがある場合、手札1枚を捨て札に置いて発動できる。1枚引く。');
+ const d=MAIN_RULES['M-dandelion-03'].triggers[0];assert.equal(d.anySource,true);assert.equal(d.condition.all[0],'eventCompanion');assert.deepEqual(d.handCost,{destination:'discard'});
+});

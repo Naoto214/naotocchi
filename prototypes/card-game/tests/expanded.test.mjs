@@ -63,3 +63,13 @@ test('registered descriptors reference implemented predicates, targets and passi
   assert.doesNotThrow(()=>e.stats(s,'A'),id);
  }
 });
+test('activation hand cost is paid atomically before response and cannot be omitted',()=>{
+ let s=fixture();field(s,'A','M-antlion-01');const world=field(s,'A','W-desert','world');s.players.A.time=0;const a=e.legalActions(s).find(a=>a.kind==='programAbility'&&a.source===world);assert.ok(a);const before=s.players.A.hand.length;s=e.act(s,'A',s.revision,a.id);assert.equal(s.players.A.hand.length,before-1);assert.equal(s.players.A.deck.at(-1),a.costCard);assert.equal(s.phase,'response');s=choices(resolve(s));e.validate(s);
+});
+test('trigger cost requires both time and hand card at activation',()=>{
+ let s=fixture();const c=put(s,'A','C-clock');s.players.A.hand.pop();s.players.A.board.companions.push(c);s.players.A.time=0;assert.equal(fx.triggerRows(s,{kind:'end',actor:'A'}).filter(t=>t.source===c).length,0);s.players.A.time=1;const rows=fx.triggerRows(s,{kind:'end',actor:'A'});assert.equal(rows.filter(t=>t.source===c).length,1);s.pending=rows;s.phase='trigger';const a=e.legalActions(s).find(a=>a.kind==='trigger'&&a.source===c);const before=s.players.A.hand.length;s=e.act(s,'A',s.revision,a.id);assert.equal(s.players.A.time,0);assert.equal(s.players.A.hand.length,before-1);assert.equal(s.players.A.deck.at(-1),a.costCard);
+});
+test('automatic scheduled companion draws do not count as a new ability effect',()=>{
+ let s=fixture();const c=put(s,'A','C-clock');s.players.A.hand.pop();s.players.A.board.companions.push(c);s.pending=fx.triggerRows(s,{kind:'end',actor:'A'});s.phase='trigger';s=resolve(go(s,'trigger',a=>a.source===c));assert.equal(s.scheduled.length,1);
+ for(let i=0;i<100&&s.serial<3;i++)s=s.choice?go(s,'choose'):go(s,'pass');s=choices(s);assert.equal(s.serial,3);assert.equal(fx.condition(s,'A','companionEffect'),false);
+});

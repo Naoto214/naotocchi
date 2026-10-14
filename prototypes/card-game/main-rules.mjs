@@ -11,6 +11,18 @@ const active=(steps,condition,extra={})=>({mode:'main',active:{target:'selfMain'
 const challenge=(steps,condition)=>trigger('challenge',steps,condition?all('ownChallenge',condition):'ownChallenge',{once:true});
 const end=(steps,condition)=>trigger('end',steps,condition,{once:true});
 export const MAIN_RULES={
+ 'M-butterfly-02':trigger('cardPlayed',[draw],'eventEquipOrTrap',{once:true,handCost:{destination:'bottom'}}),
+ 'M-clownfish-02':active([{op:'search',n:2,filter:{},min:1,max:1}],undefined,{handCost:{destination:'bottom',type:'main',reveal:true}}),
+ 'M-frog-06':active([search({type:'play'})],v('world','eq',1),{handCost:{destination:'bottom',type:'world',reveal:true}}),
+ 'M-penguin-03':active([draw],any(v('companions','gte',1),v('partner','eq',1)),{handCost:{destination:'bottom'}}),
+ 'M-phoenix-01':trigger('birth',[stat(0,2)],undefined,{handCost:{destination:'discard'}}),
+ 'M-world_tree-01':trigger('birth',[draw],v('prepared','gte',1),{handCost:{destination:'bottom'}}),
+ 'M-salmon-02':trigger('end',[draw],v('changedWorld','eq',0),{once:true,handCost:{destination:'bottom',type:'world',reveal:true}}),
+ 'M-dragon-02':trigger('end',[{op:'schedule',timing:'start',steps:[draw]}],undefined,{once:true,cost:2}),
+ 'M-dragon-03':trigger('challenge',[{op:'battleStat',n:1}],all('ownChallenge',v('hand','gte',4)),{once:true,cost:1}),
+ 'M-sakura-05':trigger('end',[{op:'move',destination:'hand'}],undefined,{once:true,cost:1,target:'ownDiscardTrap'}),
+ 'M-sakura-03':trigger('place',[{op:'move',destination:'top'}],'eventCompanion',{anySource:true,once:true,cost:1,target:'ownDiscardEquipment'}),
+ 'M-dandelion-03':trigger('place',[draw],all('eventCompanion',v('world','eq',1)),{anySource:true,once:true,handCost:{destination:'discard'}}),
  'M-antlion-03':trigger('cardPlayed',[{op:'chosenStat',n:1,duration:'turn'}],all(not('ownTurn'),'eventQuick',v('preparedHidden','gte',1)),{once:true,opponent:true,variants:['power','wisdom']}),
  'M-butterfly-06':trigger('time_skip',[{op:'move',destination:'hand'},{op:'if',condition:'moved',steps:[{op:'discount',action:'quick',n:1}]}],undefined,{target:'ownPrepared'}),
  'M-butterfly-07':trigger('worldChange',[{op:'move',destination:'hand'},{op:'if',condition:'moved',steps:[draw]}],undefined,{once:true,target:'ownCompanion'}),

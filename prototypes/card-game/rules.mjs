@@ -119,3 +119,7 @@ add('W-memory_lake',{mode:'world',active:{condition:'ownTurn',target:'ownDiscard
 quick('G-breakout-classic',[{op:'schedule',timing:'start',steps:[move('hand')]}],{target:'opponentPrepared'});
 quick('E-reconciliation',[iff('targetPartnerDating',[{op:'discount',action:'relationship',n:1,targetPartner:true}]),{op:'look'}],{target:'ownPartner'});
 quick('E-wedding-anniversary',[iff('targetPartnerMarried',[draw(),growth(5)])],{target:'ownPartner',condition:'marriedSinceStart'});
+add('C-clock',{mode:'companion',triggers:[{when:'end',once:true,cost:1,handCost:{destination:'bottom'},steps:[{op:'schedule',timing:'start',steps:[draw(2)]}]}]});
+add('W-desert',{mode:'world',active:{condition:{all:['ownTurn','time0']},once:true,handCost:{destination:'bottom'},steps:[search(2,{},1,true)]}});
+add('W-star_stop',{mode:'world',triggers:[{when:'end',once:true,condition:'noMainTransition',handCost:{destination:'bottom'},steps:[{op:'schedule',timing:'start',steps:[search(3,{},2,true)]}]}]});
+add('I-gamepass1',{mode:'equipment',attach:['main'],active:{condition:'ownTurn',once:true,handCost:{destination:'discard',type:'play'},steps:[growth(5)]}});

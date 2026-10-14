@@ -1,4 +1,4 @@
-/** Human-only, closed 15-card runtime. No population runner or policy selection.
+/** Human-only, explicitly registered card runtime. No population runner or policy selection.
  * Sources: docs/card-game/{01,02,06,64,65}, cards.mjs and Python parity fixtures.
  * Commands are atomic; save files replay commands instead of trusting state.
  */
@@ -77,7 +77,7 @@ function listActions(s){
  const add=(kind,label,data={})=>out.push({kind,label,...data});
  if(s.choice){for(const option of s.choice.options)add('choose',option.label,{value:option.id});return out;}
  if(s.phase==='trigger'){
-  for(const t of s.pending.filter(t=>t.actor===a)){if(t.kind==='program'){for(const o of fx.triggerOptions(s,t))add('trigger',`${title(s,t.source)}の能力を発動${o.target?' → '+title(s,o.target):''}`,{source:t.source,trigger:t.kind,index:t.index,...o});if(!t.program.mandatory)add('skip',`${title(s,t.source)}を見送る`,{source:t.source,index:t.index});continue;}add('trigger',`${title(s,t.source)}の能力を発動`,{source:t.source,trigger:t.kind});add('skip',`${title(s,t.source)}を見送る`,{source:t.source});}return out;
+  for(const t of s.pending.filter(t=>t.actor===a)){if(t.kind==='program'){for(const o of fx.triggerOptions(s,t))add('trigger',`${title(s,t.source)}の能力を発動${t.program.cost?`（時${t.program.cost}）`:""}${o.target?' → '+title(s,o.target):''}${o.costCard?' / 支払い：'+title(s,o.costCard):''}`,{source:t.source,trigger:t.kind,index:t.index,...o});if(!t.program.mandatory)add('skip',`${title(s,t.source)}を見送る`,{source:t.source,index:t.index});continue;}add('trigger',`${title(s,t.source)}の能力を発動`,{source:t.source,trigger:t.kind});add('skip',`${title(s,t.source)}を見送る`,{source:t.source});}return out;
  }
  const normal=s.phase==='normal';
  if(normal){
@@ -92,7 +92,7 @@ function listActions(s){
   if(b.main&&b.partner&&p.relationship<4&&!p.relationshipUsed&&p.time>=fx.payment(s,a,'relationship',1))add('relationship',`交際を進める ${p.relationship}→${p.relationship===3?'結婚':p.relationship+1}（時${fx.payment(s,a,'relationship',1)}）`,{cost:fx.payment(s,a,'relationship',1)});
   if(b.main&&o.board.main&&!p.challengeUsed)for(const parameter of ['power','wisdom'])add('challenge',`${parameter==='power'?'ちから':'ちえ'}でちょうせん`,{parameter});
  }
- for(const source of [b.main,b.partner,b.world,...b.companions,...b.prepared.filter(e=>!e.faceDown).map(e=>e.id)].filter(Boolean)){const r=RULES[card(s,source).id]?.active;if(!r||(card(s,source).type==='partner'&&!b.main)||p.used.includes(token(s,source)+':active')||p.time<(r.cost??0)||!fx.condition(s,a,r.condition,{source}))continue;for(const target of fx.targets(s,a,r.target,source))for(const variant of r.variants??[null])add('programAbility',`${title(s,source)}の能力${target?' → '+title(s,target):''}${variant?' / '+variant:''}（時${r.cost??0}）`,{source,target,variant,cost:r.cost??0});}
+ for(const source of [b.main,b.partner,b.world,...b.companions,...b.prepared.filter(e=>!e.faceDown).map(e=>e.id)].filter(Boolean)){const r=RULES[card(s,source).id]?.active;if(!r||(card(s,source).type==='partner'&&!b.main)||p.used.includes(token(s,source)+':active')||p.time<(r.cost??0)||!fx.condition(s,a,r.condition,{source}))continue;for(const target of fx.targets(s,a,r.target,source))for(const variant of r.variants??[null])for(const payment of fx.costOptions(s,a,r,source))add('programAbility',`${title(s,source)}の能力${target?' → '+title(s,target):''}${variant?' / '+variant:''}（時${r.cost??0}）${payment.costCard?' / 支払い：'+title(s,payment.costCard):''}`,{source,target,variant,cost:r.cost??0,...payment});}
  if(s.turn===a)for(const source of b.companions)if(card(s,source).id==='C-cat_friend'&&!p.used.includes(token(s,source)))for(const target of p.discard)if(card(s,target).type==='companion'&&card(s,target).id!=='C-cat_friend')add('ability',`${title(s,source)} → ${title(s,target)}を回収`,{source,target});
  for(const source of p.hand){const c=card(s,source);if(p.time<fx.payment(s,a,'quick_'+c.type,c.cost)&&RULES[c.id]?.mode!=='trap')continue;
   const rule=RULES[c.id];if(rule?.mode==='quick'){const values=s.challenge?{A:stats(s,'A')?.[s.challenge.parameter],B:stats(s,'B')?.[s.challenge.parameter]}:null;if(fx.condition(s,a,rule.condition,{source,values})&&(!rule.onceName||!s.history.some(e=>e.serial===s.serial&&e.actor===a&&e.kind==='play'&&e.cardId===c.id))){for(const target of fx.targets(s,a,rule.target))for(const variant of rule.variants??[null]){const cost=fx.payment(s,a,'quick_'+c.type,c.cost)+(rule.extraTime==='variant'?Number(variant):0);if(p.time>=cost)add('programPlay',`${c.name}${target?' → '+title(s,target):''}${variant!==null?' / '+(TYPE_NAMES[variant]??variant):''}（時${cost}）`,{source,target,variant,cost});}}continue;}
@@ -122,7 +122,7 @@ function execute(s,a){const who=actor(s),p=s.players[who],b=p.board;
  }
  if(a.kind==='trigger'||a.kind==='skip'){
   const i=s.pending.findIndex(t=>t.source===a.source&&(a.index===undefined||t.index===a.index)),t=s.pending.splice(i,1)[0];
-  if(a.kind==='trigger'){if(t.kind==='program'){const trap=RULES[card(s,t.source).id]?.mode==='trap';if(trap)b.prepared=b.prepared.filter(e=>e.id!==t.source);const key=t.source+'#'+s.cards[t.source].generation+':'+t.index;p.used.push(key);s.chain.push({actor:who,source:t.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,kind:'program',steps:t.program.steps,event:t.event,variant:a.variant,ability:!trap});}else s.chain.push({actor:who,source:t.source,kind:t.kind,ability:true});log(s,`${who}：${title(s,t.source)}の能力を発動`);s.priority=who;}
+  if(a.kind==='trigger'){if(t.kind==='program'){payAbilityCost(s,who,t.program,a,t.source);const trap=RULES[card(s,t.source).id]?.mode==='trap';if(trap)b.prepared=b.prepared.filter(e=>e.id!==t.source);const key=t.source+'#'+s.cards[t.source].generation+':'+t.index;p.used.push(key);s.chain.push({actor:who,source:t.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,kind:'program',steps:t.program.steps,event:t.event,variant:a.variant,ability:!trap});}else s.chain.push({actor:who,source:t.source,kind:t.kind,ability:true});log(s,`${who}：${title(s,t.source)}の能力を発動`);s.priority=who;}
   if(!s.pending.length){s.phase='response';s.passes=0;}if(a.kind==='trigger'&&t.kind==='program'&&RULES[card(s,t.source).id]?.mode==='trap')enqueueTriggers(s,{kind:'trapActivation',actor:who,source:t.source,setSerial:t.setSerial});return;
  }
  if(a.kind==='place'){
@@ -143,7 +143,7 @@ function execute(s,a){const who=actor(s),p=s.players[who],b=p.board;
   p.used.push(token(s,a.source));remove(b.companions,a.source);p.deck.push(a.source);for(const e of [...b.prepared])if(e.target===a.source)discardField(s,who,e.id);
   if(s.phase==='normal')s.window='normal';activate(s,{actor:who,source:a.source,target:a.target,kind:'cat',ability:true});return;
  }
- if(a.kind==='programAbility'){const r=RULES[card(s,a.source).id].active;p.time-=a.cost;p.used.push(token(s,a.source)+':active');if(s.phase==='normal')s.window='normal';activate(s,{actor:who,source:a.source,target:a.target,targetGeneration:a.target?s.cards[a.target].generation:null,variant:a.variant,kind:'program',steps:r.steps,ability:true});return;}
+ if(a.kind==='programAbility'){const r=RULES[card(s,a.source).id].active;payAbilityCost(s,who,r,a,a.source);p.used.push(token(s,a.source)+':active');if(s.phase==='normal')s.window='normal';activate(s,{actor:who,source:a.source,target:a.target,targetGeneration:a.target?s.cards[a.target].generation:null,variant:a.variant,kind:'program',steps:r.steps,ability:true});return;}
  if(a.kind==='programPlay'){if(s.phase==='normal')s.window='normal';p.time-=a.cost;fx.consumeDiscount(s,who,'quick_'+card(s,a.source).type);remove(p.hand,a.source);activate(s,{actor:who,source:a.source,target:a.target,targetGeneration:a.target?s.cards[a.target].generation:null,variant:a.variant,kind:'program',steps:RULES[card(s,a.source).id].steps,ability:false});recordPlay(s,who,a.source);return;}
  if(a.kind==='play'){
   if(s.phase==='normal')s.window='normal';p.time-=fx.payment(s,who,'quick_'+card(s,a.source).type,card(s,a.source).cost);fx.consumeDiscount(s,who,'quick_'+card(s,a.source).type);remove(p.hand,a.source);
@@ -214,8 +214,10 @@ function enqueueTriggers(s,event){s.history.push({...event,serial:s.serial,...(e
 function startBoundary(s,kind){const due=s.scheduled.filter(e=>e.timing===kind&&e.actor===s.turn&&e.due<=s.serial);if(!due.length)return false;s.scheduled=s.scheduled.filter(e=>!due.includes(e));s.boundary={kind,due};runScheduled(s);return true;}
 function runScheduled(s,index){const b=s.boundary;if(!b.due.length){const kind=b.kind;s.boundary=null;if(kind==='start')finishStart(s);else finishEnd(s);return;}
  if(index===undefined&&b.due.length>1){requestChoice(s,s.turn,'scheduled_order',b.due.map((e,i)=>({id:String(i),label:title(s,e.link.source)+'の予約を先に処理'})),'boundary');return;}
- const e=b.due.splice(index??0,1)[0];if(!fx.begin(s,e.link,e.steps,helpers))runScheduled(s);
+ const e=b.due.splice(index??0,1)[0];if(!fx.begin(s,{...e.link,scheduled:true,applied:false},e.steps,helpers))runScheduled(s);
 }
 function resumeWork(s){if(s.boundary)runScheduled(s);else resolveChain(s);}
 
 function privateLabel(s,viewer,label){for(const e of ['A','B'].filter(a=>a!==viewer).flatMap(a=>s.players[a].board.prepared))if(e.faceDown)label=label.replaceAll(title(s,e.id),'しかけたカード');return label;}
+
+function payAbilityCost(s,a,r,action,source){const p=s.players[a];p.time-=r.cost??0;if(r.handCost){remove(p.hand,action.costCard);if(r.handCost.destination==='bottom')p.deck.push(action.costCard);else p.discard.push(action.costCard);log(s,`${a}：発動コストとして手札を移動${r.handCost.reveal?'（'+title(s,action.costCard)+'）':''}`);}}
