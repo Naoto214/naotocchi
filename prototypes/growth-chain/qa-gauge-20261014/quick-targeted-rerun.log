@@ -1,0 +1,23 @@
+✔ coins target keeps the basket clear of bad drops at levels 1-5 (103.874372ms)
+✔ quick mode chains 3-6 second games: cue, immediate play, judge, next game within the result flash (26.101793ms)
+✔ every quick game can be solved from its own target hint and each kind of input is covered (40.125425ms)
+✔ three misses end the run, the score feeds the normal result flow, and difficulty ramps every 4 games (45.760583ms)
+✔ every game can be played on its own: a solo run repeats one game 10 times and keeps a per-game best (70.028582ms)
+✔ Quick list toggle uses its dedicated control and a selected solo starts (33.22321ms)
+✔ both Quick entries pay zero for incomplete runs even with Star (26.898579ms)
+✔ both Quick entries ignore retired energy-band snapshots (49.462096ms)
+✔ the production Quick voice control saves every selected mode for the audio router (96.171545ms)
+✔ an unchosen legacy pico setting migrates to reading while chosen pico remains selected (41.427438ms)
+✔ umbrella solo shows a compact cue and waits for rain before a successful swipe (34.194816ms)
+✔ game pass never shortcuts quick-run, including during ordinary cooldown (17.986476ms)
+✔ game pass never shortcuts quick-solo, including during ordinary cooldown (20.545635ms)
+✔ real mixed 20/20 callback pays 100, keeps records and achievements, and a new perfect run pays again (73.875069ms)
+✔ retiring a real Quick final card invalidates its delayed completion during the next session (36.93689ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 892.502429

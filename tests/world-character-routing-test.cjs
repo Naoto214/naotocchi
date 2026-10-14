@@ -5,7 +5,7 @@ const src=fs.readFileSync(require('node:path').join(__dirname,'../meguru-3d.mjs'
 const start=src.indexOf('function createHybridRenderer('),end=src.indexOf('\n// すかす 物を',start);
 function setup(opts={}){
   const calls={canvas:0,gl:0,diag:[],anim:[],show:[],destroy:0,create:0};
-  const gl={draw(){calls.gl++;if(opts.throwDraw)throw Error('lost');},setDiag(v){calls.diag.push(v);},setAnimLevel(v){calls.anim.push(v);},setOccluderFade(){},setAdaptiveDpr(){},show(v){calls.show.push(v);},destroy(){calls.destroy++;}};
+  const gl={draw(){calls.gl++;if(opts.throwDraw)throw Error('lost');},setDiag(v){calls.diag.push(v);},setAnimLevel(v){calls.anim.push(v);},setOccluderFade(){},setAdaptiveDpr(){},show(v){calls.show.push(v);},destroy(){calls.destroy++;if(opts.throwDestroy)throw Error('dispose');}};
   const M={WORLD3D_REGIONS:new Set(['forest','city']),createCanvasRenderer(){return {draw(){calls.canvas++;},setAnimLevel(){},destroy(){}};}};
   const context={create3DRenderer(){calls.create++;return gl;},Error};vm.createContext(context);
   vm.runInContext(src.slice(start,end)+'\nthis.build=createHybridRenderer;',context);
@@ -31,3 +31,27 @@ test('diagnostics default off; explicit perf or QA opt-in survives lazy creation
  for(const perf of [false,true]){const {renderer:r,calls:c}=setup({perf});r.setAnimLevel(0);r.draw(view,0);assert.deepEqual(c.diag,[perf]);assert.deepEqual(c.anim,[0]);}
  const {renderer:r,calls:c}=setup();r.setDiag3d(true);r.draw(view,0);assert.deepEqual(c.diag,[true]);r.setDiag3d(false);assert.deepEqual(c.diag,[true,false]);
 });
+test('resize failure falls back and cleanup failure cannot strand Canvas',()=>{
+ const calls=[];const view={world:{regionId:'forest',world3d:true}};
+ const gl={draw(){},setDiag(){},setAnimLevel(){},setOccluderFade(){},setAdaptiveDpr(){},show(){},resize(){throw Error('resize');},destroy(){calls.push('gl destroy');throw Error('dispose');}};
+ const c={create3DRenderer:()=>gl,Error};vm.createContext(c);vm.runInContext(src.slice(start,end)+'\nthis.build=createHybridRenderer;',c);
+ const r=c.build({WORLD3D_REGIONS:new Set(['forest']),createCanvasRenderer(){return {draw(v){assert.equal(v,view);calls.push('canvas');},resize(){},destroy(){calls.push('canvas destroy');}};}},{canvas:{style:{}},W:400,H:700},{onFallback(){calls.push('fallback');throw Error('diagnostic callback');}});
+ r.draw(view,0);assert.doesNotThrow(()=>r.resize({W:700,H:400}));r.draw(view,1);assert.equal(r.failed,true);assert.equal(r.is3D,false);assert.ok(calls.includes('canvas'));assert.doesNotThrow(()=>r.destroy());assert.ok(calls.includes('canvas destroy'));
+});
+test('real WebGL constructor failure removes partially inserted canvas',()=>{
+ const a=src.indexOf('function create3DRenderer('),b=src.indexOf('\n}',a)+2;let attached=false;
+ const parent={insertBefore(gl){attached=true;gl.parentNode=this;},removeChild(gl){attached=false;gl.parentNode=null;}},gl={style:{},addEventListener(){},removeEventListener(){}};
+ const canvas={style:{position:'absolute',zIndex:'7'},parentNode:parent,ownerDocument:{createElement:()=>gl}};
+ const c={THREE:{WebGLRenderer:class{constructor(){throw Error('GPU creation fault');}}},Error};vm.createContext(c);vm.runInContext(src.slice(a,b).replaceAll('import.meta.url', JSON.stringify('file:///meguru-3d.mjs'))+'\nthis.create=create3DRenderer;',c);
+ assert.throws(()=>c.create({}, {canvas},()=>{}),/GPU creation fault/);assert.equal(attached,false,'no stale WebGL canvas');assert.equal(canvas.style.position,'absolute');assert.equal(canvas.style.zIndex,'7');
+});
+test('shader link failure is fatal and releases the partially initialized renderer',()=>{
+ const a=src.indexOf('function create3DRenderer('),b=src.indexOf('\n}',a)+2;let attached=false,disposed=false;
+ const parent={insertBefore(gl){attached=true;gl.parentNode=this;},removeChild(gl){attached=false;gl.parentNode=null;}},gl={style:{},addEventListener(){},removeEventListener(){}};
+ const canvas={style:{},parentNode:parent,ownerDocument:{createElement:()=>gl}};
+ class GPU {constructor(){this.debug={};}setClearColor(){if(this.debug.onShaderError)this.debug.onShaderError();throw Error('shader error silently ignored');}dispose(){disposed=true;}forceContextLoss(){}}
+ const c={THREE:{WebGLRenderer:GPU},Error};vm.createContext(c);vm.runInContext(src.slice(a,b).replaceAll('import.meta.url',JSON.stringify('file:///meguru-3d.mjs'))+'\nthis.create=create3DRenderer;',c);
+ assert.throws(()=>c.create({}, {canvas},()=>{}),/WebGL shader program failed/);assert.equal(disposed,true);assert.equal(attached,false);
+});
+
+test('failed destroy is not called twice on the same GPU renderer',()=>{const {renderer:r,calls:c}=setup({throwDestroy:true});r.draw({world:{regionId:'forest',world3d:true}},0);assert.doesNotThrow(()=>r.destroy());assert.equal(c.destroy,1);assert.equal(r.is3D,false);});

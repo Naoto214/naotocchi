@@ -10,12 +10,13 @@ const empty = () => ({
   preferences: { selected: [], tutorialDone: false, reduced: false },
 });
 export class PlayerStore {
-  constructor(storage) {
+  constructor(storage, key = STORE_KEY) {
+    this.key = key;
     this.storage = storage;
     this.revision = null;
   }
   read() {
-    const raw = this.storage.getItem(STORE_KEY);
+    const raw = this.storage.getItem(this.key);
     if (!raw) return empty();
     const d = JSON.parse(raw);
     if (
@@ -61,7 +62,7 @@ export class PlayerStore {
     d.snapshot = snapshot;
     if (preferences) d.preferences = { ...d.preferences, ...preferences };
     d.revision++;
-    this.storage.setItem(STORE_KEY, JSON.stringify(d));
+    this.storage.setItem(this.key, JSON.stringify(d));
     this.revision = d.revision;
     return d;
   }

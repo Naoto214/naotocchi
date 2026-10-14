@@ -1,0 +1,16 @@
+PASS 3d-393x760-normal
+PASS 3d-393x760-💬 はなす
+PASS 3d-393x760-ふねに のる
+PASS 3d-393x760-もぐる
+AssertionError [ERR_ASSERTION]: actual pad height
+
+100 !== 120
+
+    at /workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/meguru-pad-size-browser.cjs:56:60 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 100,
+  expected: 120,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

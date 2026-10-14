@@ -5,7 +5,7 @@ const { chromium } = require("playwright"),
   http = require("node:http");
 (async () => {
   const root = path.resolve(__dirname, "../../.."),
-    out = path.resolve(__dirname, "../qa-player-20261014");
+    out = process.env.QA_OUT || path.resolve(__dirname, "../qa-player-20261014");
   fs.mkdirSync(out, { recursive: true });
   const { Player } = await import("../player-model.mjs"),
     { createSession } = await import("../session.mjs"),

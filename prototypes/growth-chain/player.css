@@ -819,3 +819,8 @@ meter {
     display: none;
   }
 }
+
+.trial-entry { max-width: 340px; margin: 12px auto; font-size: 12px; }
+.trial-entry summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+.trial-entry nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.trial-entry a, .home-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; color: #34576a; }

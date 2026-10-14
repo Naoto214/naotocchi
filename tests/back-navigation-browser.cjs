@@ -12,7 +12,7 @@ let qaHtml;
 require('./visual-qa.cjs')().configureServer({ middlewares: { use(_path, handler) { handler({}, { setHeader() {}, end(html) { qaHtml = html; } }); } } });
 const qaScript = qaHtml.match(/<script>([\s\S]*?)<\/script>/)[1];
 const fixtures = vm.runInNewContext(qaScript.slice(0, qaScript.indexOf('const mount=')) + '\nfixtures');
-const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff2': 'font/woff2' };
+const TYPES = { '.mjs': 'text/javascript; charset=utf-8', '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff2': 'font/woff2' };
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://127.0.0.1').pathname);
   if (pathname === '/away.html') { res.writeHead(200, { 'Content-Type': TYPES['.html'] }); res.end('<!doctype html><title>away</title>'); return; }

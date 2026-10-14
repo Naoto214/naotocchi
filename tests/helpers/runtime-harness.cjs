@@ -228,7 +228,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     getComputedStyle: el => ({transform: el.style.transform || 'none'}),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,
     localStorage: storage || {getItem: () => null, setItem: noop, removeItem: noop},
-    location: {href: 'https://naoto214.github.io/naotocchi/'},
+    location: {href: 'https://naoto214.github.io/naotocchi/?meguru3d=0', search: '?meguru3d=0'},
     crypto: {getRandomValues: a => a},
     setTimeout: schedule, clearTimeout: id => timers.delete(id),
     requestAnimationFrame: fn => schedule(() => fn(now), 16), cancelAnimationFrame: id => timers.delete(id),

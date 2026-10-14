@@ -14,17 +14,18 @@ const reward = (z) =>
   ) +
   z.last.created08 * 80 +
   z.last.waves.length * 16;
-function candidates(s, policy, allowItems) {
+function candidates(s, policy, allowItems, options) {
   const rows = [],
     base = value(s);
   for (const a of [
     ...placements(s),
     ...(policy !== "drop" && allowItems ? itemActions(s, "both") : []),
   ]) {
+    if (options.allowedTypes && !options.allowedTypes.includes(a.type)) continue;
     // Reserve three bars except when an08 conversion may immediately win.
     if (
       a.type === "transform" &&
-      s.gauge < 3 * s.rules.gaugeUnit &&
+      s.gauge < (options.reservePoints ?? 3 * s.rules.gaugeUnit) &&
       s.board[a.y][a.x].s !== 8
     )
       continue;
@@ -38,7 +39,7 @@ function candidates(s, policy, allowItems) {
       continue;
     }
     const event = reward(z),
-      v = value(z) + event;
+      v = value(z) + event - (a.type === "transform" ? (options.transformPenalty ?? 0) : 0);
     if (a.type !== "drop" && (z.over || v <= base + 4)) continue;
     if (
       a.type === "egg" &&
@@ -53,17 +54,18 @@ function candidates(s, policy, allowItems) {
   }
   return rows.sort((a, b) => b.v - a.v);
 }
-export function chooseEggPolicy(input, policy, { allowItems = true } = {}) {
+export function chooseEggPolicy(input, policy, options = {}) {
+  const { allowItems = true } = options;
   if (!["drop", "active", "reserve"].includes(policy))
     throw Error("Unknown egg policy");
   const s = { ...publicView(input), bag: createBag(0, input.rules) },
-    rows = candidates(s, policy, allowItems);
+    rows = candidates(s, policy, allowItems, options);
   if (!rows.length) return null;
   if (!s.board.flat().some((c) => c?.s >= 6)) return rows[0].a;
   // Two actions ahead, top two immediate candidates, no hidden future bag use.
   const beam = rows.slice(0, 2);
   for (const r of beam) {
-    const next = candidates(r.z, policy, allowItems);
+    const next = candidates(r.z, policy, allowItems, options);
     if (next.length) r.v = 0.25 * r.v + 0.75 * (r.event + next[0].v);
   }
   return beam.sort((a, b) => b.v - a.v)[0].a;

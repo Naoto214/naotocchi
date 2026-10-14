@@ -5,7 +5,7 @@ const { chromium } = require("playwright"),
   http = require("node:http");
 (async () => {
   const root = path.resolve(__dirname, "../../.."),
-    out = path.resolve(__dirname, "../qa-player-20261014");
+    out = process.env.QA_OUT || path.resolve(__dirname, "../qa-player-20261014");
   fs.mkdirSync(out, { recursive: true });
   const server = http.createServer((req, res) => {
     const file = path.resolve(

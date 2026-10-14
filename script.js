@@ -14552,14 +14552,11 @@
     meguruSaveQueued = true;
     queueMicro(() => { meguruSaveQueued = false; saveState(); });
   }
-  // めぐる 3D prototype の フラグ(URL の ?meguru3d=1 だけ。セーブにも localStorage にも のこさない)。
-  // WebGL2 が つかえない 端末では はじめから 2D(forest の world も 2D の まま)
+  // URL overrides are QA-only; rendering preferences never enter save/schema.
+  // Any explicit 2D value wins, including duplicated/conflicting parameters.
   const MEGURU3D_ON = (() => {
-    try {
-      if (typeof location === 'undefined' || !/(?:^|[?&])meguru3d=1(?:&|$)/.test(String(location.search || '').replace(/^\?/, ''))) return false;
-      const c = document.createElement('canvas');
-      return !!(c.getContext && c.getContext('webgl2'));
-    } catch (_) { return false; }
+    try { return !/(?:^|[?&])meguru3d=0(?:&|$)/.test(String(location.search || '')); }
+    catch (_) { return true; }
   })();
   const meguruBridge = {
     clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
@@ -14689,28 +14686,45 @@
   };
   // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
   const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru(meguruBridge) : null;
-  // 3D prototype の レンダラーは フラグの ある ときだけ あとから よみこむ(2D の ひとは 1 バイトも ふえない)。
-  // よみこめなければ ずっと 2D(forest の world は 3D モードの まま = 見た目と あたりは そろって いる)
+  // Preload once. A failed session stays on Canvas until page reload.
   let meguru3dRenderer = null;
-  if (MEGURU3D_ON && meguruMod) {
-    const src = document.getElementById('meguru3dModule')?.dataset.src;
-    // 実機の 計測: &perf=1(フレームの 間かく・draw call)/ &m3d2d=1(おなじ ページで 2D の くらべ)
-    const q = String(location.search || '');
-    // <script type="module"> で よむ(classic の script.js に 動的 import を かくと vite の dev server が こわす)。
-    // module は window.NaotocchiMeguru3D に じぶんを おく
-    if (src) {
+  let meguru3dFailed = false, meguru3dSettled = false;
+  let meguruStartToken = 0, meguruStartTimer = null;
+  let resolveMeguru3d;
+  const meguru3dReady = new Promise((resolve) => { resolveMeguru3d = resolve; });
+  function disableMeguru3d(err) {
+    meguru3dFailed = true; meguru3dRenderer = null;
+    if (!meguru3dSettled) { meguru3dSettled = true; resolveMeguru3d(); }
+    try { console.warn('meguru 3D → 2D', err && err.message); } catch (_) { /* logging cannot block fallback */ }
+  }
+  if (MEGURU3D_ON && meguruMod && !/[?&]m3d2d=1(?:&|$)/.test(String(location.search || ''))) {
+    try {
+      const probe = document.createElement('canvas');
+      const gl = probe.getContext && probe.getContext('webgl2');
+      if (!gl) throw new Error('WebGL2 unavailable');
+      const release = gl.getExtension('WEBGL_lose_context');
+      if (release) release.loseContext();
+      const src = document.getElementById('meguru3dModule')?.dataset.src;
+      if (!src) throw new Error('3D module URL unavailable');
+      const q = String(location.search || '');
+      // Keep the classic-script/Vite boundary: no dynamic import here.
       const tag = document.createElement('script');
       tag.type = 'module'; tag.src = src;
       tag.onload = () => {
-        const m = window.NaotocchiMeguru3D;
-        // Character 3D Pilot(QA): &char3d=1 の ときだけ pilot の キャラを 3D で。&c3dface=A|B|C は 顔の 方式。URL だけ(セーブしない)
-        const faceQ = (q.match(/[?&]c3dface=([ABC])(?:&|$)/) || [])[1];
-        if (m) meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), force2d: /[?&]m3d2d=1(?:&|$)/.test(q), char3d: /[?&]char3d=1(?:&|$)/.test(q), char3dFace: faceQ || 'C', playerKey: () => meguruBridge.currentPetKey(), onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) });
+        if (meguru3dSettled || meguru3dFailed) return;
+        try {
+          const m = window.NaotocchiMeguru3D;
+          const faceQ = (q.match(/[?&]c3dface=([ABC])(?:&|$)/) || [])[1];
+          if (!m) throw new Error('3D module did not initialize');
+          meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), char3d: !/[?&]char3d=0(?:&|$)/.test(q), char3dFace: faceQ || 'C', playerKey: () => meguruBridge.currentPetKey(), onFallback: disableMeguru3d });
+          if (typeof meguru3dRenderer !== 'function') throw new Error('3D renderer unavailable');
+          meguru3dSettled = true; resolveMeguru3d();
+        } catch (err) { disableMeguru3d(err); }
       };
-      tag.onerror = () => console.warn('meguru 3D module: load failed');
+      tag.onerror = () => disableMeguru3d(new Error('3D module load failed'));
       document.head.appendChild(tag);
-    }
-  }
+    } catch (err) { disableMeguru3d(err); }
+  } else { meguru3dSettled = true; resolveMeguru3d(); }
 
   function meguruStats() {
     const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
@@ -14740,19 +14754,40 @@
     el.screenNormal.classList.add('hidden');
     el.meguruOverlay.classList.remove('hidden');
     el.meguruOverlay.innerHTML = '';
-    meguruStats().visits += 1;
-    meguruRun = meguruMod.start(el.meguruOverlay, meguru3dRenderer ? { renderer: meguru3dRenderer } : undefined);
-    // 実機の しらべ もの(Playwright)から めぐるの なかを さわる ための まど。
-    // ゲームの うごきには つかわない
-    globalThis.__meguruRun = meguruRun;
-    globalThis.__meguruBridge = meguruBridge;
-    audio.play('open');
-    render();
+    const token = ++meguruStartToken;
+    const begin = () => {
+      if (!meguruActive || token !== meguruStartToken || meguruRun) return;
+      clearTimeout(meguruStartTimer); meguruStartTimer = null;
+      el.meguruOverlay.innerHTML = '';
+      meguruStats().visits += 1;
+      meguruRun = meguruMod.start(el.meguruOverlay, meguru3dRenderer && !meguru3dFailed ? { renderer: meguru3dRenderer } : undefined);
+      globalThis.__meguruRun = meguruRun;
+      globalThis.__meguruBridge = meguruBridge;
+      audio.play('open');
+      render();
+    };
+    if (meguru3dSettled) begin();
+    else {
+      el.meguruOverlay.innerHTML = '<div role="status" aria-live="polite" style="margin:28vh 16px 12px;padding:24px;text-align:center;background:rgba(255,255,255,.96);color:#26352c;border-radius:16px">箱庭を よみこんでいます…<br><small>時間がかかるときは 2Dで はじめます</small></div>';
+      const cancel = document.createElement('button');
+      cancel.type = 'button'; cancel.className = 'mg-tap-btn'; cancel.textContent = 'もどる'; cancel.onclick = stopMeguru;
+      Object.assign(cancel.style, { display: 'block', margin: '12px auto' });
+      el.meguruOverlay.appendChild(cancel);
+      render(); // Commit closed menus now, so the loading/cancel UI is reachable.
+      meguruStartTimer = setTimeout(() => {
+        if (!meguruActive || token !== meguruStartToken) return;
+        disableMeguru3d(new Error('3D module load timed out (5000ms)'));
+        begin();
+      }, 5000);
+      meguru3dReady.then(begin);
+    }
     return true;
   }
   function stopMeguru() {
     if (!meguruActive) return;
     meguruActive = false;
+    ++meguruStartToken; clearTimeout(meguruStartTimer); meguruStartTimer = null;
+    globalThis.__meguruRun = null;
     const run = meguruRun; meguruRun = null;
     if (run && run.running) run.stop();
     el.meguruOverlay.classList.add('hidden');

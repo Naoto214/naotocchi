@@ -1,3 +1,4 @@
+import { playerProfile } from "./player-profile.mjs";
 import { Player } from "./player-model.mjs";
 import { PlayerStore, ownPlayer } from "./player-store.mjs";
 import {
@@ -13,7 +14,8 @@ import { animationFrames } from "./animation.mjs";
 import { bindHold } from "./touch-input.mjs";
 const $ = (id) => document.getElementById(id),
   roster = readRoster(localStorage),
-  store = new PlayerStore(localStorage);
+  profile = playerProfile(location.search),
+  store = new PlayerStore(localStorage, profile.storeKey);
 let data,
   player = null,
   screen = "title",
@@ -43,6 +45,12 @@ const image = (id, s) => {
   const c = roster.find((c) => c.id === id);
   return window.GROWTH_CHAIN_IMAGES?.[imagePath(c, s)] || imagePath(c, s);
 };
+// Saved sessions keep stable kind IDs even if the main dex grows later.
+function runRoster() {
+  return player?.state.species
+    ? player.state.species.map((id) => roster.find((c) => c.id === id))
+    : roster;
+}
 function piece(c) {
   const id = player?.state.species?.[c.k] || roster[c.k]?.id;
   return `<img class="character" src="${image(id, c.s)}" alt="" draggable="false"><span class="stage">${String(c.s).padStart(2, "0")}</span>`;
@@ -165,7 +173,7 @@ function start(practiceStep = -1) {
   token = null;
   currentFrame = null;
   frameList = [];
-  const rules = standardRules({ kinds: roster.length }),
+  const rules = standardRules({ kinds: roster.length, gaugeUnit: profile.gaugeUnit }),
     initial = {
       species: roster.map((c) => c.id),
       selected: selectFive(roster, practice >= 0 ? INITIAL_SPECIES : selected),
@@ -307,7 +315,7 @@ function render() {
       el.tabIndex = tool ? 0 : -1;
       el.setAttribute(
         "aria-label",
-        `${x + 1}列 ${y - 1}段 ${c ? (roster[c.k]?.label || "") + String(c.s).padStart(2, "0") : "空き"}`,
+        `${x + 1}列 ${y - 1}段 ${c ? (runRoster()[c.k]?.label || "") + String(c.s).padStart(2, "0") : "空き"}`,
       );
       if (c) el.innerHTML = piece(c);
       el.onclick = (e) => {
@@ -438,7 +446,9 @@ function renderTool() {
         .map((c) => c.k),
     )) {
       const b = document.createElement("button");
-      b.textContent = `元：${roster[k].label}`;
+      const source = runRoster()[k];
+      if (!source) continue;
+      b.textContent = `元：${source.label}`;
       b.setAttribute("aria-pressed", tool.from === k);
       b.onclick = () => {
         tool.from = k;
@@ -450,7 +460,8 @@ function renderTool() {
     }
   }
   if (tool.type === "egg" || tool.from !== null)
-    roster.forEach((c, k) => {
+    runRoster().forEach((c, k) => {
+      if (!c) return;
       const b = document.createElement("button");
       b.textContent = c.label;
       b.dataset.kind = k;
@@ -839,7 +850,7 @@ window.addEventListener("pagehide", () => {
 window.addEventListener("resize", resize);
 window.visualViewport?.addEventListener("resize", resize);
 window.addEventListener("storage", (e) => {
-  if (e.key === "naopoyo-player-v1" && owned)
+  if (e.key === profile.storeKey && owned)
     fatal("別の画面で保存が更新されました。再読み込みしてください。");
 });
 document.addEventListener(
@@ -892,6 +903,11 @@ function tick(now) {
   requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
+document.querySelector(".edition").textContent = `なおとっち 成長連鎖パズル · ${profile.label}`;
+if (profile.trial) {
+  document.querySelector(".mini-logo").textContent = `比較 ${profile.gaugeUnit}／${profile.gaugeUnit * 3}`;
+  document.querySelector("#records h2").textContent = `比較 ${profile.gaugeUnit}／${profile.gaugeUnit * 3} のきろく`;
+}
 $("hero").innerHTML = ["penguin", "dog", "mushroom"]
   .map((id) => `<img src="${image(id, 5)}" alt="">`)
   .join("");
