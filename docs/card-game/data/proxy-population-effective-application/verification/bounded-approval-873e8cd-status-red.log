@@ -1,0 +1,14 @@
+test_observed_http_status_survives_invalid_json_and_redirect (test_proxy_population_approval_read_retry.TransportTests.test_observed_http_status_survives_invalid_json_and_redirect) ... FAIL
+
+======================================================================
+FAIL: test_observed_http_status_survives_invalid_json_and_redirect (test_proxy_population_approval_read_retry.TransportTests.test_observed_http_status_survives_invalid_json_and_redirect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 135, in test_observed_http_status_survives_invalid_json_and_redirect
+    self.assertEqual(getattr(raised.exception,'http_status',None),200)
+AssertionError: None != 200
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
