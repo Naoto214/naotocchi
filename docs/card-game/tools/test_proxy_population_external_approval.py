@@ -101,20 +101,20 @@ class ExternalApprovalTests(unittest.TestCase):
  def test_transport_is_pinned_bounded_and_rejects_redirects(self):
   from types import SimpleNamespace
   from unittest.mock import MagicMock
-  with self.assertRaises(ValueError):api._get('/issues/comments/17?redirect=https://other.invalid')
-  with self.assertRaises(ValueError):api._NoRedirect().redirect_request(None,None,None,None,None,None)
+  with self.assertRaises(ValueError):api.transport._read_once('/issues/comments/17?redirect=https://other.invalid')
+  with self.assertRaises(ValueError):api.transport._NoRedirect().redirect_request(None,None,None,None,None,None)
   response=MagicMock();response.__enter__.return_value=response
   response.status=200;response.geturl.return_value=api.API;response.read.return_value=b'{"ok":true}'
   opener=SimpleNamespace(open=MagicMock(return_value=response))
-  with patch.object(api,'build_opener',return_value=opener):
-   self.assertEqual(api._get(''),{'ok':True})
+  with patch.object(api.transport,'build_opener',return_value=opener):
+   self.assertEqual(api.transport._read_once(''),{'ok':True})
    req=opener.open.call_args.args[0]
    self.assertEqual(req.full_url,api.API);self.assertEqual(opener.open.call_args.kwargs['timeout'],30)
    response.read.assert_called_with(8*1024*1024+1)
    response.read.return_value=b'{"duplicate":1,"duplicate":2}'
-   with self.assertRaises(ValueError):api._get('')
+   with self.assertRaises(ValueError):api.transport._read_once('')
    response.geturl.return_value='https://other.invalid'
-   with self.assertRaises(ValueError):api._get('')
+   with self.assertRaises(ValueError):api.transport._read_once('')
 
  def test_local_claim_is_exclusive_but_not_a_remote_consumption_proof(self):
   req=request();get,_,_,_=replies(req)

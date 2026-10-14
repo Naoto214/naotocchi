@@ -6,8 +6,11 @@ The operational gate stays closed until P07--18 are composed and verified.
 """
 import copy,hashlib,json,os,re,subprocess
 from datetime import datetime,timezone
+from time import monotonic,sleep
+from contextvars import ContextVar
+from urllib.error import HTTPError,URLError
+import proxy_population_approval_transport as transport
 from pathlib import PurePosixPath
-from urllib.request import Request,HTTPRedirectHandler,build_opener
 from proxy_population_contract import _pairs,_nonfinite
 from proxy_mandatory_policy_contract import ROOT,canonical
 
@@ -129,18 +132,27 @@ def _comment_id(value):
  if type(value) is not int or value<=0:raise ValueError('invalid approval comment ID')
 
 
-class _NoRedirect(HTTPRedirectHandler):
- def redirect_request(self,*args,**kwargs):raise ValueError('GitHub approval redirects forbidden')
+# Historical immutable-commit reader also uses the same redirect refusal.
+_NoRedirect=transport._NoRedirect
+_read_deadline=ContextVar('approval_read_deadline',default=None)
 
 
 def _get(path):
- if re.fullmatch(r'|/pulls/259|/issues/comments/[1-9][0-9]*|/issues/259/comments\?per_page=100&page=[1-9][0-9]*',path) is None:raise ValueError('unapproved GitHub API path')
- request=Request(API+path,headers={'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'naotocchi-population-approval','Cache-Control':'no-cache'})
- with build_opener(_NoRedirect()).open(request,timeout=30) as response:
-  if response.status!=200 or response.geturl()!=API+path:raise ValueError('GitHub approval response differs')
-  raw=response.read(8*1024*1024+1)
-  if len(raw)>8*1024*1024:raise ValueError('GitHub approval response too large')
- return json.loads(raw.decode('utf-8'),object_pairs_hook=_pairs,parse_constant=_nonfinite)
+ deadline=_read_deadline.get()
+ return transport.read(path,30 if deadline is None else min(30,max(0,deadline-monotonic())))
+
+
+def _retryable(error):
+ return (isinstance(error,HTTPError) and error.code in (502,503,504) or
+         isinstance(error,TimeoutError) or isinstance(error,URLError) and isinstance(error.reason,TimeoutError))
+
+
+def failure_text(proof):
+ """Retain diagnostics in enclosing errors, worker stderr and operator stop logs."""
+ return canonical(dict(errors=proof['errors'],read_audit=proof.get('read_audit'))).decode()
+
+
+class _Deadline(ValueError):pass
 
 
 def _owner(user):return type(user.get('id')) is int and user['id']==AUTHORITY and user.get('type')=='User'
@@ -165,38 +177,83 @@ def verify_live(request,comment_id):
  return _verify_live_at_head(request,comment_id,None)
 
 
+def _observation(request,comment_id,expected_head,read):
+ repo=read('')
+ if repo['full_name']!=REPOSITORY or not _owner(repo['owner']):raise ValueError('repository authority differs')
+ pr=read('/pulls/259')
+ if type(pr['number']) is not int or pr['number']!=PR or pr['state']!='open' or pr['draft'] is not True or pr['merged'] is not False or pr['head']['repo']['full_name']!=REPOSITORY or pr['head']['ref']!=BRANCH or pr['head']['sha']!=expected_head:raise ValueError('live PR edition/state differs')
+ comment=read('/issues/comments/'+str(comment_id));_check_comment(comment,request,comment_id)
+ ids=set();found=[];pages=[]
+ for page in range(1,101):
+  rows=read('/issues/259/comments?per_page=100&page='+str(page))
+  if type(rows) is not list or len(rows)>100:raise ValueError('invalid comment page')
+  pages.append(dict(page=page,sha256=digest(rows),count=len(rows)))
+  for row in rows:
+   _comment_id(row['id'])
+   if row['id'] in ids:raise ValueError('duplicate comment during pagination')
+   ids.add(row['id'])
+   if row['id']==comment_id:
+    _check_comment(row,request,comment_id)
+    if canonical(_comment_projection(row))!=canonical(_comment_projection(comment)):raise ValueError('approval listing changed')
+    found.append(row)
+   if _owner(row['user']) and revocation_text(request,comment_id) in row['body']:raise ValueError('approval revoked')
+  if len(rows)<100:break
+ else:raise ValueError('comment pagination limit reached')
+ if len(found)!=1 or canonical(_comment_projection(found[0]))!=canonical(_comment_projection(comment)):raise ValueError('approval listing changed or absent')
+ last=read('/issues/comments/'+str(comment_id));_check_comment(last,request,comment_id)
+ if canonical(_comment_projection(last))!=canonical(_comment_projection(comment)):raise ValueError('approval changed during read')
+ return dict(observed_publication_commit=expected_head,comment=_comment_projection(last),comment_pages=pages,repository_sha256=digest(repo),pr_sha256=digest(pr),observed_at=datetime.now(timezone.utc).isoformat())
+
+
 def _verify_live_at_head(request,comment_id,publication_commit):
- """Internal hook for a separately validated, exact claim-only child commit."""
- request=copy.deepcopy(request)
- errors=[];evidence=None
+ """One live verification, never a retry of consumption, supervisor or worker."""
+ request=copy.deepcopy(request);errors=[];evidence=None
+ start=monotonic();deadline=start+120
+ audit=dict(schema='population_approval_read_audit.v1',request_sha256=digest(request),
+  max_observations=3,budget_seconds=120,observations=[],outcome=None)
+ token=_read_deadline.set(deadline)
  try:
   _validate_request(request);_comment_id(comment_id)
   expected_head=request['publication']['commit'] if publication_commit is None else _sha(publication_commit,40)
-  repo=_get('');pr=_get('/pulls/259')
-  if repo['full_name']!=REPOSITORY or not _owner(repo['owner']):raise ValueError('repository authority differs')
-  if type(pr['number']) is not int or pr['number']!=PR or pr['state']!='open' or pr['draft'] is not True or pr['merged'] is not False or pr['head']['repo']['full_name']!=REPOSITORY or pr['head']['ref']!=BRANCH or pr['head']['sha']!=expected_head:raise ValueError('live PR edition/state differs')
-  comment=_get('/issues/comments/'+str(comment_id));_check_comment(comment,request,comment_id)
-  ids=set();found=[];pages=[];revoked=False
-  for page in range(1,101):
-   rows=_get('/issues/259/comments?per_page=100&page='+str(page))
-   if type(rows) is not list or len(rows)>100:raise ValueError('invalid comment page')
-   pages.append(dict(page=page,sha256=digest(rows),count=len(rows)))
-   for row in rows:
-    _comment_id(row['id'])
-    if row['id'] in ids:raise ValueError('duplicate comment during pagination')
-    ids.add(row['id'])
-    if row['id']==comment_id:found.append(row)
-    if _owner(row['user']) and revocation_text(request,comment_id) in row['body']:revoked=True
-   if len(rows)<100:break
-  else:raise ValueError('comment pagination limit reached')
-  if revoked:raise ValueError('approval revoked')
-  if len(found)!=1 or canonical(_comment_projection(found[0]))!=canonical(_comment_projection(comment)):raise ValueError('approval listing changed or absent')
-  last=_get('/issues/comments/'+str(comment_id));_check_comment(last,request,comment_id)
-  if canonical(_comment_projection(last))!=canonical(_comment_projection(comment)):raise ValueError('approval changed during read')
-  evidence=dict(observed_publication_commit=expected_head,comment=_comment_projection(last),comment_pages=pages,repository_sha256=digest(repo),pr_sha256=digest(pr),observed_at=datetime.now(timezone.utc).isoformat())
- except (ValueError,KeyError,TypeError,AttributeError,OSError) as error:errors.append(str(error))
+  for attempt in range(1,4):
+   row=dict(attempt=attempt,started_at=datetime.now(timezone.utc).isoformat(),reads=[],outcome=None)
+   audit['observations'].append(row)
+   def read(path):
+    transport.allowed(path)
+    if monotonic()>=deadline:raise _Deadline('approval observation deadline')
+    entry=dict(endpoint=API+path,method='GET',attempt=attempt,started_at=datetime.now(timezone.utc).isoformat(),http_status=None,reason=None)
+    row['reads'].append(entry)
+    try:
+     value=_get(path);entry['http_status']=200
+     if monotonic()>=deadline:raise _Deadline('approval observation deadline')
+     entry['reason']='received';return value
+    except (ValueError,KeyError,TypeError,AttributeError,OSError) as error:
+     entry['http_status']=error.code if isinstance(error,HTTPError) else getattr(error,'http_status',entry['http_status'])
+     entry['reason']=type(error).__name__+': '+str(error)
+     raise
+    finally:entry['finished_at']=datetime.now(timezone.utc).isoformat()
+   try:
+    candidate=_observation(request,comment_id,expected_head,read)
+    if monotonic()>=deadline:raise _Deadline('approval observation deadline')
+    evidence=candidate;row['outcome']=audit['outcome']='verified';break
+   except (ValueError,KeyError,TypeError,AttributeError,OSError) as error:
+    # Failed observation contributes diagnostics only, never authoritative data.
+    row['reason']=type(error).__name__+': '+str(error)
+    retry=_retryable(error);delay=(2,5)[min(attempt-1,1)]
+    if isinstance(error,_Deadline) or monotonic()>=deadline or retry and monotonic()+delay>=deadline:
+     row['outcome']=audit['outcome']='deadline'
+    elif not retry:row['outcome']=audit['outcome']='fail_closed'
+    elif attempt==3:row['outcome']=audit['outcome']='attempt_limit'
+    else:row['outcome']='retry'
+    if row['outcome']!='retry':errors.append(row['reason']);break
+    row['delay_seconds']=delay;sleep(delay)
+   finally:row['finished_at']=datetime.now(timezone.utc).isoformat()
+ except (ValueError,KeyError,TypeError,AttributeError,OSError) as error:
+  errors.append(str(error));audit['outcome']='fail_closed'
+ finally:
+  _read_deadline.reset(token);audit['elapsed_milliseconds']=int((monotonic()-start)*1000)
  return dict(schema='live_population_owner_approval.v1',external_approval_verified=not errors,errors=errors,
-  request_sha256=digest(request),comment_id=comment_id,evidence=evidence,
+  request_sha256=digest(request),comment_id=comment_id,evidence=evidence,read_audit=audit,
   scope='live_GitHub_owner_comment_for_exact_request',historical_edit_absence_proven=False,
   remote_consumption_verified=False,input_lock_verified=False,provenance_verified=False,
   pre_outcome_ordering_verified=False,ready_for_execution=False,balance_admitted=None)
@@ -205,20 +262,23 @@ def _verify_live_at_head(request,comment_id,publication_commit):
 def consume_live(request,comment_id):
  request=copy.deepcopy(request)
  proof=verify_live(request,comment_id)
- if not proof['external_approval_verified']:raise ValueError('live external approval unverified: '+str(proof['errors']))
- directory=ROOT/'data'/'proxy-population-approval-consumption'
- if directory.is_symlink():raise ValueError('consumption directory symlink forbidden')
- directory.mkdir(exist_ok=True)
- record=dict(schema='population_local_approval_consumption.v1',request=request,approval=proof,
-  local_consumption_recorded=True,remote_consumption_verified=False,ready_for_execution=False)
- flags=os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW
- fd=os.open(directory/(str(comment_id)+'.json'),flags,0o600)
- with os.fdopen(fd,'wb') as stream:stream.write(canonical(record));stream.flush();os.fsync(stream.fileno())
- for path in (directory,directory.parent):
-  fd=os.open(path,os.O_RDONLY|os.O_DIRECTORY)
-  try:os.fsync(fd)
-  finally:os.close(fd)
- return record
+ if not proof['external_approval_verified']:raise ValueError('live external approval unverified: '+failure_text(proof))
+ try:
+  directory=ROOT/'data'/'proxy-population-approval-consumption'
+  if directory.is_symlink():raise ValueError('consumption directory symlink forbidden')
+  directory.mkdir(exist_ok=True)
+  record=dict(schema='population_local_approval_consumption.v1',request=request,approval=proof,
+   local_consumption_recorded=True,remote_consumption_verified=False,ready_for_execution=False)
+  flags=os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW
+  fd=os.open(directory/(str(comment_id)+'.json'),flags,0o600)
+  with os.fdopen(fd,'wb') as stream:stream.write(canonical(record));stream.flush();os.fsync(stream.fileno())
+  for path in (directory,directory.parent):
+   fd=os.open(path,os.O_RDONLY|os.O_DIRECTORY)
+   try:os.fsync(fd)
+   finally:os.close(fd)
+  return record
+ except (ValueError,OSError) as error:
+  raise type(error)(str(error)+'; approval verification: '+failure_text(proof)) from error
 
 
 def require_operation_ready(stage,*,repository=None,certificate=None,commit=None):

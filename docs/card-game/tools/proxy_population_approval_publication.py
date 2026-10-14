@@ -49,11 +49,13 @@ def audit_committed_consumption(repository,request,comment_id,commit,tree):
  try:
   binding,saved=_read_committed_claim(repository,request,comment_id,commit,tree)
   live=approval._verify_live_at_head(request,comment_id,commit)
-  if not live['external_approval_verified']:raise ValueError('current owner approval differs: '+str(live['errors']))
+  if not live['external_approval_verified']:raise ValueError('current owner approval differs: '+approval.failure_text(live))
   if canonical(saved['evidence']['comment'])!=canonical(live['evidence']['comment']):raise ValueError('saved/current approval comment differs')
   publication=remote.verify(repository,commit,tree)
   if not publication['fresh_remote_head_verified']:raise ValueError('fresh consumption publication differs')
- except (ValueError,TypeError,KeyError,AttributeError,OSError,subprocess.SubprocessError) as error:errors.append(str(error))
+ except (ValueError,TypeError,KeyError,AttributeError,OSError,subprocess.SubprocessError) as error:
+  errors.append(str(error))
+  if live is not None:errors.append('approval observation: '+approval.failure_text(live))
  return dict(schema='committed_population_approval_consumption.v1',remote_consumption_bound=not errors,
   external_approval_verified=not errors,errors=errors,binding=binding,live_approval=live,remote_publication=publication,
   scope='exact_claim_only_child_commit_and_live_owner_comment',remote_rollback_absence_proven=False,

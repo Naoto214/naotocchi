@@ -30,7 +30,9 @@ def audit_generation(repository,certificate,registry,destination,comment_id,comm
   if not claim['remote_consumption_bound']:raise ValueError('generation approval publication differs: '+str(claim['errors']))
   checked=edition.verify(certificate,repository)
   if not checked['local_edition_verified']:raise ValueError('generation source changed during live approval checks: '+str(checked['errors']))
- except (ValueError,TypeError,KeyError,OSError) as error:errors.append(str(error))
+ except (ValueError,TypeError,KeyError,OSError) as error:
+  errors.append(str(error))
+  if claim is not None and claim.get('live_approval') is not None:errors.append('generation approval observation: '+approval.failure_text(claim['live_approval']))
  return dict(schema='population_generation_authorization_binding.v1',generation_authorization_bound=not errors,
   errors=errors,request=request,consumption=claim,scope='current_local_edition_registry_destination_and_live_claim',
   provenance_verified=False,pre_outcome_ordering_verified=False,input_lock_verified=False,
