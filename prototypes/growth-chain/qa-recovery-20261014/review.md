@@ -10,3 +10,5 @@ Reviewed existing HEAD9047ec55 optimization sources, policies, analyzer, and rec
 - Public information boundary and two-ply use of NEXT appear sound. NEXT-off does not evaluate unknown future drops.
 
 All limitations accepted for reporting, no waived correctness defects. Follow-up sensitivity is exploratory and uses the fixed existing runner; it does not change policies or standard defaults.
+
+Final report review: confirm raw/summary/supplement win counts, winner seeds, causal rewards, means, median inputs match. 488 runs/170590 operations confirmed; paired8/24 vs2/6 outcomes both1/g2-only24/baseline-only0/neither7. No blocking factual findings. Earned-egg lineage caveat incorporated.

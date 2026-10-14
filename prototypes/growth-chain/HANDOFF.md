@@ -124,3 +124,11 @@ See FINAL-QA-20261014.md for the complete coverage/operations/balance/Human QA r
 最新正本/手順はEGG-REVISION-20261014.md、結果はEGG-REPORT-20261014.md。進化04〜07の卵報酬を標準化。主192＋上限感度64試行、59,683操作一致。旧776試行も再生一致。卵由来の再獲得/08寿命を確認。ただし方策順位は道具操作機会の設定に敏感。対戦は独立検証のみ、標準UIはエンドレス維持。iPhone実機未確認。
 
 最終ゲート: 専用100、DOM6、mutation12＋3＋7、全体回帰3,130＋80、Chromium4サイズPASS。256試行59,683操作を独立再検算。iPhone実機Safariは未確認。詳細はEGG-REPORT-20261014.md。
+
+## 2026-10-14 停止後の08消滅最適化復旧
+
+最新成果はOPTIMIZATION-REPORT-20261014.md、RECOVERY-20261014.md、optimization-evidence-index-20261014.jsonを参照。
+9047ec55に保存されていた実装・固定条件を再利用し、失われたv2測定証跡を復元。488試行170,590操作の共通replay/live合法性/指標検算PASS（同一legacy8試行の重複を明示し独立証拠に加算しない）。
+確認群32seed: 現行8/24は1成功、12/36は1成功、標準盤面・種類の2/6は25成功。4種類+4/12は10成功、7列+2/6は16成功。2/6をHuman QA第一候補とするが、標準8/24は変更していない。人間の達成率・所要時間・爽快感は未確認。
+専用108、DOM6、mutation12+3+7+6、全体3130+Relationship80 PASS、失敗/skip0。製品ソースは9047ec55から無変更。PR380 Draft/open/未merge、main統合・公開なし。
+次回はrawアーカイブを展開して完了結果を利用し、同じ測定を最初から繰り返さない。全体ログはqa-recovery-20261014/root.log.gz。停止原因は不明。今回の確認群分割のための明示的中断とは区別。
