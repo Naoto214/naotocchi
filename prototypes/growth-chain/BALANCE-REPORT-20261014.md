@@ -121,7 +121,7 @@ life-8-egg0の08到達例に限ると、初回到達平均136.29セット、そ�
 専用85件（既存77＋新規8）PASS。新規は寿命目標、隠し情報非参照、終局評価、在庫/獲得区別、2操作先読み、卵祖先の正/負例、manifest差異拒否。人工盤面の祖先循環成功は自然プレイ結果と分離。
 DOM5本PASS、既存mutation12/12検出、新規mutation3/3検出。576試行109,871操作を再生し、初期状態・最終hash・収支・集計一致。第2群は再開ガードを後から補強し、元manifestを保持、manifest-v2に共有ソースhashを追加して128試行を全再計算・元結果との完全一致を確認する。balance-resume.mjsの追加dependency-proofはrandom/catalogを含む推移的依存も照合し、変更時はキャッシュを流用せず停止する。元エンジン依存は開始HEADから変更なし。
 
-全体回帰の今回結果は root-regression.log を参照。旧証跡は削除していない。今回はゲーム/UI変更がなく、ブラウザQAの新規実施なし。以前のChromium結果は今回の実機証拠ではない。**iPhone実機Safariは未確認**。
+assets込みルートnpm testを今回あらためて完走（exit 0）。smoke/dialogue/visual QA、3,130件＋Relationship 80件PASS、失敗・cancel・skip 0。証跡はbalance-qa-20261014/root-regression.log.gz。旧証跡は削除していない。今回はゲーム/UI変更がなく、ブラウザQAの新規実施なし。以前のChromium結果は今回の実機証拠ではない。**iPhone実機Safariは未確認**。
 
 再現手順（リポジトリルート）:
 
