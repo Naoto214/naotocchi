@@ -29,8 +29,8 @@ test("overflow scores ten per excess stage, gauge only actual growth", () => {
   assert.equal(z.gauge, 1);
   assert.equal(z.overflow, 3);
 });
-test("independent deaths award one egg and 100 points each in same wave", () => {
-  const r = standardRules(),
+test("legacy independent deaths award one egg and 100 points each in same wave", () => {
+  const r = standardRules({eggReward:"death"}),
     b = board(r);
   for (let x of [0, 1, 4, 5]) b[13][x] = { id: x + 1, k: x < 2 ? 0 : 1, s: 8 };
   const z = resolve(b, r);
@@ -53,7 +53,7 @@ test("standard legal placements never lock above visible board and ended tools d
 });
 for (const chain of [1, 2, 3, 4, 5])
   test(`death at wave ${chain} awards exactly one appropriate egg and multiplied score`, () => {
-    const r = standardRules(),
+    const r = standardRules({eggReward:"death"}),
       b = board(r);
     let id = 1;
     const start = 9 - chain;

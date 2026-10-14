@@ -202,13 +202,21 @@ export function resolve(input, r, context = {}, trace = true) {
           next[anchor.y][anchor.x] = { id: anchor.id, k: anchor.k, s: stage };
         let eggRank = -1,
           eggCount = 0;
-        if (death) {
+        if (death && r.eggReward !== "evolution") {
           for (let i = 0; i < 4; i++)
             if (chain >= r.eggThresholds[i]) eggRank = i;
           eggCount = r.eggCount === "group" ? 1 : Math.floor(a.length / 2);
-          stats.eggs[eggRank] += eggCount;
-          stats.deaths += a.length;
+        } else if (
+          !death &&
+          r.eggReward === "evolution" &&
+          stage >= 4 &&
+          stage <= 7
+        ) {
+          eggRank = stage - 4;
+          eggCount = 1;
         }
+        if (eggCount) stats.eggs[eggRank] += eggCount;
+        if (death) stats.deaths += a.length;
         stats.consumed += a.length;
         stats.overflow += overflow;
         stats.created08 += !death && stage === 8 ? 1 : 0;

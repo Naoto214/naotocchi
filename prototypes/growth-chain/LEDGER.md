@@ -53,3 +53,11 @@ Final full-checkout root npm test completed exit0: smoke/dialogue/visual QA and 
 ## 2026-10-14 最終バランス検証
 
 [BALANCE-REPORT-20261014.md](BALANCE-REPORT-20261014.md)を参照。576試行、自然卵獲得は初期0でも成立。ただし自然な卵由来の再獲得循環は未確認。8／24推奨はユーザー決定待ち。確定ルール・本番挙動は変更なし。旧0/200と今回の探索的結果を混同しない。
+
+## 2026-10-14 なおぽよ進化卵改訂
+Plan/authority: EGG-REVISION-20261014.md; baseline5ffa4999, fresh main095fe36f, PR380 Draft/open/unmerged. Full task-only clone restored after workspace cleanup. User authorizes inline implementation through safe GitHub save.
+Task1/2: evolution egg contract and animation inventory RED→GREEN; existing death tests explicitly pin old mode, old absent-field logs stay byte-compatible. Standalone rebuilt from existing images. New titleなおぽよ; no other application files changed.
+Task3: race comparator RED→GREEN; actions/slots are explicit experimental clocks, same clock/wave death draws, both genuinely ended needed for score fallback. Capped/partial logs unresolved. Reviewer found fabricated ended initial flag; regression observed RED then comparator-local check GREEN. Shared import semantics unchanged.
+Ruling: frozen prior measurement source/manifest remains frozen at5ffa4999. Reproduction uses that checkout; added verifier replays stored old logs on revised engine without rewriting provenance. Cost: old generation tools intentionally refuse current changed-source hashes.
+Minor deferred: importing legacy rules without eggReward lacks mode selector until starting a new standard game; old replay serialization stays unchanged, new standard lab supports both modes.
+192 paired-seed trials complete; replay/analysis and fresh full regression pending. No iPhone Safari hardware QA claim.

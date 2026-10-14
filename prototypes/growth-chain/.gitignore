@@ -4,3 +4,6 @@ node_modules/
 /qa-final-20261014/root-regression.log
 /balance-results-20261014/*-[0-9]*.json
 /balance-followup-20261014/*-[0-9]*.json
+
+/egg-results-20261014/*-[0-9]*.json
+/qa-eggs-20261014/root-regression.log

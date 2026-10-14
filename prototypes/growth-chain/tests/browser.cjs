@@ -113,7 +113,7 @@ const http = require("node:http"),
       await page.locator("#drop").click();
       await page.waitForTimeout(1500);
       await page.screenshot({
-        path: `${path.resolve(__dirname, "../qa-final-20261014")}/growth-play-${viewport.width}.png`,
+        path: `${path.resolve(process.env.QA_OUTPUT_DIR || path.join(__dirname, "../qa-final-20261014"))}/growth-play-${viewport.width}.png`,
         fullPage: true,
       });
       assert.ok(
@@ -152,7 +152,7 @@ const http = require("node:http"),
         ),
       );
       await page.screenshot({
-        path: `${path.resolve(__dirname, "../qa-final-20261014")}/growth-ui-${viewport.width}.png`,
+        path: `${path.resolve(process.env.QA_OUTPUT_DIR || path.join(__dirname, "../qa-final-20261014"))}/growth-ui-${viewport.width}.png`,
         fullPage: true,
       });
       await page.locator("#json").fill(endowedLog);
@@ -163,7 +163,7 @@ const http = require("node:http"),
       await page.locator('#kindChoices [data-kind="1"]').tap();
       assert.ok(await page.locator(".preview-piece").count());
       await page.screenshot({
-        path: `${path.resolve(__dirname, "../qa-final-20261014")}/growth-tool-${viewport.width}.png`,
+        path: `${path.resolve(process.env.QA_OUTPUT_DIR || path.join(__dirname, "../qa-final-20261014"))}/growth-tool-${viewport.width}.png`,
         fullPage: true,
       });
       await page.locator("#confirmTool").tap();
@@ -176,6 +176,24 @@ const http = require("node:http"),
         JSON.parse(await page.locator("#json").inputValue()).actions.length,
         1,
       );
+      const eggBoard = board(rules);
+      eggBoard[13][0] = {id:1,k:0,s:3};
+      const eggState = createSession(1,rules,{board:eggBoard,eggs:[0,0,1,0]});
+      await page.locator('#json').fill(JSON.stringify({version:eggState.version,initial:stateData(eggState),actions:[]}));
+      await page.locator('#import').click();
+      await page.locator('#manualWave').check();
+      await page.locator('#railEgg2').tap();
+      await page.locator('#kindChoices [data-kind="0"]').tap();
+      await page.locator('#board [data-x="0"][data-y="13"]').tap();
+      await page.locator('#confirmTool').tap();
+      assert.match(await page.locator('#railEgg0').innerText(),/×0/);
+      await page.locator('#stepWave').click();
+      assert.match(await page.locator('#railEgg0').innerText(),/×1/);
+      assert.match(await page.locator('#status').innerText(),/卵＋1/);
+      await page.screenshot({path:`${path.resolve(process.env.QA_OUTPUT_DIR || path.join(__dirname,"../qa-final-20261014"))}/growth-egg-${viewport.width}.png`,fullPage:true});
+      await page.locator('#finishWave').click();
+      await page.locator('#export').click();
+      assert.equal(JSON.parse(await page.locator('#json').inputValue()).actions.length,1);
       assert.deepEqual(errors, []);
       await page.close();
     }

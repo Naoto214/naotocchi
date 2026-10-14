@@ -89,6 +89,7 @@ const labels = {
   pairFirst: "セット内先行進化",
   deathSpecies: "08種類条件",
   eggCount: "卵獲得個数",
+  eggReward: "卵報酬方式",
   eggThresholds: "卵ランク連鎖境界",
   gaugeMetric: "ゲージ獲得基準",
   gaugeUnit: "1本の必要量",
@@ -129,7 +130,10 @@ function setupRules(r) {
 }
 function readRules() {
   let p = {};
-  for (const key of Object.keys(configuration())) {
+  for (const key of [
+    ...Object.keys(configuration()),
+    ...($("rule-eggReward") ? ["eggReward"] : []),
+  ]) {
     if (key === "height") continue;
     const v = $("rule-" + key).value;
     p[key] =
@@ -210,7 +214,7 @@ function visibleResources() {
       const gain = e.death ? 0 : e.to - e.from;
       v.gauge += gain;
       v.score += ((gain + e.overflow) * 10 + (e.death ? 100 : 0)) * wave.chain;
-      if (e.death) v.eggs[e.eggRank] += e.eggCount;
+      if (e.eggCount) v.eggs[e.eggRank] += e.eggCount;
     }
   }
   return v;
@@ -380,11 +384,9 @@ function nextFrame() {
   };
   const rewardPhase =
     currentFrame.phase === "evolve" || currentFrame.phase === "result";
-  const eggs = currentFrame.events
-    .filter((e) => e.death)
-    .reduce((n, e) => n + e.eggCount, 0);
+  const eggs = currentFrame.events.reduce((n, e) => n + e.eggCount, 0);
   $("status").textContent =
-    `${currentFrame.chain} / ${s.last.waves.length}連鎖 · ${phaseNames[currentFrame.phase]}${eggs && rewardPhase ? ` · 寿命消滅 · 卵＋${eggs}` : ""}`;
+    `${currentFrame.chain} / ${s.last.waves.length}連鎖 · ${phaseNames[currentFrame.phase]}${rewardPhase && currentFrame.events.some((e) => e.death) ? " · 寿命消滅" : ""}${eggs && rewardPhase ? ` · 卵＋${eggs}` : ""}`;
   render();
   if (!$("manualWave").checked) {
     const token = generation;

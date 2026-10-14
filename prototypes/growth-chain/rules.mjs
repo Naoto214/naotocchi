@@ -1,6 +1,7 @@
 // Legacy laboratory defaults are preserved for archived replay compatibility.
 export const VERSION = "growth-chain-lab/1";
 export const OPTIONS = {
+  eggReward: ["death", "evolution"],
   anchor: ["bottom", "changed"],
   bulkAnchor: ["bottom", "changed"],
   consume: ["all", "five"],
@@ -49,7 +50,8 @@ export function configuration(p = {}) {
     )
       throw Error("Unknown rule " + k);
   for (const [k, vs] of Object.entries(OPTIONS))
-    if (!vs.includes(r[k])) throw Error("Invalid " + k);
+    if (!(k === "eggReward" && !Object.hasOwn(r, k)) && !vs.includes(r[k]))
+      throw Error("Invalid " + k);
   if (
     ![6, 7].includes(r.width) ||
     r.height !== 12 ||
@@ -84,6 +86,7 @@ export function standardRules(p = {}) {
     gaugeMetric: "growth",
     gaugeUnit: 8,
     scoreMode: "evolution",
+    eggReward: "evolution",
     topOut: "legal",
     ...p,
   });
