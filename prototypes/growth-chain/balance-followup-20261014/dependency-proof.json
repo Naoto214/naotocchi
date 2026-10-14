@@ -1,0 +1,19 @@
+{
+  "note": "Transitive dependency gate added after original run; original trial files unchanged",
+  "hashes": {
+    "balance-followup.mjs": "80afd8e281cecaa7abfe5c4e0809a0edc22b11fc98b0d8e121cc32e80a257ec3",
+    "balance-lookahead.mjs": "957bef43de820402e4bc1238e9173a8e496675ec95cdf4e29dfafd25350c72c9",
+    "balance-manifest.mjs": "e5631c6a557fc741505fed7868577cbad71627820e2d22cddf5512d1b7ec9a7f",
+    "balance-metrics.mjs": "b45e0c0e89a487d012a0959e3d13b46202e5afaebf68ca0b1102e5fcd5008afd",
+    "balance-policy.mjs": "8ff2d8657f08961239c77bff32ab67e04fe802f75d6b27d9a731d230375e4da7",
+    "balance-resume.mjs": "3d3b134dee64b668046b1762e3376a2237b73d121d37ab11563d0bc2fc37f54b",
+    "catalog.mjs": "bb900eb24e9fe8a85e86f95eae1a1765059012d166d2eb6d5ba5eedc1163d72c",
+    "engine.mjs": "7f5a981fd2a7b642ed375e2493b829021698cffad5097c4093d109ac939d8b18",
+    "experiments.mjs": "313f298f2dde943bac32bae49a8da7fa93d41feab5e39b0358764aa474552034",
+    "live-tools.mjs": "e795690ed38e8045a9021d634f89c087307d668e59e674f21663259b2905d9eb",
+    "policy.mjs": "2a07e705ab840b6a6cd699f93a1eb163c53fc6c9379a6c9b49f62622b76cef76",
+    "random.mjs": "aac4e298e0cacdbc7f7da550aba1159f7fd9c66237dbae24f40a3b888addaf36",
+    "rules.mjs": "4e72d3ef73d8aee5cb9a99b67997932b3b612f9d9e6a503fa69261cda40b906e",
+    "session.mjs": "4dcb850314f6b8c214290d5c9943f1bc3e9cd2305f1132fcf78c09f246afb682"
+  }
+}

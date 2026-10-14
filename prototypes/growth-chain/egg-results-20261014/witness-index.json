@@ -1,0 +1,65 @@
+[
+  {
+    "condition": "death-active",
+    "seed": 118,
+    "drop": 242,
+    "action": 261,
+    "wave": 5,
+    "causalRewards": 0,
+    "descendantDeaths": 0
+  },
+  {
+    "condition": "death-reserve",
+    "seed": 118,
+    "drop": 242,
+    "action": 261,
+    "wave": 5,
+    "causalRewards": 0,
+    "descendantDeaths": 0
+  },
+  {
+    "condition": "evolution-active",
+    "seed": 111,
+    "drop": 153,
+    "action": 228,
+    "wave": 2,
+    "causalRewards": 64,
+    "descendantDeaths": 1
+  },
+  {
+    "condition": "evolution-reserve",
+    "seed": 115,
+    "drop": 173,
+    "action": 261,
+    "wave": 4,
+    "causalRewards": 70,
+    "descendantDeaths": 1
+  },
+  {
+    "condition": "evolution-reserve",
+    "seed": 117,
+    "drop": 140,
+    "action": 201,
+    "wave": 4,
+    "causalRewards": 116,
+    "descendantDeaths": 2
+  },
+  {
+    "condition": "evolution-reserve",
+    "seed": 121,
+    "drop": 173,
+    "action": 277,
+    "wave": 6,
+    "causalRewards": 125,
+    "descendantDeaths": 1
+  },
+  {
+    "condition": "evolution-reserve",
+    "seed": 127,
+    "drop": 215,
+    "action": 330,
+    "wave": 3,
+    "causalRewards": 94,
+    "descendantDeaths": 1
+  }
+]

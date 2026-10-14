@@ -1,0 +1,29 @@
+{
+  "baseline": "b780e7113f223685b1bb72f823835c86135a6082",
+  "dedicated": {
+    "pass": 85,
+    "fail": 0
+  },
+  "dom": 5,
+  "mutants": {
+    "existingKilled": 12,
+    "newKilled": 3
+  },
+  "replay": {
+    "trials": 576,
+    "actions": 109871
+  },
+  "policyRegeneration": 128,
+  "rootRegression": {
+    "exitCode": 0,
+    "pass": [
+      3130,
+      80
+    ],
+    "fail": 0,
+    "skip": 0
+  },
+  "iPhoneSafari": "UNVERIFIED",
+  "newBrowserQA": "NOT RUN (no UI changes)",
+  "scope": "measurement/tests/evidence only"
+}

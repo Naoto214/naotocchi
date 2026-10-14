@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "trials": 128,
+  "actions": 28766,
+  "sourceHashes": true,
+  "initialStates": true,
+  "resourceBudgets": true,
+  "causalLineage": true
+}

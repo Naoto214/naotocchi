@@ -163,8 +163,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .profile-code-btn {min-height:44px;font-size:13px;border-radius:12px;line-height:1.4}
 .profile-code-box {font-size:16px}
 .menu-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;overflow:auto}
-.menu-grid button {min-height:112px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f2ede9;border:1px solid #d8cfd0;border-radius:16px;font-size:26px;color:var(--ui-purple);cursor:pointer;padding:10px 4px}
-.menu-grid button span {font-size:14px;font-weight:600}.menu-grid small {font-size:11px;color:var(--ui-muted)}
+.menu-grid button, .menu-grid .independent-game {min-height:112px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f2ede9;border:1px solid #d8cfd0;border-radius:16px;font-size:26px;color:var(--ui-purple);cursor:pointer;padding:10px 4px}
+.menu-grid button span, .menu-grid .independent-game span {font-size:14px;font-weight:600}.menu-grid small {font-size:11px;color:var(--ui-muted)}
 .menu-grid #worldBtn {background:#e8eff4;color:#486b8a}.menu-grid #gamesBtn {background:#e5f0e7;color:var(--ui-teal)}.menu-grid #itemBtn {background:#f7e6ee;color:var(--ui-rose)}
 .date-invite-btn {background:var(--ui-rose);color:white;border-color:var(--ui-rose)}
 .design-tabs,.ach-tabs,.item-tabs {display:flex;gap:6px;padding:4px;border-radius:14px;background:#e9e5df;flex-shrink:0}
@@ -253,3 +253,5 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 @keyframes relationship-heart-pop{0%{opacity:0;transform:scale(.55)}12%,65%{opacity:1;transform:scale(1)}85%{opacity:.85;transform:translateY(var(--relationship-float,-3px)) scale(.94)}100%{opacity:0;transform:translateY(var(--relationship-float,-3px)) scale(.8)}}
 @keyframes relationship-warm{0%{opacity:0;transform:scale(.88)}15%,60%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.04)}}
 @media(prefers-reduced-motion:reduce){.relationship-heart[data-relationship-state="positive"],.relationship-aura[data-relationship-state="positive"]{animation:none}}
+
+.menu-grid .independent-game { text-decoration:none; background:#e6f3f5; color:#34576a; }

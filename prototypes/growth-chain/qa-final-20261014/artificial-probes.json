@@ -1,0 +1,4044 @@
+[
+  {
+    "id": "anchor-transform-bottom",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 1,
+    "chains": 1,
+    "score": 20,
+    "gauge": 42,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 2
+            },
+            {
+              "id": 2,
+              "k": 1,
+              "s": 2
+            },
+            {
+              "id": 3,
+              "k": 0,
+              "s": 2
+            },
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 4,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "d0df87b1"
+    }
+  },
+  {
+    "id": "anchor-bulk-bottom",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 1,
+    "chains": 1,
+    "score": 20,
+    "gauge": 26,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 2
+            },
+            {
+              "id": 2,
+              "k": 1,
+              "s": 2
+            },
+            {
+              "id": 3,
+              "k": 0,
+              "s": 2
+            },
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 4,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "bulk",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "hash": "b4ff8a1f"
+    }
+  },
+  {
+    "id": "large-6-all",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 6,
+    "after": 1,
+    "chains": 1,
+    "score": 40,
+    "gauge": 28,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 2,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 3,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 4,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 5,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 6,
+              "k": 0,
+              "s": 1
+            }
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 7,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "bulk",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "hash": "98505abb"
+    }
+  },
+  {
+    "id": "large-10-all",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 10,
+    "after": 1,
+    "chains": 1,
+    "score": 40,
+    "gauge": 28,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 7,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 8,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 9,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 10,
+              "k": 1,
+              "s": 1
+            },
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 2,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 3,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 4,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 5,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 6,
+              "k": 0,
+              "s": 1
+            }
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 11,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "bulk",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "hash": "8da3c808"
+    }
+  },
+  {
+    "id": "large-12-all",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 12,
+    "after": 1,
+    "chains": 1,
+    "score": 40,
+    "gauge": 28,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 7,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 8,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 9,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 10,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 11,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 12,
+              "k": 1,
+              "s": 1
+            }
+          ],
+          [
+            {
+              "id": 1,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 2,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 3,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 4,
+              "k": 0,
+              "s": 1
+            },
+            {
+              "id": 5,
+              "k": 1,
+              "s": 1
+            },
+            {
+              "id": 6,
+              "k": 0,
+              "s": 1
+            }
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 13,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "bulk",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "hash": "c09a1e9a"
+    }
+  },
+  {
+    "id": "life-1-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 2,
+    "after": 0,
+    "chains": 1,
+    "score": 100,
+    "gauge": 40,
+    "eggs": [
+      3,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 8
+            },
+            {
+              "id": 20,
+              "k": 1,
+              "s": 8
+            },
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 21,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "10c00521"
+    }
+  },
+  {
+    "id": "life-2-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 0,
+    "chains": 2,
+    "score": 210,
+    "gauge": 41,
+    "eggs": [
+      2,
+      3,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 2,
+              "k": 0,
+              "s": 8
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 7
+            },
+            {
+              "id": 20,
+              "k": 1,
+              "s": 7
+            },
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 21,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "d2d05df0"
+    }
+  },
+  {
+    "id": "life-3-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 4,
+    "after": 0,
+    "chains": 3,
+    "score": 330,
+    "gauge": 42,
+    "eggs": [
+      2,
+      2,
+      3,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 3,
+              "k": 0,
+              "s": 8
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 2,
+              "k": 0,
+              "s": 7
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 6
+            },
+            {
+              "id": 20,
+              "k": 1,
+              "s": 6
+            },
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 21,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "61aef6d4"
+    }
+  },
+  {
+    "id": "life-4-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 5,
+    "after": 0,
+    "chains": 4,
+    "score": 460,
+    "gauge": 43,
+    "eggs": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 4,
+              "k": 0,
+              "s": 8
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 3,
+              "k": 0,
+              "s": 7
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 2,
+              "k": 0,
+              "s": 6
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 5
+            },
+            {
+              "id": 20,
+              "k": 1,
+              "s": 5
+            },
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 21,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "f8d29d2d"
+    }
+  },
+  {
+    "id": "life-5-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 6,
+    "after": 0,
+    "chains": 5,
+    "score": 600,
+    "gauge": 44,
+    "eggs": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 5,
+              "k": 0,
+              "s": 8
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 4,
+              "k": 0,
+              "s": 7
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 3,
+              "k": 0,
+              "s": 6
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 2,
+              "k": 0,
+              "s": 5
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 4
+            },
+            {
+              "id": 20,
+              "k": 1,
+              "s": 4
+            },
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 21,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "358bceae"
+    }
+  },
+  {
+    "id": "life-7-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 8,
+    "after": 0,
+    "chains": 7,
+    "score": 910,
+    "gauge": 46,
+    "eggs": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 7,
+              "k": 0,
+              "s": 8
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 6,
+              "k": 0,
+              "s": 7
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 5,
+              "k": 0,
+              "s": 6
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 4,
+              "k": 0,
+              "s": 5
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 3,
+              "k": 0,
+              "s": 4
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 2,
+              "k": 0,
+              "s": 3
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 2
+            },
+            {
+              "id": 20,
+              "k": 1,
+              "s": 2
+            },
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 21,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "972e2c40"
+    }
+  },
+  {
+    "id": "egg-count-group",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 6,
+    "after": 0,
+    "chains": 1,
+    "score": 100,
+    "gauge": 24,
+    "eggs": [
+      3,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 8
+            },
+            {
+              "id": 2,
+              "k": 1,
+              "s": 8
+            },
+            {
+              "id": 3,
+              "k": 0,
+              "s": 8
+            },
+            {
+              "id": 4,
+              "k": 1,
+              "s": 8
+            },
+            {
+              "id": 5,
+              "k": 0,
+              "s": 8
+            },
+            {
+              "id": 6,
+              "k": 1,
+              "s": 8
+            }
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 7,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "bulk",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "hash": "bebf696d"
+    }
+  },
+  {
+    "id": "four-targets-transform",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 12,
+    "after": 9,
+    "chains": 2,
+    "score": 40,
+    "gauge": 43,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 120,
+              "k": 0,
+              "s": 4
+            },
+            {
+              "id": 121,
+              "k": 1,
+              "s": 4
+            },
+            {
+              "id": 122,
+              "k": 0,
+              "s": 4
+            },
+            {
+              "id": 123,
+              "k": 0,
+              "s": 6
+            },
+            {
+              "id": 124,
+              "k": 1,
+              "s": 6
+            },
+            {
+              "id": 125,
+              "k": 0,
+              "s": 6
+            }
+          ],
+          [
+            {
+              "id": 130,
+              "k": 0,
+              "s": 2
+            },
+            {
+              "id": 131,
+              "k": 1,
+              "s": 2
+            },
+            {
+              "id": 132,
+              "k": 0,
+              "s": 2
+            },
+            {
+              "id": 133,
+              "k": 0,
+              "s": 3
+            },
+            {
+              "id": 134,
+              "k": 1,
+              "s": 3
+            },
+            {
+              "id": 135,
+              "k": 0,
+              "s": 3
+            }
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 136,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "transform",
+          "x": 1,
+          "y": 13,
+          "to": 0
+        }
+      ],
+      "hash": "6498c846"
+    }
+  },
+  {
+    "id": "four-targets-bulk",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 12,
+    "after": 4,
+    "chains": 1,
+    "score": 80,
+    "gauge": 32,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 7,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 120,
+              "k": 0,
+              "s": 4
+            },
+            {
+              "id": 121,
+              "k": 1,
+              "s": 4
+            },
+            {
+              "id": 122,
+              "k": 0,
+              "s": 4
+            },
+            {
+              "id": 123,
+              "k": 0,
+              "s": 6
+            },
+            {
+              "id": 124,
+              "k": 1,
+              "s": 6
+            },
+            {
+              "id": 125,
+              "k": 0,
+              "s": 6
+            }
+          ],
+          [
+            {
+              "id": 130,
+              "k": 0,
+              "s": 2
+            },
+            {
+              "id": 131,
+              "k": 1,
+              "s": 2
+            },
+            {
+              "id": 132,
+              "k": 0,
+              "s": 2
+            },
+            {
+              "id": 133,
+              "k": 0,
+              "s": 3
+            },
+            {
+              "id": 134,
+              "k": 1,
+              "s": 3
+            },
+            {
+              "id": 135,
+              "k": 0,
+              "s": 3
+            }
+          ]
+        ],
+        "eggs": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012086,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            4,
+            4,
+            2,
+            4,
+            0,
+            0,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            3,
+            4,
+            1,
+            3,
+            1,
+            2,
+            1,
+            0
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 136,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "bulk",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "hash": "c5266fd8"
+    }
+  },
+  {
+    "id": "egg-chain-3",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 1,
+    "chains": 3,
+    "score": 60,
+    "gauge": 51,
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 1,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 3,
+              "k": 0,
+              "s": 3
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 2,
+              "k": 0,
+              "s": 2
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 1
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012080,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            3,
+            1,
+            3,
+            1,
+            3,
+            2,
+            2,
+            1,
+            4,
+            4,
+            0,
+            0,
+            2,
+            3,
+            4,
+            0,
+            1,
+            4,
+            0,
+            2
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 4,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "egg",
+          "rank": 0,
+          "k": 0,
+          "x": 1
+        }
+      ],
+      "hash": "4f5e18bd"
+    }
+  },
+  {
+    "id": "egg-chain-5",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 5,
+    "after": 1,
+    "chains": 5,
+    "score": 150,
+    "gauge": 53,
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "record": {
+      "version": "growth-chain-lab/1",
+      "initial": {
+        "version": "growth-chain-lab/1",
+        "seed": 1,
+        "rules": {
+          "width": 6,
+          "height": 12,
+          "kinds": 5,
+          "anchor": "bottom",
+          "bulkAnchor": "bottom",
+          "consume": "all",
+          "competition": "component",
+          "pairFirst": false,
+          "deathSpecies": "same",
+          "eggCount": "group",
+          "eggThresholds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "gaugeMetric": "growth",
+          "gaugeUnit": 8,
+          "scoreMode": "evolution",
+          "topOut": "legal",
+          "eggPlacement": "column",
+          "bag": "fourEach"
+        },
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 5,
+              "k": 0,
+              "s": 5
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 4,
+              "k": 0,
+              "s": 4
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 3,
+              "k": 0,
+              "s": 3
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 2,
+              "k": 0,
+              "s": 2
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            {
+              "id": 1,
+              "k": 0,
+              "s": 1
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "eggs": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "gauge": 48,
+        "bag": {
+          "state": 440012080,
+          "kinds": 5,
+          "mode": "fourEach",
+          "index": 8,
+          "items": [
+            3,
+            1,
+            3,
+            1,
+            3,
+            2,
+            2,
+            1,
+            4,
+            4,
+            0,
+            0,
+            2,
+            3,
+            4,
+            0,
+            1,
+            4,
+            0,
+            2
+          ],
+          "cycle": 1
+        },
+        "queue": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "nextId": 6,
+        "score": 0,
+        "drops": 0,
+        "actions": 0,
+        "over": null
+      },
+      "actions": [
+        {
+          "type": "egg",
+          "rank": 0,
+          "k": 0,
+          "x": 1
+        }
+      ],
+      "hash": "1ce95319"
+    }
+  }
+]

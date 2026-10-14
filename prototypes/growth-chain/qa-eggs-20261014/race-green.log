@@ -1,0 +1,11 @@
+✔ race prioritizes first death, symmetric same-clock draw and explicit alternate clock (10.834485ms)
+✔ nonterminal caps remain unresolved, terminal ties draw, incompatible or illegal logs reject (6.334155ms)
+✔ finished no-death games fall back to actual replay score, not supplied totals (31.699127ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.187603
