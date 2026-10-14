@@ -1,3 +1,8 @@
+import {COPY_RULES} from './ability-copy.mjs';
+import {COST_RULES} from './costs.mjs';
+import {EQUIPMENT_RULES} from './equipment-rules.mjs';
+import {INSPECTION_RULES} from './advanced-inspection.mjs';
+import {REMAINING_RULES} from './remaining-rules.mjs';
 /** Explicit effect programs. Unknown card text is never treated as a no-op. */
 import {MAIN_RULES} from './main-rules.mjs';
 import {CATALOG} from './full-catalog.mjs';
@@ -168,3 +173,8 @@ quick('G-jenga-tower',[iff('prepared2',[draw()]),draw()],{select:[{key:'payment'
 quick('G-asteroids-classic',[{op:'selectedMove',key:'equipment',destination:'discard'},iff({allMoved:'equipment'},[{...search(5,{type:'item',maxCost:2},2,true,true),revealInspected:true}])],{select:[{key:'equipment',zone:'ownEquipment',filter:{minCost:3},count:1}]});
 
 quick('G-tilt-maze-3d',[{op:'retarget'}],{reaction:'retarget'});
+
+for(const [id,rule] of Object.entries(REMAINING_RULES))add(id,rule);
+for(const [id,rule] of Object.entries(INSPECTION_RULES))add(id,rule);
+for(const [id,rule] of Object.entries({...COST_RULES,...EQUIPMENT_RULES}))add(id,rule);
+for(const [id,rule] of Object.entries(COPY_RULES))add(id,rule);
