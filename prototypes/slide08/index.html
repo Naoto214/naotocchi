@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+  /><title>08消滅スライド｜独立検証版</title
+  ><link rel="stylesheet" href="style.css" />
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">NAOTOCCHI · RULE LAB</p>
+        <h1>08消滅スライド</h1>
+        <p>同じ系統の08をつなげて、寿命消滅させよう。</p>
+        <span class="badge">独立プロトタイプ・数値は検証中</span>
+      </header>
+      <section class="panel">
+        <label
+          >確認済み盤面
+          <select id="catalog">
+            <option value="pilot-3.json">6×6 / seed 3 / 確認解17手</option>
+            <option value="pilot-9.json">6×6 / seed 9 / 確認解23手</option>
+            <option value="pilot-2.json">6×6 / seed 2 / 確認解36手</option>
+            <option value="pilot-15.json">6×6 / seed 15 / 確認解42手</option>
+            <option value="proof-count30-4.json">
+              やさしい候補 / 30体 / 確認解11手
+            </option>
+            <option value="proof-cost2-15.json">費用2/6候補 / 確認解8手</option>
+          </select></label
+        >
+        <p id="proofStatus" role="status">証明を確認しています…</p>
+        <button id="reset">最初から</button>
+      </section>
+      <div class="stats">
+        <span>手数 <b id="moves">0</b></span
+        ><span>時間 <b id="time">0:00</b></span
+        ><span>得点 <b id="score">0</b></span
+        ><span>ゲージ <b id="gauge">4 / 24</b></span>
+      </div>
+      <p id="status" role="status" aria-live="polite">読み込み中</p>
+      <div id="board" aria-label="盤面"></div>
+      <div class="arrows" aria-label="盤面をスライド">
+        <button data-dir="up" aria-label="上へスライド">↑</button>
+        <div>
+          <button data-dir="left" aria-label="左へスライド">←</button
+          ><button data-dir="down" aria-label="下へスライド">↓</button
+          ><button data-dir="right" aria-label="右へスライド">→</button>
+        </div>
+      </div>
+      <section class="panel">
+        <h2>卵・へんしん</h2>
+        <p id="stock"></p>
+        <label
+          >操作
+          <select id="mode">
+            <option value="egg">卵を外周から投入</option>
+            <option value="single">単体へんしん（マスを選ぶ）</option>
+            <option value="bulk">だいへんしん（系統全体）</option>
+          </select></label
+        >
+        <div class="fields">
+          <label
+            >変更・孵化先
+            <select id="kind"></select></label
+          ><label
+            >卵
+            <select id="rank">
+              <option value="0">普通 → 01</option>
+              <option value="1">銀 → 02</option>
+              <option value="2">金 → 03</option>
+              <option value="3">プラチナ → 04</option>
+            </select></label
+          ><label
+            >投入方向
+            <select id="direction">
+              <option value="down">上から ↓</option>
+              <option value="up">下から ↑</option>
+              <option value="right">左から →</option>
+              <option value="left">右から ←</option>
+            </select></label
+          ><label
+            >列 / 行
+            <select id="lane"></select></label
+          ><label
+            >全体の変更元
+            <select id="from"></select
+          ></label>
+        </div>
+        <p id="selection">黄色枠が卵の停止位置</p>
+        <button id="use">実行</button> <button id="cancel">選択を取消</button>
+        <p id="used"></p>
+      </section>
+      <section class="panel">
+        <h2>確認済み解法</h2>
+        <p>見つかった解法です。最短手数ではありません。</p>
+        <button id="replayOne">1手進める</button>
+        <button id="replayAll">最初から自動再生</button>
+        <button id="stop">再生を止める</button>
+        <p id="replayStatus"></p>
+        <button id="export">プレイ記録を保存</button>
+      </section>
+      <details class="panel">
+        <summary>比較設定・試験生成（解法未証明）</summary>
+        <p>生成のみでは採用しません。解法保証には探索と再生検証が必要です。</p>
+        <div class="fields">
+          <label
+            >盤面
+            <select id="size">
+              <option>5</option>
+              <option selected>6</option>
+              <option>7</option>
+            </select></label
+          ><label
+            >配置数
+            <select id="count">
+              <option>18</option>
+              <option selected>24</option>
+              <option>30</option>
+            </select></label
+          ><label
+            >系統数
+            <select id="kinds">
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select></label
+          ><label
+            >初期最大段階
+            <select id="maxStage">
+              <option>3</option>
+              <option selected>4</option>
+              <option>5</option>
+            </select></label
+          ><label
+            >単体 / 全体費用
+            <select id="cost">
+              <option value="2">2 / 6</option>
+              <option value="4" selected>4 / 12</option>
+              <option value="8">8 / 24</option>
+            </select></label
+          ><label
+            >初期ゲージ
+            <select id="initialGauge">
+              <option>0</option>
+              <option selected>4</option>
+              <option>12</option>
+            </select></label
+          ><label
+            >卵報酬
+            <select id="reward">
+              <option value="landing">進化先04〜07</option>
+              <option value="crossed">通過段階にも付与</option>
+              <option value="off">なし</option>
+            </select></label
+          ><label
+            >初期卵
+            <select id="initialEggs">
+              <option value="normal">普通2・銀1</option>
+              <option value="none">なし</option>
+            </select></label
+          ><label
+            >seed
+            <input id="seed" type="number" min="0" max="4294967295" value="3"
+          /></label>
+        </div>
+        <button id="generate">未証明盤面を試験生成</button>
+      </details>
+      <details class="panel">
+        <summary>ルール</summary>
+        <p>
+          同種・同段階の2 / 3 / 4 / 5体以上が接続すると、+1 / +2 / +3 /
+          +4段階。6体以上も全員消費し、1体になります。上限08。同種08の接続でクリア。
+        </p>
+        <p>
+          スライド後は同方向に再圧縮して連鎖します。卵・へんしん後は圧縮せず、直接接続だけ連鎖。進化先04〜07で卵を獲得。ゲージは実際の成長差分だけ増えます。
+        </p>
+        <p>
+          操作は1手。無効・取消・自動連鎖は0手。時間は最初の有効操作からクリアまで（画面離脱中も経過）。スワイプ・矢印キーにも対応。
+        </p>
+      </details>
+      <footer>
+        なおぽよ・本編のセーブには接続しません。オンライン対戦は未実装。
+      </footer>
+    </main>
+    <script type="module" src="ui.mjs"></script>
+  </body>
+</html>
