@@ -51,7 +51,7 @@ test('hand presentation highlights selected instance and exposes accessible reor
  const s=new HotseatSession();s.start(createGame(719));s.reveal();const v=s.projection,id=v.players.A.hand[0].id;
  const html=gameMarkup(v,'A',{selected:id,reordering:true});
  assert.match(html,/is-selected/);assert.match(html,/data-move="-1"/);assert.match(html,/data-move="1"/);
- assert.match(html,/操作中 A/);assert.match(html,/priority-heading/);
+ assert.match(html,/操作中 A/);assert.match(html,/data-workflow/);
  assert.doesNotMatch(gameMarkup(v,'A'),/data-move=/);
  s.hide();assert.doesNotMatch(gameMarkup(s.projection,null,{reordering:true}),/data-move=|id="hand"/);
 });

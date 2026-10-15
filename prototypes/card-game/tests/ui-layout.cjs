@@ -1,44 +1,35 @@
-// Run with an approved browser QA capability against the existing static server.
-// This session did not execute browser QA; see UI-IMPLEMENTATION.md.
+// Run only with an approved browser QA capability. Not executed in the managed Sites session.
 const {chromium,webkit}=require('playwright');const assert=require('node:assert/strict');
+const {closeDetail,projection,actionButton,reveal}=require('./ui-browser-helpers.cjs');
 (async()=>{
- const browser=await (process.env.BROWSER==='webkit'?webkit:chromium).launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
+ const browser=await(process.env.BROWSER==='webkit'?webkit:chromium).launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
  const page=await browser.newPage({hasTouch:true,isMobile:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const url=process.env.QA_URL||'http://127.0.0.1:8765/prototypes/card-game/';
  for(const viewport of [{width:844,height:390},{width:932,height:430},{width:667,height:375},{width:844,height:280},{width:390,height:664},{width:320,height:480}]){
-  await page.setViewportSize(viewport);await page.goto('http://127.0.0.1:8765/prototypes/card-game/');
-  assert.equal(await page.locator('#catalog-list .card-face').count(),452);
-  await page.locator('#new').click();assert.equal(await page.locator('#hand').count(),0);
-  await page.locator('#reveal').click();
+  await page.setViewportSize(viewport);await page.goto(url);assert.equal(await page.locator('#catalog-list .card-face').count(),452);
+  await page.locator('#welcome [data-menu]').click();assert.ok(await page.locator('#import').isVisible());await page.locator('#menu-dialog [data-close]').click();
+  await page.locator('#new').click();assert.equal(await page.locator('#hand').count(),0);await reveal(page);await closeDetail(page);
   assert.equal(await page.locator('.player-board .slot').count(),18);
-  assert.equal(await page.locator('.egg-image').count(),2);
-  const checks=await page.evaluate(()=>{
-   const box=s=>document.querySelector(s).getBoundingClientRect(),o=box('.opponent'),a=box('.own'),c=box('.control-panel'),hand=box('#hand');
-   const landscape=innerWidth>innerHeight;return {noHorizontalOverflow:document.documentElement.scrollWidth<=innerWidth,landscape,ordered:!landscape||(o.right<=a.left&&a.right<=c.left),larger:!landscape||a.width>o.width,handSeparate:Math.max(o.bottom,a.bottom,c.bottom)<=hand.top+1};
-  });
-  assert.ok(checks.noHorizontalOverflow);assert.ok(checks.ordered);assert.ok(checks.larger);assert.ok(checks.handSeparate);
-  const beforeSave=await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1'));
-  const beforeOrder=await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry));
-  await page.locator('[data-reorder]').click();await page.locator('[data-hand-entry]').first().locator('[data-move="1"]').click();
-  const afterOrder=await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry));
-  assert.deepEqual(afterOrder,[beforeOrder[1],beforeOrder[0],...beforeOrder.slice(2)]);
-  assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),beforeSave);
-  await page.locator('[data-reorder]').click();
-  await page.locator('#hand .card-tap').first().click();assert.ok(await page.locator('#card-dialog').isVisible());assert.ok(await page.locator('.full-effect').innerText());
-  const detail=await page.evaluate(()=>{
-   const box=s=>document.querySelector(s).getBoundingClientRect(),card=box('.detail-card-canvas>.card-face'),dialog=box('#card-dialog');
-   return {fits:card.top>=dialog.top&&card.bottom<=dialog.bottom&&card.left>=dialog.left&&card.right<=dialog.right,dialogScroll:document.querySelector('#card-dialog').scrollHeight<=document.querySelector('#card-dialog').clientHeight+1};
-  });assert.ok(detail.fits);assert.ok(detail.dialogScroll);
-  // Actual mandatory choice is available inside detail, not a dead-end instruction.
-  assert.ok(await page.locator('.detail-actions [data-action]').count());
-  const choice=page.locator('.detail-actions [data-action]').first();await choice.scrollIntoViewIfNeeded();await choice.click();
-  if(await page.locator('#confirm-dialog').isVisible())await page.locator('[data-confirm]').click();
-  assert.notEqual(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),beforeSave);
-  if(await page.locator('#curtain').isVisible())await page.locator('#reveal').click();
-  await page.locator('#hand .card-tap').first().click();
-  await page.evaluate(()=>window.dispatchEvent(new Event('blur')));
-  assert.equal(await page.locator('#hand').count(),0);assert.equal(await page.locator('#card-dialog .card-face').count(),0);assert.equal(await page.locator('#confirm-dialog button').count(),0);
-  await page.locator('#reveal').click();await page.locator('#hide').click();assert.equal(await page.locator('#actions').count(),0);
+  const check=await page.evaluate(()=>{
+   const box=s=>document.querySelector(s).getBoundingClientRect(),far=box('[data-depth=far]'),near=box('[data-depth=near]'),battle=box('.battle-scroll'),hand=box('#hand');
+   return{overflow:document.documentElement.scrollWidth>innerWidth,ordered:far.bottom<near.top,larger:near.width>far.width,separate:battle.bottom<=hand.top+1,slots:[...document.querySelectorAll('.slot')].every(n=>{const b=n.getBoundingClientRect();return b.height>=40&&Math.abs(b.width/b.height-1.05)<.05;}),eggs:[...document.querySelectorAll('.egg-main .egg-image')].every(n=>{const b=n.getBoundingClientRect(),p=n.parentElement.getBoundingClientRect();return b.top>=p.top&&b.bottom<=p.bottom+1&&getComputedStyle(n).objectFit==='contain';})};
+  });assert.ok(!check.overflow&&check.ordered&&check.larger&&check.separate&&check.slots&&check.eggs,JSON.stringify({viewport,check}));
+  if(await page.locator('#hand.hand-collapsed').count())await page.locator('[data-hand-toggle]').click();
+  const saved=await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),before=await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry));
+  const first=await page.locator('.hand-card').first().boundingBox(),second=await page.locator('.hand-card').nth(1).boundingBox();
+  await page.mouse.move(first.x+first.width/2,first.y+first.height/2);await page.mouse.down();await page.waitForTimeout(400);assert.equal(await page.locator('.drag-ghost').count(),1);
+  await page.mouse.move(second.x+second.width/2,second.y+second.height/2,{steps:8});await page.waitForTimeout(180);await page.mouse.up();
+  const after=await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry));assert.deepEqual(after,[before[1],before[0],...before.slice(2)]);assert.equal(await page.locator('.drag-ghost').count(),0);assert.ok(!await page.locator('#card-dialog').isVisible());assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),saved);
+  await page.waitForTimeout(450);await page.locator('.hand-card').first().click();assert.ok(await page.locator('.full-effect').innerText());
+  for(const size of [viewport,{width:viewport.height,height:viewport.width},viewport]){
+   await page.setViewportSize(size);await page.waitForTimeout(100);
+   assert.ok(await page.evaluate(()=>{const c=document.querySelector('.detail-card-canvas>.card-face').getBoundingClientRect(),d=document.querySelector('#card-dialog').getBoundingClientRect();return c.top>=d.top&&c.bottom<=d.bottom&&c.left>=d.left&&c.right<=d.right&&Math.abs(c.width/c.height-2/3)<.01;}));
+  }
+  const v=await projection(page),a=v.actions[0];const button=await actionButton(page,a);await button.click();if(await page.locator('#confirm-dialog').isVisible())await page.locator('[data-confirm]').click();
+  assert.notEqual(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),saved);await reveal(page);await closeDetail(page);
+  const next=await projection(page);assert.equal(await page.locator('[data-depth=near]').getAttribute('data-player'),next.actor);
+  await page.evaluate(()=>window.dispatchEvent(new Event('blur')));assert.equal(await page.locator('#hand').count(),0);assert.equal(await page.locator('#card-dialog .card-face').count(),0);assert.equal(await page.locator('.drag-ghost').count(),0);
   await page.reload();await page.locator('#restore').click();assert.equal(await page.locator('#hand').count(),0);
  }
- assert.deepEqual(errors,[]);console.log(JSON.stringify({viewports:6,all452:true,detail:true,mandatoryChoice:true,reorder:true,privacy:true,restore:true,pageErrors:errors}));await browser.close();
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({viewports:6,all452:true,frontBack:true,detailRotation:true,drag:true,privacy:true,restore:true}));await browser.close();
 })().catch(e=>{console.error(e);process.exit(1);});

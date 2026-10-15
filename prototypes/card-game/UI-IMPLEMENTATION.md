@@ -95,3 +95,35 @@ Read nine owner-provided iPhone screenshots, IMG_6558, IMG_6560–6567. Portrait
 5. Background Safari, switch actors, rapidly tap twice and restore a finished game. No private card/peek/detail appears before 準備OK.
 
 The original trial URL and PR #259/#381 are untouched; this patch updates only existing owner-private UI trial and PR #384. Publication success is not visual QA success.
+
+## iPhone QA round 2 — court and action flow reconstruction
+
+Starting remote PR384 HEAD `cdea36541f8ce54df57d44cda94cf1b5a5a42637`, tree `afdbf26a422c41759e607e6cd339882e183638b9`. PR259/381/384 were freshly verified draft, open and unmerged. This section supersedes the earlier side-by-side board and arrow-first reorder descriptions.
+
+### Actual evidence and reconstruction
+
+Inspected the five owner-provided screenshots IMG_6578–6582. They show almost flattened landscape slots with Safari chrome open, an egg extending past its slot, card title/art overflow and a large unrelated action list. The images themselves are not published in the repository.
+
+- The table now has a far opponent court above a larger near acting-player court. Handoff removes private content first; 準備OK reconstructs the view for the new actor, including response actor changes. Seat ownership stays A/B. The near court is focused initially; 奥/手前 buttons move the internal court scroller.
+- Slot geometry is width-based with a stable aspect ratio. Limited viewport height scrolls the court instead of flattening its rows. The 3×3 arrangement, egg parking and discard/activation/deck order remain. Egg and character images use bounded contain sizing. Card face rows are explicit, preventing intrinsic image size from displacing titles or stats.
+- Header, court, and hand tray occupy separate flow regions. Landscape starts with the hand tray collapsed; tap 手札 to open it. Portrait starts open. On very short screens the court scrolls internally; it is intentional that both complete courts are not simultaneously visible. Dynamic viewport and safe-area fitting remain in use.
+- A card tap opens the whole card and only that card's legal actions. A sole legal action is emphasized. Mandatory card choices open that card's detail; target/payment/placement steps continue in the same modal workspace. Closing it returns to the board without committing or passing. The persistent header reopens unresolved work. Response/pass and non-card turn actions remain explicit. Chain/history are collapsed.
+- Long press (350ms threshold) lifts a ghost of the card. Dragging changes only an instance-ID preview; neighboring cards animate, edge dragging scrolls the hand, and drop commits the display order. Early movement scrolls; cancellation, rotation, backgrounding and handoff cancel the drag. Synthesized clicks are suppressed after pointer release. Accessible arrows remain under 補助操作.
+- Hand order still uses separate per-seat browser preferences; engine save, replay, deck order, ownership and legal IDs are unchanged. Same-browser save/restore preserves it. Exported engine saves do not transfer UI preferences between devices.
+- Independent source review found the new menu made import unreachable on the welcome screen. A welcome-screen import opener fixes that without starting a throwaway match.
+
+### Verification and limitations
+
+Selected Node suite: **181 passed, 0 failed**. Command: `node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`. Includes the existing full-catalog, match completion, restore/replay, privacy, double-action protection and viewport calculations. Added tests verify card-specific mandatory actions, actor-relative court ordering, response/pass priority, long-press/pan/cancel state transitions and persistent display-only permutations. Existing rule/catalog/source assets are checked unchanged against the starting Git tree. Repository-wide catalog regeneration remains excluded as in prior UI work.
+
+The current session reviewed actual user screenshots and source, but **did not render the updated UI in a browser or operate iPhone Safari**. Managed Sites requires the unavailable control-browser capability; no substitute browser was installed or launched. `tests/ui-layout.cjs` and `tests/browser.cjs` were adapted for the new workflow and syntax-checked, not executed. Pointer DOM behavior, browser layout, Safari address-bar animation and physical touch remain unverified. Node geometry and gesture-state tests are not visual or touch QA.
+
+### Required next real-device checks
+
+1. Open the UI trial in landscape with Safari bars expanded/collapsed. Open/close the hand, use 奥/手前, and confirm slot/egg/card bounds; repeat in portrait and during rotation.
+2. Tap a hand card; read its full effect and use its own action. Complete opening egg choice, birth, placement, payment/targets and final confirmation. Verify response handoff changes the near seat, then continue or pass explicitly.
+3. Long-press and drag in both directions, including the hand edges and duplicate-name cards. Test early swipe, cancelled drag, rotating/backgrounding mid-drag, and no accidental card use. Restore the same saved match and check order.
+4. Check pupa and long-title/text cards for full card/art visibility. Scroll text/actions without moving the card. Check close/reopen retains unresolved mandatory work.
+5. Hide/reveal, rapid double tap, import from a fresh welcome screen, export/restore and match completion. No hand, peek, ghost or prior detail may survive a handoff.
+
+The owner-private UI Site alone is updated. Original trial and PR259/381 remain untouched. Deployment success does not establish browser or Safari QA success.
