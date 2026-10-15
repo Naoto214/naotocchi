@@ -27,12 +27,12 @@
 
   // ---- canonical emotion(めぐる と Home が 共有する きもちの 語彙) ----
   // sick は いまの 住民生活に 病気の 信号が ない ので、どの 生活イベントからも 発火しない(将来の 拡張用に のこす)
-  const EMOTIONS = Object.freeze(['normal', 'positive', 'dislike', 'tired', 'sleeping', 'strained', 'wantsPlay', 'sick']);
+  const EMOTIONS = Object.freeze(['normal', 'positive', 'dislike', 'tired', 'sleeping', 'strained', 'wantsPlay', 'sick', 'hungry', 'weak', 'critical', 'lonely']);
   // 住民生活(meguru.js の RESIDENT_EMOTIONS)の 名まえ → canonical
   const LIFE_EMOTION = Object.freeze({
     normal: 'normal', happy: 'positive', unhappy: 'dislike', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay',
     // canonical の 名まえ そのものも とおす(テスト・QA の 強制 / 将来の 信号)
-    positive: 'positive', dislike: 'dislike', sick: 'sick',
+    positive: 'positive', dislike: 'dislike', sick: 'sick', hungry: 'hungry', weak: 'weak', critical: 'critical', lonely: 'lonely',
   });
   function canonicalEmotion(lifeEmotion) {
     return Object.hasOwn(LIFE_EMOTION, lifeEmotion) ? LIFE_EMOTION[lifeEmotion] : 'normal';
@@ -45,9 +45,9 @@
   //   none         : ナオト など。いつも base
   const STAGE_BASE = /^assets\/characters\/([^/]+)\/(0[1-8])\.png$/;
   const EXPRESSION_FOR = Object.freeze({
-    stage: Object.freeze({ normal: 'normal', positive: 'happy', dislike: 'sulky', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', sick: 'sick' }),
-    relationship: Object.freeze({ normal: 'normal', positive: 'positive', dislike: 'normal', tired: 'normal', sleeping: 'normal', strained: 'normal', wantsPlay: 'normal', sick: 'normal' }),
-    none: Object.freeze({ normal: 'normal', positive: 'normal', dislike: 'normal', tired: 'normal', sleeping: 'normal', strained: 'normal', wantsPlay: 'normal', sick: 'normal' }),
+    stage: Object.freeze({ normal: 'normal', positive: 'happy', dislike: 'sulky', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', sick: 'sick', hungry: 'hungry', weak: 'weak', critical: 'critical', lonely: 'sulky' }),
+    relationship: Object.freeze({ normal: 'normal', positive: 'positive', dislike: 'normal', tired: 'normal', sleeping: 'normal', strained: 'normal', wantsPlay: 'normal', sick: 'normal', hungry: 'normal', weak: 'normal', critical: 'normal', lonely: 'lonely' }),
+    none: Object.freeze({ normal: 'normal', positive: 'normal', dislike: 'normal', tired: 'normal', sleeping: 'normal', strained: 'normal', wantsPlay: 'normal', sick: 'normal', hungry: 'normal', weak: 'normal', critical: 'normal', lonely: 'normal' }),
   });
   function baseAssetOf(resident) {
     if (!resident) return null;
@@ -144,7 +144,7 @@
   }
   // persistent(生活の 状態)と reaction(出来事)から、いま 見せる きもちを 1 つに。順番は 住民生活 v1 と おなじ
   function effectiveEmotion({ persistent = 'normal', reaction = null } = {}) {
-    if (persistent === 'sleeping') return 'sleeping';
+    if (persistent === 'sleeping' || persistent === 'critical') return persistent;
     return reaction || persistent;
   }
 

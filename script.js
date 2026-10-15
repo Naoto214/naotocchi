@@ -14576,6 +14576,14 @@
     partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
+    expressionPlayerInput: () => ({profile:deriveHomeEmotion(), sleeping:state.isSleeping,
+      blocked:state.stage !== STAGE.GROWING, base:currentVisualStage().asset}),
+    expressionRelationshipInput: (actor) => {
+      const entity = actor.kind === 'companion'
+        ? (state.companions || []).find(c => canonicalCompanionId(c.id) === actor.id)
+        : actor.kind === 'partner' && state.partner && canonicalPartnerId(state.partner.id) === actor.id ? state.partner : null;
+      return entity ? {value:actor.kind === 'companion' ? entity.bond : entity.affection, positive:!!relationshipReactions?.active(entity)} : null;
+    },
     playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
     // イラストの さしかえを とおさない ところ(のりものの えなど)で つかう ふつうの 絵文字。
     // playerGlyph は イラスト よう の しるし(\uE000)を かえす ことが あるので、
@@ -14686,6 +14694,7 @@
   };
   // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
   const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru(meguruBridge) : null;
+  if (meguruMod?.socialSession) meguruMod.expressionEvents?.subscribe(meguruMod.socialSession);
   // Preload once. A failed session stays on Canvas until page reload.
   let meguru3dRenderer = null;
   let meguru3dFailed = false, meguru3dSettled = false;
@@ -14784,6 +14793,7 @@
     return true;
   }
   function stopMeguru() {
+    meguruMod?.resetExpressions?.();
     if (!meguruActive) return;
     meguruActive = false;
     ++meguruStartToken; clearTimeout(meguruStartTimer); meguruStartTimer = null;
@@ -18931,6 +18941,7 @@
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
+      meguruMod?.suspendExpressions?.();
       invalidateCareAfterglow();
       clearPetExpression(true);
       cancelEmotionCue(true);

@@ -1,8 +1,8 @@
 {
   "base": "de0b38d06a4fec8d7d4e42497b9757996d8f2f7f",
-  "note": "Reviewed World integration source plus flag-gated restoration of main 2D discovery/map behavior. Original Character asset/Expression fixture remains unchanged. See docs/qa/world-character-integration-20261012/.",
+  "note": "Expression completion: only presentation bridge, sprite fallback and event sequence changes are authorized; movement and AI unchanged. See docs/qa/expression-complete-20261016.",
   "meguru.js": {
     "count": 1,
-    "sha1": "38f2031aa834cddbc5c72c9c132e4ef4408bcb99"
+    "sha1": "8fa113699cfa8e3d23b35b269d052ce5a009ce91"
   }
 }

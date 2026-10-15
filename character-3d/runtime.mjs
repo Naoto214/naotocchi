@@ -58,7 +58,7 @@ export function actorInfo(a, isPlayer, dt, ctx = {}) {
   if (!specKey) return null;
   const R368 = typeof globalThis !== 'undefined' ? globalThis.NaotocchiResidentExpression : null;
   const emotion = ctx.force || (a.expr && a.expr.emotion) || (isPlayer ? 'normal' : SPEC.canonicalEmotion(a.emotion, R368));
-  return { specKey, emotion, isPlayer, dt, moving: isPlayer ? !!a.moving : undefined };
+  return { specKey, emotion, cue: a.expr && a.expr.cue, isPlayer, dt, moving: isPlayer ? !!a.moving : undefined };
 }
 export function templateCount() { return TEMPLATES.size; }
 export function clearTemplates() { TEMPLATES.clear(); }
@@ -172,7 +172,14 @@ export function createCharacterPresenter(opts = {}) {
       if (hooks.failUpdate && hooks.failUpdate(actor, info)) throw new Error('forced update failure (QA)');
       inst.seen = frame;
       const em = emotionFor(info);
-      if (setEmotion(inst, em)) { setAccent(inst.accent, em); if (info.reactOnChange !== false && inst.anim.expr.reaction) react(inst, inst.anim.expr.reaction); }
+      if ((!info.cue || !info.cue.motion) && inst.anim.reaction?.kind === 'greet') inst.anim.reaction = null;
+      inst.anim.socialCue = !!info.cue;
+      if (setEmotion(inst, em)) { setAccent(inst.accent, em); if (!info.cue && info.reactOnChange !== false && inst.anim.expr.reaction) react(inst, inst.anim.expr.reaction); }
+      if (em === 'sleeping' || em === 'critical') inst.anim.reaction = null;
+      if (info.cue && inst.lastCue !== info.cue.token) {
+        inst.lastCue = info.cue.token;
+        if (info.cue.motion && em !== 'sleeping' && em !== 'critical') react(inst, info.cue.kind);
+      }
       // 位置・むき(actor の まま。表示の むき だけ なめらかに)
       const target = Math.PI - (actor.heading || 0);
       if (inst.yaw == null) inst.yaw = target;
