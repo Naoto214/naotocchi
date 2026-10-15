@@ -11,15 +11,19 @@ const {closeDetail,projection,actionButton,reveal}=require('./ui-browser-helpers
   await page.locator('#new').click();assert.equal(await page.locator('#hand').count(),0);await reveal(page);await closeDetail(page);
   assert.equal(await page.locator('.player-board .slot').count(),18);
   const check=await page.evaluate(()=>{
-   const box=s=>document.querySelector(s).getBoundingClientRect(),far=box('[data-depth=far]'),near=box('[data-depth=near]'),battle=box('.battle-scroll'),hand=box('#hand');
-   return{overflow:document.documentElement.scrollWidth>innerWidth,ordered:far.bottom<near.top,larger:near.width>far.width,separate:battle.bottom<=hand.top+1,slots:[...document.querySelectorAll('.slot')].every(n=>{const b=n.getBoundingClientRect();return b.height>=40&&Math.abs(b.width/b.height-1.05)<.05;}),eggs:[...document.querySelectorAll('.egg-main .egg-image')].every(n=>{const b=n.getBoundingClientRect(),p=n.parentElement.getBoundingClientRect();return b.top>=p.top&&b.bottom<=p.bottom+1&&getComputedStyle(n).objectFit==='contain';})};
-  });assert.ok(!check.overflow&&check.ordered&&check.larger&&check.separate&&check.slots&&check.eggs,JSON.stringify({viewport,check}));
+   const box=s=>document.querySelector(s).getBoundingClientRect(),far=box('.opponent-shell'),near=box('.own-shell'),panel=box('#operation-panel'),hand=box('#hand'),landscape=innerWidth>innerHeight;
+   return{overflow:document.documentElement.scrollWidth>innerWidth,ordered:landscape?far.right<=near.left&&near.right<=panel.left:far.bottom<=near.top&&near.bottom<=panel.top,separate:Math.max(far.bottom,near.bottom,panel.bottom)<=hand.top+1,pinned:far.top>=0&&far.bottom<=innerHeight,slots:[...document.querySelectorAll('.own .slot')].every(n=>{const b=n.getBoundingClientRect();return b.height>=20&&Math.abs(b.width/b.height-1.05)<.05;}),eggs:[...document.querySelectorAll('.egg-main .egg-image')].every(n=>{const b=n.getBoundingClientRect(),p=n.parentElement.getBoundingClientRect();return b.top>=p.top&&b.bottom<=p.bottom+1&&getComputedStyle(n).objectFit==='contain';})};
+  });assert.ok(!check.overflow&&check.ordered&&check.separate&&check.pinned&&check.slots&&check.eggs,JSON.stringify({viewport,check}));
+  assert.equal(await page.locator('#operation-panel .effect-focus').count(),1);
+  const opponentTop=await page.locator('.opponent-shell').evaluate(n=>n.getBoundingClientRect().top);await page.locator('.own-shell').evaluate(n=>{n.scrollTop=100;});assert.equal(await page.locator('.opponent-shell').evaluate(n=>n.getBoundingClientRect().top),opponentTop);
   if(await page.locator('#hand.hand-collapsed').count())await page.locator('[data-hand-toggle]').click();
   const saved=await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),before=await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry));
   const first=await page.locator('.hand-card').first().boundingBox(),second=await page.locator('.hand-card').nth(1).boundingBox();
   await page.mouse.move(first.x+first.width/2,first.y+first.height/2);await page.mouse.down();await page.waitForTimeout(400);assert.equal(await page.locator('.drag-ghost').count(),1);
   await page.mouse.move(second.x+second.width/2,second.y+second.height/2,{steps:8});await page.waitForTimeout(180);await page.mouse.up();
   const after=await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry));assert.deepEqual(after,[before[1],before[0],...before.slice(2)]);assert.equal(await page.locator('.drag-ghost').count(),0);assert.ok(!await page.locator('#card-dialog').isVisible());assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),saved);
+  await page.reload();await page.locator('#restore').click();assert.equal(await page.locator('#hand').count(),0);await reveal(page);
+  if(await page.locator('#hand.hand-collapsed').count())await page.locator('[data-hand-toggle]').click();assert.deepEqual(await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry)),after);
   await page.waitForTimeout(450);await page.locator('.hand-card').first().click();assert.ok(await page.locator('.full-effect').innerText());
   for(const size of [viewport,{width:viewport.height,height:viewport.width},viewport]){
    await page.setViewportSize(size);await page.waitForTimeout(100);
@@ -31,5 +35,5 @@ const {closeDetail,projection,actionButton,reveal}=require('./ui-browser-helpers
   await page.evaluate(()=>window.dispatchEvent(new Event('blur')));assert.equal(await page.locator('#hand').count(),0);assert.equal(await page.locator('#card-dialog .card-face').count(),0);assert.equal(await page.locator('.drag-ghost').count(),0);
   await page.reload();await page.locator('#restore').click();assert.equal(await page.locator('#hand').count(),0);
  }
- assert.deepEqual(errors,[]);console.log(JSON.stringify({viewports:6,all452:true,frontBack:true,detailRotation:true,drag:true,privacy:true,restore:true}));await browser.close();
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({viewports:6,all452:true,orientationSpecificCourts:true,pinnedEffect:true,pinnedOpponent:true,detailRotation:true,drag:true,privacy:true,restore:true}));await browser.close();
 })().catch(e=>{console.error(e);process.exit(1);});

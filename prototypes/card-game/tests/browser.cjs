@@ -12,7 +12,7 @@ const savedAfterDouble=await page.evaluate(()=>JSON.parse(localStorage.getItem('
 await page.screenshot({path:process.env.SCREENSHOT||'/tmp/naotocchi-hotseat.png',fullPage:true});
 let count=1,handoffs=0,reloaded=false;const kinds=new Set();
 while(!(await page.locator('#result').count())&&count<1800){
- if(await page.locator('#curtain').isVisible()){assert.equal(await page.locator('#hand').count(),0);assert.equal(await page.locator('#actions').count(),0);await page.locator('#reveal').click();handoffs++;}
+ if(await page.locator('#curtain').isVisible()){assert.equal(await page.locator('#hand').count(),0);assert.equal(await page.locator('[data-action]').count(),0);assert.equal(await page.locator('#operation-panel').count(),0);await page.locator('#reveal').click();handoffs++;}
  const buttons=(await projection(page)).actions;
  const score={choose:100,trigger:95,place:80,relationship:75,challenge:70,ability:65,programAbility:65,programPlay:60,play:60,skip:1,pass:0};buttons.sort((a,b)=>score[b.kind]-score[a.kind]);assert.ok(buttons.length);const a=buttons[0];kinds.add(a.kind);
  const button=await actionButton(page,a);await button.click();if(await page.locator('#confirm-dialog').isVisible())await page.locator('[data-confirm]').click();count++;

@@ -127,3 +127,40 @@ The current session reviewed actual user screenshots and source, but **did not r
 5. Hide/reveal, rapid double tap, import from a fresh welcome screen, export/restore and match completion. No hand, peek, ghost or prior detail may survive a handoff.
 
 The owner-private UI Site alone is updated. Original trial and PR259/381 remain untouched. Deployment success does not establish browser or Safari QA success.
+
+## iPhone QA round 3 — effect context and orientation-specific table
+
+Starting remote HEAD `651e8658e66677f75791f7375f1cd07b6f4a43b1`, tree `5be78a6836116a7b71f951c0cf56ddb6fc9b1e7d`. PR259,381,384 were freshly verified Draft/open/unmerged. This section supersedes round2's vertical scrolling court, automatic priority dialogs and initially collapsed landscape hand.
+
+### Evidence and changes
+
+Inspected owner screenshots IMG_6585–6588. Portrait initially scrolled the opponent entirely away. Response dialogs occupied the whole screen without identifying the current effect; an unusable card required returning to another dialog to pass. Landscape retained the portrait-style vertical court.
+
+- The normal table now contains the current operation panel. Mandatory options and trigger/response actions are direct buttons; automatic opening of intermediate dialogs is removed. The header's 操作を拡大 is optional. No choice or pass is automated, including single-option choices.
+- `ui-context.mjs` is a read-only adapter over existing safe-view cards and existing effect/choice/chain metadata. It labels current work and preserves source-card context across choices, response handoffs and restored saves. It never calculates legality, executes an effect, changes state, or alters action IDs. Catalog descriptors outside the safe field/hand view are permitted only for exact already-public chain sources. Private inspection cards come only from the engine's viewer-authorized peek.
+- Egg hand-bottom selection says 山札の下へ戻す; the egg remains identified during its start response window. Birth trigger, chain response and birth hand-bottom selection retain their source. Resolution choice takes precedence over queued chain links, whose history remains collapsed. Finished work clears instead of leaving a last-clicked source indefinitely.
+- Declared payment/target destinations are shown without implying a target has already moved: e.g. 山札の下へ戻す対象に選ぶ. Unrecognized choice semantics retain the engine label. Supported legacy saves without source history safely use generic effect context rather than infer a source. No per-rejected-action reasons are supplied by the engine; no-action guidance explains the phase and suggests checking conditions, without asserting an invented failure cause.
+- Detail still shows the complete card and independent readable text/actions. It includes current effect context and a direct engine pass button during response. Eligible cards/targets are highlighted from returned candidates. Existing payment/multi-target confirmation remains unchanged.
+- Landscape uses three independent columns: opponent / own / current operation, with the hand beneath. Height does not squash card slots; courts and operation lists scroll internally. In short landscape, hand controls sit beside the hand strip and the redundant panel heading is removed to preserve action space.
+- Portrait pins a compact opponent 3×3 overview at the top, with visible card names and inspectable cards. Own court is below, with its own scroll region. The current effect and action list share a compact lower panel; the hand is separate. No automatic scroll hides the opponent. Dynamic viewport/safe-area fitting remains in place.
+- Approved face/back artwork and14 colors, deck editor, long-press display-only ordering, hidden handoff removal, save/restore, engine revisions and duplicate-action rejection are preserved.
+
+### Verification
+
+Selected Node suite:188 passed,0 failed. Command: `node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`. Log: `evidence/iphone-round3-tests.log`.
+
+New regression cases cover egg choice→response→normal clearing, natural seed4 birth trigger→responses→hand-bottom and restore, single-choice direct actions without auto execution, pass inside card detail, separate board/operation regions and hidden handoff, multiple-chain focus→resolution selection, and declared activation target destinations. Existing match-completion,452-card, privacy, replay/restore and duplicate-action tests pass. Syntax and whitespace checks pass. Rule-engine/catalog/Python/art files are compared with the starting remote blobs. The repository-wide catalog regeneration audit dependency test remains excluded as in preceding UI work; it was not removed.
+
+An independent source review found no P1/P2 blocker. Its generic activation-target wording finding was corrected and regression-tested. It also confirmed the safe generic fallback for legacy source-less choices.
+
+**Updated browser rendering and real Safari touch are not verified.** Actual supplied screenshots were inspected, but managed Sites requires the unavailable control-browser capability, so no alternate server/browser was launched. Browser regression scripts were adapted and syntax-checked only. They cover portrait opponent pinning, landscape column/hand bounds, card rotation fit, direct operation, hand reorder/restore and handoff privacy when run in an approved browser environment. CSS/source inspection and Node tests are not visual QA.
+
+### Next device checks
+
+1. Portrait: opponent overview stays visible while scrolling own court and hand. Landscape: opponent/own/operation occupy separate columns; Safari bars and rotation do not cover actions. Check the shortest viewport with hand open and supplementary reorder buttons.
+2. Initial egg: choose a hand card directly or inspect it then 山札の下へ戻す; confirm the egg context stays through both players' explicit responses and clears afterward.
+3. Birth effect: activate, respond/pass, choose hand card, inspect final resolution. Also test two stacked effects, payment/multiple targets, cancellation and restore mid-effect. Confirm current source and chosen movement match the actual result.
+4. Tap an unavailable card during response and pass directly. No additional priority screen should be required; 操作を拡大 remains optional.
+5. Background/handoff/reload and rapid double taps: no private hand/peek/source from the wrong seat survives. Verify long-press ordering remains display-only.
+
+Only PR384 and the existing owner-private UI trial are updated. Original trial/main and PR259/381 remain untouched. Publication is not a real-device QA pass.

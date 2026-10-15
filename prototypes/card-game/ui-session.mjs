@@ -1,6 +1,7 @@
 // UI session boundary. Game legality, revisions, replay and saving stay in engine.mjs.
 import {actor,act,view,save,restore,legalActions} from './engine.mjs';
 import {needsConfirmation} from './ui-presentation.mjs';
+import {projectOperation,visibleCards} from './ui-context.mjs';
 export class HotseatSession {
  #state=null;
  viewer=null;
@@ -12,7 +13,7 @@ export class HotseatSession {
   if(!this.#state)return null;
   const v=view(this.#state,this.viewer),draft=this.#state.activationDraft;
   if(this.viewer&&this.viewer===v.actor){
-   const cards=Object.values(v.players).flatMap(p=>[...(p.hand??[]),...p.discard,p.board.main,p.board.partner,p.board.world,...p.board.companions,...p.board.prepared]).filter(c=>c&&!c.hidden);
+   const cards=visibleCards(v).filter(c=>!c.hidden);
    const safeIds=new Set(cards.map(c=>c.id)),raw=legalActions(this.#state),b=v.players[this.viewer].board;
    v.actions=v.actions.map((a,i)=>{
     const r=raw[i],extra={};
@@ -31,6 +32,7 @@ export class HotseatSession {
    const names=new Map(visible.map(c=>[c.id,c.name]));
    v.selectionSummary=(draft.rule.select??[]).flatMap(spec=>(draft.selection[spec.key]??[]).map(id=>`${spec.cost?'支払い':'対象'}：${names.get(id)??'非公開のカード'}`));
   }
+  projectOperation(this.#state,v,this.viewer);
   return v;
  }
  prepare(actionId){

@@ -7,10 +7,10 @@ test('selected mandatory card offers only its own engine choice, never another c
  const html=ui.detailMarkup(c,{v,viewer:'A'});assert.ok(html.includes(actions[0].id));
  for(const a of v.actions.filter(a=>a.choiceCard!==c.id))assert.ok(!html.includes('data-action="'+a.id+'"'));
 });
-test('court uses far/near seats, no permanent list, and keeps chain collapsed',()=>{
+test('court keeps actor-relative seats and current operations with chain collapsed',()=>{
  const s=new HotseatSession();s.start(createGame(719));s.reveal();let switches=0;
  for(let i=0;i<45;i++){
-  const v=s.projection,html=ui.gameMarkup(v,s.viewer);assert.match(html,/battle-scroll/);assert.doesNotMatch(html,/control-panel|id="actions"/);
+  const v=s.projection,html=ui.gameMarkup(v,s.viewer);assert.match(html,/battle-area/);assert.match(html,/id="operation-panel"/);assert.doesNotMatch(html,/class="chain" open/);
   assert.ok(html.indexOf('data-depth="far"')<html.indexOf('data-depth="near"'));assert.match(html,new RegExp('data-player="'+s.viewer+'" class="player-board own'));
   assert.doesNotMatch(html,/class="chain" open/);
   const a=v.actions.find(a=>a.kind==='pass')??v.actions[0];if(s.commit(a.id,v.revision,s.viewer)){switches++;assert.doesNotMatch(ui.gameMarkup(s.projection,null),/id="hand"|data-action=/);s.reveal();}
