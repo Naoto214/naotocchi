@@ -7,9 +7,10 @@ const dom=new JSDOM(fs.readFileSync(new URL('../player.html',import.meta.url),'u
 for(const k of ['window','document','Option','localStorage'])globalThis[k]=dom.window[k];
 Object.defineProperty(globalThis,'navigator',{value:dom.window.navigator,configurable:true});
 dom.window.HTMLDialogElement.prototype.showModal=function(){this.open=true};dom.window.HTMLDialogElement.prototype.close=function(){this.open=false};globalThis.requestAnimationFrame=()=>{};
-const store=new PlayerStore(localStorage,'naopoyo-growth-clear-phone-v1');store.load();store.save(null,[],{sound:true,reduced:true});
+const store=new PlayerStore(localStorage,'naopoyo-growth-clear-phone-v1');store.load();store.save(null,[{id:'saved:clear',category:'clear',outcome:'clear',score:123,drops:45,maxChain:3,deaths:2}],{sound:true,reduced:true});
 await import('../phone.mjs');
 for(const id of ['sound','reduced'])assert.equal(document.getElementById(id).checked,true,`${id} restored`);
+assert.match(document.getElementById('records').textContent,/寿命達成.*123点.*45組/);
 document.getElementById('resume').click();
 const d=store.read();assert.equal(d.preferences.sound,true);assert.equal(d.preferences.reduced,true);
 console.log('PASS saved sound/reduced preferences survive reload and resume');

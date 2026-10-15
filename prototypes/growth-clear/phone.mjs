@@ -560,8 +560,7 @@ try {
     state.species = [...selected];
     player = new Player(state);
   }
-  render();
-  $("menu").showModal();
+  openMenu();
   if (navigator.locks) {
     navigator.locks.request(
       KEY + "-owner",
