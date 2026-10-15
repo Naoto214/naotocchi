@@ -100,6 +100,10 @@ const fs = require("fs"),
   assert.equal(d.practice.plays, 1);
   assert.equal(d.normal.plays, 0);
   assert.equal(localStorage.getItem("naotocchi-save-v1"), null);
+  global.fetch=async()=>{throw Error('offline retry test')};
+  $('dialogChoices').firstChild.click();await wait();
+  assert.equal($('setup').hidden,false,'failed retry returns to visible setup');
+  assert.match($('boot').textContent,/offline retry test/);
   console.log(
     "Player DOM: actual controls replay, undo confirmation/cancel, all resources, victory, practice record, main save protection PASS",
   );

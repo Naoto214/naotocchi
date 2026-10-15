@@ -184,6 +184,9 @@ async function start(file = null) {
   } catch (e) {
     busy = false;
     $("boot").textContent = e.message;
+    paused = true;
+    $("setup").hidden = false;
+    $("game").hidden = true;
     setup();
   }
 }
