@@ -14,8 +14,17 @@ Draft #386。現行ルール・旧証明・本編save/schema・ドロップ・�
 
 専用を含む52テスト、既存mutation engine15/player8/balance7成功。追加レイアウトmutationは縦/横トラックの不均等化を各viewportで検出するもの。全体回帰は既存npm testのnode test concurrencyのみ2へ制限し3144+80全成功、smoke/dialogue/visual QA成功。既存証明87+147、matrix320/policy120/additional480の再生一致。
 
-GitHub Actionsの`naopoyo-slide-browser`にbefore/afterを保存。beforeは正本b8fad706を同じChromium/viewportで再描画した比較画像で、ユーザーのiPhone実機写真ではありません。after-entry、after-board、after-eggの各375/390/430/667/844幅。通常画像と卵投入画面を目視確認。旧版の伸びたマスと枠外プレビューを、同条件画像で比較できます。
+GitHub Actionsの`naopoyo-slide-browser`にbefore/afterを保存。beforeは正本b8fad706を同じChromium/viewportで再描画した比較画像で、ユーザーのiPhone実機写真ではありません。after-entry、after-board、after-eggの各375/390/430/667/844幅。通常画像と卵投入画面を目視確認。入口の枠外プレビューは同条件で再現しました。Safari実機で報告されたマス伸縮はChromium初期画面では必ずしも再現しません。before/afterの盤面seedはランダム選択で異なるため、配列や難易度の比較には使えません。
 
 ブラウザ自動検証はChromiumのモバイル相当サイズです。iOS Safari実機とは区別します。横画面の卵投入では盤面が小さくなります。読める文字/狙いやすいタッチ領域、Safariバーの挙動、速度の心地よさはHuman QAで未確認。正式マージ前に判定してください。
 
 ルール比較は独立Draft #387。このUI修正だけを採用するか、未採用の比較設定をどう扱うかは別判断です。今回はどちらもmainへマージしません。
+
+## 保存した代表画像
+
+|画面|修正前|修正後|
+|---|---|---|
+|入口390幅|![before](qa-evidence-20261015/before-entry-390.png)|![after](qa-evidence-20261015/after-entry-390.png)|
+|盤面390幅|![before](qa-evidence-20261015/before-board-390.png)|![after](qa-evidence-20261015/after-board-390.png)|
+
+横画面：[通常844幅](qa-evidence-20261015/after-board-844.png) / [卵投入667幅](qa-evidence-20261015/after-egg-667.png)。CI run38712857538で全成功、トラックmutationは2種類×5viewportを検出。
