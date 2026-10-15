@@ -7,7 +7,7 @@ test('egg choice names the move and remains pinned until its response window end
  const x=session(createGame(719)),v=x.projection,before=x.save();
  assert.equal(v.effect?.kind,'egg');assert.match(v.effect?.instruction??'',/山札の下/);
  assert.ok(v.actions.every(a=>a.displayLabel?.includes('山札の下へ戻す')));
- const c=v.players.A.hand[0],detail=ui.detailMarkup(c,{v,viewer:'A'});assert.match(detail,/山札の下へ戻す/);assert.match(detail,/effect-focus/);
+ const c=v.players.A.hand[0],detail=ui.detailMarkup(c,{v,viewer:'A'});assert.match(detail,/山札の下へ戻す/);assert.match(detail,/choice-guide/);
  const a=v.actions.find(a=>a.choiceCard===c.id);assert.equal(x.prepare(a.id).required,false);assert.equal(x.save(),before);
  step(x,a);assert.equal(x.projection.effect.kind,'egg');assert.equal(x.projection.phase,'response');
  const restored=new HotseatSession();restored.restore(x.save());assert.equal(restored.projection.effect,null);restored.reveal();assert.deepEqual(restored.projection.effect,x.projection.effect);
@@ -36,7 +36,7 @@ test('card detail exposes pass directly and only selected card actions during re
 });
 test('board has separate persistent opponent own and operation regions; handoff has no effect/private DOM',()=>{
  const x=session(createGame(719)),html=ui.gameMarkup(x.projection,x.viewer);
- assert.match(html,/opponent-shell/);assert.match(html,/own-shell/);assert.match(html,/id="operation-panel"/);assert.match(html,/effect-focus/);
+ assert.match(html,/opponent-shell/);assert.match(html,/own-shell/);assert.match(html,/id="operation-panel"/);assert.match(html,/operation-notice/);
  x.hide();assert.equal(x.projection.effect,null);assert.doesNotMatch(ui.gameMarkup(x.projection,null),/effect-focus|data-action=|id="hand"/);
 });
 

@@ -164,3 +164,46 @@ An independent source review found no P1/P2 blocker. Its generic activation-targ
 5. Background/handoff/reload and rapid double taps: no private hand/peek/source from the wrong seat survives. Verify long-press ordering remains display-only.
 
 Only PR384 and the existing owner-private UI trial are updated. Original trial/main and PR259/381 remain untouched. Publication is not a real-device QA pass.
+
+## iPhone QA round 4 — compact notice and first-turn birth
+
+Starting remote HEAD `f6ba92c8d9c28cfba3feb9589eceb42b27fe9b77`, tree `2bbd2dd5ecad0bf5af4e12b7bbbfb7603cae43de`. Fresh checks confirmed PR259/381/384 Draft/open/unmerged. Only PR384's UI branch is updated.
+
+### Diagnosis and scope
+
+Inspected supplied IMG_6590–6592. The portrait operation panel occupied 134px and listed hand choices separately from the hand. The second/third screenshots show A awaiting a response after egg exchange, with time1 and stage1 beetle still present. Chain length0 is not the same as an ended response window. The main card correctly has no ordinary birth action during that window; the UI did not make the remaining passes and return to normal actions clear enough.
+
+Checked current design branch `docs/card-game/01-core-rules.md` (時 / 通常行動と反応 / ターンの開始と終了) and `02-main-system.md` (たまご／たんじょう / 通常のメイン移動の実行時点). The existing engine follows the required order. No engine, effect, state, Python, card definition or fixed400 asset was changed.
+
+### UI changes
+
+- Portrait now reserves a 60px notice row, instead of the 134px action panel (previous short portrait110px also becomes60px). Source/effect and current instruction are compact; tapping opens the complete explanation, choices and collapsed chain/history. The current actor's response wait and an explicit pass remain directly accessible. No response/choice is automated.
+- Hand card tap remains the primary route for egg bottom selection and ordinary use/birth. The notice does not duplicate the hand card list. All non-card choices, private peeks, trigger choices and multi-target/payment controls retain the complete engine-action fallback via the notice/header. A single non-card operation has a direct button; multiple operations have a visible 選択肢を開く affordance.
+- Normal action notification replaces the effect context when the engine returns to normal. The birth hint appears only when the engine actually supplies a birth candidate. No independent legality or failure reason is inferred from time/stage alone.
+- Card detail removes the second source/effect block and shows its instruction once, retaining full card text, exact legal actions, response pass and existing payment confirmation. An unavailable main during response explains that ordinary birth follows both responses.
+- Portrait own slots use54px rows with contained 2:3 card/egg content, reducing the court height while retaining3×3, egg parking and the discard→activation→deck column. Opponent overview remains pinned above; own court scrolls internally if the available viewport is short. Landscape retains opponent/own/current-operation columns with separate hand below. Existing viewport/safe-area, hand ordering, hide/reveal and save controls remain.
+- Notice accessible names include the full source and instruction, including text visually truncated in a narrow viewport.
+
+### Reproduction and verification
+
+`tests/ui-opening.test.mjs` follows the real HotseatSession, safe-view action IDs and detail renderer, with natural seed4/default decks:
+
+1. R1 A time1; seven cards after normal+egg draw, including M-beetle-01.
+2. Tap a different hand card; its exact legal action says 山札の下へ戻す. It is placed at the deck bottom; stage1 remains in hand.
+3. Response A, empty chain, time1. No ordinary birth candidate is exposed.
+4. A explicitly passes; B receives the hidden handoff and explicitly passes. Save/restore remains hidden until reveal at each transition.
+5. A normal action resumes; choice/chain/effect cleared, time1 remains. The detail renderer exposes the exact engine カブトムシ①をたんじょう（時1） action.
+6. Existing payment confirmation quotes time1; execution places that instance in main and leaves time0. Repeated old action is rejected.
+
+Selected Node suite: **191 passed,0 failed**. Command: `node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`. See `evidence/iphone-round4-tests.log`. Includes452-card/current-source verification, existing match completion, response/chain/birth-effect resolution, restore/replay, privacy, hand ordering and duplicate-action tests. Repository-wide deterministic catalog regeneration remains excluded because its full audit dependency tree is not materialized; no test is deleted. Updated browser helper/layout scripts are syntax-checked only.
+
+**No updated browser rendering or real Safari touch test was run.** Managed Sites requires unavailable control-browser; no fallback browser/server was launched. Actual input screenshots were reviewed. Node tests establish behavior/projection/markup, not visual layout or physical tapping. The user performs final iPhone QA.
+
+### Device QA
+
+- Portrait with Safari bars expanded/collapsed: notice stays compact, both board regions and hand remain separate; own court can scroll to preparations. Repeat landscape and rotation.
+- Return a non-main hand card through its detail action. Pass as A, hand off/reveal B, pass as B, hand off/reveal A. Confirm normal-action notice, then tap a stage1 main and confirm time1 birth. Do not spend time on optional responses during this check.
+- Open notice details for non-card choices and private inspection; verify required choices cannot be skipped. Test birth trigger and stacked responses, long effects and payment confirmations.
+- Save/restore mid-choice and mid-response, background/handoff, rapid repeated tap, long-press reorder. Verify private content disappears on handoff and display order persists.
+
+Owner-private UI trial only; original trial/main and PR259/381 are untouched. Publication is not a real-device QA pass.
