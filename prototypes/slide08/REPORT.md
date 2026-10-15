@@ -115,13 +115,13 @@ MATCH-MODEL.mdにWAITING/COUNTDOWN/RUNNING/SETTLING/PAUSED/RESUMING/SERVICE_HOLD
 - 証明87ファイル・主比較320行・方策120行を再生照合PASS。
 - 既存なおぽよ130 PASS、Relationship Expression80 PASS。
 - 通常npm testは既存meguru-phase3b4-test.cjsが10分以上CPU実行のまま終了せず、約12分で中断。全体PASSとはしない。
-- 当該ファイルを変更せず、それ以外の回帰を別途実行中。最終結果はVALIDATION.mdに記載。
+- 当該ファイルを変更せず、それ以外の補助回帰3124＋80 PASS。通常npm testの全体完走とは区別。詳細はVALIDATION.md。
 - Chromiumの起動は環境のsocket制限で失敗。ブラウザ描画・スワイプ実動作・iPhone実機QAは未完了。DOM確認をブラウザPASSとして扱わない。
 
 ## 11. 保存・保護
 開始main HEAD: cee3e8726ef3078e9b349e300c976e831786bbf0
 開始tree: 97d9a836daf44fbcf023aab1bbf9c843aa55892a
-branch: feat/slide08-prototype-20261015。Draft PRを維持。
+branch: feat/slide08-prototype-20261015。PR #383: https://github.com/Naoto214/naotocchi/pull/383 （Draft・open・未マージ）。
 追加はprototypes/slide08/だけ。既存なおぽよ・カード・World/Character・save/schema・画像・workflowの差分ゼロ。
 最新HEAD/tree/PR状態は最終報告とGitHubを参照。通常git pushは認証不可だったためGitHub接続のGit Data APIで保存し、fetchしてlocal/remote一致を確認する。
 
