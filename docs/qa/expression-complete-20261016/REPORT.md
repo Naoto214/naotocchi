@@ -1,6 +1,6 @@
 # Character 3D 表情統合 — 実装・検証記録
 
-状態: 実装済み、Draft PRで保管。**iPhone実機Human QA未実施。mainマージ禁止。**
+状態: 実装・自動検証・GitHub保存済み。[Draft PR #389](https://github.com/Naoto214/naotocchi/pull/389)で保管。**iPhone実機Human QA未実施。mainマージ禁止。**
 
 ## 正本・再利用
 
@@ -109,7 +109,7 @@ v1・context・現在region・現在actorを検証。不明イベントはfalse�
 - `protection-final.log`: 既存Character/World保護42/42 PASS。
 - `full-suite-before-export-fix.log`: 全体3161件実行、3157 PASS / 4 FAIL。4件ともexport行の先頭名を固定した静的検査。既存export先頭を維持する並び順へ修正し、検査は変更しない。
 - `export-regression.log`: 修正後、該当4suiteとCharacter/asset保護を含め101/101 PASS。
-- `full-suite.log`: 最終全体通し再実行中。結果確定までDraftを維持。
+- `full-suite.log`: 最終`npm test` exit 0。主要3161/3161＋関係性後段80/80＝**3241 PASS / 0 FAIL**。smoke・dialogue・visual QAもPASS。コードcommit `2c21f83f56d9029bee844daf100aed1b52d7db50`を検証し、後続commitは検証記録のみ更新。
 - `load-browser.json`: 27体・60フレーム・12状態同時切替。CPU animation p50 0.2ms / p95 1.7ms、render submission p50 2.7ms / p95 15.3ms、303 draw calls / 287308 triangles。800×500の独立シーン、SwiftShader。GPU完了時間、World FPS、iPhone性能、RAM、旧版比較ではない。
 - RED→GREEN: missing4/API、critical上書き、古いcue再生、同一actorKey再配送、flag off、同行開始の感情保持、低FPS誤判定を再現後修正。
 - 初期回帰では新規ファイルのgit未登録によるasset gateと古いmodule cache token、8状態固定assertを検出・修正。初期world browserでは低FPSを非表示とみなす誤りを検出・修正。失敗を最終PASSへ混同しない。

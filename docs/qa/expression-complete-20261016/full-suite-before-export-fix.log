@@ -3464,9 +3464,9 @@ To eliminate this warning, add "type": "module" to /workspace/scratch/676d908fa7
 test at tests/meguru-phase4b-test.cjs:254:1
 ✖ 11. **消しても うごきが 変わらない**(まだ だれにも つかわれて いない) (4.067778ms)
   AssertionError [ERR_ASSERTION]: meguru.js の ほかの ところで REGION_FRAME を つかって いない
-  
+
   1 !== 0
-  
+
       at TestContext.<anonymous> (/workspace/scratch/676d908fa732/expression-work/tests/meguru-phase4b-test.cjs:264:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -3485,9 +3485,9 @@ test at tests/meguru-phase4b-test.cjs:254:1
 test at tests/meguru-phase4c-test.cjs:406:1
 ✖ 14. **消しても うごきが 変わらない**(まだ だれにも つかわれて いない) (5.533345ms)
   AssertionError [ERR_ASSERTION]: meguru.js の ほかの ところで CORRIDOR_STAGE_LEN を つかって いない
-  
+
   1 !== 0
-  
+
       at TestContext.<anonymous> (/workspace/scratch/676d908fa732/expression-work/tests/meguru-phase4c-test.cjs:415:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -3506,9 +3506,9 @@ test at tests/meguru-phase4c-test.cjs:406:1
 test at tests/meguru-phase4d1-test.cjs:327:1
 ✖ 13. **消しても うごきが 変わらない**(つかうのは Phase 4D-2 の 遠景 PoC だけ) (14.539078ms)
   AssertionError [ERR_ASSERTION]: meguru.js の ほかの ところで DISTANT_KIND_OF を つかって いない
-  
+
   1 !== 0
-  
+
       at TestContext.<anonymous> (/workspace/scratch/676d908fa732/expression-work/tests/meguru-phase4d1-test.cjs:337:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -3527,9 +3527,9 @@ test at tests/meguru-phase4d1-test.cjs:327:1
 test at tests/meguru-phase4e1-test.cjs:385:1
 ✖ 15. まだ だれも つかって いない: simulation / renderer / UI / script.js から よばない (13.04588ms)
   AssertionError [ERR_ASSERTION]: meguru.js の ほかの ところで CORRIDOR_STAGE_WALK を つかって いない
-  
+
   1 !== 0
-  
+
       at TestContext.<anonymous> (/workspace/scratch/676d908fa732/expression-work/tests/meguru-phase4e1-test.cjs:394:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
