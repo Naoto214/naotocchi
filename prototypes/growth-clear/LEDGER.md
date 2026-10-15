@@ -14,3 +14,7 @@
 - Task 4: focused31 PASS, source mutation20/20 detected, old prototype130 PASS, baseline full3144+80 PASS. Final full regression rerun tracked in QA report.
 - UI: DOM functional smoke (72 cells, NEXT3, C choice, AI, old mode, atomic invalid item, sample5-chain replay) passed. Chromium missing and download archive invalid; actual browser layout/iPhone QA not claimed.
 - Git transport: shell push lacks credentials. Connected GitHub Git-data tools save identical trees; fetch reconciles local commits to remote object IDs. No force update, main update or publication.
+
+- Final verification: npm test exit0, 3144+80 PASS, 0 FAIL. Full command rerun after implementation. Focused31 / mutation20 / legacy130 / replay560 PASS.
+- Two untracked temporary ZIP files present after clone were preserved unchanged in sibling preexisting-clone-temporaries with SHA-256 manifest; no tracked assets changed.
+- Saved remote Draft PR #385. No adoption, merge or publication.
