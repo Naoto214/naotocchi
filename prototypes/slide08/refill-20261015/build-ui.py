@@ -73,6 +73,7 @@ s=s.replace('  const s = p.state;', '  const s = p.state;\n  if(typeof ratings!=
 s=s.replace('if ($("dialog").open || tool || $("game").hidden) return;', 'if ($("dialog").open || tool || $("game").hidden || e.target?.closest?.("input, select, textarea, [contenteditable=true]")) return;')
 s=s.replace('  $("game").hidden = false;\n  render();', '  $("game").hidden = false;\n  window.scrollTo(0, 0);\n  render();')
 s=s.replace('["同じ盤面でもう一度", () => start(p.proof)],', '["今回の評価を記入", () => { $("controls").querySelector("details").open=true; $("rating0").focus(); }],\n      ["同じ盤面でもう一度", () => start(p.proof)],')
+s=s.replace('function pause() {', 'function pause() {\n  if (p?.ended) { finish(); return; }')
 (out/"player.mjs").write_text(s)
 
 with (out/"player.css").open("a") as f:f.write('\n#setup label,#ratingFields label { display:block; margin:8px 0; }\n#setup select,#setup input,#controls select { max-width:100%; min-height:36px; font:inherit; }\n#controls details,#exportQA,#markMistake,#nextSupply { font-size:11px; }\n#exportQA,#markMistake { min-height:36px; padding:4px; }\n#nextSupply { margin:2px 0; }\n@media (orientation:portrait) { #game { --board:min(calc(100vw - 48px),calc(var(--view-height,100svh) - 370px),440px); } #arena.egg-mode { --board:min(calc(100vw - 112px),calc(var(--view-height,100svh) - 434px),352px); } }\n')

@@ -473,6 +473,7 @@ function tick() {
   clock = now;
 }
 function pause() {
+  if (p?.ended) { finish(); return; }
   if (!p || p.ended || paused) return;
   tick();
   paused = true;
