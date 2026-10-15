@@ -1,0 +1,37 @@
+name: Verify published drop files
+on:
+  push:
+    branches: [audit/drop-pages-20261015]
+permissions:
+  contents: read
+jobs:
+  verify-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ad559758bc9101adc7c00ab04ed333572ce37d9d
+      - name: Verify 19 public HTTP responses and exact SHA-256
+        shell: python
+        run: |
+          import pathlib,urllib.request,hashlib,concurrent.futures,json,sys
+          root=pathlib.Path.cwd()
+          paths=['index.html','prototypes/naopoyo/index.html','prototypes/naopoyo/series.mjs','prototypes/growth-chain/player.html','prototypes/growth-chain/player.mjs','prototypes/growth-chain/player-store.mjs','prototypes/slide08/player.html','prototypes/slide08/player.mjs','prototypes/slide08/player-store.mjs','prototypes/growth-clear/player.html','prototypes/growth-clear/phone.mjs','prototypes/growth-clear/phone.css','prototypes/growth-clear/player-model.mjs','prototypes/growth-clear/session.mjs','prototypes/growth-clear/engine.mjs','prototypes/growth-clear/bag.mjs','prototypes/growth-clear/effects.mjs','prototypes/growth-clear/live-tools.mjs','prototypes/growth-clear/witnesses/chain10.json']
+          def verify(p):
+           try:
+            with urllib.request.urlopen('https://naoto214.github.io/naotocchi/'+p,timeout=20) as r:
+             b=r.read();a=(root/p).read_bytes()
+             return dict(path=p,status=r.status,match=hashlib.sha256(a).digest()==hashlib.sha256(b).digest(),sha256=hashlib.sha256(b).hexdigest())
+           except Exception as e:return dict(path=p,error=str(e),match=False)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool: results=list(pool.map(verify,paths))
+          pathlib.Path('pages-verification.json').write_text(json.dumps(results,indent=2))
+          print(json.dumps(dict(files=len(results),matched=sum(r['match'] for r in results),failures=[r for r in results if not r['match']]),indent=2))
+          sys.exit(0 if all(r['match'] for r in results) else 1)
+          
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drop-pages-verification
+          path: pages-verification.json
+          retention-days: 14
