@@ -174,6 +174,7 @@ async function start(file = null) {
 function showGame() {
   $("setup").hidden = true;
   $("game").hidden = false;
+  window.scrollTo(0, 0);
   render();
 }
 function preview(a) {
@@ -458,6 +459,7 @@ function finish() {
     won ? "おめでとう！" : "ここまで そだったね",
     `${won ? "いのちが めぐった！" : "つぎは どんなふうに つなげよう？"}\n${p.practice ? (won ? "れんしゅうクリア" : "れんしゅう記録") : ""}\n時間 ${time(p.elapsedMs)} · ${p.state.moves}手 · ${p.state.score}点${won ? "\n" + p.deaths.map((k) => roster.find((c) => c.id === p.species[k]).label).join("・") : ""}`,
     [
+      ["今回の評価を記入", () => { $("controls").querySelector("details").open=true; $("rating0").focus(); }],
       ["同じ盤面でもう一度", () => start(p.proof)],
       ["seedを変えて遊ぶ", () => { $("seedInput").value=(Number($("seedInput").value)+1)>>>0; start(); }],
       ["比較設定へ戻る", () => { paused=true; save(); $("setup").hidden=false; $("game").hidden=true; setup(); }],
@@ -602,7 +604,7 @@ $("board").addEventListener("pointerup", (e) => {
 });
 $("board").addEventListener("pointercancel", () => (pointer = null));
 window.addEventListener("keydown", (e) => {
-  if ($("dialog").open || tool || $("game").hidden) return;
+  if ($("dialog").open || tool || $("game").hidden || e.target?.closest?.("input, select, textarea, [contenteditable=true]")) return;
   const dir = {
     ArrowLeft: "left",
     ArrowRight: "right",

@@ -70,6 +70,9 @@ s=s.replace('["モード選択へ戻る", () => (location.href = "../naopoyo/")]
 s=s.replace('["別の盤面で遊ぶ", () => start()],', '["seedを変えて遊ぶ", () => { $("seedInput").value=(Number($("seedInput").value)+1)>>>0; start(); }],')
 s=s.replace('このプレイはれんしゅう記録になり、通常ランキングには残りません','Undoを記録します。比較記録は通常ランキングと分離しています')
 s=s.replace('  const s = p.state;', '  const s = p.state;\n  if(typeof ratings!=="undefined") ratings.forEach((name,i)=>{if($("rating"+i))$("rating"+i).value=p.qa.ratings?.[name]||"";});\n  $("difficulty").value=p.qa.difficulty||"";',1)
+s=s.replace('if ($("dialog").open || tool || $("game").hidden) return;', 'if ($("dialog").open || tool || $("game").hidden || e.target?.closest?.("input, select, textarea, [contenteditable=true]")) return;')
+s=s.replace('  $("game").hidden = false;\n  render();', '  $("game").hidden = false;\n  window.scrollTo(0, 0);\n  render();')
+s=s.replace('["同じ盤面でもう一度", () => start(p.proof)],', '["今回の評価を記入", () => { $("controls").querySelector("details").open=true; $("rating0").focus(); }],\n      ["同じ盤面でもう一度", () => start(p.proof)],')
 (out/"player.mjs").write_text(s)
 
 with (out/"player.css").open("a") as f:f.write('\n#setup label,#ratingFields label { display:block; margin:8px 0; }\n#setup select,#setup input,#controls select { max-width:100%; min-height:36px; font:inherit; }\n#controls details,#exportQA,#markMistake,#nextSupply { font-size:11px; }\n#exportQA,#markMistake { min-height:36px; padding:4px; }\n#nextSupply { margin:2px 0; }\n@media (orientation:portrait) { #game { --board:min(calc(100vw - 48px),calc(var(--view-height,100svh) - 370px),440px); } #arena.egg-mode { --board:min(calc(100vw - 112px),calc(var(--view-height,100svh) - 434px),352px); } }\n')

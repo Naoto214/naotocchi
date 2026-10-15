@@ -22,6 +22,7 @@ jobs:
           node prototypes/slide08/refill-20261015/mutation.mjs
           node prototypes/slide08/refill-20261015/ui-dom.cjs
           tar -xzf prototypes/slide08/refill-20261015/results.tar.gz -C prototypes/slide08/refill-20261015
+          node prototypes/slide08/refill-20261015/post-run-dom.cjs
           node prototypes/slide08/refill-20261015/replay.mjs
           node prototypes/slide08/verify-all.mjs
           node prototypes/slide08/balance-20261015/verify.mjs

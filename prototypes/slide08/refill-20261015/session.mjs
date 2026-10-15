@@ -38,5 +38,5 @@ export class SlideStore {
  constructor(storage){this.storage=storage;this.revision=null;this.key='naopoyo-slide-refill-qa-v1';}
  read(){const raw=this.storage.getItem(this.key);if(!raw)return {version:1,revision:0,snapshot:null,history:[]};const d=JSON.parse(raw);if(d.version!==1||!Number.isSafeInteger(d.revision)||!Array.isArray(d.history))throw Error('比較用保存を確認してください');return d;}
  load(){const d=this.read();this.revision=d.revision;return d;}
- save(p,r){const d=this.read();if(d.revision!==this.revision)throw Error('別タブが保存を変更しました');d.snapshot=clone(p);if(r&&!d.history.some(x=>x.id===r.id))d.history=[r,...d.history].slice(0,100);d.revision++;this.storage.setItem(this.key,JSON.stringify(d));this.revision=d.revision;return d;}
+ save(p,r){const d=this.read();if(d.revision!==this.revision)throw Error('別タブが保存を変更しました');d.snapshot=clone(p);const updated=r||(p?.ended?record(p):null);if(updated)d.history=[updated,...d.history.filter(x=>x.id!==updated.id)].slice(0,100);d.revision++;this.storage.setItem(this.key,JSON.stringify(d));this.revision=d.revision;return d;}
 }
