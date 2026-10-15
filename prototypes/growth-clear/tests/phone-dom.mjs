@@ -10,6 +10,7 @@ const state=createSession(42,{gaugeUnit:2},{gauge:24,eggs:[3,2,1,1]});state.boar
 const p=new Player(state),store=new PlayerStore(localStorage,'naopoyo-growth-clear-phone-v1');store.load();store.save(p.snapshot());localStorage.setItem('naotocchi-save-v1','PROTECTED');
 await import('../phone.mjs');const $=id=>document.getElementById(id);$('resume').click();
 assert.equal(document.querySelectorAll('.cell').length,72);assert.equal($('next').children.length,3);assert.match($('cost-label').textContent,/2 \/ 6/);assert.equal(document.querySelectorAll('#choices button').length,0);
+$('eggs').children[2].click();assert.match($('choices').querySelector('img').src,/03.png$/);$('cancel').click();
 // Tool flow completes on third tap; no confirm step.
 $('transform').click();document.querySelector('[data-x="0"][data-y="13"]').click();assert.equal($('choices').querySelectorAll('button').length,5);$('choices').querySelectorAll('button')[1].click();assert.equal($('gauge').textContent,'22');
 $('pause').click();assert.equal(JSON.parse(localStorage.getItem('naopoyo-growth-clear-phone-v1')).snapshot.state.gauge,22);$('resume').click();

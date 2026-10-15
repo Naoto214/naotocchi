@@ -24,3 +24,9 @@ node prototypes/growth-clear/mirror.mjs
 DOMテストは `JSDOM_PATH=/path/to/jsdom node prototypes/growth-clear/tests/dom.mjs`。実ブラウザテストはPlaywright＋Chromiumと上記HTTPサーバーが必要です。今回の環境ではChromium取得失敗のためDOM確認までです。iPhone実機QAは未実施です。
 
 元エンジン・重力・操作探索・乱数・道具候補列挙を `../growth-chain/` から再利用しています。トランザクションは元sessionから独立適応し、元ファイルは変更していません。`raw-results.tar.gz` は操作記録、`qa-logs.tar.gz` はテスト・環境制約の実行ログです。
+
+## iPhone試遊UI（PR385追補）
+
+新ルール2／6の試遊は [player.html](./player.html)。8／24へは設定画面から新規開始で切り替えます。旧比較ラボはそのまま残しています。
+
+[試遊手順・Human QA表](./PHONE-QA.md) と [専用QA結果](./phone-qa-results.json) を参照。mainマージ・正式採用・外部公開は行っていません。

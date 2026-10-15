@@ -351,7 +351,7 @@ function render() {
     if (tool.step !== "cell" && tool.step !== "column")
       for (let k = 0; k < 5; k++) {
         const b = document.createElement("button");
-        b.innerHTML = `<img src="${image(k, tool.target?.s || 1)}" alt="${catalog.find((c) => c.id === (s.species || selected)[k])?.label}">`;
+        b.innerHTML = `<img src="${image(k, tool.target?.s || (tool.type === "egg" ? tool.rank + 1 : 1))}" alt="${catalog.find((c) => c.id === (s.species || selected)[k])?.label}">`;
         b.disabled = k === (tool.target?.k ?? tool.from);
         b.onclick = () => chooseKind(k);
         $("choices").append(b);
