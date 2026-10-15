@@ -57,8 +57,11 @@ export function boardMarkup(p,seat,viewer,chain=[]){
 }
 export function actionMarkup(actions){return actions.map(a=>`<button type="button" data-kind="${h(a.kind)}" data-action="${h(a.id)}">${h(a.label)}</button>`).join('');}
 export function needsConfirmation(action){
- if(action.kind==='choose'&&!/この選択を確定/.test(action.label))return false;
+ if(action.kind==='choose'&&!/この選択を確定|支払い|時[1-9]\d*/.test(action.label))return false;
  return /時[1-9]\d*|支払い| → |対象を|と交代|この選択を確定/.test(action.label);
+}
+export function confirmationMarkup({action,details=[],paidTime=0}){
+ return `<h2>この行動で確定しますか？</h2><p class="confirmation-label">${h(action.label)}</p>${paidTime?`<p>支払う時：<b>${paidTime}</b></p>`:''}${details.length?`<ul class="selection-summary">${details.map(line=>`<li>${h(line)}</li>`).join('')}</ul>`:''}<p>確定した行動は取り消せません。</p><div class="dialog-buttons"><button type="button" data-cancel>戻る</button><button type="button" class="primary" data-confirm>確定する</button></div>`;
 }
 export function gameMarkup(v,viewer){
  const mine=viewer??v.actor??'A',opponent=mine==='A'?'B':'A';

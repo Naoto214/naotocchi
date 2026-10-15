@@ -1,6 +1,6 @@
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
-import {cardMarkup,gameMarkup,actionMarkup,needsConfirmation,escapeHTML as h} from './ui-presentation.mjs';
+import {cardMarkup,gameMarkup,actionMarkup,confirmationMarkup,escapeHTML as h} from './ui-presentation.mjs';
 const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',session=new HotseatSession();
 let busy=false,pending=null,dialogOrigin=null;
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
@@ -35,9 +35,10 @@ function perform(action,revision,who){
 }
 function requestAction(id){
  const v=session.projection,a=v?.actions.find(a=>a.id===id);if(!a||!session.viewer)return;
- if(!needsConfirmation(a)){perform(a,v.revision,v.actor);return;}
- closeDialogs({focus:false});pending={action:a,revision:v.revision,who:v.actor};
- const d=$('confirm-dialog');d.innerHTML=`<h2>この行動で確定しますか？</h2><p class="confirmation-label">${h(a.label)}</p><p>確定した行動は取り消せません。時・対象は上の表示を確認してください。</p><div class="dialog-buttons"><button type="button" data-cancel>戻る</button><button type="button" class="primary" data-confirm>確定する</button></div>`;d.showModal();d.querySelector('[data-cancel]').focus();
+ let prepared;try{prepared=session.prepare(id);}catch(e){message(e.message);return;}
+ if(!prepared.required){perform(a,v.revision,v.actor);return;}
+ closeDialogs({focus:false});pending=prepared;
+ const d=$('confirm-dialog');d.innerHTML=confirmationMarkup(prepared);d.showModal();d.querySelector('[data-cancel]').focus();
 }
 function showDiscard(seat,origin){
  const p=session.projection.players[seat];closeDialogs({focus:false});dialogOrigin=origin;
