@@ -28,3 +28,7 @@ GitHub Actionsの`naopoyo-slide-browser`にbefore/afterを保存。beforeは正�
 |盤面390幅|![before](qa-evidence-20261015/before-board-390.png)|![after](qa-evidence-20261015/after-board-390.png)|
 
 横画面：[通常844幅](qa-evidence-20261015/after-board-844.png) / [卵投入667幅](qa-evidence-20261015/after-egg-667.png)。CI run38712857538で全成功、トラックmutationは2種類×5viewportを検出。
+
+## 2026-10-16 JST 再開確認
+
+製品コード不変。52テスト、engine15/player8/balance7 mutation、player DOM/racesを再実行して成功。remote/localのd4fdafeb/tree ed14b443一致・cleanを確認した。最終コードのCI run38713684499（画面検証を含む）とrun38713684457（npm test全体）のsuccessを再取得確認。今回のChromium起動は環境のsocket権限制限で失敗したため、同一コードの成功CIと既存画像を再利用する。実機Human QAは未実施。計画書の未更新チェック欄を成果に合わせて更新し、文書のみ追加保存する。#386/#387ともDraftを維持し、main・本番は変更しない。
