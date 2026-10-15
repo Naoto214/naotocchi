@@ -46,3 +46,14 @@ Approved colors and management order come directly from the current user request
 3. Complete birth, growth, equipment/trap, reaction and multi-target/payment selections; inspect final confirmation and cancellation. Confirm response actor changes show the handoff screen.
 4. Hide, background, rotate, reload and import/export. No prior hand, peek or dialog should appear before 準備OK. Try rapid double taps.
 5. Finish a game and reopen the deck editor; inspect the result and saved restore.
+
+## Saved trial
+
+- Draft PR: https://github.com/Naoto214/naotocchi/pull/384
+- UI trial (owner-private): https://naotocchi-card-ui-trial.kerzion214.chatgpt.site/
+- Runtime GitHub HEAD: `e4839229d23c70aff57aa8b5cdf4992810311376`
+- Runtime tree: `686216e288a78ff339f5380b9784670de55bb720`
+- Selected Node suite: 169 passed / 0 failed. Command: `node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`.
+- Original trial and PR #259/#381 remain unchanged, draft/open/unmerged.
+- Deployment success confirms publication only, not Safari or real-iPhone QA.
+- Exact deployment IDs and verification scope: `evidence/approved-ui-deployment.json`.
