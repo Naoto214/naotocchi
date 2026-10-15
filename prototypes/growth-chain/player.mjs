@@ -1,3 +1,4 @@
+import { Settings } from '../naopoyo/settings.mjs';
 import { playerProfile } from "./player-profile.mjs";
 import { Player } from "./player-model.mjs";
 import { PlayerStore, ownPlayer } from "./player-store.mjs";
@@ -651,7 +652,8 @@ document.querySelectorAll("[data-mode]").forEach(
   (b) =>
     (b.onclick = () => {
       mode = b.dataset.mode;
-      show("characters");
+      if (new URLSearchParams(location.search).get("series") === "1") start();
+      else show("characters");
     }),
 );
 $("startSelected").onclick = () => start();
@@ -918,6 +920,13 @@ ownPlayer(navigator.locks, async () => {
     roster.some((c) => c.id === id),
   );
   if (valid.length === 5 && new Set(valid).size === 5) selected = valid;
+  if (new URLSearchParams(location.search).get("series") === "1") {
+    const shared = new Settings(localStorage, roster.map(c => c.id)).load();
+    selected = [...shared.sets[shared.active]];
+    show("modes");
+    $("seriesRestore").hidden = !data.snapshot;
+    $("seriesRestore").onclick = () => $("restore").click();
+  }
   $("reduced").checked = !!data.preferences.reduced;
   document.body.classList.toggle("reduce", $("reduced").checked);
   $("firstTip").hidden = !!data.preferences.tutorialDone;
