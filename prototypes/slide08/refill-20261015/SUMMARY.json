@@ -1,0 +1,3904 @@
+{
+  "groups": {
+    "E/current/slides": {
+      "n": 8,
+      "reach": 0,
+      "pair": 0,
+      "wins": 0,
+      "solvedSeeds": [],
+      "moves": [
+        0,
+        0
+      ],
+      "late": 1,
+      "lateSolved": null,
+      "used": {
+        "egg": null,
+        "single": null,
+        "bulk": null
+      },
+      "phases": [
+        {
+          "meanPopulation": 20.087,
+          "meanConcentration": 0.429,
+          "meanValidDirections": 2.374,
+          "evolvingSlides": 5.375,
+          "chain2": 2.625,
+          "largeClears": 1.625,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 14.313,
+          "meanConcentration": 0.467,
+          "meanValidDirections": 2.073,
+          "evolvingSlides": 2.125,
+          "chain2": 0.5,
+          "largeClears": 0.125,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 11.363,
+          "meanConcentration": 0.469,
+          "meanValidDirections": 2.126,
+          "evolvingSlides": 2.375,
+          "chain2": 0.5,
+          "largeClears": 0,
+          "oneKindSteps": 0
+        }
+      ],
+      "maxChain": 4
+    },
+    "B/slide-only": {
+      "n": 16,
+      "reach": 10,
+      "pair": 8,
+      "wins": 8,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        14,
+        50
+      ],
+      "late": 0.849,
+      "lateSolved": 0.853,
+      "used": {
+        "egg": 7.25,
+        "single": 0.375,
+        "bulk": 3.375
+      },
+      "phases": [
+        {
+          "meanPopulation": 16.24,
+          "meanConcentration": 0.617,
+          "meanValidDirections": 3.915,
+          "evolvingSlides": 7.062,
+          "chain2": 4,
+          "largeClears": 1.75,
+          "oneKindSteps": 1
+        },
+        {
+          "meanPopulation": 13.562,
+          "meanConcentration": 0.573,
+          "meanValidDirections": 3.917,
+          "evolvingSlides": 5.812,
+          "chain2": 2.438,
+          "largeClears": 0.25,
+          "oneKindSteps": 0.125
+        },
+        {
+          "meanPopulation": 13.173,
+          "meanConcentration": 0.553,
+          "meanValidDirections": 3.726,
+          "evolvingSlides": 6.75,
+          "chain2": 2.75,
+          "largeClears": 0.625,
+          "oneKindSteps": 0.125
+        }
+      ],
+      "maxChain": 5
+    },
+    "D0/slide-only": {
+      "n": 16,
+      "reach": 8,
+      "pair": 5,
+      "wins": 5,
+      "solvedSeeds": [
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "moves": [
+        7,
+        86
+      ],
+      "late": 0.863,
+      "lateSolved": 0.926,
+      "used": {
+        "egg": 1.8,
+        "single": 1.2,
+        "bulk": 2.8
+      },
+      "phases": [
+        {
+          "meanPopulation": 19.044,
+          "meanConcentration": 0.561,
+          "meanValidDirections": 3.676,
+          "evolvingSlides": 6.812,
+          "chain2": 4,
+          "largeClears": 1.688,
+          "oneKindSteps": 0.562
+        },
+        {
+          "meanPopulation": 13.269,
+          "meanConcentration": 0.641,
+          "meanValidDirections": 2.99,
+          "evolvingSlides": 2.938,
+          "chain2": 1.625,
+          "largeClears": 0.188,
+          "oneKindSteps": 0.062
+        },
+        {
+          "meanPopulation": 10.408,
+          "meanConcentration": 0.643,
+          "meanValidDirections": 2.642,
+          "evolvingSlides": 3,
+          "chain2": 1.688,
+          "largeClears": 0.312,
+          "oneKindSteps": 0.562
+        }
+      ],
+      "maxChain": 8
+    },
+    "C8-8/current": {
+      "n": 16,
+      "reach": 10,
+      "pair": 8,
+      "wins": 7,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "moves": [
+        19,
+        71
+      ],
+      "late": 0.703,
+      "lateSolved": 0.665,
+      "used": {
+        "egg": 12.286,
+        "single": 0.429,
+        "bulk": 2.286
+      },
+      "phases": [
+        {
+          "meanPopulation": 15.052,
+          "meanConcentration": 0.64,
+          "meanValidDirections": 3.277,
+          "evolvingSlides": 3.688,
+          "chain2": 3.625,
+          "largeClears": 2.125,
+          "oneKindSteps": 2.375
+        },
+        {
+          "meanPopulation": 9.596,
+          "meanConcentration": 0.673,
+          "meanValidDirections": 2.897,
+          "evolvingSlides": 2.188,
+          "chain2": 1.812,
+          "largeClears": 0.188,
+          "oneKindSteps": 2.5
+        },
+        {
+          "meanPopulation": 8.5,
+          "meanConcentration": 0.642,
+          "meanValidDirections": 2.682,
+          "evolvingSlides": 2.375,
+          "chain2": 1.688,
+          "largeClears": 0.188,
+          "oneKindSteps": 3
+        }
+      ],
+      "maxChain": 4
+    },
+    "D0/current": {
+      "n": 16,
+      "reach": 9,
+      "pair": 6,
+      "wins": 6,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "moves": [
+        11,
+        49
+      ],
+      "late": 0.841,
+      "lateSolved": 0.841,
+      "used": {
+        "egg": 1.833,
+        "single": 0.167,
+        "bulk": 4.333
+      },
+      "phases": [
+        {
+          "meanPopulation": 18.857,
+          "meanConcentration": 0.624,
+          "meanValidDirections": 3.83,
+          "evolvingSlides": 5.375,
+          "chain2": 3.562,
+          "largeClears": 1.938,
+          "oneKindSteps": 0.5
+        },
+        {
+          "meanPopulation": 12.752,
+          "meanConcentration": 0.635,
+          "meanValidDirections": 3.232,
+          "evolvingSlides": 3.375,
+          "chain2": 1.5,
+          "largeClears": 0.438,
+          "oneKindSteps": 1
+        },
+        {
+          "meanPopulation": 10.263,
+          "meanConcentration": 0.643,
+          "meanValidDirections": 2.778,
+          "evolvingSlides": 2.5,
+          "chain2": 1.5,
+          "largeClears": 0.125,
+          "oneKindSteps": 0.688
+        }
+      ],
+      "maxChain": 5
+    },
+    "C12-16/current": {
+      "n": 16,
+      "reach": 12,
+      "pair": 8,
+      "wins": 8,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        13,
+        34
+      ],
+      "late": 0.602,
+      "lateSolved": 0.531,
+      "used": {
+        "egg": 8.375,
+        "single": 0.75,
+        "bulk": 3.875
+      },
+      "phases": [
+        {
+          "meanPopulation": 17.237,
+          "meanConcentration": 0.608,
+          "meanValidDirections": 3.558,
+          "evolvingSlides": 5.938,
+          "chain2": 4.562,
+          "largeClears": 2,
+          "oneKindSteps": 0.812
+        },
+        {
+          "meanPopulation": 15.058,
+          "meanConcentration": 0.58,
+          "meanValidDirections": 3.547,
+          "evolvingSlides": 5.188,
+          "chain2": 3.25,
+          "largeClears": 0.062,
+          "oneKindSteps": 0.125
+        },
+        {
+          "meanPopulation": 14.084,
+          "meanConcentration": 0.557,
+          "meanValidDirections": 3.182,
+          "evolvingSlides": 5.5,
+          "chain2": 3.062,
+          "largeClears": 0.688,
+          "oneKindSteps": 0.062
+        }
+      ],
+      "maxChain": 5
+    },
+    "C16-16/current": {
+      "n": 16,
+      "reach": 12,
+      "pair": 8,
+      "wins": 8,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        13,
+        51
+      ],
+      "late": 0.681,
+      "lateSolved": 0.639,
+      "used": {
+        "egg": 6.125,
+        "single": 0.5,
+        "bulk": 4.75
+      },
+      "phases": [
+        {
+          "meanPopulation": 17.591,
+          "meanConcentration": 0.607,
+          "meanValidDirections": 3.762,
+          "evolvingSlides": 5.812,
+          "chain2": 4.812,
+          "largeClears": 1.938,
+          "oneKindSteps": 0.75
+        },
+        {
+          "meanPopulation": 15.449,
+          "meanConcentration": 0.592,
+          "meanValidDirections": 3.862,
+          "evolvingSlides": 5.812,
+          "chain2": 3.125,
+          "largeClears": 0.312,
+          "oneKindSteps": 0.312
+        },
+        {
+          "meanPopulation": 15.379,
+          "meanConcentration": 0.57,
+          "meanValidDirections": 3.513,
+          "evolvingSlides": 6.375,
+          "chain2": 3.562,
+          "largeClears": 0.562,
+          "oneKindSteps": 0.25
+        }
+      ],
+      "maxChain": 4
+    },
+    "C16-20/cost4": {
+      "n": 16,
+      "reach": 13,
+      "pair": 10,
+      "wins": 10,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        25,
+        56
+      ],
+      "late": 0.623,
+      "lateSolved": 0.609,
+      "used": {
+        "egg": 9.5,
+        "single": 5.3,
+        "bulk": 3.4
+      },
+      "phases": [
+        {
+          "meanPopulation": 20.021,
+          "meanConcentration": 0.454,
+          "meanValidDirections": 3.448,
+          "evolvingSlides": 7.125,
+          "chain2": 5.062,
+          "largeClears": 1.812,
+          "oneKindSteps": 0.062
+        },
+        {
+          "meanPopulation": 18.494,
+          "meanConcentration": 0.505,
+          "meanValidDirections": 3.565,
+          "evolvingSlides": 6.312,
+          "chain2": 4.438,
+          "largeClears": 0.625,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 18.167,
+          "meanConcentration": 0.539,
+          "meanValidDirections": 3.478,
+          "evolvingSlides": 7.312,
+          "chain2": 4.188,
+          "largeClears": 1.25,
+          "oneKindSteps": 0
+        }
+      ],
+      "maxChain": 5
+    },
+    "A/current": {
+      "n": 16,
+      "reach": 11,
+      "pair": 8,
+      "wins": 8,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        12,
+        53
+      ],
+      "late": 0.727,
+      "lateSolved": 0.666,
+      "used": {
+        "egg": 8.375,
+        "single": 0.375,
+        "bulk": 4.125
+      },
+      "phases": [
+        {
+          "meanPopulation": 14.785,
+          "meanConcentration": 0.657,
+          "meanValidDirections": 3.826,
+          "evolvingSlides": 4.688,
+          "chain2": 4.875,
+          "largeClears": 2.25,
+          "oneKindSteps": 2
+        },
+        {
+          "meanPopulation": 11.502,
+          "meanConcentration": 0.613,
+          "meanValidDirections": 3.628,
+          "evolvingSlides": 3.812,
+          "chain2": 2,
+          "largeClears": 0.562,
+          "oneKindSteps": 0.562
+        },
+        {
+          "meanPopulation": 11.927,
+          "meanConcentration": 0.602,
+          "meanValidDirections": 3.518,
+          "evolvingSlides": 4.688,
+          "chain2": 2.125,
+          "largeClears": 0.625,
+          "oneKindSteps": 1.125
+        }
+      ],
+      "maxChain": 6
+    },
+    "B/current/slides": {
+      "n": 8,
+      "reach": 8,
+      "pair": 0,
+      "wins": 0,
+      "solvedSeeds": [],
+      "moves": [
+        0,
+        0
+      ],
+      "late": 1,
+      "lateSolved": null,
+      "used": {
+        "egg": null,
+        "single": null,
+        "bulk": null
+      },
+      "phases": [
+        {
+          "meanPopulation": 16.182,
+          "meanConcentration": 0.416,
+          "meanValidDirections": 3.897,
+          "evolvingSlides": 46.125,
+          "chain2": 17,
+          "largeClears": 2.125,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 16.464,
+          "meanConcentration": 0.414,
+          "meanValidDirections": 3.914,
+          "evolvingSlides": 43,
+          "chain2": 13.375,
+          "largeClears": 0.625,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 18.042,
+          "meanConcentration": 0.415,
+          "meanValidDirections": 3.911,
+          "evolvingSlides": 42.375,
+          "chain2": 14.375,
+          "largeClears": 0.75,
+          "oneKindSteps": 0
+        }
+      ],
+      "maxChain": 5
+    },
+    "E/half": {
+      "n": 16,
+      "reach": 8,
+      "pair": 6,
+      "wins": 6,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "moves": [
+        19,
+        80
+      ],
+      "late": 0.696,
+      "lateSolved": 0.736,
+      "used": {
+        "egg": 18.333,
+        "single": 2.667,
+        "bulk": 1.5
+      },
+      "phases": [
+        {
+          "meanPopulation": 16.242,
+          "meanConcentration": 0.599,
+          "meanValidDirections": 3.156,
+          "evolvingSlides": 3.688,
+          "chain2": 4.062,
+          "largeClears": 2.312,
+          "oneKindSteps": 2.688
+        },
+        {
+          "meanPopulation": 10.483,
+          "meanConcentration": 0.658,
+          "meanValidDirections": 2.594,
+          "evolvingSlides": 1.562,
+          "chain2": 1.125,
+          "largeClears": 0.062,
+          "oneKindSteps": 5.188
+        },
+        {
+          "meanPopulation": 8.165,
+          "meanConcentration": 0.692,
+          "meanValidDirections": 2.416,
+          "evolvingSlides": 1.75,
+          "chain2": 1.875,
+          "largeClears": 0.25,
+          "oneKindSteps": 7.188
+        }
+      ],
+      "maxChain": 5
+    },
+    "C12-12/current": {
+      "n": 16,
+      "reach": 12,
+      "pair": 9,
+      "wins": 9,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        16,
+        42
+      ],
+      "late": 0.684,
+      "lateSolved": 0.648,
+      "used": {
+        "egg": 8.667,
+        "single": 1.111,
+        "bulk": 3.333
+      },
+      "phases": [
+        {
+          "meanPopulation": 15.525,
+          "meanConcentration": 0.633,
+          "meanValidDirections": 3.571,
+          "evolvingSlides": 4.938,
+          "chain2": 4.125,
+          "largeClears": 2.062,
+          "oneKindSteps": 1.562
+        },
+        {
+          "meanPopulation": 11.928,
+          "meanConcentration": 0.616,
+          "meanValidDirections": 3.639,
+          "evolvingSlides": 5.062,
+          "chain2": 2.75,
+          "largeClears": 0.188,
+          "oneKindSteps": 0.5
+        },
+        {
+          "meanPopulation": 11.63,
+          "meanConcentration": 0.59,
+          "meanValidDirections": 3.2,
+          "evolvingSlides": 5.25,
+          "chain2": 2.312,
+          "largeClears": 0.25,
+          "oneKindSteps": 0.25
+        }
+      ],
+      "maxChain": 4
+    },
+    "C16-20/slide-only": {
+      "n": 16,
+      "reach": 12,
+      "pair": 11,
+      "wins": 11,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        6,
+        47
+      ],
+      "late": 0.656,
+      "lateSolved": 0.644,
+      "used": {
+        "egg": 4.727,
+        "single": 1.818,
+        "bulk": 4
+      },
+      "phases": [
+        {
+          "meanPopulation": 19.991,
+          "meanConcentration": 0.544,
+          "meanValidDirections": 3.61,
+          "evolvingSlides": 6.188,
+          "chain2": 4.938,
+          "largeClears": 1.75,
+          "oneKindSteps": 0.188
+        },
+        {
+          "meanPopulation": 18.455,
+          "meanConcentration": 0.588,
+          "meanValidDirections": 3.66,
+          "evolvingSlides": 5.25,
+          "chain2": 3.438,
+          "largeClears": 0.688,
+          "oneKindSteps": 0.062
+        },
+        {
+          "meanPopulation": 18.254,
+          "meanConcentration": 0.563,
+          "meanValidDirections": 3.248,
+          "evolvingSlides": 5.75,
+          "chain2": 3.875,
+          "largeClears": 1.125,
+          "oneKindSteps": 0
+        }
+      ],
+      "maxChain": 5
+    },
+    "D0/current/slides": {
+      "n": 8,
+      "reach": 0,
+      "pair": 0,
+      "wins": 0,
+      "solvedSeeds": [],
+      "moves": [
+        0,
+        0
+      ],
+      "late": 1,
+      "lateSolved": null,
+      "used": {
+        "egg": null,
+        "single": null,
+        "bulk": null
+      },
+      "phases": [
+        {
+          "meanPopulation": 21.53,
+          "meanConcentration": 0.412,
+          "meanValidDirections": 3.189,
+          "evolvingSlides": 10.375,
+          "chain2": 4.25,
+          "largeClears": 0.625,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 14.951,
+          "meanConcentration": 0.415,
+          "meanValidDirections": 2.658,
+          "evolvingSlides": 6.5,
+          "chain2": 1.875,
+          "largeClears": 0.125,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 11.906,
+          "meanConcentration": 0.404,
+          "meanValidDirections": 2.181,
+          "evolvingSlides": 2,
+          "chain2": 0,
+          "largeClears": 0,
+          "oneKindSteps": 0
+        }
+      ],
+      "maxChain": 4
+    },
+    "C8-12/current": {
+      "n": 16,
+      "reach": 12,
+      "pair": 8,
+      "wins": 8,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        19,
+        64
+      ],
+      "late": 0.666,
+      "lateSolved": 0.609,
+      "used": {
+        "egg": 12.375,
+        "single": 1.125,
+        "bulk": 3.25
+      },
+      "phases": [
+        {
+          "meanPopulation": 14.607,
+          "meanConcentration": 0.638,
+          "meanValidDirections": 3.264,
+          "evolvingSlides": 4.875,
+          "chain2": 4.125,
+          "largeClears": 2.125,
+          "oneKindSteps": 2.125
+        },
+        {
+          "meanPopulation": 10.894,
+          "meanConcentration": 0.635,
+          "meanValidDirections": 3.096,
+          "evolvingSlides": 3.562,
+          "chain2": 2.188,
+          "largeClears": 0.188,
+          "oneKindSteps": 1.125
+        },
+        {
+          "meanPopulation": 10.287,
+          "meanConcentration": 0.607,
+          "meanValidDirections": 2.788,
+          "evolvingSlides": 3.75,
+          "chain2": 2.188,
+          "largeClears": 0.312,
+          "oneKindSteps": 1.188
+        }
+      ],
+      "maxChain": 4
+    },
+    "B/current": {
+      "n": 16,
+      "reach": 10,
+      "pair": 9,
+      "wins": 9,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        8,
+        48
+      ],
+      "late": 0.776,
+      "lateSolved": 0.774,
+      "used": {
+        "egg": 6.667,
+        "single": 1,
+        "bulk": 3.333
+      },
+      "phases": [
+        {
+          "meanPopulation": 15.62,
+          "meanConcentration": 0.639,
+          "meanValidDirections": 3.929,
+          "evolvingSlides": 6,
+          "chain2": 4.5,
+          "largeClears": 2.125,
+          "oneKindSteps": 1.688
+        },
+        {
+          "meanPopulation": 13.056,
+          "meanConcentration": 0.577,
+          "meanValidDirections": 3.963,
+          "evolvingSlides": 5.688,
+          "chain2": 1.938,
+          "largeClears": 0.25,
+          "oneKindSteps": 0.125
+        },
+        {
+          "meanPopulation": 12.929,
+          "meanConcentration": 0.602,
+          "meanValidDirections": 3.632,
+          "evolvingSlides": 5.25,
+          "chain2": 2.812,
+          "largeClears": 0.688,
+          "oneKindSteps": 0.875
+        }
+      ],
+      "maxChain": 5
+    },
+    "B/cost4": {
+      "n": 16,
+      "reach": 9,
+      "pair": 7,
+      "wins": 7,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "moves": [
+        14,
+        67
+      ],
+      "late": 0.776,
+      "lateSolved": 0.693,
+      "used": {
+        "egg": 7.571,
+        "single": 3.429,
+        "bulk": 2.143
+      },
+      "phases": [
+        {
+          "meanPopulation": 18.554,
+          "meanConcentration": 0.485,
+          "meanValidDirections": 3.897,
+          "evolvingSlides": 7,
+          "chain2": 4.25,
+          "largeClears": 1.688,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 15.944,
+          "meanConcentration": 0.541,
+          "meanValidDirections": 3.921,
+          "evolvingSlides": 6.938,
+          "chain2": 2.625,
+          "largeClears": 0.25,
+          "oneKindSteps": 0.5
+        },
+        {
+          "meanPopulation": 14.27,
+          "meanConcentration": 0.576,
+          "meanValidDirections": 3.747,
+          "evolvingSlides": 7.812,
+          "chain2": 3.188,
+          "largeClears": 0.688,
+          "oneKindSteps": 0.125
+        }
+      ],
+      "maxChain": 5
+    },
+    "E/slide-bonus": {
+      "n": 16,
+      "reach": 8,
+      "pair": 6,
+      "wins": 6,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "moves": [
+        13,
+        65
+      ],
+      "late": 0.726,
+      "lateSolved": 0.731,
+      "used": {
+        "egg": 13.833,
+        "single": 0.333,
+        "bulk": 2
+      },
+      "phases": [
+        {
+          "meanPopulation": 15.232,
+          "meanConcentration": 0.658,
+          "meanValidDirections": 3.114,
+          "evolvingSlides": 5,
+          "chain2": 3.438,
+          "largeClears": 2.562,
+          "oneKindSteps": 5.125
+        },
+        {
+          "meanPopulation": 9.324,
+          "meanConcentration": 0.718,
+          "meanValidDirections": 2.58,
+          "evolvingSlides": 1.688,
+          "chain2": 1,
+          "largeClears": 0.188,
+          "oneKindSteps": 7.25
+        },
+        {
+          "meanPopulation": 7.749,
+          "meanConcentration": 0.734,
+          "meanValidDirections": 2.209,
+          "evolvingSlides": 1.625,
+          "chain2": 1.562,
+          "largeClears": 0.188,
+          "oneKindSteps": 7.625
+        }
+      ],
+      "maxChain": 4
+    },
+    "E/cost4": {
+      "n": 16,
+      "reach": 7,
+      "pair": 5,
+      "wins": 5,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "moves": [
+        37,
+        87
+      ],
+      "late": 0.709,
+      "lateSolved": 0.745,
+      "used": {
+        "egg": 16,
+        "single": 7,
+        "bulk": 0.6
+      },
+      "phases": [
+        {
+          "meanPopulation": 17.878,
+          "meanConcentration": 0.5,
+          "meanValidDirections": 3.159,
+          "evolvingSlides": 3.312,
+          "chain2": 3,
+          "largeClears": 2.062,
+          "oneKindSteps": 1.312
+        },
+        {
+          "meanPopulation": 11.624,
+          "meanConcentration": 0.582,
+          "meanValidDirections": 2.64,
+          "evolvingSlides": 1.688,
+          "chain2": 1.25,
+          "largeClears": 0.062,
+          "oneKindSteps": 1.625
+        },
+        {
+          "meanPopulation": 8.397,
+          "meanConcentration": 0.627,
+          "meanValidDirections": 2.378,
+          "evolvingSlides": 2.062,
+          "chain2": 1.688,
+          "largeClears": 0.312,
+          "oneKindSteps": 4.5
+        }
+      ],
+      "maxChain": 5
+    },
+    "E/cooldown": {
+      "n": 16,
+      "reach": 9,
+      "pair": 6,
+      "wins": 5,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "moves": [
+        18,
+        87
+      ],
+      "late": 0.596,
+      "lateSolved": 0.584,
+      "used": {
+        "egg": 12.6,
+        "single": 1,
+        "bulk": 2
+      },
+      "phases": [
+        {
+          "meanPopulation": 17.75,
+          "meanConcentration": 0.582,
+          "meanValidDirections": 3.223,
+          "evolvingSlides": 2.938,
+          "chain2": 3,
+          "largeClears": 2,
+          "oneKindSteps": 1.688
+        },
+        {
+          "meanPopulation": 11.058,
+          "meanConcentration": 0.7,
+          "meanValidDirections": 2.876,
+          "evolvingSlides": 1.312,
+          "chain2": 1.125,
+          "largeClears": 0.188,
+          "oneKindSteps": 5.375
+        },
+        {
+          "meanPopulation": 7.886,
+          "meanConcentration": 0.721,
+          "meanValidDirections": 2.587,
+          "evolvingSlides": 1.938,
+          "chain2": 1.625,
+          "largeClears": 0.312,
+          "oneKindSteps": 5.938
+        }
+      ],
+      "maxChain": 5
+    },
+    "D1/current": {
+      "n": 16,
+      "reach": 7,
+      "pair": 5,
+      "wins": 5,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "moves": [
+        13,
+        48
+      ],
+      "late": 0.722,
+      "lateSolved": 0.674,
+      "used": {
+        "egg": 7,
+        "single": 0.2,
+        "bulk": 3.4
+      },
+      "phases": [
+        {
+          "meanPopulation": 17.593,
+          "meanConcentration": 0.632,
+          "meanValidDirections": 3.874,
+          "evolvingSlides": 4.688,
+          "chain2": 4.438,
+          "largeClears": 2.125,
+          "oneKindSteps": 1.125
+        },
+        {
+          "meanPopulation": 12.217,
+          "meanConcentration": 0.641,
+          "meanValidDirections": 3.119,
+          "evolvingSlides": 2.438,
+          "chain2": 1.312,
+          "largeClears": 0.062,
+          "oneKindSteps": 1.312
+        },
+        {
+          "meanPopulation": 9.714,
+          "meanConcentration": 0.645,
+          "meanValidDirections": 2.599,
+          "evolvingSlides": 2.25,
+          "chain2": 1.562,
+          "largeClears": 0.188,
+          "oneKindSteps": 3.438
+        }
+      ],
+      "maxChain": 5
+    },
+    "E/slide-only": {
+      "n": 16,
+      "reach": 7,
+      "pair": 6,
+      "wins": 6,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "moves": [
+        20,
+        65
+      ],
+      "late": 0.729,
+      "lateSolved": 0.749,
+      "used": {
+        "egg": 17.667,
+        "single": 0.333,
+        "bulk": 2
+      },
+      "phases": [
+        {
+          "meanPopulation": 15.43,
+          "meanConcentration": 0.661,
+          "meanValidDirections": 3.18,
+          "evolvingSlides": 4.188,
+          "chain2": 3.625,
+          "largeClears": 2.375,
+          "oneKindSteps": 4.5
+        },
+        {
+          "meanPopulation": 9.667,
+          "meanConcentration": 0.727,
+          "meanValidDirections": 2.78,
+          "evolvingSlides": 1.688,
+          "chain2": 1.125,
+          "largeClears": 0.062,
+          "oneKindSteps": 7.5
+        },
+        {
+          "meanPopulation": 8.221,
+          "meanConcentration": 0.722,
+          "meanValidDirections": 2.286,
+          "evolvingSlides": 1.812,
+          "chain2": 1.438,
+          "largeClears": 0.375,
+          "oneKindSteps": 7.938
+        }
+      ],
+      "maxChain": 4
+    },
+    "E/current": {
+      "n": 16,
+      "reach": 8,
+      "pair": 5,
+      "wins": 5,
+      "solvedSeeds": [
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "moves": [
+        19,
+        39
+      ],
+      "late": 0.642,
+      "lateSolved": 0.647,
+      "used": {
+        "egg": 11.8,
+        "single": 0.4,
+        "bulk": 2
+      },
+      "phases": [
+        {
+          "meanPopulation": 16.556,
+          "meanConcentration": 0.673,
+          "meanValidDirections": 3.288,
+          "evolvingSlides": 2.812,
+          "chain2": 3,
+          "largeClears": 2.188,
+          "oneKindSteps": 2.75
+        },
+        {
+          "meanPopulation": 9.281,
+          "meanConcentration": 0.759,
+          "meanValidDirections": 2.924,
+          "evolvingSlides": 1.25,
+          "chain2": 1.312,
+          "largeClears": 0.25,
+          "oneKindSteps": 4.5
+        },
+        {
+          "meanPopulation": 7.314,
+          "meanConcentration": 0.766,
+          "meanValidDirections": 2.5,
+          "evolvingSlides": 1.438,
+          "chain2": 1.312,
+          "largeClears": 0.188,
+          "oneKindSteps": 4.75
+        }
+      ],
+      "maxChain": 4
+    },
+    "C16-20/current": {
+      "n": 16,
+      "reach": 12,
+      "pair": 10,
+      "wins": 10,
+      "solvedSeeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "moves": [
+        6,
+        47
+      ],
+      "late": 0.686,
+      "lateSolved": 0.72,
+      "used": {
+        "egg": 3.4,
+        "single": 1.4,
+        "bulk": 4
+      },
+      "phases": [
+        {
+          "meanPopulation": 20.057,
+          "meanConcentration": 0.589,
+          "meanValidDirections": 3.708,
+          "evolvingSlides": 5.375,
+          "chain2": 4.562,
+          "largeClears": 2.062,
+          "oneKindSteps": 0.5
+        },
+        {
+          "meanPopulation": 18.011,
+          "meanConcentration": 0.598,
+          "meanValidDirections": 3.768,
+          "evolvingSlides": 5.062,
+          "chain2": 3.562,
+          "largeClears": 1,
+          "oneKindSteps": 0.125
+        },
+        {
+          "meanPopulation": 18.162,
+          "meanConcentration": 0.562,
+          "meanValidDirections": 3.222,
+          "evolvingSlides": 5.375,
+          "chain2": 3.312,
+          "largeClears": 0.938,
+          "oneKindSteps": 0.125
+        }
+      ],
+      "maxChain": 5
+    },
+    "C16-20/current/slides": {
+      "n": 8,
+      "reach": 8,
+      "pair": 0,
+      "wins": 0,
+      "solvedSeeds": [],
+      "moves": [
+        0,
+        0
+      ],
+      "late": 1,
+      "lateSolved": null,
+      "used": {
+        "egg": null,
+        "single": null,
+        "bulk": null
+      },
+      "phases": [
+        {
+          "meanPopulation": 18.874,
+          "meanConcentration": 0.408,
+          "meanValidDirections": 2.929,
+          "evolvingSlides": 54.125,
+          "chain2": 20.5,
+          "largeClears": 1.5,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 18.514,
+          "meanConcentration": 0.401,
+          "meanValidDirections": 2.686,
+          "evolvingSlides": 40.5,
+          "chain2": 12.875,
+          "largeClears": 0,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 18.434,
+          "meanConcentration": 0.402,
+          "meanValidDirections": 2.586,
+          "evolvingSlides": 36.125,
+          "chain2": 11.625,
+          "largeClears": 0,
+          "oneKindSteps": 0
+        }
+      ],
+      "maxChain": 5
+    },
+    "A/current/slides": {
+      "n": 8,
+      "reach": 8,
+      "pair": 0,
+      "wins": 0,
+      "solvedSeeds": [],
+      "moves": [
+        0,
+        0
+      ],
+      "late": 1,
+      "lateSolved": null,
+      "used": {
+        "egg": null,
+        "single": null,
+        "bulk": null
+      },
+      "phases": [
+        {
+          "meanPopulation": 15.621,
+          "meanConcentration": 0.424,
+          "meanValidDirections": 3.758,
+          "evolvingSlides": 43.375,
+          "chain2": 17.5,
+          "largeClears": 2.875,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 16.274,
+          "meanConcentration": 0.415,
+          "meanValidDirections": 3.773,
+          "evolvingSlides": 39.875,
+          "chain2": 12.875,
+          "largeClears": 0.625,
+          "oneKindSteps": 0
+        },
+        {
+          "meanPopulation": 17.458,
+          "meanConcentration": 0.414,
+          "meanValidDirections": 3.778,
+          "evolvingSlides": 40.875,
+          "chain2": 15.125,
+          "largeClears": 0.5,
+          "oneKindSteps": 0
+        }
+      ],
+      "maxChain": 5
+    }
+  },
+  "byPolicy": {
+    "E/current/slides": {
+      "slides": {
+        "n": 8,
+        "reach": 0,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 1,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 20.087,
+            "meanConcentration": 0.429,
+            "meanValidDirections": 2.374,
+            "evolvingSlides": 5.375,
+            "chain2": 2.625,
+            "largeClears": 1.625,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 14.313,
+            "meanConcentration": 0.467,
+            "meanValidDirections": 2.073,
+            "evolvingSlides": 2.125,
+            "chain2": 0.5,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.363,
+            "meanConcentration": 0.469,
+            "meanValidDirections": 2.126,
+            "evolvingSlides": 2.375,
+            "chain2": 0.5,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "B/slide-only": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          14,
+          50
+        ],
+        "late": 0.853,
+        "lateSolved": 0.853,
+        "used": {
+          "egg": 7.25,
+          "single": 0.375,
+          "bulk": 3.375
+        },
+        "phases": [
+          {
+            "meanPopulation": 16.247,
+            "meanConcentration": 0.777,
+            "meanValidDirections": 3.925,
+            "evolvingSlides": 3.875,
+            "chain2": 3.125,
+            "largeClears": 2,
+            "oneKindSteps": 2
+          },
+          {
+            "meanPopulation": 13.91,
+            "meanConcentration": 0.734,
+            "meanValidDirections": 3.926,
+            "evolvingSlides": 2.25,
+            "chain2": 0.875,
+            "largeClears": 0.25,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 13.349,
+            "meanConcentration": 0.686,
+            "meanValidDirections": 3.538,
+            "evolvingSlides": 5.25,
+            "chain2": 1.875,
+            "largeClears": 1.125,
+            "oneKindSteps": 0.25
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 2,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.846,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 16.233,
+            "meanConcentration": 0.457,
+            "meanValidDirections": 3.905,
+            "evolvingSlides": 10.25,
+            "chain2": 4.875,
+            "largeClears": 1.5,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 13.214,
+            "meanConcentration": 0.411,
+            "meanValidDirections": 3.908,
+            "evolvingSlides": 9.375,
+            "chain2": 4,
+            "largeClears": 0.25,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 12.997,
+            "meanConcentration": 0.42,
+            "meanValidDirections": 3.914,
+            "evolvingSlides": 8.25,
+            "chain2": 3.625,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "D0/slide-only": {
+      "focus": {
+        "n": 8,
+        "reach": 6,
+        "pair": 5,
+        "wins": 5,
+        "solvedSeeds": [
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "moves": [
+          7,
+          86
+        ],
+        "late": 0.857,
+        "lateSolved": 0.926,
+        "used": {
+          "egg": 1.8,
+          "single": 1.2,
+          "bulk": 2.8
+        },
+        "phases": [
+          {
+            "meanPopulation": 20.158,
+            "meanConcentration": 0.664,
+            "meanValidDirections": 3.772,
+            "evolvingSlides": 4.375,
+            "chain2": 3.125,
+            "largeClears": 1.625,
+            "oneKindSteps": 1.125
+          },
+          {
+            "meanPopulation": 14.493,
+            "meanConcentration": 0.839,
+            "meanValidDirections": 3.208,
+            "evolvingSlides": 1.75,
+            "chain2": 1.375,
+            "largeClears": 0.375,
+            "oneKindSteps": 0.125
+          },
+          {
+            "meanPopulation": 11.424,
+            "meanConcentration": 0.833,
+            "meanValidDirections": 2.649,
+            "evolvingSlides": 2.875,
+            "chain2": 1.5,
+            "largeClears": 0.625,
+            "oneKindSteps": 1.125
+          }
+        ],
+        "maxChain": 8
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 2,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.868,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 17.93,
+            "meanConcentration": 0.458,
+            "meanValidDirections": 3.58,
+            "evolvingSlides": 9.25,
+            "chain2": 4.875,
+            "largeClears": 1.75,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 12.045,
+            "meanConcentration": 0.442,
+            "meanValidDirections": 2.772,
+            "evolvingSlides": 4.125,
+            "chain2": 1.875,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 9.392,
+            "meanConcentration": 0.453,
+            "meanValidDirections": 2.634,
+            "evolvingSlides": 3.125,
+            "chain2": 1.875,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "C8-8/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 7,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "moves": [
+          19,
+          71
+        ],
+        "late": 0.672,
+        "lateSolved": 0.665,
+        "used": {
+          "egg": 12.286,
+          "single": 0.429,
+          "bulk": 2.286
+        },
+        "phases": [
+          {
+            "meanPopulation": 14.409,
+            "meanConcentration": 0.797,
+            "meanValidDirections": 3.416,
+            "evolvingSlides": 3.5,
+            "chain2": 3.75,
+            "largeClears": 2.5,
+            "oneKindSteps": 4.5
+          },
+          {
+            "meanPopulation": 9.655,
+            "meanConcentration": 0.88,
+            "meanValidDirections": 2.884,
+            "evolvingSlides": 1.75,
+            "chain2": 1.25,
+            "largeClears": 0.375,
+            "oneKindSteps": 5
+          },
+          {
+            "meanPopulation": 8.937,
+            "meanConcentration": 0.874,
+            "meanValidDirections": 2.524,
+            "evolvingSlides": 3.25,
+            "chain2": 1.875,
+            "largeClears": 0.375,
+            "oneKindSteps": 6
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 2,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.733,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.696,
+            "meanConcentration": 0.484,
+            "meanValidDirections": 3.138,
+            "evolvingSlides": 3.875,
+            "chain2": 3.5,
+            "largeClears": 1.75,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 9.537,
+            "meanConcentration": 0.466,
+            "meanValidDirections": 2.909,
+            "evolvingSlides": 2.625,
+            "chain2": 2.375,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 8.064,
+            "meanConcentration": 0.41,
+            "meanValidDirections": 2.841,
+            "evolvingSlides": 1.5,
+            "chain2": 1.5,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "D0/current": {
+      "focus": {
+        "n": 8,
+        "reach": 6,
+        "pair": 6,
+        "wins": 6,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "moves": [
+          11,
+          49
+        ],
+        "late": 0.789,
+        "lateSolved": 0.841,
+        "used": {
+          "egg": 1.833,
+          "single": 0.167,
+          "bulk": 4.333
+        },
+        "phases": [
+          {
+            "meanPopulation": 19.18,
+            "meanConcentration": 0.766,
+            "meanValidDirections": 3.899,
+            "evolvingSlides": 3.375,
+            "chain2": 3.125,
+            "largeClears": 2.125,
+            "oneKindSteps": 1
+          },
+          {
+            "meanPopulation": 13.543,
+            "meanConcentration": 0.834,
+            "meanValidDirections": 3.443,
+            "evolvingSlides": 2.5,
+            "chain2": 1.375,
+            "largeClears": 0.875,
+            "oneKindSteps": 2
+          },
+          {
+            "meanPopulation": 11.157,
+            "meanConcentration": 0.85,
+            "meanValidDirections": 2.931,
+            "evolvingSlides": 2.875,
+            "chain2": 1.875,
+            "largeClears": 0.25,
+            "oneKindSteps": 1.375
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 3,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.892,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 18.535,
+            "meanConcentration": 0.482,
+            "meanValidDirections": 3.761,
+            "evolvingSlides": 7.375,
+            "chain2": 4,
+            "largeClears": 1.75,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.961,
+            "meanConcentration": 0.437,
+            "meanValidDirections": 3.02,
+            "evolvingSlides": 4.25,
+            "chain2": 1.625,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 9.368,
+            "meanConcentration": 0.435,
+            "meanValidDirections": 2.625,
+            "evolvingSlides": 2.125,
+            "chain2": 1.125,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "C12-16/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          13,
+          34
+        ],
+        "late": 0.531,
+        "lateSolved": 0.531,
+        "used": {
+          "egg": 8.375,
+          "single": 0.75,
+          "bulk": 3.875
+        },
+        "phases": [
+          {
+            "meanPopulation": 18.408,
+            "meanConcentration": 0.739,
+            "meanValidDirections": 3.711,
+            "evolvingSlides": 3,
+            "chain2": 3.5,
+            "largeClears": 2.125,
+            "oneKindSteps": 1.375
+          },
+          {
+            "meanPopulation": 15.603,
+            "meanConcentration": 0.744,
+            "meanValidDirections": 3.677,
+            "evolvingSlides": 2.25,
+            "chain2": 2,
+            "largeClears": 0.125,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 13.859,
+            "meanConcentration": 0.696,
+            "meanValidDirections": 3.15,
+            "evolvingSlides": 3.375,
+            "chain2": 2.5,
+            "largeClears": 1.375,
+            "oneKindSteps": 0.125
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 4,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.674,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 16.066,
+            "meanConcentration": 0.478,
+            "meanValidDirections": 3.404,
+            "evolvingSlides": 8.875,
+            "chain2": 5.625,
+            "largeClears": 1.875,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 14.514,
+            "meanConcentration": 0.416,
+            "meanValidDirections": 3.417,
+            "evolvingSlides": 8.125,
+            "chain2": 4.5,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 14.31,
+            "meanConcentration": 0.418,
+            "meanValidDirections": 3.213,
+            "evolvingSlides": 7.625,
+            "chain2": 3.625,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "C16-16/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          13,
+          51
+        ],
+        "late": 0.639,
+        "lateSolved": 0.639,
+        "used": {
+          "egg": 6.125,
+          "single": 0.5,
+          "bulk": 4.75
+        },
+        "phases": [
+          {
+            "meanPopulation": 18.58,
+            "meanConcentration": 0.735,
+            "meanValidDirections": 3.799,
+            "evolvingSlides": 3.25,
+            "chain2": 3.625,
+            "largeClears": 2,
+            "oneKindSteps": 1.25
+          },
+          {
+            "meanPopulation": 15.377,
+            "meanConcentration": 0.77,
+            "meanValidDirections": 3.946,
+            "evolvingSlides": 3.375,
+            "chain2": 2,
+            "largeClears": 0.625,
+            "oneKindSteps": 0.625
+          },
+          {
+            "meanPopulation": 15.274,
+            "meanConcentration": 0.714,
+            "meanValidDirections": 3.335,
+            "evolvingSlides": 4.5,
+            "chain2": 3,
+            "largeClears": 0.875,
+            "oneKindSteps": 0.5
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 4,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.723,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 16.601,
+            "meanConcentration": 0.479,
+            "meanValidDirections": 3.725,
+            "evolvingSlides": 8.375,
+            "chain2": 6,
+            "largeClears": 1.875,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 15.521,
+            "meanConcentration": 0.414,
+            "meanValidDirections": 3.778,
+            "evolvingSlides": 8.25,
+            "chain2": 4.25,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 15.485,
+            "meanConcentration": 0.427,
+            "meanValidDirections": 3.691,
+            "evolvingSlides": 8.25,
+            "chain2": 4.125,
+            "largeClears": 0.25,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "C16-20/cost4": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          25,
+          45
+        ],
+        "late": 0.614,
+        "lateSolved": 0.614,
+        "used": {
+          "egg": 9.25,
+          "single": 4.375,
+          "bulk": 4.125
+        },
+        "phases": [
+          {
+            "meanPopulation": 20.746,
+            "meanConcentration": 0.497,
+            "meanValidDirections": 3.475,
+            "evolvingSlides": 3.625,
+            "chain2": 3,
+            "largeClears": 1.875,
+            "oneKindSteps": 0.125
+          },
+          {
+            "meanPopulation": 18.715,
+            "meanConcentration": 0.604,
+            "meanValidDirections": 3.701,
+            "evolvingSlides": 4.5,
+            "chain2": 4.125,
+            "largeClears": 1,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.175,
+            "meanConcentration": 0.671,
+            "meanValidDirections": 3.52,
+            "evolvingSlides": 6.125,
+            "chain2": 3.625,
+            "largeClears": 2.125,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 5,
+        "pair": 2,
+        "wins": 2,
+        "solvedSeeds": [
+          4,
+          7
+        ],
+        "moves": [
+          48,
+          56
+        ],
+        "late": 0.632,
+        "lateSolved": 0.592,
+        "used": {
+          "egg": 10.5,
+          "single": 9,
+          "bulk": 0.5
+        },
+        "phases": [
+          {
+            "meanPopulation": 19.296,
+            "meanConcentration": 0.411,
+            "meanValidDirections": 3.421,
+            "evolvingSlides": 10.625,
+            "chain2": 7.125,
+            "largeClears": 1.75,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.274,
+            "meanConcentration": 0.406,
+            "meanValidDirections": 3.429,
+            "evolvingSlides": 8.125,
+            "chain2": 4.75,
+            "largeClears": 0.25,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.16,
+            "meanConcentration": 0.406,
+            "meanValidDirections": 3.436,
+            "evolvingSlides": 8.5,
+            "chain2": 4.75,
+            "largeClears": 0.375,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "A/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          12,
+          53
+        ],
+        "late": 0.666,
+        "lateSolved": 0.666,
+        "used": {
+          "egg": 8.375,
+          "single": 0.375,
+          "bulk": 4.125
+        },
+        "phases": [
+          {
+            "meanPopulation": 14.582,
+            "meanConcentration": 0.825,
+            "meanValidDirections": 3.889,
+            "evolvingSlides": 3,
+            "chain2": 4.375,
+            "largeClears": 2.625,
+            "oneKindSteps": 4
+          },
+          {
+            "meanPopulation": 11.986,
+            "meanConcentration": 0.783,
+            "meanValidDirections": 3.673,
+            "evolvingSlides": 2,
+            "chain2": 0.875,
+            "largeClears": 0.875,
+            "oneKindSteps": 1.125
+          },
+          {
+            "meanPopulation": 12.445,
+            "meanConcentration": 0.774,
+            "meanValidDirections": 3.371,
+            "evolvingSlides": 4.375,
+            "chain2": 1.75,
+            "largeClears": 1.125,
+            "oneKindSteps": 2.25
+          }
+        ],
+        "maxChain": 6
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 3,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.787,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 14.988,
+            "meanConcentration": 0.488,
+            "meanValidDirections": 3.762,
+            "evolvingSlides": 6.375,
+            "chain2": 5.375,
+            "largeClears": 1.875,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.018,
+            "meanConcentration": 0.442,
+            "meanValidDirections": 3.584,
+            "evolvingSlides": 5.625,
+            "chain2": 3.125,
+            "largeClears": 0.25,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.409,
+            "meanConcentration": 0.43,
+            "meanValidDirections": 3.665,
+            "evolvingSlides": 5,
+            "chain2": 2.5,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "B/current/slides": {
+      "slides": {
+        "n": 8,
+        "reach": 8,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 1,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 16.182,
+            "meanConcentration": 0.416,
+            "meanValidDirections": 3.897,
+            "evolvingSlides": 46.125,
+            "chain2": 17,
+            "largeClears": 2.125,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 16.464,
+            "meanConcentration": 0.414,
+            "meanValidDirections": 3.914,
+            "evolvingSlides": 43,
+            "chain2": 13.375,
+            "largeClears": 0.625,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.042,
+            "meanConcentration": 0.415,
+            "meanValidDirections": 3.911,
+            "evolvingSlides": 42.375,
+            "chain2": 14.375,
+            "largeClears": 0.75,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "E/half": {
+      "focus": {
+        "n": 8,
+        "reach": 7,
+        "pair": 6,
+        "wins": 6,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "moves": [
+          19,
+          80
+        ],
+        "late": 0.728,
+        "lateSolved": 0.736,
+        "used": {
+          "egg": 18.333,
+          "single": 2.667,
+          "bulk": 1.5
+        },
+        "phases": [
+          {
+            "meanPopulation": 14.959,
+            "meanConcentration": 0.751,
+            "meanValidDirections": 3.126,
+            "evolvingSlides": 4.375,
+            "chain2": 4.75,
+            "largeClears": 2.75,
+            "oneKindSteps": 5.375
+          },
+          {
+            "meanPopulation": 9.605,
+            "meanConcentration": 0.891,
+            "meanValidDirections": 2.601,
+            "evolvingSlides": 1.125,
+            "chain2": 1.125,
+            "largeClears": 0.125,
+            "oneKindSteps": 10.375
+          },
+          {
+            "meanPopulation": 8.21,
+            "meanConcentration": 0.949,
+            "meanValidDirections": 2.25,
+            "evolvingSlides": 2.5,
+            "chain2": 2.375,
+            "largeClears": 0.5,
+            "oneKindSteps": 14.375
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 1,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.663,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 17.524,
+            "meanConcentration": 0.447,
+            "meanValidDirections": 3.186,
+            "evolvingSlides": 3,
+            "chain2": 3.375,
+            "largeClears": 1.875,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.362,
+            "meanConcentration": 0.426,
+            "meanValidDirections": 2.587,
+            "evolvingSlides": 2,
+            "chain2": 1.125,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 8.119,
+            "meanConcentration": 0.434,
+            "meanValidDirections": 2.583,
+            "evolvingSlides": 1,
+            "chain2": 1.375,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "C12-12/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          18,
+          42
+        ],
+        "late": 0.667,
+        "lateSolved": 0.667,
+        "used": {
+          "egg": 9.5,
+          "single": 0.625,
+          "bulk": 3.625
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.927,
+            "meanConcentration": 0.779,
+            "meanValidDirections": 3.675,
+            "evolvingSlides": 3.375,
+            "chain2": 3.625,
+            "largeClears": 2.5,
+            "oneKindSteps": 2.875
+          },
+          {
+            "meanPopulation": 12.196,
+            "meanConcentration": 0.787,
+            "meanValidDirections": 3.639,
+            "evolvingSlides": 3.375,
+            "chain2": 2,
+            "largeClears": 0.125,
+            "oneKindSteps": 1
+          },
+          {
+            "meanPopulation": 11.806,
+            "meanConcentration": 0.737,
+            "meanValidDirections": 3.039,
+            "evolvingSlides": 4.375,
+            "chain2": 2,
+            "largeClears": 0.375,
+            "oneKindSteps": 0.5
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 4,
+        "pair": 1,
+        "wins": 1,
+        "solvedSeeds": [
+          3
+        ],
+        "moves": [
+          16,
+          16
+        ],
+        "late": 0.701,
+        "lateSolved": 0.5,
+        "used": {
+          "egg": 2,
+          "single": 5,
+          "bulk": 1
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.122,
+            "meanConcentration": 0.486,
+            "meanValidDirections": 3.466,
+            "evolvingSlides": 6.5,
+            "chain2": 4.625,
+            "largeClears": 1.625,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 11.66,
+            "meanConcentration": 0.445,
+            "meanValidDirections": 3.639,
+            "evolvingSlides": 6.75,
+            "chain2": 3.5,
+            "largeClears": 0.25,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.453,
+            "meanConcentration": 0.443,
+            "meanValidDirections": 3.361,
+            "evolvingSlides": 6.125,
+            "chain2": 2.625,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "C16-20/slide-only": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          13,
+          29
+        ],
+        "late": 0.616,
+        "lateSolved": 0.616,
+        "used": {
+          "egg": 4.5,
+          "single": 0.5,
+          "bulk": 5
+        },
+        "phases": [
+          {
+            "meanPopulation": 20.337,
+            "meanConcentration": 0.635,
+            "meanValidDirections": 3.718,
+            "evolvingSlides": 3,
+            "chain2": 2.75,
+            "largeClears": 1.75,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 18.349,
+            "meanConcentration": 0.736,
+            "meanValidDirections": 3.919,
+            "evolvingSlides": 2.625,
+            "chain2": 2.375,
+            "largeClears": 1.125,
+            "oneKindSteps": 0.125
+          },
+          {
+            "meanPopulation": 17.979,
+            "meanConcentration": 0.717,
+            "meanValidDirections": 3.377,
+            "evolvingSlides": 4.125,
+            "chain2": 3.75,
+            "largeClears": 1.75,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 4,
+        "pair": 3,
+        "wins": 3,
+        "solvedSeeds": [
+          2,
+          3,
+          7
+        ],
+        "moves": [
+          6,
+          47
+        ],
+        "late": 0.697,
+        "lateSolved": 0.721,
+        "used": {
+          "egg": 5.333,
+          "single": 5.333,
+          "bulk": 1.333
+        },
+        "phases": [
+          {
+            "meanPopulation": 19.644,
+            "meanConcentration": 0.452,
+            "meanValidDirections": 3.501,
+            "evolvingSlides": 9.375,
+            "chain2": 7.125,
+            "largeClears": 1.75,
+            "oneKindSteps": 0.125
+          },
+          {
+            "meanPopulation": 18.561,
+            "meanConcentration": 0.439,
+            "meanValidDirections": 3.401,
+            "evolvingSlides": 7.875,
+            "chain2": 4.5,
+            "largeClears": 0.25,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.528,
+            "meanConcentration": 0.409,
+            "meanValidDirections": 3.118,
+            "evolvingSlides": 7.375,
+            "chain2": 4,
+            "largeClears": 0.5,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "D0/current/slides": {
+      "slides": {
+        "n": 8,
+        "reach": 0,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 1,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 21.53,
+            "meanConcentration": 0.412,
+            "meanValidDirections": 3.189,
+            "evolvingSlides": 10.375,
+            "chain2": 4.25,
+            "largeClears": 0.625,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 14.951,
+            "meanConcentration": 0.415,
+            "meanValidDirections": 2.658,
+            "evolvingSlides": 6.5,
+            "chain2": 1.875,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.906,
+            "meanConcentration": 0.404,
+            "meanValidDirections": 2.181,
+            "evolvingSlides": 2,
+            "chain2": 0,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "C8-12/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          19,
+          64
+        ],
+        "late": 0.609,
+        "lateSolved": 0.609,
+        "used": {
+          "egg": 12.375,
+          "single": 1.125,
+          "bulk": 3.25
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.341,
+            "meanConcentration": 0.791,
+            "meanValidDirections": 3.401,
+            "evolvingSlides": 3.5,
+            "chain2": 3.75,
+            "largeClears": 2.5,
+            "oneKindSteps": 3.875
+          },
+          {
+            "meanPopulation": 11.408,
+            "meanConcentration": 0.842,
+            "meanValidDirections": 3.229,
+            "evolvingSlides": 2.25,
+            "chain2": 1.25,
+            "largeClears": 0.375,
+            "oneKindSteps": 2.25
+          },
+          {
+            "meanPopulation": 10.576,
+            "meanConcentration": 0.792,
+            "meanValidDirections": 2.697,
+            "evolvingSlides": 3.375,
+            "chain2": 2.25,
+            "largeClears": 0.625,
+            "oneKindSteps": 2.375
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 4,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.723,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 13.872,
+            "meanConcentration": 0.486,
+            "meanValidDirections": 3.128,
+            "evolvingSlides": 6.25,
+            "chain2": 4.5,
+            "largeClears": 1.75,
+            "oneKindSteps": 0.375
+          },
+          {
+            "meanPopulation": 10.38,
+            "meanConcentration": 0.428,
+            "meanValidDirections": 2.963,
+            "evolvingSlides": 4.875,
+            "chain2": 3.125,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 9.998,
+            "meanConcentration": 0.422,
+            "meanValidDirections": 2.88,
+            "evolvingSlides": 4.125,
+            "chain2": 2.125,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "B/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          8,
+          48
+        ],
+        "late": 0.793,
+        "lateSolved": 0.793,
+        "used": {
+          "egg": 6.625,
+          "single": 0.5,
+          "bulk": 3.625
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.799,
+            "meanConcentration": 0.803,
+            "meanValidDirections": 3.949,
+            "evolvingSlides": 3.375,
+            "chain2": 4,
+            "largeClears": 2.5,
+            "oneKindSteps": 3.375
+          },
+          {
+            "meanPopulation": 13.659,
+            "meanConcentration": 0.74,
+            "meanValidDirections": 3.952,
+            "evolvingSlides": 2.375,
+            "chain2": 0.75,
+            "largeClears": 0.375,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 13.169,
+            "meanConcentration": 0.771,
+            "meanValidDirections": 3.443,
+            "evolvingSlides": 3.75,
+            "chain2": 2.375,
+            "largeClears": 1.375,
+            "oneKindSteps": 1.75
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 2,
+        "pair": 1,
+        "wins": 1,
+        "solvedSeeds": [
+          3
+        ],
+        "moves": [
+          48,
+          48
+        ],
+        "late": 0.758,
+        "lateSolved": 0.625,
+        "used": {
+          "egg": 7,
+          "single": 5,
+          "bulk": 1
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.441,
+            "meanConcentration": 0.475,
+            "meanValidDirections": 3.909,
+            "evolvingSlides": 8.625,
+            "chain2": 5,
+            "largeClears": 1.75,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 12.454,
+            "meanConcentration": 0.414,
+            "meanValidDirections": 3.974,
+            "evolvingSlides": 9,
+            "chain2": 3.125,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 12.689,
+            "meanConcentration": 0.432,
+            "meanValidDirections": 3.821,
+            "evolvingSlides": 6.75,
+            "chain2": 3.25,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "B/cost4": {
+      "focus": {
+        "n": 8,
+        "reach": 7,
+        "pair": 7,
+        "wins": 7,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ],
+        "moves": [
+          14,
+          67
+        ],
+        "late": 0.722,
+        "lateSolved": 0.693,
+        "used": {
+          "egg": 7.571,
+          "single": 3.429,
+          "bulk": 2.143
+        },
+        "phases": [
+          {
+            "meanPopulation": 20.334,
+            "meanConcentration": 0.533,
+            "meanValidDirections": 3.877,
+            "evolvingSlides": 4.625,
+            "chain2": 2.75,
+            "largeClears": 2,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 17.021,
+            "meanConcentration": 0.669,
+            "meanValidDirections": 3.942,
+            "evolvingSlides": 4,
+            "chain2": 2.25,
+            "largeClears": 0.5,
+            "oneKindSteps": 1
+          },
+          {
+            "meanPopulation": 14.915,
+            "meanConcentration": 0.737,
+            "meanValidDirections": 3.617,
+            "evolvingSlides": 6.5,
+            "chain2": 2.75,
+            "largeClears": 1.25,
+            "oneKindSteps": 0.25
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 2,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.829,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 16.774,
+            "meanConcentration": 0.437,
+            "meanValidDirections": 3.918,
+            "evolvingSlides": 9.375,
+            "chain2": 5.75,
+            "largeClears": 1.375,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 14.868,
+            "meanConcentration": 0.412,
+            "meanValidDirections": 3.9,
+            "evolvingSlides": 9.875,
+            "chain2": 3,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 13.625,
+            "meanConcentration": 0.416,
+            "meanValidDirections": 3.878,
+            "evolvingSlides": 9.125,
+            "chain2": 3.625,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "E/slide-bonus": {
+      "focus": {
+        "n": 8,
+        "reach": 7,
+        "pair": 6,
+        "wins": 6,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "moves": [
+          13,
+          65
+        ],
+        "late": 0.729,
+        "lateSolved": 0.731,
+        "used": {
+          "egg": 13.833,
+          "single": 0.333,
+          "bulk": 2
+        },
+        "phases": [
+          {
+            "meanPopulation": 14.614,
+            "meanConcentration": 0.846,
+            "meanValidDirections": 3.233,
+            "evolvingSlides": 4.75,
+            "chain2": 3.375,
+            "largeClears": 3.25,
+            "oneKindSteps": 10.25
+          },
+          {
+            "meanPopulation": 9.318,
+            "meanConcentration": 0.987,
+            "meanValidDirections": 2.739,
+            "evolvingSlides": 1.375,
+            "chain2": 1,
+            "largeClears": 0.375,
+            "oneKindSteps": 14.5
+          },
+          {
+            "meanPopulation": 7.952,
+            "meanConcentration": 1,
+            "meanValidDirections": 2.139,
+            "evolvingSlides": 2.375,
+            "chain2": 1.875,
+            "largeClears": 0.375,
+            "oneKindSteps": 15.25
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 1,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.722,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.849,
+            "meanConcentration": 0.47,
+            "meanValidDirections": 2.996,
+            "evolvingSlides": 5.25,
+            "chain2": 3.5,
+            "largeClears": 1.875,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 9.33,
+            "meanConcentration": 0.449,
+            "meanValidDirections": 2.421,
+            "evolvingSlides": 2,
+            "chain2": 1,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 7.546,
+            "meanConcentration": 0.468,
+            "meanValidDirections": 2.279,
+            "evolvingSlides": 0.875,
+            "chain2": 1.25,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "E/cost4": {
+      "focus": {
+        "n": 8,
+        "reach": 7,
+        "pair": 5,
+        "wins": 5,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "moves": [
+          37,
+          87
+        ],
+        "late": 0.72,
+        "lateSolved": 0.745,
+        "used": {
+          "egg": 16,
+          "single": 7,
+          "bulk": 0.6
+        },
+        "phases": [
+          {
+            "meanPopulation": 17.344,
+            "meanConcentration": 0.571,
+            "meanValidDirections": 3.164,
+            "evolvingSlides": 3.875,
+            "chain2": 3.125,
+            "largeClears": 2.375,
+            "oneKindSteps": 2.625
+          },
+          {
+            "meanPopulation": 11.961,
+            "meanConcentration": 0.731,
+            "meanValidDirections": 2.453,
+            "evolvingSlides": 1.625,
+            "chain2": 0.875,
+            "largeClears": 0.125,
+            "oneKindSteps": 3.25
+          },
+          {
+            "meanPopulation": 8.824,
+            "meanConcentration": 0.817,
+            "meanValidDirections": 2.384,
+            "evolvingSlides": 2.75,
+            "chain2": 1.875,
+            "largeClears": 0.625,
+            "oneKindSteps": 9
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 0,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.698,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 18.412,
+            "meanConcentration": 0.429,
+            "meanValidDirections": 3.155,
+            "evolvingSlides": 2.75,
+            "chain2": 2.875,
+            "largeClears": 1.75,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.286,
+            "meanConcentration": 0.434,
+            "meanValidDirections": 2.828,
+            "evolvingSlides": 1.75,
+            "chain2": 1.625,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 7.971,
+            "meanConcentration": 0.437,
+            "meanValidDirections": 2.373,
+            "evolvingSlides": 1.375,
+            "chain2": 1.5,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "E/cooldown": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 6,
+        "wins": 5,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "moves": [
+          18,
+          87
+        ],
+        "late": 0.574,
+        "lateSolved": 0.584,
+        "used": {
+          "egg": 12.6,
+          "single": 1,
+          "bulk": 2
+        },
+        "phases": [
+          {
+            "meanPopulation": 17.272,
+            "meanConcentration": 0.7,
+            "meanValidDirections": 3.295,
+            "evolvingSlides": 2.75,
+            "chain2": 3.125,
+            "largeClears": 2.375,
+            "oneKindSteps": 3.375
+          },
+          {
+            "meanPopulation": 10.953,
+            "meanConcentration": 0.951,
+            "meanValidDirections": 2.846,
+            "evolvingSlides": 1.125,
+            "chain2": 0.875,
+            "largeClears": 0.375,
+            "oneKindSteps": 10.75
+          },
+          {
+            "meanPopulation": 8.093,
+            "meanConcentration": 0.979,
+            "meanValidDirections": 2.563,
+            "evolvingSlides": 2.75,
+            "chain2": 1.75,
+            "largeClears": 0.625,
+            "oneKindSteps": 11.875
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 1,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.619,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 18.227,
+            "meanConcentration": 0.464,
+            "meanValidDirections": 3.151,
+            "evolvingSlides": 3.125,
+            "chain2": 2.875,
+            "largeClears": 1.625,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.163,
+            "meanConcentration": 0.449,
+            "meanValidDirections": 2.906,
+            "evolvingSlides": 1.5,
+            "chain2": 1.375,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 7.679,
+            "meanConcentration": 0.463,
+            "meanValidDirections": 2.611,
+            "evolvingSlides": 1.125,
+            "chain2": 1.5,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "D1/current": {
+      "focus": {
+        "n": 8,
+        "reach": 5,
+        "pair": 5,
+        "wins": 5,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "moves": [
+          13,
+          48
+        ],
+        "late": 0.658,
+        "lateSolved": 0.674,
+        "used": {
+          "egg": 7,
+          "single": 0.2,
+          "bulk": 3.4
+        },
+        "phases": [
+          {
+            "meanPopulation": 16.759,
+            "meanConcentration": 0.788,
+            "meanValidDirections": 3.977,
+            "evolvingSlides": 3.5,
+            "chain2": 4.25,
+            "largeClears": 2.875,
+            "oneKindSteps": 2.25
+          },
+          {
+            "meanPopulation": 12.391,
+            "meanConcentration": 0.844,
+            "meanValidDirections": 3.172,
+            "evolvingSlides": 1.75,
+            "chain2": 1,
+            "largeClears": 0,
+            "oneKindSteps": 2.625
+          },
+          {
+            "meanPopulation": 10.167,
+            "meanConcentration": 0.887,
+            "meanValidDirections": 2.554,
+            "evolvingSlides": 2.875,
+            "chain2": 1.375,
+            "largeClears": 0.375,
+            "oneKindSteps": 6.875
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 2,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.785,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 18.427,
+            "meanConcentration": 0.476,
+            "meanValidDirections": 3.772,
+            "evolvingSlides": 5.875,
+            "chain2": 4.625,
+            "largeClears": 1.375,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 12.042,
+            "meanConcentration": 0.438,
+            "meanValidDirections": 3.066,
+            "evolvingSlides": 3.125,
+            "chain2": 1.625,
+            "largeClears": 0.125,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 9.261,
+            "meanConcentration": 0.403,
+            "meanValidDirections": 2.643,
+            "evolvingSlides": 1.625,
+            "chain2": 1.75,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "E/slide-only": {
+      "focus": {
+        "n": 8,
+        "reach": 6,
+        "pair": 6,
+        "wins": 6,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "moves": [
+          20,
+          65
+        ],
+        "late": 0.725,
+        "lateSolved": 0.749,
+        "used": {
+          "egg": 17.667,
+          "single": 0.333,
+          "bulk": 2
+        },
+        "phases": [
+          {
+            "meanPopulation": 13.561,
+            "meanConcentration": 0.86,
+            "meanValidDirections": 3.296,
+            "evolvingSlides": 4.375,
+            "chain2": 4.125,
+            "largeClears": 3.125,
+            "oneKindSteps": 9
+          },
+          {
+            "meanPopulation": 8.222,
+            "meanConcentration": 0.998,
+            "meanValidDirections": 2.764,
+            "evolvingSlides": 1.5,
+            "chain2": 1,
+            "largeClears": 0.125,
+            "oneKindSteps": 15
+          },
+          {
+            "meanPopulation": 7.974,
+            "meanConcentration": 1,
+            "meanValidDirections": 2.28,
+            "evolvingSlides": 2.25,
+            "chain2": 1.75,
+            "largeClears": 0.75,
+            "oneKindSteps": 15.875
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 1,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.733,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 17.299,
+            "meanConcentration": 0.462,
+            "meanValidDirections": 3.064,
+            "evolvingSlides": 4,
+            "chain2": 3.125,
+            "largeClears": 1.625,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 11.112,
+            "meanConcentration": 0.455,
+            "meanValidDirections": 2.795,
+            "evolvingSlides": 1.875,
+            "chain2": 1.25,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 8.467,
+            "meanConcentration": 0.444,
+            "meanValidDirections": 2.291,
+            "evolvingSlides": 1.375,
+            "chain2": 1.125,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "E/current": {
+      "focus": {
+        "n": 8,
+        "reach": 6,
+        "pair": 5,
+        "wins": 5,
+        "solvedSeeds": [
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "moves": [
+          19,
+          39
+        ],
+        "late": 0.629,
+        "lateSolved": 0.647,
+        "used": {
+          "egg": 11.8,
+          "single": 0.4,
+          "bulk": 2
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.331,
+            "meanConcentration": 0.843,
+            "meanValidDirections": 3.438,
+            "evolvingSlides": 2.5,
+            "chain2": 3.25,
+            "largeClears": 2.625,
+            "oneKindSteps": 5.25
+          },
+          {
+            "meanPopulation": 8.395,
+            "meanConcentration": 1,
+            "meanValidDirections": 3.064,
+            "evolvingSlides": 1.25,
+            "chain2": 1,
+            "largeClears": 0.375,
+            "oneKindSteps": 8.375
+          },
+          {
+            "meanPopulation": 7.549,
+            "meanConcentration": 1,
+            "meanValidDirections": 2.473,
+            "evolvingSlides": 1.75,
+            "chain2": 1.375,
+            "largeClears": 0.375,
+            "oneKindSteps": 8.875
+          }
+        ],
+        "maxChain": 4
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 2,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 0.656,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 17.781,
+            "meanConcentration": 0.504,
+            "meanValidDirections": 3.138,
+            "evolvingSlides": 3.125,
+            "chain2": 2.75,
+            "largeClears": 1.75,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 10.167,
+            "meanConcentration": 0.517,
+            "meanValidDirections": 2.785,
+            "evolvingSlides": 1.25,
+            "chain2": 1.625,
+            "largeClears": 0.125,
+            "oneKindSteps": 0.625
+          },
+          {
+            "meanPopulation": 7.079,
+            "meanConcentration": 0.531,
+            "meanValidDirections": 2.527,
+            "evolvingSlides": 1.125,
+            "chain2": 1.25,
+            "largeClears": 0,
+            "oneKindSteps": 0.625
+          }
+        ],
+        "maxChain": 4
+      }
+    },
+    "C16-20/current": {
+      "focus": {
+        "n": 8,
+        "reach": 8,
+        "pair": 8,
+        "wins": 8,
+        "solvedSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "moves": [
+          11,
+          23
+        ],
+        "late": 0.696,
+        "lateSolved": 0.696,
+        "used": {
+          "egg": 3.375,
+          "single": 0.5,
+          "bulk": 4.5
+        },
+        "phases": [
+          {
+            "meanPopulation": 20.518,
+            "meanConcentration": 0.699,
+            "meanValidDirections": 3.797,
+            "evolvingSlides": 2,
+            "chain2": 2.375,
+            "largeClears": 2.375,
+            "oneKindSteps": 0.75
+          },
+          {
+            "meanPopulation": 17.849,
+            "meanConcentration": 0.744,
+            "meanValidDirections": 3.958,
+            "evolvingSlides": 2.5,
+            "chain2": 2.125,
+            "largeClears": 1.375,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 18.167,
+            "meanConcentration": 0.718,
+            "meanValidDirections": 3.138,
+            "evolvingSlides": 3.5,
+            "chain2": 2.625,
+            "largeClears": 1.25,
+            "oneKindSteps": 0.25
+          }
+        ],
+        "maxChain": 5
+      },
+      "diverse": {
+        "n": 8,
+        "reach": 4,
+        "pair": 2,
+        "wins": 2,
+        "solvedSeeds": [
+          3,
+          7
+        ],
+        "moves": [
+          6,
+          47
+        ],
+        "late": 0.675,
+        "lateSolved": 0.812,
+        "used": {
+          "egg": 3.5,
+          "single": 5,
+          "bulk": 2
+        },
+        "phases": [
+          {
+            "meanPopulation": 19.596,
+            "meanConcentration": 0.479,
+            "meanValidDirections": 3.62,
+            "evolvingSlides": 8.75,
+            "chain2": 6.75,
+            "largeClears": 1.75,
+            "oneKindSteps": 0.25
+          },
+          {
+            "meanPopulation": 18.172,
+            "meanConcentration": 0.451,
+            "meanValidDirections": 3.578,
+            "evolvingSlides": 7.625,
+            "chain2": 5,
+            "largeClears": 0.625,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.157,
+            "meanConcentration": 0.405,
+            "meanValidDirections": 3.307,
+            "evolvingSlides": 7.25,
+            "chain2": 4,
+            "largeClears": 0.625,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "C16-20/current/slides": {
+      "slides": {
+        "n": 8,
+        "reach": 8,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 1,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 18.874,
+            "meanConcentration": 0.408,
+            "meanValidDirections": 2.929,
+            "evolvingSlides": 54.125,
+            "chain2": 20.5,
+            "largeClears": 1.5,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.514,
+            "meanConcentration": 0.401,
+            "meanValidDirections": 2.686,
+            "evolvingSlides": 40.5,
+            "chain2": 12.875,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 18.434,
+            "meanConcentration": 0.402,
+            "meanValidDirections": 2.586,
+            "evolvingSlides": 36.125,
+            "chain2": 11.625,
+            "largeClears": 0,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    },
+    "A/current/slides": {
+      "slides": {
+        "n": 8,
+        "reach": 8,
+        "pair": 0,
+        "wins": 0,
+        "solvedSeeds": [],
+        "moves": [
+          0,
+          0
+        ],
+        "late": 1,
+        "lateSolved": null,
+        "used": {
+          "egg": null,
+          "single": null,
+          "bulk": null
+        },
+        "phases": [
+          {
+            "meanPopulation": 15.621,
+            "meanConcentration": 0.424,
+            "meanValidDirections": 3.758,
+            "evolvingSlides": 43.375,
+            "chain2": 17.5,
+            "largeClears": 2.875,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 16.274,
+            "meanConcentration": 0.415,
+            "meanValidDirections": 3.773,
+            "evolvingSlides": 39.875,
+            "chain2": 12.875,
+            "largeClears": 0.625,
+            "oneKindSteps": 0
+          },
+          {
+            "meanPopulation": 17.458,
+            "meanConcentration": 0.414,
+            "meanValidDirections": 3.778,
+            "evolvingSlides": 40.875,
+            "chain2": 15.125,
+            "largeClears": 0.5,
+            "oneKindSteps": 0
+          }
+        ],
+        "maxChain": 5
+      }
+    }
+  }
+}
