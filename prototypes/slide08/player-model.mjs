@@ -2,6 +2,13 @@ import { step, validate, candidates } from "./engine.mjs";
 const clone = (x) => structuredClone(x);
 export function newRun(initial, species, proof, id = crypto.randomUUID()) {
   validate(initial);
+  if (
+    !Array.isArray(species) ||
+    species.length !== 3 ||
+    new Set(species).size !== 3 ||
+    species.some((x) => typeof x !== "string")
+  )
+    throw Error("3種族を選んでください");
   return {
     version: 1,
     id,

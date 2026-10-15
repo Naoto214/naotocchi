@@ -155,6 +155,7 @@ const assert = require("node:assert/strict"),
     );
     await page.screenshot({ path: path.join(out, `victory-${width}.png`) });
     await page
+      .locator("#dialogChoices")
       .getByRole("button", { name: "モード選択へ戻る", exact: true })
       .click();
     await page

@@ -1,3 +1,4 @@
+import { frames } from "./animation.mjs";
 import { stage, kind, step, landing } from "./engine.mjs";
 import {
   newRun,
@@ -50,7 +51,10 @@ function choice(id, callback, selected = false) {
   b.append(small);
   b.setAttribute("aria-label", small.textContent);
   b.classList.toggle("selected", selected);
-  b.onclick = callback;
+  b.onclick = () => {
+    if (!busy) callback();
+  };
+  b.disabled = busy;
   return b;
 }
 function modal(title, text, buttons) {
@@ -95,7 +99,9 @@ function setup() {
       const b = document.createElement("button");
       b.textContent = `セット${i + 1}`;
       b.classList.toggle("primary", i === prefs.active);
+      b.disabled = busy;
       b.onclick = () => {
+        if (busy) return;
         prefs.active = i;
         selection = prefs.sets[i].slice(0, 3);
         prefs.slide = selection;
@@ -154,7 +160,8 @@ async function start(file = null) {
   if (!owned || busy) return;
   busy = true;
   setup();
-  const ticket = ++loadToken;
+  const ticket = ++loadToken,
+    chosen = [...selection];
   $("boot").textContent = "盤面を準備しています…";
   try {
     const next =
@@ -166,13 +173,14 @@ async function start(file = null) {
       ];
     const cert = await certificate(next);
     if (ticket !== loadToken) return;
-    p = newRun(cert.initial, selection, next);
+    p = newRun(cert.initial, chosen, next);
     busy = false;
     paused = false;
     clock = performance.now();
     tool = null;
     save();
     showGame();
+    if (document.hidden) pause();
   } catch (e) {
     busy = false;
     $("boot").textContent = e.message;
@@ -194,11 +202,11 @@ function preview(a) {
         for (const i of ev.cells)
           $("board").children[i]?.classList.add("candidate");
 }
-function render() {
+function render(visualBoard = null) {
   if (!p) return;
   const s = p.state;
   $("board").replaceChildren(
-    ...s.board.map((v, i) => {
+    ...(visualBoard || s.board).map((v, i) => {
       const b = document.createElement("button");
       b.dataset.index = i;
       b.setAttribute(
@@ -355,6 +363,7 @@ const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function act(a) {
   if (!owned || busy || paused || !p || p.ended) return;
   tick();
+  const before = structuredClone(p.state);
   const r = advance(p, a);
   if (!r.valid) {
     $("status").textContent = "ここでは使えません（消費なし）";
@@ -363,12 +372,14 @@ async function act(a) {
   busy = true;
   tool = null;
   save();
-  render();
+  const visualFrames = frames(before, a, r);
+  render(before.board);
   document.body.classList.add("busy");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   try {
     if (!reduced) {
       if (a.type === "slide") {
+        render(visualFrames[0].board);
         $("board").style.setProperty(
           "--dx",
           a.dir === "left" ? "12px" : a.dir === "right" ? "-12px" : "0px",
@@ -382,18 +393,52 @@ async function act(a) {
         $("board").classList.remove("moving");
       }
       if (a.type === "egg") {
-        $("effect").textContent = "🥚 → ✧";
-        $("board").classList.add("hatching");
-        await wait(650);
-        $("board").classList.remove("hatching");
+        const at = landing(before, a.dir, a.lane),
+          cell = $("board").children[at];
+        const egg = document.createElement("span");
+        egg.className = "flying-egg";
+        egg.textContent = "🥚";
+        egg.setAttribute("aria-hidden", "true");
+        cell.append(egg);
+        const b = $("board").getBoundingClientRect(),
+          c = cell.getBoundingClientRect();
+        const dx =
+          a.dir === "right"
+            ? b.left - c.left - c.width
+            : a.dir === "left"
+              ? b.right - c.left
+              : 0;
+        const dy =
+          a.dir === "down"
+            ? b.top - c.top - c.height
+            : a.dir === "up"
+              ? b.bottom - c.top
+              : 0;
+        if (egg.animate)
+          await egg.animate(
+            [
+              { transform: `translate(${dx}px,${dy}px)` },
+              { transform: "translate(0,0)" },
+            ],
+            { duration: 350, easing: "ease-out" },
+          ).finished;
+        else await wait(350);
+        egg.textContent = "◌";
+        egg.classList.add("cracking");
+        await wait(150);
+        egg.textContent = "✧";
+        await wait(150);
+        egg.remove();
       }
-      for (const w of r.waves) {
+      render(visualFrames[0].board);
+      for (const f of visualFrames.slice(1)) {
         $("effect").textContent =
-          `${"✦".repeat(Math.min(w.chain, 5))} ${w.chain}連鎖`;
-        for (const e of w.events)
-          $("board").children[e.anchor]?.classList.add("pulse");
+          `${"✦".repeat(Math.min(f.chain, 5))} ${f.chain}連鎖`;
+        for (const e of f.events)
+          for (const i of e.cells)
+            $("board").children[i]?.classList.add(e.death ? "vanish" : "pulse");
         await wait(300);
-        for (const el of $("board").children) el.classList.remove("pulse");
+        render(f.board);
       }
       if (r.state.won) {
         $("effect").textContent = "✧ いのちが めぐった ✧";
@@ -433,7 +478,8 @@ function finish() {
 }
 function tick() {
   const now = performance.now();
-  if (p && !paused && !p.ended) p.elapsedMs += Math.max(0, now - clock);
+  if (p && !paused && !p.ended && !document.hidden)
+    p.elapsedMs += Math.max(0, now - clock);
   clock = now;
 }
 function pause() {

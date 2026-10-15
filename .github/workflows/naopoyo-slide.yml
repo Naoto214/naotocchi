@@ -24,6 +24,9 @@ jobs:
           npm --prefix prototypes/slide08 test
           node prototypes/slide08/verify-all.mjs
           node prototypes/slide08/balance-20261015/verify.mjs
+          node prototypes/slide08/tests/player-dom.cjs
+          node prototypes/slide08/tests/player-races.cjs
+          node prototypes/slide08/tests/player-mutation.cjs
           node prototypes/slide08/tests/mutation.cjs
           node prototypes/slide08/balance-20261015/mutation.mjs
       - name: iPhone sizes and human control witness replay

@@ -924,6 +924,8 @@ ownPlayer(navigator.locks, async () => {
     const shared = new Settings(localStorage, roster.map(c => c.id)).load();
     selected = [...shared.sets[shared.active]];
     show("modes");
+    document.querySelector("#modes .back").hidden = true;
+    $("seriesBack").hidden = false;
     $("seriesRestore").hidden = !data.snapshot;
     $("seriesRestore").onclick = () => $("restore").click();
   }

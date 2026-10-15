@@ -104,3 +104,23 @@ test("three favorite sets preserve five unlocked species and selected three", ()
   assert.throws(() => s.save(d));
   assert.equal(storage.getItem("naotocchi-save-v1"), null);
 });
+
+test("corrupt records are rejected without overwriting stored bytes", () => {
+  const storage = memory(),
+    store = new SlideStore(storage);
+  const valid = store.load();
+  for (const change of [
+    { seen: [] },
+    { normal: {} },
+    { practice: { plays: -1, deaths: 0, fastest: null, fewest: null } },
+  ]) {
+    const raw = JSON.stringify({ ...valid, ...change });
+    storage.setItem("naopoyo-slide-player-v1", raw);
+    assert.throws(() => store.load());
+    assert.equal(storage.getItem("naopoyo-slide-player-v1"), raw);
+  }
+});
+test("new runs reject incomplete or duplicate species mappings", () => {
+  assert.throws(() => model.newRun(initial(), ["dog", "dog", "mushroom"], "x"));
+  assert.throws(() => model.newRun(initial(), ["dog", "penguin"], "x"));
+});

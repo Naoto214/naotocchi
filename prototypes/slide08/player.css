@@ -344,3 +344,5 @@ header strong {
 .egg-mode .edge button {
   font-size: 16px;
 }
+
+.flying-egg{position:absolute;inset:0;display:grid;place-items:center;z-index:5;font-size:32px;filter:drop-shadow(0 0 8px #fff5af);pointer-events:none}.cracking{animation:evolve .15s ease-out}

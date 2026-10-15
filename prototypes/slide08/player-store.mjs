@@ -1,5 +1,13 @@
 export const SLIDE_KEY = "naopoyo-slide-player-v1";
 const total = () => ({ plays: 0, deaths: 0, fastest: null, fewest: null });
+const object = (x) => x && typeof x === "object" && !Array.isArray(x);
+const nonnegative = (n) => Number.isSafeInteger(n) && n >= 0;
+const validTotal = (t) =>
+  object(t) &&
+  nonnegative(t.plays) &&
+  nonnegative(t.deaths) &&
+  (t.fastest === null || (Number.isFinite(t.fastest) && t.fastest >= 0)) &&
+  (t.fewest === null || nonnegative(t.fewest));
 export class SlideStore {
   constructor(storage) {
     this.storage = storage;
@@ -22,9 +30,10 @@ export class SlideStore {
       d?.version !== 1 ||
       !Number.isSafeInteger(d.revision) ||
       !Array.isArray(d.history) ||
-      !d.seen ||
-      !d.normal ||
-      !d.practice
+      !object(d.seen) ||
+      Object.values(d.seen).some((v) => v !== true) ||
+      !validTotal(d.normal) ||
+      !validTotal(d.practice)
     )
       throw Error("保存を読めません。上書きせず停止しました");
     return d;
