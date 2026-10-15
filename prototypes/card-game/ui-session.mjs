@@ -11,6 +11,20 @@ export class HotseatSession {
  get projection(){
   if(!this.#state)return null;
   const v=view(this.#state,this.viewer),draft=this.#state.activationDraft;
+  if(this.viewer&&this.viewer===v.actor){
+   const cards=Object.values(v.players).flatMap(p=>[...(p.hand??[]),...p.discard,p.board.main,p.board.partner,p.board.world,...p.board.companions,...p.board.prepared]).filter(c=>c&&!c.hidden);
+   const safeIds=new Set(cards.map(c=>c.id)),raw=legalActions(this.#state),b=v.players[this.viewer].board;
+   v.actions=v.actions.map((a,i)=>{
+    const r=raw[i],extra={};
+    if(a.kind==='choose'&&safeIds.has(r.value))extra.choiceCard=r.value;
+    if(safeIds.has(r.target))extra.targetCard=r.target;
+    if(r.slot){
+     const index=r.slot==='world'?0:r.slot==='main'?1:r.slot==='partner'?2:r.slot==='companions'?3+(r.target?b.companions.findIndex(c=>c.id===r.target):b.companions.length):r.slot==='prepared'?6+b.prepared.length:-1;
+     if(index>=0&&index<9)extra.destination={seat:this.viewer,index};
+    }
+    return {...a,...extra};
+   });
+  }
   // Existing draft selections only. Resolve names through the safe view, never raw card identities.
   if(draft&&draft.actor===this.viewer){
    const visible=Object.values(v.players).flatMap(p=>[...(p.hand??[]),...p.discard,p.board.main,p.board.partner,p.board.world,...p.board.companions,...p.board.prepared]).filter(c=>c&&!c.hidden);
