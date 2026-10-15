@@ -49,3 +49,19 @@ DOM検証は読込中Reset、解法再生、単体選択、取消、再生リセ
 - `REPORT.md`: 結果と未完了事項。
 
 証明は「この操作列なら解ける」という存在証明です。途中で任意の手を選んでも解ける保証・最短解・人間の成功率ではありません。
+
+## 追加バランス比較（2026-10-15）
+
+[追加比較レポート](balance-20261015/REPORT.md)にA/Bと補助C/D、40seed×3方策の結果を記録。
+試遊画面の「追加比較・同じseed 3」から4条件の検証済み解法を試せます。すべて未採用の候補です。
+
+```sh
+node prototypes/slide08/balance-20261015/measure.mjs
+node prototypes/slide08/balance-20261015/verify.mjs
+node prototypes/slide08/balance-20261015/summarize.mjs
+node prototypes/slide08/balance-20261015/mutation.mjs
+```
+
+旧320盤面・87証明は変更せず、追加の全履歴・SHA-256証明を`balance-20261015/results/`に保存。
+追加探索は`itemPenalty`と`actionSet`を選択可能です。既定値では従来の探索順を維持します。
+`bestPath`は打切り時の診断用履歴で、`status === 'solved'`以外は解法として採用できません。

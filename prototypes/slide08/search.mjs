@@ -1,4 +1,12 @@
-import { candidates, step, key, stage, kind, validate } from './engine.mjs';
+import {
+  candidates,
+  step,
+  key,
+  stage,
+  kind,
+  validate,
+  DIRS,
+} from './engine.mjs';
 export function evaluate(s, policy = 'cluster') {
   if (s.won) return 1e9;
   let mass = 0,
@@ -61,10 +69,15 @@ export function search(initial, options = {}) {
     maxNodes: 200000,
     maxMs: 10000,
     policy: 'cluster',
+    itemPenalty: 0,
+    actionSet: 'all',
     ...options,
   };
   if (
     !['beam', 'bfs'].includes(opts.mode) ||
+    !['all', 'slides'].includes(opts.actionSet) ||
+    !Number.isFinite(opts.itemPenalty) ||
+    opts.itemPenalty < 0 ||
     !Number.isInteger(opts.width) ||
     opts.width < 1 ||
     !Number.isInteger(opts.maxNodes) ||
@@ -83,9 +96,15 @@ export function search(initial, options = {}) {
     pruned = 0,
     depth = 0,
     front = [{ s: initial, path: [] }];
+  const value = (s) =>
+    evaluate(s, opts.policy) -
+    opts.itemPenalty * (s.used.egg + s.used.single + s.used.bulk);
+  let best = { ...front[0], value: value(initial) };
   const finish = (status, node, reason) => ({
     status,
     path: node?.path ?? [],
+    bestPath: node?.path ?? best.path,
+    shortestScope: opts.actionSet,
     shortest: status === 'solved' && opts.mode === 'bfs',
     reason,
     options: opts,
@@ -104,7 +123,11 @@ export function search(initial, options = {}) {
     let next = [];
     for (const node of front) {
       expanded++;
-      for (const a of candidates(node.s)) {
+      const moves =
+        opts.actionSet === 'slides'
+          ? DIRS.map((dir) => ({ type: 'slide', dir }))
+          : candidates(node.s);
+      for (const a of moves) {
         if (nodes >= opts.maxNodes || performance.now() - start >= opts.maxMs)
           return finish('unproven', null, 'budget');
         nodes++;
@@ -119,8 +142,9 @@ export function search(initial, options = {}) {
         const child = {
           s: r.state,
           path: [...node.path, a],
-          value: evaluate(r.state, opts.policy),
+          value: value(r.state),
         };
+        if (child.value > best.value) best = child;
         if (r.state.won) return finish('solved', child, 'witness');
         next.push(child);
       }

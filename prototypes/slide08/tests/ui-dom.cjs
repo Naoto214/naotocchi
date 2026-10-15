@@ -61,10 +61,15 @@ const { JSDOM } = require(process.env.SLIDE08_JSDOM || 'jsdom');
     exported = b;
     return 'blob:test';
   };
-  document.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') e.preventDefault();
-  });
+  let downloadRequested = false;
+  // jsdom has no navigation/download implementation; validate the boundary.
+  window.HTMLAnchorElement.prototype.click = function () {
+    assert.equal(this.href, 'blob:test');
+    assert.match(this.download, /\.json$/);
+    downloadRequested = true;
+  };
   click('export');
+  assert.equal(downloadRequested, true);
   assert.equal(JSON.parse(await exported.text()).automated, true);
   click('cancel');
   assert.equal($('moves').textContent, '2');
@@ -73,8 +78,30 @@ const { JSDOM } = require(process.env.SLIDE08_JSDOM || 'jsdom');
   assert.match($('proofStatus').textContent, /未証明/);
   assert.equal($('replayAll').disabled, true);
   assert.equal($('moves').textContent, '0');
+  const comparisons = [...$('catalog').querySelectorAll('[data-balance]')];
+  assert.equal(
+    comparisons.length,
+    4,
+    'all four paired comparison proofs are playable',
+  );
+  for (const option of comparisons) {
+    $('catalog').value = option.value;
+    $('catalog').dispatchEvent(new window.Event('change'));
+    await wait(250);
+    const proof = JSON.parse(
+      fs.readFileSync(path.join(root, 'results', option.value), 'utf8'),
+    );
+    assert.match($('proofStatus').textContent, /確認済み/);
+    assert.equal(
+      [...$('board').children].filter((b) => b.querySelector('small')).length,
+      proof.initial.config.count,
+    );
+    for (const action of proof.actions) click('replayOne');
+    assert.match($('status').textContent, /クリア/);
+    assert.equal(+$('moves').textContent, proof.actions.length);
+  }
   console.log(
-    'DOM: verified load, 17-step replay, reset race, single selection, manual/replay restart, cancel and unproven settings PASS',
+    'DOM: verified load, 17-step replay, reset race, single selection, manual/replay restart, cancel, unproven settings and four comparison replays PASS',
   );
   process.exit(0);
 })().catch((e) => {
