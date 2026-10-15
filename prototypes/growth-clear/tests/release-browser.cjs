@@ -1,0 +1,38 @@
+const {chromium}=require(process.env.PLAYWRIGHT_PATH||'playwright');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH,args:['--no-sandbox']});
+ const base=process.env.BASE_URL||'http://127.0.0.1:8765',out=process.env.QA_OUT||'/tmp/drop-release-qa';
+ fs.mkdirSync(out,{recursive:true});const results=[];
+ try {for(const [width,height] of [[320,568],[375,667],[390,844],[430,932],[667,375],[844,390],[932,430]]){
+  const ctx=await browser.newContext({viewport:{width,height},isMobile:true,hasTouch:true}),page=await ctx.newPage(),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(base+'/prototypes/naopoyo/');
+  await page.locator('a[href="../growth-chain/player.html?series=1"]').click();
+  await page.locator('#modes').waitFor({state:'visible'});
+  assert.match(await page.locator('#modes').innerText(),/旧ルール/);
+  await page.locator('[data-mode="clear"]').click();await page.locator('#pause').click();
+  const oldBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('naopoyo-player-v1')));assert.ok(oldBefore.snapshot);
+  await page.evaluate(()=>{localStorage.setItem('naotocchi-save-v1','protected-main');localStorage.setItem('naopoyo-slide-player-v1','protected-slide');});
+  await page.goto(base+'/prototypes/growth-chain/player.html?series=1');
+  await page.locator('#modes a[data-new-rule]').click();
+  await page.locator('#menu').waitFor({state:'visible'});
+  const old=await page.evaluate(()=>localStorage.getItem('naopoyo-player-v1'));
+  assert.deepEqual(JSON.parse(old).snapshot.state,oldBefore.snapshot.state);
+  assert.equal(await page.locator('#cost').inputValue(),'2');await page.locator('#new').click();
+  await page.waitForFunction(()=>[...document.querySelectorAll('#board img,#next img')].every(i=>i.complete&&i.naturalWidth));
+  assert.equal(await page.locator('#board .cell').count(),72);assert.equal(await page.locator('#next>div').count(),3);
+  const geometry=await page.evaluate(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}};return {board:rect('#board'),controls:rect('.controls'),tools:rect('aside'),scroll:document.documentElement.scrollWidth}});
+  await page.screenshot({path:path.join(out,`release-${width}x${height}.png`)});
+  assert(geometry.controls.bottom<=height+1,JSON.stringify({width,height,geometry}));assert(geometry.board.bottom<=height+1);assert(geometry.tools.bottom<=height+1);assert(geometry.scroll<=width);
+  await page.locator('#drop').click();await page.waitForFunction(()=>document.querySelector('#score').textContent.includes('1組'));await page.locator('#pause').click();
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('naopoyo-growth-clear-phone-v1')));assert.equal(saved.snapshot.state.rules.gaugeUnit,2);
+  await page.reload();await page.locator('#resume').click();assert.match(await page.locator('#score').innerText(),/1組/);await page.locator('#pause').click();
+  await page.locator('#cost').selectOption('8');await page.locator('#new').click();assert.match(await page.locator('#cost-label').innerText(),/8 \/ 24/);await page.locator('#pause').click();
+  const protectedValues=await page.evaluate(()=>[localStorage.getItem('naopoyo-player-v1'),localStorage.getItem('naotocchi-save-v1'),localStorage.getItem('naopoyo-slide-player-v1')]);
+  assert.deepEqual(protectedValues,[old,'protected-main','protected-slide']);
+  await page.locator('#menu a[data-old-rule]').click();await page.locator('#modes').waitFor({state:'visible'});await page.locator('#seriesRestore').click();await page.locator('#game').waitFor({state:'visible'});
+  assert.deepEqual(errors,[]);results.push({width,height,geometry,errors});await ctx.close();
+ }} finally {await browser.close();}
+ fs.writeFileSync(path.join(out,'release-browser.json'),JSON.stringify(results,null,2));console.log('PASS release navigation, old/new save isolation, resume, 2/6 and 8/24, seven portrait/landscape sizes');
+})().catch(e=>{console.error(e);process.exitCode=1});
