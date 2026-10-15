@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createRequire} from 'node:module';
+import {PlayerStore} from '../../growth-chain/player-store.mjs';
+const {JSDOM}=createRequire(import.meta.url)(process.env.JSDOM_PATH||'/tmp/naopoyo-ui-deps/node_modules/jsdom');
+const dom=new JSDOM(fs.readFileSync(new URL('../player.html',import.meta.url),'utf8'),{url:'http://localhost/',pretendToBeVisual:true});
+for(const k of ['window','document','Option','localStorage'])globalThis[k]=dom.window[k];
+Object.defineProperty(globalThis,'navigator',{value:dom.window.navigator,configurable:true});
+dom.window.HTMLDialogElement.prototype.showModal=function(){this.open=true};dom.window.HTMLDialogElement.prototype.close=function(){this.open=false};globalThis.requestAnimationFrame=()=>{};
+const store=new PlayerStore(localStorage,'naopoyo-growth-clear-phone-v1');store.load();store.save(null,[],{sound:true,reduced:true});
+await import('../phone.mjs');
+for(const id of ['sound','reduced'])assert.equal(document.getElementById(id).checked,true,`${id} restored`);
+document.getElementById('resume').click();
+const d=store.read();assert.equal(d.preferences.sound,true);assert.equal(d.preferences.reduced,true);
+console.log('PASS saved sound/reduced preferences survive reload and resume');

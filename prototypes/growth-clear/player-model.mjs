@@ -235,6 +235,16 @@ export class Player {
     this.settle();
     return true;
   }
+  checkpoint() {
+    const snapshot = this.snapshot();
+    if (snapshot) return snapshot;
+    // Actions already resolve atomically. Finish only the visual phase on a
+    // copy so pagehide/pause can persist that result without skipping live FX.
+    const settled = Object.assign(Object.create(Player.prototype), structuredClone(this));
+    settled.phase = "animating";
+    settled.settle();
+    return settled.snapshot();
+  }
   snapshot() {
     if (
       this.phase === "animating" ||

@@ -58,10 +58,10 @@ function piece(c) {
 }
 function save() {
   if (!writable || !player || player.practice) return;
-  const snap = player.snapshot();
+  const snap = player.checkpoint();
   if (!snap) return;
   try {
-    data = store.save(snap, player.records, {
+    data = store.save(snap, snap.records, {
       selected,
       sound: $("sound").checked,
       reduced: $("reduced").checked,
@@ -546,6 +546,10 @@ function tick(now) {
 }
 try {
   data = store.load();
+  for (const id of ["sound", "reduced"]) {
+    if (typeof data.preferences[id] === "boolean")
+      $(id).checked = data.preferences[id];
+  }
   if (data.preferences.selected?.length === 5) {
     selected = [...data.preferences.selected];
     [...$("roster").children].forEach((s, i) => (s.value = selected[i]));

@@ -438,3 +438,25 @@ input[type="checkbox"] {
     overflow: auto;
   }
 }
+
+/* Keep the board and tools together; use the spare width on short screens. */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root {
+    --cell: min(calc((100svh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) / 12), 28px);
+  }
+  #app {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-areas: "arena header" "arena stats" "arena next" "arena selection" "arena controls";
+    column-gap: 12px;
+    align-content: center;
+    min-height: 100svh;
+  }
+  .arena { grid-area: arena; align-self: center; }
+  header { grid-area: header; }
+  #stats { grid-area: stats; }
+  #next { grid-area: next; }
+  #selection { grid-area: selection; }
+  .controls { grid-area: controls; align-self: end; }
+}

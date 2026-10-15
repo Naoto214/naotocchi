@@ -12,11 +12,13 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
   await page.locator('#modes').waitFor({state:'visible'});
   assert.match(await page.locator('#modes').innerText(),/旧ルール/);
   await page.locator('[data-mode="clear"]').click();await page.locator('#pause').click();
-  const old=await page.evaluate(()=>localStorage.getItem('naopoyo-player-v1'));assert.ok(old);
+  const oldBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('naopoyo-player-v1')));assert.ok(oldBefore.snapshot);
   await page.evaluate(()=>{localStorage.setItem('naotocchi-save-v1','protected-main');localStorage.setItem('naopoyo-slide-player-v1','protected-slide');});
   await page.goto(base+'/prototypes/growth-chain/player.html?series=1');
   await page.locator('#modes a[data-new-rule]').click();
   await page.locator('#menu').waitFor({state:'visible'});
+  const old=await page.evaluate(()=>localStorage.getItem('naopoyo-player-v1'));
+  assert.deepEqual(JSON.parse(old).snapshot.state,oldBefore.snapshot.state);
   assert.equal(await page.locator('#cost').inputValue(),'2');await page.locator('#new').click();
   await page.waitForFunction(()=>[...document.querySelectorAll('#board img,#next img')].every(i=>i.complete&&i.naturalWidth));
   assert.equal(await page.locator('#board .cell').count(),72);assert.equal(await page.locator('#next>div').count(),3);
