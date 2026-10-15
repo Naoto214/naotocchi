@@ -60,9 +60,23 @@ const assert = require("node:assert/strict"),
     assert.ok(layout.buttons.every((h) => h >= 44));
     assert.equal(layout.broken, false);
     await page.screenshot({ path: path.join(out, `slide-${width}.png`) });
+    if (width === 375)
+      console.log(
+        "VISUALQA-slide:" +
+          (await page.screenshot({ type: "jpeg", quality: 55 })).toString(
+            "base64",
+          ),
+      );
     await page.locator("#eggs button").first().click();
     await page.locator("#targets button").first().click();
     await page.screenshot({ path: path.join(out, `egg-${width}.png`) });
+    if (width === 375)
+      console.log(
+        "VISUALQA-egg:" +
+          (await page.screenshot({ type: "jpeg", quality: 55 })).toString(
+            "base64",
+          ),
+      );
     assert.ok(
       await page
         .locator("#top button")
@@ -116,7 +130,26 @@ const assert = require("node:assert/strict"),
         await page.locator("#targets button").nth(a.kind).click();
       }
     }
-    await action(cert.actions[0]);
+    // Real pointer drag, followed by the same undo contract as keyboard input.
+    if (cert.actions[0].type === "slide") {
+      const box = await page.locator("#board").boundingBox(),
+        d = cert.actions[0].dir;
+      const x = box.x + box.width / 2,
+        y = box.y + box.height / 2;
+      await page.mouse.move(x, y);
+      await page.mouse.down();
+      await page.mouse.move(
+        x + (d === "right" ? 60 : d === "left" ? -60 : 0),
+        y + (d === "down" ? 60 : d === "up" ? -60 : 0),
+        { steps: 5 },
+      );
+      await page.mouse.up();
+      assert.equal(
+        await page.evaluate(() => scrollY),
+        0,
+        "board drag must not scroll page",
+      );
+    } else await action(cert.actions[0]);
     await page.locator("#undo").click();
     await page.getByRole("button", { name: "キャンセル", exact: true }).click();
     assert.equal(await page.locator("#moves").textContent(), "1");
