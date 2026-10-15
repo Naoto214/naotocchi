@@ -6,14 +6,14 @@ import {createBag,drawPair} from './bag.mjs';
 import {groups,resolve} from './engine.mjs';
 export {spawnPose,poseCells,fits,movePose,landing,placements,hasLegalPlacement};
 export function createSession(seed, options={}, initial={}){
- const opts={mode:'new',anchor:'A',gaugeUnit:8,...options};
- if(!['new','old'].includes(opts.mode)||!['A','B','C'].includes(opts.anchor)||![2,3,4,8].includes(opts.gaugeUnit))throw Error('Invalid options');
+ const opts={supply:'new',mode:'new',anchor:'A',gaugeUnit:8,...options};
+ if(!['new','legacy'].includes(opts.supply)||!['new','old'].includes(opts.mode)||!['A','B','C'].includes(opts.anchor)||![2,3,4,8].includes(opts.gaugeUnit))throw Error('Invalid options');
  const r=standardRules({gaugeUnit:opts.gaugeUnit});
  const b=initial.board?cloneBoard(initial.board):board(r);validateBoard(b,r);
  if((opts.mode==='new'?groups(b):oldGroups(b,r)).length||JSON.stringify(gravity(b))!==JSON.stringify(b))throw Error('Initial board must be stable');
  const eggs=initial.eggs?[...initial.eggs]:[0,0,0,0],gauge=initial.gauge??0;
  if(eggs.length!==4||eggs.some(n=>!Number.isSafeInteger(n)||n<0)||!Number.isSafeInteger(gauge)||gauge<0)throw Error('Invalid resources');
- const bag=createBag(seed),queue=Array.from({length:4},()=>drawPair(bag));
+ const bag=createBag(seed);if(opts.supply==='legacy')Object.assign(bag,{legacy:true,kinds:5,mode:'fourEach'});const queue=Array.from({length:4},()=>drawPair(bag));
  const s={version:'growth-clear/1',seed,options:opts,rules:r,board:b,eggs,gauge,bag,queue,nextId:Math.max(0,...b.flat().filter(Boolean).map(c=>c.id))+1,score:0,drops:0,actions:0,over:null};
  if(!fits(b,spawnPose(r)))s.over='spawn-blocked';else if(!hasLegalPlacement(s))s.over='no-legal-placement';
  return s;

@@ -1,4 +1,4 @@
-import {random} from '../growth-chain/random.mjs';
+import {random, draw as legacyDraw} from '../growth-chain/random.mjs';
 export function shuffle(a,rng){for(let i=a.length-1;i>0;i--){const j=Math.floor(random(rng)*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 export const category=([a,b])=>(a.k===b.k?0:2)+(a.s===b.s?0:1);
 function weighted(rng,values,weights){let p=random(rng),sum=0;for(let i=0;i<values.length;i++){sum+=weights[i];if(p<sum)return values[i];}return values.at(-1);}
@@ -23,4 +23,4 @@ export function makeBag(seed){
  return shuffle(pairs,rng);
 }
 export function createBag(seed){if(!Number.isInteger(seed)||seed<0||seed>0xffffffff)throw Error('seed must be uint32');return {state:seed,index:0,items:[],cycle:0};}
-export function drawPair(b){if(b.index>=b.items.length){const seed=Math.floor(random(b)*4294967296);b.items=makeBag(seed);b.index=0;b.cycle++;}return b.items[b.index++].map(c=>({...c}));}
+export function drawPair(b){if(b.legacy)return [legacyDraw(b),legacyDraw(b)].map(k=>({k,s:1}));if(b.index>=b.items.length){const seed=Math.floor(random(b)*4294967296);b.items=makeBag(seed);b.index=0;b.cycle++;}return b.items[b.index++].map(c=>({...c}));}
