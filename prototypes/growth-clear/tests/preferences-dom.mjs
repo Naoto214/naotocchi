@@ -8,9 +8,11 @@ for(const k of ['window','document','Option','localStorage'])globalThis[k]=dom.w
 Object.defineProperty(globalThis,'navigator',{value:dom.window.navigator,configurable:true});
 dom.window.HTMLDialogElement.prototype.showModal=function(){this.open=true};dom.window.HTMLDialogElement.prototype.close=function(){this.open=false};globalThis.requestAnimationFrame=()=>{};
 const store=new PlayerStore(localStorage,'naopoyo-growth-clear-phone-v1');store.load();store.save(null,[{id:'saved:clear',category:'clear',outcome:'clear',score:123,drops:45,maxChain:3,deaths:2}],{sound:true,reduced:true});
+let resumed=0;window.AudioContext=class {resume(){resumed++;}};
 await import('../phone.mjs');
 for(const id of ['sound','reduced'])assert.equal(document.getElementById(id).checked,true,`${id} restored`);
 assert.match(document.getElementById('records').textContent,/寿命達成.*123点.*45組/);
 document.getElementById('resume').click();
+assert.equal(resumed,1,'saved sound starts on the resume gesture');
 const d=store.read();assert.equal(d.preferences.sound,true);assert.equal(d.preferences.reduced,true);
 console.log('PASS saved sound/reduced preferences survive reload and resume');

@@ -78,6 +78,7 @@ function start() {
     say("seedは整数を入力してください");
     return;
   }
+  enableSound();
   const state = createSession(seed, {
     gaugeUnit: Number($("cost").value),
     anchor: "A",
@@ -438,6 +439,7 @@ function openMenu() {
 }
 $("pause").onclick = openMenu;
 $("resume").onclick = () => {
+  enableSound();
   $("menu").close();
   player?.resume();
   lastTime = performance.now();
@@ -449,15 +451,16 @@ $("menu").addEventListener("cancel", (e) => {
   $("resume").click();
 });
 $("new").onclick = start;
-$("sound").onchange = () => {
+function enableSound() {
   if ($("sound").checked) {
     const Audio = window.AudioContext || window.webkitAudioContext;
     if (Audio) {
       audio ??= new Audio();
-      audio.resume();
+      audio.resume()?.catch?.(() => {});
     }
   }
-};
+}
+$("sound").onchange = enableSound;
 $("reduced").checked =
   window.matchMedia?.("(prefers-reduced-motion: reduce)").matches || false;
 for (let i = 0; i < 5; i++) {
@@ -476,6 +479,7 @@ for (let i = 0; i < 5; i++) {
 }
 $("replay").onclick = async () => {
   try {
+    enableSound();
     save();
     const key = $("example").value;
     let witness = window.GROWTH_CLEAR_WITNESSES?.[key];
@@ -502,6 +506,7 @@ $("replay").onclick = async () => {
 };
 $("back").onclick = () => {
   try {
+    enableSound();
     if (!data?.snapshot) throw Error("保存したゲームはまだありません");
     player = Player.restore(data.snapshot);
     frames = [];
