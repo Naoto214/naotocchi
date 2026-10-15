@@ -11,6 +11,7 @@ import { catalog } from "../growth-chain/catalog.mjs";
 import { INITIAL_SPECIES, imagePath } from "../growth-chain/roster.mjs";
 import { PlayerStore } from "../growth-chain/player-store.mjs";
 import { bindHold } from "../growth-chain/touch-input.mjs";
+import { Settings, SETTINGS_KEY } from "../naopoyo/settings.mjs";
 import { effects, eggEffects } from "./effects.mjs";
 const $ = (id) => document.getElementById(id),
   KEY = "naopoyo-growth-clear-phone-v1";
@@ -30,6 +31,7 @@ try {
 const store = new PlayerStore(storage, KEY);
 let data,
   writable = false,
+  hasStarted = false,
   player,
   tool = null,
   frames = [],
@@ -66,25 +68,26 @@ function save() {
       sound: $("sound").checked,
       reduced: $("reduced").checked,
     });
-    $("storage-status").textContent = "この試遊専用の保存データです。";
+    $("storage-status").textContent = "ドロップの保存データです。以前の保存とは別に保護しています。";
   } catch (e) {
     writable = false;
     $("storage-status").textContent = e.message;
   }
 }
-function start() {
-  const seed = Number($("seed").value);
+function start(developer = false) {
+  const seed = developer ? Number($("seed").value) : 214;
   if (!Number.isSafeInteger(seed)) {
     say("seedは整数を入力してください");
     return;
   }
   enableSound();
   const state = createSession(seed, {
-    gaugeUnit: Number($("cost").value),
+    gaugeUnit: developer ? Number($("cost").value) : 2,
     anchor: "A",
   });
   state.species = [...selected];
   player = new Player(state);
+  hasStarted = true;
   frames = [];
   frame = null;
   tool = null;
@@ -431,14 +434,18 @@ function openMenu() {
     (data?.history || [])
       .map(
         (r) =>
-          `${r.outcome === "clear" ? "寿命達成" : "終了"} · ${r.score}点 · ${r.drops}組 · ${r.maxChain}連鎖`,
+          `${r.gaugeUnit === 8 ? "開発比較 8 / 24 · " : ""}${r.outcome === "clear" ? "寿命達成" : "終了"} · ${r.score}点 · ${r.drops}組 · ${r.maxChain}連鎖`,
       )
       .join("\n") || "まだ記録はありません";
+  $("resume").textContent = player?.practice ? "再生へ戻る" : hasStarted
+    ? `続きから再開（${player.state.rules.gaugeUnit} / ${player.state.rules.gaugeUnit * 3}）`
+    : "はじめる（2 / 6）";
   $("menu").showModal();
   render();
 }
 $("pause").onclick = openMenu;
 $("resume").onclick = () => {
+  hasStarted = true;
   enableSound();
   $("menu").close();
   player?.resume();
@@ -450,7 +457,8 @@ $("menu").addEventListener("cancel", (e) => {
   e.preventDefault();
   $("resume").click();
 });
-$("new").onclick = start;
+$("new").onclick = () => start();
+$("developer-start").onclick = () => start(true);
 function enableSound() {
   if ($("sound").checked) {
     const Audio = window.AudioContext || window.webkitAudioContext;
@@ -549,6 +557,15 @@ function tick(now) {
   }
   requestAnimationFrame(tick);
 }
+// Read legacy data only to offer recovery. Never load it into this engine or write it.
+try {
+  const legacy = new PlayerStore(storage).read();
+  $("legacy-notice").textContent = legacy.snapshot
+    ? "旧ルールの途中保存があります。「以前の保存・記録」から旧ルールで再開できます。"
+    : "";
+} catch {
+  $("legacy-notice").textContent = "以前の保存を確認できません。データは変更していません。「以前の保存・記録」から確認できます。";
+}
 try {
   data = store.load();
   for (const id of ["sound", "reduced"]) {
@@ -559,7 +576,20 @@ try {
     selected = [...data.preferences.selected];
     [...$("roster").children].forEach((s, i) => (s.value = selected[i]));
   }
-  if (data.snapshot) player = Player.restore(data.snapshot);
+  // Shared favorites select a NEW game only; restored snapshots retain their species.
+  if (storage.getItem(SETTINGS_KEY)) {
+    try {
+      const shared = new Settings(storage, catalog.map((c) => c.id)).load();
+      selected = [...shared.sets[shared.active]];
+      [...$("roster").children].forEach((s, i) => (s.value = selected[i]));
+    } catch {
+      $("favorites-status").textContent = "お気に入りを確認できません。選択中の5種族を使います。シリーズ入口で確認してください。";
+    }
+  }
+  if (data.snapshot) {
+    player = Player.restore(data.snapshot);
+    hasStarted = true;
+  }
   else {
     const state = createSession(214, { gaugeUnit: 2 });
     state.species = [...selected];
@@ -587,6 +617,7 @@ try {
 } catch (e) {
   $("storage-status").textContent = `保存を上書きせず停止：${e.message}`;
   $("new").disabled = true;
+  $("developer-start").disabled = true;
   $("resume").disabled = true;
   $("menu").showModal();
 }

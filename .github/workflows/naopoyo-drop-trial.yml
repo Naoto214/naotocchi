@@ -28,6 +28,8 @@ jobs:
           node prototypes/growth-clear/tests/storage-dom.mjs
           node prototypes/growth-clear/tests/release-dom.mjs
           node prototypes/growth-clear/tests/preferences-dom.mjs
+          node prototypes/growth-clear/tests/standard-start-dom.mjs
+          node prototypes/growth-clear/tests/standard-records-dom.mjs
           node prototypes/growth-clear/tests/mutation.cjs
           node prototypes/growth-clear/tests/phone-mutation.cjs
           node prototypes/growth-clear/verify.mjs
