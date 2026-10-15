@@ -21,3 +21,16 @@ for k,v in out.items():
 lines+=['','## スライドのみの別探索','','アイテムを禁止した8seed×5設定(E/A/B/C16-20/D0)では40件中0件の寿命消滅。幅32・最大240手・60,000ノード。これは不可能の証明ではありません。アイテムを抑えた主探索の成功だけで「スライド中心の完成形」と判断できません。','','## 再生と保存','','全376操作列（解法152・未解決prefix224）を初期状態、各手SHA-256、補充列、終状態で再生照合。`results.tar.gz`をこのディレクトリで展開し、`node replay.mjs`で検証。新設定に旧証明を流用していません。`SUMMARY.json`に方策別・三期間別・盤面整理数も保存。']
 (p/'MEASUREMENTS.md').write_text('\n'.join(lines)+'\n')
 print('\n'.join(lines[:28]))
+# Additional descriptive statistics, based on saved traces rather than new searches.
+extra=['','## 連鎖・種族貢献・seed差（現行ゲージ、両方策の全prefixを含む）','','2連鎖率は有効操作数で重み付け。終盤スライドによる進化率は終盤slideのうち進化イベントがある割合。種族貢献は各操作の進化段階差を種族別に合計したもの（現行ゲージの獲得前の値、上限による切捨て前）。卵の実受取数とは別。多数種族への統一の因果効果を示すものではない。','','|方式|2連鎖以上/全操作|終盤slide進化率|進化段階差：種族0/1/2|終盤に1種族だけの手/終盤全手|','|---|---|---|---|---|']
+for profile in ['E','A','B','C16-20','D0']:
+ ds=groups[profile+'/current'];rows=[r for d in ds for r in d['rows']];late=[r for d in ds for r in d['rows'][len(d['rows'])*2//3:]];slides=[r for r in late if r['type']=='slide'];rewards=[sum(r['rewardsByKind'][k] for r in rows) for k in range(3)]
+ extra.append(f"|{profile}|{sum(r['chain']>=2 for r in rows)}/{len(rows)} ({sum(r['chain']>=2 for r in rows)/len(rows):.1%})|{sum(r['evolvingSlide'] for r in slides)}/{len(slides)} ({sum(r['evolvingSlide'] for r in slides)/len(slides):.1%})|{rewards}|{sum(r['allOne'] for r in late)}/{len(late)}|")
+extra+=['','|seed|E focus/diverse|A focus/diverse|B focus/diverse|C16-20 focus/diverse|D0 focus/diverse|','|---|---|---|---|---|---|']
+for seed in range(1,9):
+ cells=[]
+ for profile in ['E','A','B','C16-20','D0']:
+  ds=groups[profile+'/current'];cells.append(' / '.join(str(next(d for d in ds if d['seed']==seed and d['policy']==pol)['metrics']['moves'])+'手' if next(d for d in ds if d['seed']==seed and d['policy']==pol)['status']=='solved' else '未証明' for pol in ['focus','diverse']))
+ extra.append('|'+str(seed)+'|'+'|'.join(cells)+'|')
+extra+=['','同じ予算でもseedと方策で確認の可否・手数が大きく異なる。盤面が整理された後に立て直しやすいかは、保存した占有数・有効方向数・4体以上減少の回数を手がかりにHuman QAで確認する。実際の「立て直せた感覚」は自動探索では測れていない。']
+with (p/'MEASUREMENTS.md').open('a') as f:f.write('\n'.join(extra)+'\n')
