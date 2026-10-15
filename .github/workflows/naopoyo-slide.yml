@@ -1,0 +1,42 @@
+name: Naopoyo slide series
+on:
+  pull_request:
+    branches: [main]
+    paths: ['prototypes/slide08/**', 'prototypes/naopoyo/**', 'prototypes/growth-chain/player.*', 'index.html', '.github/workflows/naopoyo-slide.yml']
+  push:
+    branches: [main]
+    paths: ['prototypes/slide08/**', 'prototypes/naopoyo/**', 'prototypes/growth-chain/player.*', 'index.html', '.github/workflows/naopoyo-slide.yml']
+permissions:
+  contents: read
+jobs:
+  slide-series:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm --prefix prototypes/slide08 install --package-lock=false
+      - run: npx --prefix prototypes/slide08 playwright install --with-deps chromium
+      - name: Rules, player, certificates and mutations
+        run: |
+          npm --prefix prototypes/slide08 test
+          node prototypes/slide08/verify-all.mjs
+          node prototypes/slide08/balance-20261015/verify.mjs
+          node prototypes/slide08/tests/player-dom.cjs
+          node prototypes/slide08/tests/player-races.cjs
+          node prototypes/slide08/tests/player-mutation.cjs
+          node prototypes/slide08/tests/mutation.cjs
+          node prototypes/slide08/balance-20261015/mutation.mjs
+      - name: iPhone sizes and human control witness replay
+        run: |
+          python3 -m http.server 8765 > /tmp/slide-http.log 2>&1 &
+          export CHROME_PATH="$(node -e "console.log(require('./prototypes/slide08/node_modules/playwright').chromium.executablePath())")"
+          node prototypes/slide08/tests/player-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: naopoyo-slide-browser
+          path: prototypes/slide08/qa-series
+          retention-days: 14

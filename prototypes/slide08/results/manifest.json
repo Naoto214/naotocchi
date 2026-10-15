@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "matrix": [
+    [
+      "base",
+      {}
+    ],
+    [
+      "size5",
+      {
+        "size": 5
+      }
+    ],
+    [
+      "size7",
+      {
+        "size": 7
+      }
+    ],
+    [
+      "count18",
+      {
+        "count": 18
+      }
+    ],
+    [
+      "count30",
+      {
+        "count": 30
+      }
+    ],
+    [
+      "kinds4",
+      {
+        "kinds": 4
+      }
+    ],
+    [
+      "kinds5",
+      {
+        "kinds": 5
+      }
+    ],
+    [
+      "stages3",
+      {
+        "maxStage": 3
+      }
+    ],
+    [
+      "stages5",
+      {
+        "maxStage": 5
+      }
+    ],
+    [
+      "cost2",
+      {
+        "single": 2,
+        "bulk": 6
+      }
+    ],
+    [
+      "cost8",
+      {
+        "single": 8,
+        "bulk": 24
+      }
+    ],
+    [
+      "gauge0",
+      {
+        "initialGauge": 0
+      }
+    ],
+    [
+      "gauge12",
+      {
+        "initialGauge": 12
+      }
+    ],
+    [
+      "no-initial-eggs",
+      {
+        "initialEggs": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      "no-reward",
+      {
+        "reward": "off"
+      }
+    ],
+    [
+      "crossed",
+      {
+        "reward": "crossed"
+      }
+    ]
+  ],
+  "limits": {
+    "mode": "beam",
+    "width": 80,
+    "maxDepth": 100,
+    "maxNodes": 500000,
+    "maxMs": 5000
+  },
+  "notes": "One-variable fixed-seed comparison. Time budget wall-clock; deterministic node limit also recorded. Pilot used seeds 0..19; matrix is exploratory, not held-out."
+}

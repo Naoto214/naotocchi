@@ -1,0 +1,1500 @@
+[
+  {
+    "proof": "proof-base-2.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "up",
+      "lane": 3
+    },
+    "remainingMoves": 31,
+    "occupied": 18,
+    "capacity": 36,
+    "gauge": 3,
+    "eggs": [
+      4,
+      3,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-base-3.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "right",
+      "lane": 2
+    },
+    "remainingMoves": 12,
+    "occupied": 16,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      2,
+      0,
+      2,
+      1
+    ]
+  },
+  {
+    "proof": "proof-base-9.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "left",
+      "lane": 0
+    },
+    "remainingMoves": 18,
+    "occupied": 15,
+    "capacity": 36,
+    "gauge": 2,
+    "eggs": [
+      4,
+      2,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-base-15.json",
+    "prefixLength": 16,
+    "nextAction": {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "right",
+      "lane": 1
+    },
+    "remainingMoves": 26,
+    "occupied": 11,
+    "capacity": 36,
+    "gauge": 2,
+    "eggs": [
+      6,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-size5-2.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "single",
+      "index": 13,
+      "kind": 2
+    },
+    "remainingMoves": 4,
+    "occupied": 11,
+    "capacity": 25,
+    "gauge": 4,
+    "eggs": [
+      3,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-size5-6.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 0,
+      "dir": "up",
+      "lane": 3
+    },
+    "remainingMoves": 31,
+    "occupied": 17,
+    "capacity": 25,
+    "gauge": 7,
+    "eggs": [
+      4,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-size5-8.json",
+    "prefixLength": 4,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 0,
+      "dir": "left",
+      "lane": 1
+    },
+    "remainingMoves": 25,
+    "occupied": 12,
+    "capacity": 25,
+    "gauge": 9,
+    "eggs": [
+      4,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-size7-3.json",
+    "prefixLength": 22,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "left",
+      "lane": 1
+    },
+    "remainingMoves": 10,
+    "occupied": 5,
+    "capacity": 49,
+    "gauge": 8,
+    "eggs": [
+      4,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-size7-8.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "single",
+      "index": 36,
+      "kind": 0
+    },
+    "remainingMoves": 33,
+    "occupied": 11,
+    "capacity": 49,
+    "gauge": 7,
+    "eggs": [
+      5,
+      2,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-size7-13.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "down",
+      "lane": 2
+    },
+    "remainingMoves": 13,
+    "occupied": 9,
+    "capacity": 49,
+    "gauge": 9,
+    "eggs": [
+      4,
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-1.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "down",
+      "lane": 4
+    },
+    "remainingMoves": 38,
+    "occupied": 23,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      3,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-count30-2.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "bulk",
+      "from": 0,
+      "kind": 2
+    },
+    "remainingMoves": 37,
+    "occupied": 20,
+    "capacity": 36,
+    "gauge": 12,
+    "eggs": [
+      6,
+      2,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-3.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "single",
+      "index": 26,
+      "kind": 1
+    },
+    "remainingMoves": 25,
+    "occupied": 23,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      3,
+      1,
+      0,
+      2
+    ]
+  },
+  {
+    "proof": "proof-count30-5.json",
+    "prefixLength": 4,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 2,
+      "dir": "right",
+      "lane": 1
+    },
+    "remainingMoves": 26,
+    "occupied": 18,
+    "capacity": 36,
+    "gauge": 1,
+    "eggs": [
+      5,
+      2,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-7.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 2,
+      "dir": "left",
+      "lane": 3
+    },
+    "remainingMoves": 17,
+    "occupied": 12,
+    "capacity": 36,
+    "gauge": 12,
+    "eggs": [
+      4,
+      3,
+      2,
+      1
+    ]
+  },
+  {
+    "proof": "proof-count30-9.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "single",
+      "index": 19,
+      "kind": 2
+    },
+    "remainingMoves": 34,
+    "occupied": 10,
+    "capacity": 36,
+    "gauge": 6,
+    "eggs": [
+      9,
+      5,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-11.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 2,
+      "dir": "right",
+      "lane": 3
+    },
+    "remainingMoves": 16,
+    "occupied": 15,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      7,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-count30-12.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "egg",
+      "rank": 0,
+      "kind": 0,
+      "dir": "down",
+      "lane": 1
+    },
+    "remainingMoves": 21,
+    "occupied": 21,
+    "capacity": 36,
+    "gauge": 9,
+    "eggs": [
+      5,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-14.json",
+    "prefixLength": 8,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 2,
+      "dir": "up",
+      "lane": 2
+    },
+    "remainingMoves": 27,
+    "occupied": 8,
+    "capacity": 36,
+    "gauge": 18,
+    "eggs": [
+      8,
+      4,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-count30-15.json",
+    "prefixLength": 28,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "right",
+      "lane": 3
+    },
+    "remainingMoves": 7,
+    "occupied": 12,
+    "capacity": 36,
+    "gauge": 19,
+    "eggs": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-16.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "down",
+      "lane": 1
+    },
+    "remainingMoves": 44,
+    "occupied": 25,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      3,
+      2,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-17.json",
+    "prefixLength": 17,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "down",
+      "lane": 3
+    },
+    "remainingMoves": 20,
+    "occupied": 10,
+    "capacity": 36,
+    "gauge": 5,
+    "eggs": [
+      5,
+      2,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-18.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "right",
+      "lane": 2
+    },
+    "remainingMoves": 13,
+    "occupied": 13,
+    "capacity": 36,
+    "gauge": 12,
+    "eggs": [
+      6,
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-count30-19.json",
+    "prefixLength": 26,
+    "nextAction": {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "left",
+      "lane": 1
+    },
+    "remainingMoves": 8,
+    "occupied": 11,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-kinds4-2.json",
+    "prefixLength": 11,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "left",
+      "lane": 2
+    },
+    "remainingMoves": 30,
+    "occupied": 15,
+    "capacity": 36,
+    "gauge": 1,
+    "eggs": [
+      5,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-kinds4-9.json",
+    "prefixLength": 4,
+    "nextAction": {
+      "type": "bulk",
+      "from": 2,
+      "kind": 1
+    },
+    "remainingMoves": 31,
+    "occupied": 17,
+    "capacity": 36,
+    "gauge": 13,
+    "eggs": [
+      6,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-kinds5-2.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "up",
+      "lane": 0
+    },
+    "remainingMoves": 43,
+    "occupied": 19,
+    "capacity": 36,
+    "gauge": 5,
+    "eggs": [
+      3,
+      2,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-kinds5-9.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "single",
+      "index": 23,
+      "kind": 0
+    },
+    "remainingMoves": 38,
+    "occupied": 19,
+    "capacity": 36,
+    "gauge": 11,
+    "eggs": [
+      2,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-1.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "single",
+      "index": 29,
+      "kind": 0
+    },
+    "remainingMoves": 23,
+    "occupied": 19,
+    "capacity": 36,
+    "gauge": 4,
+    "eggs": [
+      3,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-2.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "single",
+      "index": 26,
+      "kind": 2
+    },
+    "remainingMoves": 25,
+    "occupied": 19,
+    "capacity": 36,
+    "gauge": 6,
+    "eggs": [
+      2,
+      3,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-stages5-3.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "bulk",
+      "from": 2,
+      "kind": 1
+    },
+    "remainingMoves": 16,
+    "occupied": 12,
+    "capacity": 36,
+    "gauge": 14,
+    "eggs": [
+      4,
+      6,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-4.json",
+    "prefixLength": 21,
+    "nextAction": {
+      "type": "bulk",
+      "from": 1,
+      "kind": 2
+    },
+    "remainingMoves": 4,
+    "occupied": 12,
+    "capacity": 36,
+    "gauge": 12,
+    "eggs": [
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-5.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "single",
+      "index": 3,
+      "kind": 0
+    },
+    "remainingMoves": 38,
+    "occupied": 19,
+    "capacity": 36,
+    "gauge": 5,
+    "eggs": [
+      3,
+      2,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-stages5-7.json",
+    "prefixLength": 27,
+    "nextAction": {
+      "type": "single",
+      "index": 29,
+      "kind": 1
+    },
+    "remainingMoves": 3,
+    "occupied": 6,
+    "capacity": 36,
+    "gauge": 17,
+    "eggs": [
+      2,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-8.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "down",
+      "lane": 3
+    },
+    "remainingMoves": 29,
+    "occupied": 18,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      3,
+      2,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-9.json",
+    "prefixLength": 18,
+    "nextAction": {
+      "type": "egg",
+      "rank": 0,
+      "kind": 0,
+      "dir": "left",
+      "lane": 0
+    },
+    "remainingMoves": 4,
+    "occupied": 13,
+    "capacity": 36,
+    "gauge": 5,
+    "eggs": [
+      2,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-10.json",
+    "prefixLength": 8,
+    "nextAction": {
+      "type": "single",
+      "index": 31,
+      "kind": 0
+    },
+    "remainingMoves": 31,
+    "occupied": 15,
+    "capacity": 36,
+    "gauge": 9,
+    "eggs": [
+      4,
+      2,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-stages5-11.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 2,
+      "dir": "left",
+      "lane": 3
+    },
+    "remainingMoves": 40,
+    "occupied": 18,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      3,
+      2,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-stages5-14.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "single",
+      "index": 10,
+      "kind": 0
+    },
+    "remainingMoves": 17,
+    "occupied": 8,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      5,
+      4,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-15.json",
+    "prefixLength": 4,
+    "nextAction": {
+      "type": "bulk",
+      "from": 2,
+      "kind": 0
+    },
+    "remainingMoves": 13,
+    "occupied": 13,
+    "capacity": 36,
+    "gauge": 12,
+    "eggs": [
+      3,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-stages5-16.json",
+    "prefixLength": 4,
+    "nextAction": {
+      "type": "bulk",
+      "from": 0,
+      "kind": 1
+    },
+    "remainingMoves": 17,
+    "occupied": 20,
+    "capacity": 36,
+    "gauge": 12,
+    "eggs": [
+      2,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-stages5-17.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 1,
+      "dir": "down",
+      "lane": 2
+    },
+    "remainingMoves": 28,
+    "occupied": 14,
+    "capacity": 36,
+    "gauge": 4,
+    "eggs": [
+      3,
+      2,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-stages5-18.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "bulk",
+      "from": 2,
+      "kind": 0
+    },
+    "remainingMoves": 10,
+    "occupied": 15,
+    "capacity": 36,
+    "gauge": 14,
+    "eggs": [
+      2,
+      1,
+      3,
+      1
+    ]
+  },
+  {
+    "proof": "proof-stages5-19.json",
+    "prefixLength": 4,
+    "nextAction": {
+      "type": "bulk",
+      "from": 0,
+      "kind": 2
+    },
+    "remainingMoves": 24,
+    "occupied": 16,
+    "capacity": 36,
+    "gauge": 14,
+    "eggs": [
+      4,
+      3,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-cost2-1.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "bulk",
+      "from": 0,
+      "kind": 1
+    },
+    "remainingMoves": 26,
+    "occupied": 15,
+    "capacity": 36,
+    "gauge": 9,
+    "eggs": [
+      2,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-cost2-3.json",
+    "prefixLength": 15,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "right",
+      "lane": 3
+    },
+    "remainingMoves": 4,
+    "occupied": 9,
+    "capacity": 36,
+    "gauge": 18,
+    "eggs": [
+      2,
+      2,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-cost2-5.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "bulk",
+      "from": 2,
+      "kind": 0
+    },
+    "remainingMoves": 32,
+    "occupied": 18,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      4,
+      2,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-cost2-9.json",
+    "prefixLength": 14,
+    "nextAction": {
+      "type": "single",
+      "index": 34,
+      "kind": 1
+    },
+    "remainingMoves": 4,
+    "occupied": 10,
+    "capacity": 36,
+    "gauge": 16,
+    "eggs": [
+      3,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-cost2-16.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "up",
+      "lane": 3
+    },
+    "remainingMoves": 19,
+    "occupied": 8,
+    "capacity": 36,
+    "gauge": 14,
+    "eggs": [
+      3,
+      4,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-cost2-18.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 2,
+      "dir": "right",
+      "lane": 4
+    },
+    "remainingMoves": 11,
+    "occupied": 14,
+    "capacity": 36,
+    "gauge": 9,
+    "eggs": [
+      2,
+      2,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-gauge0-2.json",
+    "prefixLength": 18,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "right",
+      "lane": 4
+    },
+    "remainingMoves": 22,
+    "occupied": 7,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      3,
+      4,
+      0,
+      1
+    ]
+  },
+  {
+    "proof": "proof-gauge0-18.json",
+    "prefixLength": 13,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "down",
+      "lane": 3
+    },
+    "remainingMoves": 15,
+    "occupied": 7,
+    "capacity": 36,
+    "gauge": 9,
+    "eggs": [
+      1,
+      2,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-gauge12-1.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 0,
+      "dir": "left",
+      "lane": 4
+    },
+    "remainingMoves": 17,
+    "occupied": 11,
+    "capacity": 36,
+    "gauge": 11,
+    "eggs": [
+      3,
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-gauge12-2.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 0,
+      "dir": "down",
+      "lane": 5
+    },
+    "remainingMoves": 17,
+    "occupied": 17,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      2,
+      3,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-gauge12-3.json",
+    "prefixLength": 14,
+    "nextAction": {
+      "type": "single",
+      "index": 1,
+      "kind": 1
+    },
+    "remainingMoves": 6,
+    "occupied": 10,
+    "capacity": 36,
+    "gauge": 24,
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-gauge12-5.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "left",
+      "lane": 2
+    },
+    "remainingMoves": 22,
+    "occupied": 9,
+    "capacity": 36,
+    "gauge": 17,
+    "eggs": [
+      5,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-gauge12-9.json",
+    "prefixLength": 13,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "down",
+      "lane": 3
+    },
+    "remainingMoves": 15,
+    "occupied": 8,
+    "capacity": 36,
+    "gauge": 16,
+    "eggs": [
+      4,
+      6,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-gauge12-15.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "left",
+      "lane": 3
+    },
+    "remainingMoves": 14,
+    "occupied": 6,
+    "capacity": 36,
+    "gauge": 8,
+    "eggs": [
+      6,
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-gauge12-18.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "down",
+      "lane": 3
+    },
+    "remainingMoves": 16,
+    "occupied": 14,
+    "capacity": 36,
+    "gauge": 11,
+    "eggs": [
+      2,
+      2,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-no-initial-eggs-2.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "up",
+      "lane": 3
+    },
+    "remainingMoves": 35,
+    "occupied": 18,
+    "capacity": 36,
+    "gauge": 3,
+    "eggs": [
+      2,
+      2,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-no-initial-eggs-9.json",
+    "prefixLength": 5,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "left",
+      "lane": 0
+    },
+    "remainingMoves": 19,
+    "occupied": 15,
+    "capacity": 36,
+    "gauge": 2,
+    "eggs": [
+      2,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-no-initial-eggs-15.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "single",
+      "index": 20,
+      "kind": 0
+    },
+    "remainingMoves": 35,
+    "occupied": 14,
+    "capacity": 36,
+    "gauge": 9,
+    "eggs": [
+      3,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-1.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "egg",
+      "rank": 3,
+      "kind": 0,
+      "dir": "left",
+      "lane": 3
+    },
+    "remainingMoves": 29,
+    "occupied": 8,
+    "capacity": 36,
+    "gauge": 11,
+    "eggs": [
+      6,
+      4,
+      2,
+      1
+    ]
+  },
+  {
+    "proof": "proof-crossed-2.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "up",
+      "lane": 2
+    },
+    "remainingMoves": 30,
+    "occupied": 17,
+    "capacity": 36,
+    "gauge": 2,
+    "eggs": [
+      5,
+      5,
+      0,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-3.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 2,
+      "dir": "up",
+      "lane": 2
+    },
+    "remainingMoves": 36,
+    "occupied": 19,
+    "capacity": 36,
+    "gauge": 7,
+    "eggs": [
+      3,
+      3,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-crossed-4.json",
+    "prefixLength": 2,
+    "nextAction": {
+      "type": "bulk",
+      "from": 1,
+      "kind": 2
+    },
+    "remainingMoves": 14,
+    "occupied": 17,
+    "capacity": 36,
+    "gauge": 12,
+    "eggs": [
+      4,
+      3,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-5.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "left",
+      "lane": 3
+    },
+    "remainingMoves": 36,
+    "occupied": 17,
+    "capacity": 36,
+    "gauge": 8,
+    "eggs": [
+      4,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-7.json",
+    "prefixLength": 4,
+    "nextAction": {
+      "type": "single",
+      "index": 4,
+      "kind": 2
+    },
+    "remainingMoves": 36,
+    "occupied": 9,
+    "capacity": 36,
+    "gauge": 21,
+    "eggs": [
+      7,
+      3,
+      3,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-9.json",
+    "prefixLength": 8,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "left",
+      "lane": 1
+    },
+    "remainingMoves": 5,
+    "occupied": 13,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      5,
+      4,
+      3,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-10.json",
+    "prefixLength": 12,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "up",
+      "lane": 2
+    },
+    "remainingMoves": 36,
+    "occupied": 12,
+    "capacity": 36,
+    "gauge": 6,
+    "eggs": [
+      5,
+      3,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-crossed-14.json",
+    "prefixLength": 6,
+    "nextAction": {
+      "type": "single",
+      "index": 30,
+      "kind": 1
+    },
+    "remainingMoves": 22,
+    "occupied": 12,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      6,
+      2,
+      3,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-15.json",
+    "prefixLength": 7,
+    "nextAction": {
+      "type": "single",
+      "index": 20,
+      "kind": 0
+    },
+    "remainingMoves": 24,
+    "occupied": 14,
+    "capacity": 36,
+    "gauge": 9,
+    "eggs": [
+      5,
+      5,
+      3,
+      0
+    ]
+  },
+  {
+    "proof": "proof-crossed-16.json",
+    "prefixLength": 11,
+    "nextAction": {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "right",
+      "lane": 1
+    },
+    "remainingMoves": 28,
+    "occupied": 9,
+    "capacity": 36,
+    "gauge": 10,
+    "eggs": [
+      6,
+      2,
+      1,
+      1
+    ]
+  },
+  {
+    "proof": "proof-crossed-18.json",
+    "prefixLength": 3,
+    "nextAction": {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "down",
+      "lane": 3
+    },
+    "remainingMoves": 16,
+    "occupied": 14,
+    "capacity": 36,
+    "gauge": 3,
+    "eggs": [
+      4,
+      4,
+      2,
+      0
+    ]
+  }
+]
