@@ -28,6 +28,7 @@
           >お気に入り5種族を編集</a
         >
         <p class="subtle">新しいキャラは、本編で解放すると選べます。</p>
+        <label>移動の速さ <select id="slideSpeed"><option value="200">速め 0.20秒</option><option value="240" selected>標準 0.24秒</option><option value="280">ゆっくり 0.28秒</option></select></label>
         <p id="boot" role="status">準備中…</p>
       </section>
       <section id="game" hidden>
@@ -49,18 +50,19 @@
           <div id="bottom" class="edge horizontal"></div>
           <div id="effect" aria-hidden="true"></div>
         </div>
+        <div id="controls">
         <div class="under">
           <button id="undo">↶ 1手戻す</button
           ><label
-            >へんしん <meter id="gaugeMeter" min="0" max="24"></meter
+            >ゲージ <meter id="gaugeMeter" min="0" max="24"></meter
             ><span id="gauge"></span
           ></label>
         </div>
         <div id="tools">
           <div id="eggs" class="row"></div>
           <div class="row">
-            <button id="single">へんしん <small>2</small></button
-            ><button id="bulk">だいへんしん <small>6</small></button>
+            <button id="single">へんしん <small>消費2</small></button
+            ><button id="bulk">だいへんしん <small>消費6</small></button>
           </div>
         </div>
         <section id="picker" hidden>
@@ -80,6 +82,7 @@
         </section>
         <p id="status" role="status">上下左右にスワイプ</p>
         <small id="practice"></small>
+        </div>
       </section>
       <dialog id="dialog">
         <h2 id="dialogTitle"></h2>

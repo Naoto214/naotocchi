@@ -34,9 +34,12 @@ jobs:
           python3 -m http.server 8765 > /tmp/slide-http.log 2>&1 &
           export CHROME_PATH="$(node -e "console.log(require('./prototypes/slide08/node_modules/playwright').chromium.executablePath())")"
           node prototypes/slide08/tests/player-browser.cjs
+          node prototypes/slide08/tests/iphone-layout.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: naopoyo-slide-browser
-          path: prototypes/slide08/qa-series
+          path: |
+            prototypes/slide08/qa-series
+            prototypes/slide08/qa-iphone
           retention-days: 14

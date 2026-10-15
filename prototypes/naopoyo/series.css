@@ -183,7 +183,10 @@ a {
 .mini-board {
   width: 96px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+  height: 96px;
+  overflow: hidden;
   gap: 2px;
   padding: 4px;
   background: #b7dce8;
@@ -191,11 +194,17 @@ a {
   flex-shrink: 0;
 }
 .mini-board span {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
   aspect-ratio: 1;
   background: #effbff;
   border-radius: 3px;
 }
 .mini-board img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -217,3 +226,6 @@ a {
   min-height: 24px;
   font-size: 13px;
 }
+
+#dropPreview { height: 184px; grid-template-rows: repeat(12, minmax(0, 1fr)); }
+.mode-card > div { min-width: 0; }

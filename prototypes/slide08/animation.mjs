@@ -30,3 +30,8 @@ export function frames(before, a, result) {
   }
   return out;
 }
+
+// Compression keeps lane order, so identical images still retain distinct origins.
+export function slideMoves(board, size, dir) {
+  return lines(size, dir).flatMap(line => line.filter(i => board[i]).map((from,j)=>({from,to:line[j],value:board[from]})));
+}
