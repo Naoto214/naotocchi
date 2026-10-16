@@ -39,11 +39,13 @@ const root = path.resolve(__dirname, '../../..');
       await page.screenshot({path:path.join(output,`main-menu-${width}.png`)});
       await entry.click(); await page.waitForURL('**/prototypes/naopoyo/');
       assert.equal(await page.locator('.mode-card').count(),2);
-      await page.locator('a[href="../growth-chain/player.html?series=1"]').click();
-      await page.waitForURL('**/prototypes/growth-chain/player.html?series=1');
-      await page.waitForFunction(()=>!document.getElementById('playStart').disabled);
+      await page.locator('.mode-card[href="../growth-clear/player.html"]').click();
+      await page.waitForURL('**/prototypes/growth-clear/player.html');
+      await page.locator('#menu').waitFor({state:'visible'});
       const mainSave=await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1'));
-      await page.locator('#modes').waitFor({state:'visible'}); await page.click('[data-mode="clear"]'); await page.click('#pause');
+      await page.click('#new'); await page.click('#pause');
+      assert.match(await page.locator('#cost-label').innerText(),/2 \/ 6/);
+      assert.equal(await page.evaluate(()=>localStorage.getItem('naopoyo-player-v1')),null);
       assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1')),mainSave);
       await ctx.close(); console.log(`PASS main menu -> independent player; main save unchanged ${width}x${height}`);
     }

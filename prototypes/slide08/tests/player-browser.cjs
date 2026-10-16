@@ -192,11 +192,13 @@ const assert = require("node:assert/strict"),
       .getByRole("button", { name: "モード選択へ戻る", exact: true })
       .click();
     await page
-      .locator('a[href="../growth-chain/player.html?series=1"]')
+      .locator('.mode-card[href="../growth-clear/player.html"]')
       .click();
-    await page.locator("#modes").waitFor({ state: "visible" });
-    await page.locator('[data-mode="clear"]').click();
-    await page.locator("#game").waitFor({ state: "visible" });
+    await page.locator("#menu").waitFor({ state: "visible" });
+    await page.locator("#new").click();
+    await page.locator("#board").waitFor({ state: "visible" });
+    assert.match(await page.locator("#cost-label").innerText(), /2 \/ 6/);
+    assert.equal(await page.evaluate(() => localStorage.getItem("naopoyo-player-v1")), null);
     await page.screenshot({ path: path.join(out, `drop-${width}.png`) });
     count++;
     await context.close();

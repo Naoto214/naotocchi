@@ -74,6 +74,14 @@ function records(which) {
         (r) =>
           `${r.practice ? "れんしゅう" : "通常"} · ${r.won ? "クリア" : "ここまで育ったね"} · ${duration(r.elapsedMs)} · ${r.moves}手 · ${r.score}点`,
       );
+    } else if (which === "drop") {
+      const d = new PlayerStore(localStorage, "naopoyo-growth-clear-phone-v1").read();
+      summaries = [["2 / 6", 2], ["開発比較 8 / 24", 8]].map(([name, cost]) => {
+        const runs = d.history.filter((r) => r.gaugeUnit === cost);
+        return `${name}（直近100件）：最高 ${Math.max(0, ...runs.map((r) => r.score))}点 / 寿命達成 ${runs.filter((r) => r.outcome === "clear").length}回`;
+      });
+      history = d.history.map((r) =>
+        `${r.gaugeUnit === 8 ? "開発比較 8 / 24" : r.gaugeUnit === 2 ? "2 / 6" : "費用不明"} · ${r.outcome === "clear" ? "寿命達成" : "終了"} · ${r.score}点 · ${r.drops}組 · ${r.maxChain}連鎖`);
     } else {
       const d = new PlayerStore(localStorage).read(),
         names = {
@@ -148,6 +156,7 @@ try {
 $("recordsButton").onclick = () => records("slide");
 $("slideRecords").onclick = () => records("slide");
 $("dropRecords").onclick = () => records("drop");
+$("legacyDropRecords").onclick = () => records("legacy");
 document
   .querySelectorAll("[data-home]")
   .forEach((b) => (b.onclick = () => show("home")));

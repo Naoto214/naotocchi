@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createSession,stateHash} from '../session.mjs';
+import {Player,toolTransaction} from '../player-model.mjs';
+const make=()=>new Player(createSession(42,{gaugeUnit:2}));
+test('automatic falling continues while tool selection is open',()=>{const p=make();p.resume();p.selection={type:'egg'};const y=p.pose.y;p.advance(1500);assert.equal(p.pose.y,y+1);});
+test('snapshot restores pose, resources and deterministic queue',()=>{const p=make();p.resume();p.motion('left');p.advance(500);const q=Player.restore(p.snapshot());assert.equal(stateHash(q.state),stateHash(p.state));assert.deepEqual(q.pose,p.pose);assert.equal(q.fallMs,500);assert.equal(q.phase,'paused');});
+test('invalid live tool leaves state unchanged',()=>{const p=make(),h=stateHash(p.state);assert.throws(()=>toolTransaction(p.state,p.pose,{type:'egg',rank:0,k:0,x:0}));assert.equal(stateHash(p.state),h);});
+test('stale target ID is rejected before resource use',()=>{const s=createSession(4,{gaugeUnit:2},{gauge:10});s.board[13][0]={id:99,k:0,s:1};const h=stateHash(s);assert.throws(()=>toolTransaction(s,{x:2,y:2,rot:0},{type:'transform',x:0,y:13,to:1},98),/対象/);assert.equal(stateHash(s),h);});
+test('live transform preserves falling pose and pair while spending2',()=>{const s=createSession(4,{gaugeUnit:2},{gauge:10});s.board[13][0]={id:99,k:0,s:1};const pose={x:2,y:4,rot:0};const t=toolTransaction(s,pose,{type:'transform',x:0,y:13,to:1},99);assert.equal(t.state.gauge,8);assert.deepEqual(t.state.queue,s.queue);assert.deepEqual(t.pose,pose);});
+test('animation excludes duplicate actions until settle',()=>{const p=make();p.resume();p.phase='animating';const h=stateHash(p.state);assert.equal(p.drop(),false);p.advance(10000);assert.equal(stateHash(p.state),h);});
+test('blocked hidden landing resets lock delay and remains movable',()=>{const s=createSession(42,{gaugeUnit:2});for(let y=3;y<14;y++)s.board[y][2]={id:y,k:0,s:y%2+1};s.nextId=30;const p=new Player(s);p.resume();assert.throws(()=>p.advance(600),/hidden/);assert.equal(p.active,true);assert.equal(p.lockMs,0);assert.equal(p.motion('left'),true);});
+test('08 completion records once and restores terminal state',()=>{const s=createSession(9,{gaugeUnit:2},{gauge:6});s.board[13][0]={id:100,k:0,s:8};s.board[13][1]={id:101,k:1,s:8};s.nextId=102;const p=new Player(s);p.resume();p.use(p.preview({type:'transform',x:1,y:13,to:0}));assert.equal(p.phase,'animating');p.settle();assert.equal(p.phase,'won');assert.equal(p.records.length,1);p.record('clear');assert.equal(p.records.length,1);const q=Player.restore(p.snapshot());assert.equal(q.phase,'won');assert.equal(q.records[0].gaugeUnit,2);assert.equal(q.records[0].seed,9);assert.equal(q.deaths,2);});

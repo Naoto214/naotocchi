@@ -32,3 +32,19 @@ GitHub Actionsの`naopoyo-slide-browser`にbefore/afterを保存。beforeは正�
 ## 2026-10-16 JST 再開確認
 
 製品コード不変。52テスト、engine15/player8/balance7 mutation、player DOM/racesを再実行して成功。remote/localのd4fdafeb/tree ed14b443一致・cleanを確認した。最終コードのCI run38713684499（画面検証を含む）とrun38713684457（npm test全体）のsuccessを再取得確認。今回のChromium起動は環境のsocket権限制限で失敗したため、同一コードの成功CIと既存画像を再利用する。実機Human QAは未実施。計画書の未更新チェック欄を成果に合わせて更新し、文書のみ追加保存する。#386/#387ともDraftを維持し、main・本番は変更しない。
+
+## 2026-10-16 順次統合監査
+
+ユーザーが今回は監査合格時の #388 → #386 の順次mainマージ・配信確認を承認。#387は引き続きDraft・open・未マージ、バランス完成判定は実機Human QA後。
+
+- #388の統合後main `82b6775d51b905327e2c7445e5be9b529cb92119`（tree `e755b67beeab331276d97d7823aaffc614b73e97`）を競合なくmerge。ドロップ導線のテスト更新も保持。
+- 最新 #386 CI run38758671927 は操作4サイズ・レイアウト5サイズ成功後、修正前撮影用commitが浅いcheckoutに存在せず失敗した。固定commitを明示fetchしてからworktreeを作るよう修正。比較撮影・既存テストは削除も緩和もしていない。
+- 200/280msは閉じた「開発用：移動速度の比較」へ配置。標準240msは不変。追加DOM検証の失敗を確認後、配置修正により成功。
+- ローカル再検証：52テスト、DOM/races、旧証明87+147、比較320/120/480再生、mutation15+8+7すべて成功。ドロップ保存互換6シナリオと新旧/スライド記録分離も成功。
+- engine/session/player-model/player-store、保存キー・形式、補充・バランス・証明データ、本編コードは今回のUI差分で変更なし。
+- ローカルChromiumはsocket権限制限により起動不能。ブラウザ検証はGitHub Actionsで確認する。iPhone実機Human QAとは区別する。
+- この追補時点では #386 の更新後CI待ち。合格前にはマージしない。
+
+### 最終監査：マージ保留
+
+独立レビューで移動アニメーションの重なり順に重要な問題を確認した。`player.mjs`は移動先セル内のimgを元セル位置からtranslateするが、同じstacking levelの後続セルの不透明背景が前面になるため、左・上方向の移動で画像が隠れる。Chromiumで実CSSを用いた重なり検証でも確認。移動中の描画レイヤーを修正し、全4方向を実描画で検証するまでは #386 をマージしない。今回は「不合格ならマージしない」という依頼に従ってDraft・openを維持する。

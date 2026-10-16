@@ -1,0 +1,243 @@
+{
+  "version": "growth-clear-measure/1",
+  "seeds": [
+    4100,
+    4101,
+    4102,
+    4103,
+    4104,
+    4105,
+    4106,
+    4107,
+    4108,
+    4109,
+    4110,
+    4111,
+    4112,
+    4113,
+    4114,
+    4115
+  ],
+  "cap": {
+    "drops": 160,
+    "actions": 480
+  },
+  "configs": [
+    {
+      "mode": "old",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "old"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "left",
+      "id": "A-left"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "right",
+      "id": "A-right"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "center",
+      "id": "A-center"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "A-adaptive"
+    },
+    {
+      "mode": "new",
+      "anchor": "B",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "left",
+      "id": "B-left"
+    },
+    {
+      "mode": "new",
+      "anchor": "B",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "right",
+      "id": "B-right"
+    },
+    {
+      "mode": "new",
+      "anchor": "B",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "center",
+      "id": "B-center"
+    },
+    {
+      "mode": "new",
+      "anchor": "B",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "B-adaptive"
+    },
+    {
+      "mode": "new",
+      "anchor": "C",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "left",
+      "id": "C-left"
+    },
+    {
+      "mode": "new",
+      "anchor": "C",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "right",
+      "id": "C-right"
+    },
+    {
+      "mode": "new",
+      "anchor": "C",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "center",
+      "id": "C-center"
+    },
+    {
+      "mode": "new",
+      "anchor": "C",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "C-adaptive"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 2,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "gauge-2"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 3,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "gauge-3"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 4,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "gauge-4"
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "random",
+      "position": "adaptive",
+      "id": "random",
+      "items": false
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "multiple",
+      "position": "adaptive",
+      "id": "multiple",
+      "items": true
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "clear",
+      "position": "adaptive",
+      "id": "clear",
+      "items": true
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "protect",
+      "position": "adaptive",
+      "id": "protect",
+      "items": true
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "chain",
+      "position": "adaptive",
+      "id": "chain",
+      "items": true
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "active",
+      "position": "adaptive",
+      "id": "active",
+      "items": true
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "reserve",
+      "position": "adaptive",
+      "id": "reserve",
+      "items": true
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "beam",
+      "position": "adaptive",
+      "id": "beam",
+      "items": true
+    },
+    {
+      "mode": "new",
+      "anchor": "A",
+      "gaugeUnit": 8,
+      "policy": "focus",
+      "position": "adaptive",
+      "id": "no-items",
+      "items": false
+    }
+  ],
+  "notes": [
+    "Fixed before measurement. Stop at first ANY-species lifetime clear; success time is separate from survival.",
+    "16 paired seeds are exploratory, not human difficulty estimates.",
+    "Beam width3 then2, horizon3, visible current+NEXT3 only.",
+    "Items capped at3 between drops; total action cap480.",
+    "Old comparator uses same new pair supply."
+  ]
+}

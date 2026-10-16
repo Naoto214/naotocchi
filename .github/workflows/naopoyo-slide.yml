@@ -37,6 +37,7 @@ jobs:
           export CHROME_PATH="$(node -e "console.log(require('./prototypes/slide08/node_modules/playwright').chromium.executablePath())")"
           node prototypes/slide08/tests/player-browser.cjs
           node prototypes/slide08/tests/iphone-layout.cjs
+          git fetch --no-tags --depth=1 origin b8fad706ee65a20f4b27e9f966327ff5500f0c8e
           git worktree add --detach /tmp/slide-before b8fad706ee65a20f4b27e9f966327ff5500f0c8e
           python3 -m http.server 8766 --directory /tmp/slide-before > /tmp/slide-before-http.log 2>&1 &
           QA_BASE=http://127.0.0.1:8766 QA_PHASE=before CAPTURE_ONLY=1 node prototypes/slide08/tests/iphone-layout.cjs

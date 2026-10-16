@@ -1,0 +1,34 @@
+{
+  "config": {
+    "id": "actual-old-supply",
+    "mode": "old",
+    "supply": "legacy",
+    "anchor": "A",
+    "gaugeUnit": 8,
+    "policy": "focus",
+    "position": "adaptive"
+  },
+  "seeds": [
+    4100,
+    4101,
+    4102,
+    4103,
+    4104,
+    4105,
+    4106,
+    4107,
+    4108,
+    4109,
+    4110,
+    4111,
+    4112,
+    4113,
+    4114,
+    4115
+  ],
+  "cap": {
+    "drops": 160,
+    "actions": 480
+  },
+  "note": "Actual original all01 supply; not paired new-supply causal contrast."
+}
