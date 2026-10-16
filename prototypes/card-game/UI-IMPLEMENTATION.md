@@ -207,3 +207,63 @@ Selected Node suite: **191 passed,0 failed**. Command: `node --test --test-skip-
 - Save/restore mid-choice and mid-response, background/handoff, rapid repeated tap, long-press reorder. Verify private content disappears on handoff and display order persists.
 
 Owner-private UI trial only; original trial/main and PR259/381 are untouched. Publication is not a real-device QA pass.
+
+
+## iPhone QA round 5 — response priority and turn progress
+
+### Fresh canonical baseline
+
+| PR | HEAD | tree | state |
+| --- | --- | --- | --- |
+| 259 | 0a9df8f09b5ad657730f29d14e2d357241dace8c | 78677b98fdc229c7acf10e9112ca9744ae0fa7ba | Draft/open/unmerged |
+| 381 | 3a987044513fdb6d5e69b52b8af40add5a45ccd4 | e86f089e6778061d7acd39492e96286656455702 | Draft/open/unmerged |
+| 384 | cd19b6f7270834818a79b8abb521262298a73d76 | d9d375d5fd305e86d0ef60472a899ab3b27d57fc | Draft/open/unmerged |
+
+GitHub connector supplied the exact source blobs into an isolated local checkout because direct Git access was unavailable. Local baseline blobs were verified against the remote tree. The current design PR's 01-core-rules, 02-main-system, 06-action-chain-checkpoint and 64-turn-boundaries-and-victory-timing match the UI branch copies byte-for-byte.
+
+### Confirmed causes
+
+1. `projectOperation` relabelled every `pass`, including the engine's normal `ターン終了を申し出る`, as a response pass. The compact notice then overwrote it again as `パスして進む`. After returning to normal, the same-looking button could therefore begin turn termination. The command itself was valid; its UI meaning was wrong.
+2. `compactOperationMarkup` used `通常行動` whenever effect context was absent, even in an empty-chain response window. This reproduced `通常行動` and `応答待ち` together after resolving the birth ability and during termination.
+3. Handoff only named the next operator. It did not explain that response priority can change while the turn owner stays A.
+
+No rule-engine transition failure or duplicate initial response was reproduced. This is a deterministic investigation of the reported flow, not a replay of the user's unprovided saved game. UI-only corrections preserve all required passes and all action IDs, costs, choices and commands.
+
+### Rules and exact pass order
+
+01 specifies own-start time reset, initial A/B time0, and the first own-start time1. 02 requires normal draw followed by egg extra draw and hand-bottom choice. 06 requires alternating priority, two consecutive passes to resolve a chain, no interruption during resolution, and post-resolution response opportunities. 06 start/end section explicitly requires a fresh empty-chain pair after effects resolve. 64 preserves start and end boundaries.
+
+Natural seed4/default decks, with no response card used:
+
+| Boundary | Explicit operations | Result |
+| --- | --- | --- |
+| A start | time1, normal+egg draw, choose hand-bottom | A hand7/deck33 → hand6/deck34; B time0/hand5/deck35 |
+| Start response | A pass → B pass | A normal; time1; no chain/choice/effect remains |
+| Birth | A places beetle①, paying time1 | A time0; main placed; optional birth trigger |
+| Birth ability | A activates; A pass → B pass | ability begins resolution and requires hand-bottom choice |
+| After mandatory choice | A chooses; A pass → B pass | A normal again; B has not drawn or recovered time |
+| End request | A requests end → B pass | A end window; still A's turn |
+| End responses | A pass → B pass | B's first turn begins; time1, normal+egg draw → hand7/deck33 |
+| B egg and start response | B returns one; B pass → A pass | B normal; time1, hand6/deck34 |
+
+The opening egg exchange alone creates one response window, with exactly A then B passing if neither activates. If A instead plays its available time1 quick card, chain construction needs A/B passes, then the start window needs another A/B pair, as the rules require. A's time is then0, so a time1 birth is no longer available. Neither response handoff is B's turn start.
+
+### Minimal shared UI changes
+
+- Project only public response-window name, consecutive-pass count and pending-work presence. Choice/normal/finished phases discard that progress metadata. No engine/save schema changes.
+- Shared turn/actor wording in board header, expanded operation, card detail and handoff, e.g. `Aのターン・Bの応答待ち`. Hidden mandatory choices stay labelled as selections without revealing their contents.
+- Response notices name start/action/end/chain context and show consecutive passes0/2 or1/2. Details explain why responses are available and whether the current actor has any legal non-pass action, based exclusively on engine candidates.
+- Pass labels describe the next step: other player's response, effect resolution, normal actions, end processing. Normal actions retain `ターン終了を申し出る` and show no response-wait notice. No automatic pass/selection added.
+- Preserve source-card thumbnail/name during chain response, compact portrait panel, full choice fallback and all existing styling/artwork.
+
+### Verification and evidence
+
+- RED→GREEN for both original UI defects and public response/hidden-choice wording. Independent review caught a P2 aborted-challenge label: comparison may be skipped. Added a failing regression and changed the shared button to `パスしてちょうせんの処理を進める`; engine is unchanged.
+- **199 passed / 0 failed**, including 8 new tests. Command: `QA5_TRACE=prototypes/card-game/evidence/iphone-round5-turn-trace.json node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`.
+- Existing full452, match completion, restore/replay, private information and duplicate-operation tests pass. The new first-turn test checks exact18-step owner/actor/phase sequence, restore at every command, hidden handoff, stale-command rejection, actual time/hand/deck/main, birth and both starts. Separate tests cover opening quick-card responses and new-link pass reset/LIFO resolution with mandatory choice.
+- `evidence/iphone-round5-turn-trace.json` records every phase, window, chain, time, physical hand/deck order and main in the deterministic test. It contains fixture data, not a user's save.
+- `evidence/iphone-round5-tests.log` contains the complete selected-suite result. Catalog regeneration's full audit dependency test is excluded exactly as in rounds2–4; no test removed. Card source/hash checks run successfully.
+- All four runtime modules pass syntax checks; `git diff --check` passes. The engine, all effects/rules/catalogs, canonical docs and fixed400 assets are unmodified. 90 materialized pre-existing files matched remote blobs before this report was appended; only4 runtime presentation files and2 wording assertions changed.
+- No new browser rendering or real iPhone/Safari touch test: managed Sites has no available control-browser. No substitute browser or server was launched. Node markup/behavior tests are not visual/touch proof.
+
+Only PR384 and the existing owner-private UI trial are updated. PR259/381/384 remain Draft/open/unmerged; main and the original trial are untouched. On iPhone, return a non-main card, pass as A then B, confirm `Aの通常行動`, then select a① main. Use the distinct end-request button only when ready to finish the turn.

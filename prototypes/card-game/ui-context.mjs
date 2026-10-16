@@ -7,6 +7,8 @@ const moves={bottom:'山札の下へ戻す',top:'山札の上へ戻す',discard:
 const bottomKinds=new Set(['egg_bottom','birth_bottom','sleep_bottom','program_handBottom']);
 export function projectOperation(s,v,viewer){
  v.effect=null;v.effectQueue=[];
+ // Public progress only; do not carry private choices or stale window/pass data into normal play.
+ v.progress=v.phase==='response'?{window:s.window,passes:s.passes,pending:Boolean(s.pending?.length)}:null;
  if(!viewer||viewer!==v.actor||v.result)return;
  const safe=new Map(visibleCards(v).filter(c=>!c.hidden).map(c=>[c.id,c]));
  // A chain source is already public in engine.view; only those exact sources may be
@@ -15,7 +17,7 @@ export function projectOperation(s,v,viewer){
  const q=s.choice,d=s.activationDraft,spec=d?.rule?.select?.[d.index]??q?.spec;
  const destination=spec?.cost??(d?.rule?.steps??spec?.steps??[]).find(x=>x.op==='selectedMove'&&x.key===spec.key)?.destination;
  const move=bottomKinds.has(q?.kind)?moves.bottom:q?.kind==='program_handTop'?moves.top:moves[destination];
- v.actions=v.actions.map(a=>({...a,displayLabel:a.kind==='pass'?'応答せず進む（パス）':a.kind==='choose'&&move&&a.choiceCard?spec?.cost?`${safe.get(a.choiceCard)?.name??a.label}を支払いに選ぶ（${move}）`:`${safe.get(a.choiceCard)?.name??a.label}を${move}${spec?'対象に選ぶ':''}`:a.label}));
+ v.actions=v.actions.map(a=>({...a,displayLabel:a.kind==='choose'&&move&&a.choiceCard?spec?.cost?`${safe.get(a.choiceCard)?.name??a.label}を支払いに選ぶ（${move}）`:`${safe.get(a.choiceCard)?.name??a.label}を${move}${spec?'対象に選ぶ':''}`:a.label}));
  const describe=(link,status)=>{if(!link)return null;const c=safe.get(link.source);return {kind:'card',card:c??null,name:c?.name??'カードの効果',ability:link.kind==='birth'?'たんじょう時の効果':c?.source?.match(/「([^」]+)」/)?.[1]??'カード効果',actor:link.actor??v.actor,status,instruction:''};};
  const chain=(s.chain??[]).map(l=>describe(l,'応答を待っています')).reverse();v.effectQueue=chain;
  let current;

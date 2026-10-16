@@ -1,6 +1,6 @@
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
-import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,escapeHTML as h} from './ui-presentation.mjs';
+import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
@@ -23,7 +23,7 @@ function closeDialogs({focus=true}={}){
 function hide(){
  if(!session.active)return;
  dragCleanup();session.hide();returnWorkflow=false;selected=null;reordering=false;returnDetail=null;closeDialogs({focus:false});$('game').replaceChildren();
- $('curtain').hidden=session.finished;$('handoff-title').textContent=`プレイヤー ${session.actor} に端末を渡してください`;$('hide').hidden=true;
+ $('curtain').hidden=session.finished;$('handoff-title').textContent=handoffMessage(session.projection);$('hide').hidden=true;
  if(session.finished)render();else $('reveal').focus();
 }
 function start(next){session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();}

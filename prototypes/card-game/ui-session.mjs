@@ -1,6 +1,6 @@
 // UI session boundary. Game legality, revisions, replay and saving stay in engine.mjs.
 import {actor,act,view,save,restore,legalActions} from './engine.mjs';
-import {needsConfirmation} from './ui-presentation.mjs';
+import {needsConfirmation,passLabel} from './ui-presentation.mjs';
 import {projectOperation,visibleCards} from './ui-context.mjs';
 export class HotseatSession {
  #state=null;
@@ -33,6 +33,7 @@ export class HotseatSession {
    v.selectionSummary=(draft.rule.select??[]).flatMap(spec=>(draft.selection[spec.key]??[]).map(id=>`${spec.cost?'支払い':'対象'}：${names.get(id)??'非公開のカード'}`));
   }
   projectOperation(this.#state,v,this.viewer);
+  v.actions=v.actions.map(a=>a.kind==='pass'?{...a,displayLabel:passLabel(v)}:a);
   return v;
  }
  prepare(actionId){

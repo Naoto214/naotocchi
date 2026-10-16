@@ -24,7 +24,7 @@ test('birth effect survives trigger, response, hand-bottom choice and restore',(
  while(s.phase!=='normal')s=act(s,actor(s),s.revision,legalActions(s).find(a=>a.kind==='pass').id);
  s=act(s,'A',s.revision,legalActions(s).find(a=>a.source===id&&a.kind==='place').id);
  const x=session(s);assert.equal(x.projection.effect.card.id,id);step(x,x.projection.actions.find(a=>a.kind==='trigger'));
- assert.equal(x.projection.effect.card.id,id);assert.match(ui.operationMarkup(x.projection,x.viewer),/応答せず進む/);
+ assert.equal(x.projection.effect.card.id,id);assert.match(ui.operationMarkup(x.projection,x.viewer),/パスしてBの応答へ/);
  for(let i=0;i<4&&!x.projection.choice;i++)step(x,x.projection.actions.find(a=>a.kind==='pass'));
  const restored=new HotseatSession();restored.restore(x.save());restored.reveal();assert.deepEqual(restored.projection.effect,x.projection.effect);
  const v=x.projection;assert.equal(v.choice.kind,'birth_bottom');assert.equal(v.effect.card.id,id);assert.ok(v.actions.every(a=>a.displayLabel.includes('山札の下へ戻す')));
