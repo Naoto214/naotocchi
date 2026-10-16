@@ -24,6 +24,6 @@ test('feline normal eyes have wider half lids and raised outer corners without c
  assert.equal(face.normalEye,'droop');assert.equal(face.eyes.length,2);
  for(const m of face.eyes){assert.ok(m.userData.baseScale>.075);assert.ok(m.userData.eyeProfile.width>=1.2);assert.ok(m.userData.eyeProfile.tilt>.05);}
  const profile=face.eyes[0].userData.eyeProfile,g=rg.eyeGeometry('droop',1,profile),old=rg.eyeGeometry('droop',1);g.computeBoundingBox();old.computeBoundingBox();assert.ok(g.boundingBox.max.x-g.boundingBox.min.x>(old.boundingBox.max.x-old.boundingBox.min.x)*1.15);
- assert.deepEqual(rt.SPEC.CANONICAL_EMOTIONS,['normal','positive','dislike','tired','sleeping','strained','wantsPlay','sick']);
+ assert.deepEqual(rt.SPEC.CANONICAL_EMOTIONS,['normal','positive','dislike','tired','sleeping','strained','wantsPlay','sick','hungry','weak','critical','lonely']);
  for(const e of rt.SPEC.CANONICAL_EMOTIONS){rg.applyFaceExpression(face,e);assert.equal(face.emotion,e);assert.ok(face.eyes.every(m=>m.geometry.attributes.position.count>0));}
 });
