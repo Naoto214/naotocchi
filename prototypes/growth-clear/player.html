@@ -7,14 +7,14 @@
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
     <meta name="theme-color" content="#eaf4f1" />
-    <title>なおぽよ・ドロップ｜新ルール試遊</title>
+    <title>なおぽよ・ドロップ</title>
     <link rel="stylesheet" href="phone.css" />
   </head>
   <body>
     <main id="app">
       <header>
         <div>
-          <small>独立試遊 · 正式採用前</small>
+          <small>同種進化＋異種消滅 · バランス調整中</small>
           <h1>なおぽよ・ドロップ</h1>
         </div>
         <button id="pause">設定 / 保存</button>
@@ -50,23 +50,18 @@
         ><button id="drop" class="primary">一気に落とす</button>
       </nav>
       <dialog id="menu">
-        <h2>新ルール試遊</h2>
-        <p>開発中・正式バランス未確定。旧ルールとは保存・記録・設定が別です。</p>
-        <nav><a data-old-rule href="../growth-chain/player.html?series=1">旧ルールへ戻る</a> · <a href="../naopoyo/">シリーズ入口</a></nav>
+        <h2>なおぽよ・ドロップ</h2>
+        <p>標準費用 2 / 6。ゲームバランスは調整中です。</p>
+        <p id="legacy-notice" role="status"></p>
+        <nav><a href="../naopoyo/">シリーズ入口</a></nav>
         <p>
           同じ段階：同種は進化、異種は全体消滅。<br />同種08をつなげて、いのちをめぐらせよう。
         </p>
         <p>
           左右スワイプ＝移動、タップ＝回転、下スワイプ＝落下。道具選択中も時間は進みます。
         </p>
-        <label
-          >比較費用
-          <select id="cost">
-            <option value="2">2 / 6（第一候補）</option>
-            <option value="8">8 / 24（比較）</option>
-          </select></label
-        ><label>seed <input id="seed" type="number" value="214" /></label>
         <div id="roster"></div>
+        <p id="favorites-status" role="status"></p>
         <p>
           5種族を重複なく選択。能力差はありません。設定変更は新しいゲームから適用。
         </p>
@@ -74,6 +69,25 @@
         ><label><input type="checkbox" id="reduced" />動きを控える</label
         ><button id="new">新しく開始</button
         ><button id="resume" class="primary">保存して戻る</button>
+        <h3>ドロップの記録</h3>
+        <div id="records"></div>
+        <p id="storage-status"></p>
+        <details id="legacy">
+          <summary>以前の保存・記録</summary>
+          <p>旧ルールのデータはそのまま保護しています。新ルールへの自動変換は行いません。</p>
+          <a data-old-rule href="../growth-chain/player.html?series=1">旧ルールの途中保存・記録を開く</a>
+        </details>
+        <details id="developer">
+          <summary>開発用：比較設定・再生</summary>
+          <p>比較費用は「開発設定で新しく開始」で適用します。通常の「新しく開始」は常に2 / 6です。途中保存は保存時の費用で再開します。</p>
+        <label
+          >開発用の比較費用
+          <select id="cost">
+            <option value="2">2 / 6（標準・調整中）</option>
+            <option value="8">8 / 24（比較）</option>
+          </select></label
+        ><label>seed <input id="seed" type="number" value="214" /></label>
+        <button id="developer-start">開発設定で新しく開始</button>
         <h3>代表連鎖の再生</h3>
         <select id="example">
           <option value="chain3">3連鎖</option>
@@ -82,10 +96,8 @@
           <option value="lifetime08">08寿命</option></select
         ><button id="replay">再生（練習）</button
         ><button id="back">保存したゲームへ戻る</button>
-        <h3>試遊の記録</h3>
-        <div id="records"></div>
-        <p id="storage-status"></p>
-        <a href="index.html">従来の比較ラボ</a>
+          <a href="index.html">比較ラボ</a>
+        </details>
       </dialog>
     </main>
     <script type="module" src="phone.mjs"></script>

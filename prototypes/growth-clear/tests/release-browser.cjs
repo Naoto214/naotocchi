@@ -7,18 +7,20 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
  try {for(const [width,height] of [[320,568],[375,667],[390,844],[430,932],[667,375],[844,390],[932,430]]){
   const ctx=await browser.newContext({viewport:{width,height},isMobile:true,hasTouch:true}),page=await ctx.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base+'/prototypes/naopoyo/');
-  await page.locator('a[href="../growth-chain/player.html?series=1"]').click();
+  await page.goto(base+'/prototypes/growth-chain/player.html?series=1');
   await page.locator('#modes').waitFor({state:'visible'});
   assert.match(await page.locator('#modes').innerText(),/旧ルール/);
   await page.locator('[data-mode="clear"]').click();await page.locator('#pause').click();
   const oldBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('naopoyo-player-v1')));assert.ok(oldBefore.snapshot);
   await page.evaluate(()=>{localStorage.setItem('naotocchi-save-v1','protected-main');localStorage.setItem('naopoyo-slide-player-v1','protected-slide');});
-  await page.goto(base+'/prototypes/growth-chain/player.html?series=1');
-  await page.locator('#modes a[data-new-rule]').click();
+  await page.goto(base+'/prototypes/naopoyo/');
+  await page.locator('.mode-card[href="../growth-clear/player.html"]').click();
   await page.locator('#menu').waitFor({state:'visible'});
   const old=await page.evaluate(()=>localStorage.getItem('naopoyo-player-v1'));
   assert.deepEqual(JSON.parse(old).snapshot.state,oldBefore.snapshot.state);
+  assert.match(await page.locator('#legacy-notice').innerText(),/旧ルールの途中保存/);
+  assert.equal(await page.locator('[data-old-rule]').isVisible(),false);
+  assert.equal(await page.locator('#cost').isVisible(),false);
   assert.equal(await page.locator('#cost').inputValue(),'2');await page.locator('#new').click();
   await page.waitForFunction(()=>[...document.querySelectorAll('#board img,#next img')].every(i=>i.complete&&i.naturalWidth));
   assert.equal(await page.locator('#board .cell').count(),72);assert.equal(await page.locator('#next>div').count(),3);
@@ -28,10 +30,12 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
   await page.locator('#drop').click();await page.waitForFunction(()=>document.querySelector('#score').textContent.includes('1組'));await page.locator('#pause').click();
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('naopoyo-growth-clear-phone-v1')));assert.equal(saved.snapshot.state.rules.gaugeUnit,2);
   await page.reload();await page.locator('#resume').click();assert.match(await page.locator('#score').innerText(),/1組/);await page.locator('#pause').click();
-  await page.locator('#cost').selectOption('8');await page.locator('#new').click();assert.match(await page.locator('#cost-label').innerText(),/8 \/ 24/);await page.locator('#pause').click();
+  await page.locator('#developer summary').click();await page.locator('#cost').selectOption('8');await page.locator('#developer-start').click();assert.match(await page.locator('#cost-label').innerText(),/8 \/ 24/);await page.locator('#pause').click();
+  await page.reload();await page.locator('#resume').click();assert.match(await page.locator('#cost-label').innerText(),/8 \/ 24/);await page.locator('#pause').click();
+  await page.locator('#new').click();assert.match(await page.locator('#cost-label').innerText(),/2 \/ 6/);await page.locator('#pause').click();
   const protectedValues=await page.evaluate(()=>[localStorage.getItem('naopoyo-player-v1'),localStorage.getItem('naotocchi-save-v1'),localStorage.getItem('naopoyo-slide-player-v1')]);
   assert.deepEqual(protectedValues,[old,'protected-main','protected-slide']);
-  await page.locator('#menu a[data-old-rule]').click();await page.locator('#modes').waitFor({state:'visible'});await page.locator('#seriesRestore').click();await page.locator('#game').waitFor({state:'visible'});
+  await page.locator('#legacy summary').click();await page.locator('#menu a[data-old-rule]').click();await page.locator('#modes').waitFor({state:'visible'});await page.locator('#seriesRestore').click();await page.locator('#game').waitFor({state:'visible'});
   assert.deepEqual(errors,[]);results.push({width,height,geometry,errors});await ctx.close();
  }} finally {await browser.close();}
  fs.writeFileSync(path.join(out,'release-browser.json'),JSON.stringify(results,null,2));console.log('PASS release navigation, old/new save isolation, resume, 2/6 and 8/24, seven portrait/landscape sizes');

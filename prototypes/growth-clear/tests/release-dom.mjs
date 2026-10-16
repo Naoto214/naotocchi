@@ -12,4 +12,6 @@ for(const id of ['title','modes']) {
 const trial=new JSDOM(fs.readFileSync(new URL('../player.html',import.meta.url),'utf8')).window.document;
 assert.equal(trial.querySelector('[data-old-rule]').getAttribute('href'),'../growth-chain/player.html?series=1');
 assert.equal(trial.querySelector('#cost').value,'2');
-console.log('PASS old default, explicit trial entry and return');
+assert.equal(trial.querySelector('[data-old-rule]').closest('details').id,'legacy');
+assert.equal(trial.querySelector('#developer').open,false);
+console.log('PASS legacy recovery link and standard 2/6; no normal rule switch');
