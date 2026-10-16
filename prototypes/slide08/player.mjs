@@ -1,4 +1,4 @@
-import { frames } from "./animation.mjs";
+import { frames, slideMoves } from "./animation.mjs";
 import { stage, kind, step, landing } from "./engine.mjs";
 import {
   newRun,
@@ -29,6 +29,7 @@ let prefs,
   clock = performance.now(),
   loadToken = 0,
   lastSave = 0;
+const eggIcon = (rank) => `<i class="egg-icon rank-${rank}" aria-hidden="true">${["•","≋","★","✧"][rank]}</i>`;
 const eggNames = ["普通", "銀", "金", "プラチナ"];
 const time = (ms) =>
   `${Math.floor(ms / 60000)}:${String(Math.floor(ms / 1000) % 60).padStart(2, "0")}`;
@@ -217,11 +218,14 @@ function render(visualBoard = null) {
         `${Math.floor(i / 6) + 1}行 ${(i % 6) + 1}列 ${v ? roster.find((c) => c.id === p.species[kind(v)]).label + " " + stage(v) : "空き"}`,
       );
       if (v) {
-        b.append(image(p.species[kind(v)], stage(v)));
+        const tile = document.createElement("span");
+        tile.className = "tile";
+        tile.append(image(p.species[kind(v)], stage(v)));
         const n = document.createElement("span");
         n.className = "stage";
         n.textContent = String(stage(v)).padStart(2, "0");
-        b.append(n);
+        tile.append(n);
+        b.append(tile);
       }
       b.onclick = () => {
         if (busy || paused || !tool) return;
@@ -238,13 +242,13 @@ function render(visualBoard = null) {
   $("moves").textContent = s.moves;
   $("eight").textContent = s.board.filter((v) => stage(v) === 8).length;
   $("gaugeMeter").value = s.gauge;
-  $("gauge").textContent = `${s.gauge}/24`;
+  $("gauge").textContent = `${s.gauge} / ${s.config.cap}`;
   $("practice").textContent = p.practice ? "れんしゅう記録" : "通常記録";
   $("undo").disabled = busy || paused || !p.previous || p.ended;
   $("eggs").replaceChildren(
     ...s.eggs.map((n, rank) => {
       const b = document.createElement("button");
-      b.innerHTML = `🥚 ${eggNames[rank]}<small>×${n}</small>`;
+      b.innerHTML = `${eggIcon(rank)} ${eggNames[rank]}<small>×${n}</small>`;
       b.disabled = !n || busy || paused;
       b.onclick = () => {
         tool = { type: "egg", rank };
@@ -383,24 +387,29 @@ async function act(a) {
     if (!reduced) {
       if (a.type === "slide") {
         render(visualFrames[0].board);
-        $("board").style.setProperty(
-          "--dx",
-          a.dir === "left" ? "12px" : a.dir === "right" ? "-12px" : "0px",
-        );
-        $("board").style.setProperty(
-          "--dy",
-          a.dir === "up" ? "12px" : a.dir === "down" ? "-12px" : "0px",
-        );
-        $("board").classList.add("moving");
-        await wait(150);
-        $("board").classList.remove("moving");
+        const duration = Number($("slideSpeed")?.value) || 240;
+        const cells = [...$("board").children];
+        const size = before.config.size;
+        const gridStyle = getComputedStyle($("board"));
+        const columnGap = parseFloat(gridStyle.columnGap) || 0;
+        const rowGap = parseFloat(gridStyle.rowGap) || 0;
+        const motions = slideMoves(before.board, before.config.size, a.dir).map(({from,to}) => {
+          const tile = cells[to].querySelector(".tile");
+          if (!tile || !tile.animate || from === to) return Promise.resolve();
+          const dx = from % size - to % size;
+          const dy = Math.floor(from / size) - Math.floor(to / size);
+          // Percentages track the live cell size, including an orientation
+          // change mid-animation; only the inter-cell gap is in pixels.
+          return tile.animate([{transform:`translate(calc(${dx * 100}% + ${dx * columnGap}px),calc(${dy * 100}% + ${dy * rowGap}px))`},{transform:"translate(0,0)"}],{duration,easing:"cubic-bezier(.2,.65,.3,1)"}).finished;
+        });
+        await Promise.all([...motions, wait(duration)]);
       }
       if (a.type === "egg") {
         const at = landing(before, a.dir, a.lane),
           cell = $("board").children[at];
         const egg = document.createElement("span");
         egg.className = "flying-egg";
-        egg.textContent = "🥚";
+        egg.innerHTML = eggIcon(a.rank);
         egg.setAttribute("aria-hidden", "true");
         cell.append(egg);
         const b = $("board").getBoundingClientRect(),
@@ -668,3 +677,11 @@ try {
 } catch (e) {
   error(e);
 }
+
+function fitViewport() {
+  document.documentElement.style.setProperty("--view-height", `${window.visualViewport?.height || window.innerHeight}px`);
+}
+window.visualViewport?.addEventListener("resize", fitViewport);
+window.addEventListener("resize", fitViewport);
+window.addEventListener("orientationchange", fitViewport);
+fitViewport();

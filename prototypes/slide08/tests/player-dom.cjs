@@ -40,6 +40,9 @@ const fs = require("fs"),
   await wait();
   assert.equal($("start").disabled, false);
   assert.equal($("choices").children.length, 5);
+  assert.equal($("slideSpeed").value, "240", "normal launch uses 240ms");
+  assert.equal($("slideSpeed").closest("details")?.open, false, "speed comparisons are hidden in development settings");
+  assert.deepEqual([...$("slideSpeed").options].map(o => o.value), ["200", "240", "280"]);
   click("start");
   await wait();
   await wait();

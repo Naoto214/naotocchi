@@ -1,0 +1,65 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test
+> node --test tests/*.test.mjs
+
+✔ presentation frames end at the exact engine board for every proof action (8.228052ms)
+✔ slide-only impossible is scoped; transform still wins same board (8.62488ms)
+✔ new search options reject invalid penalties/action sets (4.702268ms)
+✔ unproven best observation is legal and never a certified solution (4.685312ms)
+✔ penalty-zero leaves existing seed3 witness unchanged (1684.855725ms)
+✔ occupied reduction includes egg addition, and slide denominators are separate (1.546281ms)
+✔ large clearing threshold four and chain measured on slides (0.602533ms)
+✔ item streaks count all items in runs >=3, not number of runs (0.617206ms)
+✔ same count paired boards identical; 30 contains the same initial24 (0.31954ms)
+✔ zero-move paths use null ratios rather than fabricated zeros (0.251446ms)
+✔ item penalty changes path ranking without changing transition rules (2.208676ms)
+✔ seed reproducibility and exact initial population (4.544927ms)
+✔ configuration rejects fractional, negative and impossible inputs (0.667122ms)
+✔ compression preserves order and species cannot cross (1.370801ms)
+✔ 2 connected pieces consume entire component (0.690318ms)
+✔ 3 connected pieces consume entire component (0.307902ms)
+✔ 4 connected pieces consume entire component (0.223883ms)
+✔ 5 connected pieces consume entire component (0.272789ms)
+✔ 6 connected pieces consume entire component (0.244465ms)
+✔ same species 08 dies, unlike 08 does not (0.370247ms)
+✔ independent simultaneous groups count as one wave (2.504238ms)
+✔ slide recompresses in original direction and chains (0.274571ms)
+✔ egg traverses edge until first obstacle, no global compression (0.317667ms)
+✔ blocked entry, invalid lane and absent egg consume nothing (0.294472ms)
+✔ single preserves anchor and stage, pays before gains, no compression (0.182971ms)
+✔ single anchor follows direct chain (0.167226ms)
+✔ bulk changes all then resolves, left column then bottom anchor (0.308753ms)
+✔ direction anchor tie uses left then down (0.321694ms)
+✔ landing egg rewards, actual growth gauge and overflow score (0.814749ms)
+✔ crossed reward is explicitly separate experiment (0.204934ms)
+✔ invalid transforms and terminal moves are immutable (0.367904ms)
+✔ all enumerated actions legal and key includes resources, excludes score (4.766216ms)
+✔ six connected at left edge leave no unconsumed sixth piece (0.21568ms)
+✔ egg chains directly with input-direction anchor, other rows remain uncompressed (0.147627ms)
+✔ edge insertion directions land at opposite boundary on empty lane (0.231605ms)
+✔ compression animation preserves every tile origin and destination (4.312775ms)
+✔ board and preview explicitly constrain rows and columns (1.248345ms)
+✔ separated same-kind 08 pair after non-evolving transform counts (3.079381ms)
+✔ one-step undo restores resources, survives reload, time never rewinds (29.61843ms)
+✔ invalid operation never replaces undo state or spends resources (8.380526ms)
+✔ all four valid operation kinds restore exactly including chains (13.942753ms)
+✔ restore rejects locked species and inconsistent undo (4.777162ms)
+✔ records are separated and deduplicated, stale writer cannot overwrite (1.117033ms)
+✔ three favorite sets preserve five unlocked species and selected three (0.790231ms)
+✔ corrupt records are rejected without overwriting stored bytes (1.495272ms)
+✔ new runs reject incomplete or duplicate species mappings (2.039025ms)
+✔ BFS finds actual death and proves shortest distance (15.545379ms)
+✔ exhausted graph differs from bounded unproven (0.894801ms)
+✔ beam does not claim shortest or impossibility (0.691039ms)
+✔ certificate replays and rejects operation/hash/config tampering (1.753267ms)
+✔ non-winning trace cannot be certified (0.2541ms)
+✔ state de-duplication respects remaining eggs (0.24153ms)
+ℹ tests 52
+ℹ suites 0
+ℹ pass 52
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2159.369742
