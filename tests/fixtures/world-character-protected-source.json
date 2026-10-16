@@ -1,8 +1,8 @@
 {
-  "base": "cee3e8726ef3078e9b349e300c976e831786bbf0",
-  "note": "Authorized relationship free-life changes: registry, simulation and optional action UI only. Character/World renderer and expression modules unchanged; see docs/qa/relationship-free-life-20261014/REPORT.md.",
+  "base": "2cf0570ab801d389c42af560d323ff643c69a220",
+  "note": "Authorized PR #382 integration: free life events and optional expression presentation; model/World geometry/save unchanged. See docs/qa/social-expression-20261016/REPORT.md.",
   "meguru.js": {
     "count": 1,
-    "sha1": "9800b7a615b5be2181ef5c3cc15298a49431715e"
+    "sha1": "fe7d14d52b37e4a33b756240ed5c8752210ea811"
   }
 }

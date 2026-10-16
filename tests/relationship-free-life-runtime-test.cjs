@@ -70,7 +70,7 @@ test('Home relationship idle initiatives consume the common budget',()=>{
  const {h,M}=setup();for(const id of ['storyFlash','lifeCardOverlay','speechBubble'])h.get(id).classList.add('hidden');
  h.api.render();M.socialSession.advance(300);h.api.render();
  const now=M.socialSession.now;let autonomous=0;const off=M.socialSession.subscribe(e=>{if(e.reason==='idle')autonomous++;});
- h.api.scheduleIdleGreeting();h.advance(30000);assert.equal(autonomous,0);assert.equal(M.socialSession.now,now);off();
+ h.api.scheduleIdleGreeting();h.advance(30000);assert.equal(autonomous,0);assert.equal(M.socialSession.now,now+2.5,'visit expression expiry renders after 2.5 visible seconds without spending a new initiative');off();
 });
 test('relationship removal ends active accompaniment and reload starts free',()=>{
  const {s,M}=setup(),registry=M.buildRegistry();for(const a of registry.residents)a.region='home';

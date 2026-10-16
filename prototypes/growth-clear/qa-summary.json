@@ -1,0 +1,55 @@
+{
+  "fullRegression": {
+    "command": "npm test",
+    "passes": [
+      3144,
+      80
+    ],
+    "failures": [
+      0,
+      0
+    ],
+    "exitCode": 0
+  },
+  "focused": {
+    "passed": 31,
+    "failed": 0
+  },
+  "oldPrototype": {
+    "passed": 130,
+    "failed": 0
+  },
+  "mutation": {
+    "detected": 20,
+    "total": 20
+  },
+  "replay": {
+    "records": 560,
+    "sha256": true,
+    "finalHash": true
+  },
+  "bagAudit": {
+    "bags": 10000,
+    "individuals": 400000
+  },
+  "dom": {
+    "passed": true,
+    "representativeChain": 5
+  },
+  "browser": {
+    "verified": false,
+    "reason": "Chromium missing; downloaded archive invalid"
+  },
+  "iphone": {
+    "verified": false
+  },
+  "review": {
+    "independent": true,
+    "importantEngineBugsReproduced": 0,
+    "comparisonGapsAddressed": [
+      "actual-old-supply",
+      "resolver reflection control"
+    ]
+  },
+  "scope": "Only prototypes/growth-clear added; no merge or publication"
+}

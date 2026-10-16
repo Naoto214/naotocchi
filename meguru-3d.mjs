@@ -171,6 +171,7 @@ function createHybridRenderer(M, o, opts) {
   }
   const api = {
     draw(view, now) {
+      M.prepareExpressions?.(view, now);
       if (want(view)) {
         try {
           if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H, char3d: char3dOpts }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); r3d.setAnimLevel(animLv); r3d.setDiag(diagWant || !!opts.perf); r3d.setAdaptiveDpr(adaptiveOn); }
@@ -603,6 +604,7 @@ function create3DRenderer(M, o, onLost) {
   renderer.setSize(W, H, false);
   place();
 
+  // Character presentation includes session-only social attention; AI headings stay unchanged.
   // ---- Character 3D Pilot: &char3d=1 の ときだけ module を よむ(よみおわるまでは 立て看板)
   const C3 = o.char3d || { on: false };
   let charMod = null, charPresenter = null, charLoading = false, actorFrame = 0;
@@ -1223,7 +1225,7 @@ function create3DRenderer(M, o, onLost) {
       if (fp) { tmp.position.set(a.x, wy, -a.z); tmp.rotation.set(0, 0, 0); const k = fp.hover > 0 ? 0.7 : 1; tmp.scale.set(Math.max(fp.w, fp.d) * 0.42 * k, 1, Math.min(fp.w, fp.d) * 0.42 * k + M.ACTOR_SIZE * 0.04); tmp.updateMatrix(); if (b.shadows.count < 256) b.shadows.setMatrixAt(b.shadows.count++, tmp.matrix); }
       return t;
     }
-    const tx = glyph || actorTexture(a);
+    const tx = a.expr && a.expr.asset ? actorTexture(a) : glyph || actorTexture(a);
     if (tx && m.userData.tex !== tx) { m.material.map = tx.tex; m.material.needsUpdate = true; m.userData.tex = tx; }
     const size = M.ACTOR_SIZE, facing = M.facingOf(a.heading || 0, yaw);
     const lift = a.moving || a.behavior === 'walk' ? Math.abs(Math.sin((a.bob || 0) * 5)) * size * 0.08 : 0;

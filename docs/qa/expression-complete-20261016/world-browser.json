@@ -1,0 +1,153 @@
+{
+  "environment": "Chromium software WebGL, isolated fixture save; not iPhone",
+  "checks": [
+    {
+      "name": "live care, low bond and reduced motion",
+      "detail": {
+        "player": {
+          "expression": {
+            "emotion": "hungry",
+            "expression": "hungry",
+            "base": "assets/characters/dog/04.png",
+            "asset": "assets/characters/expressions/dog/04-hungry.png",
+            "fallback": null
+          },
+          "rendered": "hungry"
+        },
+        "party": [
+          {
+            "id": "shiba",
+            "expression": {
+              "emotion": "lonely",
+              "family": "relationship",
+              "expression": "lonely",
+              "asset": "assets/characters/relationship/shiba/lonely.png",
+              "base": "assets/characters/companions/shiba.png",
+              "fallback": null
+            },
+            "rendered": "lonely"
+          },
+          {
+            "id": "cat_friend",
+            "expression": {
+              "emotion": "normal",
+              "family": "relationship",
+              "expression": "normal",
+              "asset": "assets/characters/companions/cat_friend.png",
+              "base": "assets/characters/companions/cat_friend.png",
+              "fallback": null
+            },
+            "rendered": "normal"
+          }
+        ],
+        "animLevel": 0
+      }
+    },
+    {
+      "name": "player weak"
+    },
+    {
+      "name": "player critical"
+    },
+    {
+      "name": "player sleeping"
+    },
+    {
+      "name": "player normal"
+    },
+    {
+      "name": "relationship recovery and mock event",
+      "detail": {
+        "accepted": true,
+        "duplicate": false
+      }
+    },
+    {
+      "name": "2D toggle uploads hungry image",
+      "detail": {
+        "player": {
+          "expression": {
+            "emotion": "hungry",
+            "expression": "hungry",
+            "base": "assets/characters/dog/04.png",
+            "asset": "assets/characters/expressions/dog/04-hungry.png",
+            "fallback": null
+          }
+        },
+        "party": [
+          {
+            "id": "shiba",
+            "expression": {
+              "emotion": "positive",
+              "family": "relationship",
+              "expression": "positive",
+              "asset": "assets/characters/relationship/shiba/positive.png",
+              "base": "assets/characters/companions/shiba.png",
+              "fallback": null,
+              "cue": {
+                "token": 1,
+                "motion": true,
+                "kind": "greet"
+              }
+            }
+          },
+          {
+            "id": "cat_friend",
+            "expression": {
+              "emotion": "normal",
+              "family": "relationship",
+              "expression": "normal",
+              "asset": "assets/characters/companions/cat_friend.png",
+              "base": "assets/characters/companions/cat_friend.png",
+              "fallback": null
+            }
+          }
+        ],
+        "animLevel": 0
+      }
+    },
+    {
+      "name": "per-actor failure uploads current lonely relationship image",
+      "detail": {
+        "player": {
+          "expression": {
+            "emotion": "hungry",
+            "expression": "hungry",
+            "base": "assets/characters/dog/04.png",
+            "asset": "assets/characters/expressions/dog/04-hungry.png",
+            "fallback": null
+          },
+          "rendered": "hungry"
+        },
+        "party": [
+          {
+            "id": "shiba",
+            "expression": {
+              "emotion": "lonely",
+              "family": "relationship",
+              "expression": "lonely",
+              "asset": "assets/characters/relationship/shiba/lonely.png",
+              "base": "assets/characters/companions/shiba.png",
+              "fallback": null
+            }
+          },
+          {
+            "id": "cat_friend",
+            "expression": {
+              "emotion": "normal",
+              "family": "relationship",
+              "expression": "normal",
+              "asset": "assets/characters/companions/cat_friend.png",
+              "base": "assets/characters/companions/cat_friend.png",
+              "fallback": null
+            },
+            "rendered": "normal"
+          }
+        ],
+        "animLevel": 0
+      }
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

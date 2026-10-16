@@ -7,7 +7,7 @@
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
     <meta name="theme-color" content="#dceff2" />
-    <title>なおぽよ — いのちがめぐる小さな庭</title>
+    <title>なおぽよ・ドロップ — いのちがめぐる小さな庭</title>
     <link rel="stylesheet" href="player.css" />
   </head>
   <body>
@@ -15,10 +15,12 @@
     <main id="app" aria-label="なおぽよ">
       <section id="title" class="screen title-screen">
         <p class="eyebrow">NAOTOCCHI'S LITTLE GARDEN</p>
-        <h1 class="logo">なおぽよ<span>✦</span></h1>
+        <h1 class="logo">なおぽよ<span>✦</span></h1><p class="subtle">ドロップ</p>
         <p class="tagline">
           つながって、そだって。<br />いのちが めぐる、小さな庭。
         </p>
+        <p class="subtle">以前の保存・記録用：旧ルール（従来の進化方式）</p>
+        <a class="home-link" data-new-rule href="../growth-clear/player.html">通常のドロップへ →</a>
         <div id="hero" class="hero" aria-hidden="true"></div>
         <div class="title-actions">
           <button id="playStart" class="primary large" disabled>準備中…</button
@@ -43,13 +45,15 @@
             <a href="player.html?trial=4">比較 4／12</a>
           </nav>
         </details>
-        <a class="home-link" href="../../">なおとっちへ戻る</a>
+        <a class="home-link" href="../naopoyo/">モード選択へ戻る</a>
         <small class="edition">なおとっち 成長連鎖パズル · 試遊版</small>
       </section>
       <section id="modes" class="screen" hidden>
-        <button class="back" data-screen="title">← 戻る</button>
+        <button class="back" data-screen="title">← 戻る</button><a id="seriesBack" href="../naopoyo/" hidden>← モード選択</a>
         <p class="eyebrow">CHOOSE YOUR GARDEN</p>
-        <h2>どんなふうに育てる？</h2>
+        <p class="subtle">以前の保存・記録用：旧ルール（従来の進化方式）</p>
+        <a class="home-link" data-new-rule href="../growth-clear/player.html">通常のドロップへ →</a>
+        <h2>どんなふうに育てる？</h2><button id="seriesRestore" hidden>つづきから</button>
         <button class="mode-card" data-mode="clear">
           <span class="mode-icon">✦</span><strong>08消滅モード</strong
           ><small
@@ -82,7 +86,7 @@
           <div class="eight-counter">
             <small>盤面の08</small><strong id="eight">0</strong>
           </div>
-          <span class="mini-logo">なおぽよ</span>
+          <span class="mini-logo">なおぽよ<small>ドロップ</small></span>
         </header>
         <div id="practiceBar" hidden>
           <strong id="practiceTitle"></strong>

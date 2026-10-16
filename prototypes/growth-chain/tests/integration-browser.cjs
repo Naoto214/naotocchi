@@ -5,7 +5,7 @@ const path = require('node:path');
 const http = require('node:http');
 const root = path.resolve(__dirname, '../../..');
 (async () => {
-  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'), /href="prototypes\/growth-chain\/player.html"/, 'main menu launches player');
+  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'), /href="prototypes\/naopoyo\/"/, 'main menu launches series');
   const server = http.createServer((req,res) => {
     let url = new URL(req.url,'http://localhost').pathname;
     if(url.endsWith('/')) url += 'index.html';
@@ -37,10 +37,15 @@ const root = path.resolve(__dirname, '../../..');
       const entry=page.locator('.independent-game'); await entry.scrollIntoViewIfNeeded();
       const rect=await entry.boundingBox(); assert.ok(rect.width>=44&&rect.height>=44&&rect.y>=0&&rect.y+rect.height<=height);
       await page.screenshot({path:path.join(output,`main-menu-${width}.png`)});
-      await entry.click(); await page.waitForURL('**/prototypes/growth-chain/player.html');
-      await page.waitForFunction(()=>!document.getElementById('playStart').disabled);
+      await entry.click(); await page.waitForURL('**/prototypes/naopoyo/');
+      assert.equal(await page.locator('.mode-card').count(),2);
+      await page.locator('.mode-card[href="../growth-clear/player.html"]').click();
+      await page.waitForURL('**/prototypes/growth-clear/player.html');
+      await page.locator('#menu').waitFor({state:'visible'});
       const mainSave=await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1'));
-      await page.click('#playStart'); await page.click('[data-mode="clear"]'); await page.click('#startSelected'); await page.click('#pause');
+      await page.click('#new'); await page.click('#pause');
+      assert.match(await page.locator('#cost-label').innerText(),/2 \/ 6/);
+      assert.equal(await page.evaluate(()=>localStorage.getItem('naopoyo-player-v1')),null);
       assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1')),mainSave);
       await ctx.close(); console.log(`PASS main menu -> independent player; main save unchanged ${width}x${height}`);
     }

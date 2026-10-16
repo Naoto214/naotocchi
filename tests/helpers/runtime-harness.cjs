@@ -225,6 +225,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiRelationshipLife: require('../../relationship-life.js'),
     NaotocchiRelationshipExpression: require('../../relationship-expression.js'),
     NaotocchiResidentExpression: require('../../resident-expression.js'),
+    NaotocchiExpressionPresentation: require('../../expression-presentation.js'),
     matchMedia: () => motionPreference,
     getComputedStyle: el => ({transform: el.style.transform || 'none'}),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,
@@ -242,6 +243,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
   const expose = `
     globalThis.lifecycle = {
       setPresentCastFixture: () => {homePresentCompanions=()=>state.companions;homePresentPartner=()=>state.partner;homeInitiative=()=>true;},
+      relationshipVisual,
       homeVisitors: () => ({companions:homePresentCompanions(),partner:homePresentPartner()}),
       getMessage: () => message,
       crownAchievementWeight: typeof crownAchievementWeight === 'function' ? crownAchievementWeight : () => 1,

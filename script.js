@@ -10,6 +10,7 @@
   const PET_EXPRESSION = window.NaotocchiPetExpression || null;
   const RELATIONSHIP_EXPRESSION = window.NaotocchiRelationshipExpression || null;
   let relationshipRenderTimer = null;
+  let homeSocialReactions = null;
   const relationshipReactions = RELATIONSHIP_EXPRESSION?.createReactions({
     now: () => Date.now(), schedule: (fn, ms) => setTimeout(fn, ms),
     cancel: timer => clearTimeout(timer), onExpire: () => {
@@ -8868,7 +8869,7 @@
   function relationshipVisual(kind, entity, normal) {
     return RELATIONSHIP_EXPRESSION?.resolve({kind, id:relationshipId(kind,entity),
       value:kind === 'companion' ? entity?.bond : entity?.affection,
-      positive:relationshipReactions?.active(entity), normal,
+      positive:relationshipReactions?.active(entity) || homeSocialReactions?.active(entity), normal,
     }) || {expression:'normal',asset:normal};
   }
 
@@ -14090,7 +14091,7 @@
   function relationshipTargets() {
     return [...state.companions.map(entity=>({kind:'companion',id:entity.id,entity})),
       ...(state.partner?[{kind:'partner',id:state.partner.id,entity:state.partner}]:[])]
-      .map(t=>({...t,reaction:relationshipReactions?.info(t.entity)})).filter(t=>t.reaction);
+      .map(t=>({...t,reaction:relationshipReactions?.info(t.entity) || homeSocialReactions?.info(t.entity)})).filter(t=>t.reaction);
   }
   const relationshipMotionTokens = new WeakMap();
   // Every cue is a child of its actor: local motion and idle carry it together.
@@ -14578,6 +14579,14 @@
     partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
+    expressionPlayerInput: () => ({profile:deriveHomeEmotion(), sleeping:state.isSleeping,
+      blocked:state.stage !== STAGE.GROWING, base:currentVisualStage().asset}),
+    expressionRelationshipInput: (actor) => {
+      const entity = actor.kind === 'companion'
+        ? (state.companions || []).find(c => canonicalCompanionId(c.id) === actor.id)
+        : actor.kind === 'partner' && state.partner && canonicalPartnerId(state.partner.id) === actor.id ? state.partner : null;
+      return entity ? {value:actor.kind === 'companion' ? entity.bond : entity.affection, positive:!!relationshipReactions?.active(entity)} : null;
+    },
     playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
     // イラストの さしかえを とおさない ところ(のりものの えなど)で つかう ふつうの 絵文字。
     // playerGlyph は イラスト よう の しるし(\uE000)を かえす ことが あるので、
@@ -14711,6 +14720,27 @@
   const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru(meguruBridge) : null;
   homeVisits = meguruMod?.socialSession && window.NaotocchiRelationshipLife?.createVisits(meguruMod.socialSession);
   document.addEventListener('visibilitychange',()=>{homeVisitLast=null;if(!pageVisible())homeVisits?.clear('hidden');});
+  if (meguruMod?.socialSession) meguruMod.expressionEvents?.subscribe(meguruMod.socialSession);
+  // Home uses its existing 2D relationship presentation; social cues remain separate from care rewards.
+  const homeSocialTimers = new Set();
+  const newHomeSocialReactions = () => {
+    for(const timer of homeSocialTimers)clearTimeout(timer);
+    homeSocialTimers.clear();
+    return RELATIONSHIP_EXPRESSION?.createReactions({now:()=>Date.now(),
+      schedule:(fn,ms)=>{const timer=setTimeout(()=>{homeSocialTimers.delete(timer);fn();},ms);homeSocialTimers.add(timer);return timer;},
+      cancel:timer=>{clearTimeout(timer);homeSocialTimers.delete(timer);},onExpire:()=>render()});
+  };
+  homeSocialReactions = newHomeSocialReactions();
+  meguruMod?.socialSession?.subscribe(event=>{
+    if(event.context!=='home')return;
+    if(event.type==='return_to_free_life'){homeSocialReactions=newHomeSocialReactions();return;}
+    if(!['visit','greeting','affection_interaction','reunion'].includes(event.type)||!pageVisible()||meguruActive)return;
+    const [kind,id]=event.actorKey.split(':');
+    const entity=kind==='partner'&&relationshipId(kind,state.partner)===id?state.partner:kind==='companion'?state.companions.find(c=>relationshipId(kind,c)===id):null;
+    if(entity)homeSocialReactions?.start(entity);
+  });
+  document.addEventListener('visibilitychange',()=>{if(!pageVisible())homeSocialReactions=newHomeSocialReactions();});
+
   // Preload once. A failed session stays on Canvas until page reload.
   let meguru3dRenderer = null;
   let meguru3dFailed = false, meguru3dSettled = false;
@@ -14809,6 +14839,7 @@
     return true;
   }
   function stopMeguru() {
+    meguruMod?.resetExpressions?.();
     if (!meguruActive) return;
     meguruActive = false;
     ++meguruStartToken; clearTimeout(meguruStartTimer); meguruStartTimer = null;
@@ -18956,6 +18987,7 @@
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
+      meguruMod?.suspendExpressions?.();
       invalidateCareAfterglow();
       clearPetExpression(true);
       cancelEmotionCue(true);
