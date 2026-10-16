@@ -12,7 +12,7 @@ import { applyFaceExpression, blink } from './rig.mjs';
 const TAU = Math.PI * 2;
 const approach = (v, to, d) => (v < to ? Math.min(to, v + d) : Math.max(to, v - d));
 const lerp = (a, b, t) => a + (b - a) * t;
-export const REACTION_MS = { hop: 700, huff: 800, yawn: 1400, wobble: 1100 };
+export const REACTION_MS = { hop: 700, huff: 800, yawn: 1400, wobble: 1100, greet: 900 };
 export const GAIT_HZ = { quadWalk: 2.1, waddle: 2.4, swimHover: 1.6, humanWalk: 1.9, crawl: 1.5, inchCrawl: 1.3, hangSway: 0.6, hopSway: 1.8, flutter: 1.0, plantSway: 1.6, squashHop: 1.7, clusterBob: 1.6, radialShuffle: 1.7, blobFloat: 1.2, insectWalk: 2.2 };
 
 // Grafted fish reuse the owning actor's gait phase; only their appendages move.
@@ -246,10 +246,16 @@ export function animate(inst, input) {
   if (B.body && inst.archetype !== 'radial') B.body.rotation.x -= e.lean * 0.5;
   if (inst.archetype === 'radial' || inst.archetype === 'blob' || inst.archetype === 'pod' || inst.archetype === 'cluster') R.rotation.y += e.turn * 0.6;
   R.scale.y *= 1 - e.squash; R.position.y -= e.droop * 0.02;
-  if (e.bounce > 0) R.position.y += Math.abs(Math.sin(s.t * 5.2)) * 0.07 * e.bounce * k.idle * (1 - s.move * 0.5);
+  if (e.bounce > 0 && !s.socialCue) R.position.y += Math.abs(Math.sin(s.t * 5.2)) * 0.07 * e.bounce * k.idle * (1 - s.move * 0.5);
   if (e.shiver > 0) R.position.x += Math.sin(s.t * 47) * 0.01 * e.shiver * k.idle;
   if (B.earL && meta.earType) { const d = Math.max(0, e.droop); if (meta.earType === 'pointy') { B.earL.rotation.x -= d * 0.8; B.earR.rotation.x -= d * 0.8; } else { B.earL.rotation.z -= d * 0.25; B.earR.rotation.z += d * 0.25; } if (e.bounce > 0) { B.earL.rotation.z += Math.sin(s.t * 10) * 0.08 * k.idle; B.earR.rotation.z -= Math.sin(s.t * 10) * 0.08 * k.idle; } }
   if (B.wingL && inst.archetype === 'avian') { B.wingL.rotation.z += e.droop * 0.1; B.wingR.rotation.z -= e.droop * 0.1; }
+  // New care/relationship states reuse existing appendages, never add meshes.
+  if (['hungry','weak','critical','lonely'].includes(s.emotion)) {
+    if (inst.archetype === 'fish') B.body.rotation.z += e.droop * .12;
+    if (B.stem) B.stem.rotation.x += e.droop * .10;
+    if (B.cap && B.cap !== head) B.cap.rotation.x += e.droop * .16;
+  }
   // ---- temporary reaction
   if (s.reaction) {
     const el = (s.t - s.reaction.t0) * 1000, dur = REACTION_MS[s.reaction.kind];
@@ -257,6 +263,7 @@ export function animate(inst, input) {
     else if (!reduced) {
       const u = el / dur;
       switch (s.reaction.kind) {
+        case 'greet': if (head && head !== R) { head.rotation.y += Math.sin(Math.PI*u)*.18; head.rotation.x -= Math.sin(Math.PI*u)*.10; } break;
         case 'hop': R.position.y += Math.sin(Math.PI * u) * 0.28; R.scale.y *= 1 + Math.sin(Math.PI * u) * 0.06; break;
         case 'huff': if (head && head !== R) head.rotation.y += Math.sin(u * TAU * 2) * 0.25 * (1 - u); R.scale.x *= 1 + Math.sin(Math.PI * u) * 0.05; break;
         case 'yawn': if (head && head !== R) head.rotation.x -= Math.sin(Math.PI * u) * 0.35; break;

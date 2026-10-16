@@ -224,6 +224,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiPetExpression: require('../../pet-expression.js'),
     NaotocchiRelationshipExpression: require('../../relationship-expression.js'),
     NaotocchiResidentExpression: require('../../resident-expression.js'),
+    NaotocchiExpressionPresentation: require('../../expression-presentation.js'),
     matchMedia: () => motionPreference,
     getComputedStyle: el => ({transform: el.style.transform || 'none'}),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,

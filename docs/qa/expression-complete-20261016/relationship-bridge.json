@@ -1,0 +1,314 @@
+{
+  "status": "PASS",
+  "identities": 44,
+  "results": [
+    {
+      "kind": "companion",
+      "id": "cat_friend",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "rabbit_friend",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "tanuki",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "squirrel",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "owl",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "otter",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "hamster",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "panda",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "monkey",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "parrot",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "sheep",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "seal",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "bat",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "chicken",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "penguin_friend",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "hedgehog",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "shiba",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "snail",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "punyu",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "sekizou",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "chameleon",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "clock",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "unicorn",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "many_tail_fox",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "watcher",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "companion",
+      "id": "box",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "covered by existing Home integration suite"
+    },
+    {
+      "kind": "partner",
+      "id": "cat_ceo",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "robot_neighbor",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "field_cow",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "sunflower_partner",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "forest_bear",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "grove_deer",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "cliff_goat",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "high_eagle",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "snow_spirit",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "snowman",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "rock_octopus",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "sea_mermaid",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "anglerfish",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "swamp_croc",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "gentle_gorilla",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "knitting_spider",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "desert_scorpion",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    },
+    {
+      "kind": "partner",
+      "id": "oasis_cactus",
+      "boundary29": "lonely",
+      "boundary30": "normal",
+      "positiveAndExpiry": "positive -> current lonely"
+    }
+  ]
+}

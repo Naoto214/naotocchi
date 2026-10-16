@@ -37,6 +37,8 @@ jobs:
           export CHROME_PATH="$(node -e "console.log(require('./prototypes/slide08/node_modules/playwright').chromium.executablePath())")"
           node prototypes/slide08/tests/player-browser.cjs
           node prototypes/slide08/tests/iphone-layout.cjs
+          node prototypes/slide08/tests/paint-order.cjs
+          node prototypes/slide08/tests/paint-mutation.cjs
           git fetch --no-tags --depth=1 origin b8fad706ee65a20f4b27e9f966327ff5500f0c8e
           git worktree add --detach /tmp/slide-before b8fad706ee65a20f4b27e9f966327ff5500f0c8e
           python3 -m http.server 8766 --directory /tmp/slide-before > /tmp/slide-before-http.log 2>&1 &
@@ -48,4 +50,5 @@ jobs:
           path: |
             prototypes/slide08/qa-series
             prototypes/slide08/qa-iphone
+            prototypes/slide08/qa-paint
           retention-days: 14

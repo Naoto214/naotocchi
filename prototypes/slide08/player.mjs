@@ -218,11 +218,14 @@ function render(visualBoard = null) {
         `${Math.floor(i / 6) + 1}行 ${(i % 6) + 1}列 ${v ? roster.find((c) => c.id === p.species[kind(v)]).label + " " + stage(v) : "空き"}`,
       );
       if (v) {
-        b.append(image(p.species[kind(v)], stage(v)));
+        const tile = document.createElement("span");
+        tile.className = "tile";
+        tile.append(image(p.species[kind(v)], stage(v)));
         const n = document.createElement("span");
         n.className = "stage";
         n.textContent = String(stage(v)).padStart(2, "0");
-        b.append(n);
+        tile.append(n);
+        b.append(tile);
       }
       b.onclick = () => {
         if (busy || paused || !tool) return;
@@ -386,11 +389,18 @@ async function act(a) {
         render(visualFrames[0].board);
         const duration = Number($("slideSpeed")?.value) || 240;
         const cells = [...$("board").children];
+        const size = before.config.size;
+        const gridStyle = getComputedStyle($("board"));
+        const columnGap = parseFloat(gridStyle.columnGap) || 0;
+        const rowGap = parseFloat(gridStyle.rowGap) || 0;
         const motions = slideMoves(before.board, before.config.size, a.dir).map(({from,to}) => {
-          const img = cells[to].querySelector("img");
-          if (!img || !img.animate || from === to) return Promise.resolve();
-          const origin = cells[from].getBoundingClientRect(), target = cells[to].getBoundingClientRect();
-          return img.animate([{transform:`translate(${origin.x-target.x}px,${origin.y-target.y}px)`},{transform:"translate(0,0)"}],{duration,easing:"cubic-bezier(.2,.65,.3,1)"}).finished;
+          const tile = cells[to].querySelector(".tile");
+          if (!tile || !tile.animate || from === to) return Promise.resolve();
+          const dx = from % size - to % size;
+          const dy = Math.floor(from / size) - Math.floor(to / size);
+          // Percentages track the live cell size, including an orientation
+          // change mid-animation; only the inter-cell gap is in pixels.
+          return tile.animate([{transform:`translate(calc(${dx * 100}% + ${dx * columnGap}px),calc(${dy * 100}% + ${dy * rowGap}px))`},{transform:"translate(0,0)"}],{duration,easing:"cubic-bezier(.2,.65,.3,1)"}).finished;
         });
         await Promise.all([...motions, wait(duration)]);
       }

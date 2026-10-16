@@ -51,6 +51,8 @@ header strong {
   grid-template-rows: 12px var(--board) 12px;
 }
 #board {
+  position: relative;
+  isolation: isolate;
   grid-area: 2/2;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -80,6 +82,15 @@ header strong {
   min-width: 0;
   box-shadow: inset 0 2px 3px #fff9;
   touch-action: none;
+  overflow: visible;
+}
+/* Cells stay in the background paint layer. All characters (including their
+   stage labels and evolution effects) share a foreground above every cell. */
+#board .tile {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 #board img {
   position: absolute;
@@ -110,10 +121,10 @@ header strong {
   outline: 3px solid #55afd2;
   outline-offset: -3px;
 }
-#board .pulse {
+#board .pulse .tile {
   animation: evolve 0.3s ease-out;
 }
-#board .vanish {
+#board .vanish .tile {
   animation: glow 1s ease-out;
 }
 .under {
