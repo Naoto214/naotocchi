@@ -219,7 +219,7 @@ Owner-private UI trial only; original trial/main and PR259/381 are untouched. Pu
 | 381 | 3a987044513fdb6d5e69b52b8af40add5a45ccd4 | e86f089e6778061d7acd39492e96286656455702 | Draft/open/unmerged |
 | 384 | cd19b6f7270834818a79b8abb521262298a73d76 | d9d375d5fd305e86d0ef60472a899ab3b27d57fc | Draft/open/unmerged |
 
-GitHub connector supplied the exact source blobs into an isolated local checkout because direct Git access was unavailable. Local baseline blobs were verified against the remote tree. The current design PR's 01-core-rules, 02-main-system, 06-action-chain-checkpoint and 64-turn-boundaries-and-victory-timing match the UI branch copies byte-for-byte.
+GitHub connector supplied the exact source blobs into an isolated local checkout. Local baseline blobs were verified against the remote tree. The current design PR's 01-core-rules, 02-main-system, 06-action-chain-checkpoint and 64-turn-boundaries-and-victory-timing match the UI branch copies byte-for-byte.
 
 ### Confirmed causes
 
@@ -267,3 +267,11 @@ The opening egg exchange alone creates one response window, with exactly A then 
 - No new browser rendering or real iPhone/Safari touch test: managed Sites has no available control-browser. No substitute browser or server was launched. Node markup/behavior tests are not visual/touch proof.
 
 Only PR384 and the existing owner-private UI trial are updated. PR259/381/384 remain Draft/open/unmerged; main and the original trial are untouched. On iPhone, return a non-main card, pass as A then B, confirm `Aの通常行動`, then select a① main. Use the distinct end-request button only when ready to finish the turn.
+
+
+QA5 deployment succeeded: https://naotocchi-card-ui-trial.kerzion214.chatgpt.site/
+- Verified implementation commit: `50b66d37117dd587b41b27d8aeb50287bb634017` (tree `7f4c1c436203866e085a51972b5de3c9600f4bbf`).
+- Site source: `f9291bae440e68df13da3a2a387da13274dd03ce`; all28 runtime files match the verified GitHub implementation after asset-path normalization.
+- Saved version: `appgprj_6ad05a8e0f148191bb93835227ddf2b9~appgver_0b99ceff34788191b7ec643bcdd228ad`.
+- Deployment: `appgdep_6ad2b427bd148191b35255b1f2336543`, succeeded, owner-only audience retained.
+- This follow-up changes documentation only. Direct Git ls-remote eventually completed and confirmed the same starting head; scoped connector reads/writes were used for the work. Browser/Safari QA remains unperformed.
