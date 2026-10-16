@@ -2,8 +2,8 @@
 const fs=require('fs'),assert=require('node:assert/strict'),path=require('path');
 const {serve}=require('./shot.cjs');
 (async()=>{
- const out='docs/qa/expression-complete-20261016';fs.mkdirSync(out,{recursive:true});
- const server=await serve();const browser=await require('playwright').chromium.launch({executablePath:process.env.CHROMIUM_PATH,headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ const out=process.env.QA_OUT||'docs/qa/expression-complete-20261016';fs.mkdirSync(out,{recursive:true});
+ const server=await serve();const browser=await require('playwright').chromium.launch({executablePath:process.env.CHROMIUM_PATH,headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']}).catch(error=>{server.close();throw error;});
  const page=await browser.newPage({viewport:{width:280,height:280}}),errors=[],records=[];
  page.on('pageerror',e=>errors.push(String(e)));
  const base='http://127.0.0.1:'+server.address().port;

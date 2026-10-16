@@ -242,6 +242,7 @@ export function animate(inst, input) {
   }
   // ---- emotion posture
   const head = B.head || B.cap || B.body;
+  if (!reduced && head && head !== R) head.rotation.y += s.lookYaw || 0;
   if (head && head !== R) { head.rotation.x += e.droop * 0.32; head.rotation.y += e.turn; }
   if (B.body && inst.archetype !== 'radial') B.body.rotation.x -= e.lean * 0.5;
   if (inst.archetype === 'radial' || inst.archetype === 'blob' || inst.archetype === 'pod' || inst.archetype === 'cluster') R.rotation.y += e.turn * 0.6;

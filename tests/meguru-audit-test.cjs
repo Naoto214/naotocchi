@@ -63,14 +63,14 @@ test('4. the current pet is never an ordinary resident', () => {
   assert.ok(!audit.issues.some((i) => i.code === 'current-pet-duplicate'), JSON.stringify(audit.issues));
 });
 
-test('5. the current companion and partner walk with the player only, never as region residents', () => {
+test('5. current relationships live in regions without automatic accompaniment', () => {
   const { s, M } = setup();
   const reg = M.buildRegistry();
   const worldKeys = allWorldKeys(M, reg);
-  assert.ok(!worldKeys.includes('companion:shiba'), 'the companion walking with the player is not placed in any world');
-  assert.ok(!worldKeys.includes('partner:sea_mermaid'), 'the current partner is not placed in any world');
+  assert.ok(worldKeys.includes('companion:shiba'), 'the companion lives in a region');
+  assert.ok(worldKeys.includes('partner:sea_mermaid'), 'the current partner lives in a region');
   const party = M.companionsOf(reg).map((a) => a.key);
-  assert.equal(JSON.stringify(party.sort()), JSON.stringify(['companion:shiba', 'partner:sea_mermaid']));
+  assert.equal(JSON.stringify(party.sort()), JSON.stringify([]));
   // だいちょうの なかでも 1つずつ
   assert.equal(keysOf(reg).filter((k) => k === 'companion:shiba').length, 1);
   assert.equal(keysOf(reg).filter((k) => k === 'partner:sea_mermaid').length, 1);
@@ -153,7 +153,7 @@ test('registry audit reports rows and every issue class (duplicate, legacy, undi
   // わざと こわした だいちょうを かんさ すると みつかる
   const broken = { residents: reg.residents.concat([reg.residents[0], { key: 'form:bird:3', kind: 'form', line: 'bird', stage: 3, label: '若い鳥', asset: 'assets/characters/bird/04.png', region: 'forest' }, { key: 'form:cat:7', kind: 'form', line: 'cat', stage: 7, label: 'x', asset: 'assets/characters/cat/08.png', region: 'city' }, { key: 'form:' + s.petKey, kind: 'form', line: 'dog', stage: Number(s.petKey.split(':')[1]), label: 'me', asset: 'assets/characters/dog/05.png', region: 'home' }, { key: 'companion:shiba', kind: 'companion', id: 'shiba', label: 'dup', asset: 'assets/characters/companions/shiba.png', region: 'forest', withPlayer: false }, { key: 'partner:x', kind: 'partner', id: 'x', label: 'shared', asset: 'assets/characters/partners/forest_bear.png', region: 'forest' }]), naoto: null, byRegion: () => [] };
   const codes = new Set(M.auditRegistry(broken).issues.map((i) => i.code));
-  for (const c of ['duplicate-key', 'duplicate-id', 'legacy-form', 'undiscovered-form', 'current-pet-duplicate', 'follower-duplicate', 'shared-asset']) assert.ok(codes.has(c), 'reports ' + c + ': ' + [...codes].join(','));
+  for (const c of ['duplicate-key', 'duplicate-id', 'legacy-form', 'undiscovered-form', 'current-pet-duplicate', 'relationship-missing', 'shared-asset']) assert.ok(codes.has(c), 'reports ' + c + ': ' + [...codes].join(','));
 });
 
 // ---- じっさいの canvas の みちすじ: けしきは キャラの え にも placeholder にも ならない ----
@@ -301,11 +301,11 @@ test('the number of residents is pinned to the dex, not to a round figure', () =
   api.render();
   const walking = M.buildRegistry();
   const withPlayer = walking.residents.filter((r) => r.withPlayer);
-  assert.equal(withPlayer.length, 2, 'one companion and one partner are walking with you');
-  assert.equal(M.companionsOf(walking).length, 2, 'and both are in the party');
+  assert.equal(withPlayer.length, 0, 'neither relationship automatically follows');
+  assert.equal(M.companionsOf(walking).length, 0, 'party requires explicit choice');
   const placed2 = [];
   for (const id of Object.keys(M.WORLDS)) for (const a of M.buildWorld(id, walking).residents) placed2.push(a.key);
-  assert.equal(placed2.length, walking.residents.length - 2 + (walking.naoto ? 1 : 0), 'the two walking with you are not also living somewhere');
+  assert.equal(placed2.length, walking.residents.length + (walking.naoto ? 1 : 0), 'all residents live somewhere');
   for (const r of withPlayer) assert.ok(!placed2.includes(r.key), `${r.key} is not in the world as well`);
   assert.equal(new Set(placed2).size, placed2.length, 'still nobody is placed twice');
 });

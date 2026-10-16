@@ -17,7 +17,7 @@
    else if(['sick','weak','strained','tired','hungry'].includes(life)) emotion=life;
    else if(rel==='lonely') emotion='lonely';
    const out=X.resolve(actor,emotion);
-   if(reaction&&(emotion===reaction.emotion||reaction.emotion===null)&&!['sleeping','critical','dislike'].includes(emotion))out.cue={token:reaction.token,motion:reaction.motion,kind:'greet'};
+   if(reaction&&(emotion===reaction.emotion||reaction.emotion===null)&&!['sleeping','critical','dislike'].includes(emotion))out.cue={token:reaction.token,motion:reaction.motion,kind:'greet',targetKey:reaction.targetKey,attention:reaction.attention};
    return out;
  }
  const EVENTS=Object.freeze(['reunion','greeting','visit','affection_interaction','accompany_start','accompany_end','return_to_free_life']);
@@ -45,7 +45,7 @@
      }
      const motion=time-(lastMotion.get(a)??-Infinity)>=4;
      if(motion)lastMotion.set(a,time);
-     entries.set(a,{emotion:e.type==='accompany_start'?null:'positive',token:++serial,motion,started:time,type:e.type,at:e.at,until:time+(context==='home'?2.5:10)});
+     entries.set(a,{emotion:e.type==='accompany_start'&&e.reason!=='date'?null:'positive',targetKey:typeof e.targetKey==='string'?e.targetKey:null,token:++serial,motion,started:time,type:e.type,at:e.at,until:time+(context==='home'?2.5:10)});
      return true;
    }
    function read(a){const r=entries.get(a);if(r&&time<r.until)return {...r,motion:r.motion&&time-r.started<.9};entries.delete(a);return null;}
@@ -83,7 +83,14 @@
          const motion=!cue||time-cue.lastMotion>=4;
          cue={serial:a.expressionEventSeq,started:time,until:time+.9,motion,lastMotion:motion?time:cue.lastMotion};lifeCues.set(a,cue);
        }
-       const reaction=session.read(a),out=resolveActor(source,relationshipInput(a),reaction);
+       const reaction=session.read(a);
+       if(reaction?.targetKey){
+         const target=reaction.targetKey==='player'?view.player:actors.find(other=>other.key===reaction.targetKey);
+         const age=time-reaction.started,weight=Math.max(0,Math.min(1,age/.15,(2.5-age)/.5));
+         if(target&&target!==a&&[target.x,target.z,a.x,a.z].every(Number.isFinite)&&Math.hypot(target.x-a.x,target.z-a.z)>.01&&weight>0)
+           reaction.attention={heading:Math.atan2(target.x-a.x,target.z-a.z),weight};
+       }
+       const out=resolveActor(source,relationshipInput(a),reaction);
        if(!out.cue&&out.emotion==='positive'&&cue&&time<cue.until)out.cue={token:'life:'+cue.serial,motion:cue.motion,kind:'greet'};
        if(['sleeping','critical','dislike'].includes(out.emotion))session.clear(a);
        a.expr=out;

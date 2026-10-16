@@ -1,9 +1,10 @@
 // Real home rendering and real feed -> pet/partner/friend conversations.
-// Only the long-text specimen is substituted; speaker selection uses the game.
+// Explicit all-present attendance fixture preserves multi-actor geometry coverage; speaker selection uses the game.
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const { guardedRoute } = require('./helpers/browser-route.cjs');
+const { presentHomeCast } = require('./helpers/home-cast-fixture.cjs');
 const {loadRingBounds,paintedRing,noIntersection,assertApprovedRing}=require('./helpers/marriage-ring-bounds.cjs');
 const { minsForLine } = require('../life-stage-profiles.js');
 
@@ -111,6 +112,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
     const label=engine+'-conversation-'+name;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce',isMobile:width<500,hasTouch:width<500});
     const routeErrors=[]; // RH-6: route の fetch が こけたら 記録して この case を 赤に(retry しない)
+    await presentHomeCast(context,label,routeErrors);
     if(name==='safe-area') await guardedRoute(context,'**/*.css?*',label,routeErrors,async route=>{
       const response=await route.fetch();
       await route.fulfill({response,body:(await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,(_,edge)=>({top:59,bottom:34}[edge]||0)+'px')});

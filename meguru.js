@@ -8,7 +8,7 @@
 //   どこかの 地域の せかいに「すんでいる」。ランダムに 数体 だけ 出す ことは しない。
 //   すがた: せいたいに あう 地域に ていじゅう(HABITAT)。なかま: 日がわりで あそびに いく(たびびと)。
 //   こいびと候補: はじめて であった 地域。いまの じぶんは プレイヤー、いまの なかま・こいびとは
-//   おなじ 1体を「いっしょに あるく」あつかい(二重に 出さない)
+//   関係とは別に自由生活し、選んだ間だけ同じ1体を同行へ移す(二重に出さない)
 // ・ナオトは かいきん(isAuthorUnlocked)ずみの セーブだけ、きおくのみずうみの おく(かくし ばしょ)に いる
 // ・せかいは「スポットが みちで つながった ちず」(いりぐち → ひろば → えだわかれ → ループ・いきどまり・かくし みち)。
 //   スポットごとに ひとの あつまりぐあいが ちがう(ひろばは にぎやか、こみちは しずか)
@@ -51,6 +51,7 @@
     const rand = () => RANDOM();
     const setRandom = (fn) => { RANDOM = typeof fn === 'function' ? fn : Math.random; };
     const rnd = (a, b) => a + rand() * (b - a);
+    const socialSession = root.NaotocchiRelationshipLife?.createSession({ random: rand });
     const pick = (arr) => arr[Math.floor(rand() * arr.length)];
     const TAU = Math.PI * 2;
     const wrapAngle = (a) => { a = (a + Math.PI) % TAU; if (a < 0) a += TAU; return a - Math.PI; };
@@ -400,10 +401,10 @@
       const canon = typeof S.canonicalCompanionId === 'function' ? S.canonicalCompanionId : (id) => id;
       const withIds = new Set((state.companions || []).map((c) => canon(c.id)));
       const seen = new Set();
-      for (const id of [...(lifetime.companionsRecruited || []), ...(lifetime.rareCompanionsRecruited || [])]) {
+      for (const id of [...(lifetime.companionsRecruited || []), ...(lifetime.rareCompanionsRecruited || []), ...withIds]) {
         const def = typeof S.allCompanionsById === 'function' ? S.allCompanionsById(id) : null;
         if (!def || seen.has(def.id)) continue; seen.add(def.id);
-        const withPlayer = withIds.has(def.id);
+        const related = withIds.has(def.id), withPlayer = false;
         // たびびと: 日がわり。すきな 地域(preferredRegions)は 4ばい でやすい
         let region = regionOf(state.regionId, 'meguru:registry');
         if (!withPlayer) {
@@ -411,16 +412,16 @@
           const pool = []; for (const r of NORMAL_REGIONS) { const w = pref.includes(r) ? 4 : 1; for (let i = 0; i < w; i++) pool.push(r); }
           region = pool[hash(def.id + ':' + day) % pool.length];
         }
-        list.push({ key: 'companion:' + def.id, kind: 'companion', id: def.id, label: def.name, emoji: def.emoji, asset: def.asset, sprites: { front: def.asset }, region, withPlayer, rare: !!def.vibe, night: NIGHT_COMPANIONS.has(def.id) });
+        list.push({ key: 'companion:' + def.id, kind: 'companion', id: def.id, label: def.name, emoji: def.emoji, asset: def.asset, sprites: { front: def.asset }, region, withPlayer, related, rare: !!def.vibe, night: NIGHT_COMPANIONS.has(def.id) });
       }
       const partners = S.partners || [];
       const cur = state.partner ? String(state.partner.id) : null;
-      for (const id of lifetime.partnersRecorded || []) {
+      for (const id of new Set([...(lifetime.partnersRecorded || []), ...(cur ? [cur] : [])])) {
         const p = partners.find((c) => c.id === id); if (!p) continue;
-        const withPlayer = cur === id;
+        const related = cur === id, withPlayer = false;
         const asset = typeof S.partnerAsset === 'function' ? S.partnerAsset(id) : null;
         list.push({ key: 'partner:' + id, kind: 'partner', id, label: p.label, emoji: p.emoji, asset, sprites: { front: asset },
-          region: withPlayer ? regionOf(state.regionId, 'meguru:registry') : (p.firstRegion || 'home'), withPlayer, hook: p.hook || '' });
+          region: withPlayer ? regionOf(state.regionId, 'meguru:registry') : (p.firstRegion || 'home'), withPlayer, related, hook: p.hook || '' });
       }
       const naoto = typeof S.isAuthorUnlocked === 'function' && S.isAuthorUnlocked() ? { key: 'naoto', kind: 'naoto', id: 'naoto', label: 'ナオト', emoji: '🧑', asset: S.authorAsset || null, sprites: { front: S.authorAsset || null }, region: 'memory_lake', spot: 'deep', secret: true } : null;
       // さいごに key で いちい に(ふるい セーブ・いこう・じゅうふくした はいれつが あっても、おなじ じゅうみんは せかいに 1体だけ)
@@ -483,8 +484,8 @@
           if (!discovered.has(`${r.line}:${r.stage}`)) issues.push({ code: 'undiscovered-form', key: r.key, detail: 'this form is not in discoveredStages' });
           if (petKey && `${r.line}:${r.stage}` === petKey) issues.push({ code: 'current-pet-duplicate', key: r.key, detail: 'the current pet appears as a resident' });
         }
-        if (r.kind === 'companion' && withCompanions.has(canon(r.id)) && !r.withPlayer) issues.push({ code: 'follower-duplicate', key: r.key, detail: 'a companion walking with the player is also a region resident' });
-        if (r.kind === 'partner' && curPartner === r.id && !r.withPlayer) issues.push({ code: 'follower-duplicate', key: r.key, detail: 'the current partner is also a region resident' });
+        if (r.kind === 'companion' && withCompanions.has(canon(r.id)) && !r.related) issues.push({ code: 'relationship-missing', key: r.key, detail: 'current companion lacks relationship metadata' });
+        if (r.kind === 'partner' && curPartner === r.id && !r.related) issues.push({ code: 'relationship-missing', key: r.key, detail: 'current partner lacks relationship metadata' });
         if (r.asset) { const prev = byAsset.get(r.asset); if (prev && prev !== r.key) issues.push({ code: 'shared-asset', key: r.key, detail: `same asset as ${prev}: ${r.asset}` }); else byAsset.set(r.asset, r.key); }
       }
       // いっしょに あるく こが せかいの どこかにも おかれていないか(byRegion は withPlayer を ふくむので buildWorld が のぞく)
@@ -4256,6 +4257,59 @@
     function createSimulation(init = {}) {
       let registry = init.registry || buildRegistry();
       let world = null, party = [], player = null, nearest = null, frame = 0, curSpot = null, mood = Object.assign({}, MOOD_DEFAULT);
+      const social = init.socialSession || root.NaotocchiRelationshipLife?.createSession({random:rand});
+      let invitation = null, socialScan = 0;
+      const socialEvent = (type,a,reason) => social?.emit(type,a.key,{context:'meguru',regionId:world.regionId,reason,targetKey:'player'});
+      function isRelated(a) {
+        const state=getState(), canon=S.canonicalCompanionId || ((id)=>id);
+        return a.kind==='partner' ? state.partner?.id===a.id : a.kind==='companion' && (state.companions||[]).some(c=>canon(c.id)===a.id);
+      }
+      function startAccompany(key, activity='walk', destination=null) {
+        const a=world.residents.find(a=>a.key===key);
+        if(!a || !isRelated(a) || a.follow || a.fixed || a.plant || a.behavior==='sleep' || dist(a,player)>RULES.talkRadius || party.length>=2 || !['walk','date','adventure'].includes(activity))return false;
+        releaseInteraction(a);
+        world.residents.splice(world.residents.indexOf(a),1);
+        a.follow=true; a.withPlayer=true; a.route=null; a.chaseOf=null; a.slot=party.length;
+        a.accompany={until:(social?.now||0)+(social?.duration()||120),activity,destination};
+        party.push(a); invitation=null;
+        a.say=activity==='date'?'いっしょに すごそう':activity==='adventure'?'ぼうけんに いこう！':'すこし いっしょに あるこう'; a.sayFor=3;
+        socialEvent('accompany_start',a,activity); return true;
+      }
+      function endAccompany(reason='activity_end', key=null) {
+        for(let i=party.length-1;i>=0;i--) {
+          const a=party[i]; if(key && a.key!==key)continue;
+          party.splice(i,1); releaseInteraction(a); a.follow=false; a.withPlayer=false; a.accompany=null;
+          a.spot=world.spots.reduce((best,s)=>!best||dist(a,s)<dist(a,best)?s:best,null); a.home=a.spot;
+          a.route=null; a.chaseOf=null; a.behavior='idle'; a.act='idle'; a.until=3; a.nextAt=world.clock+3;
+          a.tx=a.x; a.tz=a.z; a.say='またね！';a.sayFor=3;
+          if(!world.residents.some(r=>r.key===a.key))world.residents.push(a);
+          socialEvent('accompany_end',a,reason); socialEvent('return_to_free_life',a,reason);
+        }
+        if(!key)invitation=null;
+      }
+      function stepSocial(dt) {
+        if(!social)return;
+        social.advance(dt);
+        for(const a of [...party])if(a.accompany && (!isRelated(a)||social.now>=a.accompany.until || (a.accompany.destination && curSpot?.id===a.accompany.destination)))endAccompany(!isRelated(a)?'relationship_changed':social.now>=a.accompany.until?'time_elapsed':'destination',a.key);
+        if(invitation && (social.now>=invitation.until || !world.residents.some(a=>a.key===invitation.key&&isRelated(a)&&dist(a,player)<=RULES.talkRadius)))invitation=null;
+        socialScan+=dt; if(socialScan<1)return; socialScan=0;
+        const nearby=world.residents.filter(a=>lifeFree(a)&&a.behavior!=='sleep'&&a.behavior!=='talk'&&dist(a,player)<=LIFE.notice);
+        // Rotate selection through a seeded draw, rather than privileging registry order.
+        if(!nearby.length)return;
+        const a=nearby[Math.floor(rand()*nearby.length)], related=isRelated(a);
+        let kind=related ? (a.kind==='partner'?'affection_interaction':'greeting'):'reunion';
+        if(related && !invitation && party.length<2 && dist(a,player)<=RULES.talkRadius && social.attempt('invitation',a.key)) {
+          invitation={key:a.key,until:social.now+20}; kind='invitation';
+        } else if(!social.attempt(kind,a.key))return;
+        releaseInteraction(a); a.route=null; a.chaseOf=null; a.behavior='idle';a.act='idle';a.until=3;faceTo(a,player.x,player.z);
+        a.say=kind==='invitation'?'いっしょに さんぽ しない？':kind==='affection_interaction'?'あえて うれしい！':related?'やあ！ げんき？':'こんにちは';a.sayFor=3;
+        if(kind!=='invitation')socialEvent(kind,a,'nearby');
+        // Approach only a little, once, using the existing collision-aware walk behavior.
+        if(kind==='affection_interaction' && dist(a,player)>110) {
+          const d=dist(a,player),p=standClear({x:player.x+(a.x-player.x)*110/d,z:player.z+(a.z-player.z)*110/d},world,!!a.water,player);
+          a.tx=p.x;a.tz=p.z;a.behavior='walk';a.until=3;
+        }
+      }
       // にゅうりょくの きじゅん: ゆびを おいた しゅんかんの カメラの むきで こてい(カメラが まわっても おなじ むきへ すすむ。ぐるぐる まわらない)
       let inputActive = false, inputYaw = 0;
       // カメラの りぐ: x/z = おいかける てん(じぶん)、yaw = むき(ラジアン、0 = +z)、dist = うしろの きょり、height = たかさの わりあい。
@@ -4279,6 +4333,7 @@
       // せいかつAI の かくにん用。ふだんの あそびでは 出さない(§50)
       let lifeDebug = false;
       function enterRegion(regionId, opts = {}) {
+        if(world)endAccompany('region_change');
         if (opts.registry) registry = opts.registry;
         world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality, world3d: init.world3d });   // world3d: テストだけ(ふだんは フラグ)
         world.expr = exprCfg;   // 新しい せかいの 住民は expr なし から はじまる(まえの 地域の 表情は もちこまない)
@@ -4362,6 +4417,7 @@
       }
       // 1 フレームぶん すすめる。input: { x: -1..1(よこ), y: -1..1(てまえ +) } は カメラから みた むき。もどりち: おきた できごと
       function step(dt, input) {
+        if(!Number.isFinite(dt)||dt<=0)return [];
         frame++;
         const events = [];
         const v = input || { x: 0, y: 0 };
@@ -4431,6 +4487,7 @@
         updateCamFx(dt, np);
         followParty(dt);
         stepLife(dt);
+        stepSocial(dt);
         for (const a of world.residents) if (!a.met && hitTest(a, player, RULES.metRadius)) { a.met = true; events.push({ type: 'met', actor: a }); }
         let best = null, bd = Infinity;
         const consider = (a) => { const d = dist(a, player); if (d < bd) { bd = d; best = a; } };
@@ -4530,7 +4587,7 @@
         // 台詞は その あとの きもち(a.emotion)から えらぶ ので、顔と 台詞が くいちがわない
         const X = world.expr && world.expr.on ? residentExpression() : null;
         let event = null;
-        if (X && lifeFree(a)) {
+        if (X && (lifeFree(a) || a.follow)) {
           event = X.talkEvent({ sleeping: a.behavior === 'sleep', sinceLastTalk: a.talkedAt != null ? world.clock - a.talkedAt : Infinity });
           applyReaction(a, X.reactionFor(event));
         }
@@ -4539,6 +4596,7 @@
         a.behavior = 'idle'; a.act = 'idle'; a.route = null; a.until = 3.5; a.chaseOf = null;
         updateEmotion(a, envNow, world, 0);   // おきた / reaction を いま 反映(dt 0 なので energy は かわらない)
         a.say = talkLine(a); a.sayFor = RULES.bubbleSec; faceTo(a, player.x, player.z);
+        if (event === 'talk') socialEvent(isRelated(a) ? 'greeting' : 'reunion', a, 'conversation');
         return { actor: a, line: a.say, event, emotion: a.emotion, expression: a.expr ? a.expr.expression : null };
       }
       const metCount = () => world.residents.filter((r) => r.met).length;
@@ -4571,6 +4629,7 @@
       const view = () => ({ regionId: world.regionId, world, residents: world.residents, party, player, camera: camFor(camFxOn), rig: camera, camFx, nearest, spot: curSpot, zone: mood.zone || null, mood, env: envNow, frame, lifeDebug, lifeOf });
       return {
         RULES, enterRegion, step, talk, view, hitTest, dist, mapData,
+        startAccompany, endAccompany, get invitation(){return invitation;},
         // いま 立って いる ところが 特殊な たてじくの のりば なら、それを かえす(UI が「のる」を 出す)
         gateHere: () => (curSpot
           ? resolveGate(gatesAt(curSpot.id), { x: player.x, z: player.z, kind: ['vertical', 'sea'] })
@@ -9041,7 +9100,7 @@
       const regionId0 = exprQaOn ? 'forest' : regionOf(state.regionId, 'meguru:start');
       // 表情 QA の あいだは セーブに なにも 書かない(であった・はなした・spot / ちずの きろく。QA の 住民や forest の 発見を のこさない)
       const persistOk = !exprQaOn;
-      const sim = createSimulation({ regionId: regionId0, locality, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId0) : [],
+      const sim = createSimulation({ socialSession, regionId: regionId0, locality, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId0) : [],
         residentExpression: !/[?&]mgexpr=0(?:&|$)/.test(q), forceEmotion: forceM ? forceM[1] : null,
         registry: exprQaOn ? expressionQaRegistry() : undefined });
       let running = true, rafId = null, last = null, frame = 0, banner = null, bannerUntil = 0, lastHint = null;
@@ -9087,7 +9146,14 @@
       container.innerHTML = `
         <div class="mg-header mg-meguru-header"><span id="mgrPlace"></span><span id="mgrCount"></span><span id="mgrFound"></span></div>
         ${exprQaOn ? '<div id="mgrExprQa" style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;padding:4px 6px;font-size:11px;line-height:1.3;background:rgba(255,255,255,.72);border-radius:8px;margin:2px 0;"><span id="mgrExprQaStatus" style="display:block;flex:1 1 100%;white-space:pre-wrap;word-break:break-all;font-family:ui-monospace,monospace;font-size:10px;line-height:1.25;max-height:34vh;overflow:auto;-webkit-overflow-scrolling:touch;"></span></div>' : ''}
-        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><div class="mgr-found hidden" id="mgrFoundToast"><div class="mgr-found-card"><span class="mgr-found-icon" id="mgrFoundIcon"></span><span class="mgr-found-text"><span class="mgr-found-title" id="mgrFoundTitle"></span><span class="mgr-found-sub" id="mgrFoundSub"></span></span></div></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button></div>
+        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><div class="mgr-found hidden" id="mgrFoundToast"><div class="mgr-found-card"><span class="mgr-found-icon" id="mgrFoundIcon"></span><span class="mgr-found-text"><span class="mgr-found-title" id="mgrFoundTitle"></span><span class="mgr-found-sub" id="mgrFoundSub"></span></span></div></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button><button type="button" class="mg-tap-btn hidden" id="mgrAccompany" style="position:absolute;right:8px;top:8px;min-height:44px;z-index:4">いっしょに あるく</button></div>
+        <div id="mgrSocialChoices" class="hidden" style="position:absolute;z-index:12;right:12px;top:70px;max-width:210px;padding:8px;border-radius:12px;background:#f7f5ef;box-shadow:0 2px 12px #0003;display:none;flex-wrap:wrap;gap:4px" aria-label="いっしょに すごす">
+          <button type="button" class="mg-tap-btn" style="min-height:44px" id="mgrSocialWalk">さんぽ</button>
+          <button type="button" class="mg-tap-btn" style="min-height:44px" id="mgrSocialDate">デート</button>
+          <button type="button" class="mg-tap-btn" style="min-height:44px" id="mgrSocialAdventure">ぼうけん</button>
+          <button type="button" class="mg-tap-btn" style="min-height:44px" id="mgrSocialEnd">またね</button>
+          <button type="button" class="mg-tap-btn" style="min-height:44px" id="mgrSocialClose">とじる</button>
+        </div>
         <div class="mg-hint mgr-hint" id="mgrHint">${HINT_DEFAULT}</div>
       `;
       // 右がわは「いま おせば いみの ある こと」だけ。その ばの できごと(はなす /
@@ -9098,6 +9164,23 @@
       const canvas = container.querySelector('#mgrCanvas');
       const wrap = container.querySelector('.mgr-wrap');
       const mapBtn = container.querySelector('#mgrMap');
+      const accompanyBtn=container.querySelector('#mgrAccompany');
+      const socialChoices=container.querySelector('#mgrSocialChoices');
+      let socialChoiceKey=null;
+      const closeSocialChoices=()=>{socialChoices.classList.add('hidden');socialChoices.style.display='none';socialChoiceKey=null;};
+      accompanyBtn.addEventListener('click',()=>{
+        if(trans||corr||mapScreen)return;
+        const a=sim.invitation ? sim.world.residents.find(a=>a.key===sim.invitation.key) : sim.nearest;
+        socialChoiceKey=a?.related&&!a.follow&&sim.party.length<2?a.key:null;
+        socialChoices.classList.remove('hidden');socialChoices.style.display='flex';
+        for(const [id,activity] of [['Walk','walk'],['Date','date'],['Adventure','adventure']])
+          container.querySelector('#mgrSocial'+id).disabled=!socialChoiceKey||(activity==='date'&&a?.kind!=='partner');
+        container.querySelector('#mgrSocialEnd').disabled=!sim.party.length;
+      });
+      for(const [id,activity] of [['Walk','walk'],['Date','date'],['Adventure','adventure']])
+        container.querySelector('#mgrSocial'+id).addEventListener('click',()=>{if(!trans&&!corr&&socialChoiceKey)sim.startAccompany(socialChoiceKey,activity);closeSocialChoices();});
+      container.querySelector('#mgrSocialEnd').addEventListener('click',()=>{sim.endAccompany('player_choice');closeSocialChoices();});
+      container.querySelector('#mgrSocialClose').addEventListener('click',closeSocialChoices);
       // たんさく がめんの たかさ。
       // ヒントと パッドは overlay の したに はりつく(margin-top: auto)ので、
       // canvas を ちぢめても パッドは 上がらない。だから「この overlay が つかえる
@@ -9476,6 +9559,7 @@
       syncDistant();
       // ====== /Phase 4D-2 ======
       function enterWorld(regionId, opts = {}) {
+        closeSocialChoices();
         sim.enterRegion(regionId, { registry: exprQa ? expressionQaRegistry() : buildRegistry(), locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null,
           discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId) : [], at: opts.at || null, heading: opts.heading,
           carry: opts.carry || null });
@@ -9509,6 +9593,8 @@
       };
       function beginTransition(g) {
         if (trans) return;                                   // 二重に はじめない(§33)
+        closeSocialChoices();
+        sim.endAccompany('region_change');
         if (tryCorridor(g)) return;                          // home|forest は あるいて こえる(ほかは この まま) // Phase 4E-2
         if (sim.busy) sim.endTalk();                         // はなしを おえて から こえる(§31)
         const key = `${g.id}:${g.to}`;
@@ -9657,6 +9743,7 @@
         if (!m || m.mode !== 'corridor') return false;
         corridorPredecode(g, 'entry');   // Phase 4E-4A: ちかづく まえに こえた とき(たび の あと すぐ など)も さきに はじめる
         if (sim.busy) sim.endTalk();
+        sim.endAccompany('region_change');
         const key = `${g.id}:${g.to}`;
         // はじめてかは いまの はっけんの きろく(みちの はっけん)と、この セッションで こえたか。あたらしい セーブの key は つくらない
         const stored = typeof S.worldLinks === 'function' ? S.worldLinks() || [] : [];
@@ -10047,6 +10134,9 @@
         setAct(ride ? { kind: 'ride', label: ride.action || 'のる' }
           : sim.nearest ? { kind: 'talk', label: '💬 はなす' } : null);
         const nearest = sim.nearest;
+        const canAccompany=nearest?.related && !nearest.follow && nearest.behavior!=='sleep';
+        accompanyBtn.classList.toggle('hidden',!sim.party.length&&!canAccompany);
+        accompanyBtn.textContent=sim.invitation?'さそいに こたえる':canAccompany&&sim.party.length<2?'いっしょに すごす':'同行';
         // ボタンの なまえだけ かわって「なにが おきるのか」わからない ままに しない。
         // のりばに 立って いる あいだは、gate の verb を そのまま した に 出す
         const hint = ride ? `【${(sim.spot && sim.spot.label) || ride.action}】${ride.verb || ride.action}`
@@ -10340,6 +10430,7 @@
       let mapScreen = null;
       function openMap() {
         if (mapScreen || !running) return;
+        closeSocialChoices();
         mapBtn.classList.remove('mgr-map-new');
         if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
         last = null;
@@ -10354,7 +10445,7 @@
       travelBtn.addEventListener('click', () => { if (trans) return; if (typeof S.openTravel === 'function') S.openTravel(); });
       homeBtn.addEventListener('click', () => stop());
       function stop() {
-        if (!running) return; running = false; if (rafId) cancelAnimationFrame(rafId);
+        if (!running) return; sim.endAccompany('exit'); running = false; if (rafId) cancelAnimationFrame(rafId);
         if (corr) preloadAbort(corr, 'stop'); // Phase 4E-2
         dropCorridorWorld(); // Phase 4E-2
         if (typeof window !== 'undefined' && typeof window.removeEventListener === 'function') window.removeEventListener('resize', onResize);
@@ -10377,7 +10468,7 @@
       return { stop, layoutInfo, foundInfo, quietMark: quietMarkInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, exprQa, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, prepareExpressions, suspendExpressions: () => expressionView?.suspend(), expressionEvents: expressionView?.session, resetExpressions: () => expressionView?.reset(), mapSpotShown, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, applyReaction, syncExpression, residentExpression, EXPRESSION_QA_RESIDENTS, expressionQaRegistry, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
+    return { socialSession, computeMapData, prepareExpressions, suspendExpressions: () => expressionView?.suspend(), expressionEvents: expressionView?.session, resetExpressions: () => expressionView?.reset(), mapSpotShown, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, applyReaction, syncExpression, residentExpression, EXPRESSION_QA_RESIDENTS, expressionQaRegistry, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
       // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
       WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, discoveryNotice, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, sceneDressing3d, nearestPath, streams3d, streamDist3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };

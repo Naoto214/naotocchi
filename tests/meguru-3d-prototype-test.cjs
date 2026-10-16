@@ -10,7 +10,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { harness } = require('./helpers/runtime-harness.cjs');
+const { harness } = require('./helpers/party-geometry-harness.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const arr = (x) => Array.from(x || []);

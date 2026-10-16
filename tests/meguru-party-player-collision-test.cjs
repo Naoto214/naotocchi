@@ -7,7 +7,7 @@
 //   ・ならびは くずれない・はなれすぎない(ならびの 点は player から 行ける ところまで よこに ちぢめる)
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { harness } = require('./helpers/runtime-harness.cjs');
+const { harness } = require('./helpers/party-geometry-harness.cjs');
 const collisionAudit = require('../tools/audit/meguru-collision-audit.cjs');
 
 const arr = (x) => Array.from(x || []);

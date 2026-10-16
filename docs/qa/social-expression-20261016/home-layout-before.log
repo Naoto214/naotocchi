@@ -1,0 +1,22 @@
+PASS chromium-conversation-alone
+PASS chromium-conversation-small
+FAIL chromium-conversation-small-full: Cannot read properties of undefined (reading 'x')
+FAIL chromium-conversation-small-large-text: Cannot read properties of undefined (reading 'x')
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   "chromium-conversation-small-full: Cannot read properties of undefined (reading 'x')",
++   "chromium-conversation-small-large-text: Cannot read properties of undefined (reading 'x')"
++ ]
+- []
+
+    at module.exports (/workspace/scratch/8404e127163a/naotocchi/tests/home-conversation-browser.cjs:347:10)
+    at async /workspace/scratch/8404e127163a/naotocchi/tools/social-home-layout-qa.cjs:10:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Array],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

@@ -1,6 +1,6 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
-const {harness} = require('./helpers/runtime-harness.cjs');
+const {harness} = require('./helpers/present-cast-harness.cjs');
 
 function cast(h) {
   const s = h.api.state();

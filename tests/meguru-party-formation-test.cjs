@@ -9,7 +9,7 @@
 //   ・region でも corridor でも 同じ helper。引き返し・曲がり・段の さかい・着いた とき に とばない / 1 列に もどらない
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { harness } = require('./helpers/runtime-harness.cjs');
+const { harness } = require('./helpers/party-geometry-harness.cjs');
 
 const arr = (x) => Array.from(x || []);
 function setup(n) {
@@ -186,13 +186,13 @@ test('8. start(): 27 にんで home → forest を あるいて 着いた とき
   r.setPlayer(g.spot.x - b.x * 40, g.spot.z - b.z * 40); r.sim.camera.yaw = Math.atan2(b.x, b.z);
   pad.vec = { x: 0, y: -1 };
   let saw = false;
-  for (let i = 0; i < 400; i++) { h.advance(50); const c = r.corridor; if (c) { saw = true; assert.equal(c.party, 27); } else if (saw) break; }
+  for (let i = 0; i < 400; i++) { h.advance(50); const c = r.corridor; if (c) { saw = true; assert.equal(c.party, 0); } else if (saw) break; }
   pad.vec = { x: 0, y: 0 };
   assert.equal(r.world.regionId, 'forest');
-  assert.equal(r.party.length, 27, 'ふえない・へらない');
-  assert.equal(new Set(r.party.map((a) => a.key)).size, 27);
+  assert.equal(r.party.length, 0, '地域移動で自動同行しない');
+  assert.equal(new Set(r.party.map((a) => a.key)).size, 0);
   const rr = r.party.map((a) => rel(r.sim, a));
-  assert.ok(new Set(rr.map((q) => Math.round(q.back / 20))).size >= 3, '着いた とき 段に わかれて いる(1 列に もどらない)');
+  assert.equal(rr.length,0,'関係だけでは隊列を生成しない');
   assert.ok(rr.every((q) => q.back > -25));
   assert.ok(!/formJ|formation/.test(JSON.stringify(s)), 'セーブに ならびは ない');
   r.stop();

@@ -604,6 +604,7 @@ function create3DRenderer(M, o, onLost) {
   renderer.setSize(W, H, false);
   place();
 
+  // Character presentation includes session-only social attention; AI headings stay unchanged.
   // ---- Character 3D Pilot: &char3d=1 の ときだけ module を よむ(よみおわるまでは 立て看板)
   const C3 = o.char3d || { on: false };
   let charMod = null, charPresenter = null, charLoading = false, actorFrame = 0;

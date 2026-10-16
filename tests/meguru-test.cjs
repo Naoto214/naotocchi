@@ -34,8 +34,8 @@ test('every dex entry becomes exactly one inhabitant somewhere; the current pet,
   for (const k of ['companion:shiba', 'companion:owl', 'companion:rabbit_friend', 'companion:punyu', 'partner:forest_bear', 'partner:sea_mermaid']) assert.equal(keys.filter((x) => x === k).length, 1, k);
   assert.equal(new Set(keys).size, keys.length, 'no duplicates');
   // いま つれている なかま・いまの こいびとは「いっしょに あるく」1体
-  const shiba = reg.residents.find((r) => r.key === 'companion:shiba'); assert.equal(shiba.withPlayer, true); assert.equal(shiba.region, 'forest');
-  const mer = reg.residents.find((r) => r.key === 'partner:sea_mermaid'); assert.equal(mer.withPlayer, true);
+  const shiba = reg.residents.find((r) => r.key === 'companion:shiba'); assert.equal(shiba.withPlayer, false); assert.equal(shiba.related, true);
+  const mer = reg.residents.find((r) => r.key === 'partner:sea_mermaid'); assert.equal(mer.withPlayer, false); assert.equal(mer.related, true);
   const bear = reg.residents.find((r) => r.key === 'partner:forest_bear'); assert.equal(bear.withPlayer, false); assert.equal(bear.region, 'forest', 'recorded partners live in their first-encounter region');
   // すがたの すみか: らしい 地域
   assert.equal(reg.residents.find((r) => r.key === 'form:penguin:3').region, 'sea');
@@ -44,7 +44,7 @@ test('every dex entry becomes exactly one inhabitant somewhere; the current pet,
   const placed = M.NORMAL_REGIONS.concat(['star_stop', 'memory_lake']).flatMap((id) => M.buildWorld(id, reg).residents.map((a) => a.key));
   const expected = keys.filter((k) => !reg.residents.find((r) => r.key === k).withPlayer);
   assert.deepEqual(placed.sort(), expected.sort(), 'each inhabitant is placed in exactly one world');
-  assert.equal(M.companionsOf(reg).length, 2, 'two companions walk with the player');
+  assert.equal(M.companionsOf(reg).length, 0, 'relationships do not automatically walk with the player');
 });
 
 test('Naoto never appears before the secret is unlocked, and afterwards waits at the far end of the memory lake', () => {

@@ -222,6 +222,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiCareStatus: require('../../care-status.js'),
     NaotocchiEmotionState: require('../../emotion-state.js'),
     NaotocchiPetExpression: require('../../pet-expression.js'),
+    NaotocchiRelationshipLife: require('../../relationship-life.js'),
     NaotocchiRelationshipExpression: require('../../relationship-expression.js'),
     NaotocchiResidentExpression: require('../../resident-expression.js'),
     NaotocchiExpressionPresentation: require('../../expression-presentation.js'),
@@ -241,6 +242,9 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
   });
   const expose = `
     globalThis.lifecycle = {
+      setPresentCastFixture: () => {homePresentCompanions=()=>state.companions;homePresentPartner=()=>state.partner;homeInitiative=()=>true;},
+      relationshipVisual,
+      homeVisitors: () => ({companions:homePresentCompanions(),partner:homePresentPartner()}),
       getMessage: () => message,
       crownAchievementWeight: typeof crownAchievementWeight === 'function' ? crownAchievementWeight : () => 1,
       // RH-9: 起動時の タイマーは harness が 消す ので、テストから もういちど 始められる ように
