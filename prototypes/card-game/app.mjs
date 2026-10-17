@@ -1,36 +1,117 @@
-import {createGame,actor,act,view,save,restore,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
-const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1';
-let state=null,viewer=null,selected=null,busy=false;
+import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
+import {HotseatSession} from './ui-session.mjs';
+import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,inspectButton,escapeHTML as h} from './ui-presentation.mjs';
+import {HandOrder} from './ui-hand.mjs';
+import {mountHandDrag} from './ui-drag.mjs';
+import {visibleCards} from './ui-context.mjs';
+import {ResultFeedback} from './ui-result-feedback.mjs';
+import {installViewport} from './ui-viewport.mjs';
+installViewport();
+const ORDER_KEY='naotocchi-hand-order-v1';
+let handOrder;try{handOrder=new HandOrder(localStorage.getItem(ORDER_KEY));}catch{handOrder=new HandOrder();}
+const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',session=new HotseatSession({autoAdvance:true});
+let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
+const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');document.body.append(feedbackHost);
+function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
+const feedback=new ResultFeedback({clear:()=>{feedbackHost.replaceChildren();clearResultMotion();},paint:g=>{
+ feedbackHost.innerHTML=resultNoticeMarkup(g);clearResultMotion();
+ for(const r of g.rows){if(r.to==='deck')document.querySelector(`[data-player="${r.seat}"] [data-zone="deck"]`)?.classList.add('result-deck');
+  if(['draw','birth','main','move'].includes(r.kind))for(const c of r.cards)for(const n of document.querySelectorAll('[data-inspect]'))if(n.dataset.inspect===c.id)n.classList.add('result-arrive');
+ }
+}});
+function persistOrder(){try{localStorage.setItem(ORDER_KEY,handOrder.serialize());}catch{message("手札の表示順はこの画面だけで保持します");}}
+function bindOrder(){handOrder.bind(session.save());persistOrder();}
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
-function message(text){$('status').textContent=text;}
-function persist(){try{localStorage.setItem(KEY,save(state));message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}}
-function hide(){if(!state)return;viewer=null;selected=null;$('game').replaceChildren();$('curtain').hidden=state.phase==='finished';$('handoff-title').textContent=`プレイヤー ${actor(state)} に端末を渡してください`;$('hide').hidden=true;if(state.phase==='finished')render();}
-function start(next){state=next;$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;hide();}
 function button(text,handler){const n=el('button',text);n.type='button';n.addEventListener('click',handler);return n;}
-function perform(action,revision,who){if(busy)return;busy=true;try{const next=act(state,who,revision,action.id);state=next;selected=null;persist();if(actor(state)!==viewer||state.phase==='finished')hide();else render();}catch(e){message(e.message);}finally{busy=false;}}
-function render(){
- const v=view(state,viewer),root=$('game');root.replaceChildren();$('hide').hidden=!viewer||!!v.result;
- const top=el('section',undefined,'panel turn');top.append(el('h2',`ROUND ${v.round} / 10 · ${v.turn} のターン`),el('p',v.result?'対戦終了':`${v.actor} の操作 · ${v.phase==='normal'?'通常行動':v.phase==='choice'?'必須選択':v.phase==='trigger'?'誘発能力を選択':'応答・チェーン'}`));root.append(top);
- if(v.result){const result=el('section',undefined,'panel');result.id='result';result.append(el('h2',v.result.winner?`${v.result.winner} の勝利`:'引き分け'),el('p',`${v.result.reason} · A ${v.result.growth.A} / B ${v.result.growth.B}`),button('開始画面へ',()=>{state=null;viewer=null;root.replaceChildren();$('welcome').hidden=false;$('export').hidden=true;}));root.append(result);}
- const boards=el('div',undefined,'boards');
- for(const a of ['A','B']){const p=v.players[a],box=el('section',undefined,'panel');box.dataset.player=a;box.append(el('h2',`PLAYER ${a}${a===viewer?' · あなた':''}`));const metrics=el('p',`成長 ${p.growth} / 時 ${p.time} / 手札 ${p.handCount} / 山札 ${p.deckCount}`,'metrics');box.append(metrics);if(p.stats)box.append(el('p',`ちから ${p.stats.power} · ちえ ${p.stats.wisdom} · 交際 ${p.relationship===null?'—':p.relationship===4?'結婚':p.relationship}`));
- const slots=el('div',undefined,'slots');for(const [label,card] of [['セカイ',p.board.world],['メイン',p.board.main],['こいびと',p.board.partner],...[0,1,2].map(i=>['なかま',p.board.companions[i]]),...[0,1,2].map(i=>['みにつけ',p.board.prepared[i]])]){const slot=el('div',undefined,'slot');slot.append(el('small',label),el('span',card?.name??(label==='メイン'?'たまご':'空き')));if(card){const details=el('details');details.append(el('summary','効果'),el('p',card.text));if(card.target)details.append(el('p',`対象：${card.target}`));slot.append(details);}slots.append(slot);}box.append(slots);const discard=el('details');discard.append(el('summary',`捨て札 ${p.discard.length}枚`),el('p',p.discard.map(c=>c.name).join(' / ')||'なし'));box.append(discard);boards.append(box);}
- root.append(boards);
- if(viewer&&!v.result){const hand=el('section',undefined,'panel');hand.id='hand';hand.append(el('h2',`${viewer} の手札`));const cards=el('div',undefined,'cards');for(const c of v.players[viewer].hand){const b=button('',()=>{selected=selected===c.id?null:c.id;render();});b.className=`card${selected===c.id?' selected':''}`;b.dataset.card=c.id;b.append(el('small',`${TYPE_NAMES[c.type]} · 時 ${c.cost}`),el('strong',c.name),...(c.type==='main'?[el('p',`段階 ${c.stage} · ちから ${c.power} / ちえ ${c.wisdom}`)]:[]),el('p',c.text));cards.append(b);}hand.append(cards);root.append(hand);
- const controls=el('section',undefined,'panel');controls.append(el('h2',v.choice?'必須選択':selected?'選んだカードの行動・対象':'今できる行動'));
- if(v.choice){controls.append(el('p',v.choice.peek?`自分だけ確認：${(Array.isArray(v.choice.peek)?v.choice.peek.map(c=>c.name).join(' / '):v.choice.peek?.name??'なし')}`:v.choice.kind==='scheduled_order'?'先に処理する予約を選んでください':'表示された必須選択を完了してください','notice'));}
- if(selected)controls.append(button('すべての行動を表示',()=>{selected=null;render();}));
- const actions=el('div',undefined,'actions');actions.id='actions';const choices=v.actions.filter(a=>!selected||a.source===selected||a.kind==='choose');for(const action of choices){const b=button(action.label,()=>perform(action,v.revision,v.actor));b.dataset.kind=action.kind;b.dataset.action=action.id;actions.append(b);}if(!choices.length)actions.append(el('p','このカードは今使えません。時・タイミング・対象・配置枠を確認してください。'));controls.append(actions);root.append(controls);}
- const chain=el('section',undefined,'panel chain');chain.append(el('h2',`チェーン ${v.chain.length}`));for(const l of [...v.chain].reverse())chain.append(el('p',`${l.actor}：${l.name}${l.target?' → '+l.target:''}${l.declare?' / '+l.declare:''}`));if(!v.chain.length)chain.append(el('p','チェーンは空です。応答中は双方がパスして次へ進みます。'));root.append(chain);
- const history=el('details',undefined,'panel');history.append(el('summary','公開ログ'));const log=el('ol',undefined,'log');for(const line of v.log)log.append(el('li',line));history.append(log);root.append(history);
+function message(text){$('status').textContent=text;}
+function persist(){try{localStorage.setItem(KEY,session.save());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}}
+function closeDialogs({focus=true}={}){
+ for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();}
+ pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;
 }
-$('new').onclick=()=>{try{const seed=crypto.getRandomValues(new Uint32Array(1))[0];validateDeck(decks.A);validateDeck(decks.B);start(createGame(seed,decks));persist();}catch(e){message(e.message);}};
-$('restore').onclick=()=>{try{const raw=localStorage.getItem(KEY);if(!raw)throw Error('保存された対戦がありません');start(restore(raw));message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
-$('reveal').onclick=()=>{if(!state)return;viewer=actor(state);$('curtain').hidden=true;render();};$('hide').onclick=hide;
-$('export').onclick=()=>{if(!state)return;hide();const blob=new Blob([save(state)],{type:'application/json'}),url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download='naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-$('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const next=restore(await file.text());start(next);persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
-window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
+function showAutomationStop(){
+ feedback.hide();
+ dragCleanup();session.hide();closeDialogs({focus:false});$('curtain').hidden=true;$('hide').hidden=true;
+ $('game').innerHTML='<section class="panel" role="alert"><h2>自動進行を停止しました</h2><p>最後に確定した状態を保持しています。対戦を保存し、復帰または調査に利用できます。</p><button type="button" data-menu>保存メニュー</button></section>';
+}
+function hide(){
+ feedback.hide();
+ if(!session.active)return;
+ if(session.automationStop){showAutomationStop();return;}
+ dragCleanup();session.hide();returnWorkflow=false;selected=null;reordering=false;returnDetail=null;closeDialogs({focus:false});$('game').replaceChildren();
+ $('curtain').hidden=session.finished;$('handoff-title').textContent=handoffMessage(session.projection);$('hide').hidden=true;
+ if(session.finished)render();else $('reveal').focus();
+}
+function start(next){session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();}
+function render(){
+ if(session.automationStop){showAutomationStop();return;}
+ const scrolls=[...document.querySelectorAll('.board-shell')].map(n=>n.scrollTop);dragCleanup();const v=session.projection,hand=session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):null;
+ $('game').innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});$('hide').hidden=!session.viewer||!!v.result;if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
+ document.querySelectorAll('.board-shell').forEach((n,i)=>{n.scrollTop=scrolls[i]??0;});
+ dragCleanup=mountHandDrag(document.querySelector('#hand .cards'),{onTap:id=>inspect(id),onReorder:ids=>{if(!session.viewer)return;const scroll=document.querySelector('#hand .cards').scrollLeft;handOrder.reorder(session.viewer,session.projection.players[session.viewer].hand,ids);persistOrder();render();document.querySelector('#hand .cards').scrollLeft=scroll;},onAnnounce:message});
+}
+function applyHandVisibility(){const panel=$('hand');if(!panel)return;const open=handOpen??(window.innerHeight>=400||window.innerWidth>window.innerHeight);panel.classList.toggle('hand-collapsed',!open);panel.querySelector('[data-hand-toggle]').setAttribute('aria-expanded',String(open));}
+function openWorkflow(){if(!session.viewer||session.finished)return;closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML=workflowMarkup(session.projection,session.viewer);d.showModal();d.querySelector('[data-close]').focus();}
+function continuePriority(){const panel=$('operation-panel');if(panel){panel.setAttribute('tabindex','-1');panel.focus({preventScroll:true});}}
+function highlight(action=null){
+ document.querySelectorAll('.is-selected,.is-destination,.is-target').forEach(n=>n.classList.remove('is-selected','is-destination','is-target'));
+ if(!session.viewer)return;
+ const v=session.projection,actions=action?[action]:v.actions.filter(a=>a.source===selected||a.choiceCard===selected);
+ document.querySelectorAll('[data-inspect]').forEach(n=>{n.classList.toggle('is-eligible',v.actions.some(a=>(v.choice?a.choiceCard:a.source)===n.dataset.inspect));if(n.dataset.inspect===selected)n.classList.add('is-selected');if(actions.some(a=>a.targetCard===n.dataset.inspect))n.classList.add('is-target');});
+ for(const a of actions)if(a.destination)document.querySelector(`[data-player="${a.destination.seat}"] [data-slot="${a.destination.index}"]`)?.classList.add('is-destination');
+}
+function inspect(id,{catalog=false,origin=null}={}){
+ const v=session.active?session.projection:null,c=catalog?CARDS[id]:visibleCards(v).find(c=>c.id===id);
+ if(!c||(!catalog&&!canInspectCard(v,session.viewer,c)))return;closeDialogs({focus:false});dialogOrigin=origin;
+ if(!catalog){selected=c.id;highlight();}
+ const hand=!catalog&&session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):[],index=hand.findIndex(x=>x.id===c.id);
+ const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');d.innerHTML=detailMarkup(c,{v,viewer:session.viewer,catalog,handPosition:index<0?null:{index,total:hand.length}});
 
+ d.showModal();d.querySelector('[data-close]').focus();
+}
+function perform(action,revision,who){
+ if(busy)return;busy=true;
+ try{const handoff=session.commit(action.id,revision,who);closeDialogs({focus:false});persist();returnDetail=null;if(handoff)hide();else{render();continuePriority();}}
+ catch(e){message(e.message);closeDialogs();}finally{busy=false;}
+}
+function requestAction(id){
+ const v=session.projection,a=v?.actions.find(a=>a.id===id);if(!a||!session.viewer)return;
+ let prepared;try{prepared=session.prepare(id);}catch(e){message(e.message);return;}
+ if(!prepared.required){perform(a,v.revision,v.actor);return;}
+ returnWorkflow=$('card-dialog').open&&$('card-dialog').classList.contains('workflow-dialog');returnDetail=$('card-dialog').open&&!returnWorkflow?selected:null;const origin=dialogOrigin??document.activeElement;closeDialogs({focus:false});dialogOrigin=origin;pending=prepared;highlight(prepared.action);
+ const d=$('confirm-dialog');d.innerHTML=confirmationMarkup(prepared);d.showModal();d.querySelector('[data-cancel]').focus();
+}
+function showDiscard(seat,origin){
+ const v=session.projection,p=v.players[seat];closeDialogs({focus:false});dialogOrigin=origin;
+ const d=$('card-dialog');d.classList.remove('card-detail','workflow-dialog');d.innerHTML=`<button type="button" class="dialog-close" data-close>閉じる ×</button><h2>${seat} の捨て札 · ${p.discard.length}枚</h2><div class="discard-cards">${p.discard.map(c=>inspectButton(c,'card-tap',v,session.viewer)).join('')||'<p>捨て札はありません。</p>'}</div>`;d.showModal();d.querySelector('[data-close]').focus();
+}
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b||b.disabled)return;
+ if(b.hasAttribute('data-close')||b.hasAttribute('data-cancel')){const back=b.hasAttribute('data-cancel')?returnDetail:null;const flow=b.hasAttribute('data-cancel')&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();return;}
+ if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();return;}
+ if(b.hasAttribute('data-workflow')){openWorkflow();return;}
+ if(b.hasAttribute('data-hand-toggle')){handOpen=$('hand').classList.contains('hand-collapsed');applyHandVisibility();return;}
+ if(b.hasAttribute('data-menu')){closeDialogs({focus:false});$('menu-dialog').showModal();return;}
+ if(b.hasAttribute('data-reorder')){reordering=!reordering;handOpen=true;render();document.querySelector('[data-reorder]')?.focus();return;}
+ if(b.hasAttribute('data-move')){
+  if(!session.viewer||busy)return;const v=session.projection,id=b.dataset.handId,direction=Number(b.dataset.move),detail=$('card-dialog').open,scroll=document.querySelector('#hand .cards')?.scrollLeft??0;
+  handOrder.move(session.viewer,v.players[session.viewer].hand,id,direction);selected=id;persistOrder();render();
+  if(detail){inspect(id);const buttons=[...$('card-dialog').querySelectorAll('[data-move]')];(buttons.find(n=>Number(n.dataset.move)===direction&&!n.disabled)??buttons.find(n=>!n.disabled)??$('card-dialog').querySelector('[data-close]'))?.focus();}
+  else{const strip=document.querySelector('#hand .cards');strip.scrollLeft=scroll;const entry=[...strip.querySelectorAll('[data-hand-entry]')].find(n=>n.dataset.handEntry===id);entry?.scrollIntoView({block:'nearest',inline:'nearest'});const controls=[...entry.querySelectorAll('[data-move]')];(controls.find(n=>Number(n.dataset.move)===direction&&!n.disabled)??controls.find(n=>!n.disabled))?.focus({preventScroll:true});}return;
+ }
+ if(b.hasAttribute('data-confirm')){const p=pending;if(p)perform(p.action,p.revision,p.who);return;}
+ if(b.dataset.action){requestAction(b.dataset.action);return;}
+ if(b.dataset.inspect){inspect(b.dataset.inspect,{catalog:b.hasAttribute('data-catalog'),origin:b});return;}
+ if(b.dataset.zone==='discard'){showDiscard(b.dataset.seat,b);return;}
+ if(b.hasAttribute('data-home')){feedback.reset();session.clear();closeDialogs();$('game').replaceChildren();$('welcome').hidden=false;$('game').hidden=true;$('export').hidden=true;document.body.classList.remove('playing');renderDeck();$('new').focus();}
+});
+for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});
+$('new').onclick=()=>{try{const seed=crypto.getRandomValues(new Uint32Array(1))[0];validateDeck(decks.A);validateDeck(decks.B);start(createGame(seed,decks));persist();}catch(e){message(e.message);}};
+$('restore').onclick=()=>{try{const raw=localStorage.getItem(KEY);if(!raw)throw Error('保存された対戦がありません');session.restore(raw);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
+$('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
+$('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([session.save()],{type:'application/json'})),a=el('a');a.href=url;a.download='naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');session.restore(await file.text());bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
+window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 const DECK_KEY='naotocchi-deck-drafts-v1';
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
 try{const saved=JSON.parse(localStorage.getItem(DECK_KEY));if(saved&&['A','B'].every(a=>Array.isArray(saved[a])&&saved[a].length<=40&&saved[a].every(id=>typeof id==='string'&&CARDS[id]))){decks={A:[...saved.A],B:[...saved.B]};}}catch{}
@@ -44,7 +125,7 @@ function renderDeck(){
  const query=$('card-search').value.trim().toLowerCase(),type=$('card-type').value;
  const entries=Object.values(CARDS).filter(c=>(!type||c.type===type)&&(!query||`${c.id} ${c.name} ${c.text}`.toLowerCase().includes(query)));
  $('catalog-count').textContent=`${entries.length} / ${Object.keys(CARDS).length}種類を表示`;
- const catalog=$('catalog-list');catalog.replaceChildren();for(const c of entries){const ok=supported(c.id),row=el('article',undefined,'catalog-card');row.dataset.cardId=c.id;row.append(el('strong',c.name),el('small',`${c.id} · ${TYPE_NAMES[c.type]} · 時 ${c.cost} · ${c.rare?'レア：上限1枚':'通常：上限3枚'} · ${ok?'対応済み':'未対応（閲覧のみ）'}`));if(c.type==='main')row.append(el('p',`段階 ${c.stage} · ちから ${c.power} / ちえ ${c.wisdom}`));const detail=el('details');detail.append(el('summary','カード効果'),el('p',c.text));row.append(detail);const add=button(`＋ ${seat}に追加 (${counts[c.id]??0}/${c.rare?1:3})`,()=>{deck.push(c.id);saveDraft();});add.disabled=!ok||deck.length>=40||(counts[c.id]??0)>=(c.rare?1:3);add.dataset.add=c.id;row.append(add);catalog.append(row);}
+ const catalog=$('catalog-list');catalog.replaceChildren();for(const c of entries){const ok=supported(c.id),row=el('article',undefined,'catalog-card');row.dataset.cardId=c.id;const preview=button('',()=>inspect(c.id,{catalog:true,origin:preview}));preview.className='card-tap catalog-preview';preview.setAttribute('aria-label',c.name+'を拡大');preview.innerHTML=cardMarkup(c,{compact:true});row.append(preview);row.append(el('strong',c.name),el('small',`${c.id} · ${TYPE_NAMES[c.type]} · 時 ${c.cost} · ${c.rare?'レア：上限1枚':'通常：上限3枚'} · ${ok?'対応済み':'未対応（閲覧のみ）'}`));if(c.type==='main')row.append(el('p',`段階 ${c.stage} · ちから ${c.power} / ちえ ${c.wisdom}`));const detail=el('details');detail.append(el('summary','カード効果'),el('p',c.text));row.append(detail);const add=button(`＋ ${seat}に追加 (${counts[c.id]??0}/${c.rare?1:3})`,()=>{deck.push(c.id);saveDraft();});add.disabled=!ok||deck.length>=40||(counts[c.id]??0)>=(c.rare?1:3);add.dataset.add=c.id;row.append(add);catalog.append(row);}
 }
 $('coverage').textContent=`全${Object.keys(CARDS).length}種類を収録・実行対応${Object.keys(CARDS).filter(supported).length}種類。`;
 for(const [id,name] of Object.entries(TYPE_NAMES)){const option=el('option',name);option.value=id;$('card-type').append(option);}
