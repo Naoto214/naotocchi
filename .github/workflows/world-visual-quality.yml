@@ -126,6 +126,7 @@ jobs:
           cp docs/qa/social-expression-20261016/producer-events.json "$QA_OUT/producer-events.json"
           node tools/character-3d/expression-complete-qa.cjs
           node tools/character-3d/social-expression-qa.cjs
+          cp docs/qa/social-expression-20261016/direction-*.png docs/qa/social-expression-20261016/direction-browser.json "$QA_OUT/"
           node tools/character-3d/expression-load-qa.cjs
           cp docs/qa/expression-complete-20261016/load-browser.json "$QA_OUT/load-browser.json"
       - uses: actions/upload-artifact@v4

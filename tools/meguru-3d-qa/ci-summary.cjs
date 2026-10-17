@@ -21,7 +21,11 @@ function summarize(kind, results) {
       if (kind === 'smoke') {
         for (const key of ['entry','afterWalk','atSpot']) expect(r[key]?.is3D === true && !r[key]?.failed, id + ': 3D inactive at ' + key);
         try { require('./cast-fixture.cjs').validateNormal(r.normal,27); } catch(e) { issues.push(id+': normal startup: '+e.message); }
-        expect(r.normal?.is3D===true && !r.normal?.failed && r.normal?.playerVisible?.ok===true, id+': normal rendering');
+        const observation=r.normalObservation;
+        expect(Number.isFinite(observation?.session?.before) && observation.session.after>observation.session.before,id+': inactive live social session');
+        expect(Array.isArray(observation?.rendered) && Array.isArray(observation?.expectedKinds) && observation.rendered.length===observation.expectedKinds.length && observation.expectedKinds.every(k=>observation.rendered.some(a=>a.kind===k && a.live && a.holderAttached && a.visible && a.party===0)),id+': normal resident rendering');
+        expect(!r.normal?.residentKeys?.length || observation?.rendered?.length>0,id+': no normal resident observations');
+        expect(r.normal?.is3D===true && !r.normal?.failed && r.normal?.playerVisible?.ok===true && r.normal.playerVisible.mode==='3d', id+': normal rendering');
         expect(r.fixture?.explicit===true && r.fixture?.count===27 && r.fixture?.saveUnchanged===true && new Set(r.fixture?.keys).size===27, id+': explicit load fixture');
         for(const key of ['entry','afterWalk','atSpot']) {
           const sample=r[key];
@@ -39,6 +43,7 @@ function summarize(kind, results) {
       } else throw new Error('Unknown audit kind: ' + kind);
     }
   }
+  if(kind==='smoke')for(const actorKind of ['form','companion','partner'])expect(entries.some(([,r])=>r.normalObservation?.rendered?.some(a=>a.kind===actorKind)), 'normal role coverage: '+actorKind);
   return { kind, coverage: entries.length, issues, samples, hidden, partial, maxPartyObstacleOverlap, caveat: 'ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration' };
 }
 module.exports = { summarize };

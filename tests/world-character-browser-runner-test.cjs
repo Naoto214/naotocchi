@@ -52,10 +52,10 @@ test('smoke gate requires separate normal startup and nonempty explicit rendered
   const {summarize}=require('../tools/meguru-3d-qa/ci-summary.cjs');
   const keys=Array.from({length:27},(_,i)=>'actor:'+i);
   const sample={is3D:true,failed:false,party:27,castKeys:keys,liveCast:keys,playerVisible:{ok:true,mode:'3d'}};
-  const row={normal:{...sample,party:0,related:keys.map(key=>({key,withPlayer:false})),residentKeys:['actor:0'],expectedResidentKeys:['actor:0'],socialAvailable:true},fixture:{explicit:true,count:27,keys,saveUnchanged:true},entry:sample,afterWalk:sample,atSpot:sample,pen:{n:30,party:0,player:0},errors:[],consoleErrors:[],fallbackWarnings:[]};
+  const row={normalObservation:{session:{before:0,after:1},expectedKinds:['form','companion','partner'],rendered:['form','companion','partner'].map(kind=>({kind,live:true,holderAttached:true,visible:true,party:0}))},normal:{...sample,party:0,related:keys.map(key=>({key,withPlayer:false})),residentKeys:['actor:0'],expectedResidentKeys:['actor:0'],socialAvailable:true},fixture:{explicit:true,count:27,keys,saveUnchanged:true},entry:sample,afterWalk:sample,atSpot:sample,pen:{n:30,party:0,player:0},errors:[],consoleErrors:[],fallbackWarnings:[]};
   const results=Object.fromEntries(REGIONS.map(id=>[id,structuredClone(row)]));
   assert.deepEqual(summarize('smoke',results).issues,[]);
-  for(const mutate of [r=>delete r.normal,r=>r.normal.party=27,r=>r.fixture.explicit=false,r=>r.entry.liveCast.pop(),r=>r.atSpot.party=0,r=>r.pen.n=0,r=>r.entry.playerVisible.ok=false]){
+  for(const mutate of [r=>delete r.normal,r=>r.normalObservation.session.after=0,r=>r.normalObservation.rendered.pop(),r=>r.normal.party=27,r=>r.fixture.explicit=false,r=>r.entry.liveCast.pop(),r=>r.atSpot.party=0,r=>r.pen.n=0,r=>r.entry.playerVisible.ok=false]){
     const bad=structuredClone(results);mutate(bad.home);assert.ok(summarize('smoke',bad).issues.length>0);
   }
 });

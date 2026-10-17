@@ -17,7 +17,7 @@ function normalState() {
   const related=registry.residents.filter(a=>a.related);
   return {party:r.party.length,related:related.map(a=>({key:a.key,withPlayer:a.withPlayer,region:a.region})),
     residentKeys:r.world.residents.map(a=>a.key),
-    expectedResidentKeys:registry.byRegion(r.world.regionId).filter(a=>!a.withPlayer).map(a=>a.key),
+    expectedResidentKeys:registry.byRegion(r.world.regionId).filter(a=>!a.withPlayer).map(a=>a.key).concat(registry.naoto?.region===r.world.regionId?[registry.naoto.key]:[]),
     socialAvailable:typeof globalThis.NaotocchiRelationshipLife?.createSession==='function'&&typeof r.sim.startAccompany==='function'&&typeof r.sim.endAccompany==='function'};
 }
 function validateNormal(s, expectedRelated) {
@@ -26,8 +26,34 @@ function validateNormal(s, expectedRelated) {
   assert.equal(s.related.length,expectedRelated,'all saved relationships registered');
   assert.ok(s.related.every(a=>a.withPlayer===false),'relationships remain free living');
   assert.equal(new Set(s.residentKeys).size,s.residentKeys.length,'no duplicated residents');
-  // buildWorld may select resident populations; each actual resident must be from this region.
-  assert.ok(s.residentKeys.every(k=>s.expectedResidentKeys.includes(k)),'resident belongs to normal regional registry');
+  assert.deepEqual([...s.residentKeys].sort(),[...s.expectedResidentKeys].sort(),'every regional resident is present');
   assert.ok(!s.expectedResidentKeys.length || s.residentKeys.length>0,'populated region has actual residents');
 }
 module.exports={placeCast,normalState,validateNormal};
+
+// Capture the module actually installed by script.js, not a second test session.
+function installModuleProbe() {
+  Object.defineProperty(globalThis,'installNaotocchiMeguru',{configurable:true,set(fn){
+    Object.defineProperty(globalThis,'installNaotocchiMeguru',{configurable:true,writable:true,value:function(...args){
+      const m=fn(...args);if(!globalThis.__qaLiveMeguru)globalThis.__qaLiveMeguru=m;return m;
+    }});
+  }});
+}
+async function observeNormal(page) {
+  const before=await page.evaluate(()=>__qaLiveMeguru.socialSession.now);
+  await page.waitForFunction(t=>__qaLiveMeguru.socialSession.now>t,before,{timeout:30000});
+  const session=await page.evaluate(t=>({before:t,after:__qaLiveMeguru.socialSession.now}),before);
+  const original=await page.evaluate(()=>{const r=__meguruRun;return {x:r.player.x,z:r.player.z,yaw:r.sim.camera.yaw,motion:r.sim.cameraMotion};});
+  const targets=await page.evaluate(()=>{const seen=new Set();return __meguruRun.world.residents.filter(a=>{if(seen.has(a.kind))return false;seen.add(a.kind);return true;}).map(a=>({key:a.key,kind:a.kind}));});
+  const rendered=[];
+  try {
+    for(const target of targets){
+      await page.evaluate(key=>{const r=__meguruRun,a=r.world.residents.find(a=>a.key===key);r.sim.setCameraMotion(false);r.setPlayer(a.x,a.z-80);r.sim.camera.yaw=0;},target.key);
+      await page.waitForFunction(key=>{const r=__meguruRun,a=r.world.residents.find(a=>a.key===key),p=r.renderer.char3dPresenter,i=p?.instanceOf(a);return r.party.length===0&&a&&!a.follow&&p.has(a)&&i.holder.parent&&i.holder.visible;},target.key,{timeout:60000});
+      rendered.push(await page.evaluate(key=>{const r=__meguruRun,a=r.world.residents.find(a=>a.key===key),i=r.renderer.char3dPresenter.instanceOf(a);return {key:a.key,kind:a.kind,live:true,holderAttached:!!i.holder.parent,visible:i.holder.visible,party:r.party.length};},target.key));
+    }
+  } finally {await page.evaluate(p=>{const r=__meguruRun;r.setPlayer(p.x,p.z);r.sim.camera.yaw=p.yaw;r.sim.setCameraMotion(p.motion);},original);}
+  return {session,expectedKinds:targets.map(a=>a.kind),rendered};
+}
+module.exports.installModuleProbe=installModuleProbe;
+module.exports.observeNormal=observeNormal;
