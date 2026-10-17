@@ -326,3 +326,42 @@ Both runs produce **identical saved command strings and final states**. These ar
 - **No updated browser rendering or real iPhone Safari/touch verification**: managed Sites has no available control-browser. The Sites skill requires skipping browser QA in that situation; no substitute browser/server was started. Node behavior/markup tests do not establish visual or touch correctness.
 
 Only PR384 and the existing owner-private UI trial are updated. PR259/381/384 stay Draft/open/unmerged; main is not merged. Deployment identifiers are recorded in the PR after publication.
+
+## iPhone QA round 7 — actual effect results (2026-10-17)
+
+### Starting remote and implementation
+
+Fresh remote confirmation: PR384 HEAD `453cd5089ba4d141bb7a683105d40fc739c44ea0`, tree `b9c5146c268c2bb63d285c7bd0e38048c8e7edf2`; PR381 HEAD `3a987044513fdb6d5e69b52b8af40add5a45ccd4`, tree `e86f089e6778061d7acd39492e96286656455702`; PR259 HEAD `0a9df8f09b5ad657730f29d14e2d357241dace8c`, tree `78677b98fdc229c7acf10e9112ca9744ae0fa7ba`. All Draft/open/unmerged.
+
+The previous UI explained the active effect and next decision, but did not retain resolved movement/numeric outcomes for presentation. The new `ui-results.mjs` is a read-only journal of accepted command boundaries. Manual actions and each accepted automatic pass feed it through the session; the controller's only addition is a nonfatal presentation observer after accepting a transition. No engine/effect/rule/legal-candidate/state/save schema or Python changes.
+
+- Compare actual physical locations before/after: deck→hand additions, returns to deck, discard, activation, main/field placement and movement. Birth/time-skip/transform wording is taken from actual emitted events. Deck reordering is described without exposing its order.
+- Compare actual projected time, growth, power, wisdom and relationship values, including zero and negative deltas. When complete growth history is present, reconstruct and verify each intermediate amount against the final state; e.g.20→25→30. Other numbers are explicitly command-boundary differences.
+- Preserve the actual public resolution log order. Multiple effects in one atomic command share a result group; label their aggregate outcome instead of inventing per-effect attribution or invisible intermediate card movements. New continuous-effect/reservation state, public reveals, prevention/replacement and attachment messages also appear.
+- Consumed negated links are reported from newly appended `history.kind=negated`, even when the link disappears before the command returns. No claim of a prevented loss being applied.
+- Initial creation has no pre-constructor event snapshot. Its initial cards are honestly shown as “対戦開始時点／開始時の手札”, including the already completed opening draw, rather than inventing separate deal/draw events. Subsequent actual deck→hand changes identify the exact added cards. Search additions use “手札に追加（山札から）”, not an unsupported claim that every addition is a normal draw.
+
+### Private information, notices and history
+
+- Build separate public/A/B result projections. A hidden destination has no card identity/name/art in other seats' result rows; public destinations retain their public identity. Actual public engine logs remain public. No private card metadata is passed to the rendered projection while the viewer is null.
+- Small noninteractive notices show result text and up to3 card thumbnails per row, with brief movement/arrival/deck emphasis. No confirmation buttons, game timers or input lock. New human actions supersede outdated transient notices; their complete records remain in history. Multiple results from one human command's automatic continuation retain their order.
+- Notices last1.6–3.6seconds depending on row count. Animations use short transform/opacity effects and respect `prefers-reduced-motion`. No new constant large panel; reuse the existing chain/history area for up to40 recent result groups, with full rows and public resolution trace. Finished games expose public result history.
+- Handoff, blur, background/pagehide and export clear the transient queue/DOM. Discarded queued notices are consumed; a generation ticket prevents old callbacks resurrecting them. The next operator receives only that operator's projected results after reveal.
+- Save data remains exactly the official command replay. Restore rebuilds the journal, initially conceals private cards and treats old records as history-only. Newly advanced results after restore can notify normally. No stale-action result is recorded if the formal engine command is rejected.
+
+### Verification
+
+**237 passed /0 failed**, including16 new tests. Command:
+`QA7_TRACE=prototypes/card-game/evidence/iphone-round7-results.json node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`
+
+The new tests cover opening snapshot, egg return, exact birth draw identity, time/growth/main/stats, LIFO resolution order, replay/restore, B draw concealment/reveal, noninteractive art notices/history, consumed-link negation, prevention, intermediate growth, exact negative stat changes, time-skip/discard and read-only capture. Queue tests cover order, repeated render, concealment, stale callbacks, restored history and new-action supersession. Existing full452, R10 completion, automatic-pass counts, saves/private information and duplicate-command regressions remain passing.
+
+`evidence/iphone-round7-results.json` records real seed4 fixture results at A's post-birth normal phase, the concealed handoff and B's first start. Nine automatic passes occur through B's start, exactly as the previous controller. The QA6 comparison through B normal still passes (11 manual response passes→0, handoffs11→1; identical formal command string/state). The JSON is synthetic test data, not a user's save.
+
+`evidence/iphone-round7-tests.log` contains the full selected-suite output. The full catalog-regeneration audit-dependency test remains excluded as in previous rounds; existing source/hash checks run. Syntax checks and `git diff --check` pass.
+
+Independent review found two P2s during development (consumed negation missing; cleared notices replaying). Both were reproduced with failing regressions, fixed, and independently rechecked. No remaining P1/P2 findings. Reviewer also checked numeric clamping to zero against actual engine stats.
+
+**Browser rendering/iPhone Safari/touch remains user QA.** Managed Sites has no available control-browser; its skill requires skipping browser QA in this environment. No substitute browser/server was started. Node queue/markup/state tests are not a visual or device-performance guarantee. Extremely fast play can supersede an unfinished notice; full recent results remain in history. Intra-command card transitions not recorded by the engine are not fabricated; the displayed boundary differences and public event order are the supported evidence.
+
+All452 definitions/effects, canonical docs, Python and fixed400 assets are unchanged. PR259/381/384 remain Draft/open/unmerged and main is not merged. Only PR384 and the same owner-private UI trial are updated. Publication identifiers are recorded in PR384 after deployment.

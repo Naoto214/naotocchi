@@ -17,7 +17,7 @@ function inventory(s,enumerate){
  return actions;
 }
 function entry(s,next){return {revision:next.revision,actor:actor(s),turn:s.turn,window:s.window,chainBefore:s.chain.length,chainAfter:next.chain.length};}
-export function advanceResponses(state,{limit=64,enumerate=legalActions,transition=act}={}){
+export function advanceResponses(state,{limit=64,enumerate=legalActions,transition=act,onTransition=()=>{}}={}){
  let current=state;const steps=[],seen=new Set([semantic(state)]);
  const stop=(reason,halted=false)=>({state:current,steps,reason,halted});
  if(!Number.isInteger(limit)||limit<1||limit>256)return stop('limit',true);
@@ -35,7 +35,9 @@ export function advanceResponses(state,{limit=64,enumerate=legalActions,transiti
    validate(next);
    if(next.revision!==current.revision+1||next.commands.length!==current.commands.length+1||next.commands.at(-1)!==actions[0].id)throw Error('Invalid transition');
    const key=semantic(next);if(seen.has(key))return stop('cycle',true);
-   seen.add(key);steps.push(entry(current,next));current=next;
+   seen.add(key);steps.push(entry(current,next));const previous=current;current=next;
+   // Presentation observers cannot roll back or fail an accepted rule transition.
+   try{onTransition(previous,current);}catch{}
   }catch{return stop('error',true);}
  }
 }
