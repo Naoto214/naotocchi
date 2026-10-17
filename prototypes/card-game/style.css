@@ -43,3 +43,14 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 }
 @media(orientation:portrait) and (max-height:550px){.battle-area{grid-template-rows:146px minmax(72px,1fr) 60px}.hand-panel:not(.hand-collapsed) .cards{height:66px}.hand-entry{width:40px;flex-basis:40px}.hand-card{width:40px;height:60px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.drag-ghost{transform:translate(-50%,-65%)}}
+
+/* Engine-projected response candidates only; other cards remain visibly present. */
+.response-unavailable{opacity:.32;filter:grayscale(.75);cursor:default}
+.response-options{display:flex;gap:6px;overflow-x:auto;padding:4px 8px;max-width:100%;align-items:center}
+.response-options button{flex:0 0 auto;font-size:.8rem;padding:6px 10px;min-height:44px}
+@media(orientation:portrait){
+ .battle-area:has(.response-options){grid-template-rows:146px minmax(72px,1fr) 108px}
+ #operation-panel:has(.response-options){height:108px;max-height:108px}
+ #operation-panel:has(.response-options) .operation-notice{height:56px}
+ .response-options{padding:0 2px;min-height:44px}
+}

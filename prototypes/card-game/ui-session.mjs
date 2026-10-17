@@ -1,17 +1,24 @@
 // UI session boundary. Game legality, revisions, replay and saving stay in engine.mjs.
 import {actor,act,view,save,restore,legalActions} from './engine.mjs';
+import {advanceResponses,responsePassLog} from './auto-progress.mjs';
 import {needsConfirmation,passLabel} from './ui-presentation.mjs';
 import {projectOperation,visibleCards} from './ui-context.mjs';
 export class HotseatSession {
  #state=null;
+ #automatic=false;
+ #autoLog=[];
+ automationStop=null;
+ constructor({autoAdvance=false}={}){this.#automatic=autoAdvance;}
+ #advance(){if(!this.#automatic)return;const r=advanceResponses(this.#state);this.#state=r.state;this.#autoLog.push(...r.steps);this.automationStop=r.halted?r.reason:null;}
  viewer=null;
- start(state){this.#state=state;this.viewer=null;}
+ start(state){this.#state=state;this.viewer=null;this.#autoLog=[];this.automationStop=null;this.#advance();}
  get active(){return Boolean(this.#state);}
  get actor(){return this.#state?actor(this.#state):null;}
  get finished(){return this.#state?.phase==='finished';}
  get projection(){
   if(!this.#state)return null;
   const v=view(this.#state,this.viewer),draft=this.#state.activationDraft;
+  v.autoLog=[...this.#autoLog];v.autoEnabled=this.#automatic;
   if(this.viewer&&this.viewer===v.actor){
    const cards=visibleCards(v).filter(c=>!c.hidden);
    const safeIds=new Set(cards.map(c=>c.id)),raw=legalActions(this.#state),b=v.players[this.viewer].board;
@@ -38,7 +45,7 @@ export class HotseatSession {
  }
  prepare(actionId){
   const v=this.projection,index=v?.actions.findIndex(a=>a.id===actionId)??-1;
-  if(index<0||!this.viewer)throw Error('現在選択できない行動です');
+  if(index<0||!this.viewer||this.automationStop)throw Error('現在選択できない行動です');
   const action=v.actions[index],raw=legalActions(this.#state)[index];
   const draft=this.#state.activationDraft;
   // A read-only engine transition tells us whether a pick auto-commits. No duplicated selection rules.
@@ -53,15 +60,16 @@ export class HotseatSession {
    required:startsSelection?false:selecting?completes:paidTime>0||Boolean(raw.costCard)||needsConfirmation(action)};
  }
  hide(){this.viewer=null;}
- reveal(){if(this.#state)this.viewer=actor(this.#state);}
+ reveal(){if(this.#state&&!this.automationStop)this.viewer=actor(this.#state);}
  commit(actionId,revision,who){
-  if(!this.#state||who!==this.viewer)throw Error('端末を受け取ってから操作してください');
+  if(!this.#state||who!==this.viewer||this.automationStop)throw Error('端末を受け取ってから操作してください');
   this.#state=act(this.#state,who,revision,actionId);
-  const handoff=actor(this.#state)!==this.viewer||this.finished;
+  this.#advance();
+  const handoff=actor(this.#state)!==this.viewer||this.finished||Boolean(this.automationStop);
   if(handoff)this.hide();
   return handoff;
  }
  save(){return save(this.#state);}
- restore(raw){this.start(restore(raw));}
- clear(){this.#state=null;this.viewer=null;}
+ restore(raw){const state=restore(raw),log=this.#automatic?responsePassLog(state):[];this.start(state);this.#autoLog=[...log,...this.#autoLog];}
+ clear(){this.#state=null;this.viewer=null;this.#autoLog=[];this.automationStop=null;}
 }

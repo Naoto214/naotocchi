@@ -1,6 +1,6 @@
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
-import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,escapeHTML as h} from './ui-presentation.mjs';
+import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,canInspectCard,inspectButton,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
@@ -8,7 +8,7 @@ import {installViewport} from './ui-viewport.mjs';
 installViewport();
 const ORDER_KEY='naotocchi-hand-order-v1';
 let handOrder;try{handOrder=new HandOrder(localStorage.getItem(ORDER_KEY));}catch{handOrder=new HandOrder();}
-const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',session=new HotseatSession();
+const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',session=new HotseatSession({autoAdvance:true});
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
 function persistOrder(){try{localStorage.setItem(ORDER_KEY,handOrder.serialize());}catch{message("手札の表示順はこの画面だけで保持します");}}
 function bindOrder(){handOrder.bind(session.save());persistOrder();}
@@ -20,14 +20,20 @@ function closeDialogs({focus=true}={}){
  for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();}
  pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;
 }
+function showAutomationStop(){
+ dragCleanup();session.hide();closeDialogs({focus:false});$('curtain').hidden=true;$('hide').hidden=true;
+ $('game').innerHTML='<section class="panel" role="alert"><h2>自動進行を停止しました</h2><p>最後に確定した状態を保持しています。対戦を保存し、復帰または調査に利用できます。</p><button type="button" data-menu>保存メニュー</button></section>';
+}
 function hide(){
  if(!session.active)return;
+ if(session.automationStop){showAutomationStop();return;}
  dragCleanup();session.hide();returnWorkflow=false;selected=null;reordering=false;returnDetail=null;closeDialogs({focus:false});$('game').replaceChildren();
  $('curtain').hidden=session.finished;$('handoff-title').textContent=handoffMessage(session.projection);$('hide').hidden=true;
  if(session.finished)render();else $('reveal').focus();
 }
 function start(next){session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();}
 function render(){
+ if(session.automationStop){showAutomationStop();return;}
  const scrolls=[...document.querySelectorAll('.board-shell')].map(n=>n.scrollTop);dragCleanup();const v=session.projection,hand=session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):null;
  $('game').innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});$('hide').hidden=!session.viewer||!!v.result;if(hand)persistOrder();applyHandVisibility();highlight();
  document.querySelectorAll('.board-shell').forEach((n,i)=>{n.scrollTop=scrolls[i]??0;});
@@ -45,7 +51,7 @@ function highlight(action=null){
 }
 function inspect(id,{catalog=false,origin=null}={}){
  const v=session.active?session.projection:null,c=catalog?CARDS[id]:visibleCards(v).find(c=>c.id===id);
- if(!c)return;closeDialogs({focus:false});dialogOrigin=origin;
+ if(!c||(!catalog&&!canInspectCard(v,session.viewer,c)))return;closeDialogs({focus:false});dialogOrigin=origin;
  if(!catalog){selected=c.id;highlight();}
  const hand=!catalog&&session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):[],index=hand.findIndex(x=>x.id===c.id);
  const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');d.innerHTML=detailMarkup(c,{v,viewer:session.viewer,catalog,handPosition:index<0?null:{index,total:hand.length}});
@@ -65,11 +71,11 @@ function requestAction(id){
  const d=$('confirm-dialog');d.innerHTML=confirmationMarkup(prepared);d.showModal();d.querySelector('[data-cancel]').focus();
 }
 function showDiscard(seat,origin){
- const p=session.projection.players[seat];closeDialogs({focus:false});dialogOrigin=origin;
- const d=$('card-dialog');d.classList.remove('card-detail','workflow-dialog');d.innerHTML=`<button type="button" class="dialog-close" data-close>閉じる ×</button><h2>${seat} の捨て札 · ${p.discard.length}枚</h2><div class="discard-cards">${p.discard.map(c=>`<button type="button" class="card-tap" data-inspect="${h(c.id)}" aria-label="${h(c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`).join('')||'<p>捨て札はありません。</p>'}</div>`;d.showModal();d.querySelector('[data-close]').focus();
+ const v=session.projection,p=v.players[seat];closeDialogs({focus:false});dialogOrigin=origin;
+ const d=$('card-dialog');d.classList.remove('card-detail','workflow-dialog');d.innerHTML=`<button type="button" class="dialog-close" data-close>閉じる ×</button><h2>${seat} の捨て札 · ${p.discard.length}枚</h2><div class="discard-cards">${p.discard.map(c=>inspectButton(c,'card-tap',v,session.viewer)).join('')||'<p>捨て札はありません。</p>'}</div>`;d.showModal();d.querySelector('[data-close]').focus();
 }
 document.addEventListener('click',e=>{
- const b=e.target.closest('button');if(!b)return;
+ const b=e.target.closest('button');if(!b||b.disabled)return;
  if(b.hasAttribute('data-close')||b.hasAttribute('data-cancel')){const back=b.hasAttribute('data-cancel')?returnDetail:null;const flow=b.hasAttribute('data-cancel')&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();return;}
  if(b.hasAttribute('data-workflow')){openWorkflow();return;}
  if(b.hasAttribute('data-hand-toggle')){handOpen=$('hand').classList.contains('hand-collapsed');applyHandVisibility();return;}
@@ -89,7 +95,7 @@ document.addEventListener('click',e=>{
 });
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});
 $('new').onclick=()=>{try{const seed=crypto.getRandomValues(new Uint32Array(1))[0];validateDeck(decks.A);validateDeck(decks.B);start(createGame(seed,decks));persist();}catch(e){message(e.message);}};
-$('restore').onclick=()=>{try{const raw=localStorage.getItem(KEY);if(!raw)throw Error('保存された対戦がありません');session.restore(raw);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
+$('restore').onclick=()=>{try{const raw=localStorage.getItem(KEY);if(!raw)throw Error('保存された対戦がありません');session.restore(raw);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
 $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([session.save()],{type:'application/json'})),a=el('a');a.href=url;a.download='naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');session.restore(await file.text());bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};

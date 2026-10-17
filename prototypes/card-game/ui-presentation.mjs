@@ -1,4 +1,5 @@
 // Presentation only. Input is the engine's safe view/catalog, never raw state.
+import {visibleCards} from './ui-context.mjs';
 import {CARD_ART} from './ui-art.mjs';
 export const ATTRIBUTES = {'ひと':'#E78E98','けもの':'#A97A50','みずべ':'#55BFC2','うみ':'#4D82C6','むし':'#A7C94B','くさ':'#3EA46B','げんそう':'#916AC3','ふしぎ':'#414B87'};
 export const CATEGORIES = {main:['メイン','#A7C94B'],companion:['なかま','#E7B65A'],partner:['こいびと','#CB6487'],world:['セカイ','#4F9EAA'],play:['あそび','#E9A16C'],item:['あいてむ','#B49A70'],event:['できごと','#A5A7AE']};
@@ -46,13 +47,14 @@ export function cardMarkup(c,{compact=false}={}){
  <div class="card-copy">${ability?`<strong>${h(ability)}</strong>`:''}<p>${h(c.text)}</p></div>
  <small class="card-footer">${c.rare?'◆ RARE':'NAOTOCCHI'}</small></article>`;
 }
-function inspectButton(c,cls='card-tap'){return `<button type="button" class="${cls}" data-inspect="${h(c.id)}" aria-label="${h(c.hidden?'しかけたカード':c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`;}
+export function canInspectCard(v,viewer,c){return !v||v.phase!=='response'||Boolean(viewer===v.actor&&!c.hidden&&v.actions.some(a=>a.kind!=='pass'&&a.source===c.id));}
+export function inspectButton(c,cls='card-tap',v=null,viewer=null){const restricted=v?.phase==='response',allowed=canInspectCard(v,viewer,c);return `<button type="button"${allowed?'':' disabled aria-disabled="true"'} class="${cls}${restricted?(allowed?' is-eligible':' response-unavailable'):''}" data-inspect="${h(c.id)}" aria-label="${h(c.hidden?'しかけたカード':c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`;}
 const egg='<img class="egg-image" src="../../assets/characters/egg/intact.png" alt="たまご" draggable="false">';
-export function boardMarkup(p,seat,viewer,chain=[]){
+export function boardMarkup(p,seat,viewer,chain=[],v=null){
  const b=p.board,own=seat===viewer,parked=Boolean(b.main),slots=[['セカイ',b.world],['メイン',b.main],['こいびと',b.partner],...[0,1,2].map(i=>['なかま'+['①','②','③'][i],b.companions[i]]),...[0,1,2].map(i=>['準備'+['①','②','③'][i],b.prepared[i]])];
  return `<section data-player="${seat}" class="player-board ${own?'own':'opponent'}" data-depth="${own?'near':'far'}"><header class="player-heading"><strong>${own?'手前 · あなた':'奥 · 相手'} · ${seat}</strong><span>そだち <b>${p.growth}</b> / 時 <b>${p.time}</b></span></header>
  <div class="board-layout"><div class="board-field"><div class="egg-parking" data-egg-location="${parked?'parking':'main'}"><span>たまご置き場</span>${parked?egg:'<span class="egg-empty">―</span>'}</div>
- <div class="slots">${slots.map(([label,c],i)=>`<div class="slot" data-slot="${i}"><small>${label}</small>${c?`<div class="slot-content">${inspectButton(c).replace('</button>','<span class="board-card-name">'+h(c.hidden?'伏せ札':c.form??c.name)+'</span></button>')}</div>`:i===1?`<div class="egg-main">${egg}</div>`:'<span class="empty-slot">·</span>'}${c?.target?`<span class="attachment">${h(c.target)}</span>`:''}</div>`).join('')}</div></div>
+ <div class="slots">${slots.map(([label,c],i)=>`<div class="slot" data-slot="${i}"><small>${label}</small>${c?`<div class="slot-content">${inspectButton(c,'card-tap',v,viewer).replace('</button>','<span class="board-card-name">'+h(c.hidden?'伏せ札':c.form??c.name)+'</span></button>')}</div>`:i===1?`<div class="egg-main">${egg}</div>`:'<span class="empty-slot">·</span>'}${c?.target?`<span class="attachment">${h(c.target)}</span>`:''}</div>`).join('')}</div></div>
  <aside class="management"><button type="button" data-zone="discard" data-seat="${seat}" aria-label="${seat}の捨て札 ${p.discard.length}枚"><span>捨て札</span><b>${p.discard.length}</b></button><div data-zone="activation"><span>発動領域</span><b>${chain.filter(l=>l.actor===seat).length}</b>${chain.filter(l=>l.actor===seat).map(l=>`<small>${h(l.name)}</small>`).join('')}</div><div data-zone="deck"><span>山札</span>${cardMarkup(null)}<b>${p.deckCount}</b></div></aside></div>
  <footer class="board-metrics"><span>${icon('fist')} ${p.stats?.power??'—'}</span><span>${icon('brain')} ${p.stats?.wisdom??'—'}</span><span>交際 ${p.relationship===null?'—':p.relationship===4?'結婚':p.relationship}</span><span>手札 ${p.handCount}</span></footer></section>`;
 }
@@ -76,6 +78,7 @@ export function responseGuide(v){
 }
 export function passLabel(v){
  if(v.phase==='normal')return 'ターン終了を申し出る';
+ if(v.autoEnabled)return '応答しない（パス）';
  if(!v.progress)return '応答せず進む（パス）';
  if(v.progress.passes<1)return `パスして${v.actor==='A'?'B':'A'}の応答へ`;
  if(v.chain.length)return 'パスして効果を解決';
@@ -83,7 +86,7 @@ export function passLabel(v){
  return ({end_request:`パスして${v.turn}の終了処理へ`,end:'パスしてターン終了処理を進める',compare:'パスしてちょうせんの処理を進める',challenge_end:'パスしてちょうせんの終了処理へ'})[v.progress.window]??`パスして${v.turn}の通常行動へ`;
 }
 export function choiceGuide(v){
- if(v.phase==='response'&&!v.choice)return responseGuide(v);
+ if(v.phase==='response'&&!v.choice)return v.autoEnabled?'光るカードで応答するか、パスしてください。':responseGuide(v);
  if(v.effect?.instruction)return v.effect.instruction;
  if(v.choice?.kind==='egg_bottom')return 'たまごの準備：手札から1枚選び、山札の下へ戻してください。';
  if(v.choice?.kind==='activation_selection')return '対象・支払いを選んでください。最後の選択で確定する場合は確認が表示されます。';
@@ -108,13 +111,18 @@ export function detailMarkup(c,{v=null,viewer=null,catalog=false,handPosition=nu
  const actions=cardActions(v,viewer,c),hidden=c.hidden,ability=c.source?.match(/「([^」]+)」/)?.[1],priority=v&&(v.choice||v.phase!=='normal');
  return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':h(turnStatus(v))}</span><button type="button" class="dialog-close" data-close>盤面へ ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${cardMarkup(c)}</div></div><div class="detail-copy"><header class="detail-summary"><h2>${h(hidden?'しかけたカード':c.form??c.name)}</h2>${!hidden?`<p>${h(CATEGORIES[c.type]?.[0])}${c.type==='main'?' · '+h(c.name.replace(/[①-⑧]/g,''))+' · '+h(c.attribute):''}</p><p>${c.type==='main'?`ちから <b>${c.power}</b> · ちえ <b>${c.wisdom}</b> · `:''}通常時コスト <b>${c.type==='main'?c.stage:c.cost}</b></p>`:''}</header><section class="effect-scroll" tabindex="0" aria-label="能力全文">${hidden?'<p>相手の伏せ札は確認できません。</p>':`${ability?`<h3>${h(ability)}</h3>`:''}<p class="full-effect">${h(c.text)}</p>`}</section>${!catalog&&!hidden?`<section class="detail-command"><h3>${v.choice?'必須選択：このカードを選ぶ':actions.length===1?'このカードでできる行動':'行動を選択'}</h3>${priority?`<p class="choice-guide">${v.effect?`${h(v.effect.name)}：`:''}${h(choiceGuide(v))}</p>`:''}<div class="detail-actions actions${actions.length===1?' single-action':''}">${actionMarkup(actions,{selected:c.id})}${!actions.length?`<p class="unavailable">${h(unavailableReason(v,viewer,c))}</p>`:''}</div>${priority?`<div class="detail-pass actions">${actionMarkup(v.actions.filter(a=>a.kind==='pass'))}</div>`:''}</section>`:''}</div></div>`;
 }
-function chainMarkup(v){return `<details class="chain"><summary>処理中のチェーン ${v.chain.length} · 履歴</summary>${[...v.chain].reverse().map((l,i)=>`<p>${v.chain.length-i}. ${l.actor}：${h(l.name)}${l.target?' → '+h(l.target):''}${l.declare?' / '+h(l.declare):''}</p>`).join('')||'<p>処理中のカードはありません。</p>'}<details class="history"><summary>公開ログ</summary><ol>${v.log.map(l=>`<li>${h(l)}</li>`).join('')}</ol></details></details>`;}
+function chainMarkup(v){return `<details class="chain"><summary>処理中のチェーン ${v.chain.length} · 履歴</summary>${[...v.chain].reverse().map((l,i)=>`<p>${v.chain.length-i}. ${l.actor}：${h(l.name)}${l.target?' → '+h(l.target):''}${l.declare?' / '+h(l.declare):''}</p>`).join('')||'<p>処理中のカードはありません。</p>'}<details class="history"><summary>公開ログ</summary><ol>${v.log.map(l=>`<li>${h(l)}</li>`).join('')}</ol>${v.autoLog?.length?`<h3>応答なしのパス（自動進行を含む）</h3><ol>${v.autoLog.map(l=>`<li>${h(l.turn)}のターン · ${h(l.actor)}がパス · ${h(l.window)} · chain ${l.chainBefore}→${l.chainAfter} · リビジョン ${l.revision}</li>`).join('')}</ol>`:''}</details></details>`;}
 export function effectFocusMarkup(v){
  const e=v?.effect;if(!e)return '';
- return `<section class="effect-focus" aria-label="現在の効果"><div class="effect-thumb">${e.card?inspectButton(e.card):e.kind==='egg'?egg:icon('event')}</div><div><small>${h(e.actor)} · ${h(e.status)}</small><strong>${h(e.name)}${e.ability?' ／ '+h(e.ability):''}</strong><p>${h(choiceGuide(v))}</p></div></section>`;
+ return `<section class="effect-focus" aria-label="現在の効果"><div class="effect-thumb">${e.card?inspectButton(e.card,'card-tap',v,v.actor):e.kind==='egg'?egg:icon('event')}</div><div><small>${h(e.actor)} · ${h(e.status)}</small><strong>${h(e.name)}${e.ability?' ／ '+h(e.ability):''}</strong><p>${h(choiceGuide(v))}</p></div></section>`;
 }
 // A notification, not a second card picker. Exact engine actions remain in card
 // detail and the expanded fallback (including private peek / numeric choices).
+export function responseOptionsMarkup(v,viewer){
+ if(v.phase!=='response'||viewer!==v.actor)return '';
+ const ids=new Set(v.actions.filter(a=>a.kind!=='pass').map(a=>a.source)),cards=[...new Map(visibleCards(v).filter(c=>!c.hidden&&ids.has(c.id)).map(c=>[c.id,c])).values()];
+ return cards.length?`<div class="response-options" aria-label="応答可能なカード">${cards.map(c=>`<button type="button" class="is-eligible" data-inspect="${h(c.id)}">${h(c.name)}</button>`).join('')}</div>`:'';
+}
 export function compactOperationMarkup(v,viewer){
  if(!viewer||viewer!==v.actor||v.result)return '';
  const e=v.effect,pass=v.actions.find(a=>a.kind==='pass');
@@ -122,9 +130,9 @@ export function compactOperationMarkup(v,viewer){
  const priority=Boolean(v.choice||v.phase!=='normal');
  const inline=pass?[pass]:indirect.length===1?indirect:[];
  const source=v.phase==='response'?(v.chain.length?`${e?.name??'効果'}への応答`:({start:'ターン開始時の応答',normal:'行動後の応答',end_request:'ターン終了の確認',end:'ターン終了時の応答',compare:'ちょうせん比較前の応答',challenge_end:'ちょうせん終了時の応答'})[v.progress?.window]??'応答待ち'):e?`${e.name}${e.ability?' · '+e.ability:''}`:turnStatus(v);
- const hint=v.choice?(v.actions.some(a=>a.choiceCard)?(v.choice.kind==='egg_bottom'?'手札をタップ → 山札の下へ戻す':'対象カードをタップして選択'):'選択肢から必要な操作を選ぶ'):v.phase==='response'?`${v.actor} の応答待ち · ${v.actions.some(a=>a.kind!=='pass')?'カードで応答／パス':'応答できるカードなし'} · 連続パス ${v.progress?.passes??0}/2`:v.phase==='trigger'?'効果を使うか選んでください':v.actions.some(a=>a.kind==='place'&&a.label.includes('たんじょう'))?'手札からたんじょうできます':'カードを選んでください';
+ const hint=v.choice?(v.actions.some(a=>a.choiceCard)?(v.choice.kind==='egg_bottom'?'手札をタップ → 山札の下へ戻す':'対象カードをタップして選択'):'選択肢から必要な操作を選ぶ'):v.phase==='response'?v.autoEnabled?'光るカードで応答／パス':`${v.actor} の応答待ち · ${v.actions.some(a=>a.kind!=='pass')?'カードで応答／パス':'応答できるカードなし'} · 連続パス ${v.progress?.passes??0}/2`:v.phase==='trigger'?'効果を使うか選んでください':v.actions.some(a=>a.kind==='place'&&a.label.includes('たんじょう'))?'手札からたんじょうできます':'カードを選んでください';
  const more=indirect.length>1?'選択肢を開く':priority?'効果・選択肢の詳細':'操作・履歴';
- return `<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="${h(source)}。${h(hint)}。${more}">${e?`<span class="notice-thumb" aria-hidden="true">${e.card?cardMarkup(e.card,{compact:true}):e.kind==='egg'?egg:icon('event')}</span>`:''}<span class="notice-copy"><strong>${h(source)}</strong><span>${h(hint)}</span></span><span class="notice-more">${indirect.length>1?'選択肢を開く':'詳細'} ›</span></button>${inline.length?`<div class="notice-actions actions">${actionMarkup(inline)}</div>`:''}</div>`;
+ return `<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="${h(source)}。${h(hint)}。${more}">${e?`<span class="notice-thumb" aria-hidden="true">${e.card?cardMarkup(e.card,{compact:true}):e.kind==='egg'?egg:icon('event')}</span>`:''}<span class="notice-copy"><strong>${h(source)}</strong><span>${h(hint)}</span></span><span class="notice-more">${indirect.length>1?'選択肢を開く':'詳細'} ›</span></button>${inline.length?`<div class="notice-actions actions">${actionMarkup(inline)}</div>`:''}</div>${responseOptionsMarkup(v,viewer)}`;
 }
 export function operationMarkup(v,viewer){
  if(!viewer||viewer!==v.actor||v.result)return '';
@@ -144,6 +152,6 @@ export function gameMarkup(v,viewer,{selected=null,reordering=false,hand=null}={
  const mine=viewer??v.actor??'A',opponent=mine==='A'?'B':'A',priority=Boolean(v.choice||v.phase!=='normal');
  return `<header class="table-top"><div><small>ROUND ${v.round}/10 · 手番 ${v.turn}</small><strong>${h(turnStatus(v))}</strong></div>${viewer&&!v.result?`<button type="button" data-workflow aria-label="操作と履歴を開く">操作・履歴</button>`:''}<button type="button" data-menu aria-label="保存・受け渡しメニュー">☰</button></header>
  ${v.result?`<section id="result" class="panel"><h2>${v.result.winner?v.result.winner+' の勝利':'引き分け'}</h2><p>${h(v.result.reason)} · A ${v.result.growth.A} / B ${v.result.growth.B}</p><button type="button" data-home>開始画面へ</button></section>`:''}
- <div class="battle-area"><div class="board-shell opponent-shell" tabindex="0" aria-label="相手の盤面">${boardMarkup(v.players[opponent],opponent,viewer,v.chain)}</div><div class="board-shell own-shell" tabindex="0" aria-label="自分の盤面">${boardMarkup(v.players[mine],mine,viewer,v.chain)}</div>${viewer&&!v.result?`<aside id="operation-panel" aria-label="現在の操作">${compactOperationMarkup(v,viewer)}</aside>`:''}</div>
- ${viewer&&!v.result?`<section id="hand" class="hand-panel${reordering?' reordering':''}"><header class="hand-heading"><button type="button" data-hand-toggle aria-expanded="true">手札 ${v.players[viewer].hand.length}枚 <small>長押しで並び替え</small></button><button type="button" data-reorder aria-pressed="${reordering}" aria-label="左右ボタンで並び替え">${reordering?'補助操作を閉じる':'補助操作'}</button></header><div class="cards">${(hand??v.players[viewer].hand).map((c,i,list)=>`<div class="hand-entry${c.id===selected?' is-selected':''}" data-hand-entry="${h(c.id)}">${inspectButton(c,'card-tap hand-card')}${reordering?`<div class="hand-moves"><button type="button" data-move="-1" data-hand-id="${h(c.id)}" aria-label="${h(c.name)}を左へ" ${i===0?'disabled':''}>←</button><button type="button" data-move="1" data-hand-id="${h(c.id)}" aria-label="${h(c.name)}を右へ" ${i===list.length-1?'disabled':''}>→</button></div>`:''}</div>`).join('')}</div></section>`:''}`;
+ <div class="battle-area"><div class="board-shell opponent-shell" tabindex="0" aria-label="相手の盤面">${boardMarkup(v.players[opponent],opponent,viewer,v.chain,v)}</div><div class="board-shell own-shell" tabindex="0" aria-label="自分の盤面">${boardMarkup(v.players[mine],mine,viewer,v.chain,v)}</div>${viewer&&!v.result?`<aside id="operation-panel" aria-label="現在の操作">${compactOperationMarkup(v,viewer)}</aside>`:''}</div>
+ ${viewer&&!v.result?`<section id="hand" class="hand-panel${reordering?' reordering':''}"><header class="hand-heading"><button type="button" data-hand-toggle aria-expanded="true">手札 ${v.players[viewer].hand.length}枚 <small>長押しで並び替え</small></button><button type="button" data-reorder aria-pressed="${reordering}" aria-label="左右ボタンで並び替え">${reordering?'補助操作を閉じる':'補助操作'}</button></header><div class="cards">${(hand??v.players[viewer].hand).map((c,i,list)=>`<div class="hand-entry${c.id===selected?' is-selected':''}" data-hand-entry="${h(c.id)}">${inspectButton(c,'card-tap hand-card',v,viewer)}${reordering?`<div class="hand-moves"><button type="button" data-move="-1" data-hand-id="${h(c.id)}" aria-label="${h(c.name)}を左へ" ${i===0?'disabled':''}>←</button><button type="button" data-move="1" data-hand-id="${h(c.id)}" aria-label="${h(c.name)}を右へ" ${i===list.length-1?'disabled':''}>→</button></div>`:''}</div>`).join('')}</div></section>`:''}`;
 }

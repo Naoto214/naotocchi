@@ -275,3 +275,54 @@ QA5 deployment succeeded: https://naotocchi-card-ui-trial.kerzion214.chatgpt.sit
 - Saved version: `appgprj_6ad05a8e0f148191bb93835227ddf2b9~appgver_0b99ceff34788191b7ec643bcdd228ad`.
 - Deployment: `appgdep_6ad2b427bd148191b35255b1f2336543`, succeeded, owner-only audience retained.
 - This follow-up changes documentation only. Direct Git ls-remote eventually completed and confirmed the same starting head; scoped connector reads/writes were used for the work. Browser/Safari QA remains unperformed.
+
+## iPhone QA round 6 — response automation / tempo (2026-10-17)
+
+### Remote starting point and scope
+
+Checked remote PR metadata, heads and commit trees before editing:
+
+| PR | HEAD | Tree | State |
+| --- | --- | --- | --- |
+|384|`ad2404d1626ff4c5d990c6a75145b998165b35a4`|`1993fa91b2847bd6ecbfec13b28f9d2ebb9c5543`|Draft/open/unmerged|
+|381|`3a987044513fdb6d5e69b52b8af40add5a45ccd4`|`e86f089e6778061d7acd39492e96286656455702`|Draft/open/unmerged|
+|259|`0a9df8f09b5ad657730f29d14e2d357241dace8c`|`78677b98fdc229c7acf10e9112ca9744ae0fa7ba`|Draft/open/unmerged|
+
+The 01/02/06/64 canonical response and turn boundaries from round5 still apply. Required response opportunities and formal alternating passes are retained. This change automates decisions only when the existing engine offers exactly one action, its official pass. No card-specific exceptions, changes to engine/effects/rules/catalog/card definitions, canonical documents or protected fixed400 assets. GitHub updates are based on the complete remote tree, preserving files absent from this scoped checkout.
+
+### Shared controller and safety
+
+- `auto-progress.mjs` calls the existing `legalActions`, then `act` for each certified sole-pass inventory. Each automatic pass advances revision and appends the same formal command as a human pass; engine event processing, chain resolution, reservations, turn start and replay remain unchanged.
+- Stop at any non-pass candidate, normal action, choice, trigger or finished state. Never choose a card, required target/payment, optional trigger or normal turn end. After a human end request, automatically finish only the remaining sole-pass response boundaries; the engine decides when the next turn starts.
+- Stop on unknown runtime/card/boundary, incomplete inventory, enumeration/transition error, unsupported selection capability, repeated semantic state or64 transitions. Clone before enumeration/transition; a failing command is discarded while prior valid formal commands remain. The UI conceals play and offers save/export on an automation halt.
+- Independent review reproduced an important completeness hazard: `selection.mjs` intentionally returns false for unsupported selection schemas. Registration alone could therefore misread a copied ability with an unknown filter as no response. `auto-capabilities.mjs` now checks the reviewed capability envelope of static and runtime selection contracts before enumeration. It does not evaluate eligibility or manufacture actions. Unknown schema/zone/property/bounds/filter forms halt automation. This also protects copied contracts. Known copies remain human decisions.
+- Live UI opts into automatic progression; the default manual session mode remains available for diagnostics and exact state/command comparison. Automatic passes use the existing save format. Restore replays the formal commands, reconstructs public no-response pass history, resumes pending sole-pass responses and starts with private hands hidden.
+- The public history labels these records “応答なしのパス（自動進行を含む）”, since a legacy manually passed save cannot retrospectively distinguish its original operator. No private card identities are added to this history.
+
+### UI connection
+
+- The session decides handoff only after automatic progression reaches its next human decision. An incapable responder never sees a transfer curtain just to pass. Actual actor changes, backgrounding and restore still remove private information.
+- In response windows, only sources from engine-projected legal candidates are enabled/highlighted. Other hand/field/discard card buttons are dimmed and disabled, including drag-tap guards. Tapping an eligible card opens its exact legal actions. A small source list also exposes field/discard response cards without searching zones.
+- Concise effect/context, “光るカードで応答／パス” and “応答しない（パス）”; normal play retains the distinct end-request button and no response notice. Chain and automatic-pass details remain in collapsed history. Portrait response UI uses108px only when source buttons exist; ordinary notices retain60px.
+
+### Measured reduction and verification
+
+Natural seed4/default decks: A returns hit-blow at egg choice, births beetle①, chooses its optional ability and hand return, explicitly ends the turn; B performs its own egg choice and reaches normal action.
+
+| Measure, A start through B first normal | Manual controller | Automatic controller |
+| --- | ---: | ---: |
+| Human formal commands |17|6|
+| Human response passes |11|0|
+| Handoff curtains, excluding initial reveal |11|1|
+| Automatic formal passes |0|11|
+
+Both runs produce **identical saved command strings and final states**. These are deterministic scenario counts, not universal match estimates or a count of all touch/confirmation gestures. The remaining handoff is the actual A→B turn change. If a legal response exists, its owner still chooses to respond or pass.
+
+- **221 passed /0 failed**, including22 new regressions. Command: `QA6_TRACE=prototypes/card-game/evidence/iphone-round6-tempo.json node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`.
+- Coverage: neither/A-only/B-only/both can respond; explicit pass; post-chain trigger; mandatory birth return; egg→normal; time1 birth and explicit end→B time1/draw/egg; full enabled R10 match; exact replay and legacy save; hidden handoff; duplicate revision refusal; unknown schema/inventory/handler; failure rollback; transition cap and cycle protection. Existing full452 and match tests remain intact.
+- `evidence/iphone-round6-tempo.json` records owner, actor, phase, window, chain, choice, time, physical hand/deck order and main at every human-command boundary in both runs. The manual trace includes all formal pass boundaries. All data is a test fixture, not a user's save.
+- `evidence/iphone-round6-tests.log` records the complete selected-suite output. The full catalog regeneration audit-dependency test remains excluded, exactly as prior rounds. Source/hash checks and full452 runtime tests run successfully.
+- Runtime syntax checks and `git diff --check` passed. Independent reviewer confirmed the capability fix with no remaining important findings.
+- **No updated browser rendering or real iPhone Safari/touch verification**: managed Sites has no available control-browser. The Sites skill requires skipping browser QA in that situation; no substitute browser/server was started. Node behavior/markup tests do not establish visual or touch correctness.
+
+Only PR384 and the existing owner-private UI trial are updated. PR259/381/384 stay Draft/open/unmerged; main is not merged. Deployment identifiers are recorded in the PR after publication.
