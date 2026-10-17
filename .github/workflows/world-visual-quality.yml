@@ -1,6 +1,9 @@
 name: World visual quality
 
 on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
   push:
     branches: [main, feat/meguru-3d-geometry-terrain-v1, integration/world-character-3d-20261012, feat/world-character-3d-default-20261012]
     paths:
@@ -114,6 +117,17 @@ jobs:
         run: node tools/meguru-3d-qa/integration-remove-it.cjs
       - name: Combined Character and World browser contract
         run: node tools/meguru-3d-qa/character-integration.cjs --out qa-artifacts/character-integration
+      - name: Autonomous event producers and 293 models / 12 expression states
+        env:
+          QA_OUT: qa-artifacts/character-integration/expressions
+        run: |
+          mkdir -p "$QA_OUT"
+          node tools/social-expression-events-qa.cjs
+          cp docs/qa/social-expression-20261016/producer-events.json "$QA_OUT/producer-events.json"
+          node tools/character-3d/expression-complete-qa.cjs
+          node tools/character-3d/social-expression-qa.cjs
+          node tools/character-3d/expression-load-qa.cjs
+          cp docs/qa/expression-complete-20261016/load-browser.json "$QA_OUT/load-browser.json"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
