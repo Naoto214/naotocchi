@@ -20,7 +20,20 @@ function summarize(kind, results) {
       for (const key of ['errors', 'consoleErrors', 'fallbackWarnings']) expect(Array.isArray(r[key]) && r[key].length === 0, id + ': ' + key);
       if (kind === 'smoke') {
         for (const key of ['entry','afterWalk','atSpot']) expect(r[key]?.is3D === true && !r[key]?.failed, id + ': 3D inactive at ' + key);
-        expect(r.entry?.party === 27, id + ': companion composition');
+        try { require('./cast-fixture.cjs').validateNormal(r.normal,27); } catch(e) { issues.push(id+': normal startup: '+e.message); }
+        const observation=r.normalObservation;
+        expect(Number.isFinite(observation?.session?.before) && observation.session.after>observation.session.before,id+': inactive live social session');
+        expect(Array.isArray(observation?.rendered) && Array.isArray(observation?.expectedKinds) && observation.rendered.length===observation.expectedKinds.length && observation.expectedKinds.every(k=>observation.rendered.some(a=>a.kind===k && a.live && a.holderAttached && a.visible && a.party===0)),id+': normal resident rendering');
+        expect(!r.normal?.residentKeys?.length || observation?.rendered?.length>0,id+': no normal resident observations');
+        expect(r.normal?.is3D===true && !r.normal?.failed && r.normal?.playerVisible?.ok===true && r.normal.playerVisible.mode==='3d', id+': normal rendering');
+        expect(r.fixture?.explicit===true && r.fixture?.count===27 && r.fixture?.saveUnchanged===true && new Set(r.fixture?.keys).size===27, id+': explicit load fixture');
+        for(const key of ['entry','afterWalk','atSpot']) {
+          const sample=r[key];
+          expect(sample?.party===27 && sample.castKeys?.length===27 && sample.castKeys.every(k=>r.fixture?.keys?.includes(k)),id+': companion composition at '+key);
+          expect(sample?.playerVisible?.ok===true && sample.playerVisible.mode==='3d',id+': player visibility at '+key);
+        }
+        expect(r.entry?.liveCast?.length===27 && r.entry.liveCast.every(k=>r.fixture?.keys?.includes(k)),id+': actual fixture bodies');
+        expect(r.pen?.n>0,id+': no obstacle-overlap samples');
         expect(Number.isFinite(r.pen?.party) && Number.isFinite(r.pen?.player), id + ': missing obstacle-overlap readings');
         maxPartyObstacleOverlap = Math.max(maxPartyObstacleOverlap, r.pen?.party || 0);
       } else if (kind === 'corridor') {
@@ -30,6 +43,7 @@ function summarize(kind, results) {
       } else throw new Error('Unknown audit kind: ' + kind);
     }
   }
+  if(kind==='smoke')for(const actorKind of ['form','companion','partner'])expect(entries.some(([,r])=>r.normalObservation?.rendered?.some(a=>a.kind===actorKind)), 'normal role coverage: '+actorKind);
   return { kind, coverage: entries.length, issues, samples, hidden, partial, maxPartyObstacleOverlap, caveat: 'ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration' };
 }
 module.exports = { summarize };

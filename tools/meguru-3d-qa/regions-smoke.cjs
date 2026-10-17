@@ -1,11 +1,13 @@
 // 全地域の browser smoke: 3D で 起動・あるく・めりこみ・spot・しゃしん・perf。 node regions-smoke.cjs <root> <outDir> [regions,...]
 const pw = require('playwright'); const fs = require('fs'); const path = require('path'); const http = require('http');
+const {placeCast,normalState,validateNormal,installModuleProbe,observeNormal}=require('./cast-fixture.cjs');
 const ROOT = process.argv[2], OUT = process.argv[3]; const ONLY = (process.argv[4] || '').split(',').filter(Boolean); fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.json': 'application/json', '.woff2': 'font/woff2', '.mp3': 'audio/mpeg' };
 function serve() { return new Promise((res) => { const s = http.createServer((req, r) => { const f = path.join(ROOT, decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '') || 'index.html'); if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { r.writeHead(404); r.end(); return; } r.writeHead(200, { 'content-type': TYPES[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(r); }); s.listen(0, '127.0.0.1', () => res(s)); }); }
 const { harness } = require(path.join(ROOT, 'tests/helpers/runtime-harness.cjs'));
 function makeSave(region) { const arr = (x) => Array.from(x || []); const h = harness({ deterministic: true, fullDisplay: true }); const s = h.api.state();
   Object.assign(s, { stage: 'growing', speciesLine: 'dog', ageTicks: 600, isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 85, happiness: 90, regionId: region });
+  s.discoveredStages=['dog:1','penguin:3'];
   s.lifetime.regionsVisited = [...new Set([...(s.lifetime.regionsVisited || []), region])]; if (region === 'star_stop' || region === 'memory_lake') s.lifetime.specialRegionsVisited = [...new Set([...(s.lifetime.specialRegionsVisited || []), region])];
   const comps = arr(h.api.normalCompanions).concat(arr(h.api.rareCompanions)).slice(0, 26); s.companions = comps.map((c) => ({ id: c.id, bond: 100 })); s.lifetime.companionsRecruited = comps.map((c) => c.id);
   const pc = arr(h.api.partnerCandidates)[0]; s.partner = { id: pc.id, label: pc.label || pc.name, emoji: pc.emoji, affection: 100 }; s.lifetime.partnersRecorded = [pc.id]; return JSON.stringify(s); }
@@ -18,11 +20,17 @@ const M = harness({ deterministic: true, fullDisplay: true }).api.meguruMod; con
     try {
       const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); const page = await ctx.newPage(); const errors = [], cerr = [], warn = [];
       page.on('pageerror', (e) => errors.push(String(e.message || e))); page.on('console', (m) => { const t = m.text(); if (m.type() === 'error' && !/favicon|404/.test(t)) cerr.push(t.slice(0, 160)); if (/3D → 2D/.test(t)) warn.push(t.slice(0, 160)); });
+      await page.addInitScript(installModuleProbe);
       await page.addInitScript((s) => localStorage.setItem('naotocchi-save-v1', s), makeSave(rid));
       await page.goto(base + '/index.html?meguru3d=1&perf=1'); await page.locator('.device.ui-home-active').waitFor({ timeout: 60000 }); await page.waitForTimeout(1500);
       await page.locator('#travelBtn').click(); await page.locator('#meguruEnterBtn').waitFor({ state: 'visible' }); await page.locator('#meguruEnterBtn').click(); await page.locator('#mgrCanvas').waitFor({ state: 'visible' });
       const t0 = Date.now(); await page.waitForFunction(() => { const r = globalThis.__meguruRun; return r && r.world && (r.renderer.is3D || r.renderer.failed); }, { timeout: 60000 }); R.enterMs = Date.now() - t0; await page.waitForTimeout(2500);
-      const info = () => page.evaluate(() => { const r = globalThis.__meguruRun; return { region: r.world.regionId, w3d: !!r.world.world3d, is3D: !!r.renderer.is3D, failed: !!r.renderer.failed, party: r.party.length, canvases: document.querySelectorAll('#meguruOverlay canvas').length, stats: r.renderer.stats3d ? r.renderer.stats3d() : null, player: { x: Math.round(r.player.x), z: Math.round(r.player.z) } }; });
+      const info = () => page.evaluate(() => { const r = globalThis.__meguruRun; return { region: r.world.regionId, w3d: !!r.world.world3d, is3D: !!r.renderer.is3D, failed: !!r.renderer.failed, party: r.party.length, castKeys:r.party.map(a=>a.key), liveCast:r.party.filter(a=>r.renderer.char3dPresenter?.has(a)).map(a=>a.key), playerVisible:r.renderer.playerVisible, canvases: document.querySelectorAll('#meguruOverlay canvas').length, stats: r.renderer.stats3d ? r.renderer.stats3d() : null, player: { x: Math.round(r.player.x), z: Math.round(r.player.z) } }; });
+      await page.waitForFunction(()=>{const r=__meguruRun;return r.renderer.char3dPresenter?.has(r.sim.player)&&r.renderer.playerVisible?.mode==='3d';},null,{timeout:60000});
+      R.normal = {...await info(),...await page.evaluate(normalState)};validateNormal(R.normal,27);
+      R.normalObservation=await observeNormal(page);
+      R.fixture=await page.evaluate(placeCast);
+      await page.waitForFunction(()=>{const r=__meguruRun,p=r.renderer.char3dPresenter;return r.party.length===27&&p?.has(r.sim.player)&&r.party.every(a=>p.has(a));},null,{timeout:60000});
       R.entry = await info();
       // penetration sampling while walking
       await page.evaluate(() => { window.__pen = { player: 0, party: 0, n: 0 }; window.__penId = setInterval(() => { const r = globalThis.__meguruRun, w = r.world; if (!w.obstacles) return; const f = (x, z, rad) => { let worst = 0; for (const o of w.obstacles) if (o.role === 'solid' || o.role === 'boundary') { const d = Math.hypot(o.x - x, o.z - z); if (o.shape === 'circle') worst = Math.max(worst, o.hw + rad - d); } return worst; }; window.__pen.player = Math.max(window.__pen.player, f(r.player.x, r.player.z, 22)); for (const a of r.party) window.__pen.party = Math.max(window.__pen.party, f(a.x, a.z, 17.6)); window.__pen.n++; }, 50); });
