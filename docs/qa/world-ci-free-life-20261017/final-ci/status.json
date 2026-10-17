@@ -1,0 +1,784 @@
+{
+  "sourceHead": "098e77d0e6f091a49a24c2586e161904fb18fe74",
+  "sourceTree": "ccca80d3796cf91cfcc9e03962f8d0315f3c9dfc",
+  "mergeCandidate": {
+    "sha": "014ad4f072dacf2adad6082bb9d65f1a3df61f9b",
+    "node_id": "C_kwDOULrDhdoAKDAxNGFkNGYwNzJkYWNmMmFkYWQ2MDgyYmI5ZDY1ZjFhM2RmNjFmOWI",
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/git/commits/014ad4f072dacf2adad6082bb9d65f1a3df61f9b",
+    "html_url": "https://github.com/Naoto214/naotocchi/commit/014ad4f072dacf2adad6082bb9d65f1a3df61f9b",
+    "author": {
+      "name": "Naoto214",
+      "email": "kerzion214@gmail.com",
+      "date": "2026-10-17T01:47:03Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-17T01:47:03Z"
+    },
+    "tree": {
+      "sha": "ccca80d3796cf91cfcc9e03962f8d0315f3c9dfc",
+      "url": "https://api.github.com/repos/Naoto214/naotocchi/git/trees/ccca80d3796cf91cfcc9e03962f8d0315f3c9dfc"
+    },
+    "message": "Merge 098e77d0e6f091a49a24c2586e161904fb18fe74 into faeee72c81957073502d9c37e2ca6bedb37c1a79",
+    "parents": [
+      {
+        "sha": "faeee72c81957073502d9c37e2ca6bedb37c1a79",
+        "url": "https://api.github.com/repos/Naoto214/naotocchi/git/commits/faeee72c81957073502d9c37e2ca6bedb37c1a79",
+        "html_url": "https://github.com/Naoto214/naotocchi/commit/faeee72c81957073502d9c37e2ca6bedb37c1a79"
+      },
+      {
+        "sha": "098e77d0e6f091a49a24c2586e161904fb18fe74",
+        "url": "https://api.github.com/repos/Naoto214/naotocchi/git/commits/098e77d0e6f091a49a24c2586e161904fb18fe74",
+        "html_url": "https://github.com/Naoto214/naotocchi/commit/098e77d0e6f091a49a24c2586e161904fb18fe74"
+      }
+    ],
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq0tOXCRC1aQ7uu5UhlAAAi6oQACAtdkpHDqJ+wkLPqO95/Lgb\nHs0jKQTEz5LRhek4miIPQihAr1EAGhF6RfIhpkk8hONcrvscS1SF12vlbPXcKs9E\n5QFAbBcbnnXz0bbyunlKpq6qb3a8qz6lDlKgIugBfVFgj8osutbF2PDqCcIM8ieH\na11atdkFkE4/XzN0c+iaXKm/O8IYQLT9nW0f4Z5OdPU91p+PwyOcAsERRLU5IV6o\nM9KcLlAlrzo+VGqTL+S9/HQ0yRC/KiRM/4dIDy0Aoq+oXpiwYjsgPzRm8b/TBnCG\nlfkvI9gUbZ1zooUuR7adRzJRNLTPn5EiiMw4BcwzhQnHZXB8L3JqnDkkoSS/UHiE\nsJzNxkcyJxSrajKO3CPQTT2MHKJtQsR1tcBmK7MdRJ3SsOOp8fVXH35u7AVIfNCK\n0oBBoESmX2VZpRHhhnDvwi1HutHr2rXcS2zs1icb/G9jW5crw3wx4HaNHyWbz4kE\nFpGzp9DwAQG3C1YOm1og3kHXhd7wiGEjNsP9DHXL3zVB4eBh0FSjAEd3Si0WE+K2\nxmqmXY8xtp59MKcnM5vta+prds0Pvr5guxIrk+rDU4Clci4WF7WyA+lwpde9fslB\nsg6+oH6A5Fc1f1dvSm5VKMIERW5W8KEy3MTdEOlNFj2D6kZxPfvN1YNpuFzjnqXQ\nlEsZZCUiu1fqN1WrSDdW\n=oSZM\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree ccca80d3796cf91cfcc9e03962f8d0315f3c9dfc\nparent faeee72c81957073502d9c37e2ca6bedb37c1a79\nparent 098e77d0e6f091a49a24c2586e161904fb18fe74\nauthor Naoto214 <kerzion214@gmail.com> 1792201623 +0000\ncommitter GitHub <noreply@github.com> 1792201623 +0000\n\nMerge 098e77d0e6f091a49a24c2586e161904fb18fe74 into faeee72c81957073502d9c37e2ca6bedb37c1a79\n",
+      "verified_at": "2026-10-17T01:47:04Z"
+    }
+  },
+  "runs": [
+    {
+      "id": 38992307684,
+      "name": "Home layout",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 902,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38992307684/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38992307684/logs",
+      "workflow_id": 355795733,
+      "jobs": [
+        {
+          "id": 117277147501,
+          "name": "pad-size",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307684,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm install --no-save --package-lock=false playwright@1.62.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npx playwright install --with-deps chromium",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Paired baseline and candidate pad layout/input",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 16
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17
+            }
+          ]
+        },
+        {
+          "id": 117277147727,
+          "name": "home-layout",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307684,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm install --no-save --package-lock=false playwright@1.62.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npx playwright install --with-deps chromium webkit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run node tests/sticker-background-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Run node tests/boot-rescue-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Run node tests/back-navigation-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Run node tests/motion-v2-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Run node tests/home-layout-regressions-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Run node tests/meguru-discovery-transition-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Run node tests/meguru-landscape-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Camera framing and regional rotation regression",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Run node tools/meguru-3d-qa/camera-framing-mutation.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            },
+            {
+              "name": "Run node tests/home-layout-browser.cjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 16
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 33
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 34
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38992307666,
+      "name": "Runtime smoke test",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1422,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38992307666/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38992307666/logs",
+      "workflow_id": 351596585,
+      "jobs": [
+        {
+          "id": 117277147487,
+          "name": "smoke-test",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307666,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install locked test dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run the full test suite (same as npm test)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38992307677,
+      "name": "World visual quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 38,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38992307677/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/38992307677/logs",
+      "workflow_id": 374398717,
+      "jobs": [
+        {
+          "id": 117278982080,
+          "name": "browser (corridor)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307677,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install browser QA dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run existing World audit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 117278982159,
+          "name": "regression",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307677,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Full package pipeline (Node test concurrency 4)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        {
+          "id": 117278982186,
+          "name": "browser (smoke)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307677,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install browser QA dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run existing World audit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 117278982205,
+          "name": "browser (captures)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307677,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install browser QA dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run existing World audit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 117278982267,
+          "name": "browser (visibility)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307677,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install browser QA dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run existing World audit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 117278982314,
+          "name": "character-integration",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 38992307677,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Default startup fault injection",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Startup and fallback mutation controls",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Existing integration mutation controls (restore before browser)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Combined Character and World browser contract",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Autonomous event producers and 293 models / 12 expression states",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
