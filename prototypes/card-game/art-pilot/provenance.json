@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 216,
+  "generated_count": 232,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -5333,6 +5333,394 @@
       "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/G-stack-leaves.png"
+    },
+    {
+      "id": "G-stack-sakura",
+      "name": "さくらタワー",
+      "scene": "Use case: illustration-story. Create ONE dedicated Naotocchi card illustration, 1536x1024 PNG landscape 3:2. First image canonical character identity: small cream white rabbit with long pink inner ears, one ear tilting, warm brown eyes, small fluffy tail, tiny pink nose. Last image approved watercolor/gouache style ONLY, do not copy its beach or characters. Scene: rabbit carefully balances pale pink rectangular wooden blocks decorated with painted cherry blossom silhouettes into a gently swaying tower on a picnic table beneath blooming sakura trees. Rabbit steadies lower blocks with one paw and places a final block with the other. A few loose blocks and petals on tabletop; spring river bank in soft distance. Clear block stacking action and readable rabbit, joyful concentration. Cute delicate picture book painting, soft natural light, fine brush texture. Correct four-limbed rabbit anatomy. No text, letters, numerals, watermark, card frame or HUD.",
+      "identity_review": "Visual comparison to canonical character references: Cream rabbit with pink inner ears, brown eyes and fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-stack-sakura.png",
+      "sha256": "9b3735548cdae1b0707d658bf2b82ab0970939e87a70988cf8c8b04a348aaf3a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-stack-sakura.png"
+    },
+    {
+      "id": "G-stack-snowman",
+      "name": "ゆきだるまタワー",
+      "scene": "Navy and white penguin with orange beak and feet carefully adds a small smiling snowball onto a tower of three round snowballs, balancing with its other flipper. Snowy garden with fir trees, low viewpoint, soft winter daylight. Tower has a carrot nose and simple pebble face, no twig limbs confused with penguin.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/penguin_friend.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+        }
+      ],
+      "illustration": "illustrations/G-stack-snowman.png",
+      "sha256": "c4fd080cc8912d1d625e9706e846529c1d0b608de9af435746801d8f7a5d1de7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-stack-snowman.png"
+    },
+    {
+      "id": "G-stack-themed",
+      "name": "つみかさねタワー",
+      "scene": "Golden hamster with huge cream cheeks and belly builds a tall tower of colorful plain wooden blocks in a cozy playroom. One paw guides a triangular cap, the other steadies a cube. Wide side view, warmly lit window, orderly spare blocks. Make different block shapes and stacking balancing action clearly visible.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-stack-themed.png",
+      "sha256": "5b16e4a6118335007464436e63bd0b6f7b0f29b75ace77147b93dfe758389106",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-stack-themed.png"
+    },
+    {
+      "id": "G-street-fight",
+      "name": "かくとうバトル",
+      "scene": "Playful noninjurious martial arts practice in a leafy courtyard. Orange cream shiba stands on two hind legs making one controlled front paw punch into a round padded training mitt held by brown masked tanuki. Tanuki has cream belly and bushy tail. Both smile with focus. Clear separate four-limb bodies, contact only between one paw and mitt, no aggression.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        },
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-street-fight.png",
+      "sha256": "31d9d97d899dfee15fc85847f445b1d7e7f9796b03a18401f7b633777518e11e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-street-fight.png"
+    },
+    {
+      "id": "G-submarine-3d",
+      "name": "サブマリン3D",
+      "scene": "Brown otter with cream muzzle chest and long tapering tail pilots a yellow round research submarine through turquoise sea. Otter clearly visible behind large round glass cockpit, paws on simple controls. Cone of warm headlight reveals shells and bright tiny fish among underwater arches. Curious exploration and depth, no text.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/G-submarine-3d.png",
+      "sha256": "40eb64dc14c5d5de2bef333673b78121e7ff467daf0e9faab9e5ecd7182d8a65",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-submarine-3d.png"
+    },
+    {
+      "id": "G-sudoku-mini",
+      "name": "ナンプレ",
+      "scene": "Brown cream owl with golden eyes works on a small wooden 4 by 4 SYMBOL sudoku puzzle in a sunny library. Overhead oblique view shows exactly four rows and four columns, thicker divider between pairs of rows and columns. Puzzle uses only leaf, flower, shell and star pictograms, a few cells empty. Owl holds a leaf token above an empty cell. No digits or letters. Cozy bookshelf softly blurred.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/owl.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "9a9dfdb9d69b00609d9b654ef481cef4d38a6fed"
+        }
+      ],
+      "illustration": "illustrations/G-sudoku-mini.png",
+      "sha256": "dd0682c666d185502ba41172f4e67008abe2a0483c348e5832d91ad3245355cf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-sudoku-mini.png"
+    },
+    {
+      "id": "G-sugoroku-race",
+      "name": "すごろく",
+      "scene": "Panda and rust orange squirrel with enormous curled tail play a cheerful tabletop board race on a garden picnic blanket. Winding path of large colored spaces, two simple animal pawn pieces, one large die with dot pips. Squirrel moves one pawn while panda cheers. No numbered spaces or labels; start marked by arch, finish by plain flag. Three-quarter overhead view.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-sugoroku-race.png",
+      "sha256": "470726667adaff60d297ebe1d646ee19ee3312e63f13df86e76011bb1dbabcb2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-sugoroku-race.png"
+    },
+    {
+      "id": "G-sushi-belt",
+      "name": "かいてんずし",
+      "scene": "Calico cat with orange dark-brown and cream patches, large fluffy upright tail and golden half-lidded eyes selects a salmon nigiri plate from a gently curved conveyor sushi belt in a bright tiny wooden restaurant. Other plates carry egg nigiri and cucumber rolls. One paw reaches to plate, other rests at counter. Conveyor route legible, food appetizing, no signage or text.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        }
+      ],
+      "illustration": "illustrations/G-sushi-belt.png",
+      "sha256": "5a81971a6c7da7ac92048d40e795a1a450bb6ada9075e282a3f5b1653c12764d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-sushi-belt.png"
+    },
+    {
+      "id": "G-takoyaki-grill",
+      "name": "たこやきやさん",
+      "scene": "Small brown monkey with cream face and belly, round ears and curled tail turns golden takoyaki balls with a slim wooden pick at a friendly outdoor festival stall. Black iron pan with round wells, finished tray with sauce and green garnish, gentle steam, unmarked pastel lanterns. One hand holding pick naturally and other steadying tray. No signs letters or numbers.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-takoyaki-grill.png",
+      "sha256": "bd9256f6f01aeea5c1cf5f63939beae319aace37c9e1b91f829eed5297610c68",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-takoyaki-grill.png"
+    },
+    {
+      "id": "G-tank-battle",
+      "name": "タンクバトル",
+      "scene": "Golden hamster peeks from hatch of a small blue toy tank on a tabletop obstacle course made of colorful wooden blocks. Soft foam ball emerges from short rounded toy barrel toward a free standing target of wooden blocks. Friendly game diorama in sunny playroom, visible rubber tracks, toy scale, no damage to living beings, no military symbols.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-tank-battle.png",
+      "sha256": "93c4e457e1e7f20744540c0320d585bbfa9d58b295ebd9f2a60f74097f62cd2e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-tank-battle.png"
+    },
+    {
+      "id": "G-tennis-rally",
+      "name": "テニス",
+      "scene": "Cream rabbit returns a bright yellow tennis ball with one racket held in a paw on near side of a grassy tennis court; brown cream otter with one racket waits across net. Clear two sides of net, correct racket handles connected to paws, low oblique camera, spring sunlight, rabbit in lively but anatomically coherent stance. No scoreboards.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        },
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/G-tennis-rally.png",
+      "sha256": "6f90e66001d5adc275fea7d135e7821669df4fae5f38e57083f0745f6c53b0dc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-tennis-rally.png"
+    },
+    {
+      "id": "G-tilt-maze-3d",
+      "name": "たまころがしめいろ",
+      "scene": "Small round hedgehog with cream face and brown spines holds two opposite edges of a wooden tilt labyrinth board on a tabletop. A single shiny marble rolls along a visible connected passage past round holes toward a star-shaped finish mark. Strong overhead oblique view shows raised wooden walls and tilt. Warm afternoon in woodland workshop, no letters numbers.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hedgehog.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "fc265081cbb309209d8b68d2d4e62f1ca3a64d8d"
+        }
+      ],
+      "illustration": "illustrations/G-tilt-maze-3d.png",
+      "sha256": "215694d57be1aa8844e5ca893ca12f0a5d05094da0e2da957fc7b3c45135e0fc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-tilt-maze-3d.png"
+    },
+    {
+      "id": "G-tower-defense",
+      "name": "タワーディフェンス",
+      "scene": "Panda thoughtfully places one small wooden defensive tower beside a winding path in a colorful tabletop strategy diorama. Several friendly blob-shaped toy pieces approach along the path toward a small wooden castle, two other towers guard turns. Felt grass, wood bridges, softly glowing shield around castle. Toy game scene, no injury explosions military insignia, warm sunroom.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        }
+      ],
+      "illustration": "illustrations/G-tower-defense.png",
+      "sha256": "ede43f3a42f6609a2964202ab76b1fe1a2b49dbbb0982a64207b98c1fd62ce99",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-tower-defense.png"
+    },
+    {
+      "id": "G-track-field",
+      "name": "りくじょう",
+      "scene": "Orange cream shiba and white cream rabbit run a friendly relay on an oval red athletics track. Foreground shiba passes a plain wooden baton to rabbit who reaches back with one forepaw while running forward. Both have four coherent limbs, tails distinct, clear baton handoff, trees and distant hurdles, golden late afternoon. No bib numbers or writing.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        },
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-track-field.png",
+      "sha256": "9412e15c19c3a4b4c53c4d0dd5d91bfbb539717ebc76b33ee8d46e64bb839fa0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-track-field.png"
+    },
+    {
+      "id": "G-voxel-mine",
+      "name": "ボクセルマイニング",
+      "scene": "Brown masked tanuki with cream belly explores a bright cutaway cavern built from cubic stone and soil blocks. Holds a small wooden handled pickaxe with both paws to gently loosen one cube with glowing turquoise crystal seam. Intact blocks form stairs and arch, small basket of crystals nearby, sunlight entering cave mouth. Cute exploratory mining, no text numbers, distinct cubical geology.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-voxel-mine.png",
+      "sha256": "e910504e6fc49dbf80d5d37e81d2cef4529f13613d64eeecb5ccb6ce4764af56",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-voxel-mine.png"
+    },
+    {
+      "id": "G-yacht-dice",
+      "name": "ヨット",
+      "scene": "Calico cat with orange brown white patches and fluffy tail rolls exactly five cream dice with ordinary dark dot pips from a small wooden dice cup onto green felt tabletop. One forepaw tilts cup, other rests near the tray. Cozy sunny cafe window, dice legible, no printed score sheet or numerals, delighted thoughtful expression.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        }
+      ],
+      "illustration": "illustrations/G-yacht-dice.png",
+      "sha256": "f82b512e65d6f18a6f6a2b9ca7b55d2a867541241e9bb19ad8b6fc1f5208e1ae",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-yacht-dice.png"
     }
   ],
   "remaining_not_started": 429,

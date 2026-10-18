@@ -1,6 +1,6 @@
 {
-  "completed": 216,
-  "not_started": 232,
+  "completed": 232,
+  "not_started": 216,
   "repair_pending": 4,
   "original46_four_sizes_byte_identical": true,
   "duplicate_image_hashes": 0,
@@ -3414,417 +3414,417 @@
     },
     {
       "id": "G-stack-sakura",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-stack-sakura.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-sakura.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-sakura-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-sakura-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-stack-snowman",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-stack-snowman.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-snowman.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-snowman-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-snowman-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-stack-themed",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-stack-themed.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-themed.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-themed-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-stack-themed-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-street-fight",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-street-fight.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-street-fight.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-street-fight-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-street-fight-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-submarine-3d",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-submarine-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-submarine-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-submarine-3d-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-submarine-3d-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-sudoku-mini",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-sudoku-mini.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sudoku-mini.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sudoku-mini-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sudoku-mini-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-sugoroku-race",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-sugoroku-race.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sugoroku-race.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sugoroku-race-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sugoroku-race-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-sushi-belt",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-sushi-belt.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sushi-belt.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sushi-belt-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-sushi-belt-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-takoyaki-grill",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-takoyaki-grill.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-takoyaki-grill.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-takoyaki-grill-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-takoyaki-grill-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-tank-battle",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-tank-battle.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tank-battle.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tank-battle-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tank-battle-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-tennis-rally",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-tennis-rally.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tennis-rally.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tennis-rally-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tennis-rally-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-tilt-maze-3d",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-tilt-maze-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tilt-maze-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tilt-maze-3d-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tilt-maze-3d-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-tower-defense",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-tower-defense.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tower-defense.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tower-defense-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-tower-defense-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-track-field",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-track-field.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-track-field.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-track-field-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-track-field-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-voxel-mine",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-voxel-mine.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-voxel-mine.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-voxel-mine-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-voxel-mine-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-yacht-dice",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-yacht-dice.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-yacht-dice.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-yacht-dice-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-yacht-dice-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
