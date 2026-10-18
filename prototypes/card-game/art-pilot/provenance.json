@@ -1,6 +1,6 @@
 {
-  "status": "23_approved_plus_23_production_qa_complete",
-  "generated_count": 46,
+  "status": "production_in_progress",
+  "generated_count": 69,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -1273,6 +1273,535 @@
         }
       ],
       "revision": "growth-story-v2"
+    },
+    {
+      "id": "C-bat",
+      "name": "よふかしコウモリ",
+      "scene": "Blue-hour moonlit clearing, hanging by two connected hind feet.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Lavender gray bat, large pink-lilac ears and membranes, upside down posture.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/bat.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f2e939abfe3339c324f31a4c1fb35801d5886a71"
+        }
+      ],
+      "illustration": "illustrations/C-bat.png",
+      "sha256": "21563282173fa9ef707786df49eb59f921dc3dc286cd2eac189d995be0865bf0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; one targeted foot-attachment revision",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-bat.png"
+    },
+    {
+      "id": "C-box",
+      "name": "ただのはこ",
+      "scene": "Quiet cozy wooden porch after rain, the plain little box sits on clean sunlit floorboards beside a few fallen leaves; three-quarter view, soft garden bokeh and raindrops beyond the porch. Its understated ordinary nature is the charm. No shipping labels.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small ordinary closed brown cardboard cube, taped top, two tiny dark dot eyes and tiny simple mouth low on front, no limbs.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/box.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "106b3de2431fe62a18da04695b572d6f41528f15"
+        }
+      ],
+      "illustration": "illustrations/C-box.png",
+      "sha256": "9be9e6b99b2d979ff726cb3705c2c5fe4cd5fca44021d9d14249723b687ad0e5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-box.png"
+    },
+    {
+      "id": "C-chameleon",
+      "name": "サングラスのカメレオン",
+      "scene": "Relaxing on a broad tropical branch at the boundary between a sunny clearing and cool leafy shade. A confident friendly pose, one forefoot extended on the branch, full spiral tail visible. Dappled emerald and warm gold light.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Lime green chameleon with turquoise spots, curled spiral tail, little dorsal crest, black sunglasses.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/chameleon.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0e8189a045924b954a70b3266fed41e9a2551880"
+        }
+      ],
+      "illustration": "illustrations/C-chameleon.png",
+      "sha256": "1c7728ffc1a4e9086c822d93d9b86a72242f1d656aa3ff87c9031bb27f9754c7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-chameleon.png"
+    },
+    {
+      "id": "C-chicken",
+      "name": "はやおきニワトリ",
+      "scene": "Greeting sunrise from a low wooden fence in a dew-covered kitchen garden, beak open in a small cheerful crow, pink clouds and distant farmhouse, low eye-level view. Entire tail and both feet visible.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Orange red rooster, red comb and wattles, pale golden neck feathers, deep teal curved tail, yellow beak and legs.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/chicken.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e828581b37f9eee76bae654406f7d41620a67548"
+        }
+      ],
+      "illustration": "illustrations/C-chicken.png",
+      "sha256": "1890a6caea531d2ad15a97ca816acc3ebefea8569462fe38702236eb04ec111c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-chicken.png"
+    },
+    {
+      "id": "C-clock",
+      "name": "じかんにルーズなとけい",
+      "scene": "The sleepy clock companion lingers on a bedroom windowsill beside gently billowing linen curtains in late morning sunshine, one arm lazily waving, warm wooden surroundings, unfussy composition. Clock face must use simple tick marks ONLY, omit numerals and writing to obey no numbers.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Cute blue gray vintage twin-bell alarm clock, cream round face with sleepy eyes and rosy cheeks, little white-gloved arms and blue shoe feet, gold bells and windup key.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/clock.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "beef1bb4650efe27a10039cc0b8e94aba8941005"
+        }
+      ],
+      "illustration": "illustrations/C-clock.png",
+      "sha256": "a089eb1a1178ff725defac04ec2186d66a2744b9f4e8c634c988082ba9c78d45",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-clock.png"
+    },
+    {
+      "id": "C-hamster",
+      "name": "ほおぶくろハムスター",
+      "scene": "Storing a few seeds in a snug woodland nook at golden afternoon, sitting upright with hands near its very full cheek pouches, a few sunflower seeds and husks nearby, soft moss and clover. Low close camera, delighted expression.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/C-hamster.png",
+      "sha256": "bb1145ca011c8894ee1e135494c93788431f985757ff8531bf47a15ea37c955a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-hamster.png"
+    },
+    {
+      "id": "C-hedgehog",
+      "name": "びっくりハリネズミ",
+      "scene": "A falling maple leaf has surprised it on a mossy woodland path; one leaf drifting near its face, tiny paws tucked in and wide eyes, warm autumn rim light, close ground-level view. Friendly surprise, no threat.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small hedgehog curled almost spherical, brown cream tipped spines surround light cream face, round startled dark eyes, rosy cheeks, tiny paws.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hedgehog.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fc265081cbb309209d8b68d2d4e62f1ca3a64d8d"
+        }
+      ],
+      "illustration": "illustrations/C-hedgehog.png",
+      "sha256": "2e1518a8f09327cd9f93c6a2b3f556484d0c9bc3d8473a729f9c7230b391dc23",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-hedgehog.png"
+    },
+    {
+      "id": "C-many_tail_fox",
+      "name": "しっぽのおおいきつね",
+      "scene": "Sitting gracefully at a sunlit forest fork with its many plush tails spread visibly over moss, curious sideways glance toward the two paths, gentle magical woodland atmosphere with floating pollen. No extra foxes, do not convert into a single-tailed fox.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small orange fox with multiple distinct fluffy cream-tipped orange tails fanning behind, cream cheek ruff and bib, dark brown paws, amber half-lidded eyes, long pointed ears.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/many_tail_fox.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8da00961942db7fb3fbd7b01dfbf394b6328fe90"
+        }
+      ],
+      "illustration": "illustrations/C-many_tail_fox.png",
+      "sha256": "78240b07ed39c0ab944031d77b105885c4a0642c73451503a39aa001d0af1927",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-many_tail_fox.png"
+    },
+    {
+      "id": "C-monkey",
+      "name": "まねっこサル",
+      "scene": "Playfully imitating its own waving reflection at a shallow forest pool, sitting securely on a flat rock, one hand lifted beside its ear, other on rock. Reflection clearly belongs to same monkey; lush ferns and morning light. No humanoid clothing.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/C-monkey.png",
+      "sha256": "3f63c2980f9b3b45edc9104af09380d752eab4224e40dbc216724e74e5c9704e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-monkey.png"
+    },
+    {
+      "id": "C-panda",
+      "name": "ぐうたらパンダ",
+      "scene": "Lazing against a smooth mossy boulder in a breezy bamboo grove, legs comfortably stretched, a bamboo sprig resting in one paw, half-closed peaceful eyes. Wide triangular composition, dappled early afternoon light.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        }
+      ],
+      "illustration": "illustrations/C-panda.png",
+      "sha256": "ca27868eab3f16d6e2f0410f7e4a1e85c4a54181f53ed013578d8c57e25f4108",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-panda.png"
+    },
+    {
+      "id": "C-parrot",
+      "name": "おしゃべりオウム",
+      "scene": "Chattering cheerfully from a flowering garden branch, one wing slightly lifted as if explaining something, lively bright eyes, sunny pale blue sky, colorful flowers softly blurred below. One bird only.",
+      "identity_review": "Visual comparison to canonical 2D sprite: White cockatoo with tall curved yellow crest, curved dark gray beak, orange cheek spot, pink blush, gray feet.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/parrot.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0e97208f34316ee68e92ac8d85e13aed2e4f2fcc"
+        }
+      ],
+      "illustration": "illustrations/C-parrot.png",
+      "sha256": "afc06922a84d20c14289dc6933fedd3792f0a3be8b477de0e1db90a379e6be4b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-parrot.png"
+    },
+    {
+      "id": "C-penguin_friend",
+      "name": "すべりたがりペンギン",
+      "scene": "Sliding happily down a smooth snow slope toward a frozen turquoise pool, soft spray of snow behind, full body and both flippers visible, low oblique dynamic view, bright reflected daylight and rounded icy hills.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/penguin_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+        }
+      ],
+      "illustration": "illustrations/C-penguin_friend.png",
+      "sha256": "30b7225448a767d9002e6cfdca9779179b11a784907b15526d3f3721aa98c45b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-penguin_friend.png"
+    },
+    {
+      "id": "C-punyu",
+      "name": "とけかけのぷにゅ",
+      "scene": "Resting as a soft sagging puddle on a smooth warm sunlit stone in a flower garden, one curled top drooping gently, a cool leaf shadow across part of body, soft summer light. Keep it cute and intact, not food or injury.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Pale butter-yellow soft melting blob creature, curled drooping peak, irregular puddle base, simple dark teardrop eyes and small mouth, rosy cheeks, no limbs.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/punyu.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e11af44332664d2f80ff76d34628c569ac5999cc"
+        }
+      ],
+      "illustration": "illustrations/C-punyu.png",
+      "sha256": "d08df52e6cda28bd39a124e5f16fcb270553601a4fb3408ccdc875c3a9a4f966",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-punyu.png"
+    },
+    {
+      "id": "C-rabbit_friend",
+      "name": "すばしっこいうさぎ",
+      "scene": "Bounding lightly across a narrow woodland brook from one grassy bank to the other, full four-limb anatomy naturally foreshortened, ears swept back, a few droplets below; bright spring morning, fresh clover. One rabbit only.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/C-rabbit_friend.png",
+      "sha256": "a33a4989c5f6ba3155498b5fa88ce9e7bee5f6b4361ec3518184b97e2a9e208d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-rabbit_friend.png"
+    },
+    {
+      "id": "C-seal",
+      "name": "ごろごろアザラシ",
+      "scene": "Rolling lazily on a smooth sunlit coastal rock at low tide, round tummy turned partly toward viewer and tail lifted, pale surf and tidepool sparkles behind, gentle sea breeze. No legs or paws.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Plump pale blue gray seal with darker blue speckles, white belly, dark eyes, short whiskers, smiling muzzle, small foreflippers and paired tail flippers.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/seal.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "97b79e21a27fdbd798da66362af20f3e1ed1f68c"
+        }
+      ],
+      "illustration": "illustrations/C-seal.png",
+      "sha256": "b0f12b38d5d100c2f2052ce1954c09b579d3cf95584ad939e2b56e3da93f1c6a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-seal.png"
+    },
+    {
+      "id": "C-sekizou",
+      "name": "むひょうじょうのせきぞう",
+      "scene": "Standing immovably beside an old garden path as wind sends light leaves past it, a little moss near the base, broken cloud sunlight, front three-quarter view. Preserve expressionless stone face, no smile or glowing eyes.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small squat dark slate-gray moai-like stone statue, rectangular heavy nose, straight expressionless brow and mouth, compact torso with arms lying against it, block base.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/sekizou.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "3f4bbd0036278fb1eb3ed1894ea140341b3d64a4"
+        }
+      ],
+      "illustration": "illustrations/C-sekizou.png",
+      "sha256": "35a391d42a994b7c526f5d85b2df9e7b10917dc0db73390d6e4c794a57ab7b84",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-sekizou.png"
+    },
+    {
+      "id": "C-sheep",
+      "name": "ふわふわヒツジ",
+      "scene": "Comfortably settled in a clover meadow beside a low woven fence, warm gentle morning sunshine catches fluffy fleece, tiny daisies in foreground, quiet welcoming mood, full body.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Round fluffy white sheep with dense soft cream wool curls, pink face and long drooping ears, eyes cheerfully closed, short brown hooves.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/sheep.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d1a34810ac1fe6c5d5bea03ed99124190e5f474c"
+        }
+      ],
+      "illustration": "illustrations/C-sheep.png",
+      "sha256": "d5ee568c566c803fe3a8bca7a68bf7d047b453dbe7495ba3772d4ddf322ca922",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-sheep.png"
+    },
+    {
+      "id": "C-shiba",
+      "name": "ひとなつっこいしばいぬ",
+      "scene": "Welcoming an unseen friend at an open garden gate in a playful bow, forepaws lowered, hindquarters and curled tail raised, happy open mouth, late afternoon sun through wooden fence. No collar or added accessories.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        }
+      ],
+      "illustration": "illustrations/C-shiba.png",
+      "sha256": "4e70cc84166786d53fb5267f6d926a5c61d2232ff9b247344aeb05f35417d33a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-shiba.png"
+    },
+    {
+      "id": "C-snail",
+      "name": "せっかちなカタツムリ",
+      "scene": "Hurrying along the curving edge of a dew-covered broad leaf toward its tip, extended neck and eager face, sparkling rain drops and sunlit blurred hydrangea garden behind, macro eye-level perspective. No motion lines or writing.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Light pale green snail with orange spiral shell and two long eye stalks, small smiling face.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/snail.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "604c0a5b9b332400061af8291a590caeef114569"
+        }
+      ],
+      "illustration": "illustrations/C-snail.png",
+      "sha256": "f32ef4b12a807af59addcc97f9095045d8b0db52c7f4bd254a55a1fcc6b4f332",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-snail.png"
+    },
+    {
+      "id": "C-squirrel",
+      "name": "おっちょこちょいリス",
+      "scene": "Trying to gather acorns on a forest stump as one acorn gently rolls away, surprised sweet face, both small hands near remaining acorn, autumn leaves and golden backlight. Large fluffy tail fully shown.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/C-squirrel.png",
+      "sha256": "86c6c39a88093a3c16f7fda2f6f23d8c651a69133b261aeb98b75ea070dcbf73",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-squirrel.png"
+    },
+    {
+      "id": "C-tanuki",
+      "name": "いたずらたぬき",
+      "scene": "Peeking mischievously around a mossy stone lantern in a quiet woodland garden, clutching its little green leaf, feet and bushy tail visible, warm evening light; playful rather than sinister, no writing on lantern.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/C-tanuki.png",
+      "sha256": "fb7ee873d2bc9032b465259e821c0e113a4448289410be3430d444791d9479dd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-tanuki.png"
+    },
+    {
+      "id": "C-unicorn",
+      "name": "まよいこんだユニコーン",
+      "scene": "Pausing with one forehoof raised at an unexpected sunlit meadow opening in a leafy woodland, curious slightly lost expression, soft pale flowers, diagonal shaft of morning light, complete body and single horn.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small lavender white unicorn with one pale spiral horn, flowing lilac mane and tail, purple hooves and large blue eyes, no wings.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/unicorn.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "168b2e6749ebd5fa777faf23452cf9fd82511ffc"
+        }
+      ],
+      "illustration": "illustrations/C-unicorn.png",
+      "sha256": "206ff1465db0fef8a9cd15752f5b4aeb96f250f7908e196e600d77bbe01a2f6c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-unicorn.png"
+    },
+    {
+      "id": "C-watcher",
+      "name": "みているなにか",
+      "scene": "Quietly peering from beside a large pale birch trunk at a peaceful dawn woodland clearing, dark wisp silhouette clearly readable against softly lit moss and sky, one blue eye curious, whimsical and gentle rather than horror. No additional eyes in background.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small narrow floating midnight navy wisp with irregular curling pointed edges and ONE luminous pale blue eye; no limbs or mouth.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/watcher.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "af115833fa54a84368768019d4552515aeb1482e"
+        }
+      ],
+      "illustration": "illustrations/C-watcher.png",
+      "sha256": "d1f5dc6c96b929d357881b5839f9bb556efcaf0e578990f6dd62f966d79f5f23",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/C-watcher.png"
     }
   ],
   "remaining_not_started": 429,

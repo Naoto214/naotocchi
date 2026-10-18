@@ -10,7 +10,7 @@
     "partner": 18,
     "world": 13
   },
-  "scope": "Paths and immutable git blobs verified for all mapped images; visual inspection limited to the 23 selected card references. 3D sources are supplemental, not a new 293-actor audit.",
+  "scope": "Canonical paths/blobs mapped for 452 cards. Visual production review covers the completed cards recorded in provenance; remaining cards are not yet reviewed.",
   "cards": [
     {
       "card_id": "C-bat",
@@ -24,13 +24,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f2e939abfe3339c324f31a4c1fb35801d5886a71",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-bat.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:bat",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-bat — よふかしコウモリ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Bat foot attachment repaired; first candidate retained."
     },
     {
       "card_id": "C-box",
@@ -44,13 +44,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "106b3de2431fe62a18da04695b572d6f41528f15",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-box.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:box",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-box — ただのはこ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-cat_friend",
@@ -84,13 +84,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0e8189a045924b954a70b3266fed41e9a2551880",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-chameleon.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:chameleon",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-chameleon — サングラスのカメレオン",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-chicken",
@@ -104,13 +104,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e828581b37f9eee76bae654406f7d41620a67548",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-chicken.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:chicken",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-chicken — はやおきニワトリ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-clock",
@@ -124,13 +124,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "beef1bb4650efe27a10039cc0b8e94aba8941005",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-clock.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:clock",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-clock — じかんにルーズなとけい",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-hamster",
@@ -144,13 +144,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-hamster.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:hamster",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-hamster — ほおぶくろハムスター",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-hedgehog",
@@ -164,13 +164,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fc265081cbb309209d8b68d2d4e62f1ca3a64d8d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-hedgehog.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:hedgehog",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-hedgehog — びっくりハリネズミ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-many_tail_fox",
@@ -184,13 +184,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "8da00961942db7fb3fbd7b01dfbf394b6328fe90",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-many_tail_fox.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:many_tail_fox",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-many_tail_fox — しっぽのおおいきつね",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-monkey",
@@ -204,13 +204,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-monkey.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:monkey",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-monkey — まねっこサル",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-otter",
@@ -264,13 +264,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-panda.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:panda",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-panda — ぐうたらパンダ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-parrot",
@@ -284,13 +284,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0e97208f34316ee68e92ac8d85e13aed2e4f2fcc",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-parrot.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:parrot",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-parrot — おしゃべりオウム",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-penguin_friend",
@@ -304,13 +304,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-penguin_friend.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:penguin_friend",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-penguin_friend — すべりたがりペンギン",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-punyu",
@@ -324,13 +324,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e11af44332664d2f80ff76d34628c569ac5999cc",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-punyu.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:punyu",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-punyu — とけかけのぷにゅ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-rabbit_friend",
@@ -344,13 +344,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-rabbit_friend.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:rabbit_friend",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-rabbit_friend — すばしっこいうさぎ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-seal",
@@ -364,13 +364,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "97b79e21a27fdbd798da66362af20f3e1ed1f68c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-seal.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:seal",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-seal — ごろごろアザラシ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-sekizou",
@@ -384,13 +384,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "3f4bbd0036278fb1eb3ed1894ea140341b3d64a4",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-sekizou.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:sekizou",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-sekizou — むひょうじょうのせきぞう",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-sheep",
@@ -404,13 +404,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d1a34810ac1fe6c5d5bea03ed99124190e5f474c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-sheep.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:sheep",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-sheep — ふわふわヒツジ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-shiba",
@@ -424,13 +424,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-shiba.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:shiba",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-shiba — ひとなつっこいしばいぬ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-snail",
@@ -444,13 +444,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "604c0a5b9b332400061af8291a590caeef114569",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-snail.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:snail",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-snail — せっかちなカタツムリ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-squirrel",
@@ -464,13 +464,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-squirrel.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:squirrel",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-squirrel — おっちょこちょいリス",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-tanuki",
@@ -484,13 +484,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-tanuki.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:tanuki",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-tanuki — いたずらたぬき",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-unicorn",
@@ -504,13 +504,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "168b2e6749ebd5fa777faf23452cf9fd82511ffc",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-unicorn.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:unicorn",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-unicorn — まよいこんだユニコーン",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "C-watcher",
@@ -524,13 +524,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "af115833fa54a84368768019d4552515aeb1482e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/C-watcher.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=companion:watcher",
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-watcher — みているなにか",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-big-illness",
