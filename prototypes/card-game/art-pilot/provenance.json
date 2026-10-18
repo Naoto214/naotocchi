@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 171,
+  "generated_count": 186,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -4263,6 +4263,371 @@
       "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/G-free-kick-3d.png"
+    },
+    {
+      "id": "G-frogger-road",
+      "name": "かえるのおうちがえり",
+      "scene": "Canonical bright green juvenile frog with cream throat belly, short residual tail, big brown eyes (one eye winking as reference), pinkcheeks and four frog limbs leaps from one floatinglog to next across a gentle river. A road with smalltoy cars behind on distant bank, cozy home burrow among reeds on destination bank, high diagonal view. Frog largecenter fullyvisible, no text,no scarytraffic.",
+      "identity_review": "Visual comparison to canonical character references: Bright green juvenile frog with pale cream belly, large brown eyes, oneeye winking, pinkcheeks, fourfroglimbs and short residualtail as canonical frog05.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "573ba3fb038b1443c5f6fed56bbae838bd454469"
+        }
+      ],
+      "illustration": "illustrations/G-frogger-road.png",
+      "sha256": "1feab6bd0c5643ddcfac4f49196d58a6b7307376079d58edb1eef942f3c6ee1d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-frogger-road.png"
+    },
+    {
+      "id": "G-fruit-slice",
+      "name": "フルーツ斬り",
+      "scene": "Monkey at a cheerful orchard festival swipes a thin glowing gamewand through airborne fruit: one watermelon splitting cleanly into two juicy red halves, one orangehalf and apple nearby, small bright juice droplets. Twoarms oneholdingwand and otherbalanced, twofeet planted, curlingtail. NO real sword/knife, no gore. Clear curved motion arc, widegarden backdrop, fruit andjoyfulface prominent.",
+      "identity_review": "Visual comparison to canonical character references: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-fruit-slice.png",
+      "sha256": "cc99d91ad2451b207b23147f7e168f3288eac5b035ccb025123a5223abd24124",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-fruit-slice.png"
+    },
+    {
+      "id": "G-grand-prix-3d",
+      "name": "グランプリ",
+      "scene": "Shiba drives a small red open gokart in a cheerful grandprix race, roundedbody properseat, bothforepaws onsteeringwheel, curledtail behindseat and littleplainhelmet earsvisible. Monkey in a smaller blue rival kart behind on same curving track. Sunlit parkcourse with redwhitecurbs and blackwhite checkeredflag atfinish, no logos numbers text. Low sidefront perspective captures wheels andfriendlycompetition.",
+      "identity_review": "Visual comparison to canonical character references: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail. / Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        },
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-grand-prix-3d.png",
+      "sha256": "0d0cb7c7698e692d9c8673fd9b00138db243bbf58157bf81f75eda979b6439da",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-grand-prix-3d.png"
+    },
+    {
+      "id": "G-halfpipe-skate",
+      "name": "ハーフパイプ",
+      "scene": "Orange squirrel wearing a plain bluehelmet performs a small skateboard aerial above the curved lip of a wooden U-shaped halfpipe in a sunny leafy skatepark. Exactlyone four-wheeledskateboard directly beneath twohindfeet, twoforepaws spread forbalance, fullhugefluffytail sweeping behind. Wide view shows both curved sides oframp, dynamically airbornebutgentle, no writing.",
+      "identity_review": "Visual comparison to canonical character references: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-halfpipe-skate.png",
+      "sha256": "c4f1703c911341802c2db652c002e107d8449fb215209010ab22ae507b089b49",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-halfpipe-skate.png"
+    },
+    {
+      "id": "G-hang-glider-3d",
+      "name": "ハンググライダー3D",
+      "scene": "Brown cream otter flies beneath a large turquoise and cream triangular hangglider above rollinggreenhills. Proper triangular controlbar belowwing, otter twoforepaws gripbar, body suspended by visible snug simple harness fromcentralframe, twohindfeet and taperedtail trailbehind. Soaring lowclouds andsoftsunbeams, fullglider andotter legible, noextraarms, no text.",
+      "identity_review": "Visual comparison to canonical character references: Brown otter, cream muzzle throat belly, round ears, whiskers, smooth tapered longtail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/G-hang-glider-3d.png",
+      "sha256": "188a8639f3edc5638926550a3401ea25a5806c1bcddda54fcd4875e18c9f4786",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-hang-glider-3d.png"
+    },
+    {
+      "id": "G-haunted-house-3d",
+      "name": "おばけやしき",
+      "scene": "Round golden hamster with tiny pink paws enters a playful oldhouse maze at dusk, holding small brasskey inonepaw and a warm lantern inother. A friendly translucent whiteghost peeks around doorway behind, smiling rather thanfrightening. Ahead a softlylit door withkeyhole, cobwebcorner andpumpkins, gentle purpleblue shadows but hamsterface warmvisible, tinyshorttail, no horror.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-haunted-house-3d.png",
+      "sha256": "ff4628d63d0ee5123b62b055824ec59f6dbeb5f03ee7ad5e51da9e0fc0a3f6de",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-haunted-house-3d.png"
+    },
+    {
+      "id": "G-hit-blow",
+      "name": "ヒット&ブロー",
+      "scene": "Tanuki plays a color-code guessing puzzle at a roundtable in a bright garden conservatory. Wooden gameboard has rows of FOUR round coloredpegs perguess, small redwhitefeedbackpegs at right, hidden answer beneath a little hingedwoodencover at top. Tanuki arranges onebluepeg next to redyellowgreen threepegs, thoughtfulhappyexpression, overheadthreequartercomposition, no numbers orletters.",
+      "identity_review": "Visual comparison to canonical character references: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-hit-blow.png",
+      "sha256": "e422f8c7855f2424ef722db043e721589947e8c45ebc3e601817abf8d24038a9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-hit-blow.png"
+    },
+    {
+      "id": "G-jenga-tower",
+      "name": "ジェンガ",
+      "scene": "Monkey gently pulls ONE middle woodenblock horizontally from a tall balanced tower, panda watches holdingcheeks withdelight. Tower layers made of exactlyTHREE rectangular woodenblocks each, alternatingorientation90degrees, visiblegap where block emerging, slightlytiltedtopbutnotfalling. Bright homeplayroom, closeview ofcarefulpaw, characters twoarms each, no writing.",
+      "identity_review": "Visual comparison to canonical character references: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair. / Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        },
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        }
+      ],
+      "illustration": "illustrations/G-jenga-tower.png",
+      "sha256": "d5a5319b52d106fbcd84245a3a73eeb24c53e5e51f339f5f3d611f3ccc460905",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-jenga-tower.png"
+    },
+    {
+      "id": "G-jump-quest",
+      "name": "ジャンプクエスト",
+      "scene": "White rabbit makes a long horizontal leap over a narrow stream between grassy platforms, headed toward a little orange pennant goalflag onright. Forepaws forward, hindfeet trailing, longpinkears upright, fluffyshorttail, fullsilhouette. Steppingledges and small golden collectible orbs trace route, sunny meadows andtrees, side-scrollingadventure in delicatestorybookworld, no numbers.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-jump-quest.png",
+      "sha256": "6a78448005230b9418a5eedec136c8086096488f8a9c404fbbbad72dc92a5a02",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-jump-quest.png"
+    },
+    {
+      "id": "G-lights-out",
+      "name": "ライツアウト",
+      "scene": "Golden round hamster in a cozy softlylit attic playroom presses center tile of a five-by-five board of square luminous buttons. EXACTLY5columns5rows,25buttons. Center andorthogonalneighbors glow softgold in a plusshape, others dimblue, suggesting togglinglightsout. Tiny pinkpaw touchescenter, otherpaw steadyboard, hugecreamcheeks andpinknubtail, nearly overheadboardview, no text.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-lights-out.png",
+      "sha256": "73513ef16caaff8f0a1e860023321829614c078242253e57f7f2190fdd77d947",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-lights-out.png"
+    },
+    {
+      "id": "G-line-trace",
+      "name": "せんなぞり",
+      "scene": "Orange squirrel sits at a home artdesk carefully tracing a dotted star outline onlarge plainpaper withonebluecrayon. Part ofstar now continuousblueline preciselyfollowingdots, remaininggraydots visible, otherpaw holds paper. View over shoulder shows profileface andhugecurledtail, morningwindowlight, small tray ofcrayons, no writtencharacters or numbers.",
+      "identity_review": "Visual comparison to canonical character references: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-line-trace.png",
+      "sha256": "e4d807e9ea95b9e66e9718927529a85661807dfdadae9daa04c3f79adf3becc8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-line-trace.png"
+    },
+    {
+      "id": "G-lunar-lander",
+      "name": "ルナランダー",
+      "scene": "Golden hamster pilots a cute compact lunar lander, visible through roundbubblecockpit, descending slowly withsoftblue retrothruster glow toward a flatmarkedlandingpad on pale moonterrain. Four landinglegs symmetrical connected, dust gently billowsbelow, Earth smallblueorb in starrylavendersky. No letters orpadnumbers, brightfriendlyspaceexploration, hamster tiny pinkhands oncontrols, roundcreamcheeks.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-lunar-lander.png",
+      "sha256": "0973fc4a17ff94379d01bedcdc80bdd008efb83bec8a019051cbbb8750b2b83e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-lunar-lander.png"
+    },
+    {
+      "id": "G-mancala-kalah",
+      "name": "マンカラ",
+      "scene": "Panda andmonkey play mancala on a beautifullycarved woodenboard. Board clearlyshows TWO parallel rows of SIX round smallpits each, PLUS one elongated large storepit at EACH end (14pits total). Colorful smoothseeds nest in pits. Monkey drops a singleseed frompaw into nextsmallpit, panda watches. Nearlyoverheadviewofboard, facesbothvisibleabove, sunlitporch no ocean, no markings.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-mancala-kalah.png",
+      "sha256": "8dea5e2be50f298d2a8c03c28fb0185e1e6964b7a1ce6d6ba58167e92d0e41a8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-mancala-kalah.png"
+    },
+    {
+      "id": "G-match-3",
+      "name": "フルーツマッチ3",
+      "scene": "White rabbit swaps two adjacent illustrated fruittiles on a wooden square puzzleboard, aligning THREE matching brightredapples in a horizontalrow that twinkles softly. Other tiles show orangess grapes lemons strawberries, game grid clear, rabbit oneforepaw on tile other restingedge. Gardenpicnicblanket, overhead threequarterview, friendlyconcentration, no numeralsletters or screens.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-match-3.png",
+      "sha256": "46f0bfc55c9adbe529c55c65da8412ba4d8749ededf3dd8843711c9459e51208",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-match-3.png"
+    },
+    {
+      "id": "G-memory-cards",
+      "name": "しんけいすいじゃく",
+      "scene": "Panda andorange squirrel play memory matchingcards on a low gardenpicnictable. Sixteen squarecards arranged4rows4columns; fourteen facedown with simpleleafpattern backs, TWO faceup matching strawberrypictures. Squirrel liftssecondmatchingcard whilepanda smiles, paws distinct. Highthreequarterview keepsallcardsandfacesreadable, softspringflowerbackground, no letters or numbers.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-memory-cards.png",
+      "sha256": "75263ab2c634c39f83d4fe1f503133e223f4c3a2f8372d8831d282cf70c8c55b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-memory-cards.png"
     }
   ],
   "remaining_not_started": 429,

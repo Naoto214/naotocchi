@@ -1,6 +1,6 @@
 {
-  "completed": 171,
-  "remaining": 281,
+  "completed": 186,
+  "remaining": 266,
   "categories": {
     "main": {
       "complete": 32,
@@ -19,8 +19,8 @@
       "remaining": 0
     },
     "play": {
-      "complete": 35,
-      "remaining": 65
+      "complete": 50,
+      "remaining": 50
     },
     "item": {
       "complete": 26,
@@ -31,29 +31,29 @@
       "remaining": 0
     }
   },
-  "next_lot": "play-03",
+  "next_lot": "play-04",
   "next_ids": [
-    "G-frogger-road",
-    "G-fruit-slice",
-    "G-gomoku-9",
-    "G-grand-prix-3d",
-    "G-halfpipe-skate",
-    "G-hang-glider-3d",
-    "G-haunted-house-3d",
-    "G-hit-blow",
-    "G-jenga-tower",
-    "G-jump-quest",
-    "G-lights-out",
-    "G-line-trace",
-    "G-lunar-lander",
-    "G-mancala-kalah",
-    "G-match-3",
-    "G-memory-cards"
+    "G-minesweeper-8",
+    "G-mini-golf-physics",
+    "G-missile-command",
+    "G-p3-drive",
+    "G-p3-space",
+    "G-picross-5",
+    "G-pinball-physics",
+    "G-pingpong-3d",
+    "G-pipe-connect",
+    "G-plane-landing",
+    "G-push-puzzle",
+    "G-puzzle-2048",
+    "G-race-3d",
+    "G-real-fishing",
+    "G-reversi-6",
+    "G-rhythm-highway-3d"
   ],
   "approval": "All remaining406 authorized 2026-10-18; no per-lot approval needed",
   "main_merge": false,
   "production_paused": false,
-  "latest_review": "rollout/play-b-20261018/README.md",
+  "latest_review": "rollout/play-c-20261018/README.md",
   "completed_ids": [
     "C-bat",
     "C-box",
@@ -137,6 +137,21 @@
     "G-fishing-sea",
     "G-fp-dungeon",
     "G-free-kick-3d",
+    "G-frogger-road",
+    "G-fruit-slice",
+    "G-grand-prix-3d",
+    "G-halfpipe-skate",
+    "G-hang-glider-3d",
+    "G-haunted-house-3d",
+    "G-hit-blow",
+    "G-jenga-tower",
+    "G-jump-quest",
+    "G-lights-out",
+    "G-line-trace",
+    "G-lunar-lander",
+    "G-mancala-kalah",
+    "G-match-3",
+    "G-memory-cards",
     "I-bond1",
     "I-bowtie",
     "I-c_coin2",
@@ -228,22 +243,6 @@
     "W-star_stop"
   ],
   "not_started_ids": [
-    "G-frogger-road",
-    "G-fruit-slice",
-    "G-gomoku-9",
-    "G-grand-prix-3d",
-    "G-halfpipe-skate",
-    "G-hang-glider-3d",
-    "G-haunted-house-3d",
-    "G-hit-blow",
-    "G-jenga-tower",
-    "G-jump-quest",
-    "G-lights-out",
-    "G-line-trace",
-    "G-lunar-lander",
-    "G-mancala-kalah",
-    "G-match-3",
-    "G-memory-cards",
     "G-minesweeper-8",
     "G-mini-golf-physics",
     "G-missile-command",
@@ -510,5 +509,7 @@
     "M-world_tree-07",
     "M-world_tree-08"
   ],
-  "repair_pending_ids": []
+  "repair_pending_ids": [
+    "G-gomoku-9"
+  ]
 }
