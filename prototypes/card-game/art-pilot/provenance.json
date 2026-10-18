@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 332,
+  "generated_count": 364,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -8044,6 +8044,742 @@
       "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/M-man-08.png"
+    },
+    {
+      "id": "M-mushroom-01",
+      "name": "キノコ①",
+      "scene": "Exact little peach round spores with tiny happyfaces drifting above a moist mossylog, one biggest central spore with5smallercompanions, macro morning forestlight, no mushrooms yet.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f5076ca36389e9d6282e0b8137c320aace805d7"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-01.png",
+      "sha256": "0867d5bc95dfbe1e6abdb79f8c2d7a96fd54167a54fd885302bd6948abc6b505",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-01.png"
+    },
+    {
+      "id": "M-mushroom-02",
+      "name": "キノコ②",
+      "scene": "Exact central peach mycelialbody with happyface and thin branching salmoncoloredthreads spreading radially across moist bark, close topdown view, dewdrops and greenmoss edge. Threads notarms; no mushroomcap.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f9dc8853dbb4e97de2b6a4791c8652da13305fbb"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-02.png",
+      "sha256": "6e8340a657436db9471f70b55b535a3db93f6ff2c730d4c6b7768c5134efe064",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-02.png"
+    },
+    {
+      "id": "M-mushroom-03",
+      "name": "キノコ③",
+      "scene": "Tiny sprout mushroom with short creamstalk and soft pinkroundedcap, cute face on cap as reference. Nestled between goldenpebbles, groundlevel closeview towardright, warm shafts of light.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e1f1d296a990367e1400cbbc7573056da29fe01e"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-03.png",
+      "sha256": "feb258629574e06e0fd73a8530e8997f7f6f3acc22f6aa4243fb5ec6f50281c4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-03.png"
+    },
+    {
+      "id": "M-mushroom-04",
+      "name": "キノコ④",
+      "scene": "Growing childmushroom with tall paleivory narrow teardropshaped closedcap and face, slimcreamstem, oneleafleft. Quiet streambank among smallstones, sideview facing slightlyleft, cap stillclosed.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "68a2b6700d639e124cf72ecd0f8df7bfed7ccf4e"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-04.png",
+      "sha256": "25d2203310046759596509db8e8d30442d018713977fb9df666e24cdd894785f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-04.png"
+    },
+    {
+      "id": "M-mushroom-05",
+      "name": "キノコ⑤",
+      "scene": "Red rounded expandingcap with exact white diamondspots, smiling face on creamstalk, prominent gills underedge. Standing in dampfern clearing afterrain, threequarterright mediumclose.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2f1e5a066da41a2d805099b645268a20f3b574a8"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-05.png",
+      "sha256": "a149e6e9ef911cb69d55cbeb16c446cb71ef0aaeb5b2990d93ee6a9955bb4d82",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-05.png"
+    },
+    {
+      "id": "M-mushroom-06",
+      "name": "キノコ⑥",
+      "scene": "Wide flat redcap with white spots and slightly upturned rim, clearly visible creamgills and scallopedcollar, exact longcreamstalkface. Low angle looking up beneath broad canopy amid morningmist, no extra mainmushrooms.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e32292cb60826470d3ef0bdc93155f5f77668aa0"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-06.png",
+      "sha256": "bb68441085623dabfd345df70c4fa45fd8506e72f8d573ab3239f1ca06615ac2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-06.png"
+    },
+    {
+      "id": "M-mushroom-07",
+      "name": "キノコ⑦",
+      "scene": "Older red tiltedcap with creamgills and sleepy face on stalk, puffing little peach facespores rightward as canonical. Angled sideview beside decomposinglog, soft afternoon breeze and amber specks.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f689e50a8575b724423a84a322ec0928daa6a0be"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-07.png",
+      "sha256": "8837176e2ad7d3e204f653b68758f485d089b498f00d801bbf126635d4fd8f9b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-07.png"
+    },
+    {
+      "id": "M-mushroom-08",
+      "name": "キノコ⑧",
+      "scene": "Aged ochregold broadcap with sleepyeyes wrinkledcreamstalk, exact tiny orangecompanionmushroom beside it. Peaceful autumnleafbed, warm lateafternoon, closefrontal portrait, sturdy readable old form.",
+      "identity_review": "Visual comparison to canonical character references: Canonical mushroom stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/mushroom/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbc9050452be84bb723f752341ba86791c02d09b"
+        }
+      ],
+      "illustration": "illustrations/M-mushroom-08.png",
+      "sha256": "57b3a9c8ad460e18d43fb7804ca8407cedfc8d8b137bcb18d1751255efc149db",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-mushroom-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-mushroom-08.png"
+    },
+    {
+      "id": "M-penguin-01",
+      "name": "ペンギン①",
+      "scene": "Tiny graydown sleepy chick curled low on smooth shelteredpebbles between snowbanks, closegroundview, pale morningpink sky, exact smallorangebeak and feet visible. No adults close.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "444feb065b2f1af024d1b5d0f733ee3819af5481"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-01.png",
+      "sha256": "4ce95af6be37ee2ee1aefd108f23c0c7a8b033dd2f88638d80f32272fa779395",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-01.png"
+    },
+    {
+      "id": "M-penguin-02",
+      "name": "ペンギン②",
+      "scene": "Round fluffygray chick with bigopeneyes sits upright facingright next to a meltingicicle and reflectivepuddle, soft blue daylight, curious face, tinyflippers down.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d0bca630bd396c107a289fcd7ce77811ab47824f"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-02.png",
+      "sha256": "ee3eaa65c442ad04058586fb0abd4f5972a30721cbb3cf623a5e7f302aea1d2b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-02.png"
+    },
+    {
+      "id": "M-penguin-03",
+      "name": "ペンギン③",
+      "scene": "Larger grayfluffy chick stands happily with bothflippers raised, closedhappyeyes, on snowy slope after making tinyfootprints. Viewslightlybelow, breezybrightsky and distantsea.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5e32293d36f03ffbfbb7d4fcbb615240f3723451"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-03.png",
+      "sha256": "9d1ef61635e994a7fa5ec132146f6c2560c380515dc4bd91d3f48bde9785913e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-03.png"
+    },
+    {
+      "id": "M-penguin-04",
+      "name": "ペンギン④",
+      "scene": "Molting juvenile with exact irregular graydown tufts atop blackwhitefeathers, oneflipper touching fluffyhead as reference, sitting beside coastalrock in soft overcastlight. Make transitionalplumage veryclear.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "909cfc533768a3b26ef338467c9d67e3191abdfd"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-04.png",
+      "sha256": "87e0618a810521fe7aff81ea75d588bf812d6e1b16ec435ed9d85f825f7ce0aa",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-04.png"
+    },
+    {
+      "id": "M-penguin-05",
+      "name": "ペンギン⑤",
+      "scene": "Slim young blackwhitepenguin orangebeakfeet taking first bellyslide down smooth snowbank towardleft, playful curiousface, twoflippers and twofeet coherent, lowdynamicview, seainfarbackground.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ccf7bf6e3f164d5c594c3ee46f793a5631bfcd14"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-05.png",
+      "sha256": "85813557f80c370c1414dd055f80cd66d8461e4d6ca4168d85aafa9da8c181a2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-05.png"
+    },
+    {
+      "id": "M-penguin-06",
+      "name": "ペンギン⑥",
+      "scene": "Adult sleek blackwhitepenguin with longerbody and outstretched flippers dives towardright through clear turquoise seawater, daylightbeams, bubbles behind, bellyshape and face exact. Twoflippers, no humanarms.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5c9018f07deb0c20bd211dcd128b88af7d48a0df"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-06.png",
+      "sha256": "e37a72b85155180e0f54dd17dbd43741056c3d0437583760e11d7906ec300fe2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-06.png"
+    },
+    {
+      "id": "M-penguin-07",
+      "name": "ペンギン⑦",
+      "scene": "Sturdy mature blackwhitepenguin standing tall on raised coastalrock, threequarterleft lookingover calmbay and tiny distantpenguins, eveningbluegoldlight. Broad roundedbelly, seasoned kindface.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fbc59b4d672660c916fd86a5ed24929531cdd055"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-07.png",
+      "sha256": "cb7006101fdca5ebaddc594d41aa25b513a0cfdcc5bcd9579075173a72c38d0d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-07.png"
+    },
+    {
+      "id": "M-penguin-08",
+      "name": "ペンギン⑧",
+      "scene": "Old penguin with graybrow closedhappyeyes and exact woodencane, slowlywalking right on level pebblyshore beside gentle snowpatch, warm lowlight. Cane held by oneflipper, other flipper free. Soft peaceful fullbodyportrait.",
+      "identity_review": "Visual comparison to canonical character references: Canonical penguin stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/penguin/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "bff7a1f7f56f6a18e2a85ad526a333f184faa9f5"
+        }
+      ],
+      "illustration": "illustrations/M-penguin-08.png",
+      "sha256": "c7c58820435501471ad143aa9470fb338604a36d80e9658e8cc1e72712b5ec9a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-penguin-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-penguin-08.png"
+    },
+    {
+      "id": "M-phoenix-01",
+      "name": "フェニックス①",
+      "scene": "Tiny round golden firechick exact smallflamecrest and tinywings perched in shallow warmstone nest, bright dawnmountainmeadow, curious bigeyes, small gentle magicalsparks, no destructivefire.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ce2dba1340b581eb91e0b47b5d31b4051a83d363"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-01.png",
+      "sha256": "ec6ec2b6d7fbac3d6d2ebdd086eafa2f0e7dc2479dde9a3eb55b3aa3d51e64b9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-01.png"
+    },
+    {
+      "id": "M-phoenix-02",
+      "name": "フェニックス②",
+      "scene": "Waddling round juvenile firebird with exact larger crest and smallredgold wings, stepping left over smooth sunlitpebbles beside clearhotspring, eyesclosedhappy, shorttail.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "78ef9d2e297cc4f91a23a6eb731e9ddddc1db6d6"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-02.png",
+      "sha256": "898369859ce42f6be6e55dd6649968ba7f0da9da44ecfaf29f1be19a7cd9e945",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-02.png"
+    },
+    {
+      "id": "M-phoenix-03",
+      "name": "フェニックス③",
+      "scene": "Young taller orangegold firebird with smallpartedwings and short layered redtail practicesbalance on fallenbranch, facingrightprofilethreequarter, soft morningforest, exact beakfeet.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fa5877c7ba4674cf253c2862923a184b5d70ff5c"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-03.png",
+      "sha256": "274926d982156d27de2275a52f632d65c65b0faca14a3e8a6d1c1b25e8ecd55d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-03.png"
+    },
+    {
+      "id": "M-phoenix-04",
+      "name": "フェニックス④",
+      "scene": "Firstflight redorange phoenix with expandingwings and developingtail, takingoff diagonallyleft over wildflowercliff, twofeetlifting, clearcyan sky, friendlyface, no duplicatewings.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e850a545c4e4797435a75e80d56e31766973dea6"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-04.png",
+      "sha256": "3c4da86c458b0d84ccc641e5e44c05c0be267f2a14b8849e997056c48d3de480",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-04.png"
+    },
+    {
+      "id": "M-phoenix-05",
+      "name": "フェニックス⑤",
+      "scene": "Flaming adult phoenix with longredgoldtail and large outspreadwings soaring high towardright above fluffywhiteclouds, headlookingback slightly, golden sunlight, feathers edgedgentlefire.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d01c9197b4418f2f6c2f8092621cf6bf308d642"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-05.png",
+      "sha256": "48711bb53d72c7878abc823e9f3a8ddb129bdbc788032e74a06dab1e83a6692d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-05.png"
+    },
+    {
+      "id": "M-phoenix-06",
+      "name": "フェニックス⑥",
+      "scene": "Entirely golden phoenix with exact longgoldtail and upliftedgoldwings gliding serene towardleft over brightreflective lake, warm whitegold glow, crowncrest and wingstructurevisible, peacefulmajestic.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "86196039d01d0cccd89df654428ac491cb221bfa"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-06.png",
+      "sha256": "661b57ad44e4e7071740d5254599af4babac3d1e1eb3326598624ada7dfb74ff",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-06.png"
+    },
+    {
+      "id": "M-phoenix-07",
+      "name": "フェニックス⑦",
+      "scene": "Old phoenix with subduedrustbrownfeathers and loweredwings, longer layered tail, sleepywiseeyes, resting on mossystone ledge in autumngrove. Warm gentlesunset, no aggressive posture.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c3d3ef13b2ace4d8bf15d86d3d8b0b6a2ca70540"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-07.png",
+      "sha256": "eef04b680a1c353685248c9aa5891605fbf37089aaa3b8fe50917861969ffa7d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-07.png"
+    },
+    {
+      "id": "M-phoenix-08",
+      "name": "フェニックス⑧",
+      "scene": "Tiny golden firechick re-emerging from a little mound of charcoalgray pebblyash exactly as reference, only upperchickbody visible, newsoftgreen shoots nearby, close groundview at freshdawn. Rebirth joyful, gentle emberglow without smoke.",
+      "identity_review": "Visual comparison to canonical character references: Canonical phoenix stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/phoenix/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "81ffc02a8e39384f71894472167409d0dfd67a18"
+        }
+      ],
+      "illustration": "illustrations/M-phoenix-08.png",
+      "sha256": "017e1eac5aec8102456f71b94680efba53459b262103a9dba416b8a0d2f13540",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-phoenix-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-phoenix-08.png"
+    },
+    {
+      "id": "M-plush-01",
+      "name": "ぬいぐるみ①",
+      "scene": "Brandnew goldenbrown teddy exact redbow and creamroundpawpads sits upright on clean wooden windowsill, morningcurtainlight and tiny vasebehind, plushfiber visible, no patches or scars yet.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "076e1e0831fb695bb829fe0dd5e70982468d4291"
+        }
+      ],
+      "illustration": "illustrations/M-plush-01.png",
+      "sha256": "251b4cfd1d9993a4d2c6c2382fc569ab2e26081891af885a098fcd809a0b32d1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-01.png"
+    },
+    {
+      "id": "M-plush-02",
+      "name": "ぬいぐるみ②",
+      "scene": "Same unpatched goldenbrown teddy redbow is a playmate seated slightlyleaningleft among a few plainwoodenblocks and smalltoyball on soft nursery rug, afternoonlight, exact roundface and paws.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "89f519cc4d014e3a8ff1f251010c8da2e377a2c1"
+        }
+      ],
+      "illustration": "illustrations/M-plush-02.png",
+      "sha256": "fffbced9622ddff4c35e27c0c5ad0add4eeef1073f00246363c73ca13a0acb87",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-02.png"
+    },
+    {
+      "id": "M-plush-03",
+      "name": "ぬいぐるみ③",
+      "scene": "Favorite teddy cuddles exact redheart against chest with bothroundpaws, closedhappyeyes. Nestled on pillow in sunlit readingcorner, closegentleportrait, tiny heartshaped sparkle, no writing in books.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f434be54a8e0cff9accbb84f95ac3d463715d7e1"
+        }
+      ],
+      "illustration": "illustrations/M-plush-03.png",
+      "sha256": "ac12cc27372fee7726a4039810db72d6b156fea8275dd5e3c057a5de0c040a4b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-03.png"
+    },
+    {
+      "id": "M-plush-04",
+      "name": "ぬいぐるみ④",
+      "scene": "Worn dirty teddy with canonical stitched seam down forehead and belly, exact redbow, sits on mosscovered gardenstep after an outing, a few soilsmudges matchingstage, slightlylow sideview, sympathetic cheerfulface.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f3562d181eef5b512108006d967ee695e638acde"
+        }
+      ],
+      "illustration": "illustrations/M-plush-04.png",
+      "sha256": "e640a50aaa6f150df387f3000a8f58b9ff4b0a73591b794ac31e27f34074473f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-04.png"
+    },
+    {
+      "id": "M-plush-05",
+      "name": "ぬいぐるみ⑤",
+      "scene": "Fraying teddy with forehead stitches and white stuffing emerging from bothpawends as canonical, slouched on wickerchair beside a softblanket in warm afternoon. Show wornseams clearly, no violentdamage or extra appendages.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cb300f135b2d30284c4fe8da2972c45a1f4cc4d8"
+        }
+      ],
+      "illustration": "illustrations/M-plush-05.png",
+      "sha256": "54deebfe2c1eec5acc866dcc586f9dfcb6e5fdec0225579e88b8385a6c505fa9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-05.png"
+    },
+    {
+      "id": "M-plush-06",
+      "name": "ぬいぐるみ⑥",
+      "scene": "Mended teddy with exact blue patches on ear, body, arm and paws, redbow, upright on small wooden repairtable, nearby spoolofblue thread and folded fabric, bright windowlight. Preserve patch locations.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "64f67db08e15afa1f40dc1b8d8a4a21b6ceac186"
+        }
+      ],
+      "illustration": "illustrations/M-plush-06.png",
+      "sha256": "5d326a7e8ed6523200b0860b771dd441ffa1d3fc03843de83d0c7a02b4704c79",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-06.png"
+    },
+    {
+      "id": "M-plush-07",
+      "name": "ぬいぐるみ⑦",
+      "scene": "Very tired sagging teddy with exact white patch on crown and fadedbluebodypatches, tiltedhead and closed sleepyeyes, resting sideways against pillow by eveningwindow, cozysoftlight, roundears/paws recognizable.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "09edc0c89c6621bce527bdefd185d50e80eb9297"
+        }
+      ],
+      "illustration": "illustrations/M-plush-07.png",
+      "sha256": "f089f6f9557611763284ce673da1acfb44834d27774d10828e73fcaa46ff97f3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-07.png"
+    },
+    {
+      "id": "M-plush-08",
+      "name": "ぬいぐるみ⑧",
+      "scene": "Beloved treasure teddy goldenbrown with redheart and flowingredribbon as canonical, sitting proudly on quilt inside open keepsakebox, morningbeam and fewgentle goldsparkles, cherished ratherthan new generictoy, no writing.",
+      "identity_review": "Visual comparison to canonical character references: Canonical plush stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/plush/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "65e5981563a3cf4ba866ac00a2a2e20a80afcfca"
+        }
+      ],
+      "illustration": "illustrations/M-plush-08.png",
+      "sha256": "0eceac5f18ddd2903c833843dba25aff1d4fd8d73188b44aa321ac15dfb2af8c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-plush-08.png"
     }
   ],
   "remaining_not_started": 429,

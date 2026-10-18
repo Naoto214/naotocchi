@@ -6044,13 +6044,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5f5076ca36389e9d6282e0b8137c320aace805d7",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/01.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-01 ① 1/4「つちにのこるつぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-mushroom-02",
@@ -6064,13 +6064,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f9dc8853dbb4e97de2b6a4791c8652da13305fbb",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/02.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-02 ② 2/5「みえないところでつなぐ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-mushroom-03",
@@ -6084,13 +6084,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e1f1d296a990367e1400cbbc7573056da29fe01e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/03.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-03 ③ 3/5「おなじめがあらわれる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-mushroom-04",
@@ -6104,13 +6104,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "68a2b6700d639e124cf72ecd0f8df7bfed7ccf4e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/04.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-04 ④ 4/6「のびるさきにつながる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-mushroom-05",
@@ -6124,13 +6124,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2f1e5a066da41a2d805099b645268a20f3b574a8",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/05.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-05 ⑤ 5/6「つながりがひろがる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-mushroom-06",
@@ -6144,13 +6144,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e32292cb60826470d3ef0bdc93155f5f77668aa0",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/06.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-06 ⑥ 6/6「かさのしたへもどる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-mushroom-07",
@@ -6164,13 +6164,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f689e50a8575b724423a84a322ec0928daa6a0be",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/07.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-07 ⑦ 4/8「こなをわけておくる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-mushroom-08",
@@ -6184,13 +6184,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "cbc9050452be84bb723f752341ba86791c02d09b",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-mushroom-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=mushroom:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/mushroom/08.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-mushroom-08 ⑧ 3/9「つちのなかではつづく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-01",
@@ -6204,13 +6204,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "444feb065b2f1af024d1b5d0f733ee3819af5481",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/01.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-01 ① 1/2「むれにまもられる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-02",
@@ -6224,13 +6224,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d0bca630bd396c107a289fcd7ce77811ab47824f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/02.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-02 ② 2/3「ついていく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-03",
@@ -6244,13 +6244,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5e32293d36f03ffbfbb7d4fcbb615240f3723451",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/03.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-03 ③ 3/4「みんなでじゅんび」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-04",
@@ -6264,13 +6264,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "909cfc533768a3b26ef338467c9d67e3191abdfd",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/04.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-04 ④ 2/5「はねのきがえ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-05",
@@ -6284,13 +6284,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ccf7bf6e3f164d5c594c3ee46f793a5631bfcd14",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/05.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-05 ⑤ 6/5「みんなでとびこむ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-06",
@@ -6304,13 +6304,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5c9018f07deb0c20bd211dcd128b88af7d48a0df",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/06.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-06 ⑥ 7/6「いっしょにうごく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-07",
@@ -6324,13 +6324,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fbc59b4d672660c916fd86a5ed24929531cdd055",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/07.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-07 ⑦ 6/7「むれをみちびく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-penguin-08",
@@ -6344,13 +6344,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "bff7a1f7f56f6a18e2a85ad526a333f184faa9f5",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-penguin-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=penguin:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/penguin/08.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-penguin-08 ⑧ 5/8「むれにのこす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-01",
@@ -6364,13 +6364,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ce2dba1340b581eb91e0b47b5d31b4051a83d363",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/01.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-01 ① 3/2「ひをともすために」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-02",
@@ -6384,13 +6384,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "78ef9d2e297cc4f91a23a6eb731e9ddddc1db6d6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/02.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-02 ② 5/3「とどかないところへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-03",
@@ -6404,13 +6404,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fa5877c7ba4674cf253c2862923a184b5d70ff5c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/03.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-03 ③ 7/3「もっとさきまで」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-04",
@@ -6424,13 +6424,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e850a545c4e4797435a75e80d56e31766973dea6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/04.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-04 ④ 9/4「もやしきるいちど」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-05",
@@ -6444,13 +6444,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2d01c9197b4418f2f6c2f8092621cf6bf308d642",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/05.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-05 ⑤ 10/5「もえつきるほど」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-06",
@@ -6464,13 +6464,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "86196039d01d0cccd89df654428ac491cb221bfa",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/06.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-06 ⑥ 8/7「もえたあとをてらす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-07",
@@ -6484,13 +6484,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "c3d3ef13b2ace4d8bf15d86d3d8b0b6a2ca70540",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/07.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-07 ⑦ 4/9「つぎのひをえらぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-phoenix-08",
@@ -6504,13 +6504,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "81ffc02a8e39384f71894472167409d0dfd67a18",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-phoenix-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=phoenix:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/phoenix/08.png",
       "card_text_source": "representatives/07-fantasy-phoenix.md#M-phoenix-08 ⑧ 9/8「はいからのあらたなひ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-01",
@@ -6524,13 +6524,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "076e1e0831fb695bb829fe0dd5e70982468d4291",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/01.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-01 ① 6/2「まだなにもおぼえていない」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-02",
@@ -6544,13 +6544,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "89f519cc4d014e3a8ff1f251010c8da2e377a2c1",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/02.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-02 ② 7/3「えらばれてつぎへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-03",
@@ -6564,13 +6564,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f434be54a8e0cff9accbb84f95ac3d463715d7e1",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/03.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-03 ③ 7/5「おきにいりのしるし」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-04",
@@ -6584,13 +6584,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f3562d181eef5b512108006d967ee695e638acde",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/04.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-04 ④ 5/5「なくしたあともいっしょ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-05",
@@ -6604,13 +6604,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "cb300f135b2d30284c4fe8da2972c45a1f4cc4d8",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/05.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-05 ⑤ 3/6「ほつれたままであそぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-06",
@@ -6624,13 +6624,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "64f67db08e15afa1f40dc1b8d8a4a21b6ceac186",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/06.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-06 ⑥ 4/7「のこっているおもいで」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-07",
@@ -6644,13 +6644,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "09edc0c89c6621bce527bdefd185d50e80eb9297",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/07.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-07 ⑦ 1/8「よわいままで」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-plush-08",
@@ -6664,13 +6664,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "65e5981563a3cf4ba866ac00a2a2e20a80afcfca",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-plush-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=plush:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/plush/08.png",
       "card_text_source": "representatives/08-mystery-plush.md#M-plush-08 ⑧ 2/10「たからものになったじかん」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ren-01",
