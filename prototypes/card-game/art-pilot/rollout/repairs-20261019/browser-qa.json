@@ -1,0 +1,78 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "id": "G-gomoku-9",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#EF9860",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "G-minesweeper-8",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#EF9860",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "G-puzzle-2048",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#EF9860",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "G-ski-jump",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#EF9860",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    }
+  ],
+  "mobile": [
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430
+    }
+  ],
+  "errors": [],
+  "physicalSafari": false,
+  "browser": "153.0.8010.0"
+}

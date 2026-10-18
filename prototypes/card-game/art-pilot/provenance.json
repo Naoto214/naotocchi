@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 232,
+  "generated_count": 249,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -5721,6 +5721,397 @@
       "generation": "Built-in image_gen; rollout/play-f-20261019/play-prompts.json; revised candidate; all prior candidates retained",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/G-yacht-dice.png"
+    },
+    {
+      "id": "M-antlion-01",
+      "name": "アリジゴク①",
+      "scene": "Tiny tan segmented antlion larva with paired curved jaws crawls across a shallow patch of loose sand beside a root; close ground-level side view, morning dappled light. Preserve small body and short legs; no wings.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 1 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/01.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "6224b12ec43ec92760c8f19a79e5d022e00e80da"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-01.png",
+      "sha256": "2dc78e03dde12a0b07c01c5ea183e90f95290f7c0601e02c2b1b8147fa9c0f9d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-01.png"
+    },
+    {
+      "id": "M-antlion-02",
+      "name": "アリジゴク②",
+      "scene": "Small larva sits at the bottom of a deep steep conical sand pit, excavating a little spray of sand; high oblique overhead view emphasizes funnel and tiny occupant, dry grass around rim, late morning. No wings.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 2 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/02.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "2ace8e115556e1800879ab0bc1ac823c424f8323"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-02.png",
+      "sha256": "c6ab3d21f31084ef1e43b4a456b7076132dea7a8c125eab6b6ef534576b54fde",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-02.png"
+    },
+    {
+      "id": "M-antlion-03",
+      "name": "アリジゴク③",
+      "scene": "Larger plump tan segmented larva waits alert within a wider sand bowl, its paired jaws and dark bead eyes clear; low view from opposite side across pit rim, afternoon shade. Substantially larger body than second stage, no wings.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 3 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/03.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "0ab9a05a17c6fa00411720cd1851aa4006e84818"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-03.png",
+      "sha256": "43d3a1afba6cb78cbb145e7603bef44209a9dbd6883331964ded231e9fe91450",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-03.png"
+    },
+    {
+      "id": "M-antlion-04",
+      "name": "アリジゴク④",
+      "scene": "Intact brown oval cocoon made of many knobbly sand grains rests nestled in sheltered sandy soil beneath a tiny root arch; intimate cross-sectional ground view, warm dusk. Preserve closed seedlike texture, no face or appendages invented.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 4 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/04.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "a1f65c54e252da25bc180d4c3b38fb4599c657c0"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-04.png",
+      "sha256": "912b0cc606022efa3d0cbbf282c02d8f0a4d3af265769a0bfee5a8da684ca8cb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-04.png"
+    },
+    {
+      "id": "M-antlion-05",
+      "name": "アリジゴク⑤",
+      "scene": "Open sandy oval cocoon showing golden segmented pupa inside, same form as canonical sprite; sheltered under small dry leaf with shaft of dawn sunlight, three-quarter closeup from the other side. Pupa remains wingless and enclosed, no adult outside.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 5 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/05.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "05e6d19d658bad03a575304d779d2ecc5b6d33e6"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-05.png",
+      "sha256": "a40c7d5c5d6f984a25411226f22fc40f3d02ef1593ff4ff585ca3e4e0408a67d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-05.png"
+    },
+    {
+      "id": "M-antlion-06",
+      "name": "アリジゴク⑥",
+      "scene": "Fresh brown adult antlion with delicate long transparent veined wings folded along body rests at sandy emergence site, fine clubbed antennae and six legs; low profile facing left, first morning sun, small grasses and abandoned cocoon behind.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 6 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/06.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "528fb4bde477033a311bc3f3f6150c4bf3e5b798"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-06.png",
+      "sha256": "fe5784e879cc1c59416d23c504b31aeef196997856dc282c12d6765de56e40fd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-06.png"
+    },
+    {
+      "id": "M-antlion-07",
+      "name": "アリジゴク⑦",
+      "scene": "Mature slender brown antlion flies across golden meadow with four transparent veined wings spread, dark eyes and two clubbed antennae; diagonal upward flight toward right, broad airy space and distant flowering grasses, sunset.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 7 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/07.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "a94aaf674312f1eb088c43b9da65d7c64b69febe"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-07.png",
+      "sha256": "5449d5248c86ab92197dbf11dfdd24cf8177a998e3a3ae5be218b283d27f8731",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-07.png"
+    },
+    {
+      "id": "M-antlion-08",
+      "name": "アリジゴク⑧",
+      "scene": "Older dark brown adult antlion with visibly worn frayed wing edges per canonical sprite settles on a bent grass seedhead looking down over former sandy pits; wings partly open, side view facing left, silver blue evening light, calm dignified aging not death.",
+      "identity_review": "Visual comparison to canonical character references: Preserve canonical antlion stage 8 morphology and coloration.",
+      "sources": [
+        {
+          "path": "assets/characters/antlion/08.png",
+          "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+          "blob": "b75689fcae230d91730cb7ce1b93a7a197a16379"
+        }
+      ],
+      "illustration": "illustrations/M-antlion-08.png",
+      "sha256": "180bcba774bd212da4a18642db78d5fe4667f52c255e48404a7b9f85a2d92b66",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-antlion-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-antlion-08.png"
+    },
+    {
+      "id": "G-ski-jump",
+      "name": "スキージャンプ",
+      "scene": "White rabbit on TWO long redskis leansforward during a ski jump beyond the lip of a snowy ramp. Bothhindfeet attachedtooneskieach, twoforepaws sweptback forbalance, pinklinedears streamingbehind, smallplainbluehelmet. Wide alpine valley beneath, fullrampandairbornepose, skis separated in gentle V, sunnywinter ratherthandark, no numbers.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-ski-jump.png",
+      "sha256": "891a2fd46d32cf897925ce7f7ecbadcb4ca02a65122438066ebe9c5247573d20",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/repairs-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-ski-jump.png"
+    },
+    {
+      "id": "M-butterfly-01",
+      "name": "ちょう①",
+      "scene": "Very tiny lime green caterpillar with sleepy closed eyes and small round segments, cream underside, resting curled on soft young leaf edge beside a dewdrop; low macro morning view. No wings, no cocoon.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage1 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a8391a890850743f7e158084d6b6b707c407fb73"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-01.png",
+      "sha256": "cf5589f8554f031cf0e383d29413e9eefe84e399af25decd88b9ece1f7490783",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-01.png"
+    },
+    {
+      "id": "M-butterfly-02",
+      "name": "ちょう②",
+      "scene": "Young slim green caterpillar with wide curious eyes and little round feet stretches forward across two fresh leaves toward a tender bite, cream face and underside, side view facing right, garden sunlight. No wings.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage2 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "64457dfdcc5bc36cca8dec3c42f0f4779bb5475b"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-02.png",
+      "sha256": "5ec28ea9c1e65b07e5515301aacd6b4b004a52bc741ef78dd28103c673743387",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-02.png"
+    },
+    {
+      "id": "M-butterfly-03",
+      "name": "ちょう③",
+      "scene": "Plump mature bright green caterpillar with larger upright smiling head, spotted rounded body and cream underside, munches a broad leaf while raising its front segments; lower view facing left, lush soft-focus hedge.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage3 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "20eb496e8276c20bbe9ed087a5e3c2fe71b42415"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-03.png",
+      "sha256": "ea14392bdfd520ad1f4627b0507e8931a3138ee069a8f2cc390effedb67c7697",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-03.png"
+    },
+    {
+      "id": "M-butterfly-04",
+      "name": "ちょう④",
+      "scene": "Same green caterpillar curls into a J shape suspended from a twig, visibly still segmented caterpillar with face and small feet as in reference; angled view from below, leaves frame it, calm late afternoon. Do not turn it into sealed pupa yet.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage4 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ac19fa70c0a760b6b7cde053ac77c177bbca530d"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-04.png",
+      "sha256": "04bd560a2aa982111c21d95c12941baa14fb169a0859bf28e97fcadddb5a239f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-04.png"
+    },
+    {
+      "id": "M-butterfly-05",
+      "name": "ちょう⑤",
+      "scene": "Closed green pointed chrysalis hanging vertically beneath a twig, cute sleepy closed eyes and precisely reference triangular folded segment pattern; intimate side view with light rain beads on nearby leaf, quiet protected space, no butterfly outside.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage5 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2ef1a2944bb841a728a965f050b63b6d4d8102da"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-05.png",
+      "sha256": "36de4b3786ffa0b00ca63fdfdcafb2fbba14f56e1edfa76ad4f0fb11fef18f93",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-05.png"
+    },
+    {
+      "id": "M-butterfly-06",
+      "name": "ちょう⑥",
+      "scene": "Fresh blue butterfly emerging beside empty green chrysalis on twig, small softly folded blue wings as reference, pale cream round face, large eyes, blue antennae and dark blue body; close three-quarter morning view, no mature fully spread wings.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage6 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d8abd37ef3911f8c279e7bfd8d53b3f0a98f4175"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-06.png",
+      "sha256": "6090413e52189914d553cf7157eeed6159429baba6b748ed7bd7ec055ece4068",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-06.png"
+    },
+    {
+      "id": "M-butterfly-07",
+      "name": "ちょう⑦",
+      "scene": "Mature vivid azure blue butterfly opens four symmetrical patterned wings with dark navy margins and light blue spots, pale smiling face and blue antennae; hover above pink wildflowers, clear centered full wings, bright midday garden.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage7 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b12621f0bbf7ca74217801daf67ecf25875eeb5e"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-07.png",
+      "sha256": "e9891647347c7fc97a7757997b7ec59853112364e49b184cf0845b8a020515c3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-07.png"
+    },
+    {
+      "id": "M-butterfly-08",
+      "name": "ちょう⑧",
+      "scene": "Older pale muted blue butterfly with relaxed closed eyes, softly faded patterned wings matching reference, resting on a white daisy with wings open; side three-quarter viewpoint, lavender evening garden, calm gentle face, no invented torn wings.",
+      "identity_review": "Visual comparison to canonical character references: Canonical butterfly stage8 exact face,body,color,transformation state.",
+      "sources": [
+        {
+          "path": "assets/characters/butterfly/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "eb8d0d90cf4e52ec0797e4c903547ddbcd0c6273"
+        }
+      ],
+      "illustration": "illustrations/M-butterfly-08.png",
+      "sha256": "86b8d67909835c5a2396342e335c4aa8db5dae90fa1588f8d3e2b355ae035efd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-butterfly-08.png"
     }
   ],
   "remaining_not_started": 429,

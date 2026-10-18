@@ -1710,7 +1710,7 @@
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-gomoku-9 — 五目ならべ",
       "pilot": false,
       "production_status": "repair_pending",
-      "notes": "Grid still has inconsistent row spacing/count and five black stones are not aligned with the horizontal intersections. Do not count complete."
+      "notes": "Candidate has eight horizontal and nine vertical lines; grid invalid."
     },
     {
       "card_id": "G-grand-prix-3d",
@@ -1990,7 +1990,7 @@
       "card_text_source": "81-play-batch-2-card-text-draft.md#G-minesweeper-8 — マインスイーパー",
       "pilot": false,
       "production_status": "repair_pending",
-      "notes": "After edit, board still does not show canonical 8x8 tile geometry. Keep candidate unapproved until grid repaired."
+      "notes": "Candidate has seven rows and eight columns; grid invalid."
     },
     {
       "card_id": "G-mini-golf-physics",
@@ -2210,7 +2210,7 @@
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-puzzle-2048 — 2048",
       "pilot": false,
       "production_status": "repair_pending",
-      "notes": "After edit, board still has only three rows rather than canonical 4x4. Keep candidate unapproved until fourth row is added."
+      "notes": "Candidate has three rows and four columns; grid invalid."
     },
     {
       "card_id": "G-race-3d",
@@ -2469,8 +2469,8 @@
       "supporting_source": "assets/characters/companions/rabbit_friend.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-ski-jump — スキージャンプ",
       "pilot": false,
-      "production_status": "repair_pending",
-      "notes": "Two boots remain on one ski while the second ski floats unattached after two edit attempts; revise pose/equipment."
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "G-sky-shooter",
@@ -3484,13 +3484,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "6224b12ec43ec92760c8f19a79e5d022e00e80da",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/01.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-01 ① 2/3「あさいすりばち」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-antlion-02",
@@ -3504,13 +3504,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2ace8e115556e1800879ab0bc1ac823c424f8323",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/02.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-02 ② 3/4「すりばちをほりなおす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-antlion-03",
@@ -3524,13 +3524,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0ab9a05a17c6fa00411720cd1851aa4006e84818",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/03.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-03 ③ 5/4「そこにまっている」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-antlion-04",
@@ -3544,13 +3544,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a1f65c54e252da25bc180d4c3b38fb4599c657c0",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/04.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-04 ④ 1/5「すをとじる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-antlion-05",
@@ -3564,13 +3564,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "05e6d19d658bad03a575304d779d2ecc5b6d33e6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/05.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-05 ⑤ 2/5「とぶからだにかわる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-antlion-06",
@@ -3584,13 +3584,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "528fb4bde477033a311bc3f3f6150c4bf3e5b798",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/06.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-06 ⑥ 6/5「すなをはなれる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-antlion-07",
@@ -3604,13 +3604,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a94aaf674312f1eb088c43b9da65d7c64b69febe",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/07.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-07 ⑦ 7/6「そとへとびまわる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-antlion-08",
@@ -3624,13 +3624,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b75689fcae230d91730cb7ce1b93a7a197a16379",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-antlion-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=antlion:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/antlion/08.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-antlion-08 ⑧ 4/8「ふたつのくらしをおぼえている」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-beetle-01",
@@ -3804,13 +3804,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a8391a890850743f7e158084d6b6b707c407fb73",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/01.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-01 ① 2/2「あとでたべる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-butterfly-02",
@@ -3824,13 +3824,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "64457dfdcc5bc36cca8dec3c42f0f4779bb5475b",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/02.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-02 ② 3/2「たくわえをえらぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-butterfly-03",
@@ -3844,13 +3844,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "20eb496e8276c20bbe9ed087a5e3c2fe71b42415",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/03.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-03 ③ 5/3「そだちきったからだ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-butterfly-04",
@@ -3864,13 +3864,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ac19fa70c0a760b6b7cde053ac77c177bbca530d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/04.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-04 ④ 4/4「からだをほどく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-butterfly-05",
@@ -3884,13 +3884,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2ef1a2944bb841a728a965f050b63b6d4d8102da",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/05.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-05 ⑤ 1/5「なかでつくりかえる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-butterfly-06",
@@ -3904,13 +3904,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d8abd37ef3911f8c279e7bfd8d53b3f0a98f4175",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/06.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-06 ⑥ 7/5「はねをひらく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-butterfly-07",
@@ -3924,13 +3924,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b12621f0bbf7ca74217801daf67ecf25875eeb5e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/07.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-07 ⑦ 6/7「はなからはなへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-butterfly-08",
@@ -3944,13 +3944,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "eb8d0d90cf4e52ec0797e4c903547ddbcd0c6273",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-butterfly-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=butterfly:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/butterfly/08.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-butterfly-08 ⑧ 4/8「つぎへたくわえをわたす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-cat-01",

@@ -1,10 +1,10 @@
 {
-  "completed": 232,
-  "remaining": 220,
+  "completed": 249,
+  "remaining": 203,
   "categories": {
     "main": {
-      "complete": 32,
-      "remaining": 216
+      "complete": 48,
+      "remaining": 200
     },
     "companion": {
       "complete": 26,
@@ -19,8 +19,8 @@
       "remaining": 0
     },
     "play": {
-      "complete": 96,
-      "remaining": 4
+      "complete": 97,
+      "remaining": 3
     },
     "item": {
       "complete": 26,
@@ -31,29 +31,29 @@
       "remaining": 0
     }
   },
-  "next_lot": "main-antlion",
+  "next_lot": "main-cicada",
   "next_ids": [
-    "M-antlion-01",
-    "M-antlion-02",
-    "M-antlion-03",
-    "M-antlion-04",
-    "M-antlion-05",
-    "M-antlion-06",
-    "M-antlion-07",
-    "M-antlion-08",
-    "M-butterfly-01",
-    "M-butterfly-02",
-    "M-butterfly-03",
-    "M-butterfly-04",
-    "M-butterfly-05",
-    "M-butterfly-06",
-    "M-butterfly-07",
-    "M-butterfly-08"
+    "M-cicada-01",
+    "M-cicada-02",
+    "M-cicada-03",
+    "M-cicada-04",
+    "M-cicada-05",
+    "M-cicada-06",
+    "M-cicada-07",
+    "M-cicada-08",
+    "M-coral-01",
+    "M-coral-02",
+    "M-coral-03",
+    "M-coral-04",
+    "M-coral-05",
+    "M-coral-06",
+    "M-coral-07",
+    "M-coral-08"
   ],
   "approval": "All remaining406 authorized 2026-10-18; no per-lot approval needed",
   "main_merge": false,
   "production_paused": false,
-  "latest_review": "rollout/play-f-20261019/README.md",
+  "latest_review": "rollout/main-butterfly-20261019/README.md",
   "completed_ids": [
     "C-bat",
     "C-box",
@@ -174,6 +174,7 @@
     "G-road-themed",
     "G-roguelike-dungeon",
     "G-shanghai-tiles",
+    "G-ski-jump",
     "G-sky-shooter",
     "G-slide-puzzle",
     "G-snake-classic",
@@ -224,6 +225,14 @@
     "I-sleepboost1",
     "I-star",
     "I-travel1",
+    "M-antlion-01",
+    "M-antlion-02",
+    "M-antlion-03",
+    "M-antlion-04",
+    "M-antlion-05",
+    "M-antlion-06",
+    "M-antlion-07",
+    "M-antlion-08",
     "M-beetle-01",
     "M-beetle-02",
     "M-beetle-03",
@@ -232,6 +241,14 @@
     "M-beetle-06",
     "M-beetle-07",
     "M-beetle-08",
+    "M-butterfly-01",
+    "M-butterfly-02",
+    "M-butterfly-03",
+    "M-butterfly-04",
+    "M-butterfly-05",
+    "M-butterfly-06",
+    "M-butterfly-07",
+    "M-butterfly-08",
     "M-cat-01",
     "M-cat-02",
     "M-cat-03",
@@ -289,22 +306,6 @@
     "W-star_stop"
   ],
   "not_started_ids": [
-    "M-antlion-01",
-    "M-antlion-02",
-    "M-antlion-03",
-    "M-antlion-04",
-    "M-antlion-05",
-    "M-antlion-06",
-    "M-antlion-07",
-    "M-antlion-08",
-    "M-butterfly-01",
-    "M-butterfly-02",
-    "M-butterfly-03",
-    "M-butterfly-04",
-    "M-butterfly-05",
-    "M-butterfly-06",
-    "M-butterfly-07",
-    "M-butterfly-08",
     "M-cicada-01",
     "M-cicada-02",
     "M-cicada-03",
@@ -509,7 +510,6 @@
   "repair_pending_ids": [
     "G-gomoku-9",
     "G-minesweeper-8",
-    "G-puzzle-2048",
-    "G-ski-jump"
+    "G-puzzle-2048"
   ]
 }
