@@ -1,0 +1,36 @@
+✖ short tab return restores the current expression without replaying a stale reaction (84.68374ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.502625
+
+✖ failing tests:
+
+test at tests/pet-expression-integration-test.cjs:625:1
+✖ short tab return restores the current expression without replaying a stale reaction (84.68374ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   'normal',
+  +   'assets/characters/cat/06.png'
+  -   'hungry',
+  -   'assets/characters/expressions/cat/06-hungry.png'
+    ]
+
+      at TestContext.<anonymous> (/workspace/scratch/1f1446e31ed3/integration-repo/tests/pet-expression-integration-test.cjs:632:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'normal', 'assets/characters/cat/06.png' ],
+    expected: [ 'hungry', 'assets/characters/expressions/cat/06-hungry.png' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

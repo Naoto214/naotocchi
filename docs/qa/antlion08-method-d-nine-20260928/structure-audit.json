@@ -1,0 +1,3281 @@
+{
+  "source_head": "7fda30732e39e365b486a746e0a731558a351f9a",
+  "registration": "same approved128canvas/bounds; no rotation/warping or matching anatomy by editing",
+  "results": {
+    "normal": {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 26,
+      "main_pixels": 4072,
+      "independent_pixels": 189,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 296,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 258,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2100,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1352,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 899,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 762,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 88,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 667,
+          "silhouette_xor": 0,
+          "silhouette_iou": 1.0,
+          "occupied_RGBA_difference": 0,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 2,
+      "failed_route_probes": []
+    },
+    "D4_tired": {
+      "path": "assets/characters/expressions/antlion/08-tired.png",
+      "sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 49,
+      "main_pixels": 3877,
+      "independent_pixels": 178,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 281,
+          "silhouette_xor": 35,
+          "silhouette_iou": 0.8856209150326797,
+          "occupied_RGBA_difference": 306,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 209,
+          "silhouette_xor": 107,
+          "silhouette_iou": 0.627177700348432,
+          "occupied_RGBA_difference": 286,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2067,
+          "silhouette_xor": 225,
+          "silhouette_iou": 0.8975409836065574,
+          "occupied_RGBA_difference": 2194,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1282,
+          "silhouette_xor": 210,
+          "silhouette_iou": 0.8523206751054853,
+          "occupied_RGBA_difference": 1418,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 869,
+          "silhouette_xor": 76,
+          "silhouette_iou": 0.9175704989154013,
+          "occupied_RGBA_difference": 922,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 689,
+          "silhouette_xor": 155,
+          "silhouette_iou": 0.8069738480697385,
+          "occupied_RGBA_difference": 802,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 95,
+          "silhouette_xor": 71,
+          "silhouette_iou": 0.4409448818897638,
+          "occupied_RGBA_difference": 113,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 607,
+          "silhouette_xor": 120,
+          "silhouette_iou": 0.8278335724533716,
+          "occupied_RGBA_difference": 696,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 6,
+      "failed_route_probes": []
+    },
+    "happy": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "sha256": "a57e0c5ff540258da43414fc2dd215ea6c110dbf5f25706fcadb5ff48ff22df9",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 51,
+      "main_pixels": 3878,
+      "independent_pixels": 136,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 261,
+          "silhouette_xor": 59,
+          "silhouette_iou": 0.8084415584415584,
+          "occupied_RGBA_difference": 308,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 177,
+          "silhouette_xor": 167,
+          "silhouette_iou": 0.44518272425249167,
+          "occupied_RGBA_difference": 299,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2031,
+          "silhouette_xor": 365,
+          "silhouette_iou": 0.8376334519572953,
+          "occupied_RGBA_difference": 2246,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1329,
+          "silhouette_xor": 215,
+          "silhouette_iou": 0.8515193370165746,
+          "occupied_RGBA_difference": 1436,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 905,
+          "silhouette_xor": 102,
+          "silhouette_iou": 0.8929695697796433,
+          "occupied_RGBA_difference": 952,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 712,
+          "silhouette_xor": 184,
+          "silhouette_iou": 0.7780458383594693,
+          "occupied_RGBA_difference": 828,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 89,
+          "silhouette_xor": 59,
+          "silhouette_iou": 0.5,
+          "occupied_RGBA_difference": 105,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 641,
+          "silhouette_xor": 154,
+          "silhouette_iou": 0.7893296853625171,
+          "occupied_RGBA_difference": 729,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 6,
+      "failed_route_probes": []
+    },
+    "strained": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/strained.png",
+      "sha256": "55e9e083b2118bf47b3fbd26b55373831c0d5b05047619c2ff73458d681d86cc",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 33,
+      "main_pixels": 4077,
+      "independent_pixels": 162,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": false
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 279,
+          "silhouette_xor": 45,
+          "silhouette_iou": 0.8548387096774194,
+          "occupied_RGBA_difference": 310,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 192,
+          "silhouette_xor": 154,
+          "silhouette_iou": 0.4900662251655629,
+          "occupied_RGBA_difference": 302,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2132,
+          "silhouette_xor": 210,
+          "silhouette_iou": 0.9054479963980189,
+          "occupied_RGBA_difference": 2221,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1368,
+          "silhouette_xor": 272,
+          "silhouette_iou": 0.8181818181818182,
+          "occupied_RGBA_difference": 1492,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 896,
+          "silhouette_xor": 193,
+          "silhouette_iou": 0.8058350100603622,
+          "occupied_RGBA_difference": 994,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 742,
+          "silhouette_xor": 238,
+          "silhouette_iou": 0.7267508610792193,
+          "occupied_RGBA_difference": 871,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 112,
+          "silhouette_xor": 114,
+          "silhouette_iou": 0.27388535031847133,
+          "occupied_RGBA_difference": 148,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 672,
+          "silhouette_xor": 279,
+          "silhouette_iou": 0.6551297898640297,
+          "occupied_RGBA_difference": 809,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 2,
+      "failed_route_probes": [
+        "visible_leg1"
+      ]
+    },
+    "hungry": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 69,
+      "main_pixels": 3867,
+      "independent_pixels": 203,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 290,
+          "silhouette_xor": 40,
+          "silhouette_iou": 0.8722044728434505,
+          "occupied_RGBA_difference": 313,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 190,
+          "silhouette_xor": 164,
+          "silhouette_iou": 0.46405228758169936,
+          "occupied_RGBA_difference": 305,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2015,
+          "silhouette_xor": 317,
+          "silhouette_iou": 0.8569494584837545,
+          "occupied_RGBA_difference": 2215,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1331,
+          "silhouette_xor": 325,
+          "silhouette_iou": 0.7839095744680851,
+          "occupied_RGBA_difference": 1499,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 911,
+          "silhouette_xor": 188,
+          "silhouette_iou": 0.8118118118118118,
+          "occupied_RGBA_difference": 999,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 730,
+          "silhouette_xor": 264,
+          "silhouette_iou": 0.6993166287015945,
+          "occupied_RGBA_difference": 878,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 90,
+          "silhouette_xor": 100,
+          "silhouette_iou": 0.2805755395683453,
+          "occupied_RGBA_difference": 132,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 676,
+          "silhouette_xor": 279,
+          "silhouette_iou": 0.655980271270037,
+          "occupied_RGBA_difference": 810,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 11,
+      "failed_route_probes": []
+    },
+    "sick": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "sha256": "b7d99326718c8830137f83b001d4e99acbd018bd2083f573e51c73b57f760b5f",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 42,
+      "main_pixels": 3927,
+      "independent_pixels": 135,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 266,
+          "silhouette_xor": 46,
+          "silhouette_iou": 0.8486842105263158,
+          "occupied_RGBA_difference": 304,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 192,
+          "silhouette_xor": 128,
+          "silhouette_iou": 0.5570934256055363,
+          "occupied_RGBA_difference": 288,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2052,
+          "silhouette_xor": 300,
+          "silhouette_iou": 0.8652291105121294,
+          "occupied_RGBA_difference": 2224,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1357,
+          "silhouette_xor": 223,
+          "silhouette_iou": 0.8478854024556617,
+          "occupied_RGBA_difference": 1463,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 874,
+          "silhouette_xor": 101,
+          "silhouette_iou": 0.8922091782283885,
+          "occupied_RGBA_difference": 937,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 681,
+          "silhouette_xor": 203,
+          "silhouette_iou": 0.7533414337788579,
+          "occupied_RGBA_difference": 823,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 84,
+          "silhouette_xor": 82,
+          "silhouette_iou": 0.3543307086614173,
+          "occupied_RGBA_difference": 117,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 644,
+          "silhouette_xor": 139,
+          "silhouette_iou": 0.8082758620689655,
+          "occupied_RGBA_difference": 725,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 10,
+      "failed_route_probes": []
+    },
+    "sulky": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "sha256": "4c702c641f299446af142c5595a3ec7f796122bc241ed7f80316feca598b56f9",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 47,
+      "main_pixels": 3967,
+      "independent_pixels": 191,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 274,
+          "silhouette_xor": 54,
+          "silhouette_iou": 0.8269230769230769,
+          "occupied_RGBA_difference": 312,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 196,
+          "silhouette_xor": 168,
+          "silhouette_iou": 0.45980707395498394,
+          "occupied_RGBA_difference": 311,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2077,
+          "silhouette_xor": 331,
+          "silhouette_iou": 0.8531499556344276,
+          "occupied_RGBA_difference": 2254,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1392,
+          "silhouette_xor": 248,
+          "silhouette_iou": 0.8342245989304813,
+          "occupied_RGBA_difference": 1487,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 910,
+          "silhouette_xor": 119,
+          "silhouette_iou": 0.8765560165975104,
+          "occupied_RGBA_difference": 963,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 728,
+          "silhouette_xor": 242,
+          "silhouette_iou": 0.7205542725173211,
+          "occupied_RGBA_difference": 866,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 110,
+          "silhouette_xor": 94,
+          "silhouette_iou": 0.3561643835616438,
+          "occupied_RGBA_difference": 135,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 665,
+          "silhouette_xor": 184,
+          "silhouette_iou": 0.7572559366754618,
+          "occupied_RGBA_difference": 755,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 1,
+      "failed_route_probes": []
+    },
+    "weak": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "sha256": "5a76b0f8b3c6fd3b4b2b4f1927ad0b55f8ff8c7ff0a3e404fb80788b04b513a7",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 41,
+      "main_pixels": 3928,
+      "independent_pixels": 114,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 269,
+          "silhouette_xor": 45,
+          "silhouette_iou": 0.8524590163934426,
+          "occupied_RGBA_difference": 305,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 196,
+          "silhouette_xor": 130,
+          "silhouette_iou": 0.5547945205479452,
+          "occupied_RGBA_difference": 292,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2064,
+          "silhouette_xor": 306,
+          "silhouette_iou": 0.8630872483221477,
+          "occupied_RGBA_difference": 2235,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1298,
+          "silhouette_xor": 208,
+          "silhouette_iou": 0.85444366689993,
+          "occupied_RGBA_difference": 1423,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 885,
+          "silhouette_xor": 96,
+          "silhouette_iou": 0.8978723404255319,
+          "occupied_RGBA_difference": 940,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 699,
+          "silhouette_xor": 159,
+          "silhouette_iou": 0.8037037037037037,
+          "occupied_RGBA_difference": 810,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 90,
+          "silhouette_xor": 74,
+          "silhouette_iou": 0.4126984126984127,
+          "occupied_RGBA_difference": 114,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 639,
+          "silhouette_xor": 138,
+          "silhouette_iou": 0.8088642659279779,
+          "occupied_RGBA_difference": 721,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 1,
+      "failed_route_probes": []
+    },
+    "critical": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/critical.png",
+      "sha256": "dd79d2fbf0624ab9ea78f4ddfaa66e7805ec2baf65773a01a1964475c7137a49",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 96,
+      "main_pixels": 3952,
+      "independent_pixels": 265,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 269,
+          "silhouette_xor": 45,
+          "silhouette_iou": 0.8524590163934426,
+          "occupied_RGBA_difference": 305,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 207,
+          "silhouette_xor": 211,
+          "silhouette_iou": 0.3757396449704142,
+          "occupied_RGBA_difference": 337,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2102,
+          "silhouette_xor": 340,
+          "silhouette_iou": 0.8502862175253192,
+          "occupied_RGBA_difference": 2269,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1384,
+          "silhouette_xor": 254,
+          "silhouette_iou": 0.8301003344481606,
+          "occupied_RGBA_difference": 1488,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 925,
+          "silhouette_xor": 128,
+          "silhouette_iou": 0.8688524590163934,
+          "occupied_RGBA_difference": 976,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 733,
+          "silhouette_xor": 153,
+          "silhouette_iou": 0.8143203883495146,
+          "occupied_RGBA_difference": 824,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 104,
+          "silhouette_xor": 82,
+          "silhouette_iou": 0.40145985401459855,
+          "occupied_RGBA_difference": 128,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 682,
+          "silhouette_xor": 181,
+          "silhouette_iou": 0.7633986928104575,
+          "occupied_RGBA_difference": 765,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 25,
+      "failed_route_probes": []
+    },
+    "wantsPlay": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "sha256": "98fbc19d6a07ce65bf28d3baf9f5955be28ae3fef052c68394b4548b2897dc66",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 60,
+      "main_pixels": 4118,
+      "independent_pixels": 164,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 283,
+          "silhouette_xor": 63,
+          "silhouette_iou": 0.8037383177570093,
+          "occupied_RGBA_difference": 321,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 197,
+          "silhouette_xor": 171,
+          "silhouette_iou": 0.4536741214057508,
+          "occupied_RGBA_difference": 312,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2092,
+          "silhouette_xor": 216,
+          "silhouette_iou": 0.9019963702359347,
+          "occupied_RGBA_difference": 2199,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1410,
+          "silhouette_xor": 214,
+          "silhouette_iou": 0.8561827956989247,
+          "occupied_RGBA_difference": 1479,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 942,
+          "silhouette_xor": 179,
+          "silhouette_iou": 0.8227722772277227,
+          "occupied_RGBA_difference": 1009,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 795,
+          "silhouette_xor": 263,
+          "silhouette_iou": 0.710989010989011,
+          "occupied_RGBA_difference": 909,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 95,
+          "silhouette_xor": 83,
+          "silhouette_iou": 0.37593984962406013,
+          "occupied_RGBA_difference": 123,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 718,
+          "silhouette_xor": 267,
+          "silhouette_iou": 0.6767554479418886,
+          "occupied_RGBA_difference": 825,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 3,
+      "failed_route_probes": []
+    },
+    "sleeping": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "sha256": "010d2b3253687af436dfea1e964dcee72fbcea6717e6db8244549e1230ee7490",
+      "bounds": [
+        8,
+        12,
+        120,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "components": 38,
+      "main_pixels": 4013,
+      "independent_pixels": 135,
+      "routes": [
+        {
+          "part": "visible_leg",
+          "route": 1,
+          "polyline": [
+            [
+              85,
+              81
+            ],
+            [
+              85,
+              89
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              79,
+              100
+            ],
+            [
+              74,
+              104
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 2,
+          "polyline": [
+            [
+              88,
+              78
+            ],
+            [
+              91,
+              86
+            ],
+            [
+              91,
+              91
+            ],
+            [
+              88,
+              99
+            ],
+            [
+              83,
+              107
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 3,
+          "polyline": [
+            [
+              94,
+              76
+            ],
+            [
+              98,
+              80
+            ],
+            [
+              98,
+              87
+            ],
+            [
+              95,
+              94
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "visible_leg",
+          "route": 4,
+          "polyline": [
+            [
+              101,
+              72
+            ],
+            [
+              104,
+              77
+            ],
+            [
+              104,
+              82
+            ],
+            [
+              103,
+              85
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 2,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 1,
+          "polyline": [
+            [
+              96,
+              54
+            ],
+            [
+              95,
+              44
+            ],
+            [
+              91,
+              34
+            ],
+            [
+              87,
+              28
+            ],
+            [
+              81,
+              29
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        },
+        {
+          "part": "antenna",
+          "route": 2,
+          "polyline": [
+            [
+              100,
+              54
+            ],
+            [
+              105,
+              43
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              118,
+              34
+            ]
+          ],
+          "corridor_width": 7,
+          "probe_radius": 3,
+          "connected": true
+        }
+      ],
+      "parts": {
+        "head_face": {
+          "roi": [
+            86,
+            52,
+            110,
+            71
+          ],
+          "normal_occupied": 296,
+          "candidate_occupied": 273,
+          "silhouette_xor": 41,
+          "silhouette_iou": 0.8655737704918033,
+          "occupied_RGBA_difference": 305,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "antennae": {
+          "roi": [
+            76,
+            20,
+            122,
+            54
+          ],
+          "normal_occupied": 258,
+          "candidate_occupied": 193,
+          "silhouette_xor": 131,
+          "silhouette_iou": 0.5498281786941581,
+          "occupied_RGBA_difference": 290,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_upper": {
+          "roi": [
+            7,
+            8,
+            88,
+            73
+          ],
+          "normal_occupied": 2100,
+          "candidate_occupied": 2094,
+          "silhouette_xor": 248,
+          "silhouette_iou": 0.8883385862224223,
+          "occupied_RGBA_difference": 2220,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "wing_lower": {
+          "roi": [
+            30,
+            67,
+            79,
+            116
+          ],
+          "normal_occupied": 1352,
+          "candidate_occupied": 1353,
+          "silhouette_xor": 207,
+          "silhouette_iou": 0.8578296703296703,
+          "occupied_RGBA_difference": 1448,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "abdomen": {
+          "roi": [
+            58,
+            68,
+            89,
+            112
+          ],
+          "normal_occupied": 899,
+          "candidate_occupied": 923,
+          "silhouette_xor": 92,
+          "silhouette_iou": 0.9038662486938349,
+          "occupied_RGBA_difference": 956,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "legs": {
+          "roi": [
+            73,
+            65,
+            109,
+            116
+          ],
+          "normal_occupied": 762,
+          "candidate_occupied": 706,
+          "silhouette_xor": 160,
+          "silhouette_iou": 0.8034398034398035,
+          "occupied_RGBA_difference": 813,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "outer_trail": {
+          "roi": [
+            8,
+            95,
+            35,
+            117
+          ],
+          "normal_occupied": 88,
+          "candidate_occupied": 101,
+          "silhouette_xor": 55,
+          "silhouette_iou": 0.5491803278688525,
+          "occupied_RGBA_difference": 102,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        },
+        "crossing": {
+          "roi": [
+            52,
+            83,
+            110,
+            119
+          ],
+          "normal_occupied": 667,
+          "candidate_occupied": 672,
+          "silhouette_xor": 139,
+          "silhouette_iou": 0.8119079837618404,
+          "occupied_RGBA_difference": 735,
+          "note": "review ROI overlaps adjacent anatomy, not exact anatomical segmentation"
+        }
+      },
+      "detached_leg_roi_pixels": 4,
+      "failed_route_probes": []
+    }
+  },
+  "limits": [
+    "Connectivity corridors are screening probes and may include adjacent legs; not proof of anatomical leg counts.",
+    "Four visually separable outer leg routes are examined, not a claim that all six anatomical legs are separately visible.",
+    "Failed fixed-coordinate probes require visual review; no automatic repair.",
+    "Natural geometry differences are not classified as failure using a numeric threshold."
+  ]
+}

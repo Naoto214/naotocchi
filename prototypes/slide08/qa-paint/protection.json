@@ -1,0 +1,18 @@
+{
+  "main": "2cf0570ab801d389c42af560d323ff643c69a220",
+  "tree": "33c851c361c524e509a0ed8cd80a058d2566ae3d",
+  "unchangedPaths": [
+    "prototypes/slide08/engine.mjs",
+    "prototypes/slide08/player-model.mjs",
+    "prototypes/slide08/player-store.mjs",
+    "prototypes/growth-clear",
+    "prototypes/growth-chain",
+    "script.js",
+    "index.html",
+    "package.json",
+    "character-3d",
+    "meguru.js"
+  ],
+  "pr387Head": "0f979b0179f5e47578d52ce1ce8776b75ca00b1f",
+  "pr388Merge": "82b6775d51b905327e2c7445e5be9b529cb92119"
+}

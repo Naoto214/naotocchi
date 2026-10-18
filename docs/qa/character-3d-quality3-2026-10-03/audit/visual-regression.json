@@ -1,0 +1,443 @@
+{
+  "source": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+  "artifact": 11290845340,
+  "rows": [
+    {
+      "target": "butterfly-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-5",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-8",
+      "pixelIdentical": false,
+      "differenceBox": [
+        138,
+        308,
+        1257,
+        379
+      ]
+    },
+    {
+      "target": "cat_friend-0",
+      "pixelIdentical": false,
+      "differenceBox": [
+        54,
+        179,
+        1346,
+        351
+      ]
+    },
+    {
+      "target": "clownfish-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "clownfish-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "clownfish-8",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-6",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-8",
+      "pixelIdentical": false,
+      "differenceBox": [
+        54,
+        68,
+        1346,
+        282
+      ]
+    },
+    {
+      "target": "dog-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dog-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dog-8",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-8",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-8",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-8",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "shiba-0",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-1",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-4",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-8",
+      "pixelIdentical": true,
+      "differenceBox": null
+    }
+  ],
+  "emotionMotionRows": [
+    {
+      "target": "butterfly-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-5-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-5-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "butterfly-8-idle-emotions",
+      "pixelIdentical": false,
+      "differenceBox": [
+        208,
+        201,
+        1173,
+        379
+      ]
+    },
+    {
+      "target": "butterfly-8-walk-emotions",
+      "pixelIdentical": false,
+      "differenceBox": [
+        209,
+        202,
+        1174,
+        379
+      ]
+    },
+    {
+      "target": "clownfish-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "clownfish-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "clownfish-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "clownfish-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "clownfish-8-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "clownfish-8-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-6-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-6-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dandelion-8-idle-emotions",
+      "pixelIdentical": false,
+      "differenceBox": [
+        147,
+        0,
+        1236,
+        294
+      ]
+    },
+    {
+      "target": "dandelion-8-walk-emotions",
+      "pixelIdentical": false,
+      "differenceBox": [
+        146,
+        0,
+        1236,
+        285
+      ]
+    },
+    {
+      "target": "dog-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dog-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dog-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dog-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dog-8-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "dog-8-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-8-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "man-8-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-8-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "mushroom-8-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-8-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "penguin-8-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-1-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-1-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-4-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-4-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-8-idle-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    },
+    {
+      "target": "starfish-8-walk-emotions",
+      "pixelIdentical": true,
+      "differenceBox": null
+    }
+  ]
+}

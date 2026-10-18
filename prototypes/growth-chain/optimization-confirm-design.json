@@ -1,0 +1,66 @@
+{
+  "reason": "Independent confirmation chosen from exploratory seeds200..207; no tuning on these32 seeds. Preserve5types6columns in g2.",
+  "conditions": [
+    {
+      "policy": "legacy",
+      "id": "baseline8",
+      "gauge": 8
+    },
+    {
+      "policy": "legacy",
+      "id": "baseline12",
+      "gauge": 12
+    },
+    {
+      "policy": "legacy",
+      "id": "g2",
+      "gauge": 2
+    },
+    {
+      "policy": "legacy",
+      "id": "g4-kinds4",
+      "gauge": 4,
+      "kinds": 4
+    },
+    {
+      "policy": "legacy",
+      "id": "g2-width7",
+      "gauge": 2,
+      "width": 7
+    }
+  ],
+  "seeds": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331
+  ]
+}

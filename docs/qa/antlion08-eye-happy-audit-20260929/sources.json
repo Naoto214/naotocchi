@@ -1,0 +1,193 @@
+{
+  "source_head": "b85f2940361983083d23c51711bc21c2eb881750",
+  "inputs": {
+    "normal08": {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe",
+      "candidate_id": "normal08"
+    },
+    "happy": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "sha256": "a57e0c5ff540258da43414fc2dd215ea6c110dbf5f25706fcadb5ff48ff22df9",
+      "candidate_id": "happy.png"
+    },
+    "hungry": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c",
+      "candidate_id": "hungry.png"
+    },
+    "wantsPlay": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "sha256": "98fbc19d6a07ce65bf28d3baf9f5955be28ae3fef052c68394b4548b2897dc66",
+      "candidate_id": "wantsPlay.png"
+    }
+  },
+  "all11_input_hashes_preserved": true,
+  "left_definition": "viewer-left; not anatomical left",
+  "sheets": [
+    {
+      "id": "four-faces",
+      "list": [
+        "normal08",
+        "happy",
+        "hungry",
+        "wantsPlay"
+      ],
+      "sizes": [
+        12
+      ],
+      "roi": [
+        88,
+        52,
+        108,
+        70
+      ],
+      "marked": false,
+      "width": 1100,
+      "height": 420
+    },
+    {
+      "id": "left-eye-detail",
+      "list": [
+        "normal08",
+        "happy",
+        "hungry",
+        "wantsPlay"
+      ],
+      "sizes": [
+        20
+      ],
+      "roi": [
+        91,
+        56,
+        100,
+        65
+      ],
+      "marked": false,
+      "width": 988,
+      "height": 384
+    },
+    {
+      "id": "four-sizes",
+      "list": [
+        "normal08",
+        "happy",
+        "hungry",
+        "wantsPlay"
+      ],
+      "sizes": [
+        128,
+        104,
+        80,
+        64
+      ],
+      "roi": null,
+      "marked": false,
+      "width": 768,
+      "height": 820
+    },
+    {
+      "id": "normal-happy-face",
+      "list": [
+        "normal08",
+        "happy"
+      ],
+      "sizes": [
+        12
+      ],
+      "roi": [
+        88,
+        52,
+        108,
+        70
+      ],
+      "marked": false,
+      "width": 640,
+      "height": 420
+    },
+    {
+      "id": "normal-happy-sizes",
+      "list": [
+        "normal08",
+        "happy"
+      ],
+      "sizes": [
+        128,
+        104,
+        80,
+        64
+      ],
+      "roi": null,
+      "marked": false,
+      "width": 640,
+      "height": 820
+    },
+    {
+      "id": "normal-happy-mark",
+      "list": [
+        "normal08",
+        "happy"
+      ],
+      "sizes": [
+        128,
+        104,
+        80,
+        64
+      ],
+      "roi": null,
+      "marked": true,
+      "width": 640,
+      "height": 820
+    }
+  ],
+  "markRecords": [
+    {
+      "size": 128,
+      "accent_sha256": "bb793f2d7e13c09e21ca19c041e6e13bb31ef44e387fde90bc282ba3e3906f0e",
+      "art_offset_y": 12
+    },
+    {
+      "size": 104,
+      "accent_sha256": "bb793f2d7e13c09e21ca19c041e6e13bb31ef44e387fde90bc282ba3e3906f0e",
+      "art_offset_y": 9.75
+    },
+    {
+      "size": 80,
+      "accent_sha256": "bb793f2d7e13c09e21ca19c041e6e13bb31ef44e387fde90bc282ba3e3906f0e",
+      "art_offset_y": 7.5
+    },
+    {
+      "size": 64,
+      "accent_sha256": "bb793f2d7e13c09e21ca19c041e6e13bb31ef44e387fde90bc282ba3e3906f0e",
+      "art_offset_y": 6
+    }
+  ],
+  "observed_bright_pixels": {
+    "hungry": {
+      "xy": [
+        97,
+        60
+      ],
+      "rgba": [
+        227,
+        220,
+        213,
+        255
+      ]
+    },
+    "wantsPlay": {
+      "xy": [
+        95,
+        60
+      ],
+      "rgba": [
+        242,
+        230,
+        212,
+        255
+      ]
+    }
+  },
+  "normal_happy_face_roi_different_pixels": 271,
+  "diff_count_limit": "Includes outline/shading/position variations; not a score of emotional distinctness."
+}

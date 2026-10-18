@@ -1,0 +1,2185 @@
+{
+  "status": "complete",
+  "complete": true,
+  "expectedRecords": 80,
+  "availableRecords": 80,
+  "generator": "built-in imagegen",
+  "normalization": "tools/normalize-expression-image.cjs",
+  "validation": {
+    "baseline_remote": "3cebe34792c5cec2b283382821ca62776ca6d307",
+    "baseline_local": "3cebe34792c5cec2b283382821ca62776ca6d307",
+    "preserved_baseline_files": 2461,
+    "old_active_expressions": 2160,
+    "legacy_expression_files": 4,
+    "normal_pngs": 297,
+    "old_layouts": 216,
+    "new_layouts": 8,
+    "connected_assets": 2240,
+    "svg_accents": 2240,
+    "site_png_hash_matches": 2240,
+    "accepted_final_hashes": 80,
+    "cache": "20260923-bcff2986"
+  },
+  "records": [
+    {
+      "stage": "01",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state happy: warm joyful expression, upward happy curved closed eyes and a clearly smiling little open mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-afa6e3b4-cddd-4beb-a9ee-c82e0640ad22.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-happy.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-happy.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "d69f04f5a0822c5dfe02ec6c2adefb1cb61632bd67ebfefcf227ee43f31c55e5",
+      "final_sha256": "2306e31973c38025a0d48a94ae977ee363efcd25095ed47cf60a86cf07a74d6f",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state strained: strained apologetic smile, worried eyebrows lifted in the middle, slightly tense eyes and a small awkward asymmetric smile. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a281579b-19e9-4698-9b20-c37d0c3867e6.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-strained.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-strained.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "9fc2da6343d6fe2a9ccab3c392504a3ec9cb1e5d89bd256ed85341eda7375bcf",
+      "final_sha256": "15eb9586842632017d678b5586d02685b1180db413571c584d9f3f037e26bbf3",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state hungry: hungry longing expression, open expectant eyes with raised inner brows and small empty round open mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-72fad38f-99c7-4d48-a4d8-41d854e4e249.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-hungry.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-hungry.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "76886b10f26c177861d2e475ba92a83006b36e5aedee09216c34a4e53800643b",
+      "final_sha256": "8ac1983e775bcf99e25b82ae2ec30e791cdf09e928a83c7417dc673725cd50cf",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state sick: visibly unwell, drooping uneven half-closed eyes, worried eyebrows and a small wavering downturned mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6012c5a7-d4ab-42c2-ab78-df8e6ce3ba98.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-sick.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-sick.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "ebe021ab0b1ebb89d6fa3d67658951e2c1ea4fa11ce9b7497159820aee270e64",
+      "final_sha256": "02daae1c9317c87432e14c3a8b3f7f38e1fe6673972105367f12fef26881eaa6",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state tired: sleepy but awake, low horizontal half-open eyelids and a small yawning oval mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-aff3bf8a-0c2b-4bbd-a0cf-46ee4e07b87c.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-tired.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-tired.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "999878d6597a7079a6347b4f4a163f5a0ddf86608038fdf34d6dfb8ad9e5d699",
+      "final_sha256": "d217da41298b3b6bf6b8a4f5f0e1040ada1e875350fb229096abe3f2de5f1cca",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state sulky: sulky annoyed, eyebrows tilted inward down, sidelong narrowed eyes and a small pursed pouting mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2baefe95-27a9-4603-b2dc-13174a83cbd8.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-sulky.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-sulky.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "a10f190445559ac72e1223330c94fbc089a9132d7bb7297c48fb477f40dc3488",
+      "final_sha256": "28db55145f097cf1859c3a5ba5150d1fa8795c4c1e023f1bd922a429e632442d",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state weak: low energy, droopy half-open eyes, slanted sad brows and a tiny slack downturned mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1dc4655b-4a5e-43ed-b76c-26763f30cfef.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-weak.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-weak.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "7026d233fdbd6527f16d51b670543bc3a040f96ef54c947847a88cd55acafbee",
+      "final_sha256": "eba7c14e1baa4a25dc3bf0fbe3445c09a1aa499c5434499a41d7d36962c67f9d",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state critical: very exhausted and distressed, nearly shut downward slanted eyes, sharply worried eyebrows and a trembling open small mouth; alive not dead. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-559ad9cb-f766-4c85-bcc2-5b5498e4eb2d.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-critical.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-critical.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "eaf94b43b69a4a18f64ef8135dc7dde436bf5311bdc17f49171858cbcc34d00d",
+      "final_sha256": "23231449cc5d9b3a45f37c0270f59e2b590912ce5920cb131bee57a0db0a8423",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state wantsPlay: playfully eager, large bright open eyes with highlights strictly inside eye outlines, raised lively brows and an excited open smile. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4cdfcd32-54ac-40df-8254-8618857e9e71.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-wantsPlay.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "111318ee9565c88bbca35702fc97085f98fb83159cdd0f97b5913d62d241a3f1",
+      "final_sha256": "fbe5360e439582bec2c16b309c28d829dece75144c19c83413507cc01c353e4b",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state sleeping: peacefully asleep, two relaxed closed downward eyelid arcs and a tiny relaxed horizontal mouth, no waking eye pupils. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-28757641-9dbf-4651-b71c-fcae7d782aa0.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/01-sleeping.png",
+      "original": "assets/characters/star/01.png",
+      "final": "assets/characters/expressions/star/01-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "source_sha256": "35a07d41754861e781058fd8bd9bac19d8bee2079d994ba1b77248bf15cbd4d4",
+      "final_sha256": "34149c29e536e3eff7f3f17a611518ecf089aca6d64491773107344884317c81",
+      "bounds": [
+        31,
+        30,
+        96,
+        97
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/01-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state happy: warm joyful expression, upward happy curved closed eyes and a clearly smiling little open mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-98b28799-40be-4380-a46e-fc9ba7503e31.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-happy.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-happy.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "e583e1b3a201c04ca6cf2c975151b5b9693a381d9ec94cf04f30d3d7d92c58aa",
+      "final_sha256": "595a287f3f0200ac4fde1fd4f7ae5bc54a3e395c9eef0b4beda4ce2111cb002b",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state strained: strained apologetic smile, worried eyebrows lifted in the middle, slightly tense eyes and a small awkward asymmetric smile. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-971e4a34-2f41-4c7e-aacf-d4d16e24260f.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-strained.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-strained.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "e4637c1f1aabb543726e7feebc29a3ef21148ed3a14ccb74f59711947c641205",
+      "final_sha256": "73ef0d626dbf3e8e4b6d93ce1a05dd261a0ea5502bc8621776ed7d33c7b783ba",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state hungry: hungry longing expression, open expectant eyes with raised inner brows and small empty round open mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-33578f5c-6fa7-4ed4-aeb4-23e10953662e.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-hungry.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-hungry.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "008eb4b2d15b6a66f6aa5c5c8d87dd37d2916a27d840cfba62c8771db8482413",
+      "final_sha256": "4d95e5745aead0579f16ec2c386e085aafbc9afb4408283fdb8b9a22f31bc1e3",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state sick: visibly unwell, drooping uneven half-closed eyes, worried eyebrows and a small wavering downturned mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6a7947ec-31dc-4221-9e0a-34d2d1ca1fc7.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-sick.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-sick.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "302fdd579444034fde29dcbdc46a2baf6536df74808c64b072995e03ce894b5d",
+      "final_sha256": "9b48343b622e6549244f4f23e8284903e5b824423f2eeed82fad61175ef8ac73",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state tired: sleepy but awake, low horizontal half-open eyelids and a small yawning oval mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-665c62da-b021-442f-9b8d-49720c131e90.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-tired.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-tired.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "c2e9d4dd56c0544291eaa060e8865e11876b88a118b6a72453364f3d953fe7fa",
+      "final_sha256": "83e19a44a92e818049cbad3eaeb174de714e768a2b8dc5a1966e0c1a6c1caf5a",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state sulky: sulky annoyed, eyebrows tilted inward down, sidelong narrowed eyes and a small pursed pouting mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-aaa825b2-8829-45c1-a384-47c644cd163f.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-sulky.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-sulky.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "ec55e43d0432b4aa42cf4b4b5634c8b7ccd4a02b2d8c73b5c62252bdf2d63a79",
+      "final_sha256": "07c6bc59aa00b3a8dedba270615528619375fcb25b81a409ee044c1004ee81c1",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state weak: low energy, droopy half-open eyes, slanted sad brows and a tiny slack downturned mouth. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e118d4cd-bc17-4deb-bb25-a5e871f18a0e.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-weak.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-weak.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "6528482637176fd62644b4d7d5cee32b5cb9b4f6df1894c70d514c4c6322a4ee",
+      "final_sha256": "f407f0af436f5c3fbd15d8da67e0e6c0c6d267e0540896301f2ea5c51dcf526c",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state critical: very exhausted and distressed, nearly shut downward slanted eyes, sharply worried eyebrows and a trembling open small mouth; alive not dead. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5f460760-0c72-4857-b325-ef936e57266a.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-critical.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-critical.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "dad117539681c3942ebe7cf5dd811dc00205e0f21bb656aaf0130e717064afe8",
+      "final_sha256": "7d2f7714c7c912a730fa5ee94e8516a04f435ff09a0c8a63c84b25d2cddd897c",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state wantsPlay: playfully eager, large bright open eyes with highlights strictly inside eye outlines, raised lively brows and an excited open smile. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fafafcc9-615a-49e1-b03c-6857b056e663.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-wantsPlay.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "454bfc4eab4c4dd25efacd7e0c9d3ca39d28de2a80ea4a9195b88e20fd58dd1f",
+      "final_sha256": "3af73167749217ad2b5efac7b45b535a652862669ae12f8a6afce27535e0b238",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Pixel art game sprite, one transparent PNG. Image1 is original 128x128 edit target, image2 is exact nearest-neighbor enlargement for legibility. Edit ONLY existing eyes, eyebrows and mouth for state sleeping: peacefully asleep, two relaxed closed downward eyelid arcs and a tiny relaxed horizontal mouth, no waking eye pupils. Maintain one face in its original position and tilt, preserve original blue violet cyan white palette, nebula cloud or spiral disk body silhouette, pose, all original sparkling light particles and light bands, size and placement. No limbs, no extra face, no new particles, no sweat, no tears, no blush, no status icons, no Zzz, no symbols/text. Keep original coarse pixel grid and truly transparent background; maintain full original sprite with no crop. Even sick or asleep preserve all light and body structure. Return a single expression sprite only, no comparison.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-77bdc311-dada-4a08-a364-50e05d84074b.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/02-sleeping.png",
+      "original": "assets/characters/star/02.png",
+      "final": "assets/characters/expressions/star/02-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "source_sha256": "ae4096528aa631aabcbcf27375ee79f5e02b6999dbd36a81342b8713dc8748ee",
+      "final_sha256": "eb2eca0b0bc607645124840a3566e84bf4c82ccebb20b7e961e6d9fc01c48613",
+      "bounds": [
+        23,
+        29,
+        104,
+        98
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/02-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target image1 original pixelart; image2 is exact enlarged viewing reference. Output ONE transparent-background character sprite, not a sheet. Change ONLY existing eyes, eyebrows and mouth to express happy: Clearly joyful eyes and a broad friendly smiling mouth, delighted. Preserve the golden protostar core, orange and purple tilted surrounding disc, all original sparkles, original silhouette and every nonface detail, palette, pixelart texture, scale, position. One body one face. No limbs or extra faces, no tears, sweat, new stars, hearts, marks, Zzz, text, background, props. Keep glow and disc intact.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9021dca0-3a47-40fd-933a-da3c71b35e65.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-happy.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-happy.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "cd1371a3c9b54e99e25cc76d16ee2b720208a03b209fe8f83d4660ae2e94dfd8",
+      "final_sha256": "f44099d96763dbe8a168c9be242888c822834bc1b91564a6359cb080d2513902",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Image1 is original pixelart edit target, image2 its enlarged reference. Output ONE transparent character sprite only. Change ONLY eyes, eyebrows and mouth for strained: An awkward reluctant smile: worried raised inner eyebrows, slightly narrowed eyes and small forced uneven smile. Not cheerful. Keep golden central core, tilted orange purple disc, all original sparkles, silhouette, palette, glow, position and pixel style unchanged. Single body single face, face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Preserve light even when unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-54ed1379-722a-46e5-b7a7-26ebd055cee8.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-strained.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-strained.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "c8e17844d6a0dffa5e0689363b3980f59b0cb91ae80647c6d185007e0c274d2d",
+      "final_sha256": "1f85ce06ada02e76cb33aea1072a9a4a8fb3c2b3e9275a8fd1106dfa099da714",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Image1 is original pixelart edit target, image2 its enlarged reference. Output ONE transparent character sprite only. Change ONLY eyes, eyebrows and mouth for hungry: Hungry pleading face with hopeful open eyes, raised inner brows and small round open mouth asking for food, not cheerful. Keep golden central core, tilted orange purple disc, all original sparkles, silhouette, palette, glow, position and pixel style unchanged. Single body single face, face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Preserve light even when unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-77e585f0-528c-435a-a1b8-0b43e5ca18d3.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-hungry.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-hungry.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "8edfd053b6214cdde189085303f04f757c80bcec40901184d69b0e4ece577137",
+      "final_sha256": "5ce2c5d30e5a613093df74eefe9cfeff084618ab86bfaf3c263c6a510e7a9414",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Image1 is original pixelart edit target, image2 its enlarged reference. Output ONE transparent character sprite only. Change ONLY eyes, eyebrows and mouth for sick: Visibly unwell: drooping half-closed eyes, worried brows and small wavy downturned mouth. No color change. Keep golden central core, tilted orange purple disc, all original sparkles, silhouette, palette, glow, position and pixel style unchanged. Single body single face, face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Preserve light even when unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-40509d07-6705-4ded-8f6c-fc77cc6ea961.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-sick.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-sick.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "ac4e8e8da06c4c9c063b6c8a1a57922c7bb26958c75ad8204c58864781db0dfa",
+      "final_sha256": "1e077c88ced32ae0441a1d0d61756716200bb92809e29ad8810819f34a4e3665",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 enlarged reference. Output ONE transparent character sprite. Change ONLY eyes, eyebrows and mouth for tired: Drowsy but awake: heavy half-lidded eyes and small tired yawning mouth. Preserve golden core, tilted orange purple disc, all original sparkles, silhouette, palette, position and pixel style. Face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Light and disc remain intact even sleeping or unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2d1b458b-1847-4961-9bf1-0ee535cf4ece.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-tired.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-tired.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "621fb43c6ea3f7c44ebd598a6d2e4324e1c4741689382db0bcfc0b5c5e7cac3f",
+      "final_sha256": "abc986ed74b5ff1ff8f1bd413ae6c33920ae6b4ddfc2bd7d656d558660f1fab0",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 enlarged reference. Output ONE transparent character sprite. Change ONLY eyes, eyebrows and mouth for sulky: Sulking: low inward brows, sideways narrowed eyes and small protruding pout. Preserve golden core, tilted orange purple disc, all original sparkles, silhouette, palette, position and pixel style. Face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Light and disc remain intact even sleeping or unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3af9281d-9d09-4050-9eef-c11adfac328c.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-sulky.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-sulky.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "72ac2c608de9743e46360da5b9a9fbc64014221dc133ce818da23d393a5f5111",
+      "final_sha256": "03144e7baaa1a526190cb85a295466c7249fec7636aff55774fea1df4c1c3583",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 enlarged reference. Output ONE transparent character sprite. Change ONLY eyes, eyebrows and mouth for weak: Low energy: very drooping open eyes, slumped worried eyebrows and tiny downturned mouth; keep eyes barely open. Preserve golden core, tilted orange purple disc, all original sparkles, silhouette, palette, position and pixel style. Face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Light and disc remain intact even sleeping or unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1862a14a-3b5d-4416-89ad-20550eff5f0c.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-weak.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-weak.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "722017458d3e84fb102537a7520e039c16fbbe55228ce13916e51cf1903b194f",
+      "final_sha256": "5de29d2536ee062e021cd55d9afaaa90bbbcba10bdb9b2cde0bf63da8a09b40a",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 enlarged reference. Output ONE transparent character sprite. Change ONLY eyes, eyebrows and mouth for critical: In serious distress: tightly squeezed downturned eyes, strongly worried brows and a strained small open grimacing mouth. Alive, not comic or smiling. Preserve golden core, tilted orange purple disc, all original sparkles, silhouette, palette, position and pixel style. Face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Light and disc remain intact even sleeping or unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d5d78516-7324-4418-82ab-f7bd9dc37bc2.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-critical.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-critical.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "ffc73999fabb0431c53acd2ad5e0594909517ed45c8e6ac14b18cfaaadc92e5b",
+      "final_sha256": "dce2185c6f35dd785536b1425989b78cf45eae7e25c7f7855b4c72672045bebc",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 enlarged reference. Output ONE transparent character sprite. Change ONLY eyes, eyebrows and mouth for wantsPlay: Eager playful invitation: bright alert open eyes, lifted brows and a broad excited open smile. Any glints stay inside eyes. Preserve golden core, tilted orange purple disc, all original sparkles, silhouette, palette, position and pixel style. Face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Light and disc remain intact even sleeping or unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3c21a75b-5a08-4382-bb9b-aab01d7a58da.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-wantsPlay.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "acc0473dc640b58e04c69c816d6fed3cb0e91c1f01494f24fc8f13b167006134",
+      "final_sha256": "de1f3dc66e5d6035c980399269d838f63e0c835b3f668694a580f6a3b2c4e495",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 enlarged reference. Output ONE transparent character sprite. Change ONLY eyes, eyebrows and mouth for sleeping: Peacefully deeply asleep: BOTH eyes completely closed in relaxed downward curves, brows soft, tiny relaxed closed mouth. No wink or open eye. Preserve golden core, tilted orange purple disc, all original sparkles, silhouette, palette, position and pixel style. Face stays tiny in central core. NO new limbs, extra faces, tears, sweat, marks, Zzz, text, props or decorations. Light and disc remain intact even sleeping or unwell.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b07bffbc-0306-4d15-8fd1-a50d4c66ed72.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/03-sleeping.png",
+      "original": "assets/characters/star/03.png",
+      "final": "assets/characters/expressions/star/03-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "source_sha256": "4579ef73852b900bd1fa512c9443550efdc00db4cc079a363a1e85588d78cdeb",
+      "final_sha256": "c6fd1584988d9cba8a9a697168ca6b7f32f0f10611bcb31ad2ef8e525a033795",
+      "bounds": [
+        16,
+        32,
+        111,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/03-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for happy: Clearly joyful eyes and a broad friendly smiling mouth, delighted. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-81f59e1c-1ddd-40cd-b794-e906531e85ea.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-happy.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-happy.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "ca527b1ab204d56043f00e65eae4ae238abe3ae886a14487bdb48bcadc7ca1d4",
+      "final_sha256": "1e580868742864f7398798a07f2bfcf1b07b4551b0bcffd2c4be5baa0508d5ab",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for strained: An awkward reluctant smile: worried raised inner eyebrows, slightly narrowed eyes and small forced uneven smile. Not cheerful. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b900f008-33e3-47b4-aa8b-164d72b3cc3d.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-strained.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-strained.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "645ebcc11f508e6fc38ec679046e6e8bedbeceaf16ea60d9e9cea9a365e4695c",
+      "final_sha256": "d67843812ab2c8fa4714c83ff137df0707277bad8057a9bb8318f71b1a6709bf",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for hungry: Hungry pleading face with hopeful open eyes, raised inner brows and small round open mouth asking for food, not cheerful. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e22cb9a4-4cd3-4215-80d8-a184e68a1a52.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-hungry.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-hungry.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "c25f49f60cced62ad175ae7ab3fb4610a9c4f9f4c31e6697689952e29a6750f4",
+      "final_sha256": "b0960530e8f1017297791e2924f82e3ebfe84a0b283c451c1743a2caf5a28597",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for sick: Visibly unwell: drooping half-closed eyes, worried brows and small wavy downturned mouth. No color change. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9ac751a1-43aa-4f0d-883f-0c6c17b0634c.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-sick.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-sick.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "5334f34b92383cc15aed96f150829117169979d5d261f74d41c42bb7c25ae718",
+      "final_sha256": "ace26437d671cd902a2eea957af93e48f42ba62dc53356a93197d69dce47d936",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for tired: Drowsy but awake: heavy half-lidded eyes and small tired yawning mouth. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7755d913-6dba-4bca-8a66-040d755360a1.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-tired.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-tired.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "2306ec993dda77e5ae6c0c993f504297a9787f498cc144bd943468c0a160c222",
+      "final_sha256": "1ae23a137ae9edfd769e1b612424fa51d2c20fade1728ddbc1e72226c2ed5dbb",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for sulky: Sulking: low inward brows, sideways narrowed eyes and small protruding pout. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-77788c6f-833b-4d43-8c4a-13e27c448342.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-sulky.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-sulky.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "e90efac4ebf865f27b9ebc7012c04768fe8803012b8e4fb395b9c8af5e12f828",
+      "final_sha256": "1068b3e70e3da7a9b8d2a42f9e47bef5cc596feee796418a4b2a87742b89792b",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for weak: Low energy: very drooping open eyes, slumped worried eyebrows and tiny downturned mouth; keep eyes barely open. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3cf1f561-1939-4a3b-b281-916e565083fd.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-weak.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-weak.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "abe57f759f7edba95da865cb1e41688b7654613c3a2755a403954af42d10001e",
+      "final_sha256": "90b37b70bed2212e494f539b28f69b46a5abedd063c77908b1b01900cd86ef4a",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for critical: In serious distress: tightly squeezed downturned eyes, strongly worried brows and a strained small open grimacing mouth. Alive, not comic or smiling. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-98e6df35-1c92-4c92-82e3-a01cb5b346a8.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-critical.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-critical.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "3a5192d16bcc7cbc2db4511f1f3abba6c9c9ad697aa3f32293bf73152fec8e69",
+      "final_sha256": "aed0cf1e3b4dcc028f32075bf487d6714b174700048e76853c6c418600543b19",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for wantsPlay: Eager playful invitation: bright alert open eyes, lifted brows and a broad excited open smile. Any glints stay inside eyes. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a508988b-9b80-4b1b-8dce-0c3f80a280e7.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-wantsPlay.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "671ea10c4aca91ed7d03ac118ef823caebaf86f5950c93654b1c6ce3c0084f98",
+      "final_sha256": "f274e31f9e50774582212dd9946493f7d7b2d1bbd10e34ba622c41bdbe40d609",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Image1 original pixelart edit target; image2 exact enlarged viewing reference. Output ONE transparent character sprite only. Change ONLY existing eyes, eyebrows and mouth for sleeping: Peacefully deeply asleep: BOTH eyes completely closed in relaxed downward curves, brows soft, tiny relaxed closed mouth. No wink or open eye. The original winking eye may open or close to suit this state. Keep young sun's round golden yellow body, orange red flame rays and all tiny original sparks, original asymmetrical silhouette and face position, pixel texture and warm palette unchanged. One body one face. No extra faces or limbs, tears, sweat, new sparkles, marks, Zzz, hearts, text, props, or background. Flames and glow remain intact even ill, weak or sleeping.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5cf7d945-c9a6-4d71-b01e-f27c120921f5.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/04-sleeping.png",
+      "original": "assets/characters/star/04.png",
+      "final": "assets/characters/expressions/star/04-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "source_sha256": "87af59f170007523f3791b57ffe2ce29ea975aa4e4ec093405b436af96680e63",
+      "final_sha256": "2314861a202e6adca265d42162bd169ade525690d0b5980f2f994ec20cba5abd",
+      "bounds": [
+        20,
+        19,
+        107,
+        108
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/04-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to joyful happy expression, upward crescent eyes and a small open happy smile. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e45e2aa0-7e79-4cc3-9043-e404f64e8d6b.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-happy.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-happy.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "acef9c8f9e5092ee2ab89b4f64fccfa840a3a12873c3b5a6e010fa0cd2a61511",
+      "final_sha256": "41be03a4d7e249766c90d9a3e8126a89c8bd26bf7048b002279464e18e1445d9",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to strained polite smile, worried raised inner eyebrows, slightly squeezed eyes and a small reluctant asymmetric smile. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ad50d9b5-4196-4a1c-9afd-30a0fe21d825.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-strained.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-strained.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "c8986923fb3a16c6ee7502ffcc5cf39008446eaa1a0144d7589ccfdc9a66b2be",
+      "final_sha256": "a731a017eeee46238c809656b4818166f05f6b6403b742cf386c8b156f163244",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to hungry pleading expression, wide yearning eyes with lowered upper lids, raised inner eyebrows and small open rounded mouth. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-32d20882-18e5-4503-9833-cdd7f621e490.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-hungry.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-hungry.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "77bd22353ff90e99c5a2848a7d81fdfd704777c9abc53b00a3c7923d4427a6b1",
+      "final_sha256": "869e5534125f628b0eb8a75ead73faf831a255a56509dfeb9a8047b98b77b136",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to feeling sick and uncomfortable, squeezed downcast eyes with knitted brows and a small wavy unhappy mouth; no vomit or added marks. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a3bfbdb3-a848-46b8-b1d4-ea76d605ca01.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-sick.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-sick.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "aa86211bba22f063ad46b891c4ed578776bd23b0ef505344ef9308f676c0d210",
+      "final_sha256": "665974ccc367f2e168d2bf3e5965c91dd73f29135170af274b774cfad954d8b6",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to sleepy tired expression, visibly drooping half-lidded eyes and a short slack flat mouth, eyes remain partly open. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5a80c323-b907-4a9f-93bb-512a8a26fe94.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-tired.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-tired.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "3a6b374ebfee6c019b44fd8972f5c945cef308f6a90b2aed213e211b5d2f8a54",
+      "final_sha256": "d0570b6e6d54d3b45fb30c2de45eaedea7ce0d1debacd2f9b5c1ac28555e7acb",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to sulky grumpy expression, inward slanting eyebrows over narrowed eyes and a small pouting downturned mouth. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-02e42cea-4ab6-47b3-861d-da68c8a5e24c.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-sulky.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-sulky.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "11a267042dfb87b6b206868fcdef7758a4078be198125088b59db10f80709a6e",
+      "final_sha256": "fe5cdfaa5bff77dfd3b3a6f30db3af6d32c12bcbf21e9e58b2f84c48a19d135f",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to low energy weak expression, heavily lowered eyelids with tiny remaining openings, gently raised inner brows and a tiny downward mouth. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-82cf6d10-1af8-4f55-8585-5f6eda529dc3.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-weak.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-weak.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "52148453a4f93985ccaade10b8bc6bd051a5698a8d2b13cc973c81de4820d5b7",
+      "final_sha256": "13b2c4a670bef8b0dfcc67685a6ad17b9da3af252117325512c813c950276810",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to very distressed exhausted critical expression, tight shut strained eyes, sharply raised inner brows and small trembling open mouth; clearly unwell but no injuries. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2a9dd0f6-f0c4-4a9a-bd9c-3226f3e6b420.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-critical.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-critical.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "229fa32026ce1305a50afb30c22168f4efc18dfc56818ffec711f270ffe67e73",
+      "final_sha256": "dd3e8abbfbe80dbf10655c1ceedaf88952d98d2a26c15f874bf3510ec0591f51",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to eager playful inviting expression, bright open eyes with highlights only INSIDE eyes, lively eyebrows and a wide cheerful open smile. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-96fd255a-b5b7-4b88-8be9-f42657095c9c.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-wantsPlay.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "f039b3e6392b1d3cb8474c855ccd16f2609c66f160ff4a6dd65155e472e0316b",
+      "final_sha256": "7a7ee5705974220836a8825b686dfffb554726f0cb2c489cd1f68b408f500557",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to peacefully asleep, relaxed downward closed eyelid curves and tiny relaxed closed mouth; no smile crescent eyes, no Zzz or bubbles. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve golden circular sun with straight orange-gold rays and satellite light points.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a37e0f88-43b3-4884-a6ad-9a37d579b56e.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/05-sleeping.png",
+      "original": "assets/characters/star/05.png",
+      "final": "assets/characters/expressions/star/05-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "source_sha256": "8dd484d2e85db844b89faa41296ab2a0f9a8dc8f04513c5746fed6c0e5a6dc22",
+      "final_sha256": "512600b083afece62a00f425c8989d1eb3164a18acf28e0972b02424b6a5e21c",
+      "bounds": [
+        12,
+        14,
+        115,
+        113
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/05-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to joyful happy expression, upward crescent eyes and a small open happy smile. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3154cefc-47d0-4998-a5e7-1563e5bc00f1.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-happy.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-happy.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "1385fb28de1057609408f38345a9da4903f64f33f1196478475ad29d8f1822bb",
+      "final_sha256": "881e70d3201333d57da2d73eb64edd5196faf6e048cd3d36bbcf2632b24e5720",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to strained polite smile, worried raised inner eyebrows, slightly squeezed eyes and a small reluctant asymmetric smile. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fc1b41e3-0108-480b-ab70-93931ee899fb.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-strained.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-strained.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "dc5b8b58edcf520fc7d29def43504bcf0f4587986f29c6b9eaa5e987418d4673",
+      "final_sha256": "f76e4553b9dde474857f026b473cd917b45caa22cbf3de6387df79a8ac25c547",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to hungry pleading expression, wide yearning eyes with lowered upper lids, raised inner eyebrows and small open rounded mouth. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8fd3dc58-e18b-4c41-aebf-10de2a21578f.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-hungry.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-hungry.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "e71dce0bb22eb1a3fe16cb68c697ad6d7375bd3d2e03762ffef250a06e3d3542",
+      "final_sha256": "1c7dc8fc6ada55a73b6794517fcc0ea0363ffcbc60f4b9aca75d26cba0391a69",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to feeling sick and uncomfortable, squeezed downcast eyes with knitted brows and a small wavy unhappy mouth; no vomit or added marks. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-26e445bb-fa75-4559-a971-5a026acd1e41.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-sick.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-sick.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "c9db2df019d729e9a3c82972f45ddb2f8a921c3502f7e96011b03ff25510c21d",
+      "final_sha256": "5f38fc4d836208dc8f4f4a44dc87e41f704698a3ecafb8dc97efb2da3715c86d",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to sleepy tired expression, visibly drooping half-lidded eyes and a short slack flat mouth, eyes remain partly open. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0a672ef7-311c-4da6-80ff-0404353dda81.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-tired.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-tired.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "544ec21d1c68fd8e5a8127ea1770ad91cf2e09bddd7fed117674bc912960d7ae",
+      "final_sha256": "461d627d0cb94df2d1f1ff164278c66304ed86f5f805160c24ad3c68a09495b8",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to sulky grumpy expression, inward slanting eyebrows over narrowed eyes and a small pouting downturned mouth. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c5a93374-1613-4338-b686-b377932e8213.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-sulky.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-sulky.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "97ee1642f468f1588e1ca48bc0153904f9faafcd241e509c33a04da789192af6",
+      "final_sha256": "9b327817faa9e2dd29f409b33b2a6d37c106dcaedb2a082392ef72f6ba15c52a",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to low energy weak expression, heavily lowered eyelids with tiny remaining openings, gently raised inner brows and a tiny downward mouth. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0ef18fce-7de9-407f-9623-9642bc076de3.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-weak.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-weak.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "1448372af83e96ec761366aaea2b60c2519c82ec7390fbf457f4db103ab8c267",
+      "final_sha256": "d8462a9997d24512a4f48d41854a91d475f385bb40a0f8e55243465caaab4d55",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to very distressed exhausted critical expression, tight shut strained eyes, sharply raised inner brows and small trembling open mouth; clearly unwell but no injuries. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-12c0e22d-5393-4c23-adea-17f54113c71c.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-critical.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-critical.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "b0bf64cb87d4202bafff1f38c202886d63e128c61f09c3bdac295a20d6278393",
+      "final_sha256": "ecc620fbafebf82230001033de0b09907865afa681f05e1656e3e1ee97d37b5b",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to eager playful inviting expression, bright open eyes with highlights only INSIDE eyes, lively eyebrows and a wide cheerful open smile. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-dafe046c-c19f-43c6-81be-03c0bd290751.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-wantsPlay.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "7a4b6dca7bc92f186e62225037107be2e64040b80898f3ffd611005a9cecc7d2",
+      "final_sha256": "d649d0a7a7d5b935284ae130d6d6db124912b08e8649c33642facff7f7a0135f",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit this existing pixel-art game sprite, Image1 is original edit target and Image2 nearest-neighbor enlarged reference of same sprite. Produce ONE centered full sprite on actual transparent background, preserving original pixel art, body shape, all rays/flames/light specks, palette, highlights/shading, position and margin. Change ONLY eyes, eyebrows and mouth to peacefully asleep, relaxed downward closed eyelid curves and tiny relaxed closed mouth; no smile crescent eyes, no Zzz or bubbles. Preserve cheeks and everything outside face. Exactly one face and one body, no limbs or new faces. Do not add text, sweat, tears, drops, status marks, hearts, icons or scenery. Keep original light/flames even when ill or asleep. This is one expression asset, no grid, no sheet. Preserve aged orange enlarged sun, its exact swirling shading and curling wavy flames, surrounding orange light flecks. Keep age character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ae231ebe-a7ba-4820-80b4-20f6e58fbd66.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/06-sleeping.png",
+      "original": "assets/characters/star/06.png",
+      "final": "assets/characters/expressions/star/06-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "source_sha256": "e7a72b6d7c8faf2464c318acaa28db8aadeee7145d80f5b041c011b8fc09c219",
+      "final_sha256": "b2ac0ba15dcec514e4eb2196d801bfc4656dd4a3897cd1aec997d2b6944f0536",
+      "bounds": [
+        8,
+        10,
+        119,
+        116
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/06-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: clearly happy: warmly curved delighted eyes and a friendly small open smile. Preserve the central cream-yellow starburst body, its long orange-yellow and violet rays, peripheral sparkles and original cheek coloring.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f3f0591f-2659-464f-bdac-7f0b886ff891.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-happy.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-happy.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "9139265ad361ac4a44c6777117fa63a221eddf7c7c21e486b0923f81f0d7f679",
+      "final_sha256": "a180e0f4fd3742f2ea6c403775b1c9ac6888f576bbc9fc5eec459fc439aa257d",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: strained polite awkward smile: inner eyebrows gently raised, slightly uneasy eyes, small tight hesitant smile; no sweat. Preserve the central cream-yellow starburst body, its long orange-yellow and violet rays, peripheral sparkles and original cheek coloring.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a97d422d-6be2-4102-96f4-5039a8f423e2.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-strained.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-strained.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "0ecf28a3369ec38d2906b5b2e46b939f2166a22ad8db087d0d7a725b77374908",
+      "final_sha256": "6c5538fdd89f3dd572fbac3d103aae2db1cb678cebf34bfbff515cadb1043f7c",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: hungry yearning: imploring eyes looking forward with slightly raised inner brows and a small round open mouth; no drool. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-14337c97-b96c-425e-b63a-4592dfd739dc.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-hungry.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-hungry.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "8d19a9c3dabd5be2b10c2b034a8b79c12a428e7c51914461315914bbd1cbc0fe",
+      "final_sha256": "fb97535e51b43ec3daca54d944d242d6ffd504a8281d19eadbd09c22e3c4f7e4",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: feeling ill: uncomfortable lowered uneven eyelids, worried inner brows, small downturned wavering mouth; no color change, no marks. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-92b20dd6-3562-4c88-b9c8-6265f622334d.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-sick.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-sick.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "553483dfe29586af763c2d2139089de13ef906cc4cef45e433ed972ba6e6715a",
+      "final_sha256": "9308b55187a308f3804c44abec464db9afe255a2bbfa1e9d76c3f0392ab74c66",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: tired and drowsy but awake: heavy half-closed eyelids, relaxed drooping brows, tiny slightly open yawning mouth. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-533a8276-861c-4098-85c8-564e07271cbe.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-tired.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-tired.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "4d855b3e150f3705f2b551728d291ec8215a543ac544045413d932a986205162",
+      "final_sha256": "27423c2ae9bfaa9e3cb96e43ccc4af93eae9c8440f5276a065346a0b9ad4e312",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: sulky pouting: narrowed eyes with gently inward angled eyebrows and a conspicuous tiny puckered pout; not aggressive. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a22bbbb6-de8c-4efc-83d8-05e5b18fa851.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-sulky.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-sulky.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "0fc1f5a7c362df667d1360775b64eeb06dffa290981a3fcccbcf5e26e5cabc7e",
+      "final_sha256": "13feadb07e7925b1db0cd8c434f5f650bbbe047374907f0003b9469027ce7a9f",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: weak with low energy: near-closed drooping eyes and a tiny slack downturned mouth, eyebrows faintly raised with effort. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-885a51dd-1444-4621-9212-b1edefe15f70.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-weak.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-weak.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "58921b3825375b745c2da4a2edf51b60f90fdbf203362e76e8e50a080f7ec2fd",
+      "final_sha256": "676dcf8af6ff62713aa80dbd3cbbe1070d3f6dbd1dc48c5694889879d275d299",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: critically exhausted distressed: tightly pinched shut strained eyes, raised worried inner brows, tiny trembling downturned mouth; no X eyes, no tears. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1e211e0f-b7e9-4a60-bb4f-52ad057eae93.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-critical.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-critical.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "c0094fa93a9b72090af04d9dd090cc268548523ee6d4d1deb6d16357d2c2cb5c",
+      "final_sha256": "b27f2c2bd9fc3b3c656728b18843b91495aa5710b57dda608c65056d74f64441",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: eagerly wants to play: bright wide attentive eyes with lifted brows and an excited small joyful open smile; no extra highlights outside the eyes. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-db021f7f-2ee4-4bf5-8009-e5050b843086.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-wantsPlay.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "dd8ce923038fa4f1d4ea743bae2ebd4947242eb2a7c7f1eb41a3b0a8b9168167",
+      "final_sha256": "f5f70200bfc632cce2050a692534c91c215a85f8b053435b92c43dcde364141b",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Produce ONE transparent pixel-art game sprite expression edit. Image1 is the native original edit target; image2 is its nearest-neighbor enlarged reference, not a second character. Change ONLY existing central face eyes, brows and mouth. Keep the original character identity, size, composition, silhouette, all cosmic light and every existing faceless sparkle, exact colors and stage structure. Preserve crisp square pixels and genuinely transparent background. Do not add new faces, body, limbs, objects, sweat, tears, marks, text, Zzz, symbols or background. Keep original luminosity even in ill or sleeping states. State: peacefully sleeping: both eyes closed as soft downward-curved relaxed eyelids, brows relaxed, small neutral resting mouth; no smile, no Zzz. Preserve central cream-yellow burst, orange-violet long rays, sparkles, cheeks.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a66c9ee8-fca5-4fd5-b1c6-daac20b178af.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/07-sleeping.png",
+      "original": "assets/characters/star/07.png",
+      "final": "assets/characters/expressions/star/07-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "source_sha256": "15637c3e8d839c27566a16ebb68c130e2a7d3f58e5c67621850e201a4a7d635e",
+      "final_sha256": "d947f076499d32fc58d4d5817223c24d4432f3c98be998589937d20eb7bf00c8",
+      "bounds": [
+        8,
+        8,
+        119,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/07-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: warmly happy and content, delighted curved eyes and a clearly joyful small smile. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "stage": "08",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a0f9b286-a8bb-49e4-b3a4-1235cc73fb02.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-happy.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-happy.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "45f07a0d3354179a9e428468a2cb6903236c788cb592e22f1a6c4f9ad77f2e10",
+      "final_sha256": "9773206610cd65ec55833c2ef68ee4962bcc83fdfb937b7900536045128c9603",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: reluctant uneasy expression, worried raised inner brows, tense narrowed eyes and a small awkward smile without pleasure. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "stage": "08",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-25b34d6d-8474-46c9-b42e-237ef80d093f.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-strained.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-strained.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "7d8593ae2f58fb465fd41849e518ce009ba6180df1f12b22a10409f23617d817",
+      "final_sha256": "f123d0108784679f79b9adfd2fa4975c1328e75f0569129983d076b1fa8ea378",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: hungry and pleading, expectant slightly drooping open eyes with worried brows and small open rounded mouth. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "stage": "08",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c149915a-873a-49dc-a968-2bec63661096.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-hungry.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-hungry.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "2dce4ac66d16b66fc4971618b6a4cae388b7ccb1a1702d00e3b4f8ed76cd26e0",
+      "final_sha256": "ec975626fda6e8c9d5f0a7aaf8763c26c957464b6dba39857c679176d9a3d940",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: ill and uncomfortable, heavy half-closed eyes, pinched worried brows and small downturned mouth. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "stage": "08",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1f36e2db-b194-4357-8a85-3dd990fd7c00.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-sick.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-sick.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "d4fd97a53b863fb0eb72e03c695e3798aa3c0cce3b040189f7f9adb0286a187b",
+      "final_sha256": "c45bcf974b6d27243c06177d7ff598ff01f0d9facc1a3e6ce28f6ea92f84baf3",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: sleepy tired eyelids drooping halfway and a small weary yawning mouth, still awake. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "stage": "08",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a9910e69-6bad-4907-91c9-6683f74e94e3.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-tired.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-tired.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "e25d274c82ab73519872f57612e89c40a677c4df67732e3adc9e523afda90558",
+      "final_sha256": "37d3d88e3f0e5a23c37b7b5c1ce6c464aeaf578414b8715a78716bd3016fd291",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: sulking pout, inward lowered brows, slightly narrowed eyes and a small displeased puckered mouth. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "stage": "08",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f0d8cb27-f864-42c2-9084-61a0eef3cc31.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-sulky.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-sulky.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "5b1a7761455808b4436e0c23c06f16303a5176f6ad0c2d90cbcf0818b8244d33",
+      "final_sha256": "debddd4b3d3524ea256587ccb2c94e441f874e284fcf24899b41b77c2c94fc45",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: low vitality, drained nearly closed eyes, slack brows and a tiny faint downturned mouth, conscious. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "stage": "08",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0ef3bd96-4401-4d44-b096-ee79377be41b.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-weak.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-weak.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "a2124c257a39cdfa6c2862b5b79b20a3077280f224a7639596187777d45be1f5",
+      "final_sha256": "c6ad5fab76942fc1287b0f9dd4f7334266e84bb9615edcc870a0a2876447f794",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: very low vitality and serious distress, tightly strained near-shut eyes, distressed brows and small pained open mouth. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-abdf8248-dd69-403c-9afd-5aa75c42b8b3.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-critical.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-critical.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "0a69477694bc2264b431f800e58eb6ff235cd0078c65023642183e217708a79a",
+      "final_sha256": "5f3cba7ddc2b91cb87302b12abb9372728deaa5955dfed5395131e4bd58277ef",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: eagerly asking for attention, bright wide eyes with highlights contained inside eye outlines, raised brows and a small inviting smile. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f8b83c82-35bd-4de7-ab22-59b7d0431f5a.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-wantsPlay.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "1f044463aa55ea3f6fc8e437888b9adaa90ad6dd1f832ba42ef11403e32efbe6",
+      "final_sha256": "4a83645f82c3dbe86ef994de4acf938c5b947fd5aa9c908efcef8b3c87c011d5",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original star stage08 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce exactly ONE expression: peaceful sleep, both eyes fully closed as relaxed downward arcs, relaxed brows and a tiny peaceful closed mouth. Change ONLY the existing central tiny face eyes, eyebrows and mouth. Preserve original small white-cyan round remnant core in the same position, its blue-violet swirling nebula ring, all existing faceless cyan/purple sparkles and light points, its full asymmetrical galaxy silhouette, pixel grid, palette, composition and scale. Keep surrounding glow and ring even during illness or sleep. No humanoid body, extra faces, living companions, sweat, tears, state marks, Zzz, text, backdrop, new lights or scenery. Genuine transparent background alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c2844abf-d419-4958-bfe7-e5ef3a5ee7f0.png",
+      "line": "star",
+      "source": "/workspace/scratch/0e1d599677f2/star-generated/08-sleeping.png",
+      "original": "assets/characters/star/08.png",
+      "final": "assets/characters/expressions/star/08-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "source_sha256": "a3c2a85f5ead9a7bcbf1af30f1f43966c94e36321874342e943d73b8945b0453",
+      "final_sha256": "92af16ddc5562d1384b8074071a151fd587a15437758828a42296a14f36599f6",
+      "bounds": [
+        13,
+        12,
+        114,
+        115
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/star-generated/08-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    }
+  ]
+}

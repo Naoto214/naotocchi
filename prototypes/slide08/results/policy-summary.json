@@ -1,0 +1,74 @@
+[
+  {
+    "policy": "random",
+    "n": 20,
+    "won": 0,
+    "reached08": 0,
+    "same08": 0,
+    "maxChain": 4,
+    "chainActions": 85,
+    "moves": 1778,
+    "slides": 1340,
+    "evolvingSlides": 243
+  },
+  {
+    "policy": "organize",
+    "n": 20,
+    "won": 0,
+    "reached08": 11,
+    "same08": 0,
+    "maxChain": 4,
+    "chainActions": 166,
+    "moves": 1984,
+    "slides": 1364,
+    "evolvingSlides": 113
+  },
+  {
+    "policy": "cluster",
+    "n": 20,
+    "won": 0,
+    "reached08": 13,
+    "same08": 0,
+    "maxChain": 4,
+    "chainActions": 107,
+    "moves": 1695,
+    "slides": 1100,
+    "evolvingSlides": 161
+  },
+  {
+    "policy": "save-eggs",
+    "n": 20,
+    "won": 0,
+    "reached08": 6,
+    "same08": 0,
+    "maxChain": 3,
+    "chainActions": 120,
+    "moves": 1969,
+    "slides": 1385,
+    "evolvingSlides": 163
+  },
+  {
+    "policy": "transform",
+    "n": 20,
+    "won": 0,
+    "reached08": 8,
+    "same08": 0,
+    "maxChain": 5,
+    "chainActions": 104,
+    "moves": 1841,
+    "slides": 1194,
+    "evolvingSlides": 266
+  },
+  {
+    "policy": "lookahead2",
+    "n": 20,
+    "won": 1,
+    "reached08": 16,
+    "same08": 1,
+    "maxChain": 5,
+    "chainActions": 104,
+    "moves": 1524,
+    "slides": 968,
+    "evolvingSlides": 145
+  }
+]

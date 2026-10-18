@@ -1,0 +1,87 @@
+{
+  "when": "2026-10-06T18:17:53.180Z",
+  "revision": "quality3",
+  "sourceCommit": "cfdf91912b3b8264b680a1f8a91a84a38a8e0972",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "mythic",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "dragon:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "dragon:2",
+      "player3d": true,
+      "specKey": {
+        "id": "dragon",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-dragon-3-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-dragon-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 46238,
+        "meshes": 88,
+        "bones": 58,
+        "materials": 1,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 2.643,
+        "cpuMsP95": 23.5,
+        "buildMsTotal": 216.7,
+        "buildMsMax": 58.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "dragon:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "dragon:6",
+      "player3d": true,
+      "specKey": {
+        "id": "dragon",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-dragon-7-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-dragon-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 51830,
+        "meshes": 90,
+        "bones": 60,
+        "materials": 1,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 2.54,
+        "cpuMsP95": 19.2,
+        "buildMsTotal": 231.3,
+        "buildMsMax": 56.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

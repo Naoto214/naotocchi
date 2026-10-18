@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>めぐる 3D 監査 くらべ</title>
+<style>
+  :root { --bg: #f6f3ec; --ink: #2a2622; --sub: #6a645c; --card: #fff; --line: #e2dccf; --accent: #3f7fc8; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #16151a; --ink: #ece8e0; --sub: #a39d93; --card: #222128; --line: #35333c; --accent: #7fb0ec; } }
+  :root[data-theme="dark"] { --bg: #16151a; --ink: #ece8e0; --sub: #a39d93; --card: #222128; --line: #35333c; --accent: #7fb0ec; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--ink); font: 15px/1.6 system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+  main { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; } h2 { font-size: 17px; margin: 0 0 8px; }
+  p.lead { color: var(--sub); margin: 0 0 14px; font-size: 13px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin: 12px 0; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .trio { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  figure { margin: 0; } img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  figcaption { font-size: 12px; color: var(--sub); text-align: center; margin-top: 4px; }
+  .meta { font-size: 13px; margin-top: 8px; }
+  .tag { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--line); margin: 0 4px 4px 0; color: var(--sub); }
+  table { border-collapse: collapse; font-size: 12px; width: 100%; } td, th { border: 1px solid var(--line); padding: 3px 6px; text-align: left; vertical-align: top; }
+  .wrap { overflow-x: auto; }
+  @media (max-width: 520px) { .trio { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<main>
+<h1>めぐる 3D — Art Direction v1(Human QA 済み)→ いま</h1>
+<p class="lead">左 = BEFORE(Art Direction v1・PR #371 @ 69a8857b・iPhone Human QA 済み)。右 = AFTER(feat/meguru-3d-geometry-terrain-v1 の いま = Geometry pass + 静的監査)。headless Chromium(iPhone 390 幅・昼 / 晴れ / 夏 固定。季節の 行 だけ 季節を かえる)。<b>完成の 判定は しない。</b>残像 / player の 消失 / 実機の カクつき / 最終的な 美観は iPhone の Human QA で。</p>
+
+<div class="card">
+  <h2>山 — 夏 / 冬(2D の 正本: 冬は 針葉樹の 段に 雪の ぼうし・頂の 雪・地面の 雪)</h2>
+  <div class="pair"><figure><img loading="lazy" src="mountain-summer-ga.jpg" alt="mountain summer"><figcaption>夏</figcaption></figure><figure><img loading="lazy" src="mountain-winter-ga.jpg" alt="mountain winter"><figcaption>冬</figcaption></figure></div>
+</div>
+
+<div class="card">
+  <h2>この 監査で かわった ところ(物は ふやさず 形 / 接地 / 置き方 / 季節)</h2>
+  <div class="trio">
+    <figure><img loading="lazy" src="river-bridge2-ga.jpg" alt=""><figcaption>river_lake の bridge2: 道が 川を わたる ところに 橋(以前は 橋が なく 水の 上を あるいた)</figcaption></figure>
+    <figure><img loading="lazy" src="mountain-slope-ga.jpg" alt=""><figcaption>山の 斜面: 岩 / 盛り土 が 足もとの 地面に つく(以前 411 parts 浮き → 1)</figcaption></figure>
+    <figure><img loading="lazy" src="desert-slope-ga.jpg" alt=""><figcaption>砂漠の 砂丘: 砂の 山 / 遺跡が 浮かない(231 → 1)</figcaption></figure>
+    <figure><img loading="lazy" src="forest-autumn-ga.jpg" alt=""><figcaption>秋の もり: 2D と おなじ だいだいの 木(以前は オリーブ)</figcaption></figure>
+    <figure><img loading="lazy" src="countryside-autumn-ga.jpg" alt=""><figcaption>秋の いなか: だいだいの 木 + おちる はっぱ(2D の ambLayer)</figcaption></figure>
+    <figure><img loading="lazy" src="forest-winter-ga.jpg" alt=""><figcaption>冬の もり: 針葉樹に 雪の ぼうし(2D の pinewall)</figcaption></figure>
+    <figure><img loading="lazy" src="home-spring-ga.jpg" alt=""><figcaption>春の いえ: はなびら(2D の ambLayer)</figcaption></figure>
+    <figure><img loading="lazy" src="snow-ga.jpg" alt=""><figcaption>ゆき: 針葉樹は いつも 雪の ぼうし・こな雪</figcaption></figure>
+  </div>
+  <div class="meta">数の 監査: 接地(浮き parts 1500 こえ → 13 地域で 4)・交わり 18 / 18・川の 帯の 中の 池の 円盤 0・家 158 件 シルエット ≤ 1.6・絵文字の 立て看板 0・箱の 下の 面を けずった(city 約 7k 三角形)。詳しくは docs/qa/meguru-3d-geometry-audit-v1.md</div>
+</div>
+
+<div id="regions"></div>
+
+<div class="card">
+  <h2>小川 / 川 / 橋 の 近く</h2>
+  <div class="pair">
+    <figure><img loading="lazy" src="forest-creek-ga.jpg" alt=""><figcaption>もりの 小川</figcaption></figure>
+    <figure><img loading="lazy" src="forest-bridge-ga.jpg" alt=""><figcaption>もりの 丸太の はし</figcaption></figure>
+    <figure><img loading="lazy" src="river-stonebridge-ga.jpg" alt=""><figcaption>川の 石の はし</figcaption></figure>
+    <figure><img loading="lazy" src="countryside-river-ga.jpg" alt=""><figcaption>いなかの 川 と 丘</figcaption></figure>
+  </div>
+</div>
+</main>
+<script>
+const R = [
+  ['home', 'いえのまわり', 'HQ-5 / 9 / 10', '大きな 屋根の 小さな 家・家ごとの 庭・ほぼ 平らな 敷地', ['home-house']],
+  ['countryside', 'いなか', 'HQ-5 / 9 / 10', 'ゆるい 丘・ひくい 農家 + 縁側 + はなれ・納屋・畑の うね・川 と 用水路', []],
+  ['forest', 'もり', 'HQ-6 / 8 / 11 / 12', 'つめたい みどり・Tree v4・根の 起伏・丸太 + こけ + きのこ・小川 と 丸太 / 石の はし', []],
+  ['jungle', 'ジャングル', 'HQ-4 / 11', '大きな は の 下草・canopy の つる・ちかい もや・ジャングルの 川', []],
+  ['city', 'まち', 'HQ-1 / 4 / 13', 'すかしの 残像を なおした・自転車を 立てた・車に 車輪', ['city-arcade', 'city-market']],
+  ['mountain', 'やま', 'HQ-5 / 15', '起伏・がけの 足もと・谷の 小川 と つり橋・斜面の 岩が 浮かない', []],
+  ['snow', 'ゆき', 'HQ-5 / 15', '道ばたの 雪の 土手・針葉樹に 雪の ぼうし', []],
+  ['sea', 'うみ', 'HQ-5 / 7', '海へ ひくく・潮だまり = くぼ地の 水', []],
+  ['deepsea', 'しんかい', 'HQ-5', '海底の 起伏(地表の 季節 なし)', []],
+  ['river_lake', 'かわ と みずうみ', 'HQ-6 / 7 / 8', '川 = 谷の 断面 + 水面・あさせ・石 / 丸太 / 木の はし', ['river-bridge']],
+  ['desert', 'さばく', 'HQ-5', '砂丘の 尾根・オアシスは くぼ地', ['oasis']],
+  ['star_stop', 'ほしの えき', '—', '浮き島(地表の 季節 なし)', []],
+  ['memory_lake', 'おもいでの みずうみ', 'HQ-5', '湖へ ひくく(きり)', []],
+];
+const host = document.getElementById('regions');
+for (const [id, label, hq, changed, extra] of R) {
+  const card = document.createElement('div'); card.className = 'card';
+  const ex = extra.map((n) => `<figure><img loading="lazy" src="../meguru-3d-art-direction-v1/${n}-ad.jpg" alt=""><figcaption>BEFORE ${n}</figcaption></figure><figure><img loading="lazy" src="${n}-ga.jpg" alt=""><figcaption>AFTER ${n}</figcaption></figure>`).join('');
+  card.innerHTML = `<h2>${label} <span style="color:var(--sub);font-weight:400;font-size:13px">${id}</span></h2>
+    <div class="pair"><figure><img loading="lazy" src="../meguru-3d-art-direction-v1/${id}-ad.jpg" alt="${id} before"><figcaption>BEFORE(Art Direction v1)</figcaption></figure><figure><img loading="lazy" src="${id}-ga.jpg" alt="${id} after"><figcaption>AFTER(いま)</figcaption></figure></div>
+    ${ex ? `<div class="pair" style="margin-top:8px">${ex}</div>` : ''}
+    <div class="meta"><span class="tag">${hq}</span><br>${changed}<br>Human QA 待ち(完成の 判定は しない)</div>`;
+  host.appendChild(card);
+}
+</script>
+</body>
+</html>

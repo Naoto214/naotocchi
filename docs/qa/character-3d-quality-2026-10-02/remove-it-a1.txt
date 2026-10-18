@@ -1,0 +1,17 @@
+baseline:
+# tests 34
+# pass 34
+# fail 0
+A archetype mapping 削除(quadruped の builder) | character-3d/archetypes.mjs | pass 17 / fail 17 | red tests: 3,4,6,7,8,9,10,11,18,20,21,22,23,24,25,26,28 | RED
+B stage parameter 削除(どの 段も 最初の 段の 数字) | character-3d/archetypes.mjs | pass 32 / fail 2 | red tests: 6,7 | RED
+C emotion mapping 削除(いつも normal) | character-3d/spec.js | pass 30 / fail 4 | red tests: 8,9,10,11 | RED
+D fallback 削除(1 体の 失敗を そのまま 投げる) | character-3d/runtime.mjs | pass 32 / fail 2 | red tests: 18,19 | RED
+E cache reuse 削除(template を 毎回 組む) | character-3d/runtime.mjs | pass 33 / fail 1 | red tests: 20 | RED
+F expression cache 削除(顔 atlas を 毎回 つくる) | character-3d/rig.mjs | pass 33 / fail 1 | red tests: 21 | RED
+G actor cleanup 削除(いなくなった actor を のこす) | character-3d/runtime.mjs | pass 33 / fail 1 | red tests: 22 | RED
+H 2D/3D 切替 cleanup 削除(reset が なにも しない) | character-3d/runtime.mjs | pass 32 / fail 2 | red tests: 23,24 | RED
+I player visibility guard 削除(frustum culling で きえうる) | character-3d/runtime.mjs | pass 33 / fail 1 | red tests: 25 | RED
+J reduced motion 削除 | character-3d/animate.mjs | pass 33 / fail 1 | red tests: 28 | RED
+K 立て看板を かくさない(2D と 3D が かさなる) | meguru-3d.mjs | pass 33 / fail 1 | red tests: 24 | RED
+L #368 の canonical を 無視(住人の きもちを 自前で) | meguru-3d.mjs | pass 33 / fail 1 | red tests: 27 | RED
+M 成長を 一様 scale だけに(どの 段も 01 の 形を 大きく する だけ) | character-3d/archetypes.mjs | pass 30 / fail 4 | red tests: 4,6,7,23 | RED

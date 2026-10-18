@@ -1,0 +1,1506 @@
+{
+  "site_source": "b282683aa4039eb3af2e999514590727e0f8a61d",
+  "canonical_names": 31,
+  "stages": 248,
+  "formal_expressions": 2480,
+  "production_assets_identical": 2862,
+  "position_unchanged": 247,
+  "position_changed_only": [
+    "mushroom/07"
+  ],
+  "mushroom07": [
+    -23,
+    -9
+  ],
+  "gallery_artwork_mismatches": [],
+  "records": [
+    {
+      "line": "cat",
+      "stage": "01",
+      "path": "mark-review/assets/cat01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cat",
+      "stage": "02",
+      "path": "mark-review/assets/cat02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cat",
+      "stage": "03",
+      "path": "mark-review/assets/cat03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cat",
+      "stage": "04",
+      "path": "mark-review/assets/cat04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cat",
+      "stage": "05",
+      "path": "mark-review/assets/cat05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cat",
+      "stage": "06",
+      "path": "mark-review/assets/cat06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cat",
+      "stage": "07",
+      "path": "mark-review/assets/cat07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cat",
+      "stage": "08",
+      "path": "mark-review/assets/cat08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "01",
+      "path": "mark-review/assets/dog01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "02",
+      "path": "mark-review/assets/dog02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "03",
+      "path": "mark-review/assets/dog03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "04",
+      "path": "mark-review/assets/dog04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "05",
+      "path": "mark-review/assets/dog05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "06",
+      "path": "mark-review/assets/dog06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "07",
+      "path": "mark-review/assets/dog07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dog",
+      "stage": "08",
+      "path": "mark-review/assets/dog08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "01",
+      "path": "mark-review/assets/man01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "02",
+      "path": "mark-review/assets/man02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "03",
+      "path": "mark-review/assets/man03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "04",
+      "path": "mark-review/assets/man04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "05",
+      "path": "mark-review/assets/man05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "06",
+      "path": "mark-review/assets/man06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "07",
+      "path": "mark-review/assets/man07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "man",
+      "stage": "08",
+      "path": "mark-review/assets/man08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "01",
+      "path": "mark-review/assets/woman01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "02",
+      "path": "mark-review/assets/woman02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "03",
+      "path": "mark-review/assets/woman03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "04",
+      "path": "mark-review/assets/woman04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "05",
+      "path": "mark-review/assets/woman05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "06",
+      "path": "mark-review/assets/woman06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "07",
+      "path": "mark-review/assets/woman07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "path": "mark-review/assets/woman08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "01",
+      "path": "mark-review/assets/penguin01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "02",
+      "path": "mark-review/assets/penguin02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "03",
+      "path": "mark-review/assets/penguin03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "04",
+      "path": "mark-review/assets/penguin04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "05",
+      "path": "mark-review/assets/penguin05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "06",
+      "path": "mark-review/assets/penguin06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "07",
+      "path": "mark-review/assets/penguin07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "penguin",
+      "stage": "08",
+      "path": "mark-review/assets/penguin08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "01",
+      "path": "mark-review/assets/turtle01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "02",
+      "path": "mark-review/assets/turtle02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "03",
+      "path": "mark-review/assets/turtle03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "04",
+      "path": "mark-review/assets/turtle04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "05",
+      "path": "mark-review/assets/turtle05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "06",
+      "path": "mark-review/assets/turtle06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "07",
+      "path": "mark-review/assets/turtle07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "turtle",
+      "stage": "08",
+      "path": "mark-review/assets/turtle08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "01",
+      "path": "mark-review/assets/frog01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "02",
+      "path": "mark-review/assets/frog02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "03",
+      "path": "mark-review/assets/frog03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "04",
+      "path": "mark-review/assets/frog04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "05",
+      "path": "mark-review/assets/frog05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "06",
+      "path": "mark-review/assets/frog06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "07",
+      "path": "mark-review/assets/frog07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "frog",
+      "stage": "08",
+      "path": "mark-review/assets/frog08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "01",
+      "path": "mark-review/assets/clownfish01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "02",
+      "path": "mark-review/assets/clownfish02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "03",
+      "path": "mark-review/assets/clownfish03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "04",
+      "path": "mark-review/assets/clownfish04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "path": "mark-review/assets/clownfish05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "06",
+      "path": "mark-review/assets/clownfish06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "07",
+      "path": "mark-review/assets/clownfish07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "clownfish",
+      "stage": "08",
+      "path": "mark-review/assets/clownfish08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "01",
+      "path": "mark-review/assets/salmon01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "02",
+      "path": "mark-review/assets/salmon02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "03",
+      "path": "mark-review/assets/salmon03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "04",
+      "path": "mark-review/assets/salmon04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "05",
+      "path": "mark-review/assets/salmon05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "06",
+      "path": "mark-review/assets/salmon06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "07",
+      "path": "mark-review/assets/salmon07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "salmon",
+      "stage": "08",
+      "path": "mark-review/assets/salmon08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "01",
+      "path": "mark-review/assets/hermit_crab01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "02",
+      "path": "mark-review/assets/hermit_crab02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "03",
+      "path": "mark-review/assets/hermit_crab03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "04",
+      "path": "mark-review/assets/hermit_crab04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "05",
+      "path": "mark-review/assets/hermit_crab05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "06",
+      "path": "mark-review/assets/hermit_crab06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "07",
+      "path": "mark-review/assets/hermit_crab07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "08",
+      "path": "mark-review/assets/hermit_crab08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "01",
+      "path": "mark-review/assets/jellyfish01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "02",
+      "path": "mark-review/assets/jellyfish02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "03",
+      "path": "mark-review/assets/jellyfish03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "04",
+      "path": "mark-review/assets/jellyfish04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "05",
+      "path": "mark-review/assets/jellyfish05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "06",
+      "path": "mark-review/assets/jellyfish06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "07",
+      "path": "mark-review/assets/jellyfish07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "jellyfish",
+      "stage": "08",
+      "path": "mark-review/assets/jellyfish08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "01",
+      "path": "mark-review/assets/starfish01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "02",
+      "path": "mark-review/assets/starfish02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "03",
+      "path": "mark-review/assets/starfish03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "04",
+      "path": "mark-review/assets/starfish04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "05",
+      "path": "mark-review/assets/starfish05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "06",
+      "path": "mark-review/assets/starfish06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "07",
+      "path": "mark-review/assets/starfish07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "starfish",
+      "stage": "08",
+      "path": "mark-review/assets/starfish08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "01",
+      "path": "mark-review/assets/coral01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "02",
+      "path": "mark-review/assets/coral02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "03",
+      "path": "mark-review/assets/coral03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "04",
+      "path": "mark-review/assets/coral04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "05",
+      "path": "mark-review/assets/coral05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "06",
+      "path": "mark-review/assets/coral06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "07",
+      "path": "mark-review/assets/coral07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "coral",
+      "stage": "08",
+      "path": "mark-review/assets/coral08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "01",
+      "path": "mark-review/assets/butterfly01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "02",
+      "path": "mark-review/assets/butterfly02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "03",
+      "path": "mark-review/assets/butterfly03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "04",
+      "path": "mark-review/assets/butterfly04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "05",
+      "path": "mark-review/assets/butterfly05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "06",
+      "path": "mark-review/assets/butterfly06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "07",
+      "path": "mark-review/assets/butterfly07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "butterfly",
+      "stage": "08",
+      "path": "mark-review/assets/butterfly08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "01",
+      "path": "mark-review/assets/beetle01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "02",
+      "path": "mark-review/assets/beetle02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "03",
+      "path": "mark-review/assets/beetle03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "04",
+      "path": "mark-review/assets/beetle04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "05",
+      "path": "mark-review/assets/beetle05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "06",
+      "path": "mark-review/assets/beetle06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "07",
+      "path": "mark-review/assets/beetle07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "beetle",
+      "stage": "08",
+      "path": "mark-review/assets/beetle08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "01",
+      "path": "mark-review/assets/stagbeetle01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "02",
+      "path": "mark-review/assets/stagbeetle02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "03",
+      "path": "mark-review/assets/stagbeetle03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "04",
+      "path": "mark-review/assets/stagbeetle04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "05",
+      "path": "mark-review/assets/stagbeetle05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "06",
+      "path": "mark-review/assets/stagbeetle06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "07",
+      "path": "mark-review/assets/stagbeetle07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "08",
+      "path": "mark-review/assets/stagbeetle08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "01",
+      "path": "mark-review/assets/cicada01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "02",
+      "path": "mark-review/assets/cicada02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "03",
+      "path": "mark-review/assets/cicada03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "04",
+      "path": "mark-review/assets/cicada04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "05",
+      "path": "mark-review/assets/cicada05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "06",
+      "path": "mark-review/assets/cicada06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "07",
+      "path": "mark-review/assets/cicada07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "cicada",
+      "stage": "08",
+      "path": "mark-review/assets/cicada08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "01",
+      "path": "mark-review/assets/antlion01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "02",
+      "path": "mark-review/assets/antlion02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "03",
+      "path": "mark-review/assets/antlion03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "04",
+      "path": "mark-review/assets/antlion04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "05",
+      "path": "mark-review/assets/antlion05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "06",
+      "path": "mark-review/assets/antlion06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "07",
+      "path": "mark-review/assets/antlion07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "antlion",
+      "stage": "08",
+      "path": "mark-review/assets/antlion08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "01",
+      "path": "mark-review/assets/dandelion01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "02",
+      "path": "mark-review/assets/dandelion02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "03",
+      "path": "mark-review/assets/dandelion03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "04",
+      "path": "mark-review/assets/dandelion04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "05",
+      "path": "mark-review/assets/dandelion05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "06",
+      "path": "mark-review/assets/dandelion06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "07",
+      "path": "mark-review/assets/dandelion07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "path": "mark-review/assets/dandelion08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "01",
+      "path": "mark-review/assets/sakura01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "02",
+      "path": "mark-review/assets/sakura02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "03",
+      "path": "mark-review/assets/sakura03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "04",
+      "path": "mark-review/assets/sakura04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "05",
+      "path": "mark-review/assets/sakura05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "06",
+      "path": "mark-review/assets/sakura06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "07",
+      "path": "mark-review/assets/sakura07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "sakura",
+      "stage": "08",
+      "path": "mark-review/assets/sakura08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "01",
+      "path": "mark-review/assets/venus_flytrap01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "02",
+      "path": "mark-review/assets/venus_flytrap02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "03",
+      "path": "mark-review/assets/venus_flytrap03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "04",
+      "path": "mark-review/assets/venus_flytrap04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "05",
+      "path": "mark-review/assets/venus_flytrap05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "06",
+      "path": "mark-review/assets/venus_flytrap06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "07",
+      "path": "mark-review/assets/venus_flytrap07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "08",
+      "path": "mark-review/assets/venus_flytrap08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "01",
+      "path": "mark-review/assets/mushroom01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "02",
+      "path": "mark-review/assets/mushroom02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "03",
+      "path": "mark-review/assets/mushroom03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "04",
+      "path": "mark-review/assets/mushroom04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "05",
+      "path": "mark-review/assets/mushroom05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "06",
+      "path": "mark-review/assets/mushroom06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "07",
+      "path": "mark-review/assets/mushroom07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "mushroom",
+      "stage": "08",
+      "path": "mark-review/assets/mushroom08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "01",
+      "path": "mark-review/assets/dragon01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "02",
+      "path": "mark-review/assets/dragon02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "03",
+      "path": "mark-review/assets/dragon03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "04",
+      "path": "mark-review/assets/dragon04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "05",
+      "path": "mark-review/assets/dragon05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "06",
+      "path": "mark-review/assets/dragon06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "07",
+      "path": "mark-review/assets/dragon07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "dragon",
+      "stage": "08",
+      "path": "mark-review/assets/dragon08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "01",
+      "path": "mark-review/assets/phoenix01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "02",
+      "path": "mark-review/assets/phoenix02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "03",
+      "path": "mark-review/assets/phoenix03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "04",
+      "path": "mark-review/assets/phoenix04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "05",
+      "path": "mark-review/assets/phoenix05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "06",
+      "path": "mark-review/assets/phoenix06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "07",
+      "path": "mark-review/assets/phoenix07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "phoenix",
+      "stage": "08",
+      "path": "mark-review/assets/phoenix08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "01",
+      "path": "mark-review/assets/god01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "02",
+      "path": "mark-review/assets/god02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "03",
+      "path": "mark-review/assets/god03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "04",
+      "path": "mark-review/assets/god04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "05",
+      "path": "mark-review/assets/god05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "06",
+      "path": "mark-review/assets/god06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "07",
+      "path": "mark-review/assets/god07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "god",
+      "stage": "08",
+      "path": "mark-review/assets/god08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "01",
+      "path": "mark-review/assets/world_tree01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "02",
+      "path": "mark-review/assets/world_tree02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "03",
+      "path": "mark-review/assets/world_tree03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "04",
+      "path": "mark-review/assets/world_tree04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "05",
+      "path": "mark-review/assets/world_tree05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "06",
+      "path": "mark-review/assets/world_tree06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "07",
+      "path": "mark-review/assets/world_tree07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "world_tree",
+      "stage": "08",
+      "path": "mark-review/assets/world_tree08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "01",
+      "path": "mark-review/assets/ghost01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "02",
+      "path": "mark-review/assets/ghost02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "03",
+      "path": "mark-review/assets/ghost03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "04",
+      "path": "mark-review/assets/ghost04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "05",
+      "path": "mark-review/assets/ghost05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "06",
+      "path": "mark-review/assets/ghost06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "07",
+      "path": "mark-review/assets/ghost07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ghost",
+      "stage": "08",
+      "path": "mark-review/assets/ghost08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "01",
+      "path": "mark-review/assets/star01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "02",
+      "path": "mark-review/assets/star02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "03",
+      "path": "mark-review/assets/star03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "04",
+      "path": "mark-review/assets/star04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "05",
+      "path": "mark-review/assets/star05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "06",
+      "path": "mark-review/assets/star06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "07",
+      "path": "mark-review/assets/star07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "star",
+      "stage": "08",
+      "path": "mark-review/assets/star08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "01",
+      "path": "mark-review/assets/plush01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "02",
+      "path": "mark-review/assets/plush02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "03",
+      "path": "mark-review/assets/plush03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "04",
+      "path": "mark-review/assets/plush04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "05",
+      "path": "mark-review/assets/plush05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "06",
+      "path": "mark-review/assets/plush06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "07",
+      "path": "mark-review/assets/plush07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "plush",
+      "stage": "08",
+      "path": "mark-review/assets/plush08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "01",
+      "path": "mark-review/assets/unknown01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "02",
+      "path": "mark-review/assets/unknown02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "03",
+      "path": "mark-review/assets/unknown03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "04",
+      "path": "mark-review/assets/unknown04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "05",
+      "path": "mark-review/assets/unknown05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "06",
+      "path": "mark-review/assets/unknown06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "07",
+      "path": "mark-review/assets/unknown07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "unknown",
+      "stage": "08",
+      "path": "mark-review/assets/unknown08.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "01",
+      "path": "mark-review/assets/ren01.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "02",
+      "path": "mark-review/assets/ren02.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "03",
+      "path": "mark-review/assets/ren03.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "04",
+      "path": "mark-review/assets/ren04.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "05",
+      "path": "mark-review/assets/ren05.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "06",
+      "path": "mark-review/assets/ren06.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "07",
+      "path": "mark-review/assets/ren07.png",
+      "artwork_changed_rows": 0
+    },
+    {
+      "line": "ren",
+      "stage": "08",
+      "path": "mark-review/assets/ren08.png",
+      "artwork_changed_rows": 0
+    }
+  ]
+}

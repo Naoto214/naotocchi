@@ -1,0 +1,50 @@
+{
+  "WP_CL1_vs_WP_CL3": {
+    "128": {
+      "resized_RGB_different_pixels": 2,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": [
+        1,
+        1
+      ]
+    },
+    "104": {
+      "resized_RGB_different_pixels": 0,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": [
+        0,
+        0
+      ]
+    },
+    "80": {
+      "resized_RGB_different_pixels": 1,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": [
+        0,
+        1
+      ]
+    },
+    "64": {
+      "resized_RGB_different_pixels": 0,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": [
+        0,
+        0
+      ]
+    }
+  },
+  "hungry_A_vs_hungry_B": {
+    "128": {
+      "resized_RGB_different_pixels": 2,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": null
+    },
+    "104": {
+      "resized_RGB_different_pixels": 1,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": null
+    },
+    "80": {
+      "resized_RGB_different_pixels": 1,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": null
+    },
+    "64": {
+      "resized_RGB_different_pixels": 0,
+      "CL1_warm_highlight_exact_RGB_count_in_eye_A_B": null
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+  "sourceRun": 37906158821,
+  "sourceRunConclusion": "success",
+  "artifact": 11604398817,
+  "archiveCommit": "2acc0c1b74288fade84a7802beda68918559d892",
+  "rawFilesVerified": 201,
+  "reviewer": "root actual four-view/32-state/normal-distance inspection; independent original/four-view review",
+  "reviewed": {
+    "unicorn": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "cat_ceo": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "robot_neighbor": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "snow_spirit": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "sea_mermaid": {
+      "fourViews": 4,
+      "expressionMotionStates": 0,
+      "normalDistance": 0,
+      "status": "REJECT",
+      "note": "Stopped further image review after source clothing mismatch; no state/distance PASS claimed."
+    }
+  },
+  "resolved": {
+    "unicorn": "Layered filled mane and staggered flowing tail locks replace rejected hollow loops; curls readable in actual four views and all32states, front/back normaldistance.",
+    "cat_ceo": "Dark formal cat, pale shirt/gold tie, held cup and curled tail readable; face remainsclear.",
+    "robot_neighbor": "Mint box head, cream display/chest, earcups/antenna and connected articulated limbs readable.",
+    "snow_spirit": "Floating icy humanoid with spiky crown and layered icicle dress; no standing legs, face and back silhouette readable."
+  },
+  "blockingFindings": {
+    "sea_mermaid": "Important: source has continuous green/teal bodice through waist; candidate substitutes pink/red separate bra and bare torso. Original brief incorrectly described red top. Corrected candidate requires fresh images."
+  },
+  "contentReuse": "Approved4 candidate rows and shared factories unchanged by nextbatch; only Mermaid ownedtop and new5aquaticrows change. No repeatcapture ofapproved4.",
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

@@ -1,0 +1,28 @@
+{
+  "source_head": "b85f2940361983083d23c51711bc21c2eb881750",
+  "existing_tracked_files_hash_preserved": 3963,
+  "source_image_changes": 0,
+  "regeneration": 0,
+  "production_replacement": 0,
+  "all11_input_hashes_preserved": true,
+  "embedded_sources_byte_identical": true,
+  "canonical_happy_marks": 4,
+  "full_runtime_tests": "not rerun: read-only QA artifacts only",
+  "human_approval": false,
+  "artifact_sha256": {
+    "four-faces.svg": "f49589b8e5377ef6abc77cdafd3413b93484c7681604fe0147308ab44bb93015",
+    "four-faces.png": "c82fbb401330cfa5e857e6b785457d29afbae35539d66d1cc7474dedfface0f3",
+    "left-eye-detail.svg": "1182779b1299a9364fbb39197287b56073e0eeaa02770b32d71019f79a2ecc7f",
+    "left-eye-detail.png": "420796d64c6e10d79b57598125d458ed02122bfbcd08e428d605297938f3c915",
+    "four-sizes.svg": "e89de6064df3920dfcebe05e3c23aa59f68026c1c0aac20942cb1543d43c87fb",
+    "four-sizes.png": "26a31e7fda22a88e39ffc8b2a0db20b663366a26d21617660e8e39fccde9023a",
+    "normal-happy-face.svg": "6511d90f580e57d9f48aeac03067f83f9a7b4c96bb888121207ae26e72f14eef",
+    "normal-happy-face.png": "d461cd6e61873ed0af3ab38a27a21cad80a1bca5f16311ab6b1c6ce4b2d8d60c",
+    "normal-happy-sizes.svg": "fe62f846ffeb7f8d46b35a501791b163d7bcbef355c7eeeadd04d513a59077a5",
+    "normal-happy-sizes.png": "b7d719853c4fcf85a167b5765f28ad2919871720689ce1a811293f4cbbb1b043",
+    "normal-happy-mark.svg": "9eb74ca37ea5d4587c9fe971c9d9c1e1dc8ea406427c59c00b622a2b39baac12",
+    "normal-happy-mark.png": "9ed81131597f66cb245862f313122ebd06d33e309a2151e1b781957993f07c20",
+    "sources.json": "e34ea00a8727a745240d3d2140678eee53290093e17265f26e385d683b824b99",
+    "comparison.html": "0620755e3f4d7e765711f62424c5dc60ed8a9fd0300f85522ba0fdd2782f05f7"
+  }
+}

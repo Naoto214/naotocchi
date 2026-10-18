@@ -1,0 +1,54 @@
+{
+  "bags": 10000,
+  "seeds": [
+    0,
+    9999
+  ],
+  "individuals": 400000,
+  "exactSpeciesCounts": [
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "exactCategoryCounts": [
+    7,
+    5,
+    5,
+    3
+  ],
+  "stageCounts": [
+    160017,
+    120024,
+    80108,
+    39851
+  ],
+  "stageRatios": [
+    0.4000425,
+    0.30006,
+    0.20027,
+    0.0996275
+  ],
+  "minStageCountsPerBag": [
+    4,
+    1,
+    0,
+    0
+  ],
+  "maxStageCountsPerBag": [
+    30,
+    25,
+    22,
+    16
+  ],
+  "unequalStagePairs": [
+    "12",
+    "13",
+    "14",
+    "23",
+    "24",
+    "34"
+  ],
+  "reproducible": true
+}

@@ -1,0 +1,64 @@
+{
+  "run": 38130678263,
+  "source": "8c124eb7c992f70cd9f70d9c606e83bb7e88d43b",
+  "evidence": "decoded GitHub job logs, browser ZIPs not downloaded or byte-verified",
+  "jobs": [
+    {
+      "id": 114444168712,
+      "kind": "corridor",
+      "summary": {
+        "kind": "corridor",
+        "coverage": 8,
+        "issues": [],
+        "samples": 0,
+        "hidden": 0,
+        "partial": 0,
+        "maxPartyObstacleOverlap": 0,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      },
+      "source_seen": true
+    },
+    {
+      "id": 114444168710,
+      "kind": "smoke",
+      "summary": {
+        "kind": "smoke",
+        "coverage": 13,
+        "issues": [],
+        "samples": 0,
+        "hidden": 0,
+        "partial": 0,
+        "maxPartyObstacleOverlap": 0.002367169205491848,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      },
+      "source_seen": true
+    },
+    {
+      "id": 114444168674,
+      "kind": "captures",
+      "source_seen": true,
+      "summary": {
+        "status": "success",
+        "logged_active_captures": 136,
+        "browser_exceptions": 0,
+        "nonzero_error_lines": 0,
+        "scope": "No fresh broad-image visual approval; dedicated stall images reuse byte-identical geometry/renderer."
+      }
+    },
+    {
+      "id": 114444168730,
+      "kind": "visibility",
+      "source_seen": true,
+      "summary": {
+        "kind": "visibility",
+        "coverage": 13,
+        "issues": [],
+        "samples": 2832,
+        "hidden": 0,
+        "partial": 1,
+        "maxPartyObstacleOverlap": 0,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      }
+    }
+  ]
+}

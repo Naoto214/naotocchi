@@ -1,0 +1,30 @@
+✖ VQ-24 stone bridge masonry stays on both parapets and marks all four ends (3797.629801ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3903.769941
+
+✖ failing tests:
+
+test at tests/meguru-3d-visual-quality-test.cjs:7:1
+✖ VQ-24 stone bridge masonry stays on both parapets and marks all four ends (3797.629801ms)
+  AssertionError [ERR_ASSERTION]: forest:615: four raised terminal stones
+  
+  0 !== 4
+  
+      at TestContext.<anonymous> (/workspace/scratch/3320f3e69e77/world/tests/meguru-3d-visual-quality-test.cjs:17:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

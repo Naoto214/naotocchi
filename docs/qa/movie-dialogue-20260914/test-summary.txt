@@ -1,0 +1,109 @@
+Unchanged base main: 14e0b2ae7045fca651d8fd1ac5b1c2d78f9fef4b
+ℹ tests 425
+ℹ suites 0
+ℹ pass 424
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13198.683919
+
+✖ failing tests:
+
+test at tests/meguru-test.cjs:116:1
+✖ the simulation runs with no renderer or DOM: world coordinates, movement, obstacles, meeting and talking (36.891936ms)
+  AssertionError [ERR_ASSERTION]: party stays near the player
+      at TestContext.<anonymous> (/workspace/scratch/d5731cae5aca/naotocchi/tests/meguru-test.cjs:147:37)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+
+Historical movie code before main integration
+ℹ tests 432
+ℹ suites 0
+ℹ pass 431
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14040.917231
+
+✖ failing tests:
+
+test at tests/meguru-test.cjs:116:1
+✖ the simulation runs with no renderer or DOM: world coordinates, movement, obstacles, meeting and talking (50.601317ms)
+  AssertionError [ERR_ASSERTION]: party stays near the player
+      at TestContext.<anonymous> (/workspace/scratch/d5731cae5aca/naotocchi/tests/meguru-test.cjs:147:37)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+
+Historical movie-specific runtime tests
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1966.029956
+
+
+Item integration on main 76fd7b7ce87c527ce8bfe04358c2c09fd42d7c9e
+SMOKE TEST OK
+LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and single reward.
+DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 20 legend stories; 16 anniversary cases.
+DATE LIFECYCLE TEST OK: in-game reward choice with native dialogs suppressed; accept/decline/absent; double tap, back, escape and cancel; persisted rewards and memories; ring; real skip/close; pause/resume/cooldown; 30 complete deepsea branches.
+WHOLE-TEXT TEST OK: 248 descriptions; 40 ordinary stories; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.
+CAST TEST OK: snail encounters and speech; retired koala migration, bond, row, dex and earned achievements; PNG renderer reference.
+NORMAL CAST PNG TEST OK: 19 PNG headers; 18 companions x 5 renderer sizes; 9+9 live rows; collected and locked dex.
+RARE CAST PNG TEST OK: 8 PNGs x 5 renderer sizes; invite/profile/row/dex; hidden and partial dex; 13+13 mixed rows; bond retained.
+CLOCK CAST TEST OK: real encounter and 69/70 recruitment; five dialogue events; legacy mushroom save, bond, PNG, dialogue and rare dex; unique current/legacy counts.
+PARTNER CAST PNG TEST OK: 18 PNGs x 5 sizes; saved relationships; companion/profile/dex; 180 complete dates; 72 complete anniversaries; first encounters; aliases, guests and hidden dex.
+AUTHOR ENDING TEST OK: 247/248 unlock; native dex count; goals 4/5; direct goal 5 at 25/100 and both exits; pet and life-record preservation; 4200ms greeting; old-save access and rewards; hidden/repeatable shop greeting; textless goals 1-3 and reward notices.
+VISUAL QA ROUTE TEST OK: generated script compiles; egg, anniversary, legend and date saves; long disease selects medicine; illustrated save reloads 26 companions, partner, 15 shop items, 4 rewards, 7 fun props. No browser rendering claimed.
+ℹ tests 548
+ℹ suites 0
+ℹ pass 548
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14329.890103
+
+Movie-specific runtime: 13/13 pass (includes ring phrase attribution).
+Chromium: 20 scenarios pass, zero runtime errors; two ring phrase checkpoints re-run with normal/special timing.
+Read-only integration review: no blocking findings, 13 movie + 5 item/date tests passed.
+
+Final main integration d91ac12a2c5ca354eaee70aeb6e686f29ef2d17e
+ℹ tests 548
+ℹ suites 0
+ℹ pass 548
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13834.101396
+The second upstream integration changed only Meguru code, its scoped styles and cache tokens; movie rendering code is unchanged.

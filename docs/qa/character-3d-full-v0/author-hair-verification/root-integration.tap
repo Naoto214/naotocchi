@@ -1,0 +1,56 @@
+TAP version 13
+# (node:20) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: author assembled hair exposes center part and visible descending layered brunette side sweeps
+ok 1 - author assembled hair exposes center part and visible descending layered brunette side sweeps
+  ---
+  duration_ms: 1214.959703
+  type: 'test'
+  ...
+# Subtest: author every produced hair constituent reaches skull through actual closed-volume contacts
+ok 2 - author every produced hair constituent reaches skull through actual closed-volume contacts
+  ---
+  duration_ms: 39.213331
+  type: 'test'
+  ...
+# Subtest: live gallery accepts every approved exact nonplayer key without dog fallback
+ok 3 - live gallery accepts every approved exact nonplayer key without dog fallback
+  ---
+  duration_ms: 2.163984
+  type: 'test'
+  ...
+# Subtest: full gallery live links resolve production role keys and preserve legacy and player stages
+ok 4 - full gallery live links resolve production role keys and preserve legacy and player stages
+  ---
+  duration_ms: 39.463768
+  type: 'test'
+  ...
+# Subtest: actual gallery syncUi renders approved role metadata without legacy-only dereference
+ok 5 - actual gallery syncUi renders approved role metadata without legacy-only dereference
+  ---
+  duration_ms: 27.259723
+  type: 'test'
+  ...
+# Subtest: reviewed nonplayers are exact role-specific runtime entries
+ok 6 - reviewed nonplayers are exact role-specific runtime entries
+  ---
+  duration_ms: 69.878369
+  type: 'test'
+  ...
+# Subtest: browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries
+ok 7 - browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries
+  ---
+  duration_ms: 94.261703
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1339.865538

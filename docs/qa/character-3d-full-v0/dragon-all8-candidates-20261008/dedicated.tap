@@ -1,0 +1,1544 @@
+TAP version 13
+# (node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: adult antlion representative has narrow ringed abdomen, four long veined wings and two long antennae
+ok 1 - adult antlion representative has narrow ringed abdomen, four long veined wings and two long antennae
+  ---
+  duration_ms: 250.620484
+  type: 'test'
+  ...
+# Subtest: antlion representatives retain one owned face in32 canonical motion states after reviewed runtime promotion
+ok 2 - antlion representatives retain one owned face in32 canonical motion states after reviewed runtime promotion
+  ---
+  duration_ms: 592.903097
+  type: 'test'
+  ...
+# Subtest: antlion forewings have visibly larger blade area than the short hindwings
+ok 3 - antlion forewings have visibly larger blade area than the short hindwings
+  ---
+  duration_ms: 22.255856
+  type: 'test'
+  ...
+# Subtest: antlion pit representative contains a genuinely concave soil surface and one larval face
+ok 4 - antlion pit representative contains a genuinely concave soil surface and one larval face
+  ---
+  duration_ms: 35.139121
+  type: 'test'
+  ...
+# Subtest: pit rim leaves both canonical larval eyes visible from the front
+ok 5 - pit rim leaves both canonical larval eyes visible from the front
+  ---
+  duration_ms: 24.160544
+  type: 'test'
+  ...
+# Subtest: young antlion rests folded wings over a grounded abdomen and aged wings have physical damage
+ok 6 - young antlion rests folded wings over a grounded abdomen and aged wings have physical damage
+  ---
+  duration_ms: 125.147343
+  type: 'test'
+  ...
+# Subtest: antlion early stages distinguish exposed crawling larva from tiny larva in a deep pit
+ok 7 - antlion early stages distinguish exposed crawling larva from tiny larva in a deep pit
+  ---
+  duration_ms: 26.408981
+  type: 'test'
+  ...
+# Subtest: closed granular cocoon owns a shell face while opened cocoon reveals one folded pupa face
+ok 8 - closed granular cocoon owns a shell face while opened cocoon reveals one folded pupa face
+  ---
+  duration_ms: 47.681322
+  type: 'test'
+  ...
+# (node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: coral representatives have rounded connected branches in one bounded mesh
+ok 9 - coral representatives have rounded connected branches in one bounded mesh
+  ---
+  duration_ms: 195.717221
+  type: 'test'
+  ...
+# Subtest: aquatic representative faces follow canonical emotions and reduced motion without actor state
+ok 10 - aquatic representative faces follow canonical emotions and reduced motion without actor state
+  ---
+  duration_ms: 607.070575
+  type: 'test'
+  ...
+# Subtest: aquatic candidate overlay is isolated and requires an exact family
+ok 11 - aquatic candidate overlay is isolated and requires an exact family
+  ---
+  duration_ms: 88.793437
+  type: 'test'
+  ...
+# Subtest: coral eight original stages preserve single versus colony face counts and shared actor motion
+ok 12 - coral eight original stages preserve single versus colony face counts and shared actor motion
+  ---
+  duration_ms: 327.998731
+  type: 'test'
+  ...
+# Subtest: anemone lobes extend around the face disk in depth as well as silhouette
+ok 13 - anemone lobes extend around the face disk in depth as well as silhouette
+  ---
+  duration_ms: 5.592113
+  type: 'test'
+  ...
+# Subtest: elevated coral colony members remain physically rooted to the shared substrate
+ok 14 - elevated coral colony members remain physically rooted to the shared substrate
+  ---
+  duration_ms: 80.86309
+  type: 'test'
+  ...
+# (node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: armored grubs preserve curved segmented cream body, dark head and exactly three thoracic foot pairs
+ok 15 - armored grubs preserve curved segmented cream body, dark head and exactly three thoracic foot pairs
+  ---
+  duration_ms: 326.326954
+  type: 'test'
+  ...
+# Subtest: amber pupae have a ringed upright abdomen, folded limb cases and species-specific developing head organs
+ok 16 - amber pupae have a ringed upright abdomen, folded limb cases and species-specific developing head organs
+  ---
+  duration_ms: 86.790555
+  type: 'test'
+  ...
+# Subtest: grub and pupa representatives retain canonical faces and finite whole-actor motion
+ok 17 - grub and pupa representatives retain canonical faces and finite whole-actor motion
+  ---
+  duration_ms: 234.588153
+  type: 'test'
+  ...
+# Subtest: grub tail is sealed and pupal abdomen rings visibly project outside the body
+ok 18 - grub tail is sealed and pupal abdomen rings visibly project outside the body
+  ---
+  duration_ms: 54.001754
+  type: 'test'
+  ...
+# Subtest: curved grub sections retain their relative attachment through a complete walking cycle
+ok 19 - curved grub sections retain their relative attachment through a complete walking cycle
+  ---
+  duration_ms: 57.219932
+  type: 'test'
+  ...
+# Subtest: early grubs use inspected small curled and long crawling silhouettes instead of scaled mature curves
+ok 20 - early grubs use inspected small curled and long crawling silhouettes instead of scaled mature curves
+  ---
+  duration_ms: 64.067694
+  type: 'test'
+  ...
+# (node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: stag mandibles remain below the projected mouth instead of crossing the canonical face
+ok 21 - stag mandibles remain below the projected mouth instead of crossing the canonical face
+  ---
+  duration_ms: 239.898767
+  type: 'test'
+  ...
+# Subtest: beetle and stag originals keep six rooted articulated legs and distinct horn versus paired jaws
+ok 22 - beetle and stag originals keep six rooted articulated legs and distinct horn versus paired jaws
+  ---
+  duration_ms: 424.655863
+  type: 'test'
+  ...
+# Subtest: armored candidate overlay resolves only an explicit candidate family
+ok 23 - armored candidate overlay resolves only an explicit candidate family
+  ---
+  duration_ms: 84.890219
+  type: 'test'
+  ...
+# (node:21) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: flowering sakura has rooted branch volume, attached five-petal blossom clusters and one trunk face
+ok 24 - flowering sakura has rooted branch volume, attached five-petal blossom clusters and one trunk face
+  ---
+  duration_ms: 256.711704
+  type: 'test'
+  ...
+# Subtest: botanical candidate lookup is isolated and canonical emotions retain the single owning tree
+ok 25 - botanical candidate lookup is isolated and canonical emotions retain the single owning tree
+  ---
+  duration_ms: 183.899905
+  type: 'test'
+  ...
+# Subtest: flower canopy has outward-oriented side blossoms rather than one parallel plane
+ok 26 - flower canopy has outward-oriented side blossoms rather than one parallel plane
+  ---
+  duration_ms: 105.652167
+  type: 'test'
+  ...
+# Subtest: leafy tree and suspended three-cherry cluster retain distinct topology and face ownership
+ok 27 - leafy tree and suspended three-cherry cluster retain distinct topology and face ownership
+  ---
+  duration_ms: 176.464795
+  type: 'test'
+  ...
+# Subtest: leaf and cherry representatives retain all owned canonical faces through normal and reduced motion
+ok 28 - leaf and cherry representatives retain all owned canonical faces through normal and reduced motion
+  ---
+  duration_ms: 128.86723
+  type: 'test'
+  ...
+# Subtest: leafy crown exposes leaf surfaces from the side and keeps each depth leaf attached
+ok 29 - leafy crown exposes leaf surfaces from the side and keeps each depth leaf attached
+  ---
+  duration_ms: 115.17728
+  type: 'test'
+  ...
+# Subtest: sakura seed, sprout, five buds, two flowers and bare tree retain explicit original topology
+ok 30 - sakura seed, sprout, five buds, two flowers and bare tree retain explicit original topology
+  ---
+  duration_ms: 180.506356
+  type: 'test'
+  ...
+# Subtest: all sakura candidates preserve original face ownership across32 canonical states after reviewed runtime promotion
+ok 31 - all sakura candidates preserve original face ownership across32 canonical states after reviewed runtime promotion
+  ---
+  duration_ms: 192.290278
+  type: 'test'
+  ...
+# Subtest: pointed seed keeps a smooth broad equator instead of a diamond corner
+ok 32 - pointed seed keeps a smooth broad equator instead of a diamond corner
+  ---
+  duration_ms: 11.748344
+  type: 'test'
+  ...
+# Subtest: flower center volume leaves both canonical eye regions visible from the front
+ok 33 - flower center volume leaves both canonical eye regions visible from the front
+  ---
+  duration_ms: 20.419509
+  type: 'test'
+  ...
+# Subtest: bare sakura has rounded terminal buds and preserves original open upper-left bud eyes
+ok 34 - bare sakura has rounded terminal buds and preserves original open upper-left bud eyes
+  ---
+  duration_ms: 51.659485
+  type: 'test'
+  ...
+# Subtest: venus flytrap representatives retain a broad rosette and five cupped red traps with physical rim teeth
+ok 35 - venus flytrap representatives retain a broad rosette and five cupped red traps with physical rim teeth
+  ---
+  duration_ms: 176.552474
+  type: 'test'
+  ...
+# Subtest: venus representatives keep all original faces and one actor clock through32 emotion/motion states
+ok 36 - venus representatives keep all original faces and one actor clock through32 emotion/motion states
+  ---
+  duration_ms: 168.297726
+  type: 'test'
+  ...
+# Subtest: Venus representative crowns expose broad side leaves and independently oriented trap volumes
+ok 37 - Venus representative crowns expose broad side leaves and independently oriented trap volumes
+  ---
+  duration_ms: 184.260389
+  type: 'test'
+  ...
+# Subtest: Venus rosette radial leaves leave eyes and mouth visible from front and both three-quarter directions
+ok 38 - Venus rosette radial leaves leave eyes and mouth visible from front and both three-quarter directions
+  ---
+  duration_ms: 25.082007
+  type: 'test'
+  ...
+# Subtest: human QA overlay exposes exact candidates only in served QA source, leaving runtime registry immutable
+ok 39 - human QA overlay exposes exact candidates only in served QA source, leaving runtime registry immutable
+  ---
+  duration_ms: 131.378106
+  type: 'test'
+  ...
+# Subtest: topology QA selection is isolated, explicit and rejects unknown lines or mixed modes
+ok 40 - topology QA selection is isolated, explicit and rejects unknown lines or mixed modes
+  ---
+  duration_ms: 98.749699
+  type: 'test'
+  ...
+# (node:33) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: god representatives preserve open halos, white feather tiers and distinct short/flowing robes
+ok 41 - god representatives preserve open halos, white feather tiers and distinct short/flowing robes
+  ---
+  duration_ms: 463.153728
+  type: 'test'
+  ...
+# Subtest: celestial wings and robe retain one owner and canonical face through32 state combinations
+ok 42 - celestial wings and robe retain one owner and canonical face through32 state combinations
+  ---
+  duration_ms: 384.062444
+  type: 'test'
+  ...
+# Subtest: young angel short robe leaves both lower legs visible at front and three-quarter views
+ok 43 - young angel short robe leaves both lower legs visible at front and three-quarter views
+  ---
+  duration_ms: 35.982385
+  type: 'test'
+  ...
+# (node:68) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: star representatives distinguish a deep tilted spiral galaxy from an irregular blazing sun
+ok 44 - star representatives distinguish a deep tilted spiral galaxy from an irregular blazing sun
+  ---
+  duration_ms: 482.720943
+  type: 'test'
+  ...
+# Subtest: cosmic representative retains a single canonical face and owner through32 states
+ok 45 - cosmic representative retains a single canonical face and owner through32 states
+  ---
+  duration_ms: 207.908521
+  type: 'test'
+  ...
+# (node:76) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: original frog03/05/07 change anatomy from hind-only tail to folded adult limbs and eye lobes
+ok 46 - original frog03/05/07 change anatomy from hind-only tail to folded adult limbs and eye lobes
+  ---
+  duration_ms: 126.474868
+  type: 'test'
+  ...
+# Subtest: crouched representatives carry one projected face and shared canonical motion
+ok 47 - crouched representatives carry one projected face and shared canonical motion
+  ---
+  duration_ms: 142.097012
+  type: 'test'
+  ...
+# Subtest: folded feet keep three splayed digits and tadpole tail includes a broad thin membrane
+ok 48 - folded feet keep three splayed digits and tadpole tail includes a broad thin membrane
+  ---
+  duration_ms: 45.005517
+  type: 'test'
+  ...
+# Subtest: adult folded hindlimbs have rounded haunch volume over the upper bend
+ok 49 - adult folded hindlimbs have rounded haunch volume over the upper bend
+  ---
+  duration_ms: 44.955263
+  type: 'test'
+  ...
+# Subtest: all eight frog candidates retain the actual limb/tail transition and adult resting proportions
+ok 50 - all eight frog candidates retain the actual limb/tail transition and adult resting proportions
+  ---
+  duration_ms: 197.634652
+  type: 'test'
+  ...
+# Subtest: older crouched form has source mottle markings without changing shape or draw count
+ok 51 - older crouched form has source mottle markings without changing shape or draw count
+  ---
+  duration_ms: 29.260308
+  type: 'test'
+  ...
+# (node:77) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: hermit representatives have real hollow spiral shells, six walking legs, two open claws and one stalk-eyed face
+ok 52 - hermit representatives have real hollow spiral shells, six walking legs, two open claws and one stalk-eyed face
+  ---
+  duration_ms: 1275.685303
+  type: 'test'
+  ...
+# Subtest: hermit stalk eyes retain canonical emotion and blink ownership through32 states with attached shell and claws
+ok 53 - hermit stalk eyes retain canonical emotion and blink ownership through32 states with attached shell and claws
+  ---
+  duration_ms: 675.38425
+  type: 'test'
+  ...
+# Subtest: shell whorls fill the narrow conical core instead of separating into a curled tube
+ok 54 - shell whorls fill the narrow conical core instead of separating into a curled tube
+  ---
+  duration_ms: 202.122332
+  type: 'test'
+  ...
+# Subtest: hermit eight-stage shell proportions and aged moss remain explicit source features
+ok 55 - hermit eight-stage shell proportions and aged moss remain explicit source features
+  ---
+  duration_ms: 21.160437
+  type: 'test'
+  ...
+# (node:92) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Dragon explicit eight-stage candidates retain juvenile support, small wings, breath and seated elder identity
+ok 56 - Dragon explicit eight-stage candidates retain juvenile support, small wings, breath and seated elder identity
+  ---
+  duration_ms: 608.440588
+  type: 'test'
+  ...
+# Subtest: Dragon06 flame volumes stay owned by the head without hiding the canonical eye targets
+ok 57 - Dragon06 flame volumes stay owned by the head without hiding the canonical eye targets
+  ---
+  duration_ms: 134.480249
+  type: 'test'
+  ...
+# Subtest: Dragon all8 candidates preserve one canonical face and finite owned motion across32 states
+ok 58 - Dragon all8 candidates preserve one canonical face and finite owned motion across32 states
+  ---
+  duration_ms: 480.256459
+  type: 'test'
+  ...
+# (node:100) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: emergence keeps one butterfly face, articulated narrow wings, and an opened empty shell under a twig
+ok 59 - emergence keeps one butterfly face, articulated narrow wings, and an opened empty shell under a twig
+  ---
+  duration_ms: 161.517517
+  type: 'test'
+  ...
+# Subtest: partly unfolded forewings retain less upward span than adult wings
+ok 60 - partly unfolded forewings retain less upward span than adult wings
+  ---
+  duration_ms: 45.907598
+  type: 'test'
+  ...
+# Subtest: original emergence candidate has one canonical face and active wings through reduced motion
+ok 61 - original emergence candidate has one canonical face and active wings through reduced motion
+  ---
+  duration_ms: 63.007811
+  type: 'test'
+  ...
+# Subtest: larval forebody lift and foot rhythm vary without changing inherited Pilot posture
+ok 62 - larval forebody lift and foot rhythm vary without changing inherited Pilot posture
+  ---
+  duration_ms: 32.901446
+  type: 'test'
+  ...
+# Subtest: all eight butterfly candidates preserve Pilot topology and distinguish larval growth and unfolded wings
+ok 63 - all eight butterfly candidates preserve Pilot topology and distinguish larval growth and unfolded wings
+  ---
+  duration_ms: 182.51417
+  type: 'test'
+  ...
+# (node:101) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: fish wave identity mechanisms produce yolk volume, lateral parr marks, fork and hooked jaw
+ok 64 - fish wave identity mechanisms produce yolk volume, lateral parr marks, fork and hooked jaw
+  ---
+  duration_ms: 260.268624
+  type: 'test'
+  ...
+# Subtest: schooling attachment carries three distinct faces without gameplay actors
+ok 65 - schooling attachment carries three distinct faces without gameplay actors
+  ---
+  duration_ms: 85.964717
+  type: 'test'
+  ...
+# Subtest: fish wave all original stages build finite templates and outward pectoral silhouettes
+ok 66 - fish wave all original stages build finite templates and outward pectoral silhouettes
+  ---
+  duration_ms: 131.369896
+  type: 'test'
+  ...
+# Subtest: reviewed fish stages resolve exact runtime templates, remain visible and reuse cache
+ok 67 - reviewed fish stages resolve exact runtime templates, remain visible and reuse cache
+  ---
+  duration_ms: 509.30632
+  type: 'test'
+  ...
+# Subtest: school subrig tails and fins articulate from the same actor swim state, including reduced motion
+ok 68 - school subrig tails and fins articulate from the same actor swim state, including reduced motion
+  ---
+  duration_ms: 25.819746
+  type: 'test'
+  ...
+# (node:116) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mycelium has a central face and bounded tapered branching arms with real depth
+ok 69 - mycelium has a central face and bounded tapered branching arms with real depth
+  ---
+  duration_ms: 146.090967
+  type: 'test'
+  ...
+# Subtest: upturned cap rim rises above its centre and separate scalloped collar follows stem
+ok 70 - upturned cap rim rises above its centre and separate scalloped collar follows stem
+  ---
+  duration_ms: 20.725153
+  type: 'test'
+  ...
+# Subtest: optional cap patches are vertex colours and cap-face lower volume fades to cream
+ok 71 - optional cap patches are vertex colours and cap-face lower volume fades to cream
+  ---
+  duration_ms: 39.373887
+  type: 'test'
+  ...
+# Subtest: mycelium young cap and upturned cap candidates retain source face placement and canonical actor motion
+ok 72 - mycelium young cap and upturned cap candidates retain source face placement and canonical actor motion
+  ---
+  duration_ms: 152.497465
+  type: 'test'
+  ...
+# Subtest: young cap face is above the lower rim and upturned underside keeps pale gills
+ok 73 - young cap face is above the lower rim and upturned underside keeps pale gills
+  ---
+  duration_ms: 35.323989
+  type: 'test'
+  ...
+# Subtest: leaning fungus keeps spore faces and bounded secondary bob under its own actor
+ok 74 - leaning fungus keeps spore faces and bounded secondary bob under its own actor
+  ---
+  duration_ms: 75.297015
+  type: 'test'
+  ...
+# Subtest: spore-release stage keeps source lean, secondary faces and finite canonical motion as a reviewed stage
+ok 75 - spore-release stage keeps source lean, secondary faces and finite canonical motion as a reviewed stage
+  ---
+  duration_ms: 45.352898
+  type: 'test'
+  ...
+# Subtest: mature red cap keeps original raised crown inside upturned rim rather than an empty bowl
+ok 76 - mature red cap keeps original raised crown inside upturned rim rather than an empty bowl
+  ---
+  duration_ms: 8.25272
+  type: 'test'
+  ...
+# Subtest: all fungus stages preserve Pilot and separate red dome, open rim and leaning release shapes
+ok 77 - all fungus stages preserve Pilot and separate red dome, open rim and leaning release shapes
+  ---
+  duration_ms: 20.409094
+  type: 'test'
+  ...
+# Subtest: released spore cluster follows original rising path instead of symmetric horizontal grouping
+ok 78 - released spore cluster follows original rising path instead of symmetric horizontal grouping
+  ---
+  duration_ms: 14.827606
+  type: 'test'
+  ...
+# Subtest: mycelium and opened cap retain source squeezed neutral eyes without changing positive emotion
+ok 79 - mycelium and opened cap retain source squeezed neutral eyes without changing positive emotion
+  ---
+  duration_ms: 36.657537
+  type: 'test'
+  ...
+# (node:124) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: school and sports human representatives retain hair length, flared skirt, held bag and layered hood volumes
+ok 80 - school and sports human representatives retain hair length, flared skirt, held bag and layered hood volumes
+  ---
+  duration_ms: 172.605078
+  type: 'test'
+  ...
+# Subtest: human candidates have short clothing volume and a case joined to the moving hand
+ok 81 - human candidates have short clothing volume and a case joined to the moving hand
+  ---
+  duration_ms: 40.886969
+  type: 'test'
+  ...
+# Subtest: spread-arm identity releases into existing locomotion without changing canonical emotions
+ok 82 - spread-arm identity releases into existing locomotion without changing canonical emotions
+  ---
+  duration_ms: 149.625167
+  type: 'test'
+  ...
+# Subtest: sports signature stride releases into locomotion and jersey number stays a shared marking
+ok 83 - sports signature stride releases into locomotion and jersey number stays a shared marking
+  ---
+  duration_ms: 131.446844
+  type: 'test'
+  ...
+# Subtest: original neutral wink is per-eye and releases for every canonical emotion
+ok 84 - original neutral wink is per-eye and releases for every canonical emotion
+  ---
+  duration_ms: 23.032487
+  type: 'test'
+  ...
+# Subtest: seated held-pet profile preserves two faces and releases chair and bent knees into walking
+ok 85 - seated held-pet profile preserves two faces and releases chair and bent knees into walking
+  ---
+  duration_ms: 208.785334
+  type: 'test'
+  ...
+# Subtest: all 24 original human stages build exact distinct candidates without changing Pilot references
+ok 86 - all 24 original human stages build exact distinct candidates without changing Pilot references
+  ---
+  duration_ms: 319.214671
+  type: 'test'
+  ...
+# Subtest: every human candidate keeps canonical faces and finite idle/walk/reduced poses
+ok 87 - every human candidate keeps canonical faces and finite idle/walk/reduced poses
+  ---
+  duration_ms: 554.703026
+  type: 'test'
+  ...
+# Subtest: school hair stays inside its hat and held-toy idle retains a free raised arm
+ok 88 - school hair stays inside its hat and held-toy idle retains a free raised arm
+  ---
+  duration_ms: 57.8421
+  type: 'test'
+  ...
+# (node:132) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: jellyfish strobila has a connected segmented stalk and ephyra floats without rooted substrate
+ok 89 - jellyfish strobila has a connected segmented stalk and ephyra floats without rooted substrate
+  ---
+  duration_ms: 211.617993
+  type: 'test'
+  ...
+# Subtest: jellyfish representatives change rooted polyp into a volumetric bell with connected tentacles
+ok 90 - jellyfish representatives change rooted polyp into a volumetric bell with connected tentacles
+  ---
+  duration_ms: 275.231089
+  type: 'test'
+  ...
+# Subtest: jellyfish face stays on the visible inner volume above the bell rim
+ok 91 - jellyfish face stays on the visible inner volume above the bell rim
+  ---
+  duration_ms: 75.173004
+  type: 'test'
+  ...
+# (node:140) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: unknown03 soft limbs and07 round orb with three gold rays have volumetric blue bodies
+ok 92 - unknown03 soft limbs and07 round orb with three gold rays have volumetric blue bodies
+  ---
+  duration_ms: 141.278591
+  type: 'test'
+  ...
+# Subtest: white eye profile remains separate from dark cached eyes and follows every canonical state
+ok 93 - white eye profile remains separate from dark cached eyes and follows every canonical state
+  ---
+  duration_ms: 302.592122
+  type: 'test'
+  ...
+# (node:148) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: dragon representatives preserve horned muzzle, plated upright trunk, curled tail and attached finger-supported wings
+ok 94 - dragon representatives preserve horned muzzle, plated upright trunk, curled tail and attached finger-supported wings
+  ---
+  duration_ms: 577.461841
+  type: 'test'
+  ...
+# Subtest: dragon owner keeps one canonical face with tail and attached wing motion across32 states
+ok 95 - dragon owner keeps one canonical face with tail and attached wing motion across32 states
+  ---
+  duration_ms: 140.072854
+  type: 'test'
+  ...
+# Subtest: mythic candidate overlay requires one explicit wave and never mutates production lookup
+ok 96 - mythic candidate overlay requires one explicit wave and never mutates production lookup
+  ---
+  duration_ms: 70.607679
+  type: 'test'
+  ...
+# Subtest: dragon membrane has one closed non-overlapping surface pair across its concave scallops
+ok 97 - dragon membrane has one closed non-overlapping surface pair across its concave scallops
+  ---
+  duration_ms: 212.972331
+  type: 'test'
+  ...
+# Subtest: dragon canonical mouth projects onto the protruding muzzle rather than behind it
+ok 98 - dragon canonical mouth projects onto the protruding muzzle rather than behind it
+  ---
+  duration_ms: 58.354672
+  type: 'test'
+  ...
+# Subtest: dragon wing fingers remain exposed on both sides of the closed membrane
+ok 99 - dragon wing fingers remain exposed on both sides of the closed membrane
+  ---
+  duration_ms: 78.862603
+  type: 'test'
+  ...
+# Subtest: nonplayer candidates preserve role namespace and never alias player, companion, partner or author identities
+ok 100 - nonplayer candidates preserve role namespace and never alias player, companion, partner or author identities
+  ---
+  duration_ms: 47.767293
+  type: 'test'
+  ...
+# Subtest: HTTP QA nonplayer overlay is isolated and rejects mixing candidate families
+ok 101 - HTTP QA nonplayer overlay is isolated and rejects mixing candidate families
+  ---
+  duration_ms: 96.413763
+  type: 'test'
+  ...
+# Subtest: QA front/back actor heading survives the real party simulation before rendering
+ok 102 - QA front/back actor heading survives the real party simulation before rendering
+  ---
+  duration_ms: 489.764373
+  type: 'test'
+  ...
+# Subtest: reviewed nonplayers are exact role-specific runtime entries
+ok 103 - reviewed nonplayers are exact role-specific runtime entries
+  ---
+  duration_ms: 61.702009
+  type: 'test'
+  ...
+# Subtest: browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries
+ok 104 - browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries
+  ---
+  duration_ms: 66.38706
+  type: 'test'
+  ...
+# (node:183) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: box and sunflower nonplayer candidates use explicit source volumes and one role-exact face
+ok 105 - box and sunflower nonplayer candidates use explicit source volumes and one role-exact face
+  ---
+  duration_ms: 269.216205
+  type: 'test'
+  ...
+# Subtest: nonplayer box and sunflower retain canonical emotion and one owner across32 states
+ok 106 - nonplayer box and sunflower retain canonical emotion and one owner across32 states
+  ---
+  duration_ms: 75.29669
+  type: 'test'
+  ...
+# Subtest: nonplayer capture uses role-specific source assets and native party save references
+ok 107 - nonplayer capture uses role-specific source assets and native party save references
+  ---
+  duration_ms: 231.566005
+  type: 'test'
+  ...
+# Subtest: QA performance mix uses explicit keys, never truthy strings as puff flags
+ok 108 - QA performance mix uses explicit keys, never truthy strings as puff flags
+  ---
+  duration_ms: 74.994821
+  type: 'test'
+  ...
+# Subtest: human-family performance names the seated high-cost player and its real QA template composition
+ok 109 - human-family performance names the seated high-cost player and its real QA template composition
+  ---
+  duration_ms: 0.541976
+  type: 'test'
+  ...
+# (node:200) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: closed bud has tall continuous head and overlapping green sepals
+ok 110 - closed bud has tall continuous head and overlapping green sepals
+  ---
+  duration_ms: 106.932316
+  type: 'test'
+  ...
+# Subtest: rooted seed head keeps soft three-dimensional ring and a connected stem
+ok 111 - rooted seed head keeps soft three-dimensional ring and a connected stem
+  ---
+  duration_ms: 25.690511
+  type: 'test'
+  ...
+# Subtest: original bud and rooted-puff candidates retain all canonical expressions and finite motion
+ok 112 - original bud and rooted-puff candidates retain all canonical expressions and finite motion
+  ---
+  duration_ms: 145.069417
+  type: 'test'
+  ...
+# Subtest: bud sepals remain exposed over the lower head surface and rooted leaves stay low
+ok 113 - bud sepals remain exposed over the lower head surface and rooted leaves stay low
+  ---
+  duration_ms: 30.865
+  type: 'test'
+  ...
+# Subtest: plant signature neutral eyes use existing canonical face resolution
+ok 114 - plant signature neutral eyes use existing canonical face resolution
+  ---
+  duration_ms: 38.284817
+  type: 'test'
+  ...
+# Subtest: sprout has two raised oval cotyledons with connected bases and grounded bulb feet
+ok 115 - sprout has two raised oval cotyledons with connected bases and grounded bulb feet
+  ---
+  duration_ms: 4.360203
+  type: 'test'
+  ...
+# Subtest: all eight dandelion candidates preserve Pilot references and exact stage topology
+ok 116 - all eight dandelion candidates preserve Pilot references and exact stage topology
+  ---
+  duration_ms: 128.262608
+  type: 'test'
+  ...
+# (node:206) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: phoenix representatives have a physical crest, layered wings, curved plume tails and two clawed feet
+ok 117 - phoenix representatives have a physical crest, layered wings, curved plume tails and two clawed feet
+  ---
+  duration_ms: 436.203362
+  type: 'test'
+  ...
+# Subtest: phoenix keeps one canonical face with owned wing and tail motion across32 states
+ok 118 - phoenix keeps one canonical face with owned wing and tail motion across32 states
+  ---
+  duration_ms: 177.673095
+  type: 'test'
+  ...
+# Subtest: aged phoenix retains the source cream breast and distinct pale feather edges
+ok 119 - aged phoenix retains the source cream breast and distinct pale feather edges
+  ---
+  duration_ms: 51.822329
+  type: 'test'
+  ...
+# (node:216) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: all plush stages preserve bow, asymmetric arm, repairs, stuffing and scarf as owned volumes
+ok 120 - all plush stages preserve bow, asymmetric arm, repairs, stuffing and scarf as owned volumes
+  ---
+  duration_ms: 843.726162
+  type: 'test'
+  ...
+# Subtest: all plush stages keep one face and finite owned bones across32 canonical states
+ok 121 - all plush stages keep one face and finite owned bones across32 canonical states
+  ---
+  duration_ms: 329.573564
+  type: 'test'
+  ...
+# Subtest: new plush neckwear and held heart leave a drooped mouth visible
+ok 122 - new plush neckwear and held heart leave a drooped mouth visible
+  ---
+  duration_ms: 182.435565
+  type: 'test'
+  ...
+# (node:228) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: plush representatives preserve round seated bear volumes, held heart03 and worn patched one-ear07
+ok 123 - plush representatives preserve round seated bear volumes, held heart03 and worn patched one-ear07
+  ---
+  duration_ms: 349.984932
+  type: 'test'
+  ...
+# Subtest: soft toy limbs, held prop and stitched patches share one actor through32 states
+ok 124 - soft toy limbs, held prop and stitched patches share one actor through32 states
+  ---
+  duration_ms: 214.912888
+  type: 'test'
+  ...
+# Subtest: held heart leaves the drooped mouth visible in tired and sleeping poses
+ok 125 - held heart leaves the drooped mouth visible in tired and sleeping poses
+  ---
+  duration_ms: 54.768646
+  type: 'test'
+  ...
+# (node:236) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: QA records all real colony faces instead of the multi-face wrapper setter
+ok 126 - QA records all real colony faces instead of the multi-face wrapper setter
+  ---
+  duration_ms: 381.923013
+  type: 'test'
+  ...
+# (node:244) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: hair cap covers crown, temples and nape without crossing the face opening
+ok 127 - hair cap covers crown, temples and nape without crossing the face opening
+  ---
+  duration_ms: 60.546972
+  type: 'test'
+  ...
+# Subtest: dog play bow lowers the chest at idle and blends back to locomotion; shiba preserves its compact bow
+ok 128 - dog play bow lowers the chest at idle and blends back to locomotion; shiba preserves its compact bow
+  ---
+  duration_ms: 214.893349
+  type: 'test'
+  ...
+# Subtest: both adult and child mushroom faces survive cloning and canonical expression changes
+ok 129 - both adult and child mushroom faces survive cloning and canonical expression changes
+  ---
+  duration_ms: 72.979121
+  type: 'test'
+  ...
+# Subtest: radial bubbles occupy the specified separated positions rather than the origin
+ok 130 - radial bubbles occupy the specified separated positions rather than the origin
+  ---
+  duration_ms: 12.789894
+  type: 'test'
+  ...
+# Subtest: all six dandelion seed-puff faces remain independently bound within the existing mesh budget
+ok 131 - all six dandelion seed-puff faces remain independently bound within the existing mesh budget
+  ---
+  duration_ms: 108.368987
+  type: 'test'
+  ...
+# Subtest: outline loft preserves side notches and lower lobes with a finite closed thickness
+ok 132 - outline loft preserves side notches and lower lobes with a finite closed thickness
+  ---
+  duration_ms: 4.033874
+  type: 'test'
+  ...
+# Subtest: butterfly abdomen points below its head and wing roots stay attached during reduced idle
+ok 133 - butterfly abdomen points below its head and wing roots stay attached during reduced idle
+  ---
+  duration_ms: 30.205592
+  type: 'test'
+  ...
+# Subtest: bow paw contact stays on the ground for both canine proportions
+ok 134 - bow paw contact stays on the ground for both canine proportions
+  ---
+  duration_ms: 4.643781
+  type: 'test'
+  ...
+# Subtest: child mushroom eyes and mouth are visible below the cap from gallery front and three-quarter
+ok 135 - child mushroom eyes and mouth are visible below the cap from gallery front and three-quarter
+  ---
+  duration_ms: 14.198893
+  type: 'test'
+  ...
+# Subtest: Claude QA uses the current actor input adapter while preserving immutable geometry and presenter
+ok 136 - Claude QA uses the current actor input adapter while preserving immutable geometry and presenter
+  ---
+  duration_ms: 60.328572
+  type: 'test'
+  ...
+# (node:250) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: merged soft geometry keeps per-vertex opacity and opaque components remain opaque
+ok 137 - merged soft geometry keeps per-vertex opacity and opaque components remain opaque
+  ---
+  duration_ms: 50.530672
+  type: 'test'
+  ...
+# Subtest: seed halo has fading edges without adding a draw per filament or losing six faces
+ok 138 - seed halo has fading edges without adding a draw per filament or losing six faces
+  ---
+  duration_ms: 265.112668
+  type: 'test'
+  ...
+# Subtest: reclining feline keeps a low asymmetric rest pose and half-open normal eyes, then rises to walk
+ok 139 - reclining feline keeps a low asymmetric rest pose and half-open normal eyes, then rises to walk
+  ---
+  duration_ms: 88.515499
+  type: 'test'
+  ...
+# Subtest: hanging pod swings around its suspension rather than detaching from the branch
+ok 140 - hanging pod swings around its suspension rather than detaching from the branch
+  ---
+  duration_ms: 82.629954
+  type: 'test'
+  ...
+# Subtest: humanoid held attachments stay at hand during locomotion and posture
+ok 141 - humanoid held attachments stay at hand during locomotion and posture
+  ---
+  duration_ms: 35.490753
+  type: 'test'
+  ...
+# Subtest: shared halo material has a soft tuft texture with transparent outside and opaque core
+ok 142 - shared halo material has a soft tuft texture with transparent outside and opaque core
+  ---
+  duration_ms: 0.713908
+  type: 'test'
+  ...
+# Subtest: projected face decals render in one pass without changing canonical atlases
+ok 143 - projected face decals render in one pass without changing canonical atlases
+  ---
+  duration_ms: 26.320588
+  type: 'test'
+  ...
+# (node:251) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: puff connector is pale translucent and fine while the existing halo and six faces remain
+ok 144 - puff connector is pale translucent and fine while the existing halo and six faces remain
+  ---
+  duration_ms: 397.572461
+  type: 'test'
+  ...
+# Subtest: winged insect limbs are joined to the body without extra meshes or changed wings
+ok 145 - winged insect limbs are joined to the body without extra meshes or changed wings
+  ---
+  duration_ms: 45.248303
+  type: 'test'
+  ...
+# Subtest: feline normal eyes have wider half lids and raised outer corners without changing emotion vocabulary
+ok 146 - feline normal eyes have wider half lids and raised outer corners without changing emotion vocabulary
+  ---
+  duration_ms: 49.171236
+  type: 'test'
+  ...
+# Subtest: fresh inventory derives every master row, stage and registered asset without fixed counts
+ok 147 - fresh inventory derives every master row, stage and registered asset without fixed counts
+  ---
+  duration_ms: 87.964208
+  type: 'test'
+  ...
+# Subtest: master additions cannot silently disappear behind the pilot registry
+ok 148 - master additions cannot silently disappear behind the pilot registry
+  ---
+  duration_ms: 56.157982
+  type: 'test'
+  ...
+# Subtest: missing and unclassified assets remain explicit audit failures
+ok 149 - missing and unclassified assets remain explicit audit failures
+  ---
+  duration_ms: 0.878951
+  type: 'test'
+  ...
+# (node:276) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: FR-1 exact quadruped/avian stages build without substituting a neighbouring age
+ok 150 - FR-1 exact quadruped/avian stages build without substituting a neighbouring age
+  ---
+  duration_ms: 310.454891
+  type: 'test'
+  ...
+# Subtest: signature lifted paw stays readable with reduced motion and releases into walking
+ok 151 - signature lifted paw stays readable with reduced motion and releases into walking
+  ---
+  duration_ms: 75.870102
+  type: 'test'
+  ...
+# Subtest: every candidate preserves canonical expression and finite idle/walk under reduced motion
+ok 152 - every candidate preserves canonical expression and finite idle/walk under reduced motion
+  ---
+  duration_ms: 2640.088663
+  type: 'test'
+  ...
+# Subtest: asymmetric ears and bilateral raised wings keep the original signature silhouette
+ok 153 - asymmetric ears and bilateral raised wings keep the original signature silhouette
+  ---
+  duration_ms: 17.883385
+  type: 'test'
+  ...
+# Subtest: reviewed exact stages reach the real presenter without role aliases or nearest-age substitution
+ok 154 - reviewed exact stages reach the real presenter without role aliases or nearest-age substitution
+  ---
+  duration_ms: 2993.842564
+  type: 'test'
+  ...
+# Subtest: reviewed human batch has all24 exact runtime templates without nearest-age substitution
+ok 155 - reviewed human batch has all24 exact runtime templates without nearest-age substitution
+  ---
+  duration_ms: 0.674321
+  type: 'test'
+  ...
+# Subtest: reviewed dandelion batch has eight exact runtime stages including rooted seed head
+ok 156 - reviewed dandelion batch has eight exact runtime stages including rooted seed head
+  ---
+  duration_ms: 0.402281
+  type: 'test'
+  ...
+# Subtest: reviewed butterfly batch has all eight exact metamorphosis templates
+ok 157 - reviewed butterfly batch has all eight exact metamorphosis templates
+  ---
+  duration_ms: 0.325548
+  type: 'test'
+  ...
+# Subtest: reviewed fungus and starfish batches preserve all16 exact topology stages in runtime
+ok 158 - reviewed fungus and starfish batches preserve all16 exact topology stages in runtime
+  ---
+  duration_ms: 0.439555
+  type: 'test'
+  ...
+# Subtest: reviewed shell and crouched batches reach all16 exact runtime stages
+ok 159 - reviewed shell and crouched batches reach all16 exact runtime stages
+  ---
+  duration_ms: 0.367149
+  type: 'test'
+  ...
+# Subtest: reviewed coral batch preserves all eight exact runtime stages and owned colony faces
+ok 160 - reviewed coral batch preserves all eight exact runtime stages and owned colony faces
+  ---
+  duration_ms: 0.444423
+  type: 'test'
+  ...
+# Subtest: reviewed jellyfish batch preserves eight exact rooted, ephyra and bell runtime stages
+ok 161 - reviewed jellyfish batch preserves eight exact rooted, ephyra and bell runtime stages
+  ---
+  duration_ms: 0.232081
+  type: 'test'
+  ...
+# Subtest: reviewed beetle families preserve all exact metamorphosis stages in runtime
+ok 162 - reviewed beetle families preserve all exact metamorphosis stages in runtime
+  ---
+  duration_ms: 14.242901
+  type: 'test'
+  ...
+# Subtest: reviewed sakura batch preserves all eight original topologies and face ownership in runtime
+ok 163 - reviewed sakura batch preserves all eight original topologies and face ownership in runtime
+  ---
+  duration_ms: 19.684343
+  type: 'test'
+  ...
+# Subtest: reviewed cicada batch preserves all eight exact nymph emergence and adult stages in runtime
+ok 164 - reviewed cicada batch preserves all eight exact nymph emergence and adult stages in runtime
+  ---
+  duration_ms: 23.639993
+  type: 'test'
+  ...
+# Subtest: reviewed antlion batch preserves eight exact larva cocoon and winged runtime stages
+ok 165 - reviewed antlion batch preserves eight exact larva cocoon and winged runtime stages
+  ---
+  duration_ms: 16.998137
+  type: 'test'
+  ...
+# Subtest: reviewed hermit batch preserves all eight exact shelled actors and eyestalk faces
+ok 166 - reviewed hermit batch preserves all eight exact shelled actors and eyestalk faces
+  ---
+  duration_ms: 23.57011
+  type: 'test'
+  ...
+# Subtest: reviewed world tree batch resolves eight exact rooted stage identities in runtime
+ok 167 - reviewed world tree batch resolves eight exact rooted stage identities in runtime
+  ---
+  duration_ms: 0.777902
+  type: 'test'
+  ...
+# Subtest: reviewed plush batch resolves all eight exact soft toy actors with one canonical face
+ok 168 - reviewed plush batch resolves all eight exact soft toy actors with one canonical face
+  ---
+  duration_ms: 3.525879
+  type: 'test'
+  ...
+# Subtest: reviewed Venus batch resolves eight exact stages and preserves each canonical face
+ok 169 - reviewed Venus batch resolves eight exact stages and preserves each canonical face
+  ---
+  duration_ms: 12.582301
+  type: 'test'
+  ...
+# (node:284) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: shelled quadruped uses a connected dome and splayed feet without mammalian ears or nose
+ok 170 - shelled quadruped uses a connected dome and splayed feet without mammalian ears or nose
+  ---
+  duration_ms: 124.537197
+  type: 'test'
+  ...
+# Subtest: all candidate turtle stages have one canonical actor and finite shared quadruped motion
+ok 171 - all candidate turtle stages have one canonical actor and finite shared quadruped motion
+  ---
+  duration_ms: 351.438305
+  type: 'test'
+  ...
+# Subtest: shell scute seams remain narrow continuous lines instead of interpolated dark spots
+ok 172 - shell scute seams remain narrow continuous lines instead of interpolated dark spots
+  ---
+  duration_ms: 13.904601
+  type: 'test'
+  ...
+# Subtest: full turtle ages use infant proportions, lifted paw, withdrawn head and attached old-shell moss
+ok 173 - full turtle ages use infant proportions, lifted paw, withdrawn head and attached old-shell moss
+  ---
+  duration_ms: 130.58284
+  type: 'test'
+  ...
+# Subtest: turtle infant and older neutral eyes retain visible half pupils
+ok 174 - turtle infant and older neutral eyes retain visible half pupils
+  ---
+  duration_ms: 51.224841
+  type: 'test'
+  ...
+# (node:291) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: ghost03/07 have closed tapered tails, owned arms and an open halo plus four blue flames only at07
+ok 175 - ghost03/07 have closed tapered tails, owned arms and an open halo plus four blue flames only at07
+  ---
+  duration_ms: 219.744292
+  type: 'test'
+  ...
+# Subtest: spectral body and attachments preserve one canonical face across32 states
+ok 176 - spectral body and attachments preserve one canonical face across32 states
+  ---
+  duration_ms: 192.375208
+  type: 'test'
+  ...
+# Subtest: spirit tail tip turns upward to the left instead of ending as a straight tapered leaf
+ok 177 - spirit tail tip turns upward to the left instead of ending as a straight tapered leaf
+  ---
+  duration_ms: 32.017332
+  type: 'test'
+  ...
+# Subtest: Meguru family shards require exact inventory keys, never empty or partial green
+ok 178 - Meguru family shards require exact inventory keys, never empty or partial green
+  ---
+  duration_ms: 5.481059
+  type: 'test'
+  ...
+# (node:306) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: larval contour supports elongated asymmetric lower lobe with displaced face placement
+ok 179 - larval contour supports elongated asymmetric lower lobe with displaced face placement
+  ---
+  duration_ms: 88.042975
+  type: 'test'
+  ...
+# Subtest: young radial composite keeps attached translucent larva and one canonical face with shared-state pulse
+ok 180 - young radial composite keeps attached translucent larva and one canonical face with shared-state pulse
+  ---
+  duration_ms: 92.988228
+  type: 'test'
+  ...
+# Subtest: starfish transition candidates preserve one source face and canonical finite motion
+ok 181 - starfish transition candidates preserve one source face and canonical finite motion
+  ---
+  duration_ms: 157.022432
+  type: 'test'
+  ...
+# Subtest: asymmetric larval core stays within its source outer silhouette
+ok 182 - asymmetric larval core stays within its source outer silhouette
+  ---
+  duration_ms: 10.038243
+  type: 'test'
+  ...
+# Subtest: radial stage markings keep pale tips, raised large spots and source neutral eye shape
+ok 183 - radial stage markings keep pale tips, raised large spots and source neutral eye shape
+  ---
+  duration_ms: 23.400017
+  type: 'test'
+  ...
+# Subtest: all eight starfish candidates are exact original-derived shapes with preserved Pilot stages
+ok 184 - all eight starfish candidates are exact original-derived shapes with preserved Pilot stages
+  ---
+  duration_ms: 118.674462
+  type: 'test'
+  ...
+# Subtest: original starfish06 squeezed eyes and07 wink belong only to normal presentation
+ok 185 - original starfish06 squeezed eyes and07 wink belong only to normal presentation
+  ---
+  duration_ms: 71.410748
+  type: 'test'
+  ...
+# (node:316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来
+ok 186 - 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来
+  ---
+  duration_ms: 2.440565
+  type: 'test'
+  ...
+# Subtest: 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある)
+ok 187 - 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある)
+  ---
+  duration_ms: 9.97594
+  type: 'test'
+  ...
+# Subtest: 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある
+ok 188 - 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある
+  ---
+  duration_ms: 68.12045
+  type: 'test'
+  ...
+# Subtest: 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか)
+ok 189 - 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか)
+  ---
+  duration_ms: 887.509313
+  type: 'test'
+  ...
+# Subtest: 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ
+ok 190 - 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ
+  ---
+  duration_ms: 1.540253
+  type: 'test'
+  ...
+# Subtest: 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる)
+ok 191 - 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる)
+  ---
+  duration_ms: 0.610907
+  type: 'test'
+  ...
+# Subtest: 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない
+ok 192 - 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない
+  ---
+  duration_ms: 5.226576
+  type: 'test'
+  ...
+# Subtest: 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら
+ok 193 - 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら
+  ---
+  duration_ms: 3.176646
+  type: 'test'
+  ...
+# Subtest: 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも
+ok 194 - 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも
+  ---
+  duration_ms: 15.958288
+  type: 'test'
+  ...
+# Subtest: 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし
+ok 195 - 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし
+  ---
+  duration_ms: 4.828061
+  type: 'test'
+  ...
+# Subtest: 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし
+ok 196 - 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし
+  ---
+  duration_ms: 3.19305
+  type: 'test'
+  ...
+# Subtest: 12. canonical emotion と 意味が 一致(\#368 の 語彙・Home の Expression PNG の 対応)
+ok 197 - 12. canonical emotion と 意味が 一致(\#368 の 語彙・Home の Expression PNG の 対応)
+  ---
+  duration_ms: 10.429122
+  type: 'test'
+  ...
+# Subtest: 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま)
+ok 198 - 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま)
+  ---
+  duration_ms: 0.898189
+  type: 'test'
+  ...
+# Subtest: 14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ
+ok 199 - 14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ
+  ---
+  duration_ms: 9.573449
+  type: 'test'
+  ...
+# Subtest: 15. flag・QA の 状態は セーブしない(schema も そのまま)
+ok 200 - 15. flag・QA の 状態は セーブしない(schema も そのまま)
+  ---
+  duration_ms: 251.817001
+  type: 'test'
+  ...
+# Subtest: 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない)
+ok 201 - 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない)
+  ---
+  duration_ms: 6.331589
+  type: 'test'
+  ...
+# Subtest: 17. movement logic(めぐるの シミュレーション)は かえない: meguru.js は main と 同一
+ok 202 - 17. movement logic(めぐるの シミュレーション)は かえない: meguru.js は main と 同一
+  ---
+  duration_ms: 2.232439
+  type: 'test'
+  ...
+# Subtest: 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D
+ok 203 - 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D
+  ---
+  duration_ms: 32.546089
+  type: 'test'
+  ...
+# Subtest: 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない)
+ok 204 - 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない)
+  ---
+  duration_ms: 25.775991
+  type: 'test'
+  ...
+# Subtest: 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない)
+ok 205 - 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない)
+  ---
+  duration_ms: 28.722193
+  type: 'test'
+  ...
+# Subtest: 21. 表情の きりかえで texture / material を つくりなおさない
+ok 206 - 21. 表情の きりかえで texture / material を つくりなおさない
+  ---
+  duration_ms: 52.326049
+  type: 'test'
+  ...
+# Subtest: 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱)
+ok 207 - 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱)
+  ---
+  duration_ms: 21.476792
+  type: 'test'
+  ...
+# Subtest: 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない
+ok 208 - 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない
+  ---
+  duration_ms: 25.470858
+  type: 'test'
+  ...
+# Subtest: 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない
+ok 209 - 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない
+  ---
+  duration_ms: 26.794031
+  type: 'test'
+  ...
+# Subtest: 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ)
+ok 210 - 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ)
+  ---
+  duration_ms: 24.608481
+  type: 'test'
+  ...
+# Subtest: 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D
+ok 211 - 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D
+  ---
+  duration_ms: 27.118979
+  type: 'test'
+  ...
+# Subtest: 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。\#368 の expr が あれば それを 優先
+ok 212 - 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。\#368 の expr が あれば それを 優先
+  ---
+  duration_ms: 2.895062
+  type: 'test'
+  ...
+# Subtest: 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分)
+ok 213 - 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分)
+  ---
+  duration_ms: 2.201513
+  type: 'test'
+  ...
+# Subtest: 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる
+ok 214 - 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる
+  ---
+  duration_ms: 4.806429
+  type: 'test'
+  ...
+# Subtest: 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない
+ok 215 - 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない
+  ---
+  duration_ms: 111.186244
+  type: 'test'
+  ...
+# Subtest: 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)
+ok 216 - 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)
+  ---
+  duration_ms: 22.984596
+  type: 'test'
+  ...
+# Subtest: 32. 既存の World 3D は かわらない(forest だけ・hybrid の fallback は そのまま)
+ok 217 - 32. 既存の World 3D は かわらない(forest だけ・hybrid の fallback は そのまま)
+  ---
+  duration_ms: 0.442881
+  type: 'test'
+  ...
+# Subtest: 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない)
+ok 218 - 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない)
+  ---
+  duration_ms: 1.000209
+  type: 'test'
+  ...
+# Subtest: 34. Relationship Expression の 回帰: relationship-expression.js は そのまま
+ok 219 - 34. Relationship Expression の 回帰: relationship-expression.js は そのまま
+  ---
+  duration_ms: 0.339879
+  type: 'test'
+  ...
+# (node:323) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: cicada adult has four thin physical veined wings and ringed abdomen on the shared six-leg body
+ok 220 - cicada adult has four thin physical veined wings and ringed abdomen on the shared six-leg body
+  ---
+  duration_ms: 261.043136
+  type: 'test'
+  ...
+# Subtest: veined wings use the owner motion clock while canonical expressions and reduced motion stay intact
+ok 221 - veined wings use the owner motion clock while canonical expressions and reduced motion stay intact
+  ---
+  duration_ms: 337.368868
+  type: 'test'
+  ...
+# Subtest: cicada silhouette tapers at the tail and its resting membranes slope down beside the abdomen
+ok 222 - cicada silhouette tapers at the tail and its resting membranes slope down beside the abdomen
+  ---
+  duration_ms: 55.832033
+  type: 'test'
+  ...
+# Subtest: cicada nymph has six legs with broad digging foreclaws and thick wing pads instead of adult membranes
+ok 223 - cicada nymph has six legs with broad digging foreclaws and thick wing pads instead of adult membranes
+  ---
+  duration_ms: 37.590101
+  type: 'test'
+  ...
+# Subtest: emerging cicada has one adult face above an open empty exuvia with folded legs
+ok 224 - emerging cicada has one adult face above an open empty exuvia with folded legs
+  ---
+  duration_ms: 28.764335
+  type: 'test'
+  ...
+# Subtest: emerging adult rises vertically with a forward-facing head and original nymph and aged eyes
+ok 225 - emerging adult rises vertically with a forward-facing head and original nymph and aged eyes
+  ---
+  duration_ms: 36.168979
+  type: 'test'
+  ...
+# Subtest: early cicada nymphs and soil emergence have explicit different anatomy and one face each
+ok 226 - early cicada nymphs and soil emergence have explicit different anatomy and one face each
+  ---
+  duration_ms: 63.452921
+  type: 'test'
+  ...
+# (node:332) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Venus remaining stages preserve original seed, young traps, insect cup and flowering crown
+ok 227 - Venus remaining stages preserve original seed, young traps, insect cup and flowering crown
+  ---
+  duration_ms: 518.8226
+  type: 'test'
+  ...
+# Subtest: all eight Venus candidates retain finite bones and source face ownership across32 states
+ok 228 - all eight Venus candidates retain finite bones and source face ownership across32 states
+  ---
+  duration_ms: 488.854997
+  type: 'test'
+  ...
+# Subtest: Venus06 trap has a deep enclosing cup around its insect instead of a thin plate
+ok 229 - Venus06 trap has a deep enclosing cup around its insect instead of a thin plate
+  ---
+  duration_ms: 22.304367
+  type: 'test'
+  ...
+# (node:338) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: sparse world tree04 keeps a readable face within the rooted trunk
+ok 230 - sparse world tree04 keeps a readable face within the rooted trunk
+  ---
+  duration_ms: 144.487758
+  type: 'test'
+  ...
+# Subtest: world tree representatives have a rooted trunk, volumetric crown and five physically hanging golden fruit only at07
+ok 231 - world tree representatives have a rooted trunk, volumetric crown and five physically hanging golden fruit only at07
+  ---
+  duration_ms: 757.16049
+  type: 'test'
+  ...
+# Subtest: world tree preserves one rooted owner and face across32 states and isolated botanical overlay
+ok 232 - world tree preserves one rooted owner and face across32 states and isolated botanical overlay
+  ---
+  duration_ms: 361.843382
+  type: 'test'
+  ...
+# Subtest: world tree seed, sprout, sparse crown, cyan fruit and orbit stages are explicit and finite
+ok 233 - world tree seed, sprout, sparse crown, cyan fruit and orbit stages are explicit and finite
+  ---
+  duration_ms: 150.555434
+  type: 'test'
+  ...
+1..233
+# tests 233
+# suites 0
+# pass 233
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10471.536671

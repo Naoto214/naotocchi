@@ -4,9 +4,18 @@
   const TOKENS=/\uE000|\p{Regional_Indicator}{2}|[#*0-9][\uFE0E\uFE0F]?\u20E3|\p{Extended_Pictographic}[\uFE0E\uFE0F]?\p{Emoji_Modifier}?(?:[\u{E0020}-\u{E007E}]+\u{E007F})?(?:\u200D\p{Extended_Pictographic}[\uFE0E\uFE0F]?\p{Emoji_Modifier}?(?:[\u{E0020}-\u{E007E}]+\u{E007F})?)*/gu;
   const tokenMatches=text=>[...text.matchAll(TOKENS)].filter(match=>!/^[©®]\uFE0E?$/.test(match[0]));
   const ready=image=>!!(image?.complete&&image.naturalWidth>0&&image.naturalHeight>0);
-  function create({document,resolve}) {
+  function create({document,resolve,fetch:fetchImpl,createImageBitmap:bitmapImpl}) {
     const sources=new Map(),external=new WeakMap(),proxies=new WeakMap(),originals=new WeakMap();
     let version=0;
+    // Optional pre-decode (prepare(list,{decode:true})). A raster image or atlas
+    // is decoded once off the main thread (fetch -> Blob -> ImageBitmap) and kept
+    // on its existing entry, so the first canvas draw does not decode a whole
+    // atlas inside a game frame. It never bumps the version: the pixels are the
+    // same, so cached sprites stay valid. Any failure keeps the lazy image draw.
+    const scope=typeof globalThis!=='undefined'?globalThis:{};
+    const fetchFn=fetchImpl||(typeof scope.fetch==='function'?scope.fetch.bind(scope):null);
+    const bitmapFn=bitmapImpl||(typeof scope.createImageBitmap==='function'?scope.createImageBitmap.bind(scope):null);
+    const decodeStats={count:0,bytes:0,failed:0};
     function observe(image) {
       let settle;
       const entry={image,done:false,promise:new Promise(done=>{settle=done;})};
@@ -41,6 +50,26 @@
         return entry;
       }catch(_){sources.set(key,null);return null;}
     }
+    function decodeEntry(entry) {
+      if(!entry)return Promise.resolve(false);
+      if(entry.bitmap)return Promise.resolve(true);
+      if(entry.decoding)return entry.decoding;
+      const image=entry.image,src=image&&(image.currentSrc||image.src);
+      if(!fetchFn||!bitmapFn||!src||/^data:image\/svg/i.test(String(src)))return Promise.resolve(false);
+      entry.decoding=entry.promise.then(ok=>{
+        if(!ok)return false;
+        return Promise.resolve(fetchFn(src)).then(res=>res&&res.ok!==false&&typeof res.blob==='function'?res.blob():null)
+          .then(blob=>blob?bitmapFn(blob):null)
+          .then(bitmap=>{
+            if(bitmap&&bitmap.width===image.naturalWidth&&bitmap.height===image.naturalHeight){
+              entry.bitmap=bitmap;decodeStats.count++;decodeStats.bytes+=bitmap.width*bitmap.height*4;return true;
+            }
+            if(bitmap&&typeof bitmap.close==='function')bitmap.close();
+            decodeStats.failed++;return false;
+          });
+      }).catch(()=>{decodeStats.failed++;return false;});
+      return entry.decoding;
+    }
     function placeholder(ctx,x,y,size) {
       // A small drawn tile keeps the original hit/decoration box occupied while
       // loading or after failure. It never introduces a platform emoji glyph.
@@ -48,7 +77,7 @@
       ctx.fillStyle='#ad9477';ctx.fillRect(x+size*.3,y+size*.3,size*.4,size*.4);
     }
     function drawResolved(ctx,desc,x,y,size) {
-      const entry=imageEntry(desc),image=entry?.image;
+      const entry=imageEntry(desc),image=entry?.image,source=entry?.bitmap||image;
       ctx.save();
       try {
         if(ready(image)) {
@@ -63,7 +92,7 @@
                 &&clip[2]<=frame[0]+frame[2]&&clip[3]<=frame[1]+frame[3]&&clip[2]>clip[0]&&clip[3]>clip[1]) {
                 // Crop inside the original frame without enlarging or moving
                 // the motif when neighboring atlas pixels are excluded.
-                ctx.drawImage(image,clip[0],clip[1],clip[2]-clip[0],clip[3]-clip[1],
+                ctx.drawImage(source,clip[0],clip[1],clip[2]-clip[0],clip[3]-clip[1],
                   x+(size-w)/2+(clip[0]-frame[0])*scale,y+(size-h)/2+(clip[1]-frame[1])*scale,
                   (clip[2]-clip[0])*scale,(clip[3]-clip[1])*scale);
                 return true;
@@ -71,7 +100,7 @@
             }
           }else {
             const scale=size/Math.max(image.naturalWidth,image.naturalHeight),w=image.naturalWidth*scale,h=image.naturalHeight*scale;
-            ctx.drawImage(image,x+(size-w)/2,y+(size-h)/2,w,h);
+            ctx.drawImage(source,x+(size-w)/2,y+(size-h)/2,w,h);
             return true;
           }
         }
@@ -145,13 +174,14 @@
       });
       proxies.set(context,proxy);originals.set(proxy,context);return proxy;
     }
-    function prepare(symbols=[]) {
+    function prepare(symbols=[],options={}) {
       const values=typeof symbols==='string'?[symbols]:Array.from(symbols);
       const tokens=values.flatMap(value=>tokenMatches(String(value)).map(m=>m[0]));
-      const entries=tokens.map(token=>imageEntry(description(token)));
-      return Promise.all(entries.filter(Boolean).map(entry=>entry.promise));
+      const entries=[...new Set(tokens.map(token=>imageEntry(description(token))).filter(Boolean))];
+      if(options&&options.decode)return Promise.all(entries.map(entry=>entry.promise.then(ok=>ok?decodeEntry(entry).then(()=>ok):ok)));
+      return Promise.all(entries.map(entry=>entry.promise));
     }
-    return {canvas,drawSymbol,prepare,get version(){return version;}};
+    return {canvas,drawSymbol,prepare,get version(){return version;},get decoded(){return {...decodeStats};}};
   }
   const root=typeof globalThis!=='undefined'?globalThis:window;
   root.NaotocchiCanvasIllustrations={create};

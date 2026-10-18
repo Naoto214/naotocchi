@@ -1,0 +1,10 @@
+{
+  "source": "retained dragon-all8-full-npm.log",
+  "sha256": "5e6149d76a804fb90db5b300367b8f82f27a6faa6d318f494b4d0d5202f4ba07",
+  "mainPass": 3013,
+  "mainFail": 0,
+  "relationshipPass": 80,
+  "relationshipFail": 0,
+  "exitCode": null,
+  "note": "Completed main and trailing Relationship summaries present. Original session unavailable; exit code not recovered. Historical 3010/2 is a separate earlier run."
+}

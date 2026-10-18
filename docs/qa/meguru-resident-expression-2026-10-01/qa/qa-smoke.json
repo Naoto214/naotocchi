@@ -1,0 +1,1089 @@
+{
+  "base": "static repo",
+  "savedAt": "2026-10-01T17:21:05.650Z",
+  "plain": {
+    "region": "sea",
+    "residents": 0
+  },
+  "2d": {
+    "label": "2d",
+    "query": "?mgexprqa=1",
+    "emotions": {
+      "normal": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/cat/06.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/dog/03.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/frog/05.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/butterfly/02.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "positive": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-happy-v3.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-happy.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-happy.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-happy.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "positive",
+          "expression": "positive",
+          "basis": "variant",
+          "asset": "assets/characters/relationship/tanuki/positive.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "positive",
+          "expression": "positive",
+          "basis": "variant",
+          "asset": "assets/characters/relationship/cat_ceo/positive.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "dislike": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-sulky.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-sulky.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-sulky.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-sulky.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "dislike",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "dislike",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "sick": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-sick.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-sick.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-sick.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-sick.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "sick",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "sick",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "tired": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-tired.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-tired.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-tired.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-tired.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "tired",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "tired",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ]
+    },
+    "errors": [],
+    "is3D": false,
+    "keys": [
+      "form:cat:5",
+      "form:dog:2",
+      "form:frog:4",
+      "form:butterfly:1",
+      "companion:tanuki",
+      "partner:cat_ceo"
+    ],
+    "talk": {
+      "event": "talk",
+      "emotion": "happy",
+      "expression": "happy",
+      "line": "きみと いると たのしいな",
+      "faces": [
+        "normal",
+        "happy",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ]
+    },
+    "save": {
+      "regionId": "sea",
+      "meguru": {
+        "visits": 0,
+        "talkCount": 0,
+        "met": {},
+        "talks": {},
+        "spots": {}
+      }
+    }
+  },
+  "3d": {
+    "label": "3d",
+    "query": "?meguru3d=1&mgexprqa=1",
+    "emotions": {
+      "normal": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/cat/06.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/dog/03.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/frog/05.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/butterfly/02.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "normal",
+          "expression": "normal",
+          "basis": "normal",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "positive": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-happy-v3.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-happy.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-happy.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "positive",
+          "expression": "happy",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-happy.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "positive",
+          "expression": "positive",
+          "basis": "variant",
+          "asset": "assets/characters/relationship/tanuki/positive.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "positive",
+          "expression": "positive",
+          "basis": "variant",
+          "asset": "assets/characters/relationship/cat_ceo/positive.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "dislike": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-sulky.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-sulky.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-sulky.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "dislike",
+          "expression": "sulky",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-sulky.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "dislike",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "dislike",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "sick": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-sick.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-sick.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-sick.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "sick",
+          "expression": "sick",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-sick.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "sick",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "sick",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ],
+      "tired": [
+        {
+          "key": "form:cat:5",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/cat/06-tired.png",
+          "loaded": true,
+          "dist": 258
+        },
+        {
+          "key": "form:dog:2",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/dog/03-tired.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "form:frog:4",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/frog/05-tired.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "form:butterfly:1",
+          "kind": "form",
+          "family": "stage",
+          "emotion": "tired",
+          "expression": "tired",
+          "basis": "variant",
+          "asset": "assets/characters/expressions/butterfly/02-tired.png",
+          "loaded": true,
+          "dist": 193
+        },
+        {
+          "key": "companion:tanuki",
+          "kind": "companion",
+          "family": "relationship",
+          "emotion": "tired",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/companions/tanuki.png",
+          "loaded": true,
+          "dist": 217
+        },
+        {
+          "key": "partner:cat_ceo",
+          "kind": "partner",
+          "family": "relationship",
+          "emotion": "tired",
+          "expression": "normal",
+          "basis": "spec-base",
+          "asset": "assets/characters/partners/cat_ceo.png",
+          "loaded": true,
+          "dist": 258
+        }
+      ]
+    },
+    "errors": [],
+    "is3D": true,
+    "keys": [
+      "form:cat:5",
+      "form:dog:2",
+      "form:frog:4",
+      "form:butterfly:1",
+      "companion:tanuki",
+      "partner:cat_ceo"
+    ],
+    "diag3d": {
+      "normal": {
+        "visible": 6,
+        "inFrustum": 6,
+        "textureReady": 6,
+        "gl": {
+          "webgl2": true,
+          "maxTex": 8192,
+          "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0",
+          "dpr": 2
+        },
+        "rows": [
+          {
+            "key": "form:cat:5",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 399585,
+            "dist": 732
+          },
+          {
+            "key": "form:dog:2",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 297585,
+            "dist": 718
+          },
+          {
+            "key": "form:frog:4",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 227460,
+            "dist": 711
+          },
+          {
+            "key": "form:butterfly:1",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 170850,
+            "dist": 711
+          },
+          {
+            "key": "companion:tanuki",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 454920,
+            "dist": 718
+          },
+          {
+            "key": "partner:cat_ceo",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 165495,
+            "dist": 732
+          }
+        ]
+      },
+      "positive": {
+        "visible": 6,
+        "inFrustum": 6,
+        "textureReady": 6,
+        "gl": {
+          "webgl2": true,
+          "maxTex": 8192,
+          "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0",
+          "dpr": 2
+        },
+        "rows": [
+          {
+            "key": "form:cat:5",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 388365,
+            "dist": 732
+          },
+          {
+            "key": "form:dog:2",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 302175,
+            "dist": 718
+          },
+          {
+            "key": "form:frog:4",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 233835,
+            "dist": 711
+          },
+          {
+            "key": "form:butterfly:1",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 166260,
+            "dist": 711
+          },
+          {
+            "key": "companion:tanuki",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 461475,
+            "dist": 718
+          },
+          {
+            "key": "partner:cat_ceo",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 171286,
+            "dist": 732
+          }
+        ]
+      },
+      "dislike": {
+        "visible": 6,
+        "inFrustum": 6,
+        "textureReady": 6,
+        "gl": {
+          "webgl2": true,
+          "maxTex": 8192,
+          "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0",
+          "dpr": 2
+        },
+        "rows": [
+          {
+            "key": "form:cat:5",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 396015,
+            "dist": 732
+          },
+          {
+            "key": "form:dog:2",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 300135,
+            "dist": 718
+          },
+          {
+            "key": "form:frog:4",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 228735,
+            "dist": 711
+          },
+          {
+            "key": "form:butterfly:1",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 165750,
+            "dist": 711
+          },
+          {
+            "key": "companion:tanuki",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 454920,
+            "dist": 718
+          },
+          {
+            "key": "partner:cat_ceo",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 165495,
+            "dist": 732
+          }
+        ]
+      },
+      "sick": {
+        "visible": 6,
+        "inFrustum": 6,
+        "textureReady": 6,
+        "gl": {
+          "webgl2": true,
+          "maxTex": 8192,
+          "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0",
+          "dpr": 2
+        },
+        "rows": [
+          {
+            "key": "form:cat:5",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 404430,
+            "dist": 732
+          },
+          {
+            "key": "form:dog:2",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 291465,
+            "dist": 718
+          },
+          {
+            "key": "form:frog:4",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 226185,
+            "dist": 711
+          },
+          {
+            "key": "form:butterfly:1",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 164475,
+            "dist": 711
+          },
+          {
+            "key": "companion:tanuki",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 454920,
+            "dist": 718
+          },
+          {
+            "key": "partner:cat_ceo",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 165495,
+            "dist": 732
+          }
+        ]
+      },
+      "tired": {
+        "visible": 6,
+        "inFrustum": 6,
+        "textureReady": 6,
+        "gl": {
+          "webgl2": true,
+          "maxTex": 8192,
+          "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0",
+          "dpr": 2
+        },
+        "rows": [
+          {
+            "key": "form:cat:5",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 398310,
+            "dist": 732
+          },
+          {
+            "key": "form:dog:2",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 302940,
+            "dist": 718
+          },
+          {
+            "key": "form:frog:4",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 226185,
+            "dist": 711
+          },
+          {
+            "key": "form:butterfly:1",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 165750,
+            "dist": 711
+          },
+          {
+            "key": "companion:tanuki",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 454920,
+            "dist": 718
+          },
+          {
+            "key": "partner:cat_ceo",
+            "using": "asset",
+            "assetState": "ready",
+            "px": 165495,
+            "dist": 732
+          }
+        ]
+      }
+    },
+    "talk": {
+      "event": "talk",
+      "emotion": "happy",
+      "expression": "happy",
+      "line": "きみと いると たのしいな",
+      "faces": [
+        "normal",
+        "happy",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ]
+    },
+    "save": {
+      "regionId": "sea",
+      "meguru": {
+        "visits": 0,
+        "talkCount": 0,
+        "met": {},
+        "talks": {},
+        "spots": {}
+      }
+    }
+  },
+  "3d-webkit-emu": {
+    "delayMs": 1500,
+    "seen": [
+      "glyph",
+      "asset"
+    ],
+    "timeline": [
+      "glyph,glyph,glyph,glyph,glyph,glyph",
+      "glyph,glyph,glyph,glyph,glyph,glyph",
+      "asset,asset,asset,asset,asset,asset"
+    ],
+    "final": [
+      {
+        "key": "form:cat:5",
+        "using": "asset",
+        "px": 388365
+      },
+      {
+        "key": "form:dog:2",
+        "using": "asset",
+        "px": 302175
+      },
+      {
+        "key": "form:frog:4",
+        "using": "asset",
+        "px": 233835
+      },
+      {
+        "key": "form:butterfly:1",
+        "using": "asset",
+        "px": 166260
+      },
+      {
+        "key": "companion:tanuki",
+        "using": "asset",
+        "px": 461475
+      },
+      {
+        "key": "partner:cat_ceo",
+        "using": "asset",
+        "px": 171286
+      }
+    ]
+  }
+}

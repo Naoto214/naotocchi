@@ -1,0 +1,77 @@
+[
+  {
+    "name": "species equality",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "consume 6+",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "growth cap",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "death removed",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "slide recompression",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "items compressed",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "single anchor",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "gauge cost",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "egg consume",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "cap ignored",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "egg landing reward",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "overflow score",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "all costs one move",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "terminal protected",
+    "killed": true,
+    "exit": 1
+  },
+  {
+    "name": "initial random seed",
+    "killed": true,
+    "exit": 1
+  }
+]

@@ -1,0 +1,2081 @@
+{
+  "version": "growth-chain-lab/1",
+  "initial": {
+    "version": "growth-chain-lab/1",
+    "seed": 111,
+    "rules": {
+      "width": 6,
+      "height": 12,
+      "kinds": 5,
+      "anchor": "bottom",
+      "bulkAnchor": "bottom",
+      "consume": "all",
+      "competition": "component",
+      "pairFirst": false,
+      "deathSpecies": "same",
+      "eggCount": "group",
+      "eggThresholds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "gaugeMetric": "growth",
+      "gaugeUnit": 8,
+      "scoreMode": "evolution",
+      "topOut": "legal",
+      "eggPlacement": "column",
+      "bag": "fourEach",
+      "eggReward": "evolution"
+    },
+    "board": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gauge": 0,
+    "bag": {
+      "state": 440012190,
+      "kinds": 5,
+      "mode": "fourEach",
+      "index": 8,
+      "items": [
+        3,
+        4,
+        1,
+        1,
+        2,
+        0,
+        0,
+        4,
+        4,
+        2,
+        2,
+        2,
+        3,
+        0,
+        1,
+        3,
+        3,
+        1,
+        0,
+        4
+      ],
+      "cycle": 1
+    },
+    "queue": [
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "nextId": 1,
+    "score": 0,
+    "drops": 0,
+    "actions": 0,
+    "over": null
+  },
+  "actions": [
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 4,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 0,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 4
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 1,
+      "x": 4
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 0,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 4,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 1,
+      "x": 1
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 0
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 0,
+      "y": 11,
+      "to": 3
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 4,
+      "x": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 0,
+      "x": 0
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 1
+    },
+    {
+      "type": "transform",
+      "x": 2,
+      "y": 10,
+      "to": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 4,
+      "x": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 0,
+      "x": 0
+    },
+    {
+      "type": "transform",
+      "x": 3,
+      "y": 10,
+      "to": 4
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 1,
+      "x": 5
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 4,
+      "y": 11,
+      "to": 4
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 1,
+      "x": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 3,
+      "x": 3
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 0,
+      "x": 4
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 2,
+      "x": 5
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 0,
+      "x": 1
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 2
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "k": 1,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 1
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 2,
+      "x": 0
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 0,
+      "x": 3
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 2,
+      "y": 11,
+      "to": 0
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 2,
+      "x": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 4,
+      "y": 12,
+      "to": 1
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 0,
+      "x": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 4,
+      "x": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 2,
+      "y": 11,
+      "to": 4
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "k": 0,
+      "x": 2
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 1,
+      "x": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 1,
+      "y": 9,
+      "to": 1
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 3,
+      "x": 5
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 4,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 5,
+      "y": 11,
+      "to": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 4,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 5,
+      "y": 11,
+      "to": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 4,
+      "y": 8,
+      "to": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 1,
+      "y": 8,
+      "to": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 1,
+      "x": 0
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 1,
+      "y": 9,
+      "to": 0
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 0,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 1,
+      "y": 8,
+      "to": 0
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 3,
+      "x": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 3,
+      "y": 10,
+      "to": 1
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 0,
+      "x": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "k": 1,
+      "x": 3
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "k": 1,
+      "x": 5
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "k": 2,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 3,
+      "x": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "k": 4,
+      "x": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 1,
+      "to": 4
+    }
+  ],
+  "hash": "baa7bf1d",
+  "note": {
+    "cohort": "egg-results-20261014",
+    "condition": "evolution-active",
+    "seed": 111,
+    "firstDeath": {
+      "drop": 153,
+      "action": 228,
+      "wave": 2
+    },
+    "endingEvents": [
+      {
+        "chain": 1,
+        "events": [
+          {
+            "consumed": [
+              132,
+              140,
+              197
+            ],
+            "anchor": {
+              "x": 1,
+              "y": 12,
+              "id": 132
+            },
+            "from": 6,
+            "to": 8,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          },
+          {
+            "consumed": [
+              210,
+              299,
+              326,
+              297
+            ],
+            "anchor": {
+              "x": 0,
+              "y": 8,
+              "id": 210
+            },
+            "from": 3,
+            "to": 6,
+            "overflow": 0,
+            "death": false,
+            "eggRank": 2,
+            "eggCount": 1
+          },
+          {
+            "consumed": [
+              344,
+              345
+            ],
+            "anchor": {
+              "x": 4,
+              "y": 7,
+              "id": 344
+            },
+            "from": 2,
+            "to": 3,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      },
+      {
+        "chain": 2,
+        "events": [
+          {
+            "consumed": [
+              3,
+              132
+            ],
+            "anchor": {
+              "x": 1,
+              "y": 13,
+              "id": 3
+            },
+            "from": 8,
+            "to": null,
+            "overflow": 0,
+            "death": true,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      },
+      {
+        "chain": 3,
+        "events": [
+          {
+            "consumed": [
+              255,
+              47
+            ],
+            "anchor": {
+              "x": 1,
+              "y": 13,
+              "id": 255
+            },
+            "from": 2,
+            "to": 3,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      },
+      {
+        "chain": 4,
+        "events": [
+          {
+            "consumed": [
+              349,
+              324
+            ],
+            "anchor": {
+              "x": 2,
+              "y": 10,
+              "id": 349
+            },
+            "from": 3,
+            "to": 4,
+            "overflow": 0,
+            "death": false,
+            "eggRank": 0,
+            "eggCount": 1
+          }
+        ]
+      },
+      {
+        "chain": 5,
+        "events": [
+          {
+            "consumed": [
+              350,
+              338
+            ],
+            "anchor": {
+              "x": 3,
+              "y": 8,
+              "id": 350
+            },
+            "from": 2,
+            "to": 3,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      }
+    ]
+  }
+}

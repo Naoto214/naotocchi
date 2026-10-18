@@ -1,0 +1,11 @@
+✔ scene save setup permits only recorded one-time city seed and retains whole-span mutation (19.858019ms)
+✔ scene setup proof rejects unknown fields, storage commits and missing complete provenance (16.929914ms)
+✔ scene setup diagnostic deltas accept live undefined properties and serialized omitted properties equally (13.081041ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 181.055932

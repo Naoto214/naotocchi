@@ -1,0 +1,448 @@
+{
+  "source": "81a7d981a6cee7f7930ec297e79692c44eb382c2",
+  "method": "Node geometry only; excludes GPU, image atlas memory and render visibility",
+  "rows": [
+    {
+      "id": "dog",
+      "stage": 1,
+      "claude": {
+        "tris": 4062,
+        "meshes": 12,
+        "geometryBytes": 138728,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 4062,
+        "meshes": 12,
+        "geometryBytes": 138728,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "claude": {
+        "tris": 4062,
+        "meshes": 12,
+        "geometryBytes": 138728,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 4062,
+        "meshes": 12,
+        "geometryBytes": 138728,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "claude": {
+        "tris": 4274,
+        "meshes": 12,
+        "geometryBytes": 146292,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 4274,
+        "meshes": 12,
+        "geometryBytes": 146292,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "penguin",
+      "stage": 1,
+      "claude": {
+        "tris": 2650,
+        "meshes": 9,
+        "geometryBytes": 92636,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2706,
+        "meshes": 9,
+        "geometryBytes": 94556,
+        "faces": 1
+      },
+      "triangleDelta": 56
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "claude": {
+        "tris": 2646,
+        "meshes": 9,
+        "geometryBytes": 92612,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2702,
+        "meshes": 9,
+        "geometryBytes": 94532,
+        "faces": 1
+      },
+      "triangleDelta": 56
+    },
+    {
+      "id": "penguin",
+      "stage": 8,
+      "claude": {
+        "tris": 2496,
+        "meshes": 10,
+        "geometryBytes": 87356,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2552,
+        "meshes": 10,
+        "geometryBytes": 89276,
+        "faces": 1
+      },
+      "triangleDelta": 56
+    },
+    {
+      "id": "clownfish",
+      "stage": 1,
+      "claude": {
+        "tris": 2568,
+        "meshes": 7,
+        "geometryBytes": 87524,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2564,
+        "meshes": 7,
+        "geometryBytes": 87500,
+        "faces": 1
+      },
+      "triangleDelta": -4
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "claude": {
+        "tris": 2568,
+        "meshes": 7,
+        "geometryBytes": 87524,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2552,
+        "meshes": 7,
+        "geometryBytes": 87428,
+        "faces": 1
+      },
+      "triangleDelta": -16
+    },
+    {
+      "id": "clownfish",
+      "stage": 8,
+      "claude": {
+        "tris": 2556,
+        "meshes": 7,
+        "geometryBytes": 87452,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2552,
+        "meshes": 7,
+        "geometryBytes": 87428,
+        "faces": 1
+      },
+      "triangleDelta": -4
+    },
+    {
+      "id": "man",
+      "stage": 1,
+      "claude": {
+        "tris": 3740,
+        "meshes": 9,
+        "geometryBytes": 127600,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 5330,
+        "meshes": 9,
+        "geometryBytes": 182064,
+        "faces": 1
+      },
+      "triangleDelta": 1590
+    },
+    {
+      "id": "man",
+      "stage": 4,
+      "claude": {
+        "tris": 4600,
+        "meshes": 9,
+        "geometryBytes": 156696,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 5963,
+        "meshes": 9,
+        "geometryBytes": 206234,
+        "faces": 1
+      },
+      "triangleDelta": 1363
+    },
+    {
+      "id": "man",
+      "stage": 8,
+      "claude": {
+        "tris": 3836,
+        "meshes": 10,
+        "geometryBytes": 130640,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 4855,
+        "meshes": 10,
+        "geometryBytes": 168874,
+        "faces": 1
+      },
+      "triangleDelta": 1019
+    },
+    {
+      "id": "butterfly",
+      "stage": 1,
+      "claude": {
+        "tris": 3140,
+        "meshes": 7,
+        "geometryBytes": 114056,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 3140,
+        "meshes": 7,
+        "geometryBytes": 114056,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "butterfly",
+      "stage": 4,
+      "claude": {
+        "tris": 2790,
+        "meshes": 8,
+        "geometryBytes": 92200,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2790,
+        "meshes": 8,
+        "geometryBytes": 92200,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "butterfly",
+      "stage": 5,
+      "claude": {
+        "tris": 1400,
+        "meshes": 5,
+        "geometryBytes": 48308,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 1712,
+        "meshes": 5,
+        "geometryBytes": 59112,
+        "faces": 1
+      },
+      "triangleDelta": 312
+    },
+    {
+      "id": "butterfly",
+      "stage": 8,
+      "claude": {
+        "tris": 3900,
+        "meshes": 7,
+        "geometryBytes": 149372,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 4236,
+        "meshes": 7,
+        "geometryBytes": 163708,
+        "faces": 1
+      },
+      "triangleDelta": 336
+    },
+    {
+      "id": "dandelion",
+      "stage": 1,
+      "claude": {
+        "tris": 2504,
+        "meshes": 5,
+        "geometryBytes": 105136,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2504,
+        "meshes": 5,
+        "geometryBytes": 105136,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "claude": {
+        "tris": 2996,
+        "meshes": 6,
+        "geometryBytes": 104964,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2996,
+        "meshes": 6,
+        "geometryBytes": 104964,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "dandelion",
+      "stage": 6,
+      "claude": {
+        "tris": 2974,
+        "meshes": 7,
+        "geometryBytes": 107868,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 3982,
+        "meshes": 7,
+        "geometryBytes": 147180,
+        "faces": 1
+      },
+      "triangleDelta": 1008
+    },
+    {
+      "id": "dandelion",
+      "stage": 8,
+      "claude": {
+        "tris": 3190,
+        "meshes": 10,
+        "geometryBytes": 103840,
+        "faces": 5
+      },
+      "revised": {
+        "tris": 6068,
+        "meshes": 12,
+        "geometryBytes": 252624,
+        "faces": 6
+      },
+      "triangleDelta": 2878
+    },
+    {
+      "id": "mushroom",
+      "stage": 1,
+      "claude": {
+        "tris": 2880,
+        "meshes": 12,
+        "geometryBytes": 89880,
+        "faces": 6
+      },
+      "revised": {
+        "tris": 3084,
+        "meshes": 12,
+        "geometryBytes": 100344,
+        "faces": 6
+      },
+      "triangleDelta": 204
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "claude": {
+        "tris": 1940,
+        "meshes": 6,
+        "geometryBytes": 102368,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2220,
+        "meshes": 6,
+        "geometryBytes": 82268,
+        "faces": 1
+      },
+      "triangleDelta": 280
+    },
+    {
+      "id": "mushroom",
+      "stage": 8,
+      "claude": {
+        "tris": 2396,
+        "meshes": 7,
+        "geometryBytes": 116676,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 3856,
+        "meshes": 8,
+        "geometryBytes": 144708,
+        "faces": 2
+      },
+      "triangleDelta": 1460
+    },
+    {
+      "id": "starfish",
+      "stage": 1,
+      "claude": {
+        "tris": 1740,
+        "meshes": 5,
+        "geometryBytes": 59192,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 2128,
+        "meshes": 5,
+        "geometryBytes": 73004,
+        "faces": 1
+      },
+      "triangleDelta": 388
+    },
+    {
+      "id": "starfish",
+      "stage": 4,
+      "claude": {
+        "tris": 1848,
+        "meshes": 4,
+        "geometryBytes": 63052,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 1848,
+        "meshes": 4,
+        "geometryBytes": 63052,
+        "faces": 1
+      },
+      "triangleDelta": 0
+    },
+    {
+      "id": "starfish",
+      "stage": 8,
+      "claude": {
+        "tris": 3844,
+        "meshes": 5,
+        "geometryBytes": 152248,
+        "faces": 1
+      },
+      "revised": {
+        "tris": 3842,
+        "meshes": 5,
+        "geometryBytes": 152236,
+        "faces": 1
+      },
+      "triangleDelta": -2
+    }
+  ]
+}

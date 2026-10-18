@@ -1,0 +1,15 @@
+{
+  "results": [
+    {
+      "case": "wide_notch",
+      "exitCode": 1,
+      "detected": true
+    },
+    {
+      "case": "inward_keyhole_hooks",
+      "exitCode": 1,
+      "detected": true
+    }
+  ],
+  "restoredSHA256": "f90ef6da8c87506ef49e8f21df192048d87a880c3891006e96ddefd0d12759c3"
+}

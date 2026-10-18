@@ -1,0 +1,552 @@
+{
+  "source_head": "7ec4bf05d4fe6693bf8dd5c80822544db531d649",
+  "inputs": {
+    "normal08": {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe",
+      "candidate_id": "normal08"
+    },
+    "happy": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "sha256": "a57e0c5ff540258da43414fc2dd215ea6c110dbf5f25706fcadb5ff48ff22df9",
+      "candidate_id": "happy.png"
+    },
+    "strained": {
+      "path": "docs/qa/antlion08-limited-candidates-20260928/candidates/strained-face.png",
+      "sha256": "e29a94b1177350cdb7c43eb0d197f6fe565477ab3b989655fdeba681e025afe8",
+      "candidate_id": "strained-face.png"
+    },
+    "hungry": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c",
+      "candidate_id": "hungry.png"
+    },
+    "sick": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "sha256": "b7d99326718c8830137f83b001d4e99acbd018bd2083f573e51c73b57f760b5f",
+      "candidate_id": "sick.png"
+    },
+    "tired": {
+      "path": "assets/characters/expressions/antlion/08-tired.png",
+      "sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161",
+      "candidate_id": "D4 tired (approved)"
+    },
+    "sulky": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "sha256": "4c702c641f299446af142c5595a3ec7f796122bc241ed7f80316feca598b56f9",
+      "candidate_id": "sulky.png"
+    },
+    "weak": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "sha256": "5a76b0f8b3c6fd3b4b2b4f1927ad0b55f8ff8c7ff0a3e404fb80788b04b513a7",
+      "candidate_id": "weak.png"
+    },
+    "critical": {
+      "path": "docs/qa/antlion08-limited-candidates-20260928/candidates/critical-particles.png",
+      "sha256": "2d4f8ed516ed377bf46c990875d120d1aeb9c9cd220e0a4f309efb5d45c828f3",
+      "candidate_id": "critical-particles.png"
+    },
+    "wantsPlay": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "sha256": "98fbc19d6a07ce65bf28d3baf9f5955be28ae3fef052c68394b4548b2897dc66",
+      "candidate_id": "wantsPlay.png"
+    },
+    "sleeping": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "sha256": "010d2b3253687af436dfea1e964dcee72fbcea6717e6db8244549e1230ee7490",
+      "candidate_id": "sleeping.png"
+    }
+  },
+  "sheets": [
+    {
+      "id": "body-128",
+      "svg": "body-128.svg",
+      "png": "body-128.png",
+      "states": [
+        "normal08",
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": 128,
+      "face_roi": null,
+      "face_scale": null,
+      "cell_size": [
+        180,
+        188
+      ],
+      "background": "#e6eaed",
+      "width": 744,
+      "height": 706,
+      "marks": false,
+      "sweat": false
+    },
+    {
+      "id": "body-104",
+      "svg": "body-104.svg",
+      "png": "body-104.png",
+      "states": [
+        "normal08",
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": 104,
+      "face_roi": null,
+      "face_scale": null,
+      "cell_size": [
+        180,
+        188
+      ],
+      "background": "#e6eaed",
+      "width": 744,
+      "height": 706,
+      "marks": false,
+      "sweat": false
+    },
+    {
+      "id": "body-80",
+      "svg": "body-80.svg",
+      "png": "body-80.png",
+      "states": [
+        "normal08",
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": 80,
+      "face_roi": null,
+      "face_scale": null,
+      "cell_size": [
+        180,
+        188
+      ],
+      "background": "#e6eaed",
+      "width": 744,
+      "height": 706,
+      "marks": false,
+      "sweat": false
+    },
+    {
+      "id": "body-64",
+      "svg": "body-64.svg",
+      "png": "body-64.png",
+      "states": [
+        "normal08",
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": 64,
+      "face_roi": null,
+      "face_scale": null,
+      "cell_size": [
+        180,
+        188
+      ],
+      "background": "#e6eaed",
+      "width": 744,
+      "height": 706,
+      "marks": false,
+      "sweat": false
+    },
+    {
+      "id": "faces",
+      "svg": "faces.svg",
+      "png": "faces.png",
+      "states": [
+        "normal08",
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": null,
+      "face_roi": [
+        88,
+        52,
+        108,
+        70
+      ],
+      "face_scale": 8,
+      "cell_size": [
+        180,
+        196
+      ],
+      "background": "#e6eaed",
+      "width": 2004,
+      "height": 338,
+      "marks": false,
+      "sweat": false
+    },
+    {
+      "id": "marks-104",
+      "svg": "marks-104.svg",
+      "png": "marks-104.png",
+      "states": [
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": 104,
+      "face_roi": null,
+      "face_scale": null,
+      "cell_size": [
+        180,
+        188
+      ],
+      "background": "#e6eaed",
+      "width": 744,
+      "height": 706,
+      "marks": true,
+      "sweat": false
+    },
+    {
+      "id": "marks-80",
+      "svg": "marks-80.svg",
+      "png": "marks-80.png",
+      "states": [
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": 80,
+      "face_roi": null,
+      "face_scale": null,
+      "cell_size": [
+        180,
+        188
+      ],
+      "background": "#e6eaed",
+      "width": 744,
+      "height": 706,
+      "marks": true,
+      "sweat": false
+    },
+    {
+      "id": "marks-64",
+      "svg": "marks-64.svg",
+      "png": "marks-64.png",
+      "states": [
+        "happy",
+        "strained",
+        "hungry",
+        "sick",
+        "tired",
+        "sulky",
+        "weak",
+        "critical",
+        "wantsPlay",
+        "sleeping"
+      ],
+      "size": 64,
+      "face_roi": null,
+      "face_scale": null,
+      "cell_size": [
+        180,
+        188
+      ],
+      "background": "#e6eaed",
+      "width": 744,
+      "height": 706,
+      "marks": true,
+      "sweat": false
+    }
+  ],
+  "mark_records": [
+    {
+      "state": "happy",
+      "size": 104,
+      "resolved": "happy",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "canonical_accent_sha256": "bb793f2d7e13c09e21ca19c041e6e13bb31ef44e387fde90bc282ba3e3906f0e",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "strained",
+      "size": 104,
+      "resolved": "strained",
+      "source_path": "docs/qa/antlion08-limited-candidates-20260928/candidates/strained-face.png",
+      "canonical_accent_sha256": "d3301cd577498b83efa8e0dc7d442c0210bc83e2f6b88541a4c4da4d1fec44bb",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "hungry",
+      "size": 104,
+      "resolved": "hungry",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "canonical_accent_sha256": "4c873e2744149dea16d96ac41290b43eba5ef6c7441e537d8fef51a0012e52fb",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "sick",
+      "size": 104,
+      "resolved": "sick",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "canonical_accent_sha256": "d3078aa370ba28d7783c5d9335f294c01fbd5fbc0cc589b96771b9a1b54b6d4c",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "tired",
+      "size": 104,
+      "resolved": "tired",
+      "source_path": "assets/characters/expressions/antlion/08-tired.png",
+      "canonical_accent_sha256": "6d19ddd1fdb894c71c880d554603f17f457563074252c2312d2b981f5a0d7b4f",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "sulky",
+      "size": 104,
+      "resolved": "sulky",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "canonical_accent_sha256": "3137b241ca745e7171f2f6aa2a4887c012fbfc268896ddb5ca57f64fbad5650a",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "weak",
+      "size": 104,
+      "resolved": "weak",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "canonical_accent_sha256": "7c8ea631407543575f8ef37ee579e2bb890d6021135426f87536ff1ca62b5ebe",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "critical",
+      "size": 104,
+      "resolved": "critical",
+      "source_path": "docs/qa/antlion08-limited-candidates-20260928/candidates/critical-particles.png",
+      "canonical_accent_sha256": "d08e2db443f37e97fbfb404d2cd9d52b1620d9751c9feb2edc12afb594b034f1",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "wantsPlay",
+      "size": 104,
+      "resolved": "wantsPlay",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "canonical_accent_sha256": "6e941c40da1dbb2e4e96cab1118ab8cf6b4fd9a964a65a5dc327996ef51bb06d",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "sleeping",
+      "size": 104,
+      "resolved": "sleeping",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "canonical_accent_sha256": "a58f8cd659bd323b89fccfdff2c8d2d551749489884913b6e839b8f146646087",
+      "art_offset_y": 9.75
+    },
+    {
+      "state": "happy",
+      "size": 80,
+      "resolved": "happy",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "canonical_accent_sha256": "bb793f2d7e13c09e21ca19c041e6e13bb31ef44e387fde90bc282ba3e3906f0e",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "strained",
+      "size": 80,
+      "resolved": "strained",
+      "source_path": "docs/qa/antlion08-limited-candidates-20260928/candidates/strained-face.png",
+      "canonical_accent_sha256": "d3301cd577498b83efa8e0dc7d442c0210bc83e2f6b88541a4c4da4d1fec44bb",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "hungry",
+      "size": 80,
+      "resolved": "hungry",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "canonical_accent_sha256": "4c873e2744149dea16d96ac41290b43eba5ef6c7441e537d8fef51a0012e52fb",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "sick",
+      "size": 80,
+      "resolved": "sick",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "canonical_accent_sha256": "d3078aa370ba28d7783c5d9335f294c01fbd5fbc0cc589b96771b9a1b54b6d4c",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "tired",
+      "size": 80,
+      "resolved": "tired",
+      "source_path": "assets/characters/expressions/antlion/08-tired.png",
+      "canonical_accent_sha256": "6d19ddd1fdb894c71c880d554603f17f457563074252c2312d2b981f5a0d7b4f",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "sulky",
+      "size": 80,
+      "resolved": "sulky",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "canonical_accent_sha256": "3137b241ca745e7171f2f6aa2a4887c012fbfc268896ddb5ca57f64fbad5650a",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "weak",
+      "size": 80,
+      "resolved": "weak",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "canonical_accent_sha256": "7c8ea631407543575f8ef37ee579e2bb890d6021135426f87536ff1ca62b5ebe",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "critical",
+      "size": 80,
+      "resolved": "critical",
+      "source_path": "docs/qa/antlion08-limited-candidates-20260928/candidates/critical-particles.png",
+      "canonical_accent_sha256": "d08e2db443f37e97fbfb404d2cd9d52b1620d9751c9feb2edc12afb594b034f1",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "wantsPlay",
+      "size": 80,
+      "resolved": "wantsPlay",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "canonical_accent_sha256": "6e941c40da1dbb2e4e96cab1118ab8cf6b4fd9a964a65a5dc327996ef51bb06d",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "sleeping",
+      "size": 80,
+      "resolved": "sleeping",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "canonical_accent_sha256": "a58f8cd659bd323b89fccfdff2c8d2d551749489884913b6e839b8f146646087",
+      "art_offset_y": 7.5
+    },
+    {
+      "state": "happy",
+      "size": 64,
+      "resolved": "happy",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "canonical_accent_sha256": "bb793f2d7e13c09e21ca19c041e6e13bb31ef44e387fde90bc282ba3e3906f0e",
+      "art_offset_y": 6
+    },
+    {
+      "state": "strained",
+      "size": 64,
+      "resolved": "strained",
+      "source_path": "docs/qa/antlion08-limited-candidates-20260928/candidates/strained-face.png",
+      "canonical_accent_sha256": "d3301cd577498b83efa8e0dc7d442c0210bc83e2f6b88541a4c4da4d1fec44bb",
+      "art_offset_y": 6
+    },
+    {
+      "state": "hungry",
+      "size": 64,
+      "resolved": "hungry",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "canonical_accent_sha256": "4c873e2744149dea16d96ac41290b43eba5ef6c7441e537d8fef51a0012e52fb",
+      "art_offset_y": 6
+    },
+    {
+      "state": "sick",
+      "size": 64,
+      "resolved": "sick",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "canonical_accent_sha256": "d3078aa370ba28d7783c5d9335f294c01fbd5fbc0cc589b96771b9a1b54b6d4c",
+      "art_offset_y": 6
+    },
+    {
+      "state": "tired",
+      "size": 64,
+      "resolved": "tired",
+      "source_path": "assets/characters/expressions/antlion/08-tired.png",
+      "canonical_accent_sha256": "6d19ddd1fdb894c71c880d554603f17f457563074252c2312d2b981f5a0d7b4f",
+      "art_offset_y": 6
+    },
+    {
+      "state": "sulky",
+      "size": 64,
+      "resolved": "sulky",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "canonical_accent_sha256": "3137b241ca745e7171f2f6aa2a4887c012fbfc268896ddb5ca57f64fbad5650a",
+      "art_offset_y": 6
+    },
+    {
+      "state": "weak",
+      "size": 64,
+      "resolved": "weak",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "canonical_accent_sha256": "7c8ea631407543575f8ef37ee579e2bb890d6021135426f87536ff1ca62b5ebe",
+      "art_offset_y": 6
+    },
+    {
+      "state": "critical",
+      "size": 64,
+      "resolved": "critical",
+      "source_path": "docs/qa/antlion08-limited-candidates-20260928/candidates/critical-particles.png",
+      "canonical_accent_sha256": "d08e2db443f37e97fbfb404d2cd9d52b1620d9751c9feb2edc12afb594b034f1",
+      "art_offset_y": 6
+    },
+    {
+      "state": "wantsPlay",
+      "size": 64,
+      "resolved": "wantsPlay",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "canonical_accent_sha256": "6e941c40da1dbb2e4e96cab1118ab8cf6b4fd9a964a65a5dc327996ef51bb06d",
+      "art_offset_y": 6
+    },
+    {
+      "state": "sleeping",
+      "size": 64,
+      "resolved": "sleeping",
+      "source_path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "canonical_accent_sha256": "a58f8cd659bd323b89fccfdff2c8d2d551749489884913b6e839b8f146646087",
+      "art_offset_y": 6
+    }
+  ],
+  "canonical_css_sha256": "3e6a9bc6262bfe485c691839931c940c0746180ca5d7d31c067180abe75040e0",
+  "body_sampling": "nearest-neighbour; entire original 128px canvas; no registration, warp, crop or palette edits",
+  "face_sampling": "shared ROI only; same magnification and orientation; original source PNG embedded",
+  "rating_labels": false,
+  "human_approval": false,
+  "actual_home_checked": false
+}

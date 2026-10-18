@@ -1,0 +1,117 @@
+{
+  "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "total": 293,
+  "archetypes": 23,
+  "triage": "ASSISTANT_STATIC_COMPARISON_COMPLETED_NOT_HUMAN_APPROVAL",
+  "scope": "Original, front and 34 for all293; legacy composites additionally inspected at full size. H01-H03 plus frog04 checked against four views. Full293 side/back and animation are not newly claimed as reviewed in this triage. Existing source-specific technical gates remain historical evidence.",
+  "originalHashesMatched": 293,
+  "evidenceMissing": 0,
+  "existingRepairApprovals": [
+    "author:naoto:0",
+    "partner:grove_deer:0"
+  ],
+  "normalBatchCandidates": 288,
+  "priorityCandidates": [
+    {
+      "id": "H01",
+      "key": "form:ghost:5",
+      "observation": "原画の大きく開いた暗色の口に対し、3D normalは小さな口と閉じた目で、怖さ・顔の印象が弱い。",
+      "decision": "POST_MERGE_QUALITY_PASS_CANDIDATE_NOT_TECHNICAL_BLOCKER",
+      "detail": "form-ghost-5-detail.jpg",
+      "constraint": "共通Expressionを変更せず、原画の個性として必要な補正かHuman判断する。",
+      "sourceFiles": [
+        {
+          "path": "assets/characters/ghost/05.png",
+          "sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-front.jpg",
+          "sha256": "507e8925264f950303a6466aa9bb41da60bc25aa4c40cbcf24d398fb58ec7099"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-34.jpg",
+          "sha256": "064e93a7c5688b24c9083471f2763d434dbf5871fe7d0455eabd6e755e1273c4"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-side.jpg",
+          "sha256": "f9cf91c19c55bee503fd7bb3f26d0c18321175e39bd7f234a2762f2d1f0c4585"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-back.jpg",
+          "sha256": "df65750f1bae95f273d4586446409b8f8f3b2ab70ccdc1a0a4f306814a8ceae9"
+        }
+      ],
+      "detailSha256": "1c03210f881f26bbc08a97eef8ba89102df0a4e24d983086d658dddc4f75cfdb",
+      "detailLayout": "2D original / front / 34 / side / back; contain thumbnails, no geometry alterations"
+    },
+    {
+      "id": "H02",
+      "key": "form:starfish:7",
+      "observation": "原画の幅広い三角形の腕に対し、3Dは細く丸い腕として見える。側面・背面も含め許容範囲を確認する。",
+      "decision": "POST_MERGE_QUALITY_PASS_CANDIDATE_NOT_TECHNICAL_BLOCKER",
+      "detail": "form-starfish-7-detail.jpg",
+      "sourceFiles": [
+        {
+          "path": "assets/characters/starfish/07.png",
+          "sha256": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/starfish-7-front.jpg",
+          "sha256": "30a137c0528d40637ae0ff13e1eb4020abc34056d5fd0aede4193709039ee670"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/starfish-7-34.jpg",
+          "sha256": "bf27b16c87383272abd891bb77261ed73648ee7764f578df1cde892910d2ebc7"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/starfish-7-side.jpg",
+          "sha256": "55837cda0ec0f2150b1652f731f1c6bde72e543b44f92afa1ae621a3763d81ab"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/starfish-7-back.jpg",
+          "sha256": "3e1474432d20446ff823e2b396cffbd34ccfb0c8dc182ef98ab1d3325f5e0fd4"
+        }
+      ],
+      "detailSha256": "fc2df0192034049f97994fbfa9212d33348c561e51af9ac6bac46a4d525532e5",
+      "detailLayout": "2D original / front / 34 / side / back; contain thumbnails, no geometry alterations"
+    },
+    {
+      "id": "H03",
+      "key": "form:dragon:8",
+      "observation": "原画のまとまった巻き尾・座り姿に対し、3Dは胴が直立し、翼が左右へ開いた輪郭となる。終段階の落ち着いた印象の許容範囲を確認する。",
+      "decision": "POST_MERGE_QUALITY_PASS_CANDIDATE_NOT_TECHNICAL_BLOCKER",
+      "detail": "form-dragon-8-detail.jpg",
+      "sourceFiles": [
+        {
+          "path": "assets/characters/dragon/08.png",
+          "sha256": "b14fbf6ce1315c58ec58921454091ee0bde1588157dc093827210453929f6553"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-front.jpg",
+          "sha256": "c56c768c948e8bc81dde3937a946d156590b83188f8f23993193bc2cb692ec1e"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-34.jpg",
+          "sha256": "abba79c1db20a1ce43c656de815217f35da2d489d7e2c162a35ef35aaeb78679"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-side.jpg",
+          "sha256": "5f3bec8e7ba30ca241489a1fac869358450ad5f30e2a0a1f8cb6fdf816c2d875"
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-back.jpg",
+          "sha256": "a448ea46ad7a2274863899584cf6a2a1e41ec498b9ee0f736210d0fcbae1f76f"
+        }
+      ],
+      "detailSha256": "bd0d1e7704e57b1bcbb21517665971c95908d3c29f9c78c4e9ac92a502193535",
+      "detailLayout": "2D original / front / 34 / side / back; contain thumbnails, no geometry alterations"
+    }
+  ],
+  "excludedFalseAlarm": {
+    "key": "form:frog:4",
+    "reason": "Tail not obvious in small contact sheet; full four-view source confirms tail is present. No repair."
+  },
+  "humanDecision": "OVERALL_QUALITY_ACCEPTED_FINE_REVIEW_POST_MERGE",
+  "batchRule": "Latest user directive supersedes required pre-merge batch art approval; retained observations are post-merge Quality Pass candidates, not individual approval or rejection.",
+  "noGeometryChanges": true
+}

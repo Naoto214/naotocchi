@@ -1,0 +1,12 @@
+✔ strict boundaries preserve every dirty presentation failure, including writes, getter swaps and thrown actions (2.232547ms)
+✔ real Meguru record APIs progress outside presentation boundaries without suppressing save calls (149.725339ms)
+✔ real first-city map seed is observable and repeated existing seed makes no further normal write (31.031293ms)
+✔ scene save diagnostics expose first natural city seed per phase while strict original aggregate rejects it (22.926322ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 297.699321

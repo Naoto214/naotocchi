@@ -1,0 +1,17 @@
+const fs=require('fs'),cp=require('child_process'),path=require('path');
+const root=process.cwd(),e=require(root+'/pet-expression.js'),bounds=require(root+'/cast-bounds.js'),inline=require(root+'/tools/inline-expression-images.cjs');
+const sourceRef=process.env.STEP4_BASE_REF||'2b0969ac4fc64a636e12673a25740c59793f8ca5';
+if(cp.execFileSync('git',['rev-parse',sourceRef+'^{tree}'],{encoding:'utf8'}).trim()!=='5f7937692aedd88285365238eec2d0b656c2fe04')throw Error('Unexpected comparison source tree');
+const ks=['hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping','happy','strained'];
+const labels=['空腹','病気','疲労','不機嫌','いのち低下','危険','かまって','睡眠','喜び','いやだ'];
+const groups=[['dog','03',['wantsPlay'],'犬03 左前脚・候補'],['antlion','07',ks.filter(k=>['strained','hungry','tired','weak','critical'].includes(k)),'ウスバカゲロウ07 軌跡・粒子・候補'],['antlion','08',ks,'ウスバカゲロウ08 補修未採用・元画像保護'],['starfish','08',ks,'ヒトデ08 小泡復元・候補']];
+let defs=[],ids=new Map();
+function pic(p,old=false){let key=p+old;if(!ids.has(key)){let data=old?cp.execFileSync('git',['show',sourceRef+':'+p]):fs.readFileSync(p),id='p'+ids.size;ids.set(key,id);defs.push(`<image id="${id}" width="128" height="128" href="data:image/png;base64,${data.toString('base64')}"/>`);}return ids.get(key);}
+function img(p,old,n,x,y){return `<use href="#${pic(p,old)}" transform="translate(${x} ${y}) scale(${n/128})"/>`;}
+function comp(base,k,old,n,x,y){let p=e.assetFor(base,k),floor=n*(128-bounds[base].box[3])/128,d=e.sweatFor(base,n,n,floor),w=Math.max(6,Math.min(11,n*.1)),h=Math.max(9,Math.min(16,n*.15));let s=`<g transform="translate(${x} ${y})">`+img(p,old,n,0,floor);for(let xx of [d.left,n-d.right-w]){let yy=d.top+d.travel*.5;s+=`<g transform="translate(${xx} ${yy}) rotate(18 ${w/2} ${h/2})"><path d="M${w*.65} 0 C${w*.94} ${h*.15} ${w} ${h*.55} ${w*.8} ${h*.84} C${w*.5} ${h*1.08} ${w*.08} ${h*.92} 0 ${h*.62} C${-w*.04} ${h*.3} ${w*.23} 0 ${w*.65} 0Z" fill="#a5d934" stroke="#689d15" stroke-width="1"/></g>`;}
+let m=e.accentFor(base,k).match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1];s+=`<g class="pet-expression-accent" transform="scale(${n/104})">${inline(m)}</g></g>`;return s;}
+const txt=(x,y,t,z=14)=>`<text x="${x}" y="${y}" font-size="${z}">${t}</text>`;
+for(let [sp,st,keys,title]of groups){defs=[];ids=new Map();let base=`assets/characters/${sp}/${st}.png`,pending=sp==='antlion'&&st==='08';let s=txt(20,30,title,24)+txt(20,53,'手順4 人間確認待ち／開始HEAD 2b0969ac4fc64a636e12673a25740c59793f8ca5')+txt(20,74,'左3列：128px本体。右：64／80／104px、病気併存・本体→汗→状態マーク。静的合成、実ブラウザーではありません。')+txt(20,95,pending?'全10枚未変更。太い枝と脚の交差部の保護が未達。試作を本番候補へ採用していません。':'再生成なし。通常基準は非変更。右の前後比較は同じresolver・offset・汗位相0.5。');
+for(let[i,k]of keys.entries()){let y=115+i*205,p=e.assetFor(base,k);s+=`<rect x="10" y="${y}" width="1200" height="197" rx="8" fill="white" stroke="#ccc"/>`+txt(22,y+23,`${labels[ks.indexOf(k)]}（${k}）`,18);for(let [x,l]of [[22,'通常基準'],[180,'修正前'],[340,pending?'現状維持・未補修':'修正候補']])s+=txt(x,y+45,l);s+=img(base,false,128,22,y+58)+img(p,true,128,180,y+58)+img(p,false,128,340,y+58);
+for(let[n,x]of [[64,530],[80,705],[104,915]]){s+=txt(x,y+44,`${n}px 前 → ${pending?'未変更':'後'}`);s+=comp(base,k,true,n,x,y+73)+comp(base,k,false,n,x+n+12,y+73);}}
+fs.writeFileSync(`docs/qa/step4-${sp}-${st}-20260927.svg`,`<svg xmlns="http://www.w3.org/2000/svg" width="1230" height="${125+keys.length*205}" font-family="Noto Sans CJK JP,sans-serif"><defs>${defs.join('')}</defs><style>${fs.readFileSync("pet-expression.css","utf8")} image{image-rendering:pixelated}</style><rect width="100%" height="100%" fill="#f4f2ec"/>${s}</svg>`);}

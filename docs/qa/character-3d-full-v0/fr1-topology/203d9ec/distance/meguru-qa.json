@@ -1,0 +1,53 @@
+{
+  "when": "2026-10-04T11:49:16.214Z",
+  "revision": "quality3",
+  "sourceCommit": "203d9ec2dbc0af95e1cb25c8962063ed26e89986",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "topology",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "butterfly:6": {
+      "requestedStage": 6,
+      "harnessStageIndex": 5,
+      "playerKey": "butterfly:5",
+      "player3d": true,
+      "specKey": {
+        "id": "butterfly",
+        "stage": 6,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/topology-distance/player-butterfly-6-front.png",
+      "back": "test-results/full-rollout/topology-distance/player-butterfly-6-back.png",
+      "live": {
+        "live": 6,
+        "templates": 5,
+        "built": 5,
+        "tris": 25414,
+        "meshes": 59,
+        "bones": 40,
+        "materials": 1,
+        "atlases": 6,
+        "eyeGeos": 8,
+        "cpuMsAvg": 3.492,
+        "cpuMsP95": 34.8,
+        "buildMsTotal": 267,
+        "buildMsMax": 94.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 6,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

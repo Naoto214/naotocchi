@@ -1,0 +1,1199 @@
+{
+  "environment": "Chromium software WebGL, 280x280, not iPhone",
+  "all": {
+    "builds": 293,
+    "states": 3516,
+    "fullFace": 16
+  },
+  "records": [
+    {
+      "id": "dog",
+      "stage": 1,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "content",
+            "content"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 3974,
+      "file": "dog-1-normal.png"
+    },
+    {
+      "id": "dog",
+      "stage": 1,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4134,
+      "file": "dog-1-hungry.png"
+    },
+    {
+      "id": "dog",
+      "stage": 1,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4334,
+      "file": "dog-1-weak.png"
+    },
+    {
+      "id": "dog",
+      "stage": 1,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 3974,
+      "file": "dog-1-critical.png"
+    },
+    {
+      "id": "dog",
+      "stage": 1,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4134,
+      "file": "dog-1-lonely.png"
+    },
+    {
+      "id": "dog",
+      "stage": 1,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 3974,
+      "file": "dog-1-positive.png"
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4134,
+      "file": "dog-4-normal.png"
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4134,
+      "file": "dog-4-hungry.png"
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4334,
+      "file": "dog-4-weak.png"
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 3974,
+      "file": "dog-4-critical.png"
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4134,
+      "file": "dog-4-lonely.png"
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 3974,
+      "file": "dog-4-positive.png"
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "content",
+            "content"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4186,
+      "file": "dog-8-normal.png"
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4346,
+      "file": "dog-8-hungry.png"
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4546,
+      "file": "dog-8-weak.png"
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4186,
+      "file": "dog-8-critical.png"
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4346,
+      "file": "dog-8-lonely.png"
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4186,
+      "file": "dog-8-positive.png"
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 2624,
+      "file": "clownfish-4-normal.png"
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 2624,
+      "file": "clownfish-4-hungry.png"
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 2824,
+      "file": "clownfish-4-weak.png"
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 2464,
+      "file": "clownfish-4-critical.png"
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 2624,
+      "file": "clownfish-4-lonely.png"
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 2464,
+      "file": "clownfish-4-positive.png"
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 11,
+      "triangles": 2774,
+      "file": "penguin-4-normal.png"
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 11,
+      "triangles": 2774,
+      "file": "penguin-4-hungry.png"
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 11,
+      "triangles": 2974,
+      "file": "penguin-4-weak.png"
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 11,
+      "triangles": 2614,
+      "file": "penguin-4-critical.png"
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 11,
+      "triangles": 2774,
+      "file": "penguin-4-lonely.png"
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 11,
+      "triangles": 2614,
+      "file": "penguin-4-positive.png"
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3068,
+      "file": "dandelion-4-normal.png"
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3068,
+      "file": "dandelion-4-hungry.png"
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3268,
+      "file": "dandelion-4-weak.png"
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 2908,
+      "file": "dandelion-4-critical.png"
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3068,
+      "file": "dandelion-4-lonely.png"
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 2908,
+      "file": "dandelion-4-positive.png"
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3056,
+      "file": "mushroom-4-normal.png"
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3056,
+      "file": "mushroom-4-hungry.png"
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3256,
+      "file": "mushroom-4-weak.png"
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 2896,
+      "file": "mushroom-4-critical.png"
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 3056,
+      "file": "mushroom-4-lonely.png"
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 8,
+      "triangles": 2896,
+      "file": "mushroom-4-positive.png"
+    },
+    {
+      "id": "starfish",
+      "stage": 3,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 7480,
+      "file": "starfish-3-normal.png"
+    },
+    {
+      "id": "starfish",
+      "stage": 3,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 7480,
+      "file": "starfish-3-hungry.png"
+    },
+    {
+      "id": "starfish",
+      "stage": 3,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 7680,
+      "file": "starfish-3-weak.png"
+    },
+    {
+      "id": "starfish",
+      "stage": 3,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 7320,
+      "file": "starfish-3-critical.png"
+    },
+    {
+      "id": "starfish",
+      "stage": 3,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 7480,
+      "file": "starfish-3-lonely.png"
+    },
+    {
+      "id": "starfish",
+      "stage": 3,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 9,
+      "triangles": 7320,
+      "file": "starfish-3-positive.png"
+    },
+    {
+      "id": "shiba",
+      "stage": 0,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4358,
+      "file": "shiba-0-normal.png"
+    },
+    {
+      "id": "shiba",
+      "stage": 0,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4358,
+      "file": "shiba-0-hungry.png"
+    },
+    {
+      "id": "shiba",
+      "stage": 0,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4558,
+      "file": "shiba-0-weak.png"
+    },
+    {
+      "id": "shiba",
+      "stage": 0,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4198,
+      "file": "shiba-0-critical.png"
+    },
+    {
+      "id": "shiba",
+      "stage": 0,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4358,
+      "file": "shiba-0-lonely.png"
+    },
+    {
+      "id": "shiba",
+      "stage": 0,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 14,
+      "triangles": 4198,
+      "file": "shiba-0-positive.png"
+    },
+    {
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 20,
+      "triangles": 13792,
+      "file": "partner-cat_ceo-0-normal.png"
+    },
+    {
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 20,
+      "triangles": 13792,
+      "file": "partner-cat_ceo-0-hungry.png"
+    },
+    {
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 20,
+      "triangles": 13992,
+      "file": "partner-cat_ceo-0-weak.png"
+    },
+    {
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 20,
+      "triangles": 13632,
+      "file": "partner-cat_ceo-0-critical.png"
+    },
+    {
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 20,
+      "triangles": 13792,
+      "file": "partner-cat_ceo-0-lonely.png"
+    },
+    {
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 20,
+      "triangles": 13632,
+      "file": "partner-cat_ceo-0-positive.png"
+    },
+    {
+      "id": "author:naoto",
+      "stage": 0,
+      "emotion": "normal",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:normal",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 16,
+      "triangles": 16360,
+      "file": "author-naoto-0-normal.png"
+    },
+    {
+      "id": "author:naoto",
+      "stage": 0,
+      "emotion": "hungry",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:hungry",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 16,
+      "triangles": 16360,
+      "file": "author-naoto-0-hungry.png"
+    },
+    {
+      "id": "author:naoto",
+      "stage": 0,
+      "emotion": "weak",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:weak",
+          "eyes": [
+            "droop",
+            "droop"
+          ]
+        }
+      ],
+      "calls": 16,
+      "triangles": 16560,
+      "file": "author-naoto-0-weak.png"
+    },
+    {
+      "id": "author:naoto",
+      "stage": 0,
+      "emotion": "critical",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:critical",
+          "eyes": [
+            "flat",
+            "flat"
+          ]
+        }
+      ],
+      "calls": 16,
+      "triangles": 16200,
+      "file": "author-naoto-0-critical.png"
+    },
+    {
+      "id": "author:naoto",
+      "stage": 0,
+      "emotion": "lonely",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:lonely",
+          "eyes": [
+            "round",
+            "round"
+          ]
+        }
+      ],
+      "calls": 16,
+      "triangles": 16360,
+      "file": "author-naoto-0-lonely.png"
+    },
+    {
+      "id": "author:naoto",
+      "stage": 0,
+      "emotion": "positive",
+      "faces": [
+        {
+          "mode": "C",
+          "material": "c3d:face:positive",
+          "eyes": [
+            "happy",
+            "happy"
+          ]
+        }
+      ],
+      "calls": 16,
+      "triangles": 16200,
+      "file": "author-naoto-0-positive.png"
+    }
+  ],
+  "errors": []
+}

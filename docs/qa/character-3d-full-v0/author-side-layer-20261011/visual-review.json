@@ -1,0 +1,68 @@
+{
+  "status": "HUMAN_APPROVED_EXACT_SHAPE_ADOPTED",
+  "runtimeAdopted": true,
+  "humanApproval": true,
+  "baseline": "822cb03416ba1167c5f5b346dc0310a6495ceda2",
+  "beforeSource": "a6096121897b3d93a05733cc5049539218ea27c4",
+  "beforeCandidate": "E",
+  "beforeImagesReused": true,
+  "sourceCommit": "5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+  "sourceRun": 38138489668,
+  "sourceRunConclusion": "success",
+  "captureJob": 114467218917,
+  "artifactId": 11701978094,
+  "artifactDigest": "sha256:66f1fe697a011f89e0c703566f35ddd9fe3094e5c22caa2c9ba95238502d56ce",
+  "verifiedBeforeFiles": 12,
+  "verifiedAfterFiles": 7,
+  "views": [
+    "front",
+    "34 left",
+    "side left",
+    "back"
+  ],
+  "cameraSide": -1,
+  "capturedSpecHashMatched": true,
+  "browserErrors": [],
+  "protection": "First10Efringe paths, two crown/rear volumes, last3posterior paths exact; nonhair row exact; production unchanged.",
+  "visualObservations": "Four repaired views and before/after full/head boards actually inspected. Upper-ear exposed patch filled; temple locks connect through ear-top and behind-ear into existing posterior hair. Fringe part/direction retained. Added side thickness is visible from front/back; existing rear geometry is unchanged. Fine original texture remains simplified; Human likeness approval is not claimed.",
+  "tests": {
+    "shape": 4,
+    "workflow": 8,
+    "fail": 0,
+    "removeSideLayersControl": "DETECTED_EXACT_RESTORATION",
+    "ci": [
+      {
+        "id": 38138495980,
+        "name": "Runtime smoke test",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 38138496002,
+        "name": "Home layout",
+        "status": "completed",
+        "conclusion": "failure",
+        "reason": "chromium-landscape-safe-area CSS substitution route.fetch ECONNRESET for item-memories.css and movie.css; job114467238299. Not a PASS."
+      },
+      {
+        "id": 38138489668,
+        "name": "Character 3D Full Rollout",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "fullHumanQA": "OPEN",
+  "iPhoneQA": "OPEN",
+  "pr": {
+    "number": 376,
+    "draft": true,
+    "merged": false
+  },
+  "historicalCaptureDecision": {
+    "status": "VISUALLY_INSPECTED_E_SIDE_REPAIR_AWAITING_HUMAN_QA",
+    "runtimeAdopted": false,
+    "humanApproval": false
+  },
+  "humanDecisionRecord": "docs/qa/character-3d-full-v0/human-approvals-20261011.json"
+}

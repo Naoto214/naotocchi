@@ -1,0 +1,87 @@
+{
+  "when": "2026-10-06T16:10:56.184Z",
+  "revision": "quality3",
+  "sourceCommit": "dfa9d77fc59631d7fdb24a8169229cffda548380",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "antlion:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "antlion:2",
+      "player3d": true,
+      "specKey": {
+        "id": "antlion",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-antlion-3-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-antlion-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 37670,
+        "meshes": 89,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 2.064,
+        "cpuMsP95": 17.7,
+        "buildMsTotal": 171.9,
+        "buildMsMax": 35.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "antlion:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "antlion:6",
+      "player3d": true,
+      "specKey": {
+        "id": "antlion",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-antlion-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-antlion-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40386,
+        "meshes": 95,
+        "bones": 67,
+        "materials": 2,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 2.376,
+        "cpuMsP95": 23,
+        "buildMsTotal": 200.9,
+        "buildMsMax": 43.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

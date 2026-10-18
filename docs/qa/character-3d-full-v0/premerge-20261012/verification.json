@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-12",
+  "qaCommit": "d74c968acfd447868a77bb457e8592000dc1179d",
+  "qaTree": "c88d460f628ee60fbc548d04d8061f29d80517bb",
+  "runtimeSource": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "changes": "QA page/helper/tests and documentation only; no production changes or World import",
+  "related": {
+    "tests": 44,
+    "pass": 44,
+    "fail": 0
+  },
+  "diagnostic": {
+    "tests": 3,
+    "pass": 3,
+    "mutationsDetected": 4,
+    "mutationsTotal": 4,
+    "exactRestoreSha256": "251be46f7ed776cb219e8d43df57af5309600cd65e3db4c1ed1fe4637d54d1ad"
+  },
+  "browser": {
+    "kind": "cloud Chromium, not iPhone",
+    "url": "https://rawcdn.githack.com/Naoto214/naotocchi/d74c968acfd447868a77bb457e8592000dc1179d/docs/qa/character-3d-full-v0/premerge-20261012/iphone.html",
+    "observed": [
+      "rawcdn Open the page notice then QA page loads",
+      "all buttons and eight canonical emotion options present",
+      "fixed game iframe loads initial egg/Home UI",
+      "snapshot click before Meguru produces expected guard message"
+    ],
+    "notVerified": [
+      "physical Safari",
+      "in-game fault injection on device",
+      "60s measurement on device",
+      "download behavior on Safari",
+      "3D rendering and27 actor device performance"
+    ],
+    "console": "Only extension metadata errors observed in queried last5 error records; not evidence of game failure",
+    "localBrowser": "Playwright package exists but executable missing; no local browser QA claimed"
+  },
+  "iPhoneStatus": "NOT_RUN",
+  "worldCompletionRequired": false,
+  "worldBranchImported": false,
+  "futureWorldIntegration": "Resolution contract documented; actual combined renderer not merged or certified",
+  "ready": false,
+  "merged": false
+}

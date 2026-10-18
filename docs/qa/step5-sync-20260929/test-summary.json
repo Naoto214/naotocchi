@@ -1,0 +1,30 @@
+{
+  "focused": {
+    "tests": 1214,
+    "pass": 1214,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "runtime-focused": {
+    "tests": 1138,
+    "pass": 1138,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "names-after": {
+    "tests": 8,
+    "pass": 8,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "names-before": {
+    "tests": 8,
+    "pass": 4,
+    "fail": 4,
+    "cause": "old starfish/sakura/world_tree preview names and old unknown expected names; final canonical names retained"
+  },
+  "scope": "focused only; no npm test, quick-mode final tracking, save compatibility final, actual Home, or final Site QA"
+}

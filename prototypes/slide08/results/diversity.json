@@ -1,0 +1,1183 @@
+[
+  {
+    "seed": 2,
+    "policy": "organize",
+    "status": "unproven",
+    "stats": {
+      "nodes": 488576,
+      "expanded": 7911,
+      "duplicates": 112718,
+      "pruned": 356336,
+      "depth": 100,
+      "seen": 364327,
+      "elapsedMs": 2978.1016799999998
+    }
+  },
+  {
+    "seed": 2,
+    "policy": "save-eggs",
+    "status": "unproven",
+    "stats": {
+      "nodes": 500000,
+      "expanded": 5229,
+      "duplicates": 118717,
+      "pruned": 369743,
+      "depth": 66,
+      "seen": 375462,
+      "elapsedMs": 2594.940086
+    }
+  },
+  {
+    "seed": 2,
+    "policy": "transform",
+    "status": "solved",
+    "stats": {
+      "nodes": 214566,
+      "expanded": 4216,
+      "duplicates": 49728,
+      "pruned": 157524,
+      "depth": 54,
+      "seen": 161820,
+      "elapsedMs": 1121.9591059999993
+    },
+    "path": [
+      {
+        "type": "single",
+        "index": 32,
+        "kind": 0
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "single",
+        "index": 32,
+        "kind": 2
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 2,
+        "dir": "down",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 2,
+        "dir": "down",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 2,
+        "dir": "down",
+        "lane": 3
+      },
+      {
+        "type": "single",
+        "index": 13,
+        "kind": 2
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 2,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 2,
+        "dir": "right",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 1,
+        "dir": "right",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 2,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "up",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "up",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "up",
+        "lane": 4
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "bulk",
+        "from": 2,
+        "kind": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "right",
+        "lane": 2
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 1,
+        "dir": "down",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "down",
+        "lane": 3
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "single",
+        "index": 7,
+        "kind": 1
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 1,
+        "dir": "up",
+        "lane": 3
+      },
+      {
+        "type": "single",
+        "index": 5,
+        "kind": 1
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "single",
+        "index": 0,
+        "kind": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "up",
+        "lane": 1
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "down",
+        "lane": 3
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 1,
+        "dir": "left",
+        "lane": 4
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 1,
+        "dir": "down",
+        "lane": 1
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "single",
+        "index": 10,
+        "kind": 0
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "down",
+        "lane": 2
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      }
+    ],
+    "proof": "alternative-2-transform.json"
+  },
+  {
+    "seed": 3,
+    "policy": "organize",
+    "status": "unproven",
+    "stats": {
+      "nodes": 450611,
+      "expanded": 7921,
+      "duplicates": 100289,
+      "pruned": 330025,
+      "depth": 100,
+      "seen": 338026,
+      "elapsedMs": 2307.9790060000005
+    }
+  },
+  {
+    "seed": 3,
+    "policy": "save-eggs",
+    "status": "unproven",
+    "stats": {
+      "nodes": 498286,
+      "expanded": 7901,
+      "duplicates": 100807,
+      "pruned": 377964,
+      "depth": 100,
+      "seen": 385939,
+      "elapsedMs": 2769.8917170000004
+    }
+  },
+  {
+    "seed": 3,
+    "policy": "transform",
+    "status": "solved",
+    "stats": {
+      "nodes": 132256,
+      "expanded": 1365,
+      "duplicates": 30778,
+      "pruned": 99688,
+      "depth": 18,
+      "seen": 101309,
+      "elapsedMs": 831.7503509999988
+    },
+    "path": [
+      {
+        "type": "single",
+        "index": 22,
+        "kind": 1
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 1,
+        "dir": "down",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "down",
+        "lane": 2
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "right",
+        "lane": 2
+      },
+      {
+        "type": "bulk",
+        "from": 2,
+        "kind": 1
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 1,
+        "dir": "left",
+        "lane": 0
+      },
+      {
+        "type": "single",
+        "index": 30,
+        "kind": 1
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 1,
+        "dir": "down",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 1,
+        "dir": "right",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "left",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "left",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "left",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "left",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "right",
+        "lane": 3
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      }
+    ],
+    "proof": "alternative-3-transform.json"
+  },
+  {
+    "seed": 9,
+    "policy": "organize",
+    "status": "solved",
+    "stats": {
+      "nodes": 266183,
+      "expanded": 2163,
+      "duplicates": 67119,
+      "pruned": 195334,
+      "depth": 28,
+      "seen": 197774,
+      "elapsedMs": 1449.2595189999993
+    },
+    "path": [
+      {
+        "type": "single",
+        "index": 13,
+        "kind": 2
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 0
+      },
+      {
+        "type": "single",
+        "index": 3,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 0,
+        "dir": "down",
+        "lane": 2
+      },
+      {
+        "type": "single",
+        "index": 1,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "up",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 1,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "single",
+        "index": 7,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 0,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 0,
+        "dir": "left",
+        "lane": 4
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "down",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 2,
+        "dir": "right",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 2,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 2,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "up",
+        "lane": 3
+      },
+      {
+        "type": "single",
+        "index": 4,
+        "kind": 0
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 0,
+        "dir": "right",
+        "lane": 5
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 0,
+        "dir": "right",
+        "lane": 5
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "single",
+        "index": 5,
+        "kind": 0
+      }
+    ],
+    "proof": "alternative-9-organize.json"
+  },
+  {
+    "seed": 9,
+    "policy": "save-eggs",
+    "status": "solved",
+    "stats": {
+      "nodes": 243964,
+      "expanded": 1602,
+      "duplicates": 60358,
+      "pruned": 181066,
+      "depth": 21,
+      "seen": 182751,
+      "elapsedMs": 1358.6114500000003
+    },
+    "path": [
+      {
+        "type": "single",
+        "index": 24,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 2,
+        "dir": "down",
+        "lane": 4
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "single",
+        "index": 23,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "right",
+        "lane": 4
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "up",
+        "lane": 2
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "left",
+        "lane": 4
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "single",
+        "index": 34,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "up",
+        "lane": 5
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "right",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 2,
+        "dir": "right",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 2,
+        "dir": "right",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "right",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "right",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "right",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 0,
+        "dir": "right",
+        "lane": 1
+      },
+      {
+        "type": "single",
+        "index": 11,
+        "kind": 0
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      }
+    ],
+    "proof": "alternative-9-save-eggs.json"
+  },
+  {
+    "seed": 9,
+    "policy": "transform",
+    "status": "solved",
+    "stats": {
+      "nodes": 124530,
+      "expanded": 2308,
+      "duplicates": 39122,
+      "pruned": 81706,
+      "depth": 29,
+      "seen": 84507,
+      "elapsedMs": 687.484332
+    },
+    "path": [
+      {
+        "type": "single",
+        "index": 24,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 2,
+        "dir": "down",
+        "lane": 4
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "single",
+        "index": 23,
+        "kind": 0
+      },
+      {
+        "type": "single",
+        "index": 4,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 0
+      },
+      {
+        "type": "single",
+        "index": 16,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 1,
+        "dir": "right",
+        "lane": 4
+      },
+      {
+        "type": "single",
+        "index": 33,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "right",
+        "lane": 0
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "up",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "down",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "right",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "right",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "right",
+        "lane": 3
+      },
+      {
+        "type": "single",
+        "index": 9,
+        "kind": 0
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 1,
+        "dir": "left",
+        "lane": 5
+      },
+      {
+        "type": "single",
+        "index": 34,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "down",
+        "lane": 4
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "egg",
+        "rank": 3,
+        "kind": 0,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 3
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "left",
+        "lane": 0
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      }
+    ],
+    "proof": "alternative-9-transform.json"
+  },
+  {
+    "seed": 15,
+    "policy": "organize",
+    "status": "unproven",
+    "stats": {
+      "nodes": 453156,
+      "expanded": 7921,
+      "duplicates": 115518,
+      "pruned": 316678,
+      "depth": 100,
+      "seen": 324679,
+      "elapsedMs": 2146.5463949999994
+    }
+  },
+  {
+    "seed": 15,
+    "policy": "save-eggs",
+    "status": "unproven",
+    "stats": {
+      "nodes": 500000,
+      "expanded": 3523,
+      "duplicates": 133948,
+      "pruned": 359826,
+      "depth": 45,
+      "seen": 363515,
+      "elapsedMs": 2797.7493329999998
+    }
+  },
+  {
+    "seed": 15,
+    "policy": "transform",
+    "status": "solved",
+    "stats": {
+      "nodes": 102291,
+      "expanded": 1442,
+      "duplicates": 23314,
+      "pruned": 76832,
+      "depth": 19,
+      "seen": 78356,
+      "elapsedMs": 571.8699140000026
+    },
+    "path": [
+      {
+        "type": "single",
+        "index": 16,
+        "kind": 0
+      },
+      {
+        "type": "single",
+        "index": 23,
+        "kind": 0
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "single",
+        "index": 21,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 2,
+        "dir": "down",
+        "lane": 1
+      },
+      {
+        "type": "slide",
+        "dir": "left"
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 0,
+        "dir": "left",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "single",
+        "index": 12,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "left",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 0,
+        "dir": "left",
+        "lane": 1
+      },
+      {
+        "type": "egg",
+        "rank": 2,
+        "kind": 0,
+        "dir": "left",
+        "lane": 2
+      },
+      {
+        "type": "egg",
+        "rank": 1,
+        "kind": 0,
+        "dir": "left",
+        "lane": 0
+      },
+      {
+        "type": "single",
+        "index": 3,
+        "kind": 0
+      },
+      {
+        "type": "egg",
+        "rank": 0,
+        "kind": 1,
+        "dir": "left",
+        "lane": 4
+      },
+      {
+        "type": "slide",
+        "dir": "right"
+      },
+      {
+        "type": "single",
+        "index": 28,
+        "kind": 0
+      },
+      {
+        "type": "slide",
+        "dir": "down"
+      },
+      {
+        "type": "slide",
+        "dir": "up"
+      }
+    ],
+    "proof": "alternative-15-transform.json"
+  }
+]

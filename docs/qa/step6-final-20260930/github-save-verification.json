@@ -1,0 +1,56 @@
+{
+  "checked_at": "2026-09-29T15:59:58.369Z",
+  "start_head": "a662da3cedb20f39eabb76ea19b60421d98c4866",
+  "start_tree": "10f17ed7331ddb8c0520486afd20ed4a222c031b",
+  "end_qa_payload_head": "bd3d77f30ee5d15fd90352be1ec72d9b8618806c",
+  "remote_head": "bd3d77f30ee5d15fd90352be1ec72d9b8618806c",
+  "tree": "9c0de090caa9f8a0217dfc00b2aaa88596f79cc3",
+  "main": "05b31dfd4c2c2ebecc5890ffc2a23efbcfd1d032",
+  "pr": {
+    "head": "bd3d77f30ee5d15fd90352be1ec72d9b8618806c",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "mergeable": false,
+    "mergeable_state": "dirty"
+  },
+  "actions": 0,
+  "check_runs": 0,
+  "statuses": 0,
+  "combined_status": "pending",
+  "site": {
+    "id": "appgprj_6aa908e9357c8191abb0f486be58697c",
+    "version": 74,
+    "access_mode": "custom",
+    "allowed_users": 1,
+    "groups": 0
+  },
+  "local_verification": {
+    "tracked_original_files_preserved": 4084,
+    "intentional_tracked_change": "checklist append only",
+    "existing_images_preserved": 3280,
+    "existing_png_preserved": 2932,
+    "production_images_changed": 0,
+    "git_diff_check": "PASS",
+    "worktree_after_payload_commit": "clean",
+    "npm_test": {
+      "pass": 1850,
+      "fail": 0,
+      "skip": 0
+    },
+    "focused": {
+      "pass": 1154,
+      "fail": 0
+    },
+    "names": {
+      "pass": 8,
+      "fail": 0
+    },
+    "quick_mode": {
+      "pass": 10,
+      "fail": 0
+    },
+    "save_fixtures": 248
+  },
+  "sealing_note": "This file records the completed QA payload commit. Its subsequent sealing commit only adds this attestation and corrects the report timezone label (JST). The sealing HEAD/tree are freshly reported to the user; no self-referential commit hash is embedded."
+}

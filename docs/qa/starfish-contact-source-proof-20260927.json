@@ -1,0 +1,630 @@
+{
+  "source_head": "b69c94e8f913f05072b7f4e0caacb1666080e5e7",
+  "runtime_sha256": "2286598972fd1ef4c5a88dbafd3292f6929b7bb109205ebfc5b282229ac18f8c",
+  "records": [
+    {
+      "version": "old",
+      "stage": "02",
+      "size": 64,
+      "C": {
+        "n": 64,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          860.0,
+          172.0
+        ],
+        "silver_start": [
+          4.307692,
+          19.384615
+        ],
+        "silver_translation": [
+          -6.153846,
+          4.615385
+        ],
+        "sweat_transforms": [
+          "translate(2.8117991133172993 15.546153846153846) rotate(18 3.2 4.8)",
+          "translate(45.09589319437501 15.546153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "contact": {
+        "n": 64,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          1418.0,
+          1410.0
+        ],
+        "silver_start": [
+          4.307692,
+          19.384615
+        ],
+        "silver_translation": [
+          -6.153846,
+          4.615385
+        ],
+        "sweat_transforms": [
+          "translate(2.8117991133172993 15.546153846153846) rotate(18 3.2 4.8)",
+          "translate(45.09589319437501 15.546153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "old",
+      "stage": "02",
+      "size": 80,
+      "C": {
+        "n": 80,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          860.0,
+          282.0
+        ],
+        "silver_start": [
+          5.384615,
+          24.230769
+        ],
+        "silver_translation": [
+          -7.692308,
+          5.769231
+        ],
+        "sweat_transforms": [
+          "translate(4.014748891646625 19.432692307692307) rotate(18 4 6)",
+          "translate(55.869866492968754 19.432692307692307) rotate(18 4 6)"
+        ]
+      },
+      "contact": {
+        "n": 80,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1410.0
+        ],
+        "silver_start": [
+          5.384615,
+          24.230769
+        ],
+        "silver_translation": [
+          -7.692308,
+          5.769231
+        ],
+        "sweat_transforms": [
+          "translate(4.014748891646625 19.432692307692307) rotate(18 4 6)",
+          "translate(55.869866492968754 19.432692307692307) rotate(18 4 6)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "old",
+      "stage": "02",
+      "size": 104,
+      "C": {
+        "n": 104,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          860.0,
+          392.0
+        ],
+        "silver_start": [
+          7.0,
+          31.5
+        ],
+        "silver_translation": [
+          -10.0,
+          7.5
+        ],
+        "sweat_transforms": [
+          "translate(5.819173559140611 25.2625) rotate(18 5.2 7.8)",
+          "translate(72.03082644085939 25.2625) rotate(18 5.2 7.8)"
+        ]
+      },
+      "contact": {
+        "n": 104,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1254.0
+        ],
+        "silver_start": [
+          7.0,
+          31.5
+        ],
+        "silver_translation": [
+          -10.0,
+          7.5
+        ],
+        "sweat_transforms": [
+          "translate(5.819173559140611 25.2625) rotate(18 5.2 7.8)",
+          "translate(72.03082644085939 25.2625) rotate(18 5.2 7.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "old",
+      "stage": "03",
+      "size": 64,
+      "C": {
+        "n": 64,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          860.0,
+          622.0
+        ],
+        "silver_start": [
+          6.153846,
+          20.0
+        ],
+        "silver_translation": [
+          -4.307692,
+          5.230769
+        ],
+        "sweat_transforms": [
+          "translate(8.427183728701914 13.16153846153846) rotate(18 3.2 4.8)",
+          "translate(43.63435473283655 13.16153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "contact": {
+        "n": 64,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          1418.0,
+          1410.0
+        ],
+        "silver_start": [
+          6.153846,
+          20.0
+        ],
+        "silver_translation": [
+          -4.307692,
+          5.230769
+        ],
+        "sweat_transforms": [
+          "translate(8.427183728701914 13.16153846153846) rotate(18 3.2 4.8)",
+          "translate(43.63435473283655 13.16153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "old",
+      "stage": "03",
+      "size": 80,
+      "C": {
+        "n": 80,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          860.0,
+          732.0
+        ],
+        "silver_start": [
+          7.692308,
+          25.0
+        ],
+        "silver_translation": [
+          -5.384615,
+          6.538462
+        ],
+        "sweat_transforms": [
+          "translate(11.033979660877396 16.451923076923077) rotate(18 4 6)",
+          "translate(54.04294341604569 16.451923076923077) rotate(18 4 6)"
+        ]
+      },
+      "contact": {
+        "n": 80,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1410.0
+        ],
+        "silver_start": [
+          7.692308,
+          25.0
+        ],
+        "silver_translation": [
+          -5.384615,
+          6.538462
+        ],
+        "sweat_transforms": [
+          "translate(11.033979660877396 16.451923076923077) rotate(18 4 6)",
+          "translate(54.04294341604569 16.451923076923077) rotate(18 4 6)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "old",
+      "stage": "03",
+      "size": 104,
+      "C": {
+        "n": 104,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          860.0,
+          842.0
+        ],
+        "silver_start": [
+          10.0,
+          32.5
+        ],
+        "silver_translation": [
+          -7.0,
+          8.5
+        ],
+        "sweat_transforms": [
+          "translate(14.944173559140612 21.3875) rotate(18 5.2 7.8)",
+          "translate(69.65582644085939 21.3875) rotate(18 5.2 7.8)"
+        ]
+      },
+      "contact": {
+        "n": 104,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1254.0
+        ],
+        "silver_start": [
+          10.0,
+          32.5
+        ],
+        "silver_translation": [
+          -7.0,
+          8.5
+        ],
+        "sweat_transforms": [
+          "translate(14.944173559140612 21.3875) rotate(18 5.2 7.8)",
+          "translate(69.65582644085939 21.3875) rotate(18 5.2 7.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "fresh",
+      "stage": "02",
+      "size": 64,
+      "C": {
+        "n": 64,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          860.0,
+          172.0
+        ],
+        "silver_start": [
+          4.307692,
+          19.384615
+        ],
+        "silver_translation": [
+          -6.153846,
+          4.615385
+        ],
+        "sweat_transforms": [
+          "translate(2.8117991133172993 15.546153846153846) rotate(18 3.2 4.8)",
+          "translate(45.09589319437501 15.546153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "contact": {
+        "n": 64,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          1418.0,
+          1410.0
+        ],
+        "silver_start": [
+          4.307692,
+          19.384615
+        ],
+        "silver_translation": [
+          -6.153846,
+          4.615385
+        ],
+        "sweat_transforms": [
+          "translate(2.8117991133172993 15.546153846153846) rotate(18 3.2 4.8)",
+          "translate(45.09589319437501 15.546153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "fresh",
+      "stage": "02",
+      "size": 80,
+      "C": {
+        "n": 80,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          860.0,
+          282.0
+        ],
+        "silver_start": [
+          5.384615,
+          24.230769
+        ],
+        "silver_translation": [
+          -7.692308,
+          5.769231
+        ],
+        "sweat_transforms": [
+          "translate(4.014748891646625 19.432692307692307) rotate(18 4 6)",
+          "translate(55.869866492968754 19.432692307692307) rotate(18 4 6)"
+        ]
+      },
+      "contact": {
+        "n": 80,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1410.0
+        ],
+        "silver_start": [
+          5.384615,
+          24.230769
+        ],
+        "silver_translation": [
+          -7.692308,
+          5.769231
+        ],
+        "sweat_transforms": [
+          "translate(4.014748891646625 19.432692307692307) rotate(18 4 6)",
+          "translate(55.869866492968754 19.432692307692307) rotate(18 4 6)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "fresh",
+      "stage": "02",
+      "size": 104,
+      "C": {
+        "n": 104,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          860.0,
+          392.0
+        ],
+        "silver_start": [
+          7.0,
+          31.5
+        ],
+        "silver_translation": [
+          -10.0,
+          7.5
+        ],
+        "sweat_transforms": [
+          "translate(5.819173559140611 25.2625) rotate(18 5.2 7.8)",
+          "translate(72.03082644085939 25.2625) rotate(18 5.2 7.8)"
+        ]
+      },
+      "contact": {
+        "n": 104,
+        "offset": [
+          -10.0,
+          7.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1254.0
+        ],
+        "silver_start": [
+          7.0,
+          31.5
+        ],
+        "silver_translation": [
+          -10.0,
+          7.5
+        ],
+        "sweat_transforms": [
+          "translate(5.819173559140611 25.2625) rotate(18 5.2 7.8)",
+          "translate(72.03082644085939 25.2625) rotate(18 5.2 7.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "fresh",
+      "stage": "03",
+      "size": 64,
+      "C": {
+        "n": 64,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          860.0,
+          622.0
+        ],
+        "silver_start": [
+          6.153846,
+          20.0
+        ],
+        "silver_translation": [
+          -4.307692,
+          5.230769
+        ],
+        "sweat_transforms": [
+          "translate(8.427183728701914 13.16153846153846) rotate(18 3.2 4.8)",
+          "translate(43.63435473283655 13.16153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "contact": {
+        "n": 64,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          1418.0,
+          1410.0
+        ],
+        "silver_start": [
+          6.153846,
+          20.0
+        ],
+        "silver_translation": [
+          -4.307692,
+          5.230769
+        ],
+        "sweat_transforms": [
+          "translate(8.427183728701914 13.16153846153846) rotate(18 3.2 4.8)",
+          "translate(43.63435473283655 13.16153846153846) rotate(18 3.2 4.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "fresh",
+      "stage": "03",
+      "size": 80,
+      "C": {
+        "n": 80,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          860.0,
+          732.0
+        ],
+        "silver_start": [
+          7.692308,
+          25.0
+        ],
+        "silver_translation": [
+          -5.384615,
+          6.538462
+        ],
+        "sweat_transforms": [
+          "translate(11.033979660877396 16.451923076923077) rotate(18 4 6)",
+          "translate(54.04294341604569 16.451923076923077) rotate(18 4 6)"
+        ]
+      },
+      "contact": {
+        "n": 80,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1410.0
+        ],
+        "silver_start": [
+          7.692308,
+          25.0
+        ],
+        "silver_translation": [
+          -5.384615,
+          6.538462
+        ],
+        "sweat_transforms": [
+          "translate(11.033979660877396 16.451923076923077) rotate(18 4 6)",
+          "translate(54.04294341604569 16.451923076923077) rotate(18 4 6)"
+        ]
+      },
+      "composite_svg_equal": true
+    },
+    {
+      "version": "fresh",
+      "stage": "03",
+      "size": 104,
+      "C": {
+        "n": 104,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          860.0,
+          842.0
+        ],
+        "silver_start": [
+          10.0,
+          32.5
+        ],
+        "silver_translation": [
+          -7.0,
+          8.5
+        ],
+        "sweat_transforms": [
+          "translate(14.944173559140612 21.3875) rotate(18 5.2 7.8)",
+          "translate(69.65582644085939 21.3875) rotate(18 5.2 7.8)"
+        ]
+      },
+      "contact": {
+        "n": 104,
+        "offset": [
+          -7.0,
+          8.5
+        ],
+        "cell_origin": [
+          1520.0,
+          1254.0
+        ],
+        "silver_start": [
+          10.0,
+          32.5
+        ],
+        "silver_translation": [
+          -7.0,
+          8.5
+        ],
+        "sweat_transforms": [
+          "translate(14.944173559140612 21.3875) rotate(18 5.2 7.8)",
+          "translate(69.65582644085939 21.3875) rotate(18 5.2 7.8)"
+        ]
+      },
+      "composite_svg_equal": true
+    }
+  ]
+}

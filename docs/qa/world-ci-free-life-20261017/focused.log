@@ -1,0 +1,43 @@
+✔ relationships are independent residents, not automatic followers; current IDs survive missing lifetime records (205.757475ms)
+✔ same actor voluntarily accompanies, expires, returns to life without modifying relationships (303.284979ms)
+✔ party cap, distant rejection, region departure and semantic events (435.525974ms)
+✔ Home has no permanent surrounding cast; a finite visit is visible and the relationship survives departure (155.461347ms)
+✔ manual activity controls permit choosing walk/date/adventure and ending without a forced dialog (105.550631ms)
+✔ hidden time does not advance Home encounter clock or trigger a visit on resume (27.747139ms)
+✔ responding to an invitation selects its actor even when another resident becomes nearest (269.536013ms)
+✔ Home relationship idle initiatives consume the common budget (118.426194ms)
+✔ relationship removal ends active accompaniment and reload starts free (103.098356ms)
+✔ explicit destination ends companionship, incidental places do not (71.464319ms)
+✔ session module exists (1.151449ms)
+✔ shared cooldown, rolling caps and random encounter interval (0.426442ms)
+✔ invitations are scarce and do not accumulate during inactivity (0.263932ms)
+✔ event subscribers are isolated, removable and payloads immutable (4.436844ms)
+✔ Home visits are finite, one at a time, and preserve relation input (0.613291ms)
+✔ listeners added during emission run only on the next emission (0.233767ms)
+✔ partner visits remain possible in a crowded relationship roster (0.362858ms)
+(node:28) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e4228f155292/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/e4228f155292/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real session events target the player, expire to current relationship and preserve AI pose (11.316034ms)
+✔ actual date start and goodbye reach presentation without losing actor identity (417.593197ms)
+✔ presenter turns body and head only as presentation and reduced motion suppresses it (515.26288ms)
+✔ Home visit starts positive and interruption clears only its social overlay (86.253276ms)
+✔ explicit conversation publishes one semantic target and repeated annoyance does not become positive (136.077219ms)
+✔ attention ends and missing targets cannot retain gaze; suspension clears cues (0.373073ms)
+✔ conversation while accompanying retriggers after initial cue and preserves repeat-talk dislike (226.561756ms)
+✔ browser gate rejects vanished player, orphan holders, resource leaks, and 2D city (3.648154ms)
+✔ save isolation requires all four independently observed boundaries (0.362097ms)
+✔ browser fixture uses native production player and companion identities (338.504046ms)
+✔ reduced motion checks actual app motion and animation, not only matchMedia (0.513893ms)
+✔ normal startup accepts one visible player while explicit cast still requires three bodies (0.204814ms)
+✔ normal and explicit browser fixtures keep saved relationships intact and cannot pass empty (485.81384ms)
+✔ smoke gate requires separate normal startup and nonempty explicit rendered cast (18.705691ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2059.186004

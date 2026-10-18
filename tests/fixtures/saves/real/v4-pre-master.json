@@ -1,0 +1,200 @@
+{
+ "stage": "growing",
+ "speciesLine": "bird",
+ "stageIndex": 1,
+ "hunger": 90,
+ "happiness": 90,
+ "energy": 90,
+ "health": 90,
+ "ageTicks": 118,
+ "sodachi": 20,
+ "maxSodachi": 20,
+ "growth": 8,
+ "decline": 27.799999999999983,
+ "boostTicks": 0,
+ "recentActionTicks": 0,
+ "sleptTicks": 0,
+ "miracleGuard": false,
+ "dying": false,
+ "dyingTicks": 0,
+ "transformsThisLife": 0,
+ "declineBaseline": 0,
+ "transformStageDone": [],
+ "sandUsed": 0,
+ "bigSandUsed": 0,
+ "dateCooldownTicks": 0,
+ "datesThisLife": 0,
+ "marriageAge": null,
+ "marriageMilestonesSeen": [],
+ "legendMet": false,
+ "lifeLog": [
+  {
+   "age": 0,
+   "icon": "🥚",
+   "text": "たまごから うまれた"
+  },
+  {
+   "age": 3,
+   "icon": "🐣",
+   "text": "3さい はねが はえてきた ひなに なった"
+  }
+ ],
+ "infinite": false,
+ "infiniteForm": null,
+ "infiniteReturn": null,
+ "schemaVersion": 4,
+ "romanceCompatibilityVersion": 2,
+ "pendingLegacyRelationshipResolution": null,
+ "poopCount": 3,
+ "isSick": false,
+ "sicknessType": "われるような ずつう",
+ "totalSicknessCount": 2,
+ "sicknessCuredThisLife": 0,
+ "isSleeping": false,
+ "lowHealthStreak": 0,
+ "careSum": 10009.973333333357,
+ "careTicks": 118,
+ "affectionStreak": 0,
+ "travelStreak": 0,
+ "actionCounts": {
+  "feed": 0,
+  "play": 0,
+  "clean": 0,
+  "sleep": 0,
+  "medicine": 0,
+  "pet": 0,
+  "talk": 0
+ },
+ "traitCounts": {
+  "gentle": 0,
+  "wild": 0,
+  "calm": 0,
+  "brave": 0,
+  "romantic": 0
+ },
+ "minigameScoreSum": 0,
+ "minigameCount": 0,
+ "deathMeter": 21.69032,
+ "transformMeter": 0,
+ "transformOptions": null,
+ "items": {
+  "fun_balloon": 1
+ },
+ "oneTimeBoosts": {
+  "sicknessShieldCount": 0,
+  "breakupShield": null,
+  "courtBoost": null,
+  "minigameBoost": null,
+  "doubleCoins": false,
+  "safetyNet": false,
+  "travelGuarantee": false
+ },
+ "partner": null,
+ "gender": "male",
+ "orientationId": "straight",
+ "attractedTo": [
+  "female"
+ ],
+ "questioningEncounters": 0,
+ "guest": null,
+ "companions": [],
+ "regionId": "home",
+ "discoveredStages": [
+  "dinosaur:0",
+  "bird:0",
+  "bird:1",
+  "rabbit:0",
+  "mermaid:2"
+ ],
+ "lifetime": {
+  "evolutions": 0,
+  "devolutions": 0,
+  "transforms": 0,
+  "clears": 0,
+  "deaths": 0,
+  "minigamesPlayed": 0,
+  "sicknessCured": 0,
+  "maxAgeReached": 5,
+  "resets": 0,
+  "lifeClears": 0,
+  "bestSodachi": 0,
+  "bestLives": 0,
+  "flawlessLives": 0,
+  "dexCleared": false,
+  "perfectCleared": false,
+  "pastLives": [
+   {
+    "species": "うさぎ",
+    "line": "rabbit",
+    "age": 7,
+    "sodachi": 40,
+    "emoji": "🐰",
+    "log": [
+     {
+      "age": 3,
+      "icon": "🐰",
+      "text": "うさぎに なった"
+     }
+    ]
+   }
+  ],
+  "dreamEggs": {
+   "normal": 0,
+   "rare": 0
+  },
+  "nextEggLine": null,
+  "endingTiersReached": [],
+  "deviceThemeId": "default",
+  "screenThemeId": "default",
+  "seasonMode": "auto",
+  "devicePatternId": "none",
+  "screenPatternId": "none",
+  "companionsRecruited": [],
+  "rareCompanionsRecruited": [],
+  "companionFriendshipProgress": {},
+  "partnersRecorded": [],
+  "partnerEncounters": [],
+  "partnersMarried": [],
+  "money": 437,
+  "ownedShopItems": [],
+  "equippedItemId": null,
+  "ownedNaotoItems": [],
+  "consumablesUsed": 0,
+  "ownedConsumableItems": [],
+  "bonusUnlockedThemeIds": [],
+  "regionsVisited": [
+   "home"
+  ],
+  "specialRegionsVisited": [],
+  "datesEnjoyed": 0,
+  "legendsMet": [],
+  "minigamePlayCounts": {},
+  "duelTraits": {
+   "cautious": 0,
+   "active": 0,
+   "jealous": 0,
+   "romantic": 0,
+   "secretive": 0,
+   "spoiled": 0,
+   "myPace": 0,
+   "realist": 0
+  },
+  "duelMatchesPlayed": 0,
+  "duelWins": 0,
+  "duelLosses": 0,
+  "duelDraws": 0,
+  "duelLiesUsed": 0,
+  "duelLiesSucceeded": 0,
+  "duelLiesFacedAsGuesser": 0,
+  "duelLiesDetected": 0,
+  "duelHonestAnswersGiven": 0,
+  "duelHonestMisread": 0,
+  "duelLongestLieStreak": 0,
+  "duelRecentQuestionIds": []
+ },
+ "achievementsUnlocked": [
+  "money-100",
+  "rare-line-1"
+ ],
+ "duel": null
+}

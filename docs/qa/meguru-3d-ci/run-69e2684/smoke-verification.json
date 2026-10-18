@@ -1,0 +1,148 @@
+{
+  "run_id": 37780406075,
+  "source_commit": "69e26840a4e853641f0c5443f7834b56b5b6e345",
+  "artifact": {
+    "id": 11552146044,
+    "node_id": "MDg6QXJ0aWZhY3QxMTU1MjE0NjA0NA==",
+    "name": "world-smoke-69e26840a4e853641f0c5443f7834b56b5b6e345",
+    "size_in_bytes": 4394679,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11552146044",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11552146044/zip",
+    "expired": false,
+    "digest": "sha256:694cce883dfd2570fce773f800265ffbd055428ad5b8450d2d1ca3d246e70f72",
+    "created_at": "2026-10-08T13:00:37Z",
+    "updated_at": "2026-10-08T13:00:37Z",
+    "expires_at": "2026-11-07T13:00:36Z",
+    "workflow_run": {
+      "id": 37780406075,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "69e26840a4e853641f0c5443f7834b56b5b6e345"
+    }
+  },
+  "summary": {
+    "kind": "smoke",
+    "coverage": 13,
+    "issues": [],
+    "samples": 0,
+    "hidden": 0,
+    "partial": 0,
+    "maxPartyObstacleOverlap": 0.00599196916066802,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "original_files": [
+    {
+      "path": "smoke/browser-environment.json",
+      "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18",
+      "size": 152
+    },
+    {
+      "path": "smoke/commit.txt",
+      "sha256": "1006c5bc3093a9b3c9be2f3ad91f1b683d3950a85ff0abb460eaa92ad5c64f27",
+      "size": 41
+    },
+    {
+      "path": "smoke/node-version.txt",
+      "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+      "size": 9
+    },
+    {
+      "path": "smoke/runner-exit-code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size": 2
+    },
+    {
+      "path": "smoke/smoke/city-3d.png",
+      "sha256": "4fa9afd43201fb6f1d3a9b4578bcb5365d577118ca2577229737c87a670ecea1",
+      "size": 241661
+    },
+    {
+      "path": "smoke/smoke/countryside-3d.png",
+      "sha256": "9beae39b81de5fa90c9d14771ef0e6c5d8b359d2adee2b6f85f8ee39f6d9256a",
+      "size": 343446
+    },
+    {
+      "path": "smoke/smoke/deepsea-3d.png",
+      "sha256": "5f0719a2cee7ee583a21676f3164ef598047006405753a12fa86c5735188ebfd",
+      "size": 267536
+    },
+    {
+      "path": "smoke/smoke/desert-3d.png",
+      "sha256": "8f786825d1fdca345c75b9371917bfe7f5e8f858bfb6ca1ae67aebd74a78b1dc",
+      "size": 403941
+    },
+    {
+      "path": "smoke/smoke/forest-3d.png",
+      "sha256": "6043184efd81fa4d2d2288c4204258fd46c22538f73e0d4cc0adc79036619827",
+      "size": 409115
+    },
+    {
+      "path": "smoke/smoke/home-3d.png",
+      "sha256": "026783a60988272d28ce4d45353c8df9e3e95e0746eff15257340ac5b70a5609",
+      "size": 355212
+    },
+    {
+      "path": "smoke/smoke/jungle-3d.png",
+      "sha256": "8a9d2f555c9bfc90a23e4a71435fa9b946885f78b45469b250be6b802fed28c2",
+      "size": 380528
+    },
+    {
+      "path": "smoke/smoke/memory_lake-3d.png",
+      "sha256": "de98a9c7735f42a8faf2240bfd3226aa451da402d1035ff64e4b2591d0edc218",
+      "size": 341131
+    },
+    {
+      "path": "smoke/smoke/mountain-3d.png",
+      "sha256": "55d670c94928828d57ef6ad253833db7bc6da9175866eaa13693069118697494",
+      "size": 310268
+    },
+    {
+      "path": "smoke/smoke/regions-smoke.json",
+      "sha256": "b221d11ad05edebf97cc3cef5ebadc1627cab281be7a8df8dcb041698eccf911",
+      "size": 42393
+    },
+    {
+      "path": "smoke/smoke/river_lake-3d.png",
+      "sha256": "c236332e6e398651719a6ac5da81d1b028b974d21b9063a17eb22891b67fab5e",
+      "size": 374263
+    },
+    {
+      "path": "smoke/smoke/sea-3d.png",
+      "sha256": "85ba9898010cb24a6aa6cfe86fdd27967d69bf92675f18fd1808fd66b8a3abe4",
+      "size": 251760
+    },
+    {
+      "path": "smoke/smoke/snow-3d.png",
+      "sha256": "33782a44f348deb863fc60d18b4a63b60ec6146d10860c9dac9cde4801eed832",
+      "size": 348652
+    },
+    {
+      "path": "smoke/smoke/star_stop-3d.png",
+      "sha256": "b36f047d00c0a5eba913e827113e5e239aa21349f6638c4f0cdc8c409269168c",
+      "size": 362520
+    },
+    {
+      "path": "smoke/smoke.log",
+      "sha256": "3c93c3855386d7ce9bec34b1a290b94ce465bd07952409eea2208967fa842b72",
+      "size": 1496
+    },
+    {
+      "path": "smoke/source-sha256.txt",
+      "sha256": "ec9f0597a5901b878f9f4cc2f8ed7d541c040c46e160c9921e5fff80e9511d17",
+      "size": 233
+    },
+    {
+      "path": "smoke/summary.json",
+      "sha256": "5ec3512496190bdca1642b6e6e0d74df9a25ba47a9d8135ee483295fa732710f",
+      "size": 273
+    },
+    {
+      "path": "smoke/summary.log",
+      "sha256": "1685baeba50152ca9d5e498aafcfd6fb700c83dac3d56019985445b39ea0eef6",
+      "size": 240
+    }
+  ],
+  "exit_code": 0,
+  "human_qa": false
+}

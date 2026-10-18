@@ -33,7 +33,7 @@
   function overlaps(a,b,gap=4) {
     return a.x<b.x+b.w+gap-.001 && b.x<a.x+a.w+gap-.001 && a.y<b.y+b.h+gap-.001 && b.y<a.y+a.h+gap-.001;
   }
-  function coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap) {
+  function coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap,hasRing,ringPlacement='above') {
     const p=m/2, scale=fieldScale(m);
     const main=rect(-m/2,-m*.26+8,m);
     // Move only transparent bottom padding outside this logical frame. Every
@@ -50,11 +50,41 @@
     const accessory=hasAccessory?rect(visible.x+visible.w-inset-a/2,visible.y-a,a):null;
     const mainPoly=polygon(main,mainAsset);
     if(partner)while(!separated(mainPoly,polygon(partner,partnerAsset),2+motionGap))partner.y-=1;
-    if(accessory)while(!separated(mainPoly,polygon(accessory,null),2+motionGap) || (partner && !separated(polygon(partner,partnerAsset),polygon(accessory,null),2+motionGap)))accessory.y-=1;
+    const ringGap=2+motionGap/2;
+    let ring=null;
+    if(partner && hasRing) {
+      // Reserve the ring at the main's upper-left side, between the couple.
+      // Open space by moving the partner outward or upward. A shallow field
+      // can use the main's left edge instead of adding another row above it.
+      // The ring shares group sway, but has no independent local reaction.
+      const size=Math.max(15,Math.min(23,Math.round(Math.floor(p*.8)*.46)));
+      const beside=ringPlacement==='beside';
+      const inset=ringPlacement==='centered'?ringGap:Math.max(visible.w*.2,ringGap);
+      const ringX=beside?visible.x-ringGap-size/2:visible.x+visible.w/2-inset;
+      const ringY=beside?visible.y+Math.min(ringGap,visible.h/2-ringGap)-size/2:visible.y-size-ringGap;
+      ring=rect(ringX-size/2,ringY,size);
+      const partnerBody=body(partner,partnerAsset);
+      if(ringPlacement==='stacked' || beside) {
+        partner.x-=Math.max(0,partnerBody.x+partnerBody.w/2+ringGap-ringX);
+        partner.y-=Math.max(0,partnerBody.y+partnerBody.h+ringGap-ring.y);
+      } else {
+        partner.x-=Math.max(0,partnerBody.x+partnerBody.w+ringGap-ring.x);
+        partner.y-=Math.max(0,partnerBody.y+partnerBody.h/2+ringGap-ring.y-ring.h/2);
+      }
+    }
     const hearts=partner?[rect(partner.x+5*scale,partner.y-24*scale,26*scale),rect(partner.x+p-17*scale,partner.y-12*scale,18*scale)]:[];
-    const core=[body(main,mainAsset),...(partner?[body(partner,partnerAsset)]:[]),...(accessory?[accessory]:[]),...hearts];
-    const coreFrames=[main,...(partner?[partner]:[]),...(accessory?[accessory]:[]),...hearts];
-    return {main,partner,accessory,hearts,core,coreFrames};
+    if(ring)while(hearts.some(f=>overlaps(f,ring,ringGap))) {
+      for(const f of [partner,...hearts])f.y-=1;
+    }
+    if(accessory) {
+      if(ring && overlaps(accessory,ring,ringGap))accessory.x=Math.max(accessory.x,ring.x+ring.w+ringGap);
+      while(!separated(mainPoly,polygon(accessory,null),2+motionGap) ||
+        (partner && !separated(polygon(partner,partnerAsset),polygon(accessory,null),2+motionGap)) ||
+        (ring && (overlaps(accessory,ring,ringGap) || hearts.some(f=>overlaps(accessory,f,2+motionGap)))))accessory.y-=1;
+    }
+    const core=[body(main,mainAsset),...(partner?[body(partner,partnerAsset)]:[]),...(accessory?[accessory]:[]),...hearts,...(ring?[ring]:[])];
+    const coreFrames=[main,...(partner?[partner]:[]),...(accessory?[accessory]:[]),...hearts,...(ring?[ring]:[])];
+    return {main,partner,accessory,hearts,ring,core,coreFrames};
   }
   const extent = frames => ({left:Math.min(...frames.map(f=>f.x)),right:Math.max(...frames.map(f=>f.x+f.w)),top:Math.min(...frames.map(f=>f.y)),bottom:Math.max(...frames.map(f=>f.y+f.h))});
   const translate = (f,x,y) => f?{...f,x:f.x+x,y:f.y+y}:null;
@@ -102,14 +132,14 @@
     }
     const move=f=>translate(f,width/2-cx,height-4-e.bottom);
     if(c.coreFrames.some(f=>{const a=move(f);return a.x<8 || a.x+a.w>width-8;}))return null;
-    return {width,height,size,main:move(c.main),partner:move(c.partner),accessory:move(c.accessory),hearts:c.hearts.map(move),
+    return {width,height,size,main:move(c.main),partner:move(c.partner),accessory:move(c.accessory),hearts:c.hearts.map(move),ring:move(c.ring),
       companions:frames,companionBodies:frames.map((f,i)=>body(f,companions[i]))};
   }
 
   // Keep the approved half-ellipse wings at every available height. Pack curved
   // lanes from the core outward; never replace the wings with straight columns.
   function compactCast(args) {
-    const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,balanced,wingBowScale}=args;
+    const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,hasRing,companions,motionRadius,balanced,wingBowScale}=args;
     const gap=4+2*motionRadius, room=width-16, count=companions.length;
     // The home already reserves the 16px rise outside this region. A crowded
     // party sways by only 1px, so 2px above and 4px below cover its remaining
@@ -126,12 +156,13 @@
     const mainLimit=count===0?Math.min(256,room*.78):room>=310?112:104;
     const maxMain=Math.floor(Math.min(mainLimit,count===0?height-8:height*.7));
     for(let m=maxMain;m>=(height<96?32:40);m-=2) {
-      const c=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius);
-      const e=extent(c.coreFrames);
-      const coreX=-(e.left+e.right)/2, coreY=height-4-e.bottom;
-      if(e.bottom-e.top>verticalRoom || e.right-e.left>room)continue;
-      const sideWidth=(room-(e.right-e.left))/2-gap;
-      for(let size=count?72:48;size>=12;size--) {
+      const cores=(hasRing?['above','stacked','beside','centered']:['above']).map(placement=>
+        coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius,hasRing,placement)
+      ).map(c=>({c,e:extent(c.coreFrames)})).filter(({e})=>e.bottom-e.top<=verticalRoom && e.right-e.left<=room);
+      // Try every fitting couple arrangement before making any friend smaller.
+      for(let size=count?72:48;size>=12;size--) for(const {c,e} of cores) {
+        const coreX=-(e.left+e.right)/2, coreY=height-4-e.bottom;
+        const sideWidth=(room-(e.right-e.left))/2-gap;
         let best=null;
         const bh=size*bodyHeight, bow=wingBowScale?size*wingBowScale:Math.max(size*.8,Math.min(height*.25,40));
         for(let lanes=1;lanes<=maxLanes;lanes++) {
@@ -189,18 +220,18 @@
         if(best) {
           const frames=best.map(f=>translate(f,width/2,0));
           const move=f=>translate(f,coreX+width/2,coreY);
-          return {width,height,size,main:move(c.main),partner:move(c.partner),accessory:move(c.accessory),hearts:c.hearts.map(move),companions:frames,companionBodies:frames.map((f,i)=>body(f,companions[i]))};
+          return {width,height,size,main:move(c.main),partner:move(c.partner),accessory:move(c.accessory),hearts:c.hearts.map(move),ring:move(c.ring),companions:frames,companionBodies:frames.map((f,i)=>body(f,companions[i]))};
         }
       }
     }
     return null;
   }
 
-  function layoutCast({width,height,mainAsset,hasPartner=false,partnerAsset,hasAccessory=false,companions=[],motionRadius=0,balanced=false}) {
+  function layoutCast({width,height,mainAsset,hasPartner=false,partnerAsset,hasAccessory=false,hasRing=false,companions=[],motionRadius=0,balanced=false}) {
     width=Math.max(240,Math.floor(width));
     motionRadius=Math.max(0,Number(motionRadius)||0);
     if(Number.isFinite(height) && height>=(balanced?64:80)) {
-      const constraints={width,height:Math.floor(height),mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,balanced};
+      const constraints={width,height:Math.floor(height),mainAsset,hasPartner,partnerAsset,hasAccessory,hasRing,companions,motionRadius,balanced};
       // Failed PNGs occupy their complete frames. Before using the unbounded
       // layout, try progressively shallower curves at the same size limits.
       // Keep full fallback frames inside the minimum home, retaining every
@@ -213,7 +244,7 @@
     }
     const motionGap=2*motionRadius;
     const room=width-16, count=companions.length, m=room>=310?112:104;
-    const {main,partner,accessory,hearts,core,coreFrames}=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap);
+    const {main,partner,accessory,hearts,ring,core,coreFrames}=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap,hasRing);
     const heightLimit=count<=6?220:count<=18?Math.min(320,room*.85):count<=26?Math.min(400,room*1.05):Math.max(400,room*1.2);
     let fallback=null, answer=null;
     const presets=[[12.5,40,74,.82,.84],[12.5,40,74,.9,.9],[13,37,65,.82,.84],[13,40,72,.9,.9],[14,42,74,.86,.86],[12,38,70,.78,.84],[13,40,70,1,1]];
@@ -255,7 +286,7 @@
     }
     const result=answer || fallback;
     const move=f=>f?{...f,x:f.x+width/2,y:f.y-result.top}:null;
-    return {width,height:result.height,size:result.size,main:move(main),partner:move(partner),accessory:move(accessory),hearts:hearts.map(move),companions:result.frames.map(move),companionBodies:result.bodies.map(move)};
+    return {width,height:result.height,size:result.size,main:move(main),partner:move(partner),accessory:move(accessory),hearts:hearts.map(move),ring:move(ring),companions:result.frames.map(move),companionBodies:result.bodies.map(move)};
   }
   function placeHomePoop(result) {
     const {size,step,span}=poopMetrics(result.fieldScale);
@@ -278,7 +309,7 @@
       const r=layoutCast({...args,balanced:!!conversationHeight,width:args.width-2*side,height});
       const move=f=>translate(f,side,top);
       const result={...r,width:r.width+2*side,height:r.height+top+floor+extra,fieldScale:fieldScale(r.main.w),
-        main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),
+        main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),ring:move(r.ring),
         hearts:r.hearts.map(move),companions:r.companions.map(move),companionBodies:r.companionBodies.map(move)};
       if(conversationHeight) {
         const main=body(result.main,args.mainAsset), center=main.x+main.w/2;

@@ -1,0 +1,16 @@
+{
+  "sourceCommit": "56ad8683b81eadf4f9cb6c0c0f92f574406b9588",
+  "waveArtifact": 11428012732,
+  "distanceArtifact": 11428215004,
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "verdict": "all8 accepted for v0 runtime promotion; final Human QA remains pending",
+  "review": "05 corrected4views32states directly inspected. Other7stages28views224states(+7sheets) byte-identical to accepted d0b01eb. All16 current normal-distance shots reinspected.",
+  "unchangedEvidence": "../d0b01eb",
+  "counts": {
+    "fourViews": 32,
+    "motionStates": 256,
+    "normalDistance": 16
+  },
+  "simplifications": "smooth cuticle,simplified bands/claws/wing veins,empty exuvia with folded empty legs; no second shell face",
+  "notIPhoneAcceptance": true
+}

@@ -1,0 +1,25 @@
+..................F...
+======================================================================
+FAIL: test_large_tree_uses_bounded_batches_and_checks_lease_after_last_batch (test_character_qa_export.TransientExportTests.test_large_tree_uses_bounded_batches_and_checks_lease_after_last_batch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 214, in test_large_tree_uses_bounded_batches_and_checks_lease_after_last_batch
+    self.assertEqual([len(data['tree']) for path,data in calls if path=='git/trees'],[100,100,5]);self.assertEqual([data['base_tree'] for path,data in calls if path=='git/trees'],['base','tree1','tree2']);self.assertEqual(calls[-1][0],'git/ref/heads/'+m.BRANCH);self.assertEqual(saved['tree'],'tree3');self.assertEqual(saved['status'],'PREPARED_NOT_COMMITTED_NOT_APPROVED');self.assertEqual(saved['entries'],entries)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [205] != [100, 100, 5]
+
+First differing element 0:
+205
+100
+
+Second list contains 2 additional elements.
+First extra element 1:
+100
+
+- [205]
++ [100, 100, 5]
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.101s
+
+FAILED (failures=1)

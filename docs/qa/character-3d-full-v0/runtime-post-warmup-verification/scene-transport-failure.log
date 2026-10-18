@@ -1,0 +1,61 @@
+AssertionError [ERR_ASSERTION]: setup exact state delta
+2026-10-09T13:31:13.9517634Z + actual - expected
+2026-10-09T13:31:13.9517880Z 
+2026-10-09T13:31:13.9518021Z   [
+2026-10-09T13:31:13.9518597Z     {
+2026-10-09T13:31:13.9518890Z       after: [],
+2026-10-09T13:31:13.9519295Z +     before: undefined,
+2026-10-09T13:31:13.9519695Z       path: 'lifetime.meguru.marks.city'
+2026-10-09T13:31:13.9520071Z     },
+2026-10-09T13:31:13.9520422Z     {
+2026-10-09T13:31:13.9520685Z       after: [],
+2026-10-09T13:31:13.9521027Z +     before: undefined,
+2026-10-09T13:31:13.9521409Z       path: 'lifetime.meguru.paths.city'
+2026-10-09T13:31:13.9521777Z     },
+2026-10-09T13:31:13.9522037Z     {
+2026-10-09T13:31:13.9522289Z       after: [],
+2026-10-09T13:31:13.9522609Z +     before: undefined,
+2026-10-09T13:31:13.9522952Z       path: 'lifetime.meguru.zones.city'
+2026-10-09T13:31:13.9523359Z     },
+2026-10-09T13:31:13.9523613Z     {
+2026-10-09T13:31:13.9523859Z       after: 7,
+2026-10-09T13:31:13.9524161Z       before: 6,
+2026-10-09T13:31:13.9524332Z 
+2026-10-09T13:31:13.9524747Z     at validateSceneSetup (/home/runner/work/naotocchi/naotocchi/tools/character-3d/runtime-integration.cjs:64:10)
+2026-10-09T13:31:13.9525640Z     at validateRepeated (/home/runner/work/naotocchi/naotocchi/tools/character-3d/runtime-integration.cjs:92:18)
+2026-10-09T13:31:13.9526489Z     at Object.retainRepeatedResult (/home/runner/work/naotocchi/naotocchi/tools/character-3d/runtime-integration.cjs:282:8)
+2026-10-09T13:31:13.9527232Z     at /home/runner/work/naotocchi/naotocchi/tools/character-3d/meguru-qa.cjs:160:223 {
+2026-10-09T13:31:13.9527750Z   generatedMessage: false,
+2026-10-09T13:31:13.9528146Z   code: 'ERR_ASSERTION',
+2026-10-09T13:31:13.9528704Z   actual: [
+2026-10-09T13:31:13.9528977Z     {
+2026-10-09T13:31:13.9529336Z       path: 'lifetime.meguru.marks.city',
+2026-10-09T13:31:13.9529728Z       before: undefined,
+2026-10-09T13:31:13.9530031Z       after: []
+2026-10-09T13:31:13.9530384Z     },
+2026-10-09T13:31:13.9530677Z     {
+2026-10-09T13:31:13.9530992Z       path: 'lifetime.meguru.paths.city',
+2026-10-09T13:31:13.9531369Z       before: undefined,
+2026-10-09T13:31:13.9531665Z       after: []
+2026-10-09T13:31:13.9531962Z     },
+2026-10-09T13:31:13.9532269Z     {
+2026-10-09T13:31:13.9532560Z       path: 'lifetime.meguru.zones.city',
+2026-10-09T13:31:13.9533095Z       before: undefined,
+2026-10-09T13:31:13.9533419Z       after: []
+2026-10-09T13:31:13.9533704Z     },
+2026-10-09T13:31:13.9534114Z     { path: 'lifetime.saveRevision', before: 6, after: 7 },
+2026-10-09T13:31:13.9534584Z     { path: 'savedAt', before: 1791552641898, after: 1791552656495 }
+2026-10-09T13:31:13.9534998Z   ],
+2026-10-09T13:31:13.9535295Z   expected: [
+2026-10-09T13:31:13.9535654Z     { path: 'lifetime.meguru.marks.city', after: [] },
+2026-10-09T13:31:13.9536132Z     { path: 'lifetime.meguru.paths.city', after: [] },
+2026-10-09T13:31:13.9536605Z     { path: 'lifetime.meguru.zones.city', after: [] },
+2026-10-09T13:31:13.9537124Z     { path: 'lifetime.saveRevision', before: 6, after: 7 },
+2026-10-09T13:31:13.9537629Z     { path: 'savedAt', before: 1791552641898, after: 1791552656495 }
+2026-10-09T13:31:13.9538015Z   ],
+2026-10-09T13:31:13.9539049Z   operator: 'deepStrictEqual',
+2026-10-09T13:31:13.9539681Z   diff: 'simple'
+2026-10-09T13:31:13.9540031Z }
+2026-10-09T13:31:13.9540231Z 
+2026-10-09T13:31:13.9540477Z Node.js v22.23.3
+2026-10-09T13:31:13.9626618Z

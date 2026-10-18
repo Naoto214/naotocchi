@@ -1,0 +1,27 @@
+
+<--- Last few GCs --->
+
+[5:0x3b959000]     1389 ms: Mark-Compact 280.0 (387.9) -> 223.6 (358.6) MB, pooled: 0 MB, 97.53 / 0.00 ms  (average mu = 0.677, current mu = 0.516) allocation failure; scavenge might not succeed
+[5:0x3b959000]     1568 ms: Mark-Compact (reduce) 269.0 (389.4) -> 259.6 (267.9) MB, pooled: 0 MB, 82.83 / 0.01 ms  (+ 0.9 ms in 256 steps since start of marking, biggest step 0.1 ms, walltime since start of marking 169 ms) (average mu = 0.618, current mu
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x75356c node::OOMErrorHandler(char const*, v8::OOMDetails const&) [node]
+ 2: 0xc52cd0  [node]
+ 3: 0xc52dbf  [node]
+ 4: 0xef6695  [node]
+ 5: 0xf07ffc  [node]
+ 6: 0xedd4b3  [node]
+ 7: 0xeb2604  [node]
+ 8: 0xe9d5d8  [node]
+ 9: 0xc839ba  [node]
+10: 0x10d0dd6  [node]
+11: 0xd08692  [node]
+12: 0xd09145  [node]
+13: 0xd1b7fb  [node]
+14: 0xd1c66d  [node]
+15: 0xc5ac05 v8::ScriptCompiler::CompileUnboundInternal(v8::Isolate*, v8::ScriptCompiler::Source*, v8::ScriptCompiler::CompileOptions, v8::ScriptCompiler::NoCacheReason) [node]
+16: 0x9062df node::contextify::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&) [node]
+17: 0xcb1c80  [node]
+18: 0xcb1fdd  [node]
+19: 0x1ab38f6  [node]

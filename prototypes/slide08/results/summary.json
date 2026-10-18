@@ -1,0 +1,296 @@
+[
+  {
+    "id": "base",
+    "n": 20,
+    "solved": 4,
+    "unproven": 16,
+    "minMoves": 17,
+    "medianMoves": 29.5,
+    "maxMoves": 42,
+    "medianSearchMs": 1599.3555125000003,
+    "medianNodes": 232692,
+    "maxChain": 5,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 4,
+    "stopReasons": {
+      "frontier-exhausted": 15,
+      "witness": 4,
+      "depth": 1
+    }
+  },
+  {
+    "id": "size5",
+    "n": 20,
+    "solved": 3,
+    "unproven": 17,
+    "minMoves": 10,
+    "medianMoves": 29,
+    "maxMoves": 33,
+    "medianSearchMs": 1062.4150215000009,
+    "medianNodes": 167463.5,
+    "maxChain": 3,
+    "meanInitialEvolvingSlides": 3.6,
+    "itemRequiredWitnesses": 3,
+    "stopReasons": {
+      "frontier-exhausted": 16,
+      "witness": 3,
+      "depth": 1
+    }
+  },
+  {
+    "id": "size7",
+    "n": 20,
+    "solved": 3,
+    "unproven": 17,
+    "minMoves": 18,
+    "medianMoves": 32,
+    "maxMoves": 40,
+    "medianSearchMs": 1930.3244645000013,
+    "medianNodes": 267805,
+    "maxChain": 3,
+    "meanInitialEvolvingSlides": 3.65,
+    "itemRequiredWitnesses": 3,
+    "stopReasons": {
+      "frontier-exhausted": 15,
+      "witness": 3,
+      "depth": 2
+    }
+  },
+  {
+    "id": "count18",
+    "n": 20,
+    "solved": 0,
+    "unproven": 20,
+    "minMoves": null,
+    "medianMoves": null,
+    "maxMoves": null,
+    "medianSearchMs": 709.698473000004,
+    "medianNodes": 160746.5,
+    "maxChain": null,
+    "meanInitialEvolvingSlides": 3.55,
+    "itemRequiredWitnesses": 0,
+    "stopReasons": {
+      "frontier-exhausted": 20
+    }
+  },
+  {
+    "id": "count30",
+    "n": 20,
+    "solved": 16,
+    "unproven": 4,
+    "minMoves": 11,
+    "medianMoves": 32,
+    "maxMoves": 46,
+    "medianSearchMs": 1302.6951709999994,
+    "medianNodes": 238335,
+    "maxChain": 5,
+    "meanInitialEvolvingSlides": 3.95,
+    "itemRequiredWitnesses": 16,
+    "stopReasons": {
+      "frontier-exhausted": 4,
+      "witness": 16
+    }
+  },
+  {
+    "id": "kinds4",
+    "n": 20,
+    "solved": 2,
+    "unproven": 18,
+    "minMoves": 35,
+    "medianMoves": 38,
+    "maxMoves": 41,
+    "medianSearchMs": 1366.3935324999911,
+    "medianNodes": 274449.5,
+    "maxChain": 3,
+    "meanInitialEvolvingSlides": 3.6,
+    "itemRequiredWitnesses": 2,
+    "stopReasons": {
+      "frontier-exhausted": 17,
+      "witness": 2,
+      "depth": 1
+    }
+  },
+  {
+    "id": "kinds5",
+    "n": 20,
+    "solved": 2,
+    "unproven": 18,
+    "minMoves": 41,
+    "medianMoves": 43,
+    "maxMoves": 45,
+    "medianSearchMs": 1620.5927944999858,
+    "medianNodes": 303981.5,
+    "maxChain": 2,
+    "meanInitialEvolvingSlides": 3.15,
+    "itemRequiredWitnesses": 2,
+    "stopReasons": {
+      "frontier-exhausted": 16,
+      "witness": 2,
+      "budget": 1,
+      "depth": 1
+    }
+  },
+  {
+    "id": "stages3",
+    "n": 20,
+    "solved": 0,
+    "unproven": 20,
+    "minMoves": null,
+    "medianMoves": null,
+    "maxMoves": null,
+    "medianSearchMs": 846.6631389999966,
+    "medianNodes": 193591,
+    "maxChain": null,
+    "meanInitialEvolvingSlides": 3.85,
+    "itemRequiredWitnesses": 0,
+    "stopReasons": {
+      "frontier-exhausted": 20
+    }
+  },
+  {
+    "id": "stages5",
+    "n": 20,
+    "solved": 16,
+    "unproven": 4,
+    "minMoves": 12,
+    "medianMoves": 28,
+    "maxMoves": 43,
+    "medianSearchMs": 985.3701044999907,
+    "medianNodes": 175779,
+    "maxChain": 4,
+    "meanInitialEvolvingSlides": 3.65,
+    "itemRequiredWitnesses": 16,
+    "stopReasons": {
+      "frontier-exhausted": 4,
+      "witness": 16
+    }
+  },
+  {
+    "id": "cost2",
+    "n": 20,
+    "solved": 7,
+    "unproven": 13,
+    "minMoves": 8,
+    "medianMoves": 19,
+    "maxMoves": 34,
+    "medianSearchMs": 983.8890680000186,
+    "medianNodes": 239156,
+    "maxChain": 4,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 7,
+    "stopReasons": {
+      "frontier-exhausted": 9,
+      "witness": 7,
+      "depth": 4
+    }
+  },
+  {
+    "id": "cost8",
+    "n": 20,
+    "solved": 0,
+    "unproven": 20,
+    "minMoves": null,
+    "medianMoves": null,
+    "maxMoves": null,
+    "medianSearchMs": 804.6369605000073,
+    "medianNodes": 169854,
+    "maxChain": null,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 0,
+    "stopReasons": {
+      "frontier-exhausted": 20
+    }
+  },
+  {
+    "id": "gauge0",
+    "n": 20,
+    "solved": 2,
+    "unproven": 18,
+    "minMoves": 28,
+    "medianMoves": 34,
+    "maxMoves": 40,
+    "medianSearchMs": 992.5162345000135,
+    "medianNodes": 225309,
+    "maxChain": 3,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 2,
+    "stopReasons": {
+      "frontier-exhausted": 17,
+      "witness": 2,
+      "depth": 1
+    }
+  },
+  {
+    "id": "gauge12",
+    "n": 20,
+    "solved": 7,
+    "unproven": 13,
+    "minMoves": 19,
+    "medianMoves": 21,
+    "maxMoves": 28,
+    "medianSearchMs": 1107.6871354999603,
+    "medianNodes": 236015,
+    "maxChain": 5,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 7,
+    "stopReasons": {
+      "frontier-exhausted": 12,
+      "witness": 7,
+      "depth": 1
+    }
+  },
+  {
+    "id": "no-initial-eggs",
+    "n": 20,
+    "solved": 3,
+    "unproven": 17,
+    "minMoves": 24,
+    "medianMoves": 40,
+    "maxMoves": 42,
+    "medianSearchMs": 872.6805904999783,
+    "medianNodes": 169040.5,
+    "maxChain": 5,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 3,
+    "stopReasons": {
+      "frontier-exhausted": 17,
+      "witness": 3
+    }
+  },
+  {
+    "id": "no-reward",
+    "n": 20,
+    "solved": 0,
+    "unproven": 20,
+    "minMoves": null,
+    "medianMoves": null,
+    "maxMoves": null,
+    "medianSearchMs": 256.91605199998594,
+    "medianNodes": 52680.5,
+    "maxChain": null,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 0,
+    "stopReasons": {
+      "frontier-exhausted": 20
+    }
+  },
+  {
+    "id": "crossed",
+    "n": 20,
+    "solved": 12,
+    "unproven": 8,
+    "minMoves": 13,
+    "medianMoves": 36,
+    "maxMoves": 48,
+    "medianSearchMs": 1508.7352180000162,
+    "medianNodes": 324078.5,
+    "maxChain": 4,
+    "meanInitialEvolvingSlides": 3.75,
+    "itemRequiredWitnesses": 12,
+    "stopReasons": {
+      "depth": 6,
+      "witness": 12,
+      "frontier-exhausted": 2
+    }
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+  "sourceRun": 37897241823,
+  "sourceRunConclusion": "failure",
+  "successfulCaptureJobId": 113711274552,
+  "successfulCaptureJobConclusion": "success",
+  "artifact": 11601490588,
+  "archiveCommit": "a2878b4c361b13f9312c656c12870959dc7b4817",
+  "rawFilesVerified": 281,
+  "reviewer": "root actual image inspection",
+  "status": "PASS_ALL7_IMAGE_GATE",
+  "reviewed": {
+    "rabbit_friend": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "tanuki": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "squirrel": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "hamster": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "otter": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "monkey": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "hedgehog": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    }
+  },
+  "resolved": "Previous detached arms, hands, feet and held leaf/stone now visually connected; source identities retained; all expressions legible and normal-distance silhouettes clear. Closed indexed geometry and 32-state contact tests supplement actual images.",
+  "ciNote": "Source run remains FAILURE due stale mutation anchors. Corrected anchors passed 53/53 affected mutations with restoration; integrated dedicated suite 372/372 PASS. No relabeling of failed source run.",
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

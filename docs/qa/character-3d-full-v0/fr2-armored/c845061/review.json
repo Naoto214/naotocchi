@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "c845061188edd224e928329bf08c9044f6676f70",
+  "artifact": 11418620599,
+  "verdict": "nymph03 representative rejected",
+  "reviewed": [
+    "34",
+    "side"
+  ],
+  "finding": "Digging foreclaws and wing pads present, but abdomen uses adult-like narrow taper and becomes a spike instead of the broad original nymph abdomen.",
+  "correction": "Explicit nymph width/height/taper plus physical rear-width regression RED\u2192GREEN; recapture pending. No01/02/04 expansion.",
+  "environment": "Chromium/SwiftShader, not iPhone"
+}

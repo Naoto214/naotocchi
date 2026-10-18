@@ -1,0 +1,48 @@
+{
+  "sourceCommit": "5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+  "runId": 38138489668,
+  "artifactJobEvidence": true,
+  "families": [
+    "author"
+  ],
+  "artifacts": [
+    {
+      "id": 11701978094,
+      "label": "author-side-layer",
+      "name": "full-rollout-nonplayer-review-5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+      "digest": "sha256:66f1fe697a011f89e0c703566f35ddd9fe3094e5c22caa2c9ba95238502d56ce",
+      "jobId": 114467218917,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "author-naoto-F-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-options.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-F-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-F-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-F-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-F-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "comparison-metadata.json",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

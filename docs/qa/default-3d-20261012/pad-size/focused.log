@@ -1,0 +1,47 @@
+✔ index.html asset references exist and carry cache tokens (19.67256ms)
+✔ the bump tool rewrites only cache tokens (0.974804ms)
+✔ one-finger drags cannot pan the home, including a drag starting on a care button (722.822926ms)
+✔ long text can scroll in both directions but cannot drag the home past its edges (243.078027ms)
+✔ pinch zoom and panning an enlarged view remain available (102.962707ms)
+✔ menus, minigames and life records keep their gestures and returning home restores the lock (116.841351ms)
+✔ home touch setup leaves the home height available after the fun strip retirement (63.059852ms)
+(node:21) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0b3c9b0df346/audit-naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0b3c9b0df346/audit-naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normal URL requests both 3D layers, waits visibly and starts exactly once (12.064293ms)
+✔ QA URL priorities: any 2D override wins, char3d=0 keeps world (37.122191ms)
+✔ timeout ignores late load, remains Canvas on reopen, and counts one visit (8.567323ms)
+✔ cancel and reopen cannot let old completion start a stale run (16.325474ms)
+✔ module error and unavailable WebGL use Canvas without retries (18.776584ms)
+✔ runtime fallback locks subsequent visits to Canvas (19.043621ms)
+✔ diagnostic logger failure cannot interrupt fallback (22.786762ms)
+✔ wide 3D framing retains horizon, elevation and feet at every yaw (240.578234ms)
+✔ portrait projection is unchanged; wide compensation joins continuously (34.964651ms)
+✔ wide camera retains vertical field of view instead of cropping the distance (19.853525ms)
+✔ a small newborn uses spare space and stays near the speech below it (17.593329ms)
+✔ bottom transparency cannot leave a fish far above its speech (388.503453ms)
+✔ closer core actors retain the readable size of both full companion arcs (84.826515ms)
+✔ equipment and the partner sit near the visible body instead of the transparent image top (192.172056ms)
+✔ height-constrained companions keep curved wings instead of straight columns (125.106853ms)
+✔ height-constrained cast keeps all frames, two sides and motion gaps (4199.787199ms)
+✔ more vertical room grows the cast instead of leaving a fixed small scene (2.89117ms)
+✔ legacy colors and earned designs survive as a noninteractive collection (81.963039ms)
+✔ glass inputs preview immediately, save on change, and reset only readability settings (132.288693ms)
+✔ viewport changes follow browser chrome height while pinch zoom remains usable (134.972129ms)
+✔ glass migration clamps unsafe values and respects an explicit transparency choice (496.105399ms)
+✔ short visible viewports switch meter arrangement and recover without undoing pinch zoom (66.570348ms)
+✔ a viewport resize lays out before the next reaction and does not cancel it on render (44.808289ms)
+✔ a new narration starts at the top while normal renders preserve the reading position (30.49958ms)
+✔ a new speech starts at its first line without truncating a long message (39.491574ms)
+✔ locked or invalid legacy designs cannot override the game palette (114.554486ms)
+✔ every saved color and pattern has one shared preview definition and independent paint layers (24.478204ms)
+✔ screen palette samples retain at least 4.5 contrast with white and colored motifs (52.999032ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7306.03052

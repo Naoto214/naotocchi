@@ -1,0 +1,161 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { configuration } from "../rules.mjs";
+import { createBag, draw } from "../random.mjs";
+import { board, resolve, groups, gravity } from "../engine.mjs";
+const r = configuration();
+function put(b, x, y, s = 1, k = 0) {
+  b[y][x] = { id: y * 10 + x + 1, k, s };
+  return b;
+}
+for (let n = 2; n <= 5; n++)
+  test(`${n} connected => +${n - 1}`, () => {
+    let b = board(r);
+    for (let x = 0; x < n; x++) put(b, x, 13);
+    let z = resolve(b, r);
+    assert.equal(z.waves.length, 1);
+    assert.equal(z.board[13][0].s, n);
+    assert.equal(z.board.flat().filter(Boolean).length, 1);
+    assert.equal(b[13][0].s, 1);
+  });
+test("diagonal / other species / other stage do not merge", () => {
+  let b = board(r);
+  put(b, 0, 13);
+  put(b, 1, 12, 1, 1);
+  put(b, 2, 13, 2);
+  assert.equal(resolve(b, r).waves.length, 0);
+});
+test("simultaneous groups are one wave", () => {
+  let b = board(r);
+  for (let x of [0, 1]) put(b, x, 13);
+  for (let x of [4, 5]) put(b, x, 13, 1, 1);
+  assert.equal(resolve(b, r).waves.length, 1);
+});
+for (let n of [3, 5])
+  test(`gravity chain ${n} waves`, () => {
+    let b = board(r);
+    put(b, 0, 13);
+    put(b, 1, 13);
+    for (let s = 2; s <= n; s++) put(b, 0, 14 - s, s);
+    let z = resolve(b, r);
+    assert.equal(z.waves.length, n);
+    assert.equal(z.board[13][0].s, n + 1);
+  });
+test("anchor changed ID survives gravity; bottom and changed differ", () => {
+  let b = board(r);
+  put(b, 0, 13);
+  put(b, 1, 13);
+  let id = b[13][1].id;
+  assert.equal(resolve(b, r, { priority: [id] }).board[13][0].s, 2);
+  let z = resolve(b, configuration({ anchor: "changed" }), { priority: [id] });
+  assert.equal(z.board[13][1].id, id);
+});
+test("six all consumes six, five leaves one", () => {
+  let b = board(r);
+  for (let x = 0; x < 6; x++) put(b, x, 13);
+  let a = resolve(b, r),
+    c = resolve(b, configuration({ consume: "five" }));
+  assert.equal(a.board.flat().filter(Boolean).length, 1);
+  assert.equal(c.board.flat().filter(Boolean).length, 2);
+  assert.equal(a.board[13][0].s, 5);
+});
+test("disjoint candidates never double consume and report rejected overlaps", () => {
+  let b = board(r);
+  for (let y = 12; y < 14; y++) for (let x = 0; x < 6; x++) put(b, x, y);
+  let z = resolve(
+    b,
+    configuration({ consume: "five", competition: "disjoint" }),
+  );
+  for (const w of z.waves) {
+    let ids = w.events.flatMap((e) => e.consumed);
+    assert.equal(ids.length, new Set(ids).size);
+  }
+  assert.ok(z.waves[0].rejected.length > 0);
+});
+test("08 creation overflow is score, not immediately death", () => {
+  let b = board(r);
+  put(b, 0, 13, 7);
+  put(b, 1, 13, 7);
+  put(b, 2, 13, 7);
+  let z = resolve(b, r);
+  assert.equal(z.board[13][0].s, 8);
+  assert.equal(z.overflow, 1);
+  assert.deepEqual(z.eggs, [0, 0, 0, 0]);
+});
+test("08 death count per component vs per pair", () => {
+  let b = board(r);
+  for (let x = 0; x < 4; x++) put(b, x, 13, 8);
+  assert.deepEqual(resolve(b, r).eggs, [1, 0, 0, 0]);
+  assert.deepEqual(
+    resolve(b, configuration({ eggCount: "pairs" })).eggs,
+    [2, 0, 0, 0],
+  );
+});
+test("death on chain two uses configured boundaries", () => {
+  let b = board(r);
+  put(b, 0, 13, 7);
+  put(b, 1, 13, 7);
+  put(b, 0, 12, 8);
+  assert.deepEqual(resolve(b, r).eggs, [0, 1, 0, 0]);
+  assert.deepEqual(
+    resolve(b, configuration({ eggThresholds: [1, 3, 5, 7] })).eggs,
+    [1, 0, 0, 0],
+  );
+});
+test("08 same vs any species", () => {
+  let b = board(r);
+  put(b, 0, 13, 8);
+  put(b, 1, 13, 8, 1);
+  assert.equal(resolve(b, r).waves.length, 0);
+  assert.equal(
+    resolve(b, configuration({ deathSpecies: "any" })).waves.length,
+    1,
+  );
+});
+test("pair-first versus simultaneous union", () => {
+  let b = board(r);
+  for (let x = 0; x < 3; x++) put(b, x, 13);
+  let ctx = { pair: [b[13][1].id, b[13][2].id] };
+  assert.equal(resolve(b, r, ctx).board[13][0].s, 3);
+  assert.equal(
+    resolve(b, configuration({ pairFirst: true }), ctx)
+      .board.flat()
+      .filter(Boolean).length,
+    2,
+  );
+});
+test("gravity is stable and idempotent", () => {
+  let b = board(r);
+  put(b, 0, 3, 2);
+  put(b, 0, 9, 3);
+  let g = gravity(b);
+  assert.equal(g[12][0].s, 2);
+  assert.equal(g[13][0].s, 3);
+  assert.deepEqual(gravity(g), g);
+});
+for (let kinds of [4, 5, 6])
+  test(`bag ${kinds} balanced deterministic`, () => {
+    let a = createBag(42, configuration({ kinds })),
+      b = createBag(42, configuration({ kinds }));
+    let out = Array.from({ length: kinds * 4 }, () => draw(a));
+    assert.deepEqual(
+      out,
+      Array.from({ length: kinds * 4 }, () => draw(b)),
+    );
+    for (let k = 0; k < kinds; k++)
+      assert.equal(out.filter((x) => x === k).length, 4);
+  });
+test("fixed20 has fair rotating extra species", () => {
+  let a = createBag(7, configuration({ kinds: 6, bag: "fixed20" }));
+  let out = Array.from({ length: 120 }, () => draw(a));
+  for (let k = 0; k < 6; k++)
+    assert.equal(out.filter((x) => x === k).length, 20);
+});
+test("invalid configs / boards rejected", () => {
+  assert.throws(() => configuration({ kinds: 0 }));
+  assert.throws(() => configuration({ anchor: "typo" }));
+  assert.throws(() => configuration({ eggThresholds: [1, 4, 3, 5] }));
+  let b = board(r);
+  put(b, 0, 13, 9);
+  assert.throws(() => resolve(b, r));
+});

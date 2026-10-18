@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "size": 128,
+  "visibleExtent": [
+    104,
+    112
+  ],
+  "items": {
+    "poop1": "assets/items/unified/poop1.png",
+    "sleepboost1": "assets/items/unified/sleepboost1.png",
+    "bowtie": "assets/items/unified/bowtie.png",
+    "ribbon": "assets/items/unified/ribbon.png",
+    "scarf": "assets/items/unified/scarf.png",
+    "travel1": "assets/items/unified/travel1.png",
+    "partner1": "assets/items/unified/partner1.png",
+    "bond1": "assets/items/unified/bond1.png",
+    "gamepass1": "assets/items/unified/gamepass1.png",
+    "star": "assets/items/unified/star.png",
+    "naoto_charm": "assets/items/unified/naoto_charm.png",
+    "naoto_lantern": "assets/items/unified/naoto_lantern.png",
+    "naoto_ring": "assets/items/unified/naoto_ring.png",
+    "naoto_crown": "assets/items/unified/naoto_crown.png",
+    "c_coin2": "assets/items/unified/c_coin2.png",
+    "c_life": "assets/items/unified/c_life.png",
+    "c_life_charm": "assets/items/unified/c_life_charm.png",
+    "c_time_back": "assets/items/unified/c_time_back.png",
+    "c_time_forward": "assets/items/unified/c_time_forward.png",
+    "c_transform": "assets/items/unified/c_transform.png",
+    "c_dex": "assets/items/unified/c_dex.png",
+    "c_friend": "assets/items/unified/c_friend.png",
+    "c_rare_friend": "assets/items/unified/c_rare_friend.png",
+    "c_match": "assets/items/unified/c_match.png",
+    "c_egg_normal": "assets/items/unified/c_egg_normal.png",
+    "c_egg_rare": "assets/items/unified/c_egg_rare.png",
+    "sticker_pack": "assets/items/unified/sticker_pack.png"
+  }
+}

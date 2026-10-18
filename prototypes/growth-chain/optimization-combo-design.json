@@ -1,0 +1,56 @@
+{
+  "reason": "Adaptive combinations after single-candidate results. Exploratory same seeds, not independent confirmation.",
+  "conditions": [
+    {
+      "policy": "legacy",
+      "id": "g4-width7",
+      "gauge": 4,
+      "width": 7
+    },
+    {
+      "policy": "legacy",
+      "id": "g6-width7",
+      "gauge": 6,
+      "width": 7
+    },
+    {
+      "policy": "legacy",
+      "id": "g4-kinds4",
+      "gauge": 4,
+      "kinds": 4
+    },
+    {
+      "policy": "legacy",
+      "id": "g6-kinds4",
+      "gauge": 6,
+      "kinds": 4
+    },
+    {
+      "policy": "legacy",
+      "id": "g4-silver1",
+      "gauge": 4,
+      "eggs": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "policy": "legacy",
+      "id": "g2-width7",
+      "gauge": 2,
+      "width": 7
+    }
+  ],
+  "seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ]
+}

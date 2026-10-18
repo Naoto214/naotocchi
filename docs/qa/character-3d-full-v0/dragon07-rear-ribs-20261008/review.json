@@ -1,0 +1,28 @@
+{
+  "status": "CANDIDATE_FIX_RECAPTURE_REQUIRED",
+  "sourceArtifacts": [
+    11470710049,
+    11469883827
+  ],
+  "finding": "Membrane visible in rear captures; supporting fingers are hidden behind it. Centers at +.014 with radius tapering .025 to .010 leave no measurable rear protrusion.",
+  "diagnosis": {
+    "samples": 15,
+    "intersections": 14,
+    "before": {
+      "rearVisible": 0,
+      "frontVisible": 14
+    },
+    "after": {
+      "rearVisible": 14,
+      "frontVisible": 14
+    },
+    "minimumProtrusion": 0.002
+  },
+  "fix": "Existing wing finger tubes centered at0; taper .025 to .015. No extra faces, materials, or duplicated geometry. No runtime promotion.",
+  "verification": {
+    "dedicatedPass": 230,
+    "mythicMutationsDetected": 11,
+    "pilotHashesUnchanged": 28
+  },
+  "gate": "New four-view/state/normal-distance Actions captures required. Browser install failed with invalid downloaded archive; no local image PASS claimed."
+}

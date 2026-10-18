@@ -1,0 +1,17 @@
+{
+  "protectedRegions": 13,
+  "changes": [
+    {
+      "region": "city",
+      "addedParts": 8,
+      "vehicles": 2,
+      "addedTriangles": 80
+    },
+    {
+      "region": "countryside",
+      "addedParts": 12,
+      "vehicles": 3,
+      "addedTriangles": 120
+    }
+  ]
+}

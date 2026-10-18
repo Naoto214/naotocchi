@@ -1,0 +1,177 @@
+[
+  {
+    "key": "form:cat:5",
+    "emotion": "normal",
+    "expression": "normal",
+    "asset": "assets/characters/cat/06.png",
+    "fallback": null
+  },
+  {
+    "key": "form:cat:5",
+    "emotion": "positive",
+    "expression": "happy",
+    "asset": "assets/characters/expressions/cat/06-happy-v3.png",
+    "fallback": null
+  },
+  {
+    "key": "form:cat:5",
+    "emotion": "dislike",
+    "expression": "sulky",
+    "asset": "assets/characters/expressions/cat/06-sulky.png",
+    "fallback": null
+  },
+  {
+    "key": "form:cat:5",
+    "emotion": "sick",
+    "expression": "sick",
+    "asset": "assets/characters/expressions/cat/06-sick.png",
+    "fallback": null
+  },
+  {
+    "key": "form:cat:5",
+    "emotion": "tired",
+    "expression": "tired",
+    "asset": "assets/characters/expressions/cat/06-tired.png",
+    "fallback": null
+  },
+  {
+    "key": "form:dog:2",
+    "emotion": "normal",
+    "expression": "normal",
+    "asset": "assets/characters/dog/03.png",
+    "fallback": null
+  },
+  {
+    "key": "form:dog:2",
+    "emotion": "positive",
+    "expression": "happy",
+    "asset": "assets/characters/expressions/dog/03-happy.png",
+    "fallback": null
+  },
+  {
+    "key": "form:dog:2",
+    "emotion": "dislike",
+    "expression": "sulky",
+    "asset": "assets/characters/expressions/dog/03-sulky.png",
+    "fallback": null
+  },
+  {
+    "key": "form:dog:2",
+    "emotion": "sick",
+    "expression": "sick",
+    "asset": "assets/characters/expressions/dog/03-sick.png",
+    "fallback": null
+  },
+  {
+    "key": "form:dog:2",
+    "emotion": "tired",
+    "expression": "tired",
+    "asset": "assets/characters/expressions/dog/03-tired.png",
+    "fallback": null
+  },
+  {
+    "key": "form:frog:4",
+    "emotion": "normal",
+    "expression": "normal",
+    "asset": "assets/characters/frog/05.png",
+    "fallback": null
+  },
+  {
+    "key": "form:frog:4",
+    "emotion": "positive",
+    "expression": "happy",
+    "asset": "assets/characters/expressions/frog/05-happy.png",
+    "fallback": null
+  },
+  {
+    "key": "form:frog:4",
+    "emotion": "dislike",
+    "expression": "sulky",
+    "asset": "assets/characters/expressions/frog/05-sulky.png",
+    "fallback": null
+  },
+  {
+    "key": "form:frog:4",
+    "emotion": "sick",
+    "expression": "sick",
+    "asset": "assets/characters/expressions/frog/05-sick.png",
+    "fallback": null
+  },
+  {
+    "key": "form:frog:4",
+    "emotion": "tired",
+    "expression": "tired",
+    "asset": "assets/characters/expressions/frog/05-tired.png",
+    "fallback": null
+  },
+  {
+    "key": "companion:tanuki",
+    "emotion": "normal",
+    "expression": "normal",
+    "asset": "assets/characters/companions/tanuki.png",
+    "fallback": null
+  },
+  {
+    "key": "companion:tanuki",
+    "emotion": "positive",
+    "expression": "positive",
+    "asset": "assets/characters/relationship/tanuki/positive.png",
+    "fallback": null
+  },
+  {
+    "key": "companion:tanuki",
+    "emotion": "dislike",
+    "expression": "normal",
+    "asset": "assets/characters/companions/tanuki.png",
+    "fallback": null
+  },
+  {
+    "key": "companion:tanuki",
+    "emotion": "sick",
+    "expression": "normal",
+    "asset": "assets/characters/companions/tanuki.png",
+    "fallback": null
+  },
+  {
+    "key": "companion:tanuki",
+    "emotion": "tired",
+    "expression": "normal",
+    "asset": "assets/characters/companions/tanuki.png",
+    "fallback": null
+  },
+  {
+    "key": "partner:cat_ceo",
+    "emotion": "normal",
+    "expression": "normal",
+    "asset": "assets/characters/partners/cat_ceo.png",
+    "fallback": null
+  },
+  {
+    "key": "partner:cat_ceo",
+    "emotion": "positive",
+    "expression": "positive",
+    "asset": "assets/characters/relationship/cat_ceo/positive.png",
+    "fallback": null
+  },
+  {
+    "key": "partner:cat_ceo",
+    "emotion": "dislike",
+    "expression": "normal",
+    "asset": "assets/characters/partners/cat_ceo.png",
+    "fallback": null
+  },
+  {
+    "key": "partner:cat_ceo",
+    "emotion": "sick",
+    "expression": "normal",
+    "asset": "assets/characters/partners/cat_ceo.png",
+    "fallback": null
+  },
+  {
+    "key": "partner:cat_ceo",
+    "emotion": "tired",
+    "expression": "normal",
+    "asset": "assets/characters/partners/cat_ceo.png",
+    "fallback": null
+  }
+]

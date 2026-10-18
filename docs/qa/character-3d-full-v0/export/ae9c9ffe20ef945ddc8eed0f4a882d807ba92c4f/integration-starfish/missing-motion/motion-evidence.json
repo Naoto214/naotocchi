@@ -1,0 +1,4509 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "starfish",
+      "stage": 2
+    },
+    {
+      "id": "starfish",
+      "stage": 3
+    },
+    {
+      "id": "starfish",
+      "stage": 5
+    },
+    {
+      "id": "starfish",
+      "stage": 6
+    },
+    {
+      "id": "starfish",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3368208070226116,
+          0.11129403901078555,
+          -0.15298466002964342
+        ],
+        [
+          0.39903448691187104,
+          1.2705498647213114,
+          0.18364345654554132
+        ]
+      ],
+      "file": "starfish-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3892742797995753,
+          0.0952511926186751,
+          -0.15298466002964342
+        ],
+        [
+          0.4011682236900432,
+          1.2883654218156637,
+          0.18364345654554132
+        ]
+      ],
+      "file": "starfish-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3421385586261749,
+          0.08113946304151295,
+          -0.15539999306201935
+        ],
+        [
+          0.40533447265625,
+          1.2046394413752246,
+          0.18654283290581294
+        ]
+      ],
+      "file": "starfish-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.392956202895648,
+          0.06484044179918999,
+          -0.15539999306201935
+        ],
+        [
+          0.4073811142942341,
+          1.222795211774196,
+          0.18654283290581294
+        ]
+      ],
+      "file": "starfish-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3368208070226116,
+          0.1651221751213297,
+          -0.23317678752198825
+        ],
+        [
+          0.39903448691187104,
+          1.3436064629133395,
+          0.1569332947306468
+        ]
+      ],
+      "file": "starfish-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.34363989823129465,
+          0.13212747231422436,
+          -0.2333550077390191
+        ],
+        [
+          0.39936145962710456,
+          1.315122584565761,
+          0.15706638385109578
+        ]
+      ],
+      "file": "starfish-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3421385586261749,
+          0.07294516053906475,
+          -0.23309969113107998
+        ],
+        [
+          0.40533447265625,
+          1.2161211556129439,
+          0.1594109690972733
+        ]
+      ],
+      "file": "starfish-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3487470235976958,
+          0.07083858148022983,
+          -0.23328079679373737
+        ],
+        [
+          0.4056510053590599,
+          1.2185976466305222,
+          0.15954615943851663
+        ]
+      ],
+      "file": "starfish-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.36551952997776865,
+          0.06956531283745129,
+          -0.35810671327681665
+        ],
+        [
+          0.44978183197365246,
+          1.2952165853554942,
+          0.46564116244773
+        ]
+      ],
+      "file": "starfish-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.36694577398858924,
+          0.08615369744738546,
+          -0.3590354672290872
+        ],
+        [
+          0.4977321834426409,
+          1.2767063483143364,
+          0.43364963805004386
+        ]
+      ],
+      "file": "starfish-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.37121070408200774,
+          0.0388061458004863,
+          -0.363417152783316
+        ],
+        [
+          0.45525764964462456,
+          1.230278733378899,
+          0.4659878780421287
+        ]
+      ],
+      "file": "starfish-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.372547199874542,
+          0.055659839114684306,
+          -0.3644387244300187
+        ],
+        [
+          0.5016748211386683,
+          1.2114066898992022,
+          0.4350856200929245
+        ]
+      ],
+      "file": "starfish-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3474,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3368208070226116,
+          0.0795516945617661,
+          -0.1596024995298296
+        ],
+        [
+          0.39903448691187104,
+          1.2009325297135012,
+          0.32495694323312163
+        ]
+      ],
+      "file": "starfish-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3474,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3390874173439716,
+          0.06129662933958249,
+          -0.16269669489414526
+        ],
+        [
+          0.4531907090552608,
+          1.2151384454079621,
+          0.3273648162235858
+        ]
+      ],
+      "file": "starfish-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3474,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3421385586261749,
+          0.04892007068707081,
+          -0.1617248522857665
+        ],
+        [
+          0.40533447265625,
+          1.1378235326691004,
+          0.3219791376624793
+        ]
+      ],
+      "file": "starfish-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3474,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.34431604412956834,
+          0.03037392457150795,
+          -0.1648683852525488
+        ],
+        [
+          0.4577975485244959,
+          1.1523122515337254,
+          0.3244349451986429
+        ]
+      ],
+      "file": "starfish-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3368208070226116,
+          0.07317200960677415,
+          -0.16060515924218668
+        ],
+        [
+          0.39903448691187104,
+          1.1740870549193474,
+          0.36526804967246673
+        ]
+      ],
+      "file": "starfish-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.39449961600737593,
+          0.05724744476354243,
+          -0.16404190573371602
+        ],
+        [
+          0.40133201094718646,
+          1.191651912219295,
+          0.3690587944930679
+        ]
+      ],
+      "file": "starfish-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3421385586261749,
+          0.042421585780559726,
+          -0.16264885617495733
+        ],
+        [
+          0.40533447265625,
+          1.1119365850335325,
+          0.36099916666246457
+        ]
+      ],
+      "file": "starfish-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.39801657770824567,
+          0.026242445190937866,
+          -0.16614054371585585
+        ],
+        [
+          0.40753535707467503,
+          1.129843171583927,
+          0.3648636614921924
+        ]
+      ],
+      "file": "starfish-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33632651453163065,
+          0.09661293795110669,
+          -0.15719400592449578
+        ],
+        [
+          0.399528779402852,
+          1.2312013763976672,
+          0.2506019381675414
+        ]
+      ],
+      "file": "starfish-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3365468362305455,
+          0.09504138789448859,
+          -0.15734008761919405
+        ],
+        [
+          0.40407827069842706,
+          1.2325193082844965,
+          0.25072444506620123
+        ]
+      ],
+      "file": "starfish-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3421385586261749,
+          0.06617908644621874,
+          -0.15945127135636505
+        ],
+        [
+          0.40533447265625,
+          1.1669899557399999,
+          0.24997814862000692
+        ]
+      ],
+      "file": "starfish-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.34235195146684616,
+          0.06458270414224473,
+          -0.15959966130510947
+        ],
+        [
+          0.40974348245835746,
+          1.1683291134281468,
+          0.25010262853951626
+        ]
+      ],
+      "file": "starfish-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3368208070226116,
+          0.13038929870035892,
+          -0.25386214614423924
+        ],
+        [
+          0.39903448691187104,
+          1.3128520982656273,
+          0.15731437466051085
+        ]
+      ],
+      "file": "starfish-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4152992555656207,
+          0.09098578558465195,
+          -0.25623233431841386
+        ],
+        [
+          0.401894127068177,
+          1.3230818299092841,
+          0.15952337170797562
+        ]
+      ],
+      "file": "starfish-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3421385586261749,
+          0.06908484649103605,
+          -0.2531358651882223
+        ],
+        [
+          0.40533447265625,
+          1.2163868053384788,
+          0.15956599323726348
+        ]
+      ],
+      "file": "starfish-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3274,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.41815589340056636,
+          0.04475728253586027,
+          -0.2555556938376
+        ],
+        [
+          0.40805788174540886,
+          1.2426150406722931,
+          0.16181046510046987
+        ]
+      ],
+      "file": "starfish-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3355850757951593,
+          0.0831678941865663,
+          -0.15917492295881328
+        ],
+        [
+          0.40027021813932334,
+          1.2385978336489663,
+          0.3099841019858861
+        ]
+      ],
+      "file": "starfish-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3384832933568491,
+          0.05731041374873089,
+          -0.16304031381909995
+        ],
+        [
+          0.47429340465064,
+          1.2580827384205102,
+          0.3128968673265987
+        ]
+      ],
+      "file": "starfish-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3421385586261749,
+          0.05261020974154179,
+          -0.16132548762188748
+        ],
+        [
+          0.40533447265625,
+          1.1743883693495614,
+          0.30748313946339734
+        ]
+      ],
+      "file": "starfish-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3114,
+      "meshes": 5,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.34491122578905115,
+          0.02633890700507481,
+          -0.16525274007517654
+        ],
+        [
+          0.477031666148551,
+          1.1942947862505746,
+          0.3104589159368717
+        ]
+      ],
+      "file": "starfish-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5217619827430082,
+          -0.0860716486476511,
+          -0.21840635444448792
+        ],
+        [
+          0.49151622552605506,
+          1.0845584699512267,
+          0.24069102171434711
+        ]
+      ],
+      "file": "starfish-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5122477394231693,
+          -0.06413825755622088,
+          -0.21840635444448792
+        ],
+        [
+          0.4912360397391209,
+          1.1038751792744468,
+          0.24069102171434711
+        ]
+      ],
+      "file": "starfish-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5014781938230962,
+          -0.06998811264886456,
+          -0.21996000118553638
+        ],
+        [
+          0.4773496687412262,
+          1.0707300844488916,
+          0.24069102171434711
+        ]
+      ],
+      "file": "starfish-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5133710387366325,
+          -0.07473166344235926,
+          -0.21996000118553638
+        ],
+        [
+          0.4925497763744518,
+          1.0777781744765371,
+          0.24069102171434711
+        ]
+      ],
+      "file": "starfish-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5217619827430082,
+          -0.027755346067767972,
+          -0.25233738030978736
+        ],
+        [
+          0.49151622552605506,
+          1.1475436593232111,
+          0.23174420933871573
+        ]
+      ],
+      "file": "starfish-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6016145693985492,
+          -0.0735800915409246,
+          -0.2517261785694789
+        ],
+        [
+          0.531659469973083,
+          1.135179675316742,
+          0.23396276226478835
+        ]
+      ],
+      "file": "starfish-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5014781938230962,
+          -0.07353216064571516,
+          -0.2532257299447339
+        ],
+        [
+          0.4773496687412262,
+          1.0719639215722336,
+          0.23097249602836015
+        ]
+      ],
+      "file": "starfish-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5540160576479711,
+          -0.08234087630820702,
+          -0.2531747769510892
+        ],
+        [
+          0.49887108876900066,
+          1.0865434751460656,
+          0.2321469489258371
+        ]
+      ],
+      "file": "starfish-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5421548364518998,
+          -0.1195866852141137,
+          -0.43361891791214546
+        ],
+        [
+          0.5156802558604927,
+          1.0908144705121035,
+          0.5051128970711131
+        ]
+      ],
+      "file": "starfish-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6448560021651802,
+          -0.13852998957295976,
+          -0.46224020720499287
+        ],
+        [
+          0.5678058114743956,
+          1.10874078193067,
+          0.5396203553198945
+        ]
+      ],
+      "file": "starfish-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5264092778753149,
+          -0.10398993262529532,
+          -0.426773276342294
+        ],
+        [
+          0.5210339613322862,
+          1.0780513083361116,
+          0.49699938356775897
+        ]
+      ],
+      "file": "starfish-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5950257985481557,
+          -0.11634170714768005,
+          -0.4429653151574692
+        ],
+        [
+          0.5322343098649942,
+          1.0953322109406063,
+          0.516262466159754
+        ]
+      ],
+      "file": "starfish-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5304,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5217619827430082,
+          -0.1253871969398318,
+          -0.238455431928703
+        ],
+        [
+          0.49151622552605506,
+          1.0344464590129712,
+          0.31477497526831616
+        ]
+      ],
+      "file": "starfish-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5304,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5386529964773134,
+          -0.11022371794657426,
+          -0.24376155752108042
+        ],
+        [
+          0.5223307117249283,
+          1.0689805046258691,
+          0.3206155592987262
+        ]
+      ],
+      "file": "starfish-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5304,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5014781938230962,
+          -0.11059453960546245,
+          -0.23513412670064338
+        ],
+        [
+          0.4773496687412262,
+          1.0220295351911397,
+          0.31161638682232407
+        ]
+      ],
+      "file": "starfish-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5304,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5268003682553541,
+          -0.11764851587926389,
+          -0.24107325759169593
+        ],
+        [
+          0.5083158685080692,
+          1.0347680621709265,
+          0.3178214029896378
+        ]
+      ],
+      "file": "starfish-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5217619827430082,
+          -0.13036819253106285,
+          -0.2582364539122266
+        ],
+        [
+          0.49151622552605506,
+          1.011313148578242,
+          0.33718070375054776
+        ]
+      ],
+      "file": "starfish-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5062051244499383,
+          -0.10732669739049777,
+          -0.2557704882389843
+        ],
+        [
+          0.4841815370061095,
+          1.0264962492862473,
+          0.3349904803861059
+        ]
+      ],
+      "file": "starfish-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5014781938230962,
+          -0.11605356047304871,
+          -0.25416389438556886
+        ],
+        [
+          0.4773496687412262,
+          0.9993675716163484,
+          0.33330766632000985
+        ]
+      ],
+      "file": "starfish-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5103715912738032,
+          -0.11853247733344396,
+          -0.25691386175794373
+        ],
+        [
+          0.489043469333102,
+          1.0051432873942325,
+          0.3361866720835227
+        ]
+      ],
+      "file": "starfish-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5212676902520272,
+          -0.09862178740056349,
+          -0.21535331979219452
+        ],
+        [
+          0.492010518017036,
+          1.0491856805093818,
+          0.24342185636199895
+        ]
+      ],
+      "file": "starfish-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5934728719802226,
+          -0.11052573983773611,
+          -0.2181186957414734
+        ],
+        [
+          0.5282981121244884,
+          1.0669635109961948,
+          0.245928127364343
+        ]
+      ],
+      "file": "starfish-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5014781938230962,
+          -0.08321320356818007,
+          -0.2161511192822534
+        ],
+        [
+          0.4773496687412262,
+          1.03603299976495,
+          0.24244360774209925
+        ]
+      ],
+      "file": "starfish-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5488485697723371,
+          -0.0902769320537628,
+          -0.2178610856546818
+        ],
+        [
+          0.4967330941008476,
+          1.04943734132286,
+          0.24378212343466515
+        ]
+      ],
+      "file": "starfish-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5217619827430082,
+          -0.05761934457134277,
+          -0.24108779030140176
+        ],
+        [
+          0.49151622552605506,
+          1.1164237810382485,
+          0.24168995673594496
+        ]
+      ],
+      "file": "starfish-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5347288364573187,
+          -0.05873451183633949,
+          -0.24097758139627473
+        ],
+        [
+          0.5176796072446794,
+          1.1332294490531432,
+          0.24145543136100533
+        ]
+      ],
+      "file": "starfish-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5014781938230962,
+          -0.07246495559051652,
+          -0.24219820882467774
+        ],
+        [
+          0.4773496687412262,
+          1.0717312703260995,
+          0.24162310324488726
+        ]
+      ],
+      "file": "starfish-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5104,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5247674709678427,
+          -0.08113367142527317,
+          -0.24199595207026806
+        ],
+        [
+          0.5059218539246282,
+          1.083267392870123,
+          0.24150578037788215
+        ]
+      ],
+      "file": "starfish-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5205262515155559,
+          -0.1171206919616366,
+          -0.2112343357950008
+        ],
+        [
+          0.49275195675350736,
+          1.0662710790950498,
+          0.28378189736673487
+        ]
+      ],
+      "file": "starfish-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5118601778275101,
+          -0.09557963643214962,
+          -0.21090920914718325
+        ],
+        [
+          0.49346366523029744,
+          1.086116222578142,
+          0.2836622067884387
+        ]
+      ],
+      "file": "starfish-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5014781938230962,
+          -0.10168113420758101,
+          -0.21014758512353388
+        ],
+        [
+          0.4773496687412262,
+          1.0532126406838787,
+          0.281586938832149
+        ]
+      ],
+      "file": "starfish-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4944,
+      "meshes": 6,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5137940394208119,
+          -0.10599089607973883,
+          -0.21101806609007864
+        ],
+        [
+          0.4930446834638506,
+          1.0605537517869,
+          0.2837759477058906
+        ]
+      ],
+      "file": "starfish-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2468,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6772142928506709,
+          -0.09955886468775327,
+          -0.13300000131130219
+        ],
+        [
+          0.6437254541876744,
+          1.184777084080288,
+          0.22075495081732904
+        ]
+      ],
+      "file": "starfish-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2468,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6709406907936748,
+          -0.07663503361598323,
+          -0.13300000131130219
+        ],
+        [
+          0.6436721270473468,
+          1.201169204491807,
+          0.22075495081732904
+        ]
+      ],
+      "file": "starfish-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2468,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6555964946746826,
+          -0.07847930800985564,
+          -0.13300000131130219
+        ],
+        [
+          0.6254766583442688,
+          1.1647351204149796,
+          0.22075495081732904
+        ]
+      ],
+      "file": "starfish-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2468,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6723872983599811,
+          -0.08760779074678804,
+          -0.13300000131130219
+        ],
+        [
+          0.6453935309934927,
+          1.193466722952254,
+          0.22075495081732904
+        ]
+      ],
+      "file": "starfish-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6772142928506709,
+          -0.0404181236716038,
+          -0.16612404715666632
+        ],
+        [
+          0.6437254541876744,
+          1.257936601234534,
+          0.21812838259625575
+        ]
+      ],
+      "file": "starfish-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.738955096607997,
+          -0.10065379316379963,
+          -0.16884960540212174
+        ],
+        [
+          0.6953662233856979,
+          1.31503505390282,
+          0.22103919160959704
+        ]
+      ],
+      "file": "starfish-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6555964946746826,
+          -0.08120467188130726,
+          -0.1651624022716517
+        ],
+        [
+          0.6254766583442688,
+          1.1760758955783361,
+          0.21711695236934817
+        ]
+      ],
+      "file": "starfish-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6884693844885154,
+          -0.09761221266134246,
+          -0.16662334332485093
+        ],
+        [
+          0.6531950855054836,
+          1.2221290477735556,
+          0.21865642925395876
+        ]
+      ],
+      "file": "starfish-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6201448592944536,
+          -0.13564203711497064,
+          -0.5184886286698142
+        ],
+        [
+          0.6270261232607094,
+          1.2053087673866907,
+          0.5921984629566741
+        ]
+      ],
+      "file": "starfish-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7003969096771003,
+          -0.1761964265144148,
+          -0.5551338186242956
+        ],
+        [
+          0.6940691367688305,
+          1.3387620579399615,
+          0.6374139757537283
+        ]
+      ],
+      "file": "starfish-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6244589379651775,
+          -0.1151910328423183,
+          -0.5096971991235516
+        ],
+        [
+          0.6341250979879005,
+          1.1859919015524276,
+          0.5815672345263043
+        ]
+      ],
+      "file": "starfish-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6454569284575992,
+          -0.13918677073536434,
+          -0.5304778984246675
+        ],
+        [
+          0.6483429917074645,
+          1.2570134012297363,
+          0.6068078693666084
+        ]
+      ],
+      "file": "starfish-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2748,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6772142928506709,
+          -0.13149684082221125,
+          -0.2521342826438584
+        ],
+        [
+          0.6437254541876744,
+          1.1124557504388837,
+          0.32912350389332296
+        ]
+      ],
+      "file": "starfish-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2748,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7049237000633138,
+          -0.12369921407306622,
+          -0.2590942181646687
+        ],
+        [
+          0.6844158268320654,
+          1.1853373958569746,
+          0.3367764865644364
+        ]
+      ],
+      "file": "starfish-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2748,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6555964946746826,
+          -0.11210914779748804,
+          -0.24778128204717598
+        ],
+        [
+          0.6254766583442688,
+          1.0940223723041775,
+          0.3249847698047996
+        ]
+      ],
+      "file": "starfish-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2748,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.689675593995242,
+          -0.12738855511241043,
+          -0.25556721885703026
+        ],
+        [
+          0.6660520195259831,
+          1.1496326949803357,
+          0.3331152721791394
+        ]
+      ],
+      "file": "starfish-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6772142928506709,
+          -0.13414242790738967,
+          -0.27826229148742193
+        ],
+        [
+          0.6437254541876744,
+          1.0841840851115818,
+          0.3594218092377789
+        ]
+      ],
+      "file": "starfish-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6631575801253792,
+          -0.10840748386632071,
+          -0.27503003081373134
+        ],
+        [
+          0.6344285324669825,
+          1.0884706454124333,
+          0.356551934755035
+        ]
+      ],
+      "file": "starfish-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6555964946746826,
+          -0.11538124890962914,
+          -0.2729246748480976
+        ],
+        [
+          0.6254766583442688,
+          1.0663463822823889,
+          0.3543469245815541
+        ]
+      ],
+      "file": "starfish-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6685243772116753,
+          -0.12086185424755619,
+          -0.2765286323863173
+        ],
+        [
+          0.6407991772889433,
+          1.0867929000828083,
+          0.3581193181718838
+        ]
+      ],
+      "file": "starfish-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.67672000035969,
+          -0.11008099059377185,
+          -0.1705127183274956
+        ],
+        [
+          0.6442197466786552,
+          1.1401888498934747,
+          0.23396740108260847
+        ]
+      ],
+      "file": "starfish-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7324946127561279,
+          -0.1344600649237762,
+          -0.17401551879649485
+        ],
+        [
+          0.6909058084879318,
+          1.2174726787431638,
+          0.2372513962618688
+        ]
+      ],
+      "file": "starfish-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6555964946746826,
+          -0.08988604613346363,
+          -0.16916454749139614
+        ],
+        [
+          0.6254766583442688,
+          1.1209879554306035,
+          0.2326855908754676
+        ]
+      ],
+      "file": "starfish-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6851952705031504,
+          -0.10350954131729878,
+          -0.1710116756633992
+        ],
+        [
+          0.6504426883827203,
+          1.1613056974683822,
+          0.23443946309384597
+        ]
+      ],
+      "file": "starfish-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6772142928506709,
+          -0.07059076475101955,
+          -0.15512146653442904
+        ],
+        [
+          0.6437254541876744,
+          1.2234218961681531,
+          0.2214982691363372
+        ]
+      ],
+      "file": "starfish-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6998765240552622,
+          -0.07836224505215428,
+          -0.15611914199566257
+        ],
+        [
+          0.6783214321166047,
+          1.274837132391759,
+          0.2213533505382584
+        ]
+      ],
+      "file": "starfish-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6555964946746826,
+          -0.0804429128353979,
+          -0.1544802331473794
+        ],
+        [
+          0.6254766583442688,
+          1.1724692801624192,
+          0.2214343486929118
+        ]
+      ],
+      "file": "starfish-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2548,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.687059307111214,
+          -0.0973577695594835,
+          -0.1556428426082495
+        ],
+        [
+          0.6629151151871132,
+          1.22664291236701,
+          0.22132207147871785
+        ]
+      ],
+      "file": "starfish-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6759785616232186,
+          -0.12608834250190576,
+          -0.21640405990453954
+        ],
+        [
+          0.6449611854151267,
+          1.1517841951805592,
+          0.28755872909133706
+        ]
+      ],
+      "file": "starfish-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6707972567555599,
+          -0.1038714463603514,
+          -0.21597790299079267
+        ],
+        [
+          0.6462075485276348,
+          1.1701011946041382,
+          0.28740189706438013
+        ]
+      ],
+      "file": "starfish-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6555964946746826,
+          -0.10585280270625114,
+          -0.21337908340819695
+        ],
+        [
+          0.6254766583442688,
+          1.1325447035949676,
+          0.2846826501512293
+        ]
+      ],
+      "file": "starfish-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2388,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6729320270015856,
+          -0.11450912942902614,
+          -0.21612060758657609
+        ],
+        [
+          0.6460420133405327,
+          1.1614151063579365,
+          0.28755093306598034
+        ]
+      ],
+      "file": "starfish-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6696729450473522,
+          -0.1056837690785789,
+          -0.17499999701976776
+        ],
+        [
+          0.6367286983556062,
+          1.1696109503955285,
+          0.2735659023728986
+        ]
+      ],
+      "file": "starfish-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6636132421007123,
+          -0.08280728494525602,
+          -0.17499999701976776
+        ],
+        [
+          0.6365042851234716,
+          1.186029289377939,
+          0.2735659023728986
+        ]
+      ],
+      "file": "starfish-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6482958793640137,
+          -0.08484175135761685,
+          -0.17499999701976776
+        ],
+        [
+          0.618511438369751,
+          1.1497921712192873,
+          0.2735659023728986
+        ]
+      ],
+      "file": "starfish-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6650575623587615,
+          -0.09376183371667784,
+          -0.17499999701976776
+        ],
+        [
+          0.6382065197795439,
+          1.1783082023737574,
+          0.2735659023728986
+        ]
+      ],
+      "file": "starfish-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6696729450473522,
+          -0.048559771906036664,
+          -0.20770509798414333
+        ],
+        [
+          0.6367286983556062,
+          1.2460503915138563,
+          0.28615922447733194
+        ]
+      ],
+      "file": "starfish-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7307262126152393,
+          -0.10807722230171668,
+          -0.21040030479355273
+        ],
+        [
+          0.688319273288481,
+          1.302517008295435,
+          0.28903553247318825
+        ]
+      ],
+      "file": "starfish-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6482958793640137,
+          -0.08958358548033307,
+          -0.2067541618413413
+        ],
+        [
+          0.618511438369751,
+          1.1644126132875554,
+          0.28515919174254356
+        ]
+      ],
+      "file": "starfish-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6808027017038846,
+          -0.10562766364926357,
+          -0.20819883406023323
+        ],
+        [
+          0.6461845314125279,
+          1.2101270917760454,
+          0.28668120901077565
+        ]
+      ],
+      "file": "starfish-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6380473943652117,
+          -0.14661527020220055,
+          -0.5487853411680302
+        ],
+        [
+          0.660193034957509,
+          1.1930852180277514,
+          0.6430926480779852
+        ]
+      ],
+      "file": "starfish-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7174057701269067,
+          -0.18604225186761947,
+          -0.5854916484403768
+        ],
+        [
+          0.7271775425607586,
+          1.3256091717982508,
+          0.6878046476964312
+        ]
+      ],
+      "file": "starfish-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6424085115554109,
+          -0.1263998854031576,
+          -0.5399941597976808
+        ],
+        [
+          0.6671670258755449,
+          1.1739834621032548,
+          0.632579807398304
+        ]
+      ],
+      "file": "starfish-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6630775921944119,
+          -0.14982077204124689,
+          -0.5607819332328595
+        ],
+        [
+          0.6814771873257328,
+          1.24449246654325,
+          0.6575393663405271
+        ]
+      ],
+      "file": "starfish-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4044,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6696729450473522,
+          -0.15051415928250855,
+          -0.29295682308847193
+        ],
+        [
+          0.6367286983556062,
+          1.1065088173853643,
+          0.3942318445793668
+        ]
+      ],
+      "file": "starfish-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4044,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6975548847757229,
+          -0.14235364746467355,
+          -0.2998352822356611
+        ],
+        [
+          0.6767942693380335,
+          1.1790108940404735,
+          0.401799604988624
+        ]
+      ],
+      "file": "starfish-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4044,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6482958793640137,
+          -0.13134494013030806,
+          -0.2886528750993503
+        ],
+        [
+          0.618511438369751,
+          1.0882807107574568,
+          0.3901391988516627
+        ]
+      ],
+      "file": "starfish-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4044,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6823220107520381,
+          -0.14622885907658167,
+          -0.296350015315277
+        ],
+        [
+          0.6586349585596527,
+          1.143487780423725,
+          0.3981791612844825
+        ]
+      ],
+      "file": "starfish-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6696729450473522,
+          -0.15569806911378686,
+          -0.31855978330968804
+        ],
+        [
+          0.6367286983556062,
+          1.0802469477979777,
+          0.42341709806004624
+        ]
+      ],
+      "file": "starfish-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6558431663429082,
+          -0.1300917133185544,
+          -0.3153641064114989
+        ],
+        [
+          0.627363625794196,
+          1.084645839216523,
+          0.420579182146803
+        ]
+      ],
+      "file": "starfish-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6482958793640137,
+          -0.13714830399716754,
+          -0.3132823146093551
+        ],
+        [
+          0.618511438369751,
+          1.0626078831191454,
+          0.41839872660572075
+        ]
+      ],
+      "file": "starfish-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6612008448601064,
+          -0.14248660646291916,
+          -0.3168457865161314
+        ],
+        [
+          0.6336633280926424,
+          1.0829067444147489,
+          0.42212911143865284
+        ]
+      ],
+      "file": "starfish-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6691786525563713,
+          -0.12014915531971254,
+          -0.2123424296503679
+        ],
+        [
+          0.6372229908465871,
+          1.1282232592479444,
+          0.30150648909725786
+        ]
+      ],
+      "file": "starfish-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7243321673653172,
+          -0.14390881461871619,
+          -0.21580387931090728
+        ],
+        [
+          0.6838607491577068,
+          1.2049592855856628,
+          0.3047539141650216
+        ]
+      ],
+      "file": "starfish-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6482958793640137,
+          -0.1001817813968579,
+          -0.2110094509314022
+        ],
+        [
+          0.618511438369751,
+          1.109236183245774,
+          0.300238952948335
+        ]
+      ],
+      "file": "starfish-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6775650477519778,
+          -0.11349206545500712,
+          -0.21283566980573315
+        ],
+        [
+          0.6434359542971706,
+          1.149261362266978,
+          0.3019732942921699
+        ]
+      ],
+      "file": "starfish-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6696729450473522,
+          -0.07806011442530081,
+          -0.19685286058195509
+        ],
+        [
+          0.6367286983556062,
+          1.2104408674415779,
+          0.29574929830714125
+        ]
+      ],
+      "file": "starfish-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.692512106195794,
+          -0.08550484037901496,
+          -0.19783942610795102
+        ],
+        [
+          0.6707677408619738,
+          1.261509036703076,
+          0.29634511134913283
+        ]
+      ],
+      "file": "starfish-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6482958793640137,
+          -0.08814967985704669,
+          -0.1962187678797331
+        ],
+        [
+          0.618511438369751,
+          1.1597113216642039,
+          0.2959197175131776
+        ]
+      ],
+      "file": "starfish-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3844,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6797089035473145,
+          -0.10466876546550308,
+          -0.1973684307122133
+        ],
+        [
+          0.6555329863047098,
+          1.213480509838408,
+          0.2962176764489173
+        ]
+      ],
+      "file": "starfish-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6684372138198998,
+          -0.14153220663638993,
+          -0.2577802073908677
+        ],
+        [
+          0.6379644295830585,
+          1.1429968886497899,
+          0.35391744193803265
+        ]
+      ],
+      "file": "starfish-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6634680769712863,
+          -0.11934756789416778,
+          -0.25735887258099344
+        ],
+        [
+          0.6390252334526278,
+          1.1613255714110093,
+          0.35376235643338827
+        ]
+      ],
+      "file": "starfish-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6482958793640137,
+          -0.12152469483437561,
+          -0.2547893184122408
+        ],
+        [
+          0.618511438369751,
+          1.1239716453370299,
+          0.35107339060856646
+        ]
+      ],
+      "file": "starfish-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3684,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6656014409405129,
+          -0.12997437115771338,
+          -0.25749995077317545
+        ],
+        [
+          0.6388477807267368,
+          1.152628381022009,
+          0.3539097327945063
+        ]
+      ],
+      "file": "starfish-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2466,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7249762833615966,
+          -0.09961001982754902,
+          -0.11900000274181366
+        ],
+        [
+          0.6889819095806237,
+          1.2709053812110194,
+          0.23686480522155762
+        ]
+      ],
+      "file": "starfish-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2466,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7181397272713415,
+          -0.07639087928122779,
+          -0.11900000274181366
+        ],
+        [
+          0.68906844100214,
+          1.287131454593012,
+          0.23686480522155762
+        ]
+      ],
+      "file": "starfish-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2466,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7018338441848755,
+          -0.07704143943465425,
+          -0.11900000274181366
+        ],
+        [
+          0.6695896983146667,
+          1.2494499164613417,
+          0.23686480522155762
+        ]
+      ],
+      "file": "starfish-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2466,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7196767971365868,
+          -0.08747677630768524,
+          -0.11900000274181366
+        ],
+        [
+          0.6909112506100962,
+          1.2795468079713108,
+          0.23686480522155762
+        ]
+      ],
+      "file": "starfish-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7249762833615966,
+          -0.03975461478102127,
+          -0.15448712075782717
+        ],
+        [
+          0.6889819095806237,
+          1.3462572078660406,
+          0.26672729047225324
+        ]
+      ],
+      "file": "starfish-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7910714879438632,
+          -0.10430023613125206,
+          -0.1574049046462197
+        ],
+        [
+          0.743825671945108,
+          1.407357285346045,
+          0.26984513620340794
+        ]
+      ],
+      "file": "starfish-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7018338441848755,
+          -0.07905385430172429,
+          -0.15345765387141358
+        ],
+        [
+          0.6695896983146667,
+          1.262984629166103,
+          0.26564441454954935
+        ]
+      ],
+      "file": "starfish-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.737025164166425,
+          -0.09772714244778846,
+          -0.1550216308239527
+        ],
+        [
+          0.6990427331026723,
+          1.311182713769903,
+          0.2672927309092883
+        ]
+      ],
+      "file": "starfish-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.650542252000971,
+          -0.14038727668045725,
+          -0.5355090808497203
+        ],
+        [
+          0.6903034728195848,
+          1.29150260981323,
+          0.661335226841032
+        ]
+      ],
+      "file": "starfish-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7364542480250856,
+          -0.18742769779721802,
+          -0.5743462461874416
+        ],
+        [
+          0.7614992253566886,
+          1.4308416955082977,
+          0.709739659054482
+        ]
+      ],
+      "file": "starfish-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.655081051097856,
+          -0.1184873290067524,
+          -0.526179308075961
+        ],
+        [
+          0.6979415413158474,
+          1.2708233819519765,
+          0.6499542085560231
+        ]
+      ],
+      "file": "starfish-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6776395084375488,
+          -0.14596302532399896,
+          -0.5482261049948567
+        ],
+        [
+          0.7129525449875216,
+          1.3450906828869647,
+          0.6769749924924195
+        ]
+      ],
+      "file": "starfish-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2746,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7249762833615966,
+          -0.13988696475421697,
+          -0.24613158525386664
+        ],
+        [
+          0.6889819095806237,
+          1.189707734383683,
+          0.3850789900566763
+        ]
+      ],
+      "file": "starfish-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2746,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7542374886944063,
+          -0.13429037699556223,
+          -0.2535857066495362
+        ],
+        [
+          0.7326856766236822,
+          1.2649933257174804,
+          0.3932717160583715
+        ]
+      ],
+      "file": "starfish-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2746,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7018338441848755,
+          -0.1191297583600231,
+          -0.2414710961640011
+        ],
+        [
+          0.6695896983146667,
+          1.169974303997755,
+          0.38064836315666317
+        ]
+      ],
+      "file": "starfish-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2746,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7380432826563039,
+          -0.1368626713076604,
+          -0.24980790364575794
+        ],
+        [
+          0.7130267228469847,
+          1.22813856909915,
+          0.3893522866640264
+        ]
+      ],
+      "file": "starfish-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7249762833615966,
+          -0.14398960682812456,
+          -0.27415476259035904
+        ],
+        [
+          0.6889819095806237,
+          1.158694197408272,
+          0.4171448546257903
+        ]
+      ],
+      "file": "starfish-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7098692972670289,
+          -0.11745166408649949,
+          -0.27069404616631526
+        ],
+        [
+          0.679172922325383,
+          1.1622693293163142,
+          0.4140725764440252
+        ]
+      ],
+      "file": "starfish-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7018338441848755,
+          -0.12390317033677245,
+          -0.2684401058700234
+        ],
+        [
+          0.6695896983146667,
+          1.139598453565096,
+          0.41171205319631854
+        ]
+      ],
+      "file": "starfish-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7155722315746741,
+          -0.13027821689144503,
+          -0.2722985348528132
+        ],
+        [
+          0.6859928703732339,
+          1.1609801316551773,
+          0.41575050294032234
+        ]
+      ],
+      "file": "starfish-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7244819908706157,
+          -0.11293426524944872,
+          -0.1589247740898831
+        ],
+        [
+          0.6894762020716045,
+          1.221916307245606,
+          0.28386459067723635
+        ]
+      ],
+      "file": "starfish-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7841902258311343,
+          -0.14104329221677625,
+          -0.16267657813378966
+        ],
+        [
+          0.7390603908061882,
+          1.3026695499014935,
+          0.2873801964222534
+        ]
+      ],
+      "file": "starfish-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7018338441848755,
+          -0.09131278456335823,
+          -0.15748137077914037
+        ],
+        [
+          0.6695896983146667,
+          1.2013612298494978,
+          0.282492378144854
+        ]
+      ],
+      "file": "starfish-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7335201363608925,
+          -0.10689196157592995,
+          -0.1594590560423686
+        ],
+        [
+          0.6961186623064712,
+          1.2435318700793476,
+          0.2843699458410645
+        ]
+      ],
+      "file": "starfish-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7249762833615966,
+          -0.07017491785977081,
+          -0.142693600725688
+        ],
+        [
+          0.6889819095806237,
+          1.3110245696281482,
+          0.25683802837845127
+        ]
+      ],
+      "file": "starfish-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7488776894183609,
+          -0.07993488533496573,
+          -0.14376163943654846
+        ],
+        [
+          0.7261614617883951,
+          1.3646379068100243,
+          0.25779862790574437
+        ]
+      ],
+      "file": "starfish-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7018338441848755,
+          -0.07853880454423989,
+          -0.14200714302314393
+        ],
+        [
+          0.6695896983146667,
+          1.2586591761888455,
+          0.2561159570541085
+        ]
+      ],
+      "file": "starfish-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2546,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7352641892782729,
+          -0.09791302295543058,
+          -0.1432517480118329
+        ],
+        [
+          0.7096685816768269,
+          1.3153942939591001,
+          0.25730768248078373
+        ]
+      ],
+      "file": "starfish-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7237405521341442,
+          -0.1322873046576043,
+          -0.20789673088546606
+        ],
+        [
+          0.690217640808076,
+          1.232888803054978,
+          0.3409577103632895
+        ]
+      ],
+      "file": "starfish-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7180646024003777,
+          -0.1098689221665019,
+          -0.20744045411932727
+        ],
+        [
+          0.6916955258921799,
+          1.2511318119929475,
+          0.34078981762422983
+        ]
+      ],
+      "file": "starfish-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7018338441848755,
+          -0.11062236105133294,
+          -0.20465807523973767
+        ],
+        [
+          0.6695896983146667,
+          1.2122924063939615,
+          0.33787878998666065
+        ]
+      ],
+      "file": "starfish-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "starfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2386,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202555804897185,
+          -0.1205741403665681,
+          -0.20759325442726856
+        ],
+        [
+          0.6916054685491653,
+          1.2425160375020634,
+          0.3409493647097622
+        ]
+      ],
+      "file": "starfish-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

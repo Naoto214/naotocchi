@@ -1,0 +1,21 @@
+✔ index.html asset references exist and carry cache tokens (2.025613ms)
+✔ the bump tool rewrites only cache tokens (0.330763ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8404e127163a/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8404e127163a/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real session events target the player, expire to current relationship and preserve AI pose (8.44979ms)
+✔ actual date start and goodbye reach presentation without losing actor identity (498.833962ms)
+✔ presenter turns body and head only as presentation and reduced motion suppresses it (429.044021ms)
+✔ Home visit starts positive and interruption clears only its social overlay (75.507604ms)
+✔ explicit conversation publishes one semantic target and repeated annoyance does not become positive (88.572449ms)
+✔ attention ends and missing targets cannot retain gaze; suspension clears cues (1.104478ms)
+✔ conversation while accompanying retriggers after initial cue and preserves repeat-talk dislike (95.826955ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1425.128622

@@ -1,0 +1,10 @@
+{
+  "main": "05b31dfd4c2c2ebecc5890ffc2a23efbcfd1d032",
+  "mainOnlyChangedPaths": 324,
+  "mainOnlyExistingFilesExact": 323,
+  "exceptions": [],
+  "exceptions_after_check": {
+    "docs/handoff/meguru-phase4e4b-medium-corridors-2026-09-24.md": "only two extra EOF blank lines removed",
+    "docs/qa/minigame-difficulty-audit-2026-09-17.md": "only one extra EOF blank removed"
+  }
+}

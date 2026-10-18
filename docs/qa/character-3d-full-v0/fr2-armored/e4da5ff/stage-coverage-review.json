@@ -1,0 +1,22 @@
+{
+  "artifact": 11422820482,
+  "sourceCommit": "e4da5ffd41cca619a47bf142264b950381f37928",
+  "families": 18,
+  "exactUniqueStages": 144,
+  "fallbacks": 0,
+  "errors": 0,
+  "Runtime": {
+    "run": 37479071181,
+    "conclusion": "success"
+  },
+  "Home": {
+    "run": 37479070823,
+    "conclusion": "success"
+  },
+  "Character": {
+    "run": 37479054192,
+    "conclusion": "failure",
+    "reason": "dedicated aquatic mutation selector; fixed in127f38f, dedicated112328370352 success"
+  },
+  "environment": "Chromium/SwiftShader; not iPhone"
+}

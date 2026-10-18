@@ -1,0 +1,150 @@
+{
+  "generator": "built-in image_gen",
+  "postprocessing": "Whole-canvas LANCZOS resize to 128x128 only; no repainting, alpha removal, compositing or normal overwrites.",
+  "images": [
+    {
+      "id": "otter",
+      "state": "positive",
+      "path": "assets/characters/relationship/otter/positive.png",
+      "source": "generated_images/exec-6e965afe-cb19-4e1b-aac4-6a5d4650ae26.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "adea93ca99c260f99d5d89019930cd3756355727fd0e58dd2349b4ea52584484",
+      "alpha_bbox": [
+        6,
+        12,
+        124,
+        124
+      ],
+      "transparent_pixels": 10312
+    },
+    {
+      "id": "otter",
+      "state": "lonely",
+      "path": "assets/characters/relationship/otter/lonely.png",
+      "source": "generated_images/exec-65843048-3b76-49fc-81fd-4525991e5c62.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "3eee1507a14d3ad32e32ca5d0c174637857a78414f197def570b189d0972e5c5",
+      "alpha_bbox": [
+        7,
+        13,
+        122,
+        124
+      ],
+      "transparent_pixels": 10480
+    },
+    {
+      "id": "clock",
+      "state": "positive",
+      "path": "assets/characters/relationship/clock/positive.png",
+      "source": "generated_images/exec-b6cb06fc-cdf6-40e3-a56e-5d1cb4f549e1.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "f3f83c13b77cb9b67b316c47319ab9a696b259a65d57b0d8f8207a77522bce85",
+      "alpha_bbox": [
+        9,
+        9,
+        122,
+        123
+      ],
+      "transparent_pixels": 8791
+    },
+    {
+      "id": "clock",
+      "state": "lonely",
+      "path": "assets/characters/relationship/clock/lonely.png",
+      "source": "generated_images/exec-6482645c-310a-46bd-a7c4-71e6eec8cdbe.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "2ca21201b096b14efa9f559f71add9aba19a224e5fe72bc39b9fea16b4ec0c4b",
+      "alpha_bbox": [
+        10,
+        10,
+        119,
+        123
+      ],
+      "transparent_pixels": 9059
+    },
+    {
+      "id": "forest_bear",
+      "state": "positive",
+      "path": "assets/characters/relationship/forest_bear/positive.png",
+      "source": "generated_images/exec-9e306c37-caac-498a-9bc5-f04fe3f8e467.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "98776ff781fb4206094a381b1e87c479284e2d16dcb1abc06d3ed4a147ad8469",
+      "alpha_bbox": [
+        8,
+        10,
+        122,
+        125
+      ],
+      "transparent_pixels": 8248
+    },
+    {
+      "id": "forest_bear",
+      "state": "lonely",
+      "path": "assets/characters/relationship/forest_bear/lonely.png",
+      "source": "generated_images/exec-2c528420-2afb-4728-952a-17c7df5fefb0.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "b29f061e5132a23f14aba2112d165b5301ea51624eb6b0194c3c391cf79f973c",
+      "alpha_bbox": [
+        8,
+        9,
+        121,
+        124
+      ],
+      "transparent_pixels": 8504
+    },
+    {
+      "id": "rock_octopus",
+      "state": "positive",
+      "path": "assets/characters/relationship/rock_octopus/positive.png",
+      "source": "generated_images/exec-a9e928a1-902f-44c3-bd7e-6f1bb7c6e35f.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "75890668e94e483217b45f2f8ff97188cf1c795c9f9bece875587b6123e479fe",
+      "alpha_bbox": [
+        5,
+        16,
+        124,
+        122
+      ],
+      "transparent_pixels": 8691
+    },
+    {
+      "id": "rock_octopus",
+      "state": "lonely",
+      "path": "assets/characters/relationship/rock_octopus/lonely.png",
+      "source": "generated_images/exec-779cf1e6-0878-4018-8771-73751f8dc92f.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "sha256": "1d53120dcfd6f36217c0512fb1522e3b86bb2dbfe74b111536dce680ff2a6d92",
+      "alpha_bbox": [
+        5,
+        15,
+        125,
+        123
+      ],
+      "transparent_pixels": 8468
+    }
+  ]
+}

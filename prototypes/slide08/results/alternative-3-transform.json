@@ -1,0 +1,291 @@
+{
+  "version": "slide08-v1",
+  "generated": true,
+  "initial": {
+    "version": "slide08-v1",
+    "seed": 3,
+    "config": {
+      "size": 6,
+      "count": 24,
+      "kinds": 3,
+      "maxStage": 4,
+      "single": 4,
+      "bulk": 12,
+      "cap": 24,
+      "initialGauge": 4,
+      "initialEggs": [
+        2,
+        1,
+        0,
+        0
+      ],
+      "reward": "landing"
+    },
+    "board": [
+      19,
+      0,
+      0,
+      18,
+      0,
+      0,
+      12,
+      0,
+      12,
+      11,
+      17,
+      11,
+      1,
+      11,
+      0,
+      0,
+      12,
+      9,
+      4,
+      19,
+      11,
+      10,
+      20,
+      12,
+      0,
+      0,
+      18,
+      20,
+      12,
+      0,
+      0,
+      9,
+      0,
+      19,
+      11,
+      2
+    ],
+    "eggs": [
+      2,
+      1,
+      0,
+      0
+    ],
+    "gauge": 4,
+    "moves": 0,
+    "score": 0,
+    "won": false,
+    "used": {
+      "egg": 0,
+      "single": 0,
+      "bulk": 0
+    }
+  },
+  "actions": [
+    {
+      "type": "single",
+      "index": 22,
+      "kind": 1
+    },
+    {
+      "type": "egg",
+      "rank": 3,
+      "kind": 1,
+      "dir": "down",
+      "lane": 1
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "down",
+      "lane": 2
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "right",
+      "lane": 2
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "kind": 1
+    },
+    {
+      "type": "egg",
+      "rank": 3,
+      "kind": 1,
+      "dir": "left",
+      "lane": 0
+    },
+    {
+      "type": "single",
+      "index": 30,
+      "kind": 1
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "down",
+      "lane": 2
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "right",
+      "lane": 3
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "left",
+      "lane": 0
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "left",
+      "lane": 1
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "left",
+      "lane": 1
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "left",
+      "lane": 1
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 1,
+      "dir": "right",
+      "lane": 3
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 0,
+      "dir": "left",
+      "lane": 3
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    }
+  ],
+  "hashes": [
+    "b10623a760ab377900454a374d019658332fd59f6a5400facfbb66f028dbd9ef",
+    "9574523bf31462e4043665096afc0598bff1e4abd0fa326933398294fea78e3c",
+    "addd6442b57de4cd5cb60ed4b4340e56aeee5a7d9395ebcf5328a1fd5a533970",
+    "95e07fb41de5c92e010b12094df525b60a9d691dc69cb8cad5f228eab0b4a23e",
+    "51c9e5f12d960258ac28773c8492d2d2c2c4ff1cf702f0eaebb94eb0d3e1c3e3",
+    "31a95c4330c439b63e09c43bd945d6fb6b09be98abf5997eac21dd0638e34498",
+    "715e02edceaed5fef730bdb0a12a5b9d3fe2f8f31356b6737e421b5e2fc93397",
+    "cbafc46c96586457f7dc00fc42a3ff610aaf15627c07ee4937cb31b16d39d994",
+    "ecc62f94b173ce08c9c13fe6f38480124c844c8f654ab3b30e763050f2aba099",
+    "d690a5345697a849a2d607e1bb59333a679260a6d73c7a235a1a3f3f317febce",
+    "7b6952fb766a8cfff95cc5c8b20ff44a4bcb647acea453809823cb458268cf57",
+    "aa64d3d3cdab705f319485ef8a173aa1ad88cd9b2bf58bfdaf02077c12a3e31a",
+    "673c6d352601e9fbba43c84c2875d3ce72c67d73425ed05a7b469541f8c61d6e",
+    "9517d94b46f2491bf304cc82559ed672575d323815385d1ae6c3ac78779a7988",
+    "6b57a70f56fe5517ab7b0c5def704537eeb5c1586c2e2c513955a1e5f9504b9b",
+    "39a9ff9061363908a806061c0aeeec4d7d22deccd2267583021542ea8fb9e4cc",
+    "d8f021c6552462af9e830b675c57d2e23db3f44237d62bb66f8720a575abd465",
+    "47d65010e5efcd05021579a4214cf8f0c91446c3df6b6763d3029437bebf32f6",
+    "90cc8b5711defa02f5aca0e0d4da3ef845e3f8f45b2610808bf74e5619c6e1c8",
+    "e96a0e2edf03d9b90c271b03ccc529c9d4f4011882c3fd82702063fc3dc4a68d"
+  ],
+  "final": {
+    "version": "slide08-v1",
+    "seed": 3,
+    "config": {
+      "size": 6,
+      "count": 24,
+      "kinds": 3,
+      "maxStage": 4,
+      "single": 4,
+      "bulk": 12,
+      "cap": 24,
+      "initialGauge": 4,
+      "initialEggs": [
+        2,
+        1,
+        0,
+        0
+      ],
+      "reward": "landing"
+    },
+    "board": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      9,
+      0,
+      0,
+      0,
+      0,
+      13,
+      2
+    ],
+    "eggs": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "gauge": 13,
+    "moves": 19,
+    "score": 700,
+    "won": true,
+    "used": {
+      "egg": 12,
+      "single": 2,
+      "bulk": 1
+    }
+  }
+}

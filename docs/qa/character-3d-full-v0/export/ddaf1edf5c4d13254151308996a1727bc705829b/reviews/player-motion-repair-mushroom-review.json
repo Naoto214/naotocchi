@@ -1,0 +1,340 @@
+{
+  "status": "REJECT",
+  "reviewDate": "2026-10-09",
+  "reviewer": "small_mammal_review",
+  "scope": "Actual replacement Mushroom stages 5/6/7 only: four directions, all 32 sampled motion states and two normal-distance images per stage.",
+  "source": {
+    "status": "PENDING_VISUAL_REVIEW",
+    "sourceCommit": "ddaf1edf5c4d13254151308996a1727bc705829b",
+    "artifact": {
+      "id": 11617275973,
+      "name": "full-rollout-stages-mushroom-ddaf1edf5c4d13254151308996a1727bc705829b",
+      "digest": "sha256:e5195df267d5458596bcc0c087d83e0936a0cceb64f844f3cb3cab59691b1273"
+    },
+    "sourceRun": 37931349651,
+    "sourceRunConclusion": "success",
+    "artifactJobId": 113823115627,
+    "artifactJobName": "stage-evidence (mushroom)",
+    "artifactJobStatus": "completed",
+    "artifactJobConclusion": "success",
+    "artifactEvidenceMode": "successful"
+  },
+  "verdicts": {
+    "spec": "REJECT",
+    "quality": "REJECT",
+    "critical": 0,
+    "important": 1,
+    "minor": 0
+  },
+  "counts": {
+    "stages": 3,
+    "passedStages": 2,
+    "rejectedStages": 1,
+    "fourViewImagesActuallyViewed": 12,
+    "motionBoardsActuallyViewed": 3,
+    "motionStateCellsActuallyViewed": 96,
+    "normalDistanceImagesActuallyViewed": 6,
+    "primaryProducedFramesOrCells": 114,
+    "originalReferenceImagesActuallyViewed": 3,
+    "additionalRawImagesActuallyViewed": 5,
+    "distinctImageFilesActuallyViewed": 29,
+    "primaryExportedFilesHashAndSizeMatchedToManifest": 21
+  },
+  "matrix": {
+    "emotions": [
+      "normal",
+      "positive",
+      "dislike",
+      "tired",
+      "sleeping",
+      "strained",
+      "wantsPlay",
+      "sick"
+    ],
+    "columns": [
+      "idle-normal",
+      "walk-normal",
+      "idle-reduced",
+      "walk-reduced"
+    ],
+    "statesPerStage": 32,
+    "fourDirections": [
+      "front",
+      "34",
+      "side",
+      "back"
+    ],
+    "normalDistance": [
+      "front",
+      "back"
+    ]
+  },
+  "priorReview": ".superpowers/sdd/1772ca6d6997/player-motion-topology-review.json",
+  "stages": [
+    {
+      "stage": 5,
+      "originalReference": {
+        "path": "assets/characters/mushroom/05.png",
+        "sha256": "20ebc6457d975c52c4f4beef38f5da855276d85d1a433e3a9e6be85f5b03e207",
+        "bytes": 5142,
+        "actualViewed": true
+      },
+      "motionBoard": {
+        "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-motion/mushroom-5-motion.jpg",
+        "sha256": "62d6c53d76b7fb8ca0dd71c2c30a68cee17c9a7952e933b896ced4318a7e0b25",
+        "bytes": 567996,
+        "manifestMatches": true,
+        "actualViewed": true
+      },
+      "fourViews": [
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-front.jpg",
+          "sha256": "87018004d6183ab37a7905e203ef847647cf9f97c611d51974d297260898b7bd",
+          "bytes": 13768,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-34.jpg",
+          "sha256": "433bc1f295354a890d0e22cade4d74d405065eebf663ed3319ab26775ad9d295",
+          "bytes": 13222,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-side.jpg",
+          "sha256": "75ea9a032f3923ae3c400209e6c7275483baa20728469580169f99a017e4ab98",
+          "bytes": 12652,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-back.jpg",
+          "sha256": "e128e16e68967bf6a917585936f0549d6dd2a6b9e77e1ee7be12acf287369f7c",
+          "bytes": 13303,
+          "manifestMatches": true,
+          "actualViewed": true
+        }
+      ],
+      "normalDistance": [
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/player-mushroom-5-front.png",
+          "sha256": "9cf2f3cd887ced2be0bd64e6d7336afa8a55dd5efc8b4345fe4e1c5323a60d49",
+          "bytes": 314362,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/player-mushroom-5-back.png",
+          "sha256": "23c9a7105630a7a3e50ad7e204fbae1f7fe935436f2debee23ec8f72415c0460",
+          "bytes": 314706,
+          "manifestMatches": true,
+          "actualViewed": true
+        }
+      ],
+      "status": "PASS",
+      "actualMotionCellsViewed": 32,
+      "notes": "Raised back tilt retains the red spotted cap, white stem and soil identity. Four directions and both normal-distance images show a continuous cap/stem join and stable silhouette. All 32 sampled motion states expose the complete eye/brow/forehead/mouth footprint, including tired/sleeping eyes and sick blue forehead marks. Prior I1 obstruction is resolved for stage 5."
+    },
+    {
+      "stage": 6,
+      "originalReference": {
+        "path": "assets/characters/mushroom/06.png",
+        "sha256": "1c165152179115c920c6c839992f295cb5513b980ca3ef1859bfb98f42ab5f06",
+        "bytes": 4301,
+        "actualViewed": true
+      },
+      "motionBoard": {
+        "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-motion/mushroom-6-motion.jpg",
+        "sha256": "bcaa30b76c9b3a62d60fe9b4e1a066cffd9f2587bbcff1f850b5f1a9ea62e880",
+        "bytes": 477464,
+        "manifestMatches": true,
+        "actualViewed": true
+      },
+      "fourViews": [
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-6-front.jpg",
+          "sha256": "36bc123fe87249c6940bf610d54d88830488e8239dbcd455fa44044e32f232a8",
+          "bytes": 11386,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-6-34.jpg",
+          "sha256": "35db5957557e48bdcf7abcdc05e0ab3036702993df2db52b8e91ef3200610832",
+          "bytes": 10936,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-6-side.jpg",
+          "sha256": "0c1aca1fc6b40bbd29ed0d8a2716a3e8bc446f6a853770d1ce3308b832150ec7",
+          "bytes": 11540,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-6-back.jpg",
+          "sha256": "65edfc7db8b5cbeedc2bc4007214aaa4141e6d6e12aac9ab7667553e86e94773",
+          "bytes": 13033,
+          "manifestMatches": true,
+          "actualViewed": true
+        }
+      ],
+      "normalDistance": [
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/player-mushroom-6-front.png",
+          "sha256": "ff967ccaa0894e7c114a2b582ea4174f0edef93d9e2d2e5f5d9312d4f8846bbf",
+          "bytes": 315605,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/player-mushroom-6-back.png",
+          "sha256": "9d37c76bc1fe4ad75de87260133d7b2916b26d94662996cb34d88842cd62082a",
+          "bytes": 313144,
+          "manifestMatches": true,
+          "actualViewed": true
+        }
+      ],
+      "status": "REJECT",
+      "actualMotionCellsViewed": 32,
+      "notes": "Raised cap retains the flat/bowl-like spotted cap, collar, white stem and soil identity; four directions and both distance images show no detached cap/stem join. The white scalloped collar/underside still occludes the sick forehead stress marks in all four idle/walk normal/reduced captures. Eyes and mouth are visible, and sampled dislike brows are visible, but the complete canonical footprint fails. Prior I1 remains OPEN for stage 6."
+    },
+    {
+      "stage": 7,
+      "originalReference": {
+        "path": "assets/characters/mushroom/07.png",
+        "sha256": "e621465e511a0234fcebfddf43c20a1d4b64dfaf7ccd79210ba3e577e52f3d3f",
+        "bytes": 5628,
+        "actualViewed": true
+      },
+      "motionBoard": {
+        "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-motion/mushroom-7-motion.jpg",
+        "sha256": "09a4eb049589b2eca1a72cc78f26ed11050bd52f0401f34af6066dabc3544d40",
+        "bytes": 542307,
+        "manifestMatches": true,
+        "actualViewed": true
+      },
+      "fourViews": [
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-front.jpg",
+          "sha256": "81b3cdd32a68ba56cfe53d8396486b9a501b03ea0d6b8e377f442f849c5916fe",
+          "bytes": 12627,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-34.jpg",
+          "sha256": "02efb2619e44e76b9c9517a9a36af43ec4e5a2a1499e953f5f74836f6ab01b13",
+          "bytes": 12089,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-side.jpg",
+          "sha256": "801d13cea6efd286c242321e1070992ab9753e5e0b8b03bbd344f47694b0cf0e",
+          "bytes": 11379,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-back.jpg",
+          "sha256": "8568d7e83601ca6b493175e06da375980182ec4d570a08aa5843ac75fcbc8c0b",
+          "bytes": 12334,
+          "manifestMatches": true,
+          "actualViewed": true
+        }
+      ],
+      "normalDistance": [
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/player-mushroom-7-front.png",
+          "sha256": "95235182b39e16764baa7788e1bb3526b9bccd4f10b3b1f12ef9cb96941c6785",
+          "bytes": 312358,
+          "manifestMatches": true,
+          "actualViewed": true
+        },
+        {
+          "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/player-mushroom-7-back.png",
+          "sha256": "74cee259f34f8217c3a52171192cddc5f2a3044acb047c722d523bde6f5e22d3",
+          "bytes": 310161,
+          "manifestMatches": true,
+          "actualViewed": true
+        }
+      ],
+      "status": "PASS",
+      "actualMotionCellsViewed": 32,
+      "notes": "Tilted red spotted cap, white stem, soil and three intentional floating spore companions retain the source identity. Four directions and both distance images show a continuous cap/stem join and coherent silhouette. All 32 sampled motion states expose the complete face footprint, including all sick blue forehead marks. Prior I1 obstruction is resolved for stage 7."
+    }
+  ],
+  "rawArchive": {
+    "path": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/raw-evidence.zip",
+    "sha256": "67d1cbe574886d90dee7f0c3c19ad47a35b341c7fbd595eace18b5a683d4e6f3",
+    "bytes": 8430247,
+    "purpose": "unchanged raw image extraction; archive is not a manifest files entry"
+  },
+  "rawConfirmations": [
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-idle-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-repair-mushroom-raw/mushroom-6-sick-idle-normal.jpg",
+      "sha256": "6e92db96279f13212d4fd1aab000132385bfecd2c06c848e0253bf86ec476538",
+      "bytes": 10524,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-walk-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-repair-mushroom-raw/mushroom-6-sick-walk-normal.jpg",
+      "sha256": "e4f21e4b476c5079085cf896098ac7244ce6b2f5cb76140b18917e36b0359980",
+      "bytes": 10337,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-idle-reduced.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-repair-mushroom-raw/mushroom-6-sick-idle-reduced.jpg",
+      "sha256": "c2b735257e25ce9ab63285349b0303fba10112531ca7743f7cf2621079bf338c",
+      "bytes": 10684,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-walk-reduced.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-repair-mushroom-raw/mushroom-6-sick-walk-reduced.jpg",
+      "sha256": "09590cc0186673675023d43c75df597bdd062c9474873ea0259aae32d3e94823",
+      "bytes": 10748,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-dislike-idle-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-repair-mushroom-raw/mushroom-6-dislike-idle-normal.jpg",
+      "sha256": "cbbe9b7f63bbdab33932bc568057661f39933a7327b9fc16b68952333c52ec9e",
+      "bytes": 9228,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "I1",
+      "severity": "Important",
+      "status": "PARTIALLY_RESOLVED_OPEN_FOR_STAGE_6",
+      "resolvedStages": [
+        5,
+        7
+      ],
+      "remainingStage": 6,
+      "title": "Mushroom6 collar still hides sick forehead marks",
+      "description": "All four sick idle/walk normal/reduced cells lack the blue forehead stress marks. The four unchanged raw JPEGs confirm a collar/underside obstruction rather than board scaling ambiguity.",
+      "minimumFix": "Provide clearance from the collar and cap underside for the complete produced canonical forehead footprint at stage 6, preserving the source collar/cap/stem identity and attachment. Recapture and actually inspect stage 6 four views, all 32 states and two normal-distance images after the change. Stage 5/7 approvals apply only to the exact evidence/source reviewed here."
+    }
+  ],
+  "limits": [
+    "Only changed stages 5/6/7 reviewed; unchanged stages 1/2/3/4/8 were not re-reviewed.",
+    "Source run/job SUCCESS describes capture provenance, not image approval. Visual verdicts derive from actual view_image inspection.",
+    "Parent-reported verification of all 118 combined entries / 368 raw files was not repeated; reviewer independently matched hashes/sizes for the 21 inspected primary exported files and unchanged bytes for five extracted raw images.",
+    "Still frames establish the sampled poses only; no continuous animation, Human approval or iPhone approval is claimed.",
+    "No code, test, capture, publication or ref change performed."
+  ]
+}

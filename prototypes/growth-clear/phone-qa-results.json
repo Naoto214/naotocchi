@@ -1,0 +1,103 @@
+{
+  "baseHead": "f854a7470c0bd6d53549ef901c95b910df375c60",
+  "implementationCommit": "0e68db7dc0b501778d8d0b25aba1c30197fd064a",
+  "scope": "prototypes/growth-clear only",
+  "tests": {
+    "focused": {
+      "passed": 41,
+      "failed": 0
+    },
+    "legacy": {
+      "passed": 130,
+      "failed": 0
+    },
+    "fullRegression": {
+      "passed": [
+        3144,
+        80
+      ],
+      "failed": 0,
+      "exitCode": 0
+    },
+    "originalMutation": {
+      "killed": 20,
+      "total": 20
+    },
+    "phoneMutation": {
+      "killed": 8,
+      "total": 8
+    },
+    "dom": [
+      "legacy lab",
+      "3tap tools and automatic falling",
+      "HTTP save",
+      "10chain replay",
+      "denied storage fallback",
+      "standalone248images4witnesses"
+    ]
+  },
+  "browser": {
+    "executed": false,
+    "reason": "control-browser capability unavailable in managed environment; no browser installation or improvised control under Sites instructions",
+    "preparedViewportSizes": [
+      [
+        320,
+        568
+      ],
+      [
+        375,
+        667
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        430,
+        932
+      ]
+    ],
+    "humanIPhoneQA": "pending"
+  },
+  "preview": {
+    "published": false,
+    "productionChanged": false,
+    "methods": [
+      "private Codespaces forwarded port (user setup)",
+      "same Wi-Fi Python HTTP server",
+      "self-contained HTML build"
+    ]
+  },
+  "review": {
+    "fixed": [
+      "hidden landing auto-lock retry deadlock",
+      "HTTP persistence unavailable",
+      "storage getter exception",
+      "gold egg choice image now matches hatch stage03"
+    ],
+    "limits": [
+      "HTTP persistence requires one tab; optimistic revision check is weaker than Web Locks",
+      "animation interruption resumes last stable snapshot",
+      "no endless continuation UI after clear"
+    ]
+  },
+  "measurementsReused": 560,
+  "newAIMeasurements": 0,
+  "chain10": {
+    "source": "supplement-results/heldout-2-4231.json",
+    "action": 366,
+    "hash": "c364d04c"
+  },
+  "logs": {
+    "phone-dom.log": "41acaf7e43369ea73314e8e16dd2399fb4f371db4acdbcd740472298e19d823c",
+    "phone-engine-mutation.log": "051ca00c5f0995f2641f2829346b2db7bcd4f86235062a151bc08e6a6f0ba71c",
+    "phone-full-regression.log": "7ca9484a95296c84f45eea8aec91563f7520cb0792fbbb1dd4eec36878f56e04",
+    "phone-lab-dom.log": "8702d45eb720730ff241acae6ee791f8a8db3110da43fc9a6939428a28375ac4",
+    "phone-legacy-unit.log": "3d8dad7f930d6f6388359d3b8b8d49bbe5cc26f79c801dd3f3475e4f35339e26",
+    "phone-standalone.log": "ad1e8846dfe2b1c52a4249add04926b98310cc2dd4dede1c1d42bf6dded65182",
+    "phone-storage.log": "ad5209ca13e1accae83eb7bc513c5171b527927f239881decef29aaa54dc819d",
+    "phone-ui-mutation.log": "799f5229fec3c10342acb83fec8c663ae4e372c5f770f3106ecf59660a057024",
+    "phone-unit.log": "403964d29739b6c9617c8222bf939c277e463646c08dbb5a63615c302e3be762"
+  },
+  "logArchiveSHA256": "95636f0a622233b2fdfd050820197913945e1d88d33d3b5d72293d2ee2410c4d"
+}

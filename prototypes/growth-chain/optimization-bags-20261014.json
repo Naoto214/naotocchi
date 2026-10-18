@@ -1,0 +1,63 @@
+{
+  "seeds": [
+    200,
+    231
+  ],
+  "perSeed": 2000,
+  "results": [
+    {
+      "kinds": 4,
+      "bag": "fourEach",
+      "draws": 64000,
+      "samePairRate": 0.19990625,
+      "maxObservedAbsentIndividuals": 21,
+      "minPerBag": 4,
+      "maxPerBag": 4
+    },
+    {
+      "kinds": 4,
+      "bag": "fixed20",
+      "draws": 64000,
+      "samePairRate": 0.2105,
+      "maxObservedAbsentIndividuals": 21,
+      "minPerBag": 5,
+      "maxPerBag": 5
+    },
+    {
+      "kinds": 5,
+      "bag": "fourEach",
+      "draws": 64000,
+      "samePairRate": 0.15925,
+      "maxObservedAbsentIndividuals": 27,
+      "minPerBag": 4,
+      "maxPerBag": 4
+    },
+    {
+      "kinds": 5,
+      "bag": "fixed20",
+      "draws": 64000,
+      "samePairRate": 0.15925,
+      "maxObservedAbsentIndividuals": 27,
+      "minPerBag": 4,
+      "maxPerBag": 4
+    },
+    {
+      "kinds": 6,
+      "bag": "fourEach",
+      "draws": 64000,
+      "samePairRate": 0.1334375,
+      "maxObservedAbsentIndividuals": 31,
+      "minPerBag": 4,
+      "maxPerBag": 4
+    },
+    {
+      "kinds": 6,
+      "bag": "fixed20",
+      "draws": 64000,
+      "samePairRate": 0.12734375,
+      "maxObservedAbsentIndividuals": 30,
+      "minPerBag": 3,
+      "maxPerBag": 4
+    }
+  ]
+}

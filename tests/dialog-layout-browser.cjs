@@ -3,17 +3,26 @@ const fs=require('node:fs');
 const path=require('node:path');
 const {measureDialogs,resultSpecimen}=require('./dialog-layout-probe.js');
 
-module.exports=async function(browser,engine,fixtures,baseURL,output) {
+module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
   const results=[];
   for(const [name,width,height,fixture] of [
     ['puppy',390,760,'phone_dog'],['puppy-tall',393,852,'phone_dog'],
     ['small',320,568,'phone_dog'],['crowded',390,760,'equipped'],
     ['large-text',320,640,'care_large'],['desktop',768,844,'alone'],
   ]) {
+    if(onlyNames && !onlyNames.includes(name)) continue;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
     const page=await context.newPage();
-    if(name==='small') await page.clock.install();
+    // Keep layout specimens stable across slow screenshots: quit confirmation
+    // auto-dismisses after four seconds. Advance time explicitly for lifecycle QA.
+    await page.clock.install({time:new Date('2026-09-12T12:00:00Z')});
+    await page.clock.pauseAt(new Date('2026-09-12T12:01:00Z'));
     const save=JSON.parse(JSON.stringify(fixtures[fixture]));
+    if(name==='crowded') {
+      // This QA exercises the real intro/game dialogs, not the Game Pass shortcut.
+      save.lifetime.ownedShopItems=[...save.lifetime.ownedShopItems,'ribbon'];
+      save.lifetime.equippedItemId='ribbon';
+    }
     Object.assign(save,{health:100,energy:100,hunger:85,happiness:90,isSick:false,isSleeping:false,transformMeter:0});
     await page.addInitScript(s=>localStorage.setItem('naotocchi-save-v1',JSON.stringify(s)),save);
     const label=engine+'-dialogs-'+name;
@@ -55,7 +64,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await check('intro-confirm');
       assert.deepEqual(await page.locator('#minigameOverlay').boundingBox(),before,label+': confirmation moves the game');
       await page.screenshot({path:path.join(output,label+'-quit.png')});
-      await page.locator('#mgQuitNoBtn').click();await page.locator('#mgIntroStart').click();
+      await page.locator('#mgQuitNoBtn').click();await check('intro-resumed');await page.locator('#mgIntroStart').click();
       await check('playing');
       const activeBefore=await page.locator('#minigameOverlay').boundingBox();
       await page.locator('#mgQuitBtn').click();await check('playing-confirm');
@@ -71,7 +80,6 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
         await page.locator('#gameListGrid .game-cell[data-game-id="takoyaki-grill"]').click();
         await page.locator('#mgIntroStart').click();
-        await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1));
         await page.clock.fastForward(90000);
         await page.clock.runFor(1300);
         await page.locator('#mgResultToast').waitFor({state:'visible'});

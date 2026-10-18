@@ -1,0 +1,1253 @@
+{
+  "complete": true,
+  "count": 80,
+  "accepted_count": 80,
+  "records": [
+    {
+      "stage": "01",
+      "state": "happy",
+      "path": "assets/characters/expressions/star/01-happy.png",
+      "sha256": "2306e31973c38025a0d48a94ae977ee363efcd25095ed47cf60a86cf07a74d6f",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と笑う口で喜び。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "path": "assets/characters/expressions/star/01-strained.png",
+      "sha256": "15eb9586842632017d678b5586d02685b1180db413571c584d9f3f037e26bbf3",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と小さい控えめな笑み。強い苦痛ではない。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "hungry",
+      "path": "assets/characters/expressions/star/01-hungry.png",
+      "sha256": "8ac1983e775bcf99e25b82ae2ec30e791cdf09e928a83c7417dc673725cd50cf",
+      "verdict": "ACCEPT",
+      "notes": "懇願する目眉と丸い開口。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "path": "assets/characters/expressions/star/01-sick.png",
+      "sha256": "02daae1c9317c87432e14c3a8b3f7f38e1fe6673972105367f12fef26881eaa6",
+      "verdict": "ACCEPT",
+      "notes": "細い伏せ目・寄る眉と下がった口。不調が伝わる。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "path": "assets/characters/expressions/star/01-tired.png",
+      "sha256": "d217da41298b3b6bf6b8a4f5f0e1040ada1e875350fb229096abe3f2de5f1cca",
+      "verdict": "ACCEPT",
+      "notes": "半閉じ目と小さい縦開口で眠気・疲れ。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "path": "assets/characters/expressions/star/01-sulky.png",
+      "sha256": "28db55145f097cf1859c3a5ba5150d1fa8795c4c1e023f1bd922a429e632442d",
+      "verdict": "ACCEPT",
+      "notes": "内側へ下がる眉と不満の口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "path": "assets/characters/expressions/star/01-weak.png",
+      "sha256": "eba7c14e1baa4a25dc3bf0fbe3445c09a1aa499c5434499a41d7d36962c67f9d",
+      "verdict": "ACCEPT",
+      "notes": "低い瞼と小さい力のない口。顔が小さいためsickとの差は原寸で控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "path": "assets/characters/expressions/star/01-critical.png",
+      "sha256": "23231449cc5d9b3a45f37c0270f59e2b590912ce5920cb131bee57a0db0a8423",
+      "verdict": "ACCEPT",
+      "notes": "寄る眉・閉じかけの目と歪んだ開口で強い不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/star/01-wantsPlay.png",
+      "sha256": "fbe5360e439582bec2c16b309c28d829dece75144c19c83413507cc01c353e4b",
+      "verdict": "ACCEPT",
+      "notes": "開いた輝く目と誘う笑い口で遊びたい。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/star/01-sleeping.png",
+      "sha256": "34149c29e536e3eff7f3f17a611518ecf089aca6d64491773107344884317c81",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目と小さい穏やかな口で睡眠。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "path": "assets/characters/expressions/star/02-happy.png",
+      "sha256": "595a287f3f0200ac4fde1fd4f7ae5bc54a3e395c9eef0b4beda4ce2111cb002b",
+      "verdict": "ACCEPT",
+      "notes": "明るい上向き閉じ目と笑う開口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "path": "assets/characters/expressions/star/02-strained.png",
+      "sha256": "73ef0d626dbf3e8e4b6d93ce1a05dd261a0ea5502bc8621776ed7d33c7b783ba",
+      "verdict": "ACCEPT",
+      "notes": "困り眉・不安な目と控えめな笑み。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "path": "assets/characters/expressions/star/02-hungry.png",
+      "sha256": "4d95e5745aead0579f16ec2c386e085aafbc9afb4408283fdb8b9a22f31bc1e3",
+      "verdict": "ACCEPT",
+      "notes": "懇願する眉と小さい丸口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "path": "assets/characters/expressions/star/02-sick.png",
+      "sha256": "9b48343b622e6549244f4f23e8284903e5b824423f2eeed82fad61175ef8ac73",
+      "verdict": "ACCEPT",
+      "notes": "伏せ目・寄った眉とへの字口で不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "path": "assets/characters/expressions/star/02-tired.png",
+      "sha256": "83e19a44a92e818049cbad3eaeb174de714e768a2b8dc5a1966e0c1a6c1caf5a",
+      "verdict": "ACCEPT",
+      "notes": "半閉じの目と縦の小口であくび・眠気。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "path": "assets/characters/expressions/star/02-sulky.png",
+      "sha256": "07c6bc59aa00b3a8dedba270615528619375fcb25b81a409ee044c1004ee81c1",
+      "verdict": "ACCEPT",
+      "notes": "内寄りの眉と細い目、小さい不満口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "path": "assets/characters/expressions/star/02-weak.png",
+      "sha256": "f407f0af436f5c3fbd15d8da67e0e6c0c6d267e0540896301f2ea5c51dcf526c",
+      "verdict": "ACCEPT",
+      "notes": "力なく下がる目と最小の口。原寸の不調差は控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "path": "assets/characters/expressions/star/02-critical.png",
+      "sha256": "7d2f7714c7c912a730fa5ee94e8516a04f435ff09a0c8a63c84b25d2cddd897c",
+      "verdict": "ACCEPT",
+      "notes": "強く閉じかけた目と歪んだ開口で強い不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/star/02-wantsPlay.png",
+      "sha256": "3af73167749217ad2b5efac7b45b535a652862669ae12f8a6afce27535e0b238",
+      "verdict": "ACCEPT",
+      "notes": "両目を開き上がる眉と開く笑い口で遊びへの期待。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/star/02-sleeping.png",
+      "sha256": "eb2eca0b0bc607645124840a3566e84bf4c82ccebb20b7e961e6d9fc01c48613",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目と小さい静かな横口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "path": "assets/characters/expressions/star/03-happy.png",
+      "sha256": "f44099d96763dbe8a168c9be242888c822834bc1b91564a6359cb080d2513902",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と笑い口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "path": "assets/characters/expressions/star/03-strained.png",
+      "sha256": "1f85ce06ada02e76cb33aea1072a9a4a8fb3c2b3e9275a8fd1106dfa099da714",
+      "verdict": "ACCEPT",
+      "notes": "困り眉・控えめな口で遠慮した笑顔。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "path": "assets/characters/expressions/star/03-hungry.png",
+      "sha256": "5ce2c5d30e5a613093df74eefe9cfeff084618ab86bfaf3c263c6a510e7a9414",
+      "verdict": "ACCEPT",
+      "notes": "求める上目と小さい開口。元画像と近めだが意味範囲内。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "path": "assets/characters/expressions/star/03-sick.png",
+      "sha256": "1e077c88ced32ae0441a1d0d61756716200bb92809e29ad8810819f34a4e3665",
+      "verdict": "ACCEPT",
+      "notes": "落ちた瞼と八字眉、下がる口で不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "path": "assets/characters/expressions/star/03-tired.png",
+      "sha256": "abc986ed74b5ff1ff8f1bd413ae6c33920ae6b4ddfc2bd7d656d558660f1fab0",
+      "verdict": "ACCEPT",
+      "notes": "半閉じ目とあくび状の縦開口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "path": "assets/characters/expressions/star/03-sulky.png",
+      "sha256": "03144e7baaa1a526190cb85a295466c7249fec7636aff55774fea1df4c1c3583",
+      "verdict": "ACCEPT",
+      "notes": "内向きの眉・横目と小さいへの字口で不満。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "path": "assets/characters/expressions/star/03-weak.png",
+      "sha256": "5de29d2536ee062e021cd55d9afaaa90bbbcba10bdb9b2cde0bf63da8a09b40a",
+      "verdict": "ACCEPT",
+      "notes": "落ちた瞼と小さい口で力のなさ。sickとの差は原寸で控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "path": "assets/characters/expressions/star/03-critical.png",
+      "sha256": "dce2185c6f35dd785536b1425989b78cf45eae7e25c7f7855b4c72672045bebc",
+      "verdict": "ACCEPT",
+      "notes": "絞る目と苦しげな大きい開口で強い不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/star/03-wantsPlay.png",
+      "sha256": "de1f3dc66e5d6035c980399269d838f63e0c835b3f668694a580f6a3b2c4e495",
+      "verdict": "ACCEPT",
+      "notes": "開いた目と誘う大きい笑い口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/star/03-sleeping.png",
+      "sha256": "c6fd1584988d9cba8a9a697168ca6b7f32f0f10611bcb31ad2ef8e525a033795",
+      "verdict": "ACCEPT",
+      "notes": "柔らかい閉じ目と穏やかな小口で睡眠。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "happy",
+      "path": "assets/characters/expressions/star/04-happy.png",
+      "sha256": "1e580868742864f7398798a07f2bfcf1b07b4551b0bcffd2c4be5baa0508d5ab",
+      "verdict": "ACCEPT",
+      "notes": "両目が明るく開き大きな笑い口。若い恒星の炎を保持。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "strained",
+      "path": "assets/characters/expressions/star/04-strained.png",
+      "sha256": "d67843812ab2c8fa4714c83ff137df0707277bad8057a9bb8318f71b1a6709bf",
+      "verdict": "ACCEPT",
+      "notes": "元の片目閉じを残し、困り眉と横に狭い笑い口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "hungry",
+      "path": "assets/characters/expressions/star/04-hungry.png",
+      "sha256": "b0960530e8f1017297791e2924f82e3ebfe84a0b283c451c1743a2caf5a28597",
+      "verdict": "ACCEPT",
+      "notes": "求める眉と大きな目・丸い開口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "sick",
+      "path": "assets/characters/expressions/star/04-sick.png",
+      "sha256": "ace26437d671cd902a2eea957af93e48f42ba62dc53356a93197d69dce47d936",
+      "verdict": "ACCEPT",
+      "notes": "下がった瞼・八字眉と波打つ下がり口で不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "tired",
+      "path": "assets/characters/expressions/star/04-tired.png",
+      "sha256": "1ae23a137ae9edfd769e1b612424fa51d2c20fade1728ddbc1e72226c2ed5dbb",
+      "verdict": "ACCEPT",
+      "notes": "重い半閉じ瞼と縦に開くあくび口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "sulky",
+      "path": "assets/characters/expressions/star/04-sulky.png",
+      "sha256": "1068b3e70e3da7a9b8d2a42f9e47bef5cc596feee796418a4b2a87742b89792b",
+      "verdict": "ACCEPT",
+      "notes": "尖る内側眉と横目・への字口で不満。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "weak",
+      "path": "assets/characters/expressions/star/04-weak.png",
+      "sha256": "90b37b70bed2212e494f539b28f69b46a5abedd063c77908b1b01900cd86ef4a",
+      "verdict": "ACCEPT",
+      "notes": "力のない半閉じ目と小さい下がり口。sickとの差は原寸で比較的控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "critical",
+      "path": "assets/characters/expressions/star/04-critical.png",
+      "sha256": "aed0cf1e3b4dcc028f32075bf487d6714b174700048e76853c6c418600543b19",
+      "verdict": "ACCEPT",
+      "notes": "強く絞った目と苦しげな横開口で危険な不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/star/04-wantsPlay.png",
+      "sha256": "f274e31f9e50774582212dd9946493f7d7b2d1bbd10e34ba622c41bdbe40d609",
+      "verdict": "ACCEPT",
+      "notes": "上がる眉と輝く両目、大きく誘う笑い口。happyとの差は眉と開口の微差。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "stage": "04",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/star/04-sleeping.png",
+      "sha256": "2314861a202e6adca265d42162bd169ade525690d0b5980f2f994ec20cba5abd",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目と静かな小さい口で安眠。炎の形と明るさを維持。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+    },
+    {
+      "path": "assets/characters/expressions/star/05-happy.png",
+      "sha256": "41be03a4d7e249766c90d9a3e8126a89c8bd26bf7048b002279464e18e1445d9",
+      "verdict": "ACCEPT",
+      "notes": "Upturned closed eyes and open smile read happy. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-strained.png",
+      "sha256": "a731a017eeee46238c809656b4818166f05f6b6403b742cf386c8b156f163244",
+      "verdict": "ACCEPT",
+      "notes": "Raised inner brows, half eyes and asymmetrical small smile read restrained/uneasy. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-hungry.png",
+      "sha256": "869e5534125f628b0eb8a75ead73faf831a255a56509dfeb9a8047b98b77b136",
+      "verdict": "ACCEPT",
+      "notes": "Raised inner brows and small open mouth read pleading hunger. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-sick.png",
+      "sha256": "665974ccc367f2e168d2bf3e5965c91dd73f29135170af274b774cfad954d8b6",
+      "verdict": "ACCEPT",
+      "notes": "Tight shut eyes, worried brows and wavy mouth read sick discomfort. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-tired.png",
+      "sha256": "d0570b6e6d54d3b45fb30c2de45eaedea7ce0d1debacd2f9b5c1ac28555e7acb",
+      "verdict": "ACCEPT",
+      "notes": "Low lids and flat mouth read tired. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-sulky.png",
+      "sha256": "fe5cdfaa5bff77dfd3b3a6f30db3af6d32c12bcbf21e9e58b2f84c48a19d135f",
+      "verdict": "ACCEPT",
+      "notes": "Inward brows and downturned mouth read sulky. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-weak.png",
+      "sha256": "13b2c4a670bef8b0dfcc67685a6ad17b9da3af252117325512c813c950276810",
+      "verdict": "ACCEPT",
+      "notes": "Drooping half eyes and small frown read weak; native difference from tired is restrained. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-critical.png",
+      "sha256": "dd3e8abbfbe80dbf10655c1ceedaf88952d98d2a26c15f874bf3510ec0591f51",
+      "verdict": "ACCEPT",
+      "notes": "Strong squeezed eyes and distressed open mouth read critical. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-wantsPlay.png",
+      "sha256": "7a7ee5705974220836a8825b686dfffb554726f0cb2c489cd1f68b408f500557",
+      "verdict": "ACCEPT",
+      "notes": "Bright open eyes and enthusiastic open smile read wantsPlay. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/05-sleeping.png",
+      "sha256": "512600b083afece62a00f425c8989d1eb3164a18acf28e0972b02424b6a5e21c",
+      "verdict": "ACCEPT",
+      "notes": "Closed downward lids and relaxed small mouth read sleeping. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-happy.png",
+      "sha256": "881e70d3201333d57da2d73eb64edd5196faf6e048cd3d36bbcf2632b24e5720",
+      "verdict": "ACCEPT",
+      "notes": "Upturned lids and open smile convey happiness. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-strained.png",
+      "sha256": "f76e4553b9dde474857f026b473cd917b45caa22cbf3de6387df79a8ac25c547",
+      "verdict": "ACCEPT",
+      "notes": "Original heavy eyes retained; worried brows and small asymmetrical smile convey strained. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-hungry.png",
+      "sha256": "1c7dc8fc6ada55a73b6794517fcc0ea0363ffcbc60f4b9aca75d26cba0391a69",
+      "verdict": "ACCEPT",
+      "notes": "Wider pleading eyes and small open mouth convey hunger. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-sick.png",
+      "sha256": "5f38fc4d836208dc8f4f4a44dc87e41f704698a3ecafb8dc97efb2da3715c86d",
+      "verdict": "ACCEPT",
+      "notes": "Tight eyes and wavy mouth convey sickness. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-tired.png",
+      "sha256": "461d627d0cb94df2d1f1ff164278c66304ed86f5f805160c24ad3c68a09495b8",
+      "verdict": "ACCEPT",
+      "notes": "Heavy half eyes and slack mouth convey fatigue, naturally close to aged original. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-sulky.png",
+      "sha256": "9b327817faa9e2dd29f409b33b2a6d37c106dcaedb2a082392ef72f6ba15c52a",
+      "verdict": "ACCEPT",
+      "notes": "Angled brows and frown convey sulky. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-weak.png",
+      "sha256": "d8462a9997d24512a4f48d41854a91d475f385bb40a0f8e55243465caaab4d55",
+      "verdict": "ACCEPT",
+      "notes": "Very low lids and small frown convey weakness; tired distinction restrained at native scale. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-critical.png",
+      "sha256": "ecc620fbafebf82230001033de0b09907865afa681f05e1656e3e1ee97d37b5b",
+      "verdict": "ACCEPT",
+      "notes": "Squeezed eyes and distressed open mouth convey critical. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-wantsPlay.png",
+      "sha256": "d649d0a7a7d5b935284ae130d6d6db124912b08e8649c33642facff7f7a0135f",
+      "verdict": "ACCEPT",
+      "notes": "Bright open eyes and eager smile convey wantsPlay while age/body retained. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/06-sleeping.png",
+      "sha256": "b2ac0ba15dcec514e4eb2196d801bfc4656dd4a3897cd1aec997d2b6944f0536",
+      "verdict": "ACCEPT",
+      "notes": "Closed downward lids and relaxed mouth convey sleep. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-happy.png",
+      "sha256": "a180e0f4fd3742f2ea6c403775b1c9ac6888f576bbc9fc5eec459fc439aa257d",
+      "verdict": "ACCEPT",
+      "notes": "Upturned closed eyes/open smile clearly happy. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-strained.png",
+      "sha256": "6c5538fdd89f3dd572fbac3d103aae2db1cb678cebf34bfbff515cadb1043f7c",
+      "verdict": "ACCEPT",
+      "notes": "Worried raised-inner brows and restrained small smile read strained; open bright eyes are retained. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-hungry.png",
+      "sha256": "fb97535e51b43ec3daca54d944d242d6ffd504a8281d19eadbd09c22e3c4f7e4",
+      "verdict": "ACCEPT",
+      "notes": "Raised-inner brows and small open mouth read pleading hunger; close to original excitement at native size. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-sick.png",
+      "sha256": "9308b55187a308f3804c44abec464db9afe255a2bbfa1e9d76c3f0392ab74c66",
+      "verdict": "ACCEPT",
+      "notes": "Drooping eyes and frown read sick. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-tired.png",
+      "sha256": "27423c2ae9bfaa9e3cb96e43ccc4af93eae9c8440f5276a065346a0b9ad4e312",
+      "verdict": "ACCEPT",
+      "notes": "Low lids and yawn-like open mouth read tired. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-sulky.png",
+      "sha256": "13feadb07e7925b1db0cd8c434f5f650bbbe047374907f0003b9469027ce7a9f",
+      "verdict": "ACCEPT",
+      "notes": "Inward brows and pursed mouth read sulky. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-weak.png",
+      "sha256": "676dcf8af6ff62713aa80dbd3cbbe1070d3f6dbd1dc48c5694889879d275d299",
+      "verdict": "ACCEPT",
+      "notes": "Drooping asymmetric lids and small slack mouth read weak. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-critical.png",
+      "sha256": "b27f2c2bd9fc3b3c656728b18843b91495aa5710b57dda608c65056d74f64441",
+      "verdict": "ACCEPT",
+      "notes": "Squeezed inward lids, arched brows and tense mouth read critical. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-wantsPlay.png",
+      "sha256": "f5f70200bfc632cce2050a692534c91c215a85f8b053435b92c43dcde364141b",
+      "verdict": "ACCEPT",
+      "notes": "Bright eyes, raised outer brows and broad open smile read wantsPlay; naturally close to original. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/07-sleeping.png",
+      "sha256": "d947f076499d32fc58d4d5817223c24d4432f3c98be998589937d20eb7bf00c8",
+      "verdict": "ACCEPT",
+      "notes": "Downward closed lids and tiny resting mouth read sleep. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-happy.png",
+      "sha256": "9773206610cd65ec55833c2ef68ee4962bcc83fdfb937b7900536045128c9603",
+      "verdict": "ACCEPT",
+      "notes": "Original-like upturned lids plus open happy mouth. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-strained.png",
+      "sha256": "f123d0108784679f79b9adfd2fa4975c1328e75f0569129983d076b1fa8ea378",
+      "verdict": "ACCEPT",
+      "notes": "Uneven half eyes, raised-inner brows and restrained curved mouth convey strained. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-hungry.png",
+      "sha256": "ec975626fda6e8c9d5f0a7aaf8763c26c957464b6dba39857c679176d9a3d940",
+      "verdict": "ACCEPT",
+      "notes": "Pleading brows and open mouth convey hunger. Cyan lower iris highlights remain continuous with eyes, not detached drops or cheek tear streaks; no repair needed. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-sick.png",
+      "sha256": "c45bcf974b6d27243c06177d7ff598ff01f0d9facc1a3e6ce28f6ea92f84baf3",
+      "verdict": "ACCEPT",
+      "notes": "Drooping lids, worried brows and slight frown convey sickness. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-tired.png",
+      "sha256": "37d3d88e3f0e5a23c37b7b5c1ce6c464aeaf578414b8715a78716bd3016fd291",
+      "verdict": "ACCEPT",
+      "notes": "Heavy half lids and tiny open mouth convey tiredness. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-sulky.png",
+      "sha256": "debddd4b3d3524ea256587ccb2c94e441f874e284fcf24899b41b77c2c94fc45",
+      "verdict": "ACCEPT",
+      "notes": "Inward slanted lids and pout convey sulky. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-weak.png",
+      "sha256": "c6ad5fab76942fc1287b0f9dd4f7334266e84bb9615edcc870a0a2876447f794",
+      "verdict": "ACCEPT",
+      "notes": "Nearly closed drooping lids and small frown convey weakness; native difference from sleep is subtle. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-critical.png",
+      "sha256": "5f3cba7ddc2b91cb87302b12abb9372728deaa5955dfed5395131e4bd58277ef",
+      "verdict": "ACCEPT",
+      "notes": "Tense squeezed lids and distressed open mouth convey critical discomfort. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-wantsPlay.png",
+      "sha256": "4a83645f82c3dbe86ef994de4acf938c5b947fd5aa9c908efcef8b3c87c011d5",
+      "verdict": "ACCEPT",
+      "notes": "Bright open eyes and eager tiny open smile convey wantsPlay. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    },
+    {
+      "path": "assets/characters/expressions/star/08-sleeping.png",
+      "sha256": "92af16ddc5562d1384b8074071a151fd587a15437758828a42296a14f36599f6",
+      "verdict": "ACCEPT",
+      "notes": "Closed relaxed lids and resting mouth convey sleep; native difference from weak is subtle. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+    }
+  ],
+  "stage_reviews": [
+    {
+      "stage": "01",
+      "review": {
+        "stage": "01",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "01",
+            "state": "happy",
+            "path": "assets/characters/expressions/star/01-happy.png",
+            "sha256": "2306e31973c38025a0d48a94ae977ee363efcd25095ed47cf60a86cf07a74d6f",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と笑う口で喜び。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "strained",
+            "path": "assets/characters/expressions/star/01-strained.png",
+            "sha256": "15eb9586842632017d678b5586d02685b1180db413571c584d9f3f037e26bbf3",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と小さい控えめな笑み。強い苦痛ではない。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "hungry",
+            "path": "assets/characters/expressions/star/01-hungry.png",
+            "sha256": "8ac1983e775bcf99e25b82ae2ec30e791cdf09e928a83c7417dc673725cd50cf",
+            "verdict": "ACCEPT",
+            "notes": "懇願する目眉と丸い開口。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "sick",
+            "path": "assets/characters/expressions/star/01-sick.png",
+            "sha256": "02daae1c9317c87432e14c3a8b3f7f38e1fe6673972105367f12fef26881eaa6",
+            "verdict": "ACCEPT",
+            "notes": "細い伏せ目・寄る眉と下がった口。不調が伝わる。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "tired",
+            "path": "assets/characters/expressions/star/01-tired.png",
+            "sha256": "d217da41298b3b6bf6b8a4f5f0e1040ada1e875350fb229096abe3f2de5f1cca",
+            "verdict": "ACCEPT",
+            "notes": "半閉じ目と小さい縦開口で眠気・疲れ。 原寸・6倍で元画像対照確認。単一顔・星雲構造を維持。光粒・輪郭には生成微差あり、非顔pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "sulky",
+            "path": "assets/characters/expressions/star/01-sulky.png",
+            "sha256": "28db55145f097cf1859c3a5ba5150d1fa8795c4c1e023f1bd922a429e632442d",
+            "verdict": "ACCEPT",
+            "notes": "内側へ下がる眉と不満の口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "weak",
+            "path": "assets/characters/expressions/star/01-weak.png",
+            "sha256": "eba7c14e1baa4a25dc3bf0fbe3445c09a1aa499c5434499a41d7d36962c67f9d",
+            "verdict": "ACCEPT",
+            "notes": "低い瞼と小さい力のない口。顔が小さいためsickとの差は原寸で控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "critical",
+            "path": "assets/characters/expressions/star/01-critical.png",
+            "sha256": "23231449cc5d9b3a45f37c0270f59e2b590912ce5920cb131bee57a0db0a8423",
+            "verdict": "ACCEPT",
+            "notes": "寄る眉・閉じかけの目と歪んだ開口で強い不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/star/01-wantsPlay.png",
+            "sha256": "fbe5360e439582bec2c16b309c28d829dece75144c19c83413507cc01c353e4b",
+            "verdict": "ACCEPT",
+            "notes": "開いた輝く目と誘う笑い口で遊びたい。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "01",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/star/01-sleeping.png",
+            "sha256": "34149c29e536e3eff7f3f17a611518ecf089aca6d64491773107344884317c81",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目と小さい穏やかな口で睡眠。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          }
+        ],
+        "reviewer": "/root/next_original_review",
+        "method": "Each final PNG viewed alongside original at native128 and nearest-neighbor6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "02",
+      "review": {
+        "stage": "02",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "02",
+            "state": "happy",
+            "path": "assets/characters/expressions/star/02-happy.png",
+            "sha256": "595a287f3f0200ac4fde1fd4f7ae5bc54a3e395c9eef0b4beda4ce2111cb002b",
+            "verdict": "ACCEPT",
+            "notes": "明るい上向き閉じ目と笑う開口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "strained",
+            "path": "assets/characters/expressions/star/02-strained.png",
+            "sha256": "73ef0d626dbf3e8e4b6d93ce1a05dd261a0ea5502bc8621776ed7d33c7b783ba",
+            "verdict": "ACCEPT",
+            "notes": "困り眉・不安な目と控えめな笑み。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "hungry",
+            "path": "assets/characters/expressions/star/02-hungry.png",
+            "sha256": "4d95e5745aead0579f16ec2c386e085aafbc9afb4408283fdb8b9a22f31bc1e3",
+            "verdict": "ACCEPT",
+            "notes": "懇願する眉と小さい丸口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "sick",
+            "path": "assets/characters/expressions/star/02-sick.png",
+            "sha256": "9b48343b622e6549244f4f23e8284903e5b824423f2eeed82fad61175ef8ac73",
+            "verdict": "ACCEPT",
+            "notes": "伏せ目・寄った眉とへの字口で不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "tired",
+            "path": "assets/characters/expressions/star/02-tired.png",
+            "sha256": "83e19a44a92e818049cbad3eaeb174de714e768a2b8dc5a1966e0c1a6c1caf5a",
+            "verdict": "ACCEPT",
+            "notes": "半閉じの目と縦の小口であくび・眠気。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "sulky",
+            "path": "assets/characters/expressions/star/02-sulky.png",
+            "sha256": "07c6bc59aa00b3a8dedba270615528619375fcb25b81a409ee044c1004ee81c1",
+            "verdict": "ACCEPT",
+            "notes": "内寄りの眉と細い目、小さい不満口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "weak",
+            "path": "assets/characters/expressions/star/02-weak.png",
+            "sha256": "f407f0af436f5c3fbd15d8da67e0e6c0c6d267e0540896301f2ea5c51dcf526c",
+            "verdict": "ACCEPT",
+            "notes": "力なく下がる目と最小の口。原寸の不調差は控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "critical",
+            "path": "assets/characters/expressions/star/02-critical.png",
+            "sha256": "7d2f7714c7c912a730fa5ee94e8516a04f435ff09a0c8a63c84b25d2cddd897c",
+            "verdict": "ACCEPT",
+            "notes": "強く閉じかけた目と歪んだ開口で強い不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/star/02-wantsPlay.png",
+            "sha256": "3af73167749217ad2b5efac7b45b535a652862669ae12f8a6afce27535e0b238",
+            "verdict": "ACCEPT",
+            "notes": "両目を開き上がる眉と開く笑い口で遊びへの期待。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "02",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/star/02-sleeping.png",
+            "sha256": "eb2eca0b0bc607645124840a3566e84bf4c82ccebb20b7e961e6d9fc01c48613",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目と小さい静かな横口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          }
+        ],
+        "reviewer": "/root/next_original_review",
+        "method": "Each final PNG viewed alongside original at native128 and nearest-neighbor6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "03",
+      "review": {
+        "stage": "03",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "03",
+            "state": "happy",
+            "path": "assets/characters/expressions/star/03-happy.png",
+            "sha256": "f44099d96763dbe8a168c9be242888c822834bc1b91564a6359cb080d2513902",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と笑い口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "strained",
+            "path": "assets/characters/expressions/star/03-strained.png",
+            "sha256": "1f85ce06ada02e76cb33aea1072a9a4a8fb3c2b3e9275a8fd1106dfa099da714",
+            "verdict": "ACCEPT",
+            "notes": "困り眉・控えめな口で遠慮した笑顔。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "hungry",
+            "path": "assets/characters/expressions/star/03-hungry.png",
+            "sha256": "5ce2c5d30e5a613093df74eefe9cfeff084618ab86bfaf3c263c6a510e7a9414",
+            "verdict": "ACCEPT",
+            "notes": "求める上目と小さい開口。元画像と近めだが意味範囲内。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "sick",
+            "path": "assets/characters/expressions/star/03-sick.png",
+            "sha256": "1e077c88ced32ae0441a1d0d61756716200bb92809e29ad8810819f34a4e3665",
+            "verdict": "ACCEPT",
+            "notes": "落ちた瞼と八字眉、下がる口で不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "tired",
+            "path": "assets/characters/expressions/star/03-tired.png",
+            "sha256": "abc986ed74b5ff1ff8f1bd413ae6c33920ae6b4ddfc2bd7d656d558660f1fab0",
+            "verdict": "ACCEPT",
+            "notes": "半閉じ目とあくび状の縦開口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "sulky",
+            "path": "assets/characters/expressions/star/03-sulky.png",
+            "sha256": "03144e7baaa1a526190cb85a295466c7249fec7636aff55774fea1df4c1c3583",
+            "verdict": "ACCEPT",
+            "notes": "内向きの眉・横目と小さいへの字口で不満。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "weak",
+            "path": "assets/characters/expressions/star/03-weak.png",
+            "sha256": "5de29d2536ee062e021cd55d9afaaa90bbbcba10bdb9b2cde0bf63da8a09b40a",
+            "verdict": "ACCEPT",
+            "notes": "落ちた瞼と小さい口で力のなさ。sickとの差は原寸で控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "critical",
+            "path": "assets/characters/expressions/star/03-critical.png",
+            "sha256": "dce2185c6f35dd785536b1425989b78cf45eae7e25c7f7855b4c72672045bebc",
+            "verdict": "ACCEPT",
+            "notes": "絞る目と苦しげな大きい開口で強い不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/star/03-wantsPlay.png",
+            "sha256": "de1f3dc66e5d6035c980399269d838f63e0c835b3f668694a580f6a3b2c4e495",
+            "verdict": "ACCEPT",
+            "notes": "開いた目と誘う大きい笑い口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "03",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/star/03-sleeping.png",
+            "sha256": "c6fd1584988d9cba8a9a697168ca6b7f32f0f10611bcb31ad2ef8e525a033795",
+            "verdict": "ACCEPT",
+            "notes": "柔らかい閉じ目と穏やかな小口で睡眠。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          }
+        ],
+        "reviewer": "/root/next_original_review",
+        "method": "Each final PNG viewed alongside original at native128 and nearest-neighbor6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "04",
+      "review": {
+        "stage": "04",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "04",
+            "state": "happy",
+            "path": "assets/characters/expressions/star/04-happy.png",
+            "sha256": "1e580868742864f7398798a07f2bfcf1b07b4551b0bcffd2c4be5baa0508d5ab",
+            "verdict": "ACCEPT",
+            "notes": "両目が明るく開き大きな笑い口。若い恒星の炎を保持。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "strained",
+            "path": "assets/characters/expressions/star/04-strained.png",
+            "sha256": "d67843812ab2c8fa4714c83ff137df0707277bad8057a9bb8318f71b1a6709bf",
+            "verdict": "ACCEPT",
+            "notes": "元の片目閉じを残し、困り眉と横に狭い笑い口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "hungry",
+            "path": "assets/characters/expressions/star/04-hungry.png",
+            "sha256": "b0960530e8f1017297791e2924f82e3ebfe84a0b283c451c1743a2caf5a28597",
+            "verdict": "ACCEPT",
+            "notes": "求める眉と大きな目・丸い開口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "sick",
+            "path": "assets/characters/expressions/star/04-sick.png",
+            "sha256": "ace26437d671cd902a2eea957af93e48f42ba62dc53356a93197d69dce47d936",
+            "verdict": "ACCEPT",
+            "notes": "下がった瞼・八字眉と波打つ下がり口で不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "tired",
+            "path": "assets/characters/expressions/star/04-tired.png",
+            "sha256": "1ae23a137ae9edfd769e1b612424fa51d2c20fade1728ddbc1e72226c2ed5dbb",
+            "verdict": "ACCEPT",
+            "notes": "重い半閉じ瞼と縦に開くあくび口。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "sulky",
+            "path": "assets/characters/expressions/star/04-sulky.png",
+            "sha256": "1068b3e70e3da7a9b8d2a42f9e47bef5cc596feee796418a4b2a87742b89792b",
+            "verdict": "ACCEPT",
+            "notes": "尖る内側眉と横目・への字口で不満。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "weak",
+            "path": "assets/characters/expressions/star/04-weak.png",
+            "sha256": "90b37b70bed2212e494f539b28f69b46a5abedd063c77908b1b01900cd86ef4a",
+            "verdict": "ACCEPT",
+            "notes": "力のない半閉じ目と小さい下がり口。sickとの差は原寸で比較的控えめ。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "critical",
+            "path": "assets/characters/expressions/star/04-critical.png",
+            "sha256": "aed0cf1e3b4dcc028f32075bf487d6714b174700048e76853c6c418600543b19",
+            "verdict": "ACCEPT",
+            "notes": "強く絞った目と苦しげな横開口で危険な不調。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/star/04-wantsPlay.png",
+            "sha256": "f274e31f9e50774582212dd9946493f7d7b2d1bbd10e34ba622c41bdbe40d609",
+            "verdict": "ACCEPT",
+            "notes": "上がる眉と輝く両目、大きく誘う笑い口。happyとの差は眉と開口の微差。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          },
+          {
+            "stage": "04",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/star/04-sleeping.png",
+            "sha256": "2314861a202e6adca265d42162bd169ade525690d0b5980f2f994ec20cba5abd",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目と静かな小さい口で安眠。炎の形と明るさを維持。 原寸・6倍で元画像対照確認。単一顔と成長段階の構造・配色を維持。非顔には生成微差あり、pixel完全一致ではない。"
+          }
+        ],
+        "reviewer": "/root/next_original_review",
+        "method": "Each final PNG viewed alongside original at native128 and nearest-neighbor6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "05",
+      "review": {
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "reviewer": "star_integration",
+        "independent": true,
+        "records": [
+          {
+            "path": "assets/characters/expressions/star/05-happy.png",
+            "sha256": "41be03a4d7e249766c90d9a3e8126a89c8bd26bf7048b002279464e18e1445d9",
+            "verdict": "ACCEPT",
+            "notes": "Upturned closed eyes and open smile read happy. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-strained.png",
+            "sha256": "a731a017eeee46238c809656b4818166f05f6b6403b742cf386c8b156f163244",
+            "verdict": "ACCEPT",
+            "notes": "Raised inner brows, half eyes and asymmetrical small smile read restrained/uneasy. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-hungry.png",
+            "sha256": "869e5534125f628b0eb8a75ead73faf831a255a56509dfeb9a8047b98b77b136",
+            "verdict": "ACCEPT",
+            "notes": "Raised inner brows and small open mouth read pleading hunger. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-sick.png",
+            "sha256": "665974ccc367f2e168d2bf3e5965c91dd73f29135170af274b774cfad954d8b6",
+            "verdict": "ACCEPT",
+            "notes": "Tight shut eyes, worried brows and wavy mouth read sick discomfort. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-tired.png",
+            "sha256": "d0570b6e6d54d3b45fb30c2de45eaedea7ce0d1debacd2f9b5c1ac28555e7acb",
+            "verdict": "ACCEPT",
+            "notes": "Low lids and flat mouth read tired. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-sulky.png",
+            "sha256": "fe5cdfaa5bff77dfd3b3a6f30db3af6d32c12bcbf21e9e58b2f84c48a19d135f",
+            "verdict": "ACCEPT",
+            "notes": "Inward brows and downturned mouth read sulky. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-weak.png",
+            "sha256": "13b2c4a670bef8b0dfcc67685a6ad17b9da3af252117325512c813c950276810",
+            "verdict": "ACCEPT",
+            "notes": "Drooping half eyes and small frown read weak; native difference from tired is restrained. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-critical.png",
+            "sha256": "dd3e8abbfbe80dbf10655c1ceedaf88952d98d2a26c15f874bf3510ec0591f51",
+            "verdict": "ACCEPT",
+            "notes": "Strong squeezed eyes and distressed open mouth read critical. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-wantsPlay.png",
+            "sha256": "7a7ee5705974220836a8825b686dfffb554726f0cb2c489cd1f68b408f500557",
+            "verdict": "ACCEPT",
+            "notes": "Bright open eyes and enthusiastic open smile read wantsPlay. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/05-sleeping.png",
+            "sha256": "512600b083afece62a00f425c8989d1eb3164a18acf28e0972b02424b6a5e21c",
+            "verdict": "ACCEPT",
+            "notes": "Closed downward lids and relaxed small mouth read sleeping. Native and 6× compared with original. Single sun body, rays, gold palette and original cheek blush retained; minor generated non-face pixel variation, no extra state mark."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "06",
+      "review": {
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "reviewer": "star_integration",
+        "independent": true,
+        "records": [
+          {
+            "path": "assets/characters/expressions/star/06-happy.png",
+            "sha256": "881e70d3201333d57da2d73eb64edd5196faf6e048cd3d36bbcf2632b24e5720",
+            "verdict": "ACCEPT",
+            "notes": "Upturned lids and open smile convey happiness. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-strained.png",
+            "sha256": "f76e4553b9dde474857f026b473cd917b45caa22cbf3de6387df79a8ac25c547",
+            "verdict": "ACCEPT",
+            "notes": "Original heavy eyes retained; worried brows and small asymmetrical smile convey strained. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-hungry.png",
+            "sha256": "1c7dc8fc6ada55a73b6794517fcc0ea0363ffcbc60f4b9aca75d26cba0391a69",
+            "verdict": "ACCEPT",
+            "notes": "Wider pleading eyes and small open mouth convey hunger. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-sick.png",
+            "sha256": "5f38fc4d836208dc8f4f4a44dc87e41f704698a3ecafb8dc97efb2da3715c86d",
+            "verdict": "ACCEPT",
+            "notes": "Tight eyes and wavy mouth convey sickness. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-tired.png",
+            "sha256": "461d627d0cb94df2d1f1ff164278c66304ed86f5f805160c24ad3c68a09495b8",
+            "verdict": "ACCEPT",
+            "notes": "Heavy half eyes and slack mouth convey fatigue, naturally close to aged original. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-sulky.png",
+            "sha256": "9b327817faa9e2dd29f409b33b2a6d37c106dcaedb2a082392ef72f6ba15c52a",
+            "verdict": "ACCEPT",
+            "notes": "Angled brows and frown convey sulky. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-weak.png",
+            "sha256": "d8462a9997d24512a4f48d41854a91d475f385bb40a0f8e55243465caaab4d55",
+            "verdict": "ACCEPT",
+            "notes": "Very low lids and small frown convey weakness; tired distinction restrained at native scale. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-critical.png",
+            "sha256": "ecc620fbafebf82230001033de0b09907865afa681f05e1656e3e1ee97d37b5b",
+            "verdict": "ACCEPT",
+            "notes": "Squeezed eyes and distressed open mouth convey critical. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-wantsPlay.png",
+            "sha256": "d649d0a7a7d5b935284ae130d6d6db124912b08e8649c33642facff7f7a0135f",
+            "verdict": "ACCEPT",
+            "notes": "Bright open eyes and eager smile convey wantsPlay while age/body retained. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/06-sleeping.png",
+            "sha256": "b2ac0ba15dcec514e4eb2196d801bfc4656dd4a3897cd1aec997d2b6944f0536",
+            "verdict": "ACCEPT",
+            "notes": "Closed downward lids and relaxed mouth convey sleep. Viewed native and 6× against original. Expanded orange-red star body, swirls/flames and original facial orientation retained with minor generated non-face detail variations; no extra state mark."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "07",
+      "review": {
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "reviewer": "star_integration",
+        "independent": true,
+        "records": [
+          {
+            "path": "assets/characters/expressions/star/07-happy.png",
+            "sha256": "a180e0f4fd3742f2ea6c403775b1c9ac6888f576bbc9fc5eec459fc439aa257d",
+            "verdict": "ACCEPT",
+            "notes": "Upturned closed eyes/open smile clearly happy. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-strained.png",
+            "sha256": "6c5538fdd89f3dd572fbac3d103aae2db1cb678cebf34bfbff515cadb1043f7c",
+            "verdict": "ACCEPT",
+            "notes": "Worried raised-inner brows and restrained small smile read strained; open bright eyes are retained. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-hungry.png",
+            "sha256": "fb97535e51b43ec3daca54d944d242d6ffd504a8281d19eadbd09c22e3c4f7e4",
+            "verdict": "ACCEPT",
+            "notes": "Raised-inner brows and small open mouth read pleading hunger; close to original excitement at native size. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-sick.png",
+            "sha256": "9308b55187a308f3804c44abec464db9afe255a2bbfa1e9d76c3f0392ab74c66",
+            "verdict": "ACCEPT",
+            "notes": "Drooping eyes and frown read sick. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-tired.png",
+            "sha256": "27423c2ae9bfaa9e3cb96e43ccc4af93eae9c8440f5276a065346a0b9ad4e312",
+            "verdict": "ACCEPT",
+            "notes": "Low lids and yawn-like open mouth read tired. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-sulky.png",
+            "sha256": "13feadb07e7925b1db0cd8c434f5f650bbbe047374907f0003b9469027ce7a9f",
+            "verdict": "ACCEPT",
+            "notes": "Inward brows and pursed mouth read sulky. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-weak.png",
+            "sha256": "676dcf8af6ff62713aa80dbd3cbbe1070d3f6dbd1dc48c5694889879d275d299",
+            "verdict": "ACCEPT",
+            "notes": "Drooping asymmetric lids and small slack mouth read weak. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-critical.png",
+            "sha256": "b27f2c2bd9fc3b3c656728b18843b91495aa5710b57dda608c65056d74f64441",
+            "verdict": "ACCEPT",
+            "notes": "Squeezed inward lids, arched brows and tense mouth read critical. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-wantsPlay.png",
+            "sha256": "f5f70200bfc632cce2050a692534c91c215a85f8b053435b92c43dcde364141b",
+            "verdict": "ACCEPT",
+            "notes": "Bright eyes, raised outer brows and broad open smile read wantsPlay; naturally close to original. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/07-sleeping.png",
+            "sha256": "d947f076499d32fc58d4d5817223c24d4432f3c98be998589937d20eb7bf00c8",
+            "verdict": "ACCEPT",
+            "notes": "Downward closed lids and tiny resting mouth read sleep. Viewed native and 6× against original. Single bursting star body, flame/ray arrangement, violet ribbons and surrounding original light motif retained with generated pixel/detail variation; no added state mark."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "08",
+      "review": {
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "reviewer": "star_integration",
+        "independent": true,
+        "records": [
+          {
+            "path": "assets/characters/expressions/star/08-happy.png",
+            "sha256": "9773206610cd65ec55833c2ef68ee4962bcc83fdfb937b7900536045128c9603",
+            "verdict": "ACCEPT",
+            "notes": "Original-like upturned lids plus open happy mouth. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-strained.png",
+            "sha256": "f123d0108784679f79b9adfd2fa4975c1328e75f0569129983d076b1fa8ea378",
+            "verdict": "ACCEPT",
+            "notes": "Uneven half eyes, raised-inner brows and restrained curved mouth convey strained. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-hungry.png",
+            "sha256": "ec975626fda6e8c9d5f0a7aaf8763c26c957464b6dba39857c679176d9a3d940",
+            "verdict": "ACCEPT",
+            "notes": "Pleading brows and open mouth convey hunger. Cyan lower iris highlights remain continuous with eyes, not detached drops or cheek tear streaks; no repair needed. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-sick.png",
+            "sha256": "c45bcf974b6d27243c06177d7ff598ff01f0d9facc1a3e6ce28f6ea92f84baf3",
+            "verdict": "ACCEPT",
+            "notes": "Drooping lids, worried brows and slight frown convey sickness. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-tired.png",
+            "sha256": "37d3d88e3f0e5a23c37b7b5c1ce6c464aeaf578414b8715a78716bd3016fd291",
+            "verdict": "ACCEPT",
+            "notes": "Heavy half lids and tiny open mouth convey tiredness. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-sulky.png",
+            "sha256": "debddd4b3d3524ea256587ccb2c94e441f874e284fcf24899b41b77c2c94fc45",
+            "verdict": "ACCEPT",
+            "notes": "Inward slanted lids and pout convey sulky. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-weak.png",
+            "sha256": "c6ad5fab76942fc1287b0f9dd4f7334266e84bb9615edcc870a0a2876447f794",
+            "verdict": "ACCEPT",
+            "notes": "Nearly closed drooping lids and small frown convey weakness; native difference from sleep is subtle. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-critical.png",
+            "sha256": "5f3cba7ddc2b91cb87302b12abb9372728deaa5955dfed5395131e4bd58277ef",
+            "verdict": "ACCEPT",
+            "notes": "Tense squeezed lids and distressed open mouth convey critical discomfort. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-wantsPlay.png",
+            "sha256": "4a83645f82c3dbe86ef994de4acf938c5b947fd5aa9c908efcef8b3c87c011d5",
+            "verdict": "ACCEPT",
+            "notes": "Bright open eyes and eager tiny open smile convey wantsPlay. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          },
+          {
+            "path": "assets/characters/expressions/star/08-sleeping.png",
+            "sha256": "92af16ddc5562d1384b8074071a151fd587a15437758828a42296a14f36599f6",
+            "verdict": "ACCEPT",
+            "notes": "Closed relaxed lids and resting mouth convey sleep; native difference from weak is subtle. Viewed native and 6× against original. Cyan single central remnant, blue-violet rings and faceless lights remain; minor non-face generated pixel variation retained. No extra state mark."
+          }
+        ]
+      }
+    }
+  ]
+}

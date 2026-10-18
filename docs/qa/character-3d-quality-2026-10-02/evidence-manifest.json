@@ -1,0 +1,618 @@
+{
+  "source": "81a7d981a6cee7f7930ec297e79692c44eb382c2",
+  "tree": "2a299ec133fe460c4e08f912035be79d705cc1f4",
+  "renderRun": 37018225289,
+  "pilotStages": 26,
+  "reuseTemplates": 2,
+  "comparisonSheets": 54,
+  "humanApproval": "pending",
+  "physicalIphone": "not_run",
+  "cdnDelivery": "unverified",
+  "images": [
+    {
+      "file": "comparisons/butterfly-01-comparison.jpg",
+      "sha256": "9f0b7c42ef24e40aa371ef6c4420ae399c41e2e335dc2f004fcddee5993d6b2b",
+      "bytes": 36911
+    },
+    {
+      "file": "comparisons/butterfly-01-emotions-motion.jpg",
+      "sha256": "21c8d2639d11c10892ce846e91b8a4a9e18246119fa0679a899f0f691560f822",
+      "bytes": 86401
+    },
+    {
+      "file": "comparisons/butterfly-04-comparison.jpg",
+      "sha256": "766d6e12eac7c1945f710241afa3e4109b2b485aa208415e931868f16de7ed84",
+      "bytes": 76507
+    },
+    {
+      "file": "comparisons/butterfly-04-emotions-motion.jpg",
+      "sha256": "e7eca2b2a25df6e226387de117f1bcc3061ff4582df1049e2be1a257d5b1383b",
+      "bytes": 194546
+    },
+    {
+      "file": "comparisons/butterfly-05-comparison.jpg",
+      "sha256": "45218436c3de0b358738d978d048c135e07f5a3c256463d8d3120e6775deffd3",
+      "bytes": 60402
+    },
+    {
+      "file": "comparisons/butterfly-05-emotions-motion.jpg",
+      "sha256": "83b744f2469c9b8b3dbf664edff1352e60446f1577164bd3906b9b0c1545d74d",
+      "bytes": 155005
+    },
+    {
+      "file": "comparisons/butterfly-08-comparison.jpg",
+      "sha256": "243895ba69f4af9cc2ff9cdebd5e3a297f20c0b90d25e012cc3d9acea76ce153",
+      "bytes": 103244
+    },
+    {
+      "file": "comparisons/butterfly-08-emotions-motion.jpg",
+      "sha256": "0d926fd19673e51e517b89691c57e56fe64d6a2e5f34da09f1bf47344877fffb",
+      "bytes": 291302
+    },
+    {
+      "file": "comparisons/cat_friend-00-comparison.jpg",
+      "sha256": "df91409646cb757a863814272db61758936e7a43011cfbdebcd59a5a3ef3799f",
+      "bytes": 57085
+    },
+    {
+      "file": "comparisons/clownfish-01-comparison.jpg",
+      "sha256": "050c10c0ecd07f14bfe0c2ebcf9dccf0c2bd12b337062e7cad92c227a44692f9",
+      "bytes": 33196
+    },
+    {
+      "file": "comparisons/clownfish-01-emotions-motion.jpg",
+      "sha256": "cbe13b02814f940eab81269c800588ebae3a138430e72e801939b12ed16b8dce",
+      "bytes": 71847
+    },
+    {
+      "file": "comparisons/clownfish-04-comparison.jpg",
+      "sha256": "723b25013f57996b6fe2e3f0c18462d937d245b86cc819577bed11bdadd08918",
+      "bytes": 58981
+    },
+    {
+      "file": "comparisons/clownfish-04-emotions-motion.jpg",
+      "sha256": "2bb04ccf36ff2e89b63bdf5e8609511e0c140ada45acc8f2da0b14f7374b717f",
+      "bytes": 151814
+    },
+    {
+      "file": "comparisons/clownfish-08-comparison.jpg",
+      "sha256": "bd38bf547ee12e1acecf7ce757e96c262a3536556c81077b1c897ff30299d779",
+      "bytes": 74121
+    },
+    {
+      "file": "comparisons/clownfish-08-emotions-motion.jpg",
+      "sha256": "bd7e9fcdb119665b3b7134a1660e3e741f9df185f89d88fd521d1b70240dbf5d",
+      "bytes": 189313
+    },
+    {
+      "file": "comparisons/dandelion-01-comparison.jpg",
+      "sha256": "7914253d34b987d7c1a78c444174eb8313e53cf7bd473c8c9ea350a63d13add1",
+      "bytes": 69110
+    },
+    {
+      "file": "comparisons/dandelion-01-emotions-motion.jpg",
+      "sha256": "4fdf791d0e3d372430774d8decf3e9802e822e6fcb30200d167be89c71a99628",
+      "bytes": 177457
+    },
+    {
+      "file": "comparisons/dandelion-04-comparison.jpg",
+      "sha256": "372054287bfd2ccc05d10b880191a357efbe6c07a52adfe5b2bb66a7a509924d",
+      "bytes": 73036
+    },
+    {
+      "file": "comparisons/dandelion-04-emotions-motion.jpg",
+      "sha256": "705d1d7d190c0dd555f56469737be4bab35668631631d1c876bce8bcc99acdbb",
+      "bytes": 189495
+    },
+    {
+      "file": "comparisons/dandelion-06-comparison.jpg",
+      "sha256": "bafbb900a2ecc499d422d0f5331005de72605bda40b3ad720cb5363a7f572859",
+      "bytes": 81812
+    },
+    {
+      "file": "comparisons/dandelion-06-emotions-motion.jpg",
+      "sha256": "e46a473a9837e58d22d7c3e19aaad9821ab44c921ab1f572eecf30975341cf8b",
+      "bytes": 202929
+    },
+    {
+      "file": "comparisons/dandelion-08-comparison.jpg",
+      "sha256": "e2b7779b702dd175cf2f42704305f5d41c8984941388e957c972dbcdf30a75aa",
+      "bytes": 72118
+    },
+    {
+      "file": "comparisons/dandelion-08-emotions-motion.jpg",
+      "sha256": "dfa60e8464a45fda37f9832acd679ab693a3ebb6413933fcb520af46b555c440",
+      "bytes": 197777
+    },
+    {
+      "file": "comparisons/dog-01-comparison.jpg",
+      "sha256": "6b4bcbd916ba095f0366df4c6268ab5b136cace477077056811b2bb9eb38cc61",
+      "bytes": 40913
+    },
+    {
+      "file": "comparisons/dog-01-emotions-motion.jpg",
+      "sha256": "6714c7a7719421471faa95027244f8c1f88b89cfcead7fe6442f3f2b9fde8a63",
+      "bytes": 103686
+    },
+    {
+      "file": "comparisons/dog-04-comparison.jpg",
+      "sha256": "bbbd33e55efefccc03f8dc958c78c6ae2dc4c9bef36699bda4c7d2819efea123",
+      "bytes": 63582
+    },
+    {
+      "file": "comparisons/dog-04-emotions-motion.jpg",
+      "sha256": "bdb884492c4b6159e925dc13b016dd140a0a9becaf9dd83c5bb8eaf2742d59e4",
+      "bytes": 156976
+    },
+    {
+      "file": "comparisons/dog-08-comparison.jpg",
+      "sha256": "3b27ea8bc089a8c6be41cd6f4bfb68da80186ca6762b39a2c43eeb1e95b449f8",
+      "bytes": 59212
+    },
+    {
+      "file": "comparisons/dog-08-emotions-motion.jpg",
+      "sha256": "545face922ebc6e7f8b196409e2967812ef8d7a80ff4503d755cd3028f74278a",
+      "bytes": 143981
+    },
+    {
+      "file": "comparisons/man-01-comparison.jpg",
+      "sha256": "934746d885efe130fa5940ee1cd6a33920bf9b727045873389db76528ecf5d5a",
+      "bytes": 43781
+    },
+    {
+      "file": "comparisons/man-01-emotions-motion.jpg",
+      "sha256": "6961c96911b10a4013da229f336e187c5f7808cb8f9448097008fcc25cbcedaf",
+      "bytes": 102511
+    },
+    {
+      "file": "comparisons/man-04-comparison.jpg",
+      "sha256": "190b466d3a287231ca06746681efcbae631f76e0d197bcc1797ff8cac6368e18",
+      "bytes": 63788
+    },
+    {
+      "file": "comparisons/man-04-emotions-motion.jpg",
+      "sha256": "9dece92fae06d164137140bb412b5cf9ed159969ffc1a66304238eb1a3b40721",
+      "bytes": 168274
+    },
+    {
+      "file": "comparisons/man-08-comparison.jpg",
+      "sha256": "2842d3d2e4654542c4dc7b9188bb9cf3a71852296a043f9d4efdf13f997c65e4",
+      "bytes": 56457
+    },
+    {
+      "file": "comparisons/man-08-emotions-motion.jpg",
+      "sha256": "4771a219b20d4770a2a833a1b08a77d3af0fa7dc27c1904da8f8add4e9dd5716",
+      "bytes": 145772
+    },
+    {
+      "file": "comparisons/mushroom-01-comparison.jpg",
+      "sha256": "ef07bddf14a99b1a089f345516eb53c2c079cc5e9ce15e8f519000b51b7a0454",
+      "bytes": 70953
+    },
+    {
+      "file": "comparisons/mushroom-01-emotions-motion.jpg",
+      "sha256": "423b788521c18a52f4c6bd37fbeda53152badae4d9f08769c61dbdee4005cf53",
+      "bytes": 181929
+    },
+    {
+      "file": "comparisons/mushroom-04-comparison.jpg",
+      "sha256": "544cad7625e4e38dd557b2216b01e670cc0bc5b4416395f27f6be7c44aa195c4",
+      "bytes": 66128
+    },
+    {
+      "file": "comparisons/mushroom-04-emotions-motion.jpg",
+      "sha256": "5dcad388ed087a29056fa2d434943437ffd23e6bf79f62c27b0882ad38532d7d",
+      "bytes": 177985
+    },
+    {
+      "file": "comparisons/mushroom-08-comparison.jpg",
+      "sha256": "8e3a5c4b887c36ca58301cc2d445c6447834580c1fb3f89b11fb2e9450920e2f",
+      "bytes": 69675
+    },
+    {
+      "file": "comparisons/mushroom-08-emotions-motion.jpg",
+      "sha256": "23f4697748cc1d5ff10d31da2a713f24857d3e93b33a403ff8f0dfedf276235d",
+      "bytes": 162723
+    },
+    {
+      "file": "comparisons/penguin-01-comparison.jpg",
+      "sha256": "addaabdab24152827c05769e0b76649e7f625c172fea5b0b52f272e9abdd20c6",
+      "bytes": 41091
+    },
+    {
+      "file": "comparisons/penguin-01-emotions-motion.jpg",
+      "sha256": "dae8ddd81cd9fec7888b6e5d2082ca9ee25f84360e828b883d48dfe1ecafe202",
+      "bytes": 99689
+    },
+    {
+      "file": "comparisons/penguin-04-comparison.jpg",
+      "sha256": "49fb123cbead105706c9329fc1414b5d54cec7a39e142735b6f262acc03b8308",
+      "bytes": 65232
+    },
+    {
+      "file": "comparisons/penguin-04-emotions-motion.jpg",
+      "sha256": "a68067c20c08babc81cb21649315338550f6634ee2ed3edc8a656e4e2e9eafb7",
+      "bytes": 164246
+    },
+    {
+      "file": "comparisons/penguin-08-comparison.jpg",
+      "sha256": "5a670aa94045886bbe79ea0ef18bf667e183ae096798d38dc6845991ba41efed",
+      "bytes": 69162
+    },
+    {
+      "file": "comparisons/penguin-08-emotions-motion.jpg",
+      "sha256": "9575b5693036bb139caa06095110a2c7a886aae0a541e29579b3b182a124692d",
+      "bytes": 177447
+    },
+    {
+      "file": "comparisons/shiba-00-comparison.jpg",
+      "sha256": "4fe0b331feeac448b821073e6e84f39eec9c05dd071635ff99a0a00c1c1236e9",
+      "bytes": 66162
+    },
+    {
+      "file": "comparisons/starfish-01-comparison.jpg",
+      "sha256": "92fe6b9a153f258e828ab01998f9cb7bbe3cdf452e05d4b79462de05f6643324",
+      "bytes": 67912
+    },
+    {
+      "file": "comparisons/starfish-01-emotions-motion.jpg",
+      "sha256": "fce08c608c7dc3409934ec1c3bbc209f21d678611fdf44bc4b01d52c23fceaa8",
+      "bytes": 171296
+    },
+    {
+      "file": "comparisons/starfish-04-comparison.jpg",
+      "sha256": "bf5eddbda0e650706ac2176619db231801bf37b0bd36e9fbaaba0ee7681f875d",
+      "bytes": 66797
+    },
+    {
+      "file": "comparisons/starfish-04-emotions-motion.jpg",
+      "sha256": "5784413c4f0af4a74728e8136ba08d6f8c8fc104adc6f5e2a0dbd001c493120b",
+      "bytes": 165842
+    },
+    {
+      "file": "comparisons/starfish-08-comparison.jpg",
+      "sha256": "e16bfcf20d1d11e0d8c08852c2a56d0bfd032c68f76c20151a1a6e0bd88423fb",
+      "bytes": 83250
+    },
+    {
+      "file": "comparisons/starfish-08-emotions-motion.jpg",
+      "sha256": "e55d9cfa8b4fe9ffc44425ece0fbb48184cf30dbf79dc0237793823cb91cc203",
+      "bytes": 211771
+    },
+    {
+      "file": "meguru/forest-entry-2d.jpg",
+      "sha256": "6b006ff5ab25afff6e1d97ce5fe7de94bed59d17de83d23b34e791d411ef37de",
+      "bytes": 99325
+    },
+    {
+      "file": "meguru/forest-entry-3d.jpg",
+      "sha256": "00eeab63209a96b3940aa16d185a6334286881e82d7dfd12612f962f94734496",
+      "bytes": 98829
+    },
+    {
+      "file": "meguru/forest-fallback-shiba-2d.jpg",
+      "sha256": "1a0e42bb39780beb9a4fb3de008eb9951b312473dc301c8eea2868ab5df9c9dc",
+      "bytes": 99985
+    },
+    {
+      "file": "meguru/forest-night-rain-3d.jpg",
+      "sha256": "e7a80c2221a075ec7f5feb0f63a46cd77f9c11878a9d935e0bba847f232c33e6",
+      "bytes": 65962
+    },
+    {
+      "file": "meguru/forest-occlusion-3d.jpg",
+      "sha256": "7a8ae1127fc426e86ce8e460971860570f70ee9abfddcef34dc30be36a5c064b",
+      "bytes": 81970
+    },
+    {
+      "file": "meguru/forest-resident-butterfly-3d.jpg",
+      "sha256": "ea13cfa1be363b28a44c3c08a39015a3f50b146e598bcdc27f3492ea126e6b34",
+      "bytes": 94021
+    },
+    {
+      "file": "meguru/forest-resident-mushroom-3d.jpg",
+      "sha256": "260d0ad19cd5ade2c012e3dc13a221eaf163941ba54d2210cb43f3426daa37c1",
+      "bytes": 97607
+    },
+    {
+      "file": "meguru/forest-side-3d.jpg",
+      "sha256": "662830fb1292290250948cc02ec4af75ad52d5f4082b368777244ca8dbf4d4a8",
+      "bytes": 88637
+    },
+    {
+      "file": "meguru/gameplay-emotion-dislike.jpg",
+      "sha256": "2e887b9044c54e542f62f98ec3d46a9a66a6823f13f515549a24f1add5c2af8a",
+      "bytes": 100522
+    },
+    {
+      "file": "meguru/gameplay-emotion-normal.jpg",
+      "sha256": "812a24b7fcd8b94d5c3306d84a1e083a7410b5543ffe53fab482fc2c2aaf6b05",
+      "bytes": 99582
+    },
+    {
+      "file": "meguru/gameplay-emotion-positive.jpg",
+      "sha256": "f9cc944d218cac46b0190e2b6badf290c509ea794842e6511172751eecf9fcc2",
+      "bytes": 100324
+    },
+    {
+      "file": "meguru/gameplay-emotion-sick.jpg",
+      "sha256": "87f4ac4eb2487620bd50c3ccfd0fa25c535546ab05ca50ff04362cf908ef9d48",
+      "bytes": 100092
+    },
+    {
+      "file": "meguru/gameplay-emotion-tired.jpg",
+      "sha256": "af7495a5ed55f8c1cb2bfcc1175b7f709afd1d48924898bde7844d760cad78c2",
+      "bytes": 100359
+    },
+    {
+      "file": "meguru/player-butterfly-1-back.jpg",
+      "sha256": "7138f752db9413a86f3f9eef2acfa8a90434934f22bdcfbbef092f751954fa1c",
+      "bytes": 94233
+    },
+    {
+      "file": "meguru/player-butterfly-1-front.jpg",
+      "sha256": "38da2410b0f714e3c7054a264985076e569d6f3065455fc088082505b84fe3dd",
+      "bytes": 93874
+    },
+    {
+      "file": "meguru/player-butterfly-4-back.jpg",
+      "sha256": "3c75f42f92d5bd8674ac21c6faa0b1cb035001d8bacaf8027699935688d4c978",
+      "bytes": 94767
+    },
+    {
+      "file": "meguru/player-butterfly-4-front.jpg",
+      "sha256": "ca70c15c1274a2c7a8456295f2f0eee8de06b58a7cf2839eb92b12a8dc8d29dd",
+      "bytes": 95969
+    },
+    {
+      "file": "meguru/player-butterfly-5-back.jpg",
+      "sha256": "ffb4d350af33c495064ea12192d2b228001ffecc87064b1ecce73e0454edb677",
+      "bytes": 94951
+    },
+    {
+      "file": "meguru/player-butterfly-5-front.jpg",
+      "sha256": "d53b113e3ce2fb2bfd4c7ba0ed017ebaaf28235c59216d74e15ed0000fdafec8",
+      "bytes": 102690
+    },
+    {
+      "file": "meguru/player-butterfly-8-back.jpg",
+      "sha256": "9e2662dd0b1d3f40a490e187b5e4d0efb95f20ef900e5185c83a6f6b89a8500b",
+      "bytes": 97641
+    },
+    {
+      "file": "meguru/player-butterfly-8-front.jpg",
+      "sha256": "2655785aad6bfa7cf651b6d36b2d79c0f25e9eadd56b4766b0c7a5a95cf3e830",
+      "bytes": 97112
+    },
+    {
+      "file": "meguru/player-clownfish-1-back.jpg",
+      "sha256": "94bcb48c3f779013aa6186e1b8241ff1b33d29a41066435c27e8c0598552ad53",
+      "bytes": 93697
+    },
+    {
+      "file": "meguru/player-clownfish-1-front.jpg",
+      "sha256": "c26333d248ce6651cb972a17744d23d09abf2208baabff1e3e0523bd854c37f3",
+      "bytes": 101329
+    },
+    {
+      "file": "meguru/player-clownfish-4-back.jpg",
+      "sha256": "fd9339a9209e753702a52f5eb03ae2c200a1eda9ccea849d982eb540cd81526d",
+      "bytes": 95788
+    },
+    {
+      "file": "meguru/player-clownfish-4-front.jpg",
+      "sha256": "d52ba00ec0f2ef463cc3a4491cc6a72137da90cf9ec67dc67a7c331ece64ca6d",
+      "bytes": 95670
+    },
+    {
+      "file": "meguru/player-clownfish-8-back.jpg",
+      "sha256": "25302c35696e896403ae63a0497027be2a0b450edfc057009d3751bd66100db1",
+      "bytes": 95650
+    },
+    {
+      "file": "meguru/player-clownfish-8-front.jpg",
+      "sha256": "ced2cd426439ae3490f74eb1ee6f2c4142a80a94e9bda530ee3ff4b213a2610c",
+      "bytes": 104106
+    },
+    {
+      "file": "meguru/player-dandelion-1-back.jpg",
+      "sha256": "c4c5bdc2f6b140a76e0287558eae802b6d940175008b56e728ab1506d60eb040",
+      "bytes": 95780
+    },
+    {
+      "file": "meguru/player-dandelion-1-front.jpg",
+      "sha256": "609caef939ecc3568c85e0f24b8f075d1aea5b07208b46ec152429b59a299804",
+      "bytes": 103535
+    },
+    {
+      "file": "meguru/player-dandelion-4-back.jpg",
+      "sha256": "4bbcb50c9d0cb526b3d7d78df44e4eaeda229e62f1146a732f265bd43e68e5ca",
+      "bytes": 96511
+    },
+    {
+      "file": "meguru/player-dandelion-4-front.jpg",
+      "sha256": "3258ee7851ba4f5353c59e6f2f451e013c9d4af1b1028f1bed04db35620ebf7f",
+      "bytes": 97621
+    },
+    {
+      "file": "meguru/player-dandelion-6-back.jpg",
+      "sha256": "88983b67e31d8e37794083045d40d7602358087f667e396840b59a92ca9016e1",
+      "bytes": 96959
+    },
+    {
+      "file": "meguru/player-dandelion-6-front.jpg",
+      "sha256": "256ebacf9e52cbab165b40245e6fa7e9d039dda876ed1efc5edbc2ea88f9782a",
+      "bytes": 96556
+    },
+    {
+      "file": "meguru/player-dandelion-8-back.jpg",
+      "sha256": "f5acda20814e01725ecdfe4a0601463ccf4fcf3ef9d30ffdbf12eaede80908b2",
+      "bytes": 96210
+    },
+    {
+      "file": "meguru/player-dandelion-8-front.jpg",
+      "sha256": "a76c1b99ec9613691c8ac2857d7f827b3eb32d61a5618068c3df23103d220789",
+      "bytes": 104424
+    },
+    {
+      "file": "meguru/player-dog-1-back.jpg",
+      "sha256": "596b562662b3dc0557d2c83e93183175f1be368bec21688485dc562d00104ecb",
+      "bytes": 94505
+    },
+    {
+      "file": "meguru/player-dog-1-front.jpg",
+      "sha256": "118de3610c3663d98b50a3e75f08001dd88fcbfa8e8f2a13e81f6b420e2b0e44",
+      "bytes": 101847
+    },
+    {
+      "file": "meguru/player-dog-4-back.jpg",
+      "sha256": "dcc054fcbfd4d8b850e2ffb689b3a3dbee3bd991041f4e85349988bb3fd0f6d8",
+      "bytes": 94954
+    },
+    {
+      "file": "meguru/player-dog-4-front.jpg",
+      "sha256": "88e909f52eeb9a82f2894941503dbbacc2da3557f512077d8c2663e649d15241",
+      "bytes": 102479
+    },
+    {
+      "file": "meguru/player-dog-8-back.jpg",
+      "sha256": "027c0ef0f79222bc8a81c5a348070688eb182f61031573a10fd96bc584288d01",
+      "bytes": 94874
+    },
+    {
+      "file": "meguru/player-dog-8-front.jpg",
+      "sha256": "dd71263b4c0acb3381a69816c14bf7c8649d1e6e525751d80670ab909ed1faaf",
+      "bytes": 95279
+    },
+    {
+      "file": "meguru/player-man-1-back.jpg",
+      "sha256": "cccea4a89065b32a26ac5de96f502098687921a60a1ced9a9a2f14e432d7a669",
+      "bytes": 94498
+    },
+    {
+      "file": "meguru/player-man-1-front.jpg",
+      "sha256": "4dff6b1340d6012aa61729e969f7b3eebdb46d899efa5b4cb0ea4c59f5ec4ad5",
+      "bytes": 94438
+    },
+    {
+      "file": "meguru/player-man-4-back.jpg",
+      "sha256": "3eb5275f6c4a862bb7c1764f72502105ae1c3981359903a5d847711ec235f52b",
+      "bytes": 95160
+    },
+    {
+      "file": "meguru/player-man-4-front.jpg",
+      "sha256": "0666aabe867984976c3e27e56348d0d773b025cc869382bfe96b9f80701acb02",
+      "bytes": 103295
+    },
+    {
+      "file": "meguru/player-man-8-back.jpg",
+      "sha256": "369f9ec42575aa7ee27acad30fc93288b5d113515815163c8bc61f7d1a435267",
+      "bytes": 94744
+    },
+    {
+      "file": "meguru/player-man-8-front.jpg",
+      "sha256": "75a2e27bdfb149be26de00464bf91fc8efe04c3390d489fa94822237399341aa",
+      "bytes": 102911
+    },
+    {
+      "file": "meguru/player-mushroom-1-back.jpg",
+      "sha256": "f8f5f0565c8ed777119abecad2e70f5e172d689e1b746a0f36a9f74e5cd6def3",
+      "bytes": 95934
+    },
+    {
+      "file": "meguru/player-mushroom-1-front.jpg",
+      "sha256": "9fb62b49de5ab4135cd9fb53a6032f2d2580b465f3849eba1b36b144b3a4fb9e",
+      "bytes": 96308
+    },
+    {
+      "file": "meguru/player-mushroom-4-back.jpg",
+      "sha256": "8e9f73c61c4b37aaf239006ea4b5dbf31707e2f45f037e8e8ce8987a8f7033c7",
+      "bytes": 95336
+    },
+    {
+      "file": "meguru/player-mushroom-4-front.jpg",
+      "sha256": "90242bfda55a80970df4e24576c383c15587e8db8a05810b3b9072b2336061c0",
+      "bytes": 103383
+    },
+    {
+      "file": "meguru/player-mushroom-8-back.jpg",
+      "sha256": "6bafa3141b3e6202b52ffc257c1202fad32d9bb801c0b1d484a1f7db19c15a95",
+      "bytes": 94276
+    },
+    {
+      "file": "meguru/player-mushroom-8-front.jpg",
+      "sha256": "ebe93c700c4bafe50d7b84460672a0bcad1ac888d16e59577a773df1f432a270",
+      "bytes": 101423
+    },
+    {
+      "file": "meguru/player-penguin-1-back.jpg",
+      "sha256": "32996960bf9ab7a95deaf5d9808ea25b2665dbbac49ba7b1ab85a2fa4561eb55",
+      "bytes": 94284
+    },
+    {
+      "file": "meguru/player-penguin-1-front.jpg",
+      "sha256": "0070b2ee1993966c1b612081bd215544ed8d29a2bb3b2ed2703af36e17a77af8",
+      "bytes": 102259
+    },
+    {
+      "file": "meguru/player-penguin-4-back.jpg",
+      "sha256": "be0faa9790b48a2a5b0a40f49cf4e2b9a7d4d9476c3b219550ce9490a0b682f9",
+      "bytes": 95872
+    },
+    {
+      "file": "meguru/player-penguin-4-front.jpg",
+      "sha256": "d9f89a18a539f3e88823e1888283432b2bbe6a83f3d3e698567be7a32238c85a",
+      "bytes": 95916
+    },
+    {
+      "file": "meguru/player-penguin-8-back.jpg",
+      "sha256": "17f36f08884549d7c746444562bd9140ed84265115e2e8d261a34ec9387e123e",
+      "bytes": 95346
+    },
+    {
+      "file": "meguru/player-penguin-8-front.jpg",
+      "sha256": "948c115d8546f389d6f6451ab10cbdf647ef5398035618e8e42768db8960cbe8",
+      "bytes": 95968
+    },
+    {
+      "file": "meguru/player-starfish-1-back.jpg",
+      "sha256": "e4cc3a8b32bff750f049f1b6ef314807b0ebfb0fd07bba99050d7701dea9648a",
+      "bytes": 95118
+    },
+    {
+      "file": "meguru/player-starfish-1-front.jpg",
+      "sha256": "62fc7f25fff3e16338c4d129f7d84e87c7d1ddee42059aaf15af8428f7133344",
+      "bytes": 95969
+    },
+    {
+      "file": "meguru/player-starfish-4-back.jpg",
+      "sha256": "ef5f14f975fef6c747e036948b61bd8926993a492d93a01a5553f55ec6cb264c",
+      "bytes": 95015
+    },
+    {
+      "file": "meguru/player-starfish-4-front.jpg",
+      "sha256": "79fce1b949bd3bbe6903ff4ae9bfe3f1e5a5eb7a71337c5c480524f15832d25d",
+      "bytes": 95673
+    },
+    {
+      "file": "meguru/player-starfish-8-back.jpg",
+      "sha256": "828f6849250079f34e39248d2a81f5454995fc8d2e9b5716024debc547a1d17c",
+      "bytes": 95780
+    },
+    {
+      "file": "meguru/player-starfish-8-front.jpg",
+      "sha256": "d231e2d14ee08a3e137cd2fb1e442f174c55dce7ed119c1735091d488629f596",
+      "bytes": 96144
+    },
+    {
+      "file": "meguru-representative.jpg",
+      "sha256": "97b1274f35ea43dc2f6cd0a1c77711af8be1ef7e2503d5a23f502d51e5a4fbff",
+      "bytes": 307313
+    },
+    {
+      "file": "representative-comparison.jpg",
+      "sha256": "8fa2549db23c4e1457b79c4847e0c731ae675b0edc2e2e8cb9a080b8d31c9f3e",
+      "bytes": 272747
+    }
+  ]
+}
