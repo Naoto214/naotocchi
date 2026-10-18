@@ -1,0 +1,9 @@
+{
+  "base_commit": "81e46ee6e414e321846862b2bf5549b6cff3b395",
+  "outer_session_exit_code": 130,
+  "completed": false,
+  "tests_passed": null,
+  "raw_log_available": false,
+  "reason": "Stopped after complete-connection failure required a Python edition change. SIGINT to host /proc PID failed due process namespace; session Ctrl-C terminated parent and child before PIPE harness could save output. Both process entries absent afterward. Never counted PASS.",
+  "preflight_ready": false
+}

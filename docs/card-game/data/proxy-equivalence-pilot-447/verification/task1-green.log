@@ -1,0 +1,10 @@
+test_build_binds_complete_inventory (test_proxy_equivalence_inputs.InputsTests.test_build_binds_complete_inventory) ... ok
+test_discard_egg_runtime_control_preserved (test_proxy_equivalence_inputs.InputsTests.test_discard_egg_runtime_control_preserved) ... ok
+test_hidden_permutation_invariant (test_proxy_equivalence_inputs.InputsTests.test_hidden_permutation_invariant) ... ok
+test_hidden_preparation_identity_not_copied (test_proxy_equivalence_inputs.InputsTests.test_hidden_preparation_identity_not_copied) ... ok
+test_invalid_schema_and_bool_resource_rejected (test_proxy_equivalence_inputs.InputsTests.test_invalid_schema_and_bool_resource_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.477s
+
+OK

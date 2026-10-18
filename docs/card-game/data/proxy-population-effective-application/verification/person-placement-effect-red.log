@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_coverage_rejects_extra_growth_with_fresh_event_hashes (test_proxy_population_person_placement_effect.PersonPlacementEffectTests.test_coverage_rejects_extra_growth_with_fresh_event_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_person_placement_effect.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'person placement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : person placement full delta absent
+
+======================================================================
+FAIL: test_current_people_cat_egg_legacy_and_replacement (test_proxy_population_person_placement_effect.PersonPlacementEffectTests.test_current_people_cat_egg_legacy_and_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_person_placement_effect.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'person placement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : person placement full delta absent
+
+======================================================================
+FAIL: test_full_delta_and_event_tampering_refused (test_proxy_population_person_placement_effect.PersonPlacementEffectTests.test_full_delta_and_event_tampering_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_person_placement_effect.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'person placement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : person placement full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

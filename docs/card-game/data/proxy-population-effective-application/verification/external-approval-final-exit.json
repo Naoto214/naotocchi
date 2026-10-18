@@ -1,0 +1,17 @@
+{
+  "modules": [
+    "test_proxy_population_external_approval",
+    "test_proxy_population_generation_entry",
+    "test_proxy_population_attempt_runner",
+    "test_proxy_population_batch_supervisor",
+    "test_proxy_population_supervisor_interrupt",
+    "test_proxy_population_remote_publication",
+    "test_proxy_population_execution_edition",
+    "test_proxy_population_generation_package",
+    "test_proxy_population_input_lock"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 53.602,
+  "python_count": 1056,
+  "python_unchanged": true
+}

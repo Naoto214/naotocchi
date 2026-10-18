@@ -1,0 +1,226 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "board_response_exclusions": [
+        {
+          "action_type": "board_response_trigger",
+          "candidate_id": null,
+          "candidate_variant": "response_triggered",
+          "card_id": "C-bat",
+          "disposition": "excluded",
+          "enumeration_unit_id": "[\"board_card_action\",\"board\",\"B-011#1\",\"board_response_trigger\",\"response_triggered\",[]]",
+          "evidence": {
+            "phase": "normal_action",
+            "template.timing": "response_window"
+          },
+          "reason_codes": [
+            "timing_not_normal_action"
+          ],
+          "source_family": "board_card_action",
+          "source_id": "B-011#1",
+          "source_instance_id": "B-011#1",
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-bat",
+            "06-action-chain-checkpoint.md"
+          ],
+          "source_zone": "board",
+          "target_instance_ids": []
+        }
+      ],
+      "candidate_ids": [
+        "candidate-play-main-B-001#1-birth",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "completeness_checks": {
+        "candidate_templates_complete": true,
+        "candidate_variants_complete": true,
+        "canonical_predicates_resolved": true,
+        "dispositions_and_reasons_valid": true,
+        "information_boundary_valid": true,
+        "legal_candidate_projection_exact": true,
+        "opportunity_context_valid": true,
+        "required_source_families_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_inventory_complete": true,
+        "stable_candidate_ids_valid": true,
+        "target_expansions_complete": true
+      },
+      "legal_candidate_details": [
+        {
+          "action_type": "play_main",
+          "candidate_id": "candidate-play-main-B-001#1-birth",
+          "candidate_variant": "birth",
+          "card_id": "M-antlion-01",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "B-001#1",
+          "source_instance_id": "B-001#1",
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": []
+        },
+        {
+          "action_type": "pass",
+          "candidate_id": "pass",
+          "candidate_variant": "pass",
+          "card_id": null,
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "standing_pass",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "source_references": [
+            "01-core-rules.md"
+          ],
+          "source_zone": "synthetic",
+          "target_instance_ids": []
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "normal_action",
+      "path_id": "probe-01-a-first",
+      "source_continuation_state_sha256": "10238099197b539d4f22cd59e665a4ffc80578ce3a2152f0762d70f583ba8247",
+      "source_game_state_sha256": "736be5fe5dce8b139a38ffd08f9b8cb1f7a13946dca9a672a53fee95a35045a5",
+      "source_last_valid_event_seq": 34
+    },
+    {
+      "balance_sample_count": 0,
+      "board_response_exclusions": [
+        {
+          "action_type": "board_response_trigger",
+          "candidate_id": null,
+          "candidate_variant": "response_triggered",
+          "card_id": "C-chicken",
+          "disposition": "excluded",
+          "enumeration_unit_id": "[\"board_card_action\",\"board\",\"A-015#1\",\"board_response_trigger\",\"response_triggered\",[]]",
+          "evidence": {
+            "phase": "normal_action",
+            "template.timing": "response_window"
+          },
+          "reason_codes": [
+            "timing_not_normal_action"
+          ],
+          "source_family": "board_card_action",
+          "source_id": "A-015#1",
+          "source_instance_id": "A-015#1",
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-chicken",
+            "06-action-chain-checkpoint.md"
+          ],
+          "source_zone": "board",
+          "target_instance_ids": []
+        }
+      ],
+      "candidate_ids": [
+        "candidate-place_world-A-020#1",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "completeness_checks": {
+        "candidate_templates_complete": true,
+        "candidate_variants_complete": true,
+        "canonical_predicates_resolved": true,
+        "dispositions_and_reasons_valid": true,
+        "information_boundary_valid": true,
+        "legal_candidate_projection_exact": true,
+        "opportunity_context_valid": true,
+        "required_source_families_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_inventory_complete": true,
+        "stable_candidate_ids_valid": true,
+        "target_expansions_complete": true
+      },
+      "legal_candidate_details": [
+        {
+          "action_type": "place_world",
+          "candidate_id": "candidate-place_world-A-020#1",
+          "candidate_variant": "empty_world_slot",
+          "card_id": "W-city",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-020#1\",\"place_world\",\"empty_world_slot\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-020#1",
+          "source_instance_id": "A-020#1",
+          "source_references": [
+            "89-world-13-card-text-draft.md#W-city"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": []
+        },
+        {
+          "action_type": "pass",
+          "candidate_id": "pass",
+          "candidate_variant": "pass",
+          "card_id": null,
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "standing_pass",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "source_references": [
+            "01-core-rules.md"
+          ],
+          "source_zone": "synthetic",
+          "target_instance_ids": []
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "normal_action",
+      "path_id": "probe-01-b-first",
+      "source_continuation_state_sha256": "66c7b357c42fd7bff1ce3d978588e53dc1987beccca3307ac072c25348ed4964",
+      "source_game_state_sha256": "30703456420b3db428e450e413eaf86bea69e91be3e019704db13bfd5c0d00f0",
+      "source_last_valid_event_seq": 36
+    },
+    {
+      "balance_sample_count": 0,
+      "board_response_exclusions": [],
+      "candidate_ids": [],
+      "candidate_set_complete": false,
+      "completed": false,
+      "completeness_checks": {},
+      "legal_candidate_details": [],
+      "new_events": 0,
+      "next_opportunity": "turn_end_provenance",
+      "path_id": "probe-02-b-first",
+      "source_continuation_state_sha256": "e3aac49bc5b73e24a738d6be56bc42fd5386dc59e4064e2acd4a755cd28724ac",
+      "source_game_state_sha256": "510d8f01dfeb594134cc2fd80153e1e81a196003bfda0d1f9a560050e8a722ea",
+      "source_last_valid_event_seq": 38
+    },
+    {
+      "balance_sample_count": 0,
+      "board_response_exclusions": [],
+      "candidate_ids": [],
+      "candidate_set_complete": false,
+      "completed": false,
+      "completeness_checks": {},
+      "legal_candidate_details": [],
+      "new_events": 0,
+      "next_opportunity": "turn_end_provenance",
+      "path_id": "probe-02-a-first",
+      "source_continuation_state_sha256": "ce917657dffc1cbf34a6c72e2e7a2815cbeaba3c5c4a4c52b65be659b4a167cd",
+      "source_game_state_sha256": "ed49bc0a04c159fb88621df507a6d6ccf40ea198a591fd3144ee104598500520",
+      "source_last_valid_event_seq": 27
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_normal_audit_198.v1",
+  "source_raw_sha256": "3e134e8b3674e6490a95b66ca3af7978ed84e09329ab6e297f9d53fd888b70f4"
+}

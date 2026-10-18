@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_coverage_rejects_added_growth_even_when_record_and_hashes_agree (test_proxy_population_trigger_closure_effect.TriggerClosureEffectTests.test_coverage_rejects_added_growth_even_when_record_and_hashes_agree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_trigger_closure_effect.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'trigger closure full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : trigger closure full delta absent
+
+======================================================================
+FAIL: test_decline_and_ineligible_close_keep_game_context_and_runtime (test_proxy_population_trigger_closure_effect.TriggerClosureEffectTests.test_decline_and_ineligible_close_keep_game_context_and_runtime)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_trigger_closure_effect.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'trigger closure full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : trigger closure full delta absent
+
+======================================================================
+FAIL: test_extra_draw_pass_reset_and_occurrence_rebinding_refused (test_proxy_population_trigger_closure_effect.TriggerClosureEffectTests.test_extra_draw_pass_reset_and_occurrence_rebinding_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_trigger_closure_effect.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'trigger closure full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : trigger closure full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

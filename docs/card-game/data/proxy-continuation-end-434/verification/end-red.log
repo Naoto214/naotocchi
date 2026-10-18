@@ -1,0 +1,85 @@
+test_attachment_target_or_payment_tampering_is_rejected (test_proxy_continuation_end.EndTests.test_attachment_target_or_payment_tampering_is_rejected) ... FAIL
+test_birth_payment_or_reference_tampering_is_rejected (test_proxy_continuation_end.EndTests.test_birth_payment_or_reference_tampering_is_rejected) ... FAIL
+test_equipment_end_keeps_target_and_runtime_through_next_draw (test_proxy_continuation_end.EndTests.test_equipment_end_keeps_target_and_runtime_through_next_draw) ... FAIL
+test_main_end_is_proved_through_all_six_stages (test_proxy_continuation_end.EndTests.test_main_end_is_proved_through_all_six_stages) ... FAIL
+test_registry_and_classifier_restored_on_exception (test_proxy_continuation_end.EndTests.test_registry_and_classifier_restored_on_exception) ... FAIL
+test_runtime_relation_history_tampering_is_rejected (test_proxy_continuation_end.EndTests.test_runtime_relation_history_tampering_is_rejected) ... FAIL
+test_shared_next_start_classifier_accepts_main_without_start_trigger (test_proxy_continuation_end.EndTests.test_shared_next_start_classifier_accepts_main_without_start_trigger) ... FAIL
+test_unknown_main_or_concealed_preparation_still_stops (test_proxy_continuation_end.EndTests.test_unknown_main_or_concealed_preparation_still_stops) ... FAIL
+
+======================================================================
+FAIL: test_attachment_target_or_payment_tampering_is_rejected (test_proxy_continuation_end.EndTests.test_attachment_target_or_payment_tampering_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+======================================================================
+FAIL: test_birth_payment_or_reference_tampering_is_rejected (test_proxy_continuation_end.EndTests.test_birth_payment_or_reference_tampering_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+======================================================================
+FAIL: test_equipment_end_keeps_target_and_runtime_through_next_draw (test_proxy_continuation_end.EndTests.test_equipment_end_keeps_target_and_runtime_through_next_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+======================================================================
+FAIL: test_main_end_is_proved_through_all_six_stages (test_proxy_continuation_end.EndTests.test_main_end_is_proved_through_all_six_stages)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+======================================================================
+FAIL: test_registry_and_classifier_restored_on_exception (test_proxy_continuation_end.EndTests.test_registry_and_classifier_restored_on_exception)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+======================================================================
+FAIL: test_runtime_relation_history_tampering_is_rejected (test_proxy_continuation_end.EndTests.test_runtime_relation_history_tampering_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+======================================================================
+FAIL: test_shared_next_start_classifier_accepts_main_without_start_trigger (test_proxy_continuation_end.EndTests.test_shared_next_start_classifier_accepts_main_without_start_trigger)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+======================================================================
+FAIL: test_unknown_main_or_concealed_preparation_still_stops (test_proxy_continuation_end.EndTests.test_unknown_main_or_concealed_preparation_still_stops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(end,'shared end bridge is not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared end bridge is not implemented
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.933s
+
+FAILED (failures=8)

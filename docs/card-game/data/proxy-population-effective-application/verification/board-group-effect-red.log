@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_full_state_receipts_and_forced_pending (test_proxy_population_board_group_effect.BoardGroupEffectTests.test_full_state_receipts_and_forced_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_board_group_effect.py", line 36, in setUp
+    def setUp(self):self.assertIsNotNone(api,'board group full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : board group full delta absent
+
+======================================================================
+FAIL: test_start_arrival_end_and_forced_relationship (test_proxy_population_board_group_effect.BoardGroupEffectTests.test_start_arrival_end_and_forced_relationship)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_board_group_effect.py", line 36, in setUp
+    def setUp(self):self.assertIsNotNone(api,'board group full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : board group full delta absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

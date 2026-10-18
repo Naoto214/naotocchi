@@ -1,0 +1,8 @@
+test_actual_normal_entries_bind_predicates (test_proxy_population_core_predicates.ConnectedCoreTests.test_actual_normal_entries_bind_predicates) ... ok
+test_all_core_variants_and_false_exclusions (test_proxy_population_core_predicates.CorePredicateTests.test_all_core_variants_and_false_exclusions) ... ok
+test_cost_and_target_evidence_corruption (test_proxy_population_core_predicates.CorePredicateTests.test_cost_and_target_evidence_corruption) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.496s
+
+OK

@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_both_actors_main_or_egg_and_empty_partial_decks (test_proxy_population_start_draw_effect.StartDrawEffectTests.test_both_actors_main_or_egg_and_empty_partial_decks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_start_draw_effect.py", line 24, in setUp
+    def setUp(self):self.assertIsNotNone(api,'start draw full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : start draw full delta absent
+
+======================================================================
+FAIL: test_coverage_rejects_added_growth (test_proxy_population_start_draw_effect.StartDrawEffectTests.test_coverage_rejects_added_growth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_start_draw_effect.py", line 24, in setUp
+    def setUp(self):self.assertIsNotNone(api,'start draw full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : start draw full delta absent
+
+======================================================================
+FAIL: test_unrelated_changes_wrong_draw_reset_and_context_refused (test_proxy_population_start_draw_effect.StartDrawEffectTests.test_unrelated_changes_wrong_draw_reset_and_context_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_start_draw_effect.py", line 24, in setUp
+    def setUp(self):self.assertIsNotNone(api,'start draw full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : start draw full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

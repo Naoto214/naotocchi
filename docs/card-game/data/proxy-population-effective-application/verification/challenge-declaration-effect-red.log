@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_both_actors_and_parameters_fix_participants_without_rewards (test_proxy_population_challenge_declaration_effect.ChallengeDeclarationEffectTests.test_both_actors_and_parameters_fix_participants_without_rewards)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_challenge_declaration_effect.py", line 17, in setUp
+    def setUp(self):self.assertIsNotNone(api,'challenge declaration full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : challenge declaration full delta absent
+
+======================================================================
+FAIL: test_coverage_rejects_added_reward_with_updated_hashes (test_proxy_population_challenge_declaration_effect.ChallengeDeclarationEffectTests.test_coverage_rejects_added_reward_with_updated_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_challenge_declaration_effect.py", line 17, in setUp
+    def setUp(self):self.assertIsNotNone(api,'challenge declaration full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : challenge declaration full delta absent
+
+======================================================================
+FAIL: test_participant_usage_reward_cost_and_unrelated_changes_refused (test_proxy_population_challenge_declaration_effect.ChallengeDeclarationEffectTests.test_participant_usage_reward_cost_and_unrelated_changes_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_challenge_declaration_effect.py", line 17, in setUp
+    def setUp(self):self.assertIsNotNone(api,'challenge declaration full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : challenge declaration full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

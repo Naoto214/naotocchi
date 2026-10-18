@@ -1,0 +1,14 @@
+test_actual_quick_step_enters_sequential_group_before_ordinary_response (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_actual_quick_step_enters_sequential_group_before_ordinary_response) ... ok
+test_group_hand_activation_creates_next_owner_occurrence (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_group_hand_activation_creates_next_owner_occurrence) ... ok
+test_hand_and_board_share_the_same_current_optional_group (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_hand_and_board_share_the_same_current_optional_group) ... ok
+test_actual_opponent_play_captures_only_preexisting_own_hand_source (test_proxy_population_hand_timing.HandTimingTests.test_actual_opponent_play_captures_only_preexisting_own_hand_source) ... ok
+test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin (test_proxy_population_hand_timing.HandTimingTests.test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin) ... ok
+test_group_activation_reuses_payment_link_and_no_ordinary_reoffer (test_proxy_population_hand_timing.HandTimingTests.test_group_activation_reuses_payment_link_and_no_ordinary_reoffer) ... ok
+test_source_drift_and_event_identity_mismatch_fail_closed (test_proxy_population_hand_timing.HandTimingTests.test_source_drift_and_event_identity_mismatch_fail_closed) ... ok
+test_concealed_slot_projection_preserves_legal_challenge_modifier_candidate (test_proxy_population_response_context.ResponseContextTests.test_concealed_slot_projection_preserves_legal_challenge_modifier_candidate) ... ok
+test_nested_scope_and_delegate_exception_restore_context (test_proxy_population_response_context.ResponseContextTests.test_nested_scope_and_delegate_exception_restore_context) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 5.239s
+
+OK

@@ -1,0 +1,88 @@
+diff --git a/docs/card-game/tools/proxy_resource_value_trajectory.py b/docs/card-game/tools/proxy_resource_value_trajectory.py
+index aef961d..53578cc 100644
+--- a/docs/card-game/tools/proxy_resource_value_trajectory.py
++++ b/docs/card-game/tools/proxy_resource_value_trajectory.py
+@@ -41,13 +41,18 @@ def load_initial_routes(data_dir=DATA):
+     source_manifest={k:v for row in rows for k,v in row['source_raw_sha256'].items()}
+     inputs=dict(candidate_table=json.loads((data_dir/'proxy-normal-decision-candidate-table-114-20260918.json').read_text()),
+         boundaries=rows,source_raw_sha256=source_manifest,source_root=str(data_dir.parents[2].resolve()))
+-    saved_events={};mandatory_seed_profiles={}
++    saved_events={};mandatory_seed_profiles={};response_seed_profiles={}
+     for name in source_manifest:
+         if not name.endswith('.json') or Path(name).parent!=Path('docs/card-game/data'):continue
+         for row in json.loads((data_dir.parents[2]/name).read_text()).get('results',[]):
+             ds=row.get('new_decisions',row.get('decisions',[]))
+             for decision in ds if isinstance(ds,list) else []:
+                 ctx=decision.get('seed_context',{})
++                if decision.get('decision_kind')=='response_action' and ctx:
++                    key=(row['path_id'],decision.get('pre_game_state_sha256',decision.get('source_game_state_sha256')),decision.get('pre_continuation_state_sha256',decision.get('source_continuation_state_sha256')))
++                    if key[1] is not None and key[2] is not None:
++                        if key in response_seed_profiles and response_seed_profiles[key]!=ctx:raise ValueError('response seed profile alias differs')
++                        response_seed_profiles[key]=copy.deepcopy(ctx)
+                 if decision.get('decision_kind')=='mandatory_choice' and ctx.get('choice_kind')=='egg_exchange_bottom':
+                     key=(row['path_id'],ctx['actor'],ctx['round'])
+                     index=ctx['actor_turn_index']
+@@ -65,7 +70,7 @@ def load_initial_routes(data_dir=DATA):
+         start.verify_source_route(fresh)
+         results.append(dict(path_id=route['path_id'],order_id=route['order_id'],first_player=route['first_player'],
+             manifest=copy.deepcopy(route),initial_raw_sha256=INITIAL_SHA,initial_manifest_sha256=canonical_sha256(route),
+-            source_route=fresh,inputs=dict(inputs,path_id=route['path_id'],mandatory_seed_profiles={str(round_)+':'+actor:index for (path,actor,round_),index in mandatory_seed_profiles.items() if path==route['path_id']},saved_events={seq:copy.deepcopy(e) for (path,seq),e in saved_events.items() if path==route['path_id']})))
++            source_route=fresh,inputs=dict(inputs,path_id=route['path_id'],response_seed_profiles=[dict(game_state_sha256=gh,continuation_state_sha256=ch,seed_context=ctx) for (path,gh,ch),ctx in response_seed_profiles.items() if path==route['path_id']],mandatory_seed_profiles={str(round_)+':'+actor:index for (path,actor,round_),index in mandatory_seed_profiles.items() if path==route['path_id']},saved_events={seq:copy.deepcopy(e) for (path,seq),e in saved_events.items() if path==route['path_id']})))
+     if len(results)!=4 or len({r['path_id'] for r in results})!=4:raise ValueError('four initial routes required')
+     return results
+ 
+@@ -205,6 +210,9 @@ def apply_selected(continuation,selection,inputs):
+                     after,event,_=start._pass(continuation,record['actor'])
+             else:after,event=normal.response_120.apply_response_pass(continuation,record)
+             return after,[event]
++        if kind=='activate_board_ability' and action['card_id']=='C-chicken':
++            after,event=reached.activation.activate_board_ability(continuation,record,dict(candidate_ids=[action['candidate_id']],source_instance_id=action['source_instance_id']))
++            return after,[event]
+         if kind=='use_play' and action['card_id']=='G-hit-blow':
+             after,event=hit.activate(continuation,record);return after,[event]
+     except normal.RulesStop as error:
+@@ -305,9 +313,12 @@ def run_route(initial,policy_id):
+                 after=_current(handler_result['final_continuation_state'],handler_result['last_valid_event_seq'])
+                 generated=handler_result['new_events'];record=None
+             elif context['chain_status']=='resolving':
+-                if len(state['activation_zone'])!=1 or state['activation_zone'][0]['card_id']!='G-hit-blow':
+-                    raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='chain_resolution'))
+-                after,event=hit.resolve_link(state);generated=[event];record=None
++                if len(state['activation_zone'])!=1:raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='chain_resolution'))
++                card=state['activation_zone'][0]['card_id']
++                if card=='G-hit-blow':after,event=hit.resolve_link(state)
++                elif card=='C-chicken':after,event=reached.resolution.resolve_board_ability(state)
++                else:raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='chain_resolution',card_id=card))
++                generated=[event];record=None
+             elif phase=='normal_action':
+                 history=dict(normal_challenge_losses_by_actor=[],last_valid_event_seq=state['last_event_seq'],source_refs=sorted(initial['inputs']['source_raw_sha256']))
+                 if any('challenge' in e['action_type'] for e in events):raise normal.RulesStop('legality_not_confirmed',dict(stage='challenge_history_adapter'))
+@@ -317,7 +328,11 @@ def run_route(initial,policy_id):
+             elif phase in ('response_window','post_placement_response','turn_end_response'):
+                 try:opportunity=_response_opportunity(state,initial,events)
+                 except (ValueError,KeyError,TypeError) as error:raise normal.RulesStop('legality_not_confirmed',dict(stage='response_inventory',detail=str(error))) from error
+-                record=start.seeded.resolve_response_choice(dict(order_id=initial['order_id'],actor_turn_index=game['round'],round=game['round']),opportunity)
++                gh=start.opening._stop_state_sha256(game);ch=start._hash(state)
++                profiles=[p['seed_context'] for p in initial['inputs']['response_seed_profiles'] if p['game_state_sha256']==gh and p['continuation_state_sha256']==ch]
++                if len(profiles)>1:raise ValueError('response seed source boundary ambiguous')
++                index=profiles[0]['actor_turn_index'] if profiles else game['round']
++                record=start.seeded.resolve_response_choice(dict(order_id=initial['order_id'],actor_turn_index=index,round=game['round']),opportunity)
+                 record.update(event_seq=state['last_event_seq'],pre_game_state_sha256=start.opening._stop_state_sha256(game),pre_continuation_state_sha256=start._hash(state))
+                 after,generated=apply_selected(state,record,initial['inputs'])
+             else:
+diff --git a/docs/card-game/tools/test_proxy_resource_value_trajectory.py b/docs/card-game/tools/test_proxy_resource_value_trajectory.py
+index 35a030d..4b8ee9e 100644
+--- a/docs/card-game/tools/test_proxy_resource_value_trajectory.py
++++ b/docs/card-game/tools/test_proxy_resource_value_trajectory.py
+@@ -53,6 +53,11 @@ class TrajectoryTests(unittest.TestCase):
+         forged=copy.deepcopy(record);forged['selected_action']['action_type']='pass'
+         with self.assertRaises(ValueError):trajectory.apply_selected(state,forged,initial['inputs'])
+ 
++    def test_existing_chicken_ability_activation_and_resolution(self):
++        result=next(r for r in self.runs if r["path_id"]=="probe-01-b-first" and r["policy_id"]==trajectory.POLICIES[0])
++        kinds=[e["action_type"] for e in result["events"]]
++        self.assertIn("resolve_board_ability",kinds)
++
+     def test_mandatory_seed_profile_tampering_rejected(self):
+         bad=copy.deepcopy(self.initials[0]);bad["inputs"]["mandatory_seed_profiles"]["2:A"]=2
+         with self.assertRaises(ValueError):trajectory.run_route(bad,trajectory.POLICIES[0])

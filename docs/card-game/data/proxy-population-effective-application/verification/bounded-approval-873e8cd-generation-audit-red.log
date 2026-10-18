@@ -1,0 +1,15 @@
+test_late_generation_gate_preserves_approval_reads (test_proxy_population_approval_read_retry.GenerationAuditTests.test_late_generation_gate_preserves_approval_reads) ... FAIL
+
+======================================================================
+FAIL: test_late_generation_gate_preserves_approval_reads (test_proxy_population_approval_read_retry.GenerationAuditTests.test_late_generation_gate_preserves_approval_reads)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 120, in test_late_generation_gate_preserves_approval_reads
+    self.assertFalse(result['generation_authorization_bound']);self.assertIn('read_audit',str(result['errors']))
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'read_audit' not found in '["generation source changed during live approval checks: [\'saved source differs: unit-source.txt\']"]'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.094s
+
+FAILED (failures=1)

@@ -1,0 +1,24 @@
+{
+  "artifact": "paired.json.gz",
+  "compressed_sha256": "83379c526130edaa1d8d06667bac6e4bf0eb0c9e4849037f6d246f58ce2d4c98",
+  "execution_sources_sha256": {
+    "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "06-action-chain-checkpoint.md": "7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67",
+    "55-insect-three-lines-card-text-draft.md": "8108f781d2e02b45139fdf7d1d573c7ac839f14cd2b8361983ecb891320f8c28",
+    "72-companion-26-card-text-draft.md": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117",
+    "74-partner-18-card-text-draft.md": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0",
+    "77-current-items-card-text-draft.md": "ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02",
+    "tools/proxy_continuation_actions.py": "3089602fcc68c81944d332a121931db4689ada23bdbbc2d6e123ae643754e090",
+    "tools/proxy_continuation_candidates.py": "4cf0caf122ea9a7ee711bb80f23a2518e0287f19b11eca629e10154819a16b27",
+    "tools/proxy_continuation_rules.py": "faa4c724d5159ebbc0b9758c243771fe9758899bfec19566d7bd82616cbf1c23",
+    "tools/proxy_continuation_runner.py": "a0f910bc71a05ae66a1c0284b76b56e09817f10f3ab7c74a1f6a40a0f7810052",
+    "tools/proxy_continuation_state.py": "c5935a5184038d315ebf190ba7939b7ff4935e198e4f9d53cf995959b991f6c9"
+  },
+  "historical_base_commit": "bb1a6b6e927c63aaa209b63385d623873ed9891b",
+  "historical_source_raw_sha256": {
+    "docs/card-game/data/proxy-resource-value-pilot/shadow-checkpoint-428/shadow.json": "79cf443a32f9ffc643aa7742472decdcc9d6739d7ca91206834abd2c133d3222",
+    "docs/card-game/data/proxy-resource-value-pilot/trajectory-checkpoint-427/paired.json": "da96502819911c579bd5895116192524398a6b7b5db4a673b29319d3dee39d71"
+  },
+  "raw_sha256": "62068aeb4073c3b187ed00802b36ba56fc3fb643eb30521e9366a52329810914"
+}

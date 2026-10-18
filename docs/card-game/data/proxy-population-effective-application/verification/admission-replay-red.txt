@@ -1,0 +1,58 @@
+test_all_unexecuted_slots_and_pairs_remain_without_denominator_repair (test_proxy_population_admission.AdmissionTests.test_all_unexecuted_slots_and_pairs_remain_without_denominator_repair) ... ok
+test_manifest_corruption_cannot_define_a_smaller_population (test_proxy_population_admission.AdmissionTests.test_manifest_corruption_cannot_define_a_smaller_population) ... ok
+test_out_of_plan_attempt_is_retained_as_integrity_gap (test_proxy_population_admission.AdmissionTests.test_out_of_plan_attempt_is_retained_as_integrity_gap) ... ok
+test_unknown_or_old_self_reported_eligible_is_unproved_without_replay (test_proxy_population_admission.AdmissionTests.test_unknown_or_old_self_reported_eligible_is_unproved_without_replay) ... ok
+test_conflicting_completed_attempts_do_not_select_a_favorable_result (test_proxy_population_admission.ReplayedDispositionTests.test_conflicting_completed_attempts_do_not_select_a_favorable_result) ... FAIL
+test_forged_active_flags_and_counterfactuals_are_not_source_evidence (test_proxy_population_admission.ReplayedDispositionTests.test_forged_active_flags_and_counterfactuals_are_not_source_evidence) ... FAIL
+test_policy_conformance_does_not_prove_lock_or_other_judgments (test_proxy_population_admission.ReplayedDispositionTests.test_policy_conformance_does_not_prove_lock_or_other_judgments) ... FAIL
+test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt (test_proxy_population_admission.ReplayedDispositionTests.test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt) ... FAIL
+
+======================================================================
+FAIL: test_conflicting_completed_attempts_do_not_select_a_favorable_result (test_proxy_population_admission.ReplayedDispositionTests.test_conflicting_completed_attempts_do_not_select_a_favorable_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 61, in test_conflicting_completed_attempts_do_not_select_a_favorable_result
+    self.assertEqual(out['disposition'],'excluded');self.assertIn('conflicting_authenticated_completed_attempts',out['exclusions'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'unproved' != 'excluded'
+- unproved
++ excluded
+
+
+======================================================================
+FAIL: test_forged_active_flags_and_counterfactuals_are_not_source_evidence (test_proxy_population_admission.ReplayedDispositionTests.test_forged_active_flags_and_counterfactuals_are_not_source_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 57, in test_forged_active_flags_and_counterfactuals_are_not_source_evidence
+    self.assertEqual(out['disposition'],'unproved');self.assertFalse(out['exclusions']);self.assertIn('source_reconstruction_mismatch',out['gaps'])
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'source_reconstruction_mismatch' not found in ['input_lock_unauthenticated', 'generation_provenance_unverified', 'all_rule_opportunities_unproved', 'connected_record_adapter_pending']
+
+======================================================================
+FAIL: test_policy_conformance_does_not_prove_lock_or_other_judgments (test_proxy_population_admission.ReplayedDispositionTests.test_policy_conformance_does_not_prove_lock_or_other_judgments)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 52, in test_policy_conformance_does_not_prove_lock_or_other_judgments
+    self.assertEqual(out['disposition'],'unproved');self.assertFalse(out['exclusions']);self.assertEqual(out['execution_status'],'incomplete')
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'record_unverified' != 'incomplete'
+- record_unverified
++ incomplete
+
+
+======================================================================
+FAIL: test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt (test_proxy_population_admission.ReplayedDispositionTests.test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 44, in test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt
+    first=out['matches'][0];self.assertEqual(first['disposition'],'excluded');self.assertTrue(first['gaps']);self.assertEqual(first['attempt_count'],2)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'unproved' != 'excluded'
+- unproved
++ excluded
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 7.187s
+
+FAILED (failures=4)

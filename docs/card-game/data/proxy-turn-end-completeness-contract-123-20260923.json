@@ -1,0 +1,94 @@
+{
+  "schema": "naotocchi.card_game.proxy_turn_end_completeness_contract.v1",
+  "checkpoint": 123,
+  "status": "protocol_only_no_match_progress",
+  "source_contracts": [
+    "01-core-rules.md",
+    "06-action-chain-checkpoint.md",
+    "64-turn-boundaries-and-victory-timing.md",
+    "72-companion-26-card-text-draft.md",
+    "74-partner-18-card-text-draft.md",
+    "119-response-window-contract.md",
+    "122-normal-action-seeded-restart.md"
+  ],
+  "protected_122_raw_sha256": {
+    "order-01-a-first": "99ec72b8219d30a7db43daddaecd2bb4672cf9b75fc966fa89823d9013cc1150",
+    "order-01-b-first": "c1c4054673fa5ceca6925d40126545f0bd55bd03bbcad18aac7c68e2d03df8d5",
+    "order-02-a-first": "95709ff4b6061beca59738e3d42d9b09ba9f4b26e68dbf78bf987ad81f25649f",
+    "order-02-b-first": "c89273717a1214a36d74de214409badecdcca91a7693df84625389b320218799"
+  },
+  "information_policy": "public_and_owner_known_only",
+  "stages": [
+    {
+      "stage": 1,
+      "name": "closed_end_request"
+    },
+    {
+      "stage": 2,
+      "name": "due_reservations"
+    },
+    {
+      "stage": 3,
+      "name": "end_triggers_and_responses"
+    },
+    {
+      "stage": 4,
+      "name": "expiring_effects"
+    },
+    {
+      "stage": 5,
+      "name": "expiration_triggers"
+    },
+    {
+      "stage": 6,
+      "name": "victory_and_next_turn"
+    }
+  ],
+  "board_ability_registry": [
+    {
+      "card_id": "P-cat_ceo",
+      "classification": "past_trigger",
+      "source_reference": "74-partner-18-card-text-draft.md#P-cat_ceo"
+    },
+    {
+      "card_id": "C-chameleon",
+      "classification": "continuous",
+      "source_reference": "72-companion-26-card-text-draft.md#C-chameleon"
+    }
+  ],
+  "completeness_requirements": [
+    "source_artifact_integrity_valid",
+    "closed_response_window_valid",
+    "six_stage_inventory_present",
+    "reservation_order_resolved",
+    "trigger_information_boundary_valid",
+    "expiration_boundary_resolved",
+    "expiration_trigger_inventory_complete",
+    "victory_history_sufficient",
+    "source_dispositions_explained",
+    "transition_handlers_proven",
+    "enumeration_ids_unique",
+    "source_projection_exact"
+  ],
+  "contract_stop_codes": [
+    "turn_end_window_not_closed",
+    "missing_turn_end_source_classification",
+    "unresolved_reservation_due_time",
+    "unresolved_end_trigger",
+    "unresolved_expiration",
+    "missing_growth_reach_history",
+    "unresolved_victory_predicate",
+    "forbidden_information_required",
+    "missing_transition_handler"
+  ],
+  "scope": {
+    "planned": 0,
+    "completed": 0,
+    "stopped": 0,
+    "decision": 0,
+    "event": 0,
+    "snapshot": 0,
+    "winner": 0,
+    "independent_balance_sample": 0
+  }
+}

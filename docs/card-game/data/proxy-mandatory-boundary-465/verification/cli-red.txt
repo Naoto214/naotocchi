@@ -1,0 +1,14 @@
+test_cli_pending_invalid_no_seeds_or_execution_or_material_leak (test_proxy_mandatory_policy_journal.CliTests.test_cli_pending_invalid_no_seeds_or_execution_or_material_leak) ... FAIL
+
+======================================================================
+FAIL: test_cli_pending_invalid_no_seeds_or_execution_or_material_leak (test_proxy_mandatory_policy_journal.CliTests.test_cli_pending_invalid_no_seeds_or_execution_or_material_leak)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_journal.py", line 76, in test_cli_pending_invalid_no_seeds_or_execution_or_material_leak
+    self.assertEqual(p.returncode,1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.063s
+
+FAILED (failures=1)

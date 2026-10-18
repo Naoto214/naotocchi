@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_coverage_rejects_rebound_false_draw (test_proxy_population_draw_effects.DrawEffectsTests.test_coverage_rejects_rebound_false_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_draw_effects.py", line 58, in setUp
+    def setUp(self):self.assertIsNotNone(api,'draw semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : draw semantic audit absent
+
+======================================================================
+FAIL: test_real_five_handlers_empty_deck_outer_stack_departure_and_restart (test_proxy_population_draw_effects.DrawEffectsTests.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_draw_effects.py", line 58, in setUp
+    def setUp(self):self.assertIsNotNone(api,'draw semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : draw semantic audit absent
+
+======================================================================
+FAIL: test_receipt_identity_bad_boundary_and_unrelated_event (test_proxy_population_draw_effects.DrawEffectsTests.test_receipt_identity_bad_boundary_and_unrelated_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_draw_effects.py", line 58, in setUp
+    def setUp(self):self.assertIsNotNone(api,'draw semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : draw semantic audit absent
+
+======================================================================
+FAIL: test_self_consistent_wrong_card_count_refund_reservation_and_outer_changes_rejected (test_proxy_population_draw_effects.DrawEffectsTests.test_self_consistent_wrong_card_count_refund_reservation_and_outer_changes_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_draw_effects.py", line 58, in setUp
+    def setUp(self):self.assertIsNotNone(api,'draw semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : draw semantic audit absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

@@ -1,0 +1,35 @@
+test_actual_birth_proof_is_saved_without_false_future_execution (test_proxy_continuation_capability_runner.CapabilityRunnerTests.test_actual_birth_proof_is_saved_without_false_future_execution) ... FAIL
+test_eight_initials_missing_results_and_explicit_coverage (test_proxy_continuation_capability_runner.CapabilityRunnerTests.test_eight_initials_missing_results_and_explicit_coverage) ... FAIL
+test_independent_replay_rejects_boolean_or_proof_tampering (test_proxy_continuation_capability_runner.CapabilityRunnerTests.test_independent_replay_rejects_boolean_or_proof_tampering) ... FAIL
+
+======================================================================
+FAIL: test_actual_birth_proof_is_saved_without_false_future_execution (test_proxy_continuation_capability_runner.CapabilityRunnerTests.test_actual_birth_proof_is_saved_without_false_future_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_capability_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'opt-in shared capability runner absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : opt-in shared capability runner absent
+
+======================================================================
+FAIL: test_eight_initials_missing_results_and_explicit_coverage (test_proxy_continuation_capability_runner.CapabilityRunnerTests.test_eight_initials_missing_results_and_explicit_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_capability_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'opt-in shared capability runner absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : opt-in shared capability runner absent
+
+======================================================================
+FAIL: test_independent_replay_rejects_boolean_or_proof_tampering (test_proxy_continuation_capability_runner.CapabilityRunnerTests.test_independent_replay_rejects_boolean_or_proof_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_capability_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'opt-in shared capability runner absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : opt-in shared capability runner absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.126s
+
+FAILED (failures=3)

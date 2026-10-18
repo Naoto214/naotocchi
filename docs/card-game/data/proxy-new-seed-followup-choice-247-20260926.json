@@ -1,0 +1,128 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "paid_comparisons": [],
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "2ae36a4fdfed0eb14c89cc18def435fc79cd16b5571db1798baf528e8f3ea813",
+      "source_game_state_sha256": "2115d2b4976e74540e78867565195b432efc7413cd00546695546516df59fb80",
+      "source_last_valid_event_seq": 54
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "candidate-place_world-A-020#1",
+        "candidate-set_item-A-034#1",
+        "pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "paid_comparisons": [
+        {
+          "candidate_id": "candidate-place_world-A-020#1",
+          "comparison": {
+            "decided_at": "time_after_certain_resolution",
+            "reason": "time_after_certain_resolution",
+            "winner": "left"
+          },
+          "score": {
+            "avoid_loss_or_abort": 0,
+            "candidate_id": "candidate-place_world-A-020#1",
+            "card_copy_id": "A-020",
+            "certain_growth_difference": 0,
+            "consumed_card_count": 0,
+            "maintain_or_prevent_100": 0,
+            "payment_time": 2,
+            "time_after_certain_resolution": 1,
+            "value_comparison_to": {}
+          },
+          "source_reference": "89-world-13-card-text-draft.md#W-city"
+        },
+        {
+          "candidate_id": "candidate-set_item-A-034#1",
+          "comparison": {
+            "decided_at": "time_after_certain_resolution",
+            "reason": "time_after_certain_resolution",
+            "winner": "left"
+          },
+          "score": {
+            "avoid_loss_or_abort": 0,
+            "candidate_id": "candidate-set_item-A-034#1",
+            "card_copy_id": "A-034",
+            "certain_growth_difference": 0,
+            "consumed_card_count": 0,
+            "maintain_or_prevent_100": 0,
+            "payment_time": 1,
+            "time_after_certain_resolution": 2,
+            "value_comparison_to": {}
+          },
+          "source_reference": "77-current-items-card-text-draft.md#I-poop1"
+        }
+      ],
+      "pass_score": {
+        "avoid_loss_or_abort": 0,
+        "candidate_id": "pass",
+        "card_copy_id": "",
+        "certain_growth_difference": 0,
+        "consumed_card_count": 0,
+        "maintain_or_prevent_100": 0,
+        "payment_time": 0,
+        "time_after_certain_resolution": 3,
+        "value_comparison_to": {}
+      },
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "priority_unique",
+      "selected_candidate": "pass",
+      "source_continuation_state_sha256": "8d244af188ce0c34e782b5c43e5e6656ab1e57824d80ba176b6eb95789514b85",
+      "source_contracts": [
+        107,
+        114
+      ],
+      "source_game_state_sha256": "8af01c9e5f05fb119a861e70b5ac00d675e0ed1551f3f3a527fc55bb119c31d5",
+      "source_last_valid_event_seq": 55
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "paid_comparisons": [],
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "a9043175b05a8545f48be148daca978474a53b2a24182efa9835f39510487fc3",
+      "source_game_state_sha256": "6d4ce83d561c2f86d0ca13bfc14ca6d0e2a1ebeb864eeedab83f3fe0edf7298a",
+      "source_last_valid_event_seq": 58
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "paid_comparisons": [],
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "71e034e43642e3beca7e806e9148078058f8714f02f69b417388476d4d805d03",
+      "source_game_state_sha256": "c52994bcf050ec2399c8da38206cd6e4aed078d1f52b8bb0e8eb6927503779e8",
+      "source_last_valid_event_seq": 45
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_followup_choice_247.v1",
+  "source_raw_sha256": "40b53d44ab0f18f8921bf6bc5e8b25f948d2bfe37247f18202f143aaf8cefe37"
+}

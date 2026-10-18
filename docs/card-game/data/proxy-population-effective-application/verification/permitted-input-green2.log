@@ -1,0 +1,42 @@
+test_actual_entry_requires_bound_read_responsibilities (test_proxy_population_permitted_inputs.PermittedInputsTests.test_actual_entry_requires_bound_read_responsibilities) ... ERROR
+test_sequential_address_uses_actual_group_and_ordinal_not_state_hash (test_proxy_population_permitted_inputs.PermittedInputsTests.test_sequential_address_uses_actual_group_and_ordinal_not_state_hash) ... ok
+test_connected_step_rejects_an_extra_no_choice_record (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_connected_step_rejects_an_extra_no_choice_record) ... ok
+test_connected_step_rejects_unverified_no_choice_even_without_errors (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_connected_step_rejects_unverified_no_choice_even_without_errors) ... ok
+test_descriptor_no_choice_routes_reject_extra_records (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_descriptor_no_choice_routes_reject_extra_records) ... ok
+test_designated_family_requires_separate_journal_proof (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_designated_family_requires_separate_journal_proof) ... ok
+test_existing_board_handlers_classify_no_additional_resolution_choice (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_existing_board_handlers_classify_no_additional_resolution_choice) ... ok
+test_legacy_search_failure_is_explicit_no_choice_not_designated_policy (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_legacy_search_failure_is_explicit_no_choice_not_designated_policy) ... ok
+test_missing_legacy_descriptor_does_not_turn_parameter_choice_into_no_choice (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_missing_legacy_descriptor_does_not_turn_parameter_choice_into_no_choice) ... ok
+test_opt_in_paid_draw_reuses_registered_draw_only_route (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_opt_in_paid_draw_reuses_registered_draw_only_route) ... ok
+test_unknown_resolver_is_not_certified_by_empty_decisions (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_unknown_resolver_is_not_certified_by_empty_decisions) ... ok
+test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions (test_proxy_population_information_use.InformationUseTests.test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions) ... ok
+test_public_loss_history_changes_choice_with_same_current_visible_state (test_proxy_population_information_use.InformationUseTests.test_public_loss_history_changes_choice_with_same_current_visible_state) ... ok
+test_public_time_changes_actual_candidate_and_choice (test_proxy_population_information_use.InformationUseTests.test_public_time_changes_actual_candidate_and_choice) ... ok
+test_actual_hidden_variants_change_only_the_bound_response_state_hash (test_proxy_population_prepared_information.PreparedInformationTests.test_actual_hidden_variants_change_only_the_bound_response_state_hash) ... ok
+test_concealed_copy_identity_is_absent_from_actual_choices (test_proxy_population_prepared_information.PreparedInformationTests.test_concealed_copy_identity_is_absent_from_actual_choices) ... ok
+test_current_entry_rejects_forged_private_binding_after_native_execution (test_proxy_population_prepared_information.PreparedInformationTests.test_current_entry_rejects_forged_private_binding_after_native_execution) ... ok
+test_normal_public_view_references_bind_current_actor_projection (test_proxy_population_prepared_information.PreparedInformationTests.test_normal_public_view_references_bind_current_actor_projection) ... ok
+test_public_cost_still_changes_candidates_with_concealed_preparation (test_proxy_population_prepared_information.PreparedInformationTests.test_public_cost_still_changes_candidates_with_concealed_preparation) ... ok
+test_public_equipment_also_requires_binding_and_plain_entry_checks_any_supplied_hash (test_proxy_population_prepared_information.PreparedInformationTests.test_public_equipment_also_requires_binding_and_plain_entry_checks_any_supplied_hash) ... ok
+test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) ... ok
+test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass (test_proxy_population_trigger_sequential.SequentialTests.test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass) ... ok
+test_current_state_is_reenumerated_and_no_future_sequence_is_selected (test_proxy_population_trigger_sequential.SequentialTests.test_current_state_is_reenumerated_and_no_future_sequence_is_selected) ... ok
+test_new_state_inapplicability_is_recorded_without_a_fictional_choice (test_proxy_population_trigger_sequential.SequentialTests.test_new_state_inapplicability_is_recorded_without_a_fictional_choice) ... ok
+test_no_remaining_executable_action_closes_without_drawing_policy_randomness (test_proxy_population_trigger_sequential.SequentialTests.test_no_remaining_executable_action_closes_without_drawing_policy_randomness) ... ok
+
+======================================================================
+ERROR: test_actual_entry_requires_bound_read_responsibilities (test_proxy_population_permitted_inputs.PermittedInputsTests.test_actual_entry_requires_bound_read_responsibilities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_permitted_inputs.py", line 12, in test_actual_entry_requires_bound_read_responsibilities
+    record=entry.reconstruct(bundle(),'test-1A',18);p=record['permitted_input_audit']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_connected_entry.py", line 88, in reconstruct
+    if permitted['current_permitted_inputs_joined'] is not True:raise ValueError('actual permitted inputs differ: '+str(permitted['errors']))
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: actual permitted inputs differ: ["'order_id'"]
+
+----------------------------------------------------------------------
+Ran 25 tests in 15.914s
+
+FAILED (errors=1)

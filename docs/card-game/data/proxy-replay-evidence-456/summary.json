@@ -1,0 +1,19 @@
+{
+  "events": 3129,
+  "excluded_by_116": 12,
+  "independent_balance_sample_count": 0,
+  "independent_saved_replays": 12,
+  "new_matches": 0,
+  "opportunity_scope": "existing_executor_only",
+  "path_evidence_sha256": {
+    "probe-01-a-first.json": "9bce99082916583f3af2f24de6dd400624293bccb61885f9dad7fd7c740c1fa4",
+    "probe-01-b-first.json": "465b2762c3a093b804fefd2b25754c91a1f1661493dd6576fdc3d98ce6381097",
+    "probe-02-a-first.json": "0e6ed9419b72b35a0ddae08675eae514779f571d68bf2276a8e4e9a34f855d92",
+    "probe-02-b-first.json": "e7cfa60221bcb617d9d94b04863e9a7a4c4fc53641bad70a50685d3e73c3ef31"
+  },
+  "policy_promoted": false,
+  "recorded_decisions": 2378,
+  "saved_runs": 12,
+  "schema": "saved_replay_summary_456.v1",
+  "snapshots": 3141
+}

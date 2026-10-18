@@ -1,0 +1,20 @@
+test_forced_resolution_is_not_mislabeled_as_no_choice_normal (test_proxy_population_opportunity_order.OrderTests.test_forced_resolution_is_not_mislabeled_as_no_choice_normal) ... ok
+test_normal_and_ordinary_response_require_their_own_decision (test_proxy_population_opportunity_order.OrderTests.test_normal_and_ordinary_response_require_their_own_decision) ... ERROR
+test_unconsumed_source_obligation_blocks_ordinary_choice (test_proxy_population_opportunity_order.OrderTests.test_unconsumed_source_obligation_blocks_ordinary_choice) ... ok
+
+======================================================================
+ERROR: test_normal_and_ordinary_response_require_their_own_decision (test_proxy_population_opportunity_order.OrderTests.test_normal_and_ordinary_response_require_their_own_decision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_opportunity_order.py", line 21, in test_normal_and_ordinary_response_require_their_own_decision
+    self.assertEqual(api.audit(trace(native),[])['ordinary_normal_count'],1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_opportunity_order.py", line 38, in audit
+    if type(d) is not dict or d.get('context',{}).get('decision_kind')!='normal_action' or d['context'].get('actor')!=g['turn_player'] or d.get('choice',{}).get('decision_kind')!='normal_action':raise ValueError('normal opportunity decision missing or mistyped')
+                                                                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: normal opportunity decision missing or mistyped
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+FAILED (errors=1)

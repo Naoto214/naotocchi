@@ -1,0 +1,5 @@
+normal_action both_decks_reversed same_visible True selected candidate-use-event-A-037#1 difference_paths []
+normal_action opponent_hidden_exchange same_visible True selected candidate-use-event-A-037#1 difference_paths []
+response_window both_decks_reversed same_visible True selected response-pass difference_paths ['.candidate_set_evidence.envelope_sha256']
+response_window opponent_hidden_exchange same_visible True selected response-pass difference_paths ['.candidate_set_evidence.envelope_sha256']
+Conditional supplied concealed-preparation fixture; no hidden-identity variation or all-path proof.

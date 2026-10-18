@@ -1,0 +1,26 @@
+test_early_terminal_requires_all_six_stages_and_keeps_hash_chain (test_proxy_population_end_victory.EndVictoryTests.test_early_terminal_requires_all_six_stages_and_keeps_hash_chain) ... ERROR
+
+======================================================================
+ERROR: test_early_terminal_requires_all_six_stages_and_keeps_hash_chain (test_proxy_population_end_victory.EndVictoryTests.test_early_terminal_requires_all_six_stages_and_keeps_hash_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 47, in test_early_terminal_requires_all_six_stages_and_keeps_hash_chain
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 43, in run
+    args=history();result=api.finish_early(*args);self.assertTrue(result['completed']);self.assertEqual(result['result']['winner'],'A');self.assertEqual(result['new_events'][0]['game_state_before_sha256'],args[0]['game_state_sha256']);self.assertEqual(result['new_snapshots'][0]['game_state']['phase'],'completed')
+                          ^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_end_victory' has no attribute 'finish_early'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.047s
+
+FAILED (errors=1)

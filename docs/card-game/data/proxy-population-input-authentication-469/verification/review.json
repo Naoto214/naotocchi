@@ -1,0 +1,28 @@
+{
+  "independent_reviews": 1,
+  "critical": 0,
+  "important": 2,
+  "minor": 2,
+  "findings": [
+    {
+      "issue": "Git replace refs alter immutable binding",
+      "resolution": "--no-replace-objects on all verification Git calls; commit and blob replacement tests pass"
+    },
+    {
+      "issue": "malformed transcript rows escape validator",
+      "resolution": "explicit record/list/row shape rejection; inner and outer negative tests pass"
+    },
+    {
+      "issue": "missing one owner order raises instead of gap",
+      "resolution": "both owner order fields required; negative test pass"
+    },
+    {
+      "issue": "outer fixed200 integration uncovered",
+      "resolution": "synthetic historical material repeated200 with mocked empty history; complete positive and digest/type/incomplete negatives pass; no real seeds"
+    }
+  ],
+  "post_review_changes": [
+    "append-only Cursor journal list copies avoid quadratic deep-copy of old decks; final related tests pass"
+  ],
+  "admission_claim": false
+}

@@ -1,0 +1,17 @@
+{
+  "dedicated_tests": 19,
+  "population_tests_before_review_fix": 133,
+  "review_fix_targeted_tests": 5,
+  "npm_tests": 406,
+  "design_errors": [],
+  "full_proxy_regression_completed_at_this_save": false,
+  "review_cycles": 1,
+  "review_remaining": {
+    "Critical": 0,
+    "Important": 0,
+    "Minor": 0
+  },
+  "ready_for_execution": false,
+  "independent_balance_samples": 0,
+  "policy_promoted": false
+}

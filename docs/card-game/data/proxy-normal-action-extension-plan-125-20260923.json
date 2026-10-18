@@ -1,0 +1,118 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_action_extension_plan.v1",
+  "checkpoint": 125,
+  "source_stop_raw_sha256": {
+    "order-01-a-first": "2e87016d2b4275bf08f5285757865f7e2dd0186149a1e42d965d82cbf3d63f1b",
+    "order-01-b-first": "34a234688bb83949929d6720d166fc15c8560af8c85093122efdf63dcfea9800",
+    "order-02-a-first": "e5b32c2ee45675335612a4e9cb11b54a7bf2277838d907fd5cd331acec494436",
+    "order-02-b-first": "bc4474674d1268e6c5c496d4a0f10fdd0f89f74615001b612df69f55ba5036a1"
+  },
+  "information_policy": "public_and_owner_known_only",
+  "additional_empty_reason_codes": {
+    "hand_card_action": "no_hand_source",
+    "board_card_action": "no_board_source"
+  },
+  "additional_candidate_id_grammars": [
+    "candidate-place-companion-{source_instance_id}",
+    "candidate-place-partner-{source_instance_id}"
+  ],
+  "source_contracts": [
+    107,
+    114,
+    116,
+    119,
+    121,
+    123,
+    124
+  ],
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "2e87016d2b4275bf08f5285757865f7e2dd0186149a1e42d965d82cbf3d63f1b",
+      "last_valid_event_seq": 17,
+      "game_state_sha256": "d59f8713db08c899412badc9871f8405854b10db40b5021d2dabfb5f87af7445",
+      "continuation_state_sha256": "16a4a1802449fef232b1d853a7dfe237f180264e34614a578358dc4a1196a965",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_current_turn_end_provenance",
+        "evidence": {
+          "phase": "turn_end",
+          "current_event_seq": 17,
+          "required_contract": "123 six-stage proof from current complete history"
+        }
+      },
+      "decision_count": 5,
+      "event_count": 5,
+      "snapshot_count": 6,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-normal-action-stops-125/stop-125-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "34a234688bb83949929d6720d166fc15c8560af8c85093122efdf63dcfea9800",
+      "last_valid_event_seq": 17,
+      "game_state_sha256": "3125322d57b00ca6a18b8559730c6c95cf0e3b27c14a4f0cac91e1e54972fa97",
+      "continuation_state_sha256": "e31f0022b6dd629f6fd49d247ef075acf0ebcd21e262b2df8417590191350201",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_current_turn_end_provenance",
+        "evidence": {
+          "phase": "turn_end",
+          "current_event_seq": 17,
+          "required_contract": "123 six-stage proof from current complete history"
+        }
+      },
+      "decision_count": 6,
+      "event_count": 7,
+      "snapshot_count": 8,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-normal-action-stops-125/stop-125-order-01-b-first.json"
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "e5b32c2ee45675335612a4e9cb11b54a7bf2277838d907fd5cd331acec494436",
+      "last_valid_event_seq": 15,
+      "game_state_sha256": "6fa0690039c542133ca9f0c9a359da9d25f3c6c4d337a6d9f414d9c1aa668208",
+      "continuation_state_sha256": "c11649623456476d888f9134e1d145b5e50b036f43395548cb10be88e13f6a83",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_current_turn_end_provenance",
+        "evidence": {
+          "phase": "turn_end",
+          "current_event_seq": 15,
+          "required_contract": "123 six-stage proof from current complete history"
+        }
+      },
+      "decision_count": 5,
+      "event_count": 5,
+      "snapshot_count": 6,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-normal-action-stops-125/stop-125-order-02-a-first.json"
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "bc4474674d1268e6c5c496d4a0f10fdd0f89f74615001b612df69f55ba5036a1",
+      "last_valid_event_seq": 15,
+      "game_state_sha256": "cc7ece79dae46755e45265bf39351a4afe258bd31d7f81495b41dee484ae727f",
+      "continuation_state_sha256": "0bcc1f7ef9afbf7e58f72bfa06d55c5bbc4ef56fc5970a4b872436bd05387ab4",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_current_turn_end_provenance",
+        "evidence": {
+          "phase": "turn_end",
+          "current_event_seq": 15,
+          "required_contract": "123 six-stage proof from current complete history"
+        }
+      },
+      "decision_count": 5,
+      "event_count": 5,
+      "snapshot_count": 6,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-normal-action-stops-125/stop-125-order-02-b-first.json"
+    }
+  ]
+}

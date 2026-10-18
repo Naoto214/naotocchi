@@ -1,0 +1,14 @@
+......F.
+======================================================================
+FAIL: test_source_change_during_live_reads_rejects (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_source_change_during_live_reads_rejects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 78, in test_source_change_during_live_reads_rejects
+    self.assertFalse(proof['generation_authorization_bound']);self.assertFalse(self.destination.exists())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.628s
+
+FAILED (failures=1)

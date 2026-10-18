@@ -1,0 +1,42 @@
+{
+  "schema": "naotocchi.card_game.proxy_seat_mirror_plan.v1",
+  "date": "2026-09-17",
+  "design": {
+    "rules_commit": "fa87fa517a0732aeea967f0c2d8dc5be00412426",
+    "rules_tree": "35c3f8e9ba9037713bfb719267df6dba457082a3",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "source_manifest": "proxy-fixture-plan-101-20260917.json",
+  "source_directory": "proxy-fixtures-101",
+  "output_directory": "proxy-fixtures-102",
+  "source_profile": "single",
+  "source_first_player": "A",
+  "mirrored_first_player": "B",
+  "pairs": [
+    {
+      "source_match_id": "fixture-101-p97-01-single",
+      "mirror_match_id": "fixture-102-p97-01-single-a-second"
+    },
+    {
+      "source_match_id": "fixture-101-p97-02-single",
+      "mirror_match_id": "fixture-102-p97-02-single-a-second"
+    },
+    {
+      "source_match_id": "fixture-101-p97-03-single",
+      "mirror_match_id": "fixture-102-p97-03-single-a-second"
+    },
+    {
+      "source_match_id": "fixture-101-p97-04-single",
+      "mirror_match_id": "fixture-102-p97-04-single-a-second"
+    },
+    {
+      "source_match_id": "fixture-101-p97-05-single",
+      "mirror_match_id": "fixture-102-p97-05-single-a-second"
+    },
+    {
+      "source_match_id": "fixture-101-p97-06-single",
+      "mirror_match_id": "fixture-102-p97-06-single-a-second"
+    }
+  ]
+}

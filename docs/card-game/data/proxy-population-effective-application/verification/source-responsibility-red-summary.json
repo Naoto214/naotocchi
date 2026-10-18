@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_source_responsibilities"
+  ],
+  "exit_code": 1,
+  "seconds": 0.13874989999749232,
+  "python_file_count": 1085,
+  "fingerprints_equal": true,
+  "tests": "2",
+  "tail": "test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss) ... FAIL\ntest_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles) ... FAIL\n\n======================================================================\nFAIL: test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_responsibilities.py\", line 12, in setUp\n    def setUp(self):self.assertIsNotNone(api,'current107 responsibility composition absent')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: unexpectedly None : current107 responsibility composition absent\n\n======================================================================\nFAIL: test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_responsibilities.py\", line 12, in setUp\n    def setUp(self):self.assertIsNotNone(api,'current107 responsibility composition absent')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: unexpectedly None : current107 responsibility composition absent\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=2)\n",
+  "base_commit": "923883123678fe174e2a8815b56a7dc6dddec766",
+  "preflight_ready": false,
+  "new_matches": 0
+}

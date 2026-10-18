@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_challenge_window"
+  ],
+  "exit_code": 1,
+  "seconds": 57.91169703401101,
+  "python_file_count": 1084,
+  "fingerprints_equal": true,
+  "tests": "2",
+  "tail": "test_normal_declaration_observes_partner_and_continues_comparison (test_proxy_population_challenge_window.ChallengeWindowTests.test_normal_declaration_observes_partner_and_continues_comparison) ... ok\ntest_existing_unit_prefix_crosses_multiple_turns_with_all_histories (test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories) ... FAIL\n\n======================================================================\nFAIL: test_existing_unit_prefix_crosses_multiple_turns_with_all_histories (test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_challenge_window.py\", line 59, in test_existing_unit_prefix_crosses_multiple_turns_with_all_histories\n    self.assertIsNone(r['stop']);self.assertTrue(r['completed']);self.assertEqual(r['events'][-1]['action_type'],'r10_final_comparison')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'code': 'unsupported_contract_boundary', 'detail': \"current predicate coverage incomplete: response_source_predicate_coverage: ['B-031#1']\", 'phase': 'post_placement_response'} is not None\n\n----------------------------------------------------------------------\nRan 2 tests in 57.727s\n\nFAILED (failures=1)\n",
+  "base_commit": "02e99210e7cf81c4d7b246490fac86ff84e17d40",
+  "preflight_ready": false,
+  "new_matches": 0
+}

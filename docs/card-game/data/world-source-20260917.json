@@ -1,0 +1,101 @@
+{
+  "main_commit": "5d39eea915d09be3900d92fa879a9e9f1ecf6091",
+  "source_blobs": {
+    "character-world-master.v1.js": "062cf5bcaea5f78742af8cc66194f7c0e1a84c54",
+    "script.js": "56556322fdb4246ef2bf1614d5a8a40bd5e9a75b",
+    "world-environment.js": "202fb21df94e25239ffb1b7aa637ec58342c8ccd",
+    "games.js": "4f9e43c84e68a8041fb83777bd7e496204376b94"
+  },
+  "regions": [
+    {
+      "id": "home",
+      "label": "おうち",
+      "role": "拠点",
+      "normalTravelRegion": false,
+      "source": "home"
+    },
+    {
+      "id": "city",
+      "label": "とかい",
+      "source": "normal"
+    },
+    {
+      "id": "countryside",
+      "label": "いなか",
+      "source": "normal"
+    },
+    {
+      "id": "forest",
+      "label": "もり",
+      "source": "normal"
+    },
+    {
+      "id": "mountain",
+      "label": "やま",
+      "source": "normal"
+    },
+    {
+      "id": "snow",
+      "label": "ゆきぐに",
+      "source": "normal"
+    },
+    {
+      "id": "sea",
+      "label": "うみ",
+      "source": "normal"
+    },
+    {
+      "id": "deepsea",
+      "label": "しんかい",
+      "source": "normal"
+    },
+    {
+      "id": "river_lake",
+      "label": "みずべ",
+      "source": "normal"
+    },
+    {
+      "id": "jungle",
+      "label": "ジャングル",
+      "source": "normal"
+    },
+    {
+      "id": "desert",
+      "label": "さばく",
+      "source": "normal"
+    },
+    {
+      "id": "star_stop",
+      "label": "ほしぞらのていりゅうじょ",
+      "source": "special"
+    },
+    {
+      "id": "memory_lake",
+      "label": "きおくのみずうみ",
+      "source": "special"
+    }
+  ],
+  "scope": "13 registered place sources only. Runtime modifiers and four-axis controls are references, not card rules or additional candidates.",
+  "followup_main_check": {
+    "main_commit": "c77587b7488670d27af1e7f0fdb8a477a386e1c2",
+    "compare_base": "5d39eea915d09be3900d92fa879a9e9f1ecf6091",
+    "changed_paths": [
+      "DEVELOPMENT_CHECKPOINT_2026-09-07.md",
+      "README.md",
+      "docs/qa/meguru-visual-audit-2026-09-17.md",
+      "index.html",
+      "meguru.js",
+      "package.json",
+      "tests/meguru-region-identity-test.cjs",
+      "tests/meguru-world-design-test.cjs"
+    ],
+    "verified_source_blobs": {
+      "character-world-master.v1.js": "062cf5bcaea5f78742af8cc66194f7c0e1a84c54",
+      "script.js": "56556322fdb4246ef2bf1614d5a8a40bd5e9a75b",
+      "world-environment.js": "202fb21df94e25239ffb1b7aa637ec58342c8ccd",
+      "games.js": "4f9e43c84e68a8041fb83777bd7e496204376b94"
+    },
+    "method": "GitHub compare changed-path list and root tree blob equality. Local fetch still exposed the earlier main during verification.",
+    "scope": "PR #287 changes meguru scenery/world-layer representation and tests; registered regions, game catalog, environment and item runtime source remain unchanged. No merge into the design branch."
+  }
+}

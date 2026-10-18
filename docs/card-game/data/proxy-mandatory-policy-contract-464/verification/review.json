@@ -1,0 +1,32 @@
+{
+  "deferred_minors": [
+    {
+      "issue": "singleton_arithmetic_does_not_bind_root_or_context",
+      "reason": "463 requires no random proof for singleton; arithmetic success never certifies origin or completeness",
+      "scope": "N>=2 substitution rejection only; no policy admission from singleton"
+    }
+  ],
+  "fixed": [
+    {
+      "green": "dedicated.txt: 18 PASS",
+      "issue": "deep_JSON_RecursionError_caused_unstructured_exit1",
+      "reason": "Machine caller must distinguish malformed input from normal pending readiness",
+      "red": "review-fix-red.txt: 1 failure + 1 error",
+      "second_review": false
+    }
+  ],
+  "independent_review_count": 1,
+  "limitations": "Final verification/review packaging excluded; fix checked by RED/GREEN and regression, no second independent review.",
+  "owner_regrade": {
+    "critical": 0,
+    "important": 1,
+    "minor": 1
+  },
+  "reviewer": "/root/review464",
+  "reviewer_counts": {
+    "critical": 0,
+    "important": 0,
+    "minor": 2
+  },
+  "status": "completed"
+}

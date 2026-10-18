@@ -1,0 +1,18 @@
+{
+  "schema": "observed_verification_completion.v1",
+  "source_commit": "a5a475f0f3e495754f14f040c1c0a8e75e33f3d9",
+  "source_tree": "822845c34b603a908a0d6dd3d5699edf011ff3d4",
+  "modules": 378,
+  "tests": 1406,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "workers": 6,
+  "exit_codes": [0, 0, 0, 0, 0, 0],
+  "result_observed": "PASS",
+  "evidence": "Parent exit0 and aggregate of six worker JSON results were read in tool outputs before environment replacement. Worker2 full JSON reported212 tests PASS; worker0 tail reported206 tests PASS. Raw local logs and worker JSON were lost before GitHub publication.",
+  "raw_logs_persisted": false,
+  "later_469_tests_included": false,
+  "rerun_claim": false,
+  "independent_balance_samples": 0
+}

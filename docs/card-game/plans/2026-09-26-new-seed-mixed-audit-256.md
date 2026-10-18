@@ -1,0 +1,3 @@
+# 256 response横断監査計画
+
+255保存state/hash・raw SHAと252の直前盤面を照合する。開始時response3経路について手札の対象・使用領域と盤上の誘発条件をカード本文から確認し、02-Bのターン終了responseも完全候補を検査する。専用テストRED→GREEN、生成JSONのcanonical bytesを確認して保存。次に能力とpassの選択を比較する。

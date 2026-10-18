@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_canonical_journal_replay_rejects_missing_ordered_or_typed_evidence (test_proxy_population_opportunity_ledger.LedgerTests.test_canonical_journal_replay_rejects_missing_ordered_or_typed_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_opportunity_ledger.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_decline_closes_occurrences_but_does_not_consume_once_per_turn_usage (test_proxy_population_opportunity_ledger.LedgerTests.test_decline_closes_occurrences_but_does_not_consume_once_per_turn_usage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_opportunity_ledger.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_fixed_categories_preserve_player_choice_inside_a_group (test_proxy_population_opportunity_ledger.LedgerTests.test_fixed_categories_preserve_player_choice_inside_a_group)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_opportunity_ledger.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_resolution_triggers_wait_for_entire_chain_and_forced_cannot_decline (test_proxy_population_opportunity_ledger.LedgerTests.test_resolution_triggers_wait_for_entire_chain_and_forced_cannot_decline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_opportunity_ledger.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

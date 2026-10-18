@@ -1,0 +1,531 @@
+test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) ...
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='normal') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='retained') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='retained_source') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='retained_target') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='invalid') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='normal') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='retained') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='retained_source') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='retained_target') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='invalid') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='normal') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='retained') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='retained_source') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='retained_target') ... ERROR
+  test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='invalid') ... ERROR
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 89, in final_verify
+    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='retained')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='retained_source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='retained_target')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='W-city', mode='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 89, in final_verify
+    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 89, in final_verify
+    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='retained')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='retained_source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='retained_target')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='M-antlion-04', mode='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 89, in final_verify
+    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 89, in final_verify
+    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='retained')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='retained_source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='retained_target')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 100, in final_verify
+    return prior_final_verify(row,after,event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+======================================================================
+ERROR: test_actual_final_time_retains_other_board_sources_and_metadata (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_actual_final_time_retains_other_board_sources_and_metadata) (card='C-bat', mode='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 34, in run
+    b,a,event,decisions,registry=fixture.actual(forced,'E-final-time',mode)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in actual
+    with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 39, in forced
+    result=forced_body(envelope,initial,events,shots,runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 35, in forced_body
+    if c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id']=='E-final-time':return quick.resolve(c,initial)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 132, in <lambda>
+    with patch.object(triggers,'resolve',lambda c,i:resolve(c,i,original_board)),patch.object(quick,'resolve',lambda c,i:resolve(c,i,original_final,True)):
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_policy_bridge.py", line 120, in resolve
+    result=original(current,initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 128, in resolve
+    row=old._row(projected,initial['path_id']);result=final_time.resolve_final_time(row,return_phase='turn_end' if end_return else 'normal_action')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 373, in resolve_final_time
+    verify_transition(row, after, event)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 89, in final_verify
+    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_new_seed_mixed_replay_406.py", line 323, in verify_transition
+    raise ValueError('406 active board source identity differs')
+ValueError: 406 active board source identity differs
+
+----------------------------------------------------------------------
+Ran 1 test in 0.455s
+
+FAILED (errors=15)

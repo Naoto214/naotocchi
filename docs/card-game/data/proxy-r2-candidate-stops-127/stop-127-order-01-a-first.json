@@ -1,0 +1,3888 @@
+{
+  "path_id": "order-01-a-first",
+  "source_stop_sha256": "57c64b892444446ad093d9c47758412df32fe076806950f014e0435d5c61d87c",
+  "source_game_state_sha256": "2c9b4b010ceac7e67d848d2cc9205a1d131906e5dcfbb2635346205d31674b9c",
+  "source_continuation_state_sha256": "eaff81aa2e80f0baccb2610c26722048265adf4a0085377983bd5fff2544fd8b",
+  "status": "stopped_rules_adjudication",
+  "reason": {
+    "code": "incomplete_legal_candidates",
+    "evidence": {
+      "contract_stop_codes": [
+        "unresolved_canonical_predicate"
+      ]
+    },
+    "contract_stop_codes": [
+      "unresolved_canonical_predicate"
+    ]
+  },
+  "last_valid_event_seq": 28,
+  "game_state_sha256": "0a1ed29d80142a1877e1a37f5816b286772d8ae1ad07853c384f6f643ad16830",
+  "continuation_state_sha256": "5784cb04ac90cca29da4c4fac3fd449c1d5c15cf5b0a797916b4d5a5cd6687b8",
+  "final_state": {
+    "game_state": {
+      "round": 2,
+      "turn_player": "B",
+      "phase": "normal_action",
+      "players": {
+        "A": {
+          "time": 2,
+          "growth": 25,
+          "hand": [
+            "A-009#1",
+            "A-002#1",
+            "A-010#1",
+            "A-019#1",
+            "A-028#1",
+            "A-026#1"
+          ],
+          "deck": [
+            "A-001#1",
+            "A-036#1",
+            "A-037#1",
+            "A-025#1",
+            "A-013#1",
+            "A-020#1",
+            "A-030#1",
+            "A-033#1",
+            "A-014#1",
+            "A-038#1",
+            "A-029#1",
+            "A-007#1",
+            "A-008#1",
+            "A-011#1",
+            "A-027#1",
+            "A-004#1",
+            "A-012#1",
+            "A-005#1",
+            "A-003#1",
+            "A-039#1",
+            "A-035#1",
+            "A-015#1",
+            "A-021#1",
+            "A-006#1",
+            "A-022#1",
+            "A-031#1",
+            "A-016#1",
+            "A-024#1",
+            "A-018#1",
+            "A-032#1",
+            "A-023#1",
+            "A-034#1"
+          ],
+          "discard": [
+            "A-040#1"
+          ],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": "A-017#1",
+            "partner_stage": 0,
+            "world": null,
+            "prepared": []
+          },
+          "reservations": [],
+          "challenge_used": false,
+          "person_placed": false,
+          "relationship_progressed": false
+        },
+        "B": {
+          "time": 2,
+          "growth": 20,
+          "hand": [
+            "B-011#1",
+            "B-037#1",
+            "B-001#1",
+            "B-031#1",
+            "B-009#1"
+          ],
+          "deck": [
+            "B-032#1",
+            "B-002#1",
+            "B-023#1",
+            "B-014#1",
+            "B-008#1",
+            "B-018#1",
+            "B-025#1",
+            "B-034#1",
+            "B-036#1",
+            "B-006#1",
+            "B-007#1",
+            "B-016#1",
+            "B-039#1",
+            "B-013#1",
+            "B-026#1",
+            "B-004#1",
+            "B-028#1",
+            "B-027#1",
+            "B-038#1",
+            "B-020#1",
+            "B-040#1",
+            "B-015#1",
+            "B-019#1",
+            "B-035#1",
+            "B-005#1",
+            "B-024#1",
+            "B-033#1",
+            "B-021#1",
+            "B-030#1",
+            "B-029#1",
+            "B-003#1",
+            "B-022#1",
+            "B-010#1"
+          ],
+          "discard": [],
+          "board": {
+            "main": null,
+            "companions": [
+              "B-012#1"
+            ],
+            "partner": "B-017#1",
+            "partner_stage": 0,
+            "world": null,
+            "prepared": []
+          },
+          "reservations": [],
+          "challenge_used": false,
+          "person_placed": true,
+          "relationship_progressed": false
+        }
+      },
+      "cards": {
+        "A-023#1": {
+          "card_copy_id": "A-023",
+          "initial_instance_id": "A-023#1",
+          "card_id": "G-air-hockey"
+        },
+        "A-017#1": {
+          "card_copy_id": "A-017",
+          "initial_instance_id": "A-017#1",
+          "card_id": "P-cat_ceo"
+        },
+        "A-009#1": {
+          "card_copy_id": "A-009",
+          "initial_instance_id": "A-009#1",
+          "card_id": "M-beetle-01"
+        },
+        "A-002#1": {
+          "card_copy_id": "A-002",
+          "initial_instance_id": "A-002#1",
+          "card_id": "M-antlion-02"
+        },
+        "A-040#1": {
+          "card_copy_id": "A-040",
+          "initial_instance_id": "A-040#1",
+          "card_id": "E-first-date"
+        },
+        "A-010#1": {
+          "card_copy_id": "A-010",
+          "initial_instance_id": "A-010#1",
+          "card_id": "M-beetle-02"
+        },
+        "A-019#1": {
+          "card_copy_id": "A-019",
+          "initial_instance_id": "A-019#1",
+          "card_id": "P-desert_scorpion"
+        },
+        "A-028#1": {
+          "card_copy_id": "A-028",
+          "initial_instance_id": "A-028#1",
+          "card_id": "G-baseball-batting"
+        },
+        "A-034#1": {
+          "card_copy_id": "A-034",
+          "initial_instance_id": "A-034#1",
+          "card_id": "I-poop1"
+        },
+        "A-026#1": {
+          "card_copy_id": "A-026",
+          "initial_instance_id": "A-026#1",
+          "card_id": "G-area-claim"
+        },
+        "A-001#1": {
+          "card_copy_id": "A-001",
+          "initial_instance_id": "A-001#1",
+          "card_id": "G-hit-blow"
+        },
+        "A-036#1": {
+          "card_copy_id": "A-036",
+          "initial_instance_id": "A-036#1",
+          "card_id": "E-big-illness"
+        },
+        "A-037#1": {
+          "card_copy_id": "A-037",
+          "initial_instance_id": "A-037#1",
+          "card_id": "E-boss"
+        },
+        "A-025#1": {
+          "card_copy_id": "A-025",
+          "initial_instance_id": "A-025#1",
+          "card_id": "G-archery-3d"
+        },
+        "A-013#1": {
+          "card_copy_id": "A-013",
+          "initial_instance_id": "A-013#1",
+          "card_id": "C-cat_friend"
+        },
+        "A-020#1": {
+          "card_copy_id": "A-020",
+          "initial_instance_id": "A-020#1",
+          "card_id": "W-city"
+        },
+        "A-030#1": {
+          "card_copy_id": "A-030",
+          "initial_instance_id": "A-030#1",
+          "card_id": "G-beach-volley"
+        },
+        "A-033#1": {
+          "card_copy_id": "A-033",
+          "initial_instance_id": "A-033#1",
+          "card_id": "I-c_coin2"
+        },
+        "A-014#1": {
+          "card_copy_id": "A-014",
+          "initial_instance_id": "A-014#1",
+          "card_id": "C-chameleon"
+        },
+        "A-038#1": {
+          "card_copy_id": "A-038",
+          "initial_instance_id": "A-038#1",
+          "card_id": "E-fateful-transform"
+        },
+        "A-029#1": {
+          "card_copy_id": "A-029",
+          "initial_instance_id": "A-029#1",
+          "card_id": "G-basketball-3d"
+        },
+        "A-007#1": {
+          "card_copy_id": "A-007",
+          "initial_instance_id": "A-007#1",
+          "card_id": "M-antlion-07"
+        },
+        "A-008#1": {
+          "card_copy_id": "A-008",
+          "initial_instance_id": "A-008#1",
+          "card_id": "M-antlion-08"
+        },
+        "A-011#1": {
+          "card_copy_id": "A-011",
+          "initial_instance_id": "A-011#1",
+          "card_id": "C-bat"
+        },
+        "A-027#1": {
+          "card_copy_id": "A-027",
+          "initial_instance_id": "A-027#1",
+          "card_id": "G-asteroids-classic"
+        },
+        "A-004#1": {
+          "card_copy_id": "A-004",
+          "initial_instance_id": "A-004#1",
+          "card_id": "M-antlion-04"
+        },
+        "A-012#1": {
+          "card_copy_id": "A-012",
+          "initial_instance_id": "A-012#1",
+          "card_id": "C-box"
+        },
+        "A-005#1": {
+          "card_copy_id": "A-005",
+          "initial_instance_id": "A-005#1",
+          "card_id": "M-antlion-05"
+        },
+        "A-003#1": {
+          "card_copy_id": "A-003",
+          "initial_instance_id": "A-003#1",
+          "card_id": "M-antlion-03"
+        },
+        "A-039#1": {
+          "card_copy_id": "A-039",
+          "initial_instance_id": "A-039#1",
+          "card_id": "E-final-time"
+        },
+        "A-035#1": {
+          "card_copy_id": "A-035",
+          "initial_instance_id": "A-035#1",
+          "card_id": "I-sleepboost1"
+        },
+        "A-015#1": {
+          "card_copy_id": "A-015",
+          "initial_instance_id": "A-015#1",
+          "card_id": "C-chicken"
+        },
+        "A-021#1": {
+          "card_copy_id": "A-021",
+          "initial_instance_id": "A-021#1",
+          "card_id": "W-countryside"
+        },
+        "A-006#1": {
+          "card_copy_id": "A-006",
+          "initial_instance_id": "A-006#1",
+          "card_id": "M-antlion-06"
+        },
+        "A-022#1": {
+          "card_copy_id": "A-022",
+          "initial_instance_id": "A-022#1",
+          "card_id": "W-deepsea"
+        },
+        "A-031#1": {
+          "card_copy_id": "A-031",
+          "initial_instance_id": "A-031#1",
+          "card_id": "I-bond1"
+        },
+        "A-016#1": {
+          "card_copy_id": "A-016",
+          "initial_instance_id": "A-016#1",
+          "card_id": "P-anglerfish"
+        },
+        "A-024#1": {
+          "card_copy_id": "A-024",
+          "initial_instance_id": "A-024#1",
+          "card_id": "G-animal-shogi"
+        },
+        "A-018#1": {
+          "card_copy_id": "A-018",
+          "initial_instance_id": "A-018#1",
+          "card_id": "P-cliff_goat"
+        },
+        "A-032#1": {
+          "card_copy_id": "A-032",
+          "initial_instance_id": "A-032#1",
+          "card_id": "I-bowtie"
+        },
+        "B-011#1": {
+          "card_copy_id": "B-011",
+          "initial_instance_id": "B-011#1",
+          "card_id": "C-bat"
+        },
+        "B-010#1": {
+          "card_copy_id": "B-010",
+          "initial_instance_id": "B-010#1",
+          "card_id": "M-beetle-02"
+        },
+        "B-037#1": {
+          "card_copy_id": "B-037",
+          "initial_instance_id": "B-037#1",
+          "card_id": "E-boss"
+        },
+        "B-012#1": {
+          "card_copy_id": "B-012",
+          "initial_instance_id": "B-012#1",
+          "card_id": "C-box"
+        },
+        "B-001#1": {
+          "card_copy_id": "B-001",
+          "initial_instance_id": "B-001#1",
+          "card_id": "M-antlion-01"
+        },
+        "B-022#1": {
+          "card_copy_id": "B-022",
+          "initial_instance_id": "B-022#1",
+          "card_id": "W-deepsea"
+        },
+        "B-017#1": {
+          "card_copy_id": "B-017",
+          "initial_instance_id": "B-017#1",
+          "card_id": "P-cat_ceo"
+        },
+        "B-031#1": {
+          "card_copy_id": "B-031",
+          "initial_instance_id": "B-031#1",
+          "card_id": "I-bond1"
+        },
+        "B-009#1": {
+          "card_copy_id": "B-009",
+          "initial_instance_id": "B-009#1",
+          "card_id": "M-beetle-01"
+        },
+        "B-032#1": {
+          "card_copy_id": "B-032",
+          "initial_instance_id": "B-032#1",
+          "card_id": "I-bowtie"
+        },
+        "B-002#1": {
+          "card_copy_id": "B-002",
+          "initial_instance_id": "B-002#1",
+          "card_id": "M-antlion-02"
+        },
+        "B-023#1": {
+          "card_copy_id": "B-023",
+          "initial_instance_id": "B-023#1",
+          "card_id": "G-air-hockey"
+        },
+        "B-014#1": {
+          "card_copy_id": "B-014",
+          "initial_instance_id": "B-014#1",
+          "card_id": "C-chameleon"
+        },
+        "B-008#1": {
+          "card_copy_id": "B-008",
+          "initial_instance_id": "B-008#1",
+          "card_id": "M-antlion-08"
+        },
+        "B-018#1": {
+          "card_copy_id": "B-018",
+          "initial_instance_id": "B-018#1",
+          "card_id": "P-cliff_goat"
+        },
+        "B-025#1": {
+          "card_copy_id": "B-025",
+          "initial_instance_id": "B-025#1",
+          "card_id": "G-archery-3d"
+        },
+        "B-034#1": {
+          "card_copy_id": "B-034",
+          "initial_instance_id": "B-034#1",
+          "card_id": "I-poop1"
+        },
+        "B-036#1": {
+          "card_copy_id": "B-036",
+          "initial_instance_id": "B-036#1",
+          "card_id": "E-big-illness"
+        },
+        "B-006#1": {
+          "card_copy_id": "B-006",
+          "initial_instance_id": "B-006#1",
+          "card_id": "M-antlion-06"
+        },
+        "B-007#1": {
+          "card_copy_id": "B-007",
+          "initial_instance_id": "B-007#1",
+          "card_id": "M-antlion-07"
+        },
+        "B-016#1": {
+          "card_copy_id": "B-016",
+          "initial_instance_id": "B-016#1",
+          "card_id": "P-anglerfish"
+        },
+        "B-039#1": {
+          "card_copy_id": "B-039",
+          "initial_instance_id": "B-039#1",
+          "card_id": "E-final-time"
+        },
+        "B-013#1": {
+          "card_copy_id": "B-013",
+          "initial_instance_id": "B-013#1",
+          "card_id": "C-cat_friend"
+        },
+        "B-026#1": {
+          "card_copy_id": "B-026",
+          "initial_instance_id": "B-026#1",
+          "card_id": "G-area-claim"
+        },
+        "B-004#1": {
+          "card_copy_id": "B-004",
+          "initial_instance_id": "B-004#1",
+          "card_id": "M-antlion-04"
+        },
+        "B-028#1": {
+          "card_copy_id": "B-028",
+          "initial_instance_id": "B-028#1",
+          "card_id": "G-baseball-batting"
+        },
+        "B-027#1": {
+          "card_copy_id": "B-027",
+          "initial_instance_id": "B-027#1",
+          "card_id": "G-asteroids-classic"
+        },
+        "B-038#1": {
+          "card_copy_id": "B-038",
+          "initial_instance_id": "B-038#1",
+          "card_id": "E-fateful-transform"
+        },
+        "B-020#1": {
+          "card_copy_id": "B-020",
+          "initial_instance_id": "B-020#1",
+          "card_id": "W-city"
+        },
+        "B-040#1": {
+          "card_copy_id": "B-040",
+          "initial_instance_id": "B-040#1",
+          "card_id": "E-first-date"
+        },
+        "B-015#1": {
+          "card_copy_id": "B-015",
+          "initial_instance_id": "B-015#1",
+          "card_id": "C-chicken"
+        },
+        "B-019#1": {
+          "card_copy_id": "B-019",
+          "initial_instance_id": "B-019#1",
+          "card_id": "P-desert_scorpion"
+        },
+        "B-035#1": {
+          "card_copy_id": "B-035",
+          "initial_instance_id": "B-035#1",
+          "card_id": "I-sleepboost1"
+        },
+        "B-005#1": {
+          "card_copy_id": "B-005",
+          "initial_instance_id": "B-005#1",
+          "card_id": "M-antlion-05"
+        },
+        "B-024#1": {
+          "card_copy_id": "B-024",
+          "initial_instance_id": "B-024#1",
+          "card_id": "G-animal-shogi"
+        },
+        "B-033#1": {
+          "card_copy_id": "B-033",
+          "initial_instance_id": "B-033#1",
+          "card_id": "I-c_coin2"
+        },
+        "B-021#1": {
+          "card_copy_id": "B-021",
+          "initial_instance_id": "B-021#1",
+          "card_id": "W-countryside"
+        },
+        "B-030#1": {
+          "card_copy_id": "B-030",
+          "initial_instance_id": "B-030#1",
+          "card_id": "G-beach-volley"
+        },
+        "B-029#1": {
+          "card_copy_id": "B-029",
+          "initial_instance_id": "B-029#1",
+          "card_id": "G-basketball-3d"
+        },
+        "B-003#1": {
+          "card_copy_id": "B-003",
+          "initial_instance_id": "B-003#1",
+          "card_id": "M-antlion-03"
+        }
+      }
+    },
+    "response_context": {
+      "source_phase": "post_placement_response",
+      "phase": "response_window",
+      "window_kind": "after_normal_action",
+      "origin_event_seq": 26,
+      "turn_player": "B",
+      "priority_actor": "A",
+      "chain_status": "empty",
+      "chain_links": [],
+      "consecutive_passes": 2,
+      "response_opportunity_index": 3,
+      "decision_kind": "response_action",
+      "choice_kind": "reaction_or_pass"
+    },
+    "activation_zone": [],
+    "pending_triggers": [],
+    "return_target": "normal_action_opportunity",
+    "last_event_seq": 28,
+    "continuation_state_sha256": "5784cb04ac90cca29da4c4fac3fd449c1d5c15cf5b0a797916b4d5a5cd6687b8",
+    "source_event_seq": 12
+  },
+  "audits": [
+    {
+      "opportunity_context": {
+        "round": 2,
+        "turn_player": "A",
+        "actor": "A",
+        "phase": "normal_action",
+        "decision_kind": "normal_action",
+        "choice_kind": "normal_action"
+      },
+      "owner_state": {
+        "time": 2,
+        "growth": 25,
+        "hand": [
+          "A-009#1",
+          "A-002#1",
+          "A-010#1",
+          "A-019#1",
+          "A-028#1",
+          "A-026#1"
+        ],
+        "discard": [
+          "A-040#1"
+        ],
+        "board": {
+          "main": null,
+          "companions": [],
+          "partner": "A-017#1",
+          "partner_stage": 0,
+          "world": null,
+          "prepared": []
+        },
+        "reservations": [],
+        "challenge_used": false,
+        "person_placed": false,
+        "relationship_progressed": false
+      },
+      "public_information": {
+        "B": {
+          "time": 1,
+          "growth": 20,
+          "discard": [],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": "B-017#1",
+            "partner_stage": 0,
+            "world": null,
+            "prepared": []
+          },
+          "challenge_used": false,
+          "person_placed": true,
+          "relationship_progressed": false
+        }
+      },
+      "information_policy": "public_and_owner_known_only",
+      "source_inventory": [
+        {
+          "family": "standing_pass",
+          "sources": [
+            "pass"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "114-normal-decision-protocol-hardening.md",
+          "inspected_state_field": "phase"
+        },
+        {
+          "family": "hand_card_action",
+          "sources": [
+            "A-009#1",
+            "A-002#1",
+            "A-010#1",
+            "A-019#1",
+            "A-028#1",
+            "A-026#1"
+          ],
+          "count": 6,
+          "empty_reason_code": null,
+          "source_reference": "114-normal-decision-protocol-hardening.md",
+          "inspected_state_field": "players.A.hand"
+        },
+        {
+          "family": "board_card_action",
+          "sources": [
+            "A-017#1"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.A.board"
+        },
+        {
+          "family": "reservation_action",
+          "sources": [],
+          "count": 0,
+          "empty_reason_code": "no_reservation_source",
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.A.reservations"
+        },
+        {
+          "family": "normal_challenge",
+          "sources": [
+            "challenge:A"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.*.board"
+        },
+        {
+          "family": "relationship_progress",
+          "sources": [
+            "relationship:A"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.A.board.partner"
+        }
+      ],
+      "enumeration_units": [
+        {
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "source_family": "standing_pass",
+          "source_zone": "synthetic",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "pass",
+          "candidate_variant": "pass",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "pass",
+          "evidence": {},
+          "source_references": [
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-009#1",
+          "source_instance_id": "A-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-play-main-A-009#1-birth",
+          "evidence": {},
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"time_skip\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-009#1",
+          "source_instance_id": "A-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "time_skip",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-beetle-01",
+            "candidate_variant": "time_skip"
+          },
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"transform\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-009#1",
+          "source_instance_id": "A-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "transform",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-beetle-01",
+            "candidate_variant": "transform"
+          },
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-002#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-002#1",
+          "source_instance_id": "A-002#1",
+          "card_id": "M-antlion-02",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-antlion-02",
+            "candidate_variant": "birth"
+          },
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-02",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-002#1\",\"play_main\",\"time_skip\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-002#1",
+          "source_instance_id": "A-002#1",
+          "card_id": "M-antlion-02",
+          "action_type": "play_main",
+          "candidate_variant": "time_skip",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-antlion-02",
+            "candidate_variant": "time_skip"
+          },
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-02",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-002#1\",\"play_main\",\"transform\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-002#1",
+          "source_instance_id": "A-002#1",
+          "card_id": "M-antlion-02",
+          "action_type": "play_main",
+          "candidate_variant": "transform",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-antlion-02",
+            "candidate_variant": "transform"
+          },
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-02",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-010#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-010#1",
+          "source_instance_id": "A-010#1",
+          "card_id": "M-beetle-02",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-beetle-02",
+            "candidate_variant": "birth"
+          },
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-02",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-010#1\",\"play_main\",\"time_skip\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-010#1",
+          "source_instance_id": "A-010#1",
+          "card_id": "M-beetle-02",
+          "action_type": "play_main",
+          "candidate_variant": "time_skip",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-beetle-02",
+            "candidate_variant": "time_skip"
+          },
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-02",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-010#1\",\"play_main\",\"transform\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-010#1",
+          "source_instance_id": "A-010#1",
+          "card_id": "M-beetle-02",
+          "action_type": "play_main",
+          "candidate_variant": "transform",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-beetle-02",
+            "candidate_variant": "transform"
+          },
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-02",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-019#1\",\"place_partner\",\"start_relationship_stage_zero\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-019#1",
+          "source_instance_id": "A-019#1",
+          "card_id": "P-desert_scorpion",
+          "action_type": "place_partner",
+          "candidate_variant": "start_relationship_stage_zero",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "partner_slot_occupied"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.partner": "A-017#1"
+          },
+          "source_references": [
+            "74-partner-18-card-text-draft.md#P-desert_scorpion",
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-028#1\",\"use_play\",\"single_own_participant\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-028#1",
+          "source_instance_id": "A-028#1",
+          "card_id": "G-baseball-batting",
+          "action_type": "use_play",
+          "candidate_variant": "single_own_participant",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "timing_not_normal_action",
+            "required_own_main_absent"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "phase": "normal_action",
+            "template.timing": "own_power_challenge_reaction_only",
+            "owner.board.main": null
+          },
+          "source_references": [
+            "81-play-batch-2-card-text-draft.md#G-baseball-batting",
+            "06-action-chain-checkpoint.md",
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-026#1\",\"use_play\",\"seven_or_eight_cards\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-026#1",
+          "source_instance_id": "A-026#1",
+          "card_id": "G-area-claim",
+          "action_type": "use_play",
+          "candidate_variant": "seven_or_eight_cards",
+          "target_instance_ids": [],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "reason_codes": [
+            "insufficient_time",
+            "board_card_count_condition_not_met"
+          ],
+          "evidence": {
+            "owner.board_instance_ids": [
+              "A-017#1"
+            ],
+            "owner.board_card_count": 1,
+            "required_min": 7,
+            "required_max": 8,
+            "owner.time": 2,
+            "template.base_time_cost": 3
+          },
+          "source_references": [
+            "85-play-batch-4-card-text-draft.md#G-area-claim",
+            "01-core-rules.md",
+            "114-normal-decision-protocol-hardening.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-026#1\",\"use_play\",\"nine_or_more_cards\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-026#1",
+          "source_instance_id": "A-026#1",
+          "card_id": "G-area-claim",
+          "action_type": "use_play",
+          "candidate_variant": "nine_or_more_cards",
+          "target_instance_ids": [],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "reason_codes": [
+            "insufficient_time",
+            "board_card_count_condition_not_met"
+          ],
+          "evidence": {
+            "owner.board_instance_ids": [
+              "A-017#1"
+            ],
+            "owner.board_card_count": 1,
+            "required_min": 9,
+            "required_max": null,
+            "owner.time": 2,
+            "template.base_time_cost": 3
+          },
+          "source_references": [
+            "85-play-batch-4-card-text-draft.md#G-area-claim",
+            "01-core-rules.md",
+            "114-normal-decision-protocol-hardening.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"board_card_action\",\"board\",\"A-017#1\",\"board_passive\",\"past_trigger\",[]]",
+          "source_family": "board_card_action",
+          "source_zone": "board",
+          "source_id": "A-017#1",
+          "source_instance_id": "A-017#1",
+          "card_id": "P-cat_ceo",
+          "action_type": "board_passive",
+          "candidate_variant": "past_trigger",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "passive_not_separate_action"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "source_zone": "board",
+            "template.timing": "passive"
+          },
+          "source_references": [
+            "74-partner-18-card-text-draft.md#P-cat_ceo",
+            "06-action-chain-checkpoint.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:A\",\"challenge\",\"power\",[]]",
+          "source_family": "normal_challenge",
+          "source_zone": "synthetic",
+          "source_id": "challenge:A",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "challenge",
+          "candidate_variant": "power",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "challenge_participant_missing"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "opponent.board.main": null
+          },
+          "source_references": [
+            "01-core-rules.md",
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:A\",\"challenge\",\"wisdom\",[]]",
+          "source_family": "normal_challenge",
+          "source_zone": "synthetic",
+          "source_id": "challenge:A",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "challenge",
+          "candidate_variant": "wisdom",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "challenge_participant_missing"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "opponent.board.main": null
+          },
+          "source_references": [
+            "01-core-rules.md",
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"relationship_progress\",\"synthetic\",\"relationship:A\",\"relationship\",\"0-to-1\",[]]",
+          "source_family": "relationship_progress",
+          "source_zone": "synthetic",
+          "source_id": "relationship:A",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "relationship",
+          "candidate_variant": "0-to-1",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "relationship_blocked_while_egg"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null
+          },
+          "source_references": [
+            "01-core-rules.md",
+            "02-main-system.md"
+          ]
+        }
+      ],
+      "legal_candidate_ids": [
+        "candidate-play-main-A-009#1-birth",
+        "pass"
+      ],
+      "legal_candidate_details": [
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "A-009#1",
+          "source_instance_id": "A-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-play-main-A-009#1-birth",
+          "evidence": {},
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "source_family": "standing_pass",
+          "source_zone": "synthetic",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "pass",
+          "candidate_variant": "pass",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "pass",
+          "evidence": {},
+          "source_references": [
+            "01-core-rules.md"
+          ]
+        }
+      ],
+      "forbidden_information_used": [],
+      "completeness_checks": {
+        "opportunity_context_valid": true,
+        "source_artifact_integrity_valid": true,
+        "information_boundary_valid": true,
+        "required_source_families_present": true,
+        "source_inventory_complete": true,
+        "candidate_templates_complete": true,
+        "candidate_variants_complete": true,
+        "target_expansions_complete": true,
+        "canonical_predicates_resolved": true,
+        "dispositions_and_reasons_valid": true,
+        "stable_candidate_ids_valid": true,
+        "legal_candidate_projection_exact": true
+      },
+      "candidate_set_complete": true,
+      "contract_stop_codes": []
+    },
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "99ec72b8219d30a7db43daddaecd2bb4672cf9b75fc966fa89823d9013cc1150",
+      "last_valid_event_seq": 22,
+      "game_state_sha256": "9fbfa38279bba565854583246c3813980ff986a505915bf65647ce719e20ce37",
+      "continuation_state_sha256": "a690e5c7f71a52acfc5d4db604e8acbe9abc3439187661fe2a807900e75f42b2",
+      "stage_inventory": [
+        {
+          "stage": 1,
+          "stage_name": "closed_end_request",
+          "units": [],
+          "empty_reason": "closed_empty_response_window",
+          "state_fields": [
+            "game_state.phase",
+            "continuation_state.response_context",
+            "continuation_state.return_target"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 2,
+          "stage_name": "due_reservations",
+          "units": [],
+          "empty_reason": "both_reservation_lists_empty",
+          "state_fields": [
+            "game_state.players.*.reservations"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 3,
+          "stage_name": "end_triggers_and_responses",
+          "units": [
+            {
+              "enumeration_unit_id": "c9a48a384d116c1143bcc29a1700c8f42d57f1fb969020defbbe3949e02d7806",
+              "source_zone": "A.board.partner",
+              "source_instance_id": "A-017#1",
+              "card_id": "P-cat_ceo",
+              "timing": "past_trigger",
+              "disposition": "excluded",
+              "evidence": {
+                "owner": "A",
+                "card_id": "P-cat_ceo",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_references": [
+                "74-partner-18-card-text-draft.md#P-cat_ceo"
+              ]
+            },
+            {
+              "enumeration_unit_id": "8c06aff1df9c08d6e28e23c2ed657b277b6ade98ca0f5fb4c35acc3419774e3b",
+              "source_zone": "B.board.partner",
+              "source_instance_id": "B-017#1",
+              "card_id": "P-cat_ceo",
+              "timing": "past_trigger",
+              "disposition": "excluded",
+              "evidence": {
+                "owner": "B",
+                "card_id": "P-cat_ceo",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_references": [
+                "74-partner-18-card-text-draft.md#P-cat_ceo"
+              ]
+            }
+          ],
+          "empty_reason": "no_due_public_board_trigger",
+          "state_fields": [
+            "game_state.players.*.board",
+            "game_state.cards",
+            "continuation_state.pending_triggers",
+            "continuation_state.activation_zone"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 4,
+          "stage_name": "expiring_effects",
+          "units": [],
+          "empty_reason": "verified_no_expiring_effects",
+          "state_fields": [
+            "verified_history.classified_events",
+            "verified_history.active_expiring_effects"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 5,
+          "stage_name": "expiration_triggers",
+          "units": [],
+          "empty_reason": "verified_no_expiration_triggers",
+          "state_fields": [
+            "verified_history.active_expiring_effects"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 6,
+          "stage_name": "victory_and_next_turn",
+          "units": [],
+          "empty_reason": "verified_r1_no_100_reach",
+          "state_fields": [
+            "verified_history.growth_trace",
+            "verified_history.growth_reach_100"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        }
+      ],
+      "contract_stop_codes": [],
+      "completeness_checks": {
+        "source_artifact_integrity_valid": true,
+        "closed_response_window_valid": true,
+        "six_stage_inventory_present": true,
+        "reservation_order_resolved": true,
+        "trigger_information_boundary_valid": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "victory_history_sufficient": true,
+        "source_dispositions_explained": true,
+        "transition_handlers_proven": true,
+        "enumeration_ids_unique": true,
+        "source_projection_exact": true
+      },
+      "turn_end_set_complete": true,
+      "provenance_evidence": {
+        "source_event_seq": 22,
+        "classified_event_count": 22,
+        "growth_trace": [
+          {
+            "event_seq": 0,
+            "growth": {
+              "A": 20,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 1,
+            "growth": {
+              "A": 20,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 2,
+            "growth": {
+              "A": 20,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 3,
+            "growth": {
+              "A": 20,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 4,
+            "growth": {
+              "A": 20,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 5,
+            "growth": {
+              "A": 20,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 6,
+            "growth": {
+              "A": 20,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 7,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 8,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 9,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 10,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 11,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 12,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 13,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 14,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 15,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 16,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 17,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 18,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 19,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 20,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 21,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          },
+          {
+            "event_seq": 22,
+            "growth": {
+              "A": 25,
+              "B": 20
+            }
+          }
+        ],
+        "unresolved_codes": [],
+        "source_references": [
+          "01-core-rules.md",
+          "06-action-chain-checkpoint.md",
+          "64-turn-boundaries-and-victory-timing.md"
+        ]
+      }
+    },
+    {
+      "opportunity_context": {
+        "round": 2,
+        "turn_player": "B",
+        "actor": "B",
+        "phase": "normal_action",
+        "decision_kind": "normal_action",
+        "choice_kind": "normal_action"
+      },
+      "owner_state": {
+        "time": 2,
+        "growth": 20,
+        "hand": [
+          "B-011#1",
+          "B-037#1",
+          "B-012#1",
+          "B-001#1",
+          "B-031#1",
+          "B-009#1"
+        ],
+        "discard": [],
+        "board": {
+          "main": null,
+          "companions": [],
+          "partner": "B-017#1",
+          "partner_stage": 0,
+          "world": null,
+          "prepared": []
+        },
+        "reservations": [],
+        "challenge_used": false,
+        "person_placed": false,
+        "relationship_progressed": false
+      },
+      "public_information": {
+        "A": {
+          "time": 2,
+          "growth": 25,
+          "discard": [
+            "A-040#1"
+          ],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": "A-017#1",
+            "partner_stage": 0,
+            "world": null,
+            "prepared": []
+          },
+          "challenge_used": false,
+          "person_placed": false,
+          "relationship_progressed": false
+        }
+      },
+      "information_policy": "public_and_owner_known_only",
+      "source_inventory": [
+        {
+          "family": "standing_pass",
+          "sources": [
+            "pass"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "114-normal-decision-protocol-hardening.md",
+          "inspected_state_field": "phase"
+        },
+        {
+          "family": "hand_card_action",
+          "sources": [
+            "B-011#1",
+            "B-037#1",
+            "B-012#1",
+            "B-001#1",
+            "B-031#1",
+            "B-009#1"
+          ],
+          "count": 6,
+          "empty_reason_code": null,
+          "source_reference": "114-normal-decision-protocol-hardening.md",
+          "inspected_state_field": "players.B.hand"
+        },
+        {
+          "family": "board_card_action",
+          "sources": [
+            "B-017#1"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.B.board"
+        },
+        {
+          "family": "reservation_action",
+          "sources": [],
+          "count": 0,
+          "empty_reason_code": "no_reservation_source",
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.B.reservations"
+        },
+        {
+          "family": "normal_challenge",
+          "sources": [
+            "challenge:B"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.*.board"
+        },
+        {
+          "family": "relationship_progress",
+          "sources": [
+            "relationship:B"
+          ],
+          "count": 1,
+          "empty_reason_code": null,
+          "source_reference": "01-core-rules.md",
+          "inspected_state_field": "players.B.board.partner"
+        }
+      ],
+      "enumeration_units": [
+        {
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "source_family": "standing_pass",
+          "source_zone": "synthetic",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "pass",
+          "candidate_variant": "pass",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "pass",
+          "evidence": {},
+          "source_references": [
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-011#1\",\"place_companion\",\"empty_slot\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-011#1",
+          "source_instance_id": "B-011#1",
+          "card_id": "C-bat",
+          "action_type": "place_companion",
+          "candidate_variant": "empty_slot",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-place-companion-B-011#1",
+          "evidence": {},
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-bat"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-011#1\",\"place_companion\",\"replace_each_legal_companion\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-011#1",
+          "source_instance_id": "B-011#1",
+          "card_id": "C-bat",
+          "action_type": "place_companion",
+          "candidate_variant": "replace_each_legal_companion",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "required_target_absent"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "target_instance_ids": [],
+            "template.target_rule": "empty companion slot or one occupied companion to replace when full"
+          },
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-bat",
+            "114-normal-decision-protocol-hardening.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-037#1\",\"use_event\",\"single_no_target\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-037#1",
+          "source_instance_id": "B-037#1",
+          "card_id": "E-boss",
+          "action_type": "use_event",
+          "candidate_variant": "single_no_target",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "required_own_main_absent",
+            "required_history_absent"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "owner.discard": [],
+            "public_history": {
+              "normal_challenge_losses_by_actor": [],
+              "last_valid_event_seq": 25,
+              "source_refs": [
+                "proxy-normal-decision-seeded-restart-plan-117-20260919.json",
+                "proxy-response-window-seeded-restart-plan-120-20260922.json",
+                "proxy-normal-action-seeded-restart-plan-122-20260923.json",
+                "proxy-turn-end-provenance-restart-plan-124-20260923.json"
+              ]
+            }
+          },
+          "source_references": [
+            "91-event-21-card-text-draft.md#E-boss",
+            "01-core-rules.md",
+            "114-normal-decision-protocol-hardening.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-012#1\",\"place_companion\",\"empty_slot\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-012#1",
+          "source_instance_id": "B-012#1",
+          "card_id": "C-box",
+          "action_type": "place_companion",
+          "candidate_variant": "empty_slot",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-place-companion-B-012#1",
+          "evidence": {},
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-box"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-012#1\",\"place_companion\",\"replace_each_legal_companion\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-012#1",
+          "source_instance_id": "B-012#1",
+          "card_id": "C-box",
+          "action_type": "place_companion",
+          "candidate_variant": "replace_each_legal_companion",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "required_target_absent"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "target_instance_ids": [],
+            "template.target_rule": "empty companion slot or one occupied companion to replace when full"
+          },
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-box",
+            "114-normal-decision-protocol-hardening.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-001#1",
+          "source_instance_id": "B-001#1",
+          "card_id": "M-antlion-01",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-play-main-B-001#1-birth",
+          "evidence": {},
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"time_skip\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-001#1",
+          "source_instance_id": "B-001#1",
+          "card_id": "M-antlion-01",
+          "action_type": "play_main",
+          "candidate_variant": "time_skip",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-antlion-01",
+            "candidate_variant": "time_skip"
+          },
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-01",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"transform\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-001#1",
+          "source_instance_id": "B-001#1",
+          "card_id": "M-antlion-01",
+          "action_type": "play_main",
+          "candidate_variant": "transform",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-antlion-01",
+            "candidate_variant": "transform"
+          },
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-01",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-031#1\",\"attach_item\",\"each_legal_own_companion\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-031#1",
+          "source_instance_id": "B-031#1",
+          "card_id": "I-bond1",
+          "action_type": "attach_item",
+          "candidate_variant": "each_legal_own_companion",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "required_target_absent"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "target_instance_ids": [],
+            "template.target_rule": "one own companion"
+          },
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bond1",
+            "114-normal-decision-protocol-hardening.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-009#1",
+          "source_instance_id": "B-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-play-main-B-009#1-birth",
+          "evidence": {},
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"time_skip\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-009#1",
+          "source_instance_id": "B-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "time_skip",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-beetle-01",
+            "candidate_variant": "time_skip"
+          },
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"transform\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-009#1",
+          "source_instance_id": "B-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "transform",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "main_transition_not_legal"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "card_id": "M-beetle-01",
+            "candidate_variant": "transform"
+          },
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+            "02-main-system.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"board_card_action\",\"board\",\"B-017#1\",\"board_passive\",\"past_trigger\",[]]",
+          "source_family": "board_card_action",
+          "source_zone": "board",
+          "source_id": "B-017#1",
+          "source_instance_id": "B-017#1",
+          "card_id": "P-cat_ceo",
+          "action_type": "board_passive",
+          "candidate_variant": "past_trigger",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "passive_not_separate_action"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "source_zone": "board",
+            "template.timing": "passive"
+          },
+          "source_references": [
+            "74-partner-18-card-text-draft.md#P-cat_ceo",
+            "06-action-chain-checkpoint.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:B\",\"challenge\",\"power\",[]]",
+          "source_family": "normal_challenge",
+          "source_zone": "synthetic",
+          "source_id": "challenge:B",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "challenge",
+          "candidate_variant": "power",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "challenge_participant_missing"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "opponent.board.main": null
+          },
+          "source_references": [
+            "01-core-rules.md",
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:B\",\"challenge\",\"wisdom\",[]]",
+          "source_family": "normal_challenge",
+          "source_zone": "synthetic",
+          "source_id": "challenge:B",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "challenge",
+          "candidate_variant": "wisdom",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "challenge_participant_missing"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null,
+            "opponent.board.main": null
+          },
+          "source_references": [
+            "01-core-rules.md",
+            "01-core-rules.md"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"relationship_progress\",\"synthetic\",\"relationship:B\",\"relationship\",\"0-to-1\",[]]",
+          "source_family": "relationship_progress",
+          "source_zone": "synthetic",
+          "source_id": "relationship:B",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "relationship",
+          "candidate_variant": "0-to-1",
+          "target_instance_ids": [],
+          "reason_codes": [
+            "relationship_blocked_while_egg"
+          ],
+          "disposition": "excluded",
+          "candidate_id": null,
+          "evidence": {
+            "owner.board.main": null
+          },
+          "source_references": [
+            "01-core-rules.md",
+            "02-main-system.md"
+          ]
+        }
+      ],
+      "legal_candidate_ids": [
+        "candidate-place-companion-B-011#1",
+        "candidate-place-companion-B-012#1",
+        "candidate-play-main-B-001#1-birth",
+        "candidate-play-main-B-009#1-birth",
+        "pass"
+      ],
+      "legal_candidate_details": [
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-011#1\",\"place_companion\",\"empty_slot\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-011#1",
+          "source_instance_id": "B-011#1",
+          "card_id": "C-bat",
+          "action_type": "place_companion",
+          "candidate_variant": "empty_slot",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-place-companion-B-011#1",
+          "evidence": {},
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-bat"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-012#1\",\"place_companion\",\"empty_slot\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-012#1",
+          "source_instance_id": "B-012#1",
+          "card_id": "C-box",
+          "action_type": "place_companion",
+          "candidate_variant": "empty_slot",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-place-companion-B-012#1",
+          "evidence": {},
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-box"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-001#1",
+          "source_instance_id": "B-001#1",
+          "card_id": "M-antlion-01",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-play-main-B-001#1-birth",
+          "evidence": {},
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"birth\",[]]",
+          "source_family": "hand_card_action",
+          "source_zone": "hand",
+          "source_id": "B-009#1",
+          "source_instance_id": "B-009#1",
+          "card_id": "M-beetle-01",
+          "action_type": "play_main",
+          "candidate_variant": "birth",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "candidate-play-main-B-009#1-birth",
+          "evidence": {},
+          "source_references": [
+            "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+          ]
+        },
+        {
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "source_family": "standing_pass",
+          "source_zone": "synthetic",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "card_id": null,
+          "action_type": "pass",
+          "candidate_variant": "pass",
+          "target_instance_ids": [],
+          "reason_codes": [],
+          "disposition": "admitted",
+          "candidate_id": "pass",
+          "evidence": {},
+          "source_references": [
+            "01-core-rules.md"
+          ]
+        }
+      ],
+      "forbidden_information_used": [],
+      "completeness_checks": {
+        "opportunity_context_valid": true,
+        "source_artifact_integrity_valid": true,
+        "information_boundary_valid": true,
+        "required_source_families_present": true,
+        "source_inventory_complete": true,
+        "candidate_templates_complete": true,
+        "candidate_variants_complete": true,
+        "target_expansions_complete": true,
+        "canonical_predicates_resolved": true,
+        "dispositions_and_reasons_valid": true,
+        "stable_candidate_ids_valid": true,
+        "legal_candidate_projection_exact": true
+      },
+      "candidate_set_complete": true,
+      "contract_stop_codes": []
+    },
+    {
+      "opportunity_context": {
+        "round": 2,
+        "turn_player": "B",
+        "actor": "B",
+        "phase": "normal_action",
+        "decision_kind": "normal_action",
+        "choice_kind": "normal_action"
+      },
+      "owner_state": {
+        "time": 2,
+        "growth": 20,
+        "hand": [
+          "B-011#1",
+          "B-037#1",
+          "B-001#1",
+          "B-031#1",
+          "B-009#1"
+        ],
+        "discard": [],
+        "board": {
+          "main": null,
+          "companions": [
+            "B-012#1"
+          ],
+          "partner": "B-017#1",
+          "partner_stage": 0,
+          "world": null,
+          "prepared": []
+        },
+        "reservations": [],
+        "challenge_used": false,
+        "person_placed": true,
+        "relationship_progressed": false
+      },
+      "public_information": {
+        "A": {
+          "time": 2,
+          "growth": 25,
+          "discard": [
+            "A-040#1"
+          ],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": "A-017#1",
+            "partner_stage": 0,
+            "world": null,
+            "prepared": []
+          },
+          "challenge_used": false,
+          "person_placed": false,
+          "relationship_progressed": false
+        }
+      },
+      "information_policy": "public_and_owner_known_only",
+      "source_inventory": [],
+      "enumeration_units": [],
+      "legal_candidate_ids": [],
+      "legal_candidate_details": [],
+      "forbidden_information_used": [],
+      "completeness_checks": {
+        "opportunity_context_valid": false,
+        "source_artifact_integrity_valid": false,
+        "information_boundary_valid": false,
+        "required_source_families_present": false,
+        "source_inventory_complete": false,
+        "candidate_templates_complete": false,
+        "candidate_variants_complete": false,
+        "target_expansions_complete": false,
+        "canonical_predicates_resolved": false,
+        "dispositions_and_reasons_valid": false,
+        "stable_candidate_ids_valid": false,
+        "legal_candidate_projection_exact": false
+      },
+      "candidate_set_complete": false,
+      "contract_stop_codes": [
+        "unresolved_canonical_predicate"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "kind": "normal_action",
+      "selected_candidate": "pass",
+      "legal_candidates": [
+        "candidate-play-main-A-009#1-birth",
+        "pass"
+      ],
+      "resolution_mode": "priority_unique",
+      "seed_proof": null,
+      "priority_basis": {
+        "scores": {
+          "candidate-play-main-A-009#1-birth": {
+            "candidate_id": "candidate-play-main-A-009#1-birth",
+            "avoid_loss_or_abort": 0,
+            "maintain_or_prevent_100": 0,
+            "certain_growth_difference": 0,
+            "time_after_certain_resolution": 1,
+            "payment_time": 1,
+            "consumed_card_count": 0,
+            "card_copy_id": "A-009#1",
+            "value_comparison_to": {}
+          },
+          "pass": {
+            "candidate_id": "pass",
+            "avoid_loss_or_abort": 0,
+            "maintain_or_prevent_100": 0,
+            "certain_growth_difference": 0,
+            "time_after_certain_resolution": 2,
+            "payment_time": 0,
+            "consumed_card_count": 0,
+            "card_copy_id": "",
+            "value_comparison_to": {}
+          }
+        },
+        "pairwise": {
+          "candidate-play-main-A-009#1-birth": {
+            "winner": "left",
+            "decided_at": "time_after_certain_resolution",
+            "reason": "time_after_certain_resolution"
+          }
+        }
+      },
+      "audit": {
+        "opportunity_context": {
+          "round": 2,
+          "turn_player": "A",
+          "actor": "A",
+          "phase": "normal_action",
+          "decision_kind": "normal_action",
+          "choice_kind": "normal_action"
+        },
+        "owner_state": {
+          "time": 2,
+          "growth": 25,
+          "hand": [
+            "A-009#1",
+            "A-002#1",
+            "A-010#1",
+            "A-019#1",
+            "A-028#1",
+            "A-026#1"
+          ],
+          "discard": [
+            "A-040#1"
+          ],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": "A-017#1",
+            "partner_stage": 0,
+            "world": null,
+            "prepared": []
+          },
+          "reservations": [],
+          "challenge_used": false,
+          "person_placed": false,
+          "relationship_progressed": false
+        },
+        "public_information": {
+          "B": {
+            "time": 1,
+            "growth": 20,
+            "discard": [],
+            "board": {
+              "main": null,
+              "companions": [],
+              "partner": "B-017#1",
+              "partner_stage": 0,
+              "world": null,
+              "prepared": []
+            },
+            "challenge_used": false,
+            "person_placed": true,
+            "relationship_progressed": false
+          }
+        },
+        "information_policy": "public_and_owner_known_only",
+        "source_inventory": [
+          {
+            "family": "standing_pass",
+            "sources": [
+              "pass"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "114-normal-decision-protocol-hardening.md",
+            "inspected_state_field": "phase"
+          },
+          {
+            "family": "hand_card_action",
+            "sources": [
+              "A-009#1",
+              "A-002#1",
+              "A-010#1",
+              "A-019#1",
+              "A-028#1",
+              "A-026#1"
+            ],
+            "count": 6,
+            "empty_reason_code": null,
+            "source_reference": "114-normal-decision-protocol-hardening.md",
+            "inspected_state_field": "players.A.hand"
+          },
+          {
+            "family": "board_card_action",
+            "sources": [
+              "A-017#1"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.A.board"
+          },
+          {
+            "family": "reservation_action",
+            "sources": [],
+            "count": 0,
+            "empty_reason_code": "no_reservation_source",
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.A.reservations"
+          },
+          {
+            "family": "normal_challenge",
+            "sources": [
+              "challenge:A"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.*.board"
+          },
+          {
+            "family": "relationship_progress",
+            "sources": [
+              "relationship:A"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.A.board.partner"
+          }
+        ],
+        "enumeration_units": [
+          {
+            "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+            "source_family": "standing_pass",
+            "source_zone": "synthetic",
+            "source_id": "pass",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "pass",
+            "candidate_variant": "pass",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "pass",
+            "evidence": {},
+            "source_references": [
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-009#1",
+            "source_instance_id": "A-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-play-main-A-009#1-birth",
+            "evidence": {},
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"time_skip\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-009#1",
+            "source_instance_id": "A-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "time_skip",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-beetle-01",
+              "candidate_variant": "time_skip"
+            },
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"transform\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-009#1",
+            "source_instance_id": "A-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "transform",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-beetle-01",
+              "candidate_variant": "transform"
+            },
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-002#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-002#1",
+            "source_instance_id": "A-002#1",
+            "card_id": "M-antlion-02",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-antlion-02",
+              "candidate_variant": "birth"
+            },
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-02",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-002#1\",\"play_main\",\"time_skip\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-002#1",
+            "source_instance_id": "A-002#1",
+            "card_id": "M-antlion-02",
+            "action_type": "play_main",
+            "candidate_variant": "time_skip",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-antlion-02",
+              "candidate_variant": "time_skip"
+            },
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-02",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-002#1\",\"play_main\",\"transform\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-002#1",
+            "source_instance_id": "A-002#1",
+            "card_id": "M-antlion-02",
+            "action_type": "play_main",
+            "candidate_variant": "transform",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-antlion-02",
+              "candidate_variant": "transform"
+            },
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-02",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-010#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-010#1",
+            "source_instance_id": "A-010#1",
+            "card_id": "M-beetle-02",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-beetle-02",
+              "candidate_variant": "birth"
+            },
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-02",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-010#1\",\"play_main\",\"time_skip\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-010#1",
+            "source_instance_id": "A-010#1",
+            "card_id": "M-beetle-02",
+            "action_type": "play_main",
+            "candidate_variant": "time_skip",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-beetle-02",
+              "candidate_variant": "time_skip"
+            },
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-02",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-010#1\",\"play_main\",\"transform\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-010#1",
+            "source_instance_id": "A-010#1",
+            "card_id": "M-beetle-02",
+            "action_type": "play_main",
+            "candidate_variant": "transform",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-beetle-02",
+              "candidate_variant": "transform"
+            },
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-02",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-019#1\",\"place_partner\",\"start_relationship_stage_zero\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-019#1",
+            "source_instance_id": "A-019#1",
+            "card_id": "P-desert_scorpion",
+            "action_type": "place_partner",
+            "candidate_variant": "start_relationship_stage_zero",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "partner_slot_occupied"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.partner": "A-017#1"
+            },
+            "source_references": [
+              "74-partner-18-card-text-draft.md#P-desert_scorpion",
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-028#1\",\"use_play\",\"single_own_participant\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-028#1",
+            "source_instance_id": "A-028#1",
+            "card_id": "G-baseball-batting",
+            "action_type": "use_play",
+            "candidate_variant": "single_own_participant",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "timing_not_normal_action",
+              "required_own_main_absent"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "phase": "normal_action",
+              "template.timing": "own_power_challenge_reaction_only",
+              "owner.board.main": null
+            },
+            "source_references": [
+              "81-play-batch-2-card-text-draft.md#G-baseball-batting",
+              "06-action-chain-checkpoint.md",
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-026#1\",\"use_play\",\"seven_or_eight_cards\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-026#1",
+            "source_instance_id": "A-026#1",
+            "card_id": "G-area-claim",
+            "action_type": "use_play",
+            "candidate_variant": "seven_or_eight_cards",
+            "target_instance_ids": [],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "reason_codes": [
+              "insufficient_time",
+              "board_card_count_condition_not_met"
+            ],
+            "evidence": {
+              "owner.board_instance_ids": [
+                "A-017#1"
+              ],
+              "owner.board_card_count": 1,
+              "required_min": 7,
+              "required_max": 8,
+              "owner.time": 2,
+              "template.base_time_cost": 3
+            },
+            "source_references": [
+              "85-play-batch-4-card-text-draft.md#G-area-claim",
+              "01-core-rules.md",
+              "114-normal-decision-protocol-hardening.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-026#1\",\"use_play\",\"nine_or_more_cards\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-026#1",
+            "source_instance_id": "A-026#1",
+            "card_id": "G-area-claim",
+            "action_type": "use_play",
+            "candidate_variant": "nine_or_more_cards",
+            "target_instance_ids": [],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "reason_codes": [
+              "insufficient_time",
+              "board_card_count_condition_not_met"
+            ],
+            "evidence": {
+              "owner.board_instance_ids": [
+                "A-017#1"
+              ],
+              "owner.board_card_count": 1,
+              "required_min": 9,
+              "required_max": null,
+              "owner.time": 2,
+              "template.base_time_cost": 3
+            },
+            "source_references": [
+              "85-play-batch-4-card-text-draft.md#G-area-claim",
+              "01-core-rules.md",
+              "114-normal-decision-protocol-hardening.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"board_card_action\",\"board\",\"A-017#1\",\"board_passive\",\"past_trigger\",[]]",
+            "source_family": "board_card_action",
+            "source_zone": "board",
+            "source_id": "A-017#1",
+            "source_instance_id": "A-017#1",
+            "card_id": "P-cat_ceo",
+            "action_type": "board_passive",
+            "candidate_variant": "past_trigger",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "passive_not_separate_action"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "source_zone": "board",
+              "template.timing": "passive"
+            },
+            "source_references": [
+              "74-partner-18-card-text-draft.md#P-cat_ceo",
+              "06-action-chain-checkpoint.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:A\",\"challenge\",\"power\",[]]",
+            "source_family": "normal_challenge",
+            "source_zone": "synthetic",
+            "source_id": "challenge:A",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "challenge",
+            "candidate_variant": "power",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "challenge_participant_missing"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "opponent.board.main": null
+            },
+            "source_references": [
+              "01-core-rules.md",
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:A\",\"challenge\",\"wisdom\",[]]",
+            "source_family": "normal_challenge",
+            "source_zone": "synthetic",
+            "source_id": "challenge:A",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "challenge",
+            "candidate_variant": "wisdom",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "challenge_participant_missing"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "opponent.board.main": null
+            },
+            "source_references": [
+              "01-core-rules.md",
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"relationship_progress\",\"synthetic\",\"relationship:A\",\"relationship\",\"0-to-1\",[]]",
+            "source_family": "relationship_progress",
+            "source_zone": "synthetic",
+            "source_id": "relationship:A",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "relationship",
+            "candidate_variant": "0-to-1",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "relationship_blocked_while_egg"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null
+            },
+            "source_references": [
+              "01-core-rules.md",
+              "02-main-system.md"
+            ]
+          }
+        ],
+        "legal_candidate_ids": [
+          "candidate-play-main-A-009#1-birth",
+          "pass"
+        ],
+        "legal_candidate_details": [
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-009#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "A-009#1",
+            "source_instance_id": "A-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-play-main-A-009#1-birth",
+            "evidence": {},
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+            "source_family": "standing_pass",
+            "source_zone": "synthetic",
+            "source_id": "pass",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "pass",
+            "candidate_variant": "pass",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "pass",
+            "evidence": {},
+            "source_references": [
+              "01-core-rules.md"
+            ]
+          }
+        ],
+        "forbidden_information_used": [],
+        "completeness_checks": {
+          "opportunity_context_valid": true,
+          "source_artifact_integrity_valid": true,
+          "information_boundary_valid": true,
+          "required_source_families_present": true,
+          "source_inventory_complete": true,
+          "candidate_templates_complete": true,
+          "candidate_variants_complete": true,
+          "target_expansions_complete": true,
+          "canonical_predicates_resolved": true,
+          "dispositions_and_reasons_valid": true,
+          "stable_candidate_ids_valid": true,
+          "legal_candidate_projection_exact": true
+        },
+        "candidate_set_complete": true,
+        "contract_stop_codes": []
+      },
+      "event_seqs": [
+        21
+      ]
+    },
+    {
+      "kind": "response_action",
+      "selected_candidate": "response-pass",
+      "legal_candidates": [
+        "response-pass"
+      ],
+      "resolution_mode": "response_unique",
+      "seed_proof": null,
+      "priority_basis": null,
+      "audit": null,
+      "event_seqs": [
+        22
+      ]
+    },
+    {
+      "kind": "mandatory_choice",
+      "selected_candidate": "B-010",
+      "legal_candidates": [
+        "B-001",
+        "B-009",
+        "B-010",
+        "B-011",
+        "B-012",
+        "B-031",
+        "B-037"
+      ],
+      "resolution_mode": "seeded_fallback",
+      "seed_proof": {
+        "algorithm": "sha256_modulo",
+        "seed_material": [
+          "naotocchi.card_game.proxy_normal_decision_fallback.v1",
+          "order-01",
+          "B",
+          2,
+          2,
+          "egg_exchange_choice",
+          "mandatory_choice",
+          "egg_exchange_bottom",
+          [
+            "B-001",
+            "B-009",
+            "B-010",
+            "B-011",
+            "B-012",
+            "B-031",
+            "B-037"
+          ]
+        ],
+        "canonical_serialization": "[\"naotocchi.card_game.proxy_normal_decision_fallback.v1\",\"order-01\",\"B\",2,2,\"egg_exchange_choice\",\"mandatory_choice\",\"egg_exchange_bottom\",[\"B-001\",\"B-009\",\"B-010\",\"B-011\",\"B-012\",\"B-031\",\"B-037\"]]",
+        "sha256": "0af7271e88686adf894ae407b778a43cb4821bee35b370d70d66877e3fbc8e46",
+        "canonical_candidate_ids": [
+          "B-001",
+          "B-009",
+          "B-010",
+          "B-011",
+          "B-012",
+          "B-031",
+          "B-037"
+        ],
+        "candidate_count": 7,
+        "selected_index": 2,
+        "selected_candidate": "B-010"
+      },
+      "priority_basis": null,
+      "audit": null,
+      "event_seqs": [
+        25
+      ]
+    },
+    {
+      "kind": "normal_action",
+      "selected_candidate": "candidate-place-companion-B-012#1",
+      "legal_candidates": [
+        "candidate-place-companion-B-011#1",
+        "candidate-place-companion-B-012#1",
+        "candidate-play-main-B-001#1-birth",
+        "candidate-play-main-B-009#1-birth",
+        "pass"
+      ],
+      "resolution_mode": "seeded_fallback",
+      "seed_proof": {
+        "algorithm": "sha256_modulo",
+        "seed_material": [
+          "naotocchi.card_game.proxy_normal_decision_fallback.v1",
+          "order-01",
+          "B",
+          2,
+          2,
+          "normal_action",
+          "normal_action",
+          "zero_cost_person_placement",
+          [
+            "candidate-place-companion-B-011#1",
+            "candidate-place-companion-B-012#1"
+          ]
+        ],
+        "canonical_serialization": "[\"naotocchi.card_game.proxy_normal_decision_fallback.v1\",\"order-01\",\"B\",2,2,\"normal_action\",\"normal_action\",\"zero_cost_person_placement\",[\"candidate-place-companion-B-011#1\",\"candidate-place-companion-B-012#1\"]]",
+        "sha256": "a7c55b8e6ed854f09d4dfbbffc2fa3d06b1c7ffeb64fc3ccdcaecaf2b00381c3",
+        "canonical_candidate_ids": [
+          "candidate-place-companion-B-011#1",
+          "candidate-place-companion-B-012#1"
+        ],
+        "candidate_count": 2,
+        "selected_index": 1,
+        "selected_candidate": "candidate-place-companion-B-012#1"
+      },
+      "priority_basis": {
+        "source_contracts": [
+          107,
+          114,
+          116
+        ],
+        "legal_candidates": [
+          "candidate-place-companion-B-011#1",
+          "candidate-place-companion-B-012#1",
+          "candidate-play-main-B-001#1-birth",
+          "candidate-play-main-B-009#1-birth",
+          "pass"
+        ],
+        "candidate_values": {
+          "candidate-place-companion-B-011#1": {
+            "immediate_growth_delta": 0,
+            "reaches_or_interrupts_100": false,
+            "payment_time": 0,
+            "time_after_certain_resolution": 2
+          },
+          "candidate-place-companion-B-012#1": {
+            "immediate_growth_delta": 0,
+            "reaches_or_interrupts_100": false,
+            "payment_time": 0,
+            "time_after_certain_resolution": 2
+          },
+          "candidate-play-main-B-001#1-birth": {
+            "immediate_growth_delta": 0,
+            "reaches_or_interrupts_100": false,
+            "payment_time": 1,
+            "time_after_certain_resolution": 1
+          },
+          "candidate-play-main-B-009#1-birth": {
+            "immediate_growth_delta": 0,
+            "reaches_or_interrupts_100": false,
+            "payment_time": 1,
+            "time_after_certain_resolution": 1
+          },
+          "pass": {
+            "immediate_growth_delta": 0,
+            "reaches_or_interrupts_100": false,
+            "payment_time": 0,
+            "time_after_certain_resolution": 2
+          }
+        },
+        "time_after_certain_resolution": {
+          "candidate-place-companion-B-011#1": 2,
+          "candidate-place-companion-B-012#1": 2,
+          "candidate-play-main-B-001#1-birth": 1,
+          "candidate-play-main-B-009#1-birth": 1,
+          "pass": 2
+        },
+        "dominated_paid_birth_count": 2,
+        "pass_dominated_only_after_safety_proof": true,
+        "lottery_subset_only_incomparable_safe_placements": true
+      },
+      "audit": {
+        "opportunity_context": {
+          "round": 2,
+          "turn_player": "B",
+          "actor": "B",
+          "phase": "normal_action",
+          "decision_kind": "normal_action",
+          "choice_kind": "normal_action"
+        },
+        "owner_state": {
+          "time": 2,
+          "growth": 20,
+          "hand": [
+            "B-011#1",
+            "B-037#1",
+            "B-012#1",
+            "B-001#1",
+            "B-031#1",
+            "B-009#1"
+          ],
+          "discard": [],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": "B-017#1",
+            "partner_stage": 0,
+            "world": null,
+            "prepared": []
+          },
+          "reservations": [],
+          "challenge_used": false,
+          "person_placed": false,
+          "relationship_progressed": false
+        },
+        "public_information": {
+          "A": {
+            "time": 2,
+            "growth": 25,
+            "discard": [
+              "A-040#1"
+            ],
+            "board": {
+              "main": null,
+              "companions": [],
+              "partner": "A-017#1",
+              "partner_stage": 0,
+              "world": null,
+              "prepared": []
+            },
+            "challenge_used": false,
+            "person_placed": false,
+            "relationship_progressed": false
+          }
+        },
+        "information_policy": "public_and_owner_known_only",
+        "source_inventory": [
+          {
+            "family": "standing_pass",
+            "sources": [
+              "pass"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "114-normal-decision-protocol-hardening.md",
+            "inspected_state_field": "phase"
+          },
+          {
+            "family": "hand_card_action",
+            "sources": [
+              "B-011#1",
+              "B-037#1",
+              "B-012#1",
+              "B-001#1",
+              "B-031#1",
+              "B-009#1"
+            ],
+            "count": 6,
+            "empty_reason_code": null,
+            "source_reference": "114-normal-decision-protocol-hardening.md",
+            "inspected_state_field": "players.B.hand"
+          },
+          {
+            "family": "board_card_action",
+            "sources": [
+              "B-017#1"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.B.board"
+          },
+          {
+            "family": "reservation_action",
+            "sources": [],
+            "count": 0,
+            "empty_reason_code": "no_reservation_source",
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.B.reservations"
+          },
+          {
+            "family": "normal_challenge",
+            "sources": [
+              "challenge:B"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.*.board"
+          },
+          {
+            "family": "relationship_progress",
+            "sources": [
+              "relationship:B"
+            ],
+            "count": 1,
+            "empty_reason_code": null,
+            "source_reference": "01-core-rules.md",
+            "inspected_state_field": "players.B.board.partner"
+          }
+        ],
+        "enumeration_units": [
+          {
+            "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+            "source_family": "standing_pass",
+            "source_zone": "synthetic",
+            "source_id": "pass",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "pass",
+            "candidate_variant": "pass",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "pass",
+            "evidence": {},
+            "source_references": [
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-011#1\",\"place_companion\",\"empty_slot\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-011#1",
+            "source_instance_id": "B-011#1",
+            "card_id": "C-bat",
+            "action_type": "place_companion",
+            "candidate_variant": "empty_slot",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-place-companion-B-011#1",
+            "evidence": {},
+            "source_references": [
+              "72-companion-26-card-text-draft.md#C-bat"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-011#1\",\"place_companion\",\"replace_each_legal_companion\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-011#1",
+            "source_instance_id": "B-011#1",
+            "card_id": "C-bat",
+            "action_type": "place_companion",
+            "candidate_variant": "replace_each_legal_companion",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "required_target_absent"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "target_instance_ids": [],
+              "template.target_rule": "empty companion slot or one occupied companion to replace when full"
+            },
+            "source_references": [
+              "72-companion-26-card-text-draft.md#C-bat",
+              "114-normal-decision-protocol-hardening.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-037#1\",\"use_event\",\"single_no_target\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-037#1",
+            "source_instance_id": "B-037#1",
+            "card_id": "E-boss",
+            "action_type": "use_event",
+            "candidate_variant": "single_no_target",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "required_own_main_absent",
+              "required_history_absent"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "owner.discard": [],
+              "public_history": {
+                "normal_challenge_losses_by_actor": [],
+                "last_valid_event_seq": 25,
+                "source_refs": [
+                  "proxy-normal-decision-seeded-restart-plan-117-20260919.json",
+                  "proxy-response-window-seeded-restart-plan-120-20260922.json",
+                  "proxy-normal-action-seeded-restart-plan-122-20260923.json",
+                  "proxy-turn-end-provenance-restart-plan-124-20260923.json"
+                ]
+              }
+            },
+            "source_references": [
+              "91-event-21-card-text-draft.md#E-boss",
+              "01-core-rules.md",
+              "114-normal-decision-protocol-hardening.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-012#1\",\"place_companion\",\"empty_slot\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-012#1",
+            "source_instance_id": "B-012#1",
+            "card_id": "C-box",
+            "action_type": "place_companion",
+            "candidate_variant": "empty_slot",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-place-companion-B-012#1",
+            "evidence": {},
+            "source_references": [
+              "72-companion-26-card-text-draft.md#C-box"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-012#1\",\"place_companion\",\"replace_each_legal_companion\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-012#1",
+            "source_instance_id": "B-012#1",
+            "card_id": "C-box",
+            "action_type": "place_companion",
+            "candidate_variant": "replace_each_legal_companion",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "required_target_absent"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "target_instance_ids": [],
+              "template.target_rule": "empty companion slot or one occupied companion to replace when full"
+            },
+            "source_references": [
+              "72-companion-26-card-text-draft.md#C-box",
+              "114-normal-decision-protocol-hardening.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-001#1",
+            "source_instance_id": "B-001#1",
+            "card_id": "M-antlion-01",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-play-main-B-001#1-birth",
+            "evidence": {},
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"time_skip\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-001#1",
+            "source_instance_id": "B-001#1",
+            "card_id": "M-antlion-01",
+            "action_type": "play_main",
+            "candidate_variant": "time_skip",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-antlion-01",
+              "candidate_variant": "time_skip"
+            },
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-01",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"transform\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-001#1",
+            "source_instance_id": "B-001#1",
+            "card_id": "M-antlion-01",
+            "action_type": "play_main",
+            "candidate_variant": "transform",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-antlion-01",
+              "candidate_variant": "transform"
+            },
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-01",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-031#1\",\"attach_item\",\"each_legal_own_companion\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-031#1",
+            "source_instance_id": "B-031#1",
+            "card_id": "I-bond1",
+            "action_type": "attach_item",
+            "candidate_variant": "each_legal_own_companion",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "required_target_absent"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "target_instance_ids": [],
+              "template.target_rule": "one own companion"
+            },
+            "source_references": [
+              "77-current-items-card-text-draft.md#I-bond1",
+              "114-normal-decision-protocol-hardening.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-009#1",
+            "source_instance_id": "B-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-play-main-B-009#1-birth",
+            "evidence": {},
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"time_skip\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-009#1",
+            "source_instance_id": "B-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "time_skip",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-beetle-01",
+              "candidate_variant": "time_skip"
+            },
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"transform\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-009#1",
+            "source_instance_id": "B-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "transform",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "main_transition_not_legal"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "card_id": "M-beetle-01",
+              "candidate_variant": "transform"
+            },
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+              "02-main-system.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"board_card_action\",\"board\",\"B-017#1\",\"board_passive\",\"past_trigger\",[]]",
+            "source_family": "board_card_action",
+            "source_zone": "board",
+            "source_id": "B-017#1",
+            "source_instance_id": "B-017#1",
+            "card_id": "P-cat_ceo",
+            "action_type": "board_passive",
+            "candidate_variant": "past_trigger",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "passive_not_separate_action"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "source_zone": "board",
+              "template.timing": "passive"
+            },
+            "source_references": [
+              "74-partner-18-card-text-draft.md#P-cat_ceo",
+              "06-action-chain-checkpoint.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:B\",\"challenge\",\"power\",[]]",
+            "source_family": "normal_challenge",
+            "source_zone": "synthetic",
+            "source_id": "challenge:B",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "challenge",
+            "candidate_variant": "power",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "challenge_participant_missing"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "opponent.board.main": null
+            },
+            "source_references": [
+              "01-core-rules.md",
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"normal_challenge\",\"synthetic\",\"challenge:B\",\"challenge\",\"wisdom\",[]]",
+            "source_family": "normal_challenge",
+            "source_zone": "synthetic",
+            "source_id": "challenge:B",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "challenge",
+            "candidate_variant": "wisdom",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "challenge_participant_missing"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null,
+              "opponent.board.main": null
+            },
+            "source_references": [
+              "01-core-rules.md",
+              "01-core-rules.md"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"relationship_progress\",\"synthetic\",\"relationship:B\",\"relationship\",\"0-to-1\",[]]",
+            "source_family": "relationship_progress",
+            "source_zone": "synthetic",
+            "source_id": "relationship:B",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "relationship",
+            "candidate_variant": "0-to-1",
+            "target_instance_ids": [],
+            "reason_codes": [
+              "relationship_blocked_while_egg"
+            ],
+            "disposition": "excluded",
+            "candidate_id": null,
+            "evidence": {
+              "owner.board.main": null
+            },
+            "source_references": [
+              "01-core-rules.md",
+              "02-main-system.md"
+            ]
+          }
+        ],
+        "legal_candidate_ids": [
+          "candidate-place-companion-B-011#1",
+          "candidate-place-companion-B-012#1",
+          "candidate-play-main-B-001#1-birth",
+          "candidate-play-main-B-009#1-birth",
+          "pass"
+        ],
+        "legal_candidate_details": [
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-011#1\",\"place_companion\",\"empty_slot\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-011#1",
+            "source_instance_id": "B-011#1",
+            "card_id": "C-bat",
+            "action_type": "place_companion",
+            "candidate_variant": "empty_slot",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-place-companion-B-011#1",
+            "evidence": {},
+            "source_references": [
+              "72-companion-26-card-text-draft.md#C-bat"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-012#1\",\"place_companion\",\"empty_slot\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-012#1",
+            "source_instance_id": "B-012#1",
+            "card_id": "C-box",
+            "action_type": "place_companion",
+            "candidate_variant": "empty_slot",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-place-companion-B-012#1",
+            "evidence": {},
+            "source_references": [
+              "72-companion-26-card-text-draft.md#C-box"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-001#1",
+            "source_instance_id": "B-001#1",
+            "card_id": "M-antlion-01",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-play-main-B-001#1-birth",
+            "evidence": {},
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-009#1\",\"play_main\",\"birth\",[]]",
+            "source_family": "hand_card_action",
+            "source_zone": "hand",
+            "source_id": "B-009#1",
+            "source_instance_id": "B-009#1",
+            "card_id": "M-beetle-01",
+            "action_type": "play_main",
+            "candidate_variant": "birth",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "candidate-play-main-B-009#1-birth",
+            "evidence": {},
+            "source_references": [
+              "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"
+            ]
+          },
+          {
+            "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+            "source_family": "standing_pass",
+            "source_zone": "synthetic",
+            "source_id": "pass",
+            "source_instance_id": null,
+            "card_id": null,
+            "action_type": "pass",
+            "candidate_variant": "pass",
+            "target_instance_ids": [],
+            "reason_codes": [],
+            "disposition": "admitted",
+            "candidate_id": "pass",
+            "evidence": {},
+            "source_references": [
+              "01-core-rules.md"
+            ]
+          }
+        ],
+        "forbidden_information_used": [],
+        "completeness_checks": {
+          "opportunity_context_valid": true,
+          "source_artifact_integrity_valid": true,
+          "information_boundary_valid": true,
+          "required_source_families_present": true,
+          "source_inventory_complete": true,
+          "candidate_templates_complete": true,
+          "candidate_variants_complete": true,
+          "target_expansions_complete": true,
+          "canonical_predicates_resolved": true,
+          "dispositions_and_reasons_valid": true,
+          "stable_candidate_ids_valid": true,
+          "legal_candidate_projection_exact": true
+        },
+        "candidate_set_complete": true,
+        "contract_stop_codes": []
+      },
+      "event_seqs": [
+        26
+      ]
+    },
+    {
+      "kind": "response_action",
+      "selected_candidate": "response-pass",
+      "legal_candidates": [
+        "response-pass"
+      ],
+      "resolution_mode": "response_unique",
+      "seed_proof": null,
+      "priority_basis": null,
+      "audit": null,
+      "event_seqs": [
+        27
+      ]
+    },
+    {
+      "kind": "response_action",
+      "selected_candidate": "response-pass",
+      "legal_candidates": [
+        "response-pass"
+      ],
+      "resolution_mode": "response_unique",
+      "seed_proof": null,
+      "priority_basis": null,
+      "audit": null,
+      "event_seqs": [
+        28
+      ]
+    }
+  ],
+  "events": [
+    {
+      "seq": 21,
+      "action_type": "normal_pass_end_request",
+      "actor": "A",
+      "selected_candidate": "pass",
+      "source_instance_id": null,
+      "game_state_before_sha256": "2c9b4b010ceac7e67d848d2cc9205a1d131906e5dcfbb2635346205d31674b9c",
+      "game_state_after_sha256": "9db67a0c112e81b1ed178890ce972cba8bf814a4ce1af1ce8ee9207f125f3142",
+      "continuation_state_before_sha256": "eaff81aa2e80f0baccb2610c26722048265adf4a0085377983bd5fff2544fd8b",
+      "continuation_state_after_sha256": "824fd36419d4abb4af2dc600645ce33224be574e79a24c3c9e4feaec1f4154cd",
+      "source_reference": "06-action-chain-checkpoint.md#ターン終了"
+    },
+    {
+      "seq": 22,
+      "action_type": "response_pass",
+      "actor": "B",
+      "selected_candidate": "response-pass",
+      "game_state_before_sha256": "9db67a0c112e81b1ed178890ce972cba8bf814a4ce1af1ce8ee9207f125f3142",
+      "game_state_after_sha256": "9fbfa38279bba565854583246c3813980ff986a505915bf65647ce719e20ce37",
+      "continuation_state_before_sha256": "824fd36419d4abb4af2dc600645ce33224be574e79a24c3c9e4feaec1f4154cd",
+      "continuation_state_after_sha256": "a690e5c7f71a52acfc5d4db604e8acbe9abc3439187661fe2a807900e75f42b2",
+      "result": {
+        "priority_actor": "B",
+        "consecutive_passes": 2,
+        "chain_status": "empty",
+        "return_target": "normal_action_opportunity"
+      }
+    },
+    {
+      "seq": 23,
+      "action_type": "turn_end_completed",
+      "actor": "A",
+      "selected_candidate": null,
+      "game_state_before_sha256": "9fbfa38279bba565854583246c3813980ff986a505915bf65647ce719e20ce37",
+      "game_state_after_sha256": "895755522ffc4972b65007c718f5146c2e9163be37b47bed0793566e7cfd0f71",
+      "continuation_state_before_sha256": "a690e5c7f71a52acfc5d4db604e8acbe9abc3439187661fe2a807900e75f42b2",
+      "continuation_state_after_sha256": "fb2424ab4ee713eb5b9c7daef5139490f39193064467f8ca09d54c944f10f864"
+    },
+    {
+      "seq": 24,
+      "action_type": "turn_start_and_egg_draw",
+      "actor": "B",
+      "selected_candidate": null,
+      "game_state_before_sha256": "895755522ffc4972b65007c718f5146c2e9163be37b47bed0793566e7cfd0f71",
+      "game_state_after_sha256": "3c38a56ca6e3e594f566054db40abda760792b810256d104138befe37ae18047",
+      "continuation_state_before_sha256": "fb2424ab4ee713eb5b9c7daef5139490f39193064467f8ca09d54c944f10f864",
+      "continuation_state_after_sha256": "b8fa363bd67a1da070326c7fb4661facd70ce8b848a41f0648d90ee983811f95"
+    },
+    {
+      "seq": 25,
+      "action_type": "egg_exchange_bottom",
+      "actor": "B",
+      "selected_candidate": "B-010",
+      "game_state_before_sha256": "3c38a56ca6e3e594f566054db40abda760792b810256d104138befe37ae18047",
+      "game_state_after_sha256": "b358e9b2b761af7a9274548c2fae4937beeb6e001bd9933bfc0d33daaa2d3f7f",
+      "continuation_state_before_sha256": "b8fa363bd67a1da070326c7fb4661facd70ce8b848a41f0648d90ee983811f95",
+      "continuation_state_after_sha256": "cf6503dcf96fc394e0b1572d7c575d318bae29bbe964b97c26eff7b015a6aaeb"
+    },
+    {
+      "seq": 26,
+      "action_type": "place_companion",
+      "actor": "B",
+      "selected_candidate": "candidate-place-companion-B-012#1",
+      "source_instance_id": "B-012#1",
+      "payment_time": 0,
+      "source_reference": "72-companion-26-card-text-draft.md#C-box",
+      "effect_classification": "no_ability",
+      "game_state_before_sha256": "b358e9b2b761af7a9274548c2fae4937beeb6e001bd9933bfc0d33daaa2d3f7f",
+      "game_state_after_sha256": "429438f09eab6c93eaa5e3c9efc23e8e4e8033de7462d2b6562b90bab33abaa5",
+      "continuation_state_before_sha256": "cf6503dcf96fc394e0b1572d7c575d318bae29bbe964b97c26eff7b015a6aaeb",
+      "continuation_state_after_sha256": "738e4eed951385bca19ab93bd2c1c14d6e331a244d457a97397a7963dd04af26"
+    },
+    {
+      "seq": 27,
+      "action_type": "response_pass",
+      "actor": "B",
+      "selected_candidate": "response-pass",
+      "game_state_before_sha256": "429438f09eab6c93eaa5e3c9efc23e8e4e8033de7462d2b6562b90bab33abaa5",
+      "game_state_after_sha256": "429438f09eab6c93eaa5e3c9efc23e8e4e8033de7462d2b6562b90bab33abaa5",
+      "continuation_state_before_sha256": "738e4eed951385bca19ab93bd2c1c14d6e331a244d457a97397a7963dd04af26",
+      "continuation_state_after_sha256": "b37e55758fc1938e8b2fd0210202fc61b744cecb8ff0f1a6f8ce825d192219f2",
+      "result": {
+        "priority_actor": "A",
+        "consecutive_passes": 1,
+        "chain_status": "empty",
+        "return_target": null
+      }
+    },
+    {
+      "seq": 28,
+      "action_type": "response_pass",
+      "actor": "A",
+      "selected_candidate": "response-pass",
+      "game_state_before_sha256": "429438f09eab6c93eaa5e3c9efc23e8e4e8033de7462d2b6562b90bab33abaa5",
+      "game_state_after_sha256": "0a1ed29d80142a1877e1a37f5816b286772d8ae1ad07853c384f6f643ad16830",
+      "continuation_state_before_sha256": "b37e55758fc1938e8b2fd0210202fc61b744cecb8ff0f1a6f8ce825d192219f2",
+      "continuation_state_after_sha256": "5784cb04ac90cca29da4c4fac3fd449c1d5c15cf5b0a797916b4d5a5cd6687b8",
+      "result": {
+        "priority_actor": "A",
+        "consecutive_passes": 2,
+        "chain_status": "empty",
+        "return_target": "normal_action_opportunity"
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "seq": 20,
+      "game_state_sha256": "2c9b4b010ceac7e67d848d2cc9205a1d131906e5dcfbb2635346205d31674b9c",
+      "continuation_state_sha256": "eaff81aa2e80f0baccb2610c26722048265adf4a0085377983bd5fff2544fd8b"
+    },
+    {
+      "seq": 21,
+      "game_state_sha256": "9db67a0c112e81b1ed178890ce972cba8bf814a4ce1af1ce8ee9207f125f3142",
+      "continuation_state_sha256": "824fd36419d4abb4af2dc600645ce33224be574e79a24c3c9e4feaec1f4154cd"
+    },
+    {
+      "seq": 22,
+      "game_state_sha256": "9fbfa38279bba565854583246c3813980ff986a505915bf65647ce719e20ce37",
+      "continuation_state_sha256": "a690e5c7f71a52acfc5d4db604e8acbe9abc3439187661fe2a807900e75f42b2"
+    },
+    {
+      "seq": 23,
+      "game_state_sha256": "895755522ffc4972b65007c718f5146c2e9163be37b47bed0793566e7cfd0f71",
+      "continuation_state_sha256": "fb2424ab4ee713eb5b9c7daef5139490f39193064467f8ca09d54c944f10f864"
+    },
+    {
+      "seq": 24,
+      "game_state_sha256": "3c38a56ca6e3e594f566054db40abda760792b810256d104138befe37ae18047",
+      "continuation_state_sha256": "b8fa363bd67a1da070326c7fb4661facd70ce8b848a41f0648d90ee983811f95"
+    },
+    {
+      "seq": 25,
+      "game_state_sha256": "b358e9b2b761af7a9274548c2fae4937beeb6e001bd9933bfc0d33daaa2d3f7f",
+      "continuation_state_sha256": "cf6503dcf96fc394e0b1572d7c575d318bae29bbe964b97c26eff7b015a6aaeb"
+    },
+    {
+      "seq": 26,
+      "game_state_sha256": "429438f09eab6c93eaa5e3c9efc23e8e4e8033de7462d2b6562b90bab33abaa5",
+      "continuation_state_sha256": "738e4eed951385bca19ab93bd2c1c14d6e331a244d457a97397a7963dd04af26"
+    },
+    {
+      "seq": 27,
+      "game_state_sha256": "429438f09eab6c93eaa5e3c9efc23e8e4e8033de7462d2b6562b90bab33abaa5",
+      "continuation_state_sha256": "b37e55758fc1938e8b2fd0210202fc61b744cecb8ff0f1a6f8ce825d192219f2"
+    },
+    {
+      "seq": 28,
+      "game_state_sha256": "0a1ed29d80142a1877e1a37f5816b286772d8ae1ad07853c384f6f643ad16830",
+      "continuation_state_sha256": "5784cb04ac90cca29da4c4fac3fd449c1d5c15cf5b0a797916b4d5a5cd6687b8"
+    }
+  ],
+  "winner": null,
+  "seeded_fallback_used": true,
+  "counts_as_independent_balance_sample": false
+}

@@ -1,0 +1,46 @@
+test_actual_normal_projection_and_permitted_fields_are_bound (test_proxy_population_history_projection.HistoryProjectionTests.test_actual_normal_projection_and_permitted_fields_are_bound) ... ERROR
+test_owner_private_memory_and_public_reveals_are_kept (test_proxy_population_history_projection.HistoryProjectionTests.test_owner_private_memory_and_public_reveals_are_kept) ... ok
+test_return_identity_requires_actual_public_preparation (test_proxy_population_history_projection.HistoryProjectionTests.test_return_identity_requires_actual_public_preparation) ... ok
+test_shared_projector_cannot_add_private_fields_to_actual_inventory (test_proxy_population_history_projection.HistoryProjectionTests.test_shared_projector_cannot_add_private_fields_to_actual_inventory) ... ok
+test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps (test_proxy_population_trace_obligations.TraceObligationsTests.test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps) ... ERROR
+test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) ... ok
+test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) ... ok
+
+======================================================================
+ERROR: test_actual_normal_projection_and_permitted_fields_are_bound (test_proxy_population_history_projection.HistoryProjectionTests.test_actual_normal_projection_and_permitted_fields_are_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_history_projection.py", line 25, in test_actual_normal_projection_and_permitted_fields_are_bound
+    record=entry.reconstruct(bundle(),'test-1A',3);r=record['runtime'];step=next(s for s in r['steps'] if s.get('normal_allowed_history'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_connected_entry.py", line 81, in reconstruct
+    result['trace_obligations_audit']=trace_obligations.require_actual_trace(result)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 119, in require_actual_trace
+    same(history['raw_history_sha256'],state.canonical_sha256(prefix),'normal actual history prefix')
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 31, in same
+    if canonical(actual)!=canonical(expected):raise ValueError('trace obligations binding differs: '+label)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: trace obligations binding differs: normal actual history prefix
+
+======================================================================
+ERROR: test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps (test_proxy_population_trace_obligations.TraceObligationsTests.test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 34, in test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps
+    record=entry.reconstruct(bundle(),'test-1A',10)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_connected_entry.py", line 81, in reconstruct
+    result['trace_obligations_audit']=trace_obligations.require_actual_trace(result)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 119, in require_actual_trace
+    same(history['raw_history_sha256'],state.canonical_sha256(prefix),'normal actual history prefix')
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 31, in same
+    if canonical(actual)!=canonical(expected):raise ValueError('trace obligations binding differs: '+label)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: trace obligations binding differs: normal actual history prefix
+
+----------------------------------------------------------------------
+Ran 7 tests in 50.010s
+
+FAILED (errors=2)

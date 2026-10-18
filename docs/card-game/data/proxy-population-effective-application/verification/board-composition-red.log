@@ -1,0 +1,32 @@
+..F..
+======================================================================
+FAIL: test_hand_board_ability_is_excluded_and_composition_detects_gaps (test_proxy_population_board_predicates.BoardPredicateTests.test_hand_board_ability_is_excluded_and_composition_detects_gaps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_board_predicates.py", line 103, in test_hand_board_ability_is_excluded_and_composition_detects_gaps
+    with connected.contract_scope():runtime.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 90, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 89, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_board_predicates.py", line 95, in run
+    own=[r for r in proof['verified_units'] if r['source_instance_id']==source];self.assertTrue(own)
+                                                                                ^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.697s
+
+FAILED (failures=1)

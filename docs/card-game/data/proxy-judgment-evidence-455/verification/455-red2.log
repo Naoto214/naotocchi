@@ -1,0 +1,31 @@
+FF...........F
+======================================================================
+FAIL: test_nested_candidates_conflict_rejected (test_proxy_judgment_evidence_audit.BoundaryTests.test_nested_candidates_conflict_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 71, in test_nested_candidates_conflict_rejected
+    with self.assertRaises(ValueError):subject.build_sidecar(run(record))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_nested_kind_conflict_rejected (test_proxy_judgment_evidence_audit.BoundaryTests.test_nested_kind_conflict_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 67, in test_nested_kind_conflict_rejected
+    with self.assertRaises(ValueError):subject.build_sidecar(run(record))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_saved_inventory_and_tamper_rejection (test_proxy_judgment_evidence_audit.SavedIntegrationTests.test_saved_inventory_and_tamper_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 58, in test_saved_inventory_and_tamper_rejection
+    self.assertTrue(p.exists(),'saved source adapter not implemented')
+AssertionError: False is not true : saved source adapter not implemented
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.050s
+
+FAILED (failures=3)

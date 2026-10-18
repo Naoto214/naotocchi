@@ -1,0 +1,19 @@
+test_legacy_choice_reason_and_seed_match_saved_trace (test_proxy_resource_value_shadow.ShadowTests.test_legacy_choice_reason_and_seed_match_saved_trace) ... FAIL
+test_planned_110_ids_exact_and_unique (test_proxy_resource_value_shadow.ShadowTests.test_planned_110_ids_exact_and_unique) ... ok
+test_shadow_does_not_emit_match_events (test_proxy_resource_value_shadow.ShadowTests.test_shadow_does_not_emit_match_events) ... ok
+test_superseded_history_and_seq2_handover (test_proxy_resource_value_shadow.ShadowTests.test_superseded_history_and_seq2_handover) ... ok
+test_unsupported_boundary_is_retained_in_manifest (test_proxy_resource_value_shadow.ShadowTests.test_unsupported_boundary_is_retained_in_manifest) ... ok
+test_write_exact_coverage_and_source_immutability (test_proxy_resource_value_shadow.ShadowTests.test_write_exact_coverage_and_source_immutability) ... ok
+
+======================================================================
+FAIL: test_legacy_choice_reason_and_seed_match_saved_trace (test_proxy_resource_value_shadow.ShadowTests.test_legacy_choice_reason_and_seed_match_saved_trace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_shadow.py", line 24, in test_legacy_choice_reason_and_seed_match_saved_trace
+    self.assertFalse(any(shadow.compare_boundary(r)["status"]=="legacy_reproduction_failure" for r in self.rows))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.346s
+
+FAILED (failures=1)

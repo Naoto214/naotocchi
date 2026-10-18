@@ -1,0 +1,13 @@
+# 伏せ準備回収の公開履歴境界
+
+基準59cf189。P10の実next normal inventoryがC-batで回収した相手伏せ札のtarget/returned_instance_idを公開履歴へ残す1FAILを再現。historical projectorを変更せず、現行public_application.scopeのprojection hookで相手の未公開IDを除く。raw eventと実runtime beforeを使用し、owner・実適用bool・確認できる表向き装備のIDは保持。再投影も同じ結果、raw record不変。
+
+実challenge_window._stepからruntime_historyを渡す。共有hook/lockは正常・例外で復元。追加の不正trace検査でlock未解放1ERRORを再現し、trace解析をtry/finally内へ移動して修正。
+
+独立review一回: C0/I0/Minor1、別16PASS。Minorのevent identity改変・重複trace・envelope hashを固定したpublic_prepared改変・表向き再投影を追加。最初の改変fixtureはattachmentなしのface_up変更で型検査に先に拒否され、期待messageと違い1FAIL。実表向き装備を型として有効な伏せ状態へ改変するfixtureに訂正した。実装の不具合とは数えずfixture-negative原本保持。
+
+最終固定22PASS32.549s/exit0（実初期manifest10step含む）。docs再帰Python1072前後一致。concealed-return-history-final.log/summary/fingerprintsが最終原本。design errors=[]、番号付きtop-level正本/対象外変更なし。本番生成・新規標本0。
+
+raw source markerを現在の実生成routeで利用する局所境界であり、caller供給のmarker・traceを起点認証しない。beforeのgame/continuation hashと、存在する場合のenvelope hashを照合するが、legacy historyではenvelope bindingは除去される。これを全履歴認証/全情報非干渉/全機会証明へ昇格しない。
+
+P10の他のreceipt: M06/Ccat/Efinalの対象は公開discard、Cchicken/Icoin/Ghitのrevealは本文上公開。draw/bottomの非公開IDは旧whitelistから除外済み。全historyの起点/全comparison readのgate合成は残る。P09自動dispatch、P11残operand、P14–18も未完。preflight-ready=false。

@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_native_replacement_then_response_preserve_generations_and_hashes (__main__.RuntimeIncarnationTests.test_native_replacement_then_response_preserve_generations_and_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_incarnation_runtime.py", line 15, in test_native_replacement_then_response_preserve_generations_and_hashes
+    self.assertIsNotNone(api,'lifecycle runtime connection absent')
+AssertionError: unexpectedly None : lifecycle runtime connection absent
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

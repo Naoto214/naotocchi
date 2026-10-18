@@ -1,0 +1,23 @@
+test_past_unrecorded_origin_is_not_repaired_by_a_later_event (test_proxy_population_trigger_observation.ObservationTests.test_past_unrecorded_origin_is_not_repaired_by_a_later_event) ... FAIL
+test_same_origin_is_observed_once_and_resolution_is_deferred (test_proxy_population_trigger_observation.ObservationTests.test_same_origin_is_observed_once_and_resolution_is_deferred) ... FAIL
+
+======================================================================
+FAIL: test_past_unrecorded_origin_is_not_repaired_by_a_later_event (test_proxy_population_trigger_observation.ObservationTests.test_past_unrecorded_origin_is_not_repaired_by_a_later_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_observation.py", line 23, in test_past_unrecorded_origin_is_not_repaired_by_a_later_event
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_same_origin_is_observed_once_and_resolution_is_deferred (test_proxy_population_trigger_observation.ObservationTests.test_same_origin_is_observed_once_and_resolution_is_deferred)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_observation.py", line 13, in test_same_origin_is_observed_once_and_resolution_is_deferred
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

@@ -1,0 +1,85 @@
+test_common_world_affects_residual_main (test_proxy_equivalence_proofs.ProofTests.test_common_world_affects_residual_main) ... FAIL
+test_dependency_cycle_complete_vs_missing_edge (test_proxy_equivalence_proofs.ProofTests.test_dependency_cycle_complete_vs_missing_edge) ... FAIL
+test_exact_identity_closed_dependencies_cancel (test_proxy_equivalence_proofs.ProofTests.test_exact_identity_closed_dependencies_cancel) ... FAIL
+test_orientation_and_proof_tampering (test_proxy_equivalence_proofs.ProofTests.test_orientation_and_proof_tampering) ... FAIL
+test_same_name_other_instance_not_equal (test_proxy_equivalence_proofs.ProofTests.test_same_name_other_instance_not_equal) ... FAIL
+test_target_deadline_uses_order_mismatch (test_proxy_equivalence_proofs.ProofTests.test_target_deadline_uses_order_mismatch) ... FAIL
+test_time_changes_hand_condition (test_proxy_equivalence_proofs.ProofTests.test_time_changes_hand_condition) ... FAIL
+test_unknown_symbol_not_identity (test_proxy_equivalence_proofs.ProofTests.test_unknown_symbol_not_identity) ... FAIL
+
+======================================================================
+FAIL: test_common_world_affects_residual_main (test_proxy_equivalence_proofs.ProofTests.test_common_world_affects_residual_main)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+======================================================================
+FAIL: test_dependency_cycle_complete_vs_missing_edge (test_proxy_equivalence_proofs.ProofTests.test_dependency_cycle_complete_vs_missing_edge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+======================================================================
+FAIL: test_exact_identity_closed_dependencies_cancel (test_proxy_equivalence_proofs.ProofTests.test_exact_identity_closed_dependencies_cancel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+======================================================================
+FAIL: test_orientation_and_proof_tampering (test_proxy_equivalence_proofs.ProofTests.test_orientation_and_proof_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+======================================================================
+FAIL: test_same_name_other_instance_not_equal (test_proxy_equivalence_proofs.ProofTests.test_same_name_other_instance_not_equal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+======================================================================
+FAIL: test_target_deadline_uses_order_mismatch (test_proxy_equivalence_proofs.ProofTests.test_target_deadline_uses_order_mismatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+======================================================================
+FAIL: test_time_changes_hand_condition (test_proxy_equivalence_proofs.ProofTests.test_time_changes_hand_condition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+======================================================================
+FAIL: test_unknown_symbol_not_identity (test_proxy_equivalence_proofs.ProofTests.test_unknown_symbol_not_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_proofs.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'proof implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : proof implementation absent
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+FAILED (failures=8)

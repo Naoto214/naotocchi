@@ -1,0 +1,23 @@
+..F.F..
+======================================================================
+FAIL: test_changed_challenge_contract_is_rejected (test_proxy_public_declaration_prefix.DeclarationTests.test_changed_challenge_contract_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_public_declaration_prefix.py", line 36, in test_changed_challenge_contract_is_rejected
+    with self.assertRaises(ValueError):subject.refine_outcomes(x)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_mismatched_turn_owner_is_rejected (test_proxy_public_declaration_prefix.DeclarationTests.test_mismatched_turn_owner_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_public_declaration_prefix.py", line 40, in test_mismatched_turn_owner_is_rejected
+    with self.assertRaises(ValueError):subject.refine_outcomes(x)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 12.474s
+
+FAILED (failures=2)

@@ -1,0 +1,20 @@
+{
+  "base_head": "3b2ef3a87215534b0d3d8c61e65a36f9db418cfa",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_initial_obligations",
+    "test_proxy_population_trace_obligations",
+    "test_proxy_population_source_conservation",
+    "test_proxy_population_opening",
+    "test_proxy_population_policy_journal",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 205.92305039699568,
+  "python_file_count": 1077,
+  "python_unchanged": true,
+  "production_generation": false,
+  "new_matches": 0
+}

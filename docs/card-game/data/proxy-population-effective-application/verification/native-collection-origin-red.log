@@ -1,0 +1,14 @@
+...F.
+======================================================================
+FAIL: test_projection_cannot_rebind_occurrence_to_another_supplied_event (test_proxy_population_native_collection.CollectionTests.test_projection_cannot_rebind_occurrence_to_another_supplied_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 60, in test_projection_cannot_rebind_occurrence_to_another_supplied_event
+    with self.assertRaisesRegex(ValueError,'collection'):self.run_case(run)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.227s
+
+FAILED (failures=1)

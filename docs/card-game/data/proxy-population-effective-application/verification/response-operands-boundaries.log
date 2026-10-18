@@ -1,0 +1,10 @@
+test_actual_boundary_comparison_and_unproved_routes_remain_separate (test_proxy_population_response_operands.ResponseOperandTests.test_actual_boundary_comparison_and_unproved_routes_remain_separate) ... ok
+test_actual_entry_rejects_coherent_forged_record (test_proxy_population_response_operands.ResponseOperandTests.test_actual_entry_rejects_coherent_forged_record) ... ok
+test_comparison_tampering_is_rejected_without_inventing_values (test_proxy_population_response_operands.ResponseOperandTests.test_comparison_tampering_is_rejected_without_inventing_values) ... ok
+test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) ... ok
+test_unique_and_mixed_candidates_never_gain_comparison_values (test_proxy_population_response_operands.ResponseOperandTests.test_unique_and_mixed_candidates_never_gain_comparison_values) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.485s
+
+OK

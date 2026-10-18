@@ -1,0 +1,74 @@
+{
+  "schema": "naotocchi.card_game.proxy_remaining_single_plan.v1",
+  "date": "2026-09-18",
+  "design": {
+    "rules_commit": "bffbbb8f575f0ae0d8bf3e375ce8fa0c743aa8f4",
+    "rules_tree": "9f41b9001714f59a665cfbaeaa7f687129f00017",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "record_output_directory": "proxy-pilots-106",
+  "trace_output_directory": "proxy-pilot-traces-106",
+  "records": [
+    {
+      "cluster": "P97-01",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-01-single.json",
+      "record_match_id": "completed-106-p97-01-single-a-first",
+      "trace_id": "trace-106-p97-01-single-a-first",
+      "seat_stratum": "a-first",
+      "swaps": [["A-002#1", "A-016#1"]]
+    },
+    {
+      "cluster": "P97-01",
+      "source_fixture": "proxy-fixtures-102/fixture-102-p97-01-single-a-second.json",
+      "record_match_id": "completed-106-p97-01-single-a-second",
+      "trace_id": "trace-106-p97-01-single-a-second",
+      "seat_stratum": "a-second",
+      "swaps": [["A-002#1", "A-016#1"]]
+    },
+    {
+      "cluster": "P97-02",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-02-single.json",
+      "record_match_id": "completed-106-p97-02-single-a-first",
+      "trace_id": "trace-106-p97-02-single-a-first",
+      "seat_stratum": "a-first",
+      "swaps": []
+    },
+    {
+      "cluster": "P97-02",
+      "source_fixture": "proxy-fixtures-102/fixture-102-p97-02-single-a-second.json",
+      "record_match_id": "completed-106-p97-02-single-a-second",
+      "trace_id": "trace-106-p97-02-single-a-second",
+      "seat_stratum": "a-second",
+      "swaps": []
+    },
+    {
+      "cluster": "P97-04",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-04-single.json",
+      "record_match_id": "completed-106-p97-04-single-a-first",
+      "trace_id": "trace-106-p97-04-single-a-first",
+      "seat_stratum": "a-first",
+      "swaps": [
+        ["A-003#1", "A-020#1"],
+        ["A-004#1", "A-032#1"],
+        ["A-005#1", "A-035#1"],
+        ["A-011#1", "A-023#1"],
+        ["A-012#1", "A-036#1"]
+      ]
+    },
+    {
+      "cluster": "P97-04",
+      "source_fixture": "proxy-fixtures-102/fixture-102-p97-04-single-a-second.json",
+      "record_match_id": "completed-106-p97-04-single-a-second",
+      "trace_id": "trace-106-p97-04-single-a-second",
+      "seat_stratum": "a-second",
+      "swaps": [
+        ["A-003#1", "A-020#1"],
+        ["A-004#1", "A-032#1"],
+        ["A-005#1", "A-035#1"],
+        ["A-011#1", "A-023#1"],
+        ["A-012#1", "A-036#1"]
+      ]
+    }
+  ]
+}

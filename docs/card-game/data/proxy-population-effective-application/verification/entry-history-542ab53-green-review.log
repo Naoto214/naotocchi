@@ -1,0 +1,12 @@
+test_all_six_native_entries_reenter_through_outer_guard (test_proxy_population_entry_history.EntryHistoryTests.test_all_six_native_entries_reenter_through_outer_guard) ... ok
+test_full_envelope_branch_collision_and_binding_tampering_stop (test_proxy_population_entry_history.EntryHistoryTests.test_full_envelope_branch_collision_and_binding_tampering_stop) ... ok
+test_hypothetical_branch_is_not_selected_history_and_retired_source_stops (test_proxy_population_entry_history.EntryHistoryTests.test_hypothetical_branch_is_not_selected_history_and_retired_source_stops) ... ok
+test_late_event_annotation_does_not_replace_captured_transition (test_proxy_population_entry_history.EntryHistoryTests.test_late_event_annotation_does_not_replace_captured_transition) ... ok
+test_root_prefix_and_record_state_binding_are_required (test_proxy_population_entry_history.EntryHistoryTests.test_root_prefix_and_record_state_binding_are_required) ... ok
+test_saved_stop_history_proves_guard_without_resuming_attempt (test_proxy_population_entry_history.EntryHistoryTests.test_saved_stop_history_proves_guard_without_resuming_attempt) ... ok
+test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.837s
+
+OK

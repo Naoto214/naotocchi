@@ -1,0 +1,35 @@
+test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained (test_proxy_population_material_protocol.MaterialTests.test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained) ... FAIL
+test_full_order_pair_historical_match_and_invalid_supply (test_proxy_population_material_protocol.MaterialTests.test_full_order_pair_historical_match_and_invalid_supply) ... FAIL
+test_rejections_retained_without_blacklisting_new_groups (test_proxy_population_material_protocol.MaterialTests.test_rejections_retained_without_blacklisting_new_groups) ... FAIL
+
+======================================================================
+FAIL: test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained (test_proxy_population_material_protocol.MaterialTests.test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_material_protocol.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_full_order_pair_historical_match_and_invalid_supply (test_proxy_population_material_protocol.MaterialTests.test_full_order_pair_historical_match_and_invalid_supply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_material_protocol.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_rejections_retained_without_blacklisting_new_groups (test_proxy_population_material_protocol.MaterialTests.test_rejections_retained_without_blacklisting_new_groups)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_material_protocol.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

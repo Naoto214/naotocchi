@@ -1,0 +1,15 @@
+test_dangling_or_changed_explicit_anchor_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_dangling_or_changed_explicit_anchor_rejected) ... ok
+test_each_edge_hash_must_match_even_if_replayed_copy_identical (test_proxy_record_integrity_audit.RecordIntegrityTests.test_each_edge_hash_must_match_even_if_replayed_copy_identical) ... ok
+test_endpoint_and_contract_mismatch_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_endpoint_and_contract_mismatch_rejected) ... ok
+test_malformed_collections_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_malformed_collections_rejected) ... ok
+test_missing_explicit_anchor_is_reported_not_invented (test_proxy_record_integrity_audit.RecordIntegrityTests.test_missing_explicit_anchor_is_reported_not_invented) ... ok
+test_missing_extra_or_reordered_chain_is_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_missing_extra_or_reordered_chain_is_rejected) ... ok
+test_nonconsecutive_or_bool_sequences_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_nonconsecutive_or_bool_sequences_rejected) ... ok
+test_runtime_and_card_lookup_remain_hash_bound (test_proxy_record_integrity_audit.RecordIntegrityTests.test_runtime_and_card_lookup_remain_hash_bound) ... ok
+test_sequence_only_and_partial_hash_anchors_are_distinct (test_proxy_record_integrity_audit.RecordIntegrityTests.test_sequence_only_and_partial_hash_anchors_are_distinct) ... ok
+test_valid_record_is_structural_only_and_nonmutating (test_proxy_record_integrity_audit.RecordIntegrityTests.test_valid_record_is_structural_only_and_nonmutating) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.960s
+
+OK

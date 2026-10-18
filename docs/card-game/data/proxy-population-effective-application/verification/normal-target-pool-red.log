@@ -1,0 +1,26 @@
+test_shared_target_expander_cannot_hide_an_attachment_alternative (test_proxy_population_candidate_expansions.ExpansionTests.test_shared_target_expander_cannot_hide_an_attachment_alternative) ... 
+  test_shared_target_expander_cannot_hide_an_attachment_alternative (test_proxy_population_candidate_expansions.ExpansionTests.test_shared_target_expander_cannot_hide_an_attachment_alternative) (boundary='audit') ... FAIL
+  test_shared_target_expander_cannot_hide_an_attachment_alternative (test_proxy_population_candidate_expansions.ExpansionTests.test_shared_target_expander_cannot_hide_an_attachment_alternative) (boundary='actual_entry') ... FAIL
+
+======================================================================
+FAIL: test_shared_target_expander_cannot_hide_an_attachment_alternative (test_proxy_population_candidate_expansions.ExpansionTests.test_shared_target_expander_cannot_hide_an_attachment_alternative) (boundary='audit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 67, in run
+    with self.subTest(boundary='audit'):self.assertFalse(proof['registered_expansions_verified'],proof)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : {'schema': 'normal_registered_candidate_expansions.v1', 'registered_expansions_verified': True, 'errors': [], 'expected_unit_count': 23, 'actual_unit_count': 23, 'table_sha256': '7e1df8fbedb74413c407497fff6f285f77f72907d7e544095e8bb34b348ed737', 'complete_legal_set_proven': False, 'disposition_predicates_proven': False, 'information_use_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_shared_target_expander_cannot_hide_an_attachment_alternative (test_proxy_population_candidate_expansions.ExpansionTests.test_shared_target_expander_cannot_hide_an_attachment_alternative) (boundary='actual_entry')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 69, in run
+    with self.assertRaisesRegex(ValueError,'candidate expansions'):runtime._step(e,initial(),[],[],[e],forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.421s
+
+FAILED (failures=2)

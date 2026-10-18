@@ -1,0 +1,91 @@
+FFFFFF...............
+======================================================================
+FAIL: test_serialized_all_six_can_replay (test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay) (focus='G-jump-quest')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 124, in test_serialized_all_six_can_replay
+    self.assertEqual(x.replay(saved),[])
+AssertionError: Lists differ: ['scenario result metadata differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'scenario result metadata differs'
+
+- ['scenario result metadata differs']
++ []
+
+======================================================================
+FAIL: test_serialized_all_six_can_replay (test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay) (focus='M-mushroom-06')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 124, in test_serialized_all_six_can_replay
+    self.assertEqual(x.replay(saved),[])
+AssertionError: Lists differ: ['scenario result metadata differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'scenario result metadata differs'
+
+- ['scenario result metadata differs']
++ []
+
+======================================================================
+FAIL: test_serialized_all_six_can_replay (test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay) (focus='M-sakura-05')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 124, in test_serialized_all_six_can_replay
+    self.assertEqual(x.replay(saved),[])
+AssertionError: Lists differ: ['scenario result metadata differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'scenario result metadata differs'
+
+- ['scenario result metadata differs']
++ []
+
+======================================================================
+FAIL: test_serialized_all_six_can_replay (test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay) (focus='M-dragon-08')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 124, in test_serialized_all_six_can_replay
+    self.assertEqual(x.replay(saved),[])
+AssertionError: Lists differ: ['scenario result metadata differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'scenario result metadata differs'
+
+- ['scenario result metadata differs']
++ []
+
+======================================================================
+FAIL: test_serialized_all_six_can_replay (test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay) (focus='M-penguin-07')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 124, in test_serialized_all_six_can_replay
+    self.assertEqual(x.replay(saved),[])
+AssertionError: Lists differ: ['scenario result metadata differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'scenario result metadata differs'
+
+- ['scenario result metadata differs']
++ []
+
+======================================================================
+FAIL: test_world_and_challenge_keep_pending_first_opportunity (test_proxy_targeted_execution.SavedAndTimingTests.test_world_and_challenge_keep_pending_first_opportunity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 131, in test_world_and_challenge_keep_pending_first_opportunity
+    self.assertEqual(after['phase'],'trigger_opportunity')
+AssertionError: 'normal' != 'trigger_opportunity'
+- normal
++ trigger_opportunity
+
+
+----------------------------------------------------------------------
+Ran 17 tests in 17.736s
+
+FAILED (failures=6)

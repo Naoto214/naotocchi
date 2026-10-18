@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_connected_entries_export_the_verified_binding (test_proxy_population_decision_binding.BindingTests.test_connected_entries_export_the_verified_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_decision_binding.py", line 45, in test_connected_entries_export_the_verified_binding
+    self.assertTrue(step['ordinary_entry_binding']['entry_and_transition_binding_verified'])
+                    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'ordinary_entry_binding'
+
+----------------------------------------------------------------------
+Ran 1 test in 6.397s
+
+FAILED (errors=1)

@@ -1,0 +1,411 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "completed": false,
+      "completeness_checks": {
+        "closed_response_window_valid": true,
+        "enumeration_ids_unique": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "reservation_order_resolved": true,
+        "six_stage_inventory_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_dispositions_explained": true,
+        "source_projection_exact": true,
+        "transition_handlers_proven": true,
+        "trigger_information_boundary_valid": true,
+        "victory_history_sufficient": true
+      },
+      "contract_stop_codes": [],
+      "new_events": 0,
+      "next_opportunity": "turn_end",
+      "path_id": "probe-01-a-first",
+      "source_continuation_state_sha256": "ef39d82e9fb12a0e230ff26b0d6a42b6b82cbd5e1854758023b38bf444e26f89",
+      "source_game_state_sha256": "b8aba450f5195fff004cb58ed82badb71f38587b62bdba5628ae0c61aed390d1",
+      "source_last_valid_event_seq": 26,
+      "source_round": 2,
+      "stage_inventory": [
+        {
+          "empty_reason": "closed_empty_response_window",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 1,
+          "stage_name": "closed_end_request",
+          "state_fields": [
+            "game_state.phase",
+            "continuation_state.response_context",
+            "continuation_state.return_target"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "both_reservation_lists_empty",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 2,
+          "stage_name": "due_reservations",
+          "state_fields": [
+            "game_state.players.*.reservations"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "no_due_public_board_trigger",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 3,
+          "stage_name": "end_triggers_and_responses",
+          "state_fields": [
+            "game_state.players.*.board",
+            "game_state.cards",
+            "continuation_state.pending_triggers",
+            "continuation_state.activation_zone"
+          ],
+          "units": [
+            {
+              "card_id": "C-chicken",
+              "disposition": "excluded",
+              "enumeration_unit_id": "615ccf71323bf40d9b4300a7c3a9779445f8de2c2fd0f0f7394940705be2ddb7",
+              "evidence": {
+                "card_id": "C-chicken",
+                "owner": "A",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_instance_id": "A-015#1",
+              "source_references": [
+                "72-companion-26-card-text-draft.md#C-chicken"
+              ],
+              "source_zone": "A.board.companions",
+              "timing": "turn_start_not_turn_end"
+            },
+            {
+              "card_id": "C-bat",
+              "disposition": "excluded",
+              "enumeration_unit_id": "a179fd5ce3d5c26dd7b9c02ff885e9649a5160d677800a76dd0e10bbcd31c0d9",
+              "evidence": {
+                "card_id": "C-bat",
+                "owner": "B",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_instance_id": "B-011#1",
+              "source_references": [
+                "72-companion-26-card-text-draft.md#C-bat"
+              ],
+              "source_zone": "B.board.companions",
+              "timing": "opponent_quick_use_not_turn_end"
+            }
+          ]
+        },
+        {
+          "empty_reason": "verified_no_expiring_effects",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 4,
+          "stage_name": "expiring_effects",
+          "state_fields": [
+            "verified_history.classified_events",
+            "verified_history.active_expiring_effects"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "verified_no_expiration_triggers",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 5,
+          "stage_name": "expiration_triggers",
+          "state_fields": [
+            "verified_history.active_expiring_effects"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "verified_r1_no_100_reach",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 6,
+          "stage_name": "victory_and_next_turn",
+          "state_fields": [
+            "verified_history.growth_trace",
+            "verified_history.growth_reach_100"
+          ],
+          "units": []
+        }
+      ],
+      "turn_end_set_complete": true
+    },
+    {
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "C-chicken",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "A-015#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_exclusions": [
+        {
+          "card_id": "W-city",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-020#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-006#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-05",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-005#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "C-cat_friend",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-013#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "G-baseball-batting",
+          "reason_code": "no_active_own_challenge",
+          "source_instance_id": "A-028#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "response_window",
+      "origin_event_seq": 28,
+      "path_id": "probe-01-b-first",
+      "source_continuation_state_sha256": "ecf62262a641b1c804b1eba38907c92c16219498e234b1f9bc8270503311fcb0",
+      "source_game_state_sha256": "52c9685d1b046b637ac03917141a53bdb3cd9db8fa5aa79fe55d4cc8317ebe3a",
+      "source_last_valid_event_seq": 28,
+      "source_round": 2
+    },
+    {
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "P-cliff_goat",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "A-018#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_exclusions": [
+        {
+          "card_id": "P-anglerfish",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-016#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "G-basketball-3d",
+          "reason_code": "insufficient_time",
+          "source_instance_id": "A-029#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "I-bond1",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-031#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-006#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "I-bowtie",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-032#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "response_window",
+      "origin_event_seq": 30,
+      "path_id": "probe-02-b-first",
+      "source_continuation_state_sha256": "782cfc1c5273e706d91e54d64015699dcc2e497a9008ce7bb1c527be79b6d086",
+      "source_game_state_sha256": "5a0b277db511a5ec2640b4abe469fdb979a514950c512d8a8d41a427ac38d9d1",
+      "source_last_valid_event_seq": 30,
+      "source_round": 2
+    },
+    {
+      "balance_sample_count": 0,
+      "completed": false,
+      "completeness_checks": {
+        "closed_response_window_valid": true,
+        "enumeration_ids_unique": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "reservation_order_resolved": true,
+        "six_stage_inventory_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_dispositions_explained": true,
+        "source_projection_exact": true,
+        "transition_handlers_proven": true,
+        "trigger_information_boundary_valid": true,
+        "victory_history_sufficient": true
+      },
+      "contract_stop_codes": [],
+      "new_events": 0,
+      "next_opportunity": "turn_end",
+      "path_id": "probe-02-a-first",
+      "source_continuation_state_sha256": "e5b8a5cd27612bcad4cacb50c135f45986d90093170fd9427b333095bfcc97d0",
+      "source_game_state_sha256": "9f566752ee55e9aee57732bca6d0dc3c019bc8497d470c79c0b16ca5f4f8cfac",
+      "source_last_valid_event_seq": 20,
+      "source_round": 1,
+      "stage_inventory": [
+        {
+          "empty_reason": "closed_empty_response_window",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 1,
+          "stage_name": "closed_end_request",
+          "state_fields": [
+            "game_state.phase",
+            "continuation_state.response_context",
+            "continuation_state.return_target"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "both_reservation_lists_empty",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 2,
+          "stage_name": "due_reservations",
+          "state_fields": [
+            "game_state.players.*.reservations"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "no_due_public_board_trigger",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 3,
+          "stage_name": "end_triggers_and_responses",
+          "state_fields": [
+            "game_state.players.*.board",
+            "game_state.cards",
+            "continuation_state.pending_triggers",
+            "continuation_state.activation_zone"
+          ],
+          "units": [
+            {
+              "card_id": "P-anglerfish",
+              "disposition": "excluded",
+              "enumeration_unit_id": "5c26e962bf849c6d34759111bd6f0d9b4743f4b8a33ac2313dcef35c73356ad7",
+              "evidence": {
+                "card_id": "P-anglerfish",
+                "owner": "A",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_instance_id": "A-016#1",
+              "source_references": [
+                "74-partner-18-card-text-draft.md#P-anglerfish"
+              ],
+              "source_zone": "A.board.partner",
+              "timing": "event_trigger_not_turn_end"
+            }
+          ]
+        },
+        {
+          "empty_reason": "verified_no_expiring_effects",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 4,
+          "stage_name": "expiring_effects",
+          "state_fields": [
+            "verified_history.classified_events",
+            "verified_history.active_expiring_effects"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "verified_no_expiration_triggers",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 5,
+          "stage_name": "expiration_triggers",
+          "state_fields": [
+            "verified_history.active_expiring_effects"
+          ],
+          "units": []
+        },
+        {
+          "empty_reason": "verified_r1_no_100_reach",
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ],
+          "stage": 6,
+          "stage_name": "victory_and_next_turn",
+          "state_fields": [
+            "verified_history.growth_trace",
+            "verified_history.growth_reach_100"
+          ],
+          "units": []
+        }
+      ],
+      "turn_end_set_complete": true
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_r2_boundary_audit_182.v1",
+  "source_raw_sha256": "9a35e730cac42493cef2030aa215e8d09f2093b411f916ebf5edef9d4cc8ef31",
+  "states_raw_sha256": "17a4356d448858b990858766f14d94fba6c6b4aad99201f29c0fcbf8e88f89a4"
+}

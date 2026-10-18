@@ -1,0 +1,20 @@
+# Conditional incarnation / existing116 connection bundle
+
+Base: positive WIP1478d099 and recovered safety save ffa7dfc6. Scope only docs/card-game. Root/game authenticity, all opportunities and preflight are NOT complete. No entropy, planned400 material, new independent games, or promotion. Historical source files and artifacts remain byte-preserved.
+
+1. Reconstruct100/105 physical-copy generation only on actual field reentry. Retain old metadata and references; native movement first. Track active copies, first field entry and actual lifecycle hash chain separately from hypothetical candidate cache. Incomplete supplied roots cannot bypass the existing reentry guard.
+2. Connect native companion/world/preparation entries,119 physical information identities, exact full-state hash checks plus private active-only legacy conservation. Reuse native handlers. Unknown legacy intermediate snapshots remain closed, not dropped.
+3. Bind full mandatory frames to active-only465 local frames. Keep identical roots, opportunity addresses,1/N arithmetic and allowlist. Retired metadata is retained in actual state; projected records alone do not certify the full frame. Reuse468 callback registration and existing handlers.
+4. Reuse unchanged472/positive segment loop. Add actual-only lifecycle sidecar chain; no new game loop. All origin/completeness/admission gates remain unproved. Source/target retired at mandatory resolution stays unsupported; no old reference is remapped to a new incarnation.
+5. Connect existing116 pure fallback where the prior runtime lacked an applicable connection, only after existing114 proves every upper exclusion and every remaining comparison is unresolved, with no safe-placement mixed case. Do not invent scores, resource equality or a paid exclusion. Old selector and72 historical findings remain unchanged. Current conditional judgments remain old116 excluded.
+6. Dedicated/related tests, one fresh review of this lifecycle/normal bundle, source protection, combined full regression at the larger boundary. A full-proxy1498 snapshot run began at ffa7dfc6 before the new connection modules; report its actual scope and supplement the new modules separately. Do not claim that baseline run included later files.
+
+TDD: pre-loss lifecycle3RED→GREEN; restored3PASS (not byte-identical test restoration). New local-policy2RED→GREEN plus native-handler integration; native reentry1RED→GREEN then world/preparation families, actual next responses, captured-history guard RED→GREEN, nonreentry scope guard RED→GREEN. Window1RED→GREEN then malformed-root lock RED→GREEN. Current incarnation suite11PASS. Pure normal frontier1RED→GREEN. No whole400 readiness claim.
+
+Possible ruling boundary under investigation:01 defines effect application as actually working and caps growth at100;55/56 require actual application for M06/M07. Need determine whether executing a positive growth instruction at100, with no other operation, is application or all-operation nonapplication. Existing values/seed policy cannot settle game semantics. Do not clamp then arbitrarily set an application receipt to true/false to manufacture a complete trigger set. Read canonical sources and seek an independent assessment before deciding that a user ruling is necessary.
+
+## Review and decision boundary
+
+One independent review established two Important issues: actual entry event/new obligation still named the prior incarnation, and capture failed to check full-envelope hashes/contract. Added native P-cat_ceo and M-beetle-01 reentry RED tests; fixed only new entry references. Added runtime-only mutation and missing binding RED tests; validate full before/after envelope before cache mutation. Both GREEN. Historical references remain unchanged. Independent rereview not performed.
+
+Independent source review agrees cap-to-zero application cannot be uniquely derived. Neither game-ruling option is adopted; do not bypass100 guards. Save this large connection bundle and completed verification, then ask only for that concrete ruling. This is not final execution permission; preflight has remaining engineering gates.

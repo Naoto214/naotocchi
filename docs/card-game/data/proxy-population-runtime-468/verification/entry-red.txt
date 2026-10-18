@@ -1,0 +1,25 @@
+test_absent_match_and_out_of_bounds_limit_rejected_before_execution (test_proxy_population_runtime_entry.EntryTests.test_absent_match_and_out_of_bounds_limit_rejected_before_execution) ... FAIL
+test_complete_record_is_reconstructed_from_inputs_including_policy_and_lookup (test_proxy_population_runtime_entry.EntryTests.test_complete_record_is_reconstructed_from_inputs_including_policy_and_lookup) ... FAIL
+
+======================================================================
+FAIL: test_absent_match_and_out_of_bounds_limit_rejected_before_execution (test_proxy_population_runtime_entry.EntryTests.test_absent_match_and_out_of_bounds_limit_rejected_before_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime_entry.py", line 8, in setUp
+    def setUp(self):self.assertIsNotNone(api,'bound runtime reconstruction entrance missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : bound runtime reconstruction entrance missing
+
+======================================================================
+FAIL: test_complete_record_is_reconstructed_from_inputs_including_policy_and_lookup (test_proxy_population_runtime_entry.EntryTests.test_complete_record_is_reconstructed_from_inputs_including_policy_and_lookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime_entry.py", line 8, in setUp
+    def setUp(self):self.assertIsNotNone(api,'bound runtime reconstruction entrance missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : bound runtime reconstruction entrance missing
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

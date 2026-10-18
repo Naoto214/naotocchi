@@ -1,0 +1,10 @@
+test_group_then_ordinary_responses_use_existing_loop_and_exact_replay (test_proxy_population_trigger_window.WindowTests.test_group_then_ordinary_responses_use_existing_loop_and_exact_replay) ... ok
+test_actual_sources_stack_resolve_reverse_then_both_receive_response (test_proxy_population_trigger_connection.ConnectionTests.test_actual_sources_stack_resolve_reverse_then_both_receive_response) ... ok
+test_proof_cannot_rebind_to_different_start_source_or_hash (test_proxy_population_trigger_connection.ConnectionTests.test_proof_cannot_rebind_to_different_start_source_or_hash) ... ok
+test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass (test_proxy_population_trigger_sequential.SequentialTests.test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass) ... ok
+test_current_state_is_reenumerated_and_no_future_sequence_is_selected (test_proxy_population_trigger_sequential.SequentialTests.test_current_state_is_reenumerated_and_no_future_sequence_is_selected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.606s
+
+OK

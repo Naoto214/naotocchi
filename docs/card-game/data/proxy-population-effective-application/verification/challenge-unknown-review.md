@@ -1,0 +1,11 @@
+# ちょうせん宣言差分と比較operandの分離
+
+基準e8d55b105d8ce038d66017bbbe04d3f9ebec5d9c。P11の現行版追補。
+
+旧declaration_proofは宣言そのものの成長差0を返し、未採用414の設計文書にある未来報酬を採点しない文言も確認していた。この原子的差分・限定設計は、107/114の候補比較operandの独立根拠ではない。旧コード/過去結果は変更せず、現行unproved_priorityの比較中だけchallengeをCHALLENGE_GAPとして既存116のunknown frontierへ渡す。宣言の合法性・実遷移は既存handlerを維持する。
+
+challengeを比較0/同価値にせず、proved_scoresから除きunprovedとfrontierへ残す。未公開反応・将来報酬の値、期待値、先読み、新優先順位を導入しない。116は除外、policy_eligible=false。指定mandatory policyへ拡張しない。
+
+最初のfixtureはnormal_frontier.scope不足で旧guardに停止したためREDとは区別。正しい既存scopeで、challenge2候補がunprovedにないAssertionErrorをRED確認。最小修正後、通常実入口の2候補保持/非採点/116除外と関連32件PASS 9.347s（runner9.556s）、exit0、docs再帰Python前後一致。challenge-unknown-related.logとverification.json.gz参照。独立review1回C0/I0/Minor0、別実行10件PASS。
+
+他の比較operand/全機会/情報利用・入力/実行gateの合成は未完。全proxy回帰ではない。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。

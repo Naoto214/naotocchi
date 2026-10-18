@@ -1,0 +1,16 @@
+test_end_to_end_normal_selection_ignores_hidden_deck_and_hand_order (test_proxy_resource_value_public_proof.PublicProofTests.test_end_to_end_normal_selection_ignores_hidden_deck_and_hand_order) ... ok
+test_public_flags_and_history_are_bound_before_evidence_reuse (test_proxy_resource_value_public_proof.PublicProofTests.test_public_flags_and_history_are_bound_before_evidence_reuse) ... FAIL
+
+======================================================================
+FAIL: test_public_flags_and_history_are_bound_before_evidence_reuse (test_proxy_resource_value_public_proof.PublicProofTests.test_public_flags_and_history_are_bound_before_evidence_reuse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_public_proof.py", line 32, in test_public_flags_and_history_are_bound_before_evidence_reuse
+    with self.assertRaisesRegex(ValueError,'public history'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 8.399s
+
+FAILED (failures=1)

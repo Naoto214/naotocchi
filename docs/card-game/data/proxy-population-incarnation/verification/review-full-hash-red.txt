@@ -1,0 +1,25 @@
+F...
+======================================================================
+FAIL: test_capture_rejects_runtime_only_tampering_and_missing_full_hash (__main__.RuntimeIncarnationTests.test_capture_rejects_runtime_only_tampering_and_missing_full_hash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_incarnation_runtime.py", line 75, in test_capture_rejects_runtime_only_tampering_and_missing_full_hash
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_incarnation_runtime.py", line 68, in run
+    with self.assertRaisesRegex(ValueError,'envelope'):connection.capture(e,bad,event)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.787s
+
+FAILED (failures=1)

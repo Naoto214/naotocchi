@@ -1,0 +1,25 @@
+test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss) ... FAIL
+test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles) ... FAIL
+
+======================================================================
+FAIL: test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_responsibilities.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current107 responsibility composition absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current107 responsibility composition absent
+
+======================================================================
+FAIL: test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_responsibilities.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current107 responsibility composition absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current107 responsibility composition absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

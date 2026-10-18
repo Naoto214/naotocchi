@@ -1,0 +1,61 @@
+.E.
+======================================================================
+ERROR: test_current_people_cat_egg_legacy_and_replacement (test_proxy_population_person_placement_effect.PersonPlacementEffectTests.test_current_people_cat_egg_legacy_and_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_person_placement_effect.py", line 41, in test_current_people_cat_egg_legacy_and_replacement
+    self.run_case(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_person_placement_effect.py", line 38, in run
+    b,a,event=actual(template,card,True,True);self.assertEqual(api.audit(b,a,event)['errors'],[])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_person_placement_effect.py", line 19, in actual
+    if legacy:a,events=actions.apply(b,dict(selected_action=action,selected_candidate=action['candidate_id']),dict(public_events=[]))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_challenge.py", line 137, in apply
+    after,events=original_apply(e,r,i);battle=e['legacy_continuation']['game_state'].get('challenge')
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_preparation.py", line 107, in apply
+    return original_apply(envelope,record,inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_triggers.py", line 210, in apply
+    after,events=original_apply(envelope,record,inputs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 149, in apply
+    return original(envelope,record,inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch.py", line 267, in apply
+    if action.get('action_type')=='place_companion' and not has_world:return originals[2](envelope,record,inputs)
+                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_worlds.py", line 113, in apply
+    if action.get('action_type')!='place_world' or action.get('card_id') not in CAPABILITIES:return original_apply(envelope,record,inputs)
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_actions.py", line 111, in apply
+    rebuilt=candidates.select(envelope,record['inventory'],record['context'],record['policy_id'],inputs)
+                                       ~~~~~~^^^^^^^^^^^^^
+KeyError: 'inventory'
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.558s
+
+FAILED (errors=1)

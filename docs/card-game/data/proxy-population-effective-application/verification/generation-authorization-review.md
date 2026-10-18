@@ -1,0 +1,22 @@
+# 生成入口・公開承認の結合レビュー
+
+
+### 2026-10-11 生成入口と公開承認の結合
+
+基準ac22ff5/tree2539bb8、fresh remote/PR259 Draft・open・未マージ、local cleanを確認して継続。P13〜15: generation_entryは実captureしたeditionと実cutoff registry・正規絶対保存先からrequestを再構成し、公開済みclaimのみの直接子commit・本人comment・fresh remoteへ結合する。reference文字列だけでは乱数取得/保存先作成へ進まない。公開照会後もeditionを再検査する。本番preflight gateは常時閉鎖のまま。
+
+Ruling: 元edition commitを承認対象として維持し、claim-only子commitをremote照合対象にする。承認消費ファイル追加でsource版を勝手に再定義しないため。誤れば正しい承認を誤拒否するため、実Git合成fixtureとsource変更/registry変更/保存先変更で検査した。APIにcomment_id/claim_commit/claim_treeのkeyword指定を追加し、旧呼出しの非空referenceは実承認へ昇格しない。
+
+新4RED→fixtureのresetで未追跡data親が消える4ERROR→親復元4PASS。実入口reference単独がentropy境界へ到達する1FAIL→接続後5PASS。関連初回27件1FAILは旧テストの全subprocess.run禁止が、新しい履歴台帳Git読取まで禁止したことによる。旧remote単体入口試験からgenerationを外し、新しい実claim結合のremote移動拒否で検証。関連28PASS1.968s。独立review1回Important/Criticalなし、28PASS2.012s。指摘された旧test到達不能枝はレビュー完了前に除去済み。
+
+実装側の追加検査で公開照会中のsource変更受理を1FAILとして再現し、照会後edition再照合を追加。新8PASS0.636s。再reviewなし。合成Git/本人commentと、OS読取の返却前中断だけを使用。実本人承認消費・seed生成・本番固定・400戦0。
+
+P13方式は採用済み。P07〜12の全dispatch/機会/情報read/operand、P14〜18のprovenance/結果前順序/実行gate最終結合は未完。ready=false・policy promotion=false・独立balance標本0・全体結論nullを維持。全proxy固定回帰は別summary/原本archiveで確定し、過去PASSを転用しない。
+
+全proxy回帰2032件/529moduleは開始したが、開始入口の後続実装が残るため最終版へ延期し、意図的にCtrl-C/exit130で中断。worker完了summary0、最終PASSなし。原本をgeneration-authorization-full-incomplete.json.gzへ保存。残存worker0を確認。全回帰を今回完了とはしない。作業場所をcard-game-nextへ分けたが、今回の固定関連検証までsource変更なし。
+
+作業場所移行時、変更一覧の取得で追跡済みPython3ファイルの転送が漏れ、初回固定45件は1FAIL/1ERRORとなった。旧生成入口が残ったためで、新API keyword拒否とreference単独のentropy境界到達を検知した。原本と照合して3ファイルを転送し、同じ検証を再実行する。初回log/fingerprintはcopy-incompleteとして保存し、修正後結果と分離する。
+
+移行先固定検証45件は1ERROR: 実行中に追跡済みPython3ファイルが旧HEAD版へ戻り、connected source fingerprintが正しく拒否した。前後hashで3件の変更を確認。原因未確定のため移行先を使用せず、変更が保たれている元の独立cloneへ戻して検証する。worktree-drift原本を保存し、この試行をPASSへ読み替えない。
+
+元の独立cloneで最終固定45PASS51.440s/exit0。再帰Python1060ファイル前後hash一致、設計errors=[]、保護番号付き477正本不変。移行先のcopy漏れ/実行中driftと全回帰の意図的中断を別logで保持。今回は最新全proxy完了ではない。生成/固定/400戦0、preflight-ready=false。

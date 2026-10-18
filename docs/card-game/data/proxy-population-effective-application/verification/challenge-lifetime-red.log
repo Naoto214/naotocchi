@@ -1,0 +1,31 @@
+======================================================================
+FAIL: test_draw_aborted_and_other_target_preserve_pending_reward (test_proxy_population_challenge_lifetime.LifetimeTests.test_draw_aborted_and_other_target_preserve_pending_reward)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'challenge lifetime audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : challenge lifetime audit missing
+
+======================================================================
+FAIL: test_finish_clears_only_current_challenge_effects (test_proxy_population_challenge_lifetime.LifetimeTests.test_finish_clears_only_current_challenge_effects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'challenge lifetime audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : challenge lifetime audit missing
+
+======================================================================
+FAIL: test_next_win_consumes_even_without_exact_difference_reward (test_proxy_population_challenge_lifetime.LifetimeTests.test_next_win_consumes_even_without_exact_difference_reward)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'challenge lifetime audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : challenge lifetime audit missing
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

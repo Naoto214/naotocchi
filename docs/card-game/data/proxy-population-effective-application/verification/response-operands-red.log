@@ -1,0 +1,84 @@
+test_actual_boundary_comparison_and_unproved_routes_remain_separate (test_proxy_population_response_operands.ResponseOperandTests.test_actual_boundary_comparison_and_unproved_routes_remain_separate) ... FAIL
+test_actual_entry_rejects_coherent_forged_record (test_proxy_population_response_operands.ResponseOperandTests.test_actual_entry_rejects_coherent_forged_record) ... FAIL
+test_comparison_tampering_is_rejected_without_inventing_values (test_proxy_population_response_operands.ResponseOperandTests.test_comparison_tampering_is_rejected_without_inventing_values) ... FAIL
+test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) ... 
+  test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='stage') ... FAIL
+  test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='growth') ... FAIL
+  test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='bool') ... FAIL
+  test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='absent') ... FAIL
+  test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='extra') ... FAIL
+
+======================================================================
+FAIL: test_actual_boundary_comparison_and_unproved_routes_remain_separate (test_proxy_population_response_operands.ResponseOperandTests.test_actual_boundary_comparison_and_unproved_routes_remain_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 40, in test_actual_boundary_comparison_and_unproved_routes_remain_separate
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_actual_entry_rejects_coherent_forged_record (test_proxy_population_response_operands.ResponseOperandTests.test_actual_entry_rejects_coherent_forged_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 79, in test_actual_entry_rejects_coherent_forged_record
+    self.assertIsNotNone(api);prior=runtime._step
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_comparison_tampering_is_rejected_without_inventing_values (test_proxy_population_response_operands.ResponseOperandTests.test_comparison_tampering_is_rejected_without_inventing_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 58, in test_comparison_tampering_is_rejected_without_inventing_values
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='stage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 35, in run
+    with self.subTest(mode=mode):self.assertFalse(predicates.audit(e,h,bad)['response_hand_predicates_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='growth')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 35, in run
+    with self.subTest(mode=mode):self.assertFalse(predicates.audit(e,h,bad)['response_hand_predicates_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='bool')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 35, in run
+    with self.subTest(mode=mode):self.assertFalse(predicates.audit(e,h,bad)['response_hand_predicates_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='absent')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 35, in run
+    with self.subTest(mode=mode):self.assertFalse(predicates.audit(e,h,bad)['response_hand_predicates_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_hand_predicate_rejects_forged_resolution_premises (test_proxy_population_response_operands.ResponseOperandTests.test_hand_predicate_rejects_forged_resolution_premises) (mode='extra')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_response_operands.py", line 35, in run
+    with self.subTest(mode=mode):self.assertFalse(predicates.audit(e,h,bad)['response_hand_predicates_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.054s
+
+FAILED (failures=8)

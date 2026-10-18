@@ -1,0 +1,1077 @@
+{
+  "results": [
+    {
+      "module": "test_proxy_continuation_actions",
+      "exit_code": 0,
+      "seconds": 1.6263223069981905
+    },
+    {
+      "module": "test_proxy_continuation_batch",
+      "exit_code": 0,
+      "seconds": 1.8304189939990465
+    },
+    {
+      "module": "test_proxy_continuation_board_links",
+      "exit_code": 0,
+      "seconds": 0.0769188669983123
+    },
+    {
+      "module": "test_proxy_continuation_capabilities",
+      "exit_code": 0,
+      "seconds": 0.49498069399851374
+    },
+    {
+      "module": "test_proxy_continuation_capability_runner",
+      "exit_code": 0,
+      "seconds": 29.89305589700234
+    },
+    {
+      "module": "test_proxy_continuation_challenge",
+      "exit_code": 0,
+      "seconds": 1.5745805469996412
+    },
+    {
+      "module": "test_proxy_continuation_choices",
+      "exit_code": 0,
+      "seconds": 2.1681624080010806
+    },
+    {
+      "module": "test_proxy_continuation_condition_runner",
+      "exit_code": 0,
+      "seconds": 44.654072728000756
+    },
+    {
+      "module": "test_proxy_continuation_conditions",
+      "exit_code": 0,
+      "seconds": 0.32873177899818984
+    },
+    {
+      "module": "test_proxy_continuation_end",
+      "exit_code": 0,
+      "seconds": 3.4973482940004033
+    },
+    {
+      "module": "test_proxy_continuation_end_runner",
+      "exit_code": 0,
+      "seconds": 41.85098161499991
+    },
+    {
+      "module": "test_proxy_continuation_payments",
+      "exit_code": 0,
+      "seconds": 4.256748774998414
+    },
+    {
+      "module": "test_proxy_continuation_preparation",
+      "exit_code": 0,
+      "seconds": 0.4255894729976717
+    },
+    {
+      "module": "test_proxy_continuation_public_history",
+      "exit_code": 0,
+      "seconds": 0.35100286500164657
+    },
+    {
+      "module": "test_proxy_continuation_quick",
+      "exit_code": 0,
+      "seconds": 0.6911071549984626
+    },
+    {
+      "module": "test_proxy_continuation_rules",
+      "exit_code": 0,
+      "seconds": 3.900076967001951
+    },
+    {
+      "module": "test_proxy_continuation_runner",
+      "exit_code": 0,
+      "seconds": 32.64242488400123
+    },
+    {
+      "module": "test_proxy_continuation_state",
+      "exit_code": 0,
+      "seconds": 1.3010574969994195
+    },
+    {
+      "module": "test_proxy_continuation_triggers",
+      "exit_code": 0,
+      "seconds": 9.463195216998429
+    },
+    {
+      "module": "test_proxy_continuation_world_runner",
+      "exit_code": 0,
+      "seconds": 29.605017925001448
+    },
+    {
+      "module": "test_proxy_continuation_worlds",
+      "exit_code": 0,
+      "seconds": 0.530790259999776
+    },
+    {
+      "module": "test_proxy_mandatory_choice_boundary",
+      "exit_code": 0,
+      "seconds": 0.1752835999977833
+    },
+    {
+      "module": "test_proxy_mandatory_policy_audit",
+      "exit_code": 1,
+      "seconds": 0.24817488899861928
+    },
+    {
+      "module": "test_proxy_mandatory_policy_contract",
+      "exit_code": 1,
+      "seconds": 0.07634397999936482
+    },
+    {
+      "module": "test_proxy_mandatory_policy_journal",
+      "exit_code": 0,
+      "seconds": 0.4988765859998239
+    },
+    {
+      "module": "test_proxy_mandatory_policy_local",
+      "exit_code": 0,
+      "seconds": 0.3073467790018185
+    },
+    {
+      "module": "test_proxy_mandatory_policy_random",
+      "exit_code": 0,
+      "seconds": 0.0705219980009133
+    },
+    {
+      "module": "test_proxy_mandatory_population_input",
+      "exit_code": 1,
+      "seconds": 10.259545977001835
+    },
+    {
+      "module": "test_proxy_population_activation_legality",
+      "exit_code": 0,
+      "seconds": 0.35090148000017507
+    },
+    {
+      "module": "test_proxy_population_activation_reference",
+      "exit_code": 0,
+      "seconds": 0.23283646799973212
+    },
+    {
+      "module": "test_proxy_population_admission",
+      "exit_code": 1,
+      "seconds": 7.821492158000183
+    },
+    {
+      "module": "test_proxy_population_approval_publication",
+      "exit_code": 0,
+      "seconds": 0.9376788230001694
+    },
+    {
+      "module": "test_proxy_population_approval_read_retry",
+      "exit_code": 1,
+      "seconds": 3.896465725996677
+    },
+    {
+      "module": "test_proxy_population_arrival_predicates",
+      "exit_code": 0,
+      "seconds": 0.8003837060023216
+    },
+    {
+      "module": "test_proxy_population_attempt_runner",
+      "exit_code": 1,
+      "seconds": 1.2159088529988367
+    },
+    {
+      "module": "test_proxy_population_automatic_binding",
+      "exit_code": 5,
+      "seconds": 1.141212597998674
+    },
+    {
+      "module": "test_proxy_population_batch_supervisor",
+      "exit_code": 1,
+      "seconds": 5.065826442998514
+    },
+    {
+      "module": "test_proxy_population_board_group_effect",
+      "exit_code": 0,
+      "seconds": 1.9634711780017824
+    },
+    {
+      "module": "test_proxy_population_board_payment_binding",
+      "exit_code": 0,
+      "seconds": 0.47021706399755203
+    },
+    {
+      "module": "test_proxy_population_board_predicates",
+      "exit_code": 1,
+      "seconds": 1.9049105119993328
+    },
+    {
+      "module": "test_proxy_population_boundary_response",
+      "exit_code": 0,
+      "seconds": 0.2033118659965112
+    },
+    {
+      "module": "test_proxy_population_candidate_expansions",
+      "exit_code": 1,
+      "seconds": 1.5791388479992747
+    },
+    {
+      "module": "test_proxy_population_cat_activation_effect",
+      "exit_code": 0,
+      "seconds": 0.6208371419998002
+    },
+    {
+      "module": "test_proxy_population_chain_resolution",
+      "exit_code": 0,
+      "seconds": 0.3210905619998812
+    },
+    {
+      "module": "test_proxy_population_challenge_declaration_effect",
+      "exit_code": 0,
+      "seconds": 0.9946540529999766
+    },
+    {
+      "module": "test_proxy_population_challenge_lifetime",
+      "exit_code": 0,
+      "seconds": 1.893769335001707
+    },
+    {
+      "module": "test_proxy_population_challenge_operands",
+      "exit_code": 0,
+      "seconds": 2.12100422200092
+    },
+    {
+      "module": "test_proxy_population_challenge_predicates",
+      "exit_code": 0,
+      "seconds": 0.4763067929998215
+    },
+    {
+      "module": "test_proxy_population_challenge_window",
+      "exit_code": 1,
+      "seconds": 10.477692560998548
+    },
+    {
+      "module": "test_proxy_population_city_predicates",
+      "exit_code": 0,
+      "seconds": 1.1447228180004458
+    },
+    {
+      "module": "test_proxy_population_closure_binding",
+      "exit_code": 0,
+      "seconds": 0.51957740600119
+    },
+    {
+      "module": "test_proxy_population_comparison_evidence",
+      "exit_code": 0,
+      "seconds": 0.828271174999827
+    },
+    {
+      "module": "test_proxy_population_connected_entry",
+      "exit_code": 1,
+      "seconds": 1.8547869529975287
+    },
+    {
+      "module": "test_proxy_population_contract",
+      "exit_code": 0,
+      "seconds": 2.436994195999432
+    },
+    {
+      "module": "test_proxy_population_core_predicates",
+      "exit_code": 1,
+      "seconds": 2.377331169998797
+    },
+    {
+      "module": "test_proxy_population_current_preflight",
+      "exit_code": 0,
+      "seconds": 0.22774546299842768
+    },
+    {
+      "module": "test_proxy_population_decision_binding",
+      "exit_code": 5,
+      "seconds": 1.0015577750018565
+    },
+    {
+      "module": "test_proxy_population_departure",
+      "exit_code": 0,
+      "seconds": 0.5885778779993416
+    },
+    {
+      "module": "test_proxy_population_departure_order",
+      "exit_code": 0,
+      "seconds": 1.0475430080005026
+    },
+    {
+      "module": "test_proxy_population_designated_effects",
+      "exit_code": 1,
+      "seconds": 4.218881682998472
+    },
+    {
+      "module": "test_proxy_population_discard_recovery",
+      "exit_code": 0,
+      "seconds": 0.5223832629999379
+    },
+    {
+      "module": "test_proxy_population_draw_effects",
+      "exit_code": 0,
+      "seconds": 2.9382381579998764
+    },
+    {
+      "module": "test_proxy_population_early_finish_effect",
+      "exit_code": 0,
+      "seconds": 0.5050441659986973
+    },
+    {
+      "module": "test_proxy_population_effect_application_runtime",
+      "exit_code": 0,
+      "seconds": 0.360379144000035
+    },
+    {
+      "module": "test_proxy_population_effect_creation",
+      "exit_code": 0,
+      "seconds": 0.7533107519993791
+    },
+    {
+      "module": "test_proxy_population_effect_expiry",
+      "exit_code": 0,
+      "seconds": 0.45911444300145376
+    },
+    {
+      "module": "test_proxy_population_effective_application",
+      "exit_code": 0,
+      "seconds": 0.03870039300090866
+    },
+    {
+      "module": "test_proxy_population_egg_choice_effect",
+      "exit_code": 1,
+      "seconds": 1.9596830810005486
+    },
+    {
+      "module": "test_proxy_population_end_dispatch",
+      "exit_code": 0,
+      "seconds": 0.5182462979973934
+    },
+    {
+      "module": "test_proxy_population_end_predicates",
+      "exit_code": 0,
+      "seconds": 0.8587965299993812
+    },
+    {
+      "module": "test_proxy_population_end_victory",
+      "exit_code": 0,
+      "seconds": 0.30024284699902637
+    },
+    {
+      "module": "test_proxy_population_end_window_effect",
+      "exit_code": 0,
+      "seconds": 0.3188173429989547
+    },
+    {
+      "module": "test_proxy_population_entry_history",
+      "exit_code": 0,
+      "seconds": 4.559431363002659
+    },
+    {
+      "module": "test_proxy_population_equipment_effects",
+      "exit_code": 0,
+      "seconds": 1.0319940299996233
+    },
+    {
+      "module": "test_proxy_population_equipment_predicates",
+      "exit_code": 1,
+      "seconds": 1.6446707190007146
+    },
+    {
+      "module": "test_proxy_population_execution_binding",
+      "exit_code": 1,
+      "seconds": 35.658204145001946
+    },
+    {
+      "module": "test_proxy_population_execution_edition",
+      "exit_code": 0,
+      "seconds": 0.20800750199850881
+    },
+    {
+      "module": "test_proxy_population_external_approval",
+      "exit_code": 0,
+      "seconds": 0.23909104399717762
+    },
+    {
+      "module": "test_proxy_population_fallback_payment",
+      "exit_code": 0,
+      "seconds": 0.5750613589989371
+    },
+    {
+      "module": "test_proxy_population_final_time_boundary",
+      "exit_code": 0,
+      "seconds": 0.5029681710002478
+    },
+    {
+      "module": "test_proxy_population_final_time_outer",
+      "exit_code": 0,
+      "seconds": 1.6880616019989247
+    },
+    {
+      "module": "test_proxy_population_first_date_effect",
+      "exit_code": 0,
+      "seconds": 1.0983543760012253
+    },
+    {
+      "module": "test_proxy_population_first_response",
+      "exit_code": 1,
+      "seconds": 1.139203622999048
+    },
+    {
+      "module": "test_proxy_population_generation_authorization",
+      "exit_code": 0,
+      "seconds": 1.0356085339990386
+    },
+    {
+      "module": "test_proxy_population_generation_entry",
+      "exit_code": 0,
+      "seconds": 0.13102245600020979
+    },
+    {
+      "module": "test_proxy_population_generation_journal",
+      "exit_code": 0,
+      "seconds": 0.10159210599886137
+    },
+    {
+      "module": "test_proxy_population_generation_operation",
+      "exit_code": 5,
+      "seconds": 1.7752546619994973
+    },
+    {
+      "module": "test_proxy_population_generation_package",
+      "exit_code": 1,
+      "seconds": 2.480191762002505
+    },
+    {
+      "module": "test_proxy_population_growth_runtime",
+      "exit_code": 0,
+      "seconds": 0.48718441399978474
+    },
+    {
+      "module": "test_proxy_population_hand_activation_effect",
+      "exit_code": 0,
+      "seconds": 0.6172636100018281
+    },
+    {
+      "module": "test_proxy_population_hand_group_effect",
+      "exit_code": 0,
+      "seconds": 1.8262941319990205
+    },
+    {
+      "module": "test_proxy_population_hand_predicates",
+      "exit_code": 1,
+      "seconds": 1.9151277509990905
+    },
+    {
+      "module": "test_proxy_population_hand_prepared_trigger",
+      "exit_code": 0,
+      "seconds": 0.25258243099960964
+    },
+    {
+      "module": "test_proxy_population_hand_timing",
+      "exit_code": 0,
+      "seconds": 6.159506687999965
+    },
+    {
+      "module": "test_proxy_population_history_incarnation_dispatch",
+      "exit_code": 0,
+      "seconds": 2.052766581000469
+    },
+    {
+      "module": "test_proxy_population_history_projection",
+      "exit_code": 1,
+      "seconds": 3.490055364996806
+    },
+    {
+      "module": "test_proxy_population_immediate_growth",
+      "exit_code": 0,
+      "seconds": 1.560044898000342
+    },
+    {
+      "module": "test_proxy_population_incarnation",
+      "exit_code": 0,
+      "seconds": 0.2076274309984001
+    },
+    {
+      "module": "test_proxy_population_incarnation_policy",
+      "exit_code": 0,
+      "seconds": 0.3114806769990537
+    },
+    {
+      "module": "test_proxy_population_incarnation_runtime",
+      "exit_code": 0,
+      "seconds": 1.3969550860019808
+    },
+    {
+      "module": "test_proxy_population_incarnation_window",
+      "exit_code": 0,
+      "seconds": 0.8358934320021945
+    },
+    {
+      "module": "test_proxy_population_information_use",
+      "exit_code": 0,
+      "seconds": 2.732622652001737
+    },
+    {
+      "module": "test_proxy_population_initial_obligations",
+      "exit_code": 1,
+      "seconds": 5.790784924000036
+    },
+    {
+      "module": "test_proxy_population_input_history",
+      "exit_code": 1,
+      "seconds": 1.7603803999991214
+    },
+    {
+      "module": "test_proxy_population_input_lock",
+      "exit_code": 0,
+      "seconds": 0.19969872500223573
+    },
+    {
+      "module": "test_proxy_population_instance_boundary",
+      "exit_code": 0,
+      "seconds": 0.17139504800070426
+    },
+    {
+      "module": "test_proxy_population_launch_authorization",
+      "exit_code": 1,
+      "seconds": 4.778313013997831
+    },
+    {
+      "module": "test_proxy_population_legacy_choice_obligations",
+      "exit_code": 0,
+      "seconds": 0.43460252200020477
+    },
+    {
+      "module": "test_proxy_population_loss_reward",
+      "exit_code": 0,
+      "seconds": 0.41576124700077344
+    },
+    {
+      "module": "test_proxy_population_main_movement_effect",
+      "exit_code": 0,
+      "seconds": 1.9389419639992411
+    },
+    {
+      "module": "test_proxy_population_main_routes",
+      "exit_code": 0,
+      "seconds": 1.0581005879976146
+    },
+    {
+      "module": "test_proxy_population_manifest_builder",
+      "exit_code": 1,
+      "seconds": 1.180033980999724
+    },
+    {
+      "module": "test_proxy_population_material_protocol",
+      "exit_code": 1,
+      "seconds": 0.9544411410024622
+    },
+    {
+      "module": "test_proxy_population_movement_lifetime",
+      "exit_code": 0,
+      "seconds": 0.7120506040009786
+    },
+    {
+      "module": "test_proxy_population_movement_payment",
+      "exit_code": 0,
+      "seconds": 1.0132037499970465
+    },
+    {
+      "module": "test_proxy_population_native_collection",
+      "exit_code": 0,
+      "seconds": 0.9026372590014944
+    },
+    {
+      "module": "test_proxy_population_nonresolution_semantics",
+      "exit_code": 1,
+      "seconds": 1.4028726059987093
+    },
+    {
+      "module": "test_proxy_population_normal_frontier",
+      "exit_code": 0,
+      "seconds": 0.5036147930004518
+    },
+    {
+      "module": "test_proxy_population_normal_pass_effect",
+      "exit_code": 0,
+      "seconds": 0.7425010290025966
+    },
+    {
+      "module": "test_proxy_population_opening",
+      "exit_code": 1,
+      "seconds": 8.284536196002591
+    },
+    {
+      "module": "test_proxy_population_operation_edition",
+      "exit_code": 1,
+      "seconds": 1.9257266870008607
+    },
+    {
+      "module": "test_proxy_population_opportunity_ledger",
+      "exit_code": 0,
+      "seconds": 0.057805420001386665
+    },
+    {
+      "module": "test_proxy_population_opportunity_order",
+      "exit_code": 0,
+      "seconds": 0.12980287900063558
+    },
+    {
+      "module": "test_proxy_population_paid_activation_effect",
+      "exit_code": 0,
+      "seconds": 0.6550576010013174
+    },
+    {
+      "module": "test_proxy_population_paid_draw",
+      "exit_code": 0,
+      "seconds": 0.3749732869982836
+    },
+    {
+      "module": "test_proxy_population_partner_cycle",
+      "exit_code": 0,
+      "seconds": 0.6252455979993101
+    },
+    {
+      "module": "test_proxy_population_partner_draw",
+      "exit_code": 0,
+      "seconds": 0.49332560499897227
+    },
+    {
+      "module": "test_proxy_population_pass_end_unknown",
+      "exit_code": 0,
+      "seconds": 0.6785386900010053
+    },
+    {
+      "module": "test_proxy_population_payment_consumption",
+      "exit_code": 0,
+      "seconds": 1.3790247610013466
+    },
+    {
+      "module": "test_proxy_population_payment_gate",
+      "exit_code": 1,
+      "seconds": 1.456106464000186
+    },
+    {
+      "module": "test_proxy_population_payment_operands",
+      "exit_code": 0,
+      "seconds": 1.3162398890017357
+    },
+    {
+      "module": "test_proxy_population_permitted_inputs",
+      "exit_code": 1,
+      "seconds": 0.9588640649999434
+    },
+    {
+      "module": "test_proxy_population_person_placement_effect",
+      "exit_code": 0,
+      "seconds": 3.1225016220014368
+    },
+    {
+      "module": "test_proxy_population_policy_bridge",
+      "exit_code": 0,
+      "seconds": 0.4366391100011242
+    },
+    {
+      "module": "test_proxy_population_policy_journal",
+      "exit_code": 1,
+      "seconds": 1.6588146510002844
+    },
+    {
+      "module": "test_proxy_population_positive_activation_effect",
+      "exit_code": 0,
+      "seconds": 1.4092496240009496
+    },
+    {
+      "module": "test_proxy_population_positive_provenance",
+      "exit_code": 0,
+      "seconds": 1.6398996570023883
+    },
+    {
+      "module": "test_proxy_population_positive_saved_history",
+      "exit_code": 0,
+      "seconds": 3.399104038999212
+    },
+    {
+      "module": "test_proxy_population_positive_window",
+      "exit_code": 0,
+      "seconds": 7.3570021250016
+    },
+    {
+      "module": "test_proxy_population_predicate_gate",
+      "exit_code": 1,
+      "seconds": 1.863293299000361
+    },
+    {
+      "module": "test_proxy_population_prepared_board_routes",
+      "exit_code": 0,
+      "seconds": 1.1908463949985162
+    },
+    {
+      "module": "test_proxy_population_prepared_information",
+      "exit_code": 0,
+      "seconds": 2.218773038999643
+    },
+    {
+      "module": "test_proxy_population_prepared_placement_effect",
+      "exit_code": 0,
+      "seconds": 2.3398240080023243
+    },
+    {
+      "module": "test_proxy_population_prepared_predicates",
+      "exit_code": 1,
+      "seconds": 1.478464094998344
+    },
+    {
+      "module": "test_proxy_population_public_application",
+      "exit_code": 0,
+      "seconds": 0.2980554679998022
+    },
+    {
+      "module": "test_proxy_population_public_history",
+      "exit_code": 1,
+      "seconds": 2.135959457998979
+    },
+    {
+      "module": "test_proxy_population_public_sources",
+      "exit_code": 0,
+      "seconds": 0.6854429369996069
+    },
+    {
+      "module": "test_proxy_population_public_turn",
+      "exit_code": 0,
+      "seconds": 0.29490815499957534
+    },
+    {
+      "module": "test_proxy_population_quick_recovery_effect",
+      "exit_code": 0,
+      "seconds": 0.6706680610004696
+    },
+    {
+      "module": "test_proxy_population_quick_reveal",
+      "exit_code": 0,
+      "seconds": 1.8228642030007904
+    },
+    {
+      "module": "test_proxy_population_readiness",
+      "exit_code": 0,
+      "seconds": 0.20340272799876402
+    },
+    {
+      "module": "test_proxy_population_rebinding_launch",
+      "exit_code": 1,
+      "seconds": 4.2084765510007855
+    },
+    {
+      "module": "test_proxy_population_relationship_consumption",
+      "exit_code": 0,
+      "seconds": 1.5127675519979675
+    },
+    {
+      "module": "test_proxy_population_relationship_predicates",
+      "exit_code": 0,
+      "seconds": 0.338057672001014
+    },
+    {
+      "module": "test_proxy_population_remote_publication",
+      "exit_code": 1,
+      "seconds": 1.2547096730013436
+    },
+    {
+      "module": "test_proxy_population_resolution_choices",
+      "exit_code": 0,
+      "seconds": 0.5570386619983765
+    },
+    {
+      "module": "test_proxy_population_resolution_order",
+      "exit_code": 0,
+      "seconds": 0.22557768499973463
+    },
+    {
+      "module": "test_proxy_population_resolution_semantics",
+      "exit_code": 1,
+      "seconds": 1.167345091002062
+    },
+    {
+      "module": "test_proxy_population_response_activation_closure",
+      "exit_code": 0,
+      "seconds": 1.8221817819976422
+    },
+    {
+      "module": "test_proxy_population_response_board_predicates",
+      "exit_code": 1,
+      "seconds": 1.8281719109982077
+    },
+    {
+      "module": "test_proxy_population_response_composition",
+      "exit_code": 5,
+      "seconds": 1.1083713670013822
+    },
+    {
+      "module": "test_proxy_population_response_context",
+      "exit_code": 0,
+      "seconds": 0.5114412430011726
+    },
+    {
+      "module": "test_proxy_population_response_end_predicates",
+      "exit_code": 0,
+      "seconds": 0.605929367000499
+    },
+    {
+      "module": "test_proxy_population_response_event_predicates",
+      "exit_code": 0,
+      "seconds": 0.7452380940012517
+    },
+    {
+      "module": "test_proxy_population_response_expansions",
+      "exit_code": 1,
+      "seconds": 1.0197138260009524
+    },
+    {
+      "module": "test_proxy_population_response_group_closure",
+      "exit_code": 0,
+      "seconds": 3.805082955997932
+    },
+    {
+      "module": "test_proxy_population_response_latched_predicates",
+      "exit_code": 0,
+      "seconds": 0.2989212360007514
+    },
+    {
+      "module": "test_proxy_population_response_operands",
+      "exit_code": 0,
+      "seconds": 0.8729524250011309
+    },
+    {
+      "module": "test_proxy_population_response_pass_effect",
+      "exit_code": 0,
+      "seconds": 0.4740488089992141
+    },
+    {
+      "module": "test_proxy_population_response_predicates",
+      "exit_code": 1,
+      "seconds": 3.0858371009999246
+    },
+    {
+      "module": "test_proxy_population_response_reactions",
+      "exit_code": 1,
+      "seconds": 1.6279168010005378
+    },
+    {
+      "module": "test_proxy_population_response_start_negative",
+      "exit_code": 0,
+      "seconds": 2.6853840700023284
+    },
+    {
+      "module": "test_proxy_population_return_challenge",
+      "exit_code": 0,
+      "seconds": 0.8195376720032073
+    },
+    {
+      "module": "test_proxy_population_return_effects",
+      "exit_code": 0,
+      "seconds": 1.0924143909978739
+    },
+    {
+      "module": "test_proxy_population_reveal_effects",
+      "exit_code": 0,
+      "seconds": 0.5328453840011207
+    },
+    {
+      "module": "test_proxy_population_runtime",
+      "exit_code": 1,
+      "seconds": 1.1350240860010672
+    },
+    {
+      "module": "test_proxy_population_runtime_completion",
+      "exit_code": 0,
+      "seconds": 0.3143786230029946
+    },
+    {
+      "module": "test_proxy_population_runtime_entry",
+      "exit_code": 1,
+      "seconds": 1.6909090900007868
+    },
+    {
+      "module": "test_proxy_population_schedule",
+      "exit_code": 1,
+      "seconds": 3.634269434001908
+    },
+    {
+      "module": "test_proxy_population_selection_basis",
+      "exit_code": 0,
+      "seconds": 0.14934826999888173
+    },
+    {
+      "module": "test_proxy_population_selection_entry",
+      "exit_code": 1,
+      "seconds": 1.2071044239964976
+    },
+    {
+      "module": "test_proxy_population_source_conservation",
+      "exit_code": 5,
+      "seconds": 1.0186372950010991
+    },
+    {
+      "module": "test_proxy_population_source_invariants",
+      "exit_code": 5,
+      "seconds": 0.8868446720007341
+    },
+    {
+      "module": "test_proxy_population_source_inventory",
+      "exit_code": 1,
+      "seconds": 1.107452675998502
+    },
+    {
+      "module": "test_proxy_population_source_responsibilities",
+      "exit_code": 1,
+      "seconds": 1.0829520629995386
+    },
+    {
+      "module": "test_proxy_population_source_root",
+      "exit_code": 5,
+      "seconds": 0.9065376809994632
+    },
+    {
+      "module": "test_proxy_population_start_condition_history",
+      "exit_code": 0,
+      "seconds": 0.9928254160004144
+    },
+    {
+      "module": "test_proxy_population_start_draw_effect",
+      "exit_code": 0,
+      "seconds": 0.8931102139977156
+    },
+    {
+      "module": "test_proxy_population_start_effects",
+      "exit_code": 0,
+      "seconds": 0.1826522980009031
+    },
+    {
+      "module": "test_proxy_population_start_obligations",
+      "exit_code": 0,
+      "seconds": 0.12298765600280603
+    },
+    {
+      "module": "test_proxy_population_start_window",
+      "exit_code": 1,
+      "seconds": 3.6575611419975758
+    },
+    {
+      "module": "test_proxy_population_supervisor_interrupt",
+      "exit_code": 1,
+      "seconds": 4.081670601000951
+    },
+    {
+      "module": "test_proxy_population_timing_occurrence",
+      "exit_code": 0,
+      "seconds": 0.6277109699985886
+    },
+    {
+      "module": "test_proxy_population_trace_obligations",
+      "exit_code": 1,
+      "seconds": 3.666649566999695
+    },
+    {
+      "module": "test_proxy_population_trigger_closure",
+      "exit_code": 0,
+      "seconds": 0.1272818270008429
+    },
+    {
+      "module": "test_proxy_population_trigger_closure_effect",
+      "exit_code": 0,
+      "seconds": 1.3323674989987921
+    },
+    {
+      "module": "test_proxy_population_trigger_connection",
+      "exit_code": 0,
+      "seconds": 0.29122268500213977
+    },
+    {
+      "module": "test_proxy_population_trigger_coverage",
+      "exit_code": 0,
+      "seconds": 0.1659778159992129
+    },
+    {
+      "module": "test_proxy_population_trigger_effects",
+      "exit_code": 0,
+      "seconds": 0.6515234930011502
+    },
+    {
+      "module": "test_proxy_population_trigger_existing",
+      "exit_code": 0,
+      "seconds": 0.787955770996632
+    },
+    {
+      "module": "test_proxy_population_trigger_latching",
+      "exit_code": 0,
+      "seconds": 0.5260905229988566
+    },
+    {
+      "module": "test_proxy_population_trigger_multiturn",
+      "exit_code": 1,
+      "seconds": 1.1490550019989314
+    },
+    {
+      "module": "test_proxy_population_trigger_observation",
+      "exit_code": 0,
+      "seconds": 0.1871760419999191
+    },
+    {
+      "module": "test_proxy_population_trigger_predicates",
+      "exit_code": 0,
+      "seconds": 1.3066592069990293
+    },
+    {
+      "module": "test_proxy_population_trigger_replay",
+      "exit_code": 0,
+      "seconds": 0.9103234329995757
+    },
+    {
+      "module": "test_proxy_population_trigger_sequential",
+      "exit_code": 0,
+      "seconds": 0.5006280519992288
+    },
+    {
+      "module": "test_proxy_population_trigger_window",
+      "exit_code": 0,
+      "seconds": 0.882707192999078
+    },
+    {
+      "module": "test_proxy_population_turn_boundary",
+      "exit_code": 0,
+      "seconds": 0.49286737800139235
+    },
+    {
+      "module": "test_proxy_population_turn_finish_effect",
+      "exit_code": 0,
+      "seconds": 0.7597194259979005
+    },
+    {
+      "module": "test_proxy_population_typed_resolution",
+      "exit_code": 0,
+      "seconds": 2.184013922000304
+    },
+    {
+      "module": "test_proxy_population_unproved_priority",
+      "exit_code": 0,
+      "seconds": 1.1183324810008344
+    },
+    {
+      "module": "test_proxy_population_victory_history",
+      "exit_code": 0,
+      "seconds": 0.09227180300149485
+    },
+    {
+      "module": "test_proxy_population_world_placement_effect",
+      "exit_code": 0,
+      "seconds": 1.9587215219980862
+    },
+    {
+      "module": "test_proxy_population_zone_effects",
+      "exit_code": 0,
+      "seconds": 1.048828285998752
+    }
+  ],
+  "success": false,
+  "source_unchanged": true,
+  "elapsed_seconds": 131.3481628139998
+}

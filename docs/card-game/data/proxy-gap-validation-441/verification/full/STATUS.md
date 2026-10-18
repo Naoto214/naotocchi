@@ -1,0 +1,1 @@
+This corrected-source run was interrupted by workspace loss. Its six workers have no completion summaries or exit codes. Only 457 explicit PASS records, validated as exact prefixes of the source-bound planned test IDs, are reused by ../resume_regression.py. The remaining 690 tests are rerun under ../full-resumed/. No whole-worker success is claimed for this interrupted run.

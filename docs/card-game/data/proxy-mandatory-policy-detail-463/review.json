@@ -1,0 +1,22 @@
+{
+  "critical": 0,
+  "findings": [
+    "Separate initial and policy randomness; derived keys not counted as independent entropy",
+    "HMAC rejection and origin address audit requirements specified",
+    "Strategic uncertainty and policy conformity separated without old record relabeling",
+    "Whole-population gate and normal/response exclusions preserved",
+    "Nested proof contracts and adapters remain unverified"
+  ],
+  "important": 0,
+  "independent_review_count": 1,
+  "limitations": "Read-only design review, not implementation readiness or game proof. Final verification/review packaging and final explicit dispatcher clarification not independently re-reviewed.",
+  "minor": 0,
+  "required_changes": [],
+  "reviewer": "/root/review463",
+  "scope": [
+    "463-precommitted-mandatory-policy-detail.md",
+    "contract-draft.json",
+    "related 462/459 and existing adapters"
+  ],
+  "status": "completed"
+}

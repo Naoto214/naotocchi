@@ -1,0 +1,15 @@
+# 通常inventoryへの許可履歴投影の独立照合
+
+基準4cc8be2b12df1bccce9dca367f53c0d8139b21ce。P10の supplied actual history → normal inventory の境界のみを対象とする。
+
+producer/共有event_projectionを呼ばず、固定107/02/77/72とliteral許可fieldから投影を別構成。本人記憶、公開reveal、表向き準備の回収IDを保持し、相手の伏せ準備/初期たまご返却ID・非公開draw/bottom receiptを除く。実通常step直後のfresh必須gateとtraceのentry/actor/count/raw-prefix/projected hashへ結合。raw履歴起点と全情報利用の認証、比較operand根拠、policy適格へは昇格しない。
+
+有効REDは allowed-history-idempotent-red.log の1FAIL/3.224s。共有projectorが秘密状態由来hashを再投影でも保持する改変で、旧gateはstop=Noneのまま受理した。修正後 allowed-history-idempotent-green.log は1PASS/2.929sでruntime.stopへ拒否理由を保持し、不正decisionを出力しない。これは共有projector改変への検査であり、未改変実装がそのhashを常時公開していたという主張ではない。
+
+初期red/green/corrected/witness/stop/finalという名前のlogには失敗・ERRORが残る。非冪等の改変では既存fresh再構成検査が先に拒否し、assertRaisesやrecord直下stopを期待したテスト側にも誤りがあった。これらを有効なbypass再現や最終PASSへ読み替えない。別の孤立public_history probeは実行中に2Pythonファイルを復元したためsource-fingerprint gateでERROR/7.830sとなった。これは無効な並行試行であり意味上の回帰ではない。以降は検証中のPython編集を行っていない。
+
+独立reviewは1回、C0/I1/Minor0、別実行4件中3PASS/1ERROR/9.645s。I1はtrace側が実runtimeのraw historyにない3つのtransition-binding fieldを含めてhash照合する点。expanded.logも同じ理由で7件中2ERROR/50.010s。実runtimeが除くexecution_contract_id/envelope_before_sha256/envelope_after_sha256をtrace側と正例fixtureでも除去した。producer/runtimeの履歴形式は変更していない。再reviewなし、修正後の関連検証はallowed-history-summary.jsonとverification.logを正とする。
+
+新4件は実初期通常入口、許可公開値の保持、9種の投影/履歴改変、本人/相手、C-bat表裏/境界不足を含む。C-bat単体は投影fieldのfixtureであり全物理意味の実到達証明ではない。既存実C-bat/public_history回帰も最終関連へ含める。trace既存テストにはproofの厳密bool/境界/投影/raw/actor/count改変を追加した。
+
+preflight-ready=false。本番gate閉鎖、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。次はP09 source閉包・P11残operand・P14–18共通gateの合成。

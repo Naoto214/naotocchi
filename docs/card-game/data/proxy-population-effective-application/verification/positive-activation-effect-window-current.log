@@ -1,0 +1,197 @@
+EEEE....
+======================================================================
+ERROR: test_actual_quick_resolution_latches_group_before_normal_actions (test_proxy_population_positive_window.PositiveWindowTests.test_actual_quick_resolution_latches_group_before_normal_actions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_positive_window.py", line 25, in test_actual_quick_resolution_latches_group_before_normal_actions
+    source=setup();e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],4,source['proof'])
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 121, in segment
+    result=incarnation.segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 22, in segment
+    try:return _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 41, in _segment
+    result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 139, in segment
+    result=window.segment(envelope,initial,events,shots,runtime,limit,proof,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 165, in segment
+    try:return original_operation(initial,scoped)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 136, in operation
+    return original_operation(supplied,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 134, in connected
+    return callback(forced_connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 91, in scoped
+    elif canonical(existing.ExistingAdapter(events).proof(envelope))!=canonical(proof):raise ValueError('existing trigger group binding differs')
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: existing trigger group binding differs
+
+======================================================================
+ERROR: test_paid_draw_inventory_and_activation_remain_connected_inside_bundle (test_proxy_population_positive_window.PositiveWindowTests.test_paid_draw_inventory_and_activation_remain_connected_inside_bundle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_positive_window.py", line 43, in test_paid_draw_inventory_and_activation_remain_connected_inside_bundle
+    source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['decisions'][0]['inventory']['legal_candidate_ids']),2)
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 121, in segment
+    result=incarnation.segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 22, in segment
+    try:return _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 41, in _segment
+    result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 139, in segment
+    result=window.segment(envelope,initial,events,shots,runtime,limit,proof,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 165, in segment
+    try:return original_operation(initial,scoped)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 136, in operation
+    return original_operation(supplied,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 134, in connected
+    return callback(forced_connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 91, in scoped
+    elif canonical(existing.ExistingAdapter(events).proof(envelope))!=canonical(proof):raise ValueError('existing trigger group binding differs')
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: existing trigger group binding differs
+
+======================================================================
+ERROR: test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply (test_proxy_population_positive_window.PositiveWindowTests.test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_positive_window.py", line 56, in test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply
+    source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['events']),1)
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 121, in segment
+    result=incarnation.segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 22, in segment
+    try:return _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 41, in _segment
+    result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 139, in segment
+    result=window.segment(envelope,initial,events,shots,runtime,limit,proof,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 165, in segment
+    try:return original_operation(initial,scoped)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 136, in operation
+    return original_operation(supplied,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 134, in connected
+    return callback(forced_connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 91, in scoped
+    elif canonical(existing.ExistingAdapter(events).proof(envelope))!=canonical(proof):raise ValueError('existing trigger group binding differs')
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: existing trigger group binding differs
+
+======================================================================
+ERROR: test_scopes_restore_and_bad_capture_does_not_suppress_existing_guard (test_proxy_population_positive_window.PositiveWindowTests.test_scopes_restore_and_bad_capture_does_not_suppress_existing_guard)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_positive_window.py", line 35, in test_scopes_restore_and_bad_capture_does_not_suppress_existing_guard
+    source=setup();e=source['envelope'];api.segment(e,initial(),source['history'],[],[e],4,source['proof'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 121, in segment
+    result=incarnation.segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 22, in segment
+    try:return _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_incarnation_window.py", line 41, in _segment
+    result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 139, in segment
+    result=window.segment(envelope,initial,events,shots,runtime,limit,proof,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 165, in segment
+    try:return original_operation(initial,scoped)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 136, in operation
+    return original_operation(supplied,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_positive_window.py", line 134, in connected
+    return callback(forced_connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_window.py", line 91, in scoped
+    elif canonical(existing.ExistingAdapter(events).proof(envelope))!=canonical(proof):raise ValueError('existing trigger group binding differs')
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: existing trigger group binding differs
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.649s
+
+FAILED (errors=4)

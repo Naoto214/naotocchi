@@ -1,0 +1,10 @@
+{
+  "independent_reviews": 1,
+  "critical": 0,
+  "important": 1,
+  "minor": 0,
+  "finding": "Outer seeded/strategic/reason evidence could be shadowed by active nested record.",
+  "fix": "Reject conflicting fields on source record or active wrapper, including fields absent in nested record; do not examine counterfactual baseline_selection as active evidence.",
+  "regression": "Six outer-layer/field combinations failed before fix; final test result recorded separately.",
+  "second_review_performed": false
+}

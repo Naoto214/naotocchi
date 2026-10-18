@@ -1,0 +1,5321 @@
+{
+  "path_id": "probe-01-b-first",
+  "results": [
+    {
+      "balance_admitted": null,
+      "decision_anchors": [
+        {
+          "decision_index": 0,
+          "decision_sha256": "9b2796b63a0b88fd9cef6f00cde2216abd1b74d82627fd1d5b33e3c999f36a4c",
+          "event_seq": 2,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 1,
+          "decision_sha256": "84648101bbedc213fe8fd8e61879e80328e1fa662d7a70e4577bd56ce2cf5d76",
+          "event_seq": 3,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 2,
+          "decision_sha256": "91d7a2bfc982bc80b5e058bdd0391de4da727590d6d6772c5c974202a9304168",
+          "event_seq": 4,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 3,
+          "decision_sha256": "99cccf421a4bc42be4377a9b63dc8cedf52c301bc9bbd98049c0b42aafb9b28c",
+          "event_seq": 5,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 4,
+          "decision_sha256": "6951b5024a1e9c9e085f1b5ecc2eab7688e5b56992aaabd58ac09e27b4d89c3c",
+          "event_seq": 6,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 5,
+          "decision_sha256": "8a2bc0c1e727a79cd42043847ff352216911dd24408d794fbedb7d5adc6d9785",
+          "event_seq": 7,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 6,
+          "decision_sha256": "844813646978f4e45cc862f3bbb1cd14aad7c618c8d8126e299aed6e23ca4672",
+          "event_seq": 8,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 7,
+          "decision_sha256": "41d3feedf201f4088ea5b7cd477a79c32abcee4808cf04313c3dafdc36573723",
+          "event_seq": 11,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 8,
+          "decision_sha256": "d22c552a3b1fb3442ad0b192a03981464e5f2621225db1a364672c11a0cc5880",
+          "event_seq": 12,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 9,
+          "decision_sha256": "b2e7b2a2f3d44b4703779aeb5167462dcb2e71936eaf8be6b03bf6c0be2541ee",
+          "event_seq": 13,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 10,
+          "decision_sha256": "f64d93521d715b57407bf891184f09f84adacf8080b507ebaf4d627f8508644e",
+          "event_seq": 14,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 11,
+          "decision_sha256": "3f331b489807310271b0a44756a32ba0356eb5cc580bc6f9e5aa5f015d1eda6a",
+          "event_seq": 15,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 12,
+          "decision_sha256": "5e078dbbb0abaabf15984bf35eb5ce33be990c36fa4f050e1c66352cbf246d62",
+          "event_seq": 16,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 13,
+          "decision_sha256": "70c37877efc7031e117c015137cd2e21fae16ddc1c2841709b57cef89b6779d7",
+          "event_seq": 17,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 14,
+          "decision_sha256": "542ab4f8b9007bc08c394a22c07e3194a274693ffc2677cbb0494c9910fd4304",
+          "event_seq": 18,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 15,
+          "decision_sha256": "3d3ae2342ddc760fb3d89501e876950e3d488f4d36d4cb41cd35719418148985",
+          "event_seq": 21,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 16,
+          "decision_sha256": "6e97eed22735533866c2f1fd39b9ca81aaacb7dfc74332fbbc50fc6fa6629569",
+          "event_seq": 22,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 17,
+          "decision_sha256": "b0e6da666896418dba8be7873cdb1c0dc477e64ae533fbe7581ff6eef6f08dfe",
+          "event_seq": 23,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 18,
+          "decision_sha256": "e388b570e5c33c9816023b05acf39a1a9b91d6419785ec5f5c78347bdcff4a8a",
+          "event_seq": 24,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 19,
+          "decision_sha256": "4248875d1eb6ca68613d4e0c17244329d1446e0b3c583b35befdf898b1f48852",
+          "event_seq": 25,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 20,
+          "decision_sha256": "9baa205d904b1ebfbde6126569c0897d4df05ed1205c467e805d6353db0ec827",
+          "event_seq": 26,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 21,
+          "decision_sha256": "1fb896614700a7b8eaaf46d30d612fe603c4f7e87d4d3a95653d5c6261428f6d",
+          "event_seq": 27,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 22,
+          "decision_sha256": "f9a303221914333c334ccfed2b4541ae4a1b5834d0b2d77639d85524fb10b11d",
+          "event_seq": 28,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 23,
+          "decision_sha256": "95439214d21997fe1326d5532497b5325c1121cb62638c7038931d2f05cf9cc0",
+          "event_seq": 31,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 24,
+          "decision_sha256": "abbf96ec04108b927c98582a65b8ac1b3495401418b31c00989b54ade32755bd",
+          "event_seq": 32,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 25,
+          "decision_sha256": "76d4153daaa99e8e38fae978e40f00fa7329e5d83f3956e0efdceb8c14954009",
+          "event_seq": 33,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 26,
+          "decision_sha256": "0622836af48580512f8c11f183d6625a23b17b558562bc921657586f1a949316",
+          "event_seq": 34,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 27,
+          "decision_sha256": "f5e3b8f1500f3f993f6ac8afc58d235176fdb5804a4354574ead772ba8d9c952",
+          "event_seq": 36,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 28,
+          "decision_sha256": "21cd5c64b4e25dcdba2b1ea7c3dfe57f3c4b87a3b85a71abd560189f80b34c17",
+          "event_seq": 37,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 29,
+          "decision_sha256": "595bce22ece2d6a70ae3f902a14e1490a9d24b53d889357930bc03eb1f98cc8f",
+          "event_seq": 40,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 30,
+          "decision_sha256": "686e189d1252831353034ff3d6ae4cd0523fcb29ee7f181a0ea294a9cd0178d9",
+          "event_seq": 41,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 31,
+          "decision_sha256": "f7416826e965d9c2f2e6bf08c927395ae6cf43d873b7f438576e12e1b3ba6f2b",
+          "event_seq": 42,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 32,
+          "decision_sha256": "653cd1923997bc4dd1b32d9114e413ab847fe9670f4b42a0fd505e166eaaf132",
+          "event_seq": 43,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 33,
+          "decision_sha256": "41dd97945a9e23b0c86cb4914fb13d3ce359473b386a0367de8c17b188de803f",
+          "event_seq": 44,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 34,
+          "decision_sha256": "613c6bf4dc483ace6a5c87bd101df98a8b58164965c058f6acdf35dc89542b62",
+          "event_seq": 47,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 35,
+          "decision_sha256": "673115c1520a6fef7d7132dc3b726a783bf503d883ae0fba715c4a4d490ee8c6",
+          "event_seq": 48,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 36,
+          "decision_sha256": "6d14376baba1cfc87ac3cdfe0c46dc4510012bdc94ae67660970406ce9eda91d",
+          "event_seq": 49,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 37,
+          "decision_sha256": "09b49dcd4edd88e97e24ec9b760f0f2761ded3f915e36a2d7981e7bc9219d497",
+          "event_seq": 50,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 38,
+          "decision_sha256": "9c82aed7892b201bf9457b1f4aab2c4afa7e759640b8d9944ac9fa671a8f517c",
+          "event_seq": 52,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 39,
+          "decision_sha256": "90d738beeab3942558bb8b8ceb25ac0bf6b485c78ddef9fb3db16ddcdecfba9d",
+          "event_seq": 53,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 40,
+          "decision_sha256": "5bd63fdec3e1e9b877ad53e16c79630f0179d61476b23c3ce301d2a5431a31d7",
+          "event_seq": 54,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 41,
+          "decision_sha256": "58f13c701c767b0680bc4283847c5007fd8dd6c7abea719cfc033ed697c2f20d",
+          "event_seq": 55,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 42,
+          "decision_sha256": "30d2adfee40fd4789d6d608d3985ea4d9ac3c7f60983ad5ada7005a630e62275",
+          "event_seq": 56,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 43,
+          "decision_sha256": "bc1cbdfd7a37460b64df933000f2f4c0f9369eb4ca9714a45d0f8294f9eafe68",
+          "event_seq": 59,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 44,
+          "decision_sha256": "4ba57d46bbdfa10ab2f9d135f151117451cd9d980edb1b320600b58f6228391a",
+          "event_seq": 60,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 45,
+          "decision_sha256": "bfba870a57eba74648e2f9c2171a18ee547390d09e05d1b6d4bb593160cf8118",
+          "event_seq": 61,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 46,
+          "decision_sha256": "f9976ce6580214dea31ce530c59f531368354b2096f22e8e84b6e5d188ff1ae0",
+          "event_seq": 62,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 47,
+          "decision_sha256": "e724e94f072ae3e24b5dd6b0dda1fa34fe6be759c381145db672d661589905ef",
+          "event_seq": 63,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 48,
+          "decision_sha256": "2a19bb320e3b475202d9d9737b179ee70e9eee4f87e5d750c7694914ca44358c",
+          "event_seq": 64,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 49,
+          "decision_sha256": "9c41d9e6a9deb067e36456a9cfb0127a7d93ee78595a3d9f48e508ac0ab6e4ed",
+          "event_seq": 65,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 50,
+          "decision_sha256": "3cdbe4301a470154a65c77e2bb57b16be35775fcc87d02c6e9b7ec679477877c",
+          "event_seq": 66,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 51,
+          "decision_sha256": "9247f13830d1302af2dececefe17581c63f4885c572ab491674887aff69a05f0",
+          "event_seq": 69,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 52,
+          "decision_sha256": "cc8f1330a90a5914303692e78825a76efca8cb13cd4c33d9f8765a91fe7f0a49",
+          "event_seq": 70,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 53,
+          "decision_sha256": "2c92490ac085ad2c350035f3c32e6d45e54e3958183afe405f36d33d51a8fa41",
+          "event_seq": 71,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 54,
+          "decision_sha256": "d69781f146d856c4cde7f27c8cac872e36d6ca96b788474dd34936a8edac5f7c",
+          "event_seq": 72,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 55,
+          "decision_sha256": "9d27e80711232c075a1fed06779f89a4e45dcd491caa525b6aa8060a9a23dc40",
+          "event_seq": 73,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 56,
+          "decision_sha256": "7e408f69f774f6fe508c1721d55e3ae69c74a9360d9d3ab208665be46f474212",
+          "event_seq": 76,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 57,
+          "decision_sha256": "63be78a71f49364229dbf957d1dc85368f2d6764f4f343762177ba1a396ddc85",
+          "event_seq": 77,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 58,
+          "decision_sha256": "e057443fac7edb2e52870b7627908f1f4a2b2a06b698083024b2025e37fe6e0a",
+          "event_seq": 78,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 59,
+          "decision_sha256": "92a018653f38ca59bdbeace0463e8b20c3b6c967925bf1ea86e158a4258a3bd1",
+          "event_seq": 79,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 60,
+          "decision_sha256": "34c906a8c10e64d3f4da339924f0c94d2d2d4f0e40a31c4f44f0fc2c5cccf835",
+          "event_seq": 80,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 61,
+          "decision_sha256": "0739a701694b6fc805a63989b3b570a36b4e34f373a45b07824e90c8c8834261",
+          "event_seq": 83,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 62,
+          "decision_sha256": "71e8ecbae7cc7cb5b2fcdcde8bf28c863acbcbd4dfc73be9901d49032be5c4b5",
+          "event_seq": 84,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 63,
+          "decision_sha256": "53d763a8b2f4c274594a321110053f5cc51283412485e8077e9ff649cfe3103b",
+          "event_seq": 85,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 64,
+          "decision_sha256": "12ce7ebb5611a9957321380ddca915a5e0c80230737d938bb48ff2b28e9a8728",
+          "event_seq": 86,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 65,
+          "decision_sha256": "22b74e557eeaeed617dc0b50b9d9b76020309e53ba6a70979c3e8d5cee6ea0c2",
+          "event_seq": 88,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 66,
+          "decision_sha256": "f3da4d7405e30425e464b1147067c7537cdb25feb4e86b289bdd9e600e979717",
+          "event_seq": 89,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 67,
+          "decision_sha256": "ea94f805fa6a35b9fe1216a4a27a4cec17a553eeac7e1fec4c4dc0e6f97d1297",
+          "event_seq": 92,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 68,
+          "decision_sha256": "475dfb6739918ed7784300e6e27f9e19299e7e8a1e78986e2de0779f9f762645",
+          "event_seq": 93,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 69,
+          "decision_sha256": "976e1191cde231627c91d44bcb574a8346c975b53c8ebec3d71f694ef5308437",
+          "event_seq": 94,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 70,
+          "decision_sha256": "5917c887c57624a2801b971a0f47e3b8d5e689ecdf7e7ec5fc565de747e868cf",
+          "event_seq": 95,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 71,
+          "decision_sha256": "401d1fe2f9d3e836f4784ee622e1d8261b727713f6943c847dcd42c67ada902f",
+          "event_seq": 96,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 72,
+          "decision_sha256": "b72afdb17793cd8f4d3d770c4752fbdbe724def9143269b6eab51b00ba879380",
+          "event_seq": 97,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 73,
+          "decision_sha256": "b4ec209e8af0c33dfd45c1c61d48dee0292798dbf8bbab423f64ad2a55f83f2f",
+          "event_seq": 98,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 74,
+          "decision_sha256": "e7d3ed3fa30c9475a83f11af85cdfd485c09f6d0cb7f8633c6962e5b40655536",
+          "event_seq": 99,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 75,
+          "decision_sha256": "2a7ae5dde1453031c3f175593973a786e539d3b5bdf06b274f6a817912fcb90e",
+          "event_seq": 102,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 76,
+          "decision_sha256": "31e339855be71714940d291bfaf4ce4ccb5fc4e22dba7fa5cb0141ddb42e0e9e",
+          "event_seq": 103,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 77,
+          "decision_sha256": "33eb5948de5b857a7763cce63cc37b675e9326123d00dd6dc1e49864046b944c",
+          "event_seq": 104,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 78,
+          "decision_sha256": "e02bbe6d1736002ceac5eca3cf0e6cd2566d2eb014189bffacf624c078af6185",
+          "event_seq": 105,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 79,
+          "decision_sha256": "f01b98ae5ad203620e1d77103926c41b3089c386489bfe1bca920a89c3ec706a",
+          "event_seq": 107,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 80,
+          "decision_sha256": "e823aecc7b5eefb09e58b7a9b91b9ff933923ab760907858a75a95ded558eb0b",
+          "event_seq": 108,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 81,
+          "decision_sha256": "2fc88fce8ba4e4a097cc7e4bd34bf90496a137deb63d9afb5a3cc3884091ee79",
+          "event_seq": 109,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 82,
+          "decision_sha256": "0132acacc038a93ab960a03ccea9759fc92fd42a32d7ea9dedc276e8e943e89d",
+          "event_seq": 110,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 83,
+          "decision_sha256": "d033b5d4a0337e695a44f4c079119fc34c60bfe76fdfa7f60b72d5a1928e8656",
+          "event_seq": 111,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 84,
+          "decision_sha256": "fdb571a07b0db6431a5340155d28b7725a15edee09b2966678fc14bcd693fb19",
+          "event_seq": 114,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 85,
+          "decision_sha256": "8ceacf4168cbd166ab7f241f58e96588ab4c92da1ed5decd4ea6cf8924cb7880",
+          "event_seq": 115,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 86,
+          "decision_sha256": "cc2afb32bcb14228dffb009f56ad0ffedc85207320eda3b550de888e2727e989",
+          "event_seq": 116,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 87,
+          "decision_sha256": "161475b2077cf1d411fb958f12b6c40d9b4740eb1f4ac93cce92ec783ece89de",
+          "event_seq": 117,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 88,
+          "decision_sha256": "d65a49b29c97b13e3ef4d395500156e72d9d9631cb83d2ce0b1caec266d0764c",
+          "event_seq": 119,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 89,
+          "decision_sha256": "ceaf67e2ea55035f6e684b283ee4bee7509d981e5819eff70553c6dd05d570ed",
+          "event_seq": 120,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 90,
+          "decision_sha256": "b980f7491950dca235af05e1bbf111c82a6c551378ad3e2af18c94e061c54525",
+          "event_seq": 123,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 91,
+          "decision_sha256": "ea8ae3073a3e3d39a403569178e3a404892e6550de115ca4fd21c4a2557d2712",
+          "event_seq": 124,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 92,
+          "decision_sha256": "e468a1d7fb3800961844bbd9af037a04ee29c2953d9728c0104fd34f936d8663",
+          "event_seq": 125,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 93,
+          "decision_sha256": "adb6f59a895db7f207e83d901ff6a90987b0f3caa1c6f18d071ca098ed8a979f",
+          "event_seq": 126,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 94,
+          "decision_sha256": "0cb4374c2f58566626d7f0adb0b8bc96dffc4d16693282d9db5f3151759e08ce",
+          "event_seq": 127,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 95,
+          "decision_sha256": "82f169e824c3f2d2c3e78b3fc363b30e1501d2ac735d5142c74b572a9a37b4b7",
+          "event_seq": 130,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 96,
+          "decision_sha256": "afe43dd67913100e059929b028ca7e31525a7a66d2f13918321715e2a0555a5b",
+          "event_seq": 131,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 97,
+          "decision_sha256": "c1328b9aa678e586b2decb0e6e3f9336af31b9cdccf7763f6508dda3dcc1cd61",
+          "event_seq": 132,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 98,
+          "decision_sha256": "ad49cbf77a948f7c3acec12b1b6271eb00a7f1c689f36bd00af7e28a96aa818a",
+          "event_seq": 133,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 99,
+          "decision_sha256": "d261255e85466af69e747d2bec45cff095dac83d66d460c85573de6562d87637",
+          "event_seq": 135,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 100,
+          "decision_sha256": "2512577a666f3e5ef47990e5205a6ff16761fc1e3228eef7f96bef7e461217ff",
+          "event_seq": 136,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 101,
+          "decision_sha256": "c4b7f852bbe62c3164041a1a22acc9d0409a8d1969851824d1be3e8633922f75",
+          "event_seq": 139,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 102,
+          "decision_sha256": "89ccb779dcb89bb196a3492dcd081d165a8a5d37381adac9cd8bb23e9acb905d",
+          "event_seq": 140,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 103,
+          "decision_sha256": "4ac9f7b8f5a13861beeddf4f2d061131508af9bf30af3790ddd1730a5a279764",
+          "event_seq": 141,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 104,
+          "decision_sha256": "50595216a4da71205a5e0208fa490446d06638cbdf8eb5cf935bcf0217b86944",
+          "event_seq": 142,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 105,
+          "decision_sha256": "f2876a702f07ee4ae8165b9cbd6fb30fc54e765cdd6db1ff669f9f3ae79ce7e8",
+          "event_seq": 143,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 106,
+          "decision_sha256": "753a85b74ff761bb984a13f9933002de8e50270bd573f685d843444cc2063f03",
+          "event_seq": 146,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 107,
+          "decision_sha256": "68ebbff187d608b47912106fd4d013cbacad3f0c007a67ee816456c47d776d67",
+          "event_seq": 147,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 108,
+          "decision_sha256": "ae1e146bcb0b37f21df0e78a979681567192d4fcd10224f7d1b8f9325e553887",
+          "event_seq": 148,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 109,
+          "decision_sha256": "468bf46e03d56eef6e3b274f4b00d1d1aefb807b2cc26be425f5d27371d08572",
+          "event_seq": 149,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 110,
+          "decision_sha256": "55ca7b2e08a856986e1ef84b7df0c68f77dbb6011636f0d7dc65e339b477c9fd",
+          "event_seq": 151,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 111,
+          "decision_sha256": "77700974de926352e5925b2c9e85440ea0af8a6104bc7035f13e070231d7dd97",
+          "event_seq": 152,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 112,
+          "decision_sha256": "6d7db5834c199ebc5c65c0c0702bcb45c3c7120244c1918094d4029c2b511861",
+          "event_seq": 155,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 113,
+          "decision_sha256": "e43489e1925061da274c98e968f366f5af680669f244e7155cefc49a31913f1d",
+          "event_seq": 156,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 114,
+          "decision_sha256": "49c9f96fe6d4e4cfbb25034763950c3870a945fb079b996adfec23a0da5818e7",
+          "event_seq": 157,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 115,
+          "decision_sha256": "9576971da3e6e584eafa358f79c64ba61b851b46e404d8bfafb94021d3ffbc36",
+          "event_seq": 158,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 116,
+          "decision_sha256": "0cc078fd5a77b48ee7460cb1c5a0fde2e95dff11da76017e17f38087c2f97ab5",
+          "event_seq": 160,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 117,
+          "decision_sha256": "cecbc306a0a75f256afc1e812477ca1b8b8df39a87a4c714793a50f9f822b560",
+          "event_seq": 161,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 118,
+          "decision_sha256": "8bcd25bb1d1e7e2cf77678f51a40edf574a38a93f54faf8774f52cc359ded7bf",
+          "event_seq": 164,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 119,
+          "decision_sha256": "6e761f69b530b4367fb96d282474751f878970e81f7cd3fea4c815f3b67333c6",
+          "event_seq": 165,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 120,
+          "decision_sha256": "7bf51cc783951312969768a79f73f7dbc79e0701c064540da26589a668ddc2da",
+          "event_seq": 166,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 121,
+          "decision_sha256": "56a7b138580c0825abd174b411d3c1f5f6b2fb486b5f4c308886d8a8ee13dadc",
+          "event_seq": 167,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 122,
+          "decision_sha256": "aec9f04fcdebaa13d5cad0a23516655d257dcfa1f9d92b9bf66ef8ad680fe7d6",
+          "event_seq": 168,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 123,
+          "decision_sha256": "84e7fbe8df78d195dc6e2152fa7bfe0ccd12a237c818dc4a60e3b7db8d8edbf8",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 124,
+          "decision_sha256": "94a9a2bb44f5563d5abd96ad9b137068adbb71918e0d38e7341b7d8b977194cf",
+          "event_seq": 170,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 125,
+          "decision_sha256": "6ef94f2493f5b0ee4c83f8db5c2226edea8f85738355bd540faf5a17ea89fee0",
+          "event_seq": 171,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 126,
+          "decision_sha256": "85111525973c4624ab43f62da6815905f888cd52fda84d2a17b54a50db9934a3",
+          "event_seq": 174,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 127,
+          "decision_sha256": "9c6ff7fd453109f7174aac2cccb79eb0f828f854e4f2fb55acfe3efa5e56d348",
+          "event_seq": 175,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 128,
+          "decision_sha256": "f073080aa56764bcce515910a85e07644c791996e22557c5df1da2619ab3af6d",
+          "event_seq": 176,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 129,
+          "decision_sha256": "06dcacd91e56a0d7702c692709bd08db3ec5e723096570308c5d43279f29eeb4",
+          "event_seq": 177,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 130,
+          "decision_sha256": "3dc22ba385b461c25d2913c63f015c1dcd4c37b96bce62e150e18645b920a0a4",
+          "event_seq": 179,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 131,
+          "decision_sha256": "6f9ebb5b90598e267b3eb019a6a79b3c132f9d0010d31fa2c3df4ac1c6572ce8",
+          "event_seq": 180,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        }
+      ],
+      "decision_count": 132,
+      "event_count": 180,
+      "explicit_anchor_counts": {
+        "missing_event_seq": 1,
+        "sequence_only": 27,
+        "state_hash_checked": 104
+      },
+      "legal_candidate_completeness": "not_certified",
+      "opportunity_coverage": "not_certified",
+      "opportunity_scope": "existing_executor_only",
+      "path_id": "probe-01-b-first",
+      "policy_id": "legacy_107_114_116",
+      "recorded_chain_integrity": "verified",
+      "recorded_evaluation": {
+        "admitted": null,
+        "seeded_mode_count": 34,
+        "status": "excluded_by_116",
+        "unresolved_evidence_count": 34
+      },
+      "rule_transition_legality": "not_certified",
+      "run_id": "continuation_batched_normal_v2:legacy_107_114_116:probe-01-b-first",
+      "run_sha256": "84f15c341531490243fbb91f8dce6f83d029e49ae92e29d26ba28575f13bcc85",
+      "schema": "record_integrity_evidence_457.v1",
+      "selection_strategy": "not_certified",
+      "snapshot_count": 181,
+      "source_authenticity": "requires_source_bound_loader",
+      "state_schema_semantics": "not_certified"
+    },
+    {
+      "balance_admitted": null,
+      "decision_anchors": [
+        {
+          "decision_index": 0,
+          "decision_sha256": "9b2796b63a0b88fd9cef6f00cde2216abd1b74d82627fd1d5b33e3c999f36a4c",
+          "event_seq": 2,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 1,
+          "decision_sha256": "84648101bbedc213fe8fd8e61879e80328e1fa662d7a70e4577bd56ce2cf5d76",
+          "event_seq": 3,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 2,
+          "decision_sha256": "826c77fc6da4876d4e1db5552b3703943d29a4a1fe743feef4fc591eb39501ed",
+          "event_seq": 4,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 3,
+          "decision_sha256": "99cccf421a4bc42be4377a9b63dc8cedf52c301bc9bbd98049c0b42aafb9b28c",
+          "event_seq": 5,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 4,
+          "decision_sha256": "6951b5024a1e9c9e085f1b5ecc2eab7688e5b56992aaabd58ac09e27b4d89c3c",
+          "event_seq": 6,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 5,
+          "decision_sha256": "69e66994598e3fcfa4c4f6c14d891b978957a58cdcb5b71645f0a4b3a8310614",
+          "event_seq": 7,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 6,
+          "decision_sha256": "3938d70fd86880fe8cbf2037489831349554a1daffdf12b50f2abe490b0e6f8e",
+          "event_seq": 8,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 7,
+          "decision_sha256": "4b4d9b3a18908e2c474baf53ecd2094e0502e023b7495b6e932141aabf99de01",
+          "event_seq": 9,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 8,
+          "decision_sha256": "8883c10916f0d75adfef87206149bdf0aed2fc8ca802a93a69997705195724d5",
+          "event_seq": 10,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 9,
+          "decision_sha256": "4701522038e3dac08301ddc6d8d5f36c0317279966a43e3c159346f8c5729569",
+          "event_seq": 11,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 10,
+          "decision_sha256": "cd5b39e2092e5b6fe4f48b67651dfe9975142e2ee22a52145b49bd2db3f099fb",
+          "event_seq": 14,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 11,
+          "decision_sha256": "bebf27d564cbec107f87e20cccc1b2d8725254bceea8122f5a0fa5e6958f4d2f",
+          "event_seq": 15,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 12,
+          "decision_sha256": "2c793112c3abde205b9b501afd396f3c97eb47c319fdea48c70174d709817970",
+          "event_seq": 16,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 13,
+          "decision_sha256": "e1fb3b73217924460a70a48e1d2d4bd8baeb02d4615e369ffa6660d8e68ffb8d",
+          "event_seq": 17,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 14,
+          "decision_sha256": "82e153447ca3ca220f059f849dbcd269af42a3857408202006640f7ba8d14379",
+          "event_seq": 18,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 15,
+          "decision_sha256": "c0508f237d84db864e0f81ea4a28009b7b0f9f936e695205701febc196a97dab",
+          "event_seq": 19,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 16,
+          "decision_sha256": "683f69a84e8ebaff5fa6a559d9b5d2c0e001493235cd5c4b01a48214f84c3e9d",
+          "event_seq": 20,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 17,
+          "decision_sha256": "6a5bdeb10e430d08a6e94653515651902f51d0ae411e8cac28b60a92a9ae9d3b",
+          "event_seq": 21,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 18,
+          "decision_sha256": "5fb81757f2f32e41857166596e6fe88e7fefd41fdc05d742cbdacf8b4559f38a",
+          "event_seq": 24,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 19,
+          "decision_sha256": "865a7fd7b73d6fda47e7b4be6889a420536532ef53a69128022cf1f00f6fd340",
+          "event_seq": 25,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 20,
+          "decision_sha256": "996954c08d1ec1ba0f0be1b5ffd65978be0a355de472cac7334021c733cb5bad",
+          "event_seq": 26,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 21,
+          "decision_sha256": "364fbab9689f52d0786c36e2c539d9a4ea7ff848b8b2353990a4c638d8d45367",
+          "event_seq": 27,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 22,
+          "decision_sha256": "f91499e9f2fb068f0fb1d7e16fb4e2ebf9ca38c5c2568a38cc704cdc3dd55b0b",
+          "event_seq": 28,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 23,
+          "decision_sha256": "e14ad76c04ff18615121563f9f02f6de89d4bbd23445c293810b60e0a4702ff8",
+          "event_seq": 29,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 24,
+          "decision_sha256": "7ab2068cc21fbe3ca94edd5279fc1c3efd60888574ac7ea7a76da1aec17496f9",
+          "event_seq": 31,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 25,
+          "decision_sha256": "ae0bf14aa7d66e3986e8101fe19b45cf874683de9e7d7715d66d7627cd5ecedc",
+          "event_seq": 32,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 26,
+          "decision_sha256": "9f8138f6c9374f8a2d8755a02beb5113d4e9044e87712e8b999a5259d4ed11db",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 27,
+          "decision_sha256": "cbd9d5804170a5b88ae2c844eeccf2a3e00ed0e5735be37a52828ccfe4936f3a",
+          "event_seq": 34,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 28,
+          "decision_sha256": "28cffb3493849dda21f03146288c65ce4e4ed55986e9e053da412523b9b24a8c",
+          "event_seq": 35,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 29,
+          "decision_sha256": "94c5b5033980cc122d983cef5ad5b3da92c46d54c8aaa13267c9454368f86280",
+          "event_seq": 37,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 30,
+          "decision_sha256": "f91f45ec97acab148122f0735ea7faee7d02bbd97d35bf9d15281647370a4d87",
+          "event_seq": 38,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 31,
+          "decision_sha256": "2ac571a01a28be2c96505dd622b5dea7091eb65447370ba2a689db1ab8b6f5c4",
+          "event_seq": 39,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 32,
+          "decision_sha256": "7a327aadef9fbb4f94364e6a35506b76ecba6fa950c9874f3aa614e6266ed848",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 33,
+          "decision_sha256": "9af1fe686e7cb4b21451ab91e6014bea73b975dd02d403418769aa4b4beede3d",
+          "event_seq": 43,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 34,
+          "decision_sha256": "67346bfd35c5696f36d54e2c5992ce0d8c9a8b707dd23d70bcbfa17af1a38484",
+          "event_seq": 44,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 35,
+          "decision_sha256": "2e94f5b5bf2ec854b245413b88f5e15cd527815eedcb10e9b4f3f59b06ad0d34",
+          "event_seq": 45,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 36,
+          "decision_sha256": "bab7c4236da118ef248aca7beb112c40e7f5904e5d43353d23e68e716551770d",
+          "event_seq": 46,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 37,
+          "decision_sha256": "a78f148e89760c62b8af232772e170bb11fe91e1064881c61cd689befd3eb7a6",
+          "event_seq": 48,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 38,
+          "decision_sha256": "fb1db8112f832fcdb2b75bafb4746e64ef52f7cc182d2b1d74985cda32574c35",
+          "event_seq": 49,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 39,
+          "decision_sha256": "ae41c25df3e8ca3420c2b1b3e13add8a616f2738e975eb8735a5fe16d861b26a",
+          "event_seq": 50,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 40,
+          "decision_sha256": "58cda00c85d7cf554a1f6c3274f4751dc224edfe85817d99e20e5229fade2c2c",
+          "event_seq": 51,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 41,
+          "decision_sha256": "1573d5e2f482ccceee10e7a35416a0c9f2050740c3963cb75973671ad31e5319",
+          "event_seq": 52,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 42,
+          "decision_sha256": "b949f5ff5ca5c93ada84fc684bc8524bd13c108f79df0abd0aadfde248919323",
+          "event_seq": 55,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 43,
+          "decision_sha256": "cda2ebfe3e35a38ce4419090945912ca2d1b9682cdfd448038b24490268bfa8e",
+          "event_seq": 56,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 44,
+          "decision_sha256": "387d6d8ae7661b26236415ccad0de5e7cb371dbe7c0f52e05a2107ca3ad24d05",
+          "event_seq": 57,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 45,
+          "decision_sha256": "597a8213ec50574e5140ce2eb78e8b5dd3faeca45ad3420fdc80550bb70ffbee",
+          "event_seq": 58,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 46,
+          "decision_sha256": "ba927a82a576d8a04546aeabc683eb42989adbb0729bc36d5fb90ef4be505260",
+          "event_seq": 59,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 47,
+          "decision_sha256": "8878f7a98c68af047a3a6ada432f82c3b5997aeb2ccab53eb5848ffde04f0a39",
+          "event_seq": 60,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 48,
+          "decision_sha256": "e9a2b5938a46e0afa20014d17766d5bf7d268b33e83647287a018809fd9842e5",
+          "event_seq": 61,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 49,
+          "decision_sha256": "7c579e23cd1bd23c0fc57c0f7f12bc97828a0ee3442777ea67e4bae67fea5096",
+          "event_seq": 63,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 50,
+          "decision_sha256": "1d32faf784034b725af8fa960c2d0af61c1bfdedda42b1b7ad26d9508bd7ba61",
+          "event_seq": 64,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 51,
+          "decision_sha256": "2da2ee1ec6d1af265e6006d05b2b4bf3b49d13719c2efdd57c505c9373003601",
+          "event_seq": 67,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 52,
+          "decision_sha256": "ce34d687fce93683150dc1c56f368426ec11093e8c769113a91f1d071af3345f",
+          "event_seq": 68,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 53,
+          "decision_sha256": "9ee63d92b9f4b0824207cc33255ea62cc62c951b0aec3d8959524aea75a52eac",
+          "event_seq": 69,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 54,
+          "decision_sha256": "3541bb312cfd062ab348c20ae1bd0837284b9e4721a6cb875ece2722f078a181",
+          "event_seq": 70,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 55,
+          "decision_sha256": "4cde1aaeb9604a56cf3198e4b7c8924ddf1974e0da67944a44092e93c2349a5f",
+          "event_seq": 71,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 56,
+          "decision_sha256": "8ee503cdca184f558b0978718c2d7b64f8402ee33be40db371cb7c2a526872b0",
+          "event_seq": 72,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 57,
+          "decision_sha256": "6b607af44d6e3d54257b64930087b7ae3d0ccb25ee78070dc445dfe7841fd93c",
+          "event_seq": 73,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 58,
+          "decision_sha256": "cf551212ee248e02e36fd65a5d39ea52d17e22cbb6c2f377020296a261ec9652",
+          "event_seq": 74,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 59,
+          "decision_sha256": "135e01aa0ee468e70c826caca85ec93a765b68600e8c4786cfc3703368a20701",
+          "event_seq": 75,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 60,
+          "decision_sha256": "72b7c0d3547b9881cc5577d0bdeeaa59950f05ca03b14c3b92d0fcbce1d608d9",
+          "event_seq": 76,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 61,
+          "decision_sha256": "bee01ae8a3371ab4138453bd1248ff5105d3f8f96806f5a3c7df7a8e04ad2516",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 62,
+          "decision_sha256": "89c627a6fa1f81d4ab93a3fb7141fd65e6f1bf13fb6d487d373a3430057b5d8f",
+          "event_seq": 78,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 63,
+          "decision_sha256": "ad247d318af05ed5ffc18a14349c75152da110fa8e42736d6dbbd73c10d1080e",
+          "event_seq": 79,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 64,
+          "decision_sha256": "25cb99c287b21dd1da33510c16a43dd7ddc0e72f066653cf870269c9bee3335d",
+          "event_seq": 82,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 65,
+          "decision_sha256": "efff3925f995ec18f04bb2a16c661e3eade830261ab09fdd7bec3a7e56910a28",
+          "event_seq": 83,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 66,
+          "decision_sha256": "c511fe89a00bb14972c62545aff2911fb934a8caf05e2c9824ba129bab1be5b8",
+          "event_seq": 84,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 67,
+          "decision_sha256": "ea031b62ef970312a7eddd4935f32a0ccd6cbcbafbb3c91d245b52d380743d7b",
+          "event_seq": 85,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 68,
+          "decision_sha256": "5a6b9daf8429703da9b8370fdbb402ac92cf1104658fd3fa210b6f3985113769",
+          "event_seq": 86,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 69,
+          "decision_sha256": "d04417d90eeb39c978d28faa5ef3d4fe3f29e555de67f660bd866012c4d04752",
+          "event_seq": 87,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 70,
+          "decision_sha256": "bb77534957d7a31531b4e1d0a110a5833036fb977f018d0315650e8949b439a4",
+          "event_seq": 88,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 71,
+          "decision_sha256": "fc74b7705bf863477cabfda209a56875a6b0cf3273059fccb8f31f2dd803df7a",
+          "event_seq": 90,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 72,
+          "decision_sha256": "f42babb226dac49c4e188cf4686e3625399ff00ed4ea9b268943255a67fe6051",
+          "event_seq": 91,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 73,
+          "decision_sha256": "2c90534379eb06325037dda1794081f6489e63b2aa52fc660e606f0b955c78e4",
+          "event_seq": 92,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 74,
+          "decision_sha256": "7e99e17a3e3720fbeaadbf04854f4653a9ba3c0e5e2e7f3149e48149202e5379",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 75,
+          "decision_sha256": "1181391fb4e1f33bfb4a61a61f5797bcf8eeb01a06dad16931fc0bb22a34c97c",
+          "event_seq": 96,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 76,
+          "decision_sha256": "8084cf05d6d0798cd4afa4833ddb3e100ced464efe0235c8ee41534850d8096d",
+          "event_seq": 97,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 77,
+          "decision_sha256": "efd8810f845c170fea6c5a9e92dd686a493e05ee093271da1db251a801e0af5e",
+          "event_seq": 98,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 78,
+          "decision_sha256": "921fc5dbef6b9ac5f44bdde6d101a1407cef44aa6eae136ab08bd19a99a148dc",
+          "event_seq": 99,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 79,
+          "decision_sha256": "9f6606e7efc778e0f4689c2065714a15a46942324e2ffaf648e1a280262d36a9",
+          "event_seq": 101,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 80,
+          "decision_sha256": "0b89ca277ad8b732c58780f111933dc6b9bad1b378f053fa6679fce65734e316",
+          "event_seq": 102,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 81,
+          "decision_sha256": "966a62b32c770efcb879e19368d8f7cfe9d728b76cf5768bbfcd9b7b7f788c31",
+          "event_seq": 105,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 82,
+          "decision_sha256": "4092ac0f5fc39550e729db3f329f679a857c4c342d911547f675be64d38ffdb6",
+          "event_seq": 106,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 83,
+          "decision_sha256": "af0fe37e695a2cf1fb0736e639586ace5654090c947ce02672214305e17dc616",
+          "event_seq": 107,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 84,
+          "decision_sha256": "467af0d639cc72e7596d2232976976a6291bd7c9b263ad9589bb5a41e941e44a",
+          "event_seq": 108,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 85,
+          "decision_sha256": "daca33c79e4dbcf17e07822d1efe34bdf078e8f7888775cef5bf6ba1e9da780d",
+          "event_seq": 109,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 86,
+          "decision_sha256": "a46f448b2f43d9448bf58a6a32b9a8b74f15d13f881fe998ac11f5cb94f044e2",
+          "event_seq": 110,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 87,
+          "decision_sha256": "f130ef8eb2665c1982c5949ea86a03cd5e4a0f21e0dcb3b32c748b9dfd5119a6",
+          "event_seq": 111,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 88,
+          "decision_sha256": "aaaecf0ecff12fb59e60eea75fd957fe2d2840ee0cdadd8c562340baf8cda958",
+          "event_seq": 113,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 89,
+          "decision_sha256": "2dc2ff9e280515aac65d9a922a1ccfd8027d10c3d9e1e0404c0240a182befa3e",
+          "event_seq": 114,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 90,
+          "decision_sha256": "3173f8ec1b506dc0438fbe0c3091fcd44598ad3e49f3ebf89de1409481097240",
+          "event_seq": 115,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 91,
+          "decision_sha256": "40885f59d30f0aa64d864bd7f178d2109d0e931aeb2584839aa7bc68a097b3d1",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 92,
+          "decision_sha256": "cc216b35aa7410dd089b624c6f7c1f80bff3a7bb71de0a658e3577f67db5fac8",
+          "event_seq": 119,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 93,
+          "decision_sha256": "5273d3e85826a4de457dbaf179e5d2fdf4c06b82f3d64e2635b226fb8a351286",
+          "event_seq": 120,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 94,
+          "decision_sha256": "0aec48624b91251896fac10da86531cb4a715add391a954a14c30c4b9dc0f24d",
+          "event_seq": 121,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 95,
+          "decision_sha256": "a0f39f847c8342d3e61f116368e266d0c0fa58ab1ab41a29028c218bc4845d22",
+          "event_seq": 122,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 96,
+          "decision_sha256": "174ecbbe817a5aa68aa0553a65e2a91a0166d341e22d521baf2346a0f8cead64",
+          "event_seq": 124,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 97,
+          "decision_sha256": "e3ece6472889e66f4850a700073a3b5a276a68fff552a42916ade1861cad01f8",
+          "event_seq": 125,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 98,
+          "decision_sha256": "c78033e656b3f5f90eca6bb50e206457cd98a6f403dbcf6dafd9cbc13279f0d6",
+          "event_seq": 126,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 99,
+          "decision_sha256": "68579c03a1c3afe4f672e39c3d90f8cba97c1d97d4ac4c098b71d6fe1c6379ee",
+          "event_seq": 127,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 100,
+          "decision_sha256": "e64992a618d669bfadc268dbf782b950082a5dadb4458e41e41f0d765e6c975a",
+          "event_seq": 128,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 101,
+          "decision_sha256": "57d96edd83d8e503a468c4345e45b6f173f6884b039cc398bd04e7d95fdb31d3",
+          "event_seq": 129,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 102,
+          "decision_sha256": "f67f207262a7ff8c30951f5794582a912595ada0fcdc699486334f404c62bcce",
+          "event_seq": 130,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 103,
+          "decision_sha256": "e80e939b7464f6c717ac3d2f018c77762e804d7b01431a084472aaff64c60f26",
+          "event_seq": 131,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 104,
+          "decision_sha256": "d47c6efa36cb5cffdd035f228bbf85570478c86d083e38f1d7994517d53bc335",
+          "event_seq": 133,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 105,
+          "decision_sha256": "6060423fdc5f5a0387f8c843259ef020446b72066b7e45e1f85911d5c446e5e6",
+          "event_seq": 134,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 106,
+          "decision_sha256": "0b4ef78191c782ab15f232d4d28bd9c8c149903a2896ef2e256f732043a3c05b",
+          "event_seq": 136,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 107,
+          "decision_sha256": "3a3ec721a0b1e71010046e0779527e3cf77d63acea2bf03d855accb825c7ec42",
+          "event_seq": 137,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 108,
+          "decision_sha256": "d961ef050585c912bf2607bf5fa74581070e82216bdd7a34d070ed55f4045da7",
+          "event_seq": 139,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 109,
+          "decision_sha256": "6633449ebe30013e39aa24cc7d9b862668ced26545b4cb78374c5b93cb9c875b",
+          "event_seq": 140,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 110,
+          "decision_sha256": "cdd025695674a0ae894e131bdacf06cc4a0dac447c416963cecb45a72bdfda22",
+          "event_seq": 144,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 111,
+          "decision_sha256": "08e0e2f4c726f4e36b3f3256e66bc47010aa8945e6765ec8b59a569cd56a9c7f",
+          "event_seq": 145,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 112,
+          "decision_sha256": "cdb75261a1c04f73b14b8b0413403e68ff9a4e18acd0829fe24764abaf694083",
+          "event_seq": 146,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 113,
+          "decision_sha256": "80f062f6c4673fbdc9a573debaa6fb58749b217687799fea183485bfefe69990",
+          "event_seq": 147,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 114,
+          "decision_sha256": "edada0440f4d64b2561d157fb453b2e80f6d86c0bb9095e081d908a9a920e32d",
+          "event_seq": 148,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 115,
+          "decision_sha256": "c1a0ef76686fe0cbfa6524748d7a22c72dcce06fef44aaa7d3786481439938d2",
+          "event_seq": 149,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 116,
+          "decision_sha256": "2e0aa8a0baa2601ba23d8060b46993fd0e1d3ddc6f5c3d566e6e5ac646b149bf",
+          "event_seq": 150,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 117,
+          "decision_sha256": "8a3d22e16bfaef66261f5044bd96a4354b82a71bf557c5611d6dc140744e8d5d",
+          "event_seq": 151,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 118,
+          "decision_sha256": "bf3a18303119b5c0602fb280e5a3dfd0393a6866cd74fc36c99fa1fea0f4fbc2",
+          "event_seq": 153,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 119,
+          "decision_sha256": "974087399d5acffedc3559af42ddebcbecee5fd9cc9a1ec5ffb7bac73ba9993e",
+          "event_seq": 154,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 120,
+          "decision_sha256": "1a98b95f07f9469b99f00c42b26c3ee989fb72851c1b0c6d4a9c337464932bb1",
+          "event_seq": 156,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 121,
+          "decision_sha256": "ae83cbf6feb5d3f74e72d91542a367002d5abfa8716e6aa8c817e7f317c3f97b",
+          "event_seq": 157,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 122,
+          "decision_sha256": "ff87f1111001becd74563ea5dc4a7c0723ffc38308f4917b3635afcaa273a683",
+          "event_seq": 159,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 123,
+          "decision_sha256": "712aa101141507c46fc3a3eb9a8c5a79027b8df776f761cc69136461286a4c11",
+          "event_seq": 160,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 124,
+          "decision_sha256": "5abdcd2eba7ae0f0371d3a06011131075bf75c642aa8fb5389d02f2b54d66630",
+          "event_seq": 161,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 125,
+          "decision_sha256": "f87396a10178788020f4b8ab46b9d3dfa0ff98c0e1ef3fc8df1671cc9f269dea",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 126,
+          "decision_sha256": "bbe72b5ab915cf1a89f57ec2d42fd32f40c82d224767c24d49b896de17c6877e",
+          "event_seq": 165,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 127,
+          "decision_sha256": "a1ca4f16b8c0d4f3f80054a1a21c279148d9553a1a53c683699b758f239247ca",
+          "event_seq": 166,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 128,
+          "decision_sha256": "3d5ccbc3d25105ec6792087c617c0e66ff833e2aa324672f35770b65d5a72db4",
+          "event_seq": 167,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 129,
+          "decision_sha256": "87f99138125d57ae8b8f7cbe8dbb9b87851f085779166dbd8e5380546bfdb74f",
+          "event_seq": 169,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 130,
+          "decision_sha256": "3be855eaf407330395e746b2c21fdfe5014f02427b0320ee23232ba4b4764c93",
+          "event_seq": 170,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 131,
+          "decision_sha256": "176dd9be1bc9d8a6008375d1ca71a16bab7abfaff70e331f6bb1bdcc00979ad9",
+          "event_seq": 171,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 132,
+          "decision_sha256": "4d4614d7397830078c8c93d4fffeda02c299d4ab5b4351a48911855e8649f5df",
+          "event_seq": 172,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 133,
+          "decision_sha256": "652bb84d36377378ccb79607eb925a467cc981fd802c8397aeaa29babb6330f0",
+          "event_seq": 173,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 134,
+          "decision_sha256": "5cf808e027bc664ad0c5a3955ce7e7a32bb9c7bef29199e96bea24cea9ffe9c9",
+          "event_seq": 174,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 135,
+          "decision_sha256": "f86fb24e4177165b8350a4690d8e6648876235235a875d5b0d3edce2b1610b53",
+          "event_seq": 176,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 136,
+          "decision_sha256": "f3723ce4a8a503de4cd7791f5d9bd905c5bfd14b905a8cdad6e816c3d16c6896",
+          "event_seq": 177,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 137,
+          "decision_sha256": "bde771b552dc0115c8dec6229faccd5cea6e568227429cf9144d4fc11adb1ca1",
+          "event_seq": 179,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 138,
+          "decision_sha256": "d6e99c336b0d5cb578bdd8f6e28978258822ec7167bfe5f7da8af475d00627f8",
+          "event_seq": 180,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 139,
+          "decision_sha256": "b22607901e6dad4cace4b02d30a4f2395edafe9a947931ba95d093e33d00975e",
+          "event_seq": 181,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 140,
+          "decision_sha256": "1d854d5d4276691b73a88946638ec2fbbd7bd075ed2891c8c38f17ca970c5ab7",
+          "event_seq": 182,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 141,
+          "decision_sha256": "caf9840852ae0528384e58467e3a023c9b5d071981964a129b860d570aa84e7b",
+          "event_seq": 183,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 142,
+          "decision_sha256": "fe9a235adb228857a004093326bb446ed77b04389c6918564e4f82450b82e4d7",
+          "event_seq": 184,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 143,
+          "decision_sha256": "3f38b95e4c154392f2f5dffd21070a37fb9e108443ff293cd4b01a703083b3a7",
+          "event_seq": 185,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 144,
+          "decision_sha256": "159425824ca96cd175bec0f5bfa47e34bd6e51828e7d6876a9ec1e3ba6632d2a",
+          "event_seq": 186,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 145,
+          "decision_sha256": "80cfe2ebe944b9d2e92d08a4b03011198c2a690cdb8da6f048cb50e0ea1c3583",
+          "event_seq": 188,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 146,
+          "decision_sha256": "05bf32da61898ae70d5c56c1b147c2c2081883097ed7780069b94c8903817c08",
+          "event_seq": 189,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 147,
+          "decision_sha256": "8fd4d10102098111a4a4cb7aff5c1a1a72052c6fa3053e117bc55c5425f97def",
+          "event_seq": 192,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 148,
+          "decision_sha256": "95d41ee69b9b7c0e6628a3858e3d2503abb5440005a297355199e628d1d413e5",
+          "event_seq": 193,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 149,
+          "decision_sha256": "d2f5efbe023f1cc2c7531e6109ef8672a1634ed4f43e5608411b5ba28a610cd3",
+          "event_seq": 194,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 150,
+          "decision_sha256": "06e162685ea712a4ccce6059cd058da8adc7cd06d2801ff73086d20e0a16a59e",
+          "event_seq": 195,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 151,
+          "decision_sha256": "31f40ef6fc03a94792f3feaaeb5f526a8e65afdbf78a50c022a6fca05b89aef6",
+          "event_seq": 196,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 152,
+          "decision_sha256": "5538cb31ce1ed83a58ee10a7225fed8cf1ba9980f3accfdf02b1b2e94f4c80d8",
+          "event_seq": 197,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 153,
+          "decision_sha256": "f11147da8eeda7f3ec9ec92b4f74cd484a3d816017d6ef3f7fb56ac27a99a088",
+          "event_seq": 198,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 154,
+          "decision_sha256": "bbee41ac1981d8316b6ec962a85016cba53ef6b0c646062974a29351db46fcf3",
+          "event_seq": 199,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 155,
+          "decision_sha256": "fbd04e6896a471f3d6eec04dc5b5f438b09b4b5200d689916d1bbc30485ce415",
+          "event_seq": 201,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 156,
+          "decision_sha256": "f0639601325803674339a325f206e9f62e38c7712ae1bd681053258427886724",
+          "event_seq": 202,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 157,
+          "decision_sha256": "19a88137ed090da8eacfc37f7f2f580753e1011646db0541ee2cd03d7a2bc9fb",
+          "event_seq": 204,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 158,
+          "decision_sha256": "bdfd0a81020db3bb26b8b36dc0ddf9dc053ec4e6186dcb3a9326b94d26e467c6",
+          "event_seq": 205,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 159,
+          "decision_sha256": "ba361d7b454c6947cf8b708d6b197b5d1775360fd723dd7a23f7cc9f5104b127",
+          "event_seq": 206,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 160,
+          "decision_sha256": "96f34bab642c4f7615b457b072d877f8db88dd075e6216d1f9bf9b65f5de958b",
+          "event_seq": 207,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 161,
+          "decision_sha256": "a8a449943b5e60c4fd0cc22f17e45244f8af2cfbfde28f567eee05d30eaf67d1",
+          "event_seq": 208,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 162,
+          "decision_sha256": "1adee6bbe44bdc1cd28d741a3b7f8fc55b0988f3912c745a30adb253febc8c54",
+          "event_seq": 210,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 163,
+          "decision_sha256": "789597a0fe08f2a1e971b003de7112bfcb9ad316c8960ae4ac58f4f75734d43a",
+          "event_seq": 211,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 164,
+          "decision_sha256": "bf903253a4404d61ab61226b21725f5441fad971a5ea86dd0c5d82510bf445f4",
+          "event_seq": 214,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 165,
+          "decision_sha256": "6daaf37efabedd30f1eb5ac32fb194b6e0d781dc1c67ba538c289ed4fc58d06f",
+          "event_seq": 215,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 166,
+          "decision_sha256": "153c8590ff5ec4ea4bbfb402c151bfc354e587929d1e7244a8ba3185b35595e9",
+          "event_seq": 216,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 167,
+          "decision_sha256": "be70d32725577ba78f693d64585f1dc7f4fb1d9df8177d40f5f44f01552e448b",
+          "event_seq": 217,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 168,
+          "decision_sha256": "68c1e0fa14e731626b8557997a994036e24c888ce1083b89982b04c8f2fb8c77",
+          "event_seq": 218,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 169,
+          "decision_sha256": "7eb52be92da4a3dda7468d6ed575c43e0f092c674fc688e44c0cc38e9a9b71fa",
+          "event_seq": 220,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 170,
+          "decision_sha256": "c646f4451c540c0d94e3f76b2d71c72808715f0dc0d5b68fa502de1baaaa2b8b",
+          "event_seq": 221,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 171,
+          "decision_sha256": "bdf34fca7f82b754766008066d5415329fefcc7adc6b86a39c83e30e1b8eb9db",
+          "event_seq": 223,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 172,
+          "decision_sha256": "c0b2b36b38bed908cef978810d00f8724d97ab59508f701e4ea39da3c9409046",
+          "event_seq": 224,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 173,
+          "decision_sha256": "1ad746f1642f8a73b5913fe27531b160b14b63064e4489d7a8e6c958852f3de7",
+          "event_seq": 227,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 174,
+          "decision_sha256": "24dbb5ff7c8dabf9b6ff9902e2f39783c2c8b593354ed55ff80d849784376d8a",
+          "event_seq": 228,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 175,
+          "decision_sha256": "b1e97e47ea11a78de9ac1a240861d8b6b2125c1bf681e21377b7ed20dff3f33f",
+          "event_seq": 229,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 176,
+          "decision_sha256": "2479e91ef47df7acdb0b50ebb3626922eb7e049b5b5f4dc9816aa5d76c5b83d9",
+          "event_seq": 230,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 177,
+          "decision_sha256": "41d4ff8384954774328b876fece1c999fabb00753692eb9260d0fa8d561afad0",
+          "event_seq": 232,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 178,
+          "decision_sha256": "41b75716fcef54f9f6c5917312209fdc8287dd707855b64f838566438ee24547",
+          "event_seq": 233,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 179,
+          "decision_sha256": "c65df64b5f183f5917f9ce5da736562e104b9b8d42361c55a94f70aba4cfb238",
+          "event_seq": 236,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 180,
+          "decision_sha256": "08ab060d7f2342d26ac4724b5478d4d8780921824138c7a892f2c0be6791e55c",
+          "event_seq": 237,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 181,
+          "decision_sha256": "22995d1b6bc84cd97290ca4a85272ca536d9ee9945610570a5106912db6486fc",
+          "event_seq": 238,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 182,
+          "decision_sha256": "e34e39f2a90708ddee5c046c7243747cf31d6914ae9dd55c90926beffb553909",
+          "event_seq": 239,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 183,
+          "decision_sha256": "7bf9476a3dd4f4bb00213b05a5f492d71a8e5b59d492b0582d033c0f64ee8c8d",
+          "event_seq": 242,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 184,
+          "decision_sha256": "106ef064d91bff00b277bf2ea44e0f17497b4323a40adb138cf8800bf3d10aea",
+          "event_seq": 243,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 185,
+          "decision_sha256": "d4c01aad613cb8ddec470c139f8f6004539a739870971a3cff81a7861537c764",
+          "event_seq": 244,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 186,
+          "decision_sha256": "f5c3ddae161e603b8ec044f583fb003d085c40c8c00d0a63db7894c318322b67",
+          "event_seq": 245,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 187,
+          "decision_sha256": "61c7605f31ec9876da458c072798d3e91a9a9288fd6e6fddecb48987e9c91587",
+          "event_seq": 246,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 188,
+          "decision_sha256": "6e12af2d9528244f8cd7501a69a48d8b9243526b48ea1f7340ab55868e26c327",
+          "event_seq": 247,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 189,
+          "decision_sha256": "bfd9cd35401e3d386ee54e2649ab45dc39ea0dcce3124a55797a9ba94102b9b3",
+          "event_seq": 248,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 190,
+          "decision_sha256": "3ada0dc217a164e5ad8dc09e345939d98c43f16a34b3f7cffd226b950ad890b5",
+          "event_seq": 250,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 191,
+          "decision_sha256": "5e1883b11922a73d7e886e7c7962e5c696d76e889e551bba1f6f06190a370520",
+          "event_seq": 251,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 192,
+          "decision_sha256": "9ba54a2dd6c0568f00946c889e331f1501a71b9ca2a141766077dc5f695fb813",
+          "event_seq": 254,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 193,
+          "decision_sha256": "80d4811c23c35bd66d7fa33a65e3906541c6c4bf2a81a706f55907080760c2ee",
+          "event_seq": 255,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 194,
+          "decision_sha256": "74dbc8a4fc5310ac8ceaaaadd3ba33e389b3d1134cc987518674c8fd2c7e68d5",
+          "event_seq": 256,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 195,
+          "decision_sha256": "bd41b49691c8b1fcdca44b7f839f5aa4f463e2c52a0af7c1ceec2eebac0f8793",
+          "event_seq": 257,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 196,
+          "decision_sha256": "08f103044365b6a50ce536a18bb106e7447a11e9a9645289061bc07f10fc7391",
+          "event_seq": 260,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 197,
+          "decision_sha256": "675cabedf072708ff7508a6de446fef7e96c7cb1fcbd802487bca182ab009def",
+          "event_seq": 261,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 198,
+          "decision_sha256": "bb0a86ef52c422c102425ba10689232fd3d615768e421dd29794442145e34527",
+          "event_seq": 262,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 199,
+          "decision_sha256": "a3de8676907048d9ae065ea882ae9e15e08d7ed466ab59c0ca3d499ce8fcb97c",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 200,
+          "decision_sha256": "0850a6a9ed8e76fc6c14b86bde05b713397a3f644a80f2b097683effdefe6428",
+          "event_seq": 264,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 201,
+          "decision_sha256": "926abe55adfe82ee1062e4d7630e935a579369fd4b98241613e8786427a55568",
+          "event_seq": 265,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 202,
+          "decision_sha256": "468729241202ca1496258fa8ddca6c99cfbd4106d765fe4ac71969ba12f9335b",
+          "event_seq": 267,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 203,
+          "decision_sha256": "e34e234ad962de0077a38b58982f63695e38536fb0b848e6becb970897479417",
+          "event_seq": 268,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 204,
+          "decision_sha256": "0b817ce659a436949a9b84c976092092d941d96bcd9c5dca0b5fc1d6c5f4e0e4",
+          "event_seq": 271,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 205,
+          "decision_sha256": "b07523420f2299633a4bd0f0b50b6728298bf67a78baa0b110d6a3232581f215",
+          "event_seq": 272,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 206,
+          "decision_sha256": "2ba7af976f9d58d10e68e2489b6269f77e2c7d0bb0c290783f73cca3c66a3eec",
+          "event_seq": 273,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 207,
+          "decision_sha256": "ae4e5d2506fa08c58bde32dcf240c25000fb0a5c64e680aa22de30022181a3b4",
+          "event_seq": 274,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 208,
+          "decision_sha256": "2a46da7f598f2ee53f5309ea0ae9e5eddbb32c6408af4f72b296a14195d20746",
+          "event_seq": 275,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 209,
+          "decision_sha256": "9effe1ec87f1863b6479f9e3b44a4122d06b4062500b93bb049d64cb0e335d4d",
+          "event_seq": 276,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 210,
+          "decision_sha256": "34d0c46235414ef45161e4111f6774e7f5a49ae568a47967c42d20e2c04a93c8",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 211,
+          "decision_sha256": "953449d5b681094857d0142a602acc824f2e6752f6c62684b73b1fa49f03f4f4",
+          "event_seq": 278,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 212,
+          "decision_sha256": "23b573ce3bd599134bb093f89986aa1233184a1624a34e6a7bbe45ff98e52c4c",
+          "event_seq": 279,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 213,
+          "decision_sha256": "3a5a3ff2bcce9e1c3a1a37049c1dce032b2a92cd850fbfe568ce301ed9929206",
+          "event_seq": 281,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 214,
+          "decision_sha256": "8b46aa11fb2b2ae33b51dc2bb35a6741d7e43eefa97ae4349499a6f43349265d",
+          "event_seq": 282,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        }
+      ],
+      "decision_count": 215,
+      "event_count": 282,
+      "explicit_anchor_counts": {
+        "missing_event_seq": 8,
+        "sequence_only": 45,
+        "state_hash_checked": 162
+      },
+      "legal_candidate_completeness": "not_certified",
+      "opportunity_coverage": "not_certified",
+      "opportunity_scope": "existing_executor_only",
+      "path_id": "probe-01-b-first",
+      "policy_id": "resource_value_pilot_v1",
+      "recorded_chain_integrity": "verified",
+      "recorded_evaluation": {
+        "admitted": null,
+        "seeded_mode_count": 71,
+        "status": "excluded_by_116",
+        "unresolved_evidence_count": 71
+      },
+      "rule_transition_legality": "not_certified",
+      "run_id": "continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-b-first",
+      "run_sha256": "a6538997d9f561dcbc82b80740572d6264c8ba63e185c16d375c5313c2b8ea2f",
+      "schema": "record_integrity_evidence_457.v1",
+      "selection_strategy": "not_certified",
+      "snapshot_count": 283,
+      "source_authenticity": "requires_source_bound_loader",
+      "state_schema_semantics": "not_certified"
+    },
+    {
+      "balance_admitted": null,
+      "decision_anchors": [
+        {
+          "decision_index": 0,
+          "decision_sha256": "9b2796b63a0b88fd9cef6f00cde2216abd1b74d82627fd1d5b33e3c999f36a4c",
+          "event_seq": 2,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 1,
+          "decision_sha256": "84648101bbedc213fe8fd8e61879e80328e1fa662d7a70e4577bd56ce2cf5d76",
+          "event_seq": 3,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 2,
+          "decision_sha256": "8be0440a4f2ace8592f4d1abed4315e67a61d4c84441a0a1679ac4ffef72f465",
+          "event_seq": 4,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 3,
+          "decision_sha256": "99cccf421a4bc42be4377a9b63dc8cedf52c301bc9bbd98049c0b42aafb9b28c",
+          "event_seq": 5,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 4,
+          "decision_sha256": "6951b5024a1e9c9e085f1b5ecc2eab7688e5b56992aaabd58ac09e27b4d89c3c",
+          "event_seq": 6,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 5,
+          "decision_sha256": "f9d59c05f7b1e689731d64a36e4dfb0face4b620dcab9d5ea939e9d05a6b5ec9",
+          "event_seq": 7,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 6,
+          "decision_sha256": "3938d70fd86880fe8cbf2037489831349554a1daffdf12b50f2abe490b0e6f8e",
+          "event_seq": 8,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 7,
+          "decision_sha256": "4b4d9b3a18908e2c474baf53ecd2094e0502e023b7495b6e932141aabf99de01",
+          "event_seq": 9,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 8,
+          "decision_sha256": "5c8eacb84b2b79d9cf8cf56a4c01a3bdcf072c89be0a84df4046c7d4b91d029d",
+          "event_seq": 10,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 9,
+          "decision_sha256": "4701522038e3dac08301ddc6d8d5f36c0317279966a43e3c159346f8c5729569",
+          "event_seq": 11,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 10,
+          "decision_sha256": "cd5b39e2092e5b6fe4f48b67651dfe9975142e2ee22a52145b49bd2db3f099fb",
+          "event_seq": 14,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 11,
+          "decision_sha256": "bebf27d564cbec107f87e20cccc1b2d8725254bceea8122f5a0fa5e6958f4d2f",
+          "event_seq": 15,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 12,
+          "decision_sha256": "2c793112c3abde205b9b501afd396f3c97eb47c319fdea48c70174d709817970",
+          "event_seq": 16,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 13,
+          "decision_sha256": "d9df20d7ba3b988a7353aaedcb10238167bfffc60775eed11f81b631be71cec7",
+          "event_seq": 17,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 14,
+          "decision_sha256": "82e153447ca3ca220f059f849dbcd269af42a3857408202006640f7ba8d14379",
+          "event_seq": 18,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 15,
+          "decision_sha256": "c0508f237d84db864e0f81ea4a28009b7b0f9f936e695205701febc196a97dab",
+          "event_seq": 19,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 16,
+          "decision_sha256": "dda59b997d0fab66174d4db394c5eba5c76034f635b9b052e16a763bfb9f7290",
+          "event_seq": 20,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 17,
+          "decision_sha256": "6a5bdeb10e430d08a6e94653515651902f51d0ae411e8cac28b60a92a9ae9d3b",
+          "event_seq": 21,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 18,
+          "decision_sha256": "5fb81757f2f32e41857166596e6fe88e7fefd41fdc05d742cbdacf8b4559f38a",
+          "event_seq": 24,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 19,
+          "decision_sha256": "865a7fd7b73d6fda47e7b4be6889a420536532ef53a69128022cf1f00f6fd340",
+          "event_seq": 25,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 20,
+          "decision_sha256": "d2f3cac7f0f390014c2bea0e5d238a83acbf337aa6f335bb8a7f9746844b25b6",
+          "event_seq": 26,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 21,
+          "decision_sha256": "364fbab9689f52d0786c36e2c539d9a4ea7ff848b8b2353990a4c638d8d45367",
+          "event_seq": 27,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 22,
+          "decision_sha256": "f91499e9f2fb068f0fb1d7e16fb4e2ebf9ca38c5c2568a38cc704cdc3dd55b0b",
+          "event_seq": 28,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 23,
+          "decision_sha256": "708e1eca8bba4610dc2d0659f838b17de5cdf81766a4d64495688c5a02aa180f",
+          "event_seq": 29,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 24,
+          "decision_sha256": "7ab2068cc21fbe3ca94edd5279fc1c3efd60888574ac7ea7a76da1aec17496f9",
+          "event_seq": 31,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 25,
+          "decision_sha256": "ae0bf14aa7d66e3986e8101fe19b45cf874683de9e7d7715d66d7627cd5ecedc",
+          "event_seq": 32,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 26,
+          "decision_sha256": "9f8138f6c9374f8a2d8755a02beb5113d4e9044e87712e8b999a5259d4ed11db",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 27,
+          "decision_sha256": "b73587a2fdfef0f274567026b8b8a73d184cb730a18836edb3a5d94f309508ac",
+          "event_seq": 34,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 28,
+          "decision_sha256": "28cffb3493849dda21f03146288c65ce4e4ed55986e9e053da412523b9b24a8c",
+          "event_seq": 35,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 29,
+          "decision_sha256": "94c5b5033980cc122d983cef5ad5b3da92c46d54c8aaa13267c9454368f86280",
+          "event_seq": 37,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 30,
+          "decision_sha256": "f91f45ec97acab148122f0735ea7faee7d02bbd97d35bf9d15281647370a4d87",
+          "event_seq": 38,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 31,
+          "decision_sha256": "2ac571a01a28be2c96505dd622b5dea7091eb65447370ba2a689db1ab8b6f5c4",
+          "event_seq": 39,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 32,
+          "decision_sha256": "7a327aadef9fbb4f94364e6a35506b76ecba6fa950c9874f3aa614e6266ed848",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 33,
+          "decision_sha256": "9af1fe686e7cb4b21451ab91e6014bea73b975dd02d403418769aa4b4beede3d",
+          "event_seq": 43,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 34,
+          "decision_sha256": "67346bfd35c5696f36d54e2c5992ce0d8c9a8b707dd23d70bcbfa17af1a38484",
+          "event_seq": 44,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 35,
+          "decision_sha256": "2e94f5b5bf2ec854b245413b88f5e15cd527815eedcb10e9b4f3f59b06ad0d34",
+          "event_seq": 45,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 36,
+          "decision_sha256": "bab7c4236da118ef248aca7beb112c40e7f5904e5d43353d23e68e716551770d",
+          "event_seq": 46,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 37,
+          "decision_sha256": "f7d5e63601464ab8696e2d7daea8d064d8fa7950f3b1fc245308d202585af662",
+          "event_seq": 48,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 38,
+          "decision_sha256": "fb1db8112f832fcdb2b75bafb4746e64ef52f7cc182d2b1d74985cda32574c35",
+          "event_seq": 49,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 39,
+          "decision_sha256": "ae41c25df3e8ca3420c2b1b3e13add8a616f2738e975eb8735a5fe16d861b26a",
+          "event_seq": 50,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 40,
+          "decision_sha256": "7bf904c8357e87aaa43161afa83f488abbfdd4964622710c8be2255ce91de8c7",
+          "event_seq": 51,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 41,
+          "decision_sha256": "1573d5e2f482ccceee10e7a35416a0c9f2050740c3963cb75973671ad31e5319",
+          "event_seq": 52,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 42,
+          "decision_sha256": "b949f5ff5ca5c93ada84fc684bc8524bd13c108f79df0abd0aadfde248919323",
+          "event_seq": 55,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 43,
+          "decision_sha256": "cda2ebfe3e35a38ce4419090945912ca2d1b9682cdfd448038b24490268bfa8e",
+          "event_seq": 56,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 44,
+          "decision_sha256": "4efdc8b318758f0b3e6466a5b04a29b13cbee6bfc0f8553d01194eb40034945a",
+          "event_seq": 57,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 45,
+          "decision_sha256": "597a8213ec50574e5140ce2eb78e8b5dd3faeca45ad3420fdc80550bb70ffbee",
+          "event_seq": 58,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 46,
+          "decision_sha256": "ba927a82a576d8a04546aeabc683eb42989adbb0729bc36d5fb90ef4be505260",
+          "event_seq": 59,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 47,
+          "decision_sha256": "f52ec461d5552a0c1fd4d99853f00f958240cfacca4c7f4df19efb563b57b3da",
+          "event_seq": 60,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 48,
+          "decision_sha256": "e9a2b5938a46e0afa20014d17766d5bf7d268b33e83647287a018809fd9842e5",
+          "event_seq": 61,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 49,
+          "decision_sha256": "7c579e23cd1bd23c0fc57c0f7f12bc97828a0ee3442777ea67e4bae67fea5096",
+          "event_seq": 63,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 50,
+          "decision_sha256": "1d32faf784034b725af8fa960c2d0af61c1bfdedda42b1b7ad26d9508bd7ba61",
+          "event_seq": 64,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 51,
+          "decision_sha256": "2da2ee1ec6d1af265e6006d05b2b4bf3b49d13719c2efdd57c505c9373003601",
+          "event_seq": 67,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 52,
+          "decision_sha256": "ce34d687fce93683150dc1c56f368426ec11093e8c769113a91f1d071af3345f",
+          "event_seq": 68,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 53,
+          "decision_sha256": "9ee63d92b9f4b0824207cc33255ea62cc62c951b0aec3d8959524aea75a52eac",
+          "event_seq": 69,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 54,
+          "decision_sha256": "d6bbc23b072e590b8ced33ac74a09f32ca4d3ba46743cf090776ea52a8508ad6",
+          "event_seq": 70,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 55,
+          "decision_sha256": "4cde1aaeb9604a56cf3198e4b7c8924ddf1974e0da67944a44092e93c2349a5f",
+          "event_seq": 71,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 56,
+          "decision_sha256": "8ee503cdca184f558b0978718c2d7b64f8402ee33be40db371cb7c2a526872b0",
+          "event_seq": 72,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 57,
+          "decision_sha256": "69fa44b898f52a9a864c8292eb4b33a517f92b1056c674f2a43a577b16fa414d",
+          "event_seq": 73,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 58,
+          "decision_sha256": "cf551212ee248e02e36fd65a5d39ea52d17e22cbb6c2f377020296a261ec9652",
+          "event_seq": 74,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 59,
+          "decision_sha256": "135e01aa0ee468e70c826caca85ec93a765b68600e8c4786cfc3703368a20701",
+          "event_seq": 75,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 60,
+          "decision_sha256": "72b7c0d3547b9881cc5577d0bdeeaa59950f05ca03b14c3b92d0fcbce1d608d9",
+          "event_seq": 76,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 61,
+          "decision_sha256": "bee01ae8a3371ab4138453bd1248ff5105d3f8f96806f5a3c7df7a8e04ad2516",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 62,
+          "decision_sha256": "61d2c2cd7de6201bfec90837f98e153c53e54b6aae86c45e7c5dde7411b3be8b",
+          "event_seq": 78,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 63,
+          "decision_sha256": "ad247d318af05ed5ffc18a14349c75152da110fa8e42736d6dbbd73c10d1080e",
+          "event_seq": 79,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 64,
+          "decision_sha256": "25cb99c287b21dd1da33510c16a43dd7ddc0e72f066653cf870269c9bee3335d",
+          "event_seq": 82,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 65,
+          "decision_sha256": "efff3925f995ec18f04bb2a16c661e3eade830261ab09fdd7bec3a7e56910a28",
+          "event_seq": 83,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 66,
+          "decision_sha256": "87df6a1eb61bcf7c922f5712dd20ff0c705afb0763b1310fe10279af8339e5a8",
+          "event_seq": 84,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 67,
+          "decision_sha256": "ea031b62ef970312a7eddd4935f32a0ccd6cbcbafbb3c91d245b52d380743d7b",
+          "event_seq": 85,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 68,
+          "decision_sha256": "5a6b9daf8429703da9b8370fdbb402ac92cf1104658fd3fa210b6f3985113769",
+          "event_seq": 86,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 69,
+          "decision_sha256": "6d22dfdfb30f096e694b4acf4c259cc8e243488b79418f17a37a7f1079b3c540",
+          "event_seq": 87,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 70,
+          "decision_sha256": "bb77534957d7a31531b4e1d0a110a5833036fb977f018d0315650e8949b439a4",
+          "event_seq": 88,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 71,
+          "decision_sha256": "fc74b7705bf863477cabfda209a56875a6b0cf3273059fccb8f31f2dd803df7a",
+          "event_seq": 90,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 72,
+          "decision_sha256": "f42babb226dac49c4e188cf4686e3625399ff00ed4ea9b268943255a67fe6051",
+          "event_seq": 91,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 73,
+          "decision_sha256": "2c90534379eb06325037dda1794081f6489e63b2aa52fc660e606f0b955c78e4",
+          "event_seq": 92,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 74,
+          "decision_sha256": "7e99e17a3e3720fbeaadbf04854f4653a9ba3c0e5e2e7f3149e48149202e5379",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 75,
+          "decision_sha256": "1181391fb4e1f33bfb4a61a61f5797bcf8eeb01a06dad16931fc0bb22a34c97c",
+          "event_seq": 96,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 76,
+          "decision_sha256": "8084cf05d6d0798cd4afa4833ddb3e100ced464efe0235c8ee41534850d8096d",
+          "event_seq": 97,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 77,
+          "decision_sha256": "efd8810f845c170fea6c5a9e92dd686a493e05ee093271da1db251a801e0af5e",
+          "event_seq": 98,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 78,
+          "decision_sha256": "921fc5dbef6b9ac5f44bdde6d101a1407cef44aa6eae136ab08bd19a99a148dc",
+          "event_seq": 99,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 79,
+          "decision_sha256": "78a4d52c9ee18bfa66c1cc4f7e46f3e8f8ca39462d6528440c609da7828480ce",
+          "event_seq": 101,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 80,
+          "decision_sha256": "0b89ca277ad8b732c58780f111933dc6b9bad1b378f053fa6679fce65734e316",
+          "event_seq": 102,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 81,
+          "decision_sha256": "966a62b32c770efcb879e19368d8f7cfe9d728b76cf5768bbfcd9b7b7f788c31",
+          "event_seq": 105,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 82,
+          "decision_sha256": "4092ac0f5fc39550e729db3f329f679a857c4c342d911547f675be64d38ffdb6",
+          "event_seq": 106,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 83,
+          "decision_sha256": "b90c8a359b60fae077e2d3f4ab31df3e97a83fa86ac51032d1e547e91cef3e7f",
+          "event_seq": 107,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 84,
+          "decision_sha256": "467af0d639cc72e7596d2232976976a6291bd7c9b263ad9589bb5a41e941e44a",
+          "event_seq": 108,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 85,
+          "decision_sha256": "daca33c79e4dbcf17e07822d1efe34bdf078e8f7888775cef5bf6ba1e9da780d",
+          "event_seq": 109,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 86,
+          "decision_sha256": "2cf112130d0afe5e6a0251d875e4e17375d3e4eaafbb457bbd874d468c1f7818",
+          "event_seq": 110,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 87,
+          "decision_sha256": "f130ef8eb2665c1982c5949ea86a03cd5e4a0f21e0dcb3b32c748b9dfd5119a6",
+          "event_seq": 111,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 88,
+          "decision_sha256": "aaaecf0ecff12fb59e60eea75fd957fe2d2840ee0cdadd8c562340baf8cda958",
+          "event_seq": 113,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 89,
+          "decision_sha256": "2dc2ff9e280515aac65d9a922a1ccfd8027d10c3d9e1e0404c0240a182befa3e",
+          "event_seq": 114,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 90,
+          "decision_sha256": "3173f8ec1b506dc0438fbe0c3091fcd44598ad3e49f3ebf89de1409481097240",
+          "event_seq": 115,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 91,
+          "decision_sha256": "40885f59d30f0aa64d864bd7f178d2109d0e931aeb2584839aa7bc68a097b3d1",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 92,
+          "decision_sha256": "cc216b35aa7410dd089b624c6f7c1f80bff3a7bb71de0a658e3577f67db5fac8",
+          "event_seq": 119,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 93,
+          "decision_sha256": "5273d3e85826a4de457dbaf179e5d2fdf4c06b82f3d64e2635b226fb8a351286",
+          "event_seq": 120,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 94,
+          "decision_sha256": "0aec48624b91251896fac10da86531cb4a715add391a954a14c30c4b9dc0f24d",
+          "event_seq": 121,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 95,
+          "decision_sha256": "a0f39f847c8342d3e61f116368e266d0c0fa58ab1ab41a29028c218bc4845d22",
+          "event_seq": 122,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 96,
+          "decision_sha256": "de18bfea4a85783da98ae14d53a2e1c9667960a637c3413586901de041222728",
+          "event_seq": 124,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 97,
+          "decision_sha256": "e3ece6472889e66f4850a700073a3b5a276a68fff552a42916ade1861cad01f8",
+          "event_seq": 125,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 98,
+          "decision_sha256": "c78033e656b3f5f90eca6bb50e206457cd98a6f403dbcf6dafd9cbc13279f0d6",
+          "event_seq": 126,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 99,
+          "decision_sha256": "fbee715a57edaefc47b55bdb9cae48bb6d59f2fb14985245a1b5f886a8da45f0",
+          "event_seq": 127,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 100,
+          "decision_sha256": "e64992a618d669bfadc268dbf782b950082a5dadb4458e41e41f0d765e6c975a",
+          "event_seq": 128,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 101,
+          "decision_sha256": "57d96edd83d8e503a468c4345e45b6f173f6884b039cc398bd04e7d95fdb31d3",
+          "event_seq": 129,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 102,
+          "decision_sha256": "f67f207262a7ff8c30951f5794582a912595ada0fcdc699486334f404c62bcce",
+          "event_seq": 130,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 103,
+          "decision_sha256": "e80e939b7464f6c717ac3d2f018c77762e804d7b01431a084472aaff64c60f26",
+          "event_seq": 131,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 104,
+          "decision_sha256": "d47c6efa36cb5cffdd035f228bbf85570478c86d083e38f1d7994517d53bc335",
+          "event_seq": 133,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 105,
+          "decision_sha256": "6060423fdc5f5a0387f8c843259ef020446b72066b7e45e1f85911d5c446e5e6",
+          "event_seq": 134,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 106,
+          "decision_sha256": "0b4ef78191c782ab15f232d4d28bd9c8c149903a2896ef2e256f732043a3c05b",
+          "event_seq": 136,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 107,
+          "decision_sha256": "3a3ec721a0b1e71010046e0779527e3cf77d63acea2bf03d855accb825c7ec42",
+          "event_seq": 137,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 108,
+          "decision_sha256": "dd337199bd37823193d7737f3fe41867262f706331c749e61edd5476fcf44c15",
+          "event_seq": 139,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 109,
+          "decision_sha256": "6633449ebe30013e39aa24cc7d9b862668ced26545b4cb78374c5b93cb9c875b",
+          "event_seq": 140,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 110,
+          "decision_sha256": "cdd025695674a0ae894e131bdacf06cc4a0dac447c416963cecb45a72bdfda22",
+          "event_seq": 144,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 111,
+          "decision_sha256": "08e0e2f4c726f4e36b3f3256e66bc47010aa8945e6765ec8b59a569cd56a9c7f",
+          "event_seq": 145,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 112,
+          "decision_sha256": "b4ac2f6dca581cd7974efb60528a66b77adf4594af881901d8dfe1b1fc21bae9",
+          "event_seq": 146,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 113,
+          "decision_sha256": "80f062f6c4673fbdc9a573debaa6fb58749b217687799fea183485bfefe69990",
+          "event_seq": 147,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 114,
+          "decision_sha256": "edada0440f4d64b2561d157fb453b2e80f6d86c0bb9095e081d908a9a920e32d",
+          "event_seq": 148,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 115,
+          "decision_sha256": "1c477047ce38511928f108e621742876c8c23c55dd0fb4f9d51e6e8d663d1202",
+          "event_seq": 149,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 116,
+          "decision_sha256": "2e0aa8a0baa2601ba23d8060b46993fd0e1d3ddc6f5c3d566e6e5ac646b149bf",
+          "event_seq": 150,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 117,
+          "decision_sha256": "8a3d22e16bfaef66261f5044bd96a4354b82a71bf557c5611d6dc140744e8d5d",
+          "event_seq": 151,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 118,
+          "decision_sha256": "bf3a18303119b5c0602fb280e5a3dfd0393a6866cd74fc36c99fa1fea0f4fbc2",
+          "event_seq": 153,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 119,
+          "decision_sha256": "974087399d5acffedc3559af42ddebcbecee5fd9cc9a1ec5ffb7bac73ba9993e",
+          "event_seq": 154,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 120,
+          "decision_sha256": "afee4b7cffaf8b01b5d03210f216da098e72ee7bb7a0ba4450b669da8b6747c1",
+          "event_seq": 156,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 121,
+          "decision_sha256": "ae83cbf6feb5d3f74e72d91542a367002d5abfa8716e6aa8c817e7f317c3f97b",
+          "event_seq": 157,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 122,
+          "decision_sha256": "ff87f1111001becd74563ea5dc4a7c0723ffc38308f4917b3635afcaa273a683",
+          "event_seq": 159,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 123,
+          "decision_sha256": "712aa101141507c46fc3a3eb9a8c5a79027b8df776f761cc69136461286a4c11",
+          "event_seq": 160,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 124,
+          "decision_sha256": "5abdcd2eba7ae0f0371d3a06011131075bf75c642aa8fb5389d02f2b54d66630",
+          "event_seq": 161,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 125,
+          "decision_sha256": "f87396a10178788020f4b8ab46b9d3dfa0ff98c0e1ef3fc8df1671cc9f269dea",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 126,
+          "decision_sha256": "bbe72b5ab915cf1a89f57ec2d42fd32f40c82d224767c24d49b896de17c6877e",
+          "event_seq": 165,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 127,
+          "decision_sha256": "a1ca4f16b8c0d4f3f80054a1a21c279148d9553a1a53c683699b758f239247ca",
+          "event_seq": 166,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 128,
+          "decision_sha256": "3d5ccbc3d25105ec6792087c617c0e66ff833e2aa324672f35770b65d5a72db4",
+          "event_seq": 167,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 129,
+          "decision_sha256": "8405a0076cac936ee77c25d42a0f26054d0345f0263223755200aa7c40cb7e93",
+          "event_seq": 169,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 130,
+          "decision_sha256": "3be855eaf407330395e746b2c21fdfe5014f02427b0320ee23232ba4b4764c93",
+          "event_seq": 170,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 131,
+          "decision_sha256": "176dd9be1bc9d8a6008375d1ca71a16bab7abfaff70e331f6bb1bdcc00979ad9",
+          "event_seq": 171,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 132,
+          "decision_sha256": "f204ef399bb42bb738c454b814cf167cb867684e628239ac009cde89ff3746db",
+          "event_seq": 172,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 133,
+          "decision_sha256": "652bb84d36377378ccb79607eb925a467cc981fd802c8397aeaa29babb6330f0",
+          "event_seq": 173,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 134,
+          "decision_sha256": "5cf808e027bc664ad0c5a3955ce7e7a32bb9c7bef29199e96bea24cea9ffe9c9",
+          "event_seq": 174,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 135,
+          "decision_sha256": "f86fb24e4177165b8350a4690d8e6648876235235a875d5b0d3edce2b1610b53",
+          "event_seq": 176,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 136,
+          "decision_sha256": "f3723ce4a8a503de4cd7791f5d9bd905c5bfd14b905a8cdad6e816c3d16c6896",
+          "event_seq": 177,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 137,
+          "decision_sha256": "caf670835abebc828cd52d21a6423ee1cdf05618673bee2b07a97e9186471dce",
+          "event_seq": 179,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 138,
+          "decision_sha256": "d6e99c336b0d5cb578bdd8f6e28978258822ec7167bfe5f7da8af475d00627f8",
+          "event_seq": 180,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 139,
+          "decision_sha256": "b22607901e6dad4cace4b02d30a4f2395edafe9a947931ba95d093e33d00975e",
+          "event_seq": 181,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 140,
+          "decision_sha256": "81f0baa5a260bd27e41dc1361f7b9998a54982af9f8453bdd5d9db4dac0dbb9d",
+          "event_seq": 182,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 141,
+          "decision_sha256": "caf9840852ae0528384e58467e3a023c9b5d071981964a129b860d570aa84e7b",
+          "event_seq": 183,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 142,
+          "decision_sha256": "fe9a235adb228857a004093326bb446ed77b04389c6918564e4f82450b82e4d7",
+          "event_seq": 184,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 143,
+          "decision_sha256": "59bc99dffb12e33d7a6b3b4542ec5ca86608e2170a37d79c64ec33bd3bb51140",
+          "event_seq": 185,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 144,
+          "decision_sha256": "159425824ca96cd175bec0f5bfa47e34bd6e51828e7d6876a9ec1e3ba6632d2a",
+          "event_seq": 186,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 145,
+          "decision_sha256": "80cfe2ebe944b9d2e92d08a4b03011198c2a690cdb8da6f048cb50e0ea1c3583",
+          "event_seq": 188,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 146,
+          "decision_sha256": "05bf32da61898ae70d5c56c1b147c2c2081883097ed7780069b94c8903817c08",
+          "event_seq": 189,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 147,
+          "decision_sha256": "8fd4d10102098111a4a4cb7aff5c1a1a72052c6fa3053e117bc55c5425f97def",
+          "event_seq": 192,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 148,
+          "decision_sha256": "95d41ee69b9b7c0e6628a3858e3d2503abb5440005a297355199e628d1d413e5",
+          "event_seq": 193,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 149,
+          "decision_sha256": "32f2e408fa5ee183ed2db68ca633466ff73d07958aed8165c7a7cfdf1bc9cdf7",
+          "event_seq": 194,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 150,
+          "decision_sha256": "06e162685ea712a4ccce6059cd058da8adc7cd06d2801ff73086d20e0a16a59e",
+          "event_seq": 195,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 151,
+          "decision_sha256": "31f40ef6fc03a94792f3feaaeb5f526a8e65afdbf78a50c022a6fca05b89aef6",
+          "event_seq": 196,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 152,
+          "decision_sha256": "65b70075c31ead19b68ee77aa384b55eafa601c1b9d14c54652fbc3e0ac23954",
+          "event_seq": 197,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 153,
+          "decision_sha256": "f11147da8eeda7f3ec9ec92b4f74cd484a3d816017d6ef3f7fb56ac27a99a088",
+          "event_seq": 198,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 154,
+          "decision_sha256": "bbee41ac1981d8316b6ec962a85016cba53ef6b0c646062974a29351db46fcf3",
+          "event_seq": 199,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 155,
+          "decision_sha256": "fbd04e6896a471f3d6eec04dc5b5f438b09b4b5200d689916d1bbc30485ce415",
+          "event_seq": 201,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 156,
+          "decision_sha256": "f0639601325803674339a325f206e9f62e38c7712ae1bd681053258427886724",
+          "event_seq": 202,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 157,
+          "decision_sha256": "77b042e18575e1e45e856ecdef5f0162bb3bd6b125282504571aafacf528fa54",
+          "event_seq": 204,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 158,
+          "decision_sha256": "bdfd0a81020db3bb26b8b36dc0ddf9dc053ec4e6186dcb3a9326b94d26e467c6",
+          "event_seq": 205,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 159,
+          "decision_sha256": "ba361d7b454c6947cf8b708d6b197b5d1775360fd723dd7a23f7cc9f5104b127",
+          "event_seq": 206,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 160,
+          "decision_sha256": "1dbdf4f53b41d7accaf6a8af5b57767b0ac32bc1273f52c59e4df3943d20afe5",
+          "event_seq": 207,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 161,
+          "decision_sha256": "a8a449943b5e60c4fd0cc22f17e45244f8af2cfbfde28f567eee05d30eaf67d1",
+          "event_seq": 208,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 162,
+          "decision_sha256": "1adee6bbe44bdc1cd28d741a3b7f8fc55b0988f3912c745a30adb253febc8c54",
+          "event_seq": 210,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 163,
+          "decision_sha256": "789597a0fe08f2a1e971b003de7112bfcb9ad316c8960ae4ac58f4f75734d43a",
+          "event_seq": 211,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 164,
+          "decision_sha256": "bf903253a4404d61ab61226b21725f5441fad971a5ea86dd0c5d82510bf445f4",
+          "event_seq": 214,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 165,
+          "decision_sha256": "6daaf37efabedd30f1eb5ac32fb194b6e0d781dc1c67ba538c289ed4fc58d06f",
+          "event_seq": 215,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 166,
+          "decision_sha256": "1b7b27e7313af3849fc6f392706b9918e9ea30a431660902b86b2f6608bd8f88",
+          "event_seq": 216,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 167,
+          "decision_sha256": "be70d32725577ba78f693d64585f1dc7f4fb1d9df8177d40f5f44f01552e448b",
+          "event_seq": 217,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 168,
+          "decision_sha256": "68c1e0fa14e731626b8557997a994036e24c888ce1083b89982b04c8f2fb8c77",
+          "event_seq": 218,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 169,
+          "decision_sha256": "7eb52be92da4a3dda7468d6ed575c43e0f092c674fc688e44c0cc38e9a9b71fa",
+          "event_seq": 220,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 170,
+          "decision_sha256": "c646f4451c540c0d94e3f76b2d71c72808715f0dc0d5b68fa502de1baaaa2b8b",
+          "event_seq": 221,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 171,
+          "decision_sha256": "42f66da273f7950ce96cacdd08ae917023e4f2d14fbe19b3220a681a6400afba",
+          "event_seq": 223,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 172,
+          "decision_sha256": "c0b2b36b38bed908cef978810d00f8724d97ab59508f701e4ea39da3c9409046",
+          "event_seq": 224,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 173,
+          "decision_sha256": "1ad746f1642f8a73b5913fe27531b160b14b63064e4489d7a8e6c958852f3de7",
+          "event_seq": 227,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 174,
+          "decision_sha256": "24dbb5ff7c8dabf9b6ff9902e2f39783c2c8b593354ed55ff80d849784376d8a",
+          "event_seq": 228,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 175,
+          "decision_sha256": "27939f9977b79e36785698551ca5a7b8f8d20ca9262f20b7e326fa1f1153beca",
+          "event_seq": 229,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 176,
+          "decision_sha256": "2479e91ef47df7acdb0b50ebb3626922eb7e049b5b5f4dc9816aa5d76c5b83d9",
+          "event_seq": 230,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 177,
+          "decision_sha256": "41d4ff8384954774328b876fece1c999fabb00753692eb9260d0fa8d561afad0",
+          "event_seq": 232,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 178,
+          "decision_sha256": "41b75716fcef54f9f6c5917312209fdc8287dd707855b64f838566438ee24547",
+          "event_seq": 233,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 179,
+          "decision_sha256": "c65df64b5f183f5917f9ce5da736562e104b9b8d42361c55a94f70aba4cfb238",
+          "event_seq": 236,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 180,
+          "decision_sha256": "08ab060d7f2342d26ac4724b5478d4d8780921824138c7a892f2c0be6791e55c",
+          "event_seq": 237,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 181,
+          "decision_sha256": "0516d5973931114471b3a34887931b3b9c1ed7ae91181e47063378a504cf201e",
+          "event_seq": 238,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 182,
+          "decision_sha256": "e34e39f2a90708ddee5c046c7243747cf31d6914ae9dd55c90926beffb553909",
+          "event_seq": 239,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 183,
+          "decision_sha256": "7bf9476a3dd4f4bb00213b05a5f492d71a8e5b59d492b0582d033c0f64ee8c8d",
+          "event_seq": 242,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 184,
+          "decision_sha256": "106ef064d91bff00b277bf2ea44e0f17497b4323a40adb138cf8800bf3d10aea",
+          "event_seq": 243,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 185,
+          "decision_sha256": "c3f6cbb7befd1e06203b5a2b234c91473d7e77049d8dd438279e8ee706437411",
+          "event_seq": 244,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 186,
+          "decision_sha256": "f5c3ddae161e603b8ec044f583fb003d085c40c8c00d0a63db7894c318322b67",
+          "event_seq": 245,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 187,
+          "decision_sha256": "61c7605f31ec9876da458c072798d3e91a9a9288fd6e6fddecb48987e9c91587",
+          "event_seq": 246,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 188,
+          "decision_sha256": "7761bf3f4f8a97a2eb34d428ddb46f9ba0fbfe96374636587d6d853b6f219634",
+          "event_seq": 247,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 189,
+          "decision_sha256": "bfd9cd35401e3d386ee54e2649ab45dc39ea0dcce3124a55797a9ba94102b9b3",
+          "event_seq": 248,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 190,
+          "decision_sha256": "3ada0dc217a164e5ad8dc09e345939d98c43f16a34b3f7cffd226b950ad890b5",
+          "event_seq": 250,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 191,
+          "decision_sha256": "5e1883b11922a73d7e886e7c7962e5c696d76e889e551bba1f6f06190a370520",
+          "event_seq": 251,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 192,
+          "decision_sha256": "9ba54a2dd6c0568f00946c889e331f1501a71b9ca2a141766077dc5f695fb813",
+          "event_seq": 254,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 193,
+          "decision_sha256": "80d4811c23c35bd66d7fa33a65e3906541c6c4bf2a81a706f55907080760c2ee",
+          "event_seq": 255,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 194,
+          "decision_sha256": "198835e7ac10c2b8d2ceda91fd20bcd8e3cceb40507c0277e5669e5c5db3f37f",
+          "event_seq": 256,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 195,
+          "decision_sha256": "bd41b49691c8b1fcdca44b7f839f5aa4f463e2c52a0af7c1ceec2eebac0f8793",
+          "event_seq": 257,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 196,
+          "decision_sha256": "08f103044365b6a50ce536a18bb106e7447a11e9a9645289061bc07f10fc7391",
+          "event_seq": 260,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 197,
+          "decision_sha256": "675cabedf072708ff7508a6de446fef7e96c7cb1fcbd802487bca182ab009def",
+          "event_seq": 261,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 198,
+          "decision_sha256": "bb0a86ef52c422c102425ba10689232fd3d615768e421dd29794442145e34527",
+          "event_seq": 262,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 199,
+          "decision_sha256": "a3de8676907048d9ae065ea882ae9e15e08d7ed466ab59c0ca3d499ce8fcb97c",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 200,
+          "decision_sha256": "081a40611f2e890b6088b2e8f66f61ffdd9412af26f5473da2e4653ee4ffb5fa",
+          "event_seq": 264,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 201,
+          "decision_sha256": "926abe55adfe82ee1062e4d7630e935a579369fd4b98241613e8786427a55568",
+          "event_seq": 265,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 202,
+          "decision_sha256": "468729241202ca1496258fa8ddca6c99cfbd4106d765fe4ac71969ba12f9335b",
+          "event_seq": 267,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 203,
+          "decision_sha256": "e34e234ad962de0077a38b58982f63695e38536fb0b848e6becb970897479417",
+          "event_seq": 268,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 204,
+          "decision_sha256": "0b817ce659a436949a9b84c976092092d941d96bcd9c5dca0b5fc1d6c5f4e0e4",
+          "event_seq": 271,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 205,
+          "decision_sha256": "b07523420f2299633a4bd0f0b50b6728298bf67a78baa0b110d6a3232581f215",
+          "event_seq": 272,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 206,
+          "decision_sha256": "aaf2100ac53c0b4fb2b814288c1f7d563f231f8818c8cec9c544fd6662f9aa73",
+          "event_seq": 273,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 207,
+          "decision_sha256": "ae4e5d2506fa08c58bde32dcf240c25000fb0a5c64e680aa22de30022181a3b4",
+          "event_seq": 274,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 208,
+          "decision_sha256": "2a46da7f598f2ee53f5309ea0ae9e5eddbb32c6408af4f72b296a14195d20746",
+          "event_seq": 275,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 209,
+          "decision_sha256": "9effe1ec87f1863b6479f9e3b44a4122d06b4062500b93bb049d64cb0e335d4d",
+          "event_seq": 276,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 210,
+          "decision_sha256": "34d0c46235414ef45161e4111f6774e7f5a49ae568a47967c42d20e2c04a93c8",
+          "event_seq": null,
+          "pre_state_hashes_checked": null,
+          "status": "missing_event_seq"
+        },
+        {
+          "decision_index": 211,
+          "decision_sha256": "bfc346dfbd72aaf3eeae4e23c00967b41da95d86c8f70bb565b88a6e192633ca",
+          "event_seq": 278,
+          "pre_state_hashes_checked": [],
+          "status": "sequence_only"
+        },
+        {
+          "decision_index": 212,
+          "decision_sha256": "23b573ce3bd599134bb093f89986aa1233184a1624a34e6a7bbe45ff98e52c4c",
+          "event_seq": 279,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 213,
+          "decision_sha256": "3a5a3ff2bcce9e1c3a1a37049c1dce032b2a92cd850fbfe568ce301ed9929206",
+          "event_seq": 281,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        },
+        {
+          "decision_index": 214,
+          "decision_sha256": "8b46aa11fb2b2ae33b51dc2bb35a6741d7e43eefa97ae4349499a6f43349265d",
+          "event_seq": 282,
+          "pre_state_hashes_checked": [
+            "pre_game_state_sha256",
+            "pre_continuation_state_sha256"
+          ],
+          "status": "state_hash_checked"
+        }
+      ],
+      "decision_count": 215,
+      "event_count": 282,
+      "explicit_anchor_counts": {
+        "missing_event_seq": 8,
+        "sequence_only": 45,
+        "state_hash_checked": 162
+      },
+      "legal_candidate_completeness": "not_certified",
+      "opportunity_coverage": "not_certified",
+      "opportunity_scope": "existing_executor_only",
+      "path_id": "probe-01-b-first",
+      "policy_id": "public_result_equivalence_pilot_v1",
+      "recorded_chain_integrity": "verified",
+      "recorded_evaluation": {
+        "admitted": null,
+        "seeded_mode_count": 71,
+        "status": "excluded_by_116",
+        "unresolved_evidence_count": 71
+      },
+      "rule_transition_legality": "not_certified",
+      "run_id": "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-01-b-first",
+      "run_sha256": "4300828565b6fe56a36d92a495d8328690e0564255aaa2c9a1a804f0c721ef57",
+      "schema": "record_integrity_evidence_457.v1",
+      "selection_strategy": "not_certified",
+      "snapshot_count": 283,
+      "source_authenticity": "requires_source_bound_loader",
+      "state_schema_semantics": "not_certified"
+    }
+  ],
+  "saved_file_sha256": "e411ca98f7a69a9c192a1ea1fad1e271f6c5451eb3b68736698deed313cb6425",
+  "saved_manifest_sha256": "083486cb4c8b155897cb5d6719b152c3dc3e2de499cecffd6acd474266028cd6"
+}

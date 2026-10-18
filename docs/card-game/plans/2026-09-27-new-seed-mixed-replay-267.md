@@ -1,0 +1,3 @@
+# 267 混合response選択適用計画
+
+266選択・265完全候補・264保存state/hashを照合。終了response2経路と配置後response1経路をpassで進め、開始responseのラッキーコインを時1で起動域へ移す。公開対象は解決時まで先読みせず、各1event/snapshotの前後game/continuation hashを照合する。専用RED→GREEN、canonical bytes、remote保存・再取得を検証し、次の4局面を横断監査する。

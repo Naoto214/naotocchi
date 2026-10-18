@@ -1,0 +1,9 @@
+# 初回たまご交換の相手向け公開履歴
+
+基準25e1caf。02はたまごの山札下返却を明示的に非公開としている。466の実opening producerはegg_exchange_bottomのsource_instance_idへ返却札を保存し、現行投影が相手へ渡していた。旧producerのselected_candidateだけを調べたpublic-read-boundary-review.mdの記述は初期入口を見落としていたため訂正する。
+
+実connected.reconstructの既存115/零root13stepで、Bの通常inventoryにA-010#1が残るREDと、初回投影のREDを再現（2FAIL8.870s）。現行public_application.scopeだけで相手向けegg_exchange_bottomのsource_instance_idを除く。raw/本人記憶/公開event種とseqは保持。両先後・再投影の同一性・scope復元を確認。歴史public_history/466/正本を変更しない。
+
+最終21PASS15.279s/exit0、docs再帰Python1075前後一致。egg-private-history-final.log/summary.json/fingerprints.json.gz。独立review1回C0/I0/Minor0、別実行5PASS10.339s。既存C-bat非公開回収・公開装備・公開条件対照も維持。これは実相手inventoryへのID漏洩の修正であり、選択結果が変化したことや全情報利用の証明ではない。
+
+preflight-ready=false、生成/固定/400戦0、policy promotion=false、独立balance標本0。固定1c48304完全結合は本変更前。次は初期manifestから最初の機会への独立結合とP09–11/P14–18共通責務合成。

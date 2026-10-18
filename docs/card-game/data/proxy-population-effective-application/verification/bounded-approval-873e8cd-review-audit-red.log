@@ -1,0 +1,43 @@
+test_later_gate_failure_retains_successful_read_audit (test_proxy_population_approval_read_retry.PrevalidationTests.test_later_gate_failure_retains_successful_read_audit) ... FAIL
+test_consumption_failure_retains_prevalidation_audit (test_proxy_population_approval_read_retry.PrevalidationTests.test_consumption_failure_retains_prevalidation_audit) ... FAIL
+test_claim_is_written_once_after_recovery_and_failure_retains_audit (test_proxy_population_approval_read_retry.ReadRetryTests.test_claim_is_written_once_after_recovery_and_failure_retains_audit) ... FAIL
+
+======================================================================
+FAIL: test_later_gate_failure_retains_successful_read_audit (test_proxy_population_approval_read_retry.PrevalidationTests.test_later_gate_failure_retains_successful_read_audit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 173, in test_later_gate_failure_retains_successful_read_audit
+    self.assertFalse(result['launch_authorization_bound']);self.assertIn('read_audit',str(result['errors']))
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'read_audit' not found in '["launch approval publication differs: [\'fresh consumption publication differs\']"]'
+
+======================================================================
+FAIL: test_consumption_failure_retains_prevalidation_audit (test_proxy_population_approval_read_retry.PrevalidationTests.test_consumption_failure_retains_prevalidation_audit)
+----------------------------------------------------------------------
+FileExistsError: already consumed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 178, in test_consumption_failure_retains_prevalidation_audit
+    with self.assertRaisesRegex(FileExistsError,'prevalidation.*read_audit'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "prevalidation.*read_audit" does not match "already consumed"
+
+======================================================================
+FAIL: test_claim_is_written_once_after_recovery_and_failure_retains_audit (test_proxy_population_approval_read_retry.ReadRetryTests.test_claim_is_written_once_after_recovery_and_failure_retains_audit)
+----------------------------------------------------------------------
+FileExistsError: [Errno 17] File exists: '/tmp/tmprbnu4num/data/proxy-population-approval-consumption/17.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 110, in test_claim_is_written_once_after_recovery_and_failure_retains_audit
+    with self.assertRaisesRegex(FileExistsError,'read_audit'):api.consume_live(req,17)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "read_audit" does not match "[Errno 17] File exists: '/tmp/tmprbnu4num/data/proxy-population-approval-consumption/17.json'"
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.602s
+
+FAILED (failures=3)

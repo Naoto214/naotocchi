@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_actual_designated_delta_is_joined_without_promoting_authenticity (test_proxy_population_resolution_semantics.ResolutionSemanticTests.test_actual_designated_delta_is_joined_without_promoting_authenticity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_resolution_semantics.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'full resolution semantic join absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : full resolution semantic join absent
+
+======================================================================
+FAIL: test_connected_entry_requires_semantic_join (test_proxy_population_resolution_semantics.ResolutionSemanticTests.test_connected_entry_requires_semantic_join)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_resolution_semantics.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'full resolution semantic join absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : full resolution semantic join absent
+
+======================================================================
+FAIL: test_missing_misbound_duplicate_failed_and_wrong_order_are_rejected (test_proxy_population_resolution_semantics.ResolutionSemanticTests.test_missing_misbound_duplicate_failed_and_wrong_order_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_resolution_semantics.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'full resolution semantic join absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : full resolution semantic join absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

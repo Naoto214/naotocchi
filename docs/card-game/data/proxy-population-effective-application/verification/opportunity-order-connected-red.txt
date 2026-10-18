@@ -1,0 +1,17 @@
+test_entry_exports_actual_opening_and_runtime_callbacks (test_proxy_population_policy_journal.BoundPolicyJournalTests.test_entry_exports_actual_opening_and_runtime_callbacks) ... ERROR
+test_exports_complete_local_entries_without_promoting_origin_or_policy (test_proxy_population_policy_journal.PolicyJournalTests.test_exports_complete_local_entries_without_promoting_origin_or_policy) ... ok
+test_missing_duplicate_root_and_origin_changes_are_rejected (test_proxy_population_policy_journal.PolicyJournalTests.test_missing_duplicate_root_and_origin_changes_are_rejected) ... ok
+
+======================================================================
+ERROR: test_entry_exports_actual_opening_and_runtime_callbacks (test_proxy_population_policy_journal.BoundPolicyJournalTests.test_entry_exports_actual_opening_and_runtime_callbacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 38, in test_entry_exports_actual_opening_and_runtime_callbacks
+    self.assertTrue(r['runtime']['supported_trigger_coverage']['processing_order']['phase_order_verified'])
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'processing_order'
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.576s
+
+FAILED (errors=1)

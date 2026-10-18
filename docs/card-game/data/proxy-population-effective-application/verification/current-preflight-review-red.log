@@ -1,0 +1,46 @@
+test_common_gate_propagates_false_readiness_even_without_errors (test_proxy_population_current_preflight.CurrentPreflightTests.test_common_gate_propagates_false_readiness_even_without_errors) ... ok
+test_component_references_exist_in_current_source (test_proxy_population_current_preflight.CurrentPreflightTests.test_component_references_exist_in_current_source) ... 
+  test_component_references_exist_in_current_source (test_proxy_population_current_preflight.CurrentPreflightTests.test_component_references_exist_in_current_source) (component='P03', path='tools/proxy_population_movement_lifetime.py') ... FAIL
+  test_component_references_exist_in_current_source (test_proxy_population_current_preflight.CurrentPreflightTests.test_component_references_exist_in_current_source) (component='P22', path='tools/proxy_population_movement_payment.py') ... FAIL
+test_every_operation_passes_actual_edition_to_common_gate_before_effects (test_proxy_population_current_preflight.CurrentPreflightTests.test_every_operation_passes_actual_edition_to_common_gate_before_effects) ... ok
+test_evidence_partition_and_failed_component_never_pass (test_proxy_population_current_preflight.CurrentPreflightTests.test_evidence_partition_and_failed_component_never_pass) ... ok
+test_generated_package_reads_exact_immutable_preparation_and_requires_package_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_generated_package_reads_exact_immutable_preparation_and_requires_package_gate) ... ok
+test_incomplete_or_old_connection_cannot_certify_current_preparation (test_proxy_population_current_preflight.CurrentPreflightTests.test_incomplete_or_old_connection_cannot_certify_current_preparation) ... ok
+test_missing_current_report_and_caller_bool_cannot_open_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_missing_current_report_and_caller_bool_cannot_open_gate) ... ok
+test_recorded_generation_preparation_must_match_current_edition (test_proxy_population_current_preflight.CurrentPreflightTests.test_recorded_generation_preparation_must_match_current_edition) ... ok
+test_review_requires_fixed_edition_and_resolution_of_findings (test_proxy_population_current_preflight.CurrentPreflightTests.test_review_requires_fixed_edition_and_resolution_of_findings) ... ok
+test_saved_source_delta_allows_only_evidence_and_progress (test_proxy_population_current_preflight.CurrentPreflightTests.test_saved_source_delta_allows_only_evidence_and_progress) ... 
+  test_saved_source_delta_allows_only_evidence_and_progress (test_proxy_population_current_preflight.CurrentPreflightTests.test_saved_source_delta_allows_only_evidence_and_progress) (mode='progress_deleted') ... FAIL
+test_test_log_requires_real_completion_and_exact_frozen_python (test_proxy_population_current_preflight.CurrentPreflightTests.test_test_log_requires_real_completion_and_exact_frozen_python) ... ok
+
+======================================================================
+FAIL: test_component_references_exist_in_current_source (test_proxy_population_current_preflight.CurrentPreflightTests.test_component_references_exist_in_current_source) (component='P03', path='tools/proxy_population_movement_lifetime.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_current_preflight.py", line 75, in test_component_references_exist_in_current_source
+    with self.subTest(component=key,path=name):self.assertTrue((api.ROOT/name).is_file())
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_component_references_exist_in_current_source (test_proxy_population_current_preflight.CurrentPreflightTests.test_component_references_exist_in_current_source) (component='P22', path='tools/proxy_population_movement_payment.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_current_preflight.py", line 75, in test_component_references_exist_in_current_source
+    with self.subTest(component=key,path=name):self.assertTrue((api.ROOT/name).is_file())
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_saved_source_delta_allows_only_evidence_and_progress (test_proxy_population_current_preflight.CurrentPreflightTests.test_saved_source_delta_allows_only_evidence_and_progress) (mode='progress_deleted')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_current_preflight.py", line 71, in test_saved_source_delta_allows_only_evidence_and_progress
+    with self.subTest(mode=mode),self.assertRaises(ValueError):api.require_source_delta(base,bad)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.037s
+
+FAILED (failures=3)

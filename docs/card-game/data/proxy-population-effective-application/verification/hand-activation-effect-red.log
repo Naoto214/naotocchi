@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_coverage_rejects_extra_growth (test_proxy_population_hand_activation_effect.HandActivationEffectTests.test_coverage_rejects_extra_growth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_hand_activation_effect.py", line 27, in setUp
+    def setUp(self):self.assertIsNotNone(api,'hand activation full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : hand activation full delta absent
+
+======================================================================
+FAIL: test_normal_response_and_prior_pass (test_proxy_population_hand_activation_effect.HandActivationEffectTests.test_normal_response_and_prior_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_hand_activation_effect.py", line 27, in setUp
+    def setUp(self):self.assertIsNotNone(api,'hand activation full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : hand activation full delta absent
+
+======================================================================
+FAIL: test_payment_link_and_unrelated_changes_rejected (test_proxy_population_hand_activation_effect.HandActivationEffectTests.test_payment_link_and_unrelated_changes_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_hand_activation_effect.py", line 27, in setUp
+    def setUp(self):self.assertIsNotNone(api,'hand activation full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : hand activation full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

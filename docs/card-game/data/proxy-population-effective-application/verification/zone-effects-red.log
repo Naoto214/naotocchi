@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_actual_target_routes_invalid_targets_costs_and_contexts (test_proxy_population_zone_effects.ZoneEffectsTests.test_actual_target_routes_invalid_targets_costs_and_contexts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_zone_effects.py", line 41, in setUp
+    def setUp(self):self.assertIsNotNone(api,'fixed-zone semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : fixed-zone semantic audit absent
+
+======================================================================
+FAIL: test_coverage_rejects_rebound_wrong_destination (test_proxy_population_zone_effects.ZoneEffectsTests.test_coverage_rejects_rebound_wrong_destination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_zone_effects.py", line 41, in setUp
+    def setUp(self):self.assertIsNotNone(api,'fixed-zone semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : fixed-zone semantic audit absent
+
+======================================================================
+FAIL: test_wrong_destination_extra_movement_refunds_or_replacement_target_rejected (test_proxy_population_zone_effects.ZoneEffectsTests.test_wrong_destination_extra_movement_refunds_or_replacement_target_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_zone_effects.py", line 41, in setUp
+    def setUp(self):self.assertIsNotNone(api,'fixed-zone semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : fixed-zone semantic audit absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

@@ -1,0 +1,3 @@
+# 179 新seed盤上こいびと・現在機会 TDD計画
+
+178保存rawと全route state/hashから開始。先に専用テストをREDにし、既存06/119/156の盤上誘発分類をP-cliff_goatの本文条件へ接続し、通常行動IDを与えずtiming_not_normal_actionで除外する。01-B/02-Bの通常行動12項目完全性、02-Aのターン終了response唯一passを監査する。01-Aは六段階終了処理の履歴証明前に進めず保持する。新event0、canonical bytesと設計データを検証しGitHub保存する。

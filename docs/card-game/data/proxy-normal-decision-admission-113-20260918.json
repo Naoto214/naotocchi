@@ -1,0 +1,117 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_admission.v1",
+  "checkpoint": 113,
+  "status": "blocked_by_protocol_admission",
+  "stop_required": true,
+  "stop_rule": "111.stop_conditions.rules_adjudication_unresolved",
+  "protocol": "proxy-decision-protocol-107-20260918.json",
+  "source_fixture": "proxy-fixtures-107/fixture-107-normal-decision-a-first.json",
+  "design": {
+    "rules_commit": "72d93ae49b0c38ece6e7a9631de1b68cd29077c1",
+    "rules_tree": "0e97d67b3d5d04b920bf165e235fdbd5c96a67a9",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b"
+  },
+  "fixture_count": 0,
+  "completed_match_count": 0,
+  "independent_balance_sample_count": 0,
+  "blockers": [
+    {
+      "blocker_id": "candidate-coverage-incomplete",
+      "severity": "blocking",
+      "requirement": "自分の通常行動機会ごとに合法候補を列挙し、何もしないも候補に含める。",
+      "omitted_card_types": [
+        "world",
+        "play",
+        "item",
+        "event"
+      ],
+      "evidence": {
+        "support_by_card_type": {
+          "main": "implemented",
+          "companion": "implemented",
+          "partner": "implemented",
+          "world": "omitted",
+          "play": "partial_G-hit-blow_only",
+          "item": "omitted",
+          "event": "omitted"
+        },
+        "concrete_card": "W-deepsea",
+        "concrete_state": "empty_world_and_time_3",
+        "missing_candidate": "place_world_time_2"
+      },
+      "resolution_required": "40枚に含まれる全種類を正本文と照合した手動候補表を先に固定する。"
+    },
+    {
+      "blocker_id": "pre-decision-schema-mismatch",
+      "severity": "blocking",
+      "required_key": "board",
+      "emitted_key": "field",
+      "required_fields": [
+        "hand",
+        "board",
+        "time",
+        "growth",
+        "reservations"
+      ],
+      "resolution_required": "nested schemaと公開情報whitelistをvalidatorで必須化する。"
+    },
+    {
+      "blocker_id": "priority-comparison-unresolved",
+      "severity": "blocking",
+      "priority_order": [
+        "avoid_defeat_or_aborted_challenge",
+        "maintain_or_prevent_growth_100",
+        "maximize_certain_growth_difference",
+        "maximize_time_balance",
+        "maximize_hand_board_reservation_value"
+      ],
+      "conflict": "paid_antlion_birth_or_time_skip_before_pass_by_board_value",
+      "resolution_required": "確定そだち差、時収支、手札・盤面・予約価値を候補間で比較する記録規則を、対戦前に一意化する。"
+    }
+  ],
+  "deferred_batch": {
+    "orders": [
+      {
+        "order_id": "order-01",
+        "shuffle_seed_by_player": {
+          "A": 50,
+          "B": 100050
+        }
+      },
+      {
+        "order_id": "order-02",
+        "shuffle_seed_by_player": {
+          "A": 51,
+          "B": 100051
+        }
+      }
+    ],
+    "planned_match_count": 4,
+    "mirror_first_player_for_each_order": true,
+    "orders_materialized": false,
+    "records_materialized": false,
+    "resume_after_all_blockers_resolved": true
+  },
+  "source_summary": {
+    "player_count": 2,
+    "deck_size_by_player": {
+      "A": 40,
+      "B": 40
+    },
+    "card_type_count_by_player": {
+      "A": 7,
+      "B": 7
+    }
+  },
+  "checkpoint_112": {
+    "targeted_fixture_count": 6,
+    "completed_in_113": 0,
+    "status": "unchanged_unplayed"
+  },
+  "interpretation": {
+    "counts_as_match": false,
+    "counts_as_activation_zero": false,
+    "counts_as_strength_evidence": false,
+    "changes_card_pool": false
+  }
+}

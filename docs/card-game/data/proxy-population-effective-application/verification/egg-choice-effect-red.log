@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_actual_both_actors_empty_deck_hand_and_designated_choice (test_proxy_population_egg_choice_effect.EggChoiceEffectTests.test_actual_both_actors_empty_deck_hand_and_designated_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_egg_choice_effect.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'egg choice actual delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : egg choice actual delta absent
+
+======================================================================
+FAIL: test_wrong_choice_draw_deck_order_metadata_and_callback_rejected (test_proxy_population_egg_choice_effect.EggChoiceEffectTests.test_wrong_choice_draw_deck_order_metadata_and_callback_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_egg_choice_effect.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'egg choice actual delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : egg choice actual delta absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+FAILED (failures=2)

@@ -1,0 +1,36 @@
+test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions (test_proxy_population_information_use.InformationUseTests.test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions) ... FAIL
+test_public_loss_history_changes_choice_with_same_current_visible_state (test_proxy_population_information_use.InformationUseTests.test_public_loss_history_changes_choice_with_same_current_visible_state) ... ok
+test_public_time_changes_actual_candidate_and_choice (test_proxy_population_information_use.InformationUseTests.test_public_time_changes_actual_candidate_and_choice) ... ok
+
+======================================================================
+FAIL: test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions (test_proxy_population_information_use.InformationUseTests.test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_information_use.py", line 76, in test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions
+    self.run_scoped(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_information_use.py", line 40, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 115, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 114, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_information_use.py", line 53, in run
+    self.assertEqual(baseline['decision']['selected_action']['source_instance_id'],source)
+AssertionError: None != 'A-001#1'
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.065s
+
+FAILED (failures=1)

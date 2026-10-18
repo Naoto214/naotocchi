@@ -1,0 +1,84 @@
+{
+  "checks": {
+    "all_pass": true,
+    "all_workers_successful": true,
+    "finished": true,
+    "planned": true,
+    "source_unchanged": true,
+    "started": true,
+    "unique": true
+  },
+  "protected_changed": [],
+  "protected_count": 505,
+  "summary": {
+    "checks": {
+      "all_exit_zero": true,
+      "all_pass_no_skip": true,
+      "all_summaries_present": true,
+      "all_workers_successful": true,
+      "exact_finished_coverage": true,
+      "exact_started_coverage": true,
+      "no_duplicates": true,
+      "source_unchanged": true
+    },
+    "finished": 913,
+    "missing": [],
+    "non_pass": {},
+    "planned": 913,
+    "started": 913,
+    "success": true,
+    "unexpected": [],
+    "worker_exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "worker_tails": {
+    "0": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 110 tests in 1739.192s",
+      "",
+      "OK"
+    ],
+    "1": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 158 tests in 1923.343s",
+      "",
+      "OK"
+    ],
+    "2": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 158 tests in 1663.282s",
+      "",
+      "OK"
+    ],
+    "3": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 221 tests in 1903.389s",
+      "",
+      "OK"
+    ],
+    "4": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 119 tests in 1731.783s",
+      "",
+      "OK"
+    ],
+    "5": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 147 tests in 1900.958s",
+      "",
+      "OK"
+    ]
+  }
+}

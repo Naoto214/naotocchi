@@ -1,0 +1,21 @@
+F...............
+======================================================================
+FAIL: test_actual_group_record_required_and_tampering_rejected (test_proxy_population_hand_group_effect.HandGroupEffectTests.test_actual_group_record_required_and_tampering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_hand_group_effect.py", line 19, in test_actual_group_record_required_and_tampering_rejected
+    self.assertEqual(api.audit(b,a,ev,record)['errors'],[]);self.assertTrue(api.audit(b,a,ev)['errors'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['invalid continuation envelope'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'invalid continuation envelope'
+
+- ['invalid continuation envelope']
++ []
+
+----------------------------------------------------------------------
+Ran 16 tests in 6.019s
+
+FAILED (failures=1)

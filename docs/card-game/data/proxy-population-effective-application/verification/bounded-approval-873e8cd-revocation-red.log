@@ -1,0 +1,22 @@
+test_known_revocation_or_listing_mismatch_precedes_next_page_failure (test_proxy_population_approval_read_retry.ReadRetryTests.test_known_revocation_or_listing_mismatch_precedes_next_page_failure) ... FAIL
+
+======================================================================
+FAIL: test_known_revocation_or_listing_mismatch_precedes_next_page_failure (test_proxy_population_approval_read_retry.ReadRetryTests.test_known_revocation_or_listing_mismatch_precedes_next_page_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 87, in test_known_revocation_or_listing_mismatch_precedes_next_page_failure
+    self.assertFalse(proof['external_approval_verified']);self.assertEqual(clock.waits,[])
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [2, 5] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+2
+
+- [2, 5]
++ []
+
+----------------------------------------------------------------------
+Ran 1 test in 0.016s
+
+FAILED (failures=1)

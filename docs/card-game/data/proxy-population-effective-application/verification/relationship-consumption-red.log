@@ -1,0 +1,107 @@
+======================================================================
+FAIL: test_actual_discount_all_four_stages_consumes_once_at_zero_payment (test_proxy_population_relationship_consumption.RelationshipConsumptionTests.test_actual_discount_all_four_stages_consumes_once_at_zero_payment) (stage=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 36, in run
+    self.assertEqual(proof['errors'],[]);self.assertTrue(proof['payment_consumption_verified']);self.assertEqual(proof['consumed_effect_count'],1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['payment consumption claimed outside main movement'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'payment consumption claimed outside main movement'
+
+- ['payment consumption claimed outside main movement']
++ []
+
+======================================================================
+FAIL: test_actual_discount_all_four_stages_consumes_once_at_zero_payment (test_proxy_population_relationship_consumption.RelationshipConsumptionTests.test_actual_discount_all_four_stages_consumes_once_at_zero_payment) (stage=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 36, in run
+    self.assertEqual(proof['errors'],[]);self.assertTrue(proof['payment_consumption_verified']);self.assertEqual(proof['consumed_effect_count'],1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['payment consumption claimed outside main movement'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'payment consumption claimed outside main movement'
+
+- ['payment consumption claimed outside main movement']
++ []
+
+======================================================================
+FAIL: test_actual_discount_all_four_stages_consumes_once_at_zero_payment (test_proxy_population_relationship_consumption.RelationshipConsumptionTests.test_actual_discount_all_four_stages_consumes_once_at_zero_payment) (stage=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 36, in run
+    self.assertEqual(proof['errors'],[]);self.assertTrue(proof['payment_consumption_verified']);self.assertEqual(proof['consumed_effect_count'],1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['payment consumption claimed outside main movement'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'payment consumption claimed outside main movement'
+
+- ['payment consumption claimed outside main movement']
++ []
+
+======================================================================
+FAIL: test_actual_discount_all_four_stages_consumes_once_at_zero_payment (test_proxy_population_relationship_consumption.RelationshipConsumptionTests.test_actual_discount_all_four_stages_consumes_once_at_zero_payment) (stage=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 36, in run
+    self.assertEqual(proof['errors'],[]);self.assertTrue(proof['payment_consumption_verified']);self.assertEqual(proof['consumed_effect_count'],1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['payment consumption claimed outside main movement'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'payment consumption claimed outside main movement'
+
+- ['payment consumption claimed outside main movement']
++ []
+
+======================================================================
+FAIL: test_other_controller_and_nonrelationship_modifiers_are_preserved (test_proxy_population_relationship_consumption.RelationshipConsumptionTests.test_other_controller_and_nonrelationship_modifiers_are_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 61, in test_other_controller_and_nonrelationship_modifiers_are_preserved
+    self.run_case(run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 30, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),run)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 107, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 29, in run
+    with effects.scope():return callback()
+                                ^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_consumption.py", line 47, in run
+    self.assertEqual(proof['errors'],[]);self.assertEqual(proof['consumed_effect_count'],1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['payment consumption claimed outside main movement'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'payment consumption claimed outside main movement'
+
+- ['payment consumption claimed outside main movement']
++ []
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.744s
+
+FAILED (failures=5)

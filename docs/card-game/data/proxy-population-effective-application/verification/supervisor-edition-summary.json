@@ -1,0 +1,21 @@
+{
+  "base_head": "6ed725b6073e56d992a2dbed3d6c18262df3a3fc",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_batch_supervisor",
+    "test_proxy_population_supervisor_interrupt",
+    "test_proxy_population_launch_authorization",
+    "test_proxy_population_attempt_runner",
+    "test_proxy_population_execution_edition",
+    "test_proxy_population_external_approval",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 29.755907948005188,
+  "python_file_count": 1075,
+  "python_unchanged": true,
+  "production_generation": false,
+  "new_matches": 0
+}

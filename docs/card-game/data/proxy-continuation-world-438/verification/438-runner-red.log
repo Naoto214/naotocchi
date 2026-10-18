@@ -1,0 +1,32 @@
+test_eight_same_initials_and_missing_outcomes (test_proxy_continuation_world_runner.WorldRunnerTests.test_eight_same_initials_and_missing_outcomes) ... FAIL
+test_independent_replay_rejects_tampered_proof (test_proxy_continuation_world_runner.WorldRunnerTests.test_independent_replay_rejects_tampered_proof) ... FAIL
+test_world_proofs_are_reached_on_three_legacy_paths (test_proxy_continuation_world_runner.WorldRunnerTests.test_world_proofs_are_reached_on_three_legacy_paths) ... FAIL
+
+======================================================================
+FAIL: test_eight_same_initials_and_missing_outcomes (test_proxy_continuation_world_runner.WorldRunnerTests.test_eight_same_initials_and_missing_outcomes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_world_runner.py", line 15, in test_eight_same_initials_and_missing_outcomes
+    self.assertIsNotNone(runner,'shared world proof runner absent')
+AssertionError: unexpectedly None : shared world proof runner absent
+
+======================================================================
+FAIL: test_independent_replay_rejects_tampered_proof (test_proxy_continuation_world_runner.WorldRunnerTests.test_independent_replay_rejects_tampered_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_world_runner.py", line 30, in test_independent_replay_rejects_tampered_proof
+    self.assertIsNotNone(runner,'shared world proof runner absent')
+AssertionError: unexpectedly None : shared world proof runner absent
+
+======================================================================
+FAIL: test_world_proofs_are_reached_on_three_legacy_paths (test_proxy_continuation_world_runner.WorldRunnerTests.test_world_proofs_are_reached_on_three_legacy_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_world_runner.py", line 22, in test_world_proofs_are_reached_on_three_legacy_paths
+    self.assertIsNotNone(runner,'shared world proof runner absent')
+AssertionError: unexpectedly None : shared world proof runner absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.393s
+
+FAILED (failures=3)

@@ -1,0 +1,21 @@
+import sys,json,subprocess,hashlib,traceback
+from pathlib import Path
+R=Path('/workspace/scratch/4cc1eee1ca09/naotocchi-verification');W=Path('/workspace/scratch/4cc1eee1ca09/rebinding-work')
+sys.path.insert(0,str(R/'docs/card-game/tools'))
+from proxy_mandatory_policy_contract import canonical
+import proxy_population_batch_supervisor as supervisor
+read=lambda n:json.loads((W/n).read_bytes())
+request=read('request.json');cert=read('edition.json');context=read('context.json');receipt=read('manifest-receipt.json');claim=read('claim-publication.json')
+assert hashlib.sha256(canonical(request)).hexdigest()=='e932c1632915fb98597a42ff8d2884fbb2efae6406613ddea4953faa874ba59c'
+assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=R).decode().strip()==claim['commit']
+assert not subprocess.check_output(['git','status','--porcelain'],cwd=R).strip()
+assert not (R/request['destination']).exists()
+bundle=json.loads((R/receipt['path']).read_bytes())
+with (W/'supervisor-6162350238.invoked').open('x') as f:f.write('one invocation; no retry or resume\n');f.flush()
+try:
+ result=supervisor.run_after_external_approval(bundle,receipt,cert,R,512,R/request['destination'],'https://github.com/Naoto214/naotocchi/pull/259#issuecomment-6162350238',comment_id=6162350238,claim_commit=claim['commit'],claim_tree=claim['tree'],execution_binding=context)
+ with (W/'supervisor-6162350238.result.json').open('xb') as f:f.write(canonical(result))
+ print(json.dumps({'status':result['status'],'completed_rows':result['completed_rows'],'not_executed_rows':result['not_executed_rows']}))
+except BaseException:
+ with (W/'supervisor-6162350238.exception.txt').open('x') as f:f.write(traceback.format_exc())
+ raise

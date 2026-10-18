@@ -1,0 +1,65 @@
+test_all_rows_bind_shared_orders_to_side_separated_policy_material (test_proxy_mandatory_population_input.InputTests.test_all_rows_bind_shared_orders_to_side_separated_policy_material) ... FAIL
+test_malformed_inputs_return_errors_without_traceback (test_proxy_mandatory_population_input.InputTests.test_malformed_inputs_return_errors_without_traceback) ... FAIL
+test_old_fallback_policy_and_normal_response_policy_changes_rejected (test_proxy_mandatory_population_input.InputTests.test_old_fallback_policy_and_normal_response_policy_changes_rejected) ... FAIL
+test_root_coincidences_and_zero_do_not_trigger_unauthorized_redraw (test_proxy_mandatory_population_input.InputTests.test_root_coincidences_and_zero_do_not_trigger_unauthorized_redraw) ... FAIL
+test_root_count_type_owner_group_and_row_commitment_must_match (test_proxy_mandatory_population_input.InputTests.test_root_count_type_owner_group_and_row_commitment_must_match) ... FAIL
+test_topology_and_orders_cannot_change_to_accommodate_results (test_proxy_mandatory_population_input.InputTests.test_topology_and_orders_cannot_change_to_accommodate_results) ... FAIL
+
+======================================================================
+FAIL: test_all_rows_bind_shared_orders_to_side_separated_policy_material (test_proxy_mandatory_population_input.InputTests.test_all_rows_bind_shared_orders_to_side_separated_policy_material)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 49, in setUp
+    def setUp(self):self.assertIsNotNone(api,'policy population input validator missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : policy population input validator missing
+
+======================================================================
+FAIL: test_malformed_inputs_return_errors_without_traceback (test_proxy_mandatory_population_input.InputTests.test_malformed_inputs_return_errors_without_traceback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 49, in setUp
+    def setUp(self):self.assertIsNotNone(api,'policy population input validator missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : policy population input validator missing
+
+======================================================================
+FAIL: test_old_fallback_policy_and_normal_response_policy_changes_rejected (test_proxy_mandatory_population_input.InputTests.test_old_fallback_policy_and_normal_response_policy_changes_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 49, in setUp
+    def setUp(self):self.assertIsNotNone(api,'policy population input validator missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : policy population input validator missing
+
+======================================================================
+FAIL: test_root_coincidences_and_zero_do_not_trigger_unauthorized_redraw (test_proxy_mandatory_population_input.InputTests.test_root_coincidences_and_zero_do_not_trigger_unauthorized_redraw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 49, in setUp
+    def setUp(self):self.assertIsNotNone(api,'policy population input validator missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : policy population input validator missing
+
+======================================================================
+FAIL: test_root_count_type_owner_group_and_row_commitment_must_match (test_proxy_mandatory_population_input.InputTests.test_root_count_type_owner_group_and_row_commitment_must_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 49, in setUp
+    def setUp(self):self.assertIsNotNone(api,'policy population input validator missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : policy population input validator missing
+
+======================================================================
+FAIL: test_topology_and_orders_cannot_change_to_accommodate_results (test_proxy_mandatory_population_input.InputTests.test_topology_and_orders_cannot_change_to_accommodate_results)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 49, in setUp
+    def setUp(self):self.assertIsNotNone(api,'policy population input validator missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : policy population input validator missing
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+FAILED (failures=6)

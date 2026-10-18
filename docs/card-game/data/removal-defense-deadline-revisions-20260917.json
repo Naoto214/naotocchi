@@ -1,0 +1,127 @@
+{
+  "schema": "naotocchi.card_game.removal_defense_deadline_revisions.v1",
+  "date": "2026-09-17",
+  "baseline_head": "0e7a3020ed170ecd641bb3014dfd564a5066cb29",
+  "baseline_tree": "a77eb349bf55d78d7f6ad1bf374c030b66c5614c",
+  "main_head": "f23398e43eed952d49d5a2b805789a4c87b2b1bd",
+  "scope": {
+    "current_catalog": 452,
+    "ability_text": 445,
+    "vanilla": 7,
+    "registered_candidates": 477,
+    "registered_card": 463,
+    "hold": 14,
+    "changed_records": 4,
+    "unchanged_records": 448
+  },
+  "policy": {
+    "new_removal_provider_added": false,
+    "normal_free_breakup_added": false,
+    "existing_provider_text_changed": false,
+    "catalog_registration_changed": false,
+    "method": "Adjust only the four consumers left without a confirmed operational path after 95, matching existing Dragon 6, Misunderstanding and Sudden Trip."
+  },
+  "changed_cards": [
+    {
+      "id": "M-penguin-07",
+      "before": "1ターンに1回。自分がセカイを変更した時、自分になかまがある場合、発動できる。自分のなかま1枚を選ぶ。このターン、そのなかまが相手の効果で盤面を離れる場合、1回だけ盤面を離れない。",
+      "after": "1ターンに1回。自分がセカイを変更した時、自分になかまがある場合、発動できる。自分のなかま1枚を選ぶ。次の自分のターン開始時まで、そのなかまが相手の効果で盤面を離れる場合、1回だけ盤面を離れない。",
+      "provider_ids": ["M-dragon-06"],
+      "change": "Extend the already-applied protection through the next opponent turn; do not add a removal card."
+    },
+    {
+      "id": "M-dandelion-04",
+      "before": "1ラウンドに1回。自分のセカイが相手の効果で捨て札に置かれるなら、手札のセカイ1枚を公開して捨て札に置くことで、セカイ枠のそのカードを捨て札に置かない。",
+      "after": "1ラウンドに1回。自分のセカイが相手の効果で手札または捨て札に移るなら、手札のセカイ1枚を公開して捨て札に置くことで、その移動を防いでもよい。",
+      "provider_ids": ["E-sudden-trip"],
+      "change": "Keep the current world in play against the existing hand-return event as well as a future discard move."
+    },
+    {
+      "id": "P-snowman",
+      "before": "このカードとの交際または結婚が終了し、このカードがこいびと枠から捨て札に置かれた時、自分のメインがたまごでない場合、捨て札で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
+      "after": "このカードが相手の効果でこいびと枠から手札または捨て札に移動し、このカードとの交際または結婚が終了した時、自分のメインがたまごでない場合、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
+      "provider_ids": ["E-misunderstanding"],
+      "change": "Trigger after an opponent-caused breakup to hand or discard; preserve the breakup penalty and egg invalidation."
+    },
+    {
+      "id": "G-p3-drive",
+      "before": "自分のメイン1枚を対象として発動できる。このターン、そのメインが相手の効果で手札に戻るなら、1回だけ、代わりに場に残す。このターン、自分が次に手札からセカイを通常の方法で変更するための時を1少なくする。",
+      "after": "自分のメイン1枚を対象として発動できる。このターン、そのメインが相手の効果で捨て札に置かれるなら、1回だけ、代わりに場に残す。このターン、自分が次に手札からセカイを通常の方法で変更するための時を1少なくする。",
+      "provider_ids": ["M-dragon-06"],
+      "change": "Replace the unprovided main hand-return protection with discard protection that can resolve before Dragon 6."
+    }
+  ],
+  "connections": [
+    {
+      "consumer_id": "M-penguin-07",
+      "provider_ids": ["M-dragon-06"],
+      "path": "World change on B turn -> applied protection through next B start -> Dragon 6 on A turn -> companion remains once"
+    },
+    {
+      "consumer_id": "M-dandelion-04",
+      "provider_ids": ["E-sudden-trip"],
+      "path": "Sudden Trip targets B world -> pay a different world from hand -> prevent return to hand"
+    },
+    {
+      "consumer_id": "P-snowman",
+      "provider_ids": ["E-misunderstanding"],
+      "path": "Misunderstanding moves Snowman from partner slot to hand -> relationship ends and -10 applies -> ability can activate in hand"
+    },
+    {
+      "consumer_id": "G-p3-drive",
+      "provider_ids": ["M-dragon-06"],
+      "path": "Dragon 6 targets B main -> Highway Drive resolves first -> discard move is replaced by remaining in play"
+    }
+  ],
+  "remaining_zero_supply": [
+    "opponent main field to hand",
+    "opponent companion field directly to hand without a replacement path",
+    "opponent companion field to deck",
+    "opponent partner field to discard",
+    "opponent world field to discard"
+  ],
+  "remaining_partial_consumers": [
+    "M-god-08: partner/world discard branches",
+    "C-sekizou: companion to deck branch",
+    "C-sheep: direct companion to hand branch"
+  ],
+  "manual_cases": [
+    {"id": "P01", "input": "Penguin 7 changes world with a companion present", "expected": "Choose one companion and apply one protection through the next own turn start."},
+    {"id": "P02", "input": "After P01, opponent Dragon 6 targets the chosen companion", "expected": "The companion remains; Dragon costs remain paid."},
+    {"id": "P03", "input": "After P02, a second opponent effect moves that companion", "expected": "The spent one-use protection does not prevent the second move."},
+    {"id": "P04", "input": "No interference occurs before Penguin player's next start", "expected": "The protection expires before reactions at that start."},
+    {"id": "P05", "input": "Chosen companion leaves through its controller's full-slot replacement", "expected": "No protection because the move is not caused by an opponent effect."},
+    {"id": "P06", "input": "Penguin 7 leaves after the protection was applied", "expected": "The applied duration effect remains until its deadline."},
+    {"id": "P07", "input": "Chosen companion returns by its controller's effect and is replayed", "expected": "The original object is not protected or tracked after leaving."},
+    {"id": "P08", "input": "Penguin 7 changes world while its controller has no companion", "expected": "The ability cannot activate and does not protect a companion played later."},
+    {"id": "D01", "input": "Sudden Trip targets a world controlled by Dandelion 4; another world is in hand", "expected": "Pay the hand world and prevent the return to hand."},
+    {"id": "D02", "input": "D01 without a world card in hand", "expected": "The prevention cannot be applied; the field world returns to hand."},
+    {"id": "D03", "input": "D01 with payment available but prevention declined", "expected": "The targeted world returns to hand."},
+    {"id": "D04", "input": "Controller normally replaces their own world", "expected": "Dandelion 4 does not apply to the controller's basic move."},
+    {"id": "D05", "input": "A hypothetical opponent effect moves the world to deck", "expected": "Outside the revised text; not counted as current supply."},
+    {"id": "D06", "input": "Two qualifying moves occur in one round", "expected": "The same Dandelion 4 object can prevent only the first chosen move."},
+    {"id": "S01", "input": "Misunderstanding targets Snowman while its controller has a non-egg main", "expected": "Snowman returns to hand, relationship ends, -10 applies, and the hand ability can activate."},
+    {"id": "S02", "input": "S01 ability resolves while the main remains non-egg", "expected": "Look at two, add one to hand, put the other on deck bottom."},
+    {"id": "S03", "input": "Love Letter prevents S01's return", "expected": "No move or relationship end, so Snowman does not activate."},
+    {"id": "S04", "input": "Try to use Cactus's self-protection for Snowman", "expected": "Cannot apply another partner card's ability."},
+    {"id": "S05", "input": "Controller is egg from the move through the first activation opportunity", "expected": "Snowman cannot activate and does not carry the trigger forward."},
+    {"id": "S06", "input": "Snowman activates legally, then controller is egg when resolution begins", "expected": "The partner ability's effect is not applied; spent activation state remains."},
+    {"id": "S07", "input": "Controller discards Snowman from hand as a cost", "expected": "No activation because it was not moved from the partner slot by an opponent effect."},
+    {"id": "S08", "input": "A hypothetical opponent effect discards Snowman from the partner slot", "expected": "The text could activate in discard, but this hypothetical is not current supply."},
+    {"id": "H01", "input": "Dragon 6 targets a main and Highway Drive is chained", "expected": "Highway resolves first and the main remains once when Dragon resolves."},
+    {"id": "H02", "input": "H01 with only one time remaining", "expected": "Highway cannot be activated; Dragon removes the main absent another defense."},
+    {"id": "H03", "input": "After H01, another discard removal targets the same main that turn", "expected": "The one-use protection is spent and does not prevent the second move."},
+    {"id": "H04", "input": "A hypothetical effect returns the main to hand", "expected": "Outside the revised Highway protection and not counted as current supply."},
+    {"id": "H05", "input": "Highway is used on its controller's turn before a normal world change", "expected": "The next normal change costs one less whether or not the protection is used."},
+    {"id": "H06", "input": "Highway is used on the opponent's turn in response to Dragon", "expected": "The main can be protected, but the normal-world-change discount expires unused at turn end."}
+  ],
+  "verification_scope": "28 manually reasoned local situations. No game engine, random matches, win-rate or reachability measurement.",
+  "validation": {
+    "catalog_errors": 0,
+    "changed_ids": ["M-penguin-07", "M-dandelion-04", "P-snowman", "G-p3-drive"],
+    "unchanged_record_count": 448,
+    "manual_case_count": 28,
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "unchanged_ids_sha256": "b42eb692e860bd34a91d3d1b00d0c90c66f8ef6cf42449002e63bd721076005e"
+  }
+}

@@ -1,0 +1,31 @@
+test_duplicate_source_decision_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_duplicate_source_decision_rejected) ... ok
+test_group_label_not_selection_input (test_proxy_equivalence_evaluation.EvaluationTests.test_group_label_not_selection_input) ... ok
+test_manifest_313_and_groups_241_72 (test_proxy_equivalence_evaluation.EvaluationTests.test_manifest_313_and_groups_241_72) ... ok
+test_new_unsupported_row_not_dropped (test_proxy_equivalence_evaluation.EvaluationTests.test_new_unsupported_row_not_dropped) ... ok
+test_selected_action_binding_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_selected_action_binding_rejected) ... ok
+test_zero_reduction_is_valid (test_proxy_equivalence_evaluation.EvaluationTests.test_zero_reduction_is_valid) ... ok
+test_hidden_checks_record_actual_region_changes (test_proxy_equivalence_evaluation.ReviewProvenanceTests.test_hidden_checks_record_actual_region_changes) ... ERROR
+test_manifest_source_mutation_rejected (test_proxy_equivalence_evaluation.ReviewProvenanceTests.test_manifest_source_mutation_rejected) ... ERROR
+
+======================================================================
+ERROR: test_hidden_checks_record_actual_region_changes (test_proxy_equivalence_evaluation.ReviewProvenanceTests.test_hidden_checks_record_actual_region_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 46, in test_hidden_checks_record_actual_region_changes
+    e,d=fixture();r={'envelope':e,'decision':d};checks=subject.check_hidden_regions(r)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_equivalence_evaluation' has no attribute 'check_hidden_regions'
+
+======================================================================
+ERROR: test_manifest_source_mutation_rejected (test_proxy_equivalence_evaluation.ReviewProvenanceTests.test_manifest_source_mutation_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 39, in test_manifest_source_mutation_rejected
+    manifest={'canonical_sources':subject.source_manifest(),'tools_sha256':subject.execution_sources()}
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_equivalence_evaluation' has no attribute 'execution_sources'
+
+----------------------------------------------------------------------
+Ran 8 tests in 16.098s
+
+FAILED (errors=2)

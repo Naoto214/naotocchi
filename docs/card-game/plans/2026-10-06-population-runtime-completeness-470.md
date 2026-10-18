@@ -1,0 +1,26 @@
+# 470 — runtime remaining connection bundle
+
+Continue from468/469 toward preflight-ready; no entropy, actual400 input lock or experiment games. Inline TDD. Do not change prior114/116/past results or source-pinned468 edition. New edition may reuse468 serialized operation with opt-in scopes and independent binding.
+
+Cross-audit findings:
+- Normal: full legal replacement candidates already enumerated; empty-slot safe placement certificate cannot cover replacement. Batch shared transition still rejects full companion board. Source01/93 fixes atomic outgoing companion to owner discard, attachment discard, incoming placement, then06 response;77 I-bond1 explicitly does not protect own replacement. This is execution/certificate wiring, not a new game ruling. Do not suppress candidates or forge safe-free certificate.
+- Normal selection:107/114 upper comparisons and Pareto remain;116 pure incomparable fallback exists beyond safe-free branch, but only with complete legal IDs/information restrictions/stable identity/resolvable selection/integrity. Existing legacy72 bounds remain historical. New scope must demonstrate applicable116conditions before using it, keep legacy seeded exclusion, and never import463MRP into normal/response.
+- Mandatory/effects:468 bridge already binds actual intermediate state and465 legal lists for5 specified choices; automatic effect occurrence ordinal retained. Unsupported mandatory shapes remain unproved.
+- response/chain: existing119/120 plus batch capability/preparation scopes. Use complete current inventory, existing activation/trigger ordering and reverse resolution. Guards for eligible unconnected obligations are real gaps, not permission to erase triggers.
+- End/start/victory: existing124six-stage history checks and405R10;64 early100 requires reach-after-opponent-start ledger, reset below100, noearlyR10. Existing guards must not be disabled until equivalent proof/handling exists. Reservation types require their existing individual deadlines, never blanketclear.
+- Input provenance/lock is separate469 work. No generation before final authorization even if conditional runtime passes.
+
+Bundle sequence: (1) source/handler inventory of all41current107 IDs and automatic lifecycle obligations; (2) reusable atomic departure/replacement and existing116selection applicability with dedicated/combined tests; (3) lifecycle/reservations/early100 and explicit rule-opportunity ledger as proved by canonical sources; (4) integrate full conditioned entry and planned-set validator; (5) major-boundary regression/regeneration/review/protection/GitHub; continue to final preflight. If a genuine new rule/value/spec choice is necessary, document all existing-contract attempts and present concrete alternatives before adoption. Synthetic tests may use existing historical fixtures only, never newly sampled independent inputs.
+
+## Consolidated follow-through after the connection bundle
+
+The41-ID audit found obligations not certified by fixed completion. Reuse effect handlers, but add a common06 occurrence ledger before claiming complete legal opportunities:
+
+1. Capture actual originating events and source instances; separate pending post-chain occurrences from the current chain. Distinguish forced/optional and turn/non-turn groups. Optional triggers are considered only at their first opportunity; declining consumes that occurrence, not an invented once-use. Record source presence at the event, never infer from later board alone.
+2. Process06 groups in their fixed order, then119 ordinary reactions. Same-player same-category ordering is an actual choice, not stable-ID priority. Keep any such ordering decision outside465MRP unless its exact source/kind is already allowlisted. Existing116 strategic fallback remains excluded; no balance relaxation. Candidate completeness must concern the current rule-permitted group, not silently omit legal ordinary reactions without a phase proof.
+3. Wrap existing activation/effect handlers to journal paid use and actual applied outcomes, and use the same phase return/outer-chain cleanup. No resolving event may erase pending post-chain triggers. No source removal erases already applied reservations.
+4. Implement105 incarnation transitions once, with retired/active mapping and exact increment; preserve old reservations and event identities. Until connected,470 rejects reentry at all board-entry action families and direct replacement. This guard is not completion.
+5. Implement64 public threshold/start/end ledger and existing expiry contracts. >=100 must not become assumed zero-loss. R10 terminal comparison remains distinct. Source-defined positive main/partner/start-trigger handlers follow the same journal, not per-trace adapters.
+6. Only after these shared obligations and bound replay are established, connect execution edition/source manifest to planned-set eligibility and469 material/immutable-lock checks. Complete final preflight evidence before asking for actual seed/material/400 execution authorization.
+
+These are implementation obligations from existing sources. If the existing selection contracts genuinely do not determine a new choice interface or multiple valid evaluation-policy specifications remain, stop at that exact specification boundary with alternatives; never silently adopt a new random policy beyond463.

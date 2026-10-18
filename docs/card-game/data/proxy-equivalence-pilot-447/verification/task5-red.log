@@ -1,0 +1,65 @@
+test_duplicate_source_decision_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_duplicate_source_decision_rejected) ... FAIL
+test_group_label_not_selection_input (test_proxy_equivalence_evaluation.EvaluationTests.test_group_label_not_selection_input) ... FAIL
+test_manifest_313_and_groups_241_72 (test_proxy_equivalence_evaluation.EvaluationTests.test_manifest_313_and_groups_241_72) ... FAIL
+test_new_unsupported_row_not_dropped (test_proxy_equivalence_evaluation.EvaluationTests.test_new_unsupported_row_not_dropped) ... FAIL
+test_selected_action_binding_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_selected_action_binding_rejected) ... FAIL
+test_zero_reduction_is_valid (test_proxy_equivalence_evaluation.EvaluationTests.test_zero_reduction_is_valid) ... FAIL
+
+======================================================================
+FAIL: test_duplicate_source_decision_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_duplicate_source_decision_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'evaluation implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : evaluation implementation absent
+
+======================================================================
+FAIL: test_group_label_not_selection_input (test_proxy_equivalence_evaluation.EvaluationTests.test_group_label_not_selection_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'evaluation implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : evaluation implementation absent
+
+======================================================================
+FAIL: test_manifest_313_and_groups_241_72 (test_proxy_equivalence_evaluation.EvaluationTests.test_manifest_313_and_groups_241_72)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'evaluation implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : evaluation implementation absent
+
+======================================================================
+FAIL: test_new_unsupported_row_not_dropped (test_proxy_equivalence_evaluation.EvaluationTests.test_new_unsupported_row_not_dropped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'evaluation implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : evaluation implementation absent
+
+======================================================================
+FAIL: test_selected_action_binding_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_selected_action_binding_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'evaluation implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : evaluation implementation absent
+
+======================================================================
+FAIL: test_zero_reduction_is_valid (test_proxy_equivalence_evaluation.EvaluationTests.test_zero_reduction_is_valid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_evaluation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'evaluation implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : evaluation implementation absent
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.160s
+
+FAILED (failures=6)

@@ -1,0 +1,45 @@
+test_default_two_policies_unchanged (test_proxy_equivalence_trajectory.TrajectoryTests.test_default_two_policies_unchanged) ... FAIL
+test_new_policy_requires_explicit_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_policy_requires_explicit_selector) ... FAIL
+test_new_route_preserves_end_and_effects (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_route_preserves_end_and_effects) ... FAIL
+test_validation_replays_same_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_validation_replays_same_selector) ... FAIL
+
+======================================================================
+FAIL: test_default_two_policies_unchanged (test_proxy_equivalence_trajectory.TrajectoryTests.test_default_two_policies_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_trajectory.py", line 14, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'trajectory adapter implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : trajectory adapter implementation absent
+
+======================================================================
+FAIL: test_new_policy_requires_explicit_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_policy_requires_explicit_selector)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_trajectory.py", line 14, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'trajectory adapter implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : trajectory adapter implementation absent
+
+======================================================================
+FAIL: test_new_route_preserves_end_and_effects (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_route_preserves_end_and_effects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_trajectory.py", line 14, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'trajectory adapter implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : trajectory adapter implementation absent
+
+======================================================================
+FAIL: test_validation_replays_same_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_validation_replays_same_selector)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_trajectory.py", line 14, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'trajectory adapter implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : trajectory adapter implementation absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

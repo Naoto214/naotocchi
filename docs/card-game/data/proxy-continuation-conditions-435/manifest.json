@@ -1,0 +1,35 @@
+{
+  "artifact": "paired.json.gz",
+  "base_commit": "5cb9e57512edac8fa88c2ab9ff73a74b01ba8782",
+  "compressed_sha256": "4067b8020d58f7e73e4e3cd26e5c85db517ea8fd17d8435078aae7b6e7bc6d82",
+  "execution_sources_sha256": {
+    "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "06-action-chain-checkpoint.md": "7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67",
+    "55-insect-three-lines-card-text-draft.md": "8108f781d2e02b45139fdf7d1d573c7ac839f14cd2b8361983ecb891320f8c28",
+    "64-turn-boundaries-and-victory-timing.md": "00f9845b5b79774c48bac002e26f6b08096563a4bf1611f408aed0e2c9089a64",
+    "72-companion-26-card-text-draft.md": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117",
+    "74-partner-18-card-text-draft.md": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0",
+    "77-current-items-card-text-draft.md": "ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02",
+    "79-play-batch-1-card-text-draft.md": "cc3cdf1f52581d0e58a72190aff4792da406bdfe7abc508e57849b56fc0a900a",
+    "83-play-batch-3-card-text-draft.md": "09a12201ebdd0ed7e8079dc59eec283a1afc84c66fbbbc008cbf7d9317abff27",
+    "91-event-21-card-text-draft.md": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "93-cross-type-boundary-audit.md": "58f25202bf1581cfe44a4c8397af662f9b95386160ebb58b1c6a89db08a48be5",
+    "data/proxy-normal-decision-candidate-table-114-20260918.json": "7e1df8fbedb74413c407497fff6f285f77f72907d7e544095e8bb34b348ed737",
+    "tools/proxy_continuation_actions.py": "3089602fcc68c81944d332a121931db4689ada23bdbbc2d6e123ae643754e090",
+    "tools/proxy_continuation_candidates.py": "4cf0caf122ea9a7ee711bb80f23a2518e0287f19b11eca629e10154819a16b27",
+    "tools/proxy_continuation_condition_runner.py": "bd62066c724e612f422ab156dce3506e4a63481eb73f9028374798c768ff43c1",
+    "tools/proxy_continuation_conditions.py": "3fc02187ea3d09441ab70acf54a9eaa9035f4d65be1fc998af1fb65a33e6411e",
+    "tools/proxy_continuation_end.py": "99379e7930fddcc3d6632e0cc9204e2e8a552bc92ce7c0abf42ad1e52db9e8b5",
+    "tools/proxy_continuation_end_runner.py": "397667a8e837c06bad83b7c57318c4c2b7e123cb3884fdbb8232a129ab3c4e60",
+    "tools/proxy_continuation_rules.py": "faa4c724d5159ebbc0b9758c243771fe9758899bfec19566d7bd82616cbf1c23",
+    "tools/proxy_continuation_runner.py": "285afe00a5ea55aaac34daa06719cc712ab6d530ff108e36a74589f5460354fe",
+    "tools/proxy_continuation_state.py": "c5935a5184038d315ebf190ba7939b7ff4935e198e4f9d53cf995959b991f6c9"
+  },
+  "historical_source_raw_sha256": {
+    "docs/card-game/data/proxy-resource-value-pilot/shadow-checkpoint-428/shadow.json": "79cf443a32f9ffc643aa7742472decdcc9d6739d7ca91206834abd2c133d3222",
+    "docs/card-game/data/proxy-resource-value-pilot/trajectory-checkpoint-427/paired.json": "da96502819911c579bd5895116192524398a6b7b5db4a673b29319d3dee39d71"
+  },
+  "previous_434_raw_sha256": "b2bb4da96a94dd221fb2cfd565b323c936b75a6e09ac6f14d15f0f84070f55df",
+  "raw_sha256": "a9b29d42c38c4080ea2885d31598853948b2970c9e36e347b735aaeca3f6e56c"
+}

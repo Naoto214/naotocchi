@@ -1,0 +1,13 @@
+test_common_world_affects_residual_main (test_proxy_equivalence_proofs.ProofTests.test_common_world_affects_residual_main) ... ok
+test_dependency_cycle_complete_vs_missing_edge (test_proxy_equivalence_proofs.ProofTests.test_dependency_cycle_complete_vs_missing_edge) ... ok
+test_exact_identity_closed_dependencies_cancel (test_proxy_equivalence_proofs.ProofTests.test_exact_identity_closed_dependencies_cancel) ... ok
+test_orientation_and_proof_tampering (test_proxy_equivalence_proofs.ProofTests.test_orientation_and_proof_tampering) ... ok
+test_same_name_other_instance_not_equal (test_proxy_equivalence_proofs.ProofTests.test_same_name_other_instance_not_equal) ... ok
+test_target_deadline_uses_order_mismatch (test_proxy_equivalence_proofs.ProofTests.test_target_deadline_uses_order_mismatch) ... ok
+test_time_changes_hand_condition (test_proxy_equivalence_proofs.ProofTests.test_time_changes_hand_condition) ... ok
+test_unknown_symbol_not_identity (test_proxy_equivalence_proofs.ProofTests.test_unknown_symbol_not_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.908s
+
+OK

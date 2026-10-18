@@ -1,0 +1,13 @@
+test_match_side_and_chooser_root_are_derived_from_bundle (test_proxy_mandatory_population_input.BindingTests.test_match_side_and_chooser_root_are_derived_from_bundle) ... ok
+test_swap_bundle_match_evidence_or_unsupported_scope_is_rejected (test_proxy_mandatory_population_input.BindingTests.test_swap_bundle_match_evidence_or_unsupported_scope_is_rejected) ... ok
+test_all_rows_bind_shared_orders_to_side_separated_policy_material (test_proxy_mandatory_population_input.InputTests.test_all_rows_bind_shared_orders_to_side_separated_policy_material) ... ok
+test_malformed_inputs_return_errors_without_traceback (test_proxy_mandatory_population_input.InputTests.test_malformed_inputs_return_errors_without_traceback) ... ok
+test_old_fallback_policy_and_normal_response_policy_changes_rejected (test_proxy_mandatory_population_input.InputTests.test_old_fallback_policy_and_normal_response_policy_changes_rejected) ... ok
+test_root_coincidences_and_zero_do_not_trigger_unauthorized_redraw (test_proxy_mandatory_population_input.InputTests.test_root_coincidences_and_zero_do_not_trigger_unauthorized_redraw) ... ok
+test_root_count_type_owner_group_and_row_commitment_must_match (test_proxy_mandatory_population_input.InputTests.test_root_count_type_owner_group_and_row_commitment_must_match) ... ok
+test_topology_and_orders_cannot_change_to_accommodate_results (test_proxy_mandatory_population_input.InputTests.test_topology_and_orders_cannot_change_to_accommodate_results) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 17.007s
+
+OK

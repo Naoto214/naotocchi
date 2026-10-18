@@ -1,0 +1,11 @@
+test_full_slots_current_targets_and_transform_payment (test_proxy_population_core_predicates.CapacityAndPaymentTests.test_full_slots_current_targets_and_transform_payment) ... ok
+test_actual_normal_entries_bind_predicates (test_proxy_population_core_predicates.ConnectedCoreTests.test_actual_normal_entries_bind_predicates) ... ok
+test_all_core_variants_and_false_exclusions (test_proxy_population_core_predicates.CorePredicateTests.test_all_core_variants_and_false_exclusions) ... ok
+test_cost_and_target_evidence_corruption (test_proxy_population_core_predicates.CorePredicateTests.test_cost_and_target_evidence_corruption) ... ok
+test_existing_same_partner_discount_is_not_replaced_by_printed_cost (test_proxy_population_core_predicates.CurrentPaymentTests.test_existing_same_partner_discount_is_not_replaced_by_printed_cost) ... ok
+test_active_challenge_is_not_a_normal_entry (test_proxy_population_core_predicates.EntryPhaseTests.test_active_challenge_is_not_a_normal_entry) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 5.701s
+
+OK

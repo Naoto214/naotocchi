@@ -1,0 +1,10 @@
+test_arrival_recovery_keeps_every_discarded_quick_target (test_proxy_population_trigger_existing.ExistingTests.test_arrival_recovery_keeps_every_discarded_quick_target) ... ok
+test_city_occurrence_uses_the_actual_second_play_not_later_window (test_proxy_population_trigger_existing.ExistingTests.test_city_occurrence_uses_the_actual_second_play_not_later_window) ... ok
+test_end_group_runs_through_shared_loop_and_reopens_after_resolution (test_proxy_population_trigger_existing.ExistingTests.test_end_group_runs_through_shared_loop_and_reopens_after_resolution) ... ok
+test_end_sources_use_existing_inventory_and_same_flat_contract (test_proxy_population_trigger_existing.ExistingTests.test_end_sources_use_existing_inventory_and_same_flat_contract) ... ok
+test_single_forced_relationship_activation_is_not_a_seeded_judgment (test_proxy_population_trigger_existing.ExistingTests.test_single_forced_relationship_activation_is_not_a_seeded_judgment) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.558s
+
+OK

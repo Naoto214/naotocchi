@@ -1,0 +1,8 @@
+{
+  "status": "interrupted",
+  "success": false,
+  "reason": "canonical response seeded mode found missing from response fallback rate during final metric cross-check; fix pass still open",
+  "planned": 912,
+  "completed_verified": null,
+  "results_will_not_be_combined": true
+}

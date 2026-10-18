@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_contexts_preserve_outer_and_restart_responses (test_proxy_population_quick_reveal.QuickRevealTests.test_contexts_preserve_outer_and_restart_responses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_reveal.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick reveal audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick reveal audit absent
+
+======================================================================
+FAIL: test_coverage_rejects_self_consistent_false_reveal (test_proxy_population_quick_reveal.QuickRevealTests.test_coverage_rejects_self_consistent_false_reveal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_reveal.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick reveal audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick reveal audit absent
+
+======================================================================
+FAIL: test_empty_singleton_and_growth_cap (test_proxy_population_quick_reveal.QuickRevealTests.test_empty_singleton_and_growth_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_reveal.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick reveal audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick reveal audit absent
+
+======================================================================
+FAIL: test_every_printed_type_and_declared_match_branch (test_proxy_population_quick_reveal.QuickRevealTests.test_every_printed_type_and_declared_match_branch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_reveal.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick reveal audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick reveal audit absent
+
+======================================================================
+FAIL: test_false_reveal_order_growth_evidence_and_collateral_changes_rejected (test_proxy_population_quick_reveal.QuickRevealTests.test_false_reveal_order_growth_evidence_and_collateral_changes_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_reveal.py", line 34, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick reveal audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick reveal audit absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

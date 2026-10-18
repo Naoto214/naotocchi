@@ -1,0 +1,12 @@
+{
+  "compressed_sha256": "1395fb3b0907dff7e083b7204f9abe9a349024f9f2ddb8b69d8daf7c2d0d2041",
+  "raw_sha256": "664eff389c0a87fa77d23c6a74b27079b33da7dd9dde47883697d4c512f22408",
+  "sources_sha256": {
+    "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "data/proxy-equivalence-gap-audit-448/reproduce.py": "f10f12198bea2f93298230284954e4d4af60bb5d7c96b8ecdce88ca480b54727",
+    "data/proxy-equivalence-pilot-447/manifest.json": "efae80ba2263e0b3a24a489de082c7c5d17d8b3f7a9f6d5da8ca2dae36f552ea",
+    "data/proxy-equivalence-pilot-447/shadow.json.gz": "d114cf34b55ec327dda92663041b7cb3672617265deb28dd2d2f0e2be4e34a42",
+    "tools/proxy_continuation_batch.py": "c019f1615b7b870403568154ee2467727816ad5c4c45b0d7cb3a4e215f8d2c77",
+    "tools/proxy_public_relationship_prefix.py": "d43b4e6cc8e17630b5bb2ec7a28ba177c73f997f8e105ff12bef822f15f6a79e"
+  }
+}

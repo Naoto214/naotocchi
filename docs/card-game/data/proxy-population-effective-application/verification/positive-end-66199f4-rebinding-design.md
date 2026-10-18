@@ -1,0 +1,26 @@
+# 新execution editionと既存固定入力の再結合設計（未実装）
+
+今回の認可範囲はpositive共通修正・検証・保存と結合方法の整理。再結合の運用schema追加・再実行・resume・新しい本人承認の代行は実施しない。
+
+## 現行入口で成立しない理由
+
+- contract.validateはmanifest.source_versionsの全ファイルを現在のbytesと照合する。
+- execution_edition.audit_bundle_editionはmanifest.source_versionsとcertificate.filesの完全一致を要求する。
+- generation_package.audit_committed_generationは公開7成果物のsaved edition、旧生成操作、materialからの完全manifest再構成を同じcertificateに拘束する。
+- attempt_runnerはこれらをすべて通してからlaunch認証を確認する。旧packageに新certificateだけ渡す方法、sourceチェックのskip、古い承認の流用は不可。
+
+## 推奨する追加契約
+
+旧7成果物packageを親とするappend-only execution bindingを新設する。実行用manifestは別成果物として派生させ、旧manifestを上書きしない。新規生成や独立標本とは呼ばない。旧生成packageの真正性と新実行editionの正当性を別に検証して結合する。
+
+1. GitHub APIで旧公開commit/treeと7成果物blobを固定照合する。旧editionを復元した別の読み取り専用checkoutで既存generation package/operation/claim監査を適用し、元の生成来歴を確認する。旧承認の消費は履歴検証のみで再消費しない。
+2. 新editionは新しい固定source・Python・完全テスト証拠・必要なcurrent preflight証拠と結合する。今回の共通修正以外のsource差分があれば既存証拠を流用せず検証する。
+3. 旧materialから既存assemble_suppliedを用いて実行用manifestを派生する。OS entropyは一切呼ばない。旧manifestとの差はsource_versions（必要時は明示承認されたPython版）のみとし、今回はPython版も維持する。groups/matches/execution_order/全policy roots/各入力hash/デッキ/初期順/registry/protocolを完全一致で検査する。400行・200群の追加削除差替えを拒否する。
+4. binding証明に旧packageのreceipt・commit/tree・全blob/hash・旧manifest/hash・旧edition、派生manifest/hash・新edition/hash・source差分・証拠hash・等価性監査結果を含める。専用auditは旧生成来歴と新実行sourceの責務を混同せず、元のgeneration auditを弱めない。
+5. 新launch request schema/validator/claim/supervisor/attempt入口をこのbindingへ一貫して結合する。両edition・旧package・派生manifest・binding hash・新出力先・全400実行順・各戦512step・retry/resume禁止を固定する。停止済み旧attemptを残し、部分履歴から継続しない。新しい本人コメントをAPIで認証し、別claimとして一度だけ消費する。
+
+拒否条件: blob/source/Python差分、旧生成来歴不一致、元materialとの不一致、行/群/実行順の変更、policy root変更、未完の新preflight、別bindingへの承認流用、既存出力先、消費済みコメント、編集コメント。
+
+この契約の実装・検証・公開が済むまで新launch requestは有効に構成できない。旧request 59612bbaa3135facdfe38994dbb17bd22173339bc5ff8b169f4712cf1d24ef7eは旧edition/旧package/旧attemptの履歴であり、修正後の実行認可ではない。新しい承認が必要である。今回の全回帰PASSも単独では実行準備完了を意味しない。
+
+統計上の扱い: 同じ固定入力の別edition実行は新しい独立標本ではない。停止済み第1戦はそのまま残す。旧結果を修正版へ遡及置換しない。未証明/除外が残れば全400戦の結論null、適格部分は診断限定、policy promotion=falseを維持する。

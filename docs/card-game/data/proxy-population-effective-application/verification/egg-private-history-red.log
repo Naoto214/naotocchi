@@ -1,0 +1,25 @@
+test_actual_initial_exchange_is_hidden_from_opponent_normal_inventory (test_proxy_population_public_history.PublicHistoryBoundaryTests.test_actual_initial_exchange_is_hidden_from_opponent_normal_inventory) ... FAIL
+test_both_opening_owners_keep_private_exchange_and_projection_is_idempotent (test_proxy_population_public_history.PublicHistoryBoundaryTests.test_both_opening_owners_keep_private_exchange_and_projection_is_idempotent) ... FAIL
+
+======================================================================
+FAIL: test_actual_initial_exchange_is_hidden_from_opponent_normal_inventory (test_proxy_population_public_history.PublicHistoryBoundaryTests.test_actual_initial_exchange_is_hidden_from_opponent_normal_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_history.py", line 79, in test_actual_initial_exchange_is_hidden_from_opponent_normal_inventory
+    else:self.assertNotIn('source_instance_id',event)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'source_instance_id' unexpectedly found in {'seq': 2, 'action_type': 'egg_exchange_bottom', 'actor': 'A', 'source_instance_id': 'A-010#1'}
+
+======================================================================
+FAIL: test_both_opening_owners_keep_private_exchange_and_projection_is_idempotent (test_proxy_population_public_history.PublicHistoryBoundaryTests.test_both_opening_owners_keep_private_exchange_and_projection_is_idempotent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_history.py", line 92, in test_both_opening_owners_keep_private_exchange_and_projection_is_idempotent
+    self.assertEqual(own['source_instance_id'],raw['source_instance_id']);self.assertNotIn('source_instance_id',other)
+                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'source_instance_id' unexpectedly found in {'seq': 2, 'action_type': 'egg_exchange_bottom', 'actor': 'A', 'source_instance_id': 'A-010#1'}
+
+----------------------------------------------------------------------
+Ran 2 tests in 8.870s
+
+FAILED (failures=2)

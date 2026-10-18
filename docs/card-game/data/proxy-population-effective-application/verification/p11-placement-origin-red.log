@@ -1,0 +1,33 @@
+test_native_placement_origins_do_not_create_removal_but_all_links_still_checked (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_native_placement_origins_do_not_create_removal_but_all_links_still_checked) ... 
+  test_native_placement_origins_do_not_create_removal_but_all_links_still_checked (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_native_placement_origins_do_not_create_removal_but_all_links_still_checked) (origin='place_companion') ... FAIL
+  test_native_placement_origins_do_not_create_removal_but_all_links_still_checked (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_native_placement_origins_do_not_create_removal_but_all_links_still_checked) (origin='place_partner') ... FAIL
+  test_native_placement_origins_do_not_create_removal_but_all_links_still_checked (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_native_placement_origins_do_not_create_removal_but_all_links_still_checked) (origin='play_main_birth') ... FAIL
+
+======================================================================
+FAIL: test_native_placement_origins_do_not_create_removal_but_all_links_still_checked (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_native_placement_origins_do_not_create_removal_but_all_links_still_checked) (origin='place_companion')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 58, in run
+    self.assertTrue(proof['equipment_predicates_verified'],proof['unproved_public_effects'])
+AssertionError: False is not true : [{'reason': 'origin_effect_not_bound_to_current_public_link', 'origin_event_seq': 3}]
+
+======================================================================
+FAIL: test_native_placement_origins_do_not_create_removal_but_all_links_still_checked (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_native_placement_origins_do_not_create_removal_but_all_links_still_checked) (origin='place_partner')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 58, in run
+    self.assertTrue(proof['equipment_predicates_verified'],proof['unproved_public_effects'])
+AssertionError: False is not true : [{'reason': 'origin_effect_not_bound_to_current_public_link', 'origin_event_seq': 3}]
+
+======================================================================
+FAIL: test_native_placement_origins_do_not_create_removal_but_all_links_still_checked (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_native_placement_origins_do_not_create_removal_but_all_links_still_checked) (origin='play_main_birth')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 58, in run
+    self.assertTrue(proof['equipment_predicates_verified'],proof['unproved_public_effects'])
+AssertionError: False is not true : [{'reason': 'origin_effect_not_bound_to_current_public_link', 'origin_event_seq': 3}]
+
+----------------------------------------------------------------------
+Ran 1 test in 0.110s
+
+FAILED (failures=3)

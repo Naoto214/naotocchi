@@ -1,0 +1,10 @@
+............E
+======================================================================
+ERROR: ConnectedJournalTests (unittest.loader._FailedTest.ConnectedJournalTests)
+----------------------------------------------------------------------
+AttributeError: module 'test_proxy_population_policy_journal' has no attribute 'ConnectedJournalTests'. Did you mean: 'PolicyJournalTests'?
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.852s
+
+FAILED (errors=1)

@@ -1,0 +1,25 @@
+{
+  "base_head": "98a62f1cffcd12e7cc65c656be3a74ea7c90790a",
+  "fixture": "saved115_zero_policy_roots",
+  "preflight_ready": false,
+  "production_matches": 0,
+  "completed": true,
+  "stop": null,
+  "steps": 143,
+  "events": 181,
+  "audit_errors": {
+    "mandatory_policy_entry_audit": [],
+    "mandatory_origin_audit": [],
+    "mandatory_opportunity_audit": [],
+    "resolution_semantics_audit": [],
+    "nonresolution_semantics_audit": [],
+    "decision_projection_audit": [],
+    "source_conservation_audit": []
+  },
+  "record_raw_sha256": "1dfd6a0dd0de1283e8793f1547be2233f0aa17c1368fc08ea58d59ce65ea23b5",
+  "record_gzip_sha256": "60dc86604e4a65d04c264c84d8564e110100d257ef902901bc5356cfd4ecf2c8",
+  "exit_code": 0,
+  "seconds": 114.71270740900218,
+  "source_unchanged": true,
+  "python_count": 1068
+}

@@ -1,0 +1,9 @@
+# supervisorの各worker境界のedition確認
+
+基準6ed725b。worker内部の確認とsupervisorの結果受理は別境界。従来は起動前/正常return後の版不一致をsupervisorで照合せず、正常形のmock receiptを受理し次childへ進む2REDを再現した。既存edition.verifyをrequest保存後・child起動直前と、成功return後・receipt読取り前へ接続。厳密True以外は既存record_unverified停止経路へ入り、全400行/200群・既完了行・失敗controlを保持し次childを起動しない。
+
+新1test内の起動前/return後2RED。最初の不完全receipt版と、その後の正常receipt版を別logで保持。GREEN10PASS16.760s後、次行直前の版変更対照も追加。既存transport/割込みテストはedition検査を明示mockし、検証対象を混同しない。旧115/零rootの既存3step transport以外はmock childのみ。
+
+最終26PASS29.756s/exit0、docs再帰Python1075前後一致。supervisor-edition-final.log/summary.json/fingerprints.json.gz。独立review1回Critical0/Important0/Minor0、別実行7PASS16.120s。新しい再開/再試行方針、seed、本番対戦、比較意味論は追加しない。
+
+これは各観測境界での版確認であり、OS実行の独立証明・観測間の変更不在・remote巻戻し防止を証明しない。external_approval.require_operation_readyは常時閉鎖、preflight-ready=false。P09–11/P14–18の共通gate合成と最終固定版検証は未完。

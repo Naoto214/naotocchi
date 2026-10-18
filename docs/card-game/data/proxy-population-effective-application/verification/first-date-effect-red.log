@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_consistent_forgery_and_collateral_changes_rejected (test_proxy_population_first_date_effect.FirstDateEffectTests.test_consistent_forgery_and_collateral_changes_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_first_date_effect.py", line 36, in setUp
+    def setUp(self):self.assertIsNotNone(api,'first-date full delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : first-date full delta audit absent
+
+======================================================================
+FAIL: test_coverage_rejects_rebound_extra_draw (test_proxy_population_first_date_effect.FirstDateEffectTests.test_coverage_rejects_rebound_extra_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_first_date_effect.py", line 36, in setUp
+    def setUp(self):self.assertIsNotNone(api,'first-date full delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : first-date full delta audit absent
+
+======================================================================
+FAIL: test_stage_recheck_cap_and_empty_deck (test_proxy_population_first_date_effect.FirstDateEffectTests.test_stage_recheck_cap_and_empty_deck)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_first_date_effect.py", line 36, in setUp
+    def setUp(self):self.assertIsNotNone(api,'first-date full delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : first-date full delta audit absent
+
+======================================================================
+FAIL: test_target_generations_departure_egg_and_contexts (test_proxy_population_first_date_effect.FirstDateEffectTests.test_target_generations_departure_egg_and_contexts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_first_date_effect.py", line 36, in setUp
+    def setUp(self):self.assertIsNotNone(api,'first-date full delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : first-date full delta audit absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

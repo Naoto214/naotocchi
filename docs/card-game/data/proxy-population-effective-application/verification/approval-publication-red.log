@@ -1,0 +1,50 @@
+test_extra_source_change_wrong_parent_and_tree_are_rejected (test_proxy_population_approval_publication.ApprovalPublicationTests.test_extra_source_change_wrong_parent_and_tree_are_rejected) ... FAIL
+test_later_revocation_remote_movement_and_other_request_reject (test_proxy_population_approval_publication.ApprovalPublicationTests.test_later_revocation_remote_movement_and_other_request_reject) ... FAIL
+test_noncanonical_claim_and_second_claim_file_cannot_hide_in_commit (test_proxy_population_approval_publication.ApprovalPublicationTests.test_noncanonical_claim_and_second_claim_file_cannot_hide_in_commit) ... FAIL
+test_only_claim_child_is_bound_to_current_comment_and_remote (test_proxy_population_approval_publication.ApprovalPublicationTests.test_only_claim_child_is_bound_to_current_comment_and_remote) ... FAIL
+test_saved_request_or_comment_metadata_cannot_be_replaced (test_proxy_population_approval_publication.ApprovalPublicationTests.test_saved_request_or_comment_metadata_cannot_be_replaced) ... FAIL
+
+======================================================================
+FAIL: test_extra_source_change_wrong_parent_and_tree_are_rejected (test_proxy_population_approval_publication.ApprovalPublicationTests.test_extra_source_change_wrong_parent_and_tree_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_approval_publication.py", line 12, in setUp
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_later_revocation_remote_movement_and_other_request_reject (test_proxy_population_approval_publication.ApprovalPublicationTests.test_later_revocation_remote_movement_and_other_request_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_approval_publication.py", line 12, in setUp
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_noncanonical_claim_and_second_claim_file_cannot_hide_in_commit (test_proxy_population_approval_publication.ApprovalPublicationTests.test_noncanonical_claim_and_second_claim_file_cannot_hide_in_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_approval_publication.py", line 12, in setUp
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_only_claim_child_is_bound_to_current_comment_and_remote (test_proxy_population_approval_publication.ApprovalPublicationTests.test_only_claim_child_is_bound_to_current_comment_and_remote)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_approval_publication.py", line 12, in setUp
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_saved_request_or_comment_metadata_cannot_be_replaced (test_proxy_population_approval_publication.ApprovalPublicationTests.test_saved_request_or_comment_metadata_cannot_be_replaced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_approval_publication.py", line 12, in setUp
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

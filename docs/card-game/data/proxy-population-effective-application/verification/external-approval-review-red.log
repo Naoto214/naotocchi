@@ -1,0 +1,19 @@
+test_stages_and_every_bound_input_have_distinct_digests (test_proxy_population_external_approval.ExternalApprovalTests.test_stages_and_every_bound_input_have_distinct_digests) ... FAIL
+
+======================================================================
+FAIL: test_stages_and_every_bound_input_have_distinct_digests (test_proxy_population_external_approval.ExternalApprovalTests.test_stages_and_every_bound_input_have_distinct_digests)
+----------------------------------------------------------------------
+ValueError: historical registry unverified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_external_approval.py", line 87, in test_stages_and_every_bound_input_have_distinct_digests
+    with self.assertRaisesRegex(ValueError,'invalid CARD GAME destination'):api.generation_request(edition,path,{})
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "invalid CARD GAME destination" does not match "historical registry unverified"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

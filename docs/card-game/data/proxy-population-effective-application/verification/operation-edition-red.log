@@ -1,0 +1,93 @@
+test_attempt_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_attempt_rechecks_real_edition_after_authorization_and_storage) ... 
+  test_attempt_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_attempt_rechecks_real_edition_after_authorization_and_storage) (boundary='authorization') ... FAIL
+  test_attempt_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_attempt_rechecks_real_edition_after_authorization_and_storage) (boundary='storage') ... FAIL
+test_generation_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_generation_rechecks_real_edition_after_authorization_and_storage) ... 
+  test_generation_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_generation_rechecks_real_edition_after_authorization_and_storage) (boundary='authorization') ... FAIL
+  test_generation_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_generation_rechecks_real_edition_after_authorization_and_storage) (boundary='storage') ... FAIL
+
+======================================================================
+FAIL: test_attempt_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_attempt_rechecks_real_edition_after_authorization_and_storage) (boundary='authorization')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_operation_edition.py", line 61, in test_attempt_rechecks_real_edition_after_authorization_and_storage
+    attempt.run_after_external_approval(bundle(),{},certificate,repo,'test-1A',3,out,'test-only-not-approval')
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_attempt_runner.py", line 49, in run_after_external_approval
+    record=connected.reconstruct(bundle,match_id,limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: executor must not be reached
+
+======================================================================
+FAIL: test_attempt_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_attempt_rechecks_real_edition_after_authorization_and_storage) (boundary='storage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_operation_edition.py", line 61, in test_attempt_rechecks_real_edition_after_authorization_and_storage
+    attempt.run_after_external_approval(bundle(),{},certificate,repo,'test-1A',3,out,'test-only-not-approval')
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_attempt_runner.py", line 49, in run_after_external_approval
+    record=connected.reconstruct(bundle,match_id,limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: executor must not be reached
+
+======================================================================
+FAIL: test_generation_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_generation_rechecks_real_edition_after_authorization_and_storage) (boundary='authorization')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_operation_edition.py", line 43, in test_generation_rechecks_real_edition_after_authorization_and_storage
+    generation.generate_after_external_approval(repo,certificate['commit'],out,'test-only-not-approval')
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_generation_entry.py", line 55, in generate_after_external_approval
+    collected=collect_supplied(cursor,destination/'sampling-journal.jsonl',os.urandom)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_generation_journal.py", line 27, in collect_supplied
+    raw=read(request['byte_count'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: entropy must not be reached
+
+======================================================================
+FAIL: test_generation_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_generation_rechecks_real_edition_after_authorization_and_storage) (boundary='storage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_operation_edition.py", line 43, in test_generation_rechecks_real_edition_after_authorization_and_storage
+    generation.generate_after_external_approval(repo,certificate['commit'],out,'test-only-not-approval')
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_generation_entry.py", line 55, in generate_after_external_approval
+    collected=collect_supplied(cursor,destination/'sampling-journal.jsonl',os.urandom)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_generation_journal.py", line 27, in collect_supplied
+    raw=read(request['byte_count'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: entropy must not be reached
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.533s
+
+FAILED (failures=4)

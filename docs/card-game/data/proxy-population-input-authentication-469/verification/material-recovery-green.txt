@@ -1,0 +1,8 @@
+test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained (test_proxy_population_material_protocol.MaterialTests.test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained) ... ok
+test_full_order_pair_historical_match_and_invalid_supply (test_proxy_population_material_protocol.MaterialTests.test_full_order_pair_historical_match_and_invalid_supply) ... ok
+test_rejections_retained_without_blacklisting_new_groups (test_proxy_population_material_protocol.MaterialTests.test_rejections_retained_without_blacklisting_new_groups) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.393s
+
+OK

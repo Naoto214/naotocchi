@@ -1,0 +1,15 @@
+test_group_then_ordinary_responses_use_existing_loop_and_exact_replay (test_proxy_population_trigger_window.WindowTests.test_group_then_ordinary_responses_use_existing_loop_and_exact_replay) ... FAIL
+
+======================================================================
+FAIL: test_group_then_ordinary_responses_use_existing_loop_and_exact_replay (test_proxy_population_trigger_window.WindowTests.test_group_then_ordinary_responses_use_existing_loop_and_exact_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_window.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)

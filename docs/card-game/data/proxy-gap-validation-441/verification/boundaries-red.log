@@ -1,0 +1,22 @@
+..F...E........
+======================================================================
+ERROR: test_targeted_capability_manifest_is_bound_to_sources (test_proxy_targeted_execution.TargetedBoundaryTests.test_targeted_capability_manifest_is_bound_to_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 114, in test_targeted_capability_manifest_is_bound_to_sources
+    self.assertEqual(x.EXPECTED_SOURCE_HASHES,x.source_hashes())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_targeted_execution' has no attribute 'EXPECTED_SOURCE_HASHES'
+
+======================================================================
+FAIL: test_penguin_choice_is_made_at_resolution_not_activation (test_proxy_targeted_execution.TargetedBoundaryTests.test_penguin_choice_is_made_at_resolution_not_activation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 67, in test_penguin_choice_is_made_at_resolution_not_activation
+    self.assertIsNone(r.state['activation']['target'])
+AssertionError: 'A-004#1' is not None
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.623s
+
+FAILED (failures=1, errors=1)

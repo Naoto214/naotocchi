@@ -1,0 +1,26 @@
+test_existing_same_partner_discount_is_not_replaced_by_printed_cost (test_proxy_population_core_predicates.CurrentPaymentTests.test_existing_same_partner_discount_is_not_replaced_by_printed_cost) ... FAIL
+
+======================================================================
+FAIL: test_existing_same_partner_discount_is_not_replaced_by_printed_cost (test_proxy_population_core_predicates.CurrentPaymentTests.test_existing_same_partner_discount_is_not_replaced_by_printed_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 67, in test_existing_same_partner_discount_is_not_replaced_by_printed_cost
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 63, in run
+    self.assertTrue(proof['core_predicates_verified'],proof['errors']);r=next(r for r in proof['verified_units'] if r['action_type']=='relationship');self.assertEqual(r['payment_time'],0)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : ['core disposition/reason differs: ["relationship_progress","synthetic","relationship:A","relationship","0-to-1",[]]']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.082s
+
+FAILED (failures=1)

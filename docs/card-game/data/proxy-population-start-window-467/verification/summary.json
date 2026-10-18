@@ -1,0 +1,22 @@
+{
+  "dedicated": 12,
+  "related_including_dedicated": 224,
+  "npm": 406,
+  "npm_log": "npm-retry.txt",
+  "design_data_errors": [],
+  "source_pins": 39,
+  "independent_review": {
+    "count": 1,
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "new_seeds": 0,
+  "population_input_lock": false,
+  "new_matches": 0,
+  "saved_12_run_replay": false,
+  "independent_balance_samples": 0,
+  "policy_promoted": false,
+  "ready_for_execution": false,
+  "all_proxy_regression_rerun": false
+}

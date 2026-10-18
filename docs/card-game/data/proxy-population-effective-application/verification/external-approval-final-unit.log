@@ -1,0 +1,13 @@
+test_exact_request_and_live_authority_are_separate_from_readiness (test_proxy_population_external_approval.ExternalApprovalTests.test_exact_request_and_live_authority_are_separate_from_readiness) ... ok
+test_local_claim_is_exclusive_but_not_a_remote_consumption_proof (test_proxy_population_external_approval.ExternalApprovalTests.test_local_claim_is_exclusive_but_not_a_remote_consumption_proof) ... ok
+test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness (test_proxy_population_external_approval.ExternalApprovalTests.test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness) ... ok
+test_request_is_frozen_before_network_reads_and_claim_storage (test_proxy_population_external_approval.ExternalApprovalTests.test_request_is_frozen_before_network_reads_and_claim_storage) ... ok
+test_revocation_and_pagination_cannot_be_skipped (test_proxy_population_external_approval.ExternalApprovalTests.test_revocation_and_pagination_cannot_be_skipped) ... ok
+test_stages_and_every_bound_input_have_distinct_digests (test_proxy_population_external_approval.ExternalApprovalTests.test_stages_and_every_bound_input_have_distinct_digests) ... ok
+test_transport_is_pinned_bounded_and_rejects_redirects (test_proxy_population_external_approval.ExternalApprovalTests.test_transport_is_pinned_bounded_and_rejects_redirects) ... ok
+test_wrong_author_target_edited_deleted_or_changed_comment_rejects (test_proxy_population_external_approval.ExternalApprovalTests.test_wrong_author_target_edited_deleted_or_changed_comment_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.089s
+
+OK

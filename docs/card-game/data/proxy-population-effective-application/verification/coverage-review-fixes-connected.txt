@@ -1,0 +1,15 @@
+test_actual_current_public_continuous_application_is_retained (test_proxy_population_public_application.ActualApplicationTests.test_actual_current_public_continuous_application_is_retained) ... ok
+test_native_companion_recovery_success_and_no_application_are_distinct (test_proxy_population_public_application.ActualApplicationTests.test_native_companion_recovery_success_and_no_application_are_distinct) ... ok
+test_removed_continuous_source_cannot_be_invented_by_later_worlds (test_proxy_population_public_application.ActualApplicationTests.test_removed_continuous_source_cannot_be_invented_by_later_worlds) ... ok
+test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) ... ok
+test_matching_ledger_does_not_prove_strategy_or_rules_authenticity (test_proxy_population_trigger_coverage.CoverageTests.test_matching_ledger_does_not_prove_strategy_or_rules_authenticity) ... ok
+test_missing_extra_and_duplicate_are_not_complete (test_proxy_population_trigger_coverage.CoverageTests.test_missing_extra_and_duplicate_are_not_complete) ... ok
+test_normal_declaration_observes_partner_and_continues_comparison (test_proxy_population_challenge_window.ChallengeWindowTests.test_normal_declaration_observes_partner_and_continues_comparison) ... ok
+test_existing_unit_prefix_crosses_multiple_turns_with_all_histories (test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories) ... ok
+test_manifest_row_reaches_connected_backend_and_exact_reconstruction (test_proxy_population_connected_entry.EntryTests.test_manifest_row_reaches_connected_backend_and_exact_reconstruction) ... ok
+test_source_read_failure_releases_entry_lock (test_proxy_population_connected_entry.EntryTests.test_source_read_failure_releases_entry_lock) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 145.551s
+
+OK

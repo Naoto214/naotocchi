@@ -1,0 +1,23 @@
+FF...
+======================================================================
+FAIL: test_full_local_application_and_rng_match_active_projection (__main__.IncarnationPolicyTests.test_full_local_application_and_rng_match_active_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_incarnation_policy.py", line 16, in test_full_local_application_and_rng_match_active_projection
+    self.assertIsNotNone(api,'lifecycle policy bridge absent');f,j=self.fixture();binding=dict(protocol_id='unit',group_id='unit',mirror_side='A_first');roots={'A':'00'*32,'B':'00'*32}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : lifecycle policy bridge absent
+
+======================================================================
+FAIL: test_retired_metadata_changes_and_retired_physical_locations_rejected (__main__.IncarnationPolicyTests.test_retired_metadata_changes_and_retired_physical_locations_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_incarnation_policy.py", line 27, in test_retired_metadata_changes_and_retired_physical_locations_rejected
+    self.assertIsNotNone(api);f,j=self.fixture();s=api.Session(dict(protocol_id='unit',group_id='unit',mirror_side='A_first'),{'A':'00'*32,'B':'00'*32},lambda game:j)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.057s
+
+FAILED (failures=2)
