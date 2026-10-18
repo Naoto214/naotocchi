@@ -31,8 +31,8 @@ test('B draw remains hidden through handoff and appears only after B reveal',()=
  const x=start();step(x,'choose',a=>a.choiceCard.includes('G-hit-blow'));step(x,'pass');assert.equal(x.viewer,null);assert.equal(x.actor,'B');assert.ok(rows(x).filter(r=>r.kind==='draw').every(r=>!r.cards?.length));x.reveal();assert.equal(rows(x).findLast(r=>r.kind==='draw').cards.length,2);assert.equal(rows(x).findLast(r=>r.kind==='time').after,1);
 });
 test('result notice has only a presentation close control, shows draw art and preserves full history',()=>{
- const x=start();step(x,'choose',a=>a.choiceCard.includes('G-hit-blow'));step(x,'place',a=>a.source.includes('M-beetle-01'));step(x,'trigger');step(x,'choose');const g=x.projection.results.at(-1);
- assert.equal(typeof ui.resultNoticeMarkup,'function');const html=ui.resultNoticeMarkup(g);assert.match(html,/result-notice/);assert.match(html,/card-face/);assert.match(html,/data-result-collapse/);assert.doesNotMatch(html,/data-action|data-inspect/);assert.match(ui.workflowMarkup(x.projection,'A'),/直近の効果結果/);
+ const x=start();step(x,'choose',a=>a.choiceCard.includes('G-hit-blow'));step(x,'place',a=>a.source.includes('M-beetle-01'));step(x,'trigger');step(x,'choose');const g=x.projection.results.findLast(g=>!g.historyOnly);
+ assert.equal(typeof ui.resultNoticeMarkup,'function');const html=ui.resultNoticeMarkup(g);assert.match(html,/result-notice/);assert.match(html,/card-face/);assert.match(html,/data-result-collapse/);assert.doesNotMatch(html,/data-action|data-inspect/);assert.match(ui.workflowMarkup(x.projection,'A'),/対戦履歴/);
 });
 const go=(s,kind,p=()=>true)=>{const a=e.legalActions(s).find(a=>a.kind===kind&&p(a));assert.ok(a,kind);return e.act(s,e.actor(s),s.revision,a.id);};
 test('same-command negation is reported from actual history after links leave the chain',async()=>{

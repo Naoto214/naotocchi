@@ -132,8 +132,19 @@ export function resultNoticeMarkup(g){
  const rows=g.rows.slice(0,1);
  return `<section class="result-notice"><button type="button" class="result-collapse" data-result-collapse aria-label="結果通知を収納">×</button><strong>結果 · ${h(g.heading)}</strong><ul>${rows.map(r=>`<li class="result-${h(r.kind)}">${r.cards.slice(0,3).map(c=>`<span class="result-mini" aria-hidden="true">${cardMarkup(c,{compact:true})}</span>`).join('')}<span>${h(r.cards.length>3?r.text.replace(r.cards.map(c=>c.name).join('・'),r.cards.slice(0,3).map(c=>c.name).join('・')+` ほか${r.cards.length-3}枚`):r.text)}</span></li>`).join('')}</ul><small>${g.rows.length>1?`ほか${g.rows.length-1}件 · `:''}${g.combined?'処理全体の変化 · ':''}詳細は操作・履歴</small></section>`;
 }
-export function resultHistoryMarkup(v,viewer){return `<details class="result-history"><summary>直近の効果結果${viewer?'（自分だけのカード情報を含む）':'（公開情報）'}</summary>${[...(v.results??[])].reverse().map(g=>`<section><h3>${h(g.heading)} <small>手順${g.revision}</small></h3>${g.trace.length?`<ol class="result-trace">${g.trace.map(t=>`<li>${h(t)}</li>`).join('')}</ol>`:''}${g.combined?'<p>上記の順で処理。以下は処理全体の差分です。</p>':''}<ul>${g.rows.map(r=>`<li>${h(r.text)}</li>`).join('')}</ul></section>`).join('')||'<p>結果はまだありません。</p>'}</details>`;}
-function chainMarkup(v,viewer){return `<details class="chain"><summary>処理中のチェーン ${v.chain.length} · 履歴</summary>${[...v.chain].reverse().map((l,i)=>`<p>${v.chain.length-i}. ${l.actor}：${h(l.name)}${l.target?' → '+h(l.target):''}${l.declare?' / '+h(l.declare):''}</p>`).join('')||'<p>処理中のカードはありません。</p>'}${resultHistoryMarkup(v,viewer)}<details class="history"><summary>公開ログ</summary><ol>${v.log.map(l=>`<li>${h(l)}</li>`).join('')}</ol>${v.autoLog?.length?`<h3>応答なしのパス（自動進行を含む）</h3><ol>${v.autoLog.map(l=>`<li>${h(l.turn)}のターン · ${h(l.actor)}がパス · ${h(l.window)} · chain ${l.chainBefore}→${l.chainAfter} · リビジョン ${l.revision}</li>`).join('')}</ol>`:''}</details></details>`;}
+// One chronological presentation of existing committed logs and audience-filtered results.
+function historyLines(g){
+ const rows=g.rows??[],kinds=new Set(rows.map(r=>r.kind));
+ const trace=(g.trace??[]).filter(t=>{
+  if(/手札.*山札/.test(t)&&kinds.has('return'))return false;
+  if(/を配置/.test(t)&&['birth','main','move'].some(k=>kinds.has(k)))return false;
+  return true;
+ });
+ const texts=rows.filter(r=>!(r.kind==='activate'&&trace.some(t=>/発動/.test(t)))).map(r=>r.text);
+ return [...trace,...texts.filter(t=>!trace.includes(t))];
+}
+export function resultHistoryMarkup(v,viewer){return `<details class="result-history"><summary>対戦履歴 · 操作と効果結果${viewer?'（自分だけのカード情報を含む）':'（公開情報）'}</summary>${(v.results??[]).map(g=>`<section><h3>${g.round?'R'+h(g.round)+' · ':''}${h(g.turn??'')}のターン <small>手順${g.revision}</small></h3>${g.combined?'<p>解決は記載順。数値・移動はこの手順全体の結果です。</p>':''}<ul>${historyLines(g).map(t=>`<li>${h(t)}</li>`).join('')}</ul></section>`).join('')||'<p>履歴はまだありません。</p>'}</details>`;}
+function chainMarkup(v,viewer){return `<details class="chain"><summary>処理中のチェーン ${v.chain.length} · 履歴</summary>${[...v.chain].reverse().map((l,i)=>`<p>${v.chain.length-i}. ${l.actor}：${h(l.name)}${l.target?' → '+h(l.target):''}${l.declare?' / '+h(l.declare):''}</p>`).join('')||'<p>処理中のカードはありません。</p>'}${resultHistoryMarkup(v,viewer)}</details>`;}
 export function effectFocusMarkup(v){
  const e=v?.effect;if(!e)return '';
  return `<section class="effect-focus" aria-label="現在の効果"><div class="effect-thumb">${e.card?inspectButton(e.card,'card-tap',v,v.actor):e.kind==='egg'?egg:icon('event')}</div><div><small>${h(e.actor)} · ${h(e.status)}</small><strong>${h(e.name)}${e.ability?' ／ '+h(e.ability):''}</strong><p>${h(choiceGuide(v))}</p></div></section>`;

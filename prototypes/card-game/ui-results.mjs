@@ -48,17 +48,21 @@ export function captureResult(before,after){
   if(!same(before.scheduled??[],after.scheduled??[]))rowSpecs.push({kind:'reservation',seat:after.turn,text:'予約状態が更新されました'});
  }
  for(const line of trace.filter(t=>/防止|置換|公開：|つけ替え|ちょうせん .*対|コピー/.test(t)))rowSpecs.push({kind:'event',text:line});
- if(!rowSpecs.length&&!resolving.length)return null;
+ const historyOnly=!rowSpecs.length&&!resolving.length;
+ // Turn boundaries come from committed state; never infer an end from a pass request.
+ if(before&&(before.serial!==after.serial||(!before.result&&after.result)))trace.unshift(`R${before.round} ${before.turn}のターン終了`);
+ if(before?.phase==='response'&&after.phase==='normal'&&!after.chain.length)trace.push('応答・チェーン処理が完了：通常行動へ');
+ if(historyOnly&&!trace.length)return null;
  const audiences={};for(const viewer of [null,'A','B']){
   const rows=rowSpecs.map(({ids,publicCards,label,...r})=>{
    const cards=ids&&(publicCards||r.seat===viewer)?ids.map(id=>describe(after,id)):[];
    const number=label?`${label} ${r.before??'—'} → ${r.after??'—'}${r.delta===null?'':`（${r.delta>0?'+':r.delta<0?'−':''}${Math.abs(r.delta)}）`}`:r.text;
    return {...r,text:`${r.seat?r.seat+'：':''}${number}${ids?` ${cards.length?cards.map(c=>c.name).join('・'):ids.length+'枚'}`:''}`,cards};
   });
-  audiences[viewer??'public']={id:after.revision,revision:after.revision,turn:after.turn,heading,combined:resolving.length>1||events.filter(e=>e.kind==='effectApplied').length>1,trace:[...trace],rows};
+  audiences[viewer??'public']={id:after.revision,revision:after.revision,turn:after.turn,round:after.round,historyOnly,heading,combined:resolving.length>1||events.filter(e=>e.kind==='effectApplied').length>1,trace:[...trace],rows};
  }
  return audiences;
 }
-export function appendResult(journal,before,after){const result=captureResult(before,after);if(result)journal.push(result);if(journal.length>40)journal.splice(0,journal.length-40);}
+export function appendResult(journal,before,after){const result=captureResult(before,after);if(result)journal.push(result);}
 export function projectResults(journal,viewer){return structuredClone(journal.map(r=>r[viewer??'public']));}
 export function replayResults(state){let s=state.version===legacy.VERSION?legacy.createGame(state.seed):createGame(state.seed,state.decks);const journal=[];appendResult(journal,null,s);for(const id of state.commands){const next=act(s,actor(s),s.revision,id);appendResult(journal,s,next);s=next;}return journal;}

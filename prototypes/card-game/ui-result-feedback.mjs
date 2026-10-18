@@ -20,7 +20,7 @@ export class ResultFeedback {
   // New human action supersedes transient notices. All prior results remain in history.
   if(this.viewer!==viewer||this.batch!==batch){this.hide();this.viewer=viewer;this.batch=batch;}
   const last=Math.max(this.seen.get(viewer)??-1,...this.queue.map(g=>g.revision));
-  const fresh=groups.filter(g=>g.revision>last&&g.revision>=batch);
+  const fresh=groups.filter(g=>!g.historyOnly&&g.revision>last&&g.revision>=batch);
   this.queue.push(...fresh);this.retained.push(...fresh);
   if(this.queue.length>8)this.queue.splice(0,this.queue.length-8);
   if(this.retained.length>8)this.retained.splice(0,this.retained.length-8);
@@ -29,6 +29,6 @@ export class ResultFeedback {
  next(){
   this.current=this.queue.shift();if(!this.current){this.timer=undefined;this.clear();this.dock(Boolean(this.viewer&&this.retained.length));return;}
   this.dock(false);this.seen.set(this.viewer,Math.max(this.seen.get(this.viewer)??-1,this.current.revision));this.paint(this.current);const ticket=this.ticket;
-  this.timer=this.schedule(()=>{if(ticket!==this.ticket)return;this.current=null;this.next();},2000);
+  this.timer=this.schedule(()=>{if(ticket!==this.ticket)return;this.current=null;this.next();},4000);
  }
 }
