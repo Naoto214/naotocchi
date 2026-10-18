@@ -10,6 +10,6 @@ test('response picker only enables engine candidate sources, including discard a
 });
 test('automatic UI is concise, has explicit pass, and public history stays collapsed',()=>{
  const x=opening(),v=x.projection;assert.equal(v.autoEnabled,true);assert.equal(v.actions.find(a=>a.kind==='pass').displayLabel,'応答しない（パス）');assert.doesNotMatch(ui.compactOperationMarkup(v,'A'),/連続パス/);
- const a=v.actions.find(a=>a.kind==='pass');x.commit(a.id,v.revision,'A');const next=x.projection;assert.equal(next.phase,'normal');assert.doesNotMatch(ui.compactOperationMarkup(next,'A'),/応答待ち|response-options/);assert.match(ui.workflowMarkup(next,'A'),/応答なしのパス/);assert.match(ui.workflowMarkup(next,'A'),/リビジョン/);
+ const a=v.actions.find(a=>a.kind==='pass');x.commit(a.id,v.revision,'A');const next=x.projection;assert.equal(next.phase,'normal');assert.doesNotMatch(ui.compactOperationMarkup(next,'A'),/応答待ち|response-options/);assert.match(ui.workflowMarkup(next,'A'),/応答・チェーン処理が完了/);assert.doesNotMatch(ui.workflowMarkup(next,'A'),/応答なしのパス|リビジョン/);assert.ok(next.autoLog.length>0);
 });
 test('normal inspection and mandatory choices remain available',()=>{const x=new HotseatSession({autoAdvance:true});x.start(createGame(4));x.reveal();const v=x.projection;for(const c of v.players.A.hand)assert.equal(ui.canInspectCard(v,'A',c),true);assert.equal(ui.canInspectCard({...v,phase:'normal',choice:null},'A',v.players.A.hand[0]),true);});
