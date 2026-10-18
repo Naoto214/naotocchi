@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-09-29T15:56:38.801533+00:00",
+  "head": "a662da3cedb20f39eabb76ea19b60421d98c4866",
+  "tree": "10f17ed7331ddb8c0520486afd20ed4a222c031b",
+  "main": "05b31dfd4c2c2ebecc5890ffc2a23efbcfd1d032",
+  "pr": {
+    "number": 278,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "mergeable": false,
+    "mergeable_state": "dirty"
+  },
+  "ci": {
+    "actions": 0,
+    "check_runs": 0,
+    "statuses": 0,
+    "combined": "pending"
+  },
+  "site": {
+    "version": 74,
+    "source": "b282683aa4039eb3af2e999514590727e0f8a61d",
+    "deployment": "appgdep_6abbcc0221108191932d092094c234c1",
+    "access": "custom",
+    "allowed_users": 1,
+    "groups": 0,
+    "public_render_authenticated": false
+  },
+  "note": "Fresh pre-save reconfirmation; initial resume returned the same refs/PR/CI."
+}

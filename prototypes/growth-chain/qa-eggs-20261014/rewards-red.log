@@ -1,0 +1,128 @@
+✖ standard rewards final evolution04..07 once; low stages08 and death give none (3.256051ms)
+✖ skipping stages rewards only final stage and overflow stays score only (0.520516ms)
+✖ independent simultaneous groups each reward, same cell can reward on later waves (0.684487ms)
+✖ legacy missing-field and explicit death rules retain old rewards (0.157602ms)
+✖ drop egg transform bulk share evolution reward and immutable previews/replays (2.400802ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 98.634358
+
+✖ failing tests:
+
+test at prototypes/growth-chain/tests/evolution-eggs.test.mjs:6:1
+✖ standard rewards final evolution04..07 once; low stages08 and death give none (3.256051ms)
+  AssertionError [ERR_ASSERTION]: from3
+  + actual - expected
+
+    [
+  -   1,
+      0,
+      0,
+      0,
+  +   0
+    ]
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/evolution-eggs.test.mjs:7:139)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 0, 0, 0, 0 ],
+    expected: [ 1, 0, 0, 0 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/growth-chain/tests/evolution-eggs.test.mjs:10:1
+✖ skipping stages rewards only final stage and overflow stays score only (0.520516ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  -   1,
+      0,
+      0,
+      0,
+  +   0
+    ]
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/evolution-eggs.test.mjs:10:270)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 0, 0, 0, 0 ],
+    expected: [ 1, 0, 0, 0 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/growth-chain/tests/evolution-eggs.test.mjs:11:1
+✖ independent simultaneous groups each reward, same cell can reward on later waves (0.684487ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  -   2,
+      0,
+      0,
+      0,
+  +   0
+    ]
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/evolution-eggs.test.mjs:11:205)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 0, 0, 0, 0 ],
+    expected: [ 2, 0, 0, 0 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/growth-chain/tests/evolution-eggs.test.mjs:12:1
+✖ legacy missing-field and explicit death rules retain old rewards (0.157602ms)
+  Error: Unknown rule eggReward
+      at configuration (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/rules.mjs:50:13)
+      at standardRules (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/rules.mjs:83:10)
+      at TestContext.<anonymous> (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/evolution-eggs.test.mjs:12:86)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at prototypes/growth-chain/tests/evolution-eggs.test.mjs:13:1
+✖ drop egg transform bulk share evolution reward and immutable previews/replays (2.400802ms)
+  AssertionError [ERR_ASSERTION]: drop
+      at TestContext.<anonymous> (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/evolution-eggs.test.mjs:16:169)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,23 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11612359683,
+    "name": "full-rollout-human-performance-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:493e7b0a86bb9a96b5414d1cfd4851e903546412180a91b8236906bff29422e0"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "8fa0feca5e13be8cf6d98edbd2c99df0f4a26018420ef7099d56f9ff4cb57b3b",
+      "bytes": 7442
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792592088,
+  "artifactJobName": "human-performance",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

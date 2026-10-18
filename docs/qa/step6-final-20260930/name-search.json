@@ -1,0 +1,46 @@
+{
+  "terms": [
+    "丸いあかちゃん",
+    "透けた小さな星",
+    "色づく小さな星",
+    "ふっくらした星",
+    "金色の子ヒトデ",
+    "ぶつぶつ子ヒトデ",
+    "芽ぶきのたね",
+    "光る芽",
+    "雲をこえる木",
+    "でっかい？",
+    "ちっちゃい？",
+    "点……？",
+    "卵・種子そのものは8段階に含めず"
+  ],
+  "active_files_checked": 10,
+  "hits": [
+    {
+      "file": "character-world-master.v1.js",
+      "term": "芽ぶきのたね"
+    },
+    {
+      "file": "tools/expression-stage-names.json",
+      "term": "芽ぶきのたね"
+    },
+    {
+      "file": "script.js",
+      "term": "芽ぶきのたね"
+    },
+    {
+      "file": "site/character-world-master.v1.js",
+      "term": "芽ぶきのたね"
+    },
+    {
+      "file": "site/index.html",
+      "term": "芽ぶきのたね"
+    },
+    {
+      "file": "site/mark-review/data.js",
+      "term": "芽ぶきのたね"
+    }
+  ],
+  "historical_qa_excluded": true,
+  "hit_classification": "芽ぶきのたねはタンポポ01の現行承認名。サクラ01は芽ぶきのサクラで正本・preview・Site一致。ほか旧名称0。"
+}

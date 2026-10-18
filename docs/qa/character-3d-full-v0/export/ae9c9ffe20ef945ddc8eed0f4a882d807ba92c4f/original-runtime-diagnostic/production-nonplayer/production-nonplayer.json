@@ -1,0 +1,2269 @@
+{
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "productionOnly": true,
+  "candidateOnly": false,
+  "capture": false,
+  "required": 45,
+  "requireFull": true,
+  "checked": 44,
+  "missing": [],
+  "rows": [
+    {
+      "roleKey": "companion:cat_friend",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:cat_friend",
+        "kind": "companion",
+        "id": "cat_friend",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "specKey": {
+        "id": "cat_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "cat_friend",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8244,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 6,
+        "cpuMsAvg": 74.7,
+        "cpuMsP95": 94,
+        "buildMsTotal": 138.8,
+        "buildMsMax": 83.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:rabbit_friend",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:rabbit_friend",
+        "kind": "companion",
+        "id": "rabbit_friend",
+        "asset": "assets/characters/companions/rabbit_friend.png"
+      },
+      "specKey": {
+        "id": "companion:rabbit_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:rabbit_friend",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13334,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 104,
+        "cpuMsP95": 152.1,
+        "buildMsTotal": 204.9,
+        "buildMsMax": 150.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:tanuki",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:tanuki",
+        "kind": "companion",
+        "id": "tanuki",
+        "asset": "assets/characters/companions/tanuki.png"
+      },
+      "specKey": {
+        "id": "companion:tanuki",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:tanuki",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18250,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 185.55,
+        "cpuMsP95": 335.4,
+        "buildMsTotal": 367.6,
+        "buildMsMax": 333,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:squirrel",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:squirrel",
+        "kind": "companion",
+        "id": "squirrel",
+        "asset": "assets/characters/companions/squirrel.png"
+      },
+      "specKey": {
+        "id": "companion:squirrel",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:squirrel",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17450,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 186,
+        "cpuMsP95": 186,
+        "buildMsTotal": 222.7,
+        "buildMsMax": 183.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:owl",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:owl",
+        "kind": "companion",
+        "id": "owl",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "specKey": {
+        "id": "companion:owl",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:owl",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13038,
+        "meshes": 23,
+        "bones": 17,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 167,
+        "cpuMsP95": 167,
+        "buildMsTotal": 212.9,
+        "buildMsMax": 164.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:otter",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:otter",
+        "kind": "companion",
+        "id": "otter",
+        "asset": "assets/characters/companions/otter.png"
+      },
+      "specKey": {
+        "id": "companion:otter",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:otter",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17570,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 334.2,
+        "cpuMsP95": 334.2,
+        "buildMsTotal": 381.4,
+        "buildMsMax": 332.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:hamster",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:hamster",
+        "kind": "companion",
+        "id": "hamster",
+        "asset": "assets/characters/companions/hamster.png"
+      },
+      "specKey": {
+        "id": "companion:hamster",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:hamster",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15510,
+        "meshes": 25,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 249.1,
+        "cpuMsP95": 249.1,
+        "buildMsTotal": 307,
+        "buildMsMax": 247,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:panda",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:panda",
+        "kind": "companion",
+        "id": "panda",
+        "asset": "assets/characters/companions/panda.png"
+      },
+      "specKey": {
+        "id": "companion:panda",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:panda",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 16334,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 190.1,
+        "cpuMsP95": 332,
+        "buildMsTotal": 375.7,
+        "buildMsMax": 328.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:monkey",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:monkey",
+        "kind": "companion",
+        "id": "monkey",
+        "asset": "assets/characters/companions/monkey.png"
+      },
+      "specKey": {
+        "id": "companion:monkey",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:monkey",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18694,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 190.2,
+        "cpuMsP95": 340,
+        "buildMsTotal": 377.1,
+        "buildMsMax": 337.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:parrot",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:parrot",
+        "kind": "companion",
+        "id": "parrot",
+        "asset": "assets/characters/companions/parrot.png"
+      },
+      "specKey": {
+        "id": "companion:parrot",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:parrot",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15878,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 79.35,
+        "cpuMsP95": 118.2,
+        "buildMsTotal": 156.2,
+        "buildMsMax": 116.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:sheep",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:sheep",
+        "kind": "companion",
+        "id": "sheep",
+        "asset": "assets/characters/companions/sheep.png"
+      },
+      "specKey": {
+        "id": "companion:sheep",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:sheep",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19998,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 175.8,
+        "cpuMsP95": 175.8,
+        "buildMsTotal": 225.6,
+        "buildMsMax": 173.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:seal",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:seal",
+        "kind": "companion",
+        "id": "seal",
+        "asset": "assets/characters/companions/seal.png"
+      },
+      "specKey": {
+        "id": "companion:seal",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:seal",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14134,
+        "meshes": 23,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 203.4,
+        "cpuMsP95": 323.7,
+        "buildMsTotal": 404,
+        "buildMsMax": 321.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:bat",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:bat",
+        "kind": "companion",
+        "id": "bat",
+        "asset": "assets/characters/companions/bat.png"
+      },
+      "specKey": {
+        "id": "companion:bat",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:bat",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13414,
+        "meshes": 23,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 192.6,
+        "cpuMsP95": 192.6,
+        "buildMsTotal": 255.4,
+        "buildMsMax": 190.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:chicken",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:chicken",
+        "kind": "companion",
+        "id": "chicken",
+        "asset": "assets/characters/companions/chicken.png"
+      },
+      "specKey": {
+        "id": "companion:chicken",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:chicken",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19750,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 166.9,
+        "cpuMsP95": 166.9,
+        "buildMsTotal": 210.6,
+        "buildMsMax": 164.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:penguin_friend",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:penguin_friend",
+        "kind": "companion",
+        "id": "penguin_friend",
+        "asset": "assets/characters/companions/penguin_friend.png"
+      },
+      "specKey": {
+        "id": "companion:penguin_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:penguin_friend",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14326,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 210.8,
+        "cpuMsP95": 337.2,
+        "buildMsTotal": 416.1,
+        "buildMsMax": 335.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:hedgehog",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:hedgehog",
+        "kind": "companion",
+        "id": "hedgehog",
+        "asset": "assets/characters/companions/hedgehog.png"
+      },
+      "specKey": {
+        "id": "companion:hedgehog",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:hedgehog",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 21726,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 256.5,
+        "cpuMsP95": 256.5,
+        "buildMsTotal": 303.4,
+        "buildMsMax": 254.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:shiba",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "asset": "assets/characters/companions/shiba.png"
+      },
+      "specKey": {
+        "id": "shiba",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "shiba",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8348,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 88.2,
+        "cpuMsP95": 88.2,
+        "buildMsTotal": 123.9,
+        "buildMsMax": 85.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:snail",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:snail",
+        "kind": "companion",
+        "id": "snail",
+        "asset": "assets/characters/companions/snail.png"
+      },
+      "specKey": {
+        "id": "companion:snail",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:snail",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 9766,
+        "meshes": 22,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 164.6,
+        "cpuMsP95": 285.2,
+        "buildMsTotal": 326.2,
+        "buildMsMax": 283.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:punyu",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:punyu",
+        "kind": "companion",
+        "id": "punyu",
+        "asset": "assets/characters/companions/punyu.png"
+      },
+      "specKey": {
+        "id": "companion:punyu",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:punyu",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18238,
+        "meshes": 18,
+        "bones": 12,
+        "materials": 2,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 229.6,
+        "cpuMsP95": 415.9,
+        "buildMsTotal": 456.4,
+        "buildMsMax": 414,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:sekizou",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:sekizou",
+        "kind": "companion",
+        "id": "sekizou",
+        "asset": "assets/characters/companions/sekizou.png"
+      },
+      "specKey": {
+        "id": "companion:sekizou",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:sekizou",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 9510,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 309.4,
+        "cpuMsP95": 309.4,
+        "buildMsTotal": 375.1,
+        "buildMsMax": 302.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:chameleon",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:chameleon",
+        "kind": "companion",
+        "id": "chameleon",
+        "asset": "assets/characters/companions/chameleon.png"
+      },
+      "specKey": {
+        "id": "companion:chameleon",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:chameleon",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15560,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 162.2,
+        "cpuMsP95": 162.2,
+        "buildMsTotal": 220.3,
+        "buildMsMax": 159.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:clock",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:clock",
+        "kind": "companion",
+        "id": "clock",
+        "asset": "assets/characters/companions/clock.png"
+      },
+      "specKey": {
+        "id": "companion:clock",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:clock",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 10368,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 86,
+        "cpuMsP95": 86,
+        "buildMsTotal": 118.4,
+        "buildMsMax": 82.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:unicorn",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:unicorn",
+        "kind": "companion",
+        "id": "unicorn",
+        "asset": "assets/characters/companions/unicorn.png"
+      },
+      "specKey": {
+        "id": "companion:unicorn",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:unicorn",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20688,
+        "meshes": 30,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 220.65,
+        "cpuMsP95": 398.1,
+        "buildMsTotal": 438.3,
+        "buildMsMax": 395.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:many_tail_fox",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:many_tail_fox",
+        "kind": "companion",
+        "id": "many_tail_fox",
+        "asset": "assets/characters/companions/many_tail_fox.png"
+      },
+      "specKey": {
+        "id": "companion:many_tail_fox",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:many_tail_fox",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19334,
+        "meshes": 30,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 252.6,
+        "cpuMsP95": 252.6,
+        "buildMsTotal": 294.2,
+        "buildMsMax": 250.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:watcher",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:watcher",
+        "kind": "companion",
+        "id": "watcher",
+        "asset": "assets/characters/companions/watcher.png"
+      },
+      "specKey": {
+        "id": "companion:watcher",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:watcher",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14494,
+        "meshes": 17,
+        "bones": 12,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 3,
+        "cpuMsAvg": 228.1,
+        "cpuMsP95": 405.3,
+        "buildMsTotal": 450.1,
+        "buildMsMax": 400.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "companion:box",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:box",
+        "kind": "companion",
+        "id": "box",
+        "asset": "assets/characters/companions/box.png"
+      },
+      "specKey": {
+        "id": "companion:box",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:box",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 4902,
+        "meshes": 20,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 25.6,
+        "cpuMsP95": 25.6,
+        "buildMsTotal": 76.6,
+        "buildMsMax": 53.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:cat_ceo",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:cat_ceo",
+        "kind": "partner",
+        "id": "cat_ceo",
+        "asset": "assets/characters/partners/cat_ceo.png"
+      },
+      "specKey": {
+        "id": "partner:cat_ceo",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:cat_ceo",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17782,
+        "meshes": 32,
+        "bones": 27,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 242.1,
+        "cpuMsP95": 242.1,
+        "buildMsTotal": 293.9,
+        "buildMsMax": 239.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:robot_neighbor",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:robot_neighbor",
+        "kind": "partner",
+        "id": "robot_neighbor",
+        "asset": "assets/characters/partners/robot_neighbor.png"
+      },
+      "specKey": {
+        "id": "partner:robot_neighbor",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:robot_neighbor",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13012,
+        "meshes": 35,
+        "bones": 29,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 80.2,
+        "cpuMsP95": 107.8,
+        "buildMsTotal": 151.6,
+        "buildMsMax": 101.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:field_cow",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:field_cow",
+        "kind": "partner",
+        "id": "field_cow",
+        "asset": "assets/characters/partners/field_cow.png"
+      },
+      "specKey": {
+        "id": "partner:field_cow",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:field_cow",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 16716,
+        "meshes": 28,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 211.15,
+        "cpuMsP95": 387.3,
+        "buildMsTotal": 418.6,
+        "buildMsMax": 384.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:sunflower_partner",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:sunflower_partner",
+        "kind": "partner",
+        "id": "sunflower_partner",
+        "asset": "assets/characters/partners/sunflower_partner.png"
+      },
+      "specKey": {
+        "id": "partner:sunflower_partner",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:sunflower_partner",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 9546,
+        "meshes": 18,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 123.3,
+        "cpuMsP95": 123.3,
+        "buildMsTotal": 162.7,
+        "buildMsMax": 118.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:forest_bear",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:forest_bear",
+        "kind": "partner",
+        "id": "forest_bear",
+        "asset": "assets/characters/partners/forest_bear.png"
+      },
+      "specKey": {
+        "id": "partner:forest_bear",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:forest_bear",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18262,
+        "meshes": 25,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 273,
+        "cpuMsP95": 273,
+        "buildMsTotal": 314.2,
+        "buildMsMax": 270.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:grove_deer",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:grove_deer",
+        "kind": "partner",
+        "id": "grove_deer",
+        "asset": "assets/characters/partners/grove_deer.png"
+      },
+      "specKey": {
+        "id": "partner:grove_deer",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:grove_deer",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14790,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 225.85,
+        "cpuMsP95": 399.4,
+        "buildMsTotal": 445.1,
+        "buildMsMax": 394.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:cliff_goat",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:cliff_goat",
+        "kind": "partner",
+        "id": "cliff_goat",
+        "asset": "assets/characters/partners/cliff_goat.png"
+      },
+      "specKey": {
+        "id": "partner:cliff_goat",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:cliff_goat",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19560,
+        "meshes": 34,
+        "bones": 28,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 276.6,
+        "cpuMsP95": 276.6,
+        "buildMsTotal": 317.6,
+        "buildMsMax": 271.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:high_eagle",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:high_eagle",
+        "kind": "partner",
+        "id": "high_eagle",
+        "asset": "assets/characters/partners/high_eagle.png"
+      },
+      "specKey": {
+        "id": "partner:high_eagle",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:high_eagle",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 21590,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 174.2,
+        "cpuMsP95": 291,
+        "buildMsTotal": 342.4,
+        "buildMsMax": 289,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:snow_spirit",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:snow_spirit",
+        "kind": "partner",
+        "id": "snow_spirit",
+        "asset": "assets/characters/partners/snow_spirit.png"
+      },
+      "specKey": {
+        "id": "partner:snow_spirit",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:snow_spirit",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 11274,
+        "meshes": 24,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 190.2,
+        "cpuMsP95": 190.2,
+        "buildMsTotal": 226.2,
+        "buildMsMax": 188,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:snowman",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:snowman",
+        "kind": "partner",
+        "id": "snowman",
+        "asset": "assets/characters/partners/snowman.png"
+      },
+      "specKey": {
+        "id": "partner:snowman",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:snowman",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14686,
+        "meshes": 28,
+        "bones": 26,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 186.8,
+        "cpuMsP95": 186.8,
+        "buildMsTotal": 262,
+        "buildMsMax": 184.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:rock_octopus",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:rock_octopus",
+        "kind": "partner",
+        "id": "rock_octopus",
+        "asset": "assets/characters/partners/rock_octopus.png"
+      },
+      "specKey": {
+        "id": "partner:rock_octopus",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:rock_octopus",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18838,
+        "meshes": 35,
+        "bones": 33,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 244.65,
+        "cpuMsP95": 446.2,
+        "buildMsTotal": 485.7,
+        "buildMsMax": 443.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:sea_mermaid",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:sea_mermaid",
+        "kind": "partner",
+        "id": "sea_mermaid",
+        "asset": "assets/characters/partners/sea_mermaid.png"
+      },
+      "specKey": {
+        "id": "partner:sea_mermaid",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:sea_mermaid",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15378,
+        "meshes": 29,
+        "bones": 25,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 111.7,
+        "cpuMsP95": 173.8,
+        "buildMsTotal": 219.6,
+        "buildMsMax": 171.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:anglerfish",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:anglerfish",
+        "kind": "partner",
+        "id": "anglerfish",
+        "asset": "assets/characters/partners/anglerfish.png"
+      },
+      "specKey": {
+        "id": "partner:anglerfish",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:anglerfish",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 12812,
+        "meshes": 26,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 472.2,
+        "cpuMsP95": 472.2,
+        "buildMsTotal": 518,
+        "buildMsMax": 469.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:swamp_croc",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:swamp_croc",
+        "kind": "partner",
+        "id": "swamp_croc",
+        "asset": "assets/characters/partners/swamp_croc.png"
+      },
+      "specKey": {
+        "id": "partner:swamp_croc",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:swamp_croc",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17818,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 192,
+        "cpuMsP95": 319.2,
+        "buildMsTotal": 378.2,
+        "buildMsMax": 316.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:gentle_gorilla",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:gentle_gorilla",
+        "kind": "partner",
+        "id": "gentle_gorilla",
+        "asset": "assets/characters/partners/gentle_gorilla.png"
+      },
+      "specKey": {
+        "id": "partner:gentle_gorilla",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:gentle_gorilla",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20714,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 280.4,
+        "cpuMsP95": 511.9,
+        "buildMsTotal": 557.4,
+        "buildMsMax": 509.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:knitting_spider",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:knitting_spider",
+        "kind": "partner",
+        "id": "knitting_spider",
+        "asset": "assets/characters/partners/knitting_spider.png"
+      },
+      "specKey": {
+        "id": "partner:knitting_spider",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:knitting_spider",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15694,
+        "meshes": 30,
+        "bones": 28,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 105.45,
+        "cpuMsP95": 160.4,
+        "buildMsTotal": 207.4,
+        "buildMsMax": 157.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:desert_scorpion",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:desert_scorpion",
+        "kind": "partner",
+        "id": "desert_scorpion",
+        "asset": "assets/characters/partners/desert_scorpion.png"
+      },
+      "specKey": {
+        "id": "partner:desert_scorpion",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:desert_scorpion",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15218,
+        "meshes": 32,
+        "bones": 30,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 107.95,
+        "cpuMsP95": 170.6,
+        "buildMsTotal": 212.5,
+        "buildMsMax": 168.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    },
+    {
+      "roleKey": "partner:oasis_cactus",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:oasis_cactus",
+        "kind": "partner",
+        "id": "oasis_cactus",
+        "asset": "assets/characters/partners/oasis_cactus.png"
+      },
+      "specKey": {
+        "id": "partner:oasis_cactus",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:oasis_cactus",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17710,
+        "meshes": 18,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 89.15,
+        "cpuMsP95": 131.4,
+        "buildMsTotal": 172.7,
+        "buildMsMax": 126.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "unchanged": {
+        "save": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null
+    }
+  ],
+  "errors": [],
+  "failures": [
+    "unchanged save\n\nfalse !== true\n"
+  ],
+  "verdict": {
+    "pass": false,
+    "final45": false
+  },
+  "measurements": {
+    "animationOnlyCpuMs": null,
+    "firstAppearanceHitchMs": null,
+    "note": "Presenter CPU and build stats are aggregate; functional readiness is not a hitch measurement."
+  }
+}

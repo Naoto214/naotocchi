@@ -1,0 +1,392 @@
+TAP version 13
+# (node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/f50bce74ad86/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/f50bce74ad86/naotocchi/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: v2-1. player の 絵は きりで 消えない: キャラの material は fog なし・frustum culling なし・きりの 遠端は player + 900 より 遠く
+ok 1 - v2-1. player の 絵は きりで 消えない: キャラの material は fog なし・frustum culling なし・きりの 遠端は player + 900 より 遠く
+  ---
+  duration_ms: 1.204887
+  type: 'test'
+  ...
+# Subtest: v2-2. billboardVisible: 座標に いる のに 描かれない 状態(hidden / scale NaN / texture なし / きりの むこう)を 1 つの 判定で 見つける
+ok 2 - v2-2. billboardVisible: 座標に いる のに 描かれない 状態(hidden / scale NaN / texture なし / きりの むこう)を 1 つの 判定で 見つける
+  ---
+  duration_ms: 32.08562
+  type: 'test'
+  ...
+# Subtest: v2-3. すかしは 見た目の 半径(えだはり)で 判定し、線分より 低い 物は すかさない。あたりの 半径 だけの 旧 判定も そのまま 通る
+ok 3 - v2-3. すかしは 見た目の 半径(えだはり)で 判定し、線分より 低い 物は すかさない。あたりの 半径 だけの 旧 判定も そのまま 通る
+  ---
+  duration_ms: 0.638182
+  type: 'test'
+  ...
+# Subtest: v2-4. ghost pool の 契約: 使った ものだけ visible、使わなかった ものは その frame で hidden、1 frame 使わなければ scene から はずす、pool は つかいまわす
+ok 4 - v2-4. ghost pool の 契約: 使った ものだけ visible、使わなかった ものは その frame で hidden、1 frame 使わなければ scene から はずす、pool は つかいまわす
+  ---
+  duration_ms: 1.294672
+  type: 'test'
+  ...
+# Subtest: v2-5. レンダラーの 切りかえで ghost が のこらない: scene の 捨て(地域 / corridor)・3D → 2D(fallback / 2D の 地域)で clear、stats に ghost と player
+ok 5 - v2-5. レンダラーの 切りかえで ghost が のこらない: scene の 捨て(地域 / corridor)・3D → 2D(fallback / 2D の 地域)で clear、stats に ghost と player
+  ---
+  duration_ms: 0.779576
+  type: 'test'
+  ...
+# Subtest: v2-6. corridor(地域の あいだの 道)は 3D で 描く: 10 本 × 2 方向 ぜんぶ 3D の 対象。飾りは ぜんぶ 意味の 表で 解決し(unresolved 0)、はしの いし だけ かたい
+ok 6 - v2-6. corridor(地域の あいだの 道)は 3D で 描く: 10 本 × 2 方向 ぜんぶ 3D の 対象。飾りは ぜんぶ 意味の 表で 解決し(unresolved 0)、はしの いし だけ かたい
+  ---
+  duration_ms: 114.73014
+  type: 'test'
+  ...
+# Subtest: v2-7. corridor の gameplay は かわらない: 帯の 左右と はしの いし の あたり、着く / もどる、party の 受けわたし、セーブ なし
+ok 7 - v2-7. corridor の gameplay は かわらない: 帯の 左右と はしの いし の あたり、着く / もどる、party の 受けわたし、セーブ なし
+  ---
+  duration_ms: 114.249762
+  type: 'test'
+  ...
+# Subtest: v2-8. しらせ: ふつうの spot と 地区は toast なし、ランドマークは quiet(左上の 静かな 強調)、ひみつ だけ toast。きろくは かわらない
+ok 8 - v2-8. しらせ: ふつうの spot と 地区は toast なし、ランドマークは quiet(左上の 静かな 強調)、ひみつ だけ toast。きろくは かわらない
+  ---
+  duration_ms: 8212.230535
+  type: 'test'
+  ...
+# Subtest: v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない
+ok 9 - v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない
+  ---
+  duration_ms: 9021.24714
+  type: 'test'
+  ...
+# Subtest: v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない)
+ok 10 - v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない)
+  ---
+  duration_ms: 1.284607
+  type: 'test'
+  ...
+# Subtest: v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯
+ok 11 - v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯
+  ---
+  duration_ms: 1273.260399
+  type: 'test'
+  ...
+# Subtest: v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない
+ok 12 - v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない
+  ---
+  duration_ms: 654.952266
+  type: 'test'
+  ...
+# Subtest: v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない
+ok 13 - v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない
+  ---
+  duration_ms: 3811.341162
+  type: 'test'
+  ...
+# Subtest: v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど
+ok 14 - v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど
+  ---
+  duration_ms: 11215.181869
+  type: 'test'
+  ...
+# Subtest: v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある
+ok 15 - v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある
+  ---
+  duration_ms: 3596.311378
+  type: 'test'
+  ...
+# Subtest: city: ばらつき は city の 🏢 / 🏬 だけ。ほか の 地域 と 絵 は そのまま
+ok 16 - city: ばらつき は city の 🏢 / 🏬 だけ。ほか の 地域 と 絵 は そのまま
+  ---
+  duration_ms: 129.434867
+  type: 'test'
+  ...
+# Subtest: city: おなじ いち は いつも おなじ 大きさ(決定的)。はば と たかさ は きめた はんい の なか
+ok 17 - city: おなじ いち は いつも おなじ 大きさ(決定的)。はば と たかさ は きめた はんい の なか
+  ---
+  duration_ms: 234.060597
+  type: 'test'
+  ...
+# Subtest: city: 絵文字 を えがく ところ で ばらつき を わたす(ほか の 絵文字 は いままで どおり)
+ok 18 - city: 絵文字 を えがく ところ で ばらつき を わたす(ほか の 絵文字 は いままで どおり)
+  ---
+  duration_ms: 6.878713
+  type: 'test'
+  ...
+# Subtest: city: 1 フレーム で えがく ビル の たて よこ の ひ が ばらける
+ok 19 - city: 1 フレーム で えがく ビル の たて よこ の ひ が ばらける
+  ---
+  duration_ms: 1377.199645
+  type: 'test'
+  ...
+# Subtest: city: props・当たり判定 は そのまま(えがく とき だけ)
+ok 20 - city: props・当たり判定 は そのまま(えがく とき だけ)
+  ---
+  duration_ms: 406.566241
+  type: 'test'
+  ...
+# Subtest: river_lake(night): もや は ふち を ぼかした 1 まい。かたい おび は ない
+ok 21 - river_lake(night): もや は ふち を ぼかした 1 まい。かたい おび は ない
+  ---
+  duration_ms: 963.403869
+  type: 'test'
+  ...
+# Subtest: river_lake(morning): もや は ふち を ぼかした 1 まい。かたい おび は ない
+ok 22 - river_lake(morning): もや は ふち を ぼかした 1 まい。かたい おび は ない
+  ---
+  duration_ms: 965.570876
+  type: 'test'
+  ...
+# Subtest: river_lake(day): 昼 は もや を えがかない(いままで どおり)
+ok 23 - river_lake(day): 昼 は もや を えがかない(いままで どおり)
+  ---
+  duration_ms: 899.166778
+  type: 'test'
+  ...
+# Subtest: river_lake: もや の とまり は 3 つ の やま(もと の 3 本 の おび の まんなか)
+ok 24 - river_lake: もや の とまり は 3 つ の やま(もと の 3 本 の おび の まんなか)
+  ---
+  duration_ms: 19.377288
+  type: 'test'
+  ...
+# Subtest: counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+ok 25 - counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+  ---
+  duration_ms: 19.672944
+  type: 'test'
+  ...
+# Subtest: river_lake: props・当たり判定 は そのまま
+ok 26 - river_lake: props・当たり判定 は そのまま
+  ---
+  duration_ms: 195.484283
+  type: 'test'
+  ...
+# Subtest: save: 形 は かわらない(ばらつき・もや は セーブ しない)
+ok 27 - save: 形 は かわらない(ばらつき・もや は セーブ しない)
+  ---
+  duration_ms: 753.732844
+  type: 'test'
+  ...
+# Subtest: arch: drawStructure が しって いる 1 つ の かたち。地形 として えがく
+ok 28 - arch: drawStructure が しって いる 1 つ の かたち。地形 として えがく
+  ---
+  duration_ms: 103.10017
+  type: 'test'
+  ...
+# Subtest: arch: いわのアーチ は rock、ほねのアーチ は bone。1 つ の かたち を ぬりわける
+ok 29 - arch: いわのアーチ は rock、ほねのアーチ は bone。1 つ の かたち を ぬりわける
+  ---
+  duration_ms: 170.201678
+  type: 'test'
+  ...
+# Subtest: arch: rock は 穴を くりぬいた 岩、bone は 線 の ほね。えがきかた が ちがう
+ok 30 - arch: rock は 穴を くりぬいた 岩、bone は 線 の ほね。えがきかた が ちがう
+  ---
+  duration_ms: 1702.80728
+  type: 'test'
+  ...
+# Subtest: arch: 1 フレーム の よびだし の ふえかた は ちいさい(2 か所 だけ)
+ok 31 - arch: 1 フレーム の よびだし の ふえかた は ちいさい(2 か所 だけ)
+  ---
+  duration_ms: 1714.080394
+  type: 'test'
+  ...
+# Subtest: deco: 7 か所 とも deco で、view に して いない。しらせ の レベル は そのまま
+ok 32 - deco: 7 か所 とも deco で、view に して いない。しらせ の レベル は そのまま
+  ---
+  duration_ms: 727.0374
+  type: 'test'
+  ...
+# Subtest: deco: solid に しない。当たり判定 に も 地図 に も のらない。カメラ も ふりむかない
+ok 33 - deco: solid に しない。当たり判定 に も 地図 に も のらない。カメラ も ふりむかない
+  ---
+  duration_ms: 1314.851828
+  type: 'test'
+  ...
+# Subtest: deco: \#319 の view 4 か所 は keep を もたず、いち も かわらない ルール の まま
+ok 34 - deco: \#319 の view 4 か所 は keep を もたず、いち も かわらない ルール の まま
+  ---
+  duration_ms: 508.196795
+  type: 'test'
+  ...
+# Subtest: counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+ok 35 - counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+  ---
+  duration_ms: 20.276254
+  type: 'test'
+  ...
+# Subtest: counts: props が ふえる の は deco を もつ 6 地域 だけ(その かず だけ)
+ok 36 - counts: props が ふえる の は deco を もつ 6 地域 だけ(その かず だけ)
+  ---
+  duration_ms: 1135.616191
+  type: 'test'
+  ...
+# Subtest: save: 形 は かわらない(deco は セーブ しない)
+ok 37 - save: 形 は かわらない(deco は セーブ しない)
+  ---
+  duration_ms: 579.023467
+  type: 'test'
+  ...
+# Subtest: snow: じめん の いろ は そのまま(世界地図・地域地図・corridor が つかう)
+ok 38 - snow: じめん の いろ は そのまま(世界地図・地域地図・corridor が つかう)
+  ---
+  duration_ms: 131.112558
+  type: 'test'
+  ...
+# Subtest: snow: みち は 圧雪 の 青灰。雪面 から 読める が、青く しすぎない
+ok 39 - snow: みち は 圧雪 の 青灰。雪面 から 読める が、青く しすぎない
+  ---
+  duration_ms: 27.909263
+  type: 'test'
+  ...
+# Subtest: snow: 雪面 の 起伏 と 足あと は 白 で なく 青灰〜薄紫。きらきら と 氷 は そのまま
+ok 40 - snow: 雪面 の 起伏 と 足あと は 白 で なく 青灰〜薄紫。きらきら と 氷 は そのまま
+  ---
+  duration_ms: 117.280386
+  type: 'test'
+  ...
+# Subtest: memory_lake: 霧 は memory_lake の 木 と 草 だけ。ほか の 地域 と あかり は うすく しない
+ok 41 - memory_lake: 霧 は memory_lake の 木 と 草 だけ。ほか の 地域 と あかり は うすく しない
+  ---
+  duration_ms: 22.021836
+  type: 'test'
+  ...
+# Subtest: memory_lake: ちかく は くっきり、とおく ほど 霧 に しずむ(ゆうれい に しない)
+ok 42 - memory_lake: ちかく は くっきり、とおく ほど 霧 に しずむ(ゆうれい に しない)
+  ---
+  duration_ms: 18.294164
+  type: 'test'
+  ...
+# Subtest: memory_lake: 絵文字 の fade に 霧 を かける(描く 命令 は ふやさない)
+ok 43 - memory_lake: 絵文字 の fade に 霧 を かける(描く 命令 は ふやさない)
+  ---
+  duration_ms: 6.12765
+  type: 'test'
+  ...
+# Subtest: memory_lake: props・木 の 壁・当たり判定 は そのまま(霧 は 見た目 だけ)
+ok 44 - memory_lake: props・木 の 壁・当たり判定 は そのまま(霧 は 見た目 だけ)
+  ---
+  duration_ms: 69.166873
+  type: 'test'
+  ...
+# Subtest: star_stop(day): 地平線 を またぐ 霞 の おび が ある。地上 は 霞 の むこう
+ok 45 - star_stop(day): 地平線 を またぐ 霞 の おび が ある。地上 は 霞 の むこう
+  ---
+  duration_ms: 815.21909
+  type: 'test'
+  ...
+# Subtest: star_stop(night): 地平線 を またぐ 霞 の おび が ある。地上 は 霞 の むこう
+ok 46 - star_stop(night): 地平線 を またぐ 霞 の おび が ある。地上 は 霞 の むこう
+  ---
+  duration_ms: 836.802844
+  type: 'test'
+  ...
+# Subtest: star_stop: 遠景 は 1 つ(land_below)の まま。ほか の 地域 に 地平線 の した の 遠景 は ない
+ok 47 - star_stop: 遠景 は 1 つ(land_below)の まま。ほか の 地域 に 地平線 の した の 遠景 は ない
+  ---
+  duration_ms: 34.141816
+  type: 'test'
+  ...
+# Subtest: counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+ok 48 - counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+  ---
+  duration_ms: 22.865709
+  type: 'test'
+  ...
+# Subtest: snow / star_stop / memory_lake: props・当たり判定 は そのまま(いろ と 霞 と 霧 だけ)
+ok 49 - snow / star_stop / memory_lake: props・当たり判定 は そのまま(いろ と 霞 と 霧 だけ)
+  ---
+  duration_ms: 279.121055
+  type: 'test'
+  ...
+# Subtest: save: 形 は かわらない(霧 や 霞 は セーブ しない)
+ok 50 - save: 形 は かわらない(霧 や 霞 は セーブ しない)
+  ---
+  duration_ms: 728.504433
+  type: 'test'
+  ...
+# Subtest: occlusion: ランドマーク を ふさぐ 木 は すける。地形(がけ・岩)は すけない
+ok 51 - occlusion: ランドマーク を ふさぐ 木 は すける。地形(がけ・岩)は すけない
+  ---
+  duration_ms: 135.67347
+  type: 'test'
+  ...
+# Subtest: たきのみはらし: みき は solid の まま、いち も かわらない(すけるのは えがく とき だけ)
+ok 52 - たきのみはらし: みき は solid の まま、いち も かわらない(すけるのは えがく とき だけ)
+  ---
+  duration_ms: 306.518477
+  type: 'test'
+  ...
+# Subtest: landmarkNearAlpha: ふつう に ながめる 大きさ は そのまま、レンズ の なか は えがかない
+ok 53 - landmarkNearAlpha: ふつう に ながめる 大きさ は そのまま、レンズ の なか は えがかない
+  ---
+  duration_ms: 27.926364
+  type: 'test'
+  ...
+# Subtest: OCCLUDER_SHIFT: かたがわ に はりだす かたち だけ。side の ほう へ ずらす
+ok 54 - OCCLUDER_SHIFT: かたがわ に はりだす かたち だけ。side の ほう へ ずらす
+  ---
+  duration_ms: 28.178745
+  type: 'test'
+  ...
+# Subtest: ちいさな 絵文字: みちばた の もの は、じぶん より ある ていど おおきい とき だけ すける
+ok 55 - ちいさな 絵文字: みちばた の もの は、じぶん より ある ていど おおきい とき だけ すける
+  ---
+  duration_ms: 18.328056
+  type: 'test'
+  ...
+# Subtest: jungle 夜: もちあげ は jungle だけ。floor と mul は ひかえめ
+ok 56 - jungle 夜: もちあげ は jungle だけ。floor と mul は ひかえめ
+  ---
+  duration_ms: 51.016254
+  type: 'test'
+  ...
+# Subtest: jungle 夜: みき の あいだ の もや を ぬる。ぬれた は の ひかり は 1 かい の fill
+ok 57 - jungle 夜: みき の あいだ の もや を ぬる。ぬれた は の ひかり は 1 かい の fill
+  ---
+  duration_ms: 1331.885556
+  type: 'test'
+  ...
+# Subtest: jungle 昼: もや も ひかり も えがかない
+ok 58 - jungle 昼: もや も ひかり も えがかない
+  ---
+  duration_ms: 1062.765311
+  type: 'test'
+  ...
+# Subtest: star_stop: 霞 は 地平線 で いちばん こく、地上 の こい ところ でも 0.7 のこる
+ok 59 - star_stop: 霞 は 地平線 で いちばん こく、地上 の こい ところ でも 0.7 のこる
+  ---
+  duration_ms: 28.801179
+  type: 'test'
+  ...
+# Subtest: deco: くぼちのみはらし に しだ、つりばし に つりばし。見た目 だけ
+ok 60 - deco: くぼちのみはらし に しだ、つりばし に つりばし。見た目 だけ
+  ---
+  duration_ms: 371.050422
+  type: 'test'
+  ...
+# Subtest: counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は かわらない
+ok 61 - counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は かわらない
+  ---
+  duration_ms: 18.517311
+  type: 'test'
+  ...
+# Subtest: collision: forest / jungle の 障害物 は main と おなじ かず(deco は solid で ない)
+ok 62 - collision: forest / jungle の 障害物 は main と おなじ かず(deco は solid で ない)
+  ---
+  duration_ms: 535.635023
+  type: 'test'
+  ...
+# Subtest: save: 形 は かわらない
+ok 63 - save: 形 は かわらない
+  ---
+  duration_ms: 946.421021
+  type: 'test'
+  ...
+1..63
+# tests 63
+# suites 0
+# pass 63
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 38319.325914

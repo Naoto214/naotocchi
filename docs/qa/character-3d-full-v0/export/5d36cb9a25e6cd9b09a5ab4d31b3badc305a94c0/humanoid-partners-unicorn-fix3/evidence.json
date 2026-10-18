@@ -1,0 +1,5770 @@
+{
+  "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "candidateOnly": true,
+  "evidence": [
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.0007980013847350698,
+          -0.8935719432701823
+        ],
+        [
+          0.37527500968174576,
+          1.4167886539936065,
+          0.712013474702835
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.0007980013847350698,
+          -0.8935719432701823
+        ],
+        [
+          0.37527500968174576,
+          1.4167886539936065,
+          0.712013474702835
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.0007980013847350698,
+          -0.8935719432701823
+        ],
+        [
+          0.37527500968174576,
+          1.4167886539936065,
+          0.712013474702835
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.0007980013847350698,
+          -0.8935719432701823
+        ],
+        [
+          0.37527500968174576,
+          1.4167886539936065,
+          0.712013474702835
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.0007980013847350698,
+          -0.8935719432701823
+        ],
+        [
+          0.37527500968174576,
+          1.4167886539936065,
+          0.712013474702835
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.013755203269787963,
+          -0.8963752480262364
+        ],
+        [
+          0.4148748327495957,
+          1.4330602119814146,
+          0.7167468325350681
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.0007980013847350698,
+          -0.8633829975128173
+        ],
+        [
+          0.25228095054626465,
+          1.4167886539936065,
+          0.712013474702835
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.0019488585898908006,
+          -0.8712533788892218
+        ],
+        [
+          0.27585121193931966,
+          1.424981062525694,
+          0.7144189522879616
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.056858229658726,
+          -0.8666412221753335
+        ],
+        [
+          0.5462313792175425,
+          1.4983045832335726,
+          0.7156652425384213
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.05458042786594597,
+          -0.8378504934812523
+        ],
+        [
+          0.5732590805193685,
+          1.4822304604804781,
+          0.7074965766078699
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.004983596241684762,
+          -0.871137525681597
+        ],
+        [
+          0.25228095054626465,
+          1.436462757333162,
+          0.7156652425384213
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.002142621858044258,
+          -0.8818167614650656
+        ],
+        [
+          0.2849927042840066,
+          1.4439727281999493,
+          0.7115873502603943
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.3282642391886323,
+          -0.022413739901167906,
+          -0.9107810848637674
+        ],
+        [
+          0.37527500968174576,
+          1.3834119507750682,
+          0.794679897245947
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.3282642391886323,
+          -0.01369319729234697,
+          -0.9130121750114382
+        ],
+        [
+          0.3998571138680163,
+          1.3900646731400244,
+          0.7983151626299541
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.3282642391886323,
+          -0.022413739901167906,
+          -0.8806464629086912
+        ],
+        [
+          0.25681002356363347,
+          1.3834119507750682,
+          0.794679897245947
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.32826423918863235,
+          -0.019231369377776808,
+          -0.8855763481944541
+        ],
+        [
+          0.2667602248938585,
+          1.386762266826144,
+          0.7965173034207618
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16826,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.02691808202868773,
+          -0.9084988386897936
+        ],
+        [
+          0.37527500968174576,
+          1.3297022566493268,
+          0.7222246311259997
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16826,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.01684937295742206,
+          -0.902633399753064
+        ],
+        [
+          0.33908664801520183,
+          1.3378182210271024,
+          0.7270615883997565
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16826,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.02691808202868773,
+          -0.8783476212535761
+        ],
+        [
+          0.25228095054626465,
+          1.3297022566493268,
+          0.7222246311259997
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16826,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.02242859470626657,
+          -0.8873411569146441
+        ],
+        [
+          0.2541661879681802,
+          1.33380076895323,
+          0.7246762029332157
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.032038447559451844,
+          -0.9112128194513971
+        ],
+        [
+          0.37527500968174576,
+          1.298311061299374,
+          0.7247610832586192
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.022527186846733438,
+          -0.9122343936183948
+        ],
+        [
+          0.45313457698857196,
+          1.3196353533896752,
+          0.7299701020157909
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.032038447559451844,
+          -0.8810781974963209
+        ],
+        [
+          0.25228095054626465,
+          1.298311061299374,
+          0.7247610832586192
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.01864546520236826,
+          -0.8960655371009718
+        ],
+        [
+          0.3000731147993859,
+          1.3090271636339152,
+          0.7274119026575696
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.2628822116918346,
+          -0.011656506442868975,
+          -0.9011370592433925
+        ],
+        [
+          0.3757693021727267,
+          1.343611776203191,
+          0.7381311990159773
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.2628822116918346,
+          0.07495103072429476,
+          -0.9010667128906378
+        ],
+        [
+          0.46190328621350524,
+          1.3719129092394258,
+          0.7395802124381927
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.011656506442868975,
+          -0.8709575470402307
+        ],
+        [
+          0.25228095054626465,
+          1.343611776203191,
+          0.7381311990159773
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.010699492479575134,
+          -0.887443847024608
+        ],
+        [
+          0.3055561102105729,
+          1.3577651696450503,
+          0.7388578409435986
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.4205766067386894,
+          0.015487817776888124,
+          -0.9357733575312022
+        ],
+        [
+          0.250007878961397,
+          1.4810900116132513,
+          0.7055654438898054
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.4869113080786378,
+          0.0634946025402901,
+          -0.9213438391542588
+        ],
+        [
+          0.23392450571896228,
+          1.4949909609867966,
+          0.7112654691012159
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.015433095173317257,
+          -0.8810781974963209
+        ],
+        [
+          0.25228095054626465,
+          1.450169098663046,
+          0.7055654438898054
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16626,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.00001505073904017884,
+          -0.9018934375171348
+        ],
+        [
+          0.25630054323469514,
+          1.4648988141872041,
+          0.7084503515021976
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26214077295536325,
+          -0.009774061343192919,
+          -0.8935719432701823
+        ],
+        [
+          0.37651074090919806,
+          1.3588632187559206,
+          0.7393368046633161
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26214077295536325,
+          0.04806606529179969,
+          -0.8759894368868879
+        ],
+        [
+          0.29275984414879846,
+          1.3800319043520255,
+          0.745897404661488
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          -0.009774061343192919,
+          -0.8633829975128173
+        ],
+        [
+          0.25228095054626465,
+          1.3588632187559206,
+          0.7393368046633161
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:unicorn",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.26337650418281555,
+          0.0031247206995864696,
+          -0.8825015361043103
+        ],
+        [
+          0.2560184647430549,
+          1.369521857996373,
+          0.7426755012147691
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "unicorn",
+      "file": "companion-unicorn-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.0019671296058390714,
+          -0.18160406678915025
+        ],
+        [
+          0.18503468119925273,
+          1.3141196848654633,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.0019671296058390714,
+          -0.18160406678915025
+        ],
+        [
+          0.18503468119925273,
+          1.3141196848654633,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.0019671296058390714,
+          -0.18160406678915025
+        ],
+        [
+          0.18503468119925273,
+          1.3141196848654633,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.0019671296058390714,
+          -0.18160406678915025
+        ],
+        [
+          0.18503468119925273,
+          1.3141196848654633,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.0019671296058390714,
+          -0.18160406678915025
+        ],
+        [
+          0.18503468119925273,
+          1.3141196848654633,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.45611603308547094,
+          0.009867306175833396,
+          -0.18160406678915025
+        ],
+        [
+          0.2022134139786806,
+          1.323663073835999,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          1.7881393032936899e-9,
+          -0.18160406678915025
+        ],
+        [
+          0.18128930362941734,
+          1.3108772134780884,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4479004205813797,
+          0.002557416367453977,
+          -0.18160406678915025
+        ],
+        [
+          0.19054332260810825,
+          1.3182152952165183,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          0.06143172087579177,
+          -0.1850865717617824
+        ],
+        [
+          0.18503468119925273,
+          1.380937899867708,
+          0.21329227229118422
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.44057777248498314,
+          0.031812099023935156,
+          -0.18509040415212819
+        ],
+        [
+          0.182000508583484,
+          1.3474180462038172,
+          0.21326456210446787
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          0.0015564116728151445,
+          -0.18509108761681475
+        ],
+        [
+          0.18128930362941734,
+          1.3158550921384828,
+          0.21325819959994932
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.44205389250355726,
+          0.001680830412630216,
+          -0.18520095408769366
+        ],
+        [
+          0.1797364369916588,
+          1.317225239106036,
+          0.2132761249626282
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.011043827414377622,
+          -0.19479941131745468
+        ],
+        [
+          0.18503468119925273,
+          1.3203770134100143,
+          0.24148833323291108
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4599958540369581,
+          0.0006906707576434384,
+          -0.19404759673528377
+        ],
+        [
+          0.25117283906297155,
+          1.315634573752971,
+          0.2419152642698682
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          -0.009080235794784924,
+          -0.19415348538396085
+        ],
+        [
+          0.19122565994220272,
+          1.3179914788259506,
+          0.241614121106055
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4529044092905777,
+          -0.004288342679900109,
+          -0.19410479360411825
+        ],
+        [
+          0.22852850344845008,
+          1.3119243900146724,
+          0.241845049279744
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13920,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.017219160031462677,
+          -0.1884534036518914
+        ],
+        [
+          0.18503468119925273,
+          1.228000222756246,
+          0.21245124305048693
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13920,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.45624566302277,
+          -0.009125869304487777,
+          -0.1883398216383115
+        ],
+        [
+          0.2024320143082325,
+          1.2369341959251652,
+          0.21281193719784486
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13920,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          -0.015372367419013738,
+          -0.1884624325396937
+        ],
+        [
+          0.18128930362941734,
+          1.2249581440611301,
+          0.21238311896234005
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13920,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4479996779943226,
+          -0.014521027877132095,
+          -0.1884306685215974
+        ],
+        [
+          0.19066759119580287,
+          1.2319112753581698,
+          0.21255935523511998
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          -0.02043215821326501,
+          -0.18976727415358066
+        ],
+        [
+          0.18503468119925273,
+          1.1987961081492713,
+          0.21207762209656755
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.45987405148331817,
+          -0.017367302706723917,
+          -0.19247555775312508
+        ],
+        [
+          0.21659900935929038,
+          1.2055776746279547,
+          0.21245073017382804
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          -0.01862565392323977,
+          -0.1897781068323663
+        ],
+        [
+          0.18128930362941734,
+          1.1958203271222196,
+          0.21199588817976464
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.45283688208331496,
+          -0.018074876021582545,
+          -0.19145851251438362
+        ],
+        [
+          0.18782927105169814,
+          1.2027282914457595,
+          0.21227532202443727
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.44279158498266324,
+          -0.007764449782906815,
+          -0.18718433560992714
+        ],
+        [
+          0.18552897369023366,
+          1.2619122757031145,
+          0.21695096089775884
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.44100179749691004,
+          -0.006608962074194258,
+          -0.18703859578296256
+        ],
+        [
+          0.18350984933427417,
+          1.260277026958443,
+          0.21692777018659443
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          -0.005876593753370005,
+          -0.18691506630590454
+        ],
+        [
+          0.18128930362941734,
+          1.258801525775506,
+          0.21690781940349732
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4413530220492038,
+          -0.005630177043156145,
+          -0.18691401253167783
+        ],
+        [
+          0.1802537669844978,
+          1.259688132182781,
+          0.21691694517820098
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4432858774736442,
+          0.028103349674917302,
+          -0.18976727415358066
+        ],
+        [
+          0.18503468119925273,
+          1.3486582279114308,
+          0.21207762209656755
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.45531878832069683,
+          0.01484120056570179,
+          -0.19180738077455511
+        ],
+        [
+          0.19722960162769626,
+          1.3386768626720071,
+          0.2123349402406904
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          -0.0008539716556953819,
+          -0.1897781068323663
+        ],
+        [
+          0.18128930362941734,
+          1.3145010187633348,
+          0.21199588817976464
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13720,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.45036125902993773,
+          -0.0005712493546196767,
+          -0.19111987187496543
+        ],
+        [
+          0.17798808492472412,
+          1.3207390005665804,
+          0.21221798976208778
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4420501462461919,
+          -0.010908115717663883,
+          -0.18160406678915025
+        ],
+        [
+          0.18627041242670506,
+          1.2718605906693135,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4542809557111826,
+          -0.00023933438237809523,
+          -0.18160406678915025
+        ],
+        [
+          0.2024596827370162,
+          1.2808051051298799,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4399271595478058,
+          -0.008999998265504836,
+          -0.18160406678915025
+        ],
+        [
+          0.18128930362941734,
+          1.2687172646502982,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.44745038794222053,
+          -0.006739281877553946,
+          -0.18160406678915025
+        ],
+        [
+          0.18998335682079853,
+          1.275459086867613,
+          0.2140000008046627
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cat_ceo",
+      "file": "partner-cat_ceo-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          -0.004401233217938567,
+          -0.14499999582767487
+        ],
+        [
+          0.3118563329441045,
+          1.312071827091929,
+          0.18346500437557697
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          -0.004401233217938567,
+          -0.14499999582767487
+        ],
+        [
+          0.3118563329441045,
+          1.312071827091929,
+          0.18346500437557697
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          -0.004401233217938567,
+          -0.14499999582767487
+        ],
+        [
+          0.3118563329441045,
+          1.312071827091929,
+          0.18346500437557697
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          -0.004401233217938567,
+          -0.14499999582767487
+        ],
+        [
+          0.3118563329441045,
+          1.312071827091929,
+          0.18346500437557697
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          -0.004401233217938567,
+          -0.14499999582767487
+        ],
+        [
+          0.3118563329441045,
+          1.312071827091929,
+          0.18346500437557697
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30930383115151683,
+          -0.0033845070267858046,
+          -0.15709652463516993
+        ],
+        [
+          0.36878009531227574,
+          1.308794057012278,
+          0.19709652463516994
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30000000074505806,
+          -7.450580152834618e-10,
+          -0.14499999582767487
+        ],
+        [
+          0.30000000074505806,
+          1.311999989748001,
+          0.18346500437557697
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30471032664788583,
+          0.0024076755248184506,
+          -0.14499999582767487
+        ],
+        [
+          0.3296157758790914,
+          1.3117216492792696,
+          0.18346500437557697
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          0.056338399899484026,
+          -0.15776886489858094
+        ],
+        [
+          0.3118563329441045,
+          1.3763799878349747,
+          0.2210391284829146
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30038970609080284,
+          0.02815486775017864,
+          -0.15745150663784993
+        ],
+        [
+          0.3022387145336303,
+          1.345418958714287,
+          0.22079870092277348
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30000000074505806,
+          -0.0011139154050925498,
+          -0.15737747135733438
+        ],
+        [
+          0.30000000074505806,
+          1.3144665159162519,
+          0.22073939607931115
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3048382247853457,
+          -0.0013611721951013664,
+          -0.15753739704350758
+        ],
+        [
+          0.3008355457995038,
+          1.3153651050307622,
+          0.22086599543168156
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30085997323532454,
+          -0.025861701787874974,
+          -0.2885377903415552
+        ],
+        [
+          0.34710262043423296,
+          1.3105233062898707,
+          0.24063307769160414
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3242077221509254,
+          -0.012486057402029613,
+          -0.2353989323493087
+        ],
+        [
+          0.3057346578458744,
+          1.3153463440497033,
+          0.23734868103407616
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.2990000141660152,
+          -0.022679541144904752,
+          -0.2809271009016584
+        ],
+        [
+          0.3360920640133315,
+          1.3109521044647596,
+          0.2401189247370928
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3035253767006947,
+          -0.009372575550403259,
+          -0.23616890470190202
+        ],
+        [
+          0.31416742059957087,
+          1.3121956445995606,
+          0.23851865928615235
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9150,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          -0.025540997920020514,
+          -0.23432741957324346
+        ],
+        [
+          0.3118563329441045,
+          1.2241873306010003,
+          0.1888360384546935
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9150,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3093721123211839,
+          -0.028360037927845486,
+          -0.2989389001980798
+        ],
+        [
+          0.3695376675625637,
+          1.2210621489542683,
+          0.19168471317751562
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9150,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30000000074505806,
+          -0.021455372069130924,
+          -0.23363491453892626
+        ],
+        [
+          0.30000000074505806,
+          1.2241206446190125,
+          0.18824126301219393
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9150,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3047678602107916,
+          -0.021837418868290936,
+          -0.26684056703672976
+        ],
+        [
+          0.33002118925186275,
+          1.2238486348961062,
+          0.18974154130740023
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          -0.027057734980198214,
+          -0.26830162238350164
+        ],
+        [
+          0.3118563329441045,
+          1.1944123485421358,
+          0.19253490889486688
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3488140742174463,
+          -0.028101130571304672,
+          -0.33431034796965486
+        ],
+        [
+          0.30721329144380727,
+          1.2010634347747826,
+          0.1948054581492774
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30000000074505806,
+          -0.023086128201092224,
+          -0.2674444934259322
+        ],
+        [
+          0.30000000074505806,
+          1.1943475235905125,
+          0.19179874203722058
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3305967065051161,
+          -0.024476173210093724,
+          -0.30096757814674635
+        ],
+        [
+          0.30484919700478313,
+          1.1989577996476748,
+          0.19369103233363597
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30150853693090796,
+          -0.015805398196433555,
+          -0.17180693002298594
+        ],
+        [
+          0.3123506254350854,
+          1.2589629025058522,
+          0.18142663792867844
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30044410860504694,
+          -0.012973156484040634,
+          -0.17877261208738732
+        ],
+        [
+          0.30593827574374066,
+          1.258953852252651,
+          0.18124512487256603
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30000000074505806,
+          -0.011596937817617087,
+          -0.17141573725020787
+        ],
+        [
+          0.30000000074505806,
+          1.258894211606768,
+          0.1810906521336277
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3032359950634247,
+          -0.011206151306913027,
+          -0.17499388710072525
+        ],
+        [
+          0.3005616004045838,
+          1.2594740021179762,
+          0.1811825139252392
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3020028294218889,
+          0.02416066265169911,
+          -0.16095709145843143
+        ],
+        [
+          0.3118563329441045,
+          1.343977754125892,
+          0.2380483891668445
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.33687201521028,
+          0.0115663403521169,
+          -0.16198979159805424
+        ],
+        [
+          0.30571013928207197,
+          1.3343963611686425,
+          0.2672050479790291
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30000000074505806,
+          -0.002377630707607055,
+          -0.1604640861465124
+        ],
+        [
+          0.30000000074505806,
+          1.3129853076330265,
+          0.23767084163077598
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8950,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3244795988735236,
+          -0.0031994961747370126,
+          -0.16147952180343447
+        ],
+        [
+          0.3039646114992528,
+          1.3171700828339499,
+          0.2408179803242248
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3007670981944366,
+          -0.022084293053796028,
+          -0.22172270383075032
+        ],
+        [
+          0.31309206417155677,
+          1.2677077031566815,
+          0.18740427279835595
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3077498140123086,
+          -0.024251758267744436,
+          -0.2818013720234109
+        ],
+        [
+          0.3665992241552144,
+          1.2649301951119927,
+          0.18981688378201578
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.30000000074505806,
+          -0.017859284140383458,
+          -0.22109111441979448
+        ],
+        [
+          0.30000000074505806,
+          1.2676387421508084,
+          0.18686181627780565
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8790,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.3044490474502383,
+          -0.01734748629499823,
+          -0.25189759865150496
+        ],
+        [
+          0.327791680520351,
+          1.2674313292702142,
+          0.18812911571867857
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "robot_neighbor",
+      "file": "partner-robot_neighbor-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2567093893597652,
+          0.27873871504737124,
+          -0.17955295520656203
+        ],
+        [
+          0.2567093893597652,
+          1.5409101599402546,
+          0.17955295520656203
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2567093893597652,
+          0.27873871504737124,
+          -0.17955295520656203
+        ],
+        [
+          0.2567093893597652,
+          1.5409101599402546,
+          0.17955295520656203
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2567093893597652,
+          0.27873871504737124,
+          -0.17955295520656203
+        ],
+        [
+          0.2567093893597652,
+          1.5409101599402546,
+          0.17955295520656203
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2567093893597652,
+          0.27873871504737124,
+          -0.17955295520656203
+        ],
+        [
+          0.2567093893597652,
+          1.5409101599402546,
+          0.17955295520656203
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2567093893597652,
+          0.27873871504737124,
+          -0.17955295520656203
+        ],
+        [
+          0.2567093893597652,
+          1.5409101599402546,
+          0.17955295520656203
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2547011105539732,
+          0.27873871504737124,
+          -0.17653309693924757
+        ],
+        [
+          0.2547011105539732,
+          1.5409101599402546,
+          0.17653309693924757
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.25381539556127686,
+          0.2485263872146607,
+          -0.17521097423377943
+        ],
+        [
+          0.25381539556127686,
+          1.510697832107544,
+          0.17521097423377943
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2527884815981522,
+          0.2485263872146607,
+          -0.17368526970889892
+        ],
+        [
+          0.2527884815981522,
+          1.510697832107544,
+          0.17368526970889892
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2533632535399612,
+          0.3394304878933846,
+          -0.17331148189554632
+        ],
+        [
+          0.2533632535399612,
+          1.6123390510340254,
+          0.19151880451254868
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2529317576118122,
+          0.308525588216201,
+          -0.17267108442418005
+        ],
+        [
+          0.2529317576118122,
+          1.5814072176206466,
+          0.19087840704118242
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2521098841326501,
+          0.24742275624032994,
+          -0.17145498555966848
+        ],
+        [
+          0.2521098841326501,
+          1.520253252325979,
+          0.18966230817667085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.25189191701224223,
+          0.24743080095497483,
+          -0.1711332640159585
+        ],
+        [
+          0.25189191701224223,
+          1.5202477724821601,
+          0.18934058663296086
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2597418115885964,
+          0.26392117038228935,
+          -0.2247067787947601
+        ],
+        [
+          0.2597418115885964,
+          1.5549640620940426,
+          0.21791232875518832
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.26766165278086657,
+          0.2631733724045088,
+          -0.2371551188742207
+        ],
+        [
+          0.26766165278086657,
+          1.5553119560562405,
+          0.22351986994680373
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2553862304393979,
+          0.23410547343670296,
+          -0.21810419853157983
+        ],
+        [
+          0.2553862304393979,
+          1.5245636113447927,
+          0.21482842911513428
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2596240892042747,
+          0.23371968741118987,
+          -0.22452624805054738
+        ],
+        [
+          0.2596240892042747,
+          1.5247466223590096,
+          0.21782897718851463
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7412,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.26046845288607073,
+          0.24472253799268007,
+          -0.19807462737131803
+        ],
+        [
+          0.26046845288607073,
+          1.450897903276679,
+          0.2191212510804359
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7412,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2683739417474126,
+          0.24413500780231423,
+          -0.20570578751890617
+        ],
+        [
+          0.2683739417474126,
+          1.4513315144937775,
+          0.23161147449007607
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7412,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2557665130781064,
+          0.21484668726668577,
+          -0.19360833081585088
+        ],
+        [
+          0.2557665130781064,
+          1.4204469245702889,
+          0.21196813060419656
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7412,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2600164195888167,
+          0.21454294047532718,
+          -0.19764311195402212
+        ],
+        [
+          0.2600164195888167,
+          1.4206620648134933,
+          0.21842544181346063
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2584685465110923,
+          0.23633202633927997,
+          -0.2065391294966215
+        ],
+        [
+          0.2584685465110923,
+          1.4196442259213458,
+          0.2227605060785472
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2526629332560655,
+          0.2368133719625144,
+          -0.20106726214646037
+        ],
+        [
+          0.2526629332560655,
+          1.4193086347067236,
+          0.2140509432196438
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.25472356330112045,
+          0.20643182365433632,
+          -0.2030029925880991
+        ],
+        [
+          0.25472356330112045,
+          1.3892131189336951,
+          0.2171128519541502
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.25175633911272965,
+          0.2066749616653193,
+          -0.2002177271536911
+        ],
+        [
+          0.25175633911272965,
+          1.3890456677946763,
+          0.21271346472005695
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2579742540201113,
+          0.2618291579731109,
+          -0.19920264720554032
+        ],
+        [
+          0.2589628390020732,
+          1.4853366938318668,
+          0.18099532458853798
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.26726975559477345,
+          0.26147912788936,
+          -0.21378419544629412
+        ],
+        [
+          0.2682583405767353,
+          1.4855786107951756,
+          0.1955768728292918
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.25472356330112045,
+          0.23175260404040265,
+          -0.19354658001410285
+        ],
+        [
+          0.25472356330112045,
+          1.4550313505792345,
+          0.17533925739710052
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2596803618732572,
+          0.23157230610549806,
+          -0.20105742881700445
+        ],
+        [
+          0.2596803618732572,
+          1.4551549643487967,
+          0.1828501062000021
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.25211990129224326,
+          0.3025303684524867,
+          -0.17267469923564321
+        ],
+        [
+          0.25211990129224326,
+          1.581452694171913,
+          0.21324912913553
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2694295763363311,
+          0.2854613940468894,
+          -0.1963496733413504
+        ],
+        [
+          0.2694295763363311,
+          1.5670970132898492,
+          0.2400255832282956
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.251482969249799,
+          0.24145346559805714,
+          -0.1720772621732881
+        ],
+        [
+          0.251482969249799,
+          1.520281090726421,
+          0.21231129068984103
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7212,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.26060175416826703,
+          0.24062940088118878,
+          -0.1823533074994971
+        ],
+        [
+          0.26060175416826703,
+          1.5208443676916754,
+          0.22602921738644227
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2593796838493577,
+          0.2631829234309314,
+          -0.18552022649203023
+        ],
+        [
+          0.2618511463042623,
+          1.498782833138919,
+          0.18552022649203023
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2626444591164518,
+          0.2631829234309314,
+          -0.19061239728379634
+        ],
+        [
+          0.2651159215713564,
+          1.498782833138919,
+          0.19061239728379634
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.25584361560895663,
+          0.23297059559822086,
+          -0.1782472593795926
+        ],
+        [
+          0.25584361560895663,
+          1.4685705053062086,
+          0.1782472593795926
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7052,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2575739190014422,
+          0.23297059559822086,
+          -0.1808627267497762
+        ],
+        [
+          0.2575739190014422,
+          1.4685705053062086,
+          0.1808627267497762
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "snow_spirit",
+      "file": "partner-snow_spirit-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33068849771201053,
+          0.206384003753197,
+          -0.17418700734731496
+        ],
+        [
+          0.5969523376197146,
+          1.3139999228663561,
+          0.15724962569329914
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33068849771201053,
+          0.206384003753197,
+          -0.17418700734731496
+        ],
+        [
+          0.5969523376197146,
+          1.3139999228663561,
+          0.15724962569329914
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33068849771201053,
+          0.206384003753197,
+          -0.17418700734731496
+        ],
+        [
+          0.5969523376197146,
+          1.3139999228663561,
+          0.15724962569329914
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33068849771201053,
+          0.206384003753197,
+          -0.17418700734731496
+        ],
+        [
+          0.5969523376197146,
+          1.3139999228663561,
+          0.15724962569329914
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33068849771201053,
+          0.206384003753197,
+          -0.17418700734731496
+        ],
+        [
+          0.5969523376197146,
+          1.3139999228663561,
+          0.15724962569329914
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33062246705861065,
+          0.206384003753197,
+          -0.1710100738330865
+        ],
+        [
+          0.5696302050441471,
+          1.3139999228663561,
+          0.25141752242074816
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33057815706269295,
+          0.17617167592048644,
+          -0.16961987518394858
+        ],
+        [
+          0.5954752839022321,
+          1.2837875950336457,
+          0.1566173946431256
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33051556349240013,
+          0.17617167592048644,
+          -0.16801612807408417
+        ],
+        [
+          0.5944784260318825,
+          1.2837875950336457,
+          0.1788131924651481
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3309996892259069,
+          0.2676761861722475,
+          -0.19078645566068955
+        ],
+        [
+          0.5771704178847012,
+          1.3837482755967012,
+          0.24487070736091293
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3308953019424705,
+          0.23336424176493703,
+          -0.2834699347299782
+        ],
+        [
+          0.5601562931886896,
+          1.352810454660229,
+          0.15650952610115745
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33069156220963325,
+          0.1758932351044527,
+          -0.1888361603296928
+        ],
+        [
+          0.5954612282401521,
+          1.2916451526665969,
+          0.1839990907997511
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3306364621048249,
+          0.1741393656367488,
+          -0.2071512522423234
+        ],
+        [
+          0.5847689583288971,
+          1.2916366809625093,
+          0.15553142835381933
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3306922393741392,
+          0.19548038054158567,
+          -0.3114186475238148
+        ],
+        [
+          0.5900169886810707,
+          1.3434297778713713,
+          0.2451103909008333
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33007596470179923,
+          0.19374841758079542,
+          -0.39761467282168433
+        ],
+        [
+          0.5115825286806921,
+          1.3439259018766256,
+          0.24947655632120896
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3306504447390372,
+          0.1656160534136717,
+          -0.3069731848187097
+        ],
+        [
+          0.5903292052634576,
+          1.312946538624126,
+          0.2426282129504024
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33069435677656855,
+          0.16440410262808525,
+          -0.3112988338671471
+        ],
+        [
+          0.5725012608422989,
+          1.313210111349662,
+          0.24504399330718935
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12036,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33067496356449544,
+          0.17365740414936515,
+          -0.2754804244709089
+        ],
+        [
+          0.5721988890604064,
+          1.2520745634197312,
+          0.16920693027639466
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12036,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33332526399756157,
+          0.17833217717115418,
+          -0.28819018581671685
+        ],
+        [
+          0.5788714840357847,
+          1.252755262147161,
+          0.2551033637205798
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12036,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33066355957753246,
+          0.1462520239788478,
+          -0.26808474178974506
+        ],
+        [
+          0.5877141920041464,
+          1.2214905806785228,
+          0.16473969994017512
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12036,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33236693926186106,
+          0.14861751440892024,
+          -0.2747645965734628
+        ],
+        [
+          0.5956590388547296,
+          1.2218255269282927,
+          0.19644769919275332
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33070526375921927,
+          0.16482617138753536,
+          -0.2937273388148804
+        ],
+        [
+          0.5660277912643599,
+          1.2285379586680105,
+          0.16977243621123145
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33082936583146216,
+          0.1709324798464983,
+          -0.28469333840525185
+        ],
+        [
+          0.5401247170763936,
+          1.2280164072578552,
+          0.3437584969444651
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3306234717399557,
+          0.13844001797136313,
+          -0.2878857185517046
+        ],
+        [
+          0.5862138402105141,
+          1.1979851264974866,
+          0.16623395068503088
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3306019659780726,
+          0.14143041052675748,
+          -0.28329344390942357
+        ],
+        [
+          0.5897073834105458,
+          1.1977257586940593,
+          0.24354512628135044
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33021097126823834,
+          0.1941108421376434,
+          -0.21547114312704066
+        ],
+        [
+          0.5960315888193064,
+          1.274578009368391,
+          0.17930890805265337
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.32956697745215824,
+          0.19371209766432762,
+          -0.23860540474100755
+        ],
+        [
+          0.5780636652477189,
+          1.2749488101926705,
+          0.18836520867083312
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3306234717399557,
+          0.16394727714656154,
+          -0.2095456303395554
+        ],
+        [
+          0.5933881551572484,
+          1.2442225422976987,
+          0.17574255916310957
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33069336814198613,
+          0.1637307803806059,
+          -0.21741200536060132
+        ],
+        [
+          0.5889024811969567,
+          1.2444127016070425,
+          0.18047216832819085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3304684860906613,
+          0.23179258008781717,
+          -0.2029376553754535
+        ],
+        [
+          0.5882176627196818,
+          1.3530659504626985,
+          0.22967423946841914
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33337415890200867,
+          0.21552233654646197,
+          -0.2311178353563036
+        ],
+        [
+          0.5512132329801629,
+          1.3393368048705068,
+          0.3212513709378719
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33041909286884164,
+          0.17117089159964882,
+          -0.2019524681022381
+        ],
+        [
+          0.5964805793749254,
+          1.2918734127338354,
+          0.18588546522051422
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11836,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3324637442659381,
+          0.17061321907405214,
+          -0.21637468610471527
+        ],
+        [
+          0.5916211233410541,
+          1.2927494113925535,
+          0.23392550533992434
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.32943484884689356,
+          0.19299885347558243,
+          -0.2538813522162544
+        ],
+        [
+          0.5757883074975233,
+          1.2910919374580634,
+          0.18231513007921452
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.33169188103689307,
+          0.19299885347558243,
+          -0.25914054542312764
+        ],
+        [
+          0.5978978049964796,
+          1.2910919374580634,
+          0.18546654394991557
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3306660061665745,
+          0.16278652564287188,
+          -0.24632199045533093
+        ],
+        [
+          0.5882784093115855,
+          1.260879609625353,
+          0.1777622205968576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11676,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.3319202633006269,
+          0.16278652564287188,
+          -0.24904673261343788
+        ],
+        [
+          0.5943977676205479,
+          1.260879609625353,
+          0.17940632488829286
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "sea_mermaid",
+      "file": "partner-sea_mermaid-0-sick-walk-reduced.jpg"
+    }
+  ],
+  "distance": [
+    {
+      "kind": "companion",
+      "id": "unicorn",
+      "key": "companion:unicorn",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "companion:unicorn",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20688,
+        "meshes": 30,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 15.33,
+        "cpuMsP95": 42.9,
+        "buildMsTotal": 346.4,
+        "buildMsMax": 304,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-unicorn-distance-front.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "unicorn",
+      "key": "companion:unicorn",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.1415926535897936,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "companion:unicorn",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20688,
+        "meshes": 30,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 5.032,
+        "cpuMsP95": 0.3,
+        "buildMsTotal": 346.4,
+        "buildMsMax": 304,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-unicorn-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "cat_ceo",
+      "key": "partner:cat_ceo",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:cat_ceo",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17782,
+        "meshes": 32,
+        "bones": 27,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 12.757,
+        "cpuMsP95": 53.3,
+        "buildMsTotal": 287.4,
+        "buildMsMax": 235.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-cat_ceo-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "cat_ceo",
+      "key": "partner:cat_ceo",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:cat_ceo",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17782,
+        "meshes": 32,
+        "bones": 27,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 4.555,
+        "cpuMsP95": 0.4,
+        "buildMsTotal": 287.4,
+        "buildMsMax": 235.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-cat_ceo-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "robot_neighbor",
+      "key": "partner:robot_neighbor",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:robot_neighbor",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13012,
+        "meshes": 35,
+        "bones": 29,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 7.317,
+        "cpuMsP95": 46.6,
+        "buildMsTotal": 159.1,
+        "buildMsMax": 113.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-robot_neighbor-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "robot_neighbor",
+      "key": "partner:robot_neighbor",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:robot_neighbor",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13012,
+        "meshes": 35,
+        "bones": 29,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 2.554,
+        "cpuMsP95": 0.8,
+        "buildMsTotal": 159.1,
+        "buildMsMax": 113.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-robot_neighbor-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "snow_spirit",
+      "key": "partner:snow_spirit",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:snow_spirit",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 11274,
+        "meshes": 24,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 10.252,
+        "cpuMsP95": 75.5,
+        "buildMsTotal": 229.6,
+        "buildMsMax": 155,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-snow_spirit-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "snow_spirit",
+      "key": "partner:snow_spirit",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:snow_spirit",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 11274,
+        "meshes": 24,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 3.499,
+        "cpuMsP95": 0.8,
+        "buildMsTotal": 229.6,
+        "buildMsMax": 155,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-snow_spirit-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "sea_mermaid",
+      "key": "partner:sea_mermaid",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:sea_mermaid",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15898,
+        "meshes": 29,
+        "bones": 25,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 10.822,
+        "cpuMsP95": 52.4,
+        "buildMsTotal": 242.9,
+        "buildMsMax": 191.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-sea_mermaid-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "sea_mermaid",
+      "key": "partner:sea_mermaid",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:sea_mermaid",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15898,
+        "meshes": 29,
+        "bones": 25,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 3.634,
+        "cpuMsP95": 0.4,
+        "buildMsTotal": 242.9,
+        "buildMsMax": 191.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-sea_mermaid-distance-back.jpg"
+    }
+  ],
+  "errors": []
+}

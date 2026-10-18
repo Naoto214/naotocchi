@@ -1,0 +1,14 @@
+{
+  "sourceCommit": "717c9e13c6a15eb7799bd784219b6ecd23957e09",
+  "dedicatedJob": 112297614301,
+  "conclusion": "failure",
+  "mechanism": "TAP assertion printed complete identical vertex arrays, exceeding spawnSync default output buffer; mutation child terminated before expected exit1",
+  "localReproduction": {
+    "reporter": "tap",
+    "status": null,
+    "error": "ENOBUFS",
+    "signal": "SIGTERM",
+    "stdoutBytes": 1061001
+  },
+  "fix": "Compare same vertex equality with a boolean assertion to keep failure output bounded; explicitly use TAP in botanical mutation runner. Same4 semantic cases still RED; no output buffer expansion or removed assertion."
+}

@@ -1,0 +1,1450 @@
+[
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 104,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4790,
+      4060
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 104,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4790,
+      4060
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 105,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      2960,
+      4560
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 105,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      2960,
+      4560
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 106,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4420,
+      4100
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 106,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4420,
+      4100
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 107,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6700,
+      6450
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 107,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6700,
+      6450
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 108,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4370,
+      4940
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 108,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4370,
+      4940
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 109,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "death",
+    "deaths": [
+      {
+        "action": 374,
+        "drop": 227,
+        "wave": 2
+      },
+      null
+    ],
+    "scores": [
+      10120,
+      7390
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 109,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "death",
+    "deaths": [
+      {
+        "action": 374,
+        "drop": 227,
+        "wave": 2
+      },
+      null
+    ],
+    "scores": [
+      10120,
+      7390
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 110,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5440,
+      4390
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 110,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5440,
+      4390
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 111,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "death",
+    "deaths": [
+      {
+        "action": 228,
+        "drop": 153,
+        "wave": 2
+      },
+      null
+    ],
+    "scores": [
+      6690,
+      8230
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 111,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "death",
+    "deaths": [
+      {
+        "action": 228,
+        "drop": 153,
+        "wave": 2
+      },
+      null
+    ],
+    "scores": [
+      6690,
+      8230
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 112,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5470,
+      5910
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 112,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5470,
+      5910
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 113,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5450,
+      5490
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 113,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5450,
+      5490
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 114,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4320,
+      4430
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 114,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4320,
+      4430
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 115,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      3520,
+      6320
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 115,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      3520,
+      6320
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 116,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6200,
+      5750
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 116,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6200,
+      5750
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 117,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "death",
+    "deaths": [
+      null,
+      {
+        "action": 201,
+        "drop": 140,
+        "wave": 4
+      }
+    ],
+    "scores": [
+      4390,
+      11490
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 117,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "death",
+    "deaths": [
+      null,
+      {
+        "action": 201,
+        "drop": 140,
+        "wave": 4
+      }
+    ],
+    "scores": [
+      4390,
+      11490
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 118,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4870,
+      6460
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 118,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4870,
+      6460
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 119,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6310,
+      5860
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 119,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6310,
+      5860
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 120,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "death",
+    "deaths": [
+      {
+        "action": 385,
+        "drop": 241,
+        "wave": 2
+      },
+      null
+    ],
+    "scores": [
+      12640,
+      4920
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 120,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "death",
+    "deaths": [
+      {
+        "action": 385,
+        "drop": 241,
+        "wave": 2
+      },
+      null
+    ],
+    "scores": [
+      12640,
+      4920
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 121,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6410,
+      5520
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 121,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6410,
+      5520
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 122,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      2490,
+      4190
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 122,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      2490,
+      4190
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 123,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4190,
+      5740
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 123,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4190,
+      5740
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 124,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5420,
+      6510
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 124,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5420,
+      6510
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 125,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5280,
+      5550
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 125,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5280,
+      5550
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 126,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      3920,
+      5200
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 126,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      3920,
+      5200
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 127,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "death",
+    "deaths": [
+      null,
+      {
+        "action": 330,
+        "drop": 215,
+        "wave": 3
+      }
+    ],
+    "scores": [
+      6390,
+      8290
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 127,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "death",
+    "deaths": [
+      null,
+      {
+        "action": 330,
+        "drop": 215,
+        "wave": 3
+      }
+    ],
+    "scores": [
+      6390,
+      8290
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 128,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5160,
+      6440
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 128,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      5160,
+      6440
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 129,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      7180,
+      6360
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 129,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      7180,
+      6360
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 130,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      7410,
+      5860
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 130,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      7410,
+      5860
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 131,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4860,
+      7790
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 131,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4860,
+      7790
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 132,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4630,
+      5870
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 132,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4630,
+      5870
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 133,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6850,
+      5660
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 133,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "A",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      6850,
+      5660
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 134,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4500,
+      5740
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 134,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      4500,
+      5740
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 135,
+    "experimental": true,
+    "clock": "actions",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      3950,
+      4870
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  },
+  {
+    "mode": "evolution",
+    "a": "active",
+    "b": "reserve",
+    "seed": 135,
+    "experimental": true,
+    "clock": "slots",
+    "winner": "B",
+    "reason": "score",
+    "deaths": [
+      null,
+      null
+    ],
+    "scores": [
+      3950,
+      4870
+    ],
+    "ended": [
+      true,
+      true
+    ]
+  }
+]

@@ -28,6 +28,7 @@
       if (c.state === 'suspended') { try { c.resume(); } catch (err) {} }
       unlocked = true;
       startScheduler();
+      voiceUnlock();
     }
     // --- こうかおん の 部品 ---
     function tone(freq, dur, o = {}) {
@@ -285,6 +286,106 @@
     document.addEventListener('pointerdown', unlockHandler, true);
     document.addEventListener('keydown', unlockHandler, true);
     document.addEventListener('visibilitychange', () => { if (!ctx) return; if (document.hidden) { try { ctx.suspend(); } catch (err) {} } else if (unlocked) { try { ctx.resume(); } catch (err) {} } });
-    return { play, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
+    // --- こえ(クイックモードの 指示「よけろ!」など) ---
+    // モード(state.lifetime.quickVoice): 'pico' = キャラボイス(音の つぶで しゃべる)、
+    // 'tts' = ブラウザの よみあげ(初期値)、'off' = こえなし。こうかおん OFF なら どれも 鳴らない。
+    const voiceMode = () => { const state = getState(); const m = state && state.lifetime && state.lifetime.quickVoice; return m === 'pico' || m === 'off' ? m : 'tts'; };
+    // よみあげの あいだ BGM と こうかおんを さげて、ことばが うもれない ように する
+    let duckTimer = null;
+    function duck(ms) {
+      const c = ensure(); if (!c || !bgmBus || !sfxBus) return;
+      const t = c.currentTime;
+      try { bgmBus.gain.cancelScheduledValues(t); bgmBus.gain.setValueAtTime(bgmBus.gain.value, t); bgmBus.gain.linearRampToValueAtTime(0.04, t + 0.05); sfxBus.gain.cancelScheduledValues(t); sfxBus.gain.setValueAtTime(sfxBus.gain.value, t); sfxBus.gain.linearRampToValueAtTime(0.45, t + 0.05); } catch (err) {}
+      clearTimeout(duckTimer);
+      duckTimer = setTimeout(() => { const c2 = ensure(); if (!c2) return; const t2 = c2.currentTime; try { bgmBus.gain.cancelScheduledValues(t2); bgmBus.gain.setValueAtTime(bgmBus.gain.value, t2); bgmBus.gain.linearRampToValueAtTime(0.28, t2 + 0.25); sfxBus.gain.cancelScheduledValues(t2); sfxBus.gain.setValueAtTime(sfxBus.gain.value, t2); sfxBus.gain.linearRampToValueAtTime(0.9, t2 + 0.2); } catch (err) {} }, ms);
+    }
+    // [キャラボイス] かなを 1文字ずつ「ぴこ」と ならす。ぼいんで たかさ、しいんで 出だしの
+    // 音色を かえ、「！」で さいごを あげる。ロボットの よみあげより ゲームらしく、みじかい
+    const KANA_VOWEL = { a: 0, i: 1, u: 2, e: 3, o: 4 };
+    const KANA = {};
+    (() => {
+      const rows = [['あいうえお', ''], ['かきくけこ', 'k'], ['さしすせそ', 's'], ['たちつてと', 't'], ['なにぬねの', 'n'], ['はひふへほ', 'h'], ['まみむめも', 'm'], ['やゆよ', 'y'], ['らりるれろ', 'r'], ['わを', 'w'], ['がぎぐげご', 'g'], ['ざじずぜぞ', 'z'], ['だぢづでど', 'd'], ['ばびぶべぼ', 'b'], ['ぱぴぷぺぽ', 'p']];
+      for (const [row, c] of rows) { const vs = row.length === 3 ? ['a', 'u', 'o'] : row.length === 2 ? ['a', 'o'] : ['a', 'i', 'u', 'e', 'o']; [...row].forEach((ch, k) => { KANA[ch] = { c, v: vs[k] }; }); }
+      for (const [s, t] of [['ゃ', 'や'], ['ゅ', 'ゆ'], ['ょ', 'よ'], ['ぁ', 'あ'], ['ぃ', 'い'], ['ぅ', 'う'], ['ぇ', 'え'], ['ぉ', 'お']]) KANA[s] = KANA[t];
+      KANA['ん'] = { c: 'n', v: 'u' }; KANA['っ'] = null; KANA['ー'] = 'long';
+    })();
+    function pico(text) {
+      const c = ensure(); if (!c || !unlocked || !sfxOn()) return false;
+      let t0 = c.currentTime + 0.02;
+      const chars = [...String(text).replace(/[！!?？。、 　]/g, (m) => (m === '！' || m === '!' ? '!' : ''))];
+      const base = 520 + Math.random() * 60;
+      let n = 0;
+      for (let i = 0; i < chars.length; i++) {
+        const ch = chars[i]; const k = KANA[ch];
+        if (ch === '!') { continue; }
+        if (k === undefined || k === null) { if (k === null) t0 += 0.04; continue; }
+        const isLast = !chars.slice(i + 1).some((x) => KANA[x] && KANA[x] !== 'long');
+        const rising = chars.includes('!') && isLast;
+        const vowel = k === 'long' ? 2 : KANA_VOWEL[k.v];
+        const freq = base * Math.pow(2, ([0, 5, 2, 3, -1][vowel] + (rising ? 5 : 0) - (i % 2) * 0.5) / 12);
+        const dur = k === 'long' ? 0.14 : 0.09;
+        const cons = k === 'long' ? '' : k.c;
+        // しいん: k/t/p は はじける 出だし、s/h は いき、n/m/r/y/w は やわらかい
+        if (cons === 'k' || cons === 't' || cons === 'p' || cons === 'g' || cons === 'd' || cons === 'b') noise(0.03, { vol: 0.05, freq: 2200, freqEnd: 900, delay: t0 - c.currentTime });
+        else if (cons === 's' || cons === 'z' || cons === 'h') noise(0.05, { vol: 0.03, filter: 'highpass', freq: 3000, delay: t0 - c.currentTime });
+        tone(freq, dur, { type: 'triangle', vol: 0.11, attack: 0.012, slide: rising ? 80 : -25, delay: t0 - c.currentTime });
+        tone(freq * 2.01, dur * 0.7, { type: 'sine', vol: 0.035, attack: 0.01, delay: t0 - c.currentTime + 0.01 });
+        t0 += dur + 0.025; n++;
+      }
+      return n > 0;
+    }
+    // [よみあげ] iPhone/Safari の くせ: さいしょの タップの なかで 1かい しゃべらせて 解錠、
+    // utterance は 変数に もっておく(もっていないと とちゅうで 切れる)、pause 状態なら resume
+    let voiceReady = false, jaVoice = null, currentUtter = null;
+    function synth() { try { return typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined' ? speechSynthesis : null; } catch (err) { return null; } }
+    function pickVoice(ss) {
+      if (jaVoice) return jaVoice;
+      let list = []; try { list = ss.getVoices() || []; } catch (err) { list = []; }
+      const ja = list.filter((v) => /^ja/i.test(v.lang || ''));
+      // 「(Enhanced)/プレミアム/Google」など しつの たかい こえを ゆうせん
+      jaVoice = ja.find((v) => /enhanced|premium|siri|拡張|プレミアム/i.test(v.name || '')) || ja.find((v) => /google|kyoko|o-ren|otoya/i.test(v.name || '')) || ja[0] || null;
+      return jaVoice;
+    }
+    function voiceUnlock() {
+      const ss = synth(); if (!ss || voiceReady) return;
+      try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; u.lang = 'ja-JP'; ss.speak(u); voiceReady = true; } catch (err) {}
+    }
+    // クイックの かけごえ用に ことばを ととのえる: みじかく・パッと・まを つくらない。
+    //  ・めいれい(たべろ)は「たべろっ!」— つまる おと + ! で 語尾を のばさず きる
+    //  ・しつもん(こいびとは)は「こいびとは?」— 語尾を あげる
+    //  ・話速は もじ数で かえる(みじかい ことばは 1.22、ながい ことばほど はやく、上限 1.4)。
+    //    ぜんたいを はやまわしする のではなく、合成時の rate/pitch で いきおいを つける
+    function shapeCue(text, o = {}) {
+      let t = String(text).replace(/[！!？?。 　]/g, '').replace(/…/g, '、');
+      const morae = t.replace(/[ゃゅょぁぃぅぇぉャュョァィゥェォ、]/g, '').length;
+      const rate = o.rate || Math.min(1.4, morae <= 3 ? 1.22 : morae <= 6 ? 1.28 : 1.36);
+      if (o.question) t += '?';
+      else if (!/[っッんンー]$/.test(t)) t += 'っ!'; else t += '!';
+      return { text: t, rate, pitch: o.pitch || (o.question ? 1.15 : 1.12), morae };
+    }
+    function tts(text, o = {}) {
+      const ss = synth(); if (!ss) return false;
+      try {
+        if (ss.paused) ss.resume();
+        ss.cancel();
+        const c = shapeCue(text, o);
+        const u = new SpeechSynthesisUtterance(c.text);
+        u.lang = 'ja-JP'; u.rate = c.rate; u.pitch = c.pitch; u.volume = 1;
+        const v = pickVoice(ss); if (v) u.voice = v;
+        currentUtter = u;
+        u.onend = () => { if (currentUtter === u) currentUtter = null; };
+        duck(Math.max(450, 150 * c.morae));
+        ss.speak(u);
+        return true;
+      } catch (err) { return false; }
+    }
+    function voice(text, o = {}) {
+      if (!text || !sfxOn()) return false;
+      const mode = o.mode || voiceMode();
+      if (mode === 'off') return false;
+      if (mode === 'tts') return tts(text, o);
+      return pico(text);
+    }
+    return { play, voice, voiceMode, _shapeCue: shapeCue, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
   };
 })();

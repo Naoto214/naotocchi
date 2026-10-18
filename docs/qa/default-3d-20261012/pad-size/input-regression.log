@@ -1,0 +1,77 @@
+✔ every minigame maps to one of the intro demo kinds, and the kinds are varied (470.037508ms)
+✔ the intro card carries a demo canvas tagged with the demo kind (138.088379ms)
+✔ swipe thresholds are unified through MG_SWIPE_MIN and hold timing through MG_HOLD_PROFILES (175.632963ms)
+✔ the result toast offers a retry button that restarts the same game (124.51412ms)
+✔ the result toast has no retry button before any game was played (97.652319ms)
+✔ the intro card shows for the first three plays and the help overlay works any time (120.269855ms)
+✔ steps pad fires the moment a direction is clear, once per flick, without waiting for release (87.861026ms)
+✔ turn-based steps pad needs a longer drag for the second cell in the same direction (170.189396ms)
+✔ delta pad glides at the pad edge while pushing outward and stops when the finger comes back (40.84613ms)
+✔ vector pad keeps the direction of the real movement, not the wobble when the finger stops (65.65914ms)
+[naotocchi] minigame Error: boom
+    at frame (/workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/minigame-lifecycle-test.cjs:220:60)
+    at mgRunTagged (evalmachine.<anonymous>:38990:17)
+    at evalmachine.<anonymous>:39035:9
+    at /workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/helpers/runtime-harness.cjs:234:49
+    at Object.fn (/workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/helpers/runtime-harness.cjs:207:82)
+    at Object.advance (/workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/helpers/runtime-harness.cjs:323:57)
+    at TestContext.<anonymous> (/workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/minigame-lifecycle-test.cjs:224:5)
+    at Test.runInAsyncScope (node:async_hooks:227:14)
+    at Test.run (node:internal/test_runner/test:1382:25)
+    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+[naotocchi] minigame Error: start boom
+    at Object.start (/workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/minigame-lifecycle-test.cjs:237:59)
+    at evalmachine.<anonymous>:39369:39
+    at mgRunTagged (evalmachine.<anonymous>:38990:17)
+    at launch (evalmachine.<anonymous>:39369:7)
+    at Object.startMinigame (evalmachine.<anonymous>:39374:10)
+    at TestContext.<anonymous> (/workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/minigame-lifecycle-test.cjs:237:9)
+    at Test.runInAsyncScope (node:async_hooks:227:14)
+    at Test.run (node:internal/test_runner/test:1382:25)
+    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    at Test.postRun (node:internal/test_runner/test:1522:19)
+✔ score 10 keeps results readable before the reaction begins (549.444412ms)
+✔ score 90 keeps results readable before the reaction begins (154.536761ms)
+✔ a new care conversation replaces results and cancels the delayed game reaction (215.906884ms)
+✔ replaying cancels the delayed reaction and old result controls (173.589768ms)
+✔ retire clears a held key before the next game (250.078197ms)
+✔ complete clears a held key before the next game (177.390598ms)
+✔ blur releases keyboard steering and allows a new press (259.786723ms)
+✔ hidden releases keyboard steering and allows a new press (177.534573ms)
+✔ a background switch stops repeating button input without ending the game (47.994549ms)
+✔ a background switch releases a touch-held control without a pointerup (60.595648ms)
+✔ input scope is restored when an event never bubbles to window (83.280341ms)
+✔ all 100 registered games can retire without delayed rewards or repopulating the screen (1441.22506ms)
+▶ first-play instructions include each dynamic goal needed to finish the game
+  ✔ tilt-maze-3d (13.660406ms)
+  ✔ pingpong-3d (16.018805ms)
+  ✔ sudoku-mini (13.009665ms)
+  ✔ area-claim (5.266398ms)
+  ✔ beach-volley (16.482191ms)
+✔ first-play instructions include each dynamic goal needed to finish the game (188.495547ms)
+✔ Sudoku instructions follow the actual 4×4 board (199.130146ms)
+✔ Sudoku instructions follow the actual 6×6 board (205.540165ms)
+✔ Mancala explains sowing toward the right-hand own store and follows that path (128.306525ms)
+✔ a game whose frame loop throws is closed without rewards and the next game works (180.747381ms)
+✔ a game that throws while starting is closed cleanly (106.174142ms)
+✔ game pass five-second timer refreshes UI and respects null (124.446228ms)
+✔ game pass five-second timer refreshes UI and respects sleep (230.269802ms)
+✔ game pass five-second timer refreshes UI and respects dead (226.53041ms)
+✔ game pass five-second timer refreshes UI and respects transform (136.475695ms)
+✔ game pass reload retains only the unexpired part of its five-second deadline (360.353742ms)
+✔ game pass infinite return preserves its remaining cooldown (116.505535ms)
+✔ game pass infinite return preserves its remaining cooldown after reload (225.622306ms)
+✔ game pass infinite return without an old-life snapshot retains its deadline (75.352007ms)
+✔ game pass infinite return never shortens a later saved normal-life deadline (91.991118ms)
+✔ presentation flag=false: discovered ordinary spots remain recorded with mode-specific map display (1999.166273ms)
+✔ presentation flag=false: ordinary, landmark and zone notifications preserve their mode (13721.695388ms)
+✔ presentation flag=true: discovered ordinary spots remain recorded with mode-specific map display (5072.491885ms)
+✔ presentation flag=true: ordinary, landmark and zone notifications preserve their mode (4436.033231ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 46
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26002.137602

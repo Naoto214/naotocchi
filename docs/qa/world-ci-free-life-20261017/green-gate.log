@@ -1,0 +1,13 @@
+✔ browser gate rejects vanished player, orphan holders, resource leaks, and 2D city (2.023263ms)
+✔ save isolation requires all four independently observed boundaries (0.353825ms)
+✔ browser fixture uses native production player and companion identities (113.233357ms)
+✔ reduced motion checks actual app motion and animation, not only matchMedia (0.418251ms)
+✔ normal startup accepts one visible player while explicit cast still requires three bodies (0.204223ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 197.217871

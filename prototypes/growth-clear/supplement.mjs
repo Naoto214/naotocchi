@@ -1,0 +1,10 @@
+// Predeclared follow-up after primary results: survival to160, long horizon and stronger low-cost beam.
+import fs from 'node:fs';import {createSession,applyAction,stateHash,replay} from './session.mjs';import {chooseAction} from './policy.mjs';import {newMetrics,observe} from './metrics.mjs';
+const out=new URL('./supplement-results/',import.meta.url);fs.mkdirSync(out,{recursive:true});
+const manifest={version:1,reason:'Primary screen: low occupancy but low clear rate; distinguish capped time, policy weakness and price.',seeds:Array.from({length:16},(_,i)=>4100+i),configs:[{id:'survival-old',mode:'old',gaugeUnit:8,policy:'focus',cap:160,stop:false},{id:'survival-new',mode:'new',gaugeUnit:8,policy:'focus',cap:160,stop:false},{id:'long-8',mode:'new',gaugeUnit:8,policy:'focus',cap:640,stop:true},{id:'long-2',mode:'new',gaugeUnit:2,policy:'focus',cap:640,stop:true},{id:'beam-2',mode:'new',gaugeUnit:2,policy:'beam',cap:160,stop:true}]};
+fs.writeFileSync(new URL('./supplement-manifest.json',import.meta.url),JSON.stringify(manifest,null,2));
+let i=0;const shard=Number(process.argv[2]||0),shards=Number(process.argv[3]||1);
+for(const config of manifest.configs)for(const seed of manifest.seeds){if(i++%shards!==shard)continue;const dest=new URL(`${config.id}-${seed}.json`,out);if(fs.existsSync(dest))continue;let s=createSession(seed,config),initial=structuredClone(s),metrics=newMetrics(),actions=[],streak=0;
+ while(!s.over&&s.drops<config.cap&&s.actions<config.cap*4&&(!config.stop||!metrics.success)){const a=chooseAction(s,{...config,items:streak<3});if(!a)break;const z=applyAction(s,a,true);observe(metrics,s,z,a);actions.push(a);streak=a.type==='drop'?0:streak+1;s=z;}
+ const record={initial,actions,hash:stateHash(s)};replay(record);const result={config,seed,drops:s.drops,actions:s.actions,over:s.over,censored:!s.over&&(!config.stop||!metrics.success),metrics,occupancy:metrics.occupancySum/metrics.observations,record};fs.writeFileSync(dest,JSON.stringify(result));console.log(config.id,seed,s.drops,metrics.success,s.over);
+}

@@ -1,0 +1,500 @@
+{
+  "complete": true,
+  "reviewer": "independent world_tree_original_review",
+  "method": "全80完成PNGを原寸128×128と6倍nearestで各個別実見。全8元画像も原寸/6倍実見。段階ごとのSHA記録を統合し最終全80SHA照合。",
+  "unresolved": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "01 tired/weak、04小顔全般、05 tired/weak、06〜08不調系は原寸で差が控えめ。",
+    "02中央シアン小意匠はhappy/strained/sick/tired/weak/criticalで弱いか消失。二葉・茎・根・土の主要構造は保持。",
+    "04 criticalは小さい食いしばり口、02 criticalは静かな消耗型、08 criticalは目を強く閉じ力む表現。激しい大開口の苦悶とはしない。",
+    "非顔部分には生成由来の細かな差があるため全pixel一致とはしない。",
+    "PNG表情の受理であり、マーク合成/配置/動作/保存の完了判定ではない。"
+  ],
+  "records": [
+    {
+      "path": "assets/characters/expressions/world_tree/01-critical.png",
+      "sha256": "0aa552f57a1be95c0d842575a32cb7e8d4e5146ff7b40314ea113053b4bdba42",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。強く閉じる目と大きな苦痛口で危険。 単一顔・元身体構造・別レイヤー方針を保持。金の種／葉形と光保持。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-happy.png",
+      "sha256": "99df6f6d3a3dc6925b734fcb1463a0164a99ddfae6fca0a11efccddef7cfeee5",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。閉じた喜び目と笑口で喜び。 単一顔・元身体構造と別レイヤー方針保持。 金の種／葉形・光保持。tiredとweakの差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-hungry.png",
+      "sha256": "a4771b0139e6287be8d7dc74919a48e38ea06fb7012cc155d7cb5f5d92cb224b",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目と開口で空腹。 単一顔・元身体構造と別レイヤー方針保持。 金の種／葉形・光保持。tiredとweakの差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-sick.png",
+      "sha256": "ee4ca729820aa38234868787140d2a9238c80f6c908d563dcb3a46e348ea8f7a",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がった目眉と不調口。 単一顔・元身体構造と別レイヤー方針保持。 金の種／葉形・光保持。tiredとweakの差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-sleeping.png",
+      "sha256": "28d8612c44746a3349c61d3fd9156a161d6616b157cb9fb10994b9eb029b663b",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。穏やかな閉眼と小口で睡眠。 単一顔・元身体構造・別レイヤー方針を保持。金の種／葉形と光保持。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-strained.png",
+      "sha256": "671ba6e469819a0ff2b6c712dccbfc751a7c051c258a54ea0b2940bd841a43a0",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな口、遠慮・困り笑いとして受理。 単一顔・元身体構造と別レイヤー方針保持。 金の種／葉形・光保持。tiredとweakの差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-sulky.png",
+      "sha256": "c2feac01dc422778c5aa1692b539d5c145df284c83511dbbc5544345ff579ee5",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉とむすんだ口。 単一顔・元身体構造と別レイヤー方針保持。 金の種／葉形・光保持。tiredとweakの差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-tired.png",
+      "sha256": "3a1ae577dac90cb39b446041a475eb9c4d29efeef2223210f15774fdb76ca3a3",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと気力の落ちた口。 単一顔・元身体構造と別レイヤー方針保持。 金の種／葉形・光保持。tiredとweakの差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-wantsPlay.png",
+      "sha256": "97b46e33560acde794f04a5d73bae98dcd7d99f2dcade739fa510e62f414b9c3",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。期待する大きな目・眉と開いた笑口でかまって。 単一顔・元身体構造・別レイヤー方針を保持。金の種／葉形と光保持。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/01-weak.png",
+      "sha256": "c135b258c137a0ca2579ada3eed36b7454af2124933d046b8856935b0df544fc",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。弱い目と小さい不調口で弱り。 単一顔・元身体構造と別レイヤー方針保持。 金の種／葉形・光保持。tiredとweakの差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-critical.png",
+      "sha256": "307f5f0761768a60ba1aaa67ba86edbb51f3b92ebf0e1deb9d96ff8359a9ad90",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。力を込めた目／苦しげな眉と苦痛口で危険。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。二葉・茎・土・根保持。criticalは静かな消耗型の苦痛で激しい表現ではない。非顔部の小芽等は生成差あり。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-happy.png",
+      "sha256": "0cc2f498e26ebcf751186f31ad0228a215132ed439feaa24218e0cc43c1f315a",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。喜びの閉眼と開いた笑口。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。二葉・幹・土と根を保持。非顔部は生成由来の細かな差（中央小芽や土の描写）がありpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-hungry.png",
+      "sha256": "c527d10ec4d62a2248dda9a94e279c2eb371048490e266b73fb73c9348d9c2bb",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目眉と開口で空腹。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。二葉・幹・土と根を保持。非顔部は生成由来の細かな差（中央小芽や土の描写）がありpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-sick.png",
+      "sha256": "5855187a7c69c91acddab5535e2ff18b921c188a2c1a1baae15b5298aca9c0af",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がる目眉と不調口。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。二葉・幹・土と根を保持。非顔部は生成由来の細かな差（中央小芽や土の描写）がありpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-sleeping.png",
+      "sha256": "844fd61c5cc182ad5450e6498893ba1ea97f80c814a7b1406ce2dd5b79eb1ce9",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。穏やかな閉眼と小さな口で睡眠。 単一顔・主要構造と別レイヤー方針保持。二葉・茎・根・土塊と中央シアン意匠保持。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-strained.png",
+      "sha256": "4c034d17d7451f37749a46a5b8aca599f1c1a5aec2c4b449b509b1d0fca9ed61",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな口で遠慮・困り表情。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。二葉・幹・土と根を保持。非顔部は生成由来の細かな差（中央小芽や土の描写）がありpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-sulky.png",
+      "sha256": "dcfa03e91d6336fd716d7a25cedbee41fc701f5618f4a91c52f9998b48015cec",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉と小口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。二葉・茎・土・根保持。criticalは静かな消耗型の苦痛で激しい表現ではない。非顔部の小芽等は生成差あり。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-tired.png",
+      "sha256": "b2e59f0cad8e5bca76d8252f2b347b737c712ca26770262457c6397414a1dbc7",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと力の抜けた口で疲労。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。二葉・幹・土と根を保持。非顔部は生成由来の細かな差（中央小芽や土の描写）がありpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-wantsPlay.png",
+      "sha256": "34090e5f27adab7ed96eead223302dcf1ee91e2fe8486580741dce7d6af52e26",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。期待する開眼と笑口で遊び要求。 単一顔・主要構造と別レイヤー方針保持。二葉・茎・根・土塊と中央シアン意匠保持。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/02-weak.png",
+      "sha256": "184fc488c635152d51b4d29382a2b7f7ddecf96a496a56be67114634f5d4ce7c",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。気力の落ちた目と小口で弱り。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。二葉・茎・土・根保持。criticalは静かな消耗型の苦痛で激しい表現ではない。非顔部の小芽等は生成差あり。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-critical.png",
+      "sha256": "0cc617fe0feac9ff54b435965d9c4381f0c7306e7bafa725b1fdb0b420ddf4e0",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。苦しげな目眉と食いしばり／大きな不調口で危険。 単一顔・主要構造と別レイヤー方針保持。幹・枝・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-happy.png",
+      "sha256": "328215f44bfd5ab1d0678abdf38e88e7d841ba1e49ea33804145a0519840a74d",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。喜びの閉眼と開いた笑口。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。樹冠・幹・枝と根の主要構造保持。顔は小さめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-hungry.png",
+      "sha256": "71d4412c6d5abc429c09af8b332964065e29fac206de566b3e565aa478eb2ce3",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目眉と開口で空腹。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。樹冠・幹・枝と根の主要構造保持。顔は小さめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-sick.png",
+      "sha256": "962ebc5a27f7008afc4c5495d11e1ba6d673a94d6d22031669f76bde7c4192ed",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がる目眉と不調口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。樹冠・幹・根保持。小顔による原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-sleeping.png",
+      "sha256": "1e322ac4fe74026d54116d09f894580e58ca8df201eedecf26e99d2d76d12305",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。穏やかな閉眼と小口で睡眠。 単一顔・主要身体構成と別レイヤー方針保持。幹・枝・樹冠・根保持。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-strained.png",
+      "sha256": "c74b2efa009d537bcd981dba48cf70e8a8e19dd6e8c8007c5caeb3853b626e14",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな口で遠慮・困り表情。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。樹冠・幹・枝と根の主要構造保持。顔は小さめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-sulky.png",
+      "sha256": "87adea071d1da955202b749721a2722f04707542a11adee10f95cc93028ba069",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉と小口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。樹冠・幹・根保持。小顔による原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-tired.png",
+      "sha256": "661ddea6229b5d295bf1c210130cc206b0b68635eaa4078ea5364449bf42ae62",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと小開口で疲れ。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。樹冠・幹・根保持。小顔による原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-wantsPlay.png",
+      "sha256": "e05437184c68ae948bcbf07e551e89a7b00e4469b6b125e1265fc39c66615660",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。期待する開眼と笑口で遊び要求。 単一顔・主要構造と別レイヤー方針保持。幹・枝・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/03-weak.png",
+      "sha256": "15907a34233d5bfb78287df3dd0dd1caa74ec6e3e44e83e437db8ea255d94555",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。目の力が落ちた小開口で弱り。 単一顔・主要構造と別レイヤー方針保持。幹・枝・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-critical.png",
+      "sha256": "e5b8e5255286591c814f34c74507cad7c49fe1faa95bbba7b6b1ebba8563efb5",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。強く閉じる目と食いしばり口で苦痛。顔が小さく原寸では歯を見せる笑顔との区別が控えめだが、喜びの目眉ではなく切迫表現として受理。 単一顔・元身体構造・別レイヤー方針を保持。三樹冠・細い幹と根保持。原寸の状態差は全般に控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-happy.png",
+      "sha256": "737a830a437290a79f45eaf3d02556f73082ee412778592921c69a718f7b585f",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。閉じた喜び目と笑口で喜び。 単一顔・元身体構造と別レイヤー方針保持。 三樹冠・細い幹・根保持。小顔のため原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-hungry.png",
+      "sha256": "8bc0c5dee69d44d2bb3ae4f9036df47a187781bdbc722ea61021121aa808ad9c",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目と開口で空腹。 単一顔・元身体構造と別レイヤー方針保持。 三樹冠・細い幹・根保持。小顔のため原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-sick.png",
+      "sha256": "2ea1cf8e4e6321e00296d448d826e57a61577871b714fdd797bc1b3dcd8b4a67",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がった目眉と不調口。 単一顔・元身体構造と別レイヤー方針保持。 三樹冠・細い幹・根保持。小顔のため原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-sleeping.png",
+      "sha256": "42813ab907324c3c214e09b24e9617dd970b7ab6f6553fad005b107401b3a8ad",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。閉眼と緩い小口で睡眠。 単一顔・元身体構造・別レイヤー方針を保持。三樹冠・細い幹と根保持。原寸の状態差は全般に控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-strained.png",
+      "sha256": "0b90ffc65e8431729228289c3dc67b6ebb60140f64f4742c85eb0ea4b8c2cfd8",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな口、遠慮・困り笑いとして受理。 単一顔・元身体構造と別レイヤー方針保持。 三樹冠・細い幹・根保持。小顔のため原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-sulky.png",
+      "sha256": "77e7879b04fbc51f8c32e291fc9153256f8b101961a88bd35493690c715fe719",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉とむすんだ口。 単一顔・元身体構造と別レイヤー方針保持。 三樹冠・細い幹・根保持。小顔のため原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-tired.png",
+      "sha256": "ffd7578f373fd41ef26b1cdc1d4e58c8efc342da4a453fc52795b25ae394e32f",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと気力の落ちた口。 単一顔・元身体構造と別レイヤー方針保持。 三樹冠・細い幹・根保持。小顔のため原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-wantsPlay.png",
+      "sha256": "0d1f28d010d17cfabe66400c2d52f014e97e80b2b093c23d755ce0921039482d",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。開いた目と小さな笑口で呼びかけ。小顔のためhappyとの差は控えめ。 単一顔・元身体構造・別レイヤー方針を保持。三樹冠・細い幹と根保持。原寸の状態差は全般に控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/04-weak.png",
+      "sha256": "f99af530bed1d6535ae49ae35246d9164adfc1fb5047e65ad02c37c7adf39ba4",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。力のない水平目と小さな下向き口で弱り。 単一顔・元身体構造・別レイヤー方針を保持。三樹冠・細い幹と根保持。原寸の状態差は全般に控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-critical.png",
+      "sha256": "526acf08d2663a982ff060ccd5d048fcad5147a275667a1b513600bc960908f6",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。苦しげな眉・目と大きな不調開口で危険。 単一顔・主要身体構成と別レイヤー方針保持。青い吊り光4個・幹・枝・樹冠・根保持。tired/weakの原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-happy.png",
+      "sha256": "8f785c4c4a2213a4187852bb4beab9a63f7fb0cc55bd87f017f4fe1f22566df1",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。喜び目と笑口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光4個・枝・樹冠・根保持。非顔部細部には生成差があるためpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-hungry.png",
+      "sha256": "7442ac2bbde327b2f69ecba43e4fb22b728274d7e1993ae6ac24f0c64d2e56a1",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目眉と開口で空腹。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光4個・枝・樹冠・根保持。非顔部細部には生成差があるためpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-sick.png",
+      "sha256": "6c3c2984cc7b1d0d9f2feb690ab6a8d5dc1059914ca4c4dada0a896b159f9321",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がる目眉と不調口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光4個・枝・樹冠・根保持。非顔部細部には生成差があるためpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-sleeping.png",
+      "sha256": "0cbde41076b31524a0ebe2160b35c9b3b008af7ca9efe0618773981a5e6dcbad",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。穏やかな閉眼と小口で睡眠。 単一顔・主要身体構成と別レイヤー方針保持。青い吊り光4個・幹・枝・樹冠・根保持。tired/weakの原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-strained.png",
+      "sha256": "8577f7bfbad133cb5a79a90d16b7a055be0e47d805d360822475e63f61477059",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな笑口で困り笑い。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光4個・枝・樹冠・根保持。非顔部細部には生成差があるためpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-sulky.png",
+      "sha256": "cee417df9c4da2fde61cd331f3b0bb598873e244c096ca5ba9b6cb567d42fc25",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉と下がる口。 単一顔・主要身体構成と別レイヤー方針保持。青い吊り光4個・幹・枝・樹冠・根保持。tired/weakの原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-tired.png",
+      "sha256": "505131348a469359974ef78edf9884f17f7e3fa2a3132bfb25a40a1ccd7cb39f",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと小開口で疲れ。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光4個・枝・樹冠・根保持。非顔部細部には生成差があるためpixel完全一致とはしない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-wantsPlay.png",
+      "sha256": "66c2f5b54e53f71bcfa90548dd232630918c25190f74e19fac1bf81365f9f9c5",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。期待する開眼と笑口で遊び要求。 単一顔・主要身体構成と別レイヤー方針保持。青い吊り光4個・幹・枝・樹冠・根保持。tired/weakの原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/05-weak.png",
+      "sha256": "6e8791422507fef19778b94fecf9fcf4b9f4b4b04645e615e07649f63139ba33",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。目の力が落ちた小口で弱り。 単一顔・主要身体構成と別レイヤー方針保持。青い吊り光4個・幹・枝・樹冠・根保持。tired/weakの原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-critical.png",
+      "sha256": "c41667e96c16702240372b48a10c36496b23fc54244c0d64df734b74c1b2f24e",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。苦しげな目眉と食いしばり／大きな不調口で危険。 単一顔・主要構造と別レイヤー方針保持。青い吊り光5個・幹・枝・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-happy.png",
+      "sha256": "114c8fd7930cb61a2ad3c1880b3b43e941ca7fdbdb6eed3a68bb07b1e88d6f49",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。喜びの閉眼と開いた笑口。 単一顔・主要身体構成と別レイヤー方針保持。青い吊り光5個・幹・枝・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-hungry.png",
+      "sha256": "99ecaeb41e7879ad0cf7eca884ca2e5b1ffb246f2062ca79655a6aee4482508a",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目眉と開口で空腹。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。青い吊り光5個（中央1/左右2ずつ）保持。小顔のため原寸差控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-sick.png",
+      "sha256": "93b0d31baf82d6a1cd39867c714bfff8c6275084a5c6afc696ff9fb59de01da0",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がる目眉と不調口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光5個・枝・樹冠・根保持。tired/weak等の小顔原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-sleeping.png",
+      "sha256": "18892112f3124296431fb1492d703e4f1b698fa1da332b5d7aba42cd119540d8",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。穏やかな閉眼と小口で睡眠。 単一顔・主要身体構成と別レイヤー方針保持。青い吊り光5個・幹・枝・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-strained.png",
+      "sha256": "f1e48bf47a4d89b0dfa7c744e36b574eb28c1080120db36eacecb8d40b3c9afa",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな口で遠慮・困り表情。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。青い吊り光5個（中央1/左右2ずつ）保持。小顔のため原寸差控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-sulky.png",
+      "sha256": "420ac1048f2ba63fe614fd8d627599f8fec69ef1273761344fc7ac49ffcbc86b",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉と小口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光5個・枝・樹冠・根保持。tired/weak等の小顔原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-tired.png",
+      "sha256": "9189485e37ca22c32f1d075b2d81c1203f760cfd57119f9afa374731b033f1b3",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと小開口で疲れ。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光5個・枝・樹冠・根保持。tired/weak等の小顔原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-wantsPlay.png",
+      "sha256": "77951c0327e9ca301c26bd1759edf7eb1491510c97850578cd0a56fd23332b44",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。期待する開眼と笑口で遊び要求。 単一顔・主要構造と別レイヤー方針保持。青い吊り光5個・幹・枝・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/06-weak.png",
+      "sha256": "bf71b525e127bb17d30d15f45097efd1c561e43bd11ad54f7934995fbd06c8a0",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。気力の落ちた目と小口で弱り。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い吊り光5個・枝・樹冠・根保持。tired/weak等の小顔原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-critical.png",
+      "sha256": "95d0c1e52086a9430256d2b746c2e420685ed5cc8c34c6fb495eeeade82acc2e",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。強く閉じた目と食いしばり口で苦痛・危険。 単一顔・元身体構造・別レイヤー方針を保持。橙の吊り光6個・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-happy.png",
+      "sha256": "9f4e1d559f72ec40cf3e3d3cbaaee507c386b9a4b0220ae1142d814fffa82baf",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。閉じた喜び目と笑口で喜び。 単一顔・元身体構造と別レイヤー方針保持。 橙の吊り光6個・樹冠・根保持。小顔のため不調系の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-hungry.png",
+      "sha256": "cd8ea3d6e43f94f6bb88b36d8b02d592d53b8a00b174b7548757afea4b6cd2fb",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目と開口で空腹。 単一顔・元身体構造と別レイヤー方針保持。 橙の吊り光6個・樹冠・根保持。小顔のため不調系の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-sick.png",
+      "sha256": "c8b7ea8d4fe81a8853665ba9a7a9ff363a14a36f7ddcfdebb61838f447d8f18b",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がった目眉と不調口。 単一顔・元身体構造と別レイヤー方針保持。 橙の吊り光6個・樹冠・根保持。小顔のため不調系の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-sleeping.png",
+      "sha256": "7a5ae393419fc78152e05df52a726b9209c22d9c9162aa4855b605484c5454ea",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。閉じた目と小さな穏やかな口で睡眠。 単一顔・元身体構造・別レイヤー方針を保持。橙の吊り光6個・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-strained.png",
+      "sha256": "0c312df47fb30dc67ccbdcd94f1569699b7f4f4249adafb8e04f69623b1b05fe",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな口、遠慮・困り笑いとして受理。 単一顔・元身体構造と別レイヤー方針保持。 橙の吊り光6個・樹冠・根保持。小顔のため不調系の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-sulky.png",
+      "sha256": "fd724079808eb8352b56572a2020a4816d46decaf655ef97cc925fec87f7e5a3",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉とむすんだ口。 単一顔・元身体構造と別レイヤー方針保持。 橙の吊り光6個・樹冠・根保持。小顔のため不調系の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-tired.png",
+      "sha256": "18694ab12c8bcec423369f46f59c37b810618d57cde3cb3d75c2d71346d07260",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと気力の落ちた口。 単一顔・元身体構造と別レイヤー方針保持。 橙の吊り光6個・樹冠・根保持。小顔のため不調系の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-wantsPlay.png",
+      "sha256": "7887880ec5076652165ac4e1e0c5c15367d15211c78fabc0a3d26c34188e95c2",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。期待の開眼と大きな笑口で遊びの要求。 単一顔・元身体構造・別レイヤー方針を保持。橙の吊り光6個・樹冠・根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/07-weak.png",
+      "sha256": "3ad8fc92de5191431953a8784a59eb1730f84ec264f93f878b948049d9064164",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。弱い目と小さい不調口で弱り。 単一顔・元身体構造と別レイヤー方針保持。 橙の吊り光6個・樹冠・根保持。小顔のため不調系の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-critical.png",
+      "sha256": "e90e4985dc256ab8a0adb35c6ca6fe0b70233e8f21d8dad7c3f4d784a60915bc",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。力を込めた目／苦しげな眉と苦痛口で危険。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い輪2本・上下の星状光・幹根保持。小顔の原寸差は控えめ。 目を強く閉じて力む表情であり、激しい苦悶や大きな開口ではない。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-happy.png",
+      "sha256": "18d4cbd1098ab355962624bd7fe8068001c6dcb3138d21a5af66489e2a34f962",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。喜びの閉眼と開いた笑口。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。青い輪2本・上下の星状光・幹根を保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-hungry.png",
+      "sha256": "279a0a893d0dcd397353e8ce15bec557a2d21446e1743b645ab0f125d662dced",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。求める目眉と開口で空腹。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。青い輪2本・上下の星状光・幹根を保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-sick.png",
+      "sha256": "3438c361e8c1af1d9f0e63ecbfa20c7693d3d37500d9111bb67f835fbcae1614",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。下がる目眉と不調口。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。青い輪2本・上下の星状光・幹根を保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-sleeping.png",
+      "sha256": "d5b47457bc7b6e90e73a889bc64ba36554b6dab1215dac9844f89e358258e18d",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。穏やかな閉眼と小さな口で睡眠。 単一顔・主要構造と別レイヤー方針保持。青い輪2本・上下の星状光・幹根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-strained.png",
+      "sha256": "1887a72bad394a4d6a85ca37782cdd1b5094ac9ba9ea4487cedf9f61a50eea15",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。困り眉と控えめな口で遠慮・困り表情。 単一顔・元身体の主要構成・PNGとマーク別レイヤー保持。青い輪2本・上下の星状光・幹根を保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-sulky.png",
+      "sha256": "d99ed52fbf810350fe5808fb1b823559dbfdbabe6bf775a31806f035c1679fb2",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。不機嫌な目眉と小口。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い輪2本・上下の星状光・幹根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-tired.png",
+      "sha256": "896a2f1783ae2475890be8194d3d2a22984ed5d91a692db070e590c743975995",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。重いまぶたと小開口で疲れ。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い輪2本・上下の星状光・幹根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-wantsPlay.png",
+      "sha256": "b33822d9f4fec9c30714e29f4c91e3eca717264acb641074c3a9d565aa346e24",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。期待する開眼と笑口で遊び要求。 単一顔・主要構造と別レイヤー方針保持。青い輪2本・上下の星状光・幹根保持。小顔の原寸差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/world_tree/08-weak.png",
+      "sha256": "8ae11398aab1fec437aa08057bea61efd59fdc6654da16a1be8c60c7d0317e11",
+      "verdict": "ACCEPT",
+      "notes": "原寸128×128と6倍を個別実見。気力の落ちた目と小口で弱り。 単一顔と主要身体構造、PNG/マーク別レイヤー方針保持。青い輪2本・上下の星状光・幹根保持。小顔の原寸差は控えめ。"
+    }
+  ],
+  "accepted_count": 80
+}

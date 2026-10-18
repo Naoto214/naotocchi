@@ -1,0 +1,102 @@
+[
+  {
+    "id": 11317850114,
+    "node_id": "MDg6QXJ0aWZhY3QxMTMxNzg1MDExNA==",
+    "name": "world-visibility-c03dc729e714a7f66177ac50443a128ddc7d5f56",
+    "size_in_bytes": 5692,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11317850114",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11317850114/zip",
+    "expired": false,
+    "digest": "sha256:9b180ee82a4cc3a81ff5a8df0a25f2f2e8080c38d96e8aa1355e9d28faf6ed91",
+    "created_at": "2026-10-04T22:29:56Z",
+    "updated_at": "2026-10-04T22:29:56Z",
+    "expires_at": "2026-11-03T22:29:55Z",
+    "workflow_run": {
+      "id": 37239232398,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "c03dc729e714a7f66177ac50443a128ddc7d5f56"
+    }
+  },
+  {
+    "id": 11317410652,
+    "node_id": "MDg6QXJ0aWZhY3QxMTMxNzQxMDY1Mg==",
+    "name": "world-regression-c03dc729e714a7f66177ac50443a128ddc7d5f56",
+    "size_in_bytes": 113800,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11317410652",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11317410652/zip",
+    "expired": false,
+    "digest": "sha256:e3f71b5bd489e38d5e25123afdab5703864093612a687fd01bf2fe031c12f6d6",
+    "created_at": "2026-10-04T22:30:14Z",
+    "updated_at": "2026-10-04T22:30:14Z",
+    "expires_at": "2026-11-03T22:30:14Z",
+    "workflow_run": {
+      "id": 37239232398,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "c03dc729e714a7f66177ac50443a128ddc7d5f56"
+    }
+  },
+  {
+    "id": 11317121023,
+    "node_id": "MDg6QXJ0aWZhY3QxMTMxNzEyMTAyMw==",
+    "name": "world-captures-c03dc729e714a7f66177ac50443a128ddc7d5f56",
+    "size_in_bytes": 5653664,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11317121023",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11317121023/zip",
+    "expired": false,
+    "digest": "sha256:4103929dd674b6bf6782b3d72dab62788f4288388d4fa894a4cab70df4abbe39",
+    "created_at": "2026-10-04T22:21:45Z",
+    "updated_at": "2026-10-04T22:21:45Z",
+    "expires_at": "2026-11-03T22:21:44Z",
+    "workflow_run": {
+      "id": 37239232398,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "c03dc729e714a7f66177ac50443a128ddc7d5f56"
+    }
+  },
+  {
+    "id": 11316811103,
+    "node_id": "MDg6QXJ0aWZhY3QxMTMxNjgxMTEwMw==",
+    "name": "world-corridor-c03dc729e714a7f66177ac50443a128ddc7d5f56",
+    "size_in_bytes": 10885180,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11316811103",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11316811103/zip",
+    "expired": false,
+    "digest": "sha256:29f64053099f3673ecd7db24f9c20032a6290e9eb7bd8a8593ebe7f380f8179d",
+    "created_at": "2026-10-04T22:20:02Z",
+    "updated_at": "2026-10-04T22:20:02Z",
+    "expires_at": "2026-11-03T22:20:01Z",
+    "workflow_run": {
+      "id": 37239232398,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "c03dc729e714a7f66177ac50443a128ddc7d5f56"
+    }
+  },
+  {
+    "id": 11316683646,
+    "node_id": "MDg6QXJ0aWZhY3QxMTMxNjY4MzY0Ng==",
+    "name": "world-smoke-c03dc729e714a7f66177ac50443a128ddc7d5f56",
+    "size_in_bytes": 3991552,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11316683646",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11316683646/zip",
+    "expired": false,
+    "digest": "sha256:68b25eab54ea7086bcbb3fdb292f0cdc7776bc180504b23456f06a7424e03715",
+    "created_at": "2026-10-04T22:19:41Z",
+    "updated_at": "2026-10-04T22:19:41Z",
+    "expires_at": "2026-11-03T22:19:40Z",
+    "workflow_run": {
+      "id": 37239232398,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "c03dc729e714a7f66177ac50443a128ddc7d5f56"
+    }
+  }
+]

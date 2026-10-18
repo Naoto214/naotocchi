@@ -1,0 +1,52 @@
+{
+  "sourceCommit": "12fb2c6561e0f705c45b141cabdec590ff393d2a",
+  "archiveCommit": "5715b5157ae01092e82def9e5b0e6ef5b5b9c4e7",
+  "star": {
+    "status": "PASS_ALL8_IMAGE_GATE",
+    "actualReview": {
+      "fourViews": 32,
+      "freshStateImages": 32,
+      "normalDistance": 16
+    },
+    "reuse": {
+      "stages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stateImages": 224,
+      "identicalWaveImages": 259,
+      "sourceCommit": "2789b990b800b0639914005dd4d4ed4e36bd3bae"
+    },
+    "integrity": {
+      "waveFiles": 299,
+      "distanceFiles": 17,
+      "allHashesVerified": true
+    },
+    "findings": [
+      "01 irregular blue wisps restore curled seed silhouette; canonical face clear in all32 states.",
+      "Other7 state images match prior reviewed images; all8 fourviews and normal distances inspected."
+    ]
+  },
+  "punyu": {
+    "status": "REJECT_SILHOUETTE_AND_CORE_LEAK",
+    "actualReview": {
+      "fourViews": 4,
+      "stateImages": 0,
+      "normalDistance": 0
+    },
+    "integrity": {
+      "rawFiles": 41,
+      "allHashesVerified": true
+    },
+    "findings": [
+      "Radial loft produces fan-folded triangular wedge and loses bent upper notch.",
+      "Inner cream core protrudes outside left/back body."
+    ],
+    "next": "Correct existing blob optional contour geometry and capture fresh; no promotion."
+  }
+}

@@ -1,0 +1,77 @@
+..................EEEEEEEE
+======================================================================
+ERROR: test_permissions_and_exhausted_gateway_fail_without_unbounded_retry (test_character_qa_export.TransientExportTests.test_permissions_and_exhausted_gateway_fail_without_unbounded_retry) (code=403)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 199, in test_permissions_and_exhausted_gateway_fail_without_unbounded_retry
+    with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
+                                                                                                                                                                        ^^^^^^
+AttributeError: module 'exporter' has no attribute 'time'
+
+======================================================================
+ERROR: test_permissions_and_exhausted_gateway_fail_without_unbounded_retry (test_character_qa_export.TransientExportTests.test_permissions_and_exhausted_gateway_fail_without_unbounded_retry) (code=404)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 199, in test_permissions_and_exhausted_gateway_fail_without_unbounded_retry
+    with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
+                                                                                                                                                                        ^^^^^^
+AttributeError: module 'exporter' has no attribute 'time'
+
+======================================================================
+ERROR: test_permissions_and_exhausted_gateway_fail_without_unbounded_retry (test_character_qa_export.TransientExportTests.test_permissions_and_exhausted_gateway_fail_without_unbounded_retry) (code=429)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 199, in test_permissions_and_exhausted_gateway_fail_without_unbounded_retry
+    with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
+                                                                                                                                                                        ^^^^^^
+AttributeError: module 'exporter' has no attribute 'time'
+
+======================================================================
+ERROR: test_permissions_and_exhausted_gateway_fail_without_unbounded_retry (test_character_qa_export.TransientExportTests.test_permissions_and_exhausted_gateway_fail_without_unbounded_retry) (code=502)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 199, in test_permissions_and_exhausted_gateway_fail_without_unbounded_retry
+    with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
+                                                                                                                                                                        ^^^^^^
+AttributeError: module 'exporter' has no attribute 'time'
+
+======================================================================
+ERROR: test_permissions_and_exhausted_gateway_fail_without_unbounded_retry (test_character_qa_export.TransientExportTests.test_permissions_and_exhausted_gateway_fail_without_unbounded_retry) (code=503)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 199, in test_permissions_and_exhausted_gateway_fail_without_unbounded_retry
+    with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
+                                                                                                                                                                        ^^^^^^
+AttributeError: module 'exporter' has no attribute 'time'
+
+======================================================================
+ERROR: test_permissions_and_exhausted_gateway_fail_without_unbounded_retry (test_character_qa_export.TransientExportTests.test_permissions_and_exhausted_gateway_fail_without_unbounded_retry) (code=504)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 199, in test_permissions_and_exhausted_gateway_fail_without_unbounded_retry
+    with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
+                                                                                                                                                                        ^^^^^^
+AttributeError: module 'exporter' has no attribute 'time'
+
+======================================================================
+ERROR: test_transient_gateway_retries_same_request_and_then_returns_json (test_character_qa_export.TransientExportTests.test_transient_gateway_retries_same_request_and_then_returns_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 194, in test_transient_gateway_retries_same_request_and_then_returns_json
+    with patch.object(m.urllib.request,'urlopen',side_effect=[err(),err(),io.BytesIO(b'{"sha":"tree"}')]) as call,patch.object(m.time,'sleep') as sleep:
+                                                                                                                               ^^^^^^
+AttributeError: module 'exporter' has no attribute 'time'
+
+======================================================================
+ERROR: test_tree_failure_retains_verified_entries_without_tree_or_approval (test_character_qa_export.TransientExportTests.test_tree_failure_retains_verified_entries_without_tree_or_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 207, in test_tree_failure_retains_verified_entries_without_tree_or_approval
+    with contextlib.redirect_stdout(io.StringIO()),self.assertRaisesRegex(RuntimeError,'tree failed'):m.complete_export(lambda *args:(_ for _ in ()).throw(RuntimeError('tree failed')),result)
+                                                                                                      ^^^^^^^^^^^^^^^^^
+AttributeError: module 'exporter' has no attribute 'complete_export'
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.092s
+
+FAILED (errors=8)

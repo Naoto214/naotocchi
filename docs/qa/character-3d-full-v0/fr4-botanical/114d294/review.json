@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "114d294bc339a6e04cc6235cd05d3ac60c81eee1",
+  "waveArtifact": 11430795352,
+  "distanceArtifact": 11430035543,
+  "verdict": "REJECT representative03/07 side depth; not expanded or promoted",
+  "counts": {
+    "fourViews": 8,
+    "motionStates": 64,
+    "normalDistance": 4
+  },
+  "review": "All images inspected. Faces/emotions and concave trap volumes present; however rosette and trap crown align in nearly one plane from side. Correct outward leaf/trap directions and original brown roots, then recapture all representative views/states/distance.",
+  "environment": "Chromium / SwiftShader; not iPhone"
+}

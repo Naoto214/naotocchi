@@ -1,0 +1,10 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test:dom
+> node tests/ui-dom.cjs && node tests/mobile-ui.cjs && node tests/standalone.cjs && node tests/final-ui.cjs && node tests/final-roster-ui.cjs
+
+DOM integration: reset/stale animation, fixtures, movement, export/import, preview, rule resize PASS
+mobile UI: tool window, pause, target preview/cancel, three items, single spend, phase order, stale reset PASS
+standalone offline DOM PASS
+Final UI: standard rules, initial roster/images/NEXT3, falling tool selection, preview/confirm/cancel, double consumption, fallback and replay PASS
+Roster replay identity and lab restart/editor preserve selected twenty-bag PASS

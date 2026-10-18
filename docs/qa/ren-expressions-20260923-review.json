@@ -1,0 +1,1433 @@
+{
+  "complete": true,
+  "count": 80,
+  "accepted_count": 80,
+  "records": [
+    {
+      "stage": "01",
+      "state": "happy",
+      "path": "assets/characters/expressions/ren/01-happy.png",
+      "sha256": "597c2e9ebc99aa95974834965b0c5a699dd4867a57285d8d8604a484ee345a9b",
+      "verdict": "ACCEPT",
+      "notes": "弧を描く笑い閉じ目と柔らかい眉で喜び。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "path": "assets/characters/expressions/ren/01-strained.png",
+      "sha256": "3f6db2ed704ac2b48162f6ca8a087191bb828a3f9aa2b352b78b4f3d39d553a6",
+      "verdict": "ACCEPT",
+      "notes": "内側へ寄る眉と強く絞る目で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "hungry",
+      "path": "assets/characters/expressions/ren/01-hungry.png",
+      "sha256": "31d6de14886088d0c8ebc5794d40121b125208ccc4951abe44bb08e8ada8e520",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と懇願する開眼で空腹の訴え。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "path": "assets/characters/expressions/ren/01-sick.png",
+      "sha256": "cc3898ab45e0e96944ae75e0cd5d0b6d4f06821658151cf203a4ea8d2aefddb4",
+      "verdict": "ACCEPT",
+      "notes": "重い半眼と寄った困り眉で不調。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "path": "assets/characters/expressions/ren/01-tired.png",
+      "sha256": "d4785c515e1cd42cc1e500ca7a57bdb78f1af5749f047c9d95c53cf57db1d907",
+      "verdict": "ACCEPT",
+      "notes": "低い瞼と平たく力の抜けた眉で眠気・疲れ。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "path": "assets/characters/expressions/ren/01-sulky.png",
+      "sha256": "12f98c52f25907d91d323dcbb90e8ffd38058a788b34b3080a63ace08fbf5c2b",
+      "verdict": "ACCEPT",
+      "notes": "内側へ下がる眉と不満げな横目。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "path": "assets/characters/expressions/ren/01-weak.png",
+      "sha256": "93f615a59229d0e52ba16c834735306b18a6790237bdd412d9275b70b90fa5f4",
+      "verdict": "ACCEPT",
+      "notes": "力のない目と困り眉で弱り。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "path": "assets/characters/expressions/ren/01-critical.png",
+      "sha256": "5c430c7fd2a759b19309bd5aa6bd408fae5bba93992bc25ce76e3dffc017d8f5",
+      "verdict": "ACCEPT",
+      "notes": "ほぼ閉じた低い瞼と強めの困り眉で衰弱。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/ren/01-wantsPlay.png",
+      "sha256": "4ee642dc9d313ec3d4bb3f8f35f3ebbf8f0eab4b092fe91ef9411e9830a6e266",
+      "verdict": "ACCEPT",
+      "notes": "大きく輝く開眼と上がる眉で期待。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/ren/01-sleeping.png",
+      "sha256": "a1f587f86570a661d6b015f1b6d104e0a5e3fd34a464d329c42c0c4ea3e6c13a",
+      "verdict": "ACCEPT",
+      "notes": "下向きに弛んだ閉じ目と穏やかな眉で睡眠。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "path": "assets/characters/expressions/ren/02-happy.png",
+      "sha256": "2ffdda61b5b255a2211e17f72ae5a03f101a8146255fbf4e2c7d9bf50be59b69",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と明るい開口で喜び。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "path": "assets/characters/expressions/ren/02-strained.png",
+      "sha256": "f59e6a07f02cccc7fb5caaff85ca3faa36a7d4ef51a473934838a93839c58342",
+      "verdict": "ACCEPT",
+      "notes": "内側へ寄る眉と強い絞り目、歪む口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "path": "assets/characters/expressions/ren/02-hungry.png",
+      "sha256": "773bab64a1e8e84b972a47237aad35c2de9d965129d4eb0f3e36c705243aa9dc",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と懇願の開眼、小開口で空腹。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "path": "assets/characters/expressions/ren/02-sick.png",
+      "sha256": "b55d0362acddd9fe07ef9e84b93311c6dd2dbb932297dff07f33b4885b58020d",
+      "verdict": "ACCEPT",
+      "notes": "垂れた半眼と波状の口で不調。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "path": "assets/characters/expressions/ren/02-tired.png",
+      "sha256": "c6111e04b3af79d48ca1281d2c41a4c07150901a80a8a818ce1e90dcf4e3e85b",
+      "verdict": "ACCEPT",
+      "notes": "低い瞼とあくびの開口で眠気。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "path": "assets/characters/expressions/ren/02-sulky.png",
+      "sha256": "be799bfe15de816c2fb9a9730a61923e790a4557fe5d5a21c293e802160edc32",
+      "verdict": "ACCEPT",
+      "notes": "内側へ下がる眉と尖った小口で不満。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "path": "assets/characters/expressions/ren/02-weak.png",
+      "sha256": "ac121481ab1c0ae4ad624ed4e3a96c82c6a1485b8f6a28ff4e90c48462bfcf70",
+      "verdict": "ACCEPT",
+      "notes": "下がる目と困り眉、への字口で弱り。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "path": "assets/characters/expressions/ren/02-critical.png",
+      "sha256": "27afd5667fea1bd0bbe9d7ba44c67be131d4bab925410319e73a43cf4f309272",
+      "verdict": "ACCEPT",
+      "notes": "ほぼ閉じた目と強めの困り眉、歪む口で衰弱。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/ren/02-wantsPlay.png",
+      "sha256": "ee509517bd9d1c69edc60755650dba0f14071e361116d07ea65f030393ca2fc9",
+      "verdict": "ACCEPT",
+      "notes": "大きく輝く開眼と笑う開口で期待。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/ren/02-sleeping.png",
+      "sha256": "98f8318c6df5629adf0e665c7a088caf3898ce9e1619ab7a3b6bbad5fdc25a42",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目と小さい平口で睡眠。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "path": "assets/characters/expressions/ren/03-happy.png",
+      "sha256": "4cc1932596bca5dabe3b876a22a561af894427e19abf62ef1c229da1ac8ef47e",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と笑口で喜び。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "path": "assets/characters/expressions/ren/03-strained.png",
+      "sha256": "b5eee3937f60b7896b87663fc0330917f0f00e58060767f447d411a7d6525268",
+      "verdict": "ACCEPT",
+      "notes": "寄る眉と歪む口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "path": "assets/characters/expressions/ren/03-hungry.png",
+      "sha256": "3b0cc8e22de1787547fcf37ddc541e8d3ffb41d54fcd3eedc1af0c225e589289",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と訴える開眼、小さい開口で空腹。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "path": "assets/characters/expressions/ren/03-sick.png",
+      "sha256": "f407b05a9bbd48075671782166ad93581c7b93b27ca41241a8b5757198afdf70",
+      "verdict": "ACCEPT",
+      "notes": "垂れた目と困り眉、波状の口で不調。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "path": "assets/characters/expressions/ren/03-tired.png",
+      "sha256": "bd3de7360b4cc19f253d60eec870c9e91f2fc912d428b9afb47ffa6c771eb49f",
+      "verdict": "ACCEPT",
+      "notes": "重い半眼と小さい平口で疲れ。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "path": "assets/characters/expressions/ren/03-sulky.png",
+      "sha256": "0fe0e9d5512e17bc922f8cf691f949f104d19767cff0fc02a5d0522feb9685a7",
+      "verdict": "ACCEPT",
+      "notes": "鋭い眉とへの字口で不満。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "path": "assets/characters/expressions/ren/03-weak.png",
+      "sha256": "86426236aa8d45a51c78d93eae1c307fb09c13108592fd2f43115fb14bcf3e62",
+      "verdict": "ACCEPT",
+      "notes": "力のない半眼と下がった口で弱り。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "path": "assets/characters/expressions/ren/03-critical.png",
+      "sha256": "87fe5d9223aed8ad8498c87c70fd6e87eb1e2b39117646ed34b9c6b9a827b7f3",
+      "verdict": "ACCEPT",
+      "notes": "閉じた目と寄る眉、歪む開口で衰弱。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/ren/03-wantsPlay.png",
+      "sha256": "7bd5a6ba2a655ed11c7c1d384bc2a0f402482e311a070b0f0099b5190d66e380",
+      "verdict": "ACCEPT",
+      "notes": "大きい開眼と明るい開口で遊びたい。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/ren/03-sleeping.png",
+      "sha256": "b151fa41208b60b61e829908b04e668965d2a2f20480a3a8c2d23207512889d9",
+      "verdict": "ACCEPT",
+      "notes": "安らかな閉じ目と小さな口で睡眠。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "happy",
+      "path": "assets/characters/expressions/ren/04-happy.png",
+      "sha256": "7d521bd51dc7554301f6ee2f54887dbb480c7fa4aee96e608740db8b82cbab2c",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と小さい笑口で喜び。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "strained",
+      "path": "assets/characters/expressions/ren/04-strained.png",
+      "sha256": "582a7bebdaccb470e4afb2543bac3fb4b71b7c4da85ba9ac938f0b5ad99fdc28",
+      "verdict": "ACCEPT",
+      "notes": "寄る眉と狭い目、歪んだ小口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "hungry",
+      "path": "assets/characters/expressions/ren/04-hungry.png",
+      "sha256": "5e8b4a7cb6a9d4b8c6fed6fc2a77b672d01da807418fd7202bb47045be0761d6",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と開眼、小さい開口で訴え。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "sick",
+      "path": "assets/characters/expressions/ren/04-sick.png",
+      "sha256": "2689d82264692d583e36aef67070e7579a0bbc1f9f761626e334df9fe86dd27f",
+      "verdict": "ACCEPT",
+      "notes": "重い半眼と困り眉、下がる口で不調。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "tired",
+      "path": "assets/characters/expressions/ren/04-tired.png",
+      "sha256": "6e7ccd87089756377073bb1258a273cab565ffef74cbdc8fc4bb570991037dd3",
+      "verdict": "ACCEPT",
+      "notes": "低い半眼と平口で疲れ。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "sulky",
+      "path": "assets/characters/expressions/ren/04-sulky.png",
+      "sha256": "623b58ffbf14efdcfe4ccfb10fb050707834ed9950a99e5ab09fd0aca1eb09ac",
+      "verdict": "ACCEPT",
+      "notes": "内側へ下がる眉と不満の小口。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "weak",
+      "path": "assets/characters/expressions/ren/04-weak.png",
+      "sha256": "b2c67887a603de7dfe365cbfa21e61ea07447628a2e455fb85eac73d92cc6d96",
+      "verdict": "ACCEPT",
+      "notes": "力のない目と困り眉、小さい下がる口で弱り。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "critical",
+      "path": "assets/characters/expressions/ren/04-critical.png",
+      "sha256": "9df9c495b10ea31c6bfb3b03239bcee5b0ec0695b66723f523a8a25455b1d40a",
+      "verdict": "ACCEPT",
+      "notes": "ほぼ閉じた目と強い困り眉、微小な開口で衰弱。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/ren/04-wantsPlay.png",
+      "sha256": "b5bb62311d8501d08aaaa6e3dac5670d6a08c77666bc222813b973e20a0b3dba",
+      "verdict": "ACCEPT",
+      "notes": "明るい開眼と笑う開口で遊びたい。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/ren/04-sleeping.png",
+      "sha256": "f28d1bf606fab71368b154ef63b643595aaf7f14f19870288d5db37991940223",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目と穏やかな顔で睡眠。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-happy.png",
+      "sha256": "995c88a1e41dfea5b03c3ac0eaa61e45ab22d46515e0600c902c98b1ab75945b",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "05",
+      "observation": "Closed smiling eye arcs and small curved red smile read warm joy. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-strained.png",
+      "sha256": "8a7275973afd4f3c2f664f5454d328cd4bd69634dbbfdbf25e6a55911f3b6bb6",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "05",
+      "observation": "Tightly squeezed angular eyes, tense inward brows and clenched teeth read effort. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-hungry.png",
+      "sha256": "75f8af883484a241b2d1aa632dd425e68f87b08960b1a2510d53a0bd626d3486",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "05",
+      "observation": "Lifted inner brow, pleading eyes and round open mouth read hunger. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-sick.png",
+      "sha256": "0ac0fc2f8669d042186abbaab49827518e13867d8b88b13b06921fe2f4d1ef30",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "05",
+      "observation": "Heavy eyelids, worried brow and crooked wavy frown read illness. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-tired.png",
+      "sha256": "ed0f0641d5470bdfde1c1ce82aa02700dcda07ebbcd3393ba4fc6ff16ed6b55f",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "05",
+      "observation": "Half-shut eyes and small open yawning mouth read fatigue. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-sulky.png",
+      "sha256": "7a28ffbc555eee4aa000910a2586248c1fc96ee19ddacfe0799442e9872974d4",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "05",
+      "observation": "Downward inward brows and tiny pointed pout read displeasure. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-weak.png",
+      "sha256": "bd15a26fdcac9f043eb952bb859574ff05b23fcefb75369cd0afac9713604868",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "05",
+      "observation": "Drooping eyes and short slack parted mouth read low energy. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-critical.png",
+      "sha256": "35a0fd5e5ddd34475f5d78bdc9c503c9728a443374e1005ea50b3b8f59d4c855",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "05",
+      "observation": "Fully sagging lids, worried brow and downturned mouth read severe depletion; differs from relaxed sleeping mouth. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-wantsPlay.png",
+      "sha256": "f346ba36083f01caa9c666eeb4fa5a44f5f3397ac39347954e856594ffd04736",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "05",
+      "observation": "Alert open eyes and bright open smile read eager invitation. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/05-sleeping.png",
+      "sha256": "4e1f059c0ff4030d0c745b6ae8c932debe2f06a96ea27595fb3696669a55b95d",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "05",
+      "observation": "Relaxed closed eyelids and short neutral mouth read sleep. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-happy.png",
+      "sha256": "868f7541b738b2f455cb7b57e0b344122e234a5dc8b04ca3c123ef35eb5d555a",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "06",
+      "observation": "Both smiling closed eyes and curved small mouth read warm joy beyond the original wink. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-strained.png",
+      "sha256": "35384e09c5d50fd91ffa60899474480df6750d4f494bac3b08ba03683f662821",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "06",
+      "observation": "Squeezed eyes, tense brows and clenched teeth read effort/discomfort. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-hungry.png",
+      "sha256": "4a68c826eef1cfb36ce3727617e69354c59522320e8a1c7a25544cf6617a9e4a",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "06",
+      "observation": "Pleading open eyes, worried lifted brow and round open mouth read hunger. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-sick.png",
+      "sha256": "d133e90cf217715747c28f77b485095dfb040eca277a51431e6df09c9627d5aa",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "06",
+      "observation": "Drooping asymmetric eyelids and crooked short mouth read illness. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-tired.png",
+      "sha256": "f23dfeb287906cbdb060f4cf4310fec9a98dfe3b2916469c5fe2019d0f3a14a1",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "06",
+      "observation": "Half-shut eyes and small round yawn read fatigue. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-sulky.png",
+      "sha256": "cee28d961be251adf87f5f82e470681948dbeea7abff8891176b6ab3292095b2",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "06",
+      "observation": "Angled brows, sideways narrowed eyes and a short pout read displeasure. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-weak.png",
+      "sha256": "1fd358556124a46224142d14ee00c091b86a241500127242326113ae968ba031",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "06",
+      "observation": "Low heavy eyes and a tiny slack horizontal mouth read depletion. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-critical.png",
+      "sha256": "5cb289a15dbfce21e42116c7ca794812c0748b920ad103db2a7d92d289731d26",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "06",
+      "observation": "Deeply closed sagging eyes and frown read severe weakness, contrasted with relaxed sleeping brow/mouth. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-wantsPlay.png",
+      "sha256": "80430ff1d0fdc4909d55a1daf6ac5b2c5f4f1f5d2031951e98eda57fbdf4ef59",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "06",
+      "observation": "Alert bright eyes and open toothy smile read eager invitation. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/06-sleeping.png",
+      "sha256": "8d4c798701f279ddf1a68671c921470e52fb17e5dd3ad8b717bfcff1e5dd426c",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "06",
+      "observation": "Both relaxed closed lids and neutral short mouth read sleep, unlike the original one-eye wink. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-happy.png",
+      "sha256": "8012577e9a0a7f6fb201bccfd025fe9dfef3e4bc05285f64c17d10dca0d75579",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "07",
+      "observation": "Closed upward smiling eyes and broad open smile read joy. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-strained.png",
+      "sha256": "ed03a7bc64c921d762334cb718a9504d2fb37ccb245c96a5279d3be9c6c6103f",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "07",
+      "observation": "Squeezed angular eyes, tense brows and crimped mouth read effort/discomfort. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-hungry.png",
+      "sha256": "6f9af5990766f3a1c44e579aeb85a1606e61adb6b8129d08a14a47541ab535cf",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "07",
+      "observation": "Pleading lifted inner brows, glossy open eyes and small round mouth read hunger. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-sick.png",
+      "sha256": "0414f12fd102f4ba208864cffa8eb6438938e4a2c67bd6de0cee6217f5d6c2eb",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "07",
+      "observation": "Drooping uneven lids, worried brows and wavy downturned mouth read illness. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-tired.png",
+      "sha256": "4ecb2b8058f031f8e4312dda739b25259bf622e9a655ec144790a99fa54b5d56",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "07",
+      "observation": "Half-lowered eyes and round yawning mouth read fatigue. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-sulky.png",
+      "sha256": "46dbcca57b417a27a40ee5640a2511942d9e10766aca5ba3e6b5c5c2154dba7f",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "07",
+      "observation": "Inward-slanted brows, sideways half-lidded eyes and small pout read displeasure. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-weak.png",
+      "sha256": "908f30f413fa83f5f1ed7663c1e4e1950b7e5bbc74066a0ef577bfffb50b6084",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "07",
+      "observation": "Heavy lids, worried brow and slack short mouth read reduced energy. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-critical.png",
+      "sha256": "041c027e0b92f699c6ece3da9ee204776677eb6b61b39b896909794a2454a49a",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "07",
+      "observation": "Almost shut low eyelids and tiny parted mouth read greater depletion than weak. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-wantsPlay.png",
+      "sha256": "8df260a23721066e795ce60175889fab3ff30b4d0b32a4b99aefa0200bbb66f4",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "07",
+      "observation": "Wide sparkling eyes, high brows and broad smile read alert invitation. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/07-sleeping.png",
+      "sha256": "9285409be2a11fdc805c6f786d412b870e702dd2e0ec7a54cb0267be644a48b9",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "07",
+      "observation": "Both dark eyelids fully close and small mouth relaxes, distinct from half-open weak/critical eyes. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-happy.png",
+      "sha256": "8d96618f805da91eff8373ab1573611f1bdb3ba7ab7a5acddcd3b45bb0067f25",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "08",
+      "observation": "Upward closed eye arcs and broad open smile express joy beyond the original small closed-mouth smile. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-strained.png",
+      "sha256": "80d894be5267c38a1180606deba801a55489261cbf17cbdc722c27237844b493",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "08",
+      "observation": "Tense creased brows, tightly squeezed eyes and crimped mouth read effort. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-hungry.png",
+      "sha256": "825ca24102a5ce185b9b12d3f375a359f66ab42315ffc7000bee55e3c12846ed",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "08",
+      "observation": "Large pleading brown eyes, raised inner brows and round open mouth read hunger. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-sick.png",
+      "sha256": "e3cfc9b62296adb5e2f07e9fd7a97c5c8293ff9e3d9a3605ceb0de0112598854",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "08",
+      "observation": "Heavy eyelids, worried brows and uneven frown read illness. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-tired.png",
+      "sha256": "6b2616ec6c1c57440f08f8935b0b4710a764350fd70e024ef419ac5c05129c63",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "08",
+      "observation": "Half-lidded gaze and round yawning mouth read fatigue. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-sulky.png",
+      "sha256": "75c753e58389b0c8c3888b331dad934e17923bbc77112802cde103d0d3cb92c7",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "08",
+      "observation": "Inward lowered brows, sideways narrowed eyes and pout read displeasure. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-weak.png",
+      "sha256": "96a70e48e53e2fc3b3159d6bc291684fbd8a2aeca71627911beffb0cf02909db",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "08",
+      "observation": "Drooping half-closed eyes and sagging mouth read low energy. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-critical.png",
+      "sha256": "dc369dd1413257f91acfa97dd5779ff57ee3e492193ff197e354b114f4d3a9a2",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "08",
+      "observation": "Almost shut eyes, deeply worried brows and small slack mouth read more depleted than weak. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-wantsPlay.png",
+      "sha256": "cee9d189122998303b53bc75497c3da09315501d00df8ba9739207d214f9b83a",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "08",
+      "observation": "Bright wide brown eyes and broad open smile read eager invitation. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    },
+    {
+      "path": "assets/characters/expressions/ren/08-sleeping.png",
+      "sha256": "6f4dc2cd611e30754de6d7fe8ee6404f62e952ac8a89215e60681dae43dd1526",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "08",
+      "observation": "Straight relaxed fully closed lids and neutral mouth are distinct from original cheerful closed-eye smile. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+    }
+  ],
+  "stage_reviews": [
+    {
+      "stage": "01",
+      "review": {
+        "stage": "01",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "01",
+            "state": "happy",
+            "path": "assets/characters/expressions/ren/01-happy.png",
+            "sha256": "597c2e9ebc99aa95974834965b0c5a699dd4867a57285d8d8604a484ee345a9b",
+            "verdict": "ACCEPT",
+            "notes": "弧を描く笑い閉じ目と柔らかい眉で喜び。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "strained",
+            "path": "assets/characters/expressions/ren/01-strained.png",
+            "sha256": "3f6db2ed704ac2b48162f6ca8a087191bb828a3f9aa2b352b78b4f3d39d553a6",
+            "verdict": "ACCEPT",
+            "notes": "内側へ寄る眉と強く絞る目で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "hungry",
+            "path": "assets/characters/expressions/ren/01-hungry.png",
+            "sha256": "31d6de14886088d0c8ebc5794d40121b125208ccc4951abe44bb08e8ada8e520",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と懇願する開眼で空腹の訴え。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sick",
+            "path": "assets/characters/expressions/ren/01-sick.png",
+            "sha256": "cc3898ab45e0e96944ae75e0cd5d0b6d4f06821658151cf203a4ea8d2aefddb4",
+            "verdict": "ACCEPT",
+            "notes": "重い半眼と寄った困り眉で不調。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "tired",
+            "path": "assets/characters/expressions/ren/01-tired.png",
+            "sha256": "d4785c515e1cd42cc1e500ca7a57bdb78f1af5749f047c9d95c53cf57db1d907",
+            "verdict": "ACCEPT",
+            "notes": "低い瞼と平たく力の抜けた眉で眠気・疲れ。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sulky",
+            "path": "assets/characters/expressions/ren/01-sulky.png",
+            "sha256": "12f98c52f25907d91d323dcbb90e8ffd38058a788b34b3080a63ace08fbf5c2b",
+            "verdict": "ACCEPT",
+            "notes": "内側へ下がる眉と不満げな横目。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "weak",
+            "path": "assets/characters/expressions/ren/01-weak.png",
+            "sha256": "93f615a59229d0e52ba16c834735306b18a6790237bdd412d9275b70b90fa5f4",
+            "verdict": "ACCEPT",
+            "notes": "力のない目と困り眉で弱り。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "critical",
+            "path": "assets/characters/expressions/ren/01-critical.png",
+            "sha256": "5c430c7fd2a759b19309bd5aa6bd408fae5bba93992bc25ce76e3dffc017d8f5",
+            "verdict": "ACCEPT",
+            "notes": "ほぼ閉じた低い瞼と強めの困り眉で衰弱。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/ren/01-wantsPlay.png",
+            "sha256": "4ee642dc9d313ec3d4bb3f8f35f3ebbf8f0eab4b092fe91ef9411e9830a6e266",
+            "verdict": "ACCEPT",
+            "notes": "大きく輝く開眼と上がる眉で期待。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/ren/01-sleeping.png",
+            "sha256": "a1f587f86570a661d6b015f1b6d104e0a5e3fd34a464d329c42c0c4ea3e6c13a",
+            "verdict": "ACCEPT",
+            "notes": "下向きに弛んだ閉じ目と穏やかな眉で睡眠。 原寸・個別6倍で元画像と対照。青いおしゃぶりを付けたまま、隠れた口を追加せず目眉で表現。流し前髪/乳児の体格/水色服/はいはい/手足保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "Each final PNG reviewed in native128 comparison and individually at nearest-neighbor6x against original",
+        "classification": "Single person / single body / single face; pacifier is a prop, not a face",
+        "readabilitylimits": [
+          "おしゃぶりで口が隠れるため、hungry/wantsPlayやsick/tired/weak/criticalは目眉と既存別マークの併読が必要。おしゃぶりを外したり口を描き足して差を強めない。",
+          "criticalは強く絞る痛みではなく閉じかけの目による衰弱として受理。睡眠は弧状の閉じ目で区別する。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "02",
+      "review": {
+        "stage": "02",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "02",
+            "state": "happy",
+            "path": "assets/characters/expressions/ren/02-happy.png",
+            "sha256": "2ffdda61b5b255a2211e17f72ae5a03f101a8146255fbf4e2c7d9bf50be59b69",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と明るい開口で喜び。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "strained",
+            "path": "assets/characters/expressions/ren/02-strained.png",
+            "sha256": "f59e6a07f02cccc7fb5caaff85ca3faa36a7d4ef51a473934838a93839c58342",
+            "verdict": "ACCEPT",
+            "notes": "内側へ寄る眉と強い絞り目、歪む口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "hungry",
+            "path": "assets/characters/expressions/ren/02-hungry.png",
+            "sha256": "773bab64a1e8e84b972a47237aad35c2de9d965129d4eb0f3e36c705243aa9dc",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と懇願の開眼、小開口で空腹。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "sick",
+            "path": "assets/characters/expressions/ren/02-sick.png",
+            "sha256": "b55d0362acddd9fe07ef9e84b93311c6dd2dbb932297dff07f33b4885b58020d",
+            "verdict": "ACCEPT",
+            "notes": "垂れた半眼と波状の口で不調。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "tired",
+            "path": "assets/characters/expressions/ren/02-tired.png",
+            "sha256": "c6111e04b3af79d48ca1281d2c41a4c07150901a80a8a818ce1e90dcf4e3e85b",
+            "verdict": "ACCEPT",
+            "notes": "低い瞼とあくびの開口で眠気。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "sulky",
+            "path": "assets/characters/expressions/ren/02-sulky.png",
+            "sha256": "be799bfe15de816c2fb9a9730a61923e790a4557fe5d5a21c293e802160edc32",
+            "verdict": "ACCEPT",
+            "notes": "内側へ下がる眉と尖った小口で不満。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "weak",
+            "path": "assets/characters/expressions/ren/02-weak.png",
+            "sha256": "ac121481ab1c0ae4ad624ed4e3a96c82c6a1485b8f6a28ff4e90c48462bfcf70",
+            "verdict": "ACCEPT",
+            "notes": "下がる目と困り眉、への字口で弱り。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "critical",
+            "path": "assets/characters/expressions/ren/02-critical.png",
+            "sha256": "27afd5667fea1bd0bbe9d7ba44c67be131d4bab925410319e73a43cf4f309272",
+            "verdict": "ACCEPT",
+            "notes": "ほぼ閉じた目と強めの困り眉、歪む口で衰弱。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/ren/02-wantsPlay.png",
+            "sha256": "ee509517bd9d1c69edc60755650dba0f14071e361116d07ea65f030393ca2fc9",
+            "verdict": "ACCEPT",
+            "notes": "大きく輝く開眼と笑う開口で期待。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "02",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/ren/02-sleeping.png",
+            "sha256": "98f8318c6df5629adf0e665c7a088caf3898ce9e1619ab7a3b6bbad5fdc25a42",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目と小さい平口で睡眠。 原寸・個別6倍で元画像と対照。胸のクマ図柄は元のまま保持し状態同期せず、両腕/片脚を上げる幼児姿勢、青上下/靴、固有髪型を保持。非顔pixel微差あり、新汗/涙/マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "Each final PNG reviewed in native128 comparison and individually at nearest-neighbor6x against original",
+        "classification": "Single person / single body / single face; bear shirt print is not a living face and is not state-synchronized",
+        "readabilitylimits": [
+          "元の挙手/片脚を上げる姿勢と笑顔風クマ図柄は不調/睡眠でも保持し、状態は主役の顔と既存別マークで読む。",
+          "weak/criticalの強度差は原寸では控えめで、閉じ具合と危険マークを併読する。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "03",
+      "review": {
+        "stage": "03",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "03",
+            "state": "happy",
+            "path": "assets/characters/expressions/ren/03-happy.png",
+            "sha256": "4cc1932596bca5dabe3b876a22a561af894427e19abf62ef1c229da1ac8ef47e",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と笑口で喜び。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "strained",
+            "path": "assets/characters/expressions/ren/03-strained.png",
+            "sha256": "b5eee3937f60b7896b87663fc0330917f0f00e58060767f447d411a7d6525268",
+            "verdict": "ACCEPT",
+            "notes": "寄る眉と歪む口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "hungry",
+            "path": "assets/characters/expressions/ren/03-hungry.png",
+            "sha256": "3b0cc8e22de1787547fcf37ddc541e8d3ffb41d54fcd3eedc1af0c225e589289",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と訴える開眼、小さい開口で空腹。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "sick",
+            "path": "assets/characters/expressions/ren/03-sick.png",
+            "sha256": "f407b05a9bbd48075671782166ad93581c7b93b27ca41241a8b5757198afdf70",
+            "verdict": "ACCEPT",
+            "notes": "垂れた目と困り眉、波状の口で不調。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "tired",
+            "path": "assets/characters/expressions/ren/03-tired.png",
+            "sha256": "bd3de7360b4cc19f253d60eec870c9e91f2fc912d428b9afb47ffa6c771eb49f",
+            "verdict": "ACCEPT",
+            "notes": "重い半眼と小さい平口で疲れ。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "sulky",
+            "path": "assets/characters/expressions/ren/03-sulky.png",
+            "sha256": "0fe0e9d5512e17bc922f8cf691f949f104d19767cff0fc02a5d0522feb9685a7",
+            "verdict": "ACCEPT",
+            "notes": "鋭い眉とへの字口で不満。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "weak",
+            "path": "assets/characters/expressions/ren/03-weak.png",
+            "sha256": "86426236aa8d45a51c78d93eae1c307fb09c13108592fd2f43115fb14bcf3e62",
+            "verdict": "ACCEPT",
+            "notes": "力のない半眼と下がった口で弱り。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "critical",
+            "path": "assets/characters/expressions/ren/03-critical.png",
+            "sha256": "87fe5d9223aed8ad8498c87c70fd6e87eb1e2b39117646ed34b9c6b9a827b7f3",
+            "verdict": "ACCEPT",
+            "notes": "閉じた目と寄る眉、歪む開口で衰弱。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/ren/03-wantsPlay.png",
+            "sha256": "7bd5a6ba2a655ed11c7c1d384bc2a0f402482e311a070b0f0099b5190d66e380",
+            "verdict": "ACCEPT",
+            "notes": "大きい開眼と明るい開口で遊びたい。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/ren/03-sleeping.png",
+            "sha256": "b151fa41208b60b61e829908b04e668965d2a2f20480a3a8c2d23207512889d9",
+            "verdict": "ACCEPT",
+            "notes": "安らかな閉じ目と小さな口で睡眠。 原寸・個別6倍で元画像と対照。固有の髪/子ども体格/蹴る姿勢/紺ユニフォーム/番号26/ボールを保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "Each final PNG reviewed in native128 comparison and individually at nearest-neighbor6x against original",
+        "classification": "Single person / single body / single face; soccer ball and uniform number are props/design",
+        "readabilitylimits": [
+          "番号26は元から小さい。happy/sulkyでは数字縁のサンプリング微差があるが6の上側は閉ループでなく、26として識別できる。28への明確な変更とは判定しない。",
+          "sick/weakの表情強度差は控えめで既存別マークと併読。元の蹴る身体ポーズは不調/睡眠でも保持する方針に従う。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "04",
+      "review": {
+        "stage": "04",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "04",
+            "state": "happy",
+            "path": "assets/characters/expressions/ren/04-happy.png",
+            "sha256": "7d521bd51dc7554301f6ee2f54887dbb480c7fa4aee96e608740db8b82cbab2c",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と小さい笑口で喜び。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "strained",
+            "path": "assets/characters/expressions/ren/04-strained.png",
+            "sha256": "582a7bebdaccb470e4afb2543bac3fb4b71b7c4da85ba9ac938f0b5ad99fdc28",
+            "verdict": "ACCEPT",
+            "notes": "寄る眉と狭い目、歪んだ小口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "hungry",
+            "path": "assets/characters/expressions/ren/04-hungry.png",
+            "sha256": "5e8b4a7cb6a9d4b8c6fed6fc2a77b672d01da807418fd7202bb47045be0761d6",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と開眼、小さい開口で訴え。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "sick",
+            "path": "assets/characters/expressions/ren/04-sick.png",
+            "sha256": "2689d82264692d583e36aef67070e7579a0bbc1f9f761626e334df9fe86dd27f",
+            "verdict": "ACCEPT",
+            "notes": "重い半眼と困り眉、下がる口で不調。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "tired",
+            "path": "assets/characters/expressions/ren/04-tired.png",
+            "sha256": "6e7ccd87089756377073bb1258a273cab565ffef74cbdc8fc4bb570991037dd3",
+            "verdict": "ACCEPT",
+            "notes": "低い半眼と平口で疲れ。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "sulky",
+            "path": "assets/characters/expressions/ren/04-sulky.png",
+            "sha256": "623b58ffbf14efdcfe4ccfb10fb050707834ed9950a99e5ab09fd0aca1eb09ac",
+            "verdict": "ACCEPT",
+            "notes": "内側へ下がる眉と不満の小口。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "weak",
+            "path": "assets/characters/expressions/ren/04-weak.png",
+            "sha256": "b2c67887a603de7dfe365cbfa21e61ea07447628a2e455fb85eac73d92cc6d96",
+            "verdict": "ACCEPT",
+            "notes": "力のない目と困り眉、小さい下がる口で弱り。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "critical",
+            "path": "assets/characters/expressions/ren/04-critical.png",
+            "sha256": "9df9c495b10ea31c6bfb3b03239bcee5b0ec0695b66723f523a8a25455b1d40a",
+            "verdict": "ACCEPT",
+            "notes": "ほぼ閉じた目と強い困り眉、微小な開口で衰弱。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/ren/04-wantsPlay.png",
+            "sha256": "b5bb62311d8501d08aaaa6e3dac5670d6a08c77666bc222813b973e20a0b3dba",
+            "verdict": "ACCEPT",
+            "notes": "明るい開眼と笑う開口で遊びたい。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/ren/04-sleeping.png",
+            "sha256": "f28d1bf606fab71368b154ef63b643595aaf7f14f19870288d5db37991940223",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目と穏やかな顔で睡眠。 原寸・個別6倍で元画像と対照。固有髪型/少年体格/白い衣服/歩行姿勢/靴/リュック本体と肩紐を保持。非顔pixel生成微差あり、新汗/涙/マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "Each final PNG reviewed in native128 comparison and individually at nearest-neighbor6x against original",
+        "classification": "Single person / single body / single face; backpack is a prop",
+        "readabilitylimits": [
+          "sleepingの口は非常に薄く小さいが、力の抜けた閉じ目で睡眠を読める。目の閉じ方と既存睡眠マークを併読する。",
+          "tired/weak/criticalの差は細かく、既存別マークを併読。歩く元ポーズは不調/睡眠でも保持。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "05",
+      "review": {
+        "reviewer": "ren_integration (not PNG creator)",
+        "scope": "PNG expressions only; placement separate",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/ren/05-happy.png",
+            "sha256": "995c88a1e41dfea5b03c3ac0eaa61e45ab22d46515e0600c902c98b1ab75945b",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "05",
+            "observation": "Closed smiling eye arcs and small curved red smile read warm joy. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-strained.png",
+            "sha256": "8a7275973afd4f3c2f664f5454d328cd4bd69634dbbfdbf25e6a55911f3b6bb6",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "05",
+            "observation": "Tightly squeezed angular eyes, tense inward brows and clenched teeth read effort. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-hungry.png",
+            "sha256": "75f8af883484a241b2d1aa632dd425e68f87b08960b1a2510d53a0bd626d3486",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "05",
+            "observation": "Lifted inner brow, pleading eyes and round open mouth read hunger. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-sick.png",
+            "sha256": "0ac0fc2f8669d042186abbaab49827518e13867d8b88b13b06921fe2f4d1ef30",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "05",
+            "observation": "Heavy eyelids, worried brow and crooked wavy frown read illness. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-tired.png",
+            "sha256": "ed0f0641d5470bdfde1c1ce82aa02700dcda07ebbcd3393ba4fc6ff16ed6b55f",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "05",
+            "observation": "Half-shut eyes and small open yawning mouth read fatigue. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-sulky.png",
+            "sha256": "7a28ffbc555eee4aa000910a2586248c1fc96ee19ddacfe0799442e9872974d4",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "05",
+            "observation": "Downward inward brows and tiny pointed pout read displeasure. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-weak.png",
+            "sha256": "bd15a26fdcac9f043eb952bb859574ff05b23fcefb75369cd0afac9713604868",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "05",
+            "observation": "Drooping eyes and short slack parted mouth read low energy. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-critical.png",
+            "sha256": "35a0fd5e5ddd34475f5d78bdc9c503c9728a443374e1005ea50b3b8f59d4c855",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "05",
+            "observation": "Fully sagging lids, worried brow and downturned mouth read severe depletion; differs from relaxed sleeping mouth. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-wantsPlay.png",
+            "sha256": "f346ba36083f01caa9c666eeb4fa5a44f5f3397ac39347954e856594ffd04736",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "05",
+            "observation": "Alert open eyes and bright open smile read eager invitation. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          },
+          {
+            "path": "assets/characters/expressions/ren/05-sleeping.png",
+            "sha256": "4e1f059c0ff4030d0c745b6ae8c932debe2f06a96ea27595fb3696669a55b95d",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "05",
+            "observation": "Relaxed closed eyelids and short neutral mouth read sleep. Independently compared original and final native128 and nearest-neighbor6x: young human identity, dark swept hair, navy/white hooded outfit, backpack, stepping stance and shoes retained. Single face/body, no extra baked sweat/tears or state symbols."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "06",
+      "review": {
+        "reviewer": "ren_integration (not PNG creator)",
+        "scope": "PNG expressions only; placement separate",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/ren/06-happy.png",
+            "sha256": "868f7541b738b2f455cb7b57e0b344122e234a5dc8b04ca3c123ef35eb5d555a",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "06",
+            "observation": "Both smiling closed eyes and curved small mouth read warm joy beyond the original wink. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-strained.png",
+            "sha256": "35384e09c5d50fd91ffa60899474480df6750d4f494bac3b08ba03683f662821",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "06",
+            "observation": "Squeezed eyes, tense brows and clenched teeth read effort/discomfort. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-hungry.png",
+            "sha256": "4a68c826eef1cfb36ce3727617e69354c59522320e8a1c7a25544cf6617a9e4a",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "06",
+            "observation": "Pleading open eyes, worried lifted brow and round open mouth read hunger. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-sick.png",
+            "sha256": "d133e90cf217715747c28f77b485095dfb040eca277a51431e6df09c9627d5aa",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "06",
+            "observation": "Drooping asymmetric eyelids and crooked short mouth read illness. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-tired.png",
+            "sha256": "f23dfeb287906cbdb060f4cf4310fec9a98dfe3b2916469c5fe2019d0f3a14a1",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "06",
+            "observation": "Half-shut eyes and small round yawn read fatigue. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-sulky.png",
+            "sha256": "cee28d961be251adf87f5f82e470681948dbeea7abff8891176b6ab3292095b2",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "06",
+            "observation": "Angled brows, sideways narrowed eyes and a short pout read displeasure. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-weak.png",
+            "sha256": "1fd358556124a46224142d14ee00c091b86a241500127242326113ae968ba031",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "06",
+            "observation": "Low heavy eyes and a tiny slack horizontal mouth read depletion. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-critical.png",
+            "sha256": "5cb289a15dbfce21e42116c7ca794812c0748b920ad103db2a7d92d289731d26",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "06",
+            "observation": "Deeply closed sagging eyes and frown read severe weakness, contrasted with relaxed sleeping brow/mouth. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-wantsPlay.png",
+            "sha256": "80430ff1d0fdc4909d55a1daf6ac5b2c5f4f1f5d2031951e98eda57fbdf4ef59",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "06",
+            "observation": "Alert bright eyes and open toothy smile read eager invitation. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          },
+          {
+            "path": "assets/characters/expressions/ren/06-sleeping.png",
+            "sha256": "8d4c798701f279ddf1a68671c921470e52fb17e5dd3ad8b717bfcff1e5dd426c",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "06",
+            "observation": "Both relaxed closed lids and neutral short mouth read sleep, unlike the original one-eye wink. Independently compared original/final native128 and nearest-neighbor6x: adult identity, dark swept hair, navy business outfit, white shirt, shoulder bag/strap and standing pose retained. Exactly one face/body; original wink may change; no baked sweat/tears/state marks."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "07",
+      "review": {
+        "reviewer": "ren_integration (not PNG creator)",
+        "scope": "PNG expressions only; placement separate",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/ren/07-happy.png",
+            "sha256": "8012577e9a0a7f6fb201bccfd025fe9dfef3e4bc05285f64c17d10dca0d75579",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "07",
+            "observation": "Closed upward smiling eyes and broad open smile read joy. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-strained.png",
+            "sha256": "ed03a7bc64c921d762334cb718a9504d2fb37ccb245c96a5279d3be9c6c6103f",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "07",
+            "observation": "Squeezed angular eyes, tense brows and crimped mouth read effort/discomfort. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-hungry.png",
+            "sha256": "6f9af5990766f3a1c44e579aeb85a1606e61adb6b8129d08a14a47541ab535cf",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "07",
+            "observation": "Pleading lifted inner brows, glossy open eyes and small round mouth read hunger. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-sick.png",
+            "sha256": "0414f12fd102f4ba208864cffa8eb6438938e4a2c67bd6de0cee6217f5d6c2eb",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "07",
+            "observation": "Drooping uneven lids, worried brows and wavy downturned mouth read illness. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-tired.png",
+            "sha256": "4ecb2b8058f031f8e4312dda739b25259bf622e9a655ec144790a99fa54b5d56",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "07",
+            "observation": "Half-lowered eyes and round yawning mouth read fatigue. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-sulky.png",
+            "sha256": "46dbcca57b417a27a40ee5640a2511942d9e10766aca5ba3e6b5c5c2154dba7f",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "07",
+            "observation": "Inward-slanted brows, sideways half-lidded eyes and small pout read displeasure. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-weak.png",
+            "sha256": "908f30f413fa83f5f1ed7663c1e4e1950b7e5bbc74066a0ef577bfffb50b6084",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "07",
+            "observation": "Heavy lids, worried brow and slack short mouth read reduced energy. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-critical.png",
+            "sha256": "041c027e0b92f699c6ece3da9ee204776677eb6b61b39b896909794a2454a49a",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "07",
+            "observation": "Almost shut low eyelids and tiny parted mouth read greater depletion than weak. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-wantsPlay.png",
+            "sha256": "8df260a23721066e795ce60175889fab3ff30b4d0b32a4b99aefa0200bbb66f4",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "07",
+            "observation": "Wide sparkling eyes, high brows and broad smile read alert invitation. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          },
+          {
+            "path": "assets/characters/expressions/ren/07-sleeping.png",
+            "sha256": "9285409be2a11fdc805c6f786d412b870e702dd2e0ec7a54cb0267be644a48b9",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "07",
+            "observation": "Both dark eyelids fully close and small mouth relaxes, distinct from half-open weak/critical eyes. Independently compared original and final at native128 and nearest-neighbor6x: same single human with gray-streak swept hair, blue V-neck sweater/white collar, dark trousers/shoes and hands in pockets. No secondary faces or baked sweat/tears/state marks; age and outfit remain recognizable."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "08",
+      "review": {
+        "reviewer": "ren_integration (not PNG creator)",
+        "scope": "PNG expressions only; placement separate",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/ren/08-happy.png",
+            "sha256": "8d96618f805da91eff8373ab1573611f1bdb3ba7ab7a5acddcd3b45bb0067f25",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "08",
+            "observation": "Upward closed eye arcs and broad open smile express joy beyond the original small closed-mouth smile. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-strained.png",
+            "sha256": "80d894be5267c38a1180606deba801a55489261cbf17cbdc722c27237844b493",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "08",
+            "observation": "Tense creased brows, tightly squeezed eyes and crimped mouth read effort. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-hungry.png",
+            "sha256": "825ca24102a5ce185b9b12d3f375a359f66ab42315ffc7000bee55e3c12846ed",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "08",
+            "observation": "Large pleading brown eyes, raised inner brows and round open mouth read hunger. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-sick.png",
+            "sha256": "e3cfc9b62296adb5e2f07e9fd7a97c5c8293ff9e3d9a3605ceb0de0112598854",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "08",
+            "observation": "Heavy eyelids, worried brows and uneven frown read illness. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-tired.png",
+            "sha256": "6b2616ec6c1c57440f08f8935b0b4710a764350fd70e024ef419ac5c05129c63",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "08",
+            "observation": "Half-lidded gaze and round yawning mouth read fatigue. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-sulky.png",
+            "sha256": "75c753e58389b0c8c3888b331dad934e17923bbc77112802cde103d0d3cb92c7",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "08",
+            "observation": "Inward lowered brows, sideways narrowed eyes and pout read displeasure. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-weak.png",
+            "sha256": "96a70e48e53e2fc3b3159d6bc291684fbd8a2aeca71627911beffb0cf02909db",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "08",
+            "observation": "Drooping half-closed eyes and sagging mouth read low energy. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-critical.png",
+            "sha256": "dc369dd1413257f91acfa97dd5779ff57ee3e492193ff197e354b114f4d3a9a2",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "08",
+            "observation": "Almost shut eyes, deeply worried brows and small slack mouth read more depleted than weak. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-wantsPlay.png",
+            "sha256": "cee9d189122998303b53bc75497c3da09315501d00df8ba9739207d214f9b83a",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "08",
+            "observation": "Bright wide brown eyes and broad open smile read eager invitation. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          },
+          {
+            "path": "assets/characters/expressions/ren/08-sleeping.png",
+            "sha256": "6f4dc2cd611e30754de6d7fe8ee6404f62e952ac8a89215e60681dae43dd1526",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "08",
+            "observation": "Straight relaxed fully closed lids and neutral mouth are distinct from original cheerful closed-eye smile. Independently compared original/final native128 and nearest-neighbor6x: elderly identity, silver swept hair, age lines, brown cardigan/trousers/shoes, white shirt and cane in original hand/stance retained. Single human body and face; no added baked marks or altered props."
+          }
+        ]
+      }
+    }
+  ]
+}

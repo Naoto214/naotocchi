@@ -1,0 +1,642 @@
+[
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "happy",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art sprite for Naotocchi, mushroom/01-happy. Edit the supplied ORIGINAL reference only. It depicts exactly SIX separated cream round particles; all SIX TOGETHER are the protagonist (a group character), not one main particle and five extras. Change all six faces to joyful delight: narrowed upward-curved smiling eyes and cheerful open smiles, with natural small differences in mouths/eye curves among members. Every member conveys happiness, do not clone identical faces. Preserve exactly six bodies, their sizes/positions, pale cream and peach palette, blush, tiny ORIGINAL decorative gold glints, crisp pixel-art texture, composition and full silhouette. Genuine transparent alpha background. One complete isolated sprite matching original framing; no text, watermark, new bodies/faces, added tears/sweat/emotion icons. State marks will be a separate layer. Save a usable generated PNG for game integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-b5ab116a-db17-492f-9e0f-ae48de55fa4d.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "strained",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-strained. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a01f164c-4757-4be5-bf89-5f5e6cfa420b.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-hungry. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a05b802a-0213-4a11-9076-062a7ecc2a44.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "sick",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-sick. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-8104711d-6434-4052-81e5-b72ff11e9f47.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "tired",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-tired. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-27d5de40-d80e-49bb-b0c3-a3161139dd27.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-sulky. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-8d4e28b2-19dd-4ee9-a5a6-ec26b44009dc.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "weak",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-weak. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a9285227-2f63-495a-8221-f44c0eda06ba.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "critical",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-critical. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-fb1cc221-4141-4811-87d4-c18111ac1090.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-wantsPlay. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-15741554-ddb7-4fee-9641-61ea2c720ac0.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "01",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/01-sleeping. Edit supplied ORIGINAL reference. Exactly SIX separated cream round particles; all six TOGETHER are the protagonist, a GROUP character. Change ALL SIX faces so the entire group clearly conveys the requested state. No single privileged protagonist. Allow natural small differences in intensity/eyes/mouths, not copy-pasted faces. Retain original gold decorative glints, six-member count, positions/sizes. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-abe7be4b-8096-462d-8b59-605eda9e3b43.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "happy",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-happy. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: delighted joy, narrowed upward-curved smiling eyes and cheerful open grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-b8d04e84-52a3-44f2-9af5-7884ad7a94ed.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "strained",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-strained. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f81cb678-faa9-4add-a069-43ddc5239917.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-hungry. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-89539aa5-a696-4e4f-92a8-05a22938a994.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "sick",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-sick. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d4e85eb9-1d43-4c47-a43d-4c1dd3741470.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "tired",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-tired. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-4bc6dc3d-ba54-48e3-92ee-eb6d473effc8.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-sulky. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-e663a25d-ab53-4ebb-b43c-ccf1364e8e8e.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "weak",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-weak. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-6deefbb5-19f1-4ff4-8417-1f9ebf7de673.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "critical",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-critical. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-dbe0fdbe-1304-491b-ab5c-1ee0025c2ddb.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-wantsPlay. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-0d8abbfd-69da-4c9d-890f-e1640da264ef.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "02",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/02-sleeping. Edit supplied ORIGINAL reference. A single pale round head with radiating branching mycelium filaments. Edit the ONE existing central face only; retain all filaments and their shapes. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-8d0f9c2f-89ca-4f1d-93e8-6731442bd2bf.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "happy",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-happy. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: delighted joy, narrowed upward-curved smiling eyes and cheerful open grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-c418d11f-6ac2-4a3c-bf96-7e82dcedb36e.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "strained",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-strained. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d35df044-78ac-43b5-88dc-688b59c39f73.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-hungry. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-83d063e1-e378-4f90-b97b-5b87f194a056.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "sick",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-sick. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-b26962f9-e0fe-4305-84f8-6616a387336a.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "tired",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-tired. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ac4203c2-bd29-48f4-9acb-6f469ae354a5.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-sulky. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ef78b192-8405-4e4c-a787-aa4e4f3c9c7c.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "weak",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-weak. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-dbee1b5b-28c0-4f14-80ab-b48275dfc27a.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "critical",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-critical. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-3f665a29-2c62-4785-bac0-3ebe6ba0e868.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-wantsPlay. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-641a3b1f-c757-4992-8ac3-0a41e50bf2ba.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "03",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/03-sleeping. Edit supplied ORIGINAL reference. A small pale peach-capped mushroom with ONE face on the cap, short pale stalk, brown stones and purple object with green leaf at right. Edit ONE face only; keep all objects and cap/stalk layout. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-6dd1919a-0556-44e1-b7dd-3e8d11b16e01.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "happy",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-happy. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: delighted joy, narrowed upward-curved smiling eyes and cheerful open grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-cd423047-ce55-47b5-8099-d7d3926844b9.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "strained",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-strained. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-c7ad7f63-0b38-4f10-93b3-4f7731d93ca0.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-hungry. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a0b0a52a-b944-4077-bfa0-0345c72a9ea9.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "sick",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-sick. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-82c1cf9e-5376-4fdc-88c4-52467b584001.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "tired",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-tired. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f243c75f-6f80-46d3-93ef-d6f69bfc63c8.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-sulky. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d92c39bd-18f8-4e1d-a96a-dbea548c3aea.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "weak",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-weak. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-62e6db2e-d24a-468a-9aa6-15085cc8e55e.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "critical",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-critical. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-685218d8-f16f-4f38-ba16-33b3389ece37.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-wantsPlay. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-12be08fd-3aca-448e-b172-1657c8191516.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "04",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/04-sleeping. Edit supplied ORIGINAL reference. A pointed cream immature mushroom with ONE face on the cap, long pale stalk, brown stones and little green leaves. Edit ONE face only; preserve tall narrow shape. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a1dfb47b-a090-4ee7-9817-83e8553659c2.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "happy",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-happy. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: delighted joy, narrowed upward-curved smiling eyes and cheerful open grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-abf8f66b-48a5-4685-b60a-ceadc80f5034.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "strained",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-strained. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-823e2186-e131-48ab-9151-c523c753ce3a.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-hungry. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-2e338979-add5-473a-a85c-e5463b79ef93.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "sick",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-sick. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-79268371-b8ee-4d28-a051-0e154eeb7fc7.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "tired",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-tired. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-395c37de-4927-4074-8f0c-e7f328e63703.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-sulky. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-6c57bcdd-cb14-45fd-8a7c-40590a0ce57d.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "weak",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-weak. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-acf963c8-c1bc-460c-87ed-0b01684fbc91.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "critical",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-critical. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-460abe23-d5b1-4ff0-a8d8-7ae22ceaec00.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-wantsPlay. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ad0ccab9-e853-4dfc-9c94-4cb0c456a3d3.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "05",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/05-sleeping. Edit supplied ORIGINAL reference. A red white-spotted mushroom with downward domed cap and ONE face on the stalk. Edit ONE face only. Preserve red cap white spots, gills, stalk, stones and green leaves. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-bd485595-cc55-4753-9be5-a055c6283cff.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "happy",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-happy. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: delighted joy, narrowed upward-curved smiling eyes and cheerful open grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ae0775bd-bcc4-45b5-97f2-afb8cd4f1251.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "strained",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-strained. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-58f2b301-73c2-4ab7-a300-873022dea221.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-hungry. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-fd6fd44c-d511-480f-9019-52bac7615911.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "sick",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-sick. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-440c37b3-61ed-4448-a798-4eeed84bf585.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "tired",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-tired. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a56c0bd3-31f6-48ff-99de-8463117cdc9d.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-sulky. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-b61a5b47-c1ef-4c41-b2b2-4102b7574cde.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "weak",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-weak. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ad32da2a-0b33-4b66-8c52-e5a4b1a04182.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "critical",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-critical. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-99c91b78-3b4b-465f-a3c8-518e039b912b.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-wantsPlay. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f1cc2f15-f8bd-4a40-bf91-5ed2b8da4472.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "06",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/06-sleeping. Edit supplied ORIGINAL reference. A red white-spotted mushroom with wide upturned open cap and ONE face low on stalk, hanging veil under cap, stones and green leaves. Edit ONE face only; preserve spread cap, veil and stance. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-89781660-60d8-47a7-a043-366fe9d3f771.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "happy",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-happy. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: delighted joy, narrowed upward-curved smiling eyes and cheerful open grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-e9ad2fe7-acf2-454a-b420-9cecb5f8129d.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "strained",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-strained. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-7dc4cc0e-f7a4-491d-a532-02cf42393496.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-hungry. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-724ffd48-27cf-4c6d-a875-44ca84300a4a.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "sick",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-sick. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-b48d6439-a277-4cd5-a87a-ae22981a483a.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "tired",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-tired. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-0f62efb9-136e-4bc1-ac12-4bb97488d196.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-sulky. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-08ae831a-f4c9-4c8d-ba2a-ab014e5ff3f3.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "weak",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-weak. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-3908f476-7bbe-4153-9cdf-1c920b15aa06.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "critical",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-critical. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a13133d1-679c-4a06-b139-d07c280d41ea.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-wantsPlay. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-079c3b9c-0f50-486a-ad3d-c0044c809146.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "07",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/07-sleeping. Edit supplied ORIGINAL reference. ONE main red spotted aged mushroom at left AND THREE separate floating face-bearing spores at right. Change ONLY main mushroom face to requested state. The three floating spores are SEPARATE individuals; preserve their existing natural mild expressions, do NOT force them to share main body's illness/fatigue/low-life/danger/sleep. Preserve exact three spores, other faceless flecks, tilted cap, gills, stones and layout. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-389f7aef-462b-439f-b1c5-f1fc26507717.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "happy",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-happy. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: delighted joy, narrowed upward-curved smiling eyes and cheerful open grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-69071ee6-1518-4b02-a9cf-3553e7111c38.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "strained",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-strained. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: uncomfortable or reluctant, pinched worried eyes and tense downturned mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-566ae9a1-8768-471c-a33c-114d82832176.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "hungry",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-hungry. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: hungry and expectant, attentive eyes and small round open mouth, not a happy grin. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-1b7fc115-0698-4db5-93f6-4429458d7678.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "sick",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-sick. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: unwell, worried brows, drooping eyelids and small downturned mouth; no added sweat or tears. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-0450a1f1-abbe-4b81-ab44-7724d40f0d8d.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "tired",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-tired. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: physically fatigued, low half-closed heavy eyelids and small tired mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-0730d4f3-2ced-426f-ae8e-b9d92e656255.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "sulky",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-sulky. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: sulking or displeased, inward brows and a small pouting mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-fab97782-3d04-4474-a429-d3b8ecd7bad5.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "weak",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-weak. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: weak and low on life, drooping worried eyes and small feeble mouth, subdued but not injured. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ca798aa0-161f-4f37-98e3-d5a1eeaf17e4.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "critical",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-critical. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: dangerously exhausted, eyes almost closed and small weak open mouth; no wounds or injury. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-08d1893c-2b22-4012-8f67-86c7ab10264c.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "wantsPlay",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-wantsPlay. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: eagerly wanting attention, bright expectant eyes and inviting small open mouth. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-fd1598e0-e417-43cd-8621-a6915775c557.png"
+  },
+  {
+    "line": "mushroom",
+    "stage": "08",
+    "state": "sleeping",
+    "original": "assets/characters/mushroom/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game sprite mushroom/08-sleeping. Edit supplied ORIGINAL reference. Exactly TWO golden aged mushrooms, large left and small right, growing from one mycelial individual. Both faces are the SAME BODY and must clearly share requested physical state/emotion; allow natural small facial differences. Edit BOTH faces. Preserve two cap/stalk silhouettes, gills, brown stones, rooted stance, golden cream colors and relative sizes. Requested expression: peacefully sleeping, completely closed relaxed eyelids and a faint CLOSED-mouth smile. Keep identity, original silhouette, pose, body structures, member count, palette, framing, proportions, low-resolution pixel texture and all props unchanged. Natural state-consistent facial variation; no unnecessary new reactions. Genuine transparent alpha background. Single full isolated sprite, no cropping. No new bodies, faces, text, watermark, emotion icons, sweat, tears, Zzz or added sparkles. Original decorative features stay. External state marks are a separate layer. Save usable generated PNG for repository integration.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-35bdac12-7a99-4ddf-9dff-5dea52aa6e2c.png"
+  }
+]

@@ -1,0 +1,33 @@
+(node:26) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/b7dafe93b718/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/b7dafe93b718/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-9 residential porch supports meet roof slopes within canonical lots (10200.928843ms)
+✔ VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck (919.666998ms)
+✔ VQ-6 cottage rooflines include both gable orientations within the residential family (204.707477ms)
+✔ VQ-5 garden stepping stones connect the actual front door to its finite road segment (214.172802ms)
+✔ VQ-1 contact footprints follow trunks and foundations without mutating objects (27.65921ms)
+✔ VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support (0.874744ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (0.718487ms)
+✔ VQ-4 residential main roofs retain above-head clearance with canonical colliders (9319.171343ms)
+✔ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (193.072003ms)
+✔ VQ-10 barn entrances read as broad paired doors within the wall (937.113518ms)
+✔ VQ-11 flower instances retain planter and window-box elevation (1.32804ms)
+✔ VQ-12 walkable market stalls have open counters and connected canopy supports (9072.085231ms)
+✔ VQ-13 representative farmhouse flowers clear the veranda as one planting group (900.197972ms)
+✔ VQ-14 planting clearance preserves groups, rotations and blocked plots (5.760678ms)
+✔ VQ-15 residential facade openings fit beside the entrance without frame overlap (9057.800999ms)
+✔ VQ-16 single-family main windows reserve the existing bay projection (9079.310283ms)
+✔ VQ-17 two-storey entrance remains below its existing low canopy (205.960392ms)
+✔ VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves (4281.843341ms)
+✔ VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope (3139.246007ms)
+✔ VQ-20 ground frond roots attach to their own terrain position (2820.684494ms)
+✔ VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves (1.951823ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60706.227535

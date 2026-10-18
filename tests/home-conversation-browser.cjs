@@ -1,14 +1,18 @@
 // Real home rendering and real feed -> pet/partner/friend conversations.
-// Only the long-text specimen is substituted; speaker selection uses the game.
+// Explicit all-present attendance fixture preserves multi-actor geometry coverage; speaker selection uses the game.
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
+const { guardedRoute } = require('./helpers/browser-route.cjs');
+const { presentHomeCast } = require('./helpers/home-cast-fixture.cjs');
+const {loadRingBounds,paintedRing,noIntersection,assertApprovedRing}=require('./helpers/marriage-ring-bounds.cjs');
+const { minsForLine } = require('../life-stage-profiles.js');
 
 function measureConversation() {
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};};
   const shown=e=>e.getClientRects().length && getComputedStyle(e).visibility!=='hidden';
   const actors=[...document.querySelectorAll('#pet .character-visual')].filter(shown).map(visual=>{
-    const img=visual.querySelector('.character-asset'),asset=img?.getAttribute('src').split('?')[0];
+    const img=visual.querySelector('.character-asset'),asset=(img?.getAttribute('data-fallback-asset') || img?.getAttribute('src'))?.split('?')[0];
     const failed=visual.classList.contains('asset-failed'),r=rect(failed?visual:img);
     const b=failed?[0,0,128,128]:window.NaotocchiCastBounds[asset]?.box || [0,0,128,128];
     const fallback=visual.querySelector('.character-emoji-fallback');
@@ -20,13 +24,20 @@ function measureConversation() {
   const accessory=document.getElementById('petAccessory');
   if(shown(accessory)) actors.push({id:'item',...rect(accessory)});
   const ring=document.querySelector('#pet .partner-ring');
+  const ringInfo=ring && shown(ring)?(()=>{const style=getComputedStyle(ring),matrix=new DOMMatrixReadOnly(style.transform),origin=style.transformOrigin.split(' ').map(parseFloat),glyph=ring.querySelector('[data-ui-icon="ring"]');return {...rect(ring),baseW:parseFloat(style.width),baseH:parseFloat(style.height),scaleX:matrix.a,scaleY:matrix.d,originX:origin[0],originY:origin[1],glyph:glyph?rect(glyph):null};})():null;
   const bubble=document.getElementById('speechBubble'), speaker=document.getElementById('speechSpeaker');
   return {width:innerWidth,height:innerHeight,visibleHeight:visualViewport?.height || innerHeight,actors,main:actors.find(a=>a.id==='pet'),
     fieldScale:parseFloat(getComputedStyle(document.getElementById('petSprite')).width)/104,
-    ring:ring && shown(ring)?{...rect(ring),fontSize:parseFloat(getComputedStyle(ring).fontSize)}:null,
+    ring:ringInfo,
+    hearts:[...document.querySelectorAll('#pet .partner-heart,#pet .partner-emoji .relationship-heart')].filter(shown).map(rect),
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
     kind:bubble.dataset.kind,speakerId:bubble.dataset.speakerId,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,
+    nameFits:(()=>{
+      const style=getComputedStyle(speaker,'::after'),canvas=document.createElement('canvas');
+      const context=canvas.getContext('2d');context.font=style.font;
+      return context.measureText(speaker.dataset.label || '').width<=speaker.getBoundingClientRect().width+.6;
+    })(),
     nameVisible:shown(document.querySelector('.cast-names')),
     tail:getComputedStyle(bubble,'::before').left,
     tailTip:getComputedStyle(bubble,'::before').clipPath,
@@ -39,12 +50,13 @@ function measureConversation() {
   };
 }
 
-module.exports=async function(browser,engine,fixtures,baseURL,output) {
-  const results=[],failures=[];
+module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
+  const results=[],failures=[],ringBounds=await loadRingBounds();
   const scenarios=[
     ['alone',390,760,0,false,false,0],['partner',390,760,0,true,false,0],
     ['one-friend',390,760,1,false,false,0],['friends',390,760,6,false,false,0],
     ['family',390,760,6,true,false,0],['item',390,760,0,false,true,0],
+    ['paper-auto-clean',390,760,6,true,true,4],
     ['poop',390,760,0,false,false,1],['item-poop',390,760,6,true,true,4],
     ['full',390,760,26,true,true,4],['small',320,568,0,false,true,4],
     ['small-full',320,568,26,true,true,4],['large-text',320,640,26,true,true,4,'large'],
@@ -63,7 +75,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['full-friends-only',320,568,26,false,false,4],
     ['full-partner-only',320,568,26,true,false,4],
     ['full-item-only',320,568,26,false,true,4],
-    ['item-crown',320,568,26,true,true,4],
+    ['item-gamepass',320,568,26,true,true,4],
     ['right-speaker',390,760,6,true,true,4,'normal','dog',5],
     ['adult-single',390,760,0,false,false,1,'normal','dog',5],
     ['normal-poop-four',390,760,0,false,false,4],
@@ -73,6 +85,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['missing-friends-min',288,568,26,true,true,4],
     ['missing-mixed-min',288,568,26,true,true,4],
     ['missing-all-min',288,568,26,true,true,4],
+    ['missing-all-pair-min',288,568,0,true,true,4],
+    ['missing-all-three-min',288,568,3,true,true,4],
+    ['missing-all-thirteen-min',288,568,13,true,true,4],
+    ['missing-alternating-min',288,568,26,true,true,4],
     ['missing-all-small',320,568,26,true,true,4,'large'],
     ['balanced-cat',393,852,6,true,true,4,'normal','cat',6],
     ['balanced-two',390,760,2,true,true,4,'normal','cat',5],
@@ -81,24 +97,36 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['balanced-many',390,760,17,true,true,4,'normal','cat',5],
     ['balanced-near-max',320,568,25,true,true,4,'normal','cat',5],
     ['balanced-max',320,568,26,true,true,4,'normal','cat',5],
+    ['married-snow',390,844,3,true,true,0,'normal','woman',5],
+    ['unmarried-snow',390,844,3,true,true,0,'normal','woman',5],
   ];
   const separated=(a,b,gap=0)=>a.x+a.w+gap<=b.x+.6 || b.x+b.w+gap<=a.x+.6 || a.y+a.h+gap<=b.y+.6 || b.y+b.h+gap<=a.y+.6;
   const samePosition=(a,b)=>['x','y','w','h'].every(k=>Math.abs(a[k]-b[k])<.6);
+  const ringBetween=m=>{
+    const partner=m.actors.find(a=>a.id==='partner'),cx=m.ring.x+m.ring.w/2,cy=m.ring.y+m.ring.h/2;
+    return partner && cx>=partner.x+partner.w/2-.6 && cx<=m.main.x+m.main.w/2+.6 &&
+      cy>=partner.y+partner.h/2-.6 && cy<=m.main.y+m.main.h/2+.6;
+  };
   for(const [name,width,height,count,partner,item,poops,textSize,species,stage] of scenarios) {
+    if(onlyNames && !onlyNames.includes(name)) continue;
     const label=engine+'-conversation-'+name;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce',isMobile:width<500,hasTouch:width<500});
-    if(name==='safe-area') await context.route('**/*.css?*',async route=>{
+    const routeErrors=[]; // RH-6: route の fetch が こけたら 記録して この case を 赤に(retry しない)
+    await presentHomeCast(context,label,routeErrors);
+    if(name==='safe-area') await guardedRoute(context,'**/*.css?*',label,routeErrors,async route=>{
       const response=await route.fetch();
       await route.fulfill({response,body:(await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,(_,edge)=>({top:59,bottom:34}[edge]||0)+'px')});
     });
     if(name.startsWith('missing-')) {
       await context.route('**/assets/characters/**/*.png',route=>{
         const url=route.request().url();
-        const fail=name==='missing-mixed-min'?/\/companions\/(cat_friend|otter|panda|parrot|sheep|snail)\.png/.test(url):
+        const friend=url.match(/\/companions\/([^/?]+)\.png/)?.[1];
+        const fail=name==='missing-alternating-min'?!friend || fixtures.equipped.companions.findIndex(c=>c.id===friend)%2===0:
+          name==='missing-mixed-min'?/\/companions\/(cat_friend|otter|panda|parrot|sheep|snail)\.png/.test(url):
           name==='missing-friends-min'?url.includes('/companions/'):true;
         return fail?route.abort('failed'):route.continue();
       });
-      if(name.endsWith('-min')) await context.route('**/world-scene.css?*',async route=>{
+      if(name.endsWith('-min')) await guardedRoute(context,'**/world-scene.css?*',label,routeErrors,async route=>{
         const response=await route.fetch();
         // Restrict the available region, without overriding the inline min
         // height whose erroneous expansion caused this regression.
@@ -108,14 +136,21 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     const page=await context.newPage(),errors=[];
     page.on('pageerror',e=>errors.push(e.message));
     const save=JSON.parse(JSON.stringify(fixtures.phone_dog));
-    Object.assign(save,{companions:fixtures.equipped.companions.slice(0,count),partner:partner?fixtures.equipped.partner:null,
+    Object.assign(save,{companions:fixtures.equipped.companions.slice(0,count),partner:partner?{...fixtures.equipped.partner}:null,
       poopCount:poops,health:100,hunger:60,energy:100,happiness:90,transformMeter:0,isSick:false,isSleeping:false});
-    const itemId=name==='item-crown'?'crown':'poop1';
+    // Keep floor-layout specimens stable while the real activity clock runs.
+    const itemId=name==='paper-auto-clean'?'poop1':name==='item-gamepass'?'gamepass1':'travel1';
     Object.assign(save.lifetime,{textSize:textSize||'normal',equippedItemId:item?itemId:null,ownedShopItems:item?[itemId]:[]});
+    if(name.endsWith('-snow')) {
+      save.companions=['owl','hamster','shiba'].map(id=>({id,bond:95}));
+      Object.assign(save.partner,{id:'snow_spirit',label:'ゆきのせいれい',married:name==='married-snow'});
+      save.regionId='snow';
+      Object.assign(save.lifetime,{timeMode:'night',weatherMode:'cloudy',seasonMode:'autumn'});
+    }
     if(name==='balanced-cat') {
       save.companions=['sheep','seal','otter','rabbit_friend','shiba','parrot'].map(id=>({id,bond:95}));
       Object.assign(save.partner,{id:'gentle_gorilla',label:'やさしいゴリラ'});
-      Object.assign(save.lifetime,{equippedItemId:'flower',ownedShopItems:['flower']});
+      Object.assign(save.lifetime,{equippedItemId:'bowtie',ownedShopItems:['bowtie']});
     }
     if(name==='balanced-eight') {
       save.companions=['tanuki','cat_friend','hedgehog','many_tail_fox','sekizou','unicorn','punyu','monkey'].map(id=>({id,bond:95}));
@@ -124,7 +159,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     const line=species || ((name==='full' || name==='desktop')?'man':save.speciesLine);
     const index=stage ?? ((name==='full' || name==='desktop')?4:0);
     // Appearance is derived from age on load; stageIndex alone is overwritten.
-    Object.assign(save,{speciesLine:line,stageIndex:index,ageTicks:[2,4,8,13,17,23,41,71][index]*20});
+    const stageMins=minsForLine(line);
+    Object.assign(save,{speciesLine:line,stageIndex:index,ageTicks:stageMins[index]*20});
+    if(name.endsWith('-snow'))save.ageTicks=38*20;
     if(name==='balanced-cat') {
       Object.assign(save,{regionId:'jungle',ageTicks:51*20});
       Object.assign(save.lifetime,{timeMode:'night',weatherMode:'sunny',seasonMode:'summer'});
@@ -142,9 +179,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       if(name.startsWith('missing-')) {
         const friends=m.actors.filter(a=>a.id!=='pet' && a.id!=='partner' && a.id!=='item');
         assert.equal(friends.length,count,label+': a companion disappeared');
-        assert.ok(name==='missing-mixed-min'?friends.some(a=>a.failed) && friends.some(a=>!a.failed):friends.every(a=>a.failed),label+': missing companion images were not exercised');
+        assert.ok(name==='missing-mixed-min' || name==='missing-alternating-min'?friends.some(a=>a.failed) && friends.some(a=>!a.failed):friends.every(a=>a.failed),label+': missing companion images were not exercised');
         assert.ok(m.actors.filter(a=>a.failed).every(a=>a.fallbackVisible),label+': a failed image has no visible fallback');
-        if(name.startsWith('missing-all')) assert.ok(m.main.failed,label+': missing main image was not exercised');
+        if(name.startsWith('missing-all') || name==='missing-alternating-min') assert.ok(m.main.failed,label+': missing main image was not exercised');
         if(name.endsWith('-min')) assert.ok(Math.abs(m.stage.w-270)<.6 && Math.abs(m.stage.h-152)<.6,label+': fallback expanded the 270x152 region');
         for(const a of m.actors) assert.ok(a.x>=m.stage.x && a.x+a.w<=m.stage.x+m.stage.w+.6 && a.y>=m.stage.y && a.y+a.h<=m.stage.y+m.stage.h+.6,label+': fallback actor is outside the stage');
       }
@@ -155,7 +192,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         assert.ok(Math.abs(a.y+a.h/2-b.y-b.h/2)<.6,label+': paired visible heights differ');
       }
       assert.ok(m.pageHeight<=height+1 && m.pageWidth<=width+1,label+': page overflow');
-      assert.ok(m.meters.y+m.meters.h<=m.frame.y+m.frame.h+1,label+': meters clipped');
+      assert.ok(m.meters.y+m.meters.h<=m.frame.y+m.frame.h+1,label+': meters clipped '+JSON.stringify({meters:m.meters,frame:m.frame}));
       for(const c of m.controls) assert.ok(c.w>=44 && c.h>=44 && c.y+c.h<=m.visibleHeight+1,label+': control is too small or below the visible viewport');
       assert.ok(m.narration.y+m.narration.h<=m.stage.y,label+': narration must stay above the cast');
       assert.ok(m.nameVisible,label+': dialogue hides character names');
@@ -167,6 +204,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         assert.ok(gap>=rowHeight+5.5 && gap<=30.6,label+': permanent floor strip is too small or detached, gap='+gap);
         assert.ok(Math.abs(m.bubble.x+m.bubble.w/2-m.main.x-m.main.w/2)<.6,label+': bubble is not centered on the main character');
         assert.ok(m.speakerLabel && m.nameContent.includes(m.speakerLabel),label+': speaker name missing');
+        assert.ok(m.nameFits,label+': speaker name is clipped: '+m.speakerLabel);
         assert.ok(m.bubble.y+m.bubble.h<=m.meters.y+1,label+': dialogue covers meters');
         for(const a of m.actors) assert.ok(separated(a,m.bubble,2),label+': dialogue covers '+a.id);
         for(const p of m.poops) {
@@ -195,10 +233,21 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-first.x<=102.6,label+': poop row exceeds its compact bounds');
       }
       assert.deepEqual(errors,[],label+': browser errors');
+      assert.deepEqual(routeErrors,[],label+': CSS substitution fetch failed');
+      assert.equal(!!m.ring,!!save.partner?.married,label+': marriage ring visibility');
+      if(m.ring) {
+        assertApprovedRing(m.ring,label);
+        assert.ok(ringBetween(m),label+': ring leaves the space between the couple');
+        const paint=paintedRing(m.ring.glyph,ringBounds);
+        for(const a of m.actors) assert.ok(noIntersection(paint,a),label+': painted ring covers '+a.id);
+        for(const a of [...m.hearts,...m.poops,m.slot]) assert.ok(separated(paint,a,2),label+': painted ring covers heart or floor');
+        assert.ok(m.ring.x>=m.stage.x && m.ring.x+m.ring.w<=m.stage.x+m.stage.w && m.ring.y>=m.stage.y,label+': ring leaves the stage');
+      }
       return m;
     };
     try {
       await page.goto(baseURL);await page.locator('.device.ui-home-active').waitFor();
+      if(save.partner?.married)await page.evaluate(async src=>{const img=new Image();img.src=src;await img.decode();},ringBounds.image);
       await page.evaluate(()=>Promise.all([document.fonts.ready,...[...document.querySelectorAll('#pet img')].map(img=>img.decode().catch(()=>{}))]));
       await page.clock.runFor(100);
       // Font/image layout can resize the stage after the paused game clock
@@ -209,7 +258,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         const slot=document.getElementById('speechSlot').getBoundingClientRect();
         return Math.abs(slot.y-stage.y-Math.floor(stage.height)+slot.height+10)<.6;
       },null,{timeout:4500});
+      if(name==='paper-auto-clean') {
+        const dirty=await check('before-auto-clean');
+        assert.equal(dirty.poops.length,4,label+': dirty fixture must render before the first tick');
+        await page.clock.runFor(3001);
+        const cleaned=await check('auto-cleaned');
+        assert.equal(cleaned.poops.length,0,label+': V2 paper must clear all poop without a cooldown');
+        assert.ok(samePosition(cleaned.main,dirty.main) && samePosition(cleaned.slot,dirty.slot),label+': automatic cleaning moves cast/conversation');
+      }
       const before=await check('silent');
+      assert.equal(before.poops.length,name==='paper-auto-clean'?0:poops,label+': layout specimen must retain its configured floor row');
       await page.locator('#feedBtn').click();await page.clock.runFor(1);
       const expected=['pet',...(partner?['partner']:[]),...(count?['companion']:[])];
       for(let i=0;i<expected.length;i++) {
@@ -227,13 +285,21 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       }
       await page.locator('#speechText').evaluate(e=>e.textContent='おはよう!');
       const short=await check('short');
+      // Exercise names wider than the former 52px portrait column, including
+      // the screenshot report and the longest partner label, on every viewport.
+      const originalName=await page.locator('#speechSpeaker').getAttribute('data-label');
+      for(const name of ['フェニックス','ハシビロコウ','ひかるチョウチンアンコウ']) {
+        await page.locator('#speechSpeaker').evaluate((e,name)=>e.dataset.label=name,name);
+        await check('full-name-'+name);
+      }
+      await page.locator('#speechSpeaker').evaluate((e,name)=>e.dataset.label=name,originalName);
       await page.locator('#speechText').evaluate(e=>e.textContent='いっしょにいろんなところへ出かけよう。'.repeat(15));
       const long=await check('long');
       assert.ok(samePosition(short.slot,long.slot) && samePosition(short.main,long.main),label+': long text moves layout');
       await page.locator('#speechText').evaluate(e=>e.scrollTop=e.scrollHeight);
       assert.ok(await page.locator('#speechText').evaluate(e=>e.scrollTop>0),label+': long text cannot scroll');
       await page.screenshot({path:path.join(output,label+'-long.png')});
-      if(name==='right-speaker') {
+      if(name==='right-speaker' || name==='married-snow') {
         // Exercise the real CSS sway and individual speaking reactions as well
         // as the reduced-motion layout above. Poop stays outside both layers.
         await page.emulateMedia({reducedMotion:'no-preference'});
@@ -253,13 +319,20 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
           assert.ok(samePosition(m.slot,before.slot),label+': animation moves dialogue');
           assert.deepEqual(m.poops,before.poops,label+': animation moves poop');
           for(const p of m.poops) for(const a of m.actors) assert.ok(separated(p,a,1),label+': moving '+a.id+' covers poop');
+          if(m.ring) {
+            assert.ok(ringBetween(m),label+': animated ring leaves the space between the couple');
+            assertApprovedRing(m.ring,label);
+            const paint=paintedRing(m.ring.glyph,ringBounds);
+            for(const a of m.actors) assert.ok(noIntersection(paint,a),label+': animated painted ring covers '+a.id);
+            for(const a of [...m.hearts,...m.poops,m.slot]) assert.ok(separated(paint,a,2),label+': animated painted ring covers heart or floor');
+          }
         }
         assert.ok(Math.max(...positions)-Math.min(...positions)>4,label+': cast did not actually sway');
         await page.screenshot({path:path.join(output,label+'-animated.png')});
         await page.emulateMedia({reducedMotion:'reduce'});
         await page.clock.runFor(1);
       }
-      if(poops) {
+      if(poops && name!=='paper-auto-clean') {
         await page.locator('#cleanBtn').click();await page.clock.runFor(1);
         const cleaned=await check('cleaned');
         assert.equal(cleaned.poops.length,0,label+': cleaning failed');

@@ -1,0 +1,33 @@
+{
+  "source_head": "852ac7b98cd0c2bbb5bbaba73b12187c3e65721c",
+  "approved_source_production_byte_matches": 10,
+  "production_changed_pngs": 9,
+  "unchanged_tired_D4": true,
+  "candidate_regeneration": 0,
+  "source_to_production_extra_pixel_changes": 0,
+  "existing_files_checked": 4067,
+  "existing_files_preserved": 4054,
+  "allowed_changed_existing": [
+    "assets/characters/expressions/antlion/08-critical.png",
+    "assets/characters/expressions/antlion/08-happy.png",
+    "assets/characters/expressions/antlion/08-hungry.png",
+    "assets/characters/expressions/antlion/08-sick.png",
+    "assets/characters/expressions/antlion/08-sleeping.png",
+    "assets/characters/expressions/antlion/08-strained.png",
+    "assets/characters/expressions/antlion/08-sulky.png",
+    "assets/characters/expressions/antlion/08-wantsPlay.png",
+    "assets/characters/expressions/antlion/08-weak.png",
+    "docs/qa/antlion-expressions-20260918-manifest.json",
+    "docs/qa/antlion08-eye-review-20260929/status.json",
+    "docs/qa/antlion08-final-selection-20260929/selection.json",
+    "docs/qa/growth-hunger-expression-implementation-checklist-20260926.md"
+  ],
+  "non_target_png_hashes_preserved": 2923,
+  "prior_approved16_and_D4_preserved": 17,
+  "canonical_stage08_manifest_synced": 10,
+  "current_selection_synced": 10,
+  "diff_check": "PASS",
+  "antlion08_step4": "complete",
+  "human_confirmation_pending": false,
+  "step5": false
+}

@@ -1,0 +1,870 @@
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #203d50;
+  background: #eef3f6;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 30px 24px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0 28px;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #4c819f;
+  font-weight: 800;
+}
+h1 {
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  margin: 8px 0;
+}
+header p {
+  margin: 0;
+  color: #526f7f;
+}
+.badge {
+  background: #d5e5ed;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  margin-left: 10px;
+}
+.lab {
+  text-align: right;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #6a7b86;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+}
+.play,
+.panel {
+  background: #fff;
+  border: 1px solid #d7e3e9;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 25px #163c5510;
+}
+.hud {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+.playarea {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: flex-start;
+}
+#board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 6), 1fr);
+  gap: 3px;
+  background: #1c3c50;
+  padding: 7px;
+  border-radius: 12px;
+  width: min(100%, 322px);
+  aspect-ratio: 1/2;
+  box-shadow: inset 0 0 0 1px #355c70;
+}
+.cell {
+  min-width: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  position: relative;
+  border-radius: 6px !important;
+  background: #2a4b5e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1;
+  touch-action: manipulation;
+}
+.cell.piece {
+  background: var(--color);
+  color: #15354c;
+  box-shadow: inset 0 -3px 0 #00000016;
+}
+.cell.active {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+.cell.ghost {
+  opacity: 0.35;
+}
+.cell.selected {
+  outline: 3px solid #ffdd77;
+  outline-offset: -2px;
+}
+.cell small {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  font-size: 8px;
+  opacity: 0.7;
+}
+.playarea aside {
+  min-width: 65px;
+  max-width: 85px;
+}
+h3 {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #7c94a1;
+  margin: 12px 0 8px;
+}
+h3:first-child {
+  margin-top: 0;
+}
+.nextpair {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+.mini {
+  display: inline-flex;
+  min-width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color);
+  font-size: 11px;
+  font-weight: 800;
+}
+.stock {
+  font-size: 11px;
+  line-height: 1.8;
+}
+#gauge {
+  font-size: 16px;
+  color: #3c799a;
+}
+#status {
+  min-height: 44px;
+  padding: 14px 0 6px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #357997;
+}
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr 1fr 1.4fr;
+  gap: 6px;
+}
+button,
+select,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  border: 1px solid #ccdce5;
+  background: #f5f9fb;
+  color: #23475e;
+  border-radius: 9px;
+  padding: 10px 12px;
+  touch-action: manipulation;
+}
+button:hover {
+  filter: brightness(0.97);
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+button.primary {
+  background: #376f90;
+  color: white;
+  border-color: #376f90;
+}
+.hint,
+.muted {
+  font-size: 12px;
+  color: #6b8190;
+  line-height: 1.7;
+}
+.hint {
+  text-align: center;
+  margin: 12px 0;
+}
+.wavecontrols {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 11px;
+}
+.wavecontrols button {
+  font-size: 11px;
+  padding: 7px;
+}
+.wavecontrols label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+h2 {
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 11px;
+  color: #526e7d;
+}
+input,
+select,
+textarea {
+  border: 1px solid #c9dbe5;
+  background: #fff;
+  color: #224457;
+  border-radius: 7px;
+  padding: 8px;
+  min-width: 0;
+  width: 100%;
+}
+input[type="checkbox"] {
+  width: auto;
+}
+#selected {
+  font-size: 12px;
+}
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.buttons button {
+  font-size: 12px;
+}
+details {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 12px 0;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #e1eaf0;
+  margin: 22px 0;
+}
+.settings {
+  padding: 16px 20px;
+  background: #ffffffa0;
+  border: 1px solid #d7e3e9;
+  border-radius: 12px;
+  margin-top: 18px;
+}
+.settings .form {
+  grid-template-columns: repeat(4, 1fr);
+  margin: 18px 0;
+}
+textarea {
+  font: 11px/1.6 monospace;
+  resize: vertical;
+}
+footer {
+  font-size: 11px;
+  text-align: center;
+  color: #718995;
+  margin: 24px 0;
+}
+#resourceEggs,
+#resourceGauge {
+  margin-bottom: 8px;
+}
+@media (max-width: 760px) {
+  main {
+    padding: 16px 12px;
+  }
+  header {
+    margin: 4px 0 20px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .lab {
+    display: none;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .play,
+  .panel {
+    padding: 16px;
+  }
+  .playarea {
+    gap: 12px;
+  }
+  #board {
+    max-width: 280px;
+  }
+  .settings .form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .controls button {
+    padding: 12px 4px;
+    font-size: 13px;
+  }
+  .playarea aside {
+    min-width: 60px;
+  }
+  .cell {
+    font-size: 11px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+}
+
+/* Play surface. Laboratory controls retain the same engine and replay format. */
+[hidden],
+body:not(.lab-mode) .lab-only {
+  display: none !important;
+}
+main {
+  max-width: 1000px;
+  padding: 14px max(12px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+}
+header {
+  margin: 0 0 10px;
+}
+h1 {
+  font-size: 24px;
+  margin: 4px 0;
+}
+header p {
+  font-size: 12px;
+}
+.eyebrow {
+  font-size: 9px;
+}
+.layout {
+  display: block;
+}
+.play {
+  max-width: 590px;
+  margin: auto;
+  padding: 14px;
+}
+.lab-mode .panel {
+  margin-top: 18px;
+}
+button {
+  min-height: 44px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.hud {
+  margin-bottom: 10px;
+}
+.hud #stats {
+  line-height: 1.5;
+}
+#board {
+  position: relative;
+  flex: 0 1 auto;
+  width: auto;
+  height: min(480px, max(240px, calc(100dvh - 345px)));
+  aspect-ratio: 1/2;
+  gap: 2px;
+  padding: 4px;
+  max-width: 100%;
+  touch-action: manipulation;
+}
+#board .cell {
+  min-height: 0;
+  font-size: 12px;
+}
+#board .cell small {
+  font-size: 8px;
+  top: 2px;
+  left: 2px;
+}
+#board .cell.connected {
+  outline: 2px solid #fff3b4;
+  outline-offset: -2px;
+  filter: brightness(1.12);
+}
+#board .cell.animation-covered {
+  color: transparent;
+  background: #2a4b5e;
+  box-shadow: none;
+}
+#board .cell.animation-covered small {
+  visibility: hidden;
+}
+#board.previewing .cell {
+  opacity: 0.22;
+}
+.preview-piece,
+.moving-piece {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color);
+  color: #173646;
+  border: 2px solid #fff8;
+  border-radius: 7px;
+  pointer-events: none;
+  font-size: 11px;
+  font-weight: 800;
+}
+.preview-piece {
+  transform: scale(0.84);
+  box-shadow: 0 0 0 1px #173646;
+}
+.moving-piece {
+  z-index: 3;
+}
+#status {
+  padding: 7px 0;
+  min-height: 30px;
+  font-size: 13px;
+}
+.toolbelt {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1.4fr;
+  gap: 6px;
+}
+.toolbelt button {
+  font-size: 12px;
+  padding: 7px 3px;
+  background: #eef6fb;
+}
+.toolbelt small,
+.toolbelt span {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+}
+.tool-sheet {
+  margin: 8px 0;
+  padding: 10px;
+  background: #edf5f9;
+  border: 1px solid #afcbdc;
+  border-radius: 12px;
+}
+.sheet-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  gap: 8px;
+}
+.sheet-heading button {
+  padding: 5px 12px;
+}
+.choice-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 7px;
+  flex-wrap: wrap;
+}
+.choice-row button {
+  flex: 1;
+  min-width: 44px;
+  padding: 6px;
+  background: var(--color, #fff);
+  font-weight: 700;
+}
+.choice-row button[aria-pressed="true"] {
+  outline: 3px solid #245c7a;
+  outline-offset: -3px;
+}
+#eggChoices button {
+  font-size: 11px;
+}
+#toolHint {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+#confirmTool {
+  width: 100%;
+}
+.turnbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+#turnHint {
+  font-size: 11px;
+  flex: 1;
+}
+#startFall {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+.controls {
+  grid-template-columns: 1fr 1.3fr 1fr 0.9fr 1.4fr;
+  gap: 7px;
+}
+.controls button {
+  min-height: 48px;
+  padding: 7px 4px;
+  font-size: 16px;
+  touch-action: none;
+}
+.controls #drop {
+  margin-left: 5px;
+  font-size: 14px;
+  background: #245a75;
+}
+.hint {
+  margin: 8px 0 0;
+  font-size: 10px;
+}
+.play-menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.play-menu button {
+  font-size: 12px;
+}
+footer {
+  font-size: 10px;
+  margin: 10px 0;
+}
+@media (max-width: 760px) {
+  main {
+    padding-top: 8px;
+  }
+  .play {
+    padding: 10px;
+    border-radius: 14px;
+  }
+  .playarea {
+    gap: 12px;
+  }
+  #board {
+    max-width: 100%;
+  }
+  .playarea aside {
+    min-width: 68px;
+    width: 68px;
+  }
+  #gauge {
+    font-size: 12px;
+  }
+  h3 {
+    margin: 9px 0 5px;
+  }
+  .mini {
+    min-width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  .hint {
+    display: none;
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  header,
+  footer {
+    display: none;
+  }
+  .play {
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(245px, 1fr);
+    gap: 5px 16px;
+  }
+  .hud {
+    grid-column: 1/-1;
+    margin: 0;
+  }
+  .playarea {
+    grid-column: 1;
+    grid-row: 2/7;
+  }
+  #board {
+    height: max(200px, calc(100dvh - 100px));
+  }
+  #status,
+  .toolbelt,
+  .tool-sheet,
+  .turnbar,
+  .controls {
+    grid-column: 2;
+  }
+  .toolbelt {
+    align-self: start;
+  }
+  .turnbar {
+    margin: 0;
+  }
+  .play-menu {
+    margin: 5px;
+  }
+  .lab-only {
+    grid-column: 1/-1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Independent game portrait rail. Existing lab controls remain isolated. */
+.playarea {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 104px;
+  gap: 10px;
+}
+#board {
+  width: 100%;
+  max-width: 360px;
+  gap: 2px;
+  padding: 4px;
+}
+.playarea aside {
+  min-width: 0;
+  width: auto;
+}
+.playarea aside h3 {
+  margin: 6px 0 3px;
+  font-size: 10px;
+}
+.playarea .toolbelt {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  margin-top: 7px;
+}
+.playarea .toolbelt button {
+  min-height: 44px;
+  padding: 5px 2px;
+  font-size: 11px;
+}
+.playarea .toolbelt small {
+  font-size: 10px;
+}
+#eggs {
+  display: none;
+}
+.mini {
+  position: relative;
+  overflow: hidden;
+}
+.character {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.stage {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  min-width: 13px;
+  font-size: 10px;
+  line-height: 13px;
+  border-radius: 3px;
+  background: #fffdf0;
+  color: #142b42;
+  z-index: 2;
+}
+.image-fallback:before {
+  content: attr(data-fallback);
+  color: #21364b;
+  font-size: 20px;
+}
+.cell.image-fallback:after {
+  content: attr(aria-label);
+  font-size: 7px;
+  position: absolute;
+  top: 0;
+}
+#roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#roster label {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 4px;
+}
+.roster-panel {
+  margin: 8px 0;
+  font-size: 12px;
+}
+.preview-piece {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 8px max(8px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  }
+  header {
+    margin: 0 0 8px;
+  }
+  h1 {
+    font-size: 22px;
+    margin: 3px 0;
+  }
+  .play {
+    padding: 8px;
+  }
+  .playarea {
+    grid-template-columns: minmax(0, 1fr) 94px;
+    gap: 7px;
+  }
+  .hud {
+    margin-bottom: 7px;
+  }
+  .controls {
+    gap: 5px;
+  }
+  .controls button {
+    min-height: 48px;
+    padding: 8px 4px;
+  }
+  #board {
+    border-radius: 8px;
+  }
+  .cell {
+    min-height: 0 !important;
+  }
+  .tool-sheet {
+    padding: 8px;
+  }
+  .choice-row {
+    gap: 5px;
+  }
+  .choice-row button {
+    min-height: 44px;
+  }
+}
+#board {
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+}
+.cell {
+  overflow: hidden;
+}
+.playarea aside h3:nth-of-type(3) {
+  display: none;
+}
+@media (max-width: 600px) {
+  header p {
+    display: none;
+  }
+  .eyebrow {
+    font-size: 9px;
+  }
+  .playarea aside h3:first-child,
+  #current {
+    display: none;
+  }
+  .playarea {
+    grid-template-columns: minmax(0, 1fr) 88px;
+  }
+  .playarea #board {
+    max-height: calc(100svh - 230px);
+    justify-self: center;
+    max-width: calc((100svh - 230px) / 2);
+  }
+  .playarea .toolbelt {
+    gap: 3px;
+    margin-top: 4px;
+  }
+  .playarea .toolbelt button {
+    min-height: 44px;
+  }
+  .turnbar:has(#startFall[hidden]) {
+    display: none;
+  }
+  .hint {
+    margin: 5px 0;
+    font-size: 10px;
+  }
+  .roster-panel {
+    margin: 4px 0;
+  }
+}
+#board {
+  height: auto;
+}
+@media (max-width: 600px) {
+  .playarea #board {
+    max-height: none;
+    max-width: none;
+  }
+  .playarea aside .nextpair {
+    display: inline-flex;
+    margin: 1px;
+  }
+  .playarea aside #next {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .playarea aside .mini {
+    width: 19px;
+    height: 22px;
+  }
+  .playarea aside h3 {
+    margin: 2px 0;
+  }
+}
+@media (max-width: 600px) {
+  .playarea #board {
+    max-width: calc((100svh - 230px) / 2);
+  }
+}

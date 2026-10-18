@@ -1,0 +1,50 @@
+✖ VQ-11 flower instances retain planter and window-box elevation (17.984218ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 495.516552
+
+✖ failing tests:
+
+test at tests/meguru-3d-visual-quality-test.cjs:212:1
+✖ VQ-11 flower instances retain planter and window-box elevation (17.984218ms)
+  AssertionError [ERR_ASSERTION]: elevation must not alter scale, rotation, material or count
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        color: '#5fae4c',
+  +     ry: 7,
+  -     ry: 0,
+        shape: 'blade',
+        sx: 3,
+        sy: 18,
+        sz: 3,
+        tint: 0.5,
+  ...
+        color: '#ffe066',
+  +     ry: 7,
+  -     ry: 0,
+        shape: 'nut8',
+        sx: 3.08,
+        sy: 2.2,
+        sz: 3.08,
+        tint: 0.5,
+  
+      at TestContext.<anonymous> (/workspace/scratch/28c7e6574f23/naotocchi/tests/meguru-3d-visual-quality-test.cjs:230:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ { shape: 'blade', x: 20, z: -30, sx: 3, sy: 18, sz: 3, ry: 7, tint: 0.5, color: '#5fae4c' }, { shape: 'petal', x: 20, z: -30, sx: 11, sy: 1, sz: 11, ry: 3.141592653589793, tint: 0.5, color: '#ffffff' }, { shape: 'nut8', x: 20, z: -30, sx: 3.08, sy: 2.2, sz: 3.08, ry: 7, tint: 0.5, color: '#ffe066' } ],
+    expected: [ { shape: 'blade', x: 20, z: -30, sx: 3, sy: 18, sz: 3, ry: 0, tint: 0.5, color: '#5fae4c' }, { shape: 'petal', x: 20, z: -30, sx: 11, sy: 1, sz: 11, ry: 3.141592653589793, tint: 0.5, color: '#ffffff' }, { shape: 'nut8', x: 20, z: -30, sx: 3.08, sy: 2.2, sz: 3.08, ry: 0, tint: 0.5, color: '#ffe066' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,2 @@
+PASS chromium
+skip webkit: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/webkit-2336/pw_run.sh

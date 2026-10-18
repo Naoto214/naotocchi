@@ -1,0 +1,75 @@
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0b3c9b0df346/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0b3c9b0df346/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v2-1. player の 絵は きりで 消えない: キャラの material は fog なし・frustum culling なし・きりの 遠端は player + 900 より 遠く (2.350138ms)
+✔ v2-2. billboardVisible: 座標に いる のに 描かれない 状態(hidden / scale NaN / texture なし / きりの むこう)を 1 つの 判定で 見つける (48.64261ms)
+✔ v2-3. すかしは 見た目の 半径(えだはり)で 判定し、線分より 低い 物は すかさない。あたりの 半径 だけの 旧 判定も そのまま 通る (0.769377ms)
+✔ v2-4. ghost pool の 契約: 使った ものだけ visible、使わなかった ものは その frame で hidden、1 frame 使わなければ scene から はずす、pool は つかいまわす (1.615284ms)
+✔ v2-5. レンダラーの 切りかえで ghost が のこらない: scene の 捨て(地域 / corridor)・3D → 2D(fallback / 2D の 地域)で clear、stats に ghost と player (1.32829ms)
+✔ v2-6. corridor(地域の あいだの 道)は 3D で 描く: 10 本 × 2 方向 ぜんぶ 3D の 対象。飾りは ぜんぶ 意味の 表で 解決し(unresolved 0)、はしの いし だけ かたい (134.868163ms)
+✔ v2-7. corridor の gameplay は かわらない: 帯の 左右と はしの いし の あたり、着く / もどる、party の 受けわたし、セーブ なし (96.881012ms)
+✔ v2-8. しらせ: ふつうの spot と 地区は toast なし、ランドマークは quiet(左上の 静かな 強調)、ひみつ だけ toast。きろくは かわらない (19568.398471ms)
+✔ v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない (19540.427582ms)
+✔ v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない) (2.28222ms)
+✔ v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯 (2739.532865ms)
+✔ v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない (1548.734421ms)
+✔ v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない (9266.856589ms)
+✔ v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど (17156.526899ms)
+✔ v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある (4323.548308ms)
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0b3c9b0df346/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0b3c9b0df346/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに 隠す 物 だけ・もとの いろ・大きな 物は うすく・ちらつかない・変わった instance だけ 送る (139.948928ms)
+✔ GT-2. ray の 格子(pure): 線分が とおる ます目の instance だけ が 候補 (6.286781ms)
+✔ GT-3. 予算(HQ-4): うすい 板は 1 まい・幹は ふたなし・mound は 下半分 なし・花の まんなか 8 三角形。透明 fade で けさない (0.623116ms)
+✔ GT-4. Terrain v1(HQ-5): 意味の ある 起伏。道 / spot は 平ら、ひらけた ところ に 丘、小川は 谷、池は くぼ地、海は 水へ ひくく。ランダムな こぶ だけ では ない (26304.674437ms)
+✔ GT-5. Creek / River v3(HQ-6): 小川は spot の 円盤の ならび では なく 1 本の ながれ。橋の spot の 下を とおり、道を 横切る ところは 橋 か 飛び石。道 / かたい 物 の 上を ながれない (1244.579788ms)
+✔ GT-6. Water(HQ-7): 海 / 川 / 池 で 水の 面を かえる(海 = 浅瀬 → 沖 → 水平線、川 = 谷の 中の ながれる 面、池 = しずかな くぼ地の 面) (0.806725ms)
+✔ GT-7. home と countryside(HQ-10): いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)、いなか = ひろい 畑 と 用水路 と 板の はし(庭 なし) (1.256036ms)
+✔ GT-8. forest と jungle(HQ-11): もり = つめたい みどり・たおれた 丸太・しだ・きのこ・見とおし ほどほど。ジャングル = 多層(大きな は の 下草・ヤシ・canopy の つる)・しめった もや (243.470289ms)
+✔ GT-9. Tree v4(HQ-12): 根もとの はり・2 だんの 幹(すこし かたむく)・かんむりへ のびる 枝・白っぽい ほそい 木(すずしい 地域) (1.041547ms)
+✔ GT-10. props gate(HQ-13): ラベル なしで わかる。自転車は 立って いる、水車 / 観覧車の わ は たて (3839.537109ms)
+✔ GT-11. 13 地域の grammar(HQ-14): 背景の 絵 なしで 3D だけで 地域が わかる きまり (3.457053ms)
+✔ GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)で 地面が かわる・大木も 季節の いろ・3D でも 雨 / 雪 (0.56425ms)
+✔ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (4.289845ms)
+✔ a small newborn uses spare space and stays near the speech below it (21.082742ms)
+✔ bottom transparency cannot leave a fish far above its speech (436.968398ms)
+✔ closer core actors retain the readable size of both full companion arcs (40.621127ms)
+✔ equipment and the partner sit near the visible body instead of the transparent image top (207.762421ms)
+✔ height-constrained companions keep curved wings instead of straight columns (337.391288ms)
+✔ height-constrained cast keeps all frames, two sides and motion gaps (6498.945009ms)
+✔ more vertical room grows the cast instead of leaving a fixed small scene (11.647008ms)
+✔ legacy colors and earned designs survive as a noninteractive collection (145.68664ms)
+✔ glass inputs preview immediately, save on change, and reset only readability settings (223.751359ms)
+✔ viewport changes follow browser chrome height while pinch zoom remains usable (138.187813ms)
+✔ glass migration clamps unsafe values and respects an explicit transparency choice (730.586213ms)
+✔ short visible viewports switch meter arrangement and recover without undoing pinch zoom (122.538276ms)
+✔ a viewport resize lays out before the next reaction and does not cancel it on render (75.438378ms)
+✔ a new narration starts at the top while normal renders preserve the reading position (80.046937ms)
+✔ a new speech starts at its first line without truncating a long message (78.080396ms)
+✔ locked or invalid legacy designs cannot override the game palette (59.726268ms)
+✔ every saved color and pattern has one shared preview definition and independent paint layers (63.423202ms)
+✔ screen palette samples retain at least 4.5 contrast with white and colored motifs (173.784303ms)
+✔ presentation flag=false: discovered ordinary spots remain recorded with mode-specific map display (1396.437167ms)
+✔ presentation flag=false: ordinary, landmark and zone notifications preserve their mode (9471.856848ms)
+✔ presentation flag=true: discovered ordinary spots remain recorded with mode-specific map display (4893.016977ms)
+✔ presentation flag=true: ordinary, landmark and zone notifications preserve their mode (6308.188738ms)
+(node:23) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0b3c9b0df346/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0b3c9b0df346/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ integration: intentional hidden billboard is healthy when 3D body is attached (704.4383ms)
+✔ integration: hidden, degenerate and detached 3D body remain reported as failures (2.584853ms)
+✔ integration: one broken 3D actor falls back to visible 2D billboard (5.873309ms)
+✔ integration: on-screen body verification is distinct from pixel/occlusion proof (18.212841ms)
+✔ integration: main Character API and World regional/corridor features survive the same source (23.211387ms)
+ℹ tests 55
+ℹ suites 0
+ℹ pass 55
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75024.267096

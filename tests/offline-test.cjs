@@ -11,7 +11,7 @@ test('a short absence changes nothing', () => {
   assert.equal(state.hunger, 80);
 });
 
-test('ten minutes away lowers stats gently and leaves coins', () => {
+test('ten minutes away lowers stats gently without changing coins', () => {
   const h = harness(), state = h.api.state();
   state.stage = 'growing'; state.savedAt = 1000 - 10 * MIN; state.hunger = 100; state.happiness = 100; state.energy = 100; state.isSleeping = false;
   const money = state.lifetime.money, log = state.lifeLog.length;
@@ -19,7 +19,7 @@ test('ten minutes away lowers stats gently and leaves coins', () => {
   assert.equal(r.ticks, 200);
   assert.ok(Math.abs(state.hunger - 70) < 0.01, 'hunger drops 0.25 per tick but at most 30 per absence: ' + state.hunger);
   assert.equal(state.energy, 100, 'energy never drops while away');
-  assert.equal(state.lifetime.money, money + 2, 'one coin per five minutes');
+  assert.equal(state.lifetime.money, money, 'offline visits do not generate coins');
   assert.equal(state.lifeLog.length, log + 1);
   assert.equal(state.ageTicks, 500, 'age does not pass while closed');
 });

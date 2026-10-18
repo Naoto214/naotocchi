@@ -1,0 +1,32 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ two side-part QA-only author options produce distinct hair geometry while keeping face rear and all production rows intact (174.045526ms)
+✔ each option retains eye clearance and connected closed hair surfaces (296.570024ms)
+✔ part boundary locks travel outward from root to tip without inward keyhole hooks (1.064295ms)
+✖ E side repair preserves selected fringe rear and nonhair while covering both temple-to-rear gaps (20.930858ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 588.492154
+
+✖ failing tests:
+
+test at tests/character-3d-author-hair-options-test.cjs:5:1
+✖ E side repair preserves selected fringe rear and nonhair while covering both temple-to-rear gaps (20.930858ms)
+  AssertionError [ERR_ASSERTION]: -1: connected side coverage 0.09,0.025
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-hair-options-test.cjs:11:296)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

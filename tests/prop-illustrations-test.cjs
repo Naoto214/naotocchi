@@ -41,13 +41,15 @@ function start(id,{loaded=true,propIllustrations=true,reducedMotion=false,seed=7
 }
 
 test('road and space props use pictures, keep the player glyph, and fall back on failed images',()=>{
+  // Items now spawn about one every 0.6s (they used to arrive 3-4 a second), so a
+  // scene whose only pictured props are the items needs ~2.4s before the first draw.
   for(const id of ['road-themed','p3-space','p3-drive','road-city','road-jungle','road-desert']){
-    const r=start(id);r.h.advance(1800);
+    const r=start(id);r.h.advance(3000);
     assert.ok(r.calls.some(c=>c[0]==='drawImage'),id);
     const original=r.calls.filter(c=>c[0]==='fillText').map(c=>c[1]);
     assert.ok(original.includes(id==='p3-space'?'🚀':id==='p3-drive'?'🏎️':'🐕'),id+' player preserved');
     assert.equal(r.ctx.imageSmoothingEnabled,true);
-    const failed=start(id,{loaded:false});failed.h.advance(1800);
+    const failed=start(id,{loaded:false});failed.h.advance(3000);
     assert.equal(failed.calls.some(c=>c[0]==='drawImage'),false,id);
     assert.ok(failed.calls.filter(c=>c[0]==='fillText').length>original.length,id+' original prop glyphs');
   }

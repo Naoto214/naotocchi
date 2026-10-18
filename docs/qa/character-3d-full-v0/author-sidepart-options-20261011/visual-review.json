@@ -1,0 +1,66 @@
+{
+  "status": "VISUALLY_INSPECTED_UNADOPTED_HUMAN_SELECTION_OPEN",
+  "selected": null,
+  "productionChanged": false,
+  "baseline": "8daf05fe93fadc095e30bc6b79117afae6dfcd2d",
+  "sourceCommit": "a6096121897b3d93a05733cc5049539218ea27c4",
+  "sourceRun": 38137800237,
+  "sourceRunConclusion": "success",
+  "captureJob": 114465160643,
+  "artifactId": 11702305928,
+  "artifactDigest": "sha256:467b25794600b2e8abc5e874f5eea7d3aaa4859c241284b43a8f569bf45d23ad",
+  "verifiedRawFiles": 12,
+  "viewsPerCandidate": [
+    "front",
+    "34",
+    "side",
+    "back"
+  ],
+  "cameraSides": {
+    "D": 1,
+    "E": -1
+  },
+  "candidateSpecHashesMatch": true,
+  "browserErrors": [],
+  "visualObservations": {
+    "D": "Viewer-right off-center scalp opening, full group flows left/down, smaller group right/down.",
+    "E": "Viewer-left off-center scalp opening, full group flows right/down, smaller group left/down.",
+    "shared": "All eight frames, full comparison and head crops actually inspected. Root opening diverges outward/downward; previous keyhole hooks removed. Crown/rear covered, eyes visible. Fine original tousled detail remains simplified into rounded locks; no likeness approval."
+  },
+  "originalLimitation": "One original2D view repeated, not invented side/back views.",
+  "internalRejectedSources": [
+    {
+      "sha": "03d0fd17d928069c81012d37f71a48d097988f29",
+      "reason": "Broad round notch"
+    },
+    {
+      "sha": "3d14dc090c9bff74d653ff38cce8dcd0ecd7a8c3",
+      "reason": "Inward boundary tips made keyhole opening"
+    }
+  ],
+  "humanRejectedPrevious": "A/B/C all rejected per user; no-part restriction withdrawn.",
+  "tests": {
+    "shapePass": 3,
+    "workflowPass": 8,
+    "fail": 0,
+    "finalControlsDetected": 2,
+    "exactRestoration": true,
+    "characterCI": "SUCCESS",
+    "runtimeCI": {
+      "run": 38137806535,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    },
+    "homeCI": {
+      "run": 38137806537,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    }
+  },
+  "humanQA": "OPEN_UNSELECTED",
+  "fullHumanQA": "OPEN",
+  "iPhoneQA": "OPEN",
+  "pr": {
+    "number": 376,
+    "draft": true,
+    "merged": false
+  }
+}

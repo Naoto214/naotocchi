@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "cfdf91912b3b8264b680a1f8a91a84a38a8e0972",
+  "artifacts": {
+    "waveMotion": 11435107999,
+    "normalDistance": 11435726043
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "REJECT",
+  "reason": "Wing membranes now continuous with no overlapping fan; full8views/64states/4normaldistance reveal canonical mouth hidden behind physical muzzle. Face target only included head ellipsoid. Require projected-mouth correction before expansion.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

@@ -1,0 +1,103 @@
+TAP version 13
+# Subtest: exact actual author identity resolves in production and QA and never aliases other roles
+not ok 1 - exact actual author identity resolves in production and QA and never aliases other roles
+  ---
+  duration_ms: 65.344768
+  type: 'test'
+  location: '/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-candidate-test.cjs:47:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - 'author:naoto'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'author:naoto'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-candidate-test.cjs:47:620)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: HTTP QA overlay resolves unchanged actual kind naoto consistently with production
+not ok 2 - HTTP QA overlay resolves unchanged actual kind naoto consistently with production
+  ---
+  duration_ms: 99.771272
+  type: 'test'
+  location: '/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-candidate-test.cjs:55:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - 'author:naoto'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'author:naoto'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-candidate-test.cjs:55:710)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: reviewed nonplayers are exact role-specific runtime entries
+not ok 3 - reviewed nonplayers are exact role-specific runtime entries
+  ---
+  duration_ms: 74.636404
+  type: 'test'
+  location: '/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:14:1'
+  failureType: 'testCodeFailure'
+  error: 'author:naoto is promoted'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: ~
+  operator: '=='
+  stack: |-
+    check (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:4:47)
+    TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:14:72)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries
+not ok 4 - browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries
+  ---
+  duration_ms: 81.144477
+  type: 'test'
+  location: '/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:15:1'
+  failureType: 'testCodeFailure'
+  error: 'author:naoto is promoted'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: ~
+  operator: '=='
+  stack: |-
+    check (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:4:47)
+    TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:24:2)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 0
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 351.267273

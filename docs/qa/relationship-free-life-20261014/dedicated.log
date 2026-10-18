@@ -1,0 +1,25 @@
+✔ relationships are independent residents, not automatic followers; current IDs survive missing lifetime records (670.340622ms)
+✔ same actor voluntarily accompanies, expires, returns to life without modifying relationships (730.709052ms)
+✔ party cap, distant rejection, region departure and semantic events (1359.032481ms)
+✔ Home has no permanent surrounding cast; a finite visit is visible and the relationship survives departure (472.77016ms)
+✔ manual activity controls permit choosing walk/date/adventure and ending without a forced dialog (370.381986ms)
+✔ hidden time does not advance Home encounter clock or trigger a visit on resume (144.92419ms)
+✔ responding to an invitation selects its actor even when another resident becomes nearest (558.930237ms)
+✔ Home relationship idle initiatives consume the common budget (400.540522ms)
+✔ relationship removal ends active accompaniment and reload starts free (516.306635ms)
+✔ explicit destination ends companionship, incidental places do not (373.167592ms)
+✔ session module exists (6.403112ms)
+✔ shared cooldown, rolling caps and random encounter interval (0.491365ms)
+✔ invitations are scarce and do not accumulate during inactivity (0.260434ms)
+✔ event subscribers are isolated, removable and payloads immutable (0.551093ms)
+✔ Home visits are finite, one at a time, and preserve relation input (0.58299ms)
+✔ listeners added during emission run only on the next emission (0.221918ms)
+✔ partner visits remain possible in a crowded relationship roster (0.340322ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6167.066899

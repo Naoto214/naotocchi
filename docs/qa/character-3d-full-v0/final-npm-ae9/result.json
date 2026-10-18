@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "scope": "npm test on prepared implementation subsequently saved at this commit; production and npm test inputs unchanged during run. Later QA/export-only fixes are separate.",
+  "main": {
+    "tests": 3022,
+    "pass": 3022,
+    "fail": 0,
+    "durationMs": 691770.688424
+  },
+  "relationship": {
+    "tests": 80,
+    "pass": 80,
+    "fail": 0,
+    "durationMs": 5686.042195
+  },
+  "exit": 0,
+  "rawLogSha256": "acab765f40e5d279a69ec05ddc4347bb52943d7377a7378fe55b37242290c57b",
+  "gzipSha256": "d6fa3cc0edfe57534009ea7085427bbee6b9140247ec216828b4781ca84d2a56"
+}

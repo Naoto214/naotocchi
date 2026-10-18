@@ -1,0 +1,23 @@
+{
+  "source_head": "3126a7ce9e6c17a1c2ee3208c3be6dcea1b13b8f",
+  "existing_tracked_files_unchanged": 3873,
+  "image_asset_changes": 0,
+  "candidate_png_changes": 0,
+  "runtime_changes": 0,
+  "normal_D4_candidates9_approved16": "SHA-256 preserved within complete tracked-file manifest",
+  "generated_qa_files_reproducible": 26,
+  "focused_tests": 852,
+  "focused_pass": 852,
+  "focused_fail": 0,
+  "full_test": "今回未実行",
+  "quick_mode": "今回未実行・既知初回FAIL追跡継続",
+  "diff_check": "PASS",
+  "human_approval": false,
+  "step4_complete": false,
+  "readability_summary": {
+    "A": 0,
+    "B": 10,
+    "C": 0,
+    "basis": "64/80px-weighted observer QA, not a blinded recognition test"
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "item penalty ignored",
+    "killed": true,
+    "exit": 1,
+    "assertionFailures": 1
+  },
+  {
+    "name": "slide action restriction removed",
+    "killed": true,
+    "exit": 1,
+    "assertionFailures": 1
+  },
+  {
+    "name": "missing diagnostic path",
+    "killed": true,
+    "exit": 1,
+    "assertionFailures": 1
+  },
+  {
+    "name": "egg net reduction wrong",
+    "killed": true,
+    "exit": 1,
+    "assertionFailures": 1
+  },
+  {
+    "name": "large clear threshold wrong",
+    "killed": true,
+    "exit": 1,
+    "assertionFailures": 1
+  },
+  {
+    "name": "long item streak threshold wrong",
+    "killed": true,
+    "exit": 1,
+    "assertionFailures": 1
+  },
+  {
+    "name": "zero ratio misleading",
+    "killed": true,
+    "exit": 1,
+    "assertionFailures": 1
+  }
+]

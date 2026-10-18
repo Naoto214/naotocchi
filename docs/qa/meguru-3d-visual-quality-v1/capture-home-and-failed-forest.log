@@ -1,0 +1,12 @@
+home-vq                      {"x":0,"z":630,"is3D":true} {"calls":41,"tris":36998,"js":112,"water":{"kind":null,"meshes":[],"ponds":0},"player":{"missFrames":0,"ok":true,"why":""},"ghosts":0} err 0
+home-house-vq                {"x":-420,"z":1050,"is3D":true} {"calls":39,"tris":36562,"js":79.6,"water":{"kind":null,"meshes":[],"ponds":0},"player":{"missFrames":0,"ok":true,"why":""},"ghosts":0} err 0
+forest-vq EXC page.screenshot: Timeout 30000ms exceeded.
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+jungle-vq                    {"x":0,"z":650,"is3D":true} {"calls":61,"tris":172854,"js":373.5,"water":{"kind":"creek","meshes":["water:creekbed","water:creek","water:creekbed","water:creek","water:rim","water:pond"],"ponds":1},"player":{"missFrames":0,"ok":true,"why":""},"ghosts":0} err 0
+city-vq EXC page.evaluate: Target page, context or browser has been closed
+ERR browserContext.close: Target page, context or browser has been closed
+    at async /workspace/scratch/090ca97d6a99/world/tools/meguru-3d-qa/shot.cjs:41:107

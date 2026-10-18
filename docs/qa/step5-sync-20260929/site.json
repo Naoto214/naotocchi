@@ -1,0 +1,39 @@
+{
+  "project_id": "appgprj_6aa908e9357c8191abb0f486be58697c",
+  "previous_version": 72,
+  "intermediate_version_73": "saved only, not deployed; superseded after static hunger/font check",
+  "saved_version": {
+    "id": "appgprj_6aa908e9357c8191abb0f486be58697c~appgver_3aaf979d72108191ae0b01aa6884c03a",
+    "project_id": "appgprj_6aa908e9357c8191abb0f486be58697c",
+    "version_number": 74,
+    "source": {
+      "commit_sha": "b282683aa4039eb3af2e999514590727e0f8a61d"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000c2e08209b9048acaae172db2",
+      "content_hash": "sha256:f31abbcb896e212a0b151a643ea40f67fc57b99d33635277dea68c6099024cf8",
+      "size_bytes": 179240960,
+      "file_count": 3222
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6abbcc0221108191932d092094c234c1",
+    "project_id": "appgprj_6aa908e9357c8191abb0f486be58697c",
+    "title": "なおとっち・感情リアクション確認版",
+    "version_id": "appgprj_6aa908e9357c8191abb0f486be58697c~appgver_3aaf979d72108191ae0b01aa6884c03a",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naotocchi-emotion-pr275.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6aa908e9357c8191abb0f486be58697c",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-09-29T14:33:13.280612+00:00"
+  },
+  "final_site_qa": "deferred to step6",
+  "scope_unchanged": true
+}

@@ -1,0 +1,365 @@
+{
+  "beforeCommit": null,
+  "candidateBaseCommit": "1b8ef62aa3cbfe79b6f05150f4cd520eaa8c7284",
+  "candidateOnly": true,
+  "afterCommit": "cd32a105882f6582039285418dbfe19f229dfb73",
+  "renderer": "existing wave-review.html; per-model bounding-box fit; unchanged lighting and poses",
+  "originalNote": "Single original 2D repeated in each row; no invented side/back original",
+  "candidateSpecSha256": {
+    "A": "b23f94bd2e12a6097be2da30536ab4ec3f42be358b07b2c2758f301db08f9893",
+    "B": "ea92dab44dffc6b7d5d5d2fe437f9461649b5b7bafcb536a298f016ba42b28d7",
+    "C": "9b0dc172b285039a5ffb83eb1c88f9bfe35740a20d546a872b852d176603c240"
+  },
+  "beforeSpecSha256": null,
+  "records": [
+    {
+      "version": "A",
+      "file": "author-naoto-A-front.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "A",
+      "file": "author-naoto-A-34.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "A",
+      "file": "author-naoto-A-side.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "A",
+      "file": "author-naoto-A-back.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15088,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "B",
+      "file": "author-naoto-B-front.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "B",
+      "file": "author-naoto-B-34.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "B",
+      "file": "author-naoto-B-side.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "B",
+      "file": "author-naoto-B-back.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "C",
+      "file": "author-naoto-C-front.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16688,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "C",
+      "file": "author-naoto-C-34.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16688,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "C",
+      "file": "author-naoto-C-side.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16688,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    },
+    {
+      "version": "C",
+      "file": "author-naoto-C-back.jpg",
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16688,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.32817094564437865
+        ],
+        [
+          0.3216627764727591,
+          1.7198270942555953,
+          0.32201910417509594
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

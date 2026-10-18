@@ -1,0 +1,18 @@
+{
+  "_note": "RH-2: むかしの版で 旧系統(bird など)のキーごと数えて ④ ずかんクリア・かんむり・dex-complete を得た save。取り消さない。いまの版の件数は 2 のまま、図鑑に「コンプリートの きろく あり」だけ そえる",
+  "stage": "growing",
+  "speciesLine": "dog",
+  "stageIndex": 1,
+  "ageTicks": 300,
+  "schemaVersion": 5,
+  "romanceCompatibilityVersion": 2,
+  "discoveredStages": ["dog:0", "dog:1", "bird:0", "bird:1", "bird:2", "bird:3", "bird:4", "bird:5", "bird:6", "bird:7"],
+  "achievementsUnlocked": ["evolve-1", "dex-complete", "elder-collector"],
+  "lifetime": {
+    "money": 10,
+    "clears": 1,
+    "dexCleared": true,
+    "endingTiersReached": [0, 3],
+    "ownedNaotoItems": ["naoto_charm", "naoto_crown"]
+  }
+}

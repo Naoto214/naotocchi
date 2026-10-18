@@ -1,0 +1,48 @@
+✖ reviewed nonplayers are exact role-specific runtime entries (57.132787ms)
+✖ browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries (65.157682ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 208.826942
+
+✖ failing tests:
+
+test at tests/character-3d-nonplayer-promotion-test.cjs:11:1
+✖ reviewed nonplayers are exact role-specific runtime entries (57.132787ms)
+  AssertionError [ERR_ASSERTION]: partner:oasis_cactus is promoted
+      at check (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:4:47)
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:11:72)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/character-3d-nonplayer-promotion-test.cjs:12:1
+✖ browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries (65.157682ms)
+  AssertionError [ERR_ASSERTION]: partner:oasis_cactus is promoted
+      at check (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:4:47)
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-nonplayer-promotion-test.cjs:21:2)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

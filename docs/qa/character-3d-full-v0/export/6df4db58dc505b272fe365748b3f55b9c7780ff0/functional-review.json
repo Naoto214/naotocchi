@@ -1,0 +1,35 @@
+{
+  "status": "PASS_FUNCTIONAL_45_ONLY",
+  "sourceCommit": "6df4db58dc505b272fe365748b3f55b9c7780ff0",
+  "run": 37924802873,
+  "job": 113801069134,
+  "jobConclusion": "failure",
+  "rawJsonSha256": "2775adae07e4bdac172ad7f57f6bf1d5e9bb10b29eaff8519e25b99aa56b76aa",
+  "checked": 45,
+  "sourceRowsIndividuallyValidated": true,
+  "authorAsyncDelta": [
+    {
+      "path": "lifetime.meguru.marks.memory_lake",
+      "before": [],
+      "after": [
+        "hero:shore"
+      ]
+    },
+    {
+      "path": "lifetime.saveRevision",
+      "before": 3,
+      "after": 4
+    },
+    {
+      "path": "savedAt",
+      "before": 1791546072722,
+      "after": 1791546075430
+    }
+  ],
+  "limits": [
+    "This job later failed scene warmup characters-on readiness; scene/default performance remain OPEN.",
+    "The async Author interval records application progression, not unchanged-save approval. All synchronous presentation boundaries are unchanged.",
+    "These observed deltas do not establish the cause of the older ae9 failure.",
+    "No new image or Human/iPhone approval."
+  ]
+}

@@ -1,0 +1,2185 @@
+{
+  "status": "complete",
+  "complete": true,
+  "expectedRecords": 80,
+  "availableRecords": 80,
+  "generator": "built-in imagegen",
+  "normalization": "tools/normalize-expression-image.cjs",
+  "validation": {
+    "baseline_remote": "570673e51d0550721c0762e10420d5683adba19a",
+    "baseline_local": "682839b02484a41622c72a42199b4499caa94866",
+    "preserved_baseline_files": 2701,
+    "old_active_expressions": 2400,
+    "legacy_expression_files": 4,
+    "normal_pngs": 297,
+    "old_layouts": 240,
+    "new_layouts": 8,
+    "connected_assets": 2480,
+    "svg_accents": 2480,
+    "site_png_hash_matches": 2480,
+    "accepted_final_hashes": 80,
+    "cache": "20260923-d531d95a"
+  },
+  "records": [
+    {
+      "stage": "01",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: happy, eyes closed as joyful smiling arcs, eyebrows relaxed. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-16d5aa4d-ef92-4eb6-976b-d1f27a2745b9.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-happy.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-happy.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "0a39fc94689c93cb6de19bdb4ef982d399f0061729fdbe41022b91f65ecca0e0",
+      "final_sha256": "597c2e9ebc99aa95974834965b0c5a699dd4867a57285d8d8604a484ee345a9b",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: strained effort, eyes squeezed tight into inward chevrons, eyebrows tense. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2fa2cd26-43ed-45fe-b0e5-4ef38ca64f0b.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-strained.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-strained.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "404c7f481c1928dbe4f0db784c2d53367700b9183d6a9abed62e165980cc8400",
+      "final_sha256": "3f6db2ed704ac2b48162f6ca8a087191bb828a3f9aa2b352b78b4f3d39d553a6",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: hungry and pleading, open eyes with raised inner brows. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9907b73c-b6fb-47d8-9ec9-a0eabbcc60d2.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-hungry.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-hungry.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "225e01568820e460dd8c6adcf60372ca5034e599dda2d86a086a9a06df11f5ed",
+      "final_sha256": "31d6de14886088d0c8ebc5794d40121b125208ccc4951abe44bb08e8ada8e520",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: sick, heavy asymmetric half-lidded eyes, worried brows. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0b6ed319-e80a-41af-8dfe-c8981d887676.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-sick.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-sick.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "b109a49e26cab68ebc72fbb6d4e86de083699541b047e9e4e2b13a6b64ec0366",
+      "final_sha256": "cc3898ab45e0e96944ae75e0cd5d0b6d4f06821658151cf203a4ea8d2aefddb4",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: tired but awake, half-open drooping eyelids, relaxed low brows. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-85abb697-99bd-4caa-90a0-2e8a65dec8de.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-tired.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-tired.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "a2ba36068f51f062e91f6d42c350d75bead31c31872788d0662c983d0d942fde",
+      "final_sha256": "d4785c515e1cd42cc1e500ca7a57bdb78f1af5749f047c9d95c53cf57db1d907",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: sulky, inward-slanting brows and narrowed pouty eyes. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c9bf06c7-6559-4183-a69e-50752524f934.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-sulky.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-sulky.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "a054e16b75441edc8942d424805c1fb0dee83e214d20c11b4b980ed6829b47f0",
+      "final_sha256": "12f98c52f25907d91d323dcbb90e8ffd38058a788b34b3080a63ace08fbf5c2b",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: weak, low drooping eyes, soft worried brows. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9b0a8d7e-abbf-4707-879c-ad01aea4f6fc.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-weak.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-weak.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "d05e6840d6471efa03a579ec968b96c8f922c32474041effd2a90be1db8dabd6",
+      "final_sha256": "93f615a59229d0e52ba16c834735306b18a6790237bdd412d9275b70b90fa5f4",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: very unwell, almost shut uneven eyes, eyebrows droop strongly. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-41d16334-37b3-401b-8967-4aa76194972a.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-critical.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-critical.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "f6210329a0030b9b86588af8e0bf8af4ad84572f3e6b51c026532c2bf8963a11",
+      "final_sha256": "5c430c7fd2a759b19309bd5aa6bd408fae5bba93992bc25ce76e3dffc017d8f5",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: eager to play, wide alert eyes, excited raised eyebrows. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d549ccb9-7011-4d5a-a798-fe90ac5c7805.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-wantsPlay.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "508ad5ecdaeac33c506b119badb12b3c8ea897fd91689eb32dc97776802807e8",
+      "final_sha256": "4ee642dc9d313ec3d4bb3f8f35f3ebbf8f0eab4b092fe91ef9411e9830a6e266",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve crawling baby boy exactly, blue onesie, dark short hair, small baby body, crawling pose with hands and knees, BLUE PACIFIER in mouth MUST remain fully unchanged in shape position and color for every state. Only existing eyes and eyebrows express the emotion; do not draw a mouth behind or around pacifier.  Emotion: peacefully asleep, both eyes fully closed with relaxed downward arcs, brows relaxed. Preserve hair, age, complexion, blush, clothing, anatomy, outline, exact body geometry and pose. Do not move body or limbs. Change only specified face parts. Crisp pixel art, genuine transparent PNG, no background, text, marks, sweat, tears, added objects. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c9797a8f-4fb6-4d7c-a02f-58df34a4dfa2.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/01-sleeping.png",
+      "original": "assets/characters/ren/01.png",
+      "final": "assets/characters/expressions/ren/01-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "source_sha256": "b8d4b20a6a963cfab1c86914c60f69cbc1e84a54ec21763f834addf25d087354",
+      "final_sha256": "a1f587f86570a661d6b015f1b6d104e0a5e3fd34a464d329c42c0c4ea3e6c13a",
+      "bounds": [
+        30,
+        42,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/01-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: joyful crescent eyes and small open smile distinct from original. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-73bf44d7-8e74-463c-a389-e8680d0dc66d.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-happy.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-happy.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "7cca958861763d473587d29c862e7d943f4ac406e6eb062c1a858ad819e5cdb6",
+      "final_sha256": "2ffdda61b5b255a2211e17f72ae5a03f101a8146255fbf4e2c7d9bf50be59b69",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: strained effort, eyes squeezed tight into inward chevrons, eyebrows tense, small tight tense mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-30502f32-4f4f-4fb8-a6e7-4ec28eb1d322.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-strained.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-strained.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "15ad062508fb4316bc05727245d35dea41025d918a4c373621394881de9d02b0",
+      "final_sha256": "f59e6a07f02cccc7fb5caaff85ca3faa36a7d4ef51a473934838a93839c58342",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: hungry and pleading, open eyes with raised inner brows, small pleading open oval mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4b6ef8d8-c0ca-4658-93e6-a4f8b9656578.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-hungry.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-hungry.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "c2b8dc631267727ccfa24b50d00474729e65fba0d141f9524ef7891cfab713a2",
+      "final_sha256": "773bab64a1e8e84b972a47237aad35c2de9d965129d4eb0f3e36c705243aa9dc",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: sick, heavy asymmetric half-lidded eyes, worried brows, small wavy uneasy mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c6e06dbb-052e-4ae1-a532-0c24435fa850.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-sick.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-sick.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "6cca1595607aee3f9143fe34c31a3ec0e7ead3024653ddd3e4d5ea3c40f72a40",
+      "final_sha256": "b55d0362acddd9fe07ef9e84b93311c6dd2dbb932297dff07f33b4885b58020d",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: tired but awake, half-open drooping eyelids, relaxed low brows, small yawning oval mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6b3a7f28-46b8-47e2-be5f-40300cfe0faf.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-tired.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-tired.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "a496ac4902c9f9f5b8667620c4688c1b7775ca654b1eb7d4462937ad9da7c509",
+      "final_sha256": "c6111e04b3af79d48ca1281d2c41a4c07150901a80a8a818ce1e90dcf4e3e85b",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: sulky, inward-slanting brows and narrowed pouty eyes, small downturned pout. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1a8c7a26-7a85-4fce-b6dc-d5d33beaae5c.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-sulky.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-sulky.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "c8f80c679535fb9e9cfc4a6305380a41e74f692d0bea71d0b55017f8137bcc94",
+      "final_sha256": "be799bfe15de816c2fb9a9730a61923e790a4557fe5d5a21c293e802160edc32",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: weak, low drooping eyes, soft worried brows, small shallow downturned mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f515ca8a-3e09-436e-9c95-608f842618d6.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-weak.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-weak.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "5e463f9aa19cf860396b45129418aa29b353121dc9e9e3a8e1f796401b45c33a",
+      "final_sha256": "ac121481ab1c0ae4ad624ed4e3a96c82c6a1485b8f6a28ff4e90c48462bfcf70",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: very unwell, almost shut uneven eyes, eyebrows droop strongly, tiny slack downturned mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f574b8b3-7e23-4e51-a762-23130d948b96.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-critical.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-critical.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "5c93788dff6b7480528163a173b48adc4e6131048bc7a1a0bef49941d3d8d299",
+      "final_sha256": "27afd5667fea1bd0bbe9d7ba44c67be131d4bab925410319e73a43cf4f309272",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: eager to play, wide alert eyes, excited raised eyebrows, wide excited smiling mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3d486322-e845-4080-ad40-51398be404ae.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-wantsPlay.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "14fc9b34a7f307af6308bdf3afc0e0e9d77343de8d3a0c93436737979f4a6e67",
+      "final_sha256": "ee509517bd9d1c69edc60755650dba0f14071e361116d07ea65f030393ca2fc9",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Game sprite. Image1 original edit target, image2 nearest-neighbor enlargement. Preserve toddler boy dark swept hair, BLUE shirt and matching BLUE SHORTS, white socks BLUE SHOES, raised arms and kicking pose exactly. Bear-face clothing PRINT unchanged, not living nor expression target. Change only human face: peacefully asleep, both eyes fully closed with relaxed downward arcs, brows relaxed, small relaxed closed mouth. Preserve age, complexion, blush, clothing, anatomy, outline, exact geometry and pose. No added anatomy/props/marks/sweat/tears/text. Crisp pixel art on genuine transparent PNG. One character.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c8d7d079-1753-4072-a533-299e906e8a61.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/02-sleeping.png",
+      "original": "assets/characters/ren/02.png",
+      "final": "assets/characters/expressions/ren/02-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "source_sha256": "ffc9218f831d39e51c91769b7cdf23bd25ce50974509cb82fd6a7e7578ae5e73",
+      "final_sha256": "98f8318c6df5629adf0e665c7a088caf3898ce9e1619ab7a3b6bbad5fdc25a42",
+      "bounds": [
+        33,
+        29,
+        93,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/02-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression happy: gently joyful curved eyes and a small warm smile. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-19d355a2-f73a-41b4-836e-92c6de8ae123.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-happy.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-happy.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "0de8cf953e2755441e4a75388a95c5734808e2e5c317ee2acddf70aa4f4ed8f0",
+      "final_sha256": "4cc1932596bca5dabe3b876a22a561af894427e19abf62ef1c229da1ac8ef47e",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression strained: tightly tense eyebrows and narrowed eyes, small compressed uneasy wavy mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6417e99f-add0-4afd-bb78-5f1c4369c747.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-strained.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-strained.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "ebe2d686b2bb072e3c3f5090f27b1c97daa81a1523cbde60c17c59fbcb60b296",
+      "final_sha256": "b5eee3937f60b7896b87663fc0330917f0f00e58060767f447d411a7d6525268",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression hungry: pleading raised inner brows, droopy open eyes, small round open mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0344cd5c-c110-412b-a3cb-ae6545f9c3cf.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-hungry.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-hungry.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "a251820f2a9f76409f00d7aa1f66b370c4cba11809bca07487487fe40ea9ff8b",
+      "final_sha256": "3b0cc8e22de1787547fcf37ddc541e8d3ffb41d54fcd3eedc1af0c225e589289",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression sick: uneasy sagging brows, downcast narrowed eyes and small asymmetric queasy frown; unchanged skin color. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5edca2bb-2782-41b5-ab9f-f4e468587024.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-sick.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-sick.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "fb5629be3d5989940049ea5ccfb70e1a220ec9ccf680a16d1b97135c471f68f2",
+      "final_sha256": "f407b05a9bbd48075671782166ad93581c7b93b27ca41241a8b5757198afdf70",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression tired: very heavy half-lidded eyes, relaxed brows and small slack flat mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-029a7dd8-ace4-4ed2-ace2-ca4bb253f08b.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-tired.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-tired.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "572d9e3a50f6133dabea423e5af96eef50ebed15a889362743cf0ea72a17e460",
+      "final_sha256": "bd3de7360b4cc19f253d60eec870c9e91f2fc912d428b9afb47ffa6c771eb49f",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression sulky: inward angled annoyed brows, narrowed eyes and small downturned pout. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3473ada2-ad0e-4738-880d-bc7dffca0c35.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-sulky.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-sulky.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "51a02d2e1dafee1e88dc50e818b538aca2d3efa08baf44633fc388dfaf8dedc6",
+      "final_sha256": "0fe0e9d5512e17bc922f8cf691f949f104d19767cff0fc02a5d0522feb9685a7",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression weak: tiny droopy half-closed eyes with worried raised inner brows, small limp downturned mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-797ced01-b367-419f-9fae-22c8d89fef95.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-weak.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-weak.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "a8d20d86b96531168314da2ab65ceaf383e8055a4b3036c22fc97935921a85f2",
+      "final_sha256": "86426236aa8d45a51c78d93eae1c307fb09c13108592fd2f43115fb14bcf3e62",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression critical: eyes almost shut as weak short downturned slits and tiny open mouth, deeply exhausted brows. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6580dd48-e4c7-45d8-a174-6bdc62af614e.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-critical.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-critical.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "69f297e29b990ebb994447b4b2c8f328d5f88487e20a05dbf21806e971c128aa",
+      "final_sha256": "87fe5d9223aed8ad8498c87c70fd6e87eb1e2b39117646ed34b9c6b9a827b7f3",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression wantsPlay: eager bright open eyes, raised friendly brows and playful open smile. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f13eb57d-aa67-461c-8088-590f02a3a7ff.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-wantsPlay.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "4a4a3b42d345b79d7e1db8060dabe2029d0e551cbb1796cc1e994a0ba62055ad",
+      "final_sha256": "7bd5a6ba2a655ed11c7c1d384bc2a0f402482e311a070b0f0099b5190d66e380",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression sleeping: both eyes fully closed as gentle thin downward curves, calm eyebrows and tiny relaxed mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage03 is the same little boy running playing soccer, navy uniform, exact WHITE NUMBER 26 on chest (digits 2 and 6, not 28 or 2G), matching navy shorts socks shoes, same arms and legs and soccer ball at lower right. Ball position and black/white panel pattern unchanged. Preserve whole hairstyle and cowlick.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f649202f-060c-4c2b-8651-39112006a6eb.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/03-sleeping.png",
+      "original": "assets/characters/ren/03.png",
+      "final": "assets/characters/expressions/ren/03-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "source_sha256": "e189b4f8a6dde123d7e76489c2e9346d95d22bddcb683ac0cfd2d31968734d82",
+      "final_sha256": "b151fa41208b60b61e829908b04e668965d2a2f20480a3a8c2d23207512889d9",
+      "bounds": [
+        27,
+        20,
+        99,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/03-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression happy: gently joyful curved eyes and a small warm smile. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1a7e86db-737e-49b4-8f82-116958e0584a.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-happy.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-happy.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "f679dd78978f7717970f14a4364fd23493e40e43dc10fb4e81ee7690b877d64c",
+      "final_sha256": "7d521bd51dc7554301f6ee2f54887dbb480c7fa4aee96e608740db8b82cbab2c",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression strained: tightly tense eyebrows and narrowed eyes, small compressed uneasy wavy mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5c90c4e9-ab58-474e-b3e4-05c6a87dd935.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-strained.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-strained.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "0cff90fd43ce78a32dd86d7be0eafb6594639874280f420e400b8df5e81bb9ad",
+      "final_sha256": "582a7bebdaccb470e4afb2543bac3fb4b71b7c4da85ba9ac938f0b5ad99fdc28",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression hungry: pleading raised inner brows, droopy open eyes, small round open mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-49dbcdee-7a3c-4a3e-afad-c6f54c9e3779.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-hungry.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-hungry.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "11086e6fe1260113348677d12016b35aa87bd89796a73f8c49125f0e26fa5f50",
+      "final_sha256": "5e8b4a7cb6a9d4b8c6fed6fc2a77b672d01da807418fd7202bb47045be0761d6",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression sick: uneasy sagging brows, downcast narrowed eyes and small asymmetric queasy frown; unchanged skin color. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c7fdc0fb-394e-479d-94b2-5592980d729b.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-sick.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-sick.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "96a5392b0281b3dc0466226f09f3b98cc55b005918d94a92c9f4aabf52c0c0e9",
+      "final_sha256": "2689d82264692d583e36aef67070e7579a0bbc1f9f761626e334df9fe86dd27f",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression tired: very heavy half-lidded eyes, relaxed brows and small slack flat mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f2997770-bb6d-45e6-8bc1-732ca7a9befe.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-tired.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-tired.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "ebe4556a4a96bf7644c6e42eec43c17e9b086e9adf686a244462d2a040f798ff",
+      "final_sha256": "6e7ccd87089756377073bb1258a273cab565ffef74cbdc8fc4bb570991037dd3",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression sulky: inward angled annoyed brows, narrowed eyes and small downturned pout. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-da38484c-4919-4b52-8253-369d9ed54706.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-sulky.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-sulky.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "b66d20cc933a071b1012f49b43ed59dc9bac74516918c9212b7ca1face6ed033",
+      "final_sha256": "623b58ffbf14efdcfe4ccfb10fb050707834ed9950a99e5ab09fd0aca1eb09ac",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression weak: tiny droopy half-closed eyes with worried raised inner brows, small limp downturned mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-256aa9de-a2ee-47f2-b42a-b62c1e433741.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-weak.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-weak.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "c433a16be98e343ab6121319bff6fb6e4c475fd2c20a1a7c71f49513103c6109",
+      "final_sha256": "b2c67887a603de7dfe365cbfa21e61ea07447628a2e455fb85eac73d92cc6d96",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression critical: eyes almost shut as weak short downturned slits and tiny open mouth, deeply exhausted brows. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3ba6fb44-1cf2-419d-8321-4642b58399de.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-critical.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-critical.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "9f5a6061e941cf2861d94b61badf1f41f1917bb56ae4a5fbc888aaaa7bd2541a",
+      "final_sha256": "9df9c495b10ea31c6bfb3b03239bcee5b0ec0695b66723f523a8a25455b1d40a",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression wantsPlay: eager bright open eyes, raised friendly brows and playful open smile. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-189499e5-2855-46b0-9947-c72d04f9f3e6.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-wantsPlay.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "04e49afd182167000ff456741a79064bca1937caec9fdd8f470bea06069b8b64",
+      "final_sha256": "b5bb62311d8501d08aaaa6e3dac5670d6a08c77666bc222813b973e20a0b3dba",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Make ONE expression sprite, editing ONLY the existing eyes eyebrows and mouth. Image1 is the original 128x128 sprite edit target, image2 is the exact same original enlarged 6x for pixel detail reference. Expression sleeping: both eyes fully closed as gentle thin downward curves, calm eyebrows and tiny relaxed mouth. Keep same boy's age, face shape, black side-swept hairstyle and hair highlights, skin tone, body proportions, entire silhouette, pose and limb positions, clothes, colors, details and all props EXACTLY as original. Do not change body pose for sleeping, sick, tired or any mood. Crisp original low-resolution pixel art, hard square pixel edges, original framing and transparent margins. Actual transparent alpha background, no backdrop or shadow. No new sweat, tears, emotion symbols, marks, decorations, props, text or extra characters. Do not make eyes bigger or face older.Stage04 is the same schoolboy in walking pose wearing the white hooded jacket, white shorts with bluish shadows and dark shoes, black backpack and shoulder straps. Keep backpack side outline, jacket zipper, pockets, sleeves, shorts and shoes exactly unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1979279c-4a59-4dcd-abcc-dc5f1a25740c.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/04-sleeping.png",
+      "original": "assets/characters/ren/04.png",
+      "final": "assets/characters/expressions/ren/04-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "source_sha256": "352e1e14191a1624e1466fba7603a74bf8dc3e0c512d46ee41b5ee928dacd20a",
+      "final_sha256": "f28d1bf606fab71368b154ef63b643595aaf7f14f19870288d5db37991940223",
+      "bounds": [
+        31,
+        14,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/04-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express happy delighted face: two curved smiling dark eyes and small joyful upward smile. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-452358d8-9b88-4622-b992-0bd1cec7cbd2.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-happy.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-happy.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "382fa8c6440148a5e7f17fac63a9957dc2b6192878c4e03215e7bb71fece36b3",
+      "final_sha256": "995c88a1e41dfea5b03c3ac0eaa61e45ab22d46515e0600c902c98b1ab75945b",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express strained effort face: two tightly squeezed dark eyes and a tight short grimacing mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-45bf3bc6-c8ca-4729-9640-00b45c597eb1.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-strained.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-strained.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "5c57ecd65e6830c55fc22d99c785b0cf246a824c29f7332780ff81988e38ae09",
+      "final_sha256": "8a7275973afd4f3c2f664f5454d328cd4bd69634dbbfdbf25e6a55911f3b6bb6",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express hungry pleading face: original dark open eyes with raised inner brows and a small open round mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8a34a897-d594-43f8-85ce-a1a73339b17b.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-hungry.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-hungry.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "0ca21e9170563cfb2335fa547735344ec448f700f89cfd0dc5427252936e037a",
+      "final_sha256": "75f8af883484a241b2d1aa632dd425e68f87b08960b1a2510d53a0bd626d3486",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express sick unwell face: drooping half-open dark eyes, worried brows and a small wavering mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-81d0137e-258b-495b-ae88-3c722ff4c211.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-sick.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-sick.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "deeaa827ae5bae06528794a258da5da402963233e1ccb740ad3684dcbfd14969",
+      "final_sha256": "0ac0fc2f8669d042186abbaab49827518e13867d8b88b13b06921fe2f4d1ef30",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express tired drowsy face: very low half-lidded dark eyes and a small gentle yawning mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-47c6eadc-c5b5-49d1-89d4-99e8ac0a75d0.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-tired.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-tired.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "254bb50d85c785083663924dc46d6a3147799a51c3bb527a008d29d75dd8b158",
+      "final_sha256": "ed0f0641d5470bdfde1c1ce82aa02700dcda07ebbcd3393ba4fc6ff16ed6b55f",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express sulky displeased face: narrowed dark eyes with inward-sloping brows and a short pout. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-75e54cb4-1193-438d-82fa-e083279be5a5.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-sulky.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-sulky.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "2254fd7ae80b4823adafe2d5a55a102410df254da6fbd56f27d37758179d207f",
+      "final_sha256": "7a28ffbc555eee4aa000910a2586248c1fc96ee19ddacfe0799442e9872974d4",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express weak low-energy face: small drooped dark eyes, slack brows and a small lowered mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ec76b01e-7652-4d31-8cad-070743d49dc8.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-weak.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-weak.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "196aff41d3c2a228d57443826582db7f7d4ad6d04272e7641ea8fdb6e3b58934",
+      "final_sha256": "bd15a26fdcac9f043eb952bb859574ff05b23fcefb75369cd0afac9713604868",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express critical near-exhausted face: both dark eyelids closed downward and a small slack downturned mouth, distinctly distressed without death symbols. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0fb736ec-1f08-40a8-a312-1ee3babf5c76.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-critical.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-critical.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "99dc9a3a409b6ad14c8a315f2dea1a4f1861f174fdc70d7345c08436e8c6fbc4",
+      "final_sha256": "35a0fd5e5ddd34475f5d78bdc9c503c9728a443374e1005ea50b3b8f59d4c855",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express wantsPlay eager playful face: bright widely open original dark eyes and a broad upward grin. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-08c31ec9-547e-445c-a5b6-2cd0af2aa9d4.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-wantsPlay.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "afd2bb8ef43bc1b9ecec52b46697f5d61dac602aab60e8cc32f4846906610842",
+      "final_sha256": "f346ba36083f01caa9c666eeb4fa5a44f5f3397ac39347954e856594ffd04736",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 05 sprite to express sleeping peaceful face: two closed dark curved eyelids and a tiny relaxed mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact young-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand in pocket, white hoodie, navy outer layers and trousers, dark backpack and straps, shoes, colors, shading, highlights and silhouette. No changing body pose, clothing or bag. Exactly one existing face. Crisp low-resolution pixel art with hard square pixels, genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ceada424-41d7-4162-8a38-40a72d5062f7.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/05-sleeping.png",
+      "original": "assets/characters/ren/05.png",
+      "final": "assets/characters/expressions/ren/05-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "source_sha256": "eba0c7faee8dc61b2d5bd3baf04d559373f0f9d1f343fb96470594a661f4683e",
+      "final_sha256": "4e1f059c0ff4030d0c745b6ae8c932debe2f06a96ea27595fb3696669a55b95d",
+      "bounds": [
+        31,
+        10,
+        95,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/05-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express happy delighted face: two curved smiling dark eyes and small joyful upward smile. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5e104cfc-13c2-4699-93b8-17ad1dced857.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-happy.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-happy.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "f7c8301918b4879da44ec322ad2475a768e5da69d4552de246b2d9be313ec188",
+      "final_sha256": "868f7541b738b2f455cb7b57e0b344122e234a5dc8b04ca3c123ef35eb5d555a",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express strained effort face: two tightly squeezed dark eyes and a tight short grimacing mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ca2ae15a-5fd9-4ac9-9575-89baaa396b0b.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-strained.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-strained.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "a995be29b0111b43ffc2eb8905c3e2f4aaa85b4e14374ca2d9f3dc4a2e2b4754",
+      "final_sha256": "35384e09c5d50fd91ffa60899474480df6750d4f494bac3b08ba03683f662821",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express hungry pleading face: original dark open eyes with raised inner brows and a small open round mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-aad8ffd5-0e46-4519-8460-f2206a0f82b1.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-hungry.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-hungry.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "bb72fb94e7bdc599b72dc3ef92a459329727712763550b3a7049e403626b34c4",
+      "final_sha256": "4a68c826eef1cfb36ce3727617e69354c59522320e8a1c7a25544cf6617a9e4a",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express sick unwell face: drooping half-open dark eyes, worried brows and a small wavering mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4680843f-4646-4a48-8f47-524e089fbfee.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-sick.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-sick.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "0022c46835fdd1ef3b35d18c526e41964a6b75036a0fe1bb24fff454d905c3df",
+      "final_sha256": "d133e90cf217715747c28f77b485095dfb040eca277a51431e6df09c9627d5aa",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express tired drowsy face: very low half-lidded dark eyes and a small gentle yawning mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-36eed06d-4bec-448c-9e79-a24dc72acbcb.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-tired.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-tired.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "359407a5bd353af488657802014c2c89a2af39a2f2944f3d9d8af2ee63d016e7",
+      "final_sha256": "f23dfeb287906cbdb060f4cf4310fec9a98dfe3b2916469c5fe2019d0f3a14a1",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express sulky displeased face: narrowed dark eyes with inward-sloping brows and a short pout. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-67869d04-73d0-4b79-89d1-62b779e72084.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-sulky.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-sulky.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "d11716998b3d46f9076c1b2cd2047c2ddead4bcc6d96134f9673a94d60aee68a",
+      "final_sha256": "cee28d961be251adf87f5f82e470681948dbeea7abff8891176b6ab3292095b2",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express weak low-energy face: small drooped dark eyes, slack brows and a small lowered mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0e61efdb-7dec-46b7-8d64-13a32fda75ba.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-weak.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-weak.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "ed9423d9a9ba1706e842224fd89d95d3349dfb9a9fe1fd69cea0f0b7b2bd5405",
+      "final_sha256": "1fd358556124a46224142d14ee00c091b86a241500127242326113ae968ba031",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express critical near-exhausted face: both dark eyelids closed downward and a small slack downturned mouth, distinctly distressed without death symbols. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2b1bac3b-13f8-4359-abd8-542df18ccbd5.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-critical.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-critical.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "5a2cd19f4b47bb95835a077bbb352798d6021158da26de64eeec5aaa1b084a08",
+      "final_sha256": "5cb289a15dbfce21e42116c7ca794812c0748b920ad103db2a7d92d289731d26",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express wantsPlay eager playful face: bright widely open original dark eyes and a broad upward grin. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-80b34732-47c8-4011-b301-e5800186be7a.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-wantsPlay.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "598abf738620819861ec4d37599e16382e4404ee91bb4c78b71d51ce0412a749",
+      "final_sha256": "80430ff1d0fdc4909d55a1daf6ac5b2c5f4f1f5d2031951e98eda57fbdf4ef59",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of supplied ren stage 06 sprite to express sleeping peaceful face: two closed dark curved eyelids and a tiny relaxed mouth. Image1 is original edit target; image2 its exact nearest-neighbor enlarged reference. Preserve exact adult-man age, warm skin, dark brown-black side-swept hair, original face size, chibi proportions, standing pose, hand gripping shoulder bag strap, dark navy jacket and trousers, white collared shirt, brown dark shoulder bag on left, shoes, colors, shading, highlights and silhouette. Existing wink may change to intended expression; exactly one existing face. Do not change body pose, outfit or bag. Crisp low-resolution pixel art with hard square pixels and genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Same full body framing.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-73b7c09a-9a8b-4c39-b152-5cd92d18eec2.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/06-sleeping.png",
+      "original": "assets/characters/ren/06.png",
+      "final": "assets/characters/expressions/ren/06-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "source_sha256": "43418d62dd096b0558e488e343a907adfd777485a234c7f7bb509aae96ee3888",
+      "final_sha256": "8d4c798701f279ddf1a68671c921470e52fb17e5dd3ad8b717bfcff1e5dd426c",
+      "bounds": [
+        31,
+        8,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/06-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. HAPPY: warm joyful upcurved eyes and open smiling mouth; maintain his age.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3e897e06-628a-431f-b9ac-b5353edec0cb.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-happy.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-happy.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "b49b73509b7d876e23813b0f0b7b81119a3895fd3419d54307711906ff080965",
+      "final_sha256": "8012577e9a0a7f6fb201bccfd025fe9dfef3e4bc05285f64c17d10dca0d75579",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. STRAINED: tightly squeezed inward eyes, tense brows, clenched short wavy mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7a73ab23-b06b-4815-a642-c6744a898116.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-strained.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-strained.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "2f44a819528043406aeb31587fddf21351ca81c0756931ed4452211472cd1740",
+      "final_sha256": "ed03a7bc64c921d762334cb718a9504d2fb37ccb245c96a5279d3be9c6c6103f",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. HUNGRY: pleading wide eyes with raised inner brows and small round open mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2f75907b-55ab-4ae7-abe2-69fc6c681b61.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-hungry.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-hungry.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "695c4bb12a2a916dab09bf076fb7ebd34bb7723740f0a6956ad555372c44676e",
+      "final_sha256": "6f9af5990766f3a1c44e579aeb85a1606e61adb6b8129d08a14a47541ab535cf",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. SICK: uneven heavy half closed eyes, distressed raised inner brows, small nauseous wavy mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-05e4244b-1e6d-4328-a4f7-d379936d325c.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-sick.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-sick.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "9d64855ff9e82dcdba3f13952000a30a000f2a66f3a0432849f08307e0b5cd48",
+      "final_sha256": "0414f12fd102f4ba208864cffa8eb6438938e4a2c67bd6de0cee6217f5d6c2eb",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. TIRED: heavy symmetric half lidded eyes and small sleepy yawning oval mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-72c16900-dff3-4a5b-97b0-0e5757b49114.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-tired.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-tired.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "4201af93f24e1f794fe209e9888edfe473144fa78f1022e45ca414f31e5c89c2",
+      "final_sha256": "4ecb2b8058f031f8e4312dda739b25259bf622e9a655ec144790a99fa54b5d56",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. SULKY: sideways narrowed eyes under inward lowered brows and a tiny pout.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e50c843c-4ba6-4ba8-a19e-0bd53e0f9afd.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-sulky.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-sulky.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "a4faea12d032da4c1c9def3712126c2c345afbe947fbfd076a3806f715b80474",
+      "final_sha256": "46dbcca57b417a27a40ee5640a2511942d9e10766aca5ba3e6b5c5c2154dba7f",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. WEAK: drooping low eyes, sad raised inner brows, tiny downturned slack mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5039ba5d-39b2-45c6-bb01-aed239098288.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-weak.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-weak.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "bede295bc31f2c6d736248a6fb318a2cf55e0f89eaa8b40168321e9bfd63ab1c",
+      "final_sha256": "908f30f413fa83f5f1ed7663c1e4e1950b7e5bbc74066a0ef577bfffb50b6084",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. CRITICAL: barely open narrow eye slits, deeply drooped brows, very small slack open mouth; facial exhaustion only.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-92c79f50-2d7c-49f0-b9b1-3c5ad0980627.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-critical.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-critical.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "8a6f063576d3b1ce47c547fb6223f5d3629f905bbb2188e709d3de982eacf24a",
+      "final_sha256": "041c027e0b92f699c6ece3da9ee204776677eb6b61b39b896909794a2454a49a",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. WANTS PLAY: eager wide eyes, raised alert brows, playful open grin; preserve adult age and original pose.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-df54c0d0-0173-40ae-b0f2-a9315f174130.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-wantsPlay.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "3d0780e81a3324766db533bfd6a6aa86d1efd23004a7135def84966e2b2f1b01",
+      "final_sha256": "8df260a23721066e795ce60175889fab3ff30b4d0b32a4b99aefa0200bbb66f4",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage07 is a middle-aged man with side-swept graying dark hair, gray brows, blue sweater over white collar, dark trousers and brown shoes, both hands resting in pockets. Preserve hairstyle with gray streaks, face shape, skin tone, full standing posture and hand placements exactly. SLEEPING: both eyes fully closed as relaxed downward curves, relaxed brows and small slack closed mouth; unequivocally asleep rather than cheerful closed-eye smile.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2e5e5d00-4bae-4899-a934-13714a3a2a38.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/07-sleeping.png",
+      "original": "assets/characters/ren/07.png",
+      "final": "assets/characters/expressions/ren/07-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "source_sha256": "09c580f9fa91f949a842c3720269ac0e71dda1cdffd0cd774b98575c2fbc7760",
+      "final_sha256": "9285409be2a11fdc805c6f786d412b870e702dd2e0ec7a54cb0267be644a48b9",
+      "bounds": [
+        30,
+        12,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/07-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. HAPPY: warm joyful upcurved eyes and open smiling mouth; maintain his age.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3b1ecc0c-8c5c-4c3b-a74a-a5333cff4d06.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-happy.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-happy.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "e5e2490916e0a547f58df36b5ca2fe6d580b3a26abf82e1a1a2392f62add3151",
+      "final_sha256": "8d96618f805da91eff8373ab1573611f1bdb3ba7ab7a5acddcd3b45bb0067f25",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. STRAINED: tightly squeezed inward eyes, tense brows, clenched short wavy mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-10c30138-2086-479d-b31f-d0fe868bc573.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-strained.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-strained.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "8adc64b5a5b078fa47da1ee5dbd28908ac42a82b4f058c08e098ac3058271344",
+      "final_sha256": "80d894be5267c38a1180606deba801a55489261cbf17cbdc722c27237844b493",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. HUNGRY: pleading wide eyes with raised inner brows and small round open mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-139e942d-2921-419c-93af-ec6e28435b54.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-hungry.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-hungry.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "2a5e18d659c848590550ecffb5ff2f002ee5fb227a29c767c9cd20c2af577cb0",
+      "final_sha256": "825ca24102a5ce185b9b12d3f375a359f66ab42315ffc7000bee55e3c12846ed",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. SICK: uneven heavy half closed eyes, distressed raised inner brows, small nauseous wavy mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c912d179-dbe3-433a-ac6c-54f898139c2f.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-sick.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-sick.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "7712fc674e280455f94392ad1b72c44a5aef461cef07d5d7f9d10271ccb4b64f",
+      "final_sha256": "e3cfc9b62296adb5e2f07e9fd7a97c5c8293ff9e3d9a3605ceb0de0112598854",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. TIRED: heavy symmetric half lidded eyes and small sleepy yawning oval mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-70a3d4bc-c705-4e83-852b-c9d28d57fdb1.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-tired.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-tired.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "61dae9660ca2eb11f6036a9abf8554f11de31859022f933f16308aa4c410e319",
+      "final_sha256": "6b2616ec6c1c57440f08f8935b0b4710a764350fd70e024ef419ac5c05129c63",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. SULKY: sideways narrowed eyes under inward lowered brows and a tiny pout.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-69b1600f-afd8-4b99-b597-2f21ac5c1973.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-sulky.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-sulky.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "685bb170c530743cdec38daffe71fd7d62e9bdff84fc56754ef6977c1f728759",
+      "final_sha256": "75c753e58389b0c8c3888b331dad934e17923bbc77112802cde103d0d3cb92c7",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. WEAK: drooping low eyes, sad raised inner brows, tiny downturned slack mouth.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d554f110-25ab-473d-8ad1-d9c9d1b13e3a.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-weak.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-weak.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "85919d721f8c2d1096c0f9a57b7efa4d71dd152c1ab8550245187a50be6d53fc",
+      "final_sha256": "96a70e48e53e2fc3b3159d6bc291684fbd8a2aeca71627911beffb0cf02909db",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. CRITICAL: barely open narrow eye slits, deeply drooped brows, very small slack open mouth; facial exhaustion only.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6c4d90dd-f369-4d7e-8ba1-e468dfe3f00f.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-critical.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-critical.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "d390b1c24504e81b5f2ae23c1ef567fd5f63b9540986c3db63a180ce9db04f19",
+      "final_sha256": "dc369dd1413257f91acfa97dd5779ff57ee3e492193ff197e354b114f4d3a9a2",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. WANTS PLAY: eager wide eyes, raised alert brows, playful open grin; preserve adult age and original pose.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-11dfee3e-17a1-4002-8d72-9d04b9f0b464.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-wantsPlay.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "83b3284f8247fb90946fb96632e8538f2ab871ad674e570b973349592901cc7a",
+      "final_sha256": "cee9d189122998303b53bc75497c3da09315501d00df8ba9739207d214f9b83a",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve original composition, scale, precise crisp low-resolution pixel art and blocky pixel grid, silhouette, colors, shading, hair, clothes, body proportions and pose. Change ONLY existing eyes, eyebrows and mouth. No new objects, tears, sweat, blush, symbols, text or status marks. Preserve original age; never rejuvenate for happiness or play. Stage08 is an elderly man with side-swept silver-gray hair and gray brows, existing facial age lines, brown cardigan over light collared shirt, brown trousers and shoes. His right-side hand is atop the original upright wooden walking cane. Retain that cane, its exact position and grip, all clothing, feet and posture, gray hair and existing wrinkles in EVERY state including illness and sleeping. No younger face. SLEEPING: both eyes fully closed as relaxed downward curves, relaxed brows and small slack closed mouth; unequivocally asleep rather than cheerful closed-eye smile.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b35be9f1-f72c-49b8-baed-b19b5be01d28.png",
+      "line": "ren",
+      "source": "/workspace/scratch/0e1d599677f2/ren-generated/08-sleeping.png",
+      "original": "assets/characters/ren/08.png",
+      "final": "assets/characters/expressions/ren/08-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "source_sha256": "394fe4727551eac4909d57290a8383d4aa6f2f11c482c34e80f4c59cc3dcc559",
+      "final_sha256": "6f4dc2cd611e30754de6d7fe8ee6404f62e952ac8a89215e60681dae43dd1526",
+      "bounds": [
+        31,
+        16,
+        96,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ren-generated/08-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    }
+  ]
+}

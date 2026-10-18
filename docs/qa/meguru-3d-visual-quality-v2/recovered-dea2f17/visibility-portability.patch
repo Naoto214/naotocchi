@@ -1,0 +1,11 @@
+--- tools/meguru-3d-qa/visibility-audit.cjs
++++ temporary/visibility-portable.cjs
+@@ -13,7 +13,7 @@
+ const REG = ONLY.length ? ONLY : ['home', 'city', 'countryside', 'forest', 'mountain', 'snow', 'sea', 'deepsea', 'river_lake', 'jungle', 'desert', 'star_stop', 'memory_lake'];
+ (async () => {
+   const srv = await serve(); const base = 'http://127.0.0.1:' + srv.address().port; const out = {};
+-  const browser = await pw.chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--use-gl=angle', '--enable-unsafe-swiftshader'] });
++  const browser = await pw.chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM || '/opt/pw-browsers/chromium', args: ['--use-gl=angle', '--enable-unsafe-swiftshader'] });
+   for (const region of REG) {
+     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 }); const page = await ctx.newPage(); const errors = [];
+     page.on('pageerror', (e) => errors.push(String(e.message || e)));

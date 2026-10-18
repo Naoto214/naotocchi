@@ -1,0 +1,302 @@
+{
+  "source": "e12f7208427c2f1035849ab4319c78fc31305c65",
+  "runtime": "v24.19.0",
+  "kind": "Node geometry-only: no browser, no GPU, not iPhone measurements",
+  "templates": [
+    {
+      "id": "dog",
+      "stage": 1,
+      "reference": "assets/characters/dog/01.png",
+      "status": "ok",
+      "triangles": 4062,
+      "meshes": 12,
+      "faces": 1
+    },
+    {
+      "id": "dog",
+      "stage": 4,
+      "reference": "assets/characters/dog/04.png",
+      "status": "ok",
+      "triangles": 4062,
+      "meshes": 12,
+      "faces": 1
+    },
+    {
+      "id": "dog",
+      "stage": 8,
+      "reference": "assets/characters/dog/08.png",
+      "status": "ok",
+      "triangles": 4274,
+      "meshes": 12,
+      "faces": 1
+    },
+    {
+      "id": "penguin",
+      "stage": 1,
+      "reference": "assets/characters/penguin/01.png",
+      "status": "ok",
+      "triangles": 2650,
+      "meshes": 9,
+      "faces": 1
+    },
+    {
+      "id": "penguin",
+      "stage": 4,
+      "reference": "assets/characters/penguin/04.png",
+      "status": "ok",
+      "triangles": 2646,
+      "meshes": 9,
+      "faces": 1
+    },
+    {
+      "id": "penguin",
+      "stage": 8,
+      "reference": "assets/characters/penguin/08.png",
+      "status": "ok",
+      "triangles": 2496,
+      "meshes": 10,
+      "faces": 1
+    },
+    {
+      "id": "clownfish",
+      "stage": 1,
+      "reference": "assets/characters/clownfish/01.png",
+      "status": "ok",
+      "triangles": 2568,
+      "meshes": 7,
+      "faces": 1
+    },
+    {
+      "id": "clownfish",
+      "stage": 4,
+      "reference": "assets/characters/clownfish/04.png",
+      "status": "ok",
+      "triangles": 2568,
+      "meshes": 7,
+      "faces": 1
+    },
+    {
+      "id": "clownfish",
+      "stage": 8,
+      "reference": "assets/characters/clownfish/08.png",
+      "status": "ok",
+      "triangles": 2556,
+      "meshes": 7,
+      "faces": 1
+    },
+    {
+      "id": "man",
+      "stage": 1,
+      "reference": "assets/characters/man/01.png",
+      "status": "ok",
+      "triangles": 3740,
+      "meshes": 9,
+      "faces": 1
+    },
+    {
+      "id": "man",
+      "stage": 4,
+      "reference": "assets/characters/man/04.png",
+      "status": "ok",
+      "triangles": 4600,
+      "meshes": 9,
+      "faces": 1
+    },
+    {
+      "id": "man",
+      "stage": 8,
+      "reference": "assets/characters/man/08.png",
+      "status": "ok",
+      "triangles": 3836,
+      "meshes": 10,
+      "faces": 1
+    },
+    {
+      "id": "butterfly",
+      "stage": 1,
+      "reference": "assets/characters/butterfly/01.png",
+      "status": "ok",
+      "triangles": 3140,
+      "meshes": 7,
+      "faces": 1
+    },
+    {
+      "id": "butterfly",
+      "stage": 4,
+      "reference": "assets/characters/butterfly/04.png",
+      "status": "ok",
+      "triangles": 2790,
+      "meshes": 8,
+      "faces": 1
+    },
+    {
+      "id": "butterfly",
+      "stage": 5,
+      "reference": "assets/characters/butterfly/05.png",
+      "status": "ok",
+      "triangles": 1400,
+      "meshes": 5,
+      "faces": 1
+    },
+    {
+      "id": "butterfly",
+      "stage": 8,
+      "reference": "assets/characters/butterfly/08.png",
+      "status": "ok",
+      "triangles": 3900,
+      "meshes": 7,
+      "faces": 1
+    },
+    {
+      "id": "dandelion",
+      "stage": 1,
+      "reference": "assets/characters/dandelion/01.png",
+      "status": "ok",
+      "triangles": 2504,
+      "meshes": 5,
+      "faces": 1
+    },
+    {
+      "id": "dandelion",
+      "stage": 4,
+      "reference": "assets/characters/dandelion/04.png",
+      "status": "ok",
+      "triangles": 2996,
+      "meshes": 6,
+      "faces": 1
+    },
+    {
+      "id": "dandelion",
+      "stage": 6,
+      "reference": "assets/characters/dandelion/06.png",
+      "status": "ok",
+      "triangles": 2974,
+      "meshes": 7,
+      "faces": 1
+    },
+    {
+      "id": "dandelion",
+      "stage": 8,
+      "reference": "assets/characters/dandelion/08.png",
+      "status": "ok",
+      "triangles": 3190,
+      "meshes": 10,
+      "faces": 5
+    },
+    {
+      "id": "mushroom",
+      "stage": 1,
+      "reference": "assets/characters/mushroom/01.png",
+      "status": "ok",
+      "triangles": 2880,
+      "meshes": 12,
+      "faces": 6
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "reference": "assets/characters/mushroom/04.png",
+      "status": "ok",
+      "triangles": 1940,
+      "meshes": 6,
+      "faces": 1
+    },
+    {
+      "id": "mushroom",
+      "stage": 8,
+      "reference": "assets/characters/mushroom/08.png",
+      "status": "ok",
+      "triangles": 2396,
+      "meshes": 7,
+      "faces": 1
+    },
+    {
+      "id": "starfish",
+      "stage": 1,
+      "reference": "assets/characters/starfish/01.png",
+      "status": "ok",
+      "triangles": 1740,
+      "meshes": 5,
+      "faces": 1
+    },
+    {
+      "id": "starfish",
+      "stage": 4,
+      "reference": "assets/characters/starfish/04.png",
+      "status": "ok",
+      "triangles": 1848,
+      "meshes": 4,
+      "faces": 1
+    },
+    {
+      "id": "starfish",
+      "stage": 8,
+      "reference": "assets/characters/starfish/08.png",
+      "status": "ok",
+      "triangles": 3844,
+      "meshes": 5,
+      "faces": 1
+    },
+    {
+      "id": "shiba",
+      "stage": 0,
+      "reference": "assets/characters/companions/shiba.png",
+      "status": "ok",
+      "triangles": 4062,
+      "meshes": 12,
+      "faces": 1
+    },
+    {
+      "id": "cat_friend",
+      "stage": 0,
+      "reference": "assets/characters/companions/cat_friend.png",
+      "status": "ok",
+      "triangles": 4058,
+      "meshes": 12,
+      "faces": 1
+    }
+  ],
+  "hashes": {
+    "character-3d/spec.js": "d5c21f74d25beb21118628c2d6536dad236318a311b448d20caa0815f4566c88",
+    "character-3d/spec-esm.mjs": "43e0b0b3a578e0f94907f6a6a0038476539777e8739cd07189b1cc50572ba597",
+    "character-3d/geometry.mjs": "6e8d03eadcd0f2184ea3bad2c4f3e07e5986a538f4e13a0accc2546860ba09f0",
+    "character-3d/rig.mjs": "93e880e63f362b4ffff92cedd8f6858c30c2d7571a225fa51f052327e945921b",
+    "character-3d/archetypes.mjs": "a13c2b998a25e53e125f5a52cba7478a1157610d5878b83d837091143ac33512",
+    "character-3d/animate.mjs": "7f4f42748a045635b13720ae65e73d1d0379fae81bf693213a0941a5453abb4b",
+    "character-3d/runtime.mjs": "856c405874ab9b6b02b329c1cb3e3fb95e8a6e6a276683c455f8765dfa4252bd",
+    "character-3d/gallery.html": "394ce0e027387b51a1b9fa1c6772a60ad4e32400c8e8ccb417df32774630dfe0",
+    "meguru-3d.mjs": "f360790fa7e86ec8708a9416f9a1a9c72316488f007c9fce9b5f3a8f240d7fc3",
+    "cast-motion.js": "8ca54692c976e2cdbd9482335de152a77ac71a5375f436079c5a91f18e408d39",
+    "emotion-state.js": "d341ed6e7fe0f6a60b998d7fadc06de66bf7e5286bfd6e41bfd70f490c76ff55",
+    "pet-expression.js": "2286598972fd1ef4c5a88dbafd3292f6929b7bb109205ebfc5b282229ac18f8c",
+    "relationship-expression.js": "5fdba60b9155f53f7a3f77c3acb307df2c2397c344e8b74a5e955bbb2eb85082",
+    "assets/characters/dog/01.png": "0b4fbe1b5d39e7d3de9df99abf177613a11cdd727274e52dbf2b6d802961419e",
+    "assets/characters/dog/04.png": "2a30a664493e6e6e4ad6539255a75381cd86f0f35acb4d8c6bc80b85de31abe7",
+    "assets/characters/dog/08.png": "5d944d8e799dc3702f1f2e155264e9a56f581b2c28d1c3bd22ce3396d284a62f",
+    "assets/characters/penguin/01.png": "1e3c09920dc8edb3f7d6cf107a67c883bf3948d2f1934f777142dd5733111b8e",
+    "assets/characters/penguin/04.png": "826a374b27a0741e12e6e1d4d15eef4b614a230f0c658009aea942bdb071adba",
+    "assets/characters/penguin/08.png": "d7cc3627e011384258d6b6e47bf1cb646b308eddfa843096b9fc2182e05c6577",
+    "assets/characters/clownfish/01.png": "bd9097cf21d9e7eff29109a1bfc6cdb2331307057e1b86bcd24b15e46d163436",
+    "assets/characters/clownfish/04.png": "b4939fe1cfcee1e23be5719769f250f6cabae2316bc643195e6a64ab8703c2e1",
+    "assets/characters/clownfish/08.png": "205f15a7c3603f020604dbdc39e7d38335381162c34b23a507f143ec7f67570a",
+    "assets/characters/man/01.png": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+    "assets/characters/man/04.png": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+    "assets/characters/man/08.png": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+    "assets/characters/butterfly/01.png": "af05fb84d18e89704b84740ca96644a0a161c02fb81aa2620ce62e3be4b00ad8",
+    "assets/characters/butterfly/04.png": "fcffcc78f5a9de2302adb5b8291e11965fca4727550d398bd13fd585bb7e604a",
+    "assets/characters/butterfly/05.png": "b38357310dc9e9d501ae99252ba773dc5f62598d81cd6a8e7e2217f71d6a0939",
+    "assets/characters/butterfly/08.png": "04a5d230501ea700d9f4ec85b69544104ae1af2252f9b13d464d247ac51cd748",
+    "assets/characters/dandelion/01.png": "6a597b0f008abc9d7385ed97a75e248d3766153726d102ddc975202dbdd70ee7",
+    "assets/characters/dandelion/04.png": "9bf10c335194a8fab141a8f2e58953a96d11042f26056a392254cd8fddae96b1",
+    "assets/characters/dandelion/06.png": "fac2b34bea35fc8f241d74ed4cc20c065b98a6d49ae6291045a652bd36fb514e",
+    "assets/characters/dandelion/08.png": "4fc6357e4f7a7d2ce97a91c05f34e751ef04135b476d00d7b8a19a0a125f3e83",
+    "assets/characters/mushroom/01.png": "a12b080494b48c483cb10ac9300e53f9d08fc690860920163c7552c7c7a84f16",
+    "assets/characters/mushroom/04.png": "74c4e1b86a7898b0c5534dfe997e36defb95c7b277eae8daf350600566ea7c5d",
+    "assets/characters/mushroom/08.png": "9a431ab24c02560cf4240d50efea37663fdf8c29df6d50fa7908597fce74a52b",
+    "assets/characters/starfish/01.png": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+    "assets/characters/starfish/04.png": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863",
+    "assets/characters/starfish/08.png": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
+    "assets/characters/companions/shiba.png": "4afad488def1c0c73d350440546c21f013f1feed295dba56800d6db98d89d71c",
+    "assets/characters/companions/cat_friend.png": "223734ac14fc26bdbedae1073063855001382706c89675c4c7705045b04ea5b0"
+  }
+}

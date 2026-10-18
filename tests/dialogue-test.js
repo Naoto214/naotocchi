@@ -77,7 +77,7 @@ const sandbox = {
     getElementById: getElement, querySelector: getElement, querySelectorAll: () => [], createElement: () => element(),
     addEventListener: noop, body: element('body'), documentElement: element('html'), visibilityState: 'visible',
   },
-  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844,
+  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844, getComputedStyle: () => ({fontFamily:'sans-serif'}),
     confirm: (prompt) => { confirmPrompts.push(prompt); return confirmResult; }, NAOTOCCHI_CHARACTER_WORLD_MASTER_V1: master },
   localStorage: { getItem: () => savedPayload,
     setItem: (key, value) => { if (key === 'naotocchi-save-v1') savedWrites.push(value); }, removeItem: noop },
@@ -89,13 +89,15 @@ const sandbox = {
   location: { href: 'https://naoto214.github.io/naotocchi/' }, crypto: { getRandomValues: (a) => a },
   __spoken: spoken, __events: events, __clock: () => now,
 };
-const source = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
+const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('item-memories.js', 'utf8') + '\n' + fs.readFileSync('item-system.js', 'utf8') + '\n' + fs.readFileSync('movie-dialogue.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 sandbox.window.NaotocchiCast = require('../cast-layout.js');
 sandbox.window.NaotocchiCastMotion = require('../cast-motion.js');
 sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
 // Keep historical dialogue assertions focused on their copy. Dedicated runtime
 // tests load the status presenter and check its priority over these messages.
 const expose = `
+  // Explicit present-cast fixture: dialogue ordering is independent of visit scheduling.
+  homePresentCompanions=()=>state.companions; homePresentPartner=()=>state.partner; homeInitiative=()=>true;
   const realSpeech = setSpeechBubble;
   setSpeechBubble = (text, speaker) => {
     if (text && speaker) __spoken.push({ text, speaker, at: __clock() });
@@ -108,14 +110,14 @@ const expose = `
     ENV_MOMENTS, showStoryEvent,
     clearConversationTimers, conversationIsBusy, scheduleIdleGreeting, playMarriageMovie, playLegendEncounterMovie,
     maybeLegendEncounter, loop,
-    finishDateMovie, celebrateAgeSpeech, finishMinigame, partnerAnniversaryLine,
+    finishDateMovie, celebrateAgeSpeech, startMinigame, finishMinigame, partnerAnniversaryLine,
     gainSodachi, onSodachiMilestone, travelToRegion, findRegion, chooseTransform,
     CONVERSATION_POOLS, PARTNER_DAILY_REACTIONS, PARTNER_CHARACTER_IDLE_LINES,
     COMPANION_DAILY_REACTIONS, COMPANION_CHARACTER_IDLE_LINES, PARTNER_RELATIONSHIP_LINES,
     PARTNER_IDLE_LINES, COMPANION_IDLE_LINES, ALL_PARTNER_CANDIDATES,
     stageDesc, SPECIES, SPECIES_STAGE_DESCS, DATE_PLANS, DATE_PLAN_VARIATIONS, DEEPSEA_DATE_PLANS,
-    PARTNER_ANNIVERSARY_LINES, FUN_ITEMS, PARTNER_FIRST_ENCOUNTERS,
-    datePlanForRegion, goOnDate, playFunScene, useItem, pickMemoryGreeting, playFirstPartnerEncounter, buildLifeCard,
+    PARTNER_ANNIVERSARY_LINES, PARTNER_FIRST_ENCOUNTERS,
+    datePlanForRegion, goOnDate, pickMemoryGreeting, playFirstPartnerEncounter, buildLifeCard,
     hatchEgg, triggerDeath, enterFarewell, openExclusiveMenu, openDateChooser, closeDateOverlay, checkAchievements,
     loadState, COMPANIONS, RARE_COMPANIONS, allCompanionsById, canonicalCompanionId,
     hasAllCurrentCompanions, companionDexEntries, companionVisualHTML, renderCompanionRow, renderCompanionDex,
@@ -134,7 +136,7 @@ const expose = `
         stageIndex: stageForAge(25), ageTicks: 25 * AGE_TICKS_PER_YEAR, sodachi: 55, maxSodachi: 55,
         hunger: 50, energy: 90, happiness: 80, health: 100,
       }, patch);
-      recentConversationLines = []; message = ''; gameActive = false; dateOpen = false;
+      movieStoryBags.clear(); recentConversationLines = []; message = ''; gameActive = false; dateOpen = false;
       lastDatePlanId = null; dateChoiceOptions = [];
       grandGoalPending = null; pendingCompanionId = null;
       endingCelebrationShown = false;
@@ -252,16 +254,26 @@ for (const [key, id, patch] of actions) {
   reset(patch); click(id); advance(0); assert.ok(events.includes(key), key + ' handler unreachable'); validSpeech();
 }
 for (const [score, key] of [[90, 'minigame_great'], [10, 'minigame_bad']]) {
-  reset(); api.finishMinigame(score); advance(0); assert.ok(events.includes(key)); validSpeech();
+  reset(); api.startMinigame({id:"dialogue-probe",start(){}}); api.finishMinigame(score); advance(0); assert.ok(events.includes(key)); validSpeech();
 }
 reset(); api.celebrateAgeSpeech(37); advance(0); assert.ok(events.includes('age')); validSpeech();
 for (const [key, fire] of [
-  ['sodachi', () => api.gainSodachi(1)], ['money', () => api.onSodachiMilestone(40)],
+  ['sodachi', () => api.gainSodachi(1)],
   ['travel', () => api.travelToRegion(api.findRegion('forest'))],
   ['transform', () => { const target = master.playerSpecies.normal[1].id; api.getState().transformOptions = [target]; api.chooseTransform(target); }],
 ]) {
   reset(); fire(); advance(0); assert.ok(events.includes(key), key + ' event path'); validSpeech();
 }
+// Milestones keep their notice and record without announcing retired money rewards.
+reset(); api.getState().lifetime.money = 437;
+const milestoneLogs = api.getState().lifeLog.length;
+api.onSodachiMilestone(40); advance(0);
+assert.equal(events.includes('money'), false, 'milestone announced retired money reward');
+assert.equal(api.getState().lifetime.money, 437);
+assert.equal(api.getState().lifeLog.length, milestoneLogs + 1);
+assert.match(getElement('storyFlashText').textContent, /そだち40.*なかまのわ/);
+assert.doesNotMatch(getElement('storyFlashText').textContent, /コイン|💰/);
+validSpeech();
 for (const [value, key] of [[0, 'partner_new'], [0.99, 'court_fail']]) {
   reset({ regionId: 'city', gender: 'female', attractedTo: ['female', 'male', 'nonbinary'] });
   api.getState().lifetime.partnerEncounters = api.ALL_PARTNER_CANDIDATES.map((p) => p.id);
@@ -280,31 +292,36 @@ for (const [bondCount, key] of [[0, 'court'], [100, 'marriage']]) {
 }
 
 // Legend movies used to throw ReferenceError before the first caption.
-// Both complete stories per legend must finish, keep the reward beat and support skip.
+// Sample both ends of each legend's story selection; keep its ending and support skip.
+const legendStoryLengths = {gate:[5,5], stairs:[5,5], boss:[6,6], lamp:[6,5], mirror:[6,6]};
 for (const id of ['gate', 'stairs', 'boss', 'lamp', 'mirror']) for (const value of [0, 0.99]) {
   reset(); random = value;
   api.speakEvent('feed'); advance(0);
   getElement('dateMoviePet').innerHTML = '';
-  api.playLegendEncounterMovie({ id, emoji: '⭐', flash: '発見', story: '出会い' }, 17);
+  api.playLegendEncounterMovie({ id, emoji: '⭐', flash: '発見', story: '出会い' });
   assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'),
     id + ': legend movie must show the current player PNG');
-  assert.ok(scrollRequests.some(r=>r.id==='dateMovie'&&r.block==='nearest'),
-    id + ': bring the movie into view after a scrolled care action');
+  assert.ok(getElement('dateOverlay').classList.contains('movie-fullscreen'),
+    id + ': cover the viewport even after a scrolled care action');
   assert.equal(getElement('speechBubble').classList.contains('hidden'), true);
   const speechCount = spoken.length; advance(35000);
   assert.equal(spoken.length, speechCount, 'conversation leaked into movie');
-  assert.ok(captions.length >= 6); assert.ok(captions.at(-1).includes('17'));
+  const storyLength = legendStoryLengths[id][value === 0 ? 0 : 1];
+  assert.equal(captions.length, storyLength, id + ': missing story beat or extra reward beat');
+  assert.ok(captions.every(text => text.trim() && !/コイン|💰|undefined/.test(text)));
+  assert.equal(getElement('dateMovieScene').dataset.complete, 'true');
+  assert.notEqual(getElement('dateMovieScene').dataset.action, 'reward');
   assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
   assert.equal(getElement('dateMovieSkipBtn').classList.contains('hidden'), true);
 }
-reset(); api.playLegendEncounterMovie({ id: 'boss', emoji: '🦑' }, 17); api.finishDateMovie();
+reset(); api.playLegendEncounterMovie({ id: 'boss', emoji: '🦑' }); api.finishDateMovie();
 const skippedAt = captions.length; advance(35000); assert.equal(captions.length, skippedAt, 'skip left captions queued');
 // Use the selected species/stage, while keeping old saves without art playable.
 reset({speciesLine:'sakura',stageIndex:0});
-api.playLegendEncounterMovie({id:'mirror',emoji:'🪞'},17);
+api.playLegendEncounterMovie({id:'mirror',emoji:'🪞'});
 assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/sakura/01.png"'));
 reset({speciesLine:'rabbit',stageIndex:4});
-api.playLegendEncounterMovie({id:'gate',emoji:'⛩️'},17);
+api.playLegendEncounterMovie({id:'gate',emoji:'⛩️'});
 assert.match(getElement('dateMoviePet').innerHTML, /emoji-only/);
 assert.ok(!getElement('dateMoviePet').innerHTML.includes('<img'));
 assert.equal(api.getState().speciesLine, 'rabbit');
@@ -338,12 +355,12 @@ assert.equal(captions.length,0,'non-winning roll triggered legend');
 for (const id of ['gate','stairs','boss','lamp','mirror']) {
   reset(legendReady);
   api.getState().lifetime.legendsMet=['gate','stairs','boss','lamp','mirror'].filter(x=>x!==id);
+  api.getState().lifetime.money=437;
   const initialMoney=api.getState().lifetime.money;
   random=0;api.maybeLegendEncounter();
   assert.ok(api.getState().legendMet);
   assert.equal(api.getState().lifetime.legendsMet.at(-1),id,'unseen legend not selected');
-  const awardedMoney=api.getState().lifetime.money;
-  assert.ok(awardedMoney>initialMoney,'legend coins missing');
+  assert.equal(api.getState().lifetime.money,initialMoney,'legend granted retired coins');
   const pausedAge=api.getState().ageTicks;
   api.loop();
   assert.equal(api.getState().ageTicks,pausedAge,'movie must pause the life clock');
@@ -357,10 +374,10 @@ for (const id of ['gate','stairs','boss','lamp','mirror']) {
   const captionCount=captions.length;
   api.maybeLegendEncounter();advance(35000);
   assert.equal(captions.length,captionCount,'skipped legend left captions or replayed');
-  assert.equal(api.getState().lifetime.money,awardedMoney,'legend paid twice');
+  assert.equal(api.getState().lifetime.money,initialMoney,'legend replay changed money');
   assert.equal(getElement('dateOverlay').classList.contains('hidden'),true);
 }
-console.log('LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and single reward.');
+console.log('LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and one reward-free encounter.');
 
 for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (const value of [0, 0.99]) {
   reset({ partner: partner('robot_neighbor', { married: true }), lifeLog: mismatch ? [{ text: 'なかなおりした' }] : [] });
@@ -369,7 +386,7 @@ for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (
   if (value === 0.99) assert.ok(captions.some((x) => mismatch ? x.includes('あのときはごめんね') : x.includes('おやつがおいしかった')), 'shared memory unreachable');
   assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
 }
-console.log('DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 legend stories; 16 anniversary cases.');
+console.log('DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 sampled legend stories; 16 anniversary cases.');
 
 // Every current form has its own description, including new master species.
 const currentSpecies = [...master.playerSpecies.normal, ...master.playerSpecies.rare, ...master.playerSpecies.secret];
@@ -390,15 +407,15 @@ for (const id of ['bird', 'rabbit', 'fish', 'panda', 'fox', 'owl', 'plant', 'rob
   assert.equal(api.SPECIES_STAGE_DESCS[id].filter(Boolean).length, 8, id);
 }
 
-// Show every ordinary plan line, including all three variants, through the real date path.
-for (const plan of api.DATE_PLANS) for (const value of [0, 0.5, 0.999]) {
+// Show every ordinary plan line, including all four variants, through the real date path.
+for (const plan of api.DATE_PLANS) for (const value of [0, 0.3, 0.6, 0.999]) {
   reset({ partner: partner() }); random = value;
   api.speakEvent('feed'); advance(0);
   const before = spoken.length;
-  api.goOnDate(plan); advance(20000);
+  api.goOnDate(plan); advance(26000);
   assert.equal(spoken.length, before, 'old care speech leaked into a date');
-  assert.equal(captions.length, 4, plan.id);
-  const lines = [plan.line, ...api.DATE_PLAN_VARIATIONS[plan.id]];
+  assert.equal(captions.length, 7, plan.id);
+  const lines = sandbox.NaotocchiMovieDialogue.dates[plan.id].map(story=>story[0].text);
   assert.equal(captions[1], lines[Math.floor(value * lines.length)], plan.id);
   assert.ok(!captions.some((text) => /undefined|へ。/.test(text)), plan.id);
   assert.equal(api.getState().datesThisLife, 1);
@@ -408,59 +425,15 @@ for (const plan of api.DATE_PLANS) for (const value of [0, 0.5, 0.999]) {
 for (const plan of api.DATE_PLANS) {
   reset({ partner: partner('anglerfish'), regionId: 'deepsea' });
   const local = api.datePlanForRegion(plan);
-  api.goOnDate(plan); advance(20000);
+  api.goOnDate(plan); advance(26000);
   if (api.DEEPSEA_DATE_PLANS[plan.id]) {
     assert.notEqual(local.label, plan.label);
-    assert.ok([local.line, ...local.variations].includes(captions[1]));
+    assert.ok(sandbox.NaotocchiMovieDialogue.deepsea[plan.id].some(story=>story[0].text===captions[1]));
     assert.ok(!captions.slice(0, 2).some((s) => /ゆうやけ|あめやどり|ひなたぼっこ|流れ星/.test(s)));
   }
 }
-// A browser may suppress native confirm and return false. The reward decision
-// must remain visible in the game, before any date effects or consumption.
-for (const deepsea of [false, true]) {
-  reset({ partner:partner(deepsea ? 'anglerfish' : 'robot_neighbor'),
-    regionId:deepsea ? 'deepsea' : 'home', items:{reward:1} });
-  const before = JSON.stringify(api.getState());
-  click('worldDateBtn');
-  const chosen = getElement('dateChoiceGrid').children[0];
-  click('dateChoiceGrid', {target:{closest:s => s === '.date-choice-btn' ? chosen : null}});
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), false,
-    'reward confirmation must be visible even when native confirm returns false');
-  assert.equal(confirmPrompts.length, 0, 'date must not depend on native confirm');
-  assert.equal(JSON.stringify(api.getState()), before, 'date committed before reward choice');
-  assert.equal(captions.length, 0, 'movie started before reward choice');
-  api.loop();
-  assert.equal(JSON.stringify(api.getState()), before, 'reward choice did not pause care');
-  click('dateRewardUseBtn');
-  click('dateRewardUseBtn');
-  assert.equal(api.getState().items.reward || 0, 0, 'reward was not consumed once');
-  assert.equal(api.getState().datesThisLife, 1, 'double tap started a second date');
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), true);
-  assert.equal(getElement('dateMovieScene').classList.contains('special-reward'), true);
-  advance(28500);
-  assert.equal(captions.length, 7, 'special date did not finish all seven captions');
-  click('dateMovieCloseBtn');
-  assert.equal(getElement('dateOverlay').classList.contains('hidden'), true);
-}
-for (const accept of [false, true]) {
-  reset({ partner: partner(), items: { reward: 1 } }); confirmResult = accept;
-  api.goOnDate(api.DATE_PLANS[0]);
-  click(accept ? 'dateRewardUseBtn' : 'dateRewardSkipBtn'); advance(35000);
-  assert.equal(captions.length, accept ? 7 : 4);
-  assert.equal(api.getState().items.reward || 0, accept ? 0 : 1);
-  assert.equal(api.getState().lifeLog.filter((r) => r.text.startsWith('とくべつなデートのおもいで:')).length, accept ? 1 : 0);
-  api.finishDateMovie(); advance(35000);
-  assert.equal(api.getState().items.reward || 0, accept ? 0 : 1, 'reward consumed twice');
-}
-reset({ partner: partner() }); confirmResult = true;
-api.goOnDate(api.DATE_PLANS[0]); api.finishDateMovie();
-const dateSkipCount = captions.length; advance(35000);
-assert.equal(captions.length, dateSkipCount, 'skipped date still changes captions');
-assert.equal(api.getState().items.reward || 0, 0, 'missing reward underflow');
-
-// BQ: exercise the actual chooser/skip/close handlers, not finishDateMovie directly.
-// Catches a missing consumption/save, ignored reward choice, broken ring branch,
-// lingering captions, or failure to resume the clock after returning to care.
+// The dedicated "ごほうび" date path was retired. Keep the ordinary
+// close/pause helper because the deep-sea date lifecycle below still uses it.
 function assertDateReturned(expectedAge, expectedCooldown, label) {
   assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, label + ': overlay stayed open');
   assert.equal(getElement('dateMovie').classList.contains('hidden'), true, label + ': movie stayed visible');
@@ -472,136 +445,16 @@ function assertDateReturned(expectedAge, expectedCooldown, label) {
   assert.equal(api.getState().ageTicks, expectedAge + 1, label + ': care clock did not resume');
   assert.equal(api.getState().dateCooldownTicks, expectedCooldown - 1, label + ': cooldown did not resume');
 }
-for (const testCase of [
-  { name:'accept-one', reward:1, accept:true, remaining:0, beats:7, skip:false },
-  { name:'accept-two-skip', reward:2, accept:true, remaining:1, beats:7, skip:true },
-  { name:'decline', reward:1, accept:false, remaining:1, beats:4, skip:false },
-  { name:'no-reward', reward:0, accept:true, remaining:0, beats:4, skip:false },
-  { name:'deepsea-ring', reward:1, accept:true, remaining:0, beats:7, skip:false, deepsea:true, ring:true },
-  { name:'deepsea-ordinary', reward:0, accept:false, remaining:0, beats:4, skip:false, deepsea:true },
-]) {
-  const { name, reward, accept, remaining, beats, skip, deepsea, ring } = testCase;
-  reset({ partner:partner(deepsea ? 'anglerfish' : 'robot_neighbor', { married:true }),
-    gender:'male', orientationId:'pan', attractedTo:['male','female','nonbinary'],
-    marriageMilestonesSeen:[1,10,25,50], legendMet:true, datesThisLife:2,
-    regionId:deepsea ? 'deepsea' : 'home', items:reward ? {reward} : {} });
-  api.getState().lifetime.money = 123456789;
-  if (ring) api.getState().lifetime.ownedNaotoItems = ['naoto_ring'];
-  confirmResult = accept;
-  const age = api.getState().ageTicks;
-  click('worldDateBtn');
-  assert.equal(getElement('dateOverlay').classList.contains('hidden'), false, name + ': chooser did not open');
-  const choices = getElement('dateChoiceGrid').children;
-  assert.equal(choices.length, 3, name + ': missing rendered choices');
-  assert.equal(new Set(choices.map(button => button.dataset.plan)).size, 3);
-  api.loop();
-  assert.equal(api.getState().ageTicks, age, name + ': chooser did not pause clock');
-  const selected = choices[0];
-  click('dateChoiceGrid', {target:{closest:selector => selector === '.date-choice-btn' ? selected : null}});
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), !reward, name + ': incorrect reward prompt');
-  if (reward) click(accept ? 'dateRewardUseBtn' : 'dateRewardSkipBtn');
-  assert.equal(confirmPrompts.length, 0, name + ': native prompt called');
-  assert.equal(api.getState().items.reward || 0, remaining, name + ': incorrect reward consumption');
-  assert.equal(api.getState().datesThisLife, 3, name + ': wrong date count');
-  assert.equal(api.getState().lifetime.datesEnjoyed, 1, name + ': lifetime date counted twice');
-  assert.equal(api.getState().lifetime.money, 123456789, name + ': date spent coins');
-  const special = beats === 7;
-  assert.equal(getElement('dateMovieScene').classList.contains('special-reward'), special);
-  assert.equal(getElement('dateMovieScene').dataset.plan, special ? 'special' : selected.dataset.plan);
-  assert.equal(getElement('dateMoviePlace').textContent.startsWith('🎁'), special);
-  assert.match(getElement('dateMoviePet').innerHTML, /assets\/characters\/man\/06\.png/);
-  assert.ok(getElement('dateMoviePartner').innerHTML.includes('assets/characters/partners/' + (deepsea ? 'anglerfish' : 'robot_neighbor') + '.png'));
-  const specialMemories = () => api.getState().lifeLog.filter(entry => entry.text.startsWith('とくべつなデートのおもいで:')).length;
-  assert.equal(specialMemories(), special ? 1 : 0);
-  assert.ok(savedWrites.length > 0, name + ': no saved state');
-  savedPayload = savedWrites.at(-1);
-  const loaded = api.loadState(); savedPayload = null;
-  assert.equal(loaded.items.reward || 0, remaining, name + ': consumed reward returned after loading');
-  assert.equal(loaded.datesThisLife, 3, name + ': date not persisted');
-  assert.equal(loaded.lifetime.money, 123456789);
-  assert.equal(loaded.partner.id, deepsea ? 'anglerfish' : 'robot_neighbor');
-  assert.equal(loaded.lifeLog.filter(entry => entry.text.startsWith('とくべつなデートのおもいで:')).length, special ? 1 : 0);
-  const cooldown = api.getState().dateCooldownTicks;
-  assert.equal(cooldown, 60);
-  api.loop();
-  assert.equal(api.getState().ageTicks, age, name + ': movie did not pause clock');
-  assert.equal(api.getState().dateCooldownTicks, cooldown, name + ': movie reduced cooldown');
-  if (skip) {
-    advance(8000); click('dateMovieSkipBtn');
-    const count = captions.length;
-    advance(35000);
-    assert.equal(captions.length, count, name + ': skipped movie restarted before close');
-  } else {
-    const step = special ? 4000 : 3500;
-    assert.equal(captions.length, 1);
-    for (let beat = 1; beat < beats; beat += 1) {
-      advance(step - 1); assert.equal(captions.length, beat, name + ': caption arrived early');
-      advance(1); assert.equal(captions.length, beat + 1, name + ': caption missing at boundary');
-    }
-    if (ring) assert.match(captions[4], /💍/);
-    else if (special) assert.match(captions[4], /写真/);
-    assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
-    advance(step + 499);
-    assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), true, name + ': ending appeared early');
-    advance(1);
-  }
-  assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
-  assert.equal(getElement('dateMovieSkipBtn').classList.contains('hidden'), true);
-  click('dateMovieCloseBtn');
-  assertDateReturned(age, cooldown, name);
-  assert.equal(api.getState().items.reward || 0, remaining, name + ': close consumed reward again');
-  assert.equal(specialMemories(), special ? 1 : 0, name + ': close duplicated memory');
-  click('worldDateBtn');
-  assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, name + ': cooldown allowed a second date');
-  assert.equal(api.getState().datesThisLife, 3);
-  assert.equal(confirmPrompts.length, 0, name + ': cooldown prompted for reward again');
-}
-// Back/escape, cancel and a later visit must not reuse the pending decision.
-for (const escape of [false, true]) {
-  reset({partner:partner(),items:{reward:1}});
-  const before = JSON.stringify(api.getState());
-  click('worldDateBtn');
-  const chosen = getElement('dateChoiceGrid').children[0];
-  click('dateChoiceGrid', {target:{closest:s => s === '.date-choice-btn' ? chosen : null}});
-  if (escape) {
-    const handlers = getElement('dateRewardConfirm').listeners.get('keydown') || [];
-    assert.ok(handlers.length, 'reward prompt has no escape handler');
-    handlers.forEach(fn => fn({key:'Escape',preventDefault:noop}));
-  } else click('dateRewardBackBtn');
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), true);
-  assert.equal(getElement('dateChooser').classList.contains('hidden'), false);
-  click('dateRewardUseBtn');
-  assert.equal(JSON.stringify(api.getState()), before, 'stale reward confirmation started a date');
-  click('dateCancelBtn');
-  assert.equal(JSON.stringify(api.getState()), before, 'cancelled reward choice changed the save');
-  click('worldDateBtn');
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), true);
-  assert.equal(captions.length, 0);
-}
-reset({partner:partner(),items:{reward:1}});
-const beforeCancelledDate = JSON.stringify(api.getState());
-click('worldDateBtn'); click('dateCancelBtn'); advance(35000);
-assert.equal(JSON.stringify(api.getState()), beforeCancelledDate, 'cancelled chooser changed saved game');
-assert.equal(captions.length, 0, 'cancelled chooser started a movie');
-assert.equal(confirmPrompts.length, 0, 'cancelled chooser prompted for reward');
-assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, 'cancelled chooser stayed open');
-assert.equal(getElement('dateMovie').classList.contains('hidden'), true, 'cancelled chooser showed movie');
-assert.equal(getElement('dateChooser').classList.contains('hidden'), false, 'cancelled chooser was not reset');
-api.loop();
-assert.equal(api.getState().ageTicks, JSON.parse(beforeCancelledDate).ageTicks + 1, 'cancelled chooser did not resume clock');
-assert.equal(api.getState().dateCooldownTicks, 0, 'cancelled chooser started cooldown');
-assert.equal(api.getState().datesThisLife, 0, 'cancelled chooser counted a date');
-assert.equal(api.getState().items.reward, 1, 'cancelled chooser consumed reward');
 
 // Every deep-sea plan's three opening-line branches must reach the final beat
 // and return; the localized memory must never revert to the land activity.
 const deepseaObservedLines = new Map();
-for (const plan of api.DATE_PLANS) for (const value of [0, 0.5, 0.999]) {
+for (const plan of api.DATE_PLANS) for (const value of [0, 0.3, 0.6, 0.999]) {
   reset({partner:partner('anglerfish',{married:true}),regionId:'deepsea',datesThisLife:2,
     legendMet:true,marriageMilestonesSeen:[1,10,25,50]}); random = value;
   const age = api.getState().ageTicks;
-  api.goOnDate(plan); advance(14500);
-  assert.equal(captions.length, 4, 'deepsea ' + plan.id + ': incomplete movie');
+  api.goOnDate(plan); advance(25000);
+  assert.equal(captions.length, 7, 'deepsea ' + plan.id + ': incomplete movie');
   if (!deepseaObservedLines.has(plan.id)) deepseaObservedLines.set(plan.id, new Set());
   deepseaObservedLines.get(plan.id).add(captions[1]);
   assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
@@ -614,8 +467,8 @@ for (const plan of api.DATE_PLANS) for (const value of [0, 0.5, 0.999]) {
   click('dateMovieCloseBtn');
   assertDateReturned(age, 60, 'deepsea ' + plan.id);
 }
-for (const [id, lines] of deepseaObservedLines) assert.equal(lines.size, 3, 'deepsea ' + id + ': opening branches collapsed');
-console.log('DATE LIFECYCLE TEST OK: in-game reward choice with native dialogs suppressed; accept/decline/absent; double tap, back, escape and cancel; persisted rewards and memories; ring; real skip/close; pause/resume/cooldown; 30 complete deepsea branches.');
+for (const [id, lines] of deepseaObservedLines) assert.equal(lines.size, 4, 'deepsea ' + id + ': opening branches collapsed');
+console.log('DATE LIFECYCLE TEST OK: ordinary dates, skip/close, pause/resume/cooldown and complete deep-sea branches.');
 for (const def of master.partners) {
   reset({ partner: partner(def.id, { married: true }) });
   const lines = api.PARTNER_ANNIVERSARY_LINES[def.id];
@@ -623,29 +476,6 @@ for (const def of master.partners) {
   const first = api.partnerAnniversaryLine(api.getState().partner, 10);
   assert.ok(lines.includes(first));
   assert.notEqual(first, api.partnerAnniversaryLine(api.getState().partner, 10));
-}
-
-// Items use the same clock, recency and speaker ownership as everyday dialogue.
-for (const item of api.FUN_ITEMS) {
-  reset({ partner: partner(), companions: [{ id: 'otter' }], items: { [item.id]: 1 } });
-  api.useItem(item.id); advance(0);
-  assert.equal(api.conversationIsBusy(), true);
-  advance(7500); validSpeech();
-  assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet', 'partner', 'companion']);
-  for (const beat of spoken) assert.ok(item[beat.speaker.kind + 'Lines'].includes(beat.text));
-  assert.equal(api.getState().items[item.id] || 0, 0);
-  assert.equal(api.getState().lifetime.consumablesUsed, 1);
-  assert.equal(api.conversationIsBusy(), false);
-  const before = spoken.length; api.useItem(item.id); advance(10000);
-  assert.equal(spoken.length, before, 'empty item replayed');
-  reset(); api.playFunScene(item); advance(10000);
-  assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet']);
-}
-for (const stop of [() => click('feedBtn'), () => api.openExclusiveMenu('dex'), () => api.openDateChooser(), () => api.triggerDeath(), () => api.enterFarewell()]) {
-  reset({ partner: partner(), companions: [{ id: 'otter' }] });
-  api.playFunScene(api.FUN_ITEMS[0]); advance(0);
-  stop(); advance(10000);
-  assert.ok(!spoken.slice(1).some((b) => api.FUN_ITEMS[0][b.speaker.kind + 'Lines'].includes(b.text)), 'item line leaked after transition');
 }
 
 // Memories must refer to recorded events, with compact copy even for long old logs.
@@ -737,10 +567,7 @@ api.loop();
 assert.match(getElement('worldDateHint').textContent, /となりまちのロボット/);
 api.renderPartnerCompanion();
 assert.match(getElement('partnerCompanion').innerHTML, /title="となりまちのロボット"/);
-api.getState().items.reward = 1;
-api.goOnDate(api.DATE_PLANS[0]);
-assert.match(getElement('dateRewardPlan').textContent, /となりまちのロボット/);
-assert.equal(api.getState().partner.label, 'となりまちの ロボット', 'date prompt rewrote the saved partner');
+assert.equal(api.getState().partner.label, 'となりまちの ロボット', 'ordinary profile/date display rewrote the saved partner');
 
 for (const candidate of api.ALL_PARTNER_CANDIDATES) {
   reset(); api.checkAchievements(); storyCaptions.length = 0;
@@ -754,13 +581,14 @@ for (const candidate of api.ALL_PARTNER_CANDIDATES) {
 reset(); api.playFirstPartnerEncounter(partner()); click('cleanBtn');
 const storyCount = storyCaptions.length; advance(10000);
 assert.equal(storyCaptions.length, storyCount, 'encounter continued after a new action');
-reset(); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごからうまれた');
-// Dream eggs retain access to every current species, including the eight rare lines.
-for (const def of currentSpecies) {
-  reset(); api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
+reset({stage:'egg'}); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごからうまれた');
+// Funded dream eggs select the 22 normal or eight rare lines; ren keeps its original gate.
+for (const def of [...master.playerSpecies.normal, ...master.playerSpecies.rare]) {
+  reset({stage:'egg'}); Object.assign(api.getState().items,{c_egg_normal:1,c_egg_rare:1});
+  api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
   assert.equal(api.getState().speciesLine, def.id); assert.ok(api.stageDesc(def.id, 0));
 }
-console.log('WHOLE-TEXT TEST OK: 248 descriptions; 30 ordinary dates; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.');
+console.log('WHOLE-TEXT TEST OK: 248 descriptions; 40 ordinary stories; 10 deep-sea plans; ordinary date skip/close; 36 anniversary lines; event memories; 18 first encounters.');
 
 // The result is relative to this player; a guessing-player win is not an A win.
 for (const [role, winner, expected] of [
@@ -773,7 +601,7 @@ for (const [role, winner, expected] of [
   assert.doesNotMatch(getElement('duelResultDesc').textContent, /ひきわけ/, 'zero payment was called a draw');
 }
 
-// An in-progress old duel keeps its choices and stored question snapshots.
+// Historical question/result renderers retain stored snapshots verbatim; load migration now terminates unfunded old progress.
 const oldQuestion = {id:'dq5',emoji:'💭',text:'恋人に　うそを ついたことは?',
   a:{label:'ある よ'},b:{label:'ない よ'}};
 const oldEntry = {truth:'a',pub:'b',isLie:true};
@@ -993,6 +821,7 @@ click('companionInviteLaterBtn');
 for (const score of [69, 70]) {
   reset({ sodachi: 80, maxSodachi: 80 });
   api.openCompanionInvite(clockCompanion, true);
+  api.startMinigame({id:"clock-probe",start(){}});
   api.finishMinigame(score);
   assert.equal(api.getState().lifetime.rareCompanionsRecruited.includes('clock'), score >= 70);
   assert.equal(api.getState().companions.some((c) => c.id === 'clock'), score >= 70);
@@ -1038,7 +867,7 @@ for (const def of master.partners) {
     assert.ok(getElement(id).innerHTML.includes(`src="${def.asset}"`), `${def.id}: ${id}`);
     assert.match(getElement(id).innerHTML, /💍/);
   }
-  assert.match(getElement('partnerCompanion').innerHTML, /partner-heart/);
+  assert.match(getElement('partnerCompanion').innerHTML, /partner-emoji/); // State-specific hearts are exercised by Relationship integration tests.
   assert.match(getElement('partnerCompanion').innerHTML, /character-companion/);
   assert.equal(getElement('partnerDexProgress').textContent, '1 / 18');
   assert.equal(JSON.stringify(api.getState().partner), beforePartnerRender, 'rendering changed relationship');
@@ -1048,10 +877,10 @@ for (const def of master.partners) {
 
   for (const plan of api.DATE_PLANS) {
     reset({ partner: savedPartner });
-    api.goOnDate(plan); advance(20000);
+    api.goOnDate(plan); advance(26000);
     assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), `${def.id}: date ${plan.id}`);
     assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'));
-    assert.equal(captions.length,4,`${def.id}: complete date ${plan.id}`);
+    assert.equal(captions.length,7,`${def.id}: complete date ${plan.id}`);
     assert.ok(captions.every(text=>text.trim()&&!/undefined|\[object Object\]/.test(text)));
     assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'),false);
   }
@@ -1061,7 +890,7 @@ for (const def of master.partners) {
     assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), `${def.id}: anniversary ${years}`);
     assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'));
     assert.ok(captions.length>=5&&captions.every(text=>text.trim()&&!/undefined|\[object Object\]/.test(text)));
-    assert.ok(captions.some(text=>api.PARTNER_ANNIVERSARY_LINES[def.id].some(line=>text.includes(line))),
+    assert.ok(captions.some(text=>api.PARTNER_ANNIVERSARY_LINES[def.id].some(line=>text.includes(line.replace(/^「|」$/g, '')))),
       `${def.id}: own anniversary dialogue at ${years} years`);
     assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'),false);
   }
@@ -1133,7 +962,7 @@ assert.equal(api.pendingGoal(), null);
 assert.ok(getElement('gameClearOverlay').classList.contains('hidden'));
 assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！たくさんの子に/);
+assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。たくさん会ってくれて、ありがとう。/);
 advance(4199); assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 advance(1); assert.ok(getElement('storyFlash').classList.contains('hidden'));
 assert.equal(JSON.stringify([api.getState().partner, api.getState().companions]), dexRelations);
@@ -1169,7 +998,7 @@ for (const atLifeEnd of [false, true]) {
     assert.ok(getElement('lifeCardOverlay').classList.contains('hidden'), 'goal 5 ended this life prematurely');
     assert.ok(!getElement('storyFlash').classList.contains('hidden'));
     assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-    assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！ぜんぶ/);
+    assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう./);
     assert.equal(lifeDetails(api.getState().infiniteReturn || api.getState()), lifeBefore);
     assert.equal(api.getState().discoveredStages.length, allForms.length);
     assert.equal(api.getState().achievementsUnlocked.length, api.ACHIEVEMENTS.length);
@@ -1210,11 +1039,11 @@ for (const oldGoal of ['dexCleared', 'perfectCleared']) {
   click('naotoGreetingBtn');
   assert.ok(getElement('itemOverlay').classList.contains('hidden'), 'shop obscures author greeting');
   assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-  assert.match(getElement('storyFlashText').textContent, /ナオト「やあ！/);
+  assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。来てくれて、ありがとう。/);
   assert.equal(JSON.stringify([api.getState().partner, api.getState().companions, api.getState().lifetime.money, api.getState().ageTicks]), beforeTalk);
   assert.ok(api.getState().lifetime.ownedNaotoItems.includes('naoto_charm'), 'old reward lost');
   advance(4200); api.openExclusiveMenu('item'); click('naotoGreetingBtn');
-  assert.match(getElement('storyFlashText').textContent, /ナオト「やあ！/);
+  assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。来てくれて、ありがとう。/);
   assert.ok(!getElement('storyFlash').classList.contains('hidden'), 'unlocked author could not be greeted again');
 }
 
@@ -1276,5 +1105,5 @@ assert.equal(api.pendingGoal(), 'perfect');
 assert.ok(getElement('gameClearArt').src.includes('goal-5-naoto-v1.jpg'));
 click('gameClearCloseBtn');
 assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！ぜんぶ/);
+assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう。/);
 console.log('MAIN 203 AUTHOR COMPATIBILITY OK: prior perfect save keeps author, crown and infinite mode; six new achievements stay unearned; 99/100 current games excludes retired records and opens goal 5 correctly.');

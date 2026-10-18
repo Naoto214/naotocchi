@@ -1,0 +1,26 @@
+{
+  "githubHead": "a2eb319893caca94467f474e2bf17a152d67d0fc",
+  "githubTree": "d0399d249c82dd74159fdd8ac592e0d1bd405204",
+  "actualMain": "6191f7624808b783a90a5813097a216a08c23278",
+  "pr": {
+    "number": 278,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "mergeable": false,
+    "branch": "feat/cat-expression-pilot-20260915",
+    "baseShaFromPR": "3f4bfda0b8c0d30098ebb68c4313abd370a8576a"
+  },
+  "initialCI": {
+    "workflowRuns": 0,
+    "statuses": 0,
+    "checkRuns": 0,
+    "note": "No runs observed. Not success. PR base_sha is not actual main."
+  },
+  "local": {
+    "head": "80e1be399373cf40db0ebb5c57886711d985f9c6",
+    "tree": "d0399d249c82dd74159fdd8ac592e0d1bd405204",
+    "initialClean": true
+  },
+  "preExpression": "dab89b129efc38bb0db70d6b75f795d9c2bf52d5"
+}

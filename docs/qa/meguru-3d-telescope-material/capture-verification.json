@@ -1,0 +1,58 @@
+{
+  "source": "cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+  "before": "cf500370365b49b8c7f538c92b009e934cf8844b",
+  "run": 37894253894,
+  "sourceSha256": {
+    "meguru.js": "5d2e07b0e5b6b6051a81bf157b13c6dc9f6dfce18f31c5b29de14a6a8c21fab5",
+    "meguru-3d.mjs": "15635346d858c454fd9b78aec92f2a991d242ca118d768da4ec56b3e0a5996af",
+    "index.html": "67f882e4c8b8bba0e536a35a66fd8aeb92c61f5228e97fcf7688cf8594b1b684"
+  },
+  "artifact": {
+    "id": 11600310692,
+    "node_id": "MDg6QXJ0aWZhY3QxMTYwMDMxMDY5Mg==",
+    "name": "world-captures-cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+    "size_in_bytes": 6937792,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11600310692",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11600310692/zip",
+    "expired": false,
+    "digest": "sha256:a141ba8e6ab8f4b4e142e2acd706bf1752cb9266524c4093918bf9c59561de4a",
+    "created_at": "2026-10-09T06:44:52Z",
+    "updated_at": "2026-10-09T06:44:52Z",
+    "expires_at": "2026-11-08T06:44:51Z",
+    "workflow_run": {
+      "id": 37894253894,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "cdd5f3f0d76b1059cdfce24f74195f38ea52fc63"
+    }
+  },
+  "zipSha256": "a141ba8e6ab8f4b4e142e2acd706bf1752cb9266524c4093918bf9c59561de4a",
+  "runnerExit": 0,
+  "targetBudgets": [
+    {
+      "name": "prop-telescope",
+      "before": {
+        "active": true,
+        "triangles": 4690,
+        "calls": 8
+      },
+      "after": {
+        "active": true,
+        "triangles": 4690,
+        "calls": 8
+      }
+    }
+  ],
+  "visualReview": "PASS for isolated telescope material correction: pale-gray tripod and dark-gray barrel visible; same silhouette and framing. Not an all-World or Human QA approval.",
+  "limitations": [
+    "Static isolated gallery, not gameplay or iPhone performance.",
+    "Before sourcecf50037 predates waterwheel; telescope geometry/colors unchanged up to86daaa0.",
+    "No fresh source hashes for before checkout are emitted by this existing captures workflow; before commit provenance retained."
+  ],
+  "expectedBeforeSha256FromGit": {
+    "meguru.js": "0f0106a5772c1459ebed35861c8f06d49354f6bff9b1e37a54a05c5d34ae4461",
+    "meguru-3d.mjs": "15635346d858c454fd9b78aec92f2a991d242ca118d768da4ec56b3e0a5996af",
+    "index.html": "2380cb37e46687b1bec124bd298f332658ac50ecff8e748bde77d288240d6277"
+  }
+}

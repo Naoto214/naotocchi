@@ -1,0 +1,10 @@
+{
+  "_note": "RH-1: endingTiersReached の null / 小数 は 取り除く。\"2\" は 2 に なおす。範囲外の 整数(9 / -1)は 未来版の 値として のこし、バッジ表示だけ とばす",
+  "stage": "growing",
+  "speciesLine": "cat",
+  "stageIndex": 3,
+  "ageTicks": 800,
+  "schemaVersion": 5,
+  "romanceCompatibilityVersion": 2,
+  "lifetime": { "clears": 1, "money": 50, "endingTiersReached": [0, "2", null, 1.5, 9, -1, 2] }
+}

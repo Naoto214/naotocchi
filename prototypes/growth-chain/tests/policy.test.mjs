@@ -1,0 +1,63 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { configuration } from "../rules.mjs";
+import { board } from "../engine.mjs";
+import { createSession, applyAction, placements } from "../session.mjs";
+import { chooseAction, publicView, itemActions } from "../policy.mjs";
+test("strategic search selects immediate 3-chain over arbitrary placement", () => {
+  const r = configuration(),
+    b = board(r);
+  b[13][0] = { id: 1, k: 0, s: 1 };
+  b[12][0] = { id: 2, k: 0, s: 2 };
+  b[11][0] = { id: 3, k: 0, s: 3 };
+  let s = createSession(1, r, { board: b });
+  s.queue[0] = [0, 1];
+  const a = chooseAction(s, "strategic", { state: 0 });
+  assert.ok(applyAction(s, a).last.waves.length >= 3);
+});
+test("strategy view excludes hidden bag; changing it cannot change choice", () => {
+  let a = createSession(91),
+    b = structuredClone(a);
+  b.bag.state = 283;
+  b.bag.items.reverse();
+  assert.equal("bag" in publicView(a), false);
+  assert.deepEqual(
+    chooseAction(a, "strategic", { state: 8 }),
+    chooseAction(b, "strategic", { state: 8 }),
+  );
+});
+test("random policy selects legal placements, has separate RNG", () => {
+  let s = createSession(6),
+    v = JSON.stringify(s);
+  let a = chooseAction(s, "random", { state: 2 });
+  assert.ok(placements(s).some((p) => JSON.stringify(p) === JSON.stringify(a)));
+  assert.equal(JSON.stringify(s), v);
+});
+test("item enumeration obeys affordability and distinct transformation species", () => {
+  let r = configuration(),
+    b = board(r);
+  b[13][0] = { id: 1, k: 0, s: 4 };
+  let s = createSession(2, r, { board: b, gauge: 48, eggs: [1, 0, 0, 0] });
+  let a = itemActions(s, "both");
+  assert.ok(a.some((x) => x.type === "bulk"));
+  assert.ok(a.some((x) => x.type === "egg"));
+  for (let action of a) assert.doesNotThrow(() => applyAction(s, action));
+  assert.deepEqual(itemActions(createSession(2), "both"), []);
+});
+test("bulk-only probe preserves gauge until bulk action is available", () => {
+  let r = configuration(),
+    b = board(r);
+  b[13][0] = { id: 1, k: 0, s: 2 };
+  b[13][1] = { id: 2, k: 1, s: 2 };
+  b[13][2] = { id: 3, k: 0, s: 2 };
+  let s = createSession(3, r, { board: b, gauge: 48 });
+  assert.equal(
+    chooseAction(
+      s,
+      "strategic",
+      { state: 0 },
+      { items: "transform", bulkOnly: true },
+    ).type,
+    "bulk",
+  );
+});

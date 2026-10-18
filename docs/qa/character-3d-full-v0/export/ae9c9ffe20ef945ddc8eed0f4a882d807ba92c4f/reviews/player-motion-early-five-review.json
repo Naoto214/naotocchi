@@ -1,0 +1,986 @@
+{
+  "reviewType": "ACTUAL_SCOPED_MOTION_IMAGE_REVIEW",
+  "verdict": "REJECT",
+  "reviewDate": "2026-10-09",
+  "reviewer": "Codex delegated image reviewer",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "sourceArtifacts": [
+    {
+      "label": "integration-cat",
+      "files": 282,
+      "artifact": 11612782291,
+      "mode": "successful",
+      "job": 113792866162
+    },
+    {
+      "label": "integration-clownfish",
+      "files": 183,
+      "artifact": 11612796192,
+      "mode": "successful",
+      "job": 113792866059
+    },
+    {
+      "label": "integration-dog",
+      "files": 183,
+      "artifact": 11613115016,
+      "mode": "successful",
+      "job": 113792866125
+    },
+    {
+      "label": "integration-penguin",
+      "files": 183,
+      "artifact": 11612468637,
+      "mode": "successful",
+      "job": 113792866119
+    },
+    {
+      "label": "integration-salmon",
+      "files": 282,
+      "artifact": 11612323630,
+      "mode": "successful",
+      "job": 113792866074
+    }
+  ],
+  "integrity": "Parent restored and verified 3113 raw files. This review additionally matched the 31 inspected board hashes and 31 extracted raw-frame bytes/hashes to their family manifests/ZIP members. Integrity does not imply image acceptance.",
+  "method": "Actually opened all listed boards via view_image at original detail, inspected every state against the repeated original first column, then opened the listed exact raw ZIP member bytes for ambiguity. No verdict is inferred from CI, ready flags, or board candidate labels.",
+  "layout": {
+    "referenceColumn": 1,
+    "rows": [
+      "normal",
+      "positive",
+      "dislike",
+      "tired",
+      "sleeping",
+      "strained",
+      "wantsPlay",
+      "sick"
+    ],
+    "stateColumns": [
+      {
+        "pose": "idle",
+        "motionMode": "normal"
+      },
+      {
+        "pose": "walk",
+        "motionMode": "normal"
+      },
+      {
+        "pose": "idle",
+        "motionMode": "reduced"
+      },
+      {
+        "pose": "walk",
+        "motionMode": "reduced"
+      }
+    ]
+  },
+  "counts": {
+    "families": 5,
+    "stages": 31,
+    "boardsActuallyInspected": 31,
+    "stateCellsActuallyInspected": 992,
+    "passedCells": 972,
+    "rejectedCells": 20,
+    "fullyPassedStages": 26,
+    "rejectedStages": 5,
+    "additionalDistinctRawFramesInspected": 31,
+    "fourViewImagesReviewed": 0,
+    "distanceImagesReviewed": 0
+  },
+  "stageSelector": {
+    "dog": [
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "cat": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "penguin": [
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "salmon": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "clownfish": [
+      2,
+      3,
+      5,
+      6,
+      7
+    ]
+  },
+  "stageReviews": [
+    {
+      "family": "dog",
+      "stage": 2,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/missing-motion/dog-2-motion.jpg",
+      "boardSha256": "691e6781a77072baf6f58c7cb39b454795cbc624c3f5b46d647b9fdf5906646b",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Floppy ears, orange coat and compact sitting pose retained; walk legs, curled tail and face stay attached and visible."
+    },
+    {
+      "family": "dog",
+      "stage": 3,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/missing-motion/dog-3-motion.jpg",
+      "boardSha256": "11fc5cf18fe1c66e6c6b9e5cd47e6045f4cf7f624cef46c3aef45b520dd90706",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Upright ears and raised idle forepaw retained; walk changes to supported quadruped pose without a visible join break."
+    },
+    {
+      "family": "dog",
+      "stage": 5,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/missing-motion/dog-5-motion.jpg",
+      "boardSha256": "3df33211516a230bf39d30c4e569a4cd0c8d9c2d04005a9a90e4e56eb17b132a",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Longer adult legs and curled tail remain connected; closed-eye and sick expressions are unobstructed."
+    },
+    {
+      "family": "dog",
+      "stage": 6,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/missing-motion/dog-6-motion.jpg",
+      "boardSha256": "157bd9e952cb57af6807d8b1aad68ffbc2df352582e54af8c05cb49d9e97de0e",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Standing adult silhouette and upright ears retained; articulate walk forelegs remain attached and visible feet support the pose."
+    },
+    {
+      "family": "dog",
+      "stage": 7,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dog/missing-motion/dog-7-motion.jpg",
+      "boardSha256": "002783aff7a97e7cacac27a684b59d8054519f6bc93cea380ddb1b6b5d962b8a",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Asymmetric ears, pale chest and sitting idle silhouette retained; walk face and limbs remain connected."
+    },
+    {
+      "family": "cat",
+      "stage": 1,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-1-motion.jpg",
+      "boardSha256": "f3de591c038a986581fa1550bbfb86ddc52bd1fb5db368e87e1e0ae04c9ba5b4",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Curled resting silhouette becomes a connected walk pose; all expressions visible. See nonblocking tail/foreleg overlap note."
+    },
+    {
+      "family": "cat",
+      "stage": 2,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-2-motion.jpg",
+      "boardSha256": "a48dd47ab1d1f29209306a48b1614ae0d1842ac6515c69cfdd7319fdf165892d",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Small sitting cat, pointed ears and high curled tail retained; visible paws and walk limb joins remain intact."
+    },
+    {
+      "family": "cat",
+      "stage": 3,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-3-motion.jpg",
+      "boardSha256": "995e045571d9e395ab8ac93738f9dad012cfa8ac014e22b48a457893c874b752",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Raised idle forepaw and upward tail retained; normal/reduced walk releases the paw without a join break."
+    },
+    {
+      "family": "cat",
+      "stage": 4,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-4-motion.jpg",
+      "boardSha256": "b976fa2fb94f90c04beb986504cdfebac30491af66c00d7a6d8da75a9a06a71f",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Source leaping idle pose retained with extended forelegs; walk becomes a connected four-leg pose. Airborne idle is source intentional."
+    },
+    {
+      "family": "cat",
+      "stage": 5,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-5-motion.jpg",
+      "boardSha256": "e1af5f08817baaa055abdba6956c0ac6333d5f96d91f5d29fb77919e94d8d0af",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Long-leg adult silhouette, white paws and curved upright tail retained; expressions remain visible through leg articulation."
+    },
+    {
+      "family": "cat",
+      "stage": 6,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-6-motion.jpg",
+      "boardSha256": "ce7b58c1be1e64289b1357a9cc0270be2354a399719ea94f6ced487a5eb594c5",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Sitting idle silhouette and pale chest retained; walk legs, ears and tail remain visibly connected."
+    },
+    {
+      "family": "cat",
+      "stage": 7,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-7-motion.jpg",
+      "boardSha256": "744bf549b9939485dd0eae2f023a4086b8e39174f6656aae5519c0c04437bd1f",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Sleepy source baseline expression, sitting body and shorter curved tail retained; other emotions remain visible."
+    },
+    {
+      "family": "cat",
+      "stage": 8,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/missing-motion/cat-8-motion.jpg",
+      "boardSha256": "a0c8c9a0ef0e39d0991cbcfd5a56eff2c0be5f97b2e8beddb17e972ad8542a46",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Rounded resting cat and curled tail retained; walk limbs remain connected. See nonblocking tail/foreleg overlap note."
+    },
+    {
+      "family": "penguin",
+      "stage": 2,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/missing-motion/penguin-2-motion.jpg",
+      "boardSha256": "897cd4c3f84f71be42673315d7298029196e615e52b27203063407aa3a9c9499",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Gray chick tuft, pale belly, side wings and orange feet retained; face and head/body connection remain visible."
+    },
+    {
+      "family": "penguin",
+      "stage": 3,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/missing-motion/penguin-3-motion.jpg",
+      "boardSha256": "67f3cfa66fb686a5f27bb5ea63bf7dc5576db1aacdbe844cfde693be756d544b",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Raised-wing source pose retained; wings remain connected and orange feet remain visible across normal/reduced states."
+    },
+    {
+      "family": "penguin",
+      "stage": 5,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/missing-motion/penguin-5-motion.jpg",
+      "boardSha256": "e6571af61e80dad7f51d863d61d99883adca9c130f9f13bcf3fc73e81d6244f9",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Dark cap/body, pale face/belly and side wings retained; no cap obstruction of expression or wing detachment observed."
+    },
+    {
+      "family": "penguin",
+      "stage": 6,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/missing-motion/penguin-6-motion.jpg",
+      "boardSha256": "bd8495a96fd9aaa3bf9ea5009ad38c188df4649fdacdb18bb6fabf51c3d2c721",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Upright adult silhouette, pale face/belly and orange feet retained; wing movement stays attached."
+    },
+    {
+      "family": "penguin",
+      "stage": 7,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-penguin/missing-motion/penguin-7-motion.jpg",
+      "boardSha256": "712949cef83b9241fea8f67c9f446ae70a77f02e74ab0529b44ea25c9d0e2e6d",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Compact dark adult, pale face/belly and feet retained; walk tilt does not detach head, wings or feet."
+    },
+    {
+      "family": "salmon",
+      "stage": 1,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-1-motion.jpg",
+      "boardSha256": "42e66b17ff749144945550b05567a203501f1673716dc4a253323f79ff44cfda",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Red fry, gray tail and yellow egg sac retained; egg sac/body, fins and tail remain connected in inspected poses."
+    },
+    {
+      "family": "salmon",
+      "stage": 2,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-2-motion.jpg",
+      "boardSha256": "441f7d191c4ce41373c209ded067a69e082a34efc2ad3e7da4d9b900f7f0a4a2",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Plain orange juvenile and forked tail retained; expression and fin changes remain visible and connected."
+    },
+    {
+      "family": "salmon",
+      "stage": 3,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-3-motion.jpg",
+      "boardSha256": "b5001983fb647988a8bfc408a607e106fed6dd0150de3fae8723c64e59f3e932",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Parr stripes retained behind the visible eye; no stripe obstruction or detached fin/tail observed."
+    },
+    {
+      "family": "salmon",
+      "stage": 4,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-4-motion.jpg",
+      "boardSha256": "fd0281e92c7f275702294ed776007bc195be070f35efa3c083d138a20fddb146",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Silver-blue speckled stage retained; face remains visible and fins/tail do not show a clear detachment."
+    },
+    {
+      "family": "salmon",
+      "stage": 5,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-5-motion.jpg",
+      "boardSha256": "0212382e2aa0599240db95e1bf79935a90497f0c034282a7d3da8b27bca2fb70",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Larger silver-blue stage retained; expression marks remain visible and fins/tail remain attached."
+    },
+    {
+      "family": "salmon",
+      "stage": 6,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-6-motion.jpg",
+      "boardSha256": "d786b236d9d22591f87400783bafbb8483049c36cd3f61dc4956fd92dac674c4",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Silver adult with rounded source proportions retained; moving/reduced frames retain visible face and fin/tail joins."
+    },
+    {
+      "family": "salmon",
+      "stage": 7,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-7-motion.jpg",
+      "boardSha256": "735d3e678d50fc157dd8dc5d1fcfe226d4d80fff4e71f1f6f0024871949967b5",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Red spawning body, olive head/fins and spots retained; face remains visible through yaw and tail changes."
+    },
+    {
+      "family": "salmon",
+      "stage": 8,
+      "verdict": "PASS",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/missing-motion/salmon-8-motion.jpg",
+      "boardSha256": "495b3b33157331703356ecf6ea6dc5c103d6082519b09997d17f06d72860e26d",
+      "inspectedCells": 32,
+      "passedCells": 32,
+      "rejectedCells": 0,
+      "observation": "Brown/red mature body, olive muzzle and pale marks retained; visible face, fins and tail stay connected."
+    },
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "verdict": "REJECT",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/missing-motion/clownfish-2-motion.jpg",
+      "boardSha256": "b3532c98bf4e6cae273431d1310ffff9bc0796acf0594a0f0049e81b791346d7",
+      "inspectedCells": 32,
+      "passedCells": 28,
+      "rejectedCells": 4,
+      "observation": "Plain orange juvenile and visible expression retained. REJECT: screen-left pectoral fin separates from body in all four dislike cells."
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "verdict": "REJECT",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/missing-motion/clownfish-3-motion.jpg",
+      "boardSha256": "9944619a570d519d6acb3547c5e7f68d1fa3dff68105b83b482fb846a3ee2dbd",
+      "inspectedCells": 32,
+      "passedCells": 28,
+      "rejectedCells": 4,
+      "observation": "Orange/white banded identity and visible expression retained. REJECT: screen-left pectoral fin separates from body in all four dislike cells."
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "verdict": "REJECT",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/missing-motion/clownfish-5-motion.jpg",
+      "boardSha256": "0012c245e0220bfba2a2e05b8e961696c5d2f018f60006adec442affd0f0ee60",
+      "inspectedCells": 32,
+      "passedCells": 28,
+      "rejectedCells": 4,
+      "observation": "Large banded fish and two smaller source fish retained; main face is unobstructed. REJECT: main fish screen-left pectoral fin separates in all four dislike cells."
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "verdict": "REJECT",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/missing-motion/clownfish-6-motion.jpg",
+      "boardSha256": "c7d2c56c6f9d4df91fbd9d25152ade103bbeb0497d38a3199c87f73062c5a435",
+      "inspectedCells": 32,
+      "passedCells": 28,
+      "rejectedCells": 4,
+      "observation": "Banded adult, face and tail retained. REJECT: screen-left pectoral fin separates from body in all four dislike cells."
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "verdict": "REJECT",
+      "scope": "32 captured motion/state cells at labeled view 34",
+      "inspectedBoard": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/missing-motion/clownfish-7-motion.jpg",
+      "boardSha256": "75b87fbd4e5e9f874703639b1d4b824225a592989a62f17f86a4f30e4bebd263",
+      "inspectedCells": 32,
+      "passedCells": 28,
+      "rejectedCells": 4,
+      "observation": "Fuller banded adult and visible expression retained. REJECT: screen-left pectoral fin separates from body in all four dislike cells."
+    }
+  ],
+  "failures": [
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-2-dislike-idle-normal.jpg",
+      "sha256": "d9291985d494993291bf06a498fb8f62eb0eed61f6a0491eb2a14a2246da3d5f"
+    },
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-2-dislike-walk-normal.jpg",
+      "sha256": "b4085aff29a21ff8af814d5d2b22919b74a18769067dd2e6daebadc25cc3c7b2"
+    },
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-2-dislike-idle-reduced.jpg",
+      "sha256": "3e64597be71b23b18f20ef4464cecd5081c31c95ca31eaf2014b9bd37c5a3229"
+    },
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-2-dislike-walk-reduced.jpg",
+      "sha256": "dc2924ae3b7946771d41e4e3641b608785a9afa9d1e4015acf67418b0b96a14b"
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-3-dislike-idle-normal.jpg",
+      "sha256": "d682a1afbefd334a411d5a05845e228d9576114dae8d10972d288808d751038f"
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-3-dislike-walk-normal.jpg",
+      "sha256": "f9abb56ecda31906b5e262d2fb761c0abbd2e771467244d8f3d5cacee91f5d8e"
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-3-dislike-idle-reduced.jpg",
+      "sha256": "2dabfcf0252b4956e60c0038667db347ac5b3d5b8ac3ae3c80dae5a6d7c84995"
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-3-dislike-walk-reduced.jpg",
+      "sha256": "17f1f90cd18dbf6776e4fad1a58d72de96d6cca8b46d6f8021d30cb6cb4c7687"
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-5-dislike-idle-normal.jpg",
+      "sha256": "cdf78db53a4a8ec7ce4072c34a970379c327676a3411e9b8ef513c819dae3752"
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-5-dislike-walk-normal.jpg",
+      "sha256": "757f35cf2dda86bc352cfa5b2476ff2451ff28607c0c446054b415e29409e181"
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-5-dislike-idle-reduced.jpg",
+      "sha256": "0dc988694d3a02bbf5f67fb4bed8a8789a733c5f1db84eb6df9a50af8c0c96f3"
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-5-dislike-walk-reduced.jpg",
+      "sha256": "14e6466326638abf6ee944ca17406cea1280300e3e30e345b534117e54c0350b"
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-6-dislike-idle-normal.jpg",
+      "sha256": "4ca301a69ef8efa380e00d975e0068b3b7bea907e23e202991f70e39eed349d6"
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-6-dislike-walk-normal.jpg",
+      "sha256": "e7b59247e2e171fe7ee465b430a3c6a69602eeb837e04239cada817c43c9d0ad"
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-6-dislike-idle-reduced.jpg",
+      "sha256": "bbb710e0cb6dcb877fe7ed478b93792d139309f2728d3d92f959dcf026aad5fb"
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-6-dislike-walk-reduced.jpg",
+      "sha256": "bf75c160ebe337b97ebd29c6f7143868eb8b02a57a4f78a8b6a80239b585b7cf"
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-7-dislike-idle-normal.jpg",
+      "sha256": "56780b213ae0bc255246f18cf71e5474ab72eedf9a39b9a5768fe99514732f58"
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "normal",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-7-dislike-walk-normal.jpg",
+      "sha256": "db3ad51e8fa5341af1ac61459d0deae6542b36d7257646348e155011ddc4dc37"
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "idle",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-7-dislike-idle-reduced.jpg",
+      "sha256": "919bd8ac1f318938dde8d7d888e7c10d338860e64bc817e6c48ca405355be4ba"
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "walk",
+      "motionMode": "reduced",
+      "issue": "DETACHED_PECTORAL_FIN",
+      "part": "main fish screen-left pectoral fin",
+      "observation": "A visible background gap separates the fin tip/root from the body in this raw frame. No explicit prior acceptance was established.",
+      "rawArchive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "rawMember": "missing-motion/clownfish-7-dislike-walk-reduced.jpg",
+      "sha256": "263ba60fd6b368d8172bcab2123497872cd1ca40543ccd5421663865de755abf"
+    }
+  ],
+  "rawFramesActuallyInspected": [
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/raw-evidence.zip",
+      "member": "missing-motion/cat-1-wantsPlay-walk-normal.jpg",
+      "sha256": "030232b62c2e14c2fe88974e2e7296edc2b7efaf3891dc11eb4fbf4e8a1265dd",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/cat-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-cat/raw-evidence.zip",
+      "member": "missing-motion/cat-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "05c59db21cfa8241d763107c52f685f8024ce0673f660b7ca72a9727e3edebac",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/cat-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-1-dislike-idle-normal.jpg",
+      "sha256": "32f8756827b333700244111cbf21d016ca9bf7349428d051f8f8ba9760214491",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-1-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-2-dislike-idle-normal.jpg",
+      "sha256": "0abebaa850bbe50671645a352c937d8709608de43b5aacd8d4f609b7160a561c",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-2-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-3-dislike-idle-normal.jpg",
+      "sha256": "2d46a22092f707358c724fbb24b69d8a9245a2b478026033dc8939edd77203d3",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-3-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-4-dislike-idle-normal.jpg",
+      "sha256": "cbf117bfb52eb0ffadba065a76a5955cc12c0e2ca90dc429802157436145c1cd",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-4-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-5-dislike-idle-normal.jpg",
+      "sha256": "d425bbea9d65a71b5dd6ecb760d12907b0c7f52231a2ec6c0eeff8a47150ce44",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-5-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-6-dislike-idle-normal.jpg",
+      "sha256": "d9fec6a77ea224b8840280171a549735a87d1d8873f94bd9ecde5099b720d889",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-6-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-7-dislike-idle-normal.jpg",
+      "sha256": "9c09fd8374dd7ee2b6ffe1dcd2979ea54c479498685a193409a3232da100c3e5",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-7-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-salmon/raw-evidence.zip",
+      "member": "missing-motion/salmon-8-dislike-idle-normal.jpg",
+      "sha256": "87ab9a134003bf0af6a51b107563d46c67114d3fad4455d3b7cd8f14a7794c8e",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/salmon-8-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-2-dislike-idle-normal.jpg",
+      "sha256": "d9291985d494993291bf06a498fb8f62eb0eed61f6a0491eb2a14a2246da3d5f",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-2-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-2-dislike-walk-normal.jpg",
+      "sha256": "b4085aff29a21ff8af814d5d2b22919b74a18769067dd2e6daebadc25cc3c7b2",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-2-dislike-walk-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-2-dislike-idle-reduced.jpg",
+      "sha256": "3e64597be71b23b18f20ef4464cecd5081c31c95ca31eaf2014b9bd37c5a3229",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-2-dislike-walk-reduced.jpg",
+      "sha256": "dc2924ae3b7946771d41e4e3641b608785a9afa9d1e4015acf67418b0b96a14b",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-3-dislike-idle-normal.jpg",
+      "sha256": "d682a1afbefd334a411d5a05845e228d9576114dae8d10972d288808d751038f",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-3-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-3-dislike-walk-normal.jpg",
+      "sha256": "f9abb56ecda31906b5e262d2fb761c0abbd2e771467244d8f3d5cacee91f5d8e",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-3-dislike-walk-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-3-dislike-idle-reduced.jpg",
+      "sha256": "2dabfcf0252b4956e60c0038667db347ac5b3d5b8ac3ae3c80dae5a6d7c84995",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-3-dislike-walk-reduced.jpg",
+      "sha256": "17f1f90cd18dbf6776e4fad1a58d72de96d6cca8b46d6f8021d30cb6cb4c7687",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-5-dislike-idle-normal.jpg",
+      "sha256": "cdf78db53a4a8ec7ce4072c34a970379c327676a3411e9b8ef513c819dae3752",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-5-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-5-dislike-walk-normal.jpg",
+      "sha256": "757f35cf2dda86bc352cfa5b2476ff2451ff28607c0c446054b415e29409e181",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-5-dislike-walk-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-5-dislike-idle-reduced.jpg",
+      "sha256": "0dc988694d3a02bbf5f67fb4bed8a8789a733c5f1db84eb6df9a50af8c0c96f3",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-5-dislike-walk-reduced.jpg",
+      "sha256": "14e6466326638abf6ee944ca17406cea1280300e3e30e345b534117e54c0350b",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-6-dislike-idle-normal.jpg",
+      "sha256": "4ca301a69ef8efa380e00d975e0068b3b7bea907e23e202991f70e39eed349d6",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-6-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-6-dislike-walk-normal.jpg",
+      "sha256": "e7b59247e2e171fe7ee465b430a3c6a69602eeb837e04239cada817c43c9d0ad",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-6-dislike-walk-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-6-dislike-idle-reduced.jpg",
+      "sha256": "bbb710e0cb6dcb877fe7ed478b93792d139309f2728d3d92f959dcf026aad5fb",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-6-dislike-walk-reduced.jpg",
+      "sha256": "bf75c160ebe337b97ebd29c6f7143868eb8b02a57a4f78a8b6a80239b585b7cf",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-7-dislike-idle-normal.jpg",
+      "sha256": "56780b213ae0bc255246f18cf71e5474ab72eedf9a39b9a5768fe99514732f58",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-7-dislike-idle-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-7-dislike-walk-normal.jpg",
+      "sha256": "db3ad51e8fa5341af1ac61459d0deae6542b36d7257646348e155011ddc4dc37",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-7-dislike-walk-normal.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-7-dislike-idle-reduced.jpg",
+      "sha256": "919bd8ac1f318938dde8d7d888e7c10d338860e64bc817e6c48ca405355be4ba",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-7-dislike-walk-reduced.jpg",
+      "sha256": "263ba60fd6b368d8172bcab2123497872cd1ca40543ccd5421663865de755abf",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "archive": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-clownfish/raw-evidence.zip",
+      "member": "missing-motion/clownfish-5-normal-walk-normal.jpg",
+      "sha256": "78c9ef65ff185843031f1ad9b9e5363acc23d1c84ad0c1a33ba12432ead40e32",
+      "inspectedScratchPath": "/workspace/scratch/150320e8a2fd/motion-review-raw/clownfish-5-normal-walk-normal.jpg"
+    }
+  ],
+  "nonblockingObservations": [
+    {
+      "familiesStages": [
+        "cat:1",
+        "cat:8"
+      ],
+      "states": [
+        "wantsPlay/walk/normal"
+      ],
+      "observation": "Curled tail projects across the forelegs. Exact cat 1 normal/reduced raw frames inspected: tail remains continuous and face remains unobstructed; this overlap is not classified as a detached-part blocker."
+    },
+    {
+      "scope": "All inspected stages",
+      "observation": "Existing v0 rounding, compact faces, low-detail paws/feet/fins and source-intent leaping/swimming support are retained as simplifications. This review does not reopen approved unchanged four-view geometry. It does not excuse the confirmed detached-fin finding."
+    }
+  ],
+  "nextEvidence": "Root should repair the confirmed fin attachment and obtain/review bounded affected-stage replacement motion images. Shared-geometry impact scope belongs to root; this review makes no claim for uninspected stages.",
+  "unapprovedByThisReview": [
+    "Overall CI success",
+    "Four-view reapproval",
+    "Normal-distance acceptance",
+    "Complete animation cycles beyond captured poses",
+    "Human QA",
+    "iPhone QA",
+    "All remaining families/stages"
+  ]
+}

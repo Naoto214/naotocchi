@@ -1,0 +1,490 @@
+TAP version 13
+# Subtest: cat_friend real Home rerenders relation threshold, rescue and expiry
+ok 1 - cat_friend real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 31.496547
+  type: 'test'
+  ...
+# Subtest: rabbit_friend real Home rerenders relation threshold, rescue and expiry
+ok 2 - rabbit_friend real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 18.680435
+  type: 'test'
+  ...
+# Subtest: tanuki real Home rerenders relation threshold, rescue and expiry
+ok 3 - tanuki real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 23.511493
+  type: 'test'
+  ...
+# Subtest: squirrel real Home rerenders relation threshold, rescue and expiry
+ok 4 - squirrel real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 16.835358
+  type: 'test'
+  ...
+# Subtest: owl real Home rerenders relation threshold, rescue and expiry
+ok 5 - owl real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 25.752637
+  type: 'test'
+  ...
+# Subtest: otter real Home rerenders relation threshold, rescue and expiry
+ok 6 - otter real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 21.675863
+  type: 'test'
+  ...
+# Subtest: hamster real Home rerenders relation threshold, rescue and expiry
+ok 7 - hamster real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 14.638128
+  type: 'test'
+  ...
+# Subtest: panda real Home rerenders relation threshold, rescue and expiry
+ok 8 - panda real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 14.905692
+  type: 'test'
+  ...
+# Subtest: monkey real Home rerenders relation threshold, rescue and expiry
+ok 9 - monkey real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 17.889337
+  type: 'test'
+  ...
+# Subtest: parrot real Home rerenders relation threshold, rescue and expiry
+ok 10 - parrot real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 17.270208
+  type: 'test'
+  ...
+# Subtest: sheep real Home rerenders relation threshold, rescue and expiry
+ok 11 - sheep real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 20.994172
+  type: 'test'
+  ...
+# Subtest: seal real Home rerenders relation threshold, rescue and expiry
+ok 12 - seal real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 17.518443
+  type: 'test'
+  ...
+# Subtest: bat real Home rerenders relation threshold, rescue and expiry
+ok 13 - bat real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 23.946662
+  type: 'test'
+  ...
+# Subtest: chicken real Home rerenders relation threshold, rescue and expiry
+ok 14 - chicken real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 19.957158
+  type: 'test'
+  ...
+# Subtest: penguin_friend real Home rerenders relation threshold, rescue and expiry
+ok 15 - penguin_friend real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 18.720299
+  type: 'test'
+  ...
+# Subtest: hedgehog real Home rerenders relation threshold, rescue and expiry
+ok 16 - hedgehog real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 25.987142
+  type: 'test'
+  ...
+# Subtest: shiba real Home rerenders relation threshold, rescue and expiry
+ok 17 - shiba real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 14.533073
+  type: 'test'
+  ...
+# Subtest: snail real Home rerenders relation threshold, rescue and expiry
+ok 18 - snail real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 15.037255
+  type: 'test'
+  ...
+# Subtest: punyu real Home rerenders relation threshold, rescue and expiry
+ok 19 - punyu real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 14.817883
+  type: 'test'
+  ...
+# Subtest: sekizou real Home rerenders relation threshold, rescue and expiry
+ok 20 - sekizou real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 15.465524
+  type: 'test'
+  ...
+# Subtest: chameleon real Home rerenders relation threshold, rescue and expiry
+ok 21 - chameleon real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 16.427189
+  type: 'test'
+  ...
+# Subtest: clock real Home rerenders relation threshold, rescue and expiry
+ok 22 - clock real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 16.810992
+  type: 'test'
+  ...
+# Subtest: unicorn real Home rerenders relation threshold, rescue and expiry
+ok 23 - unicorn real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 15.873604
+  type: 'test'
+  ...
+# Subtest: many_tail_fox real Home rerenders relation threshold, rescue and expiry
+ok 24 - many_tail_fox real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 16.786706
+  type: 'test'
+  ...
+# Subtest: watcher real Home rerenders relation threshold, rescue and expiry
+ok 25 - watcher real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 17.301143
+  type: 'test'
+  ...
+# Subtest: box real Home rerenders relation threshold, rescue and expiry
+ok 26 - box real Home rerenders relation threshold, rescue and expiry
+  ---
+  duration_ms: 16.409361
+  type: 'test'
+  ...
+# Subtest: ordinary success reacts once, rescues all, rejected play does not react
+ok 27 - ordinary success reacts once, rescues all, rejected play does not react
+  ---
+  duration_ms: 19.239603
+  type: 'test'
+  ...
+# Subtest: cat_ceo shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 28 - cat_ceo shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 139.197923
+  type: 'test'
+  ...
+# Subtest: robot_neighbor shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 29 - robot_neighbor shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 45.600523
+  type: 'test'
+  ...
+# Subtest: field_cow shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 30 - field_cow shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 42.233313
+  type: 'test'
+  ...
+# Subtest: sunflower_partner shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 31 - sunflower_partner shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 42.023396
+  type: 'test'
+  ...
+# Subtest: forest_bear shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 32 - forest_bear shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 49.05349
+  type: 'test'
+  ...
+# Subtest: grove_deer shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 33 - grove_deer shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 40.265301
+  type: 'test'
+  ...
+# Subtest: cliff_goat shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 34 - cliff_goat shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 44.800027
+  type: 'test'
+  ...
+# Subtest: high_eagle shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 35 - high_eagle shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 49.249457
+  type: 'test'
+  ...
+# Subtest: snow_spirit shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 36 - snow_spirit shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 36.501829
+  type: 'test'
+  ...
+# Subtest: snowman shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 37 - snowman shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 40.74826
+  type: 'test'
+  ...
+# Subtest: rock_octopus shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 38 - rock_octopus shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 47.550881
+  type: 'test'
+  ...
+# Subtest: sea_mermaid shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 39 - sea_mermaid shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 30.417374
+  type: 'test'
+  ...
+# Subtest: anglerfish shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 40 - anglerfish shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 50.39428
+  type: 'test'
+  ...
+# Subtest: swamp_croc shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 41 - swamp_croc shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 47.553264
+  type: 'test'
+  ...
+# Subtest: gentle_gorilla shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 42 - gentle_gorilla shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 48.040219
+  type: 'test'
+  ...
+# Subtest: knitting_spider shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 43 - knitting_spider shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 44.288655
+  type: 'test'
+  ...
+# Subtest: desert_scorpion shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 44 - desert_scorpion shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 43.408701
+  type: 'test'
+  ...
+# Subtest: oasis_cactus shared court reinforcement overrides lonely, expiry re-resolves current affection
+ok 45 - oasis_cactus shared court reinforcement overrides lonely, expiry re-resolves current affection
+  ---
+  duration_ms: 45.001082
+  type: 'test'
+  ...
+# Subtest: replacement partner with same ID cannot inherit positive
+ok 46 - replacement partner with same ID cannot inherit positive
+  ---
+  duration_ms: 45.783643
+  type: 'test'
+  ...
+# Subtest: real save excludes reactions; reload re-resolves all companion values and partner at 20
+ok 47 - real save excludes reactions; reload re-resolves all companion values and partner at 20
+  ---
+  duration_ms: 42.737134
+  type: 'test'
+  ...
+# Subtest: real save excludes reactions; reload re-resolves all companion values and partner at 50
+ok 48 - real save excludes reactions; reload re-resolves all companion values and partner at 50
+  ---
+  duration_ms: 36.741881
+  type: 'test'
+  ...
+# Subtest: full supported catalog matches canonical runtime IDs and all assets exactly
+ok 49 - full supported catalog matches canonical runtime IDs and all assets exactly
+  ---
+  duration_ms: 2.233874
+  type: 'test'
+  ...
+# Subtest: 26 companions use one ordinary representative, all threshold rescues and annoyed does not start positive
+ok 50 - 26 companions use one ordinary representative, all threshold rescues and annoyed does not start positive
+  ---
+  duration_ms: 40.901156
+  type: 'test'
+  ...
+# Subtest: development Home fixtures directly expose both pilot partners and both companions without gameplay
+ok 51 - development Home fixtures directly expose both pilot partners and both companions without gameplay
+  ---
+  duration_ms: 665.404174
+  type: 'test'
+  ...
+# Subtest: expanded partner court actual event path triggers positive without changing progress rules
+ok 52 - expanded partner court actual event path triggers positive without changing progress rules
+  ---
+  duration_ms: 41.079487
+  type: 'test'
+  ...
+# Subtest: expanded partner repair actual event path triggers positive without changing progress rules
+ok 53 - expanded partner repair actual event path triggers positive without changing progress rules
+  ---
+  duration_ms: 39.975144
+  type: 'test'
+  ...
+# Subtest: expanded partner marriage actual event path triggers positive without changing progress rules
+ok 54 - expanded partner marriage actual event path triggers positive without changing progress rules
+  ---
+  duration_ms: 126.050847
+  type: 'test'
+  ...
+# Subtest: expanded partner date actual event path triggers positive without changing progress rules
+ok 55 - expanded partner date actual event path triggers positive without changing progress rules
+  ---
+  duration_ms: 38.81548
+  type: 'test'
+  ...
+# Subtest: new court success uses actual event result
+ok 56 - new court success uses actual event result
+  ---
+  duration_ms: 42.22453
+  type: 'test'
+  ...
+# Subtest: new court failure uses actual event result
+ok 57 - new court failure uses actual event result
+  ---
+  duration_ms: 14.970987
+  type: 'test'
+  ...
+# Subtest: annoyed during positive does not extend reaction or retain positive after original expiry
+ok 58 - annoyed during positive does not extend reaction or retain positive after original expiry
+  ---
+  duration_ms: 22.477067
+  type: 'test'
+  ...
+# Subtest: real play gives only positive individuals motion and head hearts; expiry removes cues
+ok 59 - real play gives only positive individuals motion and head hearts; expiry removes cues
+  ---
+  duration_ms: 22.569438
+  type: 'test'
+  ...
+# Subtest: ordinary play and all-inviting dialogue do not animate non-target companions
+ok 60 - ordinary play and all-inviting dialogue do not animate non-target companions
+  ---
+  duration_ms: 23.089823
+  type: 'test'
+  ...
+# Subtest: every possible representative in a dense 26-companion Home receives one safe heart
+ok 61 - every possible representative in a dense 26-companion Home receives one safe heart
+  ---
+  duration_ms: 1095.366636
+  type: 'test'
+  ...
+# Subtest: 26 simultaneous expiries coalesce Home work while removing every transient
+ok 62 - 26 simultaneous expiries coalesce Home work while removing every transient
+  ---
+  duration_ms: 21.887239
+  type: 'test'
+  ...
+# Subtest: partner three visual states retain marriage ring=false and replace one heart
+ok 63 - partner three visual states retain marriage ring=false and replace one heart
+  ---
+  duration_ms: 64.216209
+  type: 'test'
+  ...
+# Subtest: partner three visual states retain marriage ring=true and replace one heart
+ok 64 - partner three visual states retain marriage ring=true and replace one heart
+  ---
+  duration_ms: 138.987553
+  type: 'test'
+  ...
+# Subtest: companion aura and heart belong to the actor; positive replaces cold and expires back to current value
+ok 65 - companion aura and heart belong to the actor; positive replaces cold and expires back to current value
+  ---
+  duration_ms: 14.521897
+  type: 'test'
+  ...
+# Subtest: married ring preserves exact layout coordinates through every partner expression rebuild
+ok 66 - married ring preserves exact layout coordinates through every partner expression rebuild
+  ---
+  duration_ms: 157.074032
+  type: 'test'
+  ...
+# Subtest: reload reconstructs marriage ring from existing married flag at affection 20
+ok 67 - reload reconstructs marriage ring from existing married flag at affection 20
+  ---
+  duration_ms: 330.551181
+  type: 'test'
+  ...
+# Subtest: reload reconstructs marriage ring from existing married flag at affection 50
+ok 68 - reload reconstructs marriage ring from existing married flag at affection 50
+  ---
+  duration_ms: 312.403403
+  type: 'test'
+  ...
+# Subtest: full resolver prioritizes positive, then lonely below 30, then normal without mutating input
+ok 69 - full resolver prioritizes positive, then lonely below 30, then normal without mutating input
+  ---
+  duration_ms: 2.697982
+  type: 'test'
+  ...
+# Subtest: unregistered characters and wrong-kind IDs always use original PNG
+ok 70 - unregistered characters and wrong-kind IDs always use original PNG
+  ---
+  duration_ms: 0.941914
+  type: 'test'
+  ...
+# Subtest: one ordinary representative plus all rescued individuals, deduplicated
+ok 71 - one ordinary representative plus all rescued individuals, deduplicated
+  ---
+  duration_ms: 0.46307
+  type: 'test'
+  ...
+# Subtest: temporary reaction expiry, refresh, object identity and JSON non-persistence
+ok 72 - temporary reaction expiry, refresh, object identity and JSON non-persistence
+  ---
+  duration_ms: 0.390363
+  type: 'test'
+  ...
+# Subtest: every registered relationship image is a new 128px transparent PNG
+ok 73 - every registered relationship image is a new 128px transparent PNG
+  ---
+  duration_ms: 2.665204
+  type: 'test'
+  ...
+# Subtest: reaction exposes an ephemeral start token and expiry without persisting entity fields
+ok 74 - reaction exposes an ephemeral start token and expiry without persisting entity fields
+  ---
+  duration_ms: 1.473163
+  type: 'test'
+  ...
+# Subtest: heart remains immediately above its owner even if a neighbour occupies that space
+ok 75 - heart remains immediately above its owner even if a neighbour occupies that space
+  ---
+  duration_ms: 0.250327
+  type: 'test'
+  ...
+# Subtest: positive companion layer is raised locally so neighbours cannot hide its owner-attached heart
+ok 76 - positive companion layer is raised locally so neighbours cannot hide its owner-attached heart
+  ---
+  duration_ms: 0.488397
+  type: 'test'
+  ...
+# Subtest: only partner positive heart grows 1.2 times; anchor keeps face gap and stage bounds
+ok 77 - only partner positive heart grows 1.2 times; anchor keeps face gap and stage bounds
+  ---
+  duration_ms: 0.486995
+  type: 'test'
+  ...
+# Subtest: approved marriage ring uses fixed scale and tone without comparison overrides
+ok 78 - approved marriage ring uses fixed scale and tone without comparison overrides
+  ---
+  duration_ms: 0.28627
+  type: 'test'
+  ...
+# Subtest: browser ring geometry checks approved scale and rejects obsolete or oversized values
+ok 79 - browser ring geometry checks approved scale and rejects obsolete or oversized values
+  ---
+  duration_ms: 1.533051
+  type: 'test'
+  ...
+# Subtest: painted ring excludes transparent atlas margin without allowing actual character overlap
+ok 80 - painted ring excludes transparent atlas margin without allowing actual character overlap
+  ---
+  duration_ms: 51.378545
+  type: 'test'
+  ...
+1..80
+# tests 80
+# suites 0
+# pass 80
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4989.937746

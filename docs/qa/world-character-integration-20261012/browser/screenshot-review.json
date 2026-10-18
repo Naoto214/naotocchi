@@ -1,0 +1,39 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "inspected": [
+    "regional-contact-sheet.png",
+    "forest-production.png",
+    "forest-shiba-fallback.png",
+    "forest-characters-2d.png"
+  ],
+  "findings": [
+    "All 13 regional entry views show player and two native companion models; no obvious vanished body, duplicate actor, or detached foot shadow in sampled views.",
+    "Actor failure capture visibly retains player and cat in 3D while shiba alone uses textured 2D fallback.",
+    "Character-off capture shows all three textured 2D actors with the 3D forest retained."
+  ],
+  "limitations": [
+    "A sampled screenshot inspection is not exhaustive pixel occlusion proof for every camera position.",
+    "Corridor checks render production corridor views at five positions and restore the regional scene; natural input traversal and travel/save commit were not covered.",
+    "Physical iPhone NOT_RUN; Chromium 134 headless shell uses SwiftShader software WebGL, and frame timings are not mobile performance evidence.",
+    "This runtime renders some Japanese speech glyphs as boxes; scenery labels use readable bundled glyphs."
+  ],
+  "captureSha256": {
+    "forest-characters-2d.png": "0c26d143fc16770135f80b36f89e2650b16968c07a526b58ed75d2ff900a9ed5",
+    "forest-production.png": "77feaf54f56547bcd69266e16c7134abd358209d8d965fbb465aa3485f472545",
+    "forest-shiba-fallback.png": "bdc085e41d7821e9421e013ddb4bdaf06a87195af9b0035a90e51fb4a35ce22b",
+    "region-city.png": "20fa9fa49768e9cba9b7d6810b7076c613bb644d380c1f7e82427513887abc55",
+    "region-countryside.png": "86fd74f484edda707c37c198d475ee6be3e03057c932f29bb69900cae3639c17",
+    "region-deepsea.png": "d3a78dbda7dc44d9133930235e5986a91eb439729267865ced58cf2782e63214",
+    "region-desert.png": "93338b5317817164720971a51b5cf1f955ff3a5c7a736e38abfb19a9bdbceb5f",
+    "region-forest.png": "5b6edab3a8b02a63074b67668ab386f2d65a616a6650815cd3ebdafd5294e757",
+    "region-home.png": "17f53560c7e6c5200d1ae1e532adfbfac61c230c44658e9050012112075e8ca0",
+    "region-jungle.png": "3eeb399b99f787fa90c436ac6632e6ca8a218306d68624e6c6477bfed7440b69",
+    "region-memory_lake.png": "e608be312b0cf25a56f837f08e23c5f34f172d933e0587933bfaf7262b68ecc0",
+    "region-mountain.png": "66e0852782cc8a13429db6eb8a9ab9facb060571e7d6070e1055faa9ebb00c29",
+    "region-river_lake.png": "7ce94d62059eca4125f0192413e4876ff121b1c291e7b689be8add7944f5763f",
+    "region-sea.png": "60536825627200c0816ee07115c2be25702ccfc4483998dd2685b1d4f2a4af43",
+    "region-snow.png": "bac92d363a316ae605e2cdb593b8889669e5f7bd690862a9666431c4ac0e7caa",
+    "region-star_stop.png": "e8c0bbbe134820c3bc0e57a5a02567ef06ee6ed078029f83ca6e5ee7459c35c1",
+    "regional-contact-sheet.png": "341775fb30a2b646681bb4e800465d735d9e05856a7f433a39bef1e86d63fe56"
+  }
+}

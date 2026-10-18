@@ -1,0 +1,91 @@
+✔ index.html asset references exist and carry cache tokens (2.411717ms)
+✔ the bump tool rewrites only cache tokens (0.392186ms)
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/ff6d1b102871/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/ff6d1b102871/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ AD-1. scene dressing の 契約: 3D だけ・あたり なし・ふんで とおれる・群生(2〜8)・道 / spot / かたい 物 / 水 には おかない (13854.187787ms)
+✔ AD-2. 配置は「空いた ところに 均一に 置く」では なく 群生 + 意図した 余白: 道ばたの 帯(roadside)と ます目(grid)の 両方・余白が ある (1.83191ms)
+✔ AD-3. remove-it: 2D の world と corridor には dressing が ない(3D だけ)。cover を 外した profile では 群生 0 (594.944679ms)
+✔ AD-4. 花は 地域に あった いろ・場所: home / forest / jungle / countryside に 花の 群生、しんかい / ゆき には 花 なし、さばくは オアシスの まわり だけ (1.276916ms)
+✔ AD-5. Tree v3: 針葉樹 4〜5 段(明暗・下ほど ひろい)、広葉樹は かたまり 2〜5(明 / 中 / 暗)、ヤシは は 5〜8(はばは 長さに 比例) (2.027558ms)
+✔ AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが つく(葉の palette・きりの いろ・ジャングル だけ 大きな は / つる / 根もとの 下草 / lowPoly) (2.096719ms)
+✔ AD-7. Building v4: family ごとの かたまり・屋根の かたち(切妻 / 寄棟 / 平ら)・のき・土台・入口 と まど・かたまりの 足し(ポーチ / 出窓 / 縁側 / はなれ / ベランダ / 煙突 / ひさし)・シルエット 高さ / はば ≤ 1.5 (3.549363ms)
+✔ AD-8. city scene: 低層 / 中層 / 高層の まざり・灰 だけで ない いろ・みせ(ガラス + ひさし + 看板 + たて看板)・路地の かべも 正面を もつ・高さは 床の 5.5 倍まで (3.802895ms)
+✔ AD-9. city の 小物: 自転車・自販機は 3D の かたち(unresolved なし)。街路樹・信号・横断歩道・電柱は そのまま (0.817921ms)
+✔ AD-10. いけがき は 箱では なく まるい しげみの れつ(あたりの 箱の なか・あたまより 下) (0.456841ms)
+✔ AD-11. 水の 統合: 川は なめらかに 曲がり はばが ゆれる(riverCurve・pure)。見た目の 水は あたりの 帯の 内がわ。川岸に 石 / あし / 草 / 花の 帯 (33.610113ms)
+✔ AD-12. Bridge v4: 交わりに かかる(ながさ ≥ 水の はば)・床の 上面は 水面より 上・床より 下から ささえる 橋脚 / 橋台・種類で かたちが ちがう (3.95586ms)
+✔ AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・まる・むれ)。オアシスの まわりは 花 で 対比 (0.605149ms)
+✔ AD-14. 光: 明るい fill と 方向光で 面を 分ける・岩 / がけの 明るさ と 地域 palette を 保つ (0.47669ms)
+✔ AD-15. 箱庭の 比率: ビルは 床の 5.5 倍まで、大木の 幹は あたりより ほそい、花 / しげみ / 街の 小物は 見える 大きさ、まど / 入口は 家に 対して 小さい (2.674137ms)
+✔ AD-16. density gate: 代表 spot(各地域 最初の ひろば)から 前景(〜250)/ 中景(250〜700)/ 遠景(700〜1800)の それぞれに 意味の ある 物が 1 つ いじょう。道の 方向は 読める(道の 上に 物 なし) (119.26856ms)
+✔ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (0.706858ms)
+✔ AD-18. 原則だけ: Nintendo / どうぶつの森 固有の 名まえ・asset・模様は code にも doc にも 出てこない (3.873339ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/ff6d1b102871/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/ff6d1b102871/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v2-1. player の 絵は きりで 消えない: キャラの material は fog なし・frustum culling なし・きりの 遠端は player + 900 より 遠く (1.574833ms)
+✔ v2-2. billboardVisible: 座標に いる のに 描かれない 状態(hidden / scale NaN / texture なし / きりの むこう)を 1 つの 判定で 見つける (42.563547ms)
+✔ v2-3. すかしは 見た目の 半径(えだはり)で 判定し、線分より 低い 物は すかさない。あたりの 半径 だけの 旧 判定も そのまま 通る (0.841075ms)
+✔ v2-4. ghost pool の 契約: 使った ものだけ visible、使わなかった ものは その frame で hidden、1 frame 使わなければ scene から はずす、pool は つかいまわす (1.755118ms)
+✔ v2-5. レンダラーの 切りかえで ghost が のこらない: scene の 捨て(地域 / corridor)・3D → 2D(fallback / 2D の 地域)で clear、stats に ghost と player (0.549968ms)
+✔ v2-6. corridor(地域の あいだの 道)は 3D で 描く: 10 本 × 2 方向 ぜんぶ 3D の 対象。飾りは ぜんぶ 意味の 表で 解決し(unresolved 0)、はしの いし だけ かたい (175.868581ms)
+✔ v2-7. corridor の gameplay は かわらない: 帯の 左右と はしの いし の あたり、着く / もどる、party の 受けわたし、セーブ なし (100.595042ms)
+✔ v2-8. しらせ: ふつうの spot と 地区は toast なし、ランドマークは quiet(左上の 静かな 強調)、ひみつ だけ toast。きろくは かわらない (1476.858814ms)
+✔ v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない (1883.946765ms)
+✔ v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない) (1.659287ms)
+✔ v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯 (2189.496838ms)
+✔ v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない (1151.767688ms)
+✔ v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない (3050.474986ms)
+✔ v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど (15627.857651ms)
+✔ v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある (6258.03814ms)
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/ff6d1b102871/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/ff6d1b102871/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GA-1. 接地: 地面に つく parts は 足もとの いちばん ひくい 地面まで(斜面で 岩 / 盛り土 / 根 / 岸の 花が 浮かない)。13 地域 (15458.419394ms)
+✔ GA-2. 小川 / 川 の 交わり: 橋の 交わり には 橋(床 > 水面・ながさ ≥ 水の はば)、そのほかは 飛び石。ランドマークの 橋は 交わりの 上に ある とき だけ うけもつ (0.494256ms)
+✔ GA-3. 小川と 池を わける: ながれの 帯の 中に 池の 円盤(水の 小物)を おかない (0.27262ms)
+✔ GA-4. Building v4: 塔の ような 家 なし(シルエット 高さ / いちばん ひろい はば ≤ 1.6、看板 / 屋根の はりだし を ふくむ) (1.19788ms)
+✔ GA-5. 小物の 読みやすさ(props gate): 車 = 車輪・望遠鏡 = 3 本 足 + かたむいた 筒・像 = だい + からだ + あたま・かまくら = いりぐち・箱の 小物 = ひさし + 窓。絵文字の 立て看板 は のこって いない (14096.168466ms)
+✔ GA-6. 季節 / 天気 は 2D の 正本に あわせる: 針葉樹の 雪 = ゆき の 地域 か 冬、山の 頂の 雪 = それ + 雪の 日、deepsea / star_stop は 地表の 季節 なし (6.351008ms)
+✔ GA-7. 地域の 識別性(数で): いえ ≠ いなか(いなかは ひらけ +0.1 いじょう・構成の cosine < 0.75)、もり ≠ ジャングル(ジャングルは 見とおし せまく・高い 層・cosine < 0.6) (6409.944816ms)
+(node:31) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/ff6d1b102871/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/ff6d1b102871/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-25 waterwheel axle spans two grounded supports outside the paddle sweep (2420.044928ms)
+✔ VQ-24 stone bridge masonry stays on both parapets and marks all four ends (13875.672442ms)
+✔ VQ-23 vehicle window frames connect body and roof at every cab corner when rotated (197.681194ms)
+✔ VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged (36.13037ms)
+✔ VQ-9 residential porch supports meet roof slopes within canonical lots (13517.988257ms)
+✔ VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck (1669.961164ms)
+✔ VQ-6 cottage rooflines include both gable orientations within the residential family (471.935311ms)
+✔ VQ-5 garden stepping stones connect the actual front door to its finite road segment (505.772595ms)
+✔ VQ-1 contact footprints follow trunks and foundations without mutating objects (1.176708ms)
+✔ VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support (0.534084ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (3.224126ms)
+✔ VQ-4 residential main roofs retain above-head clearance with canonical colliders (16226.13982ms)
+✔ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (327.131562ms)
+✔ VQ-10 barn entrances read as broad paired doors within the wall (1675.782862ms)
+✔ VQ-11 flower instances retain planter and window-box elevation (1.878299ms)
+✔ VQ-12 walkable market stalls have open counters and connected canopy supports (15427.431149ms)
+✔ VQ-13 representative farmhouse flowers clear the veranda as one planting group (1608.931649ms)
+✔ VQ-14 planting clearance preserves groups, rotations and blocked plots (10.105291ms)
+✔ VQ-15 residential facade openings fit beside the entrance without frame overlap (14067.213464ms)
+✔ VQ-16 single-family main windows reserve the existing bay projection (16039.956682ms)
+✔ VQ-17 two-storey entrance remains below its existing low canopy (483.361836ms)
+✔ VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves (5133.559177ms)
+✔ VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope (4394.920417ms)
+✔ VQ-20 ground frond roots attach to their own terrain position (4211.495485ms)
+✔ VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves (2.151891ms)
+ℹ tests 67
+ℹ suites 0
+ℹ pass 67
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 112502.756667

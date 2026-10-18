@@ -1,0 +1,9 @@
+{
+  "command": "node --test tests/pet-expression-test.cjs tests/pet-expression-assets-test.cjs tests/pet-expression-integration-test.cjs",
+  "tests": 1120,
+  "pass": 1120,
+  "fail": 0,
+  "exit_code": 0,
+  "full_test": "not run; focused adoption verification only",
+  "actual_Home_browser": "not run"
+}

@@ -1,0 +1,23 @@
+{
+  "base": "172bc67e123727705bf2f5f1e4f1569f7de0292a",
+  "count": 16,
+  "unchangedFunctions": [
+    "functionalRows",
+    "validateFunctional",
+    "validateRepeated",
+    "validateCityCache",
+    "installSaveCounter",
+    "functionalRun",
+    "saveDelta",
+    "saveSnapshot",
+    "observeSaveBoundary",
+    "recordFunctionalResult",
+    "repeatSceneInBrowser",
+    "retainRepeatedResult",
+    "repeatScene",
+    "installAppearanceProbe",
+    "appearanceWindows",
+    "isolatedAnimation"
+  ],
+  "onlyChangedExport": "validateSceneSetup"
+}

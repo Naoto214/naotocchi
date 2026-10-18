@@ -1,0 +1,19 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-09-28",
+  "calls": 1,
+  "retries": 0,
+  "raw_source_name": "exec-83b2c40c-0615-411d-9d11-2670aa905ec5.png",
+  "raw_sha256": "5802cc186660ef08083bceac8e08d52d56aacaec2573a63542b3ef104a00b598",
+  "raw_size": [
+    1280,
+    1280
+  ],
+  "reference": [
+    "assets/characters/antlion/08.png"
+  ],
+  "existing_tired_given_to_generator": false,
+  "prompt": "generation-prompt.txt",
+  "normalization": "tools/antlion08-method-d-normalize.cjs; existing nearest/binary-alpha/bounds workflow, QA output only",
+  "raw_source_retention": "Original generated source remains in generated_images; QA reproduction uses the committed normalized candidate. Stochastic generation is not byte-reproducible."
+}

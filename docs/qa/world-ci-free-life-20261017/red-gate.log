@@ -1,0 +1,34 @@
+✔ browser gate rejects vanished player, orphan holders, resource leaks, and 2D city (2.813946ms)
+✔ save isolation requires all four independently observed boundaries (0.482586ms)
+✔ browser fixture uses native production player and companion identities (118.521666ms)
+✔ reduced motion checks actual app motion and animation, not only matchMedia (0.383199ms)
+✖ normal startup accepts one visible player while explicit cast still requires three bodies (0.351531ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 208.255023
+
+✖ failing tests:
+
+test at tests/world-character-browser-runner-test.cjs:22:1
+✖ normal startup accepts one visible player while explicit cast still requires three bodies (0.351531ms)
+  AssertionError [ERR_ASSERTION]: player and both actual companions
+      at validateSample (/workspace/scratch/e4228f155292/naotocchi/tools/meguru-3d-qa/character-integration.cjs:27:28)
+      at TestContext.<anonymous> (/workspace/scratch/e4228f155292/naotocchi/tests/world-character-browser-runner-test.cjs:24:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -2,6 +2,65 @@ const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const fs = require('node:fs');
 
+test('a married partner keeps a readable ring between the couple and clear of every moving character', () => {
+  const {layoutHomeCast}=require('../cast-layout.js');
+  const bounds=require('../cast-bounds.js');
+  const master=new Function(fs.readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  const friends=[...master.companions.normal,...master.companions.rare].map(c=>c.asset);
+  const body=(f,asset)=>{
+    const b=bounds[asset]?.box || [0,0,128,128];
+    return {x:f.x+f.w*b[0]/128,y:f.y+(f.artOffsetY||0)+f.h*b[1]/128,w:f.w*(b[2]-b[0])/128,h:f.h*(b[3]-b[1])/128};
+  };
+  const separate=(a,b,gap)=>a.x+a.w+gap<=b.x+.01 || b.x+b.w+gap<=a.x+.01 || a.y+a.h+gap<=b.y+.01 || b.y+b.h+gap<=a.y+.01;
+  const fallbackCases=Array.from({length:31},(_,count)=>['all','alternating'].map(failures=>[270,152,count,failures])).flat();
+  for(const [width,height,count,partial] of [[358,220,3],[358,340,0],[270,152,0],[270,152,3],[270,152,6],[270,152,18],[270,152,26],[270,152,26,true],...fallbackCases]) {
+    const failedCouple=typeof partial==='string';
+    const party=friends.map((asset,i)=>partial==='all' || (partial==='alternating' && i%2===0) ||
+      (partial===true && /\/(cat_friend|otter|panda|parrot|sheep|snail)\.png$/.test(asset))?null:asset);
+    for(const mainAsset of failedCouple?[null]:['assets/characters/woman/06.png','assets/characters/dog/01.png','assets/characters/clownfish/01.png','assets/characters/sakura/08.png',null]) {
+      for(const partnerAsset of failedCouple?[null]:[...master.partners.map(p=>p.asset),null]) {
+        const motionRadius=count>18?1:3;
+        const args={width,height,mainAsset,partnerAsset,hasPartner:true,hasRing:true,hasAccessory:true,
+          companions:Array.from({length:count},(_,i)=>party[i%party.length]),motionRadius,conversationHeight:44};
+        const r=layoutHomeCast(args),ring=r.ring;
+        const label=JSON.stringify({width,height,count,partial,mainAsset,partnerAsset});
+        assert.ok(ring,'a married partner needs a reserved ring frame: '+label);
+        assert.equal(r.height,height,'the ring must fit the existing home: '+label);
+        assert.ok(ring.w>=15 && ring.w<=23 && ring.h===ring.w,'the ring stays legible at every field scale');
+        for(const actor of [body(r.main,mainAsset),body(r.partner,partnerAsset),r.accessory,...r.hearts,...r.companionBodies]) {
+          assert.ok(separate(ring,actor,2+motionRadius),'ring overlaps a moving actor: '+label);
+        }
+        for(const floor of [r.conversation,...r.poops]) assert.ok(separate(ring,floor,motionRadius+1),'ring touches the fixed floor');
+        assert.ok(ring.x>=6+motionRadius && ring.x+ring.w<=width-6-motionRadius,'ring fits during shared sway');
+        assert.ok(ring.y>=17+motionRadius,'ring fits during the shared hop');
+        const partner=body(r.partner,partnerAsset);
+        const main=body(r.main,mainAsset),cx=ring.x+ring.w/2,cy=ring.y+ring.h/2;
+        assert.ok(cx>=partner.x+partner.w/2-.01 && cx<=main.x+main.w/2+.01,
+          'ring stays horizontally between the couple: '+label);
+        assert.ok(cy>=partner.y+partner.h/2-.01 && cy<=main.y+main.h/2+.01,
+          'ring stays vertically between the couple: '+label);
+        assert.ok(Math.hypot(Math.max(partner.x-ring.x-ring.w,ring.x-partner.x-partner.w,0),
+          Math.max(partner.y-ring.y-ring.h,ring.y-partner.y-partner.h,0))<=26,'ring stays beside its partner');
+      }
+    }
+  }
+  const ordinary={width:358,height:260,conversationHeight:44,mainAsset:'assets/characters/woman/06.png',
+    partnerAsset:'assets/characters/partners/snow_spirit.png',hasPartner:true};
+  assert.equal(layoutHomeCast(ordinary).ring,null,'unmarried partners have no ring');
+  assert.equal(layoutHomeCast({...ordinary,hasPartner:false,hasRing:true}).ring,null,'hidden partners have no ring');
+});
+
+test('a ring keeps companions readable when another arrangement fits at the same main size', () => {
+  const {layoutHomeCast}=require('../cast-layout.js');
+  const master=new Function(fs.readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  const r=layoutHomeCast({width:358,height:340,conversationHeight:44,mainAsset:'assets/characters/woman/06.png',
+    partnerAsset:'assets/characters/partners/anglerfish.png',hasPartner:true,hasRing:true,hasAccessory:true,
+    companions:[...master.companions.normal,...master.companions.rare].slice(0,18).map(c=>c.asset),motionRadius:3});
+  assert.equal(r.height,340);
+  assert.equal(r.main.w,112);
+  assert.ok(r.size>=36,'a fitting ring arrangement should not shrink friends to 23px');
+});
+
 test('the poop row keeps the same lower-right anchor above speech across party sizes and art changes', () => {
   const {layoutHomeCast}=require('../cast-layout.js');
   const master=new Function(fs.readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();

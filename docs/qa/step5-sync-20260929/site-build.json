@@ -1,0 +1,19 @@
+{
+  "source": "b282683aa4039eb3af2e999514590727e0f8a61d",
+  "assets_matched_to_repository": 2862,
+  "assets_sha256_inventory_digest": "66d3f8c2f41c9d2b74a2198a21a114fd370409c77799cd83520bfd5e63dff289",
+  "gallery_stage_files": 248,
+  "gallery_names": "tools/expression-stage-names.json",
+  "production_images_changed_in_github": 0,
+  "static_gallery_generator": "tools/expression-review-gallery.cjs",
+  "static_gallery_svg": "tools/expression-contact-sheet.cjs",
+  "font": "Noto Sans CJK JP",
+  "font_source": "https://github.com/notofonts/noto-cjk/blob/main/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf",
+  "access_preserved": "custom owner-only; no access update API called",
+  "game_runtime_updated_from_site72": [
+    "pet-expression.js",
+    "pet-expression.css",
+    "character-world-master.v1.js"
+  ],
+  "verification": "source asset bytes, complete reference/embedding/order checks and sample static rendering; final Site QA deferred"
+}

@@ -1,0 +1,61 @@
+{
+  "when": "2026-10-03T10:16:40.185Z",
+  "revision": "quality2",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {
+    "perf27-3d": "test-results/character-3d-quality/perf-puffs/perf-27-3d.png"
+  },
+  "checks": {},
+  "perf": {
+    "27-3d": {
+      "frames": 25,
+      "avgMs": 242.66,
+      "p95Ms": 733.2,
+      "over60": 14,
+      "calls": 501,
+      "tris": 372496,
+      "textures": 71,
+      "geometries": 56,
+      "jsDrawMs": 38.73,
+      "jsDrawP95": 43.8,
+      "char3d": {
+        "live": 27,
+        "templates": 3,
+        "built": 3,
+        "tris": 155068,
+        "meshes": 351,
+        "bones": 195,
+        "materials": 2,
+        "atlases": 4,
+        "eyeGeos": 4,
+        "cpuMsAvg": 2.834,
+        "cpuMsP95": 3.3,
+        "buildMsTotal": 212.6,
+        "buildMsMax": 122.5,
+        "fallbacks": 0,
+        "removed": 3,
+        "created": 30,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "heapMB": 31.2,
+      "party": 26,
+      "templatesByActor": {
+        "dandelion:8": 25,
+        "shiba:0": 1,
+        "cat_friend:0": 1
+      },
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 623.3999999999069,
+        "maxFrameMs": 1916.5,
+        "maxLongTaskMs": 1569,
+        "longTasks": 7
+      }
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

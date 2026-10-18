@@ -1,0 +1,28 @@
+[
+  {
+    "region": "river_lake",
+    "name": "wheel-normal-road",
+    "x": 1300,
+    "z": 3334.449264001967,
+    "yaw": -64,
+    "jpg": true,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "river_lake",
+    "name": "wheel-normal-reverse",
+    "x": 1430,
+    "z": 3430,
+    "yaw": 116,
+    "jpg": true,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  }
+]

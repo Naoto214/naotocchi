@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "baseRemoteHead": "de70f0bc5b226d9823c569714fe9e0d62544a58f",
+  "baseTree": "5ca0a552afa35734d9f1f02e5255a812efbd7d4b",
+  "existingTrackedFilesChecked": 3621,
+  "existingTrackedFilesChanged": [],
+  "normalImagesReviewedAndHashed": 248,
+  "existingExpressionImagesUnchanged": 2480,
+  "legacyExpressionPngsAlsoPreserved": [
+    "assets/characters/expressions/cat/06-sleeping-v3.png",
+    "assets/characters/expressions/cat/06-happy-v3.png",
+    "assets/characters/expressions/cat/06-sleeping-v2.png",
+    "assets/characters/expressions/cat/06-happy-v2.png"
+  ],
+  "countingNote": "Initial broad glob returned 2484 including four legacy cat v2/v3 files. Final count uses current 8x10 filenames; no assets deleted or repaired.",
+  "htmlImageReferences": 248,
+  "missingReferences": 0,
+  "approvedNameChangesRecordedNotApplied": 11,
+  "rows": 248,
+  "uniqueStageKeys": 248,
+  "bodyCategories": {
+    "A（単一身体）": 234,
+    "C（主身体＋別個体）": 4,
+    "B（一群）": 7,
+    "A（菌糸ネットワーク全体）": 1,
+    "A（同一菌糸由来の大小子実体）": 1,
+    "A（頭上2球は同期対象外の正体不明器官）": 1
+  },
+  "gameTests": "not_run_docs_only",
+  "quickModeFail": "unresolved_tracking",
+  "fullSystemGreen": false,
+  "ciAtAuditBase": {
+    "actions": 0,
+    "checks": 0,
+    "statuses": 0,
+    "combined": "pending"
+  },
+  "files": {
+    "growth-hunger-final-248-20260926.md": "f27fb7779be79e32ebb34377e55ab3eca943988735f993900c65066ec6281fb8",
+    "growth-hunger-final-248-20260926.json": "a6e08cc2a5056e80c9ec2cdc0b72a9c9abacc3a54013a8966cd60c04d2b46f63",
+    "growth-hunger-final-248-20260926.html": "bcafe10cff7a4ed9f9323d02903b0657365110f5268083e18c0914ca8cf5fdd6"
+  }
+}

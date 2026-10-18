@@ -1,0 +1,28 @@
+✔ index.html asset references exist and carry cache tokens (9.685441ms)
+✔ the bump tool rewrites only cache tokens (0.700636ms)
+✔ a small newborn uses spare space and stays near the speech below it (5.792533ms)
+✔ bottom transparency cannot leave a fish far above its speech (467.094322ms)
+✔ closer core actors retain the readable size of both full companion arcs (22.451913ms)
+✔ equipment and the partner sit near the visible body instead of the transparent image top (101.030487ms)
+✔ height-constrained companions keep curved wings instead of straight columns (177.892293ms)
+✔ height-constrained cast keeps all frames, two sides and motion gaps (3774.964862ms)
+✔ more vertical room grows the cast instead of leaving a fixed small scene (3.093912ms)
+✔ legacy colors and earned designs survive as a noninteractive collection (134.129293ms)
+✔ glass inputs preview immediately, save on change, and reset only readability settings (130.519452ms)
+✔ viewport changes follow browser chrome height while pinch zoom remains usable (77.031525ms)
+✔ glass migration clamps unsafe values and respects an explicit transparency choice (498.300705ms)
+✔ short visible viewports switch meter arrangement and recover without undoing pinch zoom (112.813573ms)
+✔ a viewport resize lays out before the next reaction and does not cancel it on render (73.203729ms)
+✔ a new narration starts at the top while normal renders preserve the reading position (41.525051ms)
+✔ a new speech starts at its first line without truncating a long message (89.822982ms)
+✔ locked or invalid legacy designs cannot override the game palette (115.339016ms)
+✔ every saved color and pattern has one shared preview definition and independent paint layers (21.919919ms)
+✔ screen palette samples retain at least 4.5 contrast with white and colored motifs (121.851571ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6419.935755

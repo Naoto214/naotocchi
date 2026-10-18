@@ -1,0 +1,35 @@
+✔ life policy joins two08 of different species using gauge and earns an egg (11.936573ms)
+✔ policy cannot see seed or future shuffled bag; decisions are deterministic (6.545975ms)
+✔ high-stage aggregation is valued without weakening terminal penalty (0.329728ms)
+✔ measurement separates initial inventory from earned eggs and verifies budgets (1.966896ms)
+✔ reserve-plus-lookahead stays deterministic with no hidden bag access (21.188677ms)
+✔ unrelated subsequent death is not credited as an egg-caused cycle (1.427299ms)
+✔ earned egg ancestry survives merging into another anchor and rewards a causal cycle (0.85907ms)
+✖ cached measurement manifest refuses source or setting drift without replacing evidence (1.906758ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 138.859173
+
+✖ failing tests:
+
+test at prototypes/growth-chain/tests/balance.test.mjs:11:1
+✖ cached measurement manifest refuses source or setting drift without replacing evidence (1.906758ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/balance-manifest.mjs' imported from /workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/balance.test.mjs
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/balance-manifest.mjs'
+  }

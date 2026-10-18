@@ -1,0 +1,4509 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "dog",
+      "stage": 2
+    },
+    {
+      "id": "dog",
+      "stage": 3
+    },
+    {
+      "id": "dog",
+      "stage": 5
+    },
+    {
+      "id": "dog",
+      "stage": 6
+    },
+    {
+      "id": "dog",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.04426805433368314,
+          -0.593166526261885
+        ],
+        [
+          0.7282329767875754,
+          1.4074089435287909,
+          0.7942665969719547
+        ]
+      ],
+      "file": "dog-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.015042422499591757,
+          -0.574345653451207
+        ],
+        [
+          0.7282329767875754,
+          1.3503769748230767,
+          0.9850240917329591
+        ]
+      ],
+      "file": "dog-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.04426805433368314,
+          -0.5740454988640956
+        ],
+        [
+          0.7282329767875754,
+          1.4074089435287909,
+          0.7942665969719547
+        ]
+      ],
+      "file": "dog-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.012972317509898357,
+          -0.5555152975100415
+        ],
+        [
+          0.7282329767875754,
+          1.3367421605865863,
+          0.9795983323041282
+        ]
+      ],
+      "file": "dog-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.738625777560569,
+          0.015931611914125454,
+          -0.5913809140941662
+        ],
+        [
+          0.738625777560569,
+          1.5095611710120962,
+          0.8086972085065827
+        ]
+      ],
+      "file": "dog-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.738625777560569,
+          0.016654717594093094,
+          -0.5787660039980329
+        ],
+        [
+          0.738625777560569,
+          1.4033804491692992,
+          0.9782731527515973
+        ]
+      ],
+      "file": "dog-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.04591021398628531,
+          -0.5701314119534747
+        ],
+        [
+          0.7282329767875754,
+          1.4477193451116854,
+          0.8086972085065827
+        ]
+      ],
+      "file": "dog-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.016346634513367375,
+          -0.5705804141997731
+        ],
+        [
+          0.7282329767875754,
+          1.3719724067513632,
+          0.9849526063091356
+        ]
+      ],
+      "file": "dog-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7166879189423019,
+          -0.05297049872471088,
+          -0.6009429587779584
+        ],
+        [
+          0.705411934958732,
+          1.3802594522669,
+          0.9527505200371339
+        ]
+      ],
+      "file": "dog-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7166879189423019,
+          -0.03883108517236944,
+          -0.5710371920659929
+        ],
+        [
+          0.705411934958732,
+          1.3778092652148033,
+          1.1855139028517554
+        ]
+      ],
+      "file": "dog-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7166879189423019,
+          -0.05297049872471088,
+          -0.5819713799725612
+        ],
+        [
+          0.705411934958732,
+          1.3802594522669,
+          0.9527505200371339
+        ]
+      ],
+      "file": "dog-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7166879189423019,
+          -0.03689950645029316,
+          -0.5519409329641728
+        ],
+        [
+          0.705411934958732,
+          1.3689199180505582,
+          1.1821033991154941
+        ]
+      ],
+      "file": "dog-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4270,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7623977392055611,
+          -0.06305854643929326,
+          -0.5850540276984215
+        ],
+        [
+          0.7623977392055611,
+          1.318531765723974,
+          0.7675446787352571
+        ]
+      ],
+      "file": "dog-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4270,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7623977392055611,
+          -0.03655727667594372,
+          -0.5922336076183086
+        ],
+        [
+          0.7623977392055611,
+          1.3289305112700558,
+          1.0259156464540544
+        ]
+      ],
+      "file": "dog-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4270,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7623977392055611,
+          -0.06305854643929326,
+          -0.5658610114689616
+        ],
+        [
+          0.7623977392055611,
+          1.318531765723974,
+          0.7675446787352571
+        ]
+      ],
+      "file": "dog-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4270,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7623977392055611,
+          -0.037590535598956976,
+          -0.5814693347679514
+        ],
+        [
+          0.7623977392055611,
+          1.3194195814948557,
+          1.0211965778403906
+        ]
+      ],
+      "file": "dog-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7684429208031207,
+          -0.06651441582911621,
+          -0.5832553347942477
+        ],
+        [
+          0.7684429208031207,
+          1.3025245191483303,
+          0.7768697312835346
+        ]
+      ],
+      "file": "dog-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7684429208031207,
+          -0.026581678840490675,
+          -0.6130414771095505
+        ],
+        [
+          0.7684429208031207,
+          1.3285385130421339,
+          1.0365204163368709
+        ]
+      ],
+      "file": "dog-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7684429208031207,
+          -0.06651441582911621,
+          -0.5640536738544666
+        ],
+        [
+          0.7684429208031207,
+          1.3025245191483303,
+          0.7768697312835346
+        ]
+      ],
+      "file": "dog-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7684429208031207,
+          -0.04153177306346517,
+          -0.5913695007655917
+        ],
+        [
+          0.7684429208031207,
+          1.311665399218708,
+          1.0313559311793536
+        ]
+      ],
+      "file": "dog-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7396020774493808,
+          -0.04175698724668114,
+          -0.5966679208574452
+        ],
+        [
+          0.7405906624313426,
+          1.3090228278361289,
+          0.7806172176829917
+        ]
+      ],
+      "file": "dog-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7396020774493808,
+          0.013588440451761608,
+          -0.6728312402060943
+        ],
+        [
+          0.7405906624313426,
+          1.3185870975777052,
+          1.0170725211392724
+        ]
+      ],
+      "file": "dog-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7400963699403618,
+          -0.04175698724668114,
+          -0.577600826023914
+        ],
+        [
+          0.7400963699403618,
+          1.3090228278361289,
+          0.7806172176829917
+        ]
+      ],
+      "file": "dog-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7400963699403618,
+          -0.023744000145218713,
+          -0.5600198154706185
+        ],
+        [
+          0.7400963699403618,
+          1.3029742965469215,
+          1.015689968470529
+        ]
+      ],
+      "file": "dog-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.738625777560569,
+          -0.021986060777094918,
+          -0.5901430932339848
+        ],
+        [
+          0.738625777560569,
+          1.494628231525502,
+          0.7970251463660452
+        ]
+      ],
+      "file": "dog-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.738625777560569,
+          0.008303712899765503,
+          -0.6195617859977525
+        ],
+        [
+          0.738625777560569,
+          1.4507449232343266,
+          0.9995843339108438
+        ]
+      ],
+      "file": "dog-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.0529069737273003,
+          -0.5640536738544666
+        ],
+        [
+          0.7282329767875754,
+          1.4637073185752967,
+          0.7970251463660452
+        ]
+      ],
+      "file": "dog-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4070,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7282329767875754,
+          -0.025816235214946026,
+          -0.591617868955161
+        ],
+        [
+          0.7282329767875754,
+          1.4155186307107224,
+          0.9941596941762053
+        ]
+      ],
+      "file": "dog-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7520132598679417,
+          -0.0519400127036726,
+          -0.593166526261885
+        ],
+        [
+          0.7544847223228462,
+          1.3461370844099916,
+          0.7879209022862737
+        ]
+      ],
+      "file": "dog-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7520132598679417,
+          -0.004558881415926863,
+          -0.6284104070484667
+        ],
+        [
+          0.7544847223228462,
+          1.3635716040613315,
+          1.0402490385722163
+        ]
+      ],
+      "file": "dog-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7532489910953939,
+          -0.0519400127036726,
+          -0.5740454988640956
+        ],
+        [
+          0.7532489910953939,
+          1.3461370844099916,
+          0.7879209022862737
+        ]
+      ],
+      "file": "dog-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3910,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.7532489910953939,
+          -0.02374674665058818,
+          -0.559191754927636
+        ],
+        [
+          0.7532489910953939,
+          1.3455073727546043,
+          1.0338952590480055
+        ]
+      ],
+      "file": "dog-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.0019949951171874813,
+          -0.6705966263244062
+        ],
+        [
+          0.44533860366236333,
+          1.4719071273421864,
+          1.020703774690628
+        ]
+      ],
+      "file": "dog-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.012079590683313657,
+          -0.6730268268937518
+        ],
+        [
+          0.44533860366236333,
+          1.4852230619348437,
+          1.030677824455886
+        ]
+      ],
+      "file": "dog-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.0019949951171874813,
+          -0.6544844114780426
+        ],
+        [
+          0.44533860366236333,
+          1.4719071273421864,
+          1.020703774690628
+        ]
+      ],
+      "file": "dog-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.011606490622761867,
+          -0.6584033545864163
+        ],
+        [
+          0.44533860366236333,
+          1.4786350138483848,
+          1.0257459819599064
+        ]
+      ],
+      "file": "dog-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.43211010294861013,
+          0.051763727853116226,
+          -0.6772104006081572
+        ],
+        [
+          0.43211010294861013,
+          1.5464316207472024,
+          1.0381754264384437
+        ]
+      ],
+      "file": "dog-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.43211010294861013,
+          0.01939478288043528,
+          -0.6666281032420188
+        ],
+        [
+          0.43211010294861013,
+          1.5341452690345365,
+          1.0238560201826439
+        ]
+      ],
+      "file": "dog-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.010078098047294537,
+          -0.6692623900930224
+        ],
+        [
+          0.44533860366236333,
+          1.488986084215413,
+          1.0381754264384437
+        ]
+      ],
+      "file": "dog-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.01600764004737243,
+          -0.6746038044010383
+        ],
+        [
+          0.44533860366236333,
+          1.498413980207818,
+          1.030867913836277
+        ]
+      ],
+      "file": "dog-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.49541565087183503,
+          -0.03420639242004975,
+          -0.6690043783274718
+        ],
+        [
+          0.5207024419600115,
+          1.4436155273056959,
+          1.1970493844583912
+        ]
+      ],
+      "file": "dog-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4954156508718349,
+          -0.03959164780172797,
+          -0.6707071970540465
+        ],
+        [
+          0.5207024419600114,
+          1.4519153436383947,
+          1.2036185551213792
+        ]
+      ],
+      "file": "dog-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.49541565087183503,
+          -0.03420639242004975,
+          -0.6529211567682797
+        ],
+        [
+          0.5207024419600115,
+          1.4436155273056959,
+          1.1970493844583912
+        ]
+      ],
+      "file": "dog-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.49541565087183503,
+          -0.03861328036348044,
+          -0.655365619152803
+        ],
+        [
+          0.5207024419600115,
+          1.4477960264988752,
+          1.2003658872887584
+        ]
+      ],
+      "file": "dog-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.03535371417292171,
+          -0.6997141802729707
+        ],
+        [
+          0.44533860366236333,
+          1.3947108288495649,
+          1.0601233229250222
+        ]
+      ],
+      "file": "dog-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.037304587516357735,
+          -0.6961777876247031
+        ],
+        [
+          0.44533860366236333,
+          1.406930921870833,
+          1.0691396621631686
+        ]
+      ],
+      "file": "dog-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.03535371417292171,
+          -0.6836221014996253
+        ],
+        [
+          0.44533860366236333,
+          1.3947108288495649,
+          1.0601233229250222
+        ]
+      ],
+      "file": "dog-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.03863783683666283,
+          -0.6951321872952627
+        ],
+        [
+          0.44533860366236333,
+          1.4008719244087846,
+          1.0646797375475674
+        ]
+      ],
+      "file": "dog-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.041717162132185126,
+          -0.7053300736359104
+        ],
+        [
+          0.44533860366236333,
+          1.359732100258986,
+          1.0690628190981162
+        ]
+      ],
+      "file": "dog-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.02376855728534999,
+          -0.7083135100953771
+        ],
+        [
+          0.44533860366236333,
+          1.3868511490033126,
+          1.0789567370496216
+        ]
+      ],
+      "file": "dog-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.041717162132185126,
+          -0.6892468520767182
+        ],
+        [
+          0.44533860366236333,
+          1.359732100258986,
+          1.0690628190981162
+        ]
+      ],
+      "file": "dog-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.04237221423292481,
+          -0.696803122889045
+        ],
+        [
+          0.44533860366236333,
+          1.3733593208442525,
+          1.0740776671882648
+        ]
+      ],
+      "file": "dog-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44484431117138246,
+          -0.01705640485278842,
+          -0.6702263560496561
+        ],
+        [
+          0.4458328961533443,
+          1.3995996381895508,
+          1.0593576474745494
+        ]
+      ],
+      "file": "dog-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44484431117138246,
+          0.02088081288040944,
+          -0.7318229528717579
+        ],
+        [
+          0.4458328961533443,
+          1.4281804403421248,
+          1.061978690869475
+        ]
+      ],
+      "file": "dog-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.01705640485278842,
+          -0.6541191760081944
+        ],
+        [
+          0.44533860366236333,
+          1.3995996381895508,
+          1.0593576474745494
+        ]
+      ],
+      "file": "dog-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.02131723408461894,
+          -0.6624570762388746
+        ],
+        [
+          0.44533860366236333,
+          1.4138935936039145,
+          1.0606712457953056
+        ]
+      ],
+      "file": "dog-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.43211010294861013,
+          0.004967475850004122,
+          -0.8066371330892491
+        ],
+        [
+          0.43211010294861013,
+          1.5336190356143091,
+          1.0336884511886861
+        ]
+      ],
+      "file": "dog-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.43211010294861013,
+          0.011658294408731895,
+          -0.8331893346645174
+        ],
+        [
+          0.43211010294861013,
+          1.544532794348401,
+          1.0440477852196428
+        ]
+      ],
+      "file": "dog-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.02595343710020126,
+          -0.6892468520767182
+        ],
+        [
+          0.44533860366236333,
+          1.5070875103859303,
+          1.0336884511886861
+        ]
+      ],
+      "file": "dog-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.02662111067604478,
+          -0.7170799904810246
+        ],
+        [
+          0.44533860366236333,
+          1.5203272473189244,
+          1.038918505606362
+        ]
+      ],
+      "file": "dog-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4441028724349111,
+          -0.010935145263671897,
+          -0.6705966263244062
+        ],
+        [
+          0.4465743348898157,
+          1.4235047450125071,
+          1.071370288080464
+        ]
+      ],
+      "file": "dog-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4441028724349111,
+          0.0019320761825186716,
+          -0.6850266724375697
+        ],
+        [
+          0.4465743348898157,
+          1.4483488602285712,
+          1.083550768665122
+        ]
+      ],
+      "file": "dog-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.010935145263671897,
+          -0.6544844114780426
+        ],
+        [
+          0.44533860366236333,
+          1.4235047450125071,
+          1.071370288080464
+        ]
+      ],
+      "file": "dog-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44533860366236333,
+          -0.02100585424250956,
+          -0.6798684554422996
+        ],
+        [
+          0.44533860366236333,
+          1.4360213587081176,
+          1.0775455486808598
+        ]
+      ],
+      "file": "dog-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.0018900238990784413,
+          -0.8518848875968217
+        ],
+        [
+          0.4589458489137613,
+          1.712820126643365,
+          1.1842362129688264
+        ]
+      ],
+      "file": "dog-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.0035772153932867035,
+          -0.8534068590135204
+        ],
+        [
+          0.4727216779614314,
+          1.7262643508444158,
+          1.1930550124516488
+        ]
+      ],
+      "file": "dog-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.0018900238990784413,
+          -0.8361069891452789
+        ],
+        [
+          0.42257616313377877,
+          1.712820126643365,
+          1.1842362129688264
+        ]
+      ],
+      "file": "dog-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.008849923359674938,
+          -0.8402032114940898
+        ],
+        [
+          0.42257616313377877,
+          1.719611383786018,
+          1.1886035192178206
+        ]
+      ],
+      "file": "dog-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.40883919579480743,
+          0.04979237286199001,
+          -0.853168454637307
+        ],
+        [
+          0.4905821061017565,
+          1.792269823105491,
+          1.197715562524202
+        ]
+      ],
+      "file": "dog-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.40883919579480743,
+          0.030442115112230606,
+          -0.8384125098806525
+        ],
+        [
+          0.48171274198786906,
+          1.7798193091726697,
+          1.1846983534280398
+        ]
+      ],
+      "file": "dog-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.012049453038420754,
+          -0.8548885064832856
+        ],
+        [
+          0.42257616313377877,
+          1.733374847627149,
+          1.197715562524202
+        ]
+      ],
+      "file": "dog-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.014648397525732104,
+          -0.8604480778492569
+        ],
+        [
+          0.42257616313377877,
+          1.7427180139079828,
+          1.191299491294575
+        ]
+      ],
+      "file": "dog-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44396140853652855,
+          -0.038813935600265026,
+          -0.8498479213725785
+        ],
+        [
+          0.48985058969092815,
+          1.6766379472740789,
+          1.3384421532719846
+        ]
+      ],
+      "file": "dog-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44396140853652843,
+          -0.03877905594946485,
+          -0.8510451445117941
+        ],
+        [
+          0.4898505896909281,
+          1.684991332265817,
+          1.3440690990226258
+        ]
+      ],
+      "file": "dog-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44396140853652855,
+          -0.038813935600265026,
+          -0.8340984146192056
+        ],
+        [
+          0.48985058969092815,
+          1.6766379472740789,
+          1.3384421532719846
+        ]
+      ],
+      "file": "dog-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44396140853652855,
+          -0.041089327914764495,
+          -0.8366635978397587
+        ],
+        [
+          0.4898505896909282,
+          1.6808448901788036,
+          1.3412880571676478
+        ]
+      ],
+      "file": "dog-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.03904998698389739,
+          -0.8888939265195261
+        ],
+        [
+          0.4589458489137613,
+          1.625527432161542,
+          1.2138563400573563
+        ]
+      ],
+      "file": "dog-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.03759463595071655,
+          -0.8858037135407415
+        ],
+        [
+          0.44438703704853916,
+          1.6379543526510896,
+          1.2215002065173826
+        ]
+      ],
+      "file": "dog-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.03904998698389739,
+          -0.8731357463325624
+        ],
+        [
+          0.42257616313377877,
+          1.625527432161542,
+          1.2138563400573563
+        ]
+      ],
+      "file": "dog-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4394,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.03954736223339872,
+          -0.8879264973787079
+        ],
+        [
+          0.42257616313377877,
+          1.6317912299644797,
+          1.2177292788418086
+        ]
+      ],
+      "file": "dog-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.04602638225713229,
+          -0.8960319854649015
+        ],
+        [
+          0.4589458489137613,
+          1.5861834614837598,
+          1.2201883969336755
+        ]
+      ],
+      "file": "dog-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.006444266495716278,
+          -0.8967143180641328
+        ],
+        [
+          0.48336115119319795,
+          1.6136193569860122,
+          1.228437918843409
+        ]
+      ],
+      "file": "dog-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.04602638225713229,
+          -0.8802824787115286
+        ],
+        [
+          0.42257616313377877,
+          1.5861834614837598,
+          1.2201883969336755
+        ]
+      ],
+      "file": "dog-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.042153218798231196,
+          -0.8880884904687869
+        ],
+        [
+          0.4269244137124928,
+          1.5999680794870377,
+          1.2243845703145482
+        ]
+      ],
+      "file": "dog-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4220818706427979,
+          -0.01891833379206731,
+          -0.8514085693499077
+        ],
+        [
+          0.4594401414047422,
+          1.6275092012246892,
+          1.2213728642599917
+        ]
+      ],
+      "file": "dog-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4220818706427979,
+          0.0567809339149693,
+          -0.9263913609082685
+        ],
+        [
+          0.48573473289670216,
+          1.6560898783893006,
+          1.2236550601581935
+        ]
+      ],
+      "file": "dog-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4225761631337788,
+          -0.01891833379206731,
+          -0.8356356012348347
+        ],
+        [
+          0.4225761631337788,
+          1.6275092012246892,
+          1.2213728642599917
+        ]
+      ],
+      "file": "dog-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4225761631337788,
+          -0.011652862717067003,
+          -0.8442239079630387
+        ],
+        [
+          0.4294796492580812,
+          1.6418030528457987,
+          1.222517249677475
+        ]
+      ],
+      "file": "dog-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.40883919579480743,
+          0.00028354093158333704,
+          -1.0320375282795138
+        ],
+        [
+          0.40883919579480743,
+          1.7839030358904053,
+          1.1898925764845056
+        ]
+      ],
+      "file": "dog-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.40883919579480743,
+          0.0321035485992186,
+          -1.0670180420928808
+        ],
+        [
+          0.40883919579480743,
+          1.7949468029638416,
+          1.1988748105405023
+        ]
+      ],
+      "file": "dog-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.030637372018622044,
+          -0.8802824787115286
+        ],
+        [
+          0.42257616313377877,
+          1.7559243471607007,
+          1.1898925764845056
+        ]
+      ],
+      "file": "dog-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4194,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.02597660373852484,
+          -0.9160715696563211
+        ],
+        [
+          0.42257616313377877,
+          1.7692306999838938,
+          1.1944374296359948
+        ]
+      ],
+      "file": "dog-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42134043190632653,
+          -0.010833323182106058,
+          -0.8518848875968217
+        ],
+        [
+          0.4601815801412136,
+          1.6564337583663007,
+          1.229173209541181
+        ]
+      ],
+      "file": "dog-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42134043190632653,
+          0.027959033789742627,
+          -0.8601316375784043
+        ],
+        [
+          0.42411368260755117,
+          1.6814435831360883,
+          1.2395362656011895
+        ]
+      ],
+      "file": "dog-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.010833323182106058,
+          -0.8361069891452789
+        ],
+        [
+          0.42257616313377877,
+          1.6564337583663007,
+          1.229173209541181
+        ]
+      ],
+      "file": "dog-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.42257616313377877,
+          -0.01330368170955143,
+          -0.8687436267712203
+        ],
+        [
+          0.42257616313377877,
+          1.669032064527159,
+          1.2344447316126703
+        ]
+      ],
+      "file": "dog-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.0023100115776061303,
+          -0.854501018695533
+        ],
+        [
+          0.4819643120267577,
+          1.7161663164294714,
+          1.1800150847434998
+        ]
+      ],
+      "file": "dog-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.01346037851684645,
+          -0.8572846734525801
+        ],
+        [
+          0.4970125287543633,
+          1.7295257253219494,
+          1.1908483961458722
+        ]
+      ],
+      "file": "dog-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.0023100115776061303,
+          -0.8342923042774201
+        ],
+        [
+          0.4554925989503529,
+          1.7161663164294714,
+          1.1800150847434998
+        ]
+      ],
+      "file": "dog-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.013819018396675653,
+          -0.8392873432700142
+        ],
+        [
+          0.4554925989503529,
+          1.7229175906843603,
+          1.18508541643213
+        ]
+      ],
+      "file": "dog-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44195504083244014,
+          0.04905734037134224,
+          -0.8607754294551682
+        ],
+        [
+          0.5181645702470927,
+          1.794597110441209,
+          1.1962110528337473
+        ]
+      ],
+      "file": "dog-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44195504083244014,
+          0.017908573278120565,
+          -0.8461483852559175
+        ],
+        [
+          0.5095538091174494,
+          1.7822793094573284,
+          1.1826086755528555
+        ]
+      ],
+      "file": "dog-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.012784485529068523,
+          -0.8537360136812414
+        ],
+        [
+          0.4554925989503529,
+          1.7360564630657493,
+          1.1962110528337473
+        ]
+      ],
+      "file": "dog-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.020166524736557667,
+          -0.8605368832044917
+        ],
+        [
+          0.4554925989503529,
+          1.7454700099713243,
+          1.1895053016881618
+        ]
+      ],
+      "file": "dog-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4750582797773869,
+          -0.04026658521698667,
+          -0.8533802027628957
+        ],
+        [
+          0.5220857575002249,
+          1.6816877291659285,
+          1.3472441664113588
+        ]
+      ],
+      "file": "dog-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4750582797773868,
+          -0.046063439216122104,
+          -0.8553710003919303
+        ],
+        [
+          0.5220857575002248,
+          1.6901125625225855,
+          1.3531203545183383
+        ]
+      ],
+      "file": "dog-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4750582797773869,
+          -0.04026658521698667,
+          -0.8332078531193391
+        ],
+        [
+          0.5220857575002249,
+          1.6816877291659285,
+          1.3472441664113588
+        ]
+      ],
+      "file": "dog-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4750582797773869,
+          -0.04539057739919139,
+          -0.836326662515976
+        ],
+        [
+          0.5220857575002249,
+          1.6859314739384526,
+          1.3502160848088156
+        ]
+      ],
+      "file": "dog-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4390,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.04004485241102507,
+          -0.8928296246541567
+        ],
+        [
+          0.4819643120267577,
+          1.627811550195608,
+          1.2136362867094213
+        ]
+      ],
+      "file": "dog-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4390,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.04296439288273268,
+          -0.8885090278874112
+        ],
+        [
+          0.4661769850407472,
+          1.6402562691376434,
+          1.221645775429342
+        ]
+      ],
+      "file": "dog-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4390,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.04004485241102507,
+          -0.872646165866819
+        ],
+        [
+          0.4554925989503529,
+          1.627811550195608,
+          1.2136362867094213
+        ]
+      ],
+      "file": "dog-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4390,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.043848278174020816,
+          -0.8881151200213685
+        ],
+        [
+          0.4554925989503529,
+          1.6340860242047097,
+          1.2176936889535315
+        ]
+      ],
+      "file": "dog-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45549259895035293,
+          -0.047121161671917045,
+          -0.9002305217059149
+        ],
+        [
+          0.4819643120267577,
+          1.5881415428227905,
+          1.2205023709345162
+        ]
+      ],
+      "file": "dog-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45549259895035293,
+          -0.022556042110875585,
+          -0.9032822540295821
+        ],
+        [
+          0.5087922126300519,
+          1.6155851695167374,
+          1.2291572646468396
+        ]
+      ],
+      "file": "dog-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45549259895035293,
+          -0.047121161671917045,
+          -0.8800581720623583
+        ],
+        [
+          0.45549259895035293,
+          1.5881415428227905,
+          1.2205023709345162
+        ]
+      ],
+      "file": "dog-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45549259895035293,
+          -0.048429754742496556,
+          -0.8896609230775444
+        ],
+        [
+          0.45549259895035293,
+          1.601932397505759,
+          1.224903566203043
+        ]
+      ],
+      "file": "dog-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.454998306459372,
+          -0.019729085896743048,
+          -0.8544077640688374
+        ],
+        [
+          0.48245860451773864,
+          1.6312762488019203,
+          1.2199793659557447
+        ]
+      ],
+      "file": "dog-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.454998306459372,
+          0.033431317541515515,
+          -0.9185062979412306
+        ],
+        [
+          0.5113983124895441,
+          1.6598644302910586,
+          1.222366038604859
+        ]
+      ],
+      "file": "dog-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.019729085896743048,
+          -0.8342053645450691
+        ],
+        [
+          0.4554925989503529,
+          1.6312762488019203,
+          1.2199793659557447
+        ]
+      ],
+      "file": "dog-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.023132242993350483,
+          -0.8447936772047441
+        ],
+        [
+          0.4554925989503529,
+          1.6455739760436163,
+          1.2211760940718428
+        ]
+      ],
+      "file": "dog-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44195504083244014,
+          -0.0009064366931826884,
+          -1.038000518112125
+        ],
+        [
+          0.44195504083244014,
+          1.785546163854825,
+          1.1887812946193017
+        ]
+      ],
+      "file": "dog-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.44195504083244014,
+          0.013871513403784896,
+          -1.0738524269242253
+        ],
+        [
+          0.44195504083244014,
+          1.7964612044278851,
+          1.198177598418321
+        ]
+      ],
+      "file": "dog-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.03182734964338807,
+          -0.8800581720623583
+        ],
+        [
+          0.4554925989503529,
+          1.757921246975397,
+          1.1887812946193017
+        ]
+      ],
+      "file": "dog-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4190,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4554925989503529,
+          -0.03312770836165635,
+          -0.9174688870517559
+        ],
+        [
+          0.4554925989503529,
+          1.7711647225542317,
+          1.1935348943363482
+        ]
+      ],
+      "file": "dog-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45425686772290064,
+          -0.011240711230278033,
+          -0.854501018695533
+        ],
+        [
+          0.48320004325421,
+          1.65977255962027,
+          1.228616056609719
+        ]
+      ],
+      "file": "dog-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45425686772290064,
+          0.008935898692172595,
+          -0.8564955367111338
+        ],
+        [
+          0.45672833017780523,
+          1.6847951449648855,
+          1.2394719400361836
+        ]
+      ],
+      "file": "dog-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45549259895035293,
+          -0.011240711230278033,
+          -0.8342923042774201
+        ],
+        [
+          0.45549259895035293,
+          1.65977255962027,
+          1.228616056609719
+        ]
+      ],
+      "file": "dog-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4030,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45549259895035293,
+          -0.022504531259528227,
+          -0.8684105335511833
+        ],
+        [
+          0.45549259895035293,
+          1.6723805202727888,
+          1.2341369009237402
+        ]
+      ],
+      "file": "dog-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.0796102916263044,
+          -0.7805003496342993
+        ],
+        [
+          0.6644247349717797,
+          1.6453652899708113,
+          0.87922683771437
+        ]
+      ],
+      "file": "dog-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.01719395695621928,
+          -0.7675601973005184
+        ],
+        [
+          0.6644247349717797,
+          1.5919085576689551,
+          1.092754812564516
+        ]
+      ],
+      "file": "dog-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.0796102916263044,
+          -0.7548781314263172
+        ],
+        [
+          0.6644247349717797,
+          1.6453652899708113,
+          0.87922683771437
+        ]
+      ],
+      "file": "dog-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.014756389227615352,
+          -0.7427837385979483
+        ],
+        [
+          0.6644247349717797,
+          1.5853280364386098,
+          1.0872811210407163
+        ]
+      ],
+      "file": "dog-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4872054512025384,
+          -0.021208980371263064,
+          -0.7738052449370738
+        ],
+        [
+          0.6725665454710553,
+          1.7140930221455912,
+          0.8881898651490369
+        ]
+      ],
+      "file": "dog-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4872054512025384,
+          0.013130424032998689,
+          -0.7579635979709605
+        ],
+        [
+          0.6725665454710553,
+          1.644373564637077,
+          1.0855179116503293
+        ]
+      ],
+      "file": "dog-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.08305080627167383,
+          -0.7492049837980412
+        ],
+        [
+          0.6644247349717797,
+          1.6537130287202473,
+          0.8881898651490369
+        ]
+      ],
+      "file": "dog-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.020033374225746248,
+          -0.7528086272283614
+        ],
+        [
+          0.6644247349717797,
+          1.6056976855132423,
+          1.0924256657712292
+        ]
+      ],
+      "file": "dog-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5251329240813232,
+          -0.06773703946800502,
+          -0.7919846706938337
+        ],
+        [
+          0.6443633827112276,
+          1.6145510908924692,
+          1.0259310179959025
+        ]
+      ],
+      "file": "dog-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5251329240813232,
+          -0.04514421248458189,
+          -0.7654786524338424
+        ],
+        [
+          0.6443633827112276,
+          1.5359594481179637,
+          1.2726726193755522
+        ]
+      ],
+      "file": "dog-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5251329240813232,
+          -0.06773703946800502,
+          -0.7665627139239787
+        ],
+        [
+          0.6443633827112276,
+          1.6145510908924692,
+          1.0259310179959025
+        ]
+      ],
+      "file": "dog-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5251329240813232,
+          -0.04289732027992654,
+          -0.7401518811350443
+        ],
+        [
+          0.6443633827112276,
+          1.532853002187701,
+          1.2697791713387194
+        ]
+      ],
+      "file": "dog-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4262,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45241355537424255,
+          -0.09960994800000467,
+          -0.7687822908412115
+        ],
+        [
+          0.6906033813661654,
+          1.5465444144814353,
+          0.8493204846152742
+        ]
+      ],
+      "file": "dog-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4262,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45241355537424255,
+          -0.04172405537891388,
+          -0.7716581308695727
+        ],
+        [
+          0.6906033813661654,
+          1.5054840827451486,
+          1.125826244133198
+        ]
+      ],
+      "file": "dog-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4262,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45241355537424255,
+          -0.09960994800000467,
+          -0.7430636074425665
+        ],
+        [
+          0.6906033813661654,
+          1.5465444144814353,
+          0.8493204846152742
+        ]
+      ],
+      "file": "dog-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4262,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.45241355537424255,
+          -0.042388926890033485,
+          -0.7571749098853394
+        ],
+        [
+          0.6906033813661654,
+          1.500532886409916,
+          1.121841987558601
+        ]
+      ],
+      "file": "dog-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4408007397472682,
+          -0.1029156158211808,
+          -0.7662070701553125
+        ],
+        [
+          0.6949774229699319,
+          1.5111820844321935,
+          0.8559719830684454
+        ]
+      ],
+      "file": "dog-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4408007397472682,
+          -0.03051512833306569,
+          -0.7881696739051129
+        ],
+        [
+          0.6949774229699319,
+          1.485190528163031,
+          1.1338889301513837
+        ]
+      ],
+      "file": "dog-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4408007397472682,
+          -0.1029156158211808,
+          -0.7404768028260769
+        ],
+        [
+          0.6949774229699319,
+          1.5111820844321935,
+          0.8559719830684454
+        ]
+      ],
+      "file": "dog-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4408007397472682,
+          -0.04732265281010828,
+          -0.7664440266119097
+        ],
+        [
+          0.6949774229699319,
+          1.4735856883625895,
+          1.1295889080646226
+        ]
+      ],
+      "file": "dog-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.48490248813282577,
+          -0.0739078947799297,
+          -0.7856294532496315
+        ],
+        [
+          0.6742030741228073,
+          1.5659394775564086,
+          0.8685035098419533
+        ]
+      ],
+      "file": "dog-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.48490248813282577,
+          0.014938235765879493,
+          -0.7946617927163542
+        ],
+        [
+          0.6742030741228073,
+          1.5289097492063675,
+          1.1233782402599561
+        ]
+      ],
+      "file": "dog-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4853967806238067,
+          -0.0739078947799297,
+          -0.7600795047947956
+        ],
+        [
+          0.6737087816318263,
+          1.5659394775564086,
+          0.8685035098419533
+        ]
+      ],
+      "file": "dog-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4853967806238067,
+          -0.027222293565708044,
+          -0.7498007884760041
+        ],
+        [
+          0.6737087816318263,
+          1.5144780831950642,
+          1.1221838673555666
+        ]
+      ],
+      "file": "dog-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4872054512025384,
+          -0.06155258250759987,
+          -0.7741095676941431
+        ],
+        [
+          0.6725665454710553,
+          1.6927557502532067,
+          0.873163289841301
+        ]
+      ],
+      "file": "dog-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4872054512025384,
+          0.004332255570955845,
+          -0.7826431204204695
+        ],
+        [
+          0.6725665454710553,
+          1.6554440209358035,
+          1.1026647456412544
+        ]
+      ],
+      "file": "dog-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.09247349545780525,
+          -0.7404768028260769
+        ],
+        [
+          0.6644247349717797,
+          1.663292123163255,
+          0.873163289841301
+        ]
+      ],
+      "file": "dog-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4062,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4990835376715377,
+          -0.032125061806282385,
+          -0.7667789347261383
+        ],
+        [
+          0.6644247349717797,
+          1.628364497245196,
+          1.0980005858601032
+        ]
+      ],
+      "file": "dog-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.46619421593916527,
+          -0.08622198287751531,
+          -0.7805003496342993
+        ],
+        [
+          0.6850226692405343,
+          1.586265866169002,
+          0.8737163975858007
+        ]
+      ],
+      "file": "dog-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.46619421593916527,
+          -0.004230998973888012,
+          -0.7464928693946489
+        ],
+        [
+          0.6850226692405343,
+          1.5464827445169247,
+          1.141585445187325
+        ]
+      ],
+      "file": "dog-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.46742994716661757,
+          -0.08622198287751531,
+          -0.7548781314263172
+        ],
+        [
+          0.6837869380130821,
+          1.586265866169002,
+          0.8737163975858007
+        ]
+      ],
+      "file": "dog-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dog",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3902,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.46742994716661757,
+          -0.025848370958507783,
+          -0.7477662433728418
+        ],
+        [
+          0.6837869380130821,
+          1.5346840046408199,
+          1.136209260414967
+        ]
+      ],
+      "file": "dog-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

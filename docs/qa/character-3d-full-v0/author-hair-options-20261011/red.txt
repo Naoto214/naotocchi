@@ -1,0 +1,89 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ three QA-only author options produce distinct hair geometry while keeping face rear and all production rows intact (121.134883ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 212.955884
+
+✖ failing tests:
+
+test at tests/character-3d-author-hair-options-test.cjs:2:1
+✖ three QA-only author options produce distinct hair geometry while keeping face rear and all production rows intact (121.134883ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+
+    [
+      {
+        at: [
+          0,
+          0.19,
+  ...
+      },
+  +   {
+  +     at: [
+  +       -0.105,
+  +       0.22,
+  +       0.205
+  +     ],
+  +     segments: [
+  +       24,
+  +       14
+  +     ],
+  +     size: [
+  +       0.18,
+  +       0.115,
+  +       0.085
+  +     ]
+  +   },
+  +   {
+  +     at: [
+  +       0.095,
+  +       0.225,
+  +       0.198
+  +     ],
+  +     segments: [
+  +       24,
+  +       14
+  +     ],
+  +     size: [
+  +       0.16,
+  +       0.108,
+  +       0.082
+  +     ]
+  +   },
+  +   {
+  +     at: [
+  +       -0.03,
+  +       0.272,
+  +       0.22
+  +     ],
+  +     segments: [
+  +       24,
+  +       14
+  +     ],
+  +     size: [
+  +       0.13,
+  +       0.086,
+  +       0.075
+  +     ]
+  +   }
+    ]
+
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-author-hair-options-test.cjs:2:633)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { size: [Array], at: [Array], segments: [Array] }, { size: [Array], at: [Array], segments: [Array] }, { size: [Array], at: [Array], segments: [Array] }, { size: [Array], at: [Array], segments: [Array] }, { size: [Array], at: [Array], segments: [Array] } ],
+    expected: [ { size: [Array], at: [Array], segments: [Array] }, { size: [Array], at: [Array], segments: [Array] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

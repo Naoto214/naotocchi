@@ -1,0 +1,15 @@
+{
+  "sourceCommit": "21e65658d0088702e0c20aaaf6ce23c2950d9323",
+  "waveArtifact": 11429202365,
+  "distanceArtifact": 11429102079,
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "verdict": "all8 accepted for v0 runtime promotion; final Human QA pending",
+  "review": "All32 four views and16 normal-distance inspected. Six new stages01/02/04/05/06/08:192state images inspected via sheets;02 sleeping/tired and05 normal inspected individually for rim clearance.03/07:8views64states plus2sheets byte-identical to accepted dfa9/f679.",
+  "counts": {
+    "fourViews": 32,
+    "motionStates": 256,
+    "normalDistance": 16
+  },
+  "simplifications": "Smooth simplified cuticle/grains and sparse physical venation; deep pit is a cutaway bowl with lowered front lip; cocoon grain size is coarse; worn-wing perimeter polygonal. Full thickness, one visible face and metamorphosis topology retained.",
+  "notIPhoneAcceptance": true
+}

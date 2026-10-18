@@ -1,0 +1,61 @@
+{
+  "source": "45cbd59294b6a1e692eb314495bce82f27fbf704",
+  "run": 38179244538,
+  "job": 114588086381,
+  "conclusion": "success",
+  "fallback": {
+    "worldIs3D": true,
+    "rendererFailed": false,
+    "shibaBroken": true,
+    "shiba3d": false,
+    "cat3d": true,
+    "player3d": true,
+    "stats": {
+      "live": 8,
+      "templates": 10,
+      "built": 10,
+      "tris": 48462,
+      "meshes": 89,
+      "bones": 63,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 16,
+      "cpuMsAvg": 4.795,
+      "cpuMsP95": 23.2,
+      "buildMsTotal": 506.7,
+      "buildMsMax": 144.3,
+      "fallbacks": 1,
+      "removed": 96,
+      "created": 104,
+      "failedTemplates": 0,
+      "buildsThisFrame": 0
+    }
+  },
+  "timeoutRecorded": false,
+  "repeated": {
+    "cycles": 3,
+    "restored": {
+      "step": true,
+      "region": true,
+      "draw": true,
+      "charFlag": true
+    },
+    "unchanged": {
+      "save": true,
+      "storage": true,
+      "getter": true,
+      "saveWrites": true
+    },
+    "finalLive": 9
+  },
+  "regionReturn": {
+    "region": "forest",
+    "is3D": true,
+    "live": 9,
+    "holdersInScene": 9
+  },
+  "errors": [
+    "warning: character 3D: actor → 2D companion:shiba forced update failure (QA)"
+  ],
+  "scope": "Focused runtime regression and repeated production scene; role-exact45 and native1/5/27 metrics reused from same production source4cefebf1 attempt1 successful steps."
+}

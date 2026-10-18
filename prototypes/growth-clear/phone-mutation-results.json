@@ -1,0 +1,42 @@
+[
+  {
+    "name": "stop auto fall",
+    "killed": true,
+    "status": 1
+  },
+  {
+    "name": "wrong saved pose",
+    "killed": true,
+    "status": 1
+  },
+  {
+    "name": "lost fall timer",
+    "killed": true,
+    "status": 1
+  },
+  {
+    "name": "stale target accepted",
+    "killed": true,
+    "status": 1
+  },
+  {
+    "name": "animation accepts drop",
+    "killed": true,
+    "status": 1
+  },
+  {
+    "name": "no mixed empty frame",
+    "killed": true,
+    "status": 1
+  },
+  {
+    "name": "hidden lock delay",
+    "killed": true,
+    "status": 1
+  },
+  {
+    "name": "wrong tool cost",
+    "killed": true,
+    "status": 1
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "sourceCommit": "8f5245f97ed1e1e7270a64ddb7b20ae44fa86a22",
+  "waveArtifact": 11427486787,
+  "distanceArtifact": 11426423857,
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "verdict": "all8 accepted for v0 runtime promotion; final Human QA remains pending",
+  "review": "05/08 corrected8views64states directly inspected; unchanged01/02/03/04/06/07 fourviews24 and192states+6sheets byte-identical to reviewed b506. All16 current normal-distance shots reinspected.",
+  "counts": {
+    "fourViews": 32,
+    "motionStates": 256,
+    "normalDistance": 16
+  },
+  "simplifications": "smooth bark/seed surface, simplified serrations/veins, rounded polygonal petals; no loose falling decorative petals",
+  "notIPhoneAcceptance": true
+}

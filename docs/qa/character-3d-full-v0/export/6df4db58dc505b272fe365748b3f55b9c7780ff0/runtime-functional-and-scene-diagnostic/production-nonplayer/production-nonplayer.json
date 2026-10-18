@@ -1,0 +1,3266 @@
+{
+  "sourceCommit": "6df4db58dc505b272fe365748b3f55b9c7780ff0",
+  "productionOnly": true,
+  "candidateOnly": false,
+  "capture": false,
+  "required": 45,
+  "requireFull": true,
+  "checked": 45,
+  "attempted": 45,
+  "failingRole": null,
+  "missing": [],
+  "rows": [
+    {
+      "roleKey": "companion:cat_friend",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:cat_friend",
+        "kind": "companion",
+        "id": "cat_friend",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "specKey": {
+        "id": "cat_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "cat_friend",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8244,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 6,
+        "cpuMsAvg": 43.9,
+        "cpuMsP95": 52.3,
+        "buildMsTotal": 81.2,
+        "buildMsMax": 46.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:rabbit_friend",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:rabbit_friend",
+        "kind": "companion",
+        "id": "rabbit_friend",
+        "asset": "assets/characters/companions/rabbit_friend.png"
+      },
+      "specKey": {
+        "id": "companion:rabbit_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:rabbit_friend",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13334,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 179.5,
+        "cpuMsP95": 179.5,
+        "buildMsTotal": 227.3,
+        "buildMsMax": 177.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:tanuki",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:tanuki",
+        "kind": "companion",
+        "id": "tanuki",
+        "asset": "assets/characters/companions/tanuki.png"
+      },
+      "specKey": {
+        "id": "companion:tanuki",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:tanuki",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18250,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 299.5,
+        "cpuMsP95": 299.5,
+        "buildMsTotal": 353.8,
+        "buildMsMax": 297.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:squirrel",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:squirrel",
+        "kind": "companion",
+        "id": "squirrel",
+        "asset": "assets/characters/companions/squirrel.png"
+      },
+      "specKey": {
+        "id": "companion:squirrel",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:squirrel",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17450,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 94.5,
+        "cpuMsP95": 156.6,
+        "buildMsTotal": 185.1,
+        "buildMsMax": 154.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:owl",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:owl",
+        "kind": "companion",
+        "id": "owl",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "specKey": {
+        "id": "companion:owl",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:owl",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13038,
+        "meshes": 23,
+        "bones": 17,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 94.55,
+        "cpuMsP95": 153.8,
+        "buildMsTotal": 183.9,
+        "buildMsMax": 152.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:otter",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:otter",
+        "kind": "companion",
+        "id": "otter",
+        "asset": "assets/characters/companions/otter.png"
+      },
+      "specKey": {
+        "id": "companion:otter",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:otter",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17570,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 141.4,
+        "cpuMsP95": 250.4,
+        "buildMsTotal": 280.2,
+        "buildMsMax": 248.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:hamster",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:hamster",
+        "kind": "companion",
+        "id": "hamster",
+        "asset": "assets/characters/companions/hamster.png"
+      },
+      "specKey": {
+        "id": "companion:hamster",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:hamster",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15510,
+        "meshes": 25,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 114.2,
+        "cpuMsP95": 187.2,
+        "buildMsTotal": 226,
+        "buildMsMax": 185.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:panda",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:panda",
+        "kind": "companion",
+        "id": "panda",
+        "asset": "assets/characters/companions/panda.png"
+      },
+      "specKey": {
+        "id": "companion:panda",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:panda",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 16334,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 297.7,
+        "cpuMsP95": 297.7,
+        "buildMsTotal": 356.5,
+        "buildMsMax": 295.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:monkey",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:monkey",
+        "kind": "companion",
+        "id": "monkey",
+        "asset": "assets/characters/companions/monkey.png"
+      },
+      "specKey": {
+        "id": "companion:monkey",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:monkey",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18694,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 124.35,
+        "cpuMsP95": 224.4,
+        "buildMsTotal": 245.2,
+        "buildMsMax": 221.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:parrot",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:parrot",
+        "kind": "companion",
+        "id": "parrot",
+        "asset": "assets/characters/companions/parrot.png"
+      },
+      "specKey": {
+        "id": "companion:parrot",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:parrot",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15878,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 70.7,
+        "cpuMsP95": 108.2,
+        "buildMsTotal": 139,
+        "buildMsMax": 106.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:sheep",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:sheep",
+        "kind": "companion",
+        "id": "sheep",
+        "asset": "assets/characters/companions/sheep.png"
+      },
+      "specKey": {
+        "id": "companion:sheep",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:sheep",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19998,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 94.95,
+        "cpuMsP95": 139.4,
+        "buildMsTotal": 183.4,
+        "buildMsMax": 137.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:seal",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:seal",
+        "kind": "companion",
+        "id": "seal",
+        "asset": "assets/characters/companions/seal.png"
+      },
+      "specKey": {
+        "id": "companion:seal",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:seal",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14134,
+        "meshes": 23,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 286.6,
+        "cpuMsP95": 286.6,
+        "buildMsTotal": 324.2,
+        "buildMsMax": 285,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:bat",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:bat",
+        "kind": "companion",
+        "id": "bat",
+        "asset": "assets/characters/companions/bat.png"
+      },
+      "specKey": {
+        "id": "companion:bat",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:bat",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13414,
+        "meshes": 23,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 151.3,
+        "cpuMsP95": 151.3,
+        "buildMsTotal": 188.2,
+        "buildMsMax": 149.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:chicken",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:chicken",
+        "kind": "companion",
+        "id": "chicken",
+        "asset": "assets/characters/companions/chicken.png"
+      },
+      "specKey": {
+        "id": "companion:chicken",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:chicken",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19750,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 61.8,
+        "cpuMsP95": 94.6,
+        "buildMsTotal": 121.7,
+        "buildMsMax": 93.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:penguin_friend",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:penguin_friend",
+        "kind": "companion",
+        "id": "penguin_friend",
+        "asset": "assets/characters/companions/penguin_friend.png"
+      },
+      "specKey": {
+        "id": "companion:penguin_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:penguin_friend",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14326,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 211.6,
+        "cpuMsP95": 211.6,
+        "buildMsTotal": 253.2,
+        "buildMsMax": 210.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:hedgehog",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:hedgehog",
+        "kind": "companion",
+        "id": "hedgehog",
+        "asset": "assets/characters/companions/hedgehog.png"
+      },
+      "specKey": {
+        "id": "companion:hedgehog",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:hedgehog",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 21726,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 158.6,
+        "cpuMsP95": 158.6,
+        "buildMsTotal": 200.2,
+        "buildMsMax": 156.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:shiba",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "asset": "assets/characters/companions/shiba.png"
+      },
+      "specKey": {
+        "id": "shiba",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "shiba",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8348,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 49.4,
+        "cpuMsP95": 49.4,
+        "buildMsTotal": 75,
+        "buildMsMax": 47.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:snail",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:snail",
+        "kind": "companion",
+        "id": "snail",
+        "asset": "assets/characters/companions/snail.png"
+      },
+      "specKey": {
+        "id": "companion:snail",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:snail",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 9766,
+        "meshes": 22,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 204.8,
+        "cpuMsP95": 204.8,
+        "buildMsTotal": 236.5,
+        "buildMsMax": 203.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:punyu",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:punyu",
+        "kind": "companion",
+        "id": "punyu",
+        "asset": "assets/characters/companions/punyu.png"
+      },
+      "specKey": {
+        "id": "companion:punyu",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:punyu",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18238,
+        "meshes": 18,
+        "bones": 12,
+        "materials": 2,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 224.3,
+        "cpuMsP95": 377.4,
+        "buildMsTotal": 446.6,
+        "buildMsMax": 376.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:sekizou",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:sekizou",
+        "kind": "companion",
+        "id": "sekizou",
+        "asset": "assets/characters/companions/sekizou.png"
+      },
+      "specKey": {
+        "id": "companion:sekizou",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:sekizou",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 9510,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 127.55,
+        "cpuMsP95": 212.9,
+        "buildMsTotal": 248.9,
+        "buildMsMax": 207.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:chameleon",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:chameleon",
+        "kind": "companion",
+        "id": "chameleon",
+        "asset": "assets/characters/companions/chameleon.png"
+      },
+      "specKey": {
+        "id": "companion:chameleon",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:chameleon",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15560,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 110,
+        "cpuMsP95": 110,
+        "buildMsTotal": 136.3,
+        "buildMsMax": 108.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:clock",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:clock",
+        "kind": "companion",
+        "id": "clock",
+        "asset": "assets/characters/companions/clock.png"
+      },
+      "specKey": {
+        "id": "companion:clock",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:clock",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 10368,
+        "meshes": 29,
+        "bones": 23,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 53.6,
+        "cpuMsP95": 65.5,
+        "buildMsTotal": 104.5,
+        "buildMsMax": 63.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:unicorn",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:unicorn",
+        "kind": "companion",
+        "id": "unicorn",
+        "asset": "assets/characters/companions/unicorn.png"
+      },
+      "specKey": {
+        "id": "companion:unicorn",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:unicorn",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20688,
+        "meshes": 30,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 299.1,
+        "cpuMsP95": 299.1,
+        "buildMsTotal": 325.4,
+        "buildMsMax": 297.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:many_tail_fox",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:many_tail_fox",
+        "kind": "companion",
+        "id": "many_tail_fox",
+        "asset": "assets/characters/companions/many_tail_fox.png"
+      },
+      "specKey": {
+        "id": "companion:many_tail_fox",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:many_tail_fox",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19334,
+        "meshes": 30,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 211.2,
+        "cpuMsP95": 211.2,
+        "buildMsTotal": 251.8,
+        "buildMsMax": 209.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:watcher",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:watcher",
+        "kind": "companion",
+        "id": "watcher",
+        "asset": "assets/characters/companions/watcher.png"
+      },
+      "specKey": {
+        "id": "companion:watcher",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:watcher",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14494,
+        "meshes": 17,
+        "bones": 12,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 3,
+        "cpuMsAvg": 180.3,
+        "cpuMsP95": 321.2,
+        "buildMsTotal": 358.2,
+        "buildMsMax": 319.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "companion:box",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "companion:box",
+        "kind": "companion",
+        "id": "box",
+        "asset": "assets/characters/companions/box.png"
+      },
+      "specKey": {
+        "id": "companion:box",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "companion:box",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 4902,
+        "meshes": 20,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 19.8,
+        "cpuMsP95": 19.8,
+        "buildMsTotal": 58.7,
+        "buildMsMax": 40.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:cat_ceo",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:cat_ceo",
+        "kind": "partner",
+        "id": "cat_ceo",
+        "asset": "assets/characters/partners/cat_ceo.png"
+      },
+      "specKey": {
+        "id": "partner:cat_ceo",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:cat_ceo",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17782,
+        "meshes": 32,
+        "bones": 27,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 129.9,
+        "cpuMsP95": 196.7,
+        "buildMsTotal": 257.5,
+        "buildMsMax": 195,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:robot_neighbor",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:robot_neighbor",
+        "kind": "partner",
+        "id": "robot_neighbor",
+        "asset": "assets/characters/partners/robot_neighbor.png"
+      },
+      "specKey": {
+        "id": "partner:robot_neighbor",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:robot_neighbor",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13012,
+        "meshes": 35,
+        "bones": 29,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 62.35,
+        "cpuMsP95": 68.9,
+        "buildMsTotal": 122,
+        "buildMsMax": 67.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 11,
+        "after": 11
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:field_cow",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:field_cow",
+        "kind": "partner",
+        "id": "field_cow",
+        "asset": "assets/characters/partners/field_cow.png"
+      },
+      "specKey": {
+        "id": "partner:field_cow",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:field_cow",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 16716,
+        "meshes": 28,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 194.85,
+        "cpuMsP95": 328.4,
+        "buildMsTotal": 387.7,
+        "buildMsMax": 326.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:sunflower_partner",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:sunflower_partner",
+        "kind": "partner",
+        "id": "sunflower_partner",
+        "asset": "assets/characters/partners/sunflower_partner.png"
+      },
+      "specKey": {
+        "id": "partner:sunflower_partner",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:sunflower_partner",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 9546,
+        "meshes": 18,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 83.4,
+        "cpuMsP95": 83.4,
+        "buildMsTotal": 115.8,
+        "buildMsMax": 81.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:forest_bear",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:forest_bear",
+        "kind": "partner",
+        "id": "forest_bear",
+        "asset": "assets/characters/partners/forest_bear.png"
+      },
+      "specKey": {
+        "id": "partner:forest_bear",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:forest_bear",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18262,
+        "meshes": 25,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 185.1,
+        "cpuMsP95": 185.1,
+        "buildMsTotal": 225.2,
+        "buildMsMax": 180.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:grove_deer",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:grove_deer",
+        "kind": "partner",
+        "id": "grove_deer",
+        "asset": "assets/characters/partners/grove_deer.png"
+      },
+      "specKey": {
+        "id": "partner:grove_deer",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:grove_deer",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14790,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 170.35,
+        "cpuMsP95": 310.8,
+        "buildMsTotal": 337.9,
+        "buildMsMax": 308.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:cliff_goat",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:cliff_goat",
+        "kind": "partner",
+        "id": "cliff_goat",
+        "asset": "assets/characters/partners/cliff_goat.png"
+      },
+      "specKey": {
+        "id": "partner:cliff_goat",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:cliff_goat",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19560,
+        "meshes": 34,
+        "bones": 28,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 123.5,
+        "cpuMsP95": 207.7,
+        "buildMsTotal": 241.3,
+        "buildMsMax": 202.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:high_eagle",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:high_eagle",
+        "kind": "partner",
+        "id": "high_eagle",
+        "asset": "assets/characters/partners/high_eagle.png"
+      },
+      "specKey": {
+        "id": "partner:high_eagle",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:high_eagle",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 21590,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 222.5,
+        "cpuMsP95": 222.5,
+        "buildMsTotal": 272.8,
+        "buildMsMax": 220.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:snow_spirit",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:snow_spirit",
+        "kind": "partner",
+        "id": "snow_spirit",
+        "asset": "assets/characters/partners/snow_spirit.png"
+      },
+      "specKey": {
+        "id": "partner:snow_spirit",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:snow_spirit",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 11274,
+        "meshes": 24,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 88.35,
+        "cpuMsP95": 130.6,
+        "buildMsTotal": 174.3,
+        "buildMsMax": 129,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:snowman",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:snowman",
+        "kind": "partner",
+        "id": "snowman",
+        "asset": "assets/characters/partners/snowman.png"
+      },
+      "specKey": {
+        "id": "partner:snowman",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:snowman",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14686,
+        "meshes": 28,
+        "bones": 26,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 89.15,
+        "cpuMsP95": 128.7,
+        "buildMsTotal": 175.6,
+        "buildMsMax": 126.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:rock_octopus",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:rock_octopus",
+        "kind": "partner",
+        "id": "rock_octopus",
+        "asset": "assets/characters/partners/rock_octopus.png"
+      },
+      "specKey": {
+        "id": "partner:rock_octopus",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:rock_octopus",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18838,
+        "meshes": 35,
+        "bones": 33,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 206.45,
+        "cpuMsP95": 386.9,
+        "buildMsTotal": 409.9,
+        "buildMsMax": 384.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:sea_mermaid",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:sea_mermaid",
+        "kind": "partner",
+        "id": "sea_mermaid",
+        "asset": "assets/characters/partners/sea_mermaid.png"
+      },
+      "specKey": {
+        "id": "partner:sea_mermaid",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:sea_mermaid",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15378,
+        "meshes": 29,
+        "bones": 25,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 118.6,
+        "cpuMsP95": 118.6,
+        "buildMsTotal": 149.6,
+        "buildMsMax": 116.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:anglerfish",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:anglerfish",
+        "kind": "partner",
+        "id": "anglerfish",
+        "asset": "assets/characters/partners/anglerfish.png"
+      },
+      "specKey": {
+        "id": "partner:anglerfish",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:anglerfish",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 12812,
+        "meshes": 26,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 195.2,
+        "cpuMsP95": 345.6,
+        "buildMsTotal": 387.5,
+        "buildMsMax": 343.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:swamp_croc",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:swamp_croc",
+        "kind": "partner",
+        "id": "swamp_croc",
+        "asset": "assets/characters/partners/swamp_croc.png"
+      },
+      "specKey": {
+        "id": "partner:swamp_croc",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:swamp_croc",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17818,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 170.15,
+        "cpuMsP95": 280.8,
+        "buildMsTotal": 337.8,
+        "buildMsMax": 279,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:gentle_gorilla",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:gentle_gorilla",
+        "kind": "partner",
+        "id": "gentle_gorilla",
+        "asset": "assets/characters/partners/gentle_gorilla.png"
+      },
+      "specKey": {
+        "id": "partner:gentle_gorilla",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:gentle_gorilla",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20714,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 193.7,
+        "cpuMsP95": 360.8,
+        "buildMsTotal": 384.8,
+        "buildMsMax": 358.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:knitting_spider",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:knitting_spider",
+        "kind": "partner",
+        "id": "knitting_spider",
+        "asset": "assets/characters/partners/knitting_spider.png"
+      },
+      "specKey": {
+        "id": "partner:knitting_spider",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:knitting_spider",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15694,
+        "meshes": 30,
+        "bones": 28,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 115.9,
+        "cpuMsP95": 115.9,
+        "buildMsTotal": 141.1,
+        "buildMsMax": 114.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:desert_scorpion",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:desert_scorpion",
+        "kind": "partner",
+        "id": "desert_scorpion",
+        "asset": "assets/characters/partners/desert_scorpion.png"
+      },
+      "specKey": {
+        "id": "partner:desert_scorpion",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:desert_scorpion",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 15218,
+        "meshes": 32,
+        "bones": 30,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 131.4,
+        "cpuMsP95": 131.4,
+        "buildMsTotal": 175.7,
+        "buildMsMax": 129.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "partner:oasis_cactus",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "partner:oasis_cactus",
+        "kind": "partner",
+        "id": "oasis_cactus",
+        "asset": "assets/characters/partners/oasis_cactus.png"
+      },
+      "specKey": {
+        "id": "partner:oasis_cactus",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "partner:oasis_cactus",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17710,
+        "meshes": 18,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 60.25,
+        "cpuMsP95": 87.7,
+        "buildMsTotal": 114.7,
+        "buildMsMax": 82.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "boundaries": [
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": null,
+      "saveCounters": {
+        "before": 14,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    },
+    {
+      "roleKey": "author:naoto",
+      "candidateOnly": false,
+      "actorIdentity": {
+        "key": "naoto",
+        "kind": "naoto",
+        "id": "naoto",
+        "asset": "assets/characters/author/naoto.png"
+      },
+      "specKey": {
+        "id": "author:naoto",
+        "stage": 0,
+        "exact": true
+      },
+      "template": {
+        "id": "author:naoto",
+        "stage": 0
+      },
+      "live3d": true,
+      "holderAttached": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13238,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 96.5,
+        "cpuMsP95": 96.5,
+        "buildMsTotal": 130.1,
+        "buildMsMax": 94.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 1
+      },
+      "boundaries": [
+        {
+          "label": "author-stage-entry",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-staged-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-staged-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-staged-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-staged-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-staged-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 11,
+          "afterWrites": 11,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-staged-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-staged-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "functional-final-draw",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        },
+        {
+          "label": "author-stage-release",
+          "save": true,
+          "storage": true,
+          "getter": true,
+          "saveWrites": true,
+          "beforeWrites": 14,
+          "afterWrites": 14,
+          "delta": [],
+          "storageDelta": []
+        }
+      ],
+      "unchanged": {
+        "save": true,
+        "storage": true,
+        "getter": true,
+        "saveWrites": true
+      },
+      "author": {
+        "originalRegion": "memory_lake",
+        "originalSpot": "deep",
+        "originalCoordinates": {
+          "x": -160,
+          "z": 4300,
+          "heading": 3.141592653589793
+        },
+        "naturalPresentation": "2D",
+        "qaPlacementRegion": "forest",
+        "qaPlacement": "same actual resident object in existing forest simulation resident list; bounded renderer.draw view adapter",
+        "actor": {
+          "key": "naoto",
+          "kind": "naoto",
+          "id": "naoto",
+          "asset": "assets/characters/author/naoto.png"
+        },
+        "sameActorObject": true,
+        "party": false,
+        "saveObjectChanged": false,
+        "bridgeGetterChanged": false,
+        "natural2D": true,
+        "sameActor": true,
+        "qaRegion": "forest",
+        "restoredActor": true,
+        "restoredPose": true,
+        "restoredDraw": true,
+        "restoredStep": true,
+        "restoredList": true
+      },
+      "applicationInterval": {
+        "scope": "Observed async interval outside synchronous presentation boundaries; changes are not a no-write claim",
+        "beforeWrites": 11,
+        "afterWrites": 14,
+        "delta": [
+          {
+            "path": "lifetime.meguru.marks.memory_lake",
+            "before": [],
+            "after": [
+              "hero:shore"
+            ]
+          },
+          {
+            "path": "lifetime.saveRevision",
+            "before": 3,
+            "after": 4
+          },
+          {
+            "path": "savedAt",
+            "before": 1791546072722,
+            "after": 1791546075430
+          }
+        ],
+        "storageDelta": [
+          {
+            "path": "naotocchi-save-v1",
+            "before": "{\"stage\":\"growing\",\"speciesLine\":\"dog\",\"stageIndex\":3,\"hunger\":85,\"happiness\":90,\"energy\":100,\"health\":100,\"ageTicks\":190,\"sodachi\":55,\"maxSodachi\":55,\"growth\":0,\"decline\":0,\"boostTicks\":0,\"recentActionTicks\":0,\"sleptTicks\":0,\"miracleGuard\":false,\"dying\":false,\"dyingTicks\":0,\"transformsThisLife\":0,\"declineBaseline\":0,\"transformStageDone\":[],\"dateCooldownTicks\":0,\"datesThisLife\":0,\"marriageAge\":null,\"marriageMilestonesSeen\":[],\"legendMet\":false,\"lifeLog\":[],\"midlifeSeen\":[],\"savedAt\":1791546072722,\"infinite\":false,\"infiniteForm\":null,\"infiniteReturn\":null,\"schemaVersion\":5,\"romanceCompatibilityVersion\":2,\"pendingLegacyRelationshipResolution\":null,\"poopCount\":0,\"isSick\":false,\"sicknessType\":null,\"totalSicknessCount\":0,\"sicknessCuredThisLife\":0,\"isSleeping\":false,\"lowHealthStreak\":0,\"careSum\":0,\"careTicks\":0,\"affectionStreak\":0,\"travelStreak\":0,\"actionCounts\":{\"feed\":0,\"play\":0,\"clean\":0,\"sleep\":0,\"medicine\":0,\"pet\":0,\"talk\":0},\"traitCounts\":{\"gentle\":0,\"wild\":0,\"calm\":0,\"brave\":0,\"romantic\":0},\"minigameScoreSum\":0,\"minigameCount\":0,\"deathMeter\":0,\"transformMeter\":0,\"transformOptions\":null,\"items\":{},\"oneTimeBoosts\":{},\"partner\":null,\"calledMatch\":null,\"gender\":\"female\",\"orientationId\":\"gay\",\"attractedTo\":[\"female\"],\"clownfishFemaleReached\":false,\"pendingClownfishTransition\":null,\"questioningEncounters\":0,\"guest\":null,\"companions\":[],\"regionId\":\"memory_lake\",\"discoveredStages\":[\"dog:3\"],\"lifetime\":{\"evolutions\":0,\"devolutions\":0,\"transforms\":0,\"clears\":0,\"deaths\":0,\"minigamesPlayed\":0,\"sicknessCured\":0,\"maxAgeReached\":9,\"resets\":0,\"lifeClears\":0,\"bestSodachi\":0,\"bestLives\":0,\"flawlessLives\":0,\"dexCleared\":true,\"perfectCleared\":false,\"pastLives\":[],\"dreamEggs\":{},\"nextEggLine\":null,\"nextEggKind\":null,\"endingTiersReached\":[3],\"deviceThemeId\":\"default\",\"screenThemeId\":\"default\",\"seasonMode\":\"auto\",\"timeMode\":\"auto\",\"weatherMode\":\"auto\",\"weatherSeen\":[],\"timeSeen\":[],\"envPlays\":{},\"envMoments\":0,\"minigameDifficulty\":\"normal\",\"minigameLength\":\"normal\",\"soundSfx\":true,\"soundBgm\":true,\"quickVoice\":\"tts\",\"currentLocationSelected\":false,\"currentLocation\":null,\"fontStyle\":\"rounded\",\"textSize\":\"normal\",\"buttonTransparency\":72,\"infoReadability\":50,\"devicePatternId\":\"none\",\"screenPatternId\":\"none\",\"companionsRecruited\":[],\"rareCompanionsRecruited\":[],\"companionFriendshipProgress\":{},\"partnersRecorded\":[],\"partnerEncounters\":[],\"partnersMarried\":[],\"money\":0,\"ownedShopItems\":[],\"equippedItemId\":null,\"itemMigrations\":{\"consumablesV2\":true,\"dreamEggsV2\":true,\"normalEquipmentV2\":true},\"raisedSpecies\":[],\"ownedNaotoItems\":[\"naoto_crown\"],\"consumablesUsed\":0,\"ownedConsumableItems\":[],\"bonusUnlockedThemeIds\":[],\"regionsVisited\":[\"home\"],\"specialRegionsVisited\":[],\"datesEnjoyed\":0,\"legendsMet\":[],\"minigamePlayCounts\":{},\"minigameRecords\":{},\"quick\":{\"runs\":0,\"bestCleared\":0,\"bestCombo\":0,\"totalCleared\":0,\"plays\":{},\"clears\":{},\"single\":{}},\"meguru\":{\"visits\":1,\"talkCount\":0,\"met\":{},\"talks\":{},\"spots\":{\"memory_lake\":[\"shore\"]},\"zones\":{\"memory_lake\":[\"shore\"]},\"paths\":{\"memory_lake\":[]},\"marks\":{\"memory_lake\":[]},\"world\":{\"regions\":[],\"links\":[]}},\"dailyChallenge\":null,\"dailyStreak\":0,\"dailyLastDate\":null,\"stickers\":{\"owned\":{\"form:dog:3\":1},\"pages\":{\"page-1\":[]},\"pageOrder\":[\"page-1\"],\"pageMeta\":{\"page-1\":{\"background\":\"home\"}},\"tasksDone\":[],\"packsOpened\":0,\"seen\":[]},\"duelTraits\":{\"cautious\":0,\"active\":0,\"jealous\":0,\"romantic\":0,\"secretive\":0,\"spoiled\":0,\"myPace\":0,\"realist\":0},\"duelMatchesPlayed\":0,\"duelWins\":0,\"duelLosses\":0,\"duelDraws\":0,\"duelLiesUsed\":0,\"duelLiesSucceeded\":0,\"duelLiesFacedAsGuesser\":0,\"duelLiesDetected\":0,\"duelHonestAnswersGiven\":0,\"duelHonestMisread\":0,\"duelLongestLieStreak\":0,\"duelRecentQuestionIds\":[],\"duelStakes\":{},\"duelSerial\":0,\"itemInventory\":{},\"funItemsRetiredVersion\":1,\"itemSystemVersion\":1,\"itemPurchases\":{},\"itemProgress\":{\"ticks\":0,\"readyAt\":{},\"relationshipSerial\":0,\"sceneSerial\":0,\"guestSerial\":0},\"itemMemories\":{\"letters\":[],\"specials\":[]},\"saveRevision\":3,\"achievementUnlockedAt\":{\"naoto-1\":1791546072596}},\"achievementsUnlocked\":[\"naoto-1\"],\"duel\":null,\"itemLife\":{\"pendingItems\":{}}}",
+            "after": "{\"stage\":\"growing\",\"speciesLine\":\"dog\",\"stageIndex\":3,\"hunger\":85,\"happiness\":90,\"energy\":100,\"health\":100,\"ageTicks\":190,\"sodachi\":55,\"maxSodachi\":55,\"growth\":0,\"decline\":0,\"boostTicks\":0,\"recentActionTicks\":0,\"sleptTicks\":0,\"miracleGuard\":false,\"dying\":false,\"dyingTicks\":0,\"transformsThisLife\":0,\"declineBaseline\":0,\"transformStageDone\":[],\"dateCooldownTicks\":0,\"datesThisLife\":0,\"marriageAge\":null,\"marriageMilestonesSeen\":[],\"legendMet\":false,\"lifeLog\":[],\"midlifeSeen\":[],\"savedAt\":1791546075430,\"infinite\":false,\"infiniteForm\":null,\"infiniteReturn\":null,\"schemaVersion\":5,\"romanceCompatibilityVersion\":2,\"pendingLegacyRelationshipResolution\":null,\"poopCount\":0,\"isSick\":false,\"sicknessType\":null,\"totalSicknessCount\":0,\"sicknessCuredThisLife\":0,\"isSleeping\":false,\"lowHealthStreak\":0,\"careSum\":0,\"careTicks\":0,\"affectionStreak\":0,\"travelStreak\":0,\"actionCounts\":{\"feed\":0,\"play\":0,\"clean\":0,\"sleep\":0,\"medicine\":0,\"pet\":0,\"talk\":0},\"traitCounts\":{\"gentle\":0,\"wild\":0,\"calm\":0,\"brave\":0,\"romantic\":0},\"minigameScoreSum\":0,\"minigameCount\":0,\"deathMeter\":0,\"transformMeter\":0,\"transformOptions\":null,\"items\":{},\"oneTimeBoosts\":{},\"partner\":null,\"calledMatch\":null,\"gender\":\"female\",\"orientationId\":\"gay\",\"attractedTo\":[\"female\"],\"clownfishFemaleReached\":false,\"pendingClownfishTransition\":null,\"questioningEncounters\":0,\"guest\":null,\"companions\":[],\"regionId\":\"memory_lake\",\"discoveredStages\":[\"dog:3\"],\"lifetime\":{\"evolutions\":0,\"devolutions\":0,\"transforms\":0,\"clears\":0,\"deaths\":0,\"minigamesPlayed\":0,\"sicknessCured\":0,\"maxAgeReached\":9,\"resets\":0,\"lifeClears\":0,\"bestSodachi\":0,\"bestLives\":0,\"flawlessLives\":0,\"dexCleared\":true,\"perfectCleared\":false,\"pastLives\":[],\"dreamEggs\":{},\"nextEggLine\":null,\"nextEggKind\":null,\"endingTiersReached\":[3],\"deviceThemeId\":\"default\",\"screenThemeId\":\"default\",\"seasonMode\":\"auto\",\"timeMode\":\"auto\",\"weatherMode\":\"auto\",\"weatherSeen\":[],\"timeSeen\":[],\"envPlays\":{},\"envMoments\":0,\"minigameDifficulty\":\"normal\",\"minigameLength\":\"normal\",\"soundSfx\":true,\"soundBgm\":true,\"quickVoice\":\"tts\",\"currentLocationSelected\":false,\"currentLocation\":null,\"fontStyle\":\"rounded\",\"textSize\":\"normal\",\"buttonTransparency\":72,\"infoReadability\":50,\"devicePatternId\":\"none\",\"screenPatternId\":\"none\",\"companionsRecruited\":[],\"rareCompanionsRecruited\":[],\"companionFriendshipProgress\":{},\"partnersRecorded\":[],\"partnerEncounters\":[],\"partnersMarried\":[],\"money\":0,\"ownedShopItems\":[],\"equippedItemId\":null,\"itemMigrations\":{\"consumablesV2\":true,\"dreamEggsV2\":true,\"normalEquipmentV2\":true},\"raisedSpecies\":[],\"ownedNaotoItems\":[\"naoto_crown\"],\"consumablesUsed\":0,\"ownedConsumableItems\":[],\"bonusUnlockedThemeIds\":[],\"regionsVisited\":[\"home\"],\"specialRegionsVisited\":[],\"datesEnjoyed\":0,\"legendsMet\":[],\"minigamePlayCounts\":{},\"minigameRecords\":{},\"quick\":{\"runs\":0,\"bestCleared\":0,\"bestCombo\":0,\"totalCleared\":0,\"plays\":{},\"clears\":{},\"single\":{}},\"meguru\":{\"visits\":1,\"talkCount\":0,\"met\":{},\"talks\":{},\"spots\":{\"memory_lake\":[\"shore\"]},\"zones\":{\"memory_lake\":[\"shore\"]},\"paths\":{\"memory_lake\":[]},\"marks\":{\"memory_lake\":[\"hero:shore\"]},\"world\":{\"regions\":[],\"links\":[]}},\"dailyChallenge\":null,\"dailyStreak\":0,\"dailyLastDate\":null,\"stickers\":{\"owned\":{\"form:dog:3\":1},\"pages\":{\"page-1\":[]},\"pageOrder\":[\"page-1\"],\"pageMeta\":{\"page-1\":{\"background\":\"home\"}},\"tasksDone\":[],\"packsOpened\":0,\"seen\":[]},\"duelTraits\":{\"cautious\":0,\"active\":0,\"jealous\":0,\"romantic\":0,\"secretive\":0,\"spoiled\":0,\"myPace\":0,\"realist\":0},\"duelMatchesPlayed\":0,\"duelWins\":0,\"duelLosses\":0,\"duelDraws\":0,\"duelLiesUsed\":0,\"duelLiesSucceeded\":0,\"duelLiesFacedAsGuesser\":0,\"duelLiesDetected\":0,\"duelHonestAnswersGiven\":0,\"duelHonestMisread\":0,\"duelLongestLieStreak\":0,\"duelRecentQuestionIds\":[],\"duelStakes\":{},\"duelSerial\":0,\"itemInventory\":{},\"funItemsRetiredVersion\":1,\"itemSystemVersion\":1,\"itemPurchases\":{},\"itemProgress\":{\"ticks\":0,\"readyAt\":{},\"relationshipSerial\":0,\"sceneSerial\":0,\"guestSerial\":0},\"itemMemories\":{\"letters\":[],\"specials\":[]},\"saveRevision\":4,\"achievementUnlockedAt\":{\"naoto-1\":1791546072596}},\"achievementsUnlocked\":[\"naoto-1\"],\"duel\":null,\"itemLife\":{\"pendingItems\":{}}}"
+          },
+          {
+            "path": "naotocchi-save-v1-backup",
+            "before": "{\"stage\":\"growing\",\"speciesLine\":\"dog\",\"stageIndex\":3,\"hunger\":85,\"happiness\":90,\"energy\":100,\"health\":100,\"ageTicks\":190,\"sodachi\":55,\"maxSodachi\":55,\"growth\":0,\"decline\":0,\"boostTicks\":0,\"recentActionTicks\":0,\"sleptTicks\":0,\"miracleGuard\":false,\"dying\":false,\"dyingTicks\":0,\"transformsThisLife\":0,\"declineBaseline\":0,\"transformStageDone\":[],\"dateCooldownTicks\":0,\"datesThisLife\":0,\"marriageAge\":null,\"marriageMilestonesSeen\":[],\"legendMet\":false,\"lifeLog\":[],\"midlifeSeen\":[],\"savedAt\":1791546072598,\"infinite\":false,\"infiniteForm\":null,\"infiniteReturn\":null,\"schemaVersion\":5,\"romanceCompatibilityVersion\":2,\"pendingLegacyRelationshipResolution\":null,\"poopCount\":0,\"isSick\":false,\"sicknessType\":null,\"totalSicknessCount\":0,\"sicknessCuredThisLife\":0,\"isSleeping\":false,\"lowHealthStreak\":0,\"careSum\":0,\"careTicks\":0,\"affectionStreak\":0,\"travelStreak\":0,\"actionCounts\":{\"feed\":0,\"play\":0,\"clean\":0,\"sleep\":0,\"medicine\":0,\"pet\":0,\"talk\":0},\"traitCounts\":{\"gentle\":0,\"wild\":0,\"calm\":0,\"brave\":0,\"romantic\":0},\"minigameScoreSum\":0,\"minigameCount\":0,\"deathMeter\":0,\"transformMeter\":0,\"transformOptions\":null,\"items\":{},\"oneTimeBoosts\":{},\"partner\":null,\"calledMatch\":null,\"gender\":\"female\",\"orientationId\":\"gay\",\"attractedTo\":[\"female\"],\"clownfishFemaleReached\":false,\"pendingClownfishTransition\":null,\"questioningEncounters\":0,\"guest\":null,\"companions\":[],\"regionId\":\"memory_lake\",\"discoveredStages\":[\"dog:3\"],\"lifetime\":{\"evolutions\":0,\"devolutions\":0,\"transforms\":0,\"clears\":0,\"deaths\":0,\"minigamesPlayed\":0,\"sicknessCured\":0,\"maxAgeReached\":9,\"resets\":0,\"lifeClears\":0,\"bestSodachi\":0,\"bestLives\":0,\"flawlessLives\":0,\"dexCleared\":true,\"perfectCleared\":false,\"pastLives\":[],\"dreamEggs\":{},\"nextEggLine\":null,\"nextEggKind\":null,\"endingTiersReached\":[3],\"deviceThemeId\":\"default\",\"screenThemeId\":\"default\",\"seasonMode\":\"auto\",\"timeMode\":\"auto\",\"weatherMode\":\"auto\",\"weatherSeen\":[],\"timeSeen\":[],\"envPlays\":{},\"envMoments\":0,\"minigameDifficulty\":\"normal\",\"minigameLength\":\"normal\",\"soundSfx\":true,\"soundBgm\":true,\"quickVoice\":\"tts\",\"currentLocationSelected\":false,\"currentLocation\":null,\"fontStyle\":\"rounded\",\"textSize\":\"normal\",\"buttonTransparency\":72,\"infoReadability\":50,\"devicePatternId\":\"none\",\"screenPatternId\":\"none\",\"companionsRecruited\":[],\"rareCompanionsRecruited\":[],\"companionFriendshipProgress\":{},\"partnersRecorded\":[],\"partnerEncounters\":[],\"partnersMarried\":[],\"money\":0,\"ownedShopItems\":[],\"equippedItemId\":null,\"itemMigrations\":{\"consumablesV2\":true,\"dreamEggsV2\":true,\"normalEquipmentV2\":true},\"raisedSpecies\":[],\"ownedNaotoItems\":[\"naoto_crown\"],\"consumablesUsed\":0,\"ownedConsumableItems\":[],\"bonusUnlockedThemeIds\":[],\"regionsVisited\":[\"home\"],\"specialRegionsVisited\":[],\"datesEnjoyed\":0,\"legendsMet\":[],\"minigamePlayCounts\":{},\"minigameRecords\":{},\"quick\":{\"runs\":0,\"bestCleared\":0,\"bestCombo\":0,\"totalCleared\":0,\"plays\":{},\"clears\":{},\"single\":{}},\"meguru\":{\"visits\":1,\"talkCount\":0,\"met\":{},\"talks\":{},\"spots\":{},\"zones\":{\"memory_lake\":[]},\"paths\":{\"memory_lake\":[]},\"marks\":{\"memory_lake\":[]},\"world\":{\"regions\":[],\"links\":[]}},\"dailyChallenge\":null,\"dailyStreak\":0,\"dailyLastDate\":null,\"stickers\":{\"owned\":{\"form:dog:3\":1},\"pages\":{\"page-1\":[]},\"pageOrder\":[\"page-1\"],\"pageMeta\":{\"page-1\":{\"background\":\"home\"}},\"tasksDone\":[],\"packsOpened\":0,\"seen\":[]},\"duelTraits\":{\"cautious\":0,\"active\":0,\"jealous\":0,\"romantic\":0,\"secretive\":0,\"spoiled\":0,\"myPace\":0,\"realist\":0},\"duelMatchesPlayed\":0,\"duelWins\":0,\"duelLosses\":0,\"duelDraws\":0,\"duelLiesUsed\":0,\"duelLiesSucceeded\":0,\"duelLiesFacedAsGuesser\":0,\"duelLiesDetected\":0,\"duelHonestAnswersGiven\":0,\"duelHonestMisread\":0,\"duelLongestLieStreak\":0,\"duelRecentQuestionIds\":[],\"duelStakes\":{},\"duelSerial\":0,\"itemInventory\":{},\"funItemsRetiredVersion\":1,\"itemSystemVersion\":1,\"itemPurchases\":{},\"itemProgress\":{\"ticks\":0,\"readyAt\":{},\"relationshipSerial\":0,\"sceneSerial\":0,\"guestSerial\":0},\"itemMemories\":{\"letters\":[],\"specials\":[]},\"saveRevision\":2,\"achievementUnlockedAt\":{\"naoto-1\":1791546072596}},\"achievementsUnlocked\":[\"naoto-1\"],\"duel\":null,\"itemLife\":{\"pendingItems\":{}}}",
+            "after": "{\"stage\":\"growing\",\"speciesLine\":\"dog\",\"stageIndex\":3,\"hunger\":85,\"happiness\":90,\"energy\":100,\"health\":100,\"ageTicks\":190,\"sodachi\":55,\"maxSodachi\":55,\"growth\":0,\"decline\":0,\"boostTicks\":0,\"recentActionTicks\":0,\"sleptTicks\":0,\"miracleGuard\":false,\"dying\":false,\"dyingTicks\":0,\"transformsThisLife\":0,\"declineBaseline\":0,\"transformStageDone\":[],\"dateCooldownTicks\":0,\"datesThisLife\":0,\"marriageAge\":null,\"marriageMilestonesSeen\":[],\"legendMet\":false,\"lifeLog\":[],\"midlifeSeen\":[],\"savedAt\":1791546072722,\"infinite\":false,\"infiniteForm\":null,\"infiniteReturn\":null,\"schemaVersion\":5,\"romanceCompatibilityVersion\":2,\"pendingLegacyRelationshipResolution\":null,\"poopCount\":0,\"isSick\":false,\"sicknessType\":null,\"totalSicknessCount\":0,\"sicknessCuredThisLife\":0,\"isSleeping\":false,\"lowHealthStreak\":0,\"careSum\":0,\"careTicks\":0,\"affectionStreak\":0,\"travelStreak\":0,\"actionCounts\":{\"feed\":0,\"play\":0,\"clean\":0,\"sleep\":0,\"medicine\":0,\"pet\":0,\"talk\":0},\"traitCounts\":{\"gentle\":0,\"wild\":0,\"calm\":0,\"brave\":0,\"romantic\":0},\"minigameScoreSum\":0,\"minigameCount\":0,\"deathMeter\":0,\"transformMeter\":0,\"transformOptions\":null,\"items\":{},\"oneTimeBoosts\":{},\"partner\":null,\"calledMatch\":null,\"gender\":\"female\",\"orientationId\":\"gay\",\"attractedTo\":[\"female\"],\"clownfishFemaleReached\":false,\"pendingClownfishTransition\":null,\"questioningEncounters\":0,\"guest\":null,\"companions\":[],\"regionId\":\"memory_lake\",\"discoveredStages\":[\"dog:3\"],\"lifetime\":{\"evolutions\":0,\"devolutions\":0,\"transforms\":0,\"clears\":0,\"deaths\":0,\"minigamesPlayed\":0,\"sicknessCured\":0,\"maxAgeReached\":9,\"resets\":0,\"lifeClears\":0,\"bestSodachi\":0,\"bestLives\":0,\"flawlessLives\":0,\"dexCleared\":true,\"perfectCleared\":false,\"pastLives\":[],\"dreamEggs\":{},\"nextEggLine\":null,\"nextEggKind\":null,\"endingTiersReached\":[3],\"deviceThemeId\":\"default\",\"screenThemeId\":\"default\",\"seasonMode\":\"auto\",\"timeMode\":\"auto\",\"weatherMode\":\"auto\",\"weatherSeen\":[],\"timeSeen\":[],\"envPlays\":{},\"envMoments\":0,\"minigameDifficulty\":\"normal\",\"minigameLength\":\"normal\",\"soundSfx\":true,\"soundBgm\":true,\"quickVoice\":\"tts\",\"currentLocationSelected\":false,\"currentLocation\":null,\"fontStyle\":\"rounded\",\"textSize\":\"normal\",\"buttonTransparency\":72,\"infoReadability\":50,\"devicePatternId\":\"none\",\"screenPatternId\":\"none\",\"companionsRecruited\":[],\"rareCompanionsRecruited\":[],\"companionFriendshipProgress\":{},\"partnersRecorded\":[],\"partnerEncounters\":[],\"partnersMarried\":[],\"money\":0,\"ownedShopItems\":[],\"equippedItemId\":null,\"itemMigrations\":{\"consumablesV2\":true,\"dreamEggsV2\":true,\"normalEquipmentV2\":true},\"raisedSpecies\":[],\"ownedNaotoItems\":[\"naoto_crown\"],\"consumablesUsed\":0,\"ownedConsumableItems\":[],\"bonusUnlockedThemeIds\":[],\"regionsVisited\":[\"home\"],\"specialRegionsVisited\":[],\"datesEnjoyed\":0,\"legendsMet\":[],\"minigamePlayCounts\":{},\"minigameRecords\":{},\"quick\":{\"runs\":0,\"bestCleared\":0,\"bestCombo\":0,\"totalCleared\":0,\"plays\":{},\"clears\":{},\"single\":{}},\"meguru\":{\"visits\":1,\"talkCount\":0,\"met\":{},\"talks\":{},\"spots\":{\"memory_lake\":[\"shore\"]},\"zones\":{\"memory_lake\":[\"shore\"]},\"paths\":{\"memory_lake\":[]},\"marks\":{\"memory_lake\":[]},\"world\":{\"regions\":[],\"links\":[]}},\"dailyChallenge\":null,\"dailyStreak\":0,\"dailyLastDate\":null,\"stickers\":{\"owned\":{\"form:dog:3\":1},\"pages\":{\"page-1\":[]},\"pageOrder\":[\"page-1\"],\"pageMeta\":{\"page-1\":{\"background\":\"home\"}},\"tasksDone\":[],\"packsOpened\":0,\"seen\":[]},\"duelTraits\":{\"cautious\":0,\"active\":0,\"jealous\":0,\"romantic\":0,\"secretive\":0,\"spoiled\":0,\"myPace\":0,\"realist\":0},\"duelMatchesPlayed\":0,\"duelWins\":0,\"duelLosses\":0,\"duelDraws\":0,\"duelLiesUsed\":0,\"duelLiesSucceeded\":0,\"duelLiesFacedAsGuesser\":0,\"duelLiesDetected\":0,\"duelHonestAnswersGiven\":0,\"duelHonestMisread\":0,\"duelLongestLieStreak\":0,\"duelRecentQuestionIds\":[],\"duelStakes\":{},\"duelSerial\":0,\"itemInventory\":{},\"funItemsRetiredVersion\":1,\"itemSystemVersion\":1,\"itemPurchases\":{},\"itemProgress\":{\"ticks\":0,\"readyAt\":{},\"relationshipSerial\":0,\"sceneSerial\":0,\"guestSerial\":0},\"itemMemories\":{\"letters\":[],\"specials\":[]},\"saveRevision\":3,\"achievementUnlockedAt\":{\"naoto-1\":1791546072596}},\"achievementsUnlocked\":[\"naoto-1\"],\"duel\":null,\"itemLife\":{\"pendingItems\":{}}}"
+          }
+        ],
+        "saveCalls": [
+          {
+            "key": "naotocchi-save-v1-backup",
+            "timestampMs": 3357.3000000000466,
+            "stack": "Error: observed save call\n    at Storage.setItem (<anonymous>:5:280)\n    at saveState (http://127.0.0.1:42191/script.js?v=20261002-194f3480:2877:26)\n    at http://127.0.0.1:42191/script.js?v=20261002-194f3480:14553:50"
+          },
+          {
+            "key": "naotocchi-save-v1-writer",
+            "timestampMs": 3357.3000000000466,
+            "stack": "Error: observed save call\n    at Storage.setItem (<anonymous>:5:280)\n    at markSaveWriter (http://127.0.0.1:42191/script.js?v=20261002-194f3480:52:39)\n    at saveState (http://127.0.0.1:42191/script.js?v=20261002-194f3480:2880:7)\n    at http://127.0.0.1:42191/script.js?v=20261002-194f3480:14553:50"
+          },
+          {
+            "key": "naotocchi-save-v1",
+            "timestampMs": 3357.3000000000466,
+            "stack": "Error: observed save call\n    at Storage.setItem (<anonymous>:5:280)\n    at saveState (http://127.0.0.1:42191/script.js?v=20261002-194f3480:2881:20)\n    at http://127.0.0.1:42191/script.js?v=20261002-194f3480:14553:50"
+          }
+        ]
+      },
+      "saveCounters": {
+        "before": 11,
+        "after": 14
+      },
+      "validation": {
+        "pass": true
+      }
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "verdict": {
+    "pass": true,
+    "final45": true
+  },
+  "measurements": {
+    "animationOnlyCpuMs": null,
+    "firstAppearanceHitchMs": null,
+    "note": "Presenter CPU and build stats are aggregate; functional readiness is not a hitch measurement."
+  }
+}

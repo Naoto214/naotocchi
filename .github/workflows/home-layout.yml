@@ -2,13 +2,17 @@ name: Home layout
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, feat/character-3d-pilot]
     paths:
       - '**.css'
       - '**.html'
       - '**.js'
       - '**.cjs'
       - 'package*.json'
+      # RH-3: images, atlas/manifest JSON and vite.config.mjs also change what the browser layout loads.
+      - 'assets/**'
+      - '**.json'
+      - '**.mjs'
       - '.github/workflows/home-layout.yml'
   push:
     branches: [main]
@@ -18,6 +22,10 @@ on:
       - '**.js'
       - '**.cjs'
       - 'package*.json'
+      # RH-3: images, atlas/manifest JSON and vite.config.mjs also change what the browser layout loads.
+      - 'assets/**'
+      - '**.json'
+      - '**.mjs'
       - '.github/workflows/home-layout.yml'
 
 permissions:
@@ -26,7 +34,8 @@ permissions:
 jobs:
   home-layout:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Both browser engines plus focused gates and artifact upload reach 20 minutes.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,10 +44,45 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/sticker-background-browser.cjs
+      - run: node tests/boot-rescue-browser.cjs
+      - run: node tests/back-navigation-browser.cjs
+      - run: node tests/motion-v2-browser.cjs
+      - run: node tests/home-layout-regressions-browser.cjs
+      - run: node tests/meguru-discovery-transition-browser.cjs
+      - run: node tests/meguru-landscape-browser.cjs
+      - name: Camera framing and regional rotation regression
+        run: node tools/meguru-3d-qa/camera-framing.cjs
+        env:
+          FRAMING_VARIANTS: candidate
+          FRAMING_OUT: test-results/home-layout/camera-framing
+      - run: node tools/meguru-3d-qa/camera-framing-mutation.cjs
       - run: node tests/home-layout-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: home-layout
           path: test-results/home-layout
+          retention-days: 14
+
+  pad-size:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Paired baseline and candidate pad layout/input
+        run: |
+          git fetch --depth=1 origin e9932859c1479b2c1e53d77b20bb3b8f104343df
+          node tests/meguru-pad-size-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: meguru-pad-size
+          path: test-results/home-layout/pad-size
           retention-days: 14

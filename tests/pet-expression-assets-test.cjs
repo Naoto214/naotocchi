@@ -1,0 +1,459 @@
+const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
+const fs = require('node:fs');
+const path = require('node:path');
+const zlib = require('node:zlib');
+const {test} = require('node:test');
+
+const expression = require('../pet-expression.js');
+const ROOT = path.join(__dirname, '..');
+const PNG_SIGNATURE = Buffer.from([137,80,78,71,13,10,26,10]);
+const EXPECTED = Object.freeze({
+  'assets/characters/cat/06.png': '8f6beedbfd82135cfc17c24d3aa5ea1869c9344f65b0a21e3950995c5768c6da',
+  'assets/characters/expressions/cat/06-happy-v3.png': '475379397e9ab0e89281ce7276e018bf765ca23506223e8ea0058ebf708f3d54',
+  'assets/characters/expressions/cat/06-strained.png': '66c8e780bd8365b45676d60c6d4be762a025976694b58963be649b293509c7aa',
+  'assets/characters/expressions/cat/06-sulky.png': '72ff579e670c081fe888c26dfee5181fb16d04aab3508ef9c2ad0f2b4a07e0ba',
+  'assets/characters/expressions/cat/06-hungry.png': '85eb48deb349bf9c374ad75900694a1f35afb9e3c6d88748320a60c5f1e8105f',
+  'assets/characters/expressions/cat/06-sick.png': 'aab6c564c6aa2f235d2209d3c6edba234815cc9494b45f11f03fb9a2a0abd3ff',
+  'assets/characters/expressions/cat/06-tired.png': '7748f94642c1c1ddacd5189f3e522e5f095199a77d6dabb6c6ba45a6bec4a36d',
+  'assets/characters/expressions/cat/06-weak.png': 'b1f1d0f9bf0ccbb3a54b0982f2999f5750039c7384255afc1fecd5111cc76388',
+  'assets/characters/expressions/cat/06-critical.png': '10a4d9a61fd8b898f7a41ab9d7f36681c85656d688cc85584cc0d907f36b0c3d',
+  'assets/characters/expressions/cat/06-wantsPlay.png': 'fb36a5a16d7b6ae74857c6f9b7353b416a11566d788b9919a73f1d652800fa21',
+  'assets/characters/expressions/cat/06-sleeping-v3.png': '9111630bfa7bed35b9e1f943ecfac450964eba00c4974b725390759f47977303',
+});
+
+function inspectPng(relativePath) {
+  const data = fs.readFileSync(path.join(ROOT, relativePath));
+  assert.deepEqual(data.subarray(0,8), PNG_SIGNATURE, `${relativePath} has the PNG signature`);
+  let offset = 8;
+  let ihdr;
+  const idat = [];
+  while (offset < data.length) {
+    const length = data.readUInt32BE(offset);
+    const type = data.toString('ascii',offset + 4,offset + 8);
+    const payload = data.subarray(offset + 8,offset + 8 + length);
+    if (type === 'IHDR') ihdr = payload;
+    if (type === 'IDAT') idat.push(payload);
+    offset += 12 + length;
+    if (type === 'IEND') break;
+  }
+  assert.ok(ihdr, `${relativePath} has IHDR`);
+  const width = ihdr.readUInt32BE(0);
+  const height = ihdr.readUInt32BE(4);
+  const bitDepth = ihdr[8];
+  const colorType = ihdr[9];
+  const interlace = ihdr[12];
+  assert.deepEqual({width,height,bitDepth,colorType,interlace},
+    {width:128,height:128,bitDepth:8,colorType:6,interlace:0},
+    `${relativePath} is a non-interlaced 128x128 RGBA PNG`);
+
+  const bytesPerPixel = 4;
+  const stride = width * bytesPerPixel;
+  const raw = zlib.inflateSync(Buffer.concat(idat));
+  assert.equal(raw.length,height * (stride + 1),`${relativePath} has complete pixel data`);
+  const decoded = Buffer.alloc(height * stride);
+  const paeth = (a,b,c) => {
+    const p = a + b - c;
+    const pa = Math.abs(p-a), pb = Math.abs(p-b), pc = Math.abs(p-c);
+    return pa <= pb && pa <= pc ? a : pb <= pc ? b : c;
+  };
+  for (let y=0;y<height;y+=1) {
+    const filter = raw[y*(stride+1)];
+    assert.ok(filter >= 0 && filter <= 4,`${relativePath} uses a known PNG filter`);
+    for (let x=0;x<stride;x+=1) {
+      const source = raw[y*(stride+1)+1+x];
+      const left = x >= bytesPerPixel ? decoded[y*stride+x-bytesPerPixel] : 0;
+      const up = y > 0 ? decoded[(y-1)*stride+x] : 0;
+      const upperLeft = y > 0 && x >= bytesPerPixel ? decoded[(y-1)*stride+x-bytesPerPixel] : 0;
+      const predictor = filter === 0 ? 0
+        : filter === 1 ? left
+          : filter === 2 ? up
+            : filter === 3 ? Math.floor((left+up)/2)
+              : paeth(left,up,upperLeft);
+      decoded[y*stride+x]=(source+predictor)&255;
+    }
+  }
+  const alpha = new Set();
+  let left=width,top=height,right=0,bottom=0;
+  for (let i=3;i<decoded.length;i+=4) alpha.add(decoded[i]);
+  for (let y=0;y<height;y+=1) for (let x=0;x<width;x+=1) {
+    if (decoded[y*stride+x*4+3] === 0) continue;
+    left=Math.min(left,x); top=Math.min(top,y); right=Math.max(right,x+1); bottom=Math.max(bottom,y+1);
+  }
+  return {data,alpha:[...alpha].sort((a,b)=>a-b),bounds:[left,top,right,bottom]};
+}
+
+test('the original adult cat stays byte-identical to the approved master', () => {
+  const relativePath='assets/characters/cat/06.png';
+  const {data}=inspectPng(relativePath);
+  assert.equal(crypto.createHash('sha256').update(data).digest('hex'),EXPECTED[relativePath]);
+});
+
+test('all ten expression assets are distinct approved transparent RGBA PNGs on the original bounds', () => {
+  const variants=Object.keys(EXPECTED).filter(file=>file.includes('/expressions/'));
+  const hashes=[];
+  for (const relativePath of variants) {
+    const {data,alpha,bounds}=inspectPng(relativePath);
+    const hash=crypto.createHash('sha256').update(data).digest('hex');
+    assert.equal(hash,EXPECTED[relativePath],`${relativePath} matches its approved normalized output`);
+    assert.deepEqual(alpha,[0,255],`${relativePath} has transparent and opaque pixels only`);
+    assert.deepEqual(bounds,[16,8,112,120],`${relativePath} keeps the adult-cat master bounds`);
+    hashes.push(hash);
+  }
+  assert.equal(new Set(hashes).size,10,'the ten expressions are different files');
+  assert.ok(hashes.every(hash=>hash!==EXPECTED['assets/characters/cat/06.png']),
+    'no expression is a copy of the original portrait');
+});
+
+test('every runtime-allowlisted adult-cat expression path exists', () => {
+  const base='assets/characters/cat/06.png';
+  const expected={
+    happy:'assets/characters/expressions/cat/06-happy-v3.png',
+    strained:'assets/characters/expressions/cat/06-strained.png',
+    sulky:'assets/characters/expressions/cat/06-sulky.png',
+    hungry:'assets/characters/expressions/cat/06-hungry.png',
+    sick:'assets/characters/expressions/cat/06-sick.png',
+    tired:'assets/characters/expressions/cat/06-tired.png',
+    weak:'assets/characters/expressions/cat/06-weak.png',
+    critical:'assets/characters/expressions/cat/06-critical.png',
+    wantsPlay:'assets/characters/expressions/cat/06-wantsPlay.png',
+    sleeping:'assets/characters/expressions/cat/06-sleeping-v3.png',
+  };
+  for (const [face,relativePath] of Object.entries(expected)) {
+    assert.equal(expression.assetFor(base,face),relativePath);
+    assert.equal(fs.existsSync(path.join(ROOT,relativePath)),true,`${relativePath} exists`);
+  }
+});
+
+test('kitten expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/03.png');
+  assert.deepEqual(original.bounds,[21,28,107,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/03.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('otemba expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/04.png');
+  assert.deepEqual(original.bounds,[8,38,120,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/04.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('young expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/05.png');
+  assert.deepEqual(original.bounds,[17,15,111,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/05.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('calm expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/07.png');
+  assert.deepEqual(original.bounds,[18,14,109,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/07.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('elder expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/08.png');
+  assert.deepEqual(original.bounds,[14,22,114,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/08.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('toddler expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/02.png');
+  assert.deepEqual(original.bounds,[29,40,99,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/02.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('baby expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/01.png');
+  assert.deepEqual(original.bounds,[32,73,96,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/01.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+
+test('adult dog expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/06.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/06-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('puppy expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/03.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/03-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('wanpaku expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/04.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/04-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('young dog expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/05.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/05-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('calm dog expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/07.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/07-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('baby dog expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/01.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/01-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('toddler dog expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/02.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/02-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+test('elder dog expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/08.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/08-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
+
+// Step 3: 128px expressions use the visible bounds of the approved high-resolution
+// masters projected to the runtime canvas. Other species keep their original contract.
+const starfishAdopted = {
+  '01': ['bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39', [30,18,99,110]],
+  '02': ['d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d', [26,18,98,114]],
+  '03': ['220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0', [32,27,101,102]],
+};
+
+for (const [stage, [expected]] of Object.entries(starfishAdopted)) {
+  test(`starfish/${stage} master is the exact approved candidate; normal routing uses it`, () => {
+    const base = `assets/characters/starfish/${stage}.png`;
+    const data = fs.readFileSync(path.join(ROOT, base));
+    const candidate = fs.readFileSync(path.join(ROOT, `docs/qa/starfish-baseline-candidates-20260925/${stage}-candidate.png`));
+    assert.equal(crypto.createHash('sha256').update(data).digest('hex'), expected);
+    assert.deepEqual(data, candidate, 'no regeneration, normalization or recompression');
+    assert.equal(expression.assetFor(base, 'normal'), base);
+  });
+}
+
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush','unknown','ren']) for(let index=1;index<=8;index++) {
+  const stage=String(index).padStart(2,'0');
+  test(`${species}/${stage} has ten distinct transparent expressions with ${species === 'starfish' && starfishAdopted[stage] ? 'projected approved master' : 'original'} bounds`, () => {
+    const projected = species === 'starfish' && starfishAdopted[stage];
+    const original = projected ? {data:fs.readFileSync(path.join(ROOT, `assets/characters/${species}/${stage}.png`)), bounds:projected[1]} : inspectPng(`assets/characters/${species}/${stage}.png`);
+    const hashes=[];
+    for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+      const file=`assets/characters/expressions/${species}/${stage}-${name}.png`;
+      assert.equal(expression.assetFor(`assets/characters/${species}/${stage}.png`,name),file);
+      assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+      const {data,bounds,alpha}=inspectPng(file);
+      assert.deepEqual(bounds,original.bounds,name);
+      assert.deepEqual(alpha,[0,255],name);
+      const hash = crypto.createHash('sha256').update(data).digest('hex');
+      if (projected) assert.equal(hash, require('../docs/qa/starfish-expressions-step3-20260927-manifest.json').records.find(r => r.final === file).final_sha256);
+      hashes.push(hash);
+    }
+    assert.equal(new Set(hashes).size,10);
+    assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+  });
+}
+
+// Regression: normalization must read the complete source canvas, not the first
+// 128 rows/columns of a high-resolution PNG. Temporary fixture writes only.
+test('normalization produces identical framing for high-resolution and projected masters', async () => {
+  const sharp = require('sharp');
+  const {execFileSync} = require('node:child_process');
+  const tmp = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'expression-normalize-'));
+  try {
+    fs.mkdirSync(path.join(tmp, 'tools'));
+    fs.mkdirSync(path.join(tmp, 'assets/characters/starfish'), {recursive:true});
+    fs.copyFileSync(path.join(ROOT,'tools/normalize-expression-image.cjs'), path.join(tmp,'tools/normalize-expression-image.cjs'));
+    const base = path.join(ROOT,'assets/characters/starfish/01.png');
+    const local = path.join(tmp,'assets/characters/starfish/01.png');
+    const output = path.join(tmp,'assets/characters/expressions/starfish/01-hungry.png');
+    // The copied tool lives outside the repo; resolve its dependencies from the
+    // locked installation instead of relying on an ambient global NODE_PATH.
+    const env = {...process.env, NODE_PATH:[path.join(ROOT,'node_modules'),process.env.NODE_PATH].filter(Boolean).join(path.delimiter)};
+    const run = () => execFileSync(process.execPath,[path.join(tmp,'tools/normalize-expression-image.cjs'),base,'starfish','01','hungry'],{env});
+    fs.copyFileSync(base,local);
+    run();
+    const high = fs.readFileSync(output);
+    await sharp(base).resize(128,128,{kernel:'nearest'}).png().toFile(local);
+    run();
+    assert.deepEqual(fs.readFileSync(output),high);
+    const {width,height} = await sharp(high).metadata();
+    assert.deepEqual([width,height],[128,128]);
+  } finally { fs.rmSync(tmp,{recursive:true,force:true}); }
+});
+
+// Protect the approved larval outline from reattaching the left sweat/silver mark.
+// Real PNG silhouettes and rendered runtime SVG, including the full sweat travel.
+for (const stage of ['02','03']) test(`starfish/${stage} left illness sweat and silver mark clear the new body at Home sizes`, async () => {
+  const sharp = require('sharp');
+  const bounds = require('../cast-bounds.js');
+  const css = fs.readFileSync(path.join(ROOT,'pet-expression.css'),'utf8');
+  const base = `assets/characters/starfish/${stage}.png`;
+  for (const size of [64,80,104]) {
+    const scale=4, pad=40, width=(size+pad*2)*scale;
+    const floor=size*(128-bounds[base].box[3])/128;
+    const render=async content => (await sharp(Buffer.from(`<svg width="${width}" height="${width}" viewBox="-40 -40 ${size+80} ${size+80}">${content}</svg>`)).ensureAlpha().raw().toBuffer());
+    const points=data=>{const p=[];for(let y=0;y<width;y++)for(let x=0;x<width;x++)if(data[(y*width+x)*4+3]>16)p.push([x/scale-pad,y/scale-pad]);return p;};
+    const drops=expression.sweatFor(base,size,size,floor);
+    const dw=Math.max(6,Math.min(11,size*.1)),dh=Math.max(9,Math.min(16,size*.15));
+    const rw=dw*Math.cos(Math.PI/10)+dh*Math.sin(Math.PI/10),rh=dh*Math.cos(Math.PI/10)+dw*Math.sin(Math.PI/10);
+    const box=[drops.left+(dw-rw)/2,drops.top+(dh-rh)/2,drops.left+(dw+rw)/2,drops.top+(dh+rh)/2+drops.travel];
+    const distanceToSweat=([x,y])=>Math.hypot(Math.max(box[0]-x,0,x-box[2]),Math.max(box[1]-y,0,y-box[3]));
+    const body=[];
+    for(const name of ['hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping','happy','strained']) {
+      const png=fs.readFileSync(path.join(ROOT,expression.assetFor(base,name))).toString('base64');
+      const p=points(await render(`<image width="${size}" height="${size}" y="${floor}" href="data:image/png;base64,${png}"/>`));
+      assert.ok(p.every(p=>distanceToSweat(p)>=1.75),`${size}px ${name}: left sweat needs visible body clearance throughout its travel`);
+      body.push(...p);
+    }
+    const svg=expression.accentFor(base,'strained').match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1];
+    const silver=points(await render(`<style>${css}</style><g class="pet-expression-accent" transform="scale(${size/104})">${svg}</g>`));
+    // Sweat overlap is allowed: the silver mark paints above it. Preserve the
+    // upper-left relationship instead of moving the mark below the larval head.
+    const silverCenterY=silver.reduce((sum,p)=>sum+p[1],0)/silver.length;
+    assert.ok(silverCenterY<=body.reduce((min,p)=>Math.min(min,p[1]),Infinity)+size*.1, `${size}px silver stays by the upper contour`);
+    const occupied=new Set(body.map(([x,y])=>`${Math.round(x*scale)},${Math.round(y*scale)}`));
+    for(const [x,y] of silver)for(let dy=-7;dy<=7;dy++)for(let dx=-7;dx<=7;dx++) {
+      if(dx*dx+dy*dy>=49)continue;
+      assert.ok(!occupied.has(`${Math.round(x*scale)+dx},${Math.round(y*scale)+dy}`),`${size}px silver needs visible body clearance`);
+    }
+  }
+});

@@ -1,0 +1,76 @@
+{
+  "rule": "Max tuning wins, then min all-trial transforms, then min screenDiscrete inputs, then lexicographic id. Confirm on existing 300..331 benchmark, never select on confirmation results.",
+  "tuneSummarySha256": "8d8b47d6ec6b48b2dece08dc7322ca612990c9f25acfa6b5a96cb08f308f282c",
+  "design": {
+    "conditions": [
+      {
+        "id": "g2",
+        "gauge": 2,
+        "options": {
+          "transformPenalty": 6
+        },
+        "candidate": "penalty6"
+      },
+      {
+        "id": "g3",
+        "gauge": 3,
+        "options": {
+          "reservePoints": 24,
+          "transformPenalty": 12
+        },
+        "candidate": "reserve24"
+      },
+      {
+        "id": "g4",
+        "gauge": 4,
+        "options": {
+          "transformPenalty": 6
+        },
+        "candidate": "penalty6"
+      },
+      {
+        "id": "g8",
+        "gauge": 8,
+        "options": {
+          "reservePoints": 24,
+          "transformPenalty": 12
+        },
+        "candidate": "reserve24"
+      }
+    ],
+    "seeds": [
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306,
+      307,
+      308,
+      309,
+      310,
+      311,
+      312,
+      313,
+      314,
+      315,
+      316,
+      317,
+      318,
+      319,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331
+    ]
+  }
+}

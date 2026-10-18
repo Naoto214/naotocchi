@@ -1,0 +1,142 @@
+{
+  "fixture": "actor-free static complete world; no occluder fade; not gameplay or performance QA",
+  "errors": [],
+  "records": [
+    {
+      "name": "prop-wheel-0",
+      "region": "countryside",
+      "target": "countryside:495",
+      "targetSha256": "f532706d935d261070629de1762a85137c8c8fd828aa2ebd64284df06c328732",
+      "active": true,
+      "triangles": 117596,
+      "calls": 47,
+      "camera": {
+        "x": 1882.046839705442,
+        "z": 3162.1001169879496,
+        "yaw": -1.1207963267948966,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 899
+    },
+    {
+      "name": "prop-wheel-1",
+      "region": "countryside",
+      "target": "countryside:495",
+      "targetSha256": "f532706d935d261070629de1762a85137c8c8fd828aa2ebd64284df06c328732",
+      "active": true,
+      "triangles": 118946,
+      "calls": 46,
+      "camera": {
+        "x": 1882.046839705442,
+        "z": 3162.1001169879496,
+        "yaw": 0.44999999999999996,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 899
+    },
+    {
+      "name": "prop-wheel-2",
+      "region": "countryside",
+      "target": "countryside:495",
+      "targetSha256": "f532706d935d261070629de1762a85137c8c8fd828aa2ebd64284df06c328732",
+      "active": true,
+      "triangles": 117460,
+      "calls": 41,
+      "camera": {
+        "x": 1882.046839705442,
+        "z": 3162.1001169879496,
+        "yaw": 2.0207963267948967,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 899
+    },
+    {
+      "name": "prop-wheel-3",
+      "region": "countryside",
+      "target": "countryside:495",
+      "targetSha256": "f532706d935d261070629de1762a85137c8c8fd828aa2ebd64284df06c328732",
+      "active": true,
+      "triangles": 117462,
+      "calls": 42,
+      "camera": {
+        "x": 1882.046839705442,
+        "z": 3162.1001169879496,
+        "yaw": 3.5915926535897933,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 899
+    },
+    {
+      "name": "prop-wheel-river-0",
+      "region": "river_lake",
+      "target": "river_lake:406",
+      "targetSha256": "9809f658ba25c0b842e84012b3d437c8f8cce190891df3da98610979853ff2bf",
+      "active": true,
+      "triangles": 113400,
+      "calls": 50,
+      "camera": {
+        "x": 1383.2093294812105,
+        "z": 3334.449264001967,
+        "yaw": -1.1207963267948966,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 831
+    },
+    {
+      "name": "prop-wheel-river-1",
+      "region": "river_lake",
+      "target": "river_lake:406",
+      "targetSha256": "9809f658ba25c0b842e84012b3d437c8f8cce190891df3da98610979853ff2bf",
+      "active": true,
+      "triangles": 107756,
+      "calls": 40,
+      "camera": {
+        "x": 1383.2093294812105,
+        "z": 3334.449264001967,
+        "yaw": 0.44999999999999996,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 831
+    },
+    {
+      "name": "prop-wheel-river-2",
+      "region": "river_lake",
+      "target": "river_lake:406",
+      "targetSha256": "9809f658ba25c0b842e84012b3d437c8f8cce190891df3da98610979853ff2bf",
+      "active": true,
+      "triangles": 107758,
+      "calls": 41,
+      "camera": {
+        "x": 1383.2093294812105,
+        "z": 3334.449264001967,
+        "yaw": 2.0207963267948967,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 831
+    },
+    {
+      "name": "prop-wheel-river-3",
+      "region": "river_lake",
+      "target": "river_lake:406",
+      "targetSha256": "9809f658ba25c0b842e84012b3d437c8f8cce190891df3da98610979853ff2bf",
+      "active": true,
+      "triangles": 110694,
+      "calls": 43,
+      "camera": {
+        "x": 1383.2093294812105,
+        "z": 3334.449264001967,
+        "yaw": 3.5915926535897933,
+        "dist": 150,
+        "height": 1
+      },
+      "worldObjects": 831
+    }
+  ]
+}

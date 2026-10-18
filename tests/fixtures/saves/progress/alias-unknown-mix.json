@@ -1,0 +1,25 @@
+{
+  "_note": "RH-2: alias と canonical の両方・退役 ID・未来 ID・typo が まざった save。save には全部のこり、いまの版の進捗には 登録済みの ID だけが 1 回ずつ数えられる",
+  "stage": "growing",
+  "speciesLine": "dog",
+  "stageIndex": 3,
+  "ageTicks": 900,
+  "schemaVersion": 5,
+  "romanceCompatibilityVersion": 2,
+  "discoveredStages": ["dog:0", "dog:1", "futureline:3", "bird:2", "dgo:0"],
+  "achievementsUnlocked": ["evolve-1", "future-achievement-99"],
+  "lifetime": {
+    "money": 50,
+    "partnersRecorded": ["mermaid", "sea_mermaid", "cat_ceo", "neighbor-cat", "future_partner", "cat_ceoo"],
+    "partnersMarried": ["mermaid", "sea_mermaid", "park-dog", "future_partner"],
+    "regionsVisited": ["home", "tropical", "jungle", "future_region", "memory_lake", "hmoe"],
+    "companionsRecruited": ["hakuchou", "penguin", "penguin_friend", "future_friend", "shibaa"],
+    "weatherSeen": ["sunny", "cloudy", "rain", "storm"],
+    "timeSeen": ["morning", "day", "evening", "dusk"],
+    "ownedNaotoItems": ["naoto_future"],
+    "stickers": {
+      "owned": { "form:dog:0": 1, "future-sticker-1": 1, "future-sticker-2": 1, "future-sticker-3": 1, "future-sticker-4": 1, "future-sticker-5": 1, "future-sticker-6": 1, "future-sticker-7": 1, "future-sticker-8": 1, "future-sticker-9": 1, "future-sticker-10": 1, "future-sticker-11": 1 },
+      "tasksDone": ["future-task-1", "future-task-2", "future-task-3", "future-task-4", "future-task-5"]
+    }
+  }
+}
