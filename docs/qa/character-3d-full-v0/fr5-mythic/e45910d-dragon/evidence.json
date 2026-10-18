@@ -1,0 +1,223 @@
+{
+  "source": "e45910d13bf793051391907d971a59fdb61447d1",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13180,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8019724925660552,
+          0.01599999427795412,
+          -0.8806563859559451
+        ],
+        [
+          0.500000010728836,
+          1.6319002079963685,
+          0.488097106218338
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13180,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8019724925660552,
+          0.01599999427795412,
+          -0.8806563859559451
+        ],
+        [
+          0.500000010728836,
+          1.6319002079963685,
+          0.488097106218338
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13180,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8019724925660552,
+          0.01599999427795412,
+          -0.8806563859559451
+        ],
+        [
+          0.500000010728836,
+          1.6319002079963685,
+          0.488097106218338
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13180,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8019724925660552,
+          0.01599999427795412,
+          -0.8806563859559451
+        ],
+        [
+          0.500000010728836,
+          1.6319002079963685,
+          0.488097106218338
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18772,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -1.1394835069592437,
+          0.055999994277954046,
+          -0.7601168833670013
+        ],
+        [
+          1.1394835069592437,
+          1.8146308159828186,
+          0.5580400168895722
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18772,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -1.1394835069592437,
+          0.055999994277954046,
+          -0.7601168833670013
+        ],
+        [
+          1.1394835069592437,
+          1.8146308159828186,
+          0.5580400168895722
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18772,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -1.1394835069592437,
+          0.055999994277954046,
+          -0.7601168833670013
+        ],
+        [
+          1.1394835069592437,
+          1.8146308159828186,
+          0.5580400168895722
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "dragon",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18772,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -1.1394835069592437,
+          0.055999994277954046,
+          -0.7601168833670013
+        ],
+        [
+          1.1394835069592437,
+          1.8146308159828186,
+          0.5580400168895722
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

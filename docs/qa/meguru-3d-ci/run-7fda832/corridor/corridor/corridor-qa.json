@@ -1,0 +1,6354 @@
+{
+ "home|forest|home": {
+  "conn": "home|forest",
+  "from": "home",
+  "to": "forest",
+  "samples": [
+   {
+    "ms": 430,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 36,
+    "tris": 9576,
+    "js": 12.6
+   },
+   {
+    "ms": 2971,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.11,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 7.7
+   },
+   {
+    "ms": 3400,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.12,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 7.3
+   },
+   {
+    "ms": 3832,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.14,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 6.9
+   },
+   {
+    "ms": 4267,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 6.6
+   },
+   {
+    "ms": 4699,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.17,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 6.3
+   },
+   {
+    "ms": 5135,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 6.1
+   },
+   {
+    "ms": 5570,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 5.8
+   },
+   {
+    "ms": 6020,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.21,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 5.6
+   },
+   {
+    "ms": 6391,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.22,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 5.5
+   },
+   {
+    "ms": 6764,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.23,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 5.4
+   },
+   {
+    "ms": 7117,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.24,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 5.3
+   },
+   {
+    "ms": 7467,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 5.2
+   },
+   {
+    "ms": 10352,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.32,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 4.5
+   },
+   {
+    "ms": 10724,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.33,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 4.5
+   },
+   {
+    "ms": 11101,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.34,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 4.4
+   },
+   {
+    "ms": 11476,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.35,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9574,
+    "js": 4.3
+   },
+   {
+    "ms": 11853,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.36,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 34,
+    "tris": 9318,
+    "js": 4.3
+   },
+   {
+    "ms": 12238,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.37,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9238,
+    "js": 4.2
+   },
+   {
+    "ms": 12602,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.38,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 34,
+    "tris": 9240,
+    "js": 4.2
+   },
+   {
+    "ms": 12977,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.39,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 34,
+    "tris": 9240,
+    "js": 4.1
+   },
+   {
+    "ms": 13353,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.4,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 4.1
+   },
+   {
+    "ms": 13725,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.41,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 4
+   },
+   {
+    "ms": 14112,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.42,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 4
+   },
+   {
+    "ms": 14476,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.43,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 4
+   },
+   {
+    "ms": 14849,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.44,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 3.9
+   },
+   {
+    "ms": 15156,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.45,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 4
+   },
+   {
+    "ms": 15609,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.46,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 4
+   },
+   {
+    "ms": 16036,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.47,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 3.9
+   },
+   {
+    "ms": 16470,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.49,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 3.9
+   },
+   {
+    "ms": 16907,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.5,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 3.8
+   },
+   {
+    "ms": 19411,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.59,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 3.6
+   },
+   {
+    "ms": 19849,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.6,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 9192,
+    "js": 3.5
+   },
+   {
+    "ms": 20274,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.61,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.5
+   },
+   {
+    "ms": 20609,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.62,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.5
+   },
+   {
+    "ms": 21042,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.64,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.4
+   },
+   {
+    "ms": 21463,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.65,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.4
+   },
+   {
+    "ms": 21910,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.67,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.4
+   },
+   {
+    "ms": 22313,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.68,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.3
+   },
+   {
+    "ms": 22741,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.7,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.3
+   },
+   {
+    "ms": 23185,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.71,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 9168,
+    "js": 3.3
+   },
+   {
+    "ms": 23622,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.72,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 9166,
+    "js": 3.3
+   },
+   {
+    "ms": 24056,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.74,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 9014,
+    "js": 3.2
+   },
+   {
+    "ms": 24473,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.75,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 9014,
+    "js": 3.2
+   },
+   {
+    "ms": 26548,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.83,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 7978,
+    "js": 3.1
+   },
+   {
+    "ms": 26873,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.85,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 7978,
+    "js": 3
+   },
+   {
+    "ms": 27199,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.86,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 23,
+    "tris": 7954,
+    "js": 3
+   },
+   {
+    "ms": 27516,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.87,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 7434,
+    "js": 3
+   },
+   {
+    "ms": 27858,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.89,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 7434,
+    "js": 3
+   },
+   {
+    "ms": 28167,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.91,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 7434,
+    "js": 2.9
+   },
+   {
+    "ms": 28475,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.93,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 7434,
+    "js": 2.9
+   },
+   {
+    "ms": 28853,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.96,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 7434,
+    "js": 2.9
+   },
+   {
+    "ms": 29226,
+    "region": "home",
+    "c": {
+     "phase": "walk",
+     "t": 0.98,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 7434,
+    "js": 2.8
+   },
+   {
+    "ms": 31048,
+    "region": "forest",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 65,
+    "tris": 147984,
+    "js": 3.6
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "forest",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 64,
+   "tris": 147824,
+   "js": 3.7,
+   "party": 8
+  },
+  "last": {
+   "region": "forest",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 65,
+   "tris": 147984,
+   "js": 3.6,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "forest|mountain|forest": {
+  "conn": "forest|mountain",
+  "from": "forest",
+  "to": "mountain",
+  "samples": [
+   {
+    "ms": 386,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 22.1
+   },
+   {
+    "ms": 2756,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.11,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 11.8
+   },
+   {
+    "ms": 3164,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.12,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 10.9
+   },
+   {
+    "ms": 3556,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.14,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 10.2
+   },
+   {
+    "ms": 3954,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 9.6
+   },
+   {
+    "ms": 4350,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.17,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 9.1
+   },
+   {
+    "ms": 4755,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 8.6
+   },
+   {
+    "ms": 5152,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 8.2
+   },
+   {
+    "ms": 5552,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.21,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 7.8
+   },
+   {
+    "ms": 5952,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.22,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 7.5
+   },
+   {
+    "ms": 6363,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.24,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 7.2
+   },
+   {
+    "ms": 6759,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 6.9
+   },
+   {
+    "ms": 9011,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.33,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5.9
+   },
+   {
+    "ms": 9407,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.34,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5.7
+   },
+   {
+    "ms": 9796,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.36,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5.6
+   },
+   {
+    "ms": 10183,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.37,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5.5
+   },
+   {
+    "ms": 10576,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.39,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5.4
+   },
+   {
+    "ms": 10962,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.4,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5.3
+   },
+   {
+    "ms": 11348,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.42,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5.1
+   },
+   {
+    "ms": 11738,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.43,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5
+   },
+   {
+    "ms": 12084,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.45,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5694,
+    "js": 5
+   },
+   {
+    "ms": 12390,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.46,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 5568,
+    "js": 4.9
+   },
+   {
+    "ms": 12692,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.47,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 20,
+    "tris": 5196,
+    "js": 4.8
+   },
+   {
+    "ms": 12998,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.49,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 4.7
+   },
+   {
+    "ms": 13306,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.5,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 4.6
+   },
+   {
+    "ms": 15151,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.59,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 4.2
+   },
+   {
+    "ms": 15459,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.6,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 4.1
+   },
+   {
+    "ms": 15769,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.61,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 4.1
+   },
+   {
+    "ms": 16074,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.63,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 4
+   },
+   {
+    "ms": 16378,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.64,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.9
+   },
+   {
+    "ms": 16687,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.66,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.9
+   },
+   {
+    "ms": 16999,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.67,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.9
+   },
+   {
+    "ms": 17398,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.69,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.8
+   },
+   {
+    "ms": 17712,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.71,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.7
+   },
+   {
+    "ms": 18037,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.72,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.7
+   },
+   {
+    "ms": 18353,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.73,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.7
+   },
+   {
+    "ms": 18666,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.75,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.6
+   },
+   {
+    "ms": 20556,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.83,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.4
+   },
+   {
+    "ms": 20864,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.85,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.4
+   },
+   {
+    "ms": 21168,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.86,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.3
+   },
+   {
+    "ms": 21556,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.88,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4876,
+    "js": 3.3
+   },
+   {
+    "ms": 21937,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.9,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 18,
+    "tris": 4696,
+    "js": 3.3
+   },
+   {
+    "ms": 22311,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.93,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 18,
+    "tris": 4696,
+    "js": 3.2
+   },
+   {
+    "ms": 22683,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.95,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 18,
+    "tris": 4696,
+    "js": 3.2
+   },
+   {
+    "ms": 23061,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.98,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 18,
+    "tris": 4696,
+    "js": 3.1
+   },
+   {
+    "ms": 23423,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 1,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 18,
+    "tris": 4696,
+    "js": 3.1
+   },
+   {
+    "ms": 26582,
+    "region": "mountain",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 6,
+    "calls": 60,
+    "tris": 106598,
+    "js": 4.2
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "mountain",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 6
+   },
+   "calls": 57,
+   "tris": 106382,
+   "js": 4.2,
+   "party": 8
+  },
+  "last": {
+   "region": "mountain",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 1,
+    "owners": [
+     "mountain:485"
+    ],
+    "visible": 6,
+    "attached": 6,
+    "total": 6
+   },
+   "calls": 60,
+   "tris": 106598,
+   "js": 4.2,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "city|sea|city": {
+  "conn": "city|sea",
+  "from": "city",
+  "to": "sea",
+  "samples": [
+   {
+    "ms": 397,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 7838,
+    "js": 9.6
+   },
+   {
+    "ms": 2749,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.1,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 7.6
+   },
+   {
+    "ms": 3168,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.12,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 7.3
+   },
+   {
+    "ms": 3587,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.13,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 7.1
+   },
+   {
+    "ms": 4011,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 6.9
+   },
+   {
+    "ms": 4427,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.16,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 6.7
+   },
+   {
+    "ms": 4851,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 6.5
+   },
+   {
+    "ms": 5271,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.19,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 6.3
+   },
+   {
+    "ms": 5687,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 6.1
+   },
+   {
+    "ms": 6110,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.22,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 6
+   },
+   {
+    "ms": 6532,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.23,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 5.8
+   },
+   {
+    "ms": 6959,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 5.7
+   },
+   {
+    "ms": 9466,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.33,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 5.1
+   },
+   {
+    "ms": 9894,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.34,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 5
+   },
+   {
+    "ms": 10326,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.36,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.9
+   },
+   {
+    "ms": 10749,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.37,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.8
+   },
+   {
+    "ms": 11173,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.39,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.8
+   },
+   {
+    "ms": 11603,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.4,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.7
+   },
+   {
+    "ms": 12026,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.42,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.6
+   },
+   {
+    "ms": 12448,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.43,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.5
+   },
+   {
+    "ms": 12820,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.45,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.5
+   },
+   {
+    "ms": 13157,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.46,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.4
+   },
+   {
+    "ms": 13489,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.47,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.4
+   },
+   {
+    "ms": 13823,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.49,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.3
+   },
+   {
+    "ms": 14174,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.5,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.3
+   },
+   {
+    "ms": 16052,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.58,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.2
+   },
+   {
+    "ms": 16378,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.59,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.1
+   },
+   {
+    "ms": 16706,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.61,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 8358,
+    "js": 4.1
+   },
+   {
+    "ms": 17030,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.62,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 4.1
+   },
+   {
+    "ms": 17350,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.64,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 4
+   },
+   {
+    "ms": 17675,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.65,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 4
+   },
+   {
+    "ms": 17999,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.67,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 4
+   },
+   {
+    "ms": 18319,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.68,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 3.9
+   },
+   {
+    "ms": 18644,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.7,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 3.9
+   },
+   {
+    "ms": 18975,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.71,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 3.9
+   },
+   {
+    "ms": 19314,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.72,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6702,
+    "js": 3.8
+   },
+   {
+    "ms": 19638,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.74,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 6420,
+    "js": 3.8
+   },
+   {
+    "ms": 19973,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.75,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 6072,
+    "js": 3.8
+   },
+   {
+    "ms": 22048,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.84,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 23,
+    "tris": 5672,
+    "js": 3.7
+   },
+   {
+    "ms": 22362,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.85,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 23,
+    "tris": 5672,
+    "js": 3.7
+   },
+   {
+    "ms": 22667,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.87,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 23,
+    "tris": 5672,
+    "js": 3.6
+   },
+   {
+    "ms": 22985,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.89,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 23,
+    "tris": 5672,
+    "js": 3.6
+   },
+   {
+    "ms": 23293,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.91,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 23,
+    "tris": 5672,
+    "js": 3.6
+   },
+   {
+    "ms": 23598,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.93,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 23,
+    "tris": 5672,
+    "js": 3.5
+   },
+   {
+    "ms": 23975,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.95,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 4442,
+    "js": 3.5
+   },
+   {
+    "ms": 24351,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 0.98,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 21,
+    "tris": 3722,
+    "js": 2.7
+   },
+   {
+    "ms": 24719,
+    "region": "city",
+    "c": {
+     "phase": "walk",
+     "t": 1,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 21,
+    "tris": 3722,
+    "js": 2.6
+   },
+   {
+    "ms": 27127,
+    "region": "sea",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 52,
+    "tris": 70058,
+    "js": 3.3
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "sea",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 52,
+   "tris": 70058,
+   "js": 3.3,
+   "party": 8
+  },
+  "last": {
+   "region": "sea",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 52,
+   "tris": 70058,
+   "js": 3.3,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "countryside|forest|countryside": {
+  "conn": "countryside|forest",
+  "from": "countryside",
+  "to": "forest",
+  "samples": [
+   {
+    "ms": 402,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 6602,
+    "js": 16.2
+   },
+   {
+    "ms": 2814,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.13,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6812,
+    "js": 9.4
+   },
+   {
+    "ms": 3226,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6812,
+    "js": 8.8
+   },
+   {
+    "ms": 3646,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.17,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6812,
+    "js": 8.3
+   },
+   {
+    "ms": 4060,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6812,
+    "js": 7.9
+   },
+   {
+    "ms": 4479,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6812,
+    "js": 7.5
+   },
+   {
+    "ms": 4792,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.21,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6816,
+    "js": 7.3
+   },
+   {
+    "ms": 5211,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.23,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6816,
+    "js": 7
+   },
+   {
+    "ms": 5624,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6816,
+    "js": 6.7
+   },
+   {
+    "ms": 8055,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.34,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 5.6
+   },
+   {
+    "ms": 8481,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.36,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 5.4
+   },
+   {
+    "ms": 8895,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.38,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 5.3
+   },
+   {
+    "ms": 9309,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.4,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 5.1
+   },
+   {
+    "ms": 9730,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.41,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 5
+   },
+   {
+    "ms": 10137,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.43,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 4.9
+   },
+   {
+    "ms": 10539,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.45,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 4.8
+   },
+   {
+    "ms": 10939,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.47,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 4.7
+   },
+   {
+    "ms": 11339,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.48,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 4.6
+   },
+   {
+    "ms": 11734,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.5,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 6688,
+    "js": 4.5
+   },
+   {
+    "ms": 13770,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.6,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 27,
+    "tris": 6156,
+    "js": 4.1
+   },
+   {
+    "ms": 14094,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.62,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 4.1
+   },
+   {
+    "ms": 14406,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.63,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 4
+   },
+   {
+    "ms": 14731,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.65,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 4
+   },
+   {
+    "ms": 15077,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.67,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 3.9
+   },
+   {
+    "ms": 15413,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.69,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 3.8
+   },
+   {
+    "ms": 15760,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.7,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 3.8
+   },
+   {
+    "ms": 16089,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.72,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 3.8
+   },
+   {
+    "ms": 16416,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.74,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 3.7
+   },
+   {
+    "ms": 16740,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.75,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5936,
+    "js": 3.7
+   },
+   {
+    "ms": 18556,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.85,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.5
+   },
+   {
+    "ms": 18882,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.86,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.5
+   },
+   {
+    "ms": 19196,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.88,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.4
+   },
+   {
+    "ms": 19508,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.9,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.4
+   },
+   {
+    "ms": 19815,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.92,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.4
+   },
+   {
+    "ms": 20119,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.93,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.3
+   },
+   {
+    "ms": 20519,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.96,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.3
+   },
+   {
+    "ms": 20910,
+    "region": "countryside",
+    "c": {
+     "phase": "walk",
+     "t": 0.98,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5736,
+    "js": 3.2
+   },
+   {
+    "ms": 21213,
+    "region": "forest",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5556,
+    "js": 3.2
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "forest",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 1,
+    "owners": [
+     "forest:977"
+    ],
+    "visible": 5,
+    "attached": 5,
+    "total": 5
+   },
+   "calls": 62,
+   "tris": 147468,
+   "js": 4.3,
+   "party": 8
+  },
+  "last": {
+   "region": "forest",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 24,
+   "tris": 5556,
+   "js": 3.2,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "home|forest|forest": {
+  "conn": "home|forest",
+  "from": "forest",
+  "to": "home",
+  "samples": [
+   {
+    "ms": 423,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 12.3
+   },
+   {
+    "ms": 2967,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.11,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 9.1
+   },
+   {
+    "ms": 3397,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.12,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 34,
+    "tris": 8962,
+    "js": 8.7
+   },
+   {
+    "ms": 3829,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.14,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 34,
+    "tris": 8962,
+    "js": 8.4
+   },
+   {
+    "ms": 4257,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 8.1
+   },
+   {
+    "ms": 4682,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.17,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 7.8
+   },
+   {
+    "ms": 5106,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 34,
+    "tris": 8962,
+    "js": 7.5
+   },
+   {
+    "ms": 5538,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 34,
+    "tris": 8962,
+    "js": 7.3
+   },
+   {
+    "ms": 5963,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.21,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 7.1
+   },
+   {
+    "ms": 6387,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.22,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 6.9
+   },
+   {
+    "ms": 6822,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.24,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 6.7
+   },
+   {
+    "ms": 7248,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 6.5
+   },
+   {
+    "ms": 9785,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.34,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 5.7
+   },
+   {
+    "ms": 10224,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.35,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 5.6
+   },
+   {
+    "ms": 10644,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.36,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 5.5
+   },
+   {
+    "ms": 11067,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.38,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 5.4
+   },
+   {
+    "ms": 11483,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.39,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 35,
+    "tris": 9026,
+    "js": 5.3
+   },
+   {
+    "ms": 11915,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.41,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 5.2
+   },
+   {
+    "ms": 12334,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.42,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 5.1
+   },
+   {
+    "ms": 12782,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.44,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 5.1
+   },
+   {
+    "ms": 13129,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.45,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 5
+   },
+   {
+    "ms": 13476,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.47,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 5
+   },
+   {
+    "ms": 13823,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.48,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.9
+   },
+   {
+    "ms": 14157,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.49,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.8
+   },
+   {
+    "ms": 14500,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.51,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.8
+   },
+   {
+    "ms": 16553,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.59,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.5
+   },
+   {
+    "ms": 16891,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.61,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.4
+   },
+   {
+    "ms": 17227,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.62,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.4
+   },
+   {
+    "ms": 17572,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.63,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.3
+   },
+   {
+    "ms": 17906,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.65,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 8942,
+    "js": 4.3
+   },
+   {
+    "ms": 18252,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.66,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 4.2
+   },
+   {
+    "ms": 18590,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.68,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 4.2
+   },
+   {
+    "ms": 18928,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.69,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 4.1
+   },
+   {
+    "ms": 19276,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.71,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 4.1
+   },
+   {
+    "ms": 19629,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.72,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 4.1
+   },
+   {
+    "ms": 19981,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.74,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 4
+   },
+   {
+    "ms": 20315,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.75,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 4
+   },
+   {
+    "ms": 22237,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.83,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 3.8
+   },
+   {
+    "ms": 22568,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.84,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 3.8
+   },
+   {
+    "ms": 22894,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.86,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 8936,
+    "js": 3.8
+   },
+   {
+    "ms": 23220,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.87,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 7528,
+    "js": 3.8
+   },
+   {
+    "ms": 23560,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.89,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 7528,
+    "js": 3.7
+   },
+   {
+    "ms": 23889,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.91,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 7444,
+    "js": 3.7
+   },
+   {
+    "ms": 24210,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.93,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 7444,
+    "js": 3.6
+   },
+   {
+    "ms": 24535,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.95,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 7444,
+    "js": 3.6
+   },
+   {
+    "ms": 24854,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.97,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 7444,
+    "js": 3.6
+   },
+   {
+    "ms": 25171,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.99,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 7444,
+    "js": 3.5
+   },
+   {
+    "ms": 25928,
+    "region": "home",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 42,
+    "tris": 35030,
+    "js": 2.9
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "home",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 1,
+    "owners": [
+     "home:117"
+    ],
+    "visible": 6,
+    "attached": 6,
+    "total": 6
+   },
+   "calls": 47,
+   "tris": 35364,
+   "js": 2.8,
+   "party": 8
+  },
+  "last": {
+   "region": "home",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 42,
+   "tris": 35030,
+   "js": 2.9,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "forest|mountain|mountain": {
+  "conn": "forest|mountain",
+  "from": "mountain",
+  "to": "forest",
+  "samples": [
+   {
+    "ms": 365,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 10.8
+   },
+   {
+    "ms": 2611,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.11,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 8.1
+   },
+   {
+    "ms": 2989,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.12,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 7.8
+   },
+   {
+    "ms": 3365,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.14,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 7.5
+   },
+   {
+    "ms": 3744,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 7.2
+   },
+   {
+    "ms": 4124,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.17,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 7
+   },
+   {
+    "ms": 4501,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 6.7
+   },
+   {
+    "ms": 4889,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 6.5
+   },
+   {
+    "ms": 5273,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.21,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 19,
+    "tris": 4882,
+    "js": 6.4
+   },
+   {
+    "ms": 5655,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.22,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 20,
+    "tris": 5010,
+    "js": 6.2
+   },
+   {
+    "ms": 6041,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.24,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 20,
+    "tris": 5010,
+    "js": 6
+   },
+   {
+    "ms": 6417,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 20,
+    "tris": 5010,
+    "js": 5.9
+   },
+   {
+    "ms": 8677,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.33,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 5510,
+    "js": 5.1
+   },
+   {
+    "ms": 9058,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.35,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 22,
+    "tris": 5510,
+    "js": 5
+   },
+   {
+    "ms": 9441,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.36,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.9
+   },
+   {
+    "ms": 9824,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.38,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.8
+   },
+   {
+    "ms": 10211,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.39,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.8
+   },
+   {
+    "ms": 10597,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.41,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.7
+   },
+   {
+    "ms": 10989,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.42,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.6
+   },
+   {
+    "ms": 11379,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.44,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.5
+   },
+   {
+    "ms": 11696,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.45,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.5
+   },
+   {
+    "ms": 12003,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.46,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.4
+   },
+   {
+    "ms": 12308,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.48,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.3
+   },
+   {
+    "ms": 12652,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.49,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 4.3
+   },
+   {
+    "ms": 13010,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.51,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 4.3
+   },
+   {
+    "ms": 14987,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.59,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 4
+   },
+   {
+    "ms": 15302,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.61,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 4
+   },
+   {
+    "ms": 15613,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.62,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.9
+   },
+   {
+    "ms": 15928,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.64,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.9
+   },
+   {
+    "ms": 16275,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.65,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.8
+   },
+   {
+    "ms": 16584,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.67,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.8
+   },
+   {
+    "ms": 16899,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.68,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.8
+   },
+   {
+    "ms": 17214,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.7,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.7
+   },
+   {
+    "ms": 17540,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.71,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.7
+   },
+   {
+    "ms": 17901,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.72,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.7
+   },
+   {
+    "ms": 18236,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.74,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.7
+   },
+   {
+    "ms": 18559,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.75,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.6
+   },
+   {
+    "ms": 20468,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.84,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.4
+   },
+   {
+    "ms": 20789,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.85,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 25,
+    "tris": 5600,
+    "js": 3.4
+   },
+   {
+    "ms": 21118,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.86,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 3.4
+   },
+   {
+    "ms": 21480,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.88,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 3.4
+   },
+   {
+    "ms": 21799,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.9,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 3.3
+   },
+   {
+    "ms": 22111,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.92,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 3.3
+   },
+   {
+    "ms": 22421,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.94,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 3.3
+   },
+   {
+    "ms": 22798,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.97,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 3.2
+   },
+   {
+    "ms": 23167,
+    "region": "mountain",
+    "c": {
+     "phase": "walk",
+     "t": 0.99,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 24,
+    "tris": 5594,
+    "js": 2.2
+   },
+   {
+    "ms": 24685,
+    "region": "forest",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 60,
+    "tris": 147564,
+    "js": 2.9
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "forest",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 60,
+   "tris": 147564,
+   "js": 3.1,
+   "party": 8
+  },
+  "last": {
+   "region": "forest",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 60,
+   "tris": 147564,
+   "js": 2.9,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "city|sea|sea": {
+  "conn": "city|sea",
+  "from": "sea",
+  "to": "city",
+  "samples": [
+   {
+    "ms": 424,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 9.7
+   },
+   {
+    "ms": 2908,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.11,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 7.6
+   },
+   {
+    "ms": 3351,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.12,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 7.3
+   },
+   {
+    "ms": 3767,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.14,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 7.1
+   },
+   {
+    "ms": 4184,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 6.9
+   },
+   {
+    "ms": 4599,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.17,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 6.7
+   },
+   {
+    "ms": 5021,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 6.4
+   },
+   {
+    "ms": 5445,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 6.3
+   },
+   {
+    "ms": 5863,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.21,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7006,
+    "js": 6.1
+   },
+   {
+    "ms": 6286,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.22,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 6
+   },
+   {
+    "ms": 6713,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.24,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 5.8
+   },
+   {
+    "ms": 7136,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 5.7
+   },
+   {
+    "ms": 9406,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.33,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 5.2
+   },
+   {
+    "ms": 9834,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.34,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 5.1
+   },
+   {
+    "ms": 10258,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.35,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 5
+   },
+   {
+    "ms": 10685,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.37,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.9
+   },
+   {
+    "ms": 11111,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.38,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.9
+   },
+   {
+    "ms": 11539,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.4,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.8
+   },
+   {
+    "ms": 11962,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.41,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.7
+   },
+   {
+    "ms": 12392,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.43,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.6
+   },
+   {
+    "ms": 12799,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.44,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.6
+   },
+   {
+    "ms": 13161,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.46,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.6
+   },
+   {
+    "ms": 13505,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.47,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.5
+   },
+   {
+    "ms": 13845,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.48,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.4
+   },
+   {
+    "ms": 14202,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.5,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 32,
+    "tris": 7558,
+    "js": 4.4
+   },
+   {
+    "ms": 16324,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.58,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7046,
+    "js": 4.1
+   },
+   {
+    "ms": 16673,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.59,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7046,
+    "js": 4.1
+   },
+   {
+    "ms": 17017,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.61,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7046,
+    "js": 4
+   },
+   {
+    "ms": 17364,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.62,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7046,
+    "js": 4
+   },
+   {
+    "ms": 17704,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.64,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7046,
+    "js": 4
+   },
+   {
+    "ms": 18094,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.65,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7046,
+    "js": 3.9
+   },
+   {
+    "ms": 18433,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.67,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 7046,
+    "js": 3.9
+   },
+   {
+    "ms": 18784,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.68,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.9
+   },
+   {
+    "ms": 19130,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.7,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.8
+   },
+   {
+    "ms": 19483,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.71,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.8
+   },
+   {
+    "ms": 19843,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.72,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.8
+   },
+   {
+    "ms": 20195,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.74,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.7
+   },
+   {
+    "ms": 20536,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.75,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.7
+   },
+   {
+    "ms": 22593,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.84,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.5
+   },
+   {
+    "ms": 22929,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.85,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.5
+   },
+   {
+    "ms": 23268,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.86,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.5
+   },
+   {
+    "ms": 23653,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.88,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.5
+   },
+   {
+    "ms": 23996,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.9,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.4
+   },
+   {
+    "ms": 24326,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.92,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.4
+   },
+   {
+    "ms": 24652,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.94,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 3.4
+   },
+   {
+    "ms": 24973,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.96,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6494,
+    "js": 2.5
+   },
+   {
+    "ms": 25290,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 0.98,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 6284,
+    "js": 2.4
+   },
+   {
+    "ms": 25603,
+    "region": "sea",
+    "c": {
+     "phase": "walk",
+     "t": 1,
+     "stage": 5
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 6284,
+    "js": 2.3
+   },
+   {
+    "ms": 28620,
+    "region": "city",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 25,
+    "calls": 62,
+    "tris": 130314,
+    "js": 3
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "city",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 16
+   },
+   "calls": 53,
+   "tris": 130258,
+   "js": 3.2,
+   "party": 8
+  },
+  "last": {
+   "region": "city",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 1,
+    "owners": [
+     "city:732"
+    ],
+    "visible": 25,
+    "attached": 25,
+    "total": 25
+   },
+   "calls": 62,
+   "tris": 130314,
+   "js": 3,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "countryside|forest|forest": {
+  "conn": "countryside|forest",
+  "from": "forest",
+  "to": "countryside",
+  "samples": [
+   {
+    "ms": 400,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.03,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5678,
+    "js": 23.3
+   },
+   {
+    "ms": 2790,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.13,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5678,
+    "js": 12.7
+   },
+   {
+    "ms": 3197,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.15,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5678,
+    "js": 11.7
+   },
+   {
+    "ms": 3609,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.17,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5678,
+    "js": 11
+   },
+   {
+    "ms": 4026,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.18,
+     "stage": 0
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5678,
+    "js": 10.3
+   },
+   {
+    "ms": 4433,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.2,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 27,
+    "tris": 5968,
+    "js": 9.8
+   },
+   {
+    "ms": 4840,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.22,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 27,
+    "tris": 5968,
+    "js": 9.3
+   },
+   {
+    "ms": 5245,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.23,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 26,
+    "tris": 5966,
+    "js": 8.9
+   },
+   {
+    "ms": 5656,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.25,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 28,
+    "tris": 6078,
+    "js": 8.5
+   },
+   {
+    "ms": 8086,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.35,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 7
+   },
+   {
+    "ms": 8494,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.37,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 6.8
+   },
+   {
+    "ms": 8897,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.39,
+     "stage": 1
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 6.6
+   },
+   {
+    "ms": 9297,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.4,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 6.4
+   },
+   {
+    "ms": 9700,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.42,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 6.2
+   },
+   {
+    "ms": 10098,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.44,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 6.1
+   },
+   {
+    "ms": 10503,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.45,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 5.9
+   },
+   {
+    "ms": 10903,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.47,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 5.8
+   },
+   {
+    "ms": 11307,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.49,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 5.7
+   },
+   {
+    "ms": 11711,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.51,
+     "stage": 2
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 33,
+    "tris": 6798,
+    "js": 5.6
+   },
+   {
+    "ms": 13772,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.6,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 5.1
+   },
+   {
+    "ms": 14105,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.62,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 5.1
+   },
+   {
+    "ms": 14437,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.64,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 5
+   },
+   {
+    "ms": 14802,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.66,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.9
+   },
+   {
+    "ms": 15162,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.67,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.8
+   },
+   {
+    "ms": 15503,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.69,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.8
+   },
+   {
+    "ms": 15844,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.71,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.7
+   },
+   {
+    "ms": 16188,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.73,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.6
+   },
+   {
+    "ms": 16533,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.74,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.6
+   },
+   {
+    "ms": 16860,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.76,
+     "stage": 3
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.5
+   },
+   {
+    "ms": 18666,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.85,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.2
+   },
+   {
+    "ms": 18989,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.87,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.2
+   },
+   {
+    "ms": 19310,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.89,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 31,
+    "tris": 6588,
+    "js": 4.1
+   },
+   {
+    "ms": 19626,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.91,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 6396,
+    "js": 4.1
+   },
+   {
+    "ms": 19937,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.92,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 30,
+    "tris": 6396,
+    "js": 4
+   },
+   {
+    "ms": 20244,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.94,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 6336,
+    "js": 4
+   },
+   {
+    "ms": 20549,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.96,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 6336,
+    "js": 3.9
+   },
+   {
+    "ms": 20855,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 0.97,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 6336,
+    "js": 3.9
+   },
+   {
+    "ms": 21253,
+    "region": "forest",
+    "c": {
+     "phase": "walk",
+     "t": 1,
+     "stage": 4
+    },
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 29,
+    "tris": 6336,
+    "js": 3.8
+   },
+   {
+    "ms": 24295,
+    "region": "countryside",
+    "c": null,
+    "is3D": true,
+    "pv": true,
+    "miss": 0,
+    "g": 0,
+    "calls": 55,
+    "tris": 118956,
+    "js": 4.7
+   }
+  ],
+  "gateInfo": null,
+  "mouth": null,
+  "started": true,
+  "arrived": {
+   "region": "countryside",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 56,
+   "tris": 119136,
+   "js": 4.8,
+   "party": 8
+  },
+  "last": {
+   "region": "countryside",
+   "corridor": null,
+   "is3D": true,
+   "failed": false,
+   "player": {
+    "missFrames": 0,
+    "ok": true,
+    "why": ""
+   },
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "calls": 55,
+   "tris": 118956,
+   "js": 4.7,
+   "party": 8
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ }
+}

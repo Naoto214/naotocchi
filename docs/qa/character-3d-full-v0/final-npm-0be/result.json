@@ -1,0 +1,37 @@
+{
+  "sourceProductionCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "exit": 1,
+  "elapsedSeconds": 738.541,
+  "rawLogSha256": "65b07f989aa0b4ee4bdfbd977cca1f19eb3e92423ec7242fc8b2024d6b33d975",
+  "gzipSha256": "17b311b3e2c94a06788b493b13b492b4fb62b4689bc6638d2e0d6014f55c80a4",
+  "scope": "Complete npm test attempt on frozen production0be; later QA-only scene/export edits do not change production. Main3022 ran; four asset-integrity checks failed git ls-files ENOBUFS after tracked evidence inventory exceeded default buffer. Relationship tail not reached in this attempt. Original exit1 retained.",
+  "main": {
+    "tests": 3022,
+    "pass": 3018,
+    "fail": 4,
+    "durationMs": 735122.222638
+  },
+  "relationship": {
+    "status": "NOT_REACHED_IN_ORIGINAL_RUN"
+  },
+  "failure": "tests/asset-integrity-test.cjs tracked(): spawnSync git ENOBUFS default stdout buffer",
+  "relationshipFollowup": {
+    "tests": 80,
+    "pass": 80,
+    "fail": 0,
+    "exit": 0,
+    "durationMs": 6202.862851,
+    "scope": "Separately executed unchanged Relationship tail, skipped by original && after main exit1"
+  },
+  "assetIntegrityFollowup": {
+    "candidateCommit": "577c2177c30d948605362e1cd1687867d4faa00e",
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "exit": 0,
+    "durationMs": 525.859369,
+    "fix": "Test-only bounded16MiB stdout buffer; all tracked Git paths retained unchanged",
+    "scope": "Re-executed complete failing file, including all4 original failures. Main original exit1 retained; no second fullnpm exit0 claimed."
+  },
+  "combinedVerification": "Main3018 unaffected PASS + all6 asset checksPASS (including4 originalFAIL) + Relationship80PASS. Incremental verification after test-only buffer fix; production0be unchanged."
+}

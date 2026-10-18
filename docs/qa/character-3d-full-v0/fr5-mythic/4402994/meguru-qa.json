@@ -1,0 +1,87 @@
+{
+  "when": "2026-10-06T19:04:44.774Z",
+  "revision": "quality3",
+  "sourceCommit": "4402994ab2e760a6fcc1a23f5816b26fe9031cae",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "mythic",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "plush:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "plush:2",
+      "player3d": true,
+      "specKey": {
+        "id": "plush",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-plush-3-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-plush-3-back.png",
+      "live": {
+        "live": 7,
+        "templates": 7,
+        "built": 7,
+        "tris": 32414,
+        "meshes": 75,
+        "bones": 52,
+        "materials": 1,
+        "atlases": 9,
+        "eyeGeos": 10,
+        "cpuMsAvg": 4.2,
+        "cpuMsP95": 38.3,
+        "buildMsTotal": 254.6,
+        "buildMsMax": 68.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 7,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "plush:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "plush:6",
+      "player3d": true,
+      "specKey": {
+        "id": "plush",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/mythic-distance/player-plush-7-front.png",
+      "back": "test-results/full-rollout/mythic-distance/player-plush-7-back.png",
+      "live": {
+        "live": 7,
+        "templates": 7,
+        "built": 7,
+        "tris": 37770,
+        "meshes": 74,
+        "bones": 51,
+        "materials": 1,
+        "atlases": 9,
+        "eyeGeos": 8,
+        "cpuMsAvg": 4.099,
+        "cpuMsP95": 28.7,
+        "buildMsTotal": 330.4,
+        "buildMsMax": 84,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 7,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

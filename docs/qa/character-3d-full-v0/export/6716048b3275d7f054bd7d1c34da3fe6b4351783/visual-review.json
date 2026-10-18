@@ -1,0 +1,21 @@
+{
+  "status": "REJECT_OWL_SOURCE_DETAILS",
+  "sourceCommit": "6716048b3275d7f054bd7d1c34da3fe6b4351783",
+  "archiveCommit": "6a55b97cc10e152f74bd7c54a081a9ba52516f70",
+  "family": "companion:owl",
+  "actualReviewed": {
+    "fourViews": 4,
+    "normalDistance": 2,
+    "stateImages": 0
+  },
+  "integrity": {
+    "files": 41,
+    "rawManifestHashesVerified": true
+  },
+  "findings": [
+    "Small breast feather paint aliases into broad blocky bands on coarse mesh.",
+    "Raised folded wing is hidden inside body; sourcepose lost.",
+    "Cream facial discs read as a small lower mask."
+  ],
+  "next": "Correct physicalfeathermarks,attachedforwardfoldedwing and facialdiscshape;then inspect all4views32states2distance. No promotion."
+}

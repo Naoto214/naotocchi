@@ -1,0 +1,21 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Phoenix source stages build distinct chicks, raised adult wings and a coal-bed rebirth (377.520365ms)
+✔ all Phoenix candidates retain a single face and finite owned motion over all32 states (298.788795ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ phoenix representatives have a physical crest, layered wings, curved plume tails and two clawed feet (367.559283ms)
+✔ phoenix keeps one canonical face with owned wing and tail motion across32 states (92.570623ms)
+✔ aged phoenix retains the source cream breast and distinct pale feather edges (33.115096ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 763.079828

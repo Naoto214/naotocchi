@@ -1,0 +1,17 @@
+{
+  "sourceCommit": "c331193d0fa58ecb57c87e5b9937d3fb40e78e65",
+  "command": "npm test",
+  "mainNodeBatch": {
+    "pass": 3010,
+    "fail": 2,
+    "tests": 3012
+  },
+  "status": "FAILED_NOT_GREEN",
+  "failures": [
+    "6. a tired resident (low energy) shows the tired picture and says a tired line; a companion stays on its base picture",
+    "13. nothing about expressions reaches the save: the same keys and schemaVersion as a flag-off run, and no actor state serialized"
+  ],
+  "classification": "Same protected resident-expression failures as prior completed3008/2 and documented immutable fb3 baseline. No protected runtime/test files changed.",
+  "notRun": "Trailing Relationship test command after && was not reached because main Node batch failed.",
+  "durationMs": 676355.087466
+}

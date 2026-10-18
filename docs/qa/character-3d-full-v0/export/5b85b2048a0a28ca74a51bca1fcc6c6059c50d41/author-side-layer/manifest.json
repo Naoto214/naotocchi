@@ -1,0 +1,53 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+  "artifact": {
+    "id": 11701978094,
+    "name": "full-rollout-nonplayer-review-5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+    "digest": "sha256:66f1fe697a011f89e0c703566f35ddd9fe3094e5c22caa2c9ba95238502d56ce"
+  },
+  "files": [
+    {
+      "path": "author-naoto-F-34.jpg",
+      "sha256": "07d0b9c391eb9edef7ee44c7bd0255637799abaf4727576c6df03959bc2442de",
+      "bytes": 12809
+    },
+    {
+      "path": "author-naoto-F-back.jpg",
+      "sha256": "44fad67380b21b8a7a08809d9269dbea875ed65206ded4f69a85dd0a6127d50c",
+      "bytes": 11047
+    },
+    {
+      "path": "author-naoto-F-front.jpg",
+      "sha256": "d912b785435fa6693f0bf508249a5e1aa41a199cc1484cecac2a6602c24740f7",
+      "bytes": 13365
+    },
+    {
+      "path": "author-naoto-F-side.jpg",
+      "sha256": "037e25f24dd505db4a52315705a3abd1b6f5ffc83a9c4657c620d1fb6d6653d0",
+      "bytes": 10668
+    },
+    {
+      "path": "author-naoto-F-views.jpg",
+      "sha256": "196380decd87c917528f58b8a4968361dba202d6ab7b6945714f8d89ad0913f9",
+      "bytes": 73398
+    },
+    {
+      "path": "author-naoto-options.jpg",
+      "sha256": "19d3466e6ce659a51400f4bedb9991f09a9d40b59dabefd224a69bf36294d04d",
+      "bytes": 73533
+    },
+    {
+      "path": "comparison-metadata.json",
+      "sha256": "c7c0ee7595de6145477f9b122452f726453c3ba7b13a96dd419250daf2fd521f",
+      "bytes": 3081
+    }
+  ],
+  "sourceRun": 38138489668,
+  "sourceRunConclusion": "success",
+  "artifactJobId": 114467218917,
+  "artifactJobName": "nonplayer-candidate-review",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

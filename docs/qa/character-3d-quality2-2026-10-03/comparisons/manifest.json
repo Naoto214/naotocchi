@@ -1,0 +1,350 @@
+{
+  "baseline": "8b19ecc44c162455f3a2f1077ef659bddcc186ca",
+  "sample": {
+    "emotion": "normal",
+    "moving": false,
+    "t": 0.4,
+    "elevation": 0.18
+  },
+  "rows": [
+    {
+      "id": "dog",
+      "stage": 1
+    },
+    {
+      "id": "dog",
+      "stage": 4
+    },
+    {
+      "id": "dog",
+      "stage": 8
+    },
+    {
+      "id": "penguin",
+      "stage": 1
+    },
+    {
+      "id": "penguin",
+      "stage": 4
+    },
+    {
+      "id": "penguin",
+      "stage": 8
+    },
+    {
+      "id": "clownfish",
+      "stage": 1
+    },
+    {
+      "id": "clownfish",
+      "stage": 4
+    },
+    {
+      "id": "clownfish",
+      "stage": 8
+    },
+    {
+      "id": "man",
+      "stage": 1
+    },
+    {
+      "id": "man",
+      "stage": 4
+    },
+    {
+      "id": "man",
+      "stage": 8
+    },
+    {
+      "id": "butterfly",
+      "stage": 1
+    },
+    {
+      "id": "butterfly",
+      "stage": 4
+    },
+    {
+      "id": "butterfly",
+      "stage": 5
+    },
+    {
+      "id": "butterfly",
+      "stage": 8
+    },
+    {
+      "id": "dandelion",
+      "stage": 1
+    },
+    {
+      "id": "dandelion",
+      "stage": 4
+    },
+    {
+      "id": "dandelion",
+      "stage": 6
+    },
+    {
+      "id": "dandelion",
+      "stage": 8
+    },
+    {
+      "id": "mushroom",
+      "stage": 1
+    },
+    {
+      "id": "mushroom",
+      "stage": 4
+    },
+    {
+      "id": "mushroom",
+      "stage": 8
+    },
+    {
+      "id": "starfish",
+      "stage": 1
+    },
+    {
+      "id": "starfish",
+      "stage": 4
+    },
+    {
+      "id": "starfish",
+      "stage": 8
+    },
+    {
+      "id": "shiba",
+      "stage": 0
+    },
+    {
+      "id": "cat_friend",
+      "stage": 0
+    }
+  ],
+  "results": [
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dog-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dog-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dog-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dog-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dog-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dog-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/penguin-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/penguin-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/penguin-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/penguin-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/penguin-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/penguin-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/clownfish-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/clownfish-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/clownfish-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/clownfish-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/clownfish-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/clownfish-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/man-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/man-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/man-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/man-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/man-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/man-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-5-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-5-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/butterfly-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-6-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-6-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/dandelion-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/mushroom-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/mushroom-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/mushroom-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/mushroom-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/mushroom-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/mushroom-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/starfish-1-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/starfish-1-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/starfish-4-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/starfish-4-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/starfish-8-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/starfish-8-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/shiba-0-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/shiba-0-revised.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/cat_friend-0-previous.png",
+      "errors": []
+    },
+    {
+      "out": "test-results/character-3d-quality/comparisons/raw/cat_friend-0-revised.png",
+      "errors": []
+    }
+  ],
+  "emotionMotionMatrix": true
+}

@@ -1,0 +1,121 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (21.901722ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (13.28908ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (95.142564ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.700295ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (18.923082ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (142.054863ms)
+✔ index.html asset references exist and carry cache tokens (2.193266ms)
+✔ the bump tool rewrites only cache tokens (0.288354ms)
+(node:31) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/dfba51ced877/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/dfba51ced877/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ AD-1. scene dressing の 契約: 3D だけ・あたり なし・ふんで とおれる・群生(2〜8)・道 / spot / かたい 物 / 水 には おかない (9836.293515ms)
+✔ AD-2. 配置は「空いた ところに 均一に 置く」では なく 群生 + 意図した 余白: 道ばたの 帯(roadside)と ます目(grid)の 両方・余白が ある (1.714445ms)
+✔ AD-3. remove-it: 2D の world と corridor には dressing が ない(3D だけ)。cover を 外した profile では 群生 0 (603.083807ms)
+✔ AD-4. 花は 地域に あった いろ・場所: home / forest / jungle / countryside に 花の 群生、しんかい / ゆき には 花 なし、さばくは オアシスの まわり だけ (1.626462ms)
+✔ AD-5. Tree v3: 針葉樹 4〜5 段(明暗・下ほど ひろい)、広葉樹は かたまり 2〜5(明 / 中 / 暗)、ヤシは は 5〜8(はばは 長さに 比例) (2.864209ms)
+✔ AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが つく(葉の palette・きりの いろ・ジャングル だけ 大きな は / つる / 根もとの 下草 / lowPoly) (2.812752ms)
+✔ AD-7. Building v4: family ごとの かたまり・屋根の かたち(切妻 / 寄棟 / 平ら)・のき・土台・入口 と まど・かたまりの 足し(ポーチ / 出窓 / 縁側 / はなれ / ベランダ / 煙突 / ひさし)・シルエット 高さ / はば ≤ 1.5 (3.819129ms)
+✔ AD-8. city scene: 低層 / 中層 / 高層の まざり・灰 だけで ない いろ・みせ(ガラス + ひさし + 看板 + たて看板)・路地の かべも 正面を もつ・高さは 床の 5.5 倍まで (10.042574ms)
+✔ AD-9. city の 小物: 自転車・自販機は 3D の かたち(unresolved なし)。街路樹・信号・横断歩道・電柱は そのまま (1.395715ms)
+✔ AD-10. いけがき は 箱では なく まるい しげみの れつ(あたりの 箱の なか・あたまより 下) (0.508336ms)
+✔ AD-11. 水の 統合: 川は なめらかに 曲がり はばが ゆれる(riverCurve・pure)。見た目の 水は あたりの 帯の 内がわ。川岸に 石 / あし / 草 / 花の 帯 (38.458307ms)
+✔ AD-12. Bridge v4: 交わりに かかる(ながさ ≥ 水の はば)・床の 上面は 水面より 上・床より 下から ささえる 橋脚 / 橋台・種類で かたちが ちがう (2.189041ms)
+✔ AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・まる・むれ)。オアシスの まわりは 花 で 対比 (0.508877ms)
+✔ AD-14. 光: 明るい fill と 方向光で 面を 分ける・岩 / がけの 明るさ と 地域 palette を 保つ (0.426843ms)
+✔ AD-15. 箱庭の 比率: ビルは 床の 5.5 倍まで、大木の 幹は あたりより ほそい、花 / しげみ / 街の 小物は 見える 大きさ、まど / 入口は 家に 対して 小さい (2.15557ms)
+✔ AD-16. density gate: 代表 spot(各地域 最初の ひろば)から 前景(〜250)/ 中景(250〜700)/ 遠景(700〜1800)の それぞれに 意味の ある 物が 1 つ いじょう。道の 方向は 読める(道の 上に 物 なし) (74.849437ms)
+✖ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (1.096764ms)
+✔ AD-18. 原則だけ: Nintendo / どうぶつの森 固有の 名まえ・asset・模様は code にも doc にも 出てこない (3.518246ms)
+(node:37) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/dfba51ced877/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/dfba51ced877/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに 隠す 物 だけ・もとの いろ・大きな 物は うすく・ちらつかない・変わった instance だけ 送る (30.409004ms)
+✔ GT-2. ray の 格子(pure): 線分が とおる ます目の instance だけ が 候補 (0.558912ms)
+✔ GT-3. 予算(HQ-4): うすい 板は 1 まい・幹は ふたなし・mound は 下半分 なし・花の まんなか 8 三角形。透明 fade で けさない (0.192801ms)
+✔ GT-4. Terrain v1(HQ-5): 意味の ある 起伏。道 / spot は 平ら、ひらけた ところ に 丘、小川は 谷、池は くぼ地、海は 水へ ひくく。ランダムな こぶ だけ では ない (6548.832669ms)
+✔ GT-5. Creek / River v3(HQ-6): 小川は spot の 円盤の ならび では なく 1 本の ながれ。橋の spot の 下を とおり、道を 横切る ところは 橋 か 飛び石。道 / かたい 物 の 上を ながれない (1058.133132ms)
+✔ GT-6. Water(HQ-7): 海 / 川 / 池 で 水の 面を かえる(海 = 浅瀬 → 沖 → 水平線、川 = 谷の 中の ながれる 面、池 = しずかな くぼ地の 面) (0.659184ms)
+✔ GT-7. home と countryside(HQ-10): いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)、いなか = ひろい 畑 と 用水路 と 板の はし(庭 なし) (0.946497ms)
+✔ GT-8. forest と jungle(HQ-11): もり = つめたい みどり・たおれた 丸太・しだ・きのこ・見とおし ほどほど。ジャングル = 多層(大きな は の 下草・ヤシ・canopy の つる)・しめった もや (213.478297ms)
+✔ GT-9. Tree v4(HQ-12): 根もとの はり・2 だんの 幹(すこし かたむく)・かんむりへ のびる 枝・白っぽい ほそい 木(すずしい 地域) (0.921529ms)
+✔ GT-10. props gate(HQ-13): ラベル なしで わかる。自転車は 立って いる、水車 / 観覧車の わ は たて (3080.596549ms)
+✔ GT-11. 13 地域の grammar(HQ-14): 背景の 絵 なしで 3D だけで 地域が わかる きまり (0.635889ms)
+✔ GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)で 地面が かわる・大木も 季節の いろ・3D でも 雨 / 雪 (0.443829ms)
+✔ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (2.907205ms)
+(node:62) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/dfba51ced877/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/dfba51ced877/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-26 production telescopes use their declared metal colors without a wood multiplier (9867.024538ms)
+✔ VQ-25 waterwheel axle spans two grounded supports outside the paddle sweep (1770.455856ms)
+✔ VQ-24 stone bridge masonry stays on both parapets and marks all four ends (9058.945686ms)
+✔ VQ-23 vehicle window frames connect body and roof at every cab corner when rotated (167.444232ms)
+✔ VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged (28.535474ms)
+✔ VQ-9 residential porch supports meet roof slopes within canonical lots (8592.576304ms)
+✔ VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck (902.672617ms)
+✔ VQ-6 cottage rooflines include both gable orientations within the residential family (189.327929ms)
+✔ VQ-5 garden stepping stones connect the actual front door to its finite road segment (193.517705ms)
+✔ VQ-1 contact footprints follow trunks and foundations without mutating objects (0.905845ms)
+✔ VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support (0.503679ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (0.449407ms)
+✔ VQ-4 residential main roofs retain above-head clearance with canonical colliders (9166.217331ms)
+✔ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (221.82811ms)
+✔ VQ-10 barn entrances read as broad paired doors within the wall (980.472718ms)
+✔ VQ-11 flower instances retain planter and window-box elevation (3.395278ms)
+✔ VQ-12 walkable market stalls have open counters and connected canopy supports (9161.15763ms)
+✔ VQ-13 representative farmhouse flowers clear the veranda as one planting group (892.215605ms)
+✔ VQ-14 planting clearance preserves groups, rotations and blocked plots (6.85987ms)
+✔ VQ-15 residential facade openings fit beside the entrance without frame overlap (8801.919749ms)
+✔ VQ-16 single-family main windows reserve the existing bay projection (8838.458045ms)
+✔ VQ-17 two-storey entrance remains below its existing low canopy (184.324027ms)
+✔ VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves (3143.327731ms)
+✔ VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope (2468.639536ms)
+✔ VQ-20 ground frond roots attach to their own terrain position (2802.706811ms)
+✔ VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves (1.81778ms)
+✔ VQ-27 statue heads alone opt into recessed faces while retaining the original three-part shape (8719.444707ms)
+✔ VQ-28 carved head preserves the icosahedron hull and is watertight with shallow inward details (9.240579ms)
+✔ VQ-29 six soft city stalls retain their bounds with subdued cloth and shallow counter joints (8901.222104ms)
+✔ VQ-30 river waterwheel tree is relocated with its collider and original geometry (526.01674ms)
+✔ the collider table is world-space data: shape, half sizes, angle and role, never canvas pixels (3.071911ms)
+✔ a tree stops you at the trunk, not at a leaf: the collider is a small part of the drawing (0.208113ms)
+✔ buildings, walls and fences are boxes with a facing, and a fence is a thin line not a slab (0.233212ms)
+✔ grass, leaves, small mushrooms, ground detail and bridges have no collider at all (0.190918ms)
+✔ every path corridor and every spot centre is free of colliders in all 13 regions (54.593395ms)
+✔ walking for real, every spot in every region is still reachable, secret ones included (6185.732847ms)
+✔ you cannot walk into a big tree, a building, a rock or a fence (10560.600031ms)
+✔ a diagonal bump slides along the wall instead of stopping dead (2535.572687ms)
+✔ water: the sea you may not enter is the only no-go water, and every water spot is still walkable (0.826405ms)
+✔ collision cost does not grow with the size of the world: the grid keeps each lookup tiny (0.564672ms)
+✔ residents are held by the same colliders as the player, so nobody walks through a wall (170.53436ms)
+✔ the role layers hand the same shapes to a Three.js renderer (1.886845ms)
+ℹ tests 81
+ℹ suites 0
+ℹ pass 80
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 95833.288517
+
+✖ failing tests:
+
+test at tests/meguru-3d-art-direction-test.cjs:280:1
+✖ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (1.096764ms)
+  AssertionError [ERR_ASSERTION]: 比較 sheet
+      at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/world/tests/meguru-3d-art-direction-test.cjs:285:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

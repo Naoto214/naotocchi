@@ -1,0 +1,2503 @@
+{
+ "home": {
+  "region": "home",
+  "enterMs": 458,
+  "entry": {
+   "region": "home",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 65,
+    "triangles": 35546,
+    "textures": 33,
+    "geometries": 35,
+    "objects": 283,
+    "actors": 28,
+    "drawMsAvg": 12.840000000000389,
+    "drawMsP95": 116.09999999997672,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 7,
+     "uploads": 0,
+     "longFrames": 14,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 387,
+  "pen": {
+   "player": 0,
+   "party": 0,
+   "n": 46
+  },
+  "afterWalk": {
+   "region": "home",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 65,
+    "triangles": 35546,
+    "textures": 33,
+    "geometries": 36,
+    "objects": 283,
+    "actors": 28,
+    "drawMsAvg": 6.462711864408062,
+    "drawMsP95": 12.5,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 29,
+     "uploads": 0,
+     "longFrames": 58,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -68,
+    "z": 571
+   }
+  },
+  "spot": {
+   "id": "bigtree",
+   "label": "おおきなき",
+   "x": 0,
+   "z": 2600,
+   "landmark": "bigtree"
+  },
+  "atSpot": {
+   "region": "home",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 58,
+    "triangles": 34786,
+    "textures": 33,
+    "geometries": 36,
+    "objects": 283,
+    "actors": 28,
+    "drawMsAvg": 6.284931506849555,
+    "drawMsP95": 12.10000000000582,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 36,
+     "uploads": 0,
+     "longFrames": 72,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 2480
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "city": {
+  "region": "city",
+  "enterMs": 473,
+  "entry": {
+   "region": "city",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 73,
+    "triangles": 130900,
+    "textures": 33,
+    "geometries": 38,
+    "objects": 1096,
+    "actors": 28,
+    "drawMsAvg": 26.27499999999418,
+    "drawMsP95": 163.59999999997672,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 3,
+     "uploads": 0,
+     "longFrames": 6,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 316,
+  "pen": {
+   "player": 0,
+   "party": 1.4210854715202004e-14,
+   "n": 37
+  },
+  "afterWalk": {
+   "region": "city",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 72,
+    "triangles": 130876,
+    "textures": 33,
+    "geometries": 38,
+    "objects": 1096,
+    "actors": 28,
+    "drawMsAvg": 8.147619047619324,
+    "drawMsP95": 8,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 20,
+     "uploads": 0,
+     "longFrames": 40,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -63,
+    "z": 500
+   }
+  },
+  "spot": {
+   "id": "tower",
+   "label": "とけいとう",
+   "x": 0,
+   "z": 6250,
+   "landmark": "tower"
+  },
+  "atSpot": {
+   "region": "city",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 60,
+    "triangles": 129594,
+    "textures": 33,
+    "geometries": 38,
+    "objects": 1096,
+    "actors": 28,
+    "drawMsAvg": 7.309259259260013,
+    "drawMsP95": 8,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 2,
+      "of": 3,
+      "blk": "board"
+     },
+     "occlFrames": 0,
+     "rayChecks": 26,
+     "uploads": 0,
+     "longFrames": 52,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 6130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "countryside": {
+  "region": "countryside",
+  "enterMs": 10,
+  "entry": {
+   "region": "countryside",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 78,
+    "triangles": 119822,
+    "textures": 35,
+    "geometries": 41,
+    "objects": 899,
+    "actors": 28,
+    "drawMsAvg": 22.870000000001163,
+    "drawMsP95": 165.39999999999418,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 4,
+     "uploads": 0,
+     "longFrames": 8,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 346,
+  "pen": {
+   "player": 0,
+   "party": 1.4210854715202004e-14,
+   "n": 44
+  },
+  "afterWalk": {
+   "region": "countryside",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 75,
+    "triangles": 119602,
+    "textures": 35,
+    "geometries": 42,
+    "objects": 899,
+    "actors": 28,
+    "drawMsAvg": 8.018367346940439,
+    "drawMsP95": 7.100000000005821,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 24,
+     "uploads": 0,
+     "longFrames": 47,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -52,
+    "z": 532
+   }
+  },
+  "spot": {
+   "id": "watermill",
+   "label": "みずぐるま",
+   "x": 1350,
+   "z": 3300,
+   "landmark": "windmill"
+  },
+  "atSpot": {
+   "region": "countryside",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 75,
+    "triangles": 119598,
+    "textures": 35,
+    "geometries": 42,
+    "objects": 899,
+    "actors": 28,
+    "drawMsAvg": 7.368333333333916,
+    "drawMsP95": 7.5,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 29,
+     "uploads": 0,
+     "longFrames": 58,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 1350,
+    "z": 3180
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "forest": {
+  "region": "forest",
+  "enterMs": 874,
+  "entry": {
+   "region": "forest",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 84,
+    "triangles": 148426,
+    "textures": 40,
+    "geometries": 49,
+    "objects": 1315,
+    "actors": 28,
+    "drawMsAvg": 29.329999999998837,
+    "drawMsP95": 225,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 4,
+     "uploads": 0,
+     "longFrames": 8,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 337,
+  "pen": {
+   "player": 0,
+   "party": 2.1316282072803006e-14,
+   "n": 40
+  },
+  "afterWalk": {
+   "region": "forest",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 86,
+    "triangles": 148578,
+    "textures": 40,
+    "geometries": 49,
+    "objects": 1315,
+    "actors": 28,
+    "drawMsAvg": 9.645652173915195,
+    "drawMsP95": 8.799999999988358,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 22,
+     "uploads": 0,
+     "longFrames": 44,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -56,
+    "z": 522
+   }
+  },
+  "spot": {
+   "id": "mush1",
+   "label": "ひかるキノコ",
+   "x": -1300,
+   "z": 3600,
+   "landmark": "glowmushroom"
+  },
+  "atSpot": {
+   "region": "forest",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 81,
+    "triangles": 148062,
+    "textures": 40,
+    "geometries": 49,
+    "objects": 1315,
+    "actors": 28,
+    "drawMsAvg": 8.82142857143065,
+    "drawMsP95": 8.799999999988358,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 27,
+     "uploads": 0,
+     "longFrames": 54,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -1300,
+    "z": 3480
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "mountain": {
+  "region": "mountain",
+  "enterMs": 393,
+  "entry": {
+   "region": "mountain",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 77,
+    "triangles": 106756,
+    "textures": 38,
+    "geometries": 44,
+    "objects": 781,
+    "actors": 28,
+    "drawMsAvg": 25.963636363634247,
+    "drawMsP95": 227.29999999998836,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 5,
+     "uploads": 0,
+     "longFrames": 9,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 342,
+  "pen": {
+   "player": 0,
+   "party": 4.973799150320701e-14,
+   "n": 38
+  },
+  "afterWalk": {
+   "region": "mountain",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 78,
+    "triangles": 106768,
+    "textures": 38,
+    "geometries": 45,
+    "objects": 781,
+    "actors": 28,
+    "drawMsAvg": 8.979166666665455,
+    "drawMsP95": 8.10000000000582,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 23,
+     "uploads": 0,
+     "longFrames": 46,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -50,
+    "z": 528
+   }
+  },
+  "spot": {
+   "id": "bigfalls",
+   "label": "おおたき",
+   "x": -1400,
+   "z": 3900,
+   "landmark": "waterfall"
+  },
+  "atSpot": {
+   "region": "mountain",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 76,
+    "triangles": 106754,
+    "textures": 38,
+    "geometries": 45,
+    "objects": 781,
+    "actors": 28,
+    "drawMsAvg": 8.287931034481955,
+    "drawMsP95": 8.10000000000582,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 28,
+     "uploads": 0,
+     "longFrames": 56,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -1400,
+    "z": 3780
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "snow": {
+  "region": "snow",
+  "enterMs": 299,
+  "entry": {
+   "region": "snow",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 69,
+    "triangles": 69834,
+    "textures": 34,
+    "geometries": 37,
+    "objects": 527,
+    "actors": 28,
+    "drawMsAvg": 19.116666666663757,
+    "drawMsP95": 172.29999999998836,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 5,
+     "uploads": 0,
+     "longFrames": 10,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 395,
+  "pen": {
+   "player": 0,
+   "party": 4.263256414560601e-14,
+   "n": 48
+  },
+  "afterWalk": {
+   "region": "snow",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 69,
+    "triangles": 69834,
+    "textures": 34,
+    "geometries": 37,
+    "objects": 527,
+    "actors": 28,
+    "drawMsAvg": 7.218867924530059,
+    "drawMsP95": 7,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 26,
+     "uploads": 0,
+     "longFrames": 51,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -66,
+    "z": 579
+   }
+  },
+  "spot": {
+   "id": "lodge",
+   "label": "ロッジ",
+   "x": -1000,
+   "z": 1200,
+   "landmark": "lodge"
+  },
+  "atSpot": {
+   "region": "snow",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 69,
+    "triangles": 69834,
+    "textures": 34,
+    "geometries": 37,
+    "objects": 527,
+    "actors": 28,
+    "drawMsAvg": 6.603125000000546,
+    "drawMsP95": 5.600000000034925,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 2
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 31,
+     "uploads": 0,
+     "longFrames": 62,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -1000,
+    "z": 1080
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "sea": {
+  "region": "sea",
+  "enterMs": 337,
+  "entry": {
+   "region": "sea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 73,
+    "triangles": 70218,
+    "textures": 36,
+    "geometries": 40,
+    "objects": 529,
+    "actors": 28,
+    "drawMsAvg": 23.366666666663757,
+    "drawMsP95": 210.60000000003492,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "sea",
+     "meshes": [
+      "water:wetsand",
+      "water:sea",
+      "water:foam",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 5
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 5,
+     "uploads": 0,
+     "longFrames": 10,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 340,
+    "z": 190
+   }
+  },
+  "walked": 375,
+  "pen": {
+   "player": 0,
+   "party": 0,
+   "n": 41
+  },
+  "afterWalk": {
+   "region": "sea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 73,
+    "triangles": 70218,
+    "textures": 36,
+    "geometries": 40,
+    "objects": 529,
+    "actors": 28,
+    "drawMsAvg": 8.565999999996274,
+    "drawMsP95": 11.799999999988358,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "sea",
+     "meshes": [
+      "water:wetsand",
+      "water:sea",
+      "water:foam",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 5
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 24,
+     "uploads": 0,
+     "longFrames": 48,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 277,
+    "z": 560
+   }
+  },
+  "spot": {
+   "id": "lighthouse",
+   "label": "とうだい",
+   "x": 1550,
+   "z": 6700,
+   "landmark": "lighthouse"
+  },
+  "atSpot": {
+   "region": "sea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 68,
+    "triangles": 69288,
+    "textures": 36,
+    "geometries": 40,
+    "objects": 529,
+    "actors": 28,
+    "drawMsAvg": 8.318032786882766,
+    "drawMsP95": 11.799999999988358,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 1,
+     "owners": [
+      "sea:338"
+     ],
+     "visible": 6,
+     "attached": 6,
+     "total": 6
+    },
+    "water": {
+     "kind": "sea",
+     "meshes": [
+      "water:wetsand",
+      "water:sea",
+      "water:foam",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 5
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 30,
+     "uploads": 1,
+     "longFrames": 59,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 1550,
+    "z": 6580
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "deepsea": {
+  "region": "deepsea",
+  "enterMs": 308,
+  "entry": {
+   "region": "deepsea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 59,
+    "triangles": 73746,
+    "textures": 32,
+    "geometries": 27,
+    "objects": 712,
+    "actors": 28,
+    "drawMsAvg": 16.9230769230814,
+    "drawMsP95": 162.09999999997672,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "chasm",
+     "meshes": [
+      "water:bank",
+      "water:chasm",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 6
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 6,
+     "uploads": 0,
+     "longFrames": 11,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 393,
+  "pen": {
+   "player": 0,
+   "party": 4.263256414560601e-14,
+   "n": 46
+  },
+  "afterWalk": {
+   "region": "deepsea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 59,
+    "triangles": 73746,
+    "textures": 32,
+    "geometries": 27,
+    "objects": 712,
+    "actors": 28,
+    "drawMsAvg": 6.698148148152676,
+    "drawMsP95": 6.2000000000116415,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "chasm",
+     "meshes": [
+      "water:bank",
+      "water:chasm",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 6
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 26,
+     "uploads": 0,
+     "longFrames": 52,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -59,
+    "z": 579
+   }
+  },
+  "spot": {
+   "id": "coralcity",
+   "label": "サンゴのまち",
+   "x": 0,
+   "z": 900,
+   "landmark": "coral"
+  },
+  "atSpot": {
+   "region": "deepsea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 59,
+    "triangles": 73746,
+    "textures": 32,
+    "geometries": 27,
+    "objects": 712,
+    "actors": 28,
+    "drawMsAvg": 6.371875000004366,
+    "drawMsP95": 6.2000000000116415,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "chasm",
+     "meshes": [
+      "water:bank",
+      "water:chasm",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 6
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 31,
+     "uploads": 0,
+     "longFrames": 62,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 780
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "river_lake": {
+  "region": "river_lake",
+  "enterMs": 778,
+  "entry": {
+   "region": "river_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 79,
+    "triangles": 113912,
+    "textures": 39,
+    "geometries": 45,
+    "objects": 831,
+    "actors": 28,
+    "drawMsAvg": 24.22499999999612,
+    "drawMsP95": 222,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "river",
+     "meshes": [
+      "water:bank",
+      "water:river",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 6
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 5,
+     "uploads": 0,
+     "longFrames": 10,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 342,
+  "pen": {
+   "player": 0,
+   "party": 4.263256414560601e-14,
+   "n": 41
+  },
+  "afterWalk": {
+   "region": "river_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 78,
+    "triangles": 113828,
+    "textures": 39,
+    "geometries": 45,
+    "objects": 831,
+    "actors": 28,
+    "drawMsAvg": 8.815999999999768,
+    "drawMsP95": 9.599999999976717,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "river",
+     "meshes": [
+      "water:bank",
+      "water:river",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 6
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 24,
+     "uploads": 0,
+     "longFrames": 48,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -51,
+    "z": 528
+   }
+  },
+  "spot": {
+   "id": "bridge2",
+   "label": "おおきなはし",
+   "x": 0,
+   "z": 2250,
+   "landmark": "bridge"
+  },
+  "atSpot": {
+   "region": "river_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 94,
+    "triangles": 114226,
+    "textures": 39,
+    "geometries": 45,
+    "objects": 831,
+    "actors": 28,
+    "drawMsAvg": 8.575862068966922,
+    "drawMsP95": 11,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 2,
+     "owners": [
+      "river_lake:413",
+      "river_lake:421"
+     ],
+     "visible": 17,
+     "attached": 17,
+     "total": 17
+    },
+    "water": {
+     "kind": "river",
+     "meshes": [
+      "water:bank",
+      "water:river",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 6
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 28,
+     "uploads": 1,
+     "longFrames": 56,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 2130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "jungle": {
+  "region": "jungle",
+  "enterMs": 13,
+  "entry": {
+   "region": "jungle",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 85,
+    "triangles": 173208,
+    "textures": 39,
+    "geometries": 47,
+    "objects": 1482,
+    "actors": 28,
+    "drawMsAvg": 34.700000000004366,
+    "drawMsP95": 225.10000000003492,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 3,
+     "uploads": 0,
+     "longFrames": 6,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 298,
+  "pen": {
+   "player": 0,
+   "party": 0.004852588928741852,
+   "n": 37
+  },
+  "afterWalk": {
+   "region": "jungle",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 85,
+    "triangles": 173208,
+    "textures": 39,
+    "geometries": 47,
+    "objects": 1482,
+    "actors": 28,
+    "drawMsAvg": 9.952380952389268,
+    "drawMsP95": 9.400000000023283,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 20,
+     "uploads": 0,
+     "longFrames": 40,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -46,
+    "z": 484
+   }
+  },
+  "spot": {
+   "id": "falls",
+   "label": "たき",
+   "x": -1200,
+   "z": 4050,
+   "landmark": "waterfall"
+  },
+  "atSpot": {
+   "region": "jungle",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 90,
+    "triangles": 173318,
+    "textures": 39,
+    "geometries": 47,
+    "objects": 1482,
+    "actors": 28,
+    "drawMsAvg": 10.042857142864984,
+    "drawMsP95": 12.400000000023283,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 1,
+     "owners": [
+      "jungle:932"
+     ],
+     "visible": 10,
+     "attached": 10,
+     "total": 10
+    },
+    "water": {
+     "kind": "creek",
+     "meshes": [
+      "water:creekbed",
+      "water:creek",
+      "water:creekbed",
+      "water:creek",
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 1
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 24,
+     "uploads": 1,
+     "longFrames": 47,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -1200,
+    "z": 3930
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "desert": {
+  "region": "desert",
+  "enterMs": 322,
+  "entry": {
+   "region": "desert",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 64,
+    "triangles": 90718,
+    "textures": 35,
+    "geometries": 35,
+    "objects": 611,
+    "actors": 28,
+    "drawMsAvg": 19.833333333323633,
+    "drawMsP95": 177.19999999995343,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 5
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 5,
+     "uploads": 0,
+     "longFrames": 10,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 373,
+  "pen": {
+   "player": 0,
+   "party": 4.973799150320701e-14,
+   "n": 42
+  },
+  "afterWalk": {
+   "region": "desert",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 64,
+    "triangles": 90718,
+    "textures": 35,
+    "geometries": 35,
+    "objects": 611,
+    "actors": 28,
+    "drawMsAvg": 7.330769230762739,
+    "drawMsP95": 7.400000000023283,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 5
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 25,
+     "uploads": 0,
+     "longFrames": 50,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -53,
+    "z": 559
+   }
+  },
+  "spot": {
+   "id": "oasis",
+   "label": "オアシス",
+   "x": -1500,
+   "z": 4400,
+   "landmark": "palms"
+  },
+  "atSpot": {
+   "region": "desert",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 65,
+    "triangles": 90878,
+    "textures": 35,
+    "geometries": 35,
+    "objects": 611,
+    "actors": 28,
+    "drawMsAvg": 6.824999999994361,
+    "drawMsP95": 7.5,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 1,
+     "owners": [
+      "desert:304"
+     ],
+     "visible": 6,
+     "attached": 6,
+     "total": 6
+    },
+    "water": {
+     "kind": null,
+     "meshes": [
+      "water:rim",
+      "water:pond"
+     ],
+     "ponds": 5
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 31,
+     "uploads": 1,
+     "longFrames": 62,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -1500,
+    "z": 4280
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "star_stop": {
+  "region": "star_stop",
+  "enterMs": 317,
+  "entry": {
+   "region": "star_stop",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 53,
+    "triangles": 66398,
+    "textures": 33,
+    "geometries": 24,
+    "objects": 463,
+    "actors": 28,
+    "drawMsAvg": 13.923076923067969,
+    "drawMsP95": 127.69999999995343,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 6,
+     "uploads": 0,
+     "longFrames": 12,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 408,
+  "pen": {
+   "player": 0,
+   "party": 1.4210854715202004e-14,
+   "n": 44
+  },
+  "afterWalk": {
+   "region": "star_stop",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 53,
+    "triangles": 66398,
+    "textures": 33,
+    "geometries": 24,
+    "objects": 463,
+    "actors": 28,
+    "drawMsAvg": 5.742857142856727,
+    "drawMsP95": 6.7999999999883585,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 27,
+     "uploads": 0,
+     "longFrames": 55,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -54,
+    "z": 594
+   }
+  },
+  "spot": {
+   "id": "stop",
+   "label": "ていりゅうじょ",
+   "x": 0,
+   "z": 250,
+   "landmark": "bigstop"
+  },
+  "atSpot": {
+   "region": "star_stop",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 53,
+    "triangles": 66398,
+    "textures": 33,
+    "geometries": 24,
+    "objects": 463,
+    "actors": 28,
+    "drawMsAvg": 5.231884057968483,
+    "drawMsP95": 6.100000000034925,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": null,
+     "meshes": [],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 34,
+     "uploads": 0,
+     "longFrames": 68,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": 0,
+    "z": 130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "memory_lake": {
+  "region": "memory_lake",
+  "enterMs": 319,
+  "entry": {
+   "region": "memory_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 60,
+    "triangles": 51666,
+    "textures": 35,
+    "geometries": 29,
+    "objects": 352,
+    "actors": 28,
+    "drawMsAvg": 20.37500000000485,
+    "drawMsP95": 191,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "lake",
+     "meshes": [
+      "water:wetsand",
+      "water:lake",
+      "water:foam"
+     ],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 5,
+     "uploads": 0,
+     "longFrames": 10,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -160,
+    "z": 190
+   }
+  },
+  "walked": 430,
+  "pen": {
+   "player": 0,
+   "party": 0,
+   "n": 42
+  },
+  "afterWalk": {
+   "region": "memory_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 58,
+    "triangles": 51618,
+    "textures": 35,
+    "geometries": 29,
+    "objects": 352,
+    "actors": 28,
+    "drawMsAvg": 7.3603773584923236,
+    "drawMsP95": 5.899999999965075,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "lake",
+     "meshes": [
+      "water:wetsand",
+      "water:lake",
+      "water:foam"
+     ],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 26,
+     "uploads": 0,
+     "longFrames": 51,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -203,
+    "z": 618
+   }
+  },
+  "spot": {
+   "id": "shore",
+   "label": "みずうみのほとり",
+   "x": -160,
+   "z": 250,
+   "landmark": null
+  },
+  "atSpot": {
+   "region": "memory_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 60,
+    "triangles": 51666,
+    "textures": 35,
+    "geometries": 29,
+    "objects": 352,
+    "actors": 28,
+    "drawMsAvg": 6.653125000000728,
+    "drawMsP95": 5.7999999999883585,
+    "pixelRatio": 2,
+    "ghosts": {
+     "hiddenObjects": 0,
+     "owners": [],
+     "visible": 0,
+     "attached": 0,
+     "total": 0
+    },
+    "water": {
+     "kind": "lake",
+     "meshes": [
+      "water:wetsand",
+      "water:lake",
+      "water:foam"
+     ],
+     "ponds": 0
+    },
+    "player": {
+     "missFrames": 0,
+     "ok": true,
+     "why": ""
+    },
+    "diag": {
+     "on": true,
+     "ray": {
+      "seen": 3,
+      "of": 3,
+      "blk": ""
+     },
+     "occlFrames": 0,
+     "rayChecks": 31,
+     "uploads": 0,
+     "longFrames": 62,
+     "dprSteps": []
+    }
+   },
+   "player": {
+    "x": -160,
+    "z": 130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ }
+}

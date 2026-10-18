@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import {toolTransaction} from './live-tools.mjs';
+import {metrics,start} from './optimization.mjs';
+import {replay,stateHash,stateData,applyAction,spawnPose} from './session.mjs';
+const edition=process.argv[2]??'screen',dir=new URL(`./optimization-${edition}-v2-20261014/`,import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('manifest.json',dir)));
+for(const [f,h] of Object.entries(manifest.sources))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(new URL(f,import.meta.url))).digest('hex'),h,f);
+let operations=0;const summary={edition,conditions:[]};
+const quant=(a,q)=>[...a].sort((a,b)=>a-b)[Math.floor((a.length-1)*q)]??null;
+for(const c of manifest.conditions){const rows=[];
+ for(const seed of manifest.seeds){const t=JSON.parse(fs.readFileSync(new URL(`${c.id}-${seed}.json`,dir)));assert.deepEqual(t.condition,c);assert.equal(t.seed,seed);assert.deepEqual(t.initial,stateData(start(c,seed)));const z=replay({version:t.initial.version,initial:t.initial,actions:t.actions,hash:t.hash});assert.equal(stateHash(z),t.hash);assert.deepEqual(metrics(t.initial,t.actions),t.metrics);let live=structuredClone(t.initial),streak=0,hits=0;for(let i=0;i<t.actions.length;i++){assert.ok(!live.over);assert.ok(live.drops<manifest.limits.drops&&i<manifest.limits.actions);if(streak===64)hits++;const a=t.actions[i];if(streak>=64)assert.equal(a.type,'drop');live=a.type==='drop'?applyAction(live,a,false):toolTransaction(live,spawnPose(live.rules),a).state;streak=a.type==='drop'?0:streak+1;if(live.last.deaths)assert.equal(i,t.actions.length-1);}assert.equal(hits,t.capHits);assert.equal(stateHash(live),t.hash);if(t.metrics.status==='censored')assert.ok(live.drops===manifest.limits.drops||t.actions.length===manifest.limits.actions);operations+=t.actions.length;rows.push(t);}
+ const ms=rows.map(t=>t.metrics),n=ms.length,wins=ms.filter(m=>m.status==='win'),sum=k=>ms.reduce((s,m)=>s+m[k],0),mean=k=>sum(k)/n;
+ const count=k=>ms.filter(m=>m[k]).length;
+ const r={condition:c,n,wins:wins.length,gameovers:ms.filter(m=>m.status==='gameover').length,censored:ms.filter(m=>m.status==='censored').length,reach:ms.filter(m=>m.created>0).length,two08:count('two08'),winAfterTwo:count('two08')?wins.length/count('two08'):null,meanObservedDrops:mean('drops'),meanActions:mean('actions'),gaugeEarned:sum('gaugeEarned'),gaugeSpent:sum('gaugeSpent'),transforms:sum('transforms'),bulks:sum('bulks'),transClear:sum('transClear'),bulkClear:sum('bulkClear'),maxChain:Math.max(...ms.map(m=>m.maxChain)),chains2:sum('chains2'),meanHighStageOccupancy:sum('highArea')/sum('actions'),scoreQuantiles:[0,.25,.5,.75,1].map(q=>quant(ms.map(m=>m.score),q)),winActions:wins.map(m=>m.actions),winInputSteps:wins.map(m=>m.inputSteps),capHits:rows.reduce((s,t)=>s+t.capHits,0),earned:[0,1,2,3].map(i=>ms.reduce((s,m)=>s+m.earned[i],0)),remaining:[0,1,2,3].map(i=>ms.reduce((s,m)=>s+m.remaining[i],0)),spent:[0,1,2,3].map(i=>ms.reduce((s,m)=>s+m.spent[i],0)),seeds:rows.map(t=>({seed:t.seed,status:t.metrics.status,created:t.metrics.created,two08:t.metrics.two08,drops:t.metrics.drops,actions:t.metrics.actions,score:t.metrics.score,hash:t.hash}))};
+ summary.conditions.push(r);
+}
+fs.writeFileSync(new URL('summary.json',dir),JSON.stringify(summary,null,2));fs.writeFileSync(new URL('verification.json',dir),JSON.stringify({status:'PASS',trials:manifest.conditions.length*manifest.seeds.length,operations,checks:['source hashes','seed and initial resources','common replay legality and final hash','all metrics and economy prefix invariants','win versus gameover versus censoring']},null,2));console.log(edition,operations,'PASS');

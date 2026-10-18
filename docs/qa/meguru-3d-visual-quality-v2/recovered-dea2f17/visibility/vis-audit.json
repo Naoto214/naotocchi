@@ -1,0 +1,2022 @@
+{
+ "home": {
+  "tri": {
+   "trunk2": {
+    "inst": 136,
+    "tri": 14,
+    "total": 1904
+   },
+   "crown": {
+    "inst": 58,
+    "tri": 80,
+    "total": 4640
+   },
+   "crownSmall": {
+    "inst": 224,
+    "tri": 20,
+    "total": 4480
+   },
+   "wstem": {
+    "inst": 23,
+    "tri": 12,
+    "total": 276
+   },
+   "wbox": {
+    "inst": 260,
+    "tri": 10,
+    "total": 2600
+   },
+   "gable": {
+    "inst": 12,
+    "tri": 6,
+    "total": 72
+   },
+   "wpanel": {
+    "inst": 207,
+    "tri": 2,
+    "total": 414
+   },
+   "blade": {
+    "inst": 585,
+    "tri": 4,
+    "total": 2340
+   },
+   "petal": {
+    "inst": 438,
+    "tri": 6,
+    "total": 2628
+   },
+   "nut8": {
+    "inst": 438,
+    "tri": 8,
+    "total": 3504
+   },
+   "wslab": {
+    "inst": 25,
+    "tri": 12,
+    "total": 300
+   },
+   "roof4": {
+    "inst": 8,
+    "tri": 8,
+    "total": 64
+   },
+   "spark": {
+    "inst": 13,
+    "tri": 20,
+    "total": 260
+   },
+   "post": {
+    "inst": 11,
+    "tri": 10,
+    "total": 110
+   },
+   "board": {
+    "inst": 11,
+    "tri": 12,
+    "total": 132
+   },
+   "log": {
+    "inst": 10,
+    "tri": 32,
+    "total": 320
+   },
+   "wring": {
+    "inst": 2,
+    "tri": 96,
+    "total": 192
+   },
+   "wtrunk": {
+    "inst": 6,
+    "tri": 14,
+    "total": 84
+   },
+   "roof6": {
+    "inst": 1,
+    "tri": 12,
+    "total": 12
+   },
+   "wpost": {
+    "inst": 152,
+    "tri": 10,
+    "total": 1520
+   },
+   "shore": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "pool": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "crownBig": {
+    "inst": 5,
+    "tri": 80,
+    "total": 400
+   },
+   "rail": {
+    "inst": 82,
+    "tri": 32,
+    "total": 2624
+   },
+   "glowdisc": {
+    "inst": 7,
+    "tri": 20,
+    "total": 140
+   },
+   "pebble": {
+    "inst": 23,
+    "tri": 20,
+    "total": 460
+   },
+   "leaf": {
+    "inst": 13,
+    "tri": 2,
+    "total": 26
+   },
+   "rock": {
+    "inst": 17,
+    "tri": 36,
+    "total": 612
+   }
+  },
+  "avgGhost": 0.23684210526315788,
+  "samples": 76,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 37070,
+  "calls": 41,
+  "long": 169,
+  "up": 2
+ },
+ "city": {
+  "tri": {
+   "wbox": {
+    "inst": 3430,
+    "tri": 10,
+    "total": 34300
+   },
+   "wpanel": {
+    "inst": 5475,
+    "tri": 2,
+    "total": 10950
+   },
+   "board": {
+    "inst": 327,
+    "tri": 12,
+    "total": 3924
+   },
+   "wslab": {
+    "inst": 572,
+    "tri": 12,
+    "total": 6864
+   },
+   "crownSmall": {
+    "inst": 375,
+    "tri": 20,
+    "total": 7500
+   },
+   "blade": {
+    "inst": 1110,
+    "tri": 4,
+    "total": 4440
+   },
+   "petal": {
+    "inst": 656,
+    "tri": 6,
+    "total": 3936
+   },
+   "nut8": {
+    "inst": 656,
+    "tri": 8,
+    "total": 5248
+   },
+   "wpost": {
+    "inst": 191,
+    "tri": 10,
+    "total": 1910
+   },
+   "spark": {
+    "inst": 93,
+    "tri": 20,
+    "total": 1860
+   },
+   "wstem": {
+    "inst": 94,
+    "tri": 12,
+    "total": 1128
+   },
+   "trunk2": {
+    "inst": 302,
+    "tri": 14,
+    "total": 4228
+   },
+   "crown": {
+    "inst": 90,
+    "tri": 80,
+    "total": 7200
+   },
+   "glowdisc": {
+    "inst": 62,
+    "tri": 20,
+    "total": 1240
+   },
+   "post": {
+    "inst": 60,
+    "tri": 10,
+    "total": 600
+   },
+   "wcone": {
+    "inst": 15,
+    "tri": 4,
+    "total": 60
+   },
+   "wring": {
+    "inst": 75,
+    "tri": 96,
+    "total": 7200
+   },
+   "wtrunk": {
+    "inst": 246,
+    "tri": 14,
+    "total": 3444
+   },
+   "plank": {
+    "inst": 2,
+    "tri": 12,
+    "total": 24
+   },
+   "log": {
+    "inst": 6,
+    "tri": 32,
+    "total": 192
+   },
+   "rail": {
+    "inst": 19,
+    "tri": 32,
+    "total": 608
+   },
+   "shore": {
+    "inst": 2,
+    "tri": 24,
+    "total": 48
+   },
+   "pool": {
+    "inst": 2,
+    "tri": 24,
+    "total": 48
+   },
+   "mist": {
+    "inst": 1,
+    "tri": 80,
+    "total": 80
+   },
+   "roof4": {
+    "inst": 17,
+    "tri": 8,
+    "total": 136
+   },
+   "glowcone": {
+    "inst": 3,
+    "tri": 4,
+    "total": 12
+   },
+   "wcone4": {
+    "inst": 1,
+    "tri": 4,
+    "total": 4
+   },
+   "glowboard": {
+    "inst": 21,
+    "tri": 12,
+    "total": 252
+   },
+   "decal": {
+    "inst": 5,
+    "tri": 16,
+    "total": 80
+   },
+   "gable": {
+    "inst": 16,
+    "tri": 6,
+    "total": 96
+   },
+   "trunk": {
+    "inst": 4,
+    "tri": 14,
+    "total": 56
+   },
+   "leaf": {
+    "inst": 68,
+    "tri": 2,
+    "total": 136
+   }
+  },
+  "avgGhost": 9.904761904761905,
+  "samples": 252,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 129984,
+  "calls": 45,
+  "long": 527,
+  "up": 98
+ },
+ "countryside": {
+  "tri": {
+   "wbox": {
+    "inst": 630,
+    "tri": 10,
+    "total": 6300
+   },
+   "gable": {
+    "inst": 100,
+    "tri": 6,
+    "total": 600
+   },
+   "wpanel": {
+    "inst": 770,
+    "tri": 2,
+    "total": 1540
+   },
+   "wpost": {
+    "inst": 292,
+    "tri": 10,
+    "total": 2920
+   },
+   "crownSmall": {
+    "inst": 719,
+    "tri": 20,
+    "total": 14380
+   },
+   "blade": {
+    "inst": 1931,
+    "tri": 4,
+    "total": 7724
+   },
+   "petal": {
+    "inst": 981,
+    "tri": 6,
+    "total": 5886
+   },
+   "nut8": {
+    "inst": 981,
+    "tri": 8,
+    "total": 7848
+   },
+   "trunk2": {
+    "inst": 705,
+    "tri": 14,
+    "total": 9870
+   },
+   "crown": {
+    "inst": 189,
+    "tri": 80,
+    "total": 15120
+   },
+   "log": {
+    "inst": 67,
+    "tri": 32,
+    "total": 2144
+   },
+   "wslab": {
+    "inst": 26,
+    "tri": 12,
+    "total": 312
+   },
+   "post": {
+    "inst": 36,
+    "tri": 10,
+    "total": 360
+   },
+   "board": {
+    "inst": 44,
+    "tri": 12,
+    "total": 528
+   },
+   "wblade": {
+    "inst": 488,
+    "tri": 4,
+    "total": 1952
+   },
+   "pebble": {
+    "inst": 121,
+    "tri": 20,
+    "total": 2420
+   },
+   "wstem": {
+    "inst": 6,
+    "tri": 12,
+    "total": 72
+   },
+   "leaf": {
+    "inst": 60,
+    "tri": 2,
+    "total": 120
+   },
+   "mound": {
+    "inst": 3,
+    "tri": 58,
+    "total": 174
+   },
+   "roof4": {
+    "inst": 2,
+    "tri": 8,
+    "total": 16
+   },
+   "crownBig": {
+    "inst": 5,
+    "tri": 80,
+    "total": 400
+   },
+   "rail": {
+    "inst": 76,
+    "tri": 32,
+    "total": 2432
+   },
+   "trunk": {
+    "inst": 44,
+    "tri": 14,
+    "total": 616
+   },
+   "cone": {
+    "inst": 76,
+    "tri": 16,
+    "total": 1216
+   },
+   "snowcone": {
+    "inst": 76,
+    "tri": 6,
+    "total": 456
+   },
+   "wring": {
+    "inst": 1,
+    "tri": 96,
+    "total": 96
+   },
+   "wnut": {
+    "inst": 1,
+    "tri": 20,
+    "total": 20
+   },
+   "spark": {
+    "inst": 1,
+    "tri": 20,
+    "total": 20
+   },
+   "glowdisc": {
+    "inst": 1,
+    "tri": 20,
+    "total": 20
+   },
+   "rock": {
+    "inst": 5,
+    "tri": 36,
+    "total": 180
+   },
+   "plank": {
+    "inst": 2,
+    "tri": 12,
+    "total": 24
+   },
+   "stem": {
+    "inst": 70,
+    "tri": 12,
+    "total": 840
+   },
+   "cap": {
+    "inst": 70,
+    "tri": 30,
+    "total": 2100
+   }
+  },
+  "avgGhost": 1.5285714285714285,
+  "samples": 280,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 117964,
+  "calls": 46,
+  "long": 582,
+  "up": 50
+ },
+ "forest": {
+  "tri": {
+   "trunk2": {
+    "inst": 1090,
+    "tri": 14,
+    "total": 15260
+   },
+   "crownBig": {
+    "inst": 188,
+    "tri": 80,
+    "total": 15040
+   },
+   "crownSmall": {
+    "inst": 820,
+    "tri": 20,
+    "total": 16400
+   },
+   "crown": {
+    "inst": 132,
+    "tri": 80,
+    "total": 10560
+   },
+   "mound": {
+    "inst": 61,
+    "tri": 58,
+    "total": 3538
+   },
+   "pebble": {
+    "inst": 182,
+    "tri": 20,
+    "total": 3640
+   },
+   "cone": {
+    "inst": 949,
+    "tri": 16,
+    "total": 15184
+   },
+   "snowcone": {
+    "inst": 949,
+    "tri": 6,
+    "total": 5694
+   },
+   "log": {
+    "inst": 87,
+    "tri": 32,
+    "total": 2784
+   },
+   "stem": {
+    "inst": 266,
+    "tri": 12,
+    "total": 3192
+   },
+   "cap": {
+    "inst": 259,
+    "tri": 30,
+    "total": 7770
+   },
+   "blade": {
+    "inst": 1387,
+    "tri": 4,
+    "total": 5548
+   },
+   "leaf": {
+    "inst": 134,
+    "tri": 2,
+    "total": 268
+   },
+   "petal": {
+    "inst": 426,
+    "tri": 6,
+    "total": 2556
+   },
+   "nut8": {
+    "inst": 426,
+    "tri": 8,
+    "total": 3408
+   },
+   "spark": {
+    "inst": 39,
+    "tri": 20,
+    "total": 780
+   },
+   "post": {
+    "inst": 27,
+    "tri": 10,
+    "total": 270
+   },
+   "board": {
+    "inst": 27,
+    "tri": 12,
+    "total": 324
+   },
+   "nut": {
+    "inst": 58,
+    "tri": 20,
+    "total": 1160
+   },
+   "rock": {
+    "inst": 26,
+    "tri": 36,
+    "total": 936
+   },
+   "wpost": {
+    "inst": 14,
+    "tri": 10,
+    "total": 140
+   },
+   "rail": {
+    "inst": 5,
+    "tri": 32,
+    "total": 160
+   },
+   "slab": {
+    "inst": 1,
+    "tri": 12,
+    "total": 12
+   },
+   "wbox": {
+    "inst": 10,
+    "tri": 10,
+    "total": 100
+   },
+   "wring": {
+    "inst": 2,
+    "tri": 96,
+    "total": 192
+   },
+   "glowcap": {
+    "inst": 7,
+    "tri": 30,
+    "total": 210
+   },
+   "glowdisc": {
+    "inst": 2,
+    "tri": 20,
+    "total": 40
+   },
+   "cliff": {
+    "inst": 1,
+    "tri": 104,
+    "total": 104
+   },
+   "moss": {
+    "inst": 4,
+    "tri": 80,
+    "total": 320
+   },
+   "pool": {
+    "inst": 5,
+    "tri": 24,
+    "total": 120
+   },
+   "fall": {
+    "inst": 1,
+    "tri": 2,
+    "total": 2
+   },
+   "wet": {
+    "inst": 2,
+    "tri": 24,
+    "total": 48
+   },
+   "shore": {
+    "inst": 5,
+    "tri": 24,
+    "total": 120
+   },
+   "foam": {
+    "inst": 1,
+    "tri": 16,
+    "total": 16
+   },
+   "mist": {
+    "inst": 1,
+    "tri": 80,
+    "total": 80
+   },
+   "stump": {
+    "inst": 15,
+    "tri": 36,
+    "total": 540
+   },
+   "plank": {
+    "inst": 1,
+    "tri": 12,
+    "total": 12
+   },
+   "decal": {
+    "inst": 79,
+    "tri": 16,
+    "total": 1264
+   },
+   "frond": {
+    "inst": 455,
+    "tri": 8,
+    "total": 3640
+   }
+  },
+  "avgGhost": 1.8181818181818181,
+  "samples": 308,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 147870,
+  "calls": 61,
+  "long": 641,
+  "up": 70
+ },
+ "mountain": {
+  "tri": {
+   "trunk": {
+    "inst": 112,
+    "tri": 14,
+    "total": 1568
+   },
+   "cone": {
+    "inst": 1089,
+    "tri": 16,
+    "total": 17424
+   },
+   "snowcone": {
+    "inst": 1089,
+    "tri": 6,
+    "total": 6534
+   },
+   "trunk2": {
+    "inst": 195,
+    "tri": 14,
+    "total": 2730
+   },
+   "cliff": {
+    "inst": 92,
+    "tri": 104,
+    "total": 9568
+   },
+   "moss": {
+    "inst": 95,
+    "tri": 80,
+    "total": 7600
+   },
+   "mound": {
+    "inst": 348,
+    "tri": 58,
+    "total": 20184
+   },
+   "pebble": {
+    "inst": 423,
+    "tri": 20,
+    "total": 8460
+   },
+   "post": {
+    "inst": 46,
+    "tri": 10,
+    "total": 460
+   },
+   "board": {
+    "inst": 46,
+    "tri": 12,
+    "total": 552
+   },
+   "wcone4": {
+    "inst": 11,
+    "tri": 4,
+    "total": 44
+   },
+   "blade": {
+    "inst": 744,
+    "tri": 4,
+    "total": 2976
+   },
+   "petal": {
+    "inst": 414,
+    "tri": 6,
+    "total": 2484
+   },
+   "nut8": {
+    "inst": 414,
+    "tri": 8,
+    "total": 3312
+   },
+   "spark": {
+    "inst": 12,
+    "tri": 20,
+    "total": 240
+   },
+   "log": {
+    "inst": 6,
+    "tri": 32,
+    "total": 192
+   },
+   "wpost": {
+    "inst": 38,
+    "tri": 10,
+    "total": 380
+   },
+   "wslab": {
+    "inst": 5,
+    "tri": 12,
+    "total": 60
+   },
+   "wbox": {
+    "inst": 46,
+    "tri": 10,
+    "total": 460
+   },
+   "roof6": {
+    "inst": 2,
+    "tri": 12,
+    "total": 24
+   },
+   "wpanel": {
+    "inst": 37,
+    "tri": 2,
+    "total": 74
+   },
+   "crownSmall": {
+    "inst": 58,
+    "tri": 20,
+    "total": 1160
+   },
+   "shore": {
+    "inst": 3,
+    "tri": 24,
+    "total": 72
+   },
+   "pool": {
+    "inst": 3,
+    "tri": 24,
+    "total": 72
+   },
+   "mist": {
+    "inst": 2,
+    "tri": 80,
+    "total": 160
+   },
+   "plank": {
+    "inst": 5,
+    "tri": 12,
+    "total": 60
+   },
+   "rail": {
+    "inst": 10,
+    "tri": 32,
+    "total": 320
+   },
+   "decal": {
+    "inst": 2,
+    "tri": 16,
+    "total": 32
+   },
+   "fall": {
+    "inst": 1,
+    "tri": 2,
+    "total": 2
+   },
+   "wet": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "foam": {
+    "inst": 1,
+    "tri": 16,
+    "total": 16
+   },
+   "rock": {
+    "inst": 20,
+    "tri": 36,
+    "total": 720
+   },
+   "snowcap": {
+    "inst": 1,
+    "tri": 30,
+    "total": 30
+   },
+   "gable": {
+    "inst": 2,
+    "tri": 6,
+    "total": 12
+   },
+   "leaf": {
+    "inst": 7,
+    "tri": 2,
+    "total": 14
+   }
+  },
+  "avgGhost": 1.880952380952381,
+  "samples": 252,
+  "hidden": 0,
+  "partial": 1,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 104668,
+  "calls": 41,
+  "long": 521,
+  "up": 50
+ },
+ "snow": {
+  "tri": {
+   "mound": {
+    "inst": 163,
+    "tri": 58,
+    "total": 9454
+   },
+   "wcone6": {
+    "inst": 26,
+    "tri": 6,
+    "total": 156
+   },
+   "trunk2": {
+    "inst": 122,
+    "tri": 14,
+    "total": 1708
+   },
+   "cone": {
+    "inst": 791,
+    "tri": 16,
+    "total": 12656
+   },
+   "snowcone": {
+    "inst": 791,
+    "tri": 6,
+    "total": 4746
+   },
+   "trunk": {
+    "inst": 126,
+    "tri": 14,
+    "total": 1764
+   },
+   "log": {
+    "inst": 45,
+    "tri": 32,
+    "total": 1440
+   },
+   "spark": {
+    "inst": 12,
+    "tri": 20,
+    "total": 240
+   },
+   "post": {
+    "inst": 20,
+    "tri": 10,
+    "total": 200
+   },
+   "board": {
+    "inst": 20,
+    "tri": 12,
+    "total": 240
+   },
+   "wslab": {
+    "inst": 14,
+    "tri": 12,
+    "total": 168
+   },
+   "wpost": {
+    "inst": 47,
+    "tri": 10,
+    "total": 470
+   },
+   "crownSmall": {
+    "inst": 269,
+    "tri": 20,
+    "total": 5380
+   },
+   "pebble": {
+    "inst": 255,
+    "tri": 20,
+    "total": 5100
+   },
+   "wbox": {
+    "inst": 16,
+    "tri": 10,
+    "total": 160
+   },
+   "gable": {
+    "inst": 2,
+    "tri": 6,
+    "total": 12
+   },
+   "wpanel": {
+    "inst": 27,
+    "tri": 2,
+    "total": 54
+   },
+   "decal": {
+    "inst": 2,
+    "tri": 16,
+    "total": 32
+   },
+   "roof6": {
+    "inst": 1,
+    "tri": 12,
+    "total": 12
+   },
+   "blade": {
+    "inst": 245,
+    "tri": 4,
+    "total": 980
+   },
+   "petal": {
+    "inst": 1,
+    "tri": 6,
+    "total": 6
+   },
+   "nut8": {
+    "inst": 1,
+    "tri": 8,
+    "total": 8
+   },
+   "shore": {
+    "inst": 2,
+    "tri": 24,
+    "total": 48
+   },
+   "pool": {
+    "inst": 2,
+    "tri": 24,
+    "total": 48
+   },
+   "mist": {
+    "inst": 1,
+    "tri": 80,
+    "total": 80
+   },
+   "snowcap": {
+    "inst": 1,
+    "tri": 30,
+    "total": 30
+   },
+   "wdome": {
+    "inst": 8,
+    "tri": 30,
+    "total": 240
+   },
+   "rail": {
+    "inst": 18,
+    "tri": 32,
+    "total": 576
+   }
+  },
+  "avgGhost": 0.30392156862745096,
+  "samples": 204,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 68718,
+  "calls": 33,
+  "long": 421,
+  "up": 6
+ },
+ "sea": {
+  "tri": {
+   "mound": {
+    "inst": 188,
+    "tri": 58,
+    "total": 10904
+   },
+   "trunk": {
+    "inst": 131,
+    "tri": 14,
+    "total": 1834
+   },
+   "trunk2": {
+    "inst": 131,
+    "tri": 14,
+    "total": 1834
+   },
+   "frond": {
+    "inst": 861,
+    "tri": 8,
+    "total": 6888
+   },
+   "crownSmall": {
+    "inst": 235,
+    "tri": 20,
+    "total": 4700
+   },
+   "pebble": {
+    "inst": 301,
+    "tri": 20,
+    "total": 6020
+   },
+   "wpost": {
+    "inst": 56,
+    "tri": 10,
+    "total": 560
+   },
+   "wdome": {
+    "inst": 21,
+    "tri": 30,
+    "total": 630
+   },
+   "spark": {
+    "inst": 13,
+    "tri": 20,
+    "total": 260
+   },
+   "post": {
+    "inst": 13,
+    "tri": 10,
+    "total": 130
+   },
+   "board": {
+    "inst": 18,
+    "tri": 12,
+    "total": 216
+   },
+   "log": {
+    "inst": 18,
+    "tri": 32,
+    "total": 576
+   },
+   "wcone": {
+    "inst": 19,
+    "tri": 4,
+    "total": 76
+   },
+   "wslab": {
+    "inst": 9,
+    "tri": 12,
+    "total": 108
+   },
+   "wstem": {
+    "inst": 1,
+    "tri": 12,
+    "total": 12
+   },
+   "wbox": {
+    "inst": 170,
+    "tri": 10,
+    "total": 1700
+   },
+   "plank": {
+    "inst": 3,
+    "tri": 12,
+    "total": 36
+   },
+   "shore": {
+    "inst": 9,
+    "tri": 24,
+    "total": 216
+   },
+   "pool": {
+    "inst": 9,
+    "tri": 24,
+    "total": 216
+   },
+   "roof4": {
+    "inst": 15,
+    "tri": 8,
+    "total": 120
+   },
+   "wpanel": {
+    "inst": 195,
+    "tri": 2,
+    "total": 390
+   },
+   "blade": {
+    "inst": 780,
+    "tri": 4,
+    "total": 3120
+   },
+   "petal": {
+    "inst": 397,
+    "tri": 6,
+    "total": 2382
+   },
+   "nut8": {
+    "inst": 397,
+    "tri": 8,
+    "total": 3176
+   },
+   "gable": {
+    "inst": 12,
+    "tri": 6,
+    "total": 72
+   },
+   "cliff": {
+    "inst": 25,
+    "tri": 104,
+    "total": 2600
+   },
+   "moss": {
+    "inst": 25,
+    "tri": 80,
+    "total": 2000
+   }
+  },
+  "avgGhost": 1.83,
+  "samples": 200,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 68840,
+  "calls": 42,
+  "long": 415,
+  "up": 34
+ },
+ "deepsea": {
+  "tri": {
+   "mound": {
+    "inst": 422,
+    "tri": 58,
+    "total": 24476
+   },
+   "pebble": {
+    "inst": 419,
+    "tri": 20,
+    "total": 8380
+   },
+   "wcone": {
+    "inst": 498,
+    "tri": 4,
+    "total": 1992
+   },
+   "kelp": {
+    "inst": 880,
+    "tri": 12,
+    "total": 10560
+   },
+   "blade": {
+    "inst": 285,
+    "tri": 4,
+    "total": 1140
+   },
+   "spark": {
+    "inst": 45,
+    "tri": 20,
+    "total": 900
+   },
+   "post": {
+    "inst": 9,
+    "tri": 10,
+    "total": 90
+   },
+   "board": {
+    "inst": 9,
+    "tri": 12,
+    "total": 108
+   },
+   "wdome": {
+    "inst": 2,
+    "tri": 30,
+    "total": 60
+   },
+   "rock": {
+    "inst": 9,
+    "tri": 36,
+    "total": 324
+   },
+   "mist": {
+    "inst": 9,
+    "tri": 80,
+    "total": 720
+   },
+   "glowcone": {
+    "inst": 42,
+    "tri": 4,
+    "total": 168
+   },
+   "wbox": {
+    "inst": 176,
+    "tri": 10,
+    "total": 1760
+   },
+   "wslab": {
+    "inst": 20,
+    "tri": 12,
+    "total": 240
+   },
+   "wpost": {
+    "inst": 31,
+    "tri": 10,
+    "total": 310
+   },
+   "glowdisc": {
+    "inst": 1,
+    "tri": 20,
+    "total": 20
+   }
+  },
+  "avgGhost": 0.20909090909090908,
+  "samples": 220,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 71248,
+  "calls": 30,
+  "long": 451,
+  "up": 6
+ },
+ "river_lake": {
+  "tri": {
+   "mound": {
+    "inst": 102,
+    "tri": 58,
+    "total": 5916
+   },
+   "pebble": {
+    "inst": 156,
+    "tri": 20,
+    "total": 3120
+   },
+   "petal": {
+    "inst": 429,
+    "tri": 6,
+    "total": 2574
+   },
+   "trunk2": {
+    "inst": 1141,
+    "tri": 14,
+    "total": 15974
+   },
+   "crown": {
+    "inst": 296,
+    "tri": 80,
+    "total": 23680
+   },
+   "crownSmall": {
+    "inst": 838,
+    "tri": 20,
+    "total": 16760
+   },
+   "blade": {
+    "inst": 945,
+    "tri": 4,
+    "total": 3780
+   },
+   "spark": {
+    "inst": 15,
+    "tri": 20,
+    "total": 300
+   },
+   "post": {
+    "inst": 10,
+    "tri": 10,
+    "total": 100
+   },
+   "board": {
+    "inst": 10,
+    "tri": 12,
+    "total": 120
+   },
+   "wblade": {
+    "inst": 1275,
+    "tri": 4,
+    "total": 5100
+   },
+   "shore": {
+    "inst": 5,
+    "tri": 24,
+    "total": 120
+   },
+   "pool": {
+    "inst": 5,
+    "tri": 24,
+    "total": 120
+   },
+   "log": {
+    "inst": 15,
+    "tri": 32,
+    "total": 480
+   },
+   "rock": {
+    "inst": 29,
+    "tri": 36,
+    "total": 1044
+   },
+   "wpost": {
+    "inst": 41,
+    "tri": 10,
+    "total": 410
+   },
+   "rail": {
+    "inst": 14,
+    "tri": 32,
+    "total": 448
+   },
+   "slab": {
+    "inst": 2,
+    "tri": 12,
+    "total": 24
+   },
+   "wbox": {
+    "inst": 50,
+    "tri": 10,
+    "total": 500
+   },
+   "wring": {
+    "inst": 5,
+    "tri": 96,
+    "total": 480
+   },
+   "roof6": {
+    "inst": 3,
+    "tri": 12,
+    "total": 36
+   },
+   "wpanel": {
+    "inst": 36,
+    "tri": 2,
+    "total": 72
+   },
+   "nut8": {
+    "inst": 375,
+    "tri": 8,
+    "total": 3000
+   },
+   "cliff": {
+    "inst": 28,
+    "tri": 104,
+    "total": 2912
+   },
+   "moss": {
+    "inst": 31,
+    "tri": 80,
+    "total": 2480
+   },
+   "fall": {
+    "inst": 1,
+    "tri": 2,
+    "total": 2
+   },
+   "wet": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "foam": {
+    "inst": 1,
+    "tri": 16,
+    "total": 16
+   },
+   "mist": {
+    "inst": 1,
+    "tri": 80,
+    "total": 80
+   },
+   "plank": {
+    "inst": 4,
+    "tri": 12,
+    "total": 48
+   },
+   "trunk": {
+    "inst": 6,
+    "tri": 14,
+    "total": 84
+   },
+   "leaf": {
+    "inst": 37,
+    "tri": 2,
+    "total": 74
+   },
+   "stem": {
+    "inst": 3,
+    "tri": 12,
+    "total": 36
+   },
+   "cap": {
+    "inst": 3,
+    "tri": 30,
+    "total": 90
+   }
+  },
+  "avgGhost": 5.009090909090909,
+  "samples": 220,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 112948,
+  "calls": 53,
+  "long": 459,
+  "up": 89
+ },
+ "jungle": {
+  "tri": {
+   "trunk2": {
+    "inst": 1218,
+    "tri": 14,
+    "total": 17052
+   },
+   "crownBig": {
+    "inst": 189,
+    "tri": 80,
+    "total": 15120
+   },
+   "crownSmall": {
+    "inst": 1239,
+    "tri": 20,
+    "total": 24780
+   },
+   "frond": {
+    "inst": 2588,
+    "tri": 8,
+    "total": 20704
+   },
+   "wpost": {
+    "inst": 538,
+    "tri": 10,
+    "total": 5380
+   },
+   "wblade": {
+    "inst": 1493,
+    "tri": 4,
+    "total": 5972
+   },
+   "crown": {
+    "inst": 104,
+    "tri": 80,
+    "total": 8320
+   },
+   "blade": {
+    "inst": 1347,
+    "tri": 4,
+    "total": 5388
+   },
+   "nut": {
+    "inst": 88,
+    "tri": 20,
+    "total": 1760
+   },
+   "log": {
+    "inst": 39,
+    "tri": 32,
+    "total": 1248
+   },
+   "trunk": {
+    "inst": 247,
+    "tri": 14,
+    "total": 3458
+   },
+   "petal": {
+    "inst": 606,
+    "tri": 6,
+    "total": 3636
+   },
+   "nut8": {
+    "inst": 606,
+    "tri": 8,
+    "total": 4848
+   },
+   "spark": {
+    "inst": 15,
+    "tri": 20,
+    "total": 300
+   },
+   "post": {
+    "inst": 16,
+    "tri": 10,
+    "total": 160
+   },
+   "board": {
+    "inst": 16,
+    "tri": 12,
+    "total": 192
+   },
+   "pebble": {
+    "inst": 188,
+    "tri": 20,
+    "total": 3760
+   },
+   "cliff": {
+    "inst": 49,
+    "tri": 104,
+    "total": 5096
+   },
+   "moss": {
+    "inst": 52,
+    "tri": 80,
+    "total": 4160
+   },
+   "pool": {
+    "inst": 3,
+    "tri": 24,
+    "total": 72
+   },
+   "fall": {
+    "inst": 1,
+    "tri": 2,
+    "total": 2
+   },
+   "wet": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "shore": {
+    "inst": 3,
+    "tri": 24,
+    "total": 72
+   },
+   "foam": {
+    "inst": 1,
+    "tri": 16,
+    "total": 16
+   },
+   "mist": {
+    "inst": 1,
+    "tri": 80,
+    "total": 80
+   },
+   "rock": {
+    "inst": 29,
+    "tri": 36,
+    "total": 1044
+   },
+   "wdome": {
+    "inst": 1,
+    "tri": 30,
+    "total": 30
+   },
+   "wnut": {
+    "inst": 2,
+    "tri": 20,
+    "total": 40
+   },
+   "plank": {
+    "inst": 2,
+    "tri": 12,
+    "total": 24
+   },
+   "rail": {
+    "inst": 6,
+    "tri": 32,
+    "total": 192
+   },
+   "wbox": {
+    "inst": 127,
+    "tri": 10,
+    "total": 1270
+   },
+   "wslab": {
+    "inst": 11,
+    "tri": 12,
+    "total": 132
+   },
+   "roof4": {
+    "inst": 1,
+    "tri": 8,
+    "total": 8
+   },
+   "mound": {
+    "inst": 144,
+    "tri": 58,
+    "total": 8352
+   },
+   "stump": {
+    "inst": 1,
+    "tri": 36,
+    "total": 36
+   },
+   "leaf": {
+    "inst": 79,
+    "tri": 2,
+    "total": 158
+   },
+   "stem": {
+    "inst": 24,
+    "tri": 12,
+    "total": 288
+   },
+   "cap": {
+    "inst": 24,
+    "tri": 30,
+    "total": 720
+   }
+  },
+  "avgGhost": 3.7704918032786887,
+  "samples": 244,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 172428,
+  "calls": 51,
+  "long": 508,
+  "up": 80
+ },
+ "desert": {
+  "tri": {
+   "mound": {
+    "inst": 347,
+    "tri": 58,
+    "total": 20126
+   },
+   "wstem": {
+    "inst": 388,
+    "tri": 12,
+    "total": 4656
+   },
+   "cliff": {
+    "inst": 53,
+    "tri": 104,
+    "total": 5512
+   },
+   "moss": {
+    "inst": 53,
+    "tri": 80,
+    "total": 4240
+   },
+   "pebble": {
+    "inst": 558,
+    "tri": 20,
+    "total": 11160
+   },
+   "trunk": {
+    "inst": 15,
+    "tri": 14,
+    "total": 210
+   },
+   "trunk2": {
+    "inst": 15,
+    "tri": 14,
+    "total": 210
+   },
+   "frond": {
+    "inst": 100,
+    "tri": 8,
+    "total": 800
+   },
+   "crownSmall": {
+    "inst": 182,
+    "tri": 20,
+    "total": 3640
+   },
+   "wdome": {
+    "inst": 117,
+    "tri": 30,
+    "total": 3510
+   },
+   "spark": {
+    "inst": 12,
+    "tri": 20,
+    "total": 240
+   },
+   "post": {
+    "inst": 15,
+    "tri": 10,
+    "total": 150
+   },
+   "board": {
+    "inst": 15,
+    "tri": 12,
+    "total": 180
+   },
+   "wcone4": {
+    "inst": 23,
+    "tri": 4,
+    "total": 92
+   },
+   "wbox": {
+    "inst": 104,
+    "tri": 10,
+    "total": 1040
+   },
+   "wslab": {
+    "inst": 14,
+    "tri": 12,
+    "total": 168
+   },
+   "roof4": {
+    "inst": 1,
+    "tri": 8,
+    "total": 8
+   },
+   "wpost": {
+    "inst": 15,
+    "tri": 10,
+    "total": 150
+   },
+   "shore": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "pool": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "blade": {
+    "inst": 360,
+    "tri": 4,
+    "total": 1440
+   },
+   "petal": {
+    "inst": 39,
+    "tri": 6,
+    "total": 234
+   },
+   "nut8": {
+    "inst": 39,
+    "tri": 8,
+    "total": 312
+   }
+  },
+  "avgGhost": 0.7890625,
+  "samples": 256,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 90304,
+  "calls": 41,
+  "long": 529,
+  "up": 24
+ },
+ "star_stop": {
+  "tri": {
+   "wpost": {
+    "inst": 125,
+    "tri": 10,
+    "total": 1250
+   },
+   "spark": {
+    "inst": 365,
+    "tri": 20,
+    "total": 7300
+   },
+   "glowdisc": {
+    "inst": 56,
+    "tri": 20,
+    "total": 1120
+   },
+   "glowcone": {
+    "inst": 37,
+    "tri": 4,
+    "total": 148
+   },
+   "trunk": {
+    "inst": 76,
+    "tri": 14,
+    "total": 1064
+   },
+   "wslab": {
+    "inst": 48,
+    "tri": 12,
+    "total": 576
+   },
+   "mound": {
+    "inst": 270,
+    "tri": 58,
+    "total": 15660
+   },
+   "post": {
+    "inst": 23,
+    "tri": 10,
+    "total": 230
+   },
+   "board": {
+    "inst": 24,
+    "tri": 12,
+    "total": 288
+   },
+   "pebble": {
+    "inst": 176,
+    "tri": 20,
+    "total": 3520
+   },
+   "wbox": {
+    "inst": 209,
+    "tri": 10,
+    "total": 2090
+   },
+   "blade": {
+    "inst": 742,
+    "tri": 4,
+    "total": 2968
+   },
+   "petal": {
+    "inst": 304,
+    "tri": 6,
+    "total": 1824
+   },
+   "nut8": {
+    "inst": 304,
+    "tri": 8,
+    "total": 2432
+   },
+   "crownSmall": {
+    "inst": 108,
+    "tri": 20,
+    "total": 2160
+   }
+  },
+  "avgGhost": 0.02,
+  "samples": 200,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 65982,
+  "calls": 29,
+  "long": 420,
+  "up": 2
+ },
+ "memory_lake": {
+  "tri": {
+   "trunk2": {
+    "inst": 682,
+    "tri": 14,
+    "total": 9548
+   },
+   "crown": {
+    "inst": 177,
+    "tri": 80,
+    "total": 14160
+   },
+   "crownSmall": {
+    "inst": 485,
+    "tri": 20,
+    "total": 9700
+   },
+   "blade": {
+    "inst": 222,
+    "tri": 4,
+    "total": 888
+   },
+   "mound": {
+    "inst": 11,
+    "tri": 58,
+    "total": 638
+   },
+   "pebble": {
+    "inst": 39,
+    "tri": 20,
+    "total": 780
+   },
+   "wpost": {
+    "inst": 55,
+    "tri": 10,
+    "total": 550
+   },
+   "spark": {
+    "inst": 76,
+    "tri": 20,
+    "total": 1520
+   },
+   "glowdisc": {
+    "inst": 55,
+    "tri": 20,
+    "total": 1100
+   },
+   "leaf": {
+    "inst": 23,
+    "tri": 2,
+    "total": 46
+   },
+   "post": {
+    "inst": 12,
+    "tri": 10,
+    "total": 120
+   },
+   "board": {
+    "inst": 12,
+    "tri": 12,
+    "total": 144
+   },
+   "shore": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "pool": {
+    "inst": 1,
+    "tri": 24,
+    "total": 24
+   },
+   "wblade": {
+    "inst": 155,
+    "tri": 4,
+    "total": 620
+   },
+   "petal": {
+    "inst": 74,
+    "tri": 6,
+    "total": 444
+   },
+   "nut8": {
+    "inst": 74,
+    "tri": 8,
+    "total": 592
+   }
+  },
+  "avgGhost": 6.316666666666666,
+  "samples": 120,
+  "hidden": 0,
+  "partial": 0,
+  "blk": {},
+  "bad": [],
+  "errors": 0,
+  "tris": 51204,
+  "calls": 35,
+  "long": 247,
+  "up": 71
+ }
+}

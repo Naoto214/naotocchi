@@ -1,0 +1,63 @@
+(node:11) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ FR-1 exact quadruped/avian stages build without substituting a neighbouring age (222.609405ms)
+✔ signature lifted paw stays readable with reduced motion and releases into walking (56.769391ms)
+✔ every candidate preserves canonical expression and finite idle/walk under reduced motion (2272.12223ms)
+✔ asymmetric ears and bilateral raised wings keep the original signature silhouette (25.671992ms)
+✔ reviewed exact stages reach the real presenter without role aliases or nearest-age substitution (3433.61026ms)
+✔ reviewed human batch has all24 exact runtime templates without nearest-age substitution (0.67569ms)
+✔ reviewed dandelion batch has eight exact runtime stages including rooted seed head (0.454025ms)
+✔ reviewed butterfly batch has all eight exact metamorphosis templates (0.224078ms)
+✔ reviewed fungus and starfish batches preserve all16 exact topology stages in runtime (0.306983ms)
+✔ reviewed shell and crouched batches reach all16 exact runtime stages (0.389889ms)
+✔ reviewed coral batch preserves all eight exact runtime stages and owned colony faces (0.76187ms)
+✔ reviewed jellyfish batch preserves eight exact rooted, ephyra and bell runtime stages (0.439644ms)
+✔ reviewed beetle families preserve all exact metamorphosis stages in runtime (16.115394ms)
+✔ reviewed sakura batch preserves all eight original topologies and face ownership in runtime (11.827289ms)
+✔ reviewed cicada batch preserves all eight exact nymph emergence and adult stages in runtime (22.425102ms)
+✔ reviewed antlion batch preserves eight exact larva cocoon and winged runtime stages (18.319646ms)
+✔ reviewed hermit batch preserves all eight exact shelled actors and eyestalk faces (19.34251ms)
+✔ reviewed world tree batch resolves eight exact rooted stage identities in runtime (0.934521ms)
+✔ reviewed plush batch resolves all eight exact soft toy actors with one canonical face (4.253319ms)
+✔ reviewed Venus batch resolves eight exact stages and preserves each canonical face (13.049002ms)
+✔ reviewed Dragon resolves eight exact stages with one two-eye face and finite motion (14.885614ms)
+✔ reviewed Phoenix resolves eight exact stages with a single canonical face and owned motion (17.999924ms)
+✔ reviewed God resolves eight exact stages with a single canonical face and owned motion (19.440748ms)
+✔ reviewed Ghost resolves eight exact stages with a single canonical face and owned motion (9.721121ms)
+✔ reviewed Unknown resolves eight exact stages with a single canonical face and owned motion (9.49548ms)
+✖ reviewed Star resolves eight exact stages with a single canonical face and owned motion (1.57682ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 25
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6361.728706
+
+✖ failing tests:
+
+test at tests/character-3d-rollout-test.cjs:267:1
+✖ reviewed Star resolves eight exact stages with a single canonical face and owned motion (1.57682ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + null
+  - {
+  -   exact: true,
+  -   id: 'star',
+  -   stage: 1
+  - }
+  
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-rollout-test.cjs:270:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: { id: 'star', stage: 1, exact: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,2480 @@
+{
+  "stack": [
+    "body",
+    "sweat",
+    "mark"
+  ],
+  "markZ": 4,
+  "sweatZ": 3,
+  "cases": [
+    {
+      "number": 1,
+      "key": "man/01",
+      "state": "critical",
+      "rawPixelSha256": "e26dd9a27a264b6d939cb1b25e18b87d5670f06627df9ae0a369770daf3ed579",
+      "equal": true
+    },
+    {
+      "number": 2,
+      "key": "man/01",
+      "state": "sleeping",
+      "rawPixelSha256": "00c8e04cb622f9eb4a95e9fdd01ebbcb53eb33b6f78111905d2b06c61b833190",
+      "equal": true
+    },
+    {
+      "number": 3,
+      "key": "man/04",
+      "state": "happy",
+      "rawPixelSha256": "1ef44addfb7818aad0a261dbb70526af2fa2b64d17cba1039bbedcd50c5fea78",
+      "equal": true
+    },
+    {
+      "number": 4,
+      "key": "man/04",
+      "state": "sleeping",
+      "rawPixelSha256": "64566fff8ed9fe4743177a061843428c09f8986cff5e16f0befbb7bcb31d4b01",
+      "equal": true
+    },
+    {
+      "number": 5,
+      "key": "man/04",
+      "state": "strained",
+      "rawPixelSha256": "f24099ecbd8ecc7077c60b0fbdd9ecdc3cff586af698d441599b05515a62e924",
+      "equal": true
+    },
+    {
+      "number": 6,
+      "key": "man/05",
+      "state": "happy",
+      "rawPixelSha256": "494b770e72df4cc7d43f02ca166a9519d855bf0f1dd88d562cc237f9cce05a45",
+      "equal": true
+    },
+    {
+      "number": 7,
+      "key": "man/05",
+      "state": "sleeping",
+      "rawPixelSha256": "1d76f2ff0467b9207637c4616893480af81775ccaf273564fb43982d8db5cd29",
+      "equal": true
+    },
+    {
+      "number": 8,
+      "key": "man/06",
+      "state": "sleeping",
+      "rawPixelSha256": "94401a368b9ec243a0eb9684a8cddd8dbe6fb5b39f6988977385f9c595917b41",
+      "equal": true
+    },
+    {
+      "number": 9,
+      "key": "man/07",
+      "state": "sleeping",
+      "rawPixelSha256": "703793d9595b828eb510f0fbec1088e543253b11e5b14008442434b09ffe11ca",
+      "equal": true
+    },
+    {
+      "number": 10,
+      "key": "man/08",
+      "state": "happy",
+      "rawPixelSha256": "2c3664007b3ecebb58bd91b491ea50e0d483d884b89845071a58f665a592c08b",
+      "equal": true
+    },
+    {
+      "number": 11,
+      "key": "man/08",
+      "state": "sleeping",
+      "rawPixelSha256": "73c5df666a5aa260ec8007ff55690b950e1a789ebda9acbf3bb0073068b7120f",
+      "equal": true
+    },
+    {
+      "number": 12,
+      "key": "man/08",
+      "state": "weak",
+      "rawPixelSha256": "a67e1c6cfe574bf7b77ad6aad93f45318f66103c00c36d8785365229fed930f5",
+      "equal": true
+    },
+    {
+      "number": 13,
+      "key": "woman/01",
+      "state": "happy",
+      "rawPixelSha256": "0ef1aecc2f236845beb82481d27c834a121b156db4e36c8f8dbecbc70fba3da6",
+      "equal": true
+    },
+    {
+      "number": 14,
+      "key": "woman/03",
+      "state": "happy",
+      "rawPixelSha256": "cf2b5cc5cb76957bb7939bee6f1bbf0603564fb0d37e1bfe6d9220df591fc749",
+      "equal": true
+    },
+    {
+      "number": 15,
+      "key": "woman/08",
+      "state": "happy",
+      "rawPixelSha256": "6d9f76c136e23ca194ebe072c9229cfb66464cecad09d3e02c03586b8e65cbcf",
+      "equal": true
+    },
+    {
+      "number": 16,
+      "key": "dog/04",
+      "state": "critical",
+      "rawPixelSha256": "3026b770ebbbf9d7794f4cbbb2f38a9d6eae66e9ab9c5df8dc4c14aa88aeaac1",
+      "equal": true
+    },
+    {
+      "number": 17,
+      "key": "dog/04",
+      "state": "happy",
+      "rawPixelSha256": "7f483fa5e389d61862361948f27325f7195ca8dae5ca36c17e210f268b914cdb",
+      "equal": true
+    },
+    {
+      "number": 18,
+      "key": "dog/04",
+      "state": "sleeping",
+      "rawPixelSha256": "5c96879da86d8e7ac62f97a0964de0a124b2baf744ed82d3c6be1f4602bdc180",
+      "equal": true
+    },
+    {
+      "number": 19,
+      "key": "dog/04",
+      "state": "strained",
+      "rawPixelSha256": "f32057ba70ed8def3850a5e9e854dd3c983595edc83595c5ae45fb585cbd53ca",
+      "equal": true
+    },
+    {
+      "number": 20,
+      "key": "dog/04",
+      "state": "sulky",
+      "rawPixelSha256": "52b5b82ac9366fdc5ed8df712fbb6376287a9e096dc7c41c68b8606c7e4b190d",
+      "equal": true
+    },
+    {
+      "number": 21,
+      "key": "dog/04",
+      "state": "weak",
+      "rawPixelSha256": "c978874283441fc8a0ca23b34a720304d87eaad625eebbf251cc452e2b06c217",
+      "equal": true
+    },
+    {
+      "number": 22,
+      "key": "dog/05",
+      "state": "sleeping",
+      "rawPixelSha256": "e74e1115c1ec5f4d020acbcf7e0525bbc35950cbb3320e3cfd3d19a9dcb1c042",
+      "equal": true
+    },
+    {
+      "number": 23,
+      "key": "dog/06",
+      "state": "happy",
+      "rawPixelSha256": "ed124fb646937276f4cb67ad33c8d24af5ac1a02d91608dd22505fda7b81e798",
+      "equal": true
+    },
+    {
+      "number": 24,
+      "key": "dog/06",
+      "state": "strained",
+      "rawPixelSha256": "2f384c43e03d8ab63939f9b86c0d032b3e2e354f27b52d52883f511805543296",
+      "equal": true
+    },
+    {
+      "number": 25,
+      "key": "cat/03",
+      "state": "critical",
+      "rawPixelSha256": "996be44811f7cd80fd7067d30d56cf983831506a1321f4d429afde9458b9caa6",
+      "equal": true
+    },
+    {
+      "number": 26,
+      "key": "cat/03",
+      "state": "happy",
+      "rawPixelSha256": "fa0a084fc1169ff55f7c454e6ad9c470b35114eddab3b96694dae0f3de508bcd",
+      "equal": true
+    },
+    {
+      "number": 27,
+      "key": "cat/03",
+      "state": "sleeping",
+      "rawPixelSha256": "8c2cad5029e8cbdee55755b0ef54e306af2aca897f484e6a25475c763b0f66ce",
+      "equal": true
+    },
+    {
+      "number": 28,
+      "key": "cat/03",
+      "state": "strained",
+      "rawPixelSha256": "054934ee48a6d98f41cac03eba4977a10c8bbcb81eadb22fe27df3d643afea03",
+      "equal": true
+    },
+    {
+      "number": 29,
+      "key": "cat/03",
+      "state": "sulky",
+      "rawPixelSha256": "e7e6531fce8797bc537c88b1a5dc1ba6662d65092d3a970c3fbae583d177d28c",
+      "equal": true
+    },
+    {
+      "number": 30,
+      "key": "cat/03",
+      "state": "weak",
+      "rawPixelSha256": "12618ffedb5285bf54abe9d1cf3ad13fc1e91c6ac7b221da0934fea97712a844",
+      "equal": true
+    },
+    {
+      "number": 31,
+      "key": "cat/04",
+      "state": "critical",
+      "rawPixelSha256": "173b91c94abb41ca90520316a0417907d9ea8d9a2ebab6fe83eba3ac4ad84abf",
+      "equal": true
+    },
+    {
+      "number": 32,
+      "key": "cat/04",
+      "state": "happy",
+      "rawPixelSha256": "01707a479ab8a2880127620cb76a7d21a83014c70827ce634937d4ed60794094",
+      "equal": true
+    },
+    {
+      "number": 33,
+      "key": "cat/04",
+      "state": "strained",
+      "rawPixelSha256": "f7d4002d017f21ba749c3c617df27dc78fae9a5d363142b6d2f7078b1828484a",
+      "equal": true
+    },
+    {
+      "number": 34,
+      "key": "cat/06",
+      "state": "strained",
+      "rawPixelSha256": "b053f32febdf4533dbbcfb3e4599acc18ecfadf83a83185403470d593c0f6c05",
+      "equal": true
+    },
+    {
+      "number": 35,
+      "key": "penguin/01",
+      "state": "happy",
+      "rawPixelSha256": "c6ae0b0603fe7acbf018547ecd77e40b3d7bdb0ab8a7bf6a8f174ee76410a4a7",
+      "equal": true
+    },
+    {
+      "number": 36,
+      "key": "penguin/05",
+      "state": "happy",
+      "rawPixelSha256": "63558ad334f40180edd806ffc7793493003e787cff61c2f821c50a2023ff71b4",
+      "equal": true
+    },
+    {
+      "number": 37,
+      "key": "penguin/06",
+      "state": "happy",
+      "rawPixelSha256": "a32c4d422e9b37c06717606dd5185f76e7d79256e9e0c849058d6b701dd2b174",
+      "equal": true
+    },
+    {
+      "number": 38,
+      "key": "penguin/07",
+      "state": "happy",
+      "rawPixelSha256": "97e895e7a0409449b1521af61babdca1c3a570a501ad0f90c8730e8078c61a90",
+      "equal": true
+    },
+    {
+      "number": 39,
+      "key": "penguin/07",
+      "state": "weak",
+      "rawPixelSha256": "75d4faa516053945c6ee755f8a7788bdca64d5c299713402f353b77d6ab12bdc",
+      "equal": true
+    },
+    {
+      "number": 40,
+      "key": "turtle/02",
+      "state": "critical",
+      "rawPixelSha256": "bcbf5bf66637b3caeab11a572adce41aa81a0cf57088e184d42e1849b9dd16de",
+      "equal": true
+    },
+    {
+      "number": 41,
+      "key": "turtle/02",
+      "state": "happy",
+      "rawPixelSha256": "405eceb482d92fe88ee929848935acdace35d34fb67a04df3ed666c249926614",
+      "equal": true
+    },
+    {
+      "number": 42,
+      "key": "turtle/02",
+      "state": "sleeping",
+      "rawPixelSha256": "61c0907c090026a817ccf014dbb3d3d9c381241937dbc9d04d9fc8d07d039f10",
+      "equal": true
+    },
+    {
+      "number": 43,
+      "key": "turtle/02",
+      "state": "strained",
+      "rawPixelSha256": "a717a49abc4a00a0cf0a04509d0e50e5f57f0cd99942a6338a4624b89ba39538",
+      "equal": true
+    },
+    {
+      "number": 44,
+      "key": "turtle/02",
+      "state": "sulky",
+      "rawPixelSha256": "a8dec7f2b4a5c462b4a18fbfb6f9f4c8504d817cb59db183a83394bbdf03e27d",
+      "equal": true
+    },
+    {
+      "number": 45,
+      "key": "turtle/02",
+      "state": "weak",
+      "rawPixelSha256": "08c1ee782835708e8e076a6cbfd333b38ca40ffea2f5cec61b6a411910086f68",
+      "equal": true
+    },
+    {
+      "number": 46,
+      "key": "turtle/03",
+      "state": "critical",
+      "rawPixelSha256": "59845831a4008a6213a017209011138988c2bc3fba50df50b63e716eca1a9dea",
+      "equal": true
+    },
+    {
+      "number": 47,
+      "key": "turtle/03",
+      "state": "happy",
+      "rawPixelSha256": "4e1326da26f1d7209d52aa4760792c5e74900e4acf6c03a7b2cce714ed16e8eb",
+      "equal": true
+    },
+    {
+      "number": 48,
+      "key": "turtle/03",
+      "state": "sleeping",
+      "rawPixelSha256": "13229dfac64cd46a7d82beea9b9ad15b199259bd40e4eeb3c4ee5982e25ab22c",
+      "equal": true
+    },
+    {
+      "number": 49,
+      "key": "turtle/03",
+      "state": "strained",
+      "rawPixelSha256": "f66105baa93131190b2ebb8ea5d6a6026321c1e3cd5e248a904540d9fd818c1d",
+      "equal": true
+    },
+    {
+      "number": 50,
+      "key": "turtle/03",
+      "state": "sulky",
+      "rawPixelSha256": "a33edd9221d59047c053c385a0f0392b98557ec612933456fe39d40204637c83",
+      "equal": true
+    },
+    {
+      "number": 51,
+      "key": "turtle/03",
+      "state": "weak",
+      "rawPixelSha256": "26b51794a0c946845c386cf52a1e0e60e4deafecea0dfdeb82bba0579fc4d0e9",
+      "equal": true
+    },
+    {
+      "number": 52,
+      "key": "turtle/05",
+      "state": "strained",
+      "rawPixelSha256": "f041e48885959e82407094f9dbddfe9a979329f6f47779dd0d0e838029c3f478",
+      "equal": true
+    },
+    {
+      "number": 53,
+      "key": "turtle/06",
+      "state": "strained",
+      "rawPixelSha256": "9460fb9f0d94c81ed251ec98ec823f9d847959c395c6b41c09650d0e93e4ad06",
+      "equal": true
+    },
+    {
+      "number": 54,
+      "key": "frog/05",
+      "state": "critical",
+      "rawPixelSha256": "34eb7ca21c6fc3c6e9458575a2081f55f0538dc56011345b63424ed3d8e0100b",
+      "equal": true
+    },
+    {
+      "number": 55,
+      "key": "frog/05",
+      "state": "happy",
+      "rawPixelSha256": "69719e3a71d0c95adc74ea4c545c3d01d2febb632cce97149e55f93b2efc7f96",
+      "equal": true
+    },
+    {
+      "number": 56,
+      "key": "frog/06",
+      "state": "happy",
+      "rawPixelSha256": "55c53c13fd8a2162a8287a1912267d3bd9d787a46066ee7c7c1106a916d61fb7",
+      "equal": true
+    },
+    {
+      "number": 57,
+      "key": "salmon/01",
+      "state": "strained",
+      "rawPixelSha256": "89aecae3611a8cc9faa62ee797b0a50e397e9a22ac69eae5f49e569d782264e0",
+      "equal": true
+    },
+    {
+      "number": 58,
+      "key": "salmon/02",
+      "state": "strained",
+      "rawPixelSha256": "e68045822eb1402eac4b56de0329711416be252bca8a4a9ffde3bd661cb9d0b7",
+      "equal": true
+    },
+    {
+      "number": 59,
+      "key": "salmon/03",
+      "state": "strained",
+      "rawPixelSha256": "0a7a913616d6bf551e8491c6f9000d4ecf8f9b7b851a173b64d9e1969b0f11aa",
+      "equal": true
+    },
+    {
+      "number": 60,
+      "key": "salmon/04",
+      "state": "strained",
+      "rawPixelSha256": "b757da788dc1a56abba86aedd9647faf46aed5f908a034a351af152ac11cd22f",
+      "equal": true
+    },
+    {
+      "number": 61,
+      "key": "salmon/08",
+      "state": "strained",
+      "rawPixelSha256": "999482f9e07c283dad3d08efd18e27d9b440dddcf824a0a34591fdf355ebe44d",
+      "equal": true
+    },
+    {
+      "number": 62,
+      "key": "clownfish/01",
+      "state": "strained",
+      "rawPixelSha256": "6133ab70fcaae36842c4bb5c2cca6724d921a0a7bc466bbea12c1194e145366c",
+      "equal": true
+    },
+    {
+      "number": 63,
+      "key": "clownfish/03",
+      "state": "critical",
+      "rawPixelSha256": "3f4608cd1c3ee9a8c3211a77190c44cbaf73b3a23bb14f31e8f79a09636d1e61",
+      "equal": true
+    },
+    {
+      "number": 64,
+      "key": "clownfish/03",
+      "state": "happy",
+      "rawPixelSha256": "f54a621951065c681b0562ad6f9fc91093ba5dc140340fb036953c448b11af6e",
+      "equal": true
+    },
+    {
+      "number": 65,
+      "key": "clownfish/03",
+      "state": "strained",
+      "rawPixelSha256": "2dfbd5fd7918a7baef017690e7e74f427a36633e431bccf995bb254014532b75",
+      "equal": true
+    },
+    {
+      "number": 66,
+      "key": "clownfish/03",
+      "state": "sulky",
+      "rawPixelSha256": "4e47a9eebec6fcdfe5817dee50edfca45303e74a2a0f502155a89e21151e5cde",
+      "equal": true
+    },
+    {
+      "number": 67,
+      "key": "clownfish/03",
+      "state": "weak",
+      "rawPixelSha256": "d0630aaf0577aa06885788bdd8a34af509a0b2ca91d2bb3e3079c0db8779efef",
+      "equal": true
+    },
+    {
+      "number": 68,
+      "key": "clownfish/04",
+      "state": "critical",
+      "rawPixelSha256": "483f7a6e0a9820a9a1189b0fa296ef3d827a95d832ffee20942b6f2e940d6116",
+      "equal": true
+    },
+    {
+      "number": 69,
+      "key": "clownfish/04",
+      "state": "happy",
+      "rawPixelSha256": "184df1da752532bfddaa48ae68546e79382d0fb61d4cbdfec60cd29e4ccd714d",
+      "equal": true
+    },
+    {
+      "number": 70,
+      "key": "clownfish/04",
+      "state": "strained",
+      "rawPixelSha256": "67343dff96dc82a41c9425d7787cca84265f027d093040b6d28b736f2ffa3f5d",
+      "equal": true
+    },
+    {
+      "number": 71,
+      "key": "clownfish/04",
+      "state": "sulky",
+      "rawPixelSha256": "6ca93e0601f4dd30c950d0f983640fb1006684a5efc29be98c8cef72481307ba",
+      "equal": true
+    },
+    {
+      "number": 72,
+      "key": "clownfish/04",
+      "state": "weak",
+      "rawPixelSha256": "184d18a2c25f2dec07606506b91613d3d514b41d119d15c5af9675533fb569c2",
+      "equal": true
+    },
+    {
+      "number": 73,
+      "key": "clownfish/06",
+      "state": "happy",
+      "rawPixelSha256": "a6cf2fa4905293817dbf28ad91b98ca4ad8e198ccf21240591376a14b0c43a35",
+      "equal": true
+    },
+    {
+      "number": 74,
+      "key": "clownfish/06",
+      "state": "strained",
+      "rawPixelSha256": "bc00790f7f2f8774b05fee02f148c7d0ab9fb59d86fce234ff479044b40dc8ee",
+      "equal": true
+    },
+    {
+      "number": 75,
+      "key": "clownfish/06",
+      "state": "sulky",
+      "rawPixelSha256": "5941d5d195cb2f8d44bb6639297885c05d0ee9f1ce2759fb80d6f4c59eaccede",
+      "equal": true
+    },
+    {
+      "number": 76,
+      "key": "clownfish/07",
+      "state": "happy",
+      "rawPixelSha256": "90f64bc22cffbcc93cee90043d9268175758d95e2ac35fc4f29325f96a48babe",
+      "equal": true
+    },
+    {
+      "number": 77,
+      "key": "clownfish/07",
+      "state": "strained",
+      "rawPixelSha256": "7233018005fe39f21189310c0c9eccaa16698f4d6e8084b4e4da3456240d5bc7",
+      "equal": true
+    },
+    {
+      "number": 78,
+      "key": "butterfly/01",
+      "state": "critical",
+      "rawPixelSha256": "1361f9b4d9a66ae7011723407c4a418d15b22815fd349b7fad15f9cab9875f07",
+      "equal": true
+    },
+    {
+      "number": 79,
+      "key": "butterfly/01",
+      "state": "happy",
+      "rawPixelSha256": "819e3ffde9baf9f3cf607054f40e1b87c09b2d315d483f7ad6ed95a64d5b5502",
+      "equal": true
+    },
+    {
+      "number": 80,
+      "key": "butterfly/01",
+      "state": "sleeping",
+      "rawPixelSha256": "ce105c7adb8e5273777f7bfd0d35dfa67da31f945c875a74a153a44c297c1a89",
+      "equal": true
+    },
+    {
+      "number": 81,
+      "key": "butterfly/01",
+      "state": "strained",
+      "rawPixelSha256": "39330eb836fad4b7e6c420027fe3735ad19eb5f92b035184c9aa26399495e77a",
+      "equal": true
+    },
+    {
+      "number": 82,
+      "key": "butterfly/01",
+      "state": "sulky",
+      "rawPixelSha256": "4a80be2bbe2220c56d0620e389855c20d1e6fb208664c154b7bac2bd4b560aca",
+      "equal": true
+    },
+    {
+      "number": 83,
+      "key": "butterfly/01",
+      "state": "weak",
+      "rawPixelSha256": "570637d0e9cabf5fc630c80ccb8ecdea9b9865238df0eb2656f9fe698f4d68da",
+      "equal": true
+    },
+    {
+      "number": 84,
+      "key": "butterfly/02",
+      "state": "critical",
+      "rawPixelSha256": "058f9c793563b2a5cc109ffbf29cad62c6dcfba11592ad1b655d3cc3c2f1649c",
+      "equal": true
+    },
+    {
+      "number": 85,
+      "key": "butterfly/02",
+      "state": "happy",
+      "rawPixelSha256": "f757cff68b4a1840defaf4109351e5c8ba75b718187fc2ac478af598aa51a273",
+      "equal": true
+    },
+    {
+      "number": 86,
+      "key": "butterfly/02",
+      "state": "sleeping",
+      "rawPixelSha256": "0e1ac1a4012ecff7ccdfd6b5df7f67b0fbdc183863804d3f0956c28f02b38ebf",
+      "equal": true
+    },
+    {
+      "number": 87,
+      "key": "butterfly/02",
+      "state": "strained",
+      "rawPixelSha256": "a1c58407cb3cba9d44287b08e3b818f18231353a5d7f79b02f3391d1a57229e3",
+      "equal": true
+    },
+    {
+      "number": 88,
+      "key": "butterfly/02",
+      "state": "sulky",
+      "rawPixelSha256": "de3b9cfe1c6b54f2d66f56029e4b859e8e2dbd5d1528875b03a8f455200a4a45",
+      "equal": true
+    },
+    {
+      "number": 89,
+      "key": "butterfly/02",
+      "state": "weak",
+      "rawPixelSha256": "d5ff308481eec03abcb29bf257c8ad4f18cb15f1386628ffd30fcf3fb46b97f7",
+      "equal": true
+    },
+    {
+      "number": 90,
+      "key": "butterfly/03",
+      "state": "critical",
+      "rawPixelSha256": "28a6a2e5d90672c21f5dcfef6238ff2b4cf543c8d2b4fcfac8cdccce2c822d62",
+      "equal": true
+    },
+    {
+      "number": 91,
+      "key": "beetle/01",
+      "state": "critical",
+      "rawPixelSha256": "965ccdb0e49b6da5b2d52c671f8bfcebf06d54acac38092d9ebf4b0f86184d99",
+      "equal": true
+    },
+    {
+      "number": 92,
+      "key": "beetle/01",
+      "state": "happy",
+      "rawPixelSha256": "526cfc9d97bd814190b8799fb13481fcf8c4521281ccabba18e6378c12760abc",
+      "equal": true
+    },
+    {
+      "number": 93,
+      "key": "beetle/01",
+      "state": "sleeping",
+      "rawPixelSha256": "bb43248fafc19494a7d3d77cdecf6367ab9a7f41df404ba9c13dc8930313f48f",
+      "equal": true
+    },
+    {
+      "number": 94,
+      "key": "beetle/01",
+      "state": "sulky",
+      "rawPixelSha256": "55cdcca0913ca1199f63bde4abe86c0adf2c41b0128be865da7948cdf1e50f7a",
+      "equal": true
+    },
+    {
+      "number": 95,
+      "key": "beetle/01",
+      "state": "weak",
+      "rawPixelSha256": "5c02656d85c79ebe680b9059beb8ec3eefa3eb22a1567f61daff7750c93a3dec",
+      "equal": true
+    },
+    {
+      "number": 96,
+      "key": "beetle/02",
+      "state": "critical",
+      "rawPixelSha256": "dd664defc4c498b27b276b4b135771cd5b081fbb55648e90dc4771128244e5a8",
+      "equal": true
+    },
+    {
+      "number": 97,
+      "key": "beetle/02",
+      "state": "happy",
+      "rawPixelSha256": "409c715ae86b93d659cd5f9502cc253b532ed7c562029194f7d11eac9fc64389",
+      "equal": true
+    },
+    {
+      "number": 98,
+      "key": "beetle/02",
+      "state": "sleeping",
+      "rawPixelSha256": "56240954141efd53401b3313a4d92b91abac7ac126f9bb1baf88158f428602e6",
+      "equal": true
+    },
+    {
+      "number": 99,
+      "key": "beetle/02",
+      "state": "sulky",
+      "rawPixelSha256": "c9dbf70c81d6dc384c5ac01155ae06087be9ec5755794813df993b162a03c501",
+      "equal": true
+    },
+    {
+      "number": 100,
+      "key": "beetle/02",
+      "state": "weak",
+      "rawPixelSha256": "e695d7c8bab806fe8b36f3734f31af679fdc208069e454bd0e7fbf7688f028b7",
+      "equal": true
+    },
+    {
+      "number": 101,
+      "key": "beetle/03",
+      "state": "happy",
+      "rawPixelSha256": "e9122b86ea91f990d4639f8eb3815d23f76bf1b826e7faae36454b5cdfe3429c",
+      "equal": true
+    },
+    {
+      "number": 102,
+      "key": "beetle/03",
+      "state": "sleeping",
+      "rawPixelSha256": "3c1e97200e0b7f59889f6c42533f3c92d2ce066ff7d7ed178cf03e16538494c5",
+      "equal": true
+    },
+    {
+      "number": 103,
+      "key": "beetle/03",
+      "state": "sulky",
+      "rawPixelSha256": "f241d8138a77832b541e63b13393a577d40e4c2a5e3b47b2f4ed1459234c755f",
+      "equal": true
+    },
+    {
+      "number": 104,
+      "key": "beetle/03",
+      "state": "weak",
+      "rawPixelSha256": "58d10df220b2c807e0fcc92a4694d0dab4091b0a08eb735c41cb84b66fcbee16",
+      "equal": true
+    },
+    {
+      "number": 105,
+      "key": "beetle/04",
+      "state": "sleeping",
+      "rawPixelSha256": "3d050359e7daa95caf8fea4c075514d23195ccd5ae1b5306b142a21e9920d3b4",
+      "equal": true
+    },
+    {
+      "number": 106,
+      "key": "stagbeetle/01",
+      "state": "critical",
+      "rawPixelSha256": "8604be549e83d52fcad13cdc298cadf55449543d9ae613c075c5680dd26e2bd6",
+      "equal": true
+    },
+    {
+      "number": 107,
+      "key": "stagbeetle/01",
+      "state": "happy",
+      "rawPixelSha256": "ce6691f583cd6bba8de140825cf22e9aa5287deb3a8ba28bbb104fac1aa56baf",
+      "equal": true
+    },
+    {
+      "number": 108,
+      "key": "stagbeetle/01",
+      "state": "sleeping",
+      "rawPixelSha256": "f4bba1ad3b47e580a6071192523d37279986f4f1192a10487543faeec0526953",
+      "equal": true
+    },
+    {
+      "number": 109,
+      "key": "stagbeetle/01",
+      "state": "sulky",
+      "rawPixelSha256": "b0cb06ddbd826395ec302d9727548a20b95307dac8e026ea8c3fbdfc17200ae5",
+      "equal": true
+    },
+    {
+      "number": 110,
+      "key": "stagbeetle/01",
+      "state": "weak",
+      "rawPixelSha256": "391afef2e6777552ae344036d3ccb2e60598921f23a3a6f837b28263edaaa30c",
+      "equal": true
+    },
+    {
+      "number": 111,
+      "key": "stagbeetle/02",
+      "state": "happy",
+      "rawPixelSha256": "811935d64c0efa3c02b5e41184ef7a7c3a149d60046d7256b5d5a39bfd02bdd4",
+      "equal": true
+    },
+    {
+      "number": 112,
+      "key": "stagbeetle/02",
+      "state": "sleeping",
+      "rawPixelSha256": "2bc5994ccf79936b851ae98342a4a0d9f10df7fefccf1a884b550ad8c28c7b1e",
+      "equal": true
+    },
+    {
+      "number": 113,
+      "key": "stagbeetle/02",
+      "state": "weak",
+      "rawPixelSha256": "9aa96e61e4deb9b739658ea9bae5af042fe797ccdb122b3d56751c58ada87dde",
+      "equal": true
+    },
+    {
+      "number": 114,
+      "key": "stagbeetle/03",
+      "state": "critical",
+      "rawPixelSha256": "d74c2a78fb66d598e9cfabe462c3e3bc65a6d4465168717ea1bab1eea9625501",
+      "equal": true
+    },
+    {
+      "number": 115,
+      "key": "stagbeetle/03",
+      "state": "happy",
+      "rawPixelSha256": "fbab0e1aac2e1e4f7727366f18ff8c125f3e86334785f9e596a6284a5cd95f5d",
+      "equal": true
+    },
+    {
+      "number": 116,
+      "key": "stagbeetle/03",
+      "state": "sleeping",
+      "rawPixelSha256": "91f511667599dbb55ecb734b3a293888dd15193197c302f268b592b22b8e88a7",
+      "equal": true
+    },
+    {
+      "number": 117,
+      "key": "stagbeetle/03",
+      "state": "sulky",
+      "rawPixelSha256": "43a0408a195b5f5f75677ad6f0302cf3bb37ead4caf0f605bf3e30af7b0c7393",
+      "equal": true
+    },
+    {
+      "number": 118,
+      "key": "stagbeetle/03",
+      "state": "weak",
+      "rawPixelSha256": "3a45e03899d555008cc1544c8b2bf7481199b5d833833d2fcfda26f45b81dd34",
+      "equal": true
+    },
+    {
+      "number": 119,
+      "key": "stagbeetle/04",
+      "state": "critical",
+      "rawPixelSha256": "3b40bb30f444f553a853e8ce3998de838e452866adf75dd08fdef5e092dd9e89",
+      "equal": true
+    },
+    {
+      "number": 120,
+      "key": "stagbeetle/04",
+      "state": "happy",
+      "rawPixelSha256": "a39c8d70151f1694c21c9cf692037f8bc5ba56127a82489e85523800bb087c58",
+      "equal": true
+    },
+    {
+      "number": 121,
+      "key": "stagbeetle/04",
+      "state": "sleeping",
+      "rawPixelSha256": "cdbb7cf47285bdcc6c20432ad9adceecd9e266de70978c06a038ccf1db94fad6",
+      "equal": true
+    },
+    {
+      "number": 122,
+      "key": "stagbeetle/04",
+      "state": "weak",
+      "rawPixelSha256": "4ecb8e09f2b4a19e074a7acf4f88a789aa2992cc2c786fd5de132dfb709e0910",
+      "equal": true
+    },
+    {
+      "number": 123,
+      "key": "stagbeetle/05",
+      "state": "happy",
+      "rawPixelSha256": "cb94277ed1ac901c027231ef4809768fd46921e161e0522402da08c8cd236b37",
+      "equal": true
+    },
+    {
+      "number": 124,
+      "key": "stagbeetle/06",
+      "state": "happy",
+      "rawPixelSha256": "ff770b289ded319ee4c8c3ed05fa3bd9ddeb34d2bbe54ddef8d7cdddaec3ce45",
+      "equal": true
+    },
+    {
+      "number": 125,
+      "key": "stagbeetle/07",
+      "state": "critical",
+      "rawPixelSha256": "cc98b672566645d02823e1f1dc530e50a3b86935324ca3f64ec79c5b4d21fee5",
+      "equal": true
+    },
+    {
+      "number": 126,
+      "key": "stagbeetle/07",
+      "state": "happy",
+      "rawPixelSha256": "f74467e3a86d5393c9c45c2f8e403e1592db3f946788f25a2b7fa2db675b831b",
+      "equal": true
+    },
+    {
+      "number": 127,
+      "key": "stagbeetle/07",
+      "state": "sulky",
+      "rawPixelSha256": "a24d293be741ff26eabf05f45a719ee4d9bc3be6677a870487468863a2b0de17",
+      "equal": true
+    },
+    {
+      "number": 128,
+      "key": "stagbeetle/07",
+      "state": "weak",
+      "rawPixelSha256": "9bf3eb883279b75bc1ac76b8e81b8c0b55037945c084f963965a0b31fdc36e11",
+      "equal": true
+    },
+    {
+      "number": 129,
+      "key": "stagbeetle/08",
+      "state": "happy",
+      "rawPixelSha256": "6ae36db7adfe7536e66fbe8024ea3c11cf0c7468ee453fa77f1370c457343794",
+      "equal": true
+    },
+    {
+      "number": 130,
+      "key": "cicada/01",
+      "state": "happy",
+      "rawPixelSha256": "a2cd08f9637db94edb97d912bfdd673ac01d1006d03f9c8ba1252b20d9aa4c4c",
+      "equal": true
+    },
+    {
+      "number": 131,
+      "key": "cicada/02",
+      "state": "critical",
+      "rawPixelSha256": "d9fa8011feade3a44ff234fc95f0b7b52c0a8edd57895e1b2c27f1ef004dd8f5",
+      "equal": true
+    },
+    {
+      "number": 132,
+      "key": "cicada/02",
+      "state": "happy",
+      "rawPixelSha256": "4edaf4173e47602775fb6d57b83c2225b12cbc6c9c97d7bee838627bfe2630ec",
+      "equal": true
+    },
+    {
+      "number": 133,
+      "key": "cicada/02",
+      "state": "strained",
+      "rawPixelSha256": "6776248b94d32c409375546d668e8527e823fff4127f796fd5589fc1234658dd",
+      "equal": true
+    },
+    {
+      "number": 134,
+      "key": "cicada/02",
+      "state": "sulky",
+      "rawPixelSha256": "58f7af291219c8437f57952d33b7a3eaa1da5bcab5a739a5136431588bf55bfe",
+      "equal": true
+    },
+    {
+      "number": 135,
+      "key": "cicada/02",
+      "state": "weak",
+      "rawPixelSha256": "59ea5539034e71742d5507a1917f9951e92a183b1b350d8a1773c7b25ad60e21",
+      "equal": true
+    },
+    {
+      "number": 136,
+      "key": "cicada/03",
+      "state": "critical",
+      "rawPixelSha256": "e7f806e93685b530314fa5a6131aeb8f500eb0d67e0636e2713999fd2ffff540",
+      "equal": true
+    },
+    {
+      "number": 137,
+      "key": "cicada/03",
+      "state": "happy",
+      "rawPixelSha256": "e38184298f497c5da5f7469a6a9d196c8cd92966c72212a47d7d1c4a4af1e773",
+      "equal": true
+    },
+    {
+      "number": 138,
+      "key": "cicada/03",
+      "state": "sleeping",
+      "rawPixelSha256": "05790978a49f99dcb306e735959544595e8794ec3bf91379700ff6d47fc4f4ca",
+      "equal": true
+    },
+    {
+      "number": 139,
+      "key": "cicada/03",
+      "state": "strained",
+      "rawPixelSha256": "8d961d2c91dd8b220d71ef296a009aed58cdb9f3db8d2ce9d7ee30f02335bcd9",
+      "equal": true
+    },
+    {
+      "number": 140,
+      "key": "cicada/03",
+      "state": "sulky",
+      "rawPixelSha256": "b1d4a0e9b23199693cab06ecea6399c7d54eb79b88cf02c9271d9cceb16a3e93",
+      "equal": true
+    },
+    {
+      "number": 141,
+      "key": "cicada/03",
+      "state": "weak",
+      "rawPixelSha256": "4312721f455523d924845d399cd0051a052260b37e5222de7b9e28bcdb53aba5",
+      "equal": true
+    },
+    {
+      "number": 142,
+      "key": "cicada/04",
+      "state": "critical",
+      "rawPixelSha256": "33e118f1872ae1b3dcc9de5cf846db260bef9227e5ce98a9fd6f1261b8c44d42",
+      "equal": true
+    },
+    {
+      "number": 143,
+      "key": "cicada/04",
+      "state": "happy",
+      "rawPixelSha256": "f6ed0c016d63e0d90fd927f7814a27566ba4cdbe0b3243e930a60dd452bc1829",
+      "equal": true
+    },
+    {
+      "number": 144,
+      "key": "cicada/04",
+      "state": "sleeping",
+      "rawPixelSha256": "8645bf8eea66b6b095584a6c80aec5d3fb5d0441fb13d18629f54af0ddd27c43",
+      "equal": true
+    },
+    {
+      "number": 145,
+      "key": "cicada/04",
+      "state": "strained",
+      "rawPixelSha256": "e31e855779500399e2e51cc801b3469645e92214cdd5edec906504ae9e93862c",
+      "equal": true
+    },
+    {
+      "number": 146,
+      "key": "cicada/04",
+      "state": "sulky",
+      "rawPixelSha256": "ba7bcf4703caff9da5ba9ab050414d80938e8ddf6e0be2cd277f0ddd34efa2fb",
+      "equal": true
+    },
+    {
+      "number": 147,
+      "key": "cicada/04",
+      "state": "weak",
+      "rawPixelSha256": "8584ae4beb610e7de4123dd250c644e13d44e6c40e0d380dd721f96bb838212f",
+      "equal": true
+    },
+    {
+      "number": 148,
+      "key": "cicada/05",
+      "state": "critical",
+      "rawPixelSha256": "68e024bb1281742c93f14ce492199599b24f743bbeca90221787ad7f7bbcd8e1",
+      "equal": true
+    },
+    {
+      "number": 149,
+      "key": "cicada/05",
+      "state": "happy",
+      "rawPixelSha256": "42346b4bb0c750c2bdfb8af25387436901e0e49e696e940e6c08b6f2b75d7955",
+      "equal": true
+    },
+    {
+      "number": 150,
+      "key": "cicada/05",
+      "state": "strained",
+      "rawPixelSha256": "2a3beaf25069f94bbb691550bf3c0bafa483e8b1dffd0f1540293a4dc66fc4bc",
+      "equal": true
+    },
+    {
+      "number": 151,
+      "key": "cicada/05",
+      "state": "sulky",
+      "rawPixelSha256": "4ae230c0ef368433f6f4b762498901bf25dcd798fe09a690ce53e7a8bf1605c8",
+      "equal": true
+    },
+    {
+      "number": 152,
+      "key": "cicada/05",
+      "state": "weak",
+      "rawPixelSha256": "b91482244df3468886cc0598ff33c451702d5ed99d536e6eda5e717efaf8552e",
+      "equal": true
+    },
+    {
+      "number": 153,
+      "key": "cicada/06",
+      "state": "critical",
+      "rawPixelSha256": "3cd646f63dd10cf04712c8ac4a14c1193717c04e7e70da5bab93591c59fda9d0",
+      "equal": true
+    },
+    {
+      "number": 154,
+      "key": "cicada/06",
+      "state": "happy",
+      "rawPixelSha256": "85b19aa13d3538b8166b8aa7f73efc2e52087e09f7b6b96ff02c2923b8bd926c",
+      "equal": true
+    },
+    {
+      "number": 155,
+      "key": "cicada/06",
+      "state": "sulky",
+      "rawPixelSha256": "17e32a92593a55751bd5dccb559e4d6d0a7017e28efc36e52f780d95f31cbcb0",
+      "equal": true
+    },
+    {
+      "number": 156,
+      "key": "cicada/06",
+      "state": "weak",
+      "rawPixelSha256": "df963696a49ec3b1895402ff892eb7ecf924cbdf6db75caa7d96abd60e14d289",
+      "equal": true
+    },
+    {
+      "number": 157,
+      "key": "antlion/06",
+      "state": "critical",
+      "rawPixelSha256": "271336c6cb3ed84582ce95a4ebec62b35bf6c8999a58dcc398942de00cee0eb5",
+      "equal": true
+    },
+    {
+      "number": 158,
+      "key": "antlion/06",
+      "state": "happy",
+      "rawPixelSha256": "1c4fdde3c0217833aa6636efebf81bf6d845d5fb8f4dc75f2221699865a67834",
+      "equal": true
+    },
+    {
+      "number": 159,
+      "key": "antlion/06",
+      "state": "sleeping",
+      "rawPixelSha256": "126b32af8369b42b851fb66cbde75398d5ca82c1edea842ffe9eab37ca0fb6ef",
+      "equal": true
+    },
+    {
+      "number": 160,
+      "key": "antlion/06",
+      "state": "strained",
+      "rawPixelSha256": "73a2e073bf79786844b4568654b9471f27012bf1043842f622618a5969acba11",
+      "equal": true
+    },
+    {
+      "number": 161,
+      "key": "antlion/06",
+      "state": "sulky",
+      "rawPixelSha256": "54336909a2272bd07b1251a9f9c08dc13281cb33ac2d5c7c821db35ad44116df",
+      "equal": true
+    },
+    {
+      "number": 162,
+      "key": "antlion/06",
+      "state": "weak",
+      "rawPixelSha256": "6675ab8128fc1002b3ce369dcf0dfce106070bd27f5d012e2abbdb5ba680ffac",
+      "equal": true
+    },
+    {
+      "number": 163,
+      "key": "hermit_crab/01",
+      "state": "critical",
+      "rawPixelSha256": "f732640a751266e3716ed822429ef8c40cc3721fb73f5b5acd189fdcf611d07a",
+      "equal": true
+    },
+    {
+      "number": 164,
+      "key": "hermit_crab/01",
+      "state": "happy",
+      "rawPixelSha256": "0cdb8b715832a93cf57607907147c94e76844651b8cc3c51927b472948dcfc26",
+      "equal": true
+    },
+    {
+      "number": 165,
+      "key": "hermit_crab/01",
+      "state": "sleeping",
+      "rawPixelSha256": "a34c41543e7336f1085e14ccdb3e1656e038f519474fb62a9358eb067a3f8448",
+      "equal": true
+    },
+    {
+      "number": 166,
+      "key": "hermit_crab/01",
+      "state": "weak",
+      "rawPixelSha256": "8e81e1596f9ed0b470d36db8bad558df09c9666aa1361157c8fd57f359d8571f",
+      "equal": true
+    },
+    {
+      "number": 167,
+      "key": "hermit_crab/02",
+      "state": "happy",
+      "rawPixelSha256": "440543e10b6771026015aa11ccb485ac55176d713583714b3c6430f94c6fcd0c",
+      "equal": true
+    },
+    {
+      "number": 168,
+      "key": "hermit_crab/02",
+      "state": "weak",
+      "rawPixelSha256": "929cf9ab84b9035087ab86d49bf9b557734dc0ebba009629f26ac1d8544daa42",
+      "equal": true
+    },
+    {
+      "number": 169,
+      "key": "hermit_crab/03",
+      "state": "happy",
+      "rawPixelSha256": "8bba075a4cf56e1f6f549cec86b3c0fd254e3cf1b54588127b42523bfa337939",
+      "equal": true
+    },
+    {
+      "number": 170,
+      "key": "hermit_crab/04",
+      "state": "critical",
+      "rawPixelSha256": "ed579499273e457fb3f4d7298d0efc042d4fbd584c6427816d9b93ef507b2902",
+      "equal": true
+    },
+    {
+      "number": 171,
+      "key": "hermit_crab/04",
+      "state": "happy",
+      "rawPixelSha256": "fb51dc063a364bb840a92dea4ffd32d36a3ae3e75d04ce55b9f059775583d21e",
+      "equal": true
+    },
+    {
+      "number": 172,
+      "key": "hermit_crab/04",
+      "state": "weak",
+      "rawPixelSha256": "c5b360c331a24ab06293ee04c16937ca7d3cb55738cf5d148d5c57c22d437dc1",
+      "equal": true
+    },
+    {
+      "number": 173,
+      "key": "hermit_crab/05",
+      "state": "critical",
+      "rawPixelSha256": "1cb7c5ce862713608bc6b6bcedc87d94c2f2943c70734bf77a486d83bda8e604",
+      "equal": true
+    },
+    {
+      "number": 174,
+      "key": "hermit_crab/05",
+      "state": "happy",
+      "rawPixelSha256": "4cf705a191133242fc7df39624c8827bbaefd4892f1d2f1c82a086f082790c6e",
+      "equal": true
+    },
+    {
+      "number": 175,
+      "key": "hermit_crab/05",
+      "state": "weak",
+      "rawPixelSha256": "3781f7d3d0dafe5f91008c259a16984def4ca6054330656b8e318d7a55ea6978",
+      "equal": true
+    },
+    {
+      "number": 176,
+      "key": "hermit_crab/06",
+      "state": "critical",
+      "rawPixelSha256": "17af800b2f05b59def83e32d19f3d793fd335a4ad73d484d96f499b7c634f4db",
+      "equal": true
+    },
+    {
+      "number": 177,
+      "key": "hermit_crab/06",
+      "state": "happy",
+      "rawPixelSha256": "c264ec37033db0031c733007fd7f88db86dee5ffbc5b5307847ec9c7324cfdc6",
+      "equal": true
+    },
+    {
+      "number": 178,
+      "key": "hermit_crab/08",
+      "state": "happy",
+      "rawPixelSha256": "2c9083df60159b56c5a471d613bafa7e1ae4323882c58d41e863452cddab8c07",
+      "equal": true
+    },
+    {
+      "number": 179,
+      "key": "starfish/02",
+      "state": "critical",
+      "rawPixelSha256": "e2ba3538484e7a90458daad6bd4a431fde13371c3c3d84522f48eb28fd46c40a",
+      "equal": true
+    },
+    {
+      "number": 180,
+      "key": "starfish/02",
+      "state": "happy",
+      "rawPixelSha256": "d75e40289c9ef6e279de14a440683955239f41fab8923c58b18ae17e88b4cd6f",
+      "equal": true
+    },
+    {
+      "number": 181,
+      "key": "starfish/02",
+      "state": "sleeping",
+      "rawPixelSha256": "d50f0f9c2926f08468d17bb03fc612bc61f75fee0601e806de19eea7ae8e81e9",
+      "equal": true
+    },
+    {
+      "number": 182,
+      "key": "starfish/02",
+      "state": "strained",
+      "rawPixelSha256": "2b255fe496ebed545447138ac665677a88d1c5d32d3ff135703ae50fb719f63e",
+      "equal": true
+    },
+    {
+      "number": 183,
+      "key": "starfish/02",
+      "state": "sulky",
+      "rawPixelSha256": "cb4d5fb904fd307174c2c9a07852a4b23ec6758b78024acf38c87d06106f6673",
+      "equal": true
+    },
+    {
+      "number": 184,
+      "key": "starfish/02",
+      "state": "weak",
+      "rawPixelSha256": "9c2a8ea87f6f9a85679929b8b351b009aa8009bd1053ac5b9ab30618a067b62c",
+      "equal": true
+    },
+    {
+      "number": 185,
+      "key": "starfish/03",
+      "state": "critical",
+      "rawPixelSha256": "29ab3ff53cb5539946792c4029c9592c3c7c311e1b183604fd49efe50b00ec17",
+      "equal": true
+    },
+    {
+      "number": 186,
+      "key": "starfish/03",
+      "state": "happy",
+      "rawPixelSha256": "c1973bd462cead817c380571e347d561bdcf1e5138b218f8d2e04955e2d21e62",
+      "equal": true
+    },
+    {
+      "number": 187,
+      "key": "starfish/03",
+      "state": "sleeping",
+      "rawPixelSha256": "51f473e450b13a04596b3cef0c0a1a4f6019f6865b7dddd30cabef4756f31b55",
+      "equal": true
+    },
+    {
+      "number": 188,
+      "key": "starfish/03",
+      "state": "strained",
+      "rawPixelSha256": "fe86c641e942003ff7a6d6a751148ff45ea8c68657c2cd43fbebf1feacc6ecfa",
+      "equal": true
+    },
+    {
+      "number": 189,
+      "key": "starfish/03",
+      "state": "sulky",
+      "rawPixelSha256": "7765d54e8b8fb13fccc34dc9b80f63d1225a50e601f1c15335a5113161d46595",
+      "equal": true
+    },
+    {
+      "number": 190,
+      "key": "starfish/03",
+      "state": "weak",
+      "rawPixelSha256": "49676c956025d5d41eb121ee6293805d5597d3547160d68330f03aaac292e853",
+      "equal": true
+    },
+    {
+      "number": 191,
+      "key": "starfish/05",
+      "state": "critical",
+      "rawPixelSha256": "0623935421f74ba9cb45983502a81fc4bc4e17840eee77c991908f6e2f81f4ae",
+      "equal": true
+    },
+    {
+      "number": 192,
+      "key": "starfish/05",
+      "state": "happy",
+      "rawPixelSha256": "fe7d1fead3875877478e9ecc5390c2a8621ba5870810a4a84c36280981b6884d",
+      "equal": true
+    },
+    {
+      "number": 193,
+      "key": "starfish/05",
+      "state": "sleeping",
+      "rawPixelSha256": "64674f636f88967c261a0f6a7c30a2725b83dc2ffa8bc962dc251c7ebf2547ec",
+      "equal": true
+    },
+    {
+      "number": 194,
+      "key": "starfish/05",
+      "state": "strained",
+      "rawPixelSha256": "1103f48c2db91baa24954896a541184833b96019488584ad05a9a578111aa613",
+      "equal": true
+    },
+    {
+      "number": 195,
+      "key": "starfish/05",
+      "state": "sulky",
+      "rawPixelSha256": "bad654fe574fe4655f0c6fc74152cbcc3ef827791f0861ccc29f10066aee8535",
+      "equal": true
+    },
+    {
+      "number": 196,
+      "key": "starfish/05",
+      "state": "weak",
+      "rawPixelSha256": "f434883e29524fab1979062aae6a6d269a37f0cf96eb7646c15e6c1a3aa89f69",
+      "equal": true
+    },
+    {
+      "number": 197,
+      "key": "starfish/06",
+      "state": "critical",
+      "rawPixelSha256": "68c6ddbce10ebf71e1392b617b72ca79b3b9ff848b210cd7387a1ae4ab859dd7",
+      "equal": true
+    },
+    {
+      "number": 198,
+      "key": "starfish/06",
+      "state": "happy",
+      "rawPixelSha256": "08017625f2f9b2f83de29090eee640f5483d00a31c672f641fff0906623c9c8a",
+      "equal": true
+    },
+    {
+      "number": 199,
+      "key": "starfish/06",
+      "state": "sleeping",
+      "rawPixelSha256": "e36b96649e395bd39778f59c477586787ceb9d39b5a9613c542572cc2206d711",
+      "equal": true
+    },
+    {
+      "number": 200,
+      "key": "starfish/06",
+      "state": "strained",
+      "rawPixelSha256": "ad333cdecf7218ffb8637e872134f792c2a29cb5fecdfd362c95055debc72374",
+      "equal": true
+    },
+    {
+      "number": 201,
+      "key": "starfish/06",
+      "state": "sulky",
+      "rawPixelSha256": "5fda1045022920b590ba71011d165e96759e58611b55258bd417f53c263f55b5",
+      "equal": true
+    },
+    {
+      "number": 202,
+      "key": "starfish/06",
+      "state": "weak",
+      "rawPixelSha256": "852b8b5fd097ca0a33c79b92155191a4e905b6982fcc8114f44811e5f603be05",
+      "equal": true
+    },
+    {
+      "number": 203,
+      "key": "starfish/07",
+      "state": "critical",
+      "rawPixelSha256": "4a2cb72f790e0ae205a294f99e3b05b53ab3d1b009ff9be16a6264fc38640787",
+      "equal": true
+    },
+    {
+      "number": 204,
+      "key": "starfish/07",
+      "state": "happy",
+      "rawPixelSha256": "9356e94f164f895a338d4e0f16e87636504ee6bd7091d71d099d8d2869a2ccff",
+      "equal": true
+    },
+    {
+      "number": 205,
+      "key": "starfish/07",
+      "state": "sleeping",
+      "rawPixelSha256": "a665c969b3c465b57f89a73f011bc2d61616ea2d029dccfcc62c4eaa71c34605",
+      "equal": true
+    },
+    {
+      "number": 206,
+      "key": "starfish/07",
+      "state": "strained",
+      "rawPixelSha256": "8513107460d56d326eec909eeacef553b53d480503ba975b708bd7459251cab6",
+      "equal": true
+    },
+    {
+      "number": 207,
+      "key": "starfish/07",
+      "state": "sulky",
+      "rawPixelSha256": "1247e1c77d1e926592e5b05f7a72b8502ac580942e31bd648bdb99324bf0e596",
+      "equal": true
+    },
+    {
+      "number": 208,
+      "key": "starfish/07",
+      "state": "weak",
+      "rawPixelSha256": "e86a3a0d1e0abf3107d75b65db6a6221048bb3129e0dee2d5444969599c187f9",
+      "equal": true
+    },
+    {
+      "number": 209,
+      "key": "coral/07",
+      "state": "critical",
+      "rawPixelSha256": "77931929b88c69aec30da9c8b3c8e1bad8df9f80d611461c37b1ef30585c4540",
+      "equal": true
+    },
+    {
+      "number": 210,
+      "key": "coral/07",
+      "state": "happy",
+      "rawPixelSha256": "7f0265ca6f9b9ca97642740a7688e1ea992a68904b85c14392128111fe530a7b",
+      "equal": true
+    },
+    {
+      "number": 211,
+      "key": "coral/07",
+      "state": "sleeping",
+      "rawPixelSha256": "1247186271843c268bd36c05ed85e1b9d5cf227d1efef5008381ea7ee2b2532a",
+      "equal": true
+    },
+    {
+      "number": 212,
+      "key": "coral/07",
+      "state": "strained",
+      "rawPixelSha256": "18f35ed554e0bb854a7b88bfe350fdc07769440bdb7442e98ba1f79310731834",
+      "equal": true
+    },
+    {
+      "number": 213,
+      "key": "coral/07",
+      "state": "sulky",
+      "rawPixelSha256": "c9b4311378a9d856cfa6362e607c9a9ccd0597380f50e917b8118a7b13b5ca3e",
+      "equal": true
+    },
+    {
+      "number": 214,
+      "key": "coral/07",
+      "state": "weak",
+      "rawPixelSha256": "48d3c566cef30d83e7ab8f99d0ad1b0a7d074cd4a718f354fcc508371669eb0d",
+      "equal": true
+    },
+    {
+      "number": 215,
+      "key": "dandelion/05",
+      "state": "happy",
+      "rawPixelSha256": "6ac319a9ee1a0146a6be520cdbd603231b9f6306e268a2034958034339fe1668",
+      "equal": true
+    },
+    {
+      "number": 216,
+      "key": "venus_flytrap/04",
+      "state": "critical",
+      "rawPixelSha256": "cad7fce9ea1af497c8537c2626a3736cb013bbb5209b9bdb98e6a82ce360c572",
+      "equal": true
+    },
+    {
+      "number": 217,
+      "key": "venus_flytrap/04",
+      "state": "happy",
+      "rawPixelSha256": "2411dbc791cbfd86cbca3685eacac549a3e4cd40319c7a945c0fbe4426e080de",
+      "equal": true
+    },
+    {
+      "number": 218,
+      "key": "venus_flytrap/04",
+      "state": "sulky",
+      "rawPixelSha256": "d7d77fc19638da516b783087e97fb89e5649f0af010a31e358f7a16f5cc76ee1",
+      "equal": true
+    },
+    {
+      "number": 219,
+      "key": "venus_flytrap/04",
+      "state": "weak",
+      "rawPixelSha256": "6fbfa7fc563c6a9f1311e9e27c9d203253701e25640c6fd81ef9c5abaaff921c",
+      "equal": true
+    },
+    {
+      "number": 220,
+      "key": "venus_flytrap/05",
+      "state": "critical",
+      "rawPixelSha256": "95141a534bd2e238fc5df67b013105038549714266c6091593698dba4ee4c49f",
+      "equal": true
+    },
+    {
+      "number": 221,
+      "key": "venus_flytrap/05",
+      "state": "happy",
+      "rawPixelSha256": "89a0a4dc5bd15c882d4db335e2c6ab90578b9e29cdee3c1b5354539f07ee4cfe",
+      "equal": true
+    },
+    {
+      "number": 222,
+      "key": "venus_flytrap/07",
+      "state": "critical",
+      "rawPixelSha256": "d071df7df843b7e9d9c9dd9b60fb8788f81c59d9a207cc5a44ba3a3831c7d63c",
+      "equal": true
+    },
+    {
+      "number": 223,
+      "key": "venus_flytrap/07",
+      "state": "happy",
+      "rawPixelSha256": "438efefee82afa31404f7519543eab67890a7f6719e642d527a822b899efb3ee",
+      "equal": true
+    },
+    {
+      "number": 224,
+      "key": "venus_flytrap/07",
+      "state": "sleeping",
+      "rawPixelSha256": "f459dd5a5452d0dd1511e3592bceae9f9d061535c4fab66aa0672f2a1bf02266",
+      "equal": true
+    },
+    {
+      "number": 225,
+      "key": "venus_flytrap/07",
+      "state": "strained",
+      "rawPixelSha256": "a76c64c87dc782d655fc3d197aecf20b1aea165ea4fa7bf8b4fb782bca40dd89",
+      "equal": true
+    },
+    {
+      "number": 226,
+      "key": "venus_flytrap/07",
+      "state": "sulky",
+      "rawPixelSha256": "5f573ccc6cf0c2bc7412cd0c943b24b0e8a95d07342e6903f73411985be612c1",
+      "equal": true
+    },
+    {
+      "number": 227,
+      "key": "venus_flytrap/07",
+      "state": "weak",
+      "rawPixelSha256": "a3bb34ec50181469c12ccd8ec49fec04f7cd41de8ca43bce1a6ff9c8c68045ac",
+      "equal": true
+    },
+    {
+      "number": 228,
+      "key": "venus_flytrap/08",
+      "state": "critical",
+      "rawPixelSha256": "e6f25b2b4ef370b45999a7c7fb7ff9e2bdbe66d80296f76519bf6c6852f9cd26",
+      "equal": true
+    },
+    {
+      "number": 229,
+      "key": "venus_flytrap/08",
+      "state": "happy",
+      "rawPixelSha256": "7d90256fb3a895a81ab2ca06d9d1d55d6b482f267a3b42e3c96379e2cc782fcf",
+      "equal": true
+    },
+    {
+      "number": 230,
+      "key": "venus_flytrap/08",
+      "state": "sleeping",
+      "rawPixelSha256": "e7abaf2bb7867523c3169fd65e272c3de5698627aa35f1a36dc1a6b592524d4d",
+      "equal": true
+    },
+    {
+      "number": 231,
+      "key": "venus_flytrap/08",
+      "state": "strained",
+      "rawPixelSha256": "72a82682df8912b3a29ad50eab5fdbf67929837a13903edc6809ed7cd5ff57ea",
+      "equal": true
+    },
+    {
+      "number": 232,
+      "key": "venus_flytrap/08",
+      "state": "sulky",
+      "rawPixelSha256": "231324384ab53728f686245800d6be454b9822a28235bc769faee9b8e6f59bac",
+      "equal": true
+    },
+    {
+      "number": 233,
+      "key": "venus_flytrap/08",
+      "state": "weak",
+      "rawPixelSha256": "476b3b8e008a750e12ca364a3367531821cd982ba27c0eca628d97fa03e59d29",
+      "equal": true
+    },
+    {
+      "number": 234,
+      "key": "mushroom/04",
+      "state": "happy",
+      "rawPixelSha256": "e0cd9eb028dde304e7472eaa8aa7025ff038f287a314bcc441d6751b01d59c7e",
+      "equal": true
+    },
+    {
+      "number": 235,
+      "key": "dragon/01",
+      "state": "critical",
+      "rawPixelSha256": "202a75e03b41e585d95dacac133d0762938000d6d784084c69b4de6b1d1ce6bc",
+      "equal": true
+    },
+    {
+      "number": 236,
+      "key": "dragon/01",
+      "state": "happy",
+      "rawPixelSha256": "fecbe09bf1d1271716c31e41f56461f99388567cfb66e1b742a4b05838ec2d7c",
+      "equal": true
+    },
+    {
+      "number": 237,
+      "key": "dragon/01",
+      "state": "sleeping",
+      "rawPixelSha256": "1fa2973ec9f2080a56964ba783b6cf1b89540030861a984608be9616dd195e80",
+      "equal": true
+    },
+    {
+      "number": 238,
+      "key": "dragon/01",
+      "state": "sulky",
+      "rawPixelSha256": "e7833fd09600f4f9fe0ff98b9f16960ef6441f5f10483b45f09916a63a90daa0",
+      "equal": true
+    },
+    {
+      "number": 239,
+      "key": "dragon/01",
+      "state": "weak",
+      "rawPixelSha256": "a2e79580fed43ba40a609c9b5516c0dfb81e9c8f1aea3ea1251f53849f05f68d",
+      "equal": true
+    },
+    {
+      "number": 240,
+      "key": "dragon/02",
+      "state": "critical",
+      "rawPixelSha256": "81c59f5efb5967a5f7e3f8a6c037e78622715580e012dbee8c6d9f339ce3ca99",
+      "equal": true
+    },
+    {
+      "number": 241,
+      "key": "dragon/02",
+      "state": "happy",
+      "rawPixelSha256": "f0a95cab886651af0d5ab2ec3455dfbb66ccbe11ee4da68b006402b527fc2041",
+      "equal": true
+    },
+    {
+      "number": 242,
+      "key": "dragon/02",
+      "state": "sleeping",
+      "rawPixelSha256": "88958391c6b2480d999da35237c1a65455245451107463586ac0c4c669648fb0",
+      "equal": true
+    },
+    {
+      "number": 243,
+      "key": "dragon/02",
+      "state": "strained",
+      "rawPixelSha256": "adfd0da120148d0bac2cc3ffe4ae6f5ddfc1ab1c9f336f3575cbdf85fc46ae67",
+      "equal": true
+    },
+    {
+      "number": 244,
+      "key": "dragon/02",
+      "state": "sulky",
+      "rawPixelSha256": "64b0a87afa6d3ae5051e3f792252d9e76bc83ac466985984d7fdf77798f812a3",
+      "equal": true
+    },
+    {
+      "number": 245,
+      "key": "dragon/02",
+      "state": "weak",
+      "rawPixelSha256": "7cc70caa20e774fa0801e5323c27d86a49d74828f7ecb91a966076099f47ccf8",
+      "equal": true
+    },
+    {
+      "number": 246,
+      "key": "dragon/03",
+      "state": "critical",
+      "rawPixelSha256": "c240883d796bfafc940338604690a1e0229f18e91a33e4f0e3138d7aa3231b35",
+      "equal": true
+    },
+    {
+      "number": 247,
+      "key": "dragon/03",
+      "state": "happy",
+      "rawPixelSha256": "3f5ac9434be154d8793d1a940989cfb2879dfd0df82f02de3320a44b09be6a16",
+      "equal": true
+    },
+    {
+      "number": 248,
+      "key": "dragon/03",
+      "state": "sleeping",
+      "rawPixelSha256": "0834d7214b4232798ad1ce18afe5f37aed4dbcff3e2837ed7efad12ca0541f6f",
+      "equal": true
+    },
+    {
+      "number": 249,
+      "key": "dragon/03",
+      "state": "sulky",
+      "rawPixelSha256": "45d4775be34ec524f8119bf1a17893bd5a991dad51aace8bf0f184ec3f1c3b49",
+      "equal": true
+    },
+    {
+      "number": 250,
+      "key": "dragon/03",
+      "state": "weak",
+      "rawPixelSha256": "872c1db95060a299dfdc810dc38f1ec5f47d51262a3c1276e5d0998fbe68a037",
+      "equal": true
+    },
+    {
+      "number": 251,
+      "key": "dragon/04",
+      "state": "critical",
+      "rawPixelSha256": "38c511a4ea8c4b140c648df5416992bd9194a999506f54f9d8436c762b858bf4",
+      "equal": true
+    },
+    {
+      "number": 252,
+      "key": "dragon/04",
+      "state": "happy",
+      "rawPixelSha256": "2d741f747f42033c2d308a402baec150c599e1c851ea3b2f1304349b968022bd",
+      "equal": true
+    },
+    {
+      "number": 253,
+      "key": "dragon/04",
+      "state": "sleeping",
+      "rawPixelSha256": "601ffc2e3b03be327c0ec1b2e9bc45c1d2df3a7b7e19d14bcd3d09d4a06f0512",
+      "equal": true
+    },
+    {
+      "number": 254,
+      "key": "dragon/04",
+      "state": "sulky",
+      "rawPixelSha256": "b83e2d205943b450cf0c308f6e120d1fb494615640e2d60bd304442afcb8d6f3",
+      "equal": true
+    },
+    {
+      "number": 255,
+      "key": "dragon/04",
+      "state": "weak",
+      "rawPixelSha256": "b95f2e000b524de1b53237c473bb2665b818d43b19aaad5614665a3a4dd4d19d",
+      "equal": true
+    },
+    {
+      "number": 256,
+      "key": "dragon/06",
+      "state": "critical",
+      "rawPixelSha256": "7bbbddee7e54e41b52d6dacc4e0d217906b9deeec4df45e9b03011e4dae25fb5",
+      "equal": true
+    },
+    {
+      "number": 257,
+      "key": "dragon/06",
+      "state": "happy",
+      "rawPixelSha256": "714aef9d9dabc8230790cc78731011fe7b68e58d2ac26bba7fa29b951dd40c15",
+      "equal": true
+    },
+    {
+      "number": 258,
+      "key": "dragon/06",
+      "state": "sleeping",
+      "rawPixelSha256": "9e0b7a083de4639904abe31a7bf5c15ed52dc9e3edeaf53aeac86186cc6723be",
+      "equal": true
+    },
+    {
+      "number": 259,
+      "key": "dragon/06",
+      "state": "sulky",
+      "rawPixelSha256": "d57fc54ac151686b389f937aec8c11c651445f015a80dd4a1fcc2b6d77bfa79a",
+      "equal": true
+    },
+    {
+      "number": 260,
+      "key": "dragon/06",
+      "state": "weak",
+      "rawPixelSha256": "c229b0443cce997da74ae2de3bc73b3df24782ed9833fb5b7733d493497ddb5c",
+      "equal": true
+    },
+    {
+      "number": 261,
+      "key": "dragon/07",
+      "state": "critical",
+      "rawPixelSha256": "a7739d96f38ac623dcf9666885d03c6a3f66de1cafc6e1d3864c5abebb540a7e",
+      "equal": true
+    },
+    {
+      "number": 262,
+      "key": "dragon/07",
+      "state": "happy",
+      "rawPixelSha256": "c590f9c814aba9cc85510571799a75d7489473813612a2f81cc93bc71c916d95",
+      "equal": true
+    },
+    {
+      "number": 263,
+      "key": "dragon/07",
+      "state": "sleeping",
+      "rawPixelSha256": "87a129af7f58785dc1eb115110f4c8ecb63c2f8ffbe8c8fb0a500bfd231470ee",
+      "equal": true
+    },
+    {
+      "number": 264,
+      "key": "dragon/07",
+      "state": "sulky",
+      "rawPixelSha256": "8771baf20968eaaf7d61757f1896a019f3b27060f416a0854d08c633136adde6",
+      "equal": true
+    },
+    {
+      "number": 265,
+      "key": "dragon/07",
+      "state": "weak",
+      "rawPixelSha256": "041f34564e6a260a66ec8e22b400fa68c78c91f0da87d16c8c8df2a8b87c8161",
+      "equal": true
+    },
+    {
+      "number": 266,
+      "key": "dragon/08",
+      "state": "critical",
+      "rawPixelSha256": "a347cf6c9c44a9b2d6c383f9446e93705739c772374ce99398be8294e9ea7863",
+      "equal": true
+    },
+    {
+      "number": 267,
+      "key": "dragon/08",
+      "state": "happy",
+      "rawPixelSha256": "13bfba479b4c7f313565f5c6d358051820ae13f3b129c71baf48a0963d67d97f",
+      "equal": true
+    },
+    {
+      "number": 268,
+      "key": "dragon/08",
+      "state": "sleeping",
+      "rawPixelSha256": "8642acce86922444cf56f2fe047f5b6d2920feaa5d015dc73fa0c1cc5904669d",
+      "equal": true
+    },
+    {
+      "number": 269,
+      "key": "dragon/08",
+      "state": "strained",
+      "rawPixelSha256": "074810559aee6864be6af0d9676bc42994ba6e0db162abcac5bb10854beb290e",
+      "equal": true
+    },
+    {
+      "number": 270,
+      "key": "dragon/08",
+      "state": "sulky",
+      "rawPixelSha256": "239ada9e1bff05b0cf5a1c7e5e2e149e2947aa7a0031b0be6572af9653fb3278",
+      "equal": true
+    },
+    {
+      "number": 271,
+      "key": "dragon/08",
+      "state": "weak",
+      "rawPixelSha256": "41c54de65846ac630af97e3f3ab031fbff6eda2aa85e77ad0011e80f2d16bf93",
+      "equal": true
+    },
+    {
+      "number": 272,
+      "key": "phoenix/01",
+      "state": "critical",
+      "rawPixelSha256": "7a0a61aebdc2f49801c28219c477203e98be5c4eaf052e449bfc9f6bd4d16043",
+      "equal": true
+    },
+    {
+      "number": 273,
+      "key": "phoenix/01",
+      "state": "happy",
+      "rawPixelSha256": "a5a6bc9c9db742ad96548a97b299169d7f58b8a22d2c23a577f5126c594467c0",
+      "equal": true
+    },
+    {
+      "number": 274,
+      "key": "phoenix/01",
+      "state": "sleeping",
+      "rawPixelSha256": "19e0ad3c126ce4d727c14a158f3be1d3b067e43268528e560bd23339f1760671",
+      "equal": true
+    },
+    {
+      "number": 275,
+      "key": "phoenix/01",
+      "state": "sulky",
+      "rawPixelSha256": "eed13bf97182a2bfc4a5ca4d0b4a0246f79f970a1489dac273de3b634094409f",
+      "equal": true
+    },
+    {
+      "number": 276,
+      "key": "phoenix/01",
+      "state": "weak",
+      "rawPixelSha256": "240dfee1b012c77577b2ca4147f39dec054c3f7333bcbcefa44b62f2205aac2a",
+      "equal": true
+    },
+    {
+      "number": 277,
+      "key": "phoenix/02",
+      "state": "critical",
+      "rawPixelSha256": "8b4803bf4c0863faf6456e61302e9353808741129de44236cab1922178e02bc7",
+      "equal": true
+    },
+    {
+      "number": 278,
+      "key": "phoenix/02",
+      "state": "happy",
+      "rawPixelSha256": "8bcc74631da72413c0c8b7c47859e003b13b0b54c6d2155627c912da52bab475",
+      "equal": true
+    },
+    {
+      "number": 279,
+      "key": "phoenix/02",
+      "state": "sleeping",
+      "rawPixelSha256": "7946f793158f36a8bca890c19ab7a1ab87ff86665b5982f43afb705aadf9ebaf",
+      "equal": true
+    },
+    {
+      "number": 280,
+      "key": "phoenix/02",
+      "state": "strained",
+      "rawPixelSha256": "88b973b7cb274dc455d91d560a187f092d6f2263f7391ea3c18fbcc11dadfd49",
+      "equal": true
+    },
+    {
+      "number": 281,
+      "key": "phoenix/02",
+      "state": "sulky",
+      "rawPixelSha256": "c01c25b88a641382777ac364c2b8426ee49aeb49e2e0a5542e59be4a314cf5ee",
+      "equal": true
+    },
+    {
+      "number": 282,
+      "key": "phoenix/02",
+      "state": "weak",
+      "rawPixelSha256": "eb1c949d2619eb5d628a129d8cdf17ff7c4bdffabeebd35121993910e91dcd8e",
+      "equal": true
+    },
+    {
+      "number": 283,
+      "key": "phoenix/03",
+      "state": "critical",
+      "rawPixelSha256": "3d4756cd18b9a232dc9fb25a7e01018d24ca453722d3c1e643761c5b8ee45323",
+      "equal": true
+    },
+    {
+      "number": 284,
+      "key": "phoenix/03",
+      "state": "happy",
+      "rawPixelSha256": "aa9f4b22dae1f4c86ea44db45e198cf0d6e251270a42f9ca6d91072c32304d7b",
+      "equal": true
+    },
+    {
+      "number": 285,
+      "key": "phoenix/03",
+      "state": "sleeping",
+      "rawPixelSha256": "e499a5d82c24269562722810f9a99ca9cc2f939bb29c15009e770b6a99e6fead",
+      "equal": true
+    },
+    {
+      "number": 286,
+      "key": "phoenix/03",
+      "state": "strained",
+      "rawPixelSha256": "a8d0443534c1c5d88b57b2fb61a5caebfcc42e7e0e90ab0e37f6134965080692",
+      "equal": true
+    },
+    {
+      "number": 287,
+      "key": "phoenix/03",
+      "state": "sulky",
+      "rawPixelSha256": "3a40c5153df0cc993e67a94812706cec77f338a523b379151420decd09bfb26d",
+      "equal": true
+    },
+    {
+      "number": 288,
+      "key": "phoenix/03",
+      "state": "weak",
+      "rawPixelSha256": "c801bdc8262621754ff1cd01b81895c2240c2dbe48a7c147efe2b630de7ed328",
+      "equal": true
+    },
+    {
+      "number": 289,
+      "key": "phoenix/04",
+      "state": "critical",
+      "rawPixelSha256": "d36c084fd72cafb54dae60097330f06f85d7f3c964bef765f815f1364c1f6ab3",
+      "equal": true
+    },
+    {
+      "number": 290,
+      "key": "phoenix/04",
+      "state": "happy",
+      "rawPixelSha256": "509c9c4681ae559e3e3e0e43435c0944d472168240cd21813750adef11a1ae55",
+      "equal": true
+    },
+    {
+      "number": 291,
+      "key": "phoenix/04",
+      "state": "sleeping",
+      "rawPixelSha256": "98309536aa9688ea38ceeb231681628793d028565de7c442deec85aec53e585d",
+      "equal": true
+    },
+    {
+      "number": 292,
+      "key": "phoenix/04",
+      "state": "strained",
+      "rawPixelSha256": "30f1a961c996b954d71481f6dad92e54ff777e748a5a94ddb53265a6f1d13054",
+      "equal": true
+    },
+    {
+      "number": 293,
+      "key": "phoenix/04",
+      "state": "sulky",
+      "rawPixelSha256": "dea1ff6053d61b7edb7197c8888d645ed0a08f11e1b0e8c43261a787d0d400d6",
+      "equal": true
+    },
+    {
+      "number": 294,
+      "key": "phoenix/04",
+      "state": "weak",
+      "rawPixelSha256": "a1955916580e0a2d24641022e86217295cf5462ecc4ec4c8e204cf9ba0260fb2",
+      "equal": true
+    },
+    {
+      "number": 295,
+      "key": "phoenix/07",
+      "state": "critical",
+      "rawPixelSha256": "a9cc1463c1f399f28b46b2be9689bfdf79f3a68b4efddf2dcd3fb9db46077915",
+      "equal": true
+    },
+    {
+      "number": 296,
+      "key": "phoenix/07",
+      "state": "happy",
+      "rawPixelSha256": "02548ac959e79c82ef4e942ce6e398567fc7824950dbc8d4b44afa341dd2a569",
+      "equal": true
+    },
+    {
+      "number": 297,
+      "key": "phoenix/07",
+      "state": "sleeping",
+      "rawPixelSha256": "cb9d58488a6e3ac73ef5cce5d3d2e57aa18b8dd10e374a39d035d0973bd0e08b",
+      "equal": true
+    },
+    {
+      "number": 298,
+      "key": "phoenix/07",
+      "state": "sulky",
+      "rawPixelSha256": "90fa13510c7e86a0c82bc6a4e75fd44798d390a9817ae6538aabae96734e028e",
+      "equal": true
+    },
+    {
+      "number": 299,
+      "key": "phoenix/07",
+      "state": "weak",
+      "rawPixelSha256": "8cd71bb3b1f52c16627df479b2518a20ae56ddbcd3c832074efe6ab7709baa75",
+      "equal": true
+    },
+    {
+      "number": 300,
+      "key": "phoenix/08",
+      "state": "critical",
+      "rawPixelSha256": "38ecf0ce81deb2b0cdb9f041dd580219c2199238e2890639a94fb6b7df1b4849",
+      "equal": true
+    },
+    {
+      "number": 301,
+      "key": "phoenix/08",
+      "state": "happy",
+      "rawPixelSha256": "2e70902af5ad219576ac5db55e4d8b1123db8ea787c26234ab8e36f4c72792a3",
+      "equal": true
+    },
+    {
+      "number": 302,
+      "key": "phoenix/08",
+      "state": "strained",
+      "rawPixelSha256": "ac5fcf545a7b6788dcbdc7b2e7b1ba5547e94a5567666ecad856b597bfd808a7",
+      "equal": true
+    },
+    {
+      "number": 303,
+      "key": "phoenix/08",
+      "state": "sulky",
+      "rawPixelSha256": "35de0d46e5e7bf33825400eda37b60a47b260e3e52e6181955b957e9c23eb27e",
+      "equal": true
+    },
+    {
+      "number": 304,
+      "key": "phoenix/08",
+      "state": "weak",
+      "rawPixelSha256": "c325b4cec2ff364f499e07448e7f7d4113ac97f4da30b3388022fc2d0cf8a139",
+      "equal": true
+    },
+    {
+      "number": 305,
+      "key": "god/01",
+      "state": "happy",
+      "rawPixelSha256": "4df92511bab304335674368beda69c807554ec58830c0bd79766c6d0303d9bb9",
+      "equal": true
+    },
+    {
+      "number": 306,
+      "key": "god/01",
+      "state": "sleeping",
+      "rawPixelSha256": "ac7dccc4108eef9fe2356e81d38ca859791f50a82431bdf28a91077c6add1266",
+      "equal": true
+    },
+    {
+      "number": 307,
+      "key": "god/01",
+      "state": "weak",
+      "rawPixelSha256": "6d49bf99e1ce0b309bd8f14117219782c15574168faf1b74c970f1ef0b574f9b",
+      "equal": true
+    },
+    {
+      "number": 308,
+      "key": "god/02",
+      "state": "critical",
+      "rawPixelSha256": "878533625227a26d6799142b4b917500a00fd77731f42c453c1114025cf0b2e0",
+      "equal": true
+    },
+    {
+      "number": 309,
+      "key": "god/02",
+      "state": "happy",
+      "rawPixelSha256": "e29f49ef7f4ba02c9ee542cc393eacdee216b2c4368a927c03191875cc1fabfe",
+      "equal": true
+    },
+    {
+      "number": 310,
+      "key": "god/02",
+      "state": "sulky",
+      "rawPixelSha256": "89b1936ddd0ec2633855061e4fee98231e94036e83105bea108c4f15c330f726",
+      "equal": true
+    },
+    {
+      "number": 311,
+      "key": "god/02",
+      "state": "weak",
+      "rawPixelSha256": "42fd3d2cd9554752c4175f007d1265a5ad6502619921bc861194db00d9aca519",
+      "equal": true
+    },
+    {
+      "number": 312,
+      "key": "god/03",
+      "state": "critical",
+      "rawPixelSha256": "ea9c1e0fea3198645770b52b6a5e401ab1f460411559b191c5bc4e5820b3fd4f",
+      "equal": true
+    },
+    {
+      "number": 313,
+      "key": "god/03",
+      "state": "happy",
+      "rawPixelSha256": "7eeb06b3a8b1d68cffcee0db9257cb0b4076b600e88ac8a1a0c3171da93ef685",
+      "equal": true
+    },
+    {
+      "number": 314,
+      "key": "god/03",
+      "state": "weak",
+      "rawPixelSha256": "8219d768f40f615d387c6179be3a453f03cf2e49b7a3cdbd489ec3218134daab",
+      "equal": true
+    },
+    {
+      "number": 315,
+      "key": "god/05",
+      "state": "critical",
+      "rawPixelSha256": "e6dad4e77cb2892595cac8575da63a1d671dc44968e7d22661f2acb65a3cb917",
+      "equal": true
+    },
+    {
+      "number": 316,
+      "key": "god/05",
+      "state": "happy",
+      "rawPixelSha256": "2d72644071b823de42ffd192ae5797db67af3ff04ae6d5b3e1fa36ce66ba5fdc",
+      "equal": true
+    },
+    {
+      "number": 317,
+      "key": "god/05",
+      "state": "sleeping",
+      "rawPixelSha256": "84b72613ed6e1b4aede270ead48dc5d7c8c28459afe272178f14fafae711495c",
+      "equal": true
+    },
+    {
+      "number": 318,
+      "key": "god/05",
+      "state": "strained",
+      "rawPixelSha256": "d4dbb60cfe3ef2b78be8242c353fd4c8e7a6d2c1934b3313a29df210834b3a28",
+      "equal": true
+    },
+    {
+      "number": 319,
+      "key": "god/05",
+      "state": "sulky",
+      "rawPixelSha256": "dd8f400ea0d12a67115e36f9537dea3b06fdf9a904c53380458ab9abc478404c",
+      "equal": true
+    },
+    {
+      "number": 320,
+      "key": "god/05",
+      "state": "weak",
+      "rawPixelSha256": "72883a312c60d2f03a52eff927b60c40aeaf655a430dc614abcecc7bc69ae37d",
+      "equal": true
+    },
+    {
+      "number": 321,
+      "key": "ghost/01",
+      "state": "sleeping",
+      "rawPixelSha256": "02fb497154dd7cb6fb59d620b01f61009da7a640723c702116bf96cdab16d106",
+      "equal": true
+    },
+    {
+      "number": 322,
+      "key": "ghost/02",
+      "state": "happy",
+      "rawPixelSha256": "57b565aa9e0e59fbbaf7fe9b59231b4f258e099ff7ee1eda7fc2e34903ac4578",
+      "equal": true
+    },
+    {
+      "number": 323,
+      "key": "ghost/02",
+      "state": "weak",
+      "rawPixelSha256": "6de6cc2e5dbe98351a887d3b39ae914c9bb7669b5d569a638d4b7c6d5d665d3e",
+      "equal": true
+    },
+    {
+      "number": 324,
+      "key": "ghost/03",
+      "state": "happy",
+      "rawPixelSha256": "9f5676c2a1641e635301aa6660b1834d17c447fd7a34ef2b12dc2156f7920cf3",
+      "equal": true
+    },
+    {
+      "number": 325,
+      "key": "ghost/04",
+      "state": "happy",
+      "rawPixelSha256": "63633c3ed854872f0f55b42f5ec5a079ff7a1298f75c02b5e748399262d185ef",
+      "equal": true
+    },
+    {
+      "number": 326,
+      "key": "ghost/04",
+      "state": "weak",
+      "rawPixelSha256": "69c0f9ddf8f42d43b71d103f60f2a67d17f3d32fdd927c03eb3d4691e173a053",
+      "equal": true
+    },
+    {
+      "number": 327,
+      "key": "ghost/05",
+      "state": "critical",
+      "rawPixelSha256": "2bda0cf015ea11c9314b4f1a9a118b22df6226eb71f41e44fce57b3b8714c9fa",
+      "equal": true
+    },
+    {
+      "number": 328,
+      "key": "ghost/05",
+      "state": "happy",
+      "rawPixelSha256": "34da98aa6ac78826c4390eca88fb3dba48bc30618e43c4d15d6c3208bac0cfe1",
+      "equal": true
+    },
+    {
+      "number": 329,
+      "key": "ghost/05",
+      "state": "sleeping",
+      "rawPixelSha256": "6edf2690bbeb5900927c6558ed2b819f05530b87626c0813d4bdaa1ee18592ff",
+      "equal": true
+    },
+    {
+      "number": 330,
+      "key": "ghost/05",
+      "state": "sulky",
+      "rawPixelSha256": "7b48d6d253684150d1a752f040f55c42c939f944f01210d6be7f51fc19ce4810",
+      "equal": true
+    },
+    {
+      "number": 331,
+      "key": "ghost/05",
+      "state": "weak",
+      "rawPixelSha256": "13ec078ea254a5f544a581fa1115237445eb57080e328b5c9fc83e6f9bd35b8e",
+      "equal": true
+    },
+    {
+      "number": 332,
+      "key": "ghost/06",
+      "state": "strained",
+      "rawPixelSha256": "1da4ed2cd96d7b62d7d7df6633693cb31ea58d723811cfefdfc01470824f747e",
+      "equal": true
+    },
+    {
+      "number": 333,
+      "key": "star/05",
+      "state": "critical",
+      "rawPixelSha256": "63e2322bf0a3d2bd431a00b21483b923f2660e1d71437e0f558e4d523183ff66",
+      "equal": true
+    },
+    {
+      "number": 334,
+      "key": "star/05",
+      "state": "happy",
+      "rawPixelSha256": "36f385db32507709cd15c0be8a6eee4c2a0ab4d9e9b4f58eb5964c9f5d41a6a4",
+      "equal": true
+    },
+    {
+      "number": 335,
+      "key": "star/05",
+      "state": "sleeping",
+      "rawPixelSha256": "8e7d49c1292cb408d73cc39a3740ecfea6ae141515e29ded47d3a1e162db2e81",
+      "equal": true
+    },
+    {
+      "number": 336,
+      "key": "star/05",
+      "state": "strained",
+      "rawPixelSha256": "d8ff1f86492a7168a27ee62f601345fc082f68fda2fdac1a1b1f86ee98d8bb6c",
+      "equal": true
+    },
+    {
+      "number": 337,
+      "key": "star/05",
+      "state": "sulky",
+      "rawPixelSha256": "3edc6490ee0fd884f918d8f19abee4efb4745797c7e9a7235ad57e049d8333dc",
+      "equal": true
+    },
+    {
+      "number": 338,
+      "key": "star/05",
+      "state": "weak",
+      "rawPixelSha256": "cd128a9a7229aa55872cc33c7af5d322f675109e421d319d9ac6c1d598f16bc0",
+      "equal": true
+    },
+    {
+      "number": 339,
+      "key": "unknown/01",
+      "state": "critical",
+      "rawPixelSha256": "9bbc32e78218b2d9c6e0f88ee09141ad013ce50c3b5434da4da0868c9da9c6b7",
+      "equal": true
+    },
+    {
+      "number": 340,
+      "key": "unknown/01",
+      "state": "happy",
+      "rawPixelSha256": "ea1c13afec16bf1f3848d9b2e6924778df33c66fe53ba3fcd9f6e0fdcf4ed9c8",
+      "equal": true
+    },
+    {
+      "number": 341,
+      "key": "unknown/01",
+      "state": "weak",
+      "rawPixelSha256": "5c43e9b28563ef8433bd2b7441f6e9ea1d9c694eb077a6fea32b32cb03e3be35",
+      "equal": true
+    },
+    {
+      "number": 342,
+      "key": "unknown/02",
+      "state": "happy",
+      "rawPixelSha256": "512f646fe3234b8a456377cae79c7cf1ecdbae48543b6993d595869b1c2fd101",
+      "equal": true
+    },
+    {
+      "number": 343,
+      "key": "unknown/07",
+      "state": "happy",
+      "rawPixelSha256": "1739f07e6be09e5fa7b9bfb37bd4ac52936113c234927d2e38458a3966aae76e",
+      "equal": true
+    },
+    {
+      "number": 344,
+      "key": "unknown/07",
+      "state": "sleeping",
+      "rawPixelSha256": "a4dcf6c3e2c65737fe92af58b4b0db46f995b143ee0bfc815aeb27f8add89a33",
+      "equal": true
+    },
+    {
+      "number": 345,
+      "key": "unknown/08",
+      "state": "happy",
+      "rawPixelSha256": "9fabd48b37aeb13c922e8bffe068ad81765ccbdd2c830bfeaae0cb970f9c0a46",
+      "equal": true
+    },
+    {
+      "number": 346,
+      "key": "ren/02",
+      "state": "happy",
+      "rawPixelSha256": "48ed2a1e4359eebb912a58679d7549d312988122bf544943379de0b2e99459b7",
+      "equal": true
+    }
+  ],
+  "pairs": 5190,
+  "approvedLayerHashesEqual": true,
+  "allPixelsEqual": true,
+  "basisHead": "a0dac0d3c454f7097370d4c5d784be5beb8697e2",
+  "imagePNGsUnchanged": 2781,
+  "baselineFiles": 3596,
+  "changedExistingPaths": [
+    "docs/qa/emotion-visual-approved-baseline-20260915.md",
+    "docs/qa/final-audit-followup-20260924.md",
+    "index.html",
+    "pet-expression.css",
+    "tests/pet-expression-test.cjs"
+  ],
+  "oldBorderlineIDs": [
+    43,
+    49,
+    65,
+    70,
+    74,
+    77,
+    81,
+    139,
+    182,
+    188,
+    194,
+    200,
+    206,
+    292,
+    318,
+    332,
+    336
+  ],
+  "remainingBorderlinesInApprovedB": 0,
+  "runtimeObservations": 35,
+  "runtimeExactlyMatchesBaseline": true,
+  "maxSimultaneousMarks": 1,
+  "approvedArtifact": {
+    "name": "sweat-mark-ab-evidence.zip",
+    "sha256": "4bde7c8149dc6bd55976c97eb0994ea19430947fda0aabef41d0dacc21e926b4",
+    "head": "a0dac0d3c454f7097370d4c5d784be5beb8697e2"
+  },
+  "executedVerifierSha256": "667451d7afdd80872680d6a132333bb8dc728ff9ec3e1df65e4549c6432436ca",
+  "freshVisualReview": {
+    "old17": "All17 re-viewed from fresh composites; B zigzag and opposite sweat visible",
+    "method": "Exact matched approved panels, then view_image original of17 early-phase A/B crops",
+    "noNewWholeImageAudit": true
+  }
+}

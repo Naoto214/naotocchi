@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "trials": 128,
+  "totalActions": 51451,
+  "manifestSha256": "8acef7469e88939f4b9c13e568afacf9f5e85b3afbae981ede897cbd4d984efe",
+  "analyzerSha256": "a7960e86b21d5389c9c67aa2fd2f1118266c7192b6a24f79806f50ec12179530",
+  "checks": [
+    "all trial membership and sources",
+    "reused raw hash",
+    "initial resources and common bag",
+    "full replay hash",
+    "live tool legality",
+    "metrics and economy invariants",
+    "action ablation",
+    "caps and first victory stop",
+    "burden count reconciliation"
+  ]
+}

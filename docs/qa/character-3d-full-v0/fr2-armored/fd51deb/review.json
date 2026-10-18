@@ -1,0 +1,22 @@
+{
+  "sourceCommit": "fd51debce20418db17feb6bbd8e3945a4a844eef",
+  "waveArtifact": 11417016938,
+  "distanceArtifacts": [
+    11417121092,
+    11416157371
+  ],
+  "verdict": "juvenile03/04 representative gate accepted;01/02 expansion permitted, no runtime promotion",
+  "checks": {
+    "fourViews": 16,
+    "canonicalMotionStates": 128,
+    "ordinaryDistanceStages": 4,
+    "fallbacks": 0,
+    "errors": 0
+  },
+  "review": "Static anatomy correction fromb2 preserved; fd51 owner-clock curved crawl closes section gaps across all captured states. Pupal ring/wing/leg cases and faces remain attached. Ordinary-distance front/back shows recognizable C body versus amber pupa. Early01/02 must pass independent full-family gate.",
+  "simplifications": [
+    "Smooth cream segments and plain gray tail omit pixel speckles",
+    "Pupal folded cases and abdomen rings simplified"
+  ],
+  "environment": "Chromium/SwiftShader, not iPhone"
+}

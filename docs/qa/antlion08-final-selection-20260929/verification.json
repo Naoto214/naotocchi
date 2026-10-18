@@ -1,0 +1,24 @@
+{
+  "source_head": "1c014721a49fb31e898d822e40451456df7f77a0",
+  "selection_sha256": "1357bf77e9493e4b7e27d0ea615d4bc66cf8444a509b3e2714cd41fd82fe1685",
+  "contact_sheet_sha256": "c3009e715a1ca2e91f3d18187f259113f7fc74af043e15575748c50652e0471a",
+  "source_images_byte_unchanged": 11,
+  "rejected_candidates_byte_unchanged": 2,
+  "existing_files_checked": 4048,
+  "existing_files_preserved": 4047,
+  "existing_modified": [
+    "docs/qa/growth-hunger-expression-implementation-checklist-20260926.md"
+  ],
+  "existing_pngs_preserved": 2927,
+  "existing_pngs_modified": 0,
+  "production_pngs_modified": 0,
+  "new_candidate_pngs": 0,
+  "new_qa_pngs": 1,
+  "source_pixel_changes": 0,
+  "critical_A_density": "53 components / 189 particle pixels / 5.93%; intentional human-approved expression variation",
+  "critical_B_not_used": true,
+  "strained_B_not_used": true,
+  "rendering": "Pillow NEAREST; static offline; no marks/sweat; no DPR/browser claim",
+  "human_final_sheet_confirmation": "pending",
+  "step5": false
+}

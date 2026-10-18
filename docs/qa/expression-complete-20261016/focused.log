@@ -1,0 +1,64 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (118.795157ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (69.319174ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (337.957943ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (1.015012ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (147.303928ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (540.129707ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/676d908fa732/expression-work/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/676d908fa732/expression-work/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ puff connector is pale translucent and fine while the existing halo and six faces remain (606.049437ms)
+✔ winged insect limbs are joined to the body without extra meshes or changed wings (99.464166ms)
+✔ feline normal eyes have wider half lids and raised outer corners without changing emotion vocabulary (82.618201ms)
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/676d908fa732/expression-work/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/676d908fa732/expression-work/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ all four missing states have distinct canonical parameters and fallback meaning (11.236596ms)
+✔ presentation API exists separately from AI (0.194277ms)
+✔ Home priority and normal afterglow reused without changing Home (11.82084ms)
+✔ relationship 29/30, free distance, life conflict and rescue priority (0.3245ms)
+✔ social sequence repeats same emotion; dedup, cooldown, expiry and region cleanup (0.43917ms)
+✔ return notification has no second cue; stale identity and unknown events rejected (0.265182ms)
+✔ all 293 rigs accept all 12 states with finite transforms and shared faces (25170.889054ms)
+✔ presenter retriggers different cue tokens but not repeated delivery; sleeping cancels cue (2.672475ms)
+✔ production bridge updates player and party fallback continuously without relation writes (553.744703ms)
+✔ social cues never replay after build delay and paired return keeps a quiet goodbye (0.430888ms)
+✔ view resets on hidden/resumed gap, honors flag off and expires party reactions (0.760135ms)
+✔ critical party and stale delivery remain protected across hidden/scene changes (0.556463ms)
+✔ abandoned social motion is cancelled without cancelling ordinary reactions (1.983426ms)
+✔ life reactions retrigger same positive with distinct sequence and bounded movement (0.268607ms)
+✔ Home session duration remains 2.5s and subscription can be detached (0.211163ms)
+✔ accompany start preserves current mood; partner boundary and all mock event types (0.315107ms)
+✔ slow visible frames keep social expression; explicit suspension clears it (0.196881ms)
+✔ 1. the resident set comes from the registry (all dex forms, 26 companions, 18 partners) and every canonical emotion resolves without a gap (112.118038ms)
+✔ 2. production fallback is always the normal/base picture, never a different face (0.506409ms)
+✔ 3. a friendly interaction (being talked to) gives a positive face and a positive line, for a dex form and for a companion (660.057191ms)
+✔ 4. an unwanted interaction (waking a sleeper, pestering) gives the dislike face and a dislike line; companions have no dislike picture and stay normal (580.812265ms)
+✔ 5. sick resolves to the Home sick picture, but no resident-life event ever produces it (no illness signal exists) (10609.878863ms)
+✔ 6. a tired resident (low energy) shows the tired picture and says a tired line; a companion stays on its base picture (405.656735ms)
+✔ 7. a temporary reaction expires back to the persistent state of that moment (tired), not to a fixed normal; sleeping overrides reactions (1508.825379ms)
+✔ 8. face and words always come from the same emotion: no happy face with a dislike line, no sick words without sick (773.368928ms)
+✔ 9. an expression belongs to one actor: another resident, a new world and a flag-off never inherit it (1233.381867ms)
+✔ 10. the 2D canvas renderer draws the expression picture, and draws the base picture while the expression picture is still loading (574.693355ms)
+✔ 11. the 3D billboard uses the same spriteFor contract (asset + base) and neither renderer carries emotion vocabulary (9.707511ms)
+✔ 12. flag-off leaves residents on their base pictures, and the Home Expression System modules are untouched (frozen, same content) (537.746025ms)
+✔ 13. nothing about expressions reaches the save: the same keys and schemaVersion as a flag-off run, and no actor state serialized (1527.092491ms)
+✔ 14. strict mode detects a missing or unsupported expression picture instead of silently showing another face (1676.082161ms)
+✔ 15. the existing expression pictures are byte-identical (count and aggregate hash), and the resident lane adds no picture (190.787601ms)
+✔ 16. expressions are resolved only when the emotion changes (object identity stays), never per frame, and the pipeline is deterministic (2372.744737ms)
+✔ 17. the canonical mapping lives in one place and keeps the unused states open for the future (0.446571ms)
+✔ 18. ?mgexprqa=1 lines up the representative residents in forest regardless of the save, lets QA switch every emotion, and is fully inert on a normal URL (929.579523ms)
+✔ presentation flag=false: discovered ordinary spots remain recorded with mode-specific map display (1029.098398ms)
+✔ presentation flag=false: ordinary, landmark and zone notifications preserve their mode (7527.674136ms)
+✔ presentation flag=true: discovered ordinary spots remain recorded with mode-specific map display (3075.973548ms)
+✔ presentation flag=true: ordinary, landmark and zone notifications preserve their mode (4405.099785ms)
+ℹ tests 48
+ℹ suites 0
+ℹ pass 48
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26323.564831

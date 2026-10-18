@@ -1,0 +1,68 @@
+{
+  "source_head": "35bcd0a7cb0ed2bad00f5445b85e10e24b10d726",
+  "baseline_tracked_count": 3999,
+  "unchanged_tracked_count": 3998,
+  "permitted_existing_change": "docs/qa/growth-hunger-expression-implementation-checklist-20260926.md",
+  "all_existing_png_hashes_preserved": 2905,
+  "all11_input_sha256_preserved": true,
+  "production_images_changed": 0,
+  "qa_sprite_candidates": 1,
+  "local_crop_generation_calls": 1,
+  "full_face_regeneration": 0,
+  "candidate_changed_pixels": 3,
+  "candidate_change_bbox": [
+    104,
+    62,
+    106,
+    64
+  ],
+  "alpha_all_pixels_equal": true,
+  "outer_boundary_alpha_shape_unchanged": true,
+  "outer_boundary_8_connected_rgb_changes": [
+    [
+      105,
+      63
+    ]
+  ],
+  "all_pixels_outside_three_equal": true,
+  "region_hashes": {
+    "本人右目（viewer-left）": {
+      "roi": [
+        90,
+        56,
+        100,
+        66
+      ],
+      "before_rgba_sha256": "80a37de666f4a30d214d4892d7ae63512511027f4088214443ffac3c4e08e734",
+      "after_rgba_sha256": "80a37de666f4a30d214d4892d7ae63512511027f4088214443ffac3c4e08e734",
+      "equal": true
+    },
+    "mouth": {
+      "roi": [
+        97,
+        65,
+        103,
+        68
+      ],
+      "before_rgba_sha256": "3b8a53fc9058f69a783d56bdd6f75be995f9b48cb774c62f532f4a7afd456ad3",
+      "after_rgba_sha256": "3b8a53fc9058f69a783d56bdd6f75be995f9b48cb774c62f532f4a7afd456ad3",
+      "equal": true
+    },
+    "nose_between_eyes": {
+      "roi": [
+        98,
+        59,
+        102,
+        65
+      ],
+      "before_rgba_sha256": "af6c086e1a6fa98353942a6f4a1997eb44a95038f2c13369cdf9106267a9ac08",
+      "after_rgba_sha256": "af6c086e1a6fa98353942a6f4a1997eb44a95038f2c13369cdf9106267a9ac08",
+      "equal": true
+    }
+  },
+  "candidate_sha256": "3eb3149d55224531a287eec6eb1965c9702b444ddbd4181f669e34bf99fc7a10",
+  "source_sha256": "98fbc19d6a07ce65bf28d3baf9f5955be28ae3fef052c68394b4548b2897dc66",
+  "hungry_sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c",
+  "runtime_tests": "not rerun; runtime and production PNG unchanged",
+  "human_candidate_approval": false
+}

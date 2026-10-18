@@ -1,0 +1,21 @@
+{
+  "baselineRemoteHead": "4d61057d5d8d3f6e32da8e77ebbb40c953ee14fe",
+  "sources": {
+    "cast-motion.js": "82c9704cc00ec13da9d60450f93485997be0c88fe3e8276d39059acda6fc6658",
+    "script.js": "842a4b9f2ebe23d9242c4603c8dfe0c874ca5dfbc333915778af09a22b1d2567",
+    "index.html": "e2f045c696995e1cb7bf0daa11dc5316c7f5ece96b115befb8491fde043b350b",
+    "tests/cast-motion-test.cjs": "f6928ce4fadad6dbefb590124b0b5173ab3d9eb6eaa21e45c645d8774320a5bf",
+    "tests/pet-expression-integration-test.cjs": "dbed6e47c705c98f622c5ff3aaf8426f92e31a509a17a31b870523d46b2a70cd"
+  },
+  "logs": {
+    "relationship-green.log": "537b4221b4e5370f2b39251e8b30ef3ac4b418105b8ea40c73c7b596c7ec57f7",
+    "cure-expression-green.log": "aa2b3e99a3a61c842ba37e396f6162a6e6ad113e1e16209b888e7c6f381a4358",
+    "group-reply-red.log": "c8ca57e40a48458bd943d71ffad840d0fb1faf6120dba471fe45a369ce93010c",
+    "home-green.log": "6e07722a579e1ed57b7775a0cad366fc133a05eabc5242cce94e562fe4ff5ae9",
+    "dedicated-green.log": "bfd0aaed8dc10530a3bd45e6746bee899f36f71b1880b372c676341590867868",
+    "home-red.log": "660d724e5d09fb3a5a7556a88d59c8b35ce94ad918e371cce0f7cecf88792841",
+    "asset-green.log": "605b26835349a587557f17326240a6cc560e7ca6c1ceaa13af260983b94b2ea2",
+    "npm-test-green.log": "28f38712a8a034e5efda440a09b0d6ab3921be3ccd018dee22a348af826e317c",
+    "dedicated-red.log": "2112702899c75c968807472adfdfeb0d710bcb800eaf5503ad732dc9b529b2fb"
+  }
+}

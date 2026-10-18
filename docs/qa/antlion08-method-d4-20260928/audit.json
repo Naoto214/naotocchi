@@ -1,0 +1,5093 @@
+{
+  "source_head": "5f1f9a9b4c60b94b70a8758c108e62dda9b0ae82",
+  "date": "2026-09-28",
+  "method": "D1 direct source; per-group empirical palette quantile transfer ordered by linear-sRGB luminance; RGB tuples sampled from official normal08 only; no darkening/desaturation coefficient",
+  "sources": [
+    {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d-20260928/tired-candidate.png",
+      "sha256": "68332a0a42fcd2cc2af179577512a2bf88e1421ff6877517f4bcfc6a9e8e2a26"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d3-20260928/tired-d3-candidate.png",
+      "sha256": "c1a6bee7ddb394d17b1ff46fce68785004eec4960db084efefacb5194fb5acb2"
+    }
+  ],
+  "candidate_sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161",
+  "reference_groups": {
+    "particles": "normal connected components2..26 excluding17;116pixels",
+    "trail": "normal component17;73pixels"
+  },
+  "target_groups": {
+    "particles": 168,
+    "trail": 65
+  },
+  "mask_source": "docs/qa/antlion08-method-d2-20260928/audit.json",
+  "mask_sha256": "afef54f60c6d4590eee39432b22d5312d03d133f3bd1600d8af3635ddf1e7a44",
+  "metrics": {
+    "particles": {
+      "normal": {
+        "pixels": 116,
+        "mean_rgb": [
+          187.43965517241378,
+          120.80172413793103,
+          60.30172413793103
+        ],
+        "mean_Lab": [
+          56.61360749594998,
+          20.54233128125887,
+          42.98825350751832
+        ],
+        "mean_relative_luminance": 0.25277538394586474
+      },
+      "D1": {
+        "pixels": 168,
+        "mean_rgb": [
+          241.45238095238096,
+          185.70238095238096,
+          108.10714285714286
+        ],
+        "mean_Lab": [
+          79.22004282937975,
+          13.073635321892302,
+          46.62441747154077
+        ],
+        "mean_relative_luminance": 0.575956551920921
+      },
+      "D3": {
+        "pixels": 168,
+        "mean_rgb": [
+          207.72619047619048,
+          168.3154761904762,
+          113.60714285714286
+        ],
+        "mean_Lab": [
+          71.46524852056822,
+          8.32370496383028,
+          33.96931749747463
+        ],
+        "mean_relative_luminance": 0.441576213110518
+      },
+      "D4": {
+        "pixels": 168,
+        "mean_rgb": [
+          187.42261904761904,
+          120.80952380952381,
+          60.36309523809524
+        ],
+        "mean_Lab": [
+          56.61375661367765,
+          20.53640521613234,
+          42.96055182104595
+        ],
+        "mean_relative_luminance": 0.2528585048742952
+      },
+      "mean_rgb_difference": [
+        -0.01703612479474259,
+        0.007799671592778168,
+        0.06137110016420877
+      ],
+      "distance_between_mean_Lab": 0.028328853089993257,
+      "nearest_reference_RGB_max_distance": 0,
+      "nearest_reference_deltaE76_max": 0,
+      "target_pixels_using_reference_palette_fraction": 1
+    },
+    "trail": {
+      "normal": {
+        "pixels": 73,
+        "mean_rgb": [
+          200.15068493150685,
+          131.35616438356163,
+          65.31506849315069
+        ],
+        "mean_Lab": [
+          60.76572541660012,
+          20.47156875899752,
+          45.54850651681988
+        ],
+        "mean_relative_luminance": 0.29631755944875704
+      },
+      "D1": {
+        "pixels": 65,
+        "mean_rgb": [
+          242.01538461538462,
+          187.83076923076922,
+          107.27692307692308
+        ],
+        "mean_Lab": [
+          79.67477433972739,
+          11.705553652160061,
+          47.76276901070119
+        ],
+        "mean_relative_luminance": 0.5845576129640502
+      },
+      "D3": {
+        "pixels": 65,
+        "mean_rgb": [
+          208.23076923076923,
+          169.90769230769232,
+          113.0923076923077
+        ],
+        "mean_Lab": [
+          71.83982383025246,
+          7.384079571325386,
+          34.75096420711156
+        ],
+        "mean_relative_luminance": 0.44831064903836876
+      },
+      "D4": {
+        "pixels": 65,
+        "mean_rgb": [
+          200.04615384615386,
+          131.33846153846153,
+          65.38461538461539
+        ],
+        "mean_Lab": [
+          60.75046249748195,
+          20.448327131858598,
+          45.49050422343804
+        ],
+        "mean_relative_luminance": 0.2963113298285848
+      },
+      "mean_rgb_difference": [
+        -0.10453108535298838,
+        -0.01770284510010356,
+        0.06954689146469661
+      ],
+      "distance_between_mean_Lab": 0.06432259299519552,
+      "nearest_reference_RGB_max_distance": 0,
+      "nearest_reference_deltaE76_max": 0,
+      "target_pixels_using_reference_palette_fraction": 1
+    }
+  },
+  "mappings": [
+    {
+      "group": "particles",
+      "xy": [
+        8,
+        109
+      ],
+      "reference_xy": [
+        81,
+        49
+      ],
+      "before": [
+        211,
+        144,
+        58
+      ],
+      "after": [
+        148,
+        90,
+        47
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        77,
+        110
+      ],
+      "reference_xy": [
+        62,
+        112
+      ],
+      "before": [
+        228,
+        141,
+        50
+      ],
+      "after": [
+        148,
+        90,
+        47
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        13,
+        113
+      ],
+      "reference_xy": [
+        62,
+        112
+      ],
+      "before": [
+        217,
+        147,
+        59
+      ],
+      "after": [
+        148,
+        90,
+        47
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        32,
+        93
+      ],
+      "reference_xy": [
+        76,
+        41
+      ],
+      "before": [
+        228,
+        142,
+        39
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        77,
+        112
+      ],
+      "reference_xy": [
+        77,
+        41
+      ],
+      "before": [
+        224,
+        145,
+        43
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        36,
+        90
+      ],
+      "reference_xy": [
+        77,
+        41
+      ],
+      "before": [
+        217,
+        148,
+        71
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        9,
+        109
+      ],
+      "reference_xy": [
+        81,
+        47
+      ],
+      "before": [
+        223,
+        146,
+        57
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        20,
+        64
+      ],
+      "reference_xy": [
+        82,
+        48
+      ],
+      "before": [
+        226,
+        145,
+        45
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        20,
+        62
+      ],
+      "reference_xy": [
+        82,
+        48
+      ],
+      "before": [
+        225,
+        146,
+        52
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        40,
+        83
+      ],
+      "reference_xy": [
+        23,
+        72
+      ],
+      "before": [
+        223,
+        147,
+        58
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        50,
+        113
+      ],
+      "reference_xy": [
+        24,
+        72
+      ],
+      "before": [
+        228,
+        146,
+        53
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        77,
+        50
+      ],
+      "reference_xy": [
+        24,
+        72
+      ],
+      "before": [
+        222,
+        149,
+        60
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        64,
+        112
+      ],
+      "reference_xy": [
+        22,
+        73
+      ],
+      "before": [
+        223,
+        150,
+        60
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        71,
+        33
+      ],
+      "reference_xy": [
+        41,
+        77
+      ],
+      "before": [
+        231,
+        146,
+        56
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        32,
+        83
+      ],
+      "reference_xy": [
+        27,
+        78
+      ],
+      "before": [
+        230,
+        147,
+        49
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        22,
+        73
+      ],
+      "reference_xy": [
+        27,
+        78
+      ],
+      "before": [
+        229,
+        148,
+        52
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        18,
+        101
+      ],
+      "reference_xy": [
+        20,
+        81
+      ],
+      "before": [
+        227,
+        149,
+        55
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        83,
+        48
+      ],
+      "reference_xy": [
+        34,
+        84
+      ],
+      "before": [
+        224,
+        151,
+        67
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        63,
+        112
+      ],
+      "reference_xy": [
+        34,
+        84
+      ],
+      "before": [
+        223,
+        152,
+        67
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        23,
+        74
+      ],
+      "reference_xy": [
+        33,
+        85
+      ],
+      "before": [
+        229,
+        150,
+        50
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        82,
+        47
+      ],
+      "reference_xy": [
+        31,
+        86
+      ],
+      "before": [
+        234,
+        148,
+        53
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        21,
+        63
+      ],
+      "reference_xy": [
+        31,
+        86
+      ],
+      "before": [
+        229,
+        151,
+        56
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        52,
+        113
+      ],
+      "reference_xy": [
+        32,
+        86
+      ],
+      "before": [
+        232,
+        150,
+        51
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        70,
+        34
+      ],
+      "reference_xy": [
+        33,
+        86
+      ],
+      "before": [
+        229,
+        152,
+        53
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        78,
+        41
+      ],
+      "reference_xy": [
+        33,
+        86
+      ],
+      "before": [
+        232,
+        151,
+        60
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        22,
+        82
+      ],
+      "reference_xy": [
+        26,
+        87
+      ],
+      "before": [
+        231,
+        152,
+        54
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        69
+      ],
+      "reference_xy": [
+        17,
+        103
+      ],
+      "before": [
+        224,
+        156,
+        71
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        40,
+        76
+      ],
+      "reference_xy": [
+        17,
+        103
+      ],
+      "before": [
+        231,
+        153,
+        61
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        92
+      ],
+      "reference_xy": [
+        63,
+        111
+      ],
+      "before": [
+        237,
+        151,
+        49
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        19,
+        81
+      ],
+      "reference_xy": [
+        77,
+        111
+      ],
+      "before": [
+        233,
+        153,
+        58
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        17,
+        102
+      ],
+      "reference_xy": [
+        77,
+        112
+      ],
+      "before": [
+        234,
+        153,
+        48
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        25,
+        72
+      ],
+      "reference_xy": [
+        77,
+        112
+      ],
+      "before": [
+        236,
+        152,
+        53
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        75,
+        41
+      ],
+      "reference_xy": [
+        57,
+        113
+      ],
+      "before": [
+        234,
+        153,
+        56
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        20,
+        82
+      ],
+      "reference_xy": [
+        56,
+        114
+      ],
+      "before": [
+        234,
+        153,
+        56
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        41,
+        75
+      ],
+      "reference_xy": [
+        56,
+        114
+      ],
+      "before": [
+        236,
+        152,
+        55
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        28,
+        109
+      ],
+      "reference_xy": [
+        71,
+        34
+      ],
+      "before": [
+        234,
+        153,
+        60
+      ],
+      "after": [
+        149,
+        109,
+        82
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        34,
+        83
+      ],
+      "reference_xy": [
+        39,
+        78
+      ],
+      "before": [
+        233,
+        154,
+        56
+      ],
+      "after": [
+        149,
+        109,
+        82
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        23,
+        70
+      ],
+      "reference_xy": [
+        39,
+        78
+      ],
+      "before": [
+        235,
+        153,
+        56
+      ],
+      "after": [
+        149,
+        109,
+        82
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        24,
+        66
+      ],
+      "reference_xy": [
+        40,
+        78
+      ],
+      "before": [
+        228,
+        156,
+        72
+      ],
+      "after": [
+        149,
+        109,
+        82
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        68
+      ],
+      "reference_xy": [
+        76,
+        40
+      ],
+      "before": [
+        234,
+        154,
+        61
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        39,
+        77
+      ],
+      "reference_xy": [
+        76,
+        40
+      ],
+      "before": [
+        235,
+        154,
+        52
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        24,
+        73
+      ],
+      "reference_xy": [
+        81,
+        48
+      ],
+      "before": [
+        233,
+        155,
+        54
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        79,
+        48
+      ],
+      "reference_xy": [
+        31,
+        68
+      ],
+      "before": [
+        231,
+        156,
+        66
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        20,
+        81
+      ],
+      "reference_xy": [
+        30,
+        69
+      ],
+      "before": [
+        241,
+        152,
+        33
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        22,
+        71
+      ],
+      "reference_xy": [
+        30,
+        69
+      ],
+      "before": [
+        234,
+        155,
+        61
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        29,
+        78
+      ],
+      "reference_xy": [
+        22,
+        72
+      ],
+      "before": [
+        237,
+        154,
+        50
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        25,
+        96
+      ],
+      "reference_xy": [
+        30,
+        85
+      ],
+      "before": [
+        237,
+        154,
+        54
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        29,
+        107
+      ],
+      "reference_xy": [
+        30,
+        85
+      ],
+      "before": [
+        222,
+        161,
+        79
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        26,
+        97
+      ],
+      "reference_xy": [
+        35,
+        90
+      ],
+      "before": [
+        237,
+        155,
+        49
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        80,
+        47
+      ],
+      "reference_xy": [
+        31,
+        93
+      ],
+      "before": [
+        228,
+        159,
+        74
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        82,
+        50
+      ],
+      "reference_xy": [
+        31,
+        93
+      ],
+      "before": [
+        231,
+        158,
+        67
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        29,
+        68
+      ],
+      "reference_xy": [
+        25,
+        96
+      ],
+      "before": [
+        234,
+        157,
+        61
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        27,
+        86
+      ],
+      "reference_xy": [
+        26,
+        109
+      ],
+      "before": [
+        235,
+        157,
+        59
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        29,
+        108
+      ],
+      "reference_xy": [
+        26,
+        109
+      ],
+      "before": [
+        235,
+        157,
+        60
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        82,
+        49
+      ],
+      "reference_xy": [
+        57,
+        112
+      ],
+      "before": [
+        233,
+        158,
+        68
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        76,
+        111
+      ],
+      "reference_xy": [
+        58,
+        112
+      ],
+      "before": [
+        240,
+        155,
+        54
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        80,
+        50
+      ],
+      "reference_xy": [
+        64,
+        112
+      ],
+      "before": [
+        222,
+        163,
+        80
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        82
+      ],
+      "reference_xy": [
+        64,
+        112
+      ],
+      "before": [
+        237,
+        157,
+        57
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        90
+      ],
+      "reference_xy": [
+        56,
+        113
+      ],
+      "before": [
+        233,
+        159,
+        65
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        42,
+        76
+      ],
+      "reference_xy": [
+        63,
+        113
+      ],
+      "before": [
+        233,
+        159,
+        71
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        40,
+        78
+      ],
+      "reference_xy": [
+        63,
+        113
+      ],
+      "before": [
+        238,
+        157,
+        59
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        27,
+        88
+      ],
+      "reference_xy": [
+        49,
+        114
+      ],
+      "before": [
+        233,
+        160,
+        64
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        42,
+        78
+      ],
+      "reference_xy": [
+        50,
+        114
+      ],
+      "before": [
+        233,
+        160,
+        65
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        35,
+        84
+      ],
+      "reference_xy": [
+        50,
+        114
+      ],
+      "before": [
+        238,
+        158,
+        57
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        18,
+        103
+      ],
+      "reference_xy": [
+        51,
+        114
+      ],
+      "before": [
+        241,
+        157,
+        60
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        26,
+        95
+      ],
+      "reference_xy": [
+        50,
+        115
+      ],
+      "before": [
+        235,
+        160,
+        66
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        30,
+        97
+      ],
+      "reference_xy": [
+        50,
+        115
+      ],
+      "before": [
+        234,
+        161,
+        72
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        21,
+        80
+      ],
+      "reference_xy": [
+        79,
+        48
+      ],
+      "before": [
+        241,
+        158,
+        59
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        94
+      ],
+      "reference_xy": [
+        80,
+        48
+      ],
+      "before": [
+        240,
+        159,
+        58
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        28,
+        77
+      ],
+      "reference_xy": [
+        80,
+        48
+      ],
+      "before": [
+        236,
+        161,
+        59
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        29,
+        69
+      ],
+      "reference_xy": [
+        19,
+        63
+      ],
+      "before": [
+        230,
+        164,
+        74
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        56,
+        112
+      ],
+      "reference_xy": [
+        28,
+        68
+      ],
+      "before": [
+        240,
+        160,
+        62
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        22,
+        111
+      ],
+      "reference_xy": [
+        20,
+        71
+      ],
+      "before": [
+        238,
+        161,
+        70
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        30,
+        93
+      ],
+      "reference_xy": [
+        20,
+        71
+      ],
+      "before": [
+        239,
+        161,
+        65
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        32,
+        70
+      ],
+      "reference_xy": [
+        20,
+        72
+      ],
+      "before": [
+        237,
+        163,
+        69
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        14,
+        112
+      ],
+      "reference_xy": [
+        41,
+        76
+      ],
+      "before": [
+        235,
+        164,
+        75
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        78,
+        47
+      ],
+      "reference_xy": [
+        41,
+        76
+      ],
+      "before": [
+        235,
+        164,
+        79
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        80,
+        49
+      ],
+      "reference_xy": [
+        40,
+        77
+      ],
+      "before": [
+        236,
+        164,
+        73
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        52,
+        114
+      ],
+      "reference_xy": [
+        39,
+        82
+      ],
+      "before": [
+        236,
+        164,
+        74
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        51,
+        112
+      ],
+      "reference_xy": [
+        39,
+        82
+      ],
+      "before": [
+        242,
+        162,
+        64
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        32,
+        85
+      ],
+      "reference_xy": [
+        31,
+        83
+      ],
+      "before": [
+        236,
+        165,
+        72
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        30,
+        70
+      ],
+      "reference_xy": [
+        38,
+        83
+      ],
+      "before": [
+        237,
+        165,
+        70
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        39,
+        82
+      ],
+      "reference_xy": [
+        38,
+        83
+      ],
+      "before": [
+        240,
+        164,
+        67
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        24,
+        71
+      ],
+      "reference_xy": [
+        39,
+        83
+      ],
+      "before": [
+        237,
+        166,
+        79
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        72,
+        42
+      ],
+      "reference_xy": [
+        31,
+        85
+      ],
+      "before": [
+        246,
+        163,
+        62
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        19,
+        102
+      ],
+      "reference_xy": [
+        38,
+        85
+      ],
+      "before": [
+        245,
+        164,
+        60
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        34,
+        85
+      ],
+      "reference_xy": [
+        38,
+        85
+      ],
+      "before": [
+        241,
+        166,
+        69
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        21,
+        72
+      ],
+      "reference_xy": [
+        25,
+        87
+      ],
+      "before": [
+        244,
+        168,
+        65
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        84
+      ],
+      "reference_xy": [
+        36,
+        88
+      ],
+      "before": [
+        246,
+        168,
+        70
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        13,
+        112
+      ],
+      "reference_xy": [
+        36,
+        88
+      ],
+      "before": [
+        247,
+        168,
+        54
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        27,
+        96
+      ],
+      "reference_xy": [
+        35,
+        89
+      ],
+      "before": [
+        244,
+        169,
+        74
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        27,
+        107
+      ],
+      "reference_xy": [
+        29,
+        94
+      ],
+      "before": [
+        244,
+        171,
+        74
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        76,
+        42
+      ],
+      "reference_xy": [
+        29,
+        94
+      ],
+      "before": [
+        246,
+        171,
+        73
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        50,
+        114
+      ],
+      "reference_xy": [
+        30,
+        94
+      ],
+      "before": [
+        248,
+        171,
+        63
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        28,
+        74
+      ],
+      "reference_xy": [
+        24,
+        97
+      ],
+      "before": [
+        247,
+        172,
+        72
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        67
+      ],
+      "reference_xy": [
+        24,
+        97
+      ],
+      "before": [
+        247,
+        174,
+        73
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        86
+      ],
+      "reference_xy": [
+        25,
+        97
+      ],
+      "before": [
+        247,
+        175,
+        76
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        30,
+        69
+      ],
+      "reference_xy": [
+        17,
+        102
+      ],
+      "before": [
+        240,
+        179,
+        97
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        21,
+        83
+      ],
+      "reference_xy": [
+        26,
+        107
+      ],
+      "before": [
+        245,
+        179,
+        80
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        25,
+        100
+      ],
+      "reference_xy": [
+        26,
+        107
+      ],
+      "before": [
+        251,
+        177,
+        76
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        11,
+        109
+      ],
+      "reference_xy": [
+        25,
+        108
+      ],
+      "before": [
+        247,
+        179,
+        85
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        44,
+        76
+      ],
+      "reference_xy": [
+        27,
+        108
+      ],
+      "before": [
+        252,
+        178,
+        77
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        80,
+        48
+      ],
+      "reference_xy": [
+        27,
+        108
+      ],
+      "before": [
+        245,
+        181,
+        94
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        57,
+        111
+      ],
+      "reference_xy": [
+        8,
+        109
+      ],
+      "before": [
+        249,
+        180,
+        82
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        71,
+        35
+      ],
+      "reference_xy": [
+        55,
+        111
+      ],
+      "before": [
+        252,
+        184,
+        83
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        32,
+        69
+      ],
+      "reference_xy": [
+        55,
+        111
+      ],
+      "before": [
+        247,
+        188,
+        96
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        81,
+        50
+      ],
+      "reference_xy": [
+        63,
+        112
+      ],
+      "before": [
+        253,
+        189,
+        86
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        28,
+        107
+      ],
+      "reference_xy": [
+        44,
+        114
+      ],
+      "before": [
+        247,
+        192,
+        115
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        51,
+        115
+      ],
+      "reference_xy": [
+        44,
+        114
+      ],
+      "before": [
+        252,
+        194,
+        101
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        70
+      ],
+      "reference_xy": [
+        44,
+        115
+      ],
+      "before": [
+        252,
+        197,
+        102
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        82,
+        48
+      ],
+      "reference_xy": [
+        23,
+        71
+      ],
+      "before": [
+        248,
+        198,
+        122
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        72,
+        34
+      ],
+      "reference_xy": [
+        23,
+        71
+      ],
+      "before": [
+        248,
+        200,
+        119
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        35,
+        92
+      ],
+      "reference_xy": [
+        27,
+        77
+      ],
+      "before": [
+        251,
+        199,
+        116
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        19,
+        63
+      ],
+      "reference_xy": [
+        32,
+        82
+      ],
+      "before": [
+        252,
+        202,
+        124
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        27,
+        108
+      ],
+      "reference_xy": [
+        33,
+        83
+      ],
+      "before": [
+        252,
+        207,
+        124
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        22,
+        110
+      ],
+      "reference_xy": [
+        33,
+        83
+      ],
+      "before": [
+        250,
+        207,
+        139
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        26,
+        87
+      ],
+      "reference_xy": [
+        30,
+        84
+      ],
+      "before": [
+        250,
+        208,
+        139
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        42,
+        77
+      ],
+      "reference_xy": [
+        32,
+        84
+      ],
+      "before": [
+        251,
+        209,
+        128
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        58,
+        112
+      ],
+      "reference_xy": [
+        32,
+        84
+      ],
+      "before": [
+        252,
+        214,
+        145
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        22,
+        81
+      ],
+      "reference_xy": [
+        32,
+        85
+      ],
+      "before": [
+        253,
+        214,
+        139
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        37,
+        87
+      ],
+      "reference_xy": [
+        24,
+        87
+      ],
+      "before": [
+        252,
+        216,
+        142
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        76,
+        40
+      ],
+      "reference_xy": [
+        24,
+        87
+      ],
+      "before": [
+        252,
+        219,
+        155
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        41,
+        76
+      ],
+      "reference_xy": [
+        34,
+        90
+      ],
+      "before": [
+        252,
+        221,
+        145
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        81,
+        47
+      ],
+      "reference_xy": [
+        29,
+        93
+      ],
+      "before": [
+        251,
+        221,
+        153
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        11,
+        110
+      ],
+      "reference_xy": [
+        29,
+        93
+      ],
+      "before": [
+        253,
+        221,
+        146
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        41,
+        78
+      ],
+      "reference_xy": [
+        24,
+        96
+      ],
+      "before": [
+        251,
+        222,
+        155
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        27,
+        87
+      ],
+      "reference_xy": [
+        23,
+        100
+      ],
+      "before": [
+        255,
+        226,
+        158
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        81,
+        49
+      ],
+      "reference_xy": [
+        16,
+        102
+      ],
+      "before": [
+        253,
+        231,
+        169
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        23,
+        71
+      ],
+      "reference_xy": [
+        16,
+        102
+      ],
+      "before": [
+        253,
+        234,
+        180
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        57,
+        113
+      ],
+      "reference_xy": [
+        16,
+        103
+      ],
+      "before": [
+        253,
+        235,
+        179
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        21,
+        82
+      ],
+      "reference_xy": [
+        26,
+        108
+      ],
+      "before": [
+        253,
+        235,
+        181
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        51,
+        114
+      ],
+      "reference_xy": [
+        26,
+        108
+      ],
+      "before": [
+        253,
+        235,
+        187
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        40,
+        77
+      ],
+      "reference_xy": [
+        57,
+        111
+      ],
+      "before": [
+        253,
+        236,
+        179
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        51,
+        113
+      ],
+      "reference_xy": [
+        18,
+        63
+      ],
+      "before": [
+        253,
+        236,
+        187
+      ],
+      "after": [
+        191,
+        133,
+        84
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        77,
+        49
+      ],
+      "reference_xy": [
+        18,
+        63
+      ],
+      "before": [
+        253,
+        237,
+        189
+      ],
+      "after": [
+        191,
+        133,
+        84
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        30,
+        68
+      ],
+      "reference_xy": [
+        38,
+        77
+      ],
+      "before": [
+        253,
+        237,
+        197
+      ],
+      "after": [
+        191,
+        133,
+        84
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        32,
+        68
+      ],
+      "reference_xy": [
+        38,
+        84
+      ],
+      "before": [
+        253,
+        238,
+        188
+      ],
+      "after": [
+        191,
+        133,
+        84
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        28,
+        108
+      ],
+      "reference_xy": [
+        38,
+        84
+      ],
+      "before": [
+        253,
+        238,
+        191
+      ],
+      "after": [
+        191,
+        133,
+        84
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        69
+      ],
+      "reference_xy": [
+        80,
+        47
+      ],
+      "before": [
+        252,
+        238,
+        199
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        77,
+        41
+      ],
+      "reference_xy": [
+        30,
+        67
+      ],
+      "before": [
+        252,
+        239,
+        205
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        47,
+        114
+      ],
+      "reference_xy": [
+        29,
+        68
+      ],
+      "before": [
+        253,
+        240,
+        198
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        16,
+        105
+      ],
+      "reference_xy": [
+        29,
+        68
+      ],
+      "before": [
+        253,
+        241,
+        205
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        23,
+        73
+      ],
+      "reference_xy": [
+        30,
+        68
+      ],
+      "before": [
+        253,
+        242,
+        206
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        71,
+        34
+      ],
+      "reference_xy": [
+        22,
+        71
+      ],
+      "before": [
+        253,
+        243,
+        204
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        85
+      ],
+      "reference_xy": [
+        22,
+        71
+      ],
+      "before": [
+        255,
+        243,
+        201
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        44,
+        114
+      ],
+      "reference_xy": [
+        21,
+        72
+      ],
+      "before": [
+        251,
+        243,
+        230
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        26,
+        96
+      ],
+      "reference_xy": [
+        40,
+        75
+      ],
+      "before": [
+        253,
+        245,
+        208
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        79,
+        52
+      ],
+      "reference_xy": [
+        40,
+        75
+      ],
+      "before": [
+        249,
+        246,
+        212
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        20,
+        63
+      ],
+      "reference_xy": [
+        19,
+        81
+      ],
+      "before": [
+        255,
+        245,
+        208
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        41,
+        77
+      ],
+      "reference_xy": [
+        33,
+        84
+      ],
+      "before": [
+        252,
+        245,
+        220
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        22,
+        72
+      ],
+      "reference_xy": [
+        33,
+        84
+      ],
+      "before": [
+        253,
+        245,
+        220
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        28,
+        78
+      ],
+      "reference_xy": [
+        30,
+        93
+      ],
+      "before": [
+        253,
+        246,
+        217
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        24,
+        72
+      ],
+      "reference_xy": [
+        55,
+        112
+      ],
+      "before": [
+        253,
+        246,
+        220
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        83
+      ],
+      "reference_xy": [
+        55,
+        112
+      ],
+      "before": [
+        253,
+        247,
+        211
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        77,
+        111
+      ],
+      "reference_xy": [
+        56,
+        112
+      ],
+      "before": [
+        252,
+        247,
+        217
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        32,
+        84
+      ],
+      "reference_xy": [
+        50,
+        113
+      ],
+      "before": [
+        253,
+        248,
+        225
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        34,
+        84
+      ],
+      "reference_xy": [
+        22,
+        70
+      ],
+      "before": [
+        255,
+        248,
+        221
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        19,
+        111
+      ],
+      "reference_xy": [
+        22,
+        70
+      ],
+      "before": [
+        252,
+        249,
+        230
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        18,
+        102
+      ],
+      "reference_xy": [
+        21,
+        71
+      ],
+      "before": [
+        252,
+        250,
+        237
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        21,
+        81
+      ],
+      "reference_xy": [
+        40,
+        76
+      ],
+      "before": [
+        255,
+        251,
+        216
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        68
+      ],
+      "reference_xy": [
+        40,
+        76
+      ],
+      "before": [
+        253,
+        251,
+        236
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        81,
+        48
+      ],
+      "reference_xy": [
+        39,
+        77
+      ],
+      "before": [
+        255,
+        251,
+        231
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        23,
+        72
+      ],
+      "reference_xy": [
+        31,
+        84
+      ],
+      "before": [
+        252,
+        251,
+        249
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        76,
+        41
+      ],
+      "reference_xy": [
+        31,
+        84
+      ],
+      "before": [
+        253,
+        252,
+        240
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        39,
+        83
+      ],
+      "reference_xy": [
+        56,
+        111
+      ],
+      "before": [
+        253,
+        252,
+        246
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        31,
+        93
+      ],
+      "reference_xy": [
+        39,
+        76
+      ],
+      "before": [
+        253,
+        253,
+        246
+      ],
+      "after": [
+        238,
+        195,
+        142
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        33,
+        84
+      ],
+      "reference_xy": [
+        39,
+        76
+      ],
+      "before": [
+        255,
+        253,
+        250
+      ],
+      "after": [
+        238,
+        195,
+        142
+      ]
+    },
+    {
+      "group": "particles",
+      "xy": [
+        57,
+        112
+      ],
+      "reference_xy": [
+        32,
+        83
+      ],
+      "before": [
+        255,
+        253,
+        253
+      ],
+      "after": [
+        238,
+        195,
+        142
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        34,
+        99
+      ],
+      "reference_xy": [
+        16,
+        109
+      ],
+      "before": [
+        125,
+        69,
+        21
+      ],
+      "after": [
+        165,
+        100,
+        46
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        33,
+        98
+      ],
+      "reference_xy": [
+        33,
+        97
+      ],
+      "before": [
+        209,
+        133,
+        47
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        33,
+        100
+      ],
+      "reference_xy": [
+        27,
+        104
+      ],
+      "before": [
+        226,
+        146,
+        55
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        32,
+        101
+      ],
+      "reference_xy": [
+        23,
+        106
+      ],
+      "before": [
+        227,
+        147,
+        55
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        17,
+        107
+      ],
+      "reference_xy": [
+        21,
+        109
+      ],
+      "before": [
+        232,
+        150,
+        48
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        22,
+        107
+      ],
+      "reference_xy": [
+        17,
+        110
+      ],
+      "before": [
+        232,
+        151,
+        52
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        29,
+        103
+      ],
+      "reference_xy": [
+        17,
+        111
+      ],
+      "before": [
+        221,
+        157,
+        74
+      ],
+      "after": [
+        179,
+        108,
+        48
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        15,
+        110
+      ],
+      "reference_xy": [
+        33,
+        96
+      ],
+      "before": [
+        229,
+        154,
+        54
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        32,
+        99
+      ],
+      "reference_xy": [
+        34,
+        96
+      ],
+      "before": [
+        226,
+        156,
+        67
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        27,
+        102
+      ],
+      "reference_xy": [
+        32,
+        98
+      ],
+      "before": [
+        236,
+        152,
+        55
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        19,
+        106
+      ],
+      "reference_xy": [
+        33,
+        98
+      ],
+      "before": [
+        236,
+        153,
+        58
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        20,
+        105
+      ],
+      "reference_xy": [
+        31,
+        100
+      ],
+      "before": [
+        233,
+        156,
+        61
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        24,
+        103
+      ],
+      "reference_xy": [
+        26,
+        102
+      ],
+      "before": [
+        235,
+        155,
+        64
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        16,
+        109
+      ],
+      "reference_xy": [
+        30,
+        102
+      ],
+      "before": [
+        236,
+        155,
+        51
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        22,
+        105
+      ],
+      "reference_xy": [
+        23,
+        103
+      ],
+      "before": [
+        237,
+        156,
+        57
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        30,
+        103
+      ],
+      "reference_xy": [
+        28,
+        103
+      ],
+      "before": [
+        233,
+        158,
+        63
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        18,
+        107
+      ],
+      "reference_xy": [
+        29,
+        103
+      ],
+      "before": [
+        235,
+        159,
+        67
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        25,
+        103
+      ],
+      "reference_xy": [
+        30,
+        103
+      ],
+      "before": [
+        239,
+        158,
+        58
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        21,
+        108
+      ],
+      "reference_xy": [
+        26,
+        104
+      ],
+      "before": [
+        236,
+        160,
+        58
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        28,
+        100
+      ],
+      "reference_xy": [
+        20,
+        105
+      ],
+      "before": [
+        238,
+        159,
+        63
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        27,
+        104
+      ],
+      "reference_xy": [
+        15,
+        108
+      ],
+      "before": [
+        238,
+        160,
+        62
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        30,
+        99
+      ],
+      "reference_xy": [
+        16,
+        108
+      ],
+      "before": [
+        235,
+        163,
+        71
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        29,
+        99
+      ],
+      "reference_xy": [
+        21,
+        108
+      ],
+      "before": [
+        235,
+        164,
+        68
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        31,
+        99
+      ],
+      "reference_xy": [
+        15,
+        109
+      ],
+      "before": [
+        240,
+        162,
+        68
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        26,
+        105
+      ],
+      "reference_xy": [
+        12,
+        110
+      ],
+      "before": [
+        239,
+        164,
+        59
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        28,
+        103
+      ],
+      "reference_xy": [
+        12,
+        111
+      ],
+      "before": [
+        245,
+        163,
+        64
+      ],
+      "after": [
+        185,
+        119,
+        59
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        16,
+        108
+      ],
+      "reference_xy": [
+        25,
+        104
+      ],
+      "before": [
+        237,
+        167,
+        77
+      ],
+      "after": [
+        203,
+        114,
+        25
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        25,
+        105
+      ],
+      "reference_xy": [
+        31,
+        99
+      ],
+      "before": [
+        242,
+        165,
+        67
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        23,
+        104
+      ],
+      "reference_xy": [
+        29,
+        101
+      ],
+      "before": [
+        241,
+        169,
+        76
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        20,
+        108
+      ],
+      "reference_xy": [
+        30,
+        101
+      ],
+      "before": [
+        242,
+        170,
+        71
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        34,
+        97
+      ],
+      "reference_xy": [
+        31,
+        101
+      ],
+      "before": [
+        242,
+        172,
+        82
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        23,
+        106
+      ],
+      "reference_xy": [
+        25,
+        102
+      ],
+      "before": [
+        244,
+        172,
+        69
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        14,
+        109
+      ],
+      "reference_xy": [
+        29,
+        102
+      ],
+      "before": [
+        250,
+        176,
+        70
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        31,
+        102
+      ],
+      "reference_xy": [
+        26,
+        103
+      ],
+      "before": [
+        248,
+        179,
+        83
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        24,
+        104
+      ],
+      "reference_xy": [
+        27,
+        103
+      ],
+      "before": [
+        248,
+        183,
+        94
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        15,
+        108
+      ],
+      "reference_xy": [
+        22,
+        104
+      ],
+      "before": [
+        253,
+        187,
+        92
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        28,
+        101
+      ],
+      "reference_xy": [
+        21,
+        105
+      ],
+      "before": [
+        249,
+        194,
+        107
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        19,
+        108
+      ],
+      "reference_xy": [
+        21,
+        106
+      ],
+      "before": [
+        249,
+        194,
+        109
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        30,
+        100
+      ],
+      "reference_xy": [
+        22,
+        106
+      ],
+      "before": [
+        249,
+        201,
+        115
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        26,
+        103
+      ],
+      "reference_xy": [
+        14,
+        107
+      ],
+      "before": [
+        252,
+        202,
+        122
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        17,
+        108
+      ],
+      "reference_xy": [
+        17,
+        107
+      ],
+      "before": [
+        253,
+        205,
+        114
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        25,
+        104
+      ],
+      "reference_xy": [
+        20,
+        107
+      ],
+      "before": [
+        253,
+        205,
+        123
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        32,
+        100
+      ],
+      "reference_xy": [
+        13,
+        109
+      ],
+      "before": [
+        252,
+        210,
+        126
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        21,
+        106
+      ],
+      "reference_xy": [
+        14,
+        109
+      ],
+      "before": [
+        253,
+        210,
+        127
+      ],
+      "after": [
+        200,
+        129,
+        61
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        31,
+        101
+      ],
+      "reference_xy": [
+        32,
+        99
+      ],
+      "before": [
+        255,
+        214,
+        128
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        21,
+        107
+      ],
+      "reference_xy": [
+        29,
+        100
+      ],
+      "before": [
+        252,
+        215,
+        141
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        28,
+        102
+      ],
+      "reference_xy": [
+        27,
+        101
+      ],
+      "before": [
+        252,
+        215,
+        144
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        29,
+        100
+      ],
+      "reference_xy": [
+        27,
+        102
+      ],
+      "before": [
+        255,
+        216,
+        137
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        26,
+        104
+      ],
+      "reference_xy": [
+        28,
+        102
+      ],
+      "before": [
+        253,
+        217,
+        135
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        18,
+        108
+      ],
+      "reference_xy": [
+        23,
+        104
+      ],
+      "before": [
+        253,
+        218,
+        139
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        19,
+        107
+      ],
+      "reference_xy": [
+        24,
+        105
+      ],
+      "before": [
+        253,
+        226,
+        163
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        27,
+        103
+      ],
+      "reference_xy": [
+        19,
+        106
+      ],
+      "before": [
+        253,
+        227,
+        154
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        30,
+        102
+      ],
+      "reference_xy": [
+        20,
+        106
+      ],
+      "before": [
+        255,
+        227,
+        161
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        29,
+        102
+      ],
+      "reference_xy": [
+        14,
+        108
+      ],
+      "before": [
+        253,
+        233,
+        170
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        29,
+        101
+      ],
+      "reference_xy": [
+        17,
+        108
+      ],
+      "before": [
+        255,
+        234,
+        174
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        23,
+        105
+      ],
+      "reference_xy": [
+        18,
+        108
+      ],
+      "before": [
+        253,
+        236,
+        182
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        24,
+        105
+      ],
+      "reference_xy": [
+        19,
+        108
+      ],
+      "before": [
+        253,
+        238,
+        180
+      ],
+      "after": [
+        216,
+        143,
+        69
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        31,
+        100
+      ],
+      "reference_xy": [
+        28,
+        101
+      ],
+      "before": [
+        253,
+        239,
+        197
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        20,
+        107
+      ],
+      "reference_xy": [
+        24,
+        103
+      ],
+      "before": [
+        255,
+        243,
+        201
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        22,
+        106
+      ],
+      "reference_xy": [
+        25,
+        103
+      ],
+      "before": [
+        253,
+        245,
+        211
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        33,
+        99
+      ],
+      "reference_xy": [
+        23,
+        105
+      ],
+      "before": [
+        252,
+        247,
+        220
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        20,
+        106
+      ],
+      "reference_xy": [
+        18,
+        107
+      ],
+      "before": [
+        252,
+        248,
+        216
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        15,
+        109
+      ],
+      "reference_xy": [
+        19,
+        107
+      ],
+      "before": [
+        253,
+        248,
+        224
+      ],
+      "after": [
+        227,
+        162,
+        92
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        34,
+        98
+      ],
+      "reference_xy": [
+        24,
+        104
+      ],
+      "before": [
+        253,
+        249,
+        220
+      ],
+      "after": [
+        238,
+        195,
+        142
+      ]
+    },
+    {
+      "group": "trail",
+      "xy": [
+        30,
+        101
+      ],
+      "reference_xy": [
+        22,
+        105
+      ],
+      "before": [
+        255,
+        253,
+        232
+      ],
+      "after": [
+        238,
+        195,
+        142
+      ]
+    }
+  ],
+  "changed_pixels": 233,
+  "change_bbox": [
+    8,
+    33,
+    84,
+    116
+  ],
+  "protected_complement_changed": 0,
+  "alpha_changed": 0,
+  "body_face_legs_wings_antennae_abdomen_changed": 0,
+  "components_before": 49,
+  "components_after": 49,
+  "preservation_before": {
+    "assets": 2862,
+    "approved16": 16,
+    "existing_tracked_files": 3808
+  },
+  "preservation_after": {
+    "assets": 2862,
+    "approved16": 16,
+    "existing_tracked_files": 3808
+  },
+  "production_changes": 0,
+  "runtime_changes": 0,
+  "candidate_count": 1,
+  "human_approved": false,
+  "production_adopted": false,
+  "limits": [
+    "Same reference RGB palette; distributions are not identical because source and target sample counts/shapes differ.",
+    "Palette matching is color correspondence, not a claim of identical appearance, brightness perception, or spatial pixel identity.",
+    "Protected ambiguous junction and near-body pixels remain D1. No whole-image color matching."
+  ]
+}

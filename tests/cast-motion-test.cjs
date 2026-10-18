@@ -1,6 +1,6 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
-const {harness} = require('./helpers/runtime-harness.cjs');
+const {harness} = require('./helpers/present-cast-harness.cjs');
 
 function cast(h) {
   const s = h.api.state();
@@ -11,7 +11,7 @@ function cast(h) {
   return s;
 }
 
-test('a ticklish line moves the pet and equipment together, then the speaking friend answers', () => {
+test('a ticklish line moves the pet and equipment together, then the speaking friend is identified without a second celebration', () => {
   const h = harness(); cast(h);
   h.api.speakEvent('play_with', {petText:'くすぐったいよ〜！',partnerChance:0,companionChance:1});
   h.advance(1);
@@ -23,7 +23,7 @@ test('a ticklish line moves the pet and equipment together, then the speaking fr
   assert.equal(h.get('speechBubble').dataset.kind, 'companion');
   const speaking = [...h.get('companionLeft').children,...h.get('companionRight').children].filter(n=>n.classList.contains('cast-speaking'));
   assert.equal(speaking.length,1);
-  assert.ok(speaking[0].animations.length);
+  assert.equal(speaking[0].animations.length,0);
   assert.ok(!h.get('petSprite').classList.contains('cast-speaking'));
 });
 
@@ -40,7 +40,7 @@ test('courtship follows the actual partner, while a failed courtship never celeb
   assert.ok(!h.get('partnerCompanion').querySelector('.partner-emoji').classList.contains('cast-speaking'));
 });
 
-test('play and courtship visibly lift a crowded cast, while negative outcomes settle once', () => {
+test('non-Relationship group responses remain visible, while negative outcomes settle once', () => {
   const h = harness(); const s = cast(h);
   const master = require('node:fs').readFileSync('character-world-master.v1.js','utf8');
   const world = new Function(master+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
@@ -48,7 +48,7 @@ test('play and courtship visibly lift a crowded cast, while negative outcomes se
   h.api.render();
   const sizes = [h.get('petSprite'),h.get('petAccessory'),h.get('partnerCompanion'),
     ...h.get('companionLeft').children,...h.get('companionRight').children].map(n=>n.style.width);
-  for (const [event,text] of [['play_with','くすぐったいよ！'],['court','だいすきだよ！']]) {
+  for (const [event,text] of [['clean','きれいになった！'],['minigame_great','やったね！']]) {
     h.api.speakEvent(event,{petText:text,partnerChance:1,companionChance:1}); h.advance(1);
     const animation = h.get('castResponse').animations.at(-1);
     assert.ok(animation, 'an action should visibly move even a full cast');
@@ -63,7 +63,7 @@ test('play and courtship visibly lift a crowded cast, while negative outcomes se
   h.api.openExclusiveMenu('menu');
   assert.equal(last.playState,'idle','opening a menu cancels the group response');
   h.api.closeAllMenuOverlays(); h.api.render();
-  for (const [event,text] of [['court_fail','またおはなししようね'],['play_with_annoyed','ちょっと休ませて']]) {
+  for (const [event,text] of [['court_fail','またおはなししようね']]) {
     h.api.speakEvent(event,{petText:text,partnerChance:0,companionChance:0}); h.advance(1);
     const animation=h.get('castResponse').animations.at(-1);
     assert.equal(animation.playState,'running','negative outcomes also have visible feedback');
@@ -84,7 +84,7 @@ test('poop updates preserve every placed actor and do not interrupt a reaction',
     ...h.get('companionLeft').children,...h.get('companionRight').children];
   const placement=()=>actors.map(n=>[n.style.width,n.style.height,n.style.left,n.style.top]);
   const before=placement();
-  h.api.speakEvent('play_with',{petText:'くすぐったい！',partnerChance:0,companionChance:1}); h.advance(1);
+  h.api.speakEvent('clean',{petText:'くすぐったい！',partnerChance:0,companionChance:1}); h.advance(1);
   const response=h.get('castResponse').animations.at(-1);
   // DOM sizing is covered by stylesheet review; this checks the real render
   // path does not mutate cast placement or cancel motion on a poop update.
@@ -171,7 +171,7 @@ test('enabling reduced motion mid-speech stops movement but preserves the curren
 test('every motion and its interpolation stay inside the reserved one- or three-pixel envelope', () => {
   const {motionFrames} = require('../cast-motion.js');
   for (const limit of [1,3]) for (const size of [24,32,48,52,84,104,112]) for (const id of ['', 'snail','clock','sekizou','koala','forest_bear']) {
-    for (const mood of ['bounce','wiggle','shy','love','droop','settle','shake','munch','doze','stretch','nod','curious','tick']) {
+    for (const mood of ['bounce','wiggle','shy','love','droop','settle','shake','munch','doze','stretch','nod','curious','tick','hungry','sulk']) {
       const {poses} = motionFrames(mood,size,{id,maxDisplacement:limit});
       assert.deepEqual(poses.at(-1),{x:0,y:0,angle:0,scale:1});
       for (let i=1;i<poses.length;i++) for (let t=0;t<=1;t+=.05) {
@@ -184,4 +184,137 @@ test('every motion and its interpolation stay inside the reserved one- or three-
       }
     }
   }
+});
+
+function motionNode({connected=true, animate=true}={}) {
+  const node={isConnected:connected,dataset:{},style:{width:'104px'},animations:[]};
+  if (animate) node.animate=(frames,options)=>{
+    const animation={frames,options,playState:'running',cancel(){ this.playState='idle'; }};
+    node.animations.push(animation);
+    return animation;
+  };
+  return node;
+}
+
+function motionController({reducedMotion=false,canAnimate=true,petOptions,omitPet=false,petNodeMissing=false}={}) {
+  const {createController}=require('../cast-motion.js');
+  const pet=motionNode(petOptions),accessory=motionNode(),partner=motionNode(),companion=motionNode(),group=motionNode();
+  const actors=[
+    {kind:'pet',id:'pet',node:petNodeMissing?undefined:pet,size:104},
+    {kind:'accessory',id:'ribbon',node:accessory,size:104},
+    {kind:'partner',id:'forest_bear',node:partner,size:52},
+    {kind:'companion',id:'snail',node:companion,size:32},
+  ].filter(actor=>!omitPet || actor.kind!=='pet');
+  const media={matches:reducedMotion,addEventListener(){}};
+  const controller=createController({getActors:()=>actors,getGroup:()=>group,canAnimate:()=>canAnimate,
+    env:{matchMedia:()=>media,getComputedStyle:()=>({transform:'none'})}});
+  return {controller,pet,accessory,partner,companion,group};
+}
+
+test('pet-only cues animate the pet and accessory with identical frames', () => {
+  const {controller,pet,accessory,partner,companion,group}=motionController();
+  for (const [mood,duration] of [['hungry',1250],['sulk',1500]]) {
+    const ms=controller.pet(mood,{gentle:true});
+    assert.equal(ms,duration);
+    assert.equal(pet.dataset.reaction,mood);
+    assert.deepEqual(accessory.animations.at(-1)?.frames,pet.animations.at(-1)?.frames);
+  }
+  assert.equal(group.animations.length,0);
+  assert.equal(partner.animations.length,0);
+  assert.equal(companion.animations.length,0);
+});
+
+test('pet reports zero when its animation cannot start', () => {
+  for (const options of [
+    {canAnimate:false},
+    {reducedMotion:true},
+    {omitPet:true},
+    {petNodeMissing:true},
+    {petOptions:{connected:false}},
+    {petOptions:{animate:false}},
+  ]) {
+    const {controller,pet,accessory}=motionController(options);
+    assert.equal(controller.pet('hungry'),0);
+    assert.equal(pet.animations.length+accessory.animations.length,0);
+  }
+});
+
+test('isActive tracks pet motion and idle can exclude the pet', () => {
+  const {controller,pet,accessory,partner,companion}=motionController();
+  assert.equal(controller.isActive(),false);
+  controller.pet('hungry');
+  assert.equal(controller.isActive(),true);
+  pet.animations.at(-1).onfinish();
+  assert.equal(controller.isActive(),false);
+  accessory.animations.at(-1).onfinish();
+  assert.ok(controller.idle({excludePet:true})>0);
+  assert.equal(pet.animations.length,1);
+  assert.equal(partner.animations.length+companion.animations.length,1);
+});
+
+test('successful medicine cure keeps recovery semantics even when the line mentions bitterness', () => {
+  const {reactionFor}=require('../cast-motion.js');
+  assert.equal(reactionFor('medicine_cure','げんきになったよ'),'recover');
+  assert.equal(reactionFor('medicine_cure','まずっ!!でもなおった!'),'recover');
+  assert.equal(reactionFor('medicine_wrong','にがい！'),'shake');
+});
+
+test('a resting partner reply after cure cannot lift the surrounding cast', () => {
+  const h=harness(); const s=cast(h);
+  const source=require('node:fs').readFileSync('character-world-master.v1.js','utf8');
+  const world=new Function(source+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  s.companions=[...world.companions.normal,...world.companions.rare].map(c=>({id:c.id,bond:100}));
+  h.api.render();
+  // Use the actual Home conversation path; secondary tone may remain gentle.
+  h.api.speakEvent('clean',{petText:'きれいになった',partnerChance:0,companionChance:0});
+  h.advance(1);
+  const prior=h.get('castResponse').animations.at(-1);
+  const count=h.get('castResponse').animations.length;
+  h.api.setSpeechBubble('今日はちょっとゆっくりしよ',
+    {kind:'partner',id:s.partner.id,label:s.partner.label},{event:'medicine_cure'});
+  assert.equal(h.get('castResponse').animations.length,count,'a cure reply must not start a group lift');
+  assert.equal(prior.playState,'idle','the cure reply also cancels a stale group lift');
+});
+
+test('pet care semantics win over randomized line tone without changing social tone', () => {
+  const {reactionFor}=require('../cast-motion.js');
+  assert.equal(reactionFor('feed','食べ終わったら休もう','pet'),'munch');
+  assert.equal(reactionFor('wake','おはよ。まだねむい','pet'),'stretch');
+  assert.equal(reactionFor('play_with','くすぐったいって笑','pet'),'wiggle');
+  assert.equal(reactionFor('play_with','なんかねむくなってきた','pet'),'settle');
+  assert.equal(reactionFor('play_with','もう少しだけ置き物にして','pet'),'settle');
+  assert.equal(reactionFor('feed','食べ終わったら休もう','partner'),'settle');
+  assert.equal(reactionFor('wake','おはよ。まだねむい','companion'),'settle');
+  assert.equal(reactionFor('play_with','なんかねむくなってきた','partner'),'settle');
+  assert.equal(reactionFor('play_with','もう少しだけ置き物にして','companion'),'settle');
+});
+
+
+test('recovery pilot has one large relieved peak and returns exactly to rest', () => {
+  const {motionFrames}=require('../cast-motion.js');
+  const motion=motionFrames('recover',104,{maxDisplacement:18});
+  assert.equal(motion.duration,1450);
+  assert.deepEqual(motion.poses.at(-1),{x:0,y:0,angle:0,scale:1});
+  const ys=motion.poses.map(p=>p.y);
+  assert.ok(Math.min(...ys)<=-10,'recovery should read larger than an ordinary reaction');
+  assert.equal(ys.filter(y=>y<=-10).length,1,'recovery has one primary celebration peak');
+});
+
+
+test('focused recovery keeps a readable 16px budget even when ambient cast motion is only 1px', () => {
+  const {createController}=require('../cast-motion.js');
+  const pet=motionNode(), accessory=motionNode(), group=motionNode();
+  const controller=createController({
+    getActors:()=>[{kind:'pet',id:'pet',node:pet,size:104},{kind:'accessory',id:'ribbon',node:accessory,size:104}],
+    getGroup:()=>group,getMotionRadius:()=>1,
+    env:{matchMedia:()=>({matches:false,addEventListener(){}}),getComputedStyle:()=>({transform:'none'})},
+  });
+  controller.pet('recover');
+  const ys=pet.animations.at(-1).frames.map(frame=>Number(frame.transform.match(/translate\([^,]+, ([-.\d]+)px\)/)?.[1]));
+  assert.ok(ys.every(Number.isFinite),'every recovery frame has a readable vertical displacement');
+  assert.ok(Math.min(...ys)<=-10);
+  assert.ok(ys.every(y=>Math.abs(y)<=16));
+  assert.equal(ys.at(-1),0);
+  assert.equal(group.animations.length,0,'focused recovery never lifts the surrounding cast');
+  assert.deepEqual(accessory.animations.at(-1).frames,pet.animations.at(-1).frames);
 });

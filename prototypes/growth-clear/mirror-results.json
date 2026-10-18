@@ -1,0 +1,16 @@
+{
+  "samples": 1000,
+  "A": {
+    "spatialDifferences": 235,
+    "successDifferences": 6
+  },
+  "B": {
+    "spatialDifferences": 151,
+    "successDifferences": 5
+  },
+  "C": {
+    "spatialDifferences": 0,
+    "successDifferences": 0
+  },
+  "scope": "Resolver reflection, same cell IDs, B same last-two IDs, C chooses lowest ID. C is equivariant control, not positional player strategy. Not an estimator of human left/right advantage."
+}

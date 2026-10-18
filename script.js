@@ -1,9 +1,24 @@
 (() => {
   'use strict';
 
+  const ITEM_SYSTEM = window.NaotocchiItems;
   const SAVE_KEY = 'naotocchi-save-v1';
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
+  const LIFE_STAGE_RULES = window.NaotocchiLifeStages || null;
   const CARE_STATUS = window.NaotocchiCareStatus || null;
+  const EMOTION_STATE = window.NaotocchiEmotionState || null;
+  const PET_EXPRESSION = window.NaotocchiPetExpression || null;
+  const RELATIONSHIP_EXPRESSION = window.NaotocchiRelationshipExpression || null;
+  let relationshipRenderTimer = null;
+  let homeSocialReactions = null;
+  const relationshipReactions = RELATIONSHIP_EXPRESSION?.createReactions({
+    now: () => Date.now(), schedule: (fn, ms) => setTimeout(fn, ms),
+    cancel: timer => clearTimeout(timer), onExpire: () => {
+      // Simultaneous rescue expiry needs one Home render, not up to 26.
+      if(relationshipRenderTimer!==null)return;
+      relationshipRenderTimer=setTimeout(()=>{relationshipRenderTimer=null;render();},0);
+    },
+  });
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
@@ -15,8 +30,37 @@
   let stateLoadRecovered = false;
   let lastGoodSaveRaw = null;
   let saveWriteBlocked = false;
+  // RH-9 複数タブ(Roadmap §8.2): save の たびに lifetime.saveRevision を 1 ふやす。書く まえに storage の 値が
+  // 自分の 知っている 値より 大きければ(べつの タブが 書いた)書かずに、このタブを 読みとり専用に する。
+  // 古い コードでも 知らない キーとして のこる(rollback しても 安全)
+  // RH-10: 戻るの ための history の 層(render より まえに 使われる ので ここで 宣言する)
+  let historyLayer = false, ignoreNextPop = 0, historySyncQueued = false;
+  // RH-10: 優先度 0(critical)の おしらせ(setCriticalMessage)
+  const CRITICAL_MESSAGE_MS = 8000;
+  let criticalUntil = 0, deferredMessage = null, criticalTimer = null;
+  let knownSaveRevision = 0;
+  // どの タブが 書いたか(sessionStorage は reload でも 同じ タブなら のこる)。reload の とき、同じ タブの まえの ページが
+  // 閉じぎわに 書いた save も storage event で とどく ので、それを ほかの タブと 区別する。save の 中身には 入れない
+  const SAVE_WRITER_KEY = 'naotocchi-save-v1-writer';
+  const saveTabId = (() => {
+    try {
+      let id = sessionStorage.getItem('naotocchi-tab');
+      if (!id) { id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8); sessionStorage.setItem('naotocchi-tab', id); }
+      return id;
+    } catch (e) { return null; }
+  })();
+  function markSaveWriter() {
+    if (saveTabId) try { localStorage.setItem(SAVE_WRITER_KEY, saveTabId); } catch (e) { /* best effort */ }
+  }
+  let otherTabTookOver = false;
+  const OTHER_TAB_MESSAGE = 'べつの タブで ひらかれています。こちらを とじるか、よみこみなおしてください';
+  function storedSaveRevision(raw) {
+    const m = /"saveRevision":(\d+)/.exec(typeof raw === 'string' ? raw : '');
+    return m ? Number(m[1]) : 0;
+  }
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
+  const ITEM_AUTO_CARE_DANGER = 25;
 
   const SICKNESS_TYPES = [
     { label: 'げんいんふめいのこうねつ', badge: '🥵' },
@@ -102,14 +146,14 @@
   // そだちの 10きざみの 節目に 解禁される 特典。maxSodachi で 解禁され、
   // おとろえで そだちが さがっても うしなわれない(hasPerk() さんしょう)
   const SODACHI_PERKS = {
-    30: { emoji: '🪙', name: 'はじめてのごほうび', coins: 100, desc: 'コインがふえやすくなった。少しずつためてみよう' },
-    40: { emoji: '🐾', name: 'なかまのわ', coins: 150, desc: 'なかまと出会いやすくなり、きずなが切れにくくなった' },
-    50: { emoji: '💐', name: 'こいのきざし', coins: 250, desc: 'きゅうあいがうまくいきやすくなった。「データ」のこいびと欄から、デートにもさそえる' },
-    60: { emoji: '🗝️', name: 'へんしんのちから', coins: 400, desc: 'へんしんの候補が増えた。レアな姿もえらびやすくなる' },
-    70: { emoji: '🧭', name: 'たびだち', coins: 600, desc: 'コインと旅のごきげんがふえやすくなった。とくべつな旅先もひらき、いつか「でんせつのであい」が起きる' },
-    80: { emoji: '🌈', name: 'レアのきざし', coins: 900, desc: 'へんしんの候補にレアな姿がまざりやすくなり、レアななかまとも出会えるようになった' },
-    90: { emoji: '✨', name: 'でんせつ', coins: 1400, desc: '金色のオーラをまとった。でんせつのゆめをもらい、おなか・ごきげん・げんきがゆっくり減るようになった' },
-    100: { emoji: '👑', name: 'さいこうのそだち', coins: 3000, desc: '虹のオーラをまとい、最高のそだちにたどりついた' },
+    30: { emoji: '🌱', name: 'はじめのせいちょう', desc: 'そだち30にとどいた。少しずつ成長している' },
+    40: { emoji: '🐾', name: 'なかまのわ', desc: 'なかまと出会いやすくなり、きずなが切れにくくなった' },
+    50: { emoji: '💐', name: 'こいのきざし', desc: 'きゅうあいがうまくいきやすくなった。「データ」のこいびと欄から、デートにもさそえる' },
+    60: { emoji: '🗝️', name: 'へんしんのちから', desc: 'へんしんの候補が増えた。レアな姿もえらびやすくなる' },
+    70: { emoji: '🧭', name: 'たびだち', desc: '旅のごきげんがふえやすくなった。とくべつな旅先もひらき、いつか「でんせつのであい」が起きる' },
+    80: { emoji: '🌈', name: 'レアのきざし', desc: 'へんしんの候補にレアな姿がまざりやすくなり、レアななかまとも出会えるようになった' },
+    90: { emoji: '✨', name: 'でんせつ', desc: '金色のオーラをまとった。レアなたまごをもらい、おなか・ごきげん・げんきがゆっくり減るようになった' },
+    100: { emoji: '👑', name: 'さいこうのそだち', desc: '虹のオーラをまとい、最高のそだちにたどりついた' },
   };
 
   // 関係の 減衰は「なおとっちの 何年ぶん ほうっておいたら おわるか」で きめる。
@@ -429,14 +473,29 @@
   const LEGACY_RARE_LINES = ['mermaid','unicorn'];
   const NORMAL_LINES = MASTER_NORMAL_LINES.length ? MASTER_NORMAL_LINES : ['dog','cat','man','woman','beetle','stagbeetle'];
   const RARE_LINES = MASTER_RARE_LINES.length ? MASTER_RARE_LINES : ['dragon','phoenix','god'];
-  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES, 'ren'];
+  // RH-5: ひみつの しゅぞく(れんくん)は master の playerSpecies.secret が正本。
+  // ['ren'] は master が ない ときだけの 互換の 安全網(ハードコードの SPECIES.ren に あわせる)
+  const MASTER_SECRET_LINES = (WORLD_MASTER?.playerSpecies?.secret || []).map((x) => x.id);
+  const SECRET_LINES = MASTER_SECRET_LINES.length ? MASTER_SECRET_LINES : ['ren'];
+  // れんくん固有の しくみ(変身への 差しこみ・はじめて であう 演出・人生カード)が 指す 1 体
+  const SECRET_LINE = SECRET_LINES[0];
+  const isSecretLine = (line) => SECRET_LINES.includes(line);
+  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES, ...SECRET_LINES];
 
   // プロフィール表示用の しゅぞく名。新マスターを正とし、れんくんだけsecret枠から追加。
+  // RH-8: 旧しゅぞく(LEGACY_*_LINES)の 名前。master に のらない ので、古い save の 人生で「???」に ならない ように
+  // master より まえの 表示名(3aec31f2 の まえ)を そのまま のこす。正本の しゅぞくには まぜない(表示の よみかえ だけ)
+  const LEGACY_SPECIES_DISPLAY_NAMES = Object.freeze({
+    bird: 'とり', rabbit: 'うさぎ', fish: 'さかな', panda: 'パンダ', fox: 'きつね', owl: 'ふくろう', plant: 'はな',
+    robot: 'ロボット', dinosaur: 'きょうりゅう', mermaid: 'にんぎょ', unicorn: 'ユニコーン',
+  });
+  // 正本が さき(名前 → しゅぞく の さがし もの[lifeRecordVisual]で 正本が かつ)、旧しゅぞくは 正本に ない ID だけ あと に たす
   const SPECIES_DISPLAY_NAMES = Object.fromEntries([
     ...(WORLD_MASTER?.playerSpecies?.normal || []),
     ...(WORLD_MASTER?.playerSpecies?.rare || []),
     ...(WORLD_MASTER?.playerSpecies?.secret || []),
   ].map((x) => [x.id, x.label]));
+  for (const [id, label] of Object.entries(LEGACY_SPECIES_DISPLAY_NAMES)) if (!(id in SPECIES_DISPLAY_NAMES)) SPECIES_DISPLAY_NAMES[id] = label;
 
   // ================================================================
   // 現在の全248段階と旧セーブの種族に対応する、ずかんの説明文
@@ -888,13 +947,13 @@
   // ノーマル種の中から現在と違う2つだが、これまでの育て方が良ければ
   // (お世話の平均が高い/ミニゲームの腕が良い・ロマンチック傾向が強い)、
   // レア枠(かみさま・れんくん)が候補の1つに混ざることがある
-  function pickTransformCandidates() {
-    const pool = NORMAL_LINES.filter((line) => line !== state.speciesLine);
+  function pickTransformCandidates(excluded = [], wantedOverride = null, ringBias = true) {
+    const pool = NORMAL_LINES.filter((line) => line !== state.speciesLine && !excluded.includes(line));
     const candidates = [];
-    const wanted = hasPerk(60) ? 3 : 2;
+    const wanted = wantedOverride ?? (hasPerk(60) ? 3 : 2);
     while (candidates.length < wanted && pool.length > 0) {
-      const idx = Math.floor(Math.random() * pool.length);
-      candidates.push(pool.splice(idx, 1)[0]);
+      const line = ringBias ? pickRingCandidate(pool, 'species') : pool[Math.floor(Math.random() * pool.length)];
+      candidates.push(pool.splice(pool.indexOf(line), 1)[0]);
     }
 
     const avgCare = state.careTicks > 0 ? state.careSum / state.careTicks : 0;
@@ -915,8 +974,8 @@
     // べつの ひくい かくりつを ひいた ときだけ、しかも「？？？」の
     // まま こうほに まぎれこむ - 隠しキャラとしての「見つけた感」を のこす ため
     const rarePool = RARE_LINES.filter((line) => {
-      if (line === state.speciesLine) return false;
-      if (line === 'ren') return false;
+      if (line === state.speciesLine || excluded.includes(line)) return false;
+      if (isSecretLine(line)) return false;
       if (line === 'god') return avgCare >= (eased ? 82 : 90);
       // せいかくは「せいかくクイズ」でしか たまらず、それは ぜんミニゲームの
       // 6%。100分でも 7かい前後しか まわってこない ので、基本閾値を 3 に する
@@ -928,15 +987,29 @@
       return false;
     });
     if (rarePool.length > 0 && Math.random() < rareMixChance) {
-      const rare = rarePool[Math.floor(Math.random() * rarePool.length)];
+      const rare = ringBias ? pickRingCandidate(rarePool, 'species') : rarePool[Math.floor(Math.random() * rarePool.length)];
       candidates[Math.floor(Math.random() * candidates.length)] = rare;
     }
-    const renReady = state.speciesLine !== 'ren'
+    const renReady = state.speciesLine !== SECRET_LINE && !excluded.includes(SECRET_LINE)
       && ((state.minigameCount >= 5 && avgSkill >= (renEased ? 78 : 85)) || state.traitCounts.romantic >= (renEased ? 3 : 5));
     if (renReady && Math.random() < (renEased ? 0.3 : 0.18)) {
-      candidates[Math.floor(Math.random() * candidates.length)] = 'ren';
+      candidates[Math.floor(Math.random() * candidates.length)] = SECRET_LINE;
     }
     return candidates;
+  }
+
+  function experiencedSpecies() {
+    const raised = state.lifetime.raisedSpecies;
+    return Array.isArray(raised) ? [...new Set(raised.filter(line => ALL_LINES.includes(line)))] : [];
+  }
+
+  function pickTicketTransformCandidates() {
+    const legal = pickTransformCandidates([], Math.max(3, NORMAL_LINES.length), false)
+      .filter((line, index, list) => line !== state.speciesLine && list.indexOf(line) === index);
+    const raised = new Set(experiencedSpecies());
+    const novel = legal.filter(line => !raised.has(line));
+    const familiar = legal.filter(line => raised.has(line));
+    return [...novel, ...familiar].slice(0, 3);
   }
 
   const el = {
@@ -949,11 +1022,15 @@
     menuCloseBtn: document.getElementById('menuCloseBtn'),
     worldBtn: document.getElementById('worldBtn'),
     gamesBtn: document.getElementById('gamesBtn'),
+    quickBtn: document.getElementById('quickBtn'),
     timeModeGrid: document.getElementById('timeModeGrid'),
     difficultyModeGrid: document.getElementById('difficultyModeGrid'),
     gameLengthGrid: document.getElementById('gameLengthGrid'),
     sfxModeGrid: document.getElementById('sfxModeGrid'),
     bgmModeGrid: document.getElementById('bgmModeGrid'),
+    quickVoiceGrid: document.getElementById('quickVoiceGrid'),
+    meguruOverlay: document.getElementById('meguruOverlay'),
+    meguruEntry: document.getElementById('meguruEntry'),
     weatherModeGrid: document.getElementById('weatherModeGrid'),
     weatherFx: document.getElementById('weatherFx'),
     timeTint: document.getElementById('timeTint'),
@@ -1022,7 +1099,6 @@
     speechSlot: document.getElementById('speechSlot'),
     speechSpeaker: document.getElementById('speechSpeaker'),
     speechText: document.getElementById('speechText'),
-    itemsRow: document.getElementById('itemsRow'),
     companionInviteOverlay: document.getElementById('companionInviteOverlay'),
     companionInviteEmoji: document.getElementById('companionInviteEmoji'),
     companionInviteTitle: document.getElementById('companionInviteTitle'),
@@ -1064,7 +1140,6 @@
     stickerBoardHint: document.getElementById('stickerBoardHint'),
     stickerTasks: document.getElementById('stickerTasks'),
     stickerPackBtn: document.getElementById('stickerPackBtn'),
-    stickerKakeraBtn: document.getElementById('stickerKakeraBtn'),
     stickerExportBtn: document.getElementById('stickerExportBtn'),
     stickerPackResult: document.getElementById('stickerPackResult'),
     stickerExportView: document.getElementById('stickerExportView'),
@@ -1142,7 +1217,6 @@
     naotoGreetingBtn: document.getElementById('naotoGreetingBtn'),
     onetimeItemGrid: document.getElementById('onetimeItemGrid'),
     onetimeActive: document.getElementById('onetimeActive'),
-    rewardItemGrid: document.getElementById('rewardItemGrid'),
     pickerOverlay: document.getElementById('pickerOverlay'),
     pickerTitle: document.getElementById('pickerTitle'),
     pickerHint: document.getElementById('pickerHint'),
@@ -1166,13 +1240,6 @@
     dateChooser: document.getElementById('dateChooser'),
     dateChoiceGrid: document.getElementById('dateChoiceGrid'),
     dateCancelBtn: document.getElementById('dateCancelBtn'),
-    dateRewardConfirm: document.getElementById('dateRewardConfirm'),
-    dateRewardPlan: document.getElementById('dateRewardPlan'),
-    dateRewardTitle: document.getElementById('dateRewardTitle'),
-    dateRewardCount: document.getElementById('dateRewardCount'),
-    dateRewardUseBtn: document.getElementById('dateRewardUseBtn'),
-    dateRewardSkipBtn: document.getElementById('dateRewardSkipBtn'),
-    dateRewardBackBtn: document.getElementById('dateRewardBackBtn'),
     dateMovie: document.getElementById('dateMovie'),
     dateMovieScene: document.getElementById('dateMovieScene'),
     dateMoviePlace: document.getElementById('dateMoviePlace'),
@@ -1182,6 +1249,12 @@
     dateMovieSkipBtn: document.getElementById('dateMovieSkipBtn'),
     dateMovieCloseBtn: document.getElementById('dateMovieCloseBtn'),
     seasonModeGrid: document.getElementById('seasonModeGrid'),
+    itemSceneOverlay: document.getElementById('itemSceneOverlay'),
+    itemSceneTitle: document.getElementById('itemSceneTitle'),
+    itemSceneText: document.getElementById('itemSceneText'),
+    itemSceneActors: document.getElementById('itemSceneActors'),
+    itemSceneChoiceGrid: document.getElementById('itemSceneChoiceGrid'),
+    itemSceneCancelBtn: document.getElementById('itemSceneCancelBtn'),
     travelOverlay: document.getElementById('travelOverlay'),
     travelCloseBtn: document.getElementById('travelCloseBtn'),
     travelRegionGrid: document.getElementById('travelRegionGrid'),
@@ -1279,14 +1352,12 @@
     duelCodeOutCopyBtn: document.getElementById('duelCodeOutCopyBtn'),
     duelCodeOutCopyMsg: document.getElementById('duelCodeOutCopyMsg'),
     duelCodeOutDoneBtn: document.getElementById('duelCodeOutDoneBtn'),
-    duelAbandonBtn: document.getElementById('duelAbandonBtn'),
     duelCodeInSection: document.getElementById('duelCodeInSection'),
     duelCodeInHint: document.getElementById('duelCodeInHint'),
     duelCodeInInput: document.getElementById('duelCodeInInput'),
     duelCodeInClearBtn: document.getElementById('duelCodeInClearBtn'),
     duelCodeInError: document.getElementById('duelCodeInError'),
     duelCodeInBtn: document.getElementById('duelCodeInBtn'),
-    duelCodeInAbandonBtn: document.getElementById('duelCodeInAbandonBtn'),
     duelResultSection: document.getElementById('duelResultSection'),
     duelRevealStage: document.getElementById('duelRevealStage'),
     duelRevealProgress: document.getElementById('duelRevealProgress'),
@@ -1318,7 +1389,7 @@
   };
 
   function freshState() {
-    return {
+    return ITEM_SYSTEM.normalize({
       stage: STAGE.EGG,
       speciesLine: null,
       stageIndex: 0,
@@ -1412,20 +1483,14 @@
       // こうかを はっきする タイプの ものが つかう、いちじてきな フラグ
       // ちゅう(state ぜんたいと おなじく「はじめから」で リセットされる -
       // いま そだてている 1たいぶんの ちからな ため)
-      oneTimeBoosts: {
-        sicknessShieldCount: 0,
-        breakupShield: null, // null | 'half' | 'full'
-        courtBoost: null, // null | 'small' | 'big'
-        minigameBoost: null, // null | 'small' | 'big'
-        doubleCoins: false,
-        safetyNet: false,
-        travelGuarantee: false,
-      },
+      oneTimeBoosts: {},
       // きゅうあい・たび は「はじめから」で ほかの おせわの きろくと
       // いっしょに リセットされる、今の いっしょうぶんの じょうたい。
       // gender/orientationId/attractedTo は 卵が かえった しゅんかんに
       // rollIdentity() で きまる(hatchEgg() 参照)
       partner: null,
+      // おみあいチケットで現在地に呼んだ相手。紹介だけでは消えず、移動・交際・次人生で消える。
+      calledMatch: null,
       gender: null,
       orientationId: null,
       attractedTo: [],
@@ -1476,10 +1541,10 @@
         perfectCleared: false,
         // 歴代の なおとっちの ようやく(「はじめから」の たびに 1行 つみあがる)
         pastLives: [],
-        // 「たまごの ゆめ」「でんせつの ゆめ」の 在庫と、つぎの たまごに
-        // していする しゅぞく
-        dreamEggs: { normal: 0, rare: 0 },
+        // 旧ゆめ欄は移行後空にする。予約分は永久在庫に含み、孵化時に使う。
+        dreamEggs: {},
         nextEggLine: null,
+        nextEggKind: null,
         // which of the 4 getEndingTier() endings have ever been reached
         // (across any playthrough) - drives the permanent badge row on the
         // normal screen and the rainbow screen once all 4 are collected
@@ -1512,6 +1577,8 @@
         minigameLength: 'normal',
         soundSfx: true,
         soundBgm: true,
+        // クイックモードの こえ: 'tts'(よみあげ、初期値) / 'pico'(ぴこぴこ、ことばなし) / 'off'
+        quickVoice: 'tts',
         currentLocationSelected: false,
         currentLocation: null,
         fontStyle: 'rounded',
@@ -1548,6 +1615,8 @@
         money: 0,
         ownedShopItems: [],
         equippedItemId: null,
+        itemMigrations: {},
+        raisedSpecies: [],
         // 「なおとの〜」でんせつアイテム(NAOTO_ITEMS)の うち、こうにゅう
         // ずみの id 一覧。そうび/かいじょの きがえは なく、こうにゅうすれば
         // それいこう ずっと こうかを はっきしつづける(SHOP_ITEMS とは
@@ -1593,13 +1662,16 @@
         // ランク(S/A/B/C/D)も ここから ひく。minigamePlayCounts と おなじく
         // 「はじめから」しても きえない
         minigameRecords: {},
+        // クイックモードの きろく(ラン数・さいこうクリア数・さいだいれんぞく・ゲームごとの かいすう)
+        quick: { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} },
+        // めぐる: はいった かいすう・はなした かいすう・であった/はなした じゅうみん(key→1/かいすう)
+        meguru: { visits: 0, talkCount: 0, met: {}, talks: {}, spots: {} },
         // きょうの チャレンジ(ひづけで きまる 1本を 1日1かい)。{ date, gameId, score, rank }
         dailyChallenge: null,
         dailyStreak: 0,
         dailyLastDate: null,
-        // シールちょう: もっている シール(id→まいすう)、かけら、ページごとの はりつけ、
-        // たっせいした おだい、あけた パックの かず、いちど 見た シール
-        stickers: { owned: {}, kakera: 0, pages: {}, tasksDone: [], packsOpened: 0, seen: [] },
+        // シールちょう: もっているシール、自由ページ、背景、達成お題など
+        stickers: { owned: {}, pages: { 'page-1': [] }, pageOrder: ['page-1'], pageMeta: { 'page-1': { background: 'home' } }, tasksDone: [], packsOpened: 0, seen: [] },
         // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
         // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
         // 人間の しこう傾向な ので「はじめから」しても きえない。
@@ -1628,7 +1700,7 @@
       // と おなじく、いま そだてている 1たいぶんの いちじてきな じょうたい
       // なので「はじめから」で リセットされる
       duel: null,
-    };
+    });
   }
 
   let pendingMigrationQuiet = false;
@@ -1659,9 +1731,94 @@
     }
     return target;
   }
+  // 所有している旧装具だけを返金する。購入履歴や無限モードの別状態からは足さない。
+  // normalizeStateShape のあと、SHOP_ITEMS で旧IDを落とすまえに実行する。
+  function migrateNormalEquipmentV2(s) {
+    const lifetime = s.lifetime;
+    const refunds = { flower: 120, energy1: 360, hat: 540, crown: 900, glasses: 360 };
+    const canonical = (id) => typeof id === 'string' && Object.hasOwn(ITEM_SYSTEM.LEGACY_EQUIPMENT_IDS, id)
+      ? ITEM_SYSTEM.LEGACY_EQUIPMENT_IDS[id] : id;
+    const migrated = lifetime.itemMigrations.normalEquipmentV2 === true;
+    let total = 0;
+    lifetime.ownedShopItems = [...new Set(lifetime.ownedShopItems.map(canonical))].filter((id) => {
+      if (typeof id !== 'string' || !Object.hasOwn(refunds, id)) return true;
+      if (!migrated) total += refunds[id];
+      return false;
+    });
+    lifetime.equippedItemId = canonical(lifetime.equippedItemId);
+    if (typeof lifetime.equippedItemId === 'string' && Object.hasOwn(refunds, lifetime.equippedItemId)) lifetime.equippedItemId = null;
+    lifetime.money += total;
+    lifetime.itemMigrations.normalEquipmentV2 = true;
+    return total;
+  }
+
+  // 配列の「要素」の かた(RH-1)。登録表とは てらしあわせない ので、
+  // 未知・未来・退役の ID も 空でない 文字列なら そのまま のこす。
+  // ids = 文字列の 集合(重複は 最初の 1つ)、idSeq = 文字列の 履歴(重複を 保つ)、
+  // ints = 整数の 集合("2" は 2 に なおす。範囲外の 整数は 未来の 値として のこす)。
+  // idObjs = id が 文字列の object(下の 既存の filter と おなじ 条件。なかまの いこうより 前に かける)。
+  // ほかの object の 配列(lifeLog / pastLives)と midlifeSeen は 下の 既存の filter、
+  // itemMemories は item-system、stickers.pages は シールの 仕組みが うけもつ
+  const SAVE_ARRAY_KINDS = {
+    '': { transformStageDone: 'ids', marriageMilestonesSeen: 'ints', attractedTo: 'ids', discoveredStages: 'ids', achievementsUnlocked: 'ids', companions: 'idObjs' },
+    lifetime: {
+      endingTiersReached: 'ints', weatherSeen: 'ids', timeSeen: 'ids', companionsRecruited: 'ids', rareCompanionsRecruited: 'ids',
+      partnersRecorded: 'ids', partnerEncounters: 'ids', partnersMarried: 'ids', ownedShopItems: 'ids', raisedSpecies: 'ids',
+      ownedNaotoItems: 'ids', ownedConsumableItems: 'ids', bonusUnlockedThemeIds: 'ids', regionsVisited: 'ids',
+      specialRegionsVisited: 'ids', legendsMet: 'ids', duelRecentQuestionIds: 'idSeq',
+    },
+    'lifetime.stickers': { pageOrder: 'ids', tasksDone: 'ids', seen: 'ids' },
+  };
+  const SAVE_REPAIR_SAMPLE_MAX = 10;
+  // こわれた 要素は 取り除き、repair に 件数と 見本を のこす(黙って すてない)
+  function sanitizeSaveArrays(st, repair, prefix = '') {
+    for (const [path, fields] of Object.entries(SAVE_ARRAY_KINDS)) {
+      const owner = path ? path.split('.').reduce((o, k) => (o && typeof o === 'object' ? o[k] : null), st) : st;
+      if (!owner || typeof owner !== 'object') continue;
+      for (const [key, kind] of Object.entries(fields)) {
+        if (!Array.isArray(owner[key])) continue;
+        const kept = [], seen = new Set();
+        for (const v of owner[key]) {
+          let ok = null;
+          if (kind === 'ints') {
+            const n = typeof v === 'string' && /^\s*-?\d+\s*$/.test(v) ? Number(v) : v;
+            if (Number.isInteger(n)) ok = n;
+          } else if (kind === 'idObjs') {
+            if (v && typeof v === 'object' && typeof v.id === 'string') ok = v;
+          } else if (typeof v === 'string' && v !== '') ok = v;
+          if (ok !== null && !(kind !== 'idSeq' && kind !== 'idObjs' && seen.has(ok))) {
+            seen.add(ok);
+            kept.push(ok);
+            if (ok === v) continue;
+          }
+          if (!repair) continue;
+          const field = `${prefix}${path ? path + '.' : ''}${key}`;
+          repair.count++;
+          repair.byField[field] = (repair.byField[field] || 0) + 1;
+          let sample;
+          try { sample = v === undefined ? 'undefined' : JSON.stringify(v); } catch (e) { sample = String(v); }
+          repair.samples.push({ field, value: String(sample).slice(0, 120) });
+          if (repair.samples.length > SAVE_REPAIR_SAMPLE_MAX) repair.samples.shift();
+        }
+        owner[key] = kept;
+      }
+    }
+  }
+  // lifetime.saveRepair は 修復の きろく(配列の 正規化表には いれない)。
+  // 修復が 1件も ない load では 作らず、さわらない
+  function recordSaveRepair(lifetime, repair) {
+    if (!repair.count) return;
+    const prev = lifetime.saveRepair && typeof lifetime.saveRepair === 'object' && !Array.isArray(lifetime.saveRepair) ? lifetime.saveRepair : {};
+    const byField = prev.byField && typeof prev.byField === 'object' && !Array.isArray(prev.byField) ? { ...prev.byField } : {};
+    for (const [field, n] of Object.entries(repair.byField)) byField[field] = (Number(byField[field]) || 0) + n;
+    const samples = [...(Array.isArray(prev.samples) ? prev.samples : []), ...repair.samples].slice(-SAVE_REPAIR_SAMPLE_MAX);
+    lifetime.saveRepair = { v: 1, lastAt: Date.now(), total: (Number(prev.total) || 0) + repair.count, byField, samples };
+  }
+
   // メーターと きろくの 中身も かたを そろえる(normalizeStateShape の
   // あとに よぶ。ここでも 正しい 値は かえない)
-  function normalizeStateValues(st) {
+  function normalizeStateValues(st, repair, prefix) {
+    sanitizeSaveArrays(st, repair, prefix);
     for (const key of ['hunger', 'happiness', 'energy', 'health', 'growth', 'decline']) st[key] = clamp(st[key], 0, 100);
     for (const [key, bounds] of Object.entries(GLASS_SETTINGS)) {
       st.lifetime[key] = Math.round(clamp(st.lifetime[key], bounds.min, bounds.max));
@@ -1678,6 +1835,7 @@
     const locality = window.NaotocchiLocalScenery?.sanitizeLocality?.(st.lifetime.currentLocation);
     st.lifetime.currentLocation = locality ? savedLocality(locality) : null;
     if (!st.lifetime.currentLocation) st.lifetime.currentLocationSelected = false;
+    ITEM_SYSTEM.normalize(st);
     return st;
   }
 
@@ -1698,12 +1856,37 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      if (!Object.prototype.hasOwnProperty.call(parsed.lifetime || {}, 'raisedSpecies')) {
+        merged.lifetime.raisedSpecies = [...new Set((Array.isArray(parsed.discoveredStages) ? parsed.discoveredStages : [])
+          .map(key => String(key).split(':')[0]).filter(line => ALL_LINES.includes(line)))];
+      }
+      // Inspect the saved version before fresh defaults can mark it migrated.
+      merged.lifetime.itemMigrations = parsed.lifetime?.itemMigrations || {};
+      merged.lifetime.itemSystemVersion = parsed.lifetime?.itemSystemVersion || 0;
+      merged.lifetime.funItemsRetiredVersion = parsed.lifetime?.funItemsRetiredVersion || 0;
+      merged.lifetime.itemInventory = parsed.lifetime?.itemInventory || parsed.items || {};
       // Preserve the earlier transparent option only for a save without the new control.
       if (!Object.prototype.hasOwnProperty.call(parsed.lifetime || {}, 'buttonTransparency')
           && parsed.lifetime?.deviceThemeId === 'transparent') merged.lifetime.buttonTransparency = 80;
       // schemaVersion 5: いこうの まえに かたを そろえておく(下の いこう
       // コードは 配列の .map などを ためらいなく よぶ ので)
       normalizeStateShape(merged, freshState());
+      // 要素の かたも いこうより 前に そろえ、取り除いた 値を 記録する
+      sanitizeSaveArrays(merged, repair);
+      // RH-8: えらんでいる とちゅうの 変身の こうほ(null か 文字列の 配列。おてほんが null なので 上では みない)。
+      // かたが ちがう 値だけ とりのぞいて 記録する(知らない しゅぞく ID は のこす。えがく ときに とばす)
+      if (merged.transformOptions != null) {
+        const opts = merged.transformOptions, kept = Array.isArray(opts) ? opts.filter((v) => typeof v === 'string' && v !== '') : [];
+        if (repair && (!Array.isArray(opts) || kept.length !== opts.length)) {
+          repair.count++;
+          repair.byField.transformOptions = (repair.byField.transformOptions || 0) + 1;
+          let sample; try { sample = JSON.stringify(opts); } catch (e) { sample = String(opts); }
+          repair.samples.push({ field: 'transformOptions', value: String(sample).slice(0, 120) });
+          if (repair.samples.length > SAVE_REPAIR_SAMPLE_MAX) repair.samples.shift();
+        }
+        merged.transformOptions = kept.length ? kept : null;
+      }
+      migrateNormalEquipmentV2(merged);
       // 地域/きせつゲームの id を「登録順の 連番(region:city:road:0 …)」から
       // 固定の 文字列 id に かえた ぶんを ひきつぐ(プレイ回数の きろく)
       const LEGACY_MINIGAME_IDS = {
@@ -1720,24 +1903,20 @@
         }
       }
       if (!merged.lifetime.minigameRecords || typeof merged.lifetime.minigameRecords !== 'object') merged.lifetime.minigameRecords = {};
+      if (!merged.lifetime.quick || typeof merged.lifetime.quick !== 'object') merged.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} };
+      if (!merged.lifetime.quick.single || typeof merged.lifetime.quick.single !== 'object') merged.lifetime.quick.single = {};
+      if (!merged.lifetime.meguru || typeof merged.lifetime.meguru !== 'object') merged.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {}, spots: {} };
+      if (!merged.lifetime.meguru.spots || typeof merged.lifetime.meguru.spots !== 'object') merged.lifetime.meguru.spots = {};
+      // いぜんの 初期値 'pico'(ことばが きこえない)は よみあげに もどす。じぶんで えらんだ ときは quickVoiceChosen が たつ
+      if (merged.lifetime.quickVoice === 'pico' && !merged.lifetime.quickVoiceChosen) merged.lifetime.quickVoice = 'tts';
       // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
-      const OLD_ITEM_BASE = {
-        flower2:'flower', flower3:'flower', ribbon2:'ribbon', ribbon3:'ribbon', bowtie2:'bowtie', bowtie3:'bowtie',
-        poop2:'poop1', poop3:'poop1', scarf2:'scarf', scarf3:'scarf', glasses2:'glasses', glasses3:'glasses',
-        energy2:'energy1', energy3:'energy1', hat2:'hat', hat3:'hat', travel2:'travel1', travel3:'travel1',
-        sleepboost2:'sleepboost1', sleepboost3:'sleepboost1', star2:'star', star3:'star', bond2:'bond1', bond3:'bond1',
-        partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown', itemluck2:'itemluck1', itemluck3:'itemluck1'
-      };
+      const OLD_ITEM_BASE = ITEM_SYSTEM.LEGACY_EQUIPMENT_IDS;
       const oldOwned = Array.isArray(merged.lifetime.ownedShopItems) ? merged.lifetime.ownedShopItems : [];
       merged.lifetime.ownedShopItems = [...new Set(oldOwned.map((id) => OLD_ITEM_BASE[id] || id).filter((id) => SHOP_ITEMS.some((it) => it.id === id)))];
       merged.lifetime.equippedItemId = OLD_ITEM_BASE[merged.lifetime.equippedItemId] || merged.lifetime.equippedItemId;
       if (!SHOP_ITEMS.some((it) => it.id === merged.lifetime.equippedItemId)) merged.lifetime.equippedItemId = null;
-      // 旧回復ごほうびは在庫をそのまま大量変換せず、まとめて最大2個の新ごほうびへ。
-      const oldRewardIds = ['candy','dogfood','catfood','udon','curry','hotpot','shoulder','hug','kiss'];
-      let oldRewardCount = 0;
       if (!merged.items || typeof merged.items !== 'object') merged.items = {};
-      oldRewardIds.forEach((id) => { oldRewardCount += Number(merged.items[id]) || 0; delete merged.items[id]; });
-      if (oldRewardCount > 0) merged.items.reward = (Number(merged.items.reward) || 0) + Math.min(2, Math.ceil(oldRewardCount / 5));
+      ['candy','dogfood','catfood','udon','curry','hotpot','shoulder','hug','kiss','reward'].forEach((id) => { delete merged.items[id]; });
       // migrate saves from before growth lines existed - old stage values
       // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
       // adult_good/adult_bad from even earlier), with one shared species
@@ -1855,7 +2034,7 @@
         merged.ageTicks = displayedAge * AGE_TICKS_PER_YEAR;
         // stageIndex は すてて ねんれいから ひきなおす(そのぶん 見た目が
         // かわる ことは あるが、きろくは 1つも うしなわれない)
-        merged.stageIndex = stageForAge(displayedAge);
+        merged.stageIndex = stageForAge(displayedAge, merged.speciesLine);
         // メーターは いみが かわる ので 0 から
         merged.growth = 0;
         merged.decline = 0;
@@ -1875,7 +2054,7 @@
         if (parsed.stage === 'clear') {
           merged.stage = STAGE.FAREWELL;
           merged.ageTicks = GOAL_AGE * AGE_TICKS_PER_YEAR;
-          merged.stageIndex = stageForAge(GOAL_AGE);
+          merged.stageIndex = stageForAge(GOAL_AGE, merged.speciesLine);
         }
         merged.declineBaseline = merged.lifetime.devolutions || 0;
         merged.schemaVersion = 3;
@@ -1906,10 +2085,11 @@
       // v4 の セーブは 値を いっさい かえずに そのまま v5 に なる。上の
       // normalizeStateShape() と ここの normalizeStateValues() が「配列で
       // あるべき ものは 配列、メーターは 0〜100」を ほしょうする
-      normalizeStateValues(merged);
+      normalizeStateValues(merged, repair);
       if (merged.infiniteReturn && typeof merged.infiniteReturn === 'object') {
         normalizeStateShape(merged.infiniteReturn, freshState());
-        normalizeStateValues(merged.infiniteReturn);
+        migrateNormalEquipmentV2(merged.infiniteReturn);
+        normalizeStateValues(merged.infiniteReturn, repair, 'infiniteReturn.');
         merged.infiniteReturn.schemaVersion = 5;
         normalizeRomanticIdentity(merged.infiniteReturn);
         normalizeRomanticIdentity(merged.infiniteReturn.partner);
@@ -1925,7 +2105,7 @@
       // 実際に100さいクリアを一度もしていない(clears===0)なら未達成として扱う。
       // これで「一度もクリアしていないのに左上に🎉」を既存セーブからも除去する。
       if ((Number(merged.lifetime.clears) || 0) <= 0 && Array.isArray(merged.lifetime.endingTiersReached)) {
-        merged.lifetime.endingTiersReached = merged.lifetime.endingTiersReached.filter((tier) => tier !== 0);
+        merged.lifetime.endingTiersReached = merged.lifetime.endingTiersReached.filter((tier) => tier !== GOAL_TIER.life);
       }
       // 旧版で購入式だった「なおとの〜」を、達成報酬式へ移行する。
       if (!Array.isArray(merged.lifetime.ownedNaotoItems)) merged.lifetime.ownedNaotoItems = [];
@@ -1950,8 +2130,7 @@
             break;
           }
         }
-        merged.marriageAge = recoveredMarriageAge == null ? clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) : recoveredMarriageAge;
-        if (!Array.isArray(merged.marriageMilestonesSeen)) merged.marriageMilestonesSeen = [];
+        merged.marriageAge = recoveredMarriageAge == null ? clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) : recoveredMarriageAge;        if (!Array.isArray(merged.marriageMilestonesSeen)) merged.marriageMilestonesSeen = [];
         const marriedYears = Math.max(0, clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) - merged.marriageAge);
         for (const years of [1, 10, 25, 50]) {
           if (marriedYears >= years && !merged.marriageMilestonesSeen.includes(years)) {
@@ -1961,12 +2140,14 @@
         pendingMigrationQuiet = true;
       }
 
+      recordSaveRepair(merged.lifetime, repair);
       delete merged.age;
       delete merged.evoMeter;
       delete merged.devoMeter;
       delete merged.freePlay;
       return merged;
     };
+    let repair;
     stateLoadRecovered = false;
     lastGoodSaveRaw = null;
     saveWriteBlocked = false;
@@ -1975,14 +2156,17 @@
       try {
         const raw = localStorage.getItem(key);
         if (!raw) continue;
+        repair = { count: 0, byField: {}, samples: [] };
         const merged = migrate(raw);
+        // backup は saveState が lastGoodSaveRaw から書く。読みこんだ直後には
+        // 写さない(こわれた 要素ごと backup に ひろげない)。修復した load では
+        // 元の raw を snapshot に のこし、backup の 候補は 修復後の ものに する
         lastGoodSaveRaw = raw;
-        if (key === SAVE_KEY) {
-          // 移行に失敗したデータで、正常なバックアップを上書きしない。
-          try { localStorage.setItem(SAVE_BACKUP_KEY, raw); } catch (ignore) { /* backup is best effort */ }
-        } else {
-          stateLoadRecovered = true;
+        if (repair.count) {
+          takeSaveSnapshot(raw, true);
+          try { lastGoodSaveRaw = JSON.stringify(merged); } catch (ignore) { /* keep the loaded raw */ }
         }
+        if (key !== SAVE_KEY) stateLoadRecovered = true;
         return merged;
       } catch (e) {
         failed = true;
@@ -2033,108 +2217,112 @@
     { id: 'devolve-1', emoji: '👶', label: 'はじめてのおとろえ', desc: 'はじめてそだちがさがった', tier: 'easy', condition: (l) => l.devolutions >= 1 },
     { id: 'transform-1', emoji: '✨', label: 'はじめてのへんしん', desc: 'はじめてへんしんした', tier: 'easy', condition: (l) => l.transforms >= 1 },
     { id: 'death-1', emoji: '👻', label: 'はじめてのおわかれ', desc: 'はじめててんごくにいった', tier: 'easy', condition: (l) => l.deaths >= 1 },
-    { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを50かいあそんだ', tier: 'easy', condition: (l) => l.minigamesPlayed >= 50 },
-    { id: 'record-rank-s-1', emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', tier: 'easy', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
-    { id: 'games-played-25', emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
+    { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを30かいあそんだ', tier: 'easy', condition: (l) => l.minigamesPlayed >= 30 },
+    { id: 'record-rank-s-1', crown: { kind: 'game', bestBelow: 90 }, emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', tier: 'easy', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
+    { id: 'games-played-25', crown: { kind: 'game', unplayed: true }, emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', tier: 'easy', condition: (l) => l.sicknessCured >= 1 },
     { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', tier: 'easy', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'あいてむを初めて買った', tier: 'easy', condition: (l) => l.ownedShopItems.length >= 1 },
-    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのおたのしみ', desc: 'おたのしみをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
-    { id: 'sticker-10', emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
+    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのつかいきり', desc: '使い切りのあいてむをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
+    { id: 'sticker-10', crown: { kind: 'sticker', unowned: true }, emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: '持っているおかねが100以上になった', tier: 'easy', condition: (l) => l.money >= 100 },
-    { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => l.regionsVisited.length >= 3 },
+    { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => regionsVisitedCount(l) >= 3 },
 
     // --- やや かんたん ---
-    { id: 'time-all', emoji: '🕰️', label: 'いちにちのともだち', desc: '朝・昼・夕・夜をすべて過ごした', tier: 'easy2', condition: (l) => (l.timeSeen || []).length >= 4 },
+    { id: 'time-all', emoji: '🕰️', label: 'いちにちのともだち', desc: '朝・昼・夕・夜をすべて過ごした', tier: 'easy2', condition: (l) => countRegistered(l.timeSeen, progressRegistry().times) >= progressRegistry().times.size },
     { id: 'rain-play', emoji: '☔', label: 'あめの日のあそび', desc: '雨の日にミニゲームであそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).rain || 0) >= 1 },
     { id: 'snow-play', emoji: '⛄', label: 'ゆきの日のあそび', desc: '雪の日にミニゲームであそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).snow || 0) >= 1 },
     { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐんそだつ', desc: 'そだちが合計で10あがった', tier: 'easy2', condition: (l) => l.evolutions >= 10 },
-    { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちが合計で5さがった', tier: 'easy2', condition: (l) => l.devolutions >= 5 },
-    { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '10かいへんしんした', tier: 'easy2', condition: (l) => l.transforms >= 10 },
-    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを10かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 10 },
+    { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちが合計で3さがった', tier: 'easy2', condition: (l) => l.devolutions >= 3 },
+    { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '5かいへんしんした', tier: 'easy2', condition: (l) => l.transforms >= 5 },
+    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを5かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 5 },
     { id: 'age-25', emoji: '🌼', label: 'すくすくせいちょう', desc: '25さいになった', tier: 'easy2', condition: (l) => l.maxAgeReached >= 25 },
-    { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => s.discoveredStages.length >= 25 },
-    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを100回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 100 },
-    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: 'ひとつの人生で、100回あそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 100 },
-    { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を100かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 100 },
-    { id: 'talk-100', emoji: '💬', label: 'おしゃべりずき', desc: 'ひとつの人生で「じゃれる」を100かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.talk >= 100 },
+    { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => dexFoundCount(s) >= 25 },
+    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを30回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 30 },
+    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: 'ひとつの人生で、30回あそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 30 },
+    { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を30かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 30 },
     { id: 'gentle-10', emoji: '💗', label: 'やさしいこころ', desc: 'ひとつの人生で、やさしい選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.gentle >= 10 },
     { id: 'brave-10', emoji: '🦁', label: 'ゆうかんなこころ', desc: 'ひとつの人生で、ゆうかんな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.brave >= 10 },
     { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ひとつの人生で、ロマンチックな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.romantic >= 10 },
-    { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', tier: 'easy2', condition: (l) => l.companionsRecruited.length >= 1 },
-    { id: 'partner-1', emoji: '💑', label: 'はじめてのこいびと', desc: 'はじめてこいびとができた', tier: 'easy2', condition: (l) => l.partnersRecorded.length >= 1 },
+    { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', tier: 'easy2', condition: (l) => companionsRecruitedCount(l) >= 1 },
+    { id: 'partner-1', emoji: '💑', label: 'はじめてのこいびと', desc: 'はじめてこいびとができた', tier: 'easy2', condition: (l) => partnersFoundCount(l) >= 1 },
     { id: 'money-500', emoji: '💴', label: 'おおがねもち', desc: '持っているおかねが500以上になった', tier: 'easy2', condition: (l) => l.money >= 500 },
 
     // --- ふつう ---
-    { id: 'weather-all', emoji: '🌦️', label: 'てんきはかせ', desc: '晴れ・くもり・雨・雪をすべて見た', tier: 'normal', condition: (l) => (l.weatherSeen || []).length >= 4 },
+    { id: 'weather-all', emoji: '🌦️', label: 'てんきはかせ', desc: '晴れ・くもり・雨・雪をすべて見た', tier: 'normal', condition: (l) => countRegistered(l.weatherSeen, progressRegistry().weathers) >= progressRegistry().weathers.size },
     { id: 'night-play-10', emoji: '🦉', label: 'よふかし', desc: '夜にミニゲームで10回あそんだ', tier: 'normal', condition: (l) => ((l.envPlays || {}).night || 0) >= 10 },
-    { id: 'env-moments-10', emoji: '🍃', label: 'せかいをかんじる', desc: '天気や時間にちなんだ出来事に、10回出会った', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
-    { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '5かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 5 },
-    { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを300かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 300 },
-    { id: 'games-played-60', emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
-    { id: 'record-rank-a-20', emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
+    { id: 'env-moments-10', crown: { kind: 'moment' }, emoji: '🍃', label: 'せかいをかんじる', desc: '天気や時間にちなんだ出来事に、10回出会った', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
+    { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '3かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 3 },
+    { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを150かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 150 },
+    { id: 'quick-10', emoji: '⚡', label: 'クイックのたつじん', desc: 'クイックモードで1ランに10こクリアした', tier: 'normal', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 10 },
+    { id: 'quick-perfect', emoji: '👑', label: 'クイックパーフェクト', desc: 'クイックモードで20こ全部クリアした', tier: 'hard1', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 20 },
+    { id: 'games-played-60', crown: { kind: 'game', unplayed: true }, emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
+    { id: 'record-rank-a-20', crown: { kind: 'game', bestBelow: 75 }, emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
-    { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => s.discoveredStages.length >= 50 },
+    { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => dexFoundCount(s) >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアなであい', desc: 'レアなしゅぞくにはじめてであった', tier: 'normal', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
-    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ50かい', desc: 'ひとつの人生で、そうじを50回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 50 },
+    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ20かい', desc: 'ひとつの人生で、そうじを20回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 20 },
     { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
-    { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => l.companionsRecruited.length >= 5 },
-    { id: 'sticker-tasks-5', emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => ((l.stickers && l.stickers.tasksDone) || []).length >= 5 },
+    { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => companionsRecruitedCount(l) >= 5 },
+    { id: 'sticker-tasks-5', crown: { kind: 'sticker', tasks: true }, emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => stickerTasksDoneCount(l) >= 5 },
+    { id: 'sticker-tasks-all', emoji: '🌟', label: 'シールちょうマスター', desc: 'シールちょうのおだいを8つぜんぶたっせいした', tier: 'normal', condition: (l) => {
+      const done = new Set((l.stickers && l.stickers.tasksDone) || []);
+      return typeof STICKER_TASKS !== 'undefined' && STICKER_TASKS.every((task) => done.has(task.id));
+    } },
     { id: 'companion-active-5', emoji: '💞', label: 'そばにいるしあわせ', desc: 'いまそばにいるなかまが5にんいる', tier: 'normal', condition: (l, s) => s.companions.length >= 5 },
-    { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => l.partnersMarried.length >= 1 },
+    { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => partnersMarriedCount(l) >= 1 },
 
     // --- そだち・いっしょう(あたらしい じっせき) ---
     { id: 'sodachi-70', emoji: '🌟', label: 'よくそだてた', desc: 'そだちが70にとどいた', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 70 },
     { id: 'sodachi-90', emoji: '💫', label: 'でんせつのそだて', desc: 'そだちが90にとどいた', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 90 },
     { id: 'sodachi-100', emoji: '👑', label: 'さいこうのそだち', desc: 'そだちが100にとどいた', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 100 },
     { id: 'lifeclear-1', emoji: '🎊', label: 'はじめてのいっしょうクリア', desc: '100さいまで生き、そだち70以上にとどいた', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 1 },
-    { id: 'lifeclear-10', emoji: '🏵️', label: 'じんせい10しゅう', desc: 'いっしょうクリアを10かいした', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 10 },
+    { id: 'lifeclear-10', emoji: '🏵️', label: 'じんせい5しゅう', desc: 'いっしょうクリアを5かいした', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 5 },
     { id: 'bestlife-1', emoji: '🌈', label: 'さいこうのいっしょう', desc: '100さいまで生き、そだち100にとどいた', tier: 'life', condition: (l) => (l.bestLives || 0) >= 1 },
-    { id: 'pastlives-10', emoji: '📔', label: 'じゅうにんのなおとっち', desc: '10にんのなおとっちをそだてた', tier: 'life', condition: (l) => (l.pastLives || []).length >= 10 },
+    { id: 'pastlives-10', emoji: '📔', label: 'ごにんのなおとっち', desc: '5にんのなおとっちをそだてた', tier: 'life', condition: (l) => (l.pastLives || []).length >= 5 },
     { id: 'nodecline', emoji: '🕊️', label: 'いちどもおとろえなかった', desc: 'そだちを一度も下げずに100さいまでいきた', tier: 'life', condition: (l) => (l.flawlessLives || 0) >= 1 },
 
     // --- ややむずかしい ---
     { id: 'evolve-50', emoji: '🌳', label: 'そだちのあしあと', desc: 'そだちが合計で50あがった', tier: 'hard1', condition: (l) => l.evolutions >= 50 },
-    { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえのぬし', desc: 'そだちが合計で20さがった', tier: 'hard1', condition: (l) => l.devolutions >= 20 },
-    { id: 'transform-25', emoji: '💫', label: 'へんしん25れんぱつ', desc: '25かいへんしんした', tier: 'hard1', condition: (l) => l.transforms >= 25 },
-    { id: 'death-10', emoji: '⚰️', label: 'てんごくのじょうれんきゃく', desc: '10かいてんごくにいった', tier: 'hard1', condition: (l) => l.deaths >= 10 },
-    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを30かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 30 },
+    { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえのぬし', desc: 'そだちが合計で10さがった', tier: 'hard1', condition: (l) => l.devolutions >= 10 },
+    { id: 'transform-25', emoji: '💫', label: 'へんしん15かい', desc: '15かいへんしんした', tier: 'hard1', condition: (l) => l.transforms >= 15 },
+    { id: 'death-10', emoji: '⚰️', label: 'てんごくのじょうれんきゃく', desc: '5かいてんごくにいった', tier: 'hard1', condition: (l) => l.deaths >= 5 },
+    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを15かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 15 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },
-    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを30回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 30 },
-    { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
-    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみいっぱい', desc: 'おたのしみを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
-    { id: 'sticker-100', emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
+    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 },
+    { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => regionsVisitedCount(l) >= progressRegistry().regions.size },
+    { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを15かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 15 },
+    { id: 'sticker-100', crown: { kind: 'sticker', unowned: true }, emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
     { id: 'evolve-100', emoji: '🌲', label: 'そだてのきわみ', desc: 'そだちが合計で100あがった', tier: 'hard2', condition: (l) => l.evolutions >= 100 },
     { id: 'clear-1', emoji: '🏅', label: 'てんじゅをまっとうした', desc: 'はじめて100さいまでいきた', tier: 'hard2', condition: (l) => l.clears >= 1 },
-    { id: 'dex-100', emoji: '📙', label: 'ずかんたいはん', desc: 'ずかんを100しゅるいうめた', tier: 'hard2', condition: (l, s) => s.discoveredStages.length >= 100 },
+    { id: 'dex-100', emoji: '📙', label: 'ずかんたいはん', desc: 'ずかんを100しゅるいうめた', tier: 'hard2', condition: (l, s) => dexFoundCount(s) >= 100 },
     { id: 'every-normal-line', emoji: '🐾', label: 'どうぶつはかせ', desc: 'ふつうのしゅぞくすべてにであった', tier: 'hard2', condition: (l, s) => NORMAL_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
-    { id: 'reset-20', emoji: '♾️', label: 'むげんループのたび', desc: 'あたらしいたまごを20かいむかえた', tier: 'hard2', condition: (l) => (l.resets || 0) >= 20 },
-    { id: 'married-3', emoji: '👰', label: 'なんどもウェディング', desc: '3にんとけっこんした(いろんな人生で)', tier: 'hard2', condition: (l) => l.partnersMarried.length >= 3 },
-    { id: 'naoto-1', emoji: '🧿', label: 'でんせつへのいっぽ', desc: '「なおとの〜」という、でんせつのあいてむを初めて手に入れた', tier: 'hard2', condition: (l) => (l.ownedNaotoItems || []).length >= 1 },
+    { id: 'reset-20', emoji: '♾️', label: 'むげんループのたび', desc: 'あたらしいたまごを10かいむかえた', tier: 'hard2', condition: (l) => (l.resets || 0) >= 10 },
+    { id: 'married-3', emoji: '👰', label: 'なんどもウェディング', desc: '3にんとけっこんした(いろんな人生で)', tier: 'hard2', condition: (l) => partnersMarriedCount(l) >= 3 },
+    { id: 'naoto-1', emoji: '🧿', label: 'でんせつへのいっぽ', desc: '「なおとの〜」という、でんせつのあいてむを初めて手に入れた', tier: 'hard2', condition: (l) => countRegistered(l.ownedNaotoItems, progressRegistry().naotoItems) >= 1 },
 
     // --- かなり むずかしい ---
-    { id: 'clear-5', emoji: '🏆', label: 'いつつのいっしょう', desc: '5かい100さいまでいきた', tier: 'hard3', condition: (l) => l.clears >= 5 },
-    { id: 'minigame-1000', emoji: '🎰', label: '1000かいあそんだ', desc: 'ミニゲームを1000かいあそんだ', tier: 'hard3', condition: (l) => l.minigamesPlayed >= 1000 },
-    { id: 'games-complete-100', emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', tier: 'hard3', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
-    { id: 'record-rank-s-15', emoji: '👑', label: 'Sランクマスター', desc: '15しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 15 },
+    { id: 'clear-5', emoji: '🏆', label: 'みっつのいっしょう', desc: '3かい100さいまでいきた', tier: 'hard3', condition: (l) => l.clears >= 3 },
+    { id: 'minigame-1000', emoji: '🎰', label: '500かいあそんだ', desc: 'ミニゲームを500かいあそんだ', tier: 'hard3', condition: (l) => l.minigamesPlayed >= 500 },
+    { id: 'games-complete-100', crown: { kind: 'game', unplayed: true }, emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', tier: 'hard3', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
+    { id: 'record-rank-s-15', crown: { kind: 'game', bestBelow: 90 }, emoji: '👑', label: 'Sランクマスター', desc: '10しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 10 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつコレクター', desc: 'レアなしゅぞくすべてにであった', tier: 'hard3', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
-    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '10種類以上の、さいごの姿に出会った', tier: 'hard3', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
+    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '8種類以上の、さいごの姿に出会った', tier: 'hard3', condition: (l, s) => dexElderCount(s) >= 8 },
     { id: 'companion-all', emoji: '🎉', label: 'なかまだいしゅうごう', desc: '通常のなかま全員となかよくなった', tier: 'hard3', condition: (l) => hasAllCurrentCompanions(l) },
-    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきななおとっちライフ', desc: 'けっこんと、通常のなかま全員との出会いをたっせいした', tier: 'hard3', condition: (l) => l.partnersMarried.length >= 1 && hasAllCurrentCompanions(l) },
+    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきななおとっちライフ', desc: 'けっこんと、通常のなかま全員との出会いをたっせいした', tier: 'hard3', condition: (l) => partnersMarriedCount(l) >= 1 && hasAllCurrentCompanions(l) },
 
     // --- 超むずかしい ---
-    { id: 'clear-10', emoji: '👑', label: 'とおのいっしょう', desc: '10かい100さいまでいきた', tier: 'hard4', condition: (l) => l.clears >= 10 },
-    { id: 'dex-150', emoji: '📕', label: 'ずかんもうすぐ', desc: 'ずかんを150しゅるいうめた', tier: 'hard4', condition: (l, s) => s.discoveredStages.length >= 150 },
-    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員と知りあった', tier: 'hard4', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
+    { id: 'clear-10', emoji: '👑', label: 'いつつのいっしょう', desc: '5かい100さいまでいきた', tier: 'hard4', condition: (l) => l.clears >= 5 },
+    { id: 'dex-150', emoji: '📕', label: 'ずかんもうすぐ', desc: 'ずかんを150しゅるいうめた', tier: 'hard4', condition: (l, s) => dexFoundCount(s) >= 150 },
+    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員とこいびとになった', tier: 'hard4', condition: (l) => partnersFoundCount(l) >= progressRegistry().partners.size },
 
     // --- きわめて むずかしい ---
-    { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのでんせつ', desc: '25かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 25 },
-    { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
-    { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: '身につけるあいてむを全部買った', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
-    { id: 'consumable-all', emoji: '🎪', label: 'おたのしみコンプリート', desc: 'おたのしみをぜんぶつかってみた', tier: 'hard5', condition: (l) => FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
-    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: 'みにつけるものをぜんぶ集め、おたのしみもぜんぶ使った', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
+    { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのたつじん', desc: '10かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 10 },
+    { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => isDexComplete(s) },
+    { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: '身につけるあいてむを全部買った', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) },
+    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: '身につけるものと、使い切りのあいてむを全種類集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) && CONSUMABLE_ITEMS.every(it => consumableEverAcquired(l, it.id)) },
   ];
   // じっせきの だんかい(むずかしさ)。画面では この じゅんに セクション分けする
   const ACHIEVEMENT_TIERS = [
@@ -2163,11 +2351,83 @@
     return buildMinigamePool().filter((game) => (counts[game.id] || 0) > 0).length;
   }
 
+  // 進捗の件数の正本(RH-2)。save の配列は履歴として そのまま のこす(未知・未来・
+  // 退役・typo の ID も消さない)。いまの版の進捗・実績・ゴール・表示は ここで数える:
+  // raw ID → alias の正規化 → 登録表との照合 → 重複の除去 → 件数
+  function countRegistered(ids, registered, canon = (id) => id) {
+    const found = new Set();
+    for (const raw of Array.isArray(ids) ? ids : []) {
+      const id = canon(raw);
+      if (registered.has(id)) found.add(id);
+    }
+    return found.size;
+  }
+  // 登録表は master と定数から作られ、起動中は変わらない。この関数より後で定義される
+  // 表も使うので、はじめて数えるときに作る
+  let progressRegistryCache = null;
+  function progressRegistry() {
+    if (progressRegistryCache) return progressRegistryCache;
+    const ids = (list) => new Set(list.map((item) => item.id));
+    const choices = (table) => new Set(Object.keys(table).filter((key) => key !== 'auto'));
+    progressRegistryCache = {
+      dex: new Set(ALL_LINES.flatMap((line) => Array.from({ length: STAGES_PER_LINE }, (_, i) => `${line}:${i}`))),
+      partners: ids(ALL_PARTNER_CANDIDATES),
+      regions: ids(REGIONS),
+      companions: ids(COMPANIONS),
+      naotoItems: ids(NAOTO_ITEMS),
+      times: choices(TIME_CHOICES),
+      weathers: choices(WEATHER_CHOICES),
+      stickerTasks: ids(STICKER_TASKS),
+      achievements: ids(ACHIEVEMENTS),
+    };
+    return progressRegistryCache;
+  }
+  function canonicalPartnerId(id) {
+    return WORLD_MASTER?.compatibility?.partnerAliases?.[id] || id;
+  }
+  function canonicalRegionId(id) {
+    return WORLD_MASTER?.compatibility?.regionAliases?.[id] || id;
+  }
+  // RH-5: しゅぞく ID の 正本化。raw → 正式な alias(master の speciesAliases)→ 登録表(progressRegistry().dex)で 照合。
+  // いまの alias は すべて 同じ ID どうし だが、alias が ふえても 件数と ずかんの 表示が ずれない ように 1 か所に おく。save は 書きかえない
+  function canonicalSpeciesId(id) {
+    return WORLD_MASTER?.compatibility?.speciesAliases?.[id] || id;
+  }
+  // 'line:段' の ずかんの キーを 正本の しゅぞく ID に なおす
+  function canonicalDexKey(key) {
+    if (typeof key !== 'string') return key;
+    const at = key.lastIndexOf(':');
+    return at < 0 ? key : `${canonicalSpeciesId(key.slice(0, at))}${key.slice(at)}`;
+  }
+  // ずかんで「見つけた」と あつかう キー(正本化 ずみ)。件数と 表示は これを 共有する
+  function knownDexKeys(s = state) {
+    return new Set((Array.isArray(s.discoveredStages) ? s.discoveredStages : []).map(canonicalDexKey));
+  }
+  function dexTotalCount() { return progressRegistry().dex.size; }
+  function dexFoundCount(s = state) { return countRegistered(s.discoveredStages, progressRegistry().dex, canonicalDexKey); }
+  function isDexComplete(s = state) { return dexFoundCount(s) >= dexTotalCount(); }
+  function dexElderCount(s = state) {
+    const last = `:${STAGES_PER_LINE - 1}`;
+    return countRegistered((s.discoveredStages || []).filter((key) => typeof key === 'string' && key.endsWith(last)), progressRegistry().dex, canonicalDexKey);
+  }
+  function partnersFoundCount(l = state.lifetime) { return countRegistered(l.partnersRecorded, progressRegistry().partners, canonicalPartnerId); }
+  function partnersMarriedCount(l = state.lifetime) { return countRegistered(l.partnersMarried, progressRegistry().partners, canonicalPartnerId); }
+  function regionsVisitedCount(l = state.lifetime) { return countRegistered(l.regionsVisited, progressRegistry().regions, canonicalRegionId); }
+  function companionsRecruitedCount(l = state.lifetime) { return countRegistered(l.companionsRecruited, progressRegistry().companions, canonicalCompanionId); }
+  function stickerTasksDoneCount(l = state.lifetime) { return countRegistered(l.stickers && l.stickers.tasksDone, progressRegistry().stickerTasks); }
+  function achievementsUnlockedCount(s = state) { return countRegistered(s.achievementsUnlocked, progressRegistry().achievements); }
+
+  const achievementErrorsReported = new Set();
   function checkAchievements() {
     state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, currentAge());
     for (const ach of ACHIEVEMENTS) {
       if (state.achievementsUnlocked.includes(ach.id)) continue;
-      if (!ach.condition(state.lifetime, state)) continue;
+      // 2番目の 防御: 1件の 条件の 例外で save と 起動を とめない。未達の まま 記録する
+      let met = false;
+      try { met = ach.condition(state.lifetime, state); } catch (err) {
+        if (!achievementErrorsReported.has(ach.id)) { achievementErrorsReported.add(ach.id); reportRuntimeError(err, `achievement:${ach.id}`); }
+      }
+      if (!met) continue;
       state.achievementsUnlocked.push(ach.id);
       // かいほうした ひづけ(じっせき画面の「さいきん」と NEW の しるしに つかう)
       (state.lifetime.achievementUnlockedAt || (state.lifetime.achievementUnlockedAt = {}))[ach.id] = Date.now();
@@ -2187,6 +2447,10 @@
   // 5つのゴール:
   // ①〜③は100さいの人生評価、④は現在の図鑑全形態、⑤は全実績。
   // ①〜③を同じ人生で同時達成した場合は最高位だけを大きく見せる。
+  // RH-5: ゴールの 段の ID と 番号の 正本(1 か所)。番号 = save の endingTiersReached / NAOTO_ITEMS などの unlockTier の 値
+  // = goal-(番号+1) の 絵 = data-goal - 1。番号も 並びも 変えない(save の 形式は そのまま)。下の 段ごとの 表は この 並びに そろえる
+  const GOAL_TIER_IDS = Object.freeze(['life', 'lifeClear', 'best', 'dex', 'perfect']);
+  const GOAL_TIER = Object.freeze(Object.fromEntries(GOAL_TIER_IDS.map((id, i) => [id, i])));
   const ENDING_TIER_ICONS = ['🎉', '🏮', '🌳', '📖', '👑'];
   const ENDING_TIERS = [
     {
@@ -2198,20 +2462,20 @@
       desc: '100さいまで、一生を生きぬいた!<br>つぎのゴール: 100さい＋そだち70いじょう',
     },
     {
-      title: 'いっしょうクリア!',
+      title: 'たくさんそだった!',
       art: 'assets/clear/goal-2-naoto-v2.jpg?v=20260910-ending-1',
       artAlt: '星空の港で、白いパーカーのナオトと犬がランタンのそばに座る後ろ姿',
       confetti: '🏮✨🌙✨🏮',
       badges: ['★①てんじゅ', '★②いっしょうクリア'],
-      desc: 'よく育てながら、100さいまで生きぬいた!<br>つぎのゴール: 100さい＋そだち100',
+      desc: 'たくさんの時間をすごして、100さいまで一生を生きぬいた!<br>つぎのゴール: 100さい＋そだち100',
     },
     {
-      title: 'さいこうのいっしょう!',
+      title: 'そだち100!',
       art: 'assets/clear/goal-3-naoto-v2.jpg?v=20260910-ending-1',
       artAlt: '思い出の写真が揺れる木の下で、白いパーカーのナオトと犬が寄り添う後ろ姿',
       confetti: '🌳✨🌈✨🌳',
-      badges: ['★①てんじゅ', '★②いっしょう', '★③さいこうのいっしょう'],
-      desc: 'そだち100にとどき、100さいをむかえた。<br>つぎは、ずかんのすべての姿を見つけよう!',
+      badges: ['★①てんじゅ', '★②そだち70', '★③そだち100'],
+      desc: 'そだち100にとどき、100さいまで一生を生きぬいた。<br>つぎは、ずかんのすべての姿を見つけよう!',
     },
     {
       title: 'ずかんクリア!',
@@ -2354,31 +2618,19 @@
   // state.lifetime.equippedItemId と つきあわされ、そうびちゅうだけ
   // こうかを はっきする(いちどに そうびできるのは 1つだけ)。
   //
-  // ぜんぶで50しゅるい。多くは おなじ こうかの グレードアップ チェーン
-  // (むじるし → 2 → 3)に なっていて、ねだんが たかい ものほど こうかも
-  // 豪華に なる。だいたい 4つの ねだん帯に わかれる:
-  //   ・きほん(10〜90): さいしょから すこし ためれば かえる
-  //   ・じょうきゅう(150〜600): ある程度 ミニゲームを かさねないと とどかない
-  //   ・プレミアム(800〜2200): まとまった プレイが ひつよう
-  //   ・でんせつ/むげん(5000〜20000): パーフェクトクリアの あとも おかねを
-  //     かせぎつづけないと とても とどかない、いちばん 豪華な こうか
+  // 装備は10種類。価格と説明は item-system.js の承認済みカタログを使う。
   const SHOP_ITEMS = [
-    { id: 'flower', label: 'おはな', emoji: '🌼', price: 60, desc: 'きゅうあいが、少しうまくいきやすくなる' },
-    { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 60, desc: 'ごきげんがすこしへりにくい' },
-    { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 60, desc: 'おなかがすこしへりにくい' },
-    { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻', price: 70, desc: 'うんちがすこしたまりにくい' },
-    { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 80, desc: 'びょうきにすこしなりにくい' },
-    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 90, desc: 'ミニゲームの得点が少しのびる' },
-    { id: 'energy1', label: 'げんきバンド', emoji: '⚡', price: 100, desc: 'げんきがすこしへりにくい' },
-    { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 110, desc: 'へんしんの力が少したまりやすい' },
-    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 120, desc: '旅から帰ったあとのごきげんが、少しよくなる' },
-    { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️', price: 130, desc: 'ねているとき、げんきの回復が少しふえる' },
-    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 150, desc: 'ミニゲームのあとにもらえるコインが、少しふえる' },
-    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾', price: 170, desc: 'なかまのきずながすこしへりにくい' },
-    { id: 'partner1', label: 'らぶれたー', emoji: '💌', price: 190, desc: 'こいびとのなかよし度がすこしへりにくい' },
-    { id: 'crown', label: 'かんむり', emoji: '👑', price: 220, desc: 'つらいことがあったとき、いのちが少しへりにくい' },
-    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 250, desc: 'めずらしいごほうびに、ほんの少し出会いやすくなる' },
-  ];
+    { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻' },
+    { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️' },
+    { id: 'bowtie', label: 'おべんとうばこ', emoji: '🎗️' },
+    { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },
+    { id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },
+    { id: 'travel1', label: 'リュックサック', emoji: '🎒' },
+    { id: 'partner1', label: 'らぶれたー', emoji: '💌' },
+    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },
+    { id: 'gamepass1', label: 'ゲームパス', emoji: '🎮' },
+    { id: 'star', label: 'スターバッジ', emoji: '⭐' },
+  ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
   // そうびできるのは 1つだけなので、こうかの はんてい先は ここ 1か所ずつ)
@@ -2386,21 +2638,67 @@
     return state.lifetime.equippedItemId === id;
   }
 
-  // 「なおとの〜」でんせつアイテム。ENDING_TIERS の 4だんかいクリアに
-  // それぞれ 1つずつ ひもづく、けたちがいの こうがくアイテム。SHOP_ITEMS
-  // と ちがって そうび/かいじょの きがえは なく、こうにゅうすれば
-  // それいこう ずっと こうかを はっきしつづける(なんこ もっていても いい)。
+  // 最初の4つのゴールに対応する達成品。購入や通常装備の枠は不要。
+  // 所有は永久に残り、それぞれの条件で効果や思い出が増える。
   // unlockTier は isThemeUnlocked() と おなじ フィールド名を つかって
   // COLOR_THEMES/PATTERNS と ロジックを 共有する
   const NAOTO_ITEMS = [
-    { id: 'naoto_charm', label: 'なおとのおまもり', emoji: '🧿', unlockTier: 0, desc: '幼いころと年をとってから、いのちが少しへりにくくなる' },
-    { id: 'naoto_lantern', label: 'なおとのランタン', emoji: '🏮', unlockTier: 1, desc: '旅の途中で、不思議なあかりを見かけることがある' },
-    { id: 'naoto_ring', label: 'なおとのリング', emoji: '💍', unlockTier: 2, desc: 'とくべつなデートに、ふたりだけの一言が加わる' },
-    { id: 'naoto_crown', label: 'なおとのかんむり', emoji: '👑', unlockTier: 3, desc: 'おたのしみで遊ぶとき、たまに特別な一言が出る' },
+    { id: 'naoto_charm', label: 'なおとのおまもり', emoji: '🧿', unlockTier: 0, desc: '70歳以降の、年齢によるいのちのリスクを28%やわらげる' },
+    { id: 'naoto_lantern', label: 'なおとのランタン', emoji: '🏮', unlockTier: 1, desc: ITEM_SYSTEM.CATALOG.naoto_lantern.desc },
+    { id: 'naoto_ring', label: 'なおとのリング', emoji: '💍', unlockTier: 2, desc: ITEM_SYSTEM.CATALOG.naoto_ring.desc },
+    { id: 'naoto_crown', label: 'なおとのかんむり', emoji: '👑', unlockTier: 3, desc: ITEM_SYSTEM.CATALOG.naoto_crown.desc },
   ];
 
   function hasNaotoItem(id) {
     return state.lifetime.ownedNaotoItems.includes(id);
+  }
+
+  // Only natural, already-eligible encounter pools call this helper. Use the
+  // same registration records as the dex, never inferred encounter histories.
+  function ringDexWeight(kind, candidate) {
+    if (!hasNaotoItem('naoto_ring')) return 1;
+    let known;
+    if (kind === 'species') {
+      if (!ALL_LINES.includes(candidate) || isSecretLine(candidate)) return 1;
+      known = state.discoveredStages.includes(`${candidate}:${currentFormStageIndex()}`);
+    } else if (kind === 'companion') {
+      if (!candidate || !allCompanionsById(candidate.id)) return 1;
+      known = hasRecruitedCompanionId(canonicalCompanionId(candidate.id));
+    } else if (kind === 'partner') {
+      if (!candidate || !ALL_PARTNER_CANDIDATES.some(c => c.id === candidate.id)
+        || !mutualRomanticMatch(state, candidate)) return 1;
+      known = state.lifetime.partnersRecorded.includes(candidate.id);
+    } else return 1;
+    return known ? 1 : 2;
+  }
+
+  function pickRingCandidate(pool, kind, baseWeight = () => 1) {
+    if (!pool.length) return null;
+    return weightedPick(pool, pool.map(candidate => baseWeight(candidate) * ringDexWeight(kind, candidate)));
+  }
+
+  // 支援条件は実績のそばに置く。達成済みの履歴は、次の人生でも優先する。
+  // 図鑑完成前の旧かんむりは所有を残すが、この新効果はまだ発動させない。
+  function crownAchievementWeight(kind, candidate) {
+    const L = state.lifetime || {};
+    if (!L.ownedNaotoItems?.includes('naoto_crown')
+      || !(L.dexCleared || isDexComplete())) return 1;
+    const unlocked = state.achievementsUnlocked || [];
+    const needed = ACHIEVEMENTS.some((achievement) => {
+      const target = achievement.crown;
+      if (!target || target.kind !== kind || unlocked.includes(achievement.id)
+        || achievement.condition(L, state)) return false;
+      if (kind === 'game') {
+        if (target.unplayed) return !minigamePlayCount(candidate);
+        return (L.minigameRecords?.[candidate.id]?.best || 0) < target.bestBelow;
+      }
+      if (kind === 'sticker') return target.unowned
+        ? !ownedStickerCount(candidate.id) : crownNeedsTaskSticker(candidate);
+      if (kind === 'moment') return ['hunger', 'happiness', 'energy', 'health']
+        .every(key => candidate[key] === undefined || (Number.isFinite(candidate[key]) && candidate[key] >= 0));
+      return false; // 出会い・危険・設定・Quickなど、他の抽選には適用しない。
+    });
+    return needed ? 2 : 1; // 複数の未達条件に合っても一度だけ。
   }
 
   // 既存セーブの本物の記録を正として5ゴールへ復元する。
@@ -2408,11 +2706,11 @@
   function achievedGoalTiers() {
     const L = state.lifetime || {};
     const tiers = [];
-    if ((L.clears || 0) >= 1) tiers.push(0);
-    if ((L.lifeClears || 0) >= 1) tiers.push(1);
-    if ((L.bestLives || 0) >= 1) tiers.push(2);
-    if (L.dexCleared || state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE) tiers.push(3);
-    if (L.perfectCleared || ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id))) tiers.push(4);
+    if ((L.clears || 0) >= 1) tiers.push(GOAL_TIER.life);
+    if ((L.lifeClears || 0) >= 1) tiers.push(GOAL_TIER.lifeClear);
+    if ((L.bestLives || 0) >= 1) tiers.push(GOAL_TIER.best);
+    if (L.dexCleared || isDexComplete()) tiers.push(GOAL_TIER.dex);
+    if (L.perfectCleared || ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id))) tiers.push(GOAL_TIER.perfect);
     return tiers;
   }
 
@@ -2448,90 +2746,77 @@
   }
 
 
-  // つかいきり アイテム(CONSUMABLE_ITEMS)。SHOP_ITEMS/NAOTO_ITEMS の ように
-  // そうびして のこる ものでは なく、こうにゅうした しゅんかんに 1かいだけ
-  // こうかを はっきする。しぼうメーターの かいふくは べつの しくみ
-  // (RECOVERY_ITEMS/useItem())で すでに ようい されている ため、ここには
-  // 単純な しぼうメーター回復の アイテムは いれない。
-  //
-  // avaliable(state に依存する きょかはんてい)を みたさない あいだは
-  // ボタンを おしても なにも おきず、unavailableMessage が かわりに 出る。
-  // picker が セットされて いる アイテムは、こうにゅう ボタンを おした
-  // しゅんかんには まだ おかねを はらわず、pickerOverlay で なにを
-  // えらぶかを きめてから(resolvePickerSelection)はじめて はらう。
-  // apply()/apply(value) が {} を かえした ばあいは、なかで すでに
-  // setMessage() ずみ(onStageChanged/checkMeters けいゆ)という あいずなので、
-  // よびだし側は じぶんの メッセージで 上書きしない
-  // それぞれ「つぎの 1かい」だけ こうかが ある。おなじ こうかを もう もって
-  // いる あいだは かえない(available)。うけとりがわは state.oneTimeBoosts を よむ
+  // 購入は永久在庫へ。使用時に available を確認し、効果成立後に1個使う。
+  // この配列はゲーム側の発動処理だけを持ち、商品情報はモジュールから読む。
+  const LUCKY_COIN_ROULETTE = Object.freeze([
+    { below: 0.15, coins: 10 }, { below: 0.35, coins: 20 },
+    { below: 0.60, coins: 50 }, { below: 0.80, coins: 100 },
+    { below: 0.92, coins: 500 }, { below: 0.99, coins: 1000 },
+    { below: 1, coins: 10000 },
+  ].map(Object.freeze));
   const CONSUMABLE_ITEMS = [
-    { id: 'c_coin2', label: 'ラッキーコイン', emoji: '🪙', price: 80, desc: 'つぎのミニゲーム大成功でもらうおかねが2ばい（チャレンジの報酬は別）',
-      available: () => !state.oneTimeBoosts.doubleCoins, unavailableMessage: 'もう持っている（つぎのミニゲーム大成功で使う）',
-      apply: () => { state.oneTimeBoosts.doubleCoins = true; return { message: '🪙ラッキーコインをにぎりしめた。つぎのミニゲーム大成功でもらうおかねが2ばい!' }; } },
-    { id: 'c_safety', label: 'スコアほけん', emoji: '🛡️', price: 90, desc: 'つぎのミニゲーム失敗で、おとろえは増えず、いのちも減らない',
-      available: () => !state.oneTimeBoosts.safetyNet, unavailableMessage: 'もう持っている（つぎのミニゲーム失敗で使う）',
-      apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: '🛡️スコアほけんに入った。つぎのミニゲーム失敗で、おとろえといのちを守る' }; } },
-    { id: 'c_mgsmall', label: 'やる気のおまもり', emoji: '🔥', price: 120, desc: 'つぎのゲームのごほうびと失敗の判定に25点を加える（記録とランクは変わらない）',
-      available: () => !state.oneTimeBoosts.minigameBoost, unavailableMessage: 'おまもりはひとつずつ（つぎのゲームで使う）',
-      apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: '🔥やる気がわいてきた。つぎのゲームのごほうびと失敗の判定に25点を加える' }; } },
-    { id: 'c_mgbig', label: '大成功のおまもり', emoji: '💫', price: 300, desc: 'つぎのゲームで大成功と同じごほうび・回復効果（記録とランクは変わらない）',
-      available: () => !state.oneTimeBoosts.minigameBoost, unavailableMessage: 'おまもりはひとつずつ（つぎのゲームで使う）',
-      apply: () => { state.oneTimeBoosts.minigameBoost = 'big'; return { message: '💫大成功のおまもりをにぎった。つぎのゲームで、大成功と同じごほうび・回復効果!' }; } },
-    { id: 'c_sickshield', label: 'びょうきよけのおふだ', emoji: '🧧', price: 100, desc: 'お世話不足で病気になりそうなとき、3回まで防ぐ',
-      available: () => (state.oneTimeBoosts.sicknessShieldCount || 0) <= 0, unavailableMessage: 'おふだがまだのこっている',
-      apply: () => { state.oneTimeBoosts.sicknessShieldCount = 3; return { message: '🧧びょうきよけのおふだをはった（3回分）' }; } },
-    { id: 'c_growth', label: 'せいちょうドリンク', emoji: '🧃', price: 250, desc: 'せいちょう2ばいの時間を5分追加（合計10分まで）',
-      available: () => (state.boostTicks || 0) < BOOST_TICKS_MAX && isLiveLife() && !state.infinite, unavailableMessage: '今はせいちょうドリンクを使えない',
-      apply: () => { grantGrowthBoost(100); return { message: '🧃せいちょうドリンクを飲んだ。せいちょう2ばいの時間を5分追加（合計10分まで）' }; } },
-    { id: 'c_courtsmall', label: 'こいのおまもり', emoji: '💘', price: 150, desc: '夫婦になる前のきゅうあいが、1回だけ少しうまくいきやすい',
-      available: () => !state.oneTimeBoosts.courtBoost, unavailableMessage: 'おまもりはひとつずつ（夫婦になる前のきゅうあいで使う）',
-      apply: () => { state.oneTimeBoosts.courtBoost = 'small'; return { message: '💘こいのおまもりを持った。夫婦になる前のきゅうあいを1回助けてくれる' }; } },
-    { id: 'c_courtbig', label: 'こいの大おまもり', emoji: '💝', price: 350, desc: '夫婦になる前のきゅうあいが、1回だけかなりうまくいきやすい',
-      available: () => !state.oneTimeBoosts.courtBoost, unavailableMessage: 'おまもりはひとつずつ（夫婦になる前のきゅうあいで使う）',
-      apply: () => { state.oneTimeBoosts.courtBoost = 'big'; return { message: '💝こいの大おまもりを持った。夫婦になる前のきゅうあいを1回、大きく助けてくれる' }; } },
-    { id: 'c_breakhalf', label: 'なかなおりのおまもり', emoji: '🩹', price: 200, desc: 'つぎに別れたとき、いのちの減りが半分になる（別れは防げない）',
-      available: () => !state.oneTimeBoosts.breakupShield, unavailableMessage: 'おまもりはひとつずつ',
-      apply: () => { state.oneTimeBoosts.breakupShield = 'half'; return { message: '🩹なかなおりのおまもりをもった' }; } },
-    { id: 'c_breakfull', label: 'きずなのおまもり', emoji: '💞', price: 400, desc: 'つぎに別れたとき、いのちが減らない（別れは防げない）',
-      available: () => !state.oneTimeBoosts.breakupShield, unavailableMessage: 'おまもりはひとつずつ',
-      apply: () => { state.oneTimeBoosts.breakupShield = 'full'; return { message: '💞きずなのおまもりをもった' }; } },
-    { id: 'c_travel', label: 'たびのおまもり', emoji: '🧭', price: 120, desc: 'つぎの旅は、続けて出かけても「たびづかれ」にならない（げんき・おなかは使う）',
-      available: () => !state.oneTimeBoosts.travelGuarantee, unavailableMessage: 'もう持っている（つぎの旅で使う）',
-      apply: () => { state.oneTimeBoosts.travelGuarantee = true; return { message: '🧭たびのおまもりを持った。つぎの旅は「たびづかれ」にならない' }; } },
-  ];
+    { id: 'c_coin2', label: 'ラッキーコイン', emoji: '🪙',
+      apply: () => {
+        const draw = Math.random();
+        const { coins } = LUCKY_COIN_ROULETTE.find(prize => draw < prize.below);
+        state.lifetime.money += coins;
+        return { message: `ラッキーコインのルーレットで${coins}コインをもらった!` };
+      } },
+    { id: 'c_life', emoji: '💊',
+      available: () => !state.infinite && currentAge() < GOAL_AGE && state.deathMeter > 0,
+      unavailableMessage: 'いのちが満タンのときは使えない',
+      apply: () => { state.deathMeter=0; state.dying=false; state.dyingTicks=0; return {message:'いのちが満タンになった'}; } },
+    { id: 'c_life_charm', emoji: '🧿', automatic: true,
+      available: () => false, unavailableMessage: '死んでしまうときに自動で使う' },
+    { id:'c_time_back', emoji:'🕰️', available:() => !state.infinite && currentFormStageIndex() > 0,
+      unavailableMessage:'これより前のすがたはない', apply:() => applyTemporaryForm(state.speciesLine,currentFormStageIndex()-1) },
+    { id:'c_time_forward', emoji:'🕰️', available:() => !state.infinite && currentFormStageIndex() < STAGES_PER_LINE-1,
+      unavailableMessage:'これより後のすがたはない', apply:() => applyTemporaryForm(state.speciesLine,currentFormStageIndex()+1) },
+    { id:'c_transform', emoji:'🔄', picker:'transform-ticket',
+      available:() => !state.infinite && !state.transformOptions && pickTicketTransformCandidates().length > 0,
+      unavailableMessage:'いま選べるへんしん先がない' },
+    { id:'c_dex', emoji:'📖', picker:'dex-form', available:() => !state.infinite && temporaryDexKeys().length > 0,
+      unavailableMessage:'いま選べるすがたがない' },
+    { id:'c_friend', emoji:'🐾', picker:'companion-ticket', companionKind:'normal',
+      available:() => !pendingCompanionId && ticketCompanionCandidates('normal').length > 0,
+      unavailableMessage:'いま呼べるなかまがいない' },
+    { id:'c_rare_friend', emoji:'✨', picker:'companion-ticket', companionKind:'rare',
+      available:() => !pendingCompanionId && ticketCompanionCandidates('rare').length > 0,
+      unavailableMessage:'いま呼べるレアなかまがいない' },
+    { id:'c_match', emoji:'💑', picker:'match-ticket',
+      available:() => !state.partner && ticketMatchCandidates().length > 0,
+      unavailableMessage:'いま呼べるおみあい相手がいない' },
+    ...['normal','rare'].map(kind => ({ id:`c_egg_${kind}`, emoji:'🥚', eggKind:kind,
+      available:() => !state.lifetime.nextEggLine && !state.lifetime.nextEggKind && unraisedEggLines(kind).length > 0,
+      unavailableMessage:'予約中、またはまだ育てていない種族がいない' })),
+  ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}))
+    .sort((a,b) => Object.keys(ITEM_SYSTEM.CATALOG).indexOf(a.id) - Object.keys(ITEM_SYSTEM.CATALOG).indexOf(b.id));
   // いま もっている つかいきりの こうかを、あいてむ画面に みじかく 出す
   function activeBoostSummary() {
-    const b = state.oneTimeBoosts || {};
     const out = [];
-    if (b.doubleCoins) out.push('🪙ラッキーコイン');
-    if (b.safetyNet) out.push('🛡️スコアほけん');
-    if (b.minigameBoost) out.push(b.minigameBoost === 'big' ? '💫大成功のおまもり' : '🔥やる気のおまもり');
-    if (b.sicknessShieldCount > 0) out.push(`🧧びょうきよけのおふだ×${b.sicknessShieldCount}`);
-    if (b.courtBoost) out.push(b.courtBoost === 'big' ? '💝こいの大おまもり' : '💘こいのおまもり');
-    if (b.breakupShield) out.push(b.breakupShield === 'full' ? '💞きずなのおまもり' : '🩹なかなおりのおまもり');
-    if (b.travelGuarantee) out.push('🧭たびのおまもり');
-    if (state.boostTicks > 0) out.push(`✨せいちょう2ばい（あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}分）`);
+    if (isEquipped('sleepboost1') && state.itemLife.pillowUntil > state.lifetime.itemProgress.ticks) out.push(`すっきり、あと${Math.ceil((state.itemLife.pillowUntil - state.lifetime.itemProgress.ticks) * 3 / 60)}分`);
+    if (state.boostTicks > 0) out.push(`せいちょう2ばい（あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}分）`);
     return out;
   }
 
 
   function endingProgress() {
-    const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
+    const dexComplete = isDexComplete();
     // 「実績だけクリア」は廃止。⑤は dex-complete を含む全ACHIEVEMENTSで判定する。
     const achComplete = ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id));
     return { dexComplete, achComplete };
   }
 
   function getEndingTier() {
-    if (grandGoalPending === 'perfect') return 4;
-    if (grandGoalPending === 'dex') return 3;
+    if (grandGoalPending === 'perfect') return GOAL_TIER.perfect;
+    if (grandGoalPending === 'dex') return GOAL_TIER.dex;
     if (state.stage === STAGE.FAREWELL) {
-      if (state.maxSodachi >= SODACHI_MAX) return 2;
-      if (state.maxSodachi >= LIFE_CLEAR_SODACHI) return 1;
-      return 0;
+      if (state.maxSodachi >= SODACHI_MAX) return GOAL_TIER.best;
+      if (state.maxSodachi >= LIFE_CLEAR_SODACHI) return GOAL_TIER.lifeClear;
+      return GOAL_TIER.life;
     }
     const reached = achievedGoalTiers();
-    return reached.length ? Math.max(...reached) : 0;
+    return reached.length ? Math.max(...reached) : GOAL_TIER.life;
   }
 
   function qualifyingEndingTiers() {
@@ -2565,20 +2850,26 @@
     if (storageWarnedAt && now - storageWarnedAt < 5 * 60 * 1000) return;
     storageWarnedAt = now;
     reportRuntimeError(new Error('localStorage quota exceeded'), 'storage');
-    try { setMessage('⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。'); } catch (e) { /* ignore */ }
+    try { setCriticalMessage('⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。'); } catch (e) { /* ignore */ }
   }
 
   // セーブコードの よみこみ中は、ページを とじる ときの じどうセーブで
   // よみこんだ セーブを うわがきしない ように とめる
   let saveLocked = false;
   function saveState() {
+    ITEM_SYSTEM.normalize(state);
     if (saveLocked) return;
     // 復旧候補がすべて読めないときは、非表示時の保存でも原本を消さない。
     if (saveWriteBlocked) return;
+    if (otherTabTookOver) return;
+    let storedRevision = 0;
+    try { storedRevision = storedSaveRevision(localStorage.getItem(SAVE_KEY)); } catch (e) { /* storage unavailable */ }
+    if (storedRevision > knownSaveRevision) { yieldToOtherTab(); return; }
     recordDiscovery();
     checkAchievements();
     checkGrandGoals();
     state.savedAt = Date.now();
+    state.lifetime.saveRevision = knownSaveRevision + 1;
     let raw;
     try { raw = JSON.stringify(state); } catch (e) { return; }
     // 復旧中の壊れた主キーではなく、最後に読込／保存できたデータを退避。
@@ -2587,7 +2878,9 @@
       try { localStorage.setItem(SAVE_BACKUP_KEY, lastGoodSaveRaw); } catch (e) { /* backup is best effort */ }
     }
     try {
+      markSaveWriter();
       localStorage.setItem(SAVE_KEY, raw);
+      knownSaveRevision = state.lifetime.saveRevision;
       lastGoodSaveRaw = raw;
       stateLoadRecovered = false;
       takeSaveSnapshot(raw);
@@ -2599,6 +2892,7 @@
       try {
         localStorage.removeItem(SAVE_SNAP_KEY);
         localStorage.setItem(SAVE_KEY, raw);
+        knownSaveRevision = state.lifetime.saveRevision;
         lastGoodSaveRaw = raw;
         stateLoadRecovered = false;
         noteStorageWarning(false);
@@ -2608,6 +2902,11 @@
     }
   }
 
+  function yieldToOtherTab() {
+    if (otherTabTookOver) return;
+    otherTabTookOver = true;
+    try { setCriticalMessage(OTHER_TAB_MESSAGE); } catch (e) { /* before boot finished */ }
+  }
   function clamp(n, min, max) {
     return Math.max(min, Math.min(max, n));
   }
@@ -3120,6 +3419,25 @@
         if (avail > H) H = Math.min(avail, maxH);
       }
     }
+    // がめんの したが きりとられない ように、canvas の たかさを おさえる。
+    // overlay(ミニゲームの がめん)は はこの たかさが きまって いて、その そとに
+    // 出た ぶんは えがかれない。せかい表示では .screen-frame が overflow:auto なので、
+    // はみ出すと パッドや ボタンの わくの 下が きえて しまう。
+    // grow と おなじ はかり方(はこの たかさ - ほかの こどもの たかさ)を、
+    // こんどは「上げる」ではなく「こえさせない」ために つかう
+    if (canvas && typeof canvas.closest === 'function') {
+      const wrap = canvas.closest('.mg-canvas-wrap');
+      const overlay = wrap && wrap.parentElement;
+      if (overlay && overlay.clientHeight > 200) {
+        let used = 0;
+        for (const ch of overlay.children) { if (ch === wrap) continue; used += (ch.offsetHeight || 0) + 6; }
+        const room = overlay.clientHeight - used - 14;
+        // ならびの とちゅうで はかると はこが つぶれて いる ことが あり、その ときの
+        // 「のこり」を つかうと canvas が ありえない ほど 小さく なる。220 を きったら
+        // まだ おちついて いない と 見なして、うわぎりを かけない
+        if (room >= 220 && H > room) H = Math.round(room);
+      }
+    }
     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
     const dpr = Math.min(mgPerfDpr(), num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
@@ -3216,6 +3534,8 @@
   }
 
   let state = loadState();
+  // RH-9: あとから ひらいた タブが 引きつぐ(起動の save で 1 ふやす ので、まえの タブは 読みとり専用に なる)
+  try { knownSaveRevision = Math.max(Number(state.lifetime.saveRevision) || 0, storedSaveRevision(localStorage.getItem(SAVE_KEY))); } catch (e) { knownSaveRevision = Number(state.lifetime.saveRevision) || 0; }
   // きどう中の さいしょの saveState() で savedAt が いまに なる まえに、
   // まえの セーブの じこくを とっておく(るすのあいだの けいさん用)
   const bootSavedAt = Number(state && state.savedAt) || 0;
@@ -3232,6 +3552,9 @@
   }
   let message = '';
   let gameActive = false;
+  // 「めぐる」(meguru.js)を あるいている あいだ true。ミニゲームとは べつの がめん
+  let meguruActive = false;
+  let meguruRun = null;
   let messageTimer = null;
   // なかまイベントが とちゅうの あいだだけ セットされる、いま くどいて
   // いる COMPANIONS の id。gameActive などと おなじく プレイのたびに
@@ -3281,14 +3604,14 @@
     'cherry_blossom','sunflower','maple_leaf','green_leaf','tree','pine','palm','cactus',
     'snow_mountain','mountain','house','city','wheat','wave','shell','hibiscus',
   ]);
-  const ITEM_ILLUSTRATIONS = {
-    flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',glasses:'glasses',
-    energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
-    partner1:'letter',crown:'crown',itemluck1:'clover',
-    naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
-    fun_candy:'candy',fun_bubbles:'bubbles',fun_balloon:'balloon',fun_fireworks:'fireworks',
-    fun_camera:'camera',fun_musicbox:'musicbox',fun_surprise:'surprise',
-  };
+  // Item art has its own semantic files so visually similar effects (such as
+  // time directions and egg classes) never collapse into one generic glyph.
+  const UNIFIED_ITEM_IDS = new Set([
+    'poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star',
+    'naoto_charm','naoto_lantern','naoto_ring','naoto_crown','c_coin2','c_life','c_life_charm',
+    'c_time_back','c_time_forward','c_transform','c_dex','c_friend','c_rare_friend','c_match',
+    'c_egg_normal','c_egg_rare','sticker_pack',
+  ]);
   // CSS background failures do not emit element error events. A single hidden
   // image per atlas observes loading; failure only changes presentation state.
   const UI_ATLAS_IMAGES = {};
@@ -3305,17 +3628,25 @@
     if (!scenery && !UI_ILLUSTRATION_KEYS.has(icon)) return '';
     return `<i class="care-icon ui-icon${scenery ? ' scenery-icon' : ''}" data-ui-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}>${iconFallbackHTML(fallback)}</i>`;
   }
+  function itemPictureHTML(item, label = '') {
+    if (!item || !UNIFIED_ITEM_IDS.has(item.id)) return '';
+    const src = `assets/items/unified/${item.id}.png`;
+    const accessible = label
+      ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"`
+      : 'aria-hidden="true"';
+    return `<span class="item-picture" ${accessible}><img class="item-asset" src="${src}" alt="" width="128" height="128" decoding="async" draggable="false">${iconFallbackHTML(item.emoji)}</span>`;
+  }
   function itemIconHTML(item, labelled = false) {
     const label = labelled ? item.label : '';
-    if (item.id === 'sleepboost1') return careIconHTML('sleep', label, item.emoji);
-    const key = Object.hasOwn(ITEM_ILLUSTRATIONS, item.id) ? ITEM_ILLUSTRATIONS[item.id] : '';
-    return uiIconHTML(key, label, item.emoji) || escapeHtml(item.emoji || '');
+    const picture = itemPictureHTML(item, label);
+    if (picture) return picture;
+    return escapeHtml(item.emoji || '');
   }
   function environmentIconHTML(kind, id, fallback) {
     const keys = kind === 'weather' ? {sunny:'sun',cloudy:'cloud',rain:'rain',snow:'snow'}
       : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'}
       : kind === 'season' ? {spring:'cherry_blossom',summer:'sunflower',autumn:'maple_leaf',winter:'snow'}
-      : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',tropical:'palm',jungle:'palm',mountain:'mountain',snow:'snow_mountain',desert:'cactus',city:'city',memory_lake:'bubbles'} : {};
+      : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',jungle:'palm',mountain:'mountain',snow:'snow_mountain',desert:'cactus',city:'city',memory_lake:'bubbles'} : {};
     return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '', '', fallback) || PROP_ILLUSTRATIONS?.iconHTML(fallback) || escapeHtml(fallback || '');
   }
   // Reuse only illustrations of the same object. Region/season data and saved
@@ -3432,7 +3763,7 @@
     ['🧸','play-100'],['💕','pet-100 romantic-10'],['🏅','brave-10 record-rank-a-20 clear-25'],
     ['💰','money-500'],['🌈','weather-all'],['🐾','companion-5'],['✨','sodachi-90 transform-25'],
     ['🏆','lifeclear-10 perfect-life games-complete-100 item-all'],['🌳','nodecline'],
-    ['💍','married-3'],['🎁','shop-all sticker-10'],['🎈','consumable-all'],
+    ['💍','married-3'],['🎁','shop-all sticker-10'],
     // シールちょうの じっせき(絵は きぞんの しるしを つかいまわす)
     ['📖','sticker-tasks-5'],['🏆','sticker-100'],
   ].flatMap(([mark,ids])=>ids.split(' ').map(id=>[id,mark])));
@@ -3526,6 +3857,17 @@
     atlases:UI_ATLAS_IMAGES, currentActor:currentVisualStage,
   });
   const CANVAS_ILLUSTRATIONS = DISPLAY_CATALOG && globalThis.NaotocchiCanvasIllustrations?.create({document,resolve:DISPLAY_CATALOG.resolve});
+  // けしき せんよう の resolver: なかま・こいびと・しゅぞくの え(assets/characters/…)や いまの じぶん(U+E000)には ぜったいに ならない。
+  // めぐる の こもの(🍄 や 🐈 など)は「ずかんの じゅうみん」では なく けしき なので、こちらを とおす(キャラの え に ばけない)
+  const SCENERY_RESOLVE = DISPLAY_CATALOG ? (emoji) => {
+    if (emoji === '\uE000') return null;
+    const d = DISPLAY_CATALOG.resolve(emoji);
+    if (!d) return null;
+    if (d.asset && /assets\/characters\//.test(String(d.asset))) return null;
+    if (d.emoji != null && d.asset) return null; // しゅぞくの すがた(stage)の ていぎ
+    return d;
+  } : null;
+  const SCENERY_CANVAS = SCENERY_RESOLVE && globalThis.NaotocchiCanvasIllustrations?.create({document,resolve:SCENERY_RESOLVE});
   function displayIconHTML(emoji) {
     return DISPLAY_CATALOG?.html(emoji) || commentIconHTML(emoji) || escapeHtml(emoji || '');
   }
@@ -3533,7 +3875,7 @@
     const line = record.line || Object.keys(SPECIES_DISPLAY_NAMES).find(key => SPECIES_DISPLAY_NAMES[key] === record.species);
     const stages = SPECIES[line]?.stages || [];
     const normalize=mark => String(mark || '').replace(/[\uFE0E\uFE0F]/g,'');
-    const byAge = stages[stageForAge(Number(record.age) || 0)];
+    const byAge = stages[stageForAge(Number(record.age) || 0, line)];
     const stage = Number.isInteger(record.visualStage) && record.visualStage >= 0 && record.visualStage < stages.length
       ? stages[record.visualStage]
       : !record.emoji || normalize(byAge?.emoji)===normalize(record.emoji) ? byAge
@@ -3551,7 +3893,7 @@
     const candidates=stages.filter(s => s.asset && (isGrowth || normalize(s.emoji)===normalize(icon)));
     const named=candidates.filter(s => text.includes(compactJapaneseText(s.label)))
       .sort((a,b) => compactJapaneseText(b.label).length - compactJapaneseText(a.label).length)[0];
-    const final=/てんごく|おわかれ/.test(text) ? SPECIES[line]?.stages[stageForAge(Number(entry.age)||0)] : null;
+    const final=/てんごく|おわかれ/.test(text) ? SPECIES[line]?.stages[stageForAge(Number(entry.age)||0, line)] : null;
     const character=named || (final && normalize(final.emoji)===normalize(icon) ? final : null);
     if(character) return commentPictureHTML(character.asset,icon,character.label);
     const actor=[...COMPANIONS,...RARE_COMPANIONS,...ALL_PARTNER_CANDIDATES].find(c => text.includes(c.name || c.label) && normalize(c.emoji)===normalize(icon));
@@ -3618,7 +3960,7 @@
       }
       carePrevious = {...next, quarter};
       const kind = visible ? notice?.kind || '' : '';
-      if (kind && kind !== carePreviousKind && notice.motion && !mgPerfLow
+      if ((!EMOTION_STATE || !EMOTION_STATE.resolve) && kind && kind !== carePreviousKind && notice.motion && !mgPerfLow
         && !speechActive && !conversationIsBusy() && document.visibilityState !== 'hidden') {
         castMotion?.emote(notice.motion);
       }
@@ -3648,7 +3990,25 @@
     }
   }
 
+  // RH-10(Roadmap §8.5 の 優先度 0 critical だけ): 保存の 失敗・読みこみからの 復旧・複数タブ の おしらせは、
+  // ほかの おしらせに 上書き されず 8 秒 のこす。そのあいだに 来た ふつうの おしらせは 最後の 1 つだけ あとで 出す
+  // (優先度 1〜3 の queue と 雑談の 間隔は 決めて いない。いままでどおり)
+  function setCriticalMessage(msg) {
+    criticalUntil = Date.now() + CRITICAL_MESSAGE_MS;
+    deferredMessage = null;
+    showMessage(msg, CRITICAL_MESSAGE_MS);
+    clearTimeout(criticalTimer);
+    criticalTimer = setTimeout(() => {
+      criticalTimer = null; criticalUntil = 0;
+      const next = deferredMessage; deferredMessage = null;
+      if (next) showMessage(next, MESSAGE_DURATION_MS);
+    }, CRITICAL_MESSAGE_MS);
+  }
   function setMessage(msg) {
+    if (criticalUntil && Date.now() < criticalUntil) { if (msg) deferredMessage = msg; return; }
+    showMessage(msg, MESSAGE_DURATION_MS);
+  }
+  function showMessage(msg, duration) {
     message = compactJapaneseText(msg);
     if (CARE_STATUS) renderCareNotice();
     else { setCommentText(el.message, message); el.message.scrollTop = 0; }
@@ -3666,7 +4026,7 @@
         messageTimer = null;
         message = '';
         if (!gameActive) render();
-      }, MESSAGE_DURATION_MS);
+      }, duration);
     }
   }
 
@@ -3683,8 +4043,174 @@
       && state.stage !== STAGE.DEAD && !state.transformOptions && !isAnyMenuOverlayOpen(),
     isResting: () => state.isSleeping || state.isSick || state.dying || state.stage === STAGE.FAREWELL,
     getMotionRadius: homeCastMotionRadius,
+    getRelationshipTargets: relationshipTargets,
+    canSpecial: () => !state.isSleeping && currentCareSignals()?.life !== 'critical',
     env: window,
   });
+
+  let homeEmotion = {state:'normal',severity:'none',motion:null,cueMinMs:0,cueMaxMs:0,gentle:true,suppressPetIdle:false};
+  let emotionCueTimer = null;
+  let emotionCueKey = '';
+  let emotionCueActiveUntil = 0;
+  let careReactionSerial = 0;
+  let careAfterglowTimer = null;
+  let careStoryTimer = null;
+  let petExpressionTransient = null;
+  let petExpressionTimer = null;
+
+  function clearPetExpression(renderNow = false) {
+    if (petExpressionTimer) clearTimeout(petExpressionTimer);
+    petExpressionTimer = null;
+    petExpressionTransient = null;
+    if (renderNow) renderPetVisual();
+  }
+
+  function startPetExpression(expression, durationMs) {
+    if (!PET_EXPRESSION || !durationMs || !emotionCueContextVisible()) return;
+    clearPetExpression();
+    const transient = {
+      life:state,
+      line:state.speciesLine,
+      stageIndex:currentFormStageIndex(),
+      expression,
+      until:Date.now()+durationMs,
+    };
+    petExpressionTransient = transient;
+    petExpressionTimer = setTimeout(() => {
+      if (petExpressionTransient !== transient) return;
+      petExpressionTimer = null;
+      petExpressionTransient = null;
+      renderPetVisual();
+    },durationMs);
+    renderPetVisual();
+  }
+
+  function currentPetExpressionReaction(emotion) {
+    const transient = petExpressionTransient;
+    if (!transient) return null;
+    const stale = transient.life !== state || transient.line !== state.speciesLine
+      || transient.stageIndex !== currentFormStageIndex() || Date.now() >= transient.until
+      || !emotionCueContextVisible() || state.isSleeping
+      || (emotion.state === 'weak' && emotion.severity === 'critical');
+    if (stale) {
+      clearPetExpression();
+      return null;
+    }
+    return transient.expression;
+  }
+
+  function invalidateCareAfterglow() {
+    if (careStoryTimer) clearTimeout(careStoryTimer);
+    careStoryTimer = null;
+    careReactionSerial += 1;
+    if (careAfterglowTimer) clearTimeout(careAfterglowTimer);
+    careAfterglowTimer = null;
+    return careReactionSerial;
+  }
+
+  function currentCareSignals() {
+    return CARE_STATUS?.signals?.(state, {
+      immortal:isImmortal(),
+      petAvailable:state.affectionStreak < affectionSpamThreshold(),
+    });
+  }
+
+  function scheduleCareAfterglow(serial, delayMs, motion, shouldRun = () => true) {
+    if (serial !== careReactionSerial || !emotionCueContextVisible()) return;
+    if (careAfterglowTimer) clearTimeout(careAfterglowTimer);
+    const tryRun = () => {
+      careAfterglowTimer = null;
+      const signals = currentCareSignals();
+      if (serial !== careReactionSerial || !signals?.playable || signals.sleeping
+        || signals.life === 'critical' || !emotionCueContextVisible() || !careNoticeVisible()
+        || !shouldRun(signals)) return;
+      if (speechActive || conversationIsBusy() || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'})) {
+        careAfterglowTimer = setTimeout(tryRun,120);
+        return;
+      }
+      const duration = motion ? castMotion?.pet(motion,{gentle:true}) || 0 : 0;
+      if (duration) petBusyUntil = Math.max(petBusyUntil,Date.now()+duration);
+      const expressionDuration = duration || (!motion || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 1000 : 0);
+      if (expressionDuration) startPetExpression('happy',expressionDuration);
+    };
+    careAfterglowTimer = setTimeout(tryRun,delayMs);
+  }
+
+  function deriveHomeEmotion() {
+    if (!CARE_STATUS?.signals || !EMOTION_STATE?.resolve) return homeEmotion;
+    return EMOTION_STATE.resolve(CARE_STATUS.signals(state, {
+      immortal:isImmortal(),
+      petAvailable:state.affectionStreak < affectionSpamThreshold(),
+    }));
+  }
+
+  function petExpressionContextVisible() {
+    return state.stage === STAGE.GROWING
+      && document.visibilityState !== 'hidden' && !gameActive && !meguruActive
+      && !state.transformOptions && !isAnyMenuOverlayOpen()
+      && el.storyFlash.classList.contains('hidden')
+      && el.lifeCardOverlay.classList.contains('hidden');
+  }
+
+  function emotionCueContextVisible() {
+    return !state.isSleeping && petExpressionContextVisible();
+  }
+
+  function canShowEmotionCue() {
+    return emotionCueContextVisible() && !speechActive && !conversationIsBusy()
+      && !careAfterglowTimer && Date.now() >= petBusyUntil && !castMotion?.isActive({kind:'pet'});
+  }
+
+  function stopActiveEmotionCue() {
+    if (Date.now() < emotionCueActiveUntil && castMotion?.isActive({kind:'pet'})) castMotion.clear();
+    emotionCueActiveUntil = 0;
+  }
+
+  function cancelEmotionCue(stopActive = false) {
+    if (emotionCueTimer) clearTimeout(emotionCueTimer);
+    emotionCueTimer = null;
+    if (stopActive) stopActiveEmotionCue();
+  }
+
+  const randomCueDelay = profile => profile.cueMinMs + Math.random() * (profile.cueMaxMs - profile.cueMinMs);
+
+  function scheduleEmotionCue(delayMs) {
+    cancelEmotionCue();
+    if (!homeEmotion.motion) return;
+    const key = emotionCueKey;
+    emotionCueTimer = setTimeout(() => {
+      emotionCueTimer = null;
+      if (key !== emotionCueKey || !homeEmotion.motion) return;
+      if (!canShowEmotionCue()) { scheduleEmotionCue(1000); return; }
+      const duration = castMotion?.pet(homeEmotion.motion,{gentle:homeEmotion.gentle}) || 0;
+      if (duration) {
+        emotionCueActiveUntil = Date.now() + duration;
+        petBusyUntil = Math.max(petBusyUntil,emotionCueActiveUntil);
+      }
+      scheduleEmotionCue(randomCueDelay(homeEmotion));
+    },Math.max(1,delayMs));
+  }
+
+  function syncHomeEmotion() {
+    const next = deriveHomeEmotion();
+    const key = [next.state,next.severity,next.motion || ''].join('|');
+    const changed = key !== emotionCueKey;
+    homeEmotion = next;
+    emotionCueKey = key;
+    el.petSprite.dataset.emotionState = next.state;
+    el.petSprite.dataset.emotionSeverity = next.severity;
+    if (!emotionCueContextVisible() && careAfterglowTimer) invalidateCareAfterglow();
+    if (!next.motion || !emotionCueContextVisible()) {
+      cancelEmotionCue(true);
+      return;
+    }
+    if (changed) {
+      cancelEmotionCue(true);
+      scheduleEmotionCue(350);
+    } else if (!emotionCueTimer && Date.now() >= emotionCueActiveUntil) {
+      scheduleEmotionCue(350);
+    }
+  }
 
   function hideSpeechBubble() {
     speechActive = false;
@@ -3709,7 +4235,12 @@
     el.speechBubble.classList.remove('hidden');
     // A display:none ancestor has no scroll box; reset after revealing it.
     el.speechText.scrollTop = 0;
+    if (speaker.kind === 'pet') {
+      const expression = PET_EXPRESSION?.reactionFor(reaction.event);
+      if (expression) startPetExpression(expression,SPEECH_DURATION_MS);
+    }
     renderHomeCast();
+    stopActiveEmotionCue();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
       speechTimer = null;
@@ -3735,8 +4266,9 @@
   }
 
   function companionSpeaker() {
-    if (!state.companions.length) return null;
-    const sc = state.companions[Math.floor(Math.random() * state.companions.length)];
+    const present=homePresentCompanions();
+    if (!present.length) return null;
+    const sc = present[Math.floor(Math.random() * present.length)];
     const c = allCompanionsById(sc.id);
     return c ? { kind: 'companion', id: c.id, emoji: c.emoji, label: c.name } : null;
   }
@@ -3949,8 +4481,7 @@
         "なおったー!",
         "においだけでまずそう!",
         "元気のおかえり会しよう!",
-        "元気な声が戻ってきた!",
-        "においでこっちまで苦い!",
+        "元気な声が戻ってきた!",        "においでこっちまで苦い!",
         "今日は応援だけにしとく!",
         "あそぶ場所、とっておくね!"
       ]
@@ -5684,8 +6215,11 @@
   }
 
   function speakEvent(eventKey, ctx = {}) {
-    const pool = CONVERSATION_POOLS[eventKey];
+    const dialogueKey = eventKey === 'evolve' ? 'age' : eventKey === 'companion_new' ? 'minigame_great' : eventKey;
+    const pool = CONVERSATION_POOLS[dialogueKey];
     if (!pool) return;
+    if (careAfterglowTimer) invalidateCareAfterglow();
+    clearPetExpression(true);
     clearConversationTimers();
     const beats = [];
     const petLine = ctx.petText || pickConversationLine(pool.pet, ctx);
@@ -5697,16 +6231,16 @@
       beats.push({ speaker: petSpeaker(), text: petLine });
     }
     if (state.partner && pool.partner && Math.random() < (ctx.partnerChance ?? 0.6)) {
-      const ps = partnerSpeaker();
+      const ps = homePresentPartner() ? partnerSpeaker() : null;
       // 成立・結婚の固有セリフは、必ず恋人の吹き出しへ。
       const relationshipKey = eventKey === 'partner_new' ? 'court' : eventKey === 'marriage' ? 'marriage' : null;
       const relationshipLine = PARTNER_RELATIONSHIP_LINES[state.partner.id]?.[relationshipKey];
-      const line = relationshipLine || partnerDailyLine(eventKey, ctx);
+      const line = relationshipLine || partnerDailyLine(dialogueKey, ctx);
       if (ps && line) beats.push({ speaker: ps, text: line });
     }
     if (state.companions.length && pool.companion && Math.random() < (ctx.companionChance ?? 0.55)) {
       const cs = companionSpeaker();
-      const line = pickCharacterConversationLine(COMPANION_DAILY_REACTIONS[cs?.id]?.[eventKey], pool.companion, ctx);
+      const line = pickCharacterConversationLine(COMPANION_DAILY_REACTIONS[cs?.id]?.[dialogueKey], pool.companion, ctx);
       if (cs && line) beats.push({ speaker: cs, text: line });
     }
     // いるキャラが次々しゃべるテンポを優先。本人→恋人→仲間だけで終わらず、
@@ -5874,13 +6408,13 @@
           "負けた分だけ次の話が長い"
         ]
       };
-      const line = pickConversationLine(followUps[eventKey], ctx);
+      const line = pickConversationLine(followUps[dialogueKey], ctx);
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
-    playConversationBeats(beats, eventKey, ctx.delayMs || 0);
+    playConversationBeats(beats, eventKey, ctx.delayMs || 0, ctx.motionTarget);
   }
 
-  function playConversationBeats(beats, event = 'idle', delayMs = 0) {
+  function playConversationBeats(beats, event = 'idle', delayMs = 0, target = null) {
     clearConversationTimers();
     hideSpeechBubble();
     const visibleBeats = beats.filter((beat) => beat.speaker && beat.text).slice(0, 4);
@@ -5891,7 +6425,7 @@
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener}), delayMs + i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 
@@ -5949,8 +6483,7 @@
     "となりに来る理由、なくてもいいよ",
     "なんとなく同じ方を見ちゃう",
     "お茶が冷めるまで一緒に休も",
-    "おかえりの練習、してみる?"
-  ];
+    "おかえりの練習、してみる?"  ];
   const COMPANION_IDLE_LINES = [
     "いっしょにあそぼう!",
     "ここけっこうすき!",
@@ -6609,7 +7142,7 @@
     // 以前のランダム決定ですでにメスだった個体を、オスへ巻き戻さない。
     if (subject.gender === 'female') subject.clownfishFemaleReached = true;
     const index = subject.infinite && subject.infiniteForm
-      ? subject.infiniteForm.stageIndex : stageForAge(Math.floor(subject.ageTicks / AGE_TICKS_PER_YEAR));
+      ? subject.infiniteForm.stageIndex : stageForAge(Math.floor(subject.ageTicks / AGE_TICKS_PER_YEAR), subject.speciesLine);
     const notice = updateClownfishSex(subject, index);
     if (notice) subject.pendingClownfishTransition = notice;
     if (savedCompatibilityVersion < 2) {
@@ -6704,8 +7237,26 @@
   // 「つうしん」の しくみ
   const GUEST_CODE_PREFIX = 'NAOTOCCHI1:';
 
+  function validGuestOriginId(value) {
+    return typeof value === 'string' && /^[A-Za-z0-9_-]{8,96}$/.test(value);
+  }
+
+  function guestOriginId() {
+    if (!validGuestOriginId(state.itemLife.guestOriginId)) {
+      const random = new Uint32Array(4);
+      if (globalThis.crypto?.getRandomValues) globalThis.crypto.getRandomValues(random);
+      else for (let i=0;i<random.length;i++) random[i] = Math.floor(Math.random()*0x100000000);
+      const serial = (state.lifetime.itemProgress.guestSerial || 0) + 1;
+      state.lifetime.itemProgress.guestSerial = serial;
+      state.itemLife.guestOriginId = `n${Date.now().toString(36)}_${serial}_${Array.from(random,n => n.toString(16).padStart(8,'0')).join('')}`;
+      saveState();
+    }
+    return state.itemLife.guestOriginId;
+  }
+
   function encodeGuestCode() {
     const payload = {
+      u: guestOriginId(),
       s: state.speciesLine,
       i: state.stageIndex,
       g: state.gender,
@@ -6726,6 +7277,7 @@
       const trimmed = raw.trim().replace(/^NAOTOCCHI1:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
       if (!payload || typeof payload !== 'object') return null;
+      if (payload.u !== undefined && !validGuestOriginId(payload.u)) return null;
       if (!ALL_LINES.includes(payload.s)) return null;
       if (!Number.isInteger(payload.i) || payload.i < 0 || payload.i >= STAGES_PER_LINE) return null;
       if (!GENDERS.includes(payload.g)) return null;
@@ -6742,6 +7294,7 @@
       return {
         speciesLine: payload.s,
         stageIndex: payload.i,
+        ...(payload.u ? {originId:payload.u} : {}),
         ...identity,
         traitCounts,
       };
@@ -6765,6 +7318,7 @@
     const stage = personalVisualStage(guest, guest.stageIndex);
     return {
       id: 'guest',
+      ...(validGuestOriginId(guest.originId) ? {originId:guest.originId} : {}),
       label: `ともだちの${stage.label}`,
       emoji: stage.emoji,
       gender: guest.gender,
@@ -7042,19 +7596,19 @@
     });
   }
 
-  const DUEL_CHALLENGE_PREFIX = 'NAOTOCCHIDUELC1:';
-  const DUEL_GUESS_PREFIX = 'NAOTOCCHIDUELG1:';
-  const DUEL_REVEAL_PREFIX = 'NAOTOCCHIDUELR1:';
+  const DUEL_CHALLENGE_PREFIX = 'NAOTOCCHIDUELC2:';
+  const DUEL_GUESS_PREFIX = 'NAOTOCCHIDUELG2:';
+  const DUEL_REVEAL_PREFIX = 'NAOTOCCHIDUELR2:';
   const DUEL_MAX_BET = 999999;
 
-  // 挑戦コードに のるのは かけきんと「こうかいされる こたえ(pub)」だけ。
+  // 挑戦コードには試合ID、かけきん、公開するこたえ(pub)を載せる。
   // Aの ほんね(truth)や、どの もんで うそコインを つかったかは この
   // コードに いっさい ふくまれない ので、Bに もれる ことは ない
   // ひとこと証言(testimony)も この コードだけで はこぶ(あんごうの
   // かいすうは ふやさない)。空文字を「証言なし」の しるしとして つかう
   function encodeDuelChallenge() {
     const d = state.duel;
-    const payload = { bet: d.bet, q: d.entries.map((e) => [e.qId, e.pub, e.testimony || '']) };
+    const payload = { matchId: d.matchId, bet: d.bet, q: d.entries.map((e) => [e.qId, e.pub, e.testimony || '']) };
     return DUEL_CHALLENGE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
   }
 
@@ -7062,10 +7616,10 @@
     try {
       // GUEST_CODE_PREFIX と おなじ りゆうで、プレフィックスは 大文字小文字を
       // くべつせず よみとる(こぴー元アプリの リンク自動検出による 小文字化 対策)
-      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELC1:/i, '');
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELC2:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
-      if (!payload || typeof payload !== 'object') return null;
-      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!payload || typeof payload !== 'object' || !ITEM_SYSTEM.validMatchId(payload.matchId)) return null;
+      if (!Number.isSafeInteger(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
       if (!Array.isArray(payload.q) || payload.q.length !== DUEL_MATCH_QUESTION_COUNT) return null;
       const items = [];
       for (const entry of payload.q) {
@@ -7076,7 +7630,8 @@
         if (testimony !== '' && !DUEL_TESTIMONY_PRESETS.some((t) => t.id === testimony)) return null;
         items.push({ qId, pub, testimony: testimony || null });
       }
-      return { bet: Math.round(payload.bet), items };
+      if (new Set(items.map(x => x.qId)).size !== DUEL_MATCH_QUESTION_COUNT) return null;
+      return { matchId:payload.matchId, bet:payload.bet, items };
     } catch (e) {
       return null;
     }
@@ -7087,16 +7642,16 @@
   // つかっていない ばあいでも、Bは かならず 1問を えらぶ しくみのため)
   function encodeDuelGuess() {
     const d = state.duel;
-    const payload = { bet: d.bet, g: d.guesses.map((g) => [g.qId, g.guess, g.confidence]), sus: d.suspicionQId };
+    const payload = { matchId: d.matchId, bet: d.bet, g: d.guesses.map((g) => [g.qId, g.guess, g.confidence]), sus: d.suspicionQId };
     return DUEL_GUESS_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
   }
 
   function decodeDuelGuess(raw) {
     try {
-      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELG1:/i, '');
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELG2:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
-      if (!payload || typeof payload !== 'object') return null;
-      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!payload || typeof payload !== 'object' || !ITEM_SYSTEM.validMatchId(payload.matchId)) return null;
+      if (!Number.isSafeInteger(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
       if (!Array.isArray(payload.g) || payload.g.length !== DUEL_MATCH_QUESTION_COUNT) return null;
       const guesses = [];
       for (const entry of payload.g) {
@@ -7109,7 +7664,8 @@
       }
       if (typeof payload.sus !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === payload.sus)) return null;
       if (!guesses.some((g) => g.qId === payload.sus)) return null;
-      return { bet: Math.round(payload.bet), guesses, suspicionQId: payload.sus };
+      if (new Set(guesses.map(x => x.qId)).size !== DUEL_MATCH_QUESTION_COUNT) return null;
+      return { matchId:payload.matchId, bet:payload.bet, guesses, suspicionQId: payload.sus };
     } catch (e) {
       return null;
     }
@@ -7117,16 +7673,16 @@
 
   function encodeDuelReveal() {
     const d = state.duel;
-    const payload = { bet: d.bet, r: d.entries.map((e) => [e.qId, e.truth]) };
+    const payload = { matchId: d.matchId, bet: d.bet, r: d.entries.map((e) => [e.qId, e.truth]) };
     return DUEL_REVEAL_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
   }
 
   function decodeDuelReveal(raw) {
     try {
-      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELR1:/i, '');
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELR2:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
-      if (!payload || typeof payload !== 'object') return null;
-      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!payload || typeof payload !== 'object' || !ITEM_SYSTEM.validMatchId(payload.matchId)) return null;
+      if (!Number.isSafeInteger(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
       if (!Array.isArray(payload.r) || payload.r.length !== DUEL_MATCH_QUESTION_COUNT) return null;
       const reveals = [];
       for (const entry of payload.r) {
@@ -7136,7 +7692,8 @@
         if (truth !== 'a' && truth !== 'b') return null;
         reveals.push({ qId, truth });
       }
-      return { bet: Math.round(payload.bet), reveals };
+      if (new Set(reveals.map(x => x.qId)).size !== DUEL_MATCH_QUESTION_COUNT) return null;
+      return { matchId:payload.matchId, bet:payload.bet, reveals };
     } catch (e) {
       return null;
     }
@@ -7152,9 +7709,14 @@
     const roundedBet = Math.round(bet);
     if (!Number.isFinite(roundedBet) || roundedBet <= 0 || roundedBet > DUEL_MAX_BET) return null;
     if (roundedBet > state.lifetime.money) return null;
+    if (state.duel) return null;
+    state.lifetime.duelSerial = (state.lifetime.duelSerial || 0) + 1;
+    const matchId = `m-${Date.now().toString(36)}-${state.lifetime.duelSerial}-${Math.floor(Math.random() * 0x100000000).toString(36).padStart(7,'0')}`;
+    if (!ITEM_SYSTEM.reserveDuel(state, matchId, roundedBet, 'challenger', false)) return null;
     const questions = pickDuelQuestions(state.lifetime.duelRecentQuestionIds);
     state.duel = {
       role: 'challenger',
+      matchId,
       step: 'answering',
       bet: roundedBet,
       questions,
@@ -7311,22 +7873,19 @@
     const d = state.duel;
     if (!d || d.role !== 'challenger' || d.step !== 'review') return null;
     if (!d.entries.every((e) => e !== null)) return null;
+    const stake = ITEM_SYSTEM.duelStake(state);
+    if (!stake || stake.status !== 'reserved') return null;
+    stake.published = true;
     d.entries.forEach((e, idx) => applyDuelTrait(d.questions[idx], e.truth));
     rememberDuelQuestions(d.questions.map((q) => q.id));
     d.step = 'ready';
     return d;
   }
 
-  // A: 挑戦コードを すでに 発行した あと(d.step === 'ready')に ないように
-  // 手を いれたい ばあいの ための「このしょうぶを やめる」。発行ずみの
-  // コードは 書きかえず、しあい じたいを はいきして あたらしい しょうぶを
-  // ゼロから つくりなおす あつかいに する(3コード交換の こうへいせいを
-  // まもる ため)
+  // Explicit cancellation refunds only an unpublished host reservation.
+  // Published hosts and all guests forfeit locally; no remote result is implied.
   function abandonDuelChallenge() {
-    const d = state.duel;
-    if (!d || d.role !== 'challenger' || d.step !== 'ready') return null;
-    state.duel = null;
-    return true;
+    return ITEM_SYSTEM.abandonDuel(state) ? true : null;
   }
 
   // B(すいりしゃ)やく: A から うけとった 挑戦コードを よみこんで
@@ -7338,7 +7897,8 @@
     if (decoded.bet > state.lifetime.money) return { error: 'funds' };
     const items = decoded.items.map((item) => ({ qId: item.qId, pub: item.pub, testimony: item.testimony, question: DUEL_QUESTIONS.find((q) => q.id === item.qId) }));
     if (items.some((item) => !item.question)) return { error: 'invalid' };
-    state.duel = { role: 'guesser', step: 'guessing', bet: decoded.bet, items, guesses: [], suspicionQId: null };
+    if (!ITEM_SYSTEM.reserveDuel(state, decoded.matchId, decoded.bet, 'guesser', true)) return { error:'used' };
+    state.duel = { role: 'guesser', matchId:decoded.matchId, step: 'guessing', bet: decoded.bet, items, guesses: [], suspicionQId: null };
     return state.duel;
   }
 
@@ -7399,20 +7959,10 @@
     return d;
   }
 
-  // じぶんの たんまつで、けっさんを じぶんの おかねに はんえいさせる。
-  // outcome='win'なら かけきんを うけとり、'lose'なら かけきんを しはらい
-  // (しょじきん未満しか はらえない ばあいは もっている ぶんだけに とどめる)、
-  // 'draw'なら おかねの やりとりは しない
+  // Reserve once at entry, then return 2 stakes to the winner or 1 on a draw.
+  // moneyDelta is the net change including reservation, not the settlement credit.
   function settleDuelForSelf(outcome) {
-    const d = state.duel;
-    if (outcome === 'win') {
-      d.moneyDelta = d.bet;
-    } else if (outcome === 'lose') {
-      d.moneyDelta = -Math.min(d.bet, state.lifetime.money);
-    } else {
-      d.moneyDelta = 0;
-    }
-    state.lifetime.money += d.moneyDelta;
+    return ITEM_SYSTEM.settleDuel(state, outcome);
   }
 
   function recordDuelOutcome(outcome) {
@@ -7527,7 +8077,7 @@
     const d = state.duel;
     if (!d || d.role !== 'challenger' || d.step !== 'ready') return { error: 'state' };
     const decoded = decodeDuelGuess(code);
-    if (!decoded || decoded.bet !== d.bet) return { error: 'invalid' };
+    if (!decoded || decoded.matchId !== d.matchId || decoded.bet !== d.bet) return { error: 'invalid' };
     const guessMap = {};
     decoded.guesses.forEach((g) => { guessMap[g.qId] = g; });
     if (!d.entries.every((e) => guessMap[e.qId])) return { error: 'invalid' };
@@ -7546,7 +8096,7 @@
     bTotal = susResult.bTotal;
     const matchOutcome = aTotal > bTotal ? 'A' : (bTotal > aTotal ? 'B' : 'draw');
     const selfOutcome = matchOutcome === 'draw' ? 'draw' : (matchOutcome === 'A' ? 'win' : 'lose');
-    settleDuelForSelf(selfOutcome);
+    if (!settleDuelForSelf(selfOutcome)) return { error: 'stake' };
     recordDuelOutcome(selfOutcome);
     updateDuelChallengerStats(d.entries, breakdown);
     d.step = 'done';
@@ -7567,7 +8117,7 @@
     const d = state.duel;
     if (!d || d.role !== 'guesser' || d.step !== 'ready') return { error: 'state' };
     const decoded = decodeDuelReveal(code);
-    if (!decoded || decoded.bet !== d.bet) return { error: 'invalid' };
+    if (!decoded || decoded.matchId !== d.matchId || decoded.bet !== d.bet) return { error: 'invalid' };
     const truthMap = {};
     decoded.reveals.forEach((r) => { truthMap[r.qId] = r.truth; });
     if (!d.items.every((i) => truthMap[i.qId])) return { error: 'invalid' };
@@ -7587,7 +8137,7 @@
     bTotal = susResult.bTotal;
     const matchOutcome = aTotal > bTotal ? 'A' : (bTotal > aTotal ? 'B' : 'draw');
     const selfOutcome = matchOutcome === 'draw' ? 'draw' : (matchOutcome === 'B' ? 'win' : 'lose');
-    settleDuelForSelf(selfOutcome);
+    if (!settleDuelForSelf(selfOutcome)) return { error: 'stake' };
     recordDuelOutcome(selfOutcome);
     updateDuelGuesserStats(breakdown);
     d.step = 'done';
@@ -7621,39 +8171,20 @@
     return Math.max(2, base - (hasPerk(50) ? 2 : 0));
   }
 
-  // きずぐすり を そうびしていると、わかれ/りこんの 死亡メーターダメージが
-  // 半分に おさえられる(raiseDeathMeter() の こいびと/夫婦・かんむり
-  // けいの けいげんとは べつに、breakup 専用の けいげん)
   function breakupPenalty(wasMarried) {
     const base = BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating'];
     const eased = base;
-    // つかいきりアイテムの「わかれよけの おふだ/けっかい」は、この わかれ
-    // 1かいぶんだけ こうかを はっきして きえる
-    if (state.oneTimeBoosts.breakupShield === 'full') {
-      state.oneTimeBoosts.breakupShield = null;
-      return 0;
-    }
-    if (state.oneTimeBoosts.breakupShield === 'half') {
-      state.oneTimeBoosts.breakupShield = null;
-      return eased * 0.5;
-    }
     return eased;
   }
 
   // 「死亡」メーターの じょうしょう(かいふくアイテムなどの げんしょうは
   // ふくまない)は、こいびとが いると すこし、夫婦だと もっと ゆるやかに
   // なる - すべての 死亡メーター上昇の げんいん(びょうき・ていけんこう・
-  // ミニゲーム大失敗・たべすぎ など)に 共通で かける。かんむりを
-  // そうびしていると、そこから さらに 2わり おさえられる
+  // ミニゲーム大失敗・たべすぎ など)に 共通で かける。
   function raiseDeathMeter(amount) {
-    // 「もう いのちは つきない」じょうたい(なおとのリング / そだち100 /
-    // ♾️)では、しぼうメーターは 二度と 上がらない。むかしは リングだけを
-    // みていた ため、そだち100の あとも メーターだけ たまって
-    // 「ぜったい 死なないのに いのちバーが まっ赤」という くいちがいが
-    // おきていた。かいふく分(amount<0)は どの ばあいも そのまま とおす
+    // 無限モードだけ命の上昇を止める。
     if (amount > 0 && isImmortal()) return;
-    const crownFactor = isEquipped('crown') ? 0.85 : 1;
-    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
+    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()], 0, 100);
   }
 
   // いま そばに いる なかま(state.companions - じゃれるを おさぼると
@@ -7674,17 +8205,15 @@
   function reinforceRelationship() {
     const p = state.partner;
     p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+    startRelationshipPositive('partner',p);
     if (p.married) return false;
-    // つかいきりアイテムの「こいの おまじない/キューピッド」を つかった
-    // ちょくごの きゅうあい 1かいだけ、bondCount の のびが おおきくなる
-    const courtBoost = state.oneTimeBoosts.courtBoost === 'big' ? 4 : state.oneTimeBoosts.courtBoost === 'small' ? 2 : 0;
-    state.oneTimeBoosts.courtBoost = null;
-    p.bondCount = (p.bondCount || 0) + 1 + courtBoost;
+    p.bondCount = (p.bondCount || 0) + 1;
     if (p.bondCount < marriageBondThreshold()) return false;
     p.married = true;
     p.bondCount = 0;
     state.marriageAge = currentAge();
     state.marriageMilestonesSeen = [];
+    rememberPartnerLetter('marriage');
     return true;
   }
 
@@ -7695,12 +8224,16 @@
   function decayRelationship() {
     if (!state.partner || !isLiveLife()) return;
     const p = state.partner;
-    // らぶれたーけいの アイテムを そうびしていると、なかよし度が へりにくい
-    const affectionDecayFactor = isEquipped('partner1') ? 0.75 : 1;
+    if ((p.itemGraceUntil || 0) > state.lifetime.itemProgress.ticks) return;
     // すれちがい中は きもちが はなれるのが はやい。ほうっておくと
     // ふつうより ずっと はやく わかれに ちかづく
     const mismatchFactor = p.mismatched ? 2.5 : 1;
-    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * affectionDecayFactor * mismatchFactor, 0, 100);
+    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, 0, 100);
+    if (isEquipped('partner1') && p.affection <= ITEM_AUTO_CARE_DANGER) {
+      p.affection = 100;
+      itemContextReaction('partner1', 'なかよし度が危なくなる前に、らぶれたーを読み返して100にもどった。');
+      return;
+    }
     if (p.affection > 0) return;
     const wasMarried = !!p.married;
     const label = p.label;
@@ -7724,10 +8257,14 @@
   function decayCompanionBonds() {
     if (!state.companions.length || !isLiveLife()) return;
     const left = [];
-    // おともだちバッジけいの アイテムを そうびしていると、きずな度が へりにくい
-    const bondDecayFactor = (isEquipped('bond1') ? 0.75 : 1) * (hasPerk(40) ? 0.5 : 1);
+    const bondDecayFactor = hasPerk(40) ? 0.5 : 1;
     state.companions = state.companions.filter((c) => {
       c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);
+      if (isEquipped('bond1') && c.bond <= ITEM_AUTO_CARE_DANGER) {
+        c.bond = 100;
+        itemContextReaction('bond1', 'きずなが危なくなる前に、おともだちバッジが合図して100にもどった。');
+        return true;
+      }
       if (c.bond > 0) return true;
       left.push(c.id);
       return false;
@@ -7946,8 +8483,7 @@
         "🦉",
         "🌰"
       ],
-      "lines": [
-        "木の枝から、鳥の声が聞こえる",
+      "lines": [        "木の枝から、鳥の声が聞こえる",
         "深呼吸したら、葉っぱのにおいが少し残った",
         "葉っぱの下をのぞいたら、向こうものぞいていた",
         "きのこを見つけた。食べずに名前だけ考えた",
@@ -8220,8 +8756,28 @@
   // ふつうの 地域と まったく おなじ しくみで つかえる ように する ため、
   // findRegion() の たんいで 両方を みる(REGIONS じたいには いれない)
   function findRegion(id) {
-    return REGIONS.find((r) => r.id === id) || SPECIAL_REGIONS.find((r) => r.id === id) || REGIONS[0];
+    const rid = resolveRegionId(id, 'findRegion');
+    return REGIONS.find((r) => r.id === rid) || SPECIAL_REGIONS.find((r) => r.id === rid);
   }
+
+  // RH-4: 地域 ID の 解決(1 か所だけ)。raw ID → 正式な alias(tropical → jungle)→ 登録表(master の regions)→ ID。
+  // 知らない ID・typo・文字列でない 値は、テスト(harness の strictRegions)では throw、
+  // 本番では master の policy.unknownRegionFallback(= home)へ。reportRuntimeError は raw ID ごとに 1 回だけ(最初の site を残す)。
+  // save の regionId / regionsVisited は 書きかえない(policy.preserveRawSaveIds)。つかう ときだけ 解決する
+  const REGION_IDS = new Set([...REGIONS, ...SPECIAL_REGIONS].map((r) => r.id));
+  const REGION_FALLBACK = WORLD_MASTER?.compatibility?.policy?.unknownRegionFallback || 'home';
+  const regionErrorsReported = new Map();
+  function resolveRegionId(raw, site = 'region') {
+    const id = typeof raw === 'string' ? canonicalRegionId(raw) : raw;
+    if (typeof id === 'string' && REGION_IDS.has(id)) return id;
+    const key = typeof raw === 'string' ? raw : `<${raw === null ? 'null' : typeof raw}>`;
+    const err = new Error(`unknown region id ${JSON.stringify(key)} (${site})`);
+    if (typeof window !== 'undefined' && window.NaotocchiStrictRegions === true) throw err;
+    if (!regionErrorsReported.has(key)) { regionErrorsReported.set(key, site); reportRuntimeError(err, `region:${site}`); }
+    return REGION_FALLBACK;
+  }
+  // いま いる 地域(解決ずみ)。state.regionId は raw の まま のこす
+  function currentRegionId() { return resolveRegionId(state.regionId, 'state.regionId'); }
 
   // 「ずかん」の「こいびと」セクションで つかう、地域ごとの きめうち
   // キャラの ぜんいちらん(REGIONSの candidatesを ひとつに まとめたもの)
@@ -8306,16 +8862,32 @@
     return RARE_COMPANIONS;
   }
 
+  function relationshipId(kind, entity) {
+    return kind === 'companion' ? canonicalCompanionId(entity?.id) : canonicalPartnerId(entity?.id);
+  }
+
+  function relationshipVisual(kind, entity, normal) {
+    return RELATIONSHIP_EXPRESSION?.resolve({kind, id:relationshipId(kind,entity),
+      value:kind === 'companion' ? entity?.bond : entity?.affection,
+      positive:relationshipReactions?.active(entity) || homeSocialReactions?.active(entity), normal,
+    }) || {expression:'normal',asset:normal};
+  }
+
+  function startRelationshipPositive(kind, entity) {
+    if (RELATIONSHIP_EXPRESSION?.SUPPORTED[kind]?.includes(relationshipId(kind,entity))) relationshipReactions.start(entity);
+  }
+
   function companionVisualHTML(companion, size = 'thumb') {
     return companion.asset ? stageVisualHTML(companion, size) : escapeHtml(companion.emoji);
   }
 
   // 保存済みの恋人も現在の専用PNGを使う。セーブの関係性や通信相手は書き換えない。
-  function partnerVisualHTML(partner, size = 'thumb') {
+  function partnerVisualHTML(partner, size = 'thumb', relationship = false) {
     const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner?.id] || partner?.id;
     const def = WORLD_MASTER?.partners?.find((p) => p.id === id);
     const emoji = partner?.emoji || PARTNER_RUNTIME_PROFILE[id]?.emoji || '💞';
-    return def?.asset ? stageVisualHTML({ asset:def.asset, emoji }, size) : escapeHtml(emoji);
+    const asset = relationship ? relationshipVisual('partner',partner,def?.asset).asset : def?.asset;
+    return asset ? stageVisualHTML({ asset, emoji }, size) : escapeHtml(emoji);
   }
 
   // 作者は育成・なかま・恋人の枠に入れず、④以降のシークレットとして会える。
@@ -8332,10 +8904,10 @@
   function showAuthorGreeting(kind = 'hello') {
     if (!isAuthorUnlocked()) return false;
     const lines = {
-      hello: 'ナオト「やあ！遊んでくれて、ありがとう！」',
-      dex: 'ナオト「ナオトだよ！たくさんの子に会ってくれて、ありがとう！」',
-      // ④を経ずに⑤へ進んでも、この挨拶だけで誰に会ったかがわかる。
-      perfect: 'ナオト「ナオトだよ！ぜんぶ見つけてくれて、ありがとう！」',
+      hello: 'ナオト「……きみも、ここを見つけたんだ。来てくれて、ありがとう。」',
+      dex: 'ナオト「……きみも、ここを見つけたんだ。たくさん会ってくれて、ありがとう。」',
+      // ④を経ずに⑤へ進んでも、名前を名乗りつつ世界の答えは説明しない。
+      perfect: 'ナオト「……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう。」',
     };
     showStoryEvent({ author:true, message:lines[kind] || lines.hello });
     return true;
@@ -8630,7 +9202,99 @@
   let dateOpen = false;
   let dateChoiceOptions = [];
   let pendingDatePlan = null;
+  let pendingDateContext = null;
   let dateMovieTimers = [];
+  // Move the movie above the home frame: transformed/scrolling ancestors must
+  // not clip a fixed cinema on iPhone. Choosers return to their original parent.
+  const dateOverlayParent = el.dateOverlay.parentNode;
+  let moviePresentation = null;
+
+  function releaseMoviePresentation() {
+    if (!moviePresentation) return;
+    document.body.classList.remove('movie-active');
+    el.dateOverlay.classList.remove('movie-fullscreen');
+    el.device.inert = moviePresentation.inert;
+    dateOverlayParent?.appendChild?.(el.dateOverlay);
+    moviePresentation = null;
+  }
+
+  function movieText(text) {
+    return compactJapaneseText(String(text || '').replace(COMMENT_EMOJI, '').trim());
+  }
+
+  // A bag per scene keeps each short story intact and avoids repeats until a
+  // full rotation. This presentation history never changes the saved life.
+  const movieStoryBags = new Map();
+  function pickMovieStory(key, stories) {
+    if (!stories?.length) return [];
+    let bag = movieStoryBags.get(key);
+    if (!bag || bag.size !== stories.length) bag = {size:stories.length, remaining:[], last:-1};
+    if (!bag.remaining.length) bag.remaining = stories.map((_, index) => index);
+    const choices = bag.remaining.filter(index => stories.length === 1 || index !== bag.last);
+    const pool = choices.length ? choices : bag.remaining;
+    const index = pool[Math.floor(Math.random() * pool.length)];
+    bag.remaining = bag.remaining.filter(candidate => candidate !== index);
+    bag.last = index;
+    movieStoryBags.set(key, bag);
+    return stories[index];
+  }
+
+  function renderMovieCaption(beat, speakers) {
+    const entry = typeof beat === 'string' ? {text:beat} : beat;
+    const speaker = speakers[entry.speaker];
+    const caption = el.dateMovieCaption;
+    caption.dataset.speaker = speaker ? entry.speaker : '';
+    caption.dataset.speakerId = speaker?.id || '';
+    const text = movieText(entry.text);
+    if (!speaker) {
+      setCommentText(caption, text, true);
+      return;
+    }
+    // Reuse the regular comment portrait, with an empty emoji fallback.
+    // A missing image must leave the name readable instead of changing actors.
+    const visual = commentActorVisual(speaker);
+    const art = speaker.art || (visual?.asset ? commentPictureHTML(visual.asset, '', '')
+      : DISPLAY_CATALOG?.html(speaker.emoji) || commentIconHTML(speaker.emoji || '', '')
+        || '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 22v-3a8 8 0 0 1 16 0v3" fill="currentColor"/></svg>');
+    const label = movieText(speaker.label);
+    caption.innerHTML = '<span class="movie-speaker"><span class="movie-speaker-art" aria-hidden="true">'
+      + art.replace(COMMENT_EMOJI, '') + '</span><span class="movie-speaker-name">'
+      + escapeHtml(label) + '</span><span class="movie-speaker-colon">：</span></span>'
+      + '<span class="movie-caption-text">' + commentTextHTML(text) + '</span>';
+  }
+
+  function playMovieBeats(beats, {step = 3500, endingDelay = 500, kind = 'date', theme = 'walk', legend = '', actions = [], speakers = {pet:petSpeaker(), partner:partnerSpeaker()}} = {}) {
+    releaseMoviePresentation();
+    moviePresentation = {inert: el.device.inert, ownStage: SPECIES[state.speciesLine]?.stages[state.stageIndex]};
+    el.dateMovie.style.fontFamily = window.getComputedStyle(el.device).fontFamily;
+    document.body.appendChild(el.dateOverlay);
+    document.body.classList.add('movie-active');
+    el.device.inert = true;
+    el.dateOverlay.classList.add('movie-fullscreen');
+    const scene = el.dateMovieScene;
+    Object.assign(scene.dataset, {kind, theme, legend, complete:'false', totalBeats:String(beats.length), motion:mgPerfTier >= 2 ? 'low' : 'full'});
+    scene.style.setProperty('--movie-duration', `${step * beats.length}ms`);
+    el.dateMoviePlace.textContent = movieText(el.dateMoviePlace.textContent);
+    document.getElementById('dateMovieKicker').textContent = kind === 'legend' ? 'でんせつのであい' : kind === 'anniversary' ? 'ふたりのきねんび' : 'ふたりのじかん';
+    document.getElementById('dateMovieAtmosphere').innerHTML = Array.from({length:perfCount(16, 5)}, (_, i) =>
+      `<i style="--x:${(i * 37 + 11) % 100}%;--y:${(i * 23 + 9) % 91}%;--delay:${-i * .73}s;--speed:${5 + i % 5}s"></i>`).join('');
+    const progress = document.getElementById('dateMovieProgress');
+    progress.innerHTML = beats.map(() => '<i></i>').join('');
+    function showBeat(index) {
+      const action = beats[index].action || actions[index] || (index === 0 ? 'arrive' : index === beats.length - 1 ? 'together' : 'talk');
+      Object.assign(scene.dataset, {beat:String(index), shot:index === 0 ? 'wide' : index === beats.length - 1 ? 'wide' : index % 2 ? 'close' : 'detail', action});
+      if (legend === 'mirror' && action === 'return') setStageVisual(el.dateMoviePartner, moviePresentation?.ownStage, 'medium');
+      el.dateMovieCaption.classList.remove('beat');
+      void el.dateMovieCaption.offsetWidth;
+      renderMovieCaption(beats[index], speakers);
+      el.dateMovieCaption.classList.add('beat');
+      Array.from(progress.children).forEach((dot, i) => dot.classList.toggle('seen', i <= index));
+    }
+    showBeat(0);
+    el.dateMovieSkipBtn.focus({preventScroll:true});
+    for (let i = 1; i < beats.length; i += 1) dateMovieTimers.push(setTimeout(() => showBeat(i), step * i));
+    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + endingDelay));
+  }
 
   function clearDateMovieTimers() {
     dateMovieTimers.forEach((t) => clearTimeout(t));
@@ -8724,12 +9388,11 @@
     hideSpeechBubble();
     dateChoiceOptions = pickDateChoices();
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = true;
     clearDateMovieTimers();
+    releaseMoviePresentation();
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
-    el.dateMovieScene.classList.remove('special-reward');
     el.dateMovieScene.classList.remove('anniversary-major');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
@@ -8739,13 +9402,14 @@
 
   function closeDateOverlay() {
     clearDateMovieTimers();
+    releaseMoviePresentation();
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
     el.dateOverlay.classList.add('hidden');
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
     render();
+    el.menuBtn.focus({preventScroll:true});
   }
 
   function rememberSpecialDate(plan, partner) {
@@ -8757,14 +9421,16 @@
 
   function finishDateMovie() {
     clearDateMovieTimers();
+    el.dateMovieScene.dataset.complete = 'true';
     el.dateMovieCaption.classList.remove('beat');
     el.dateMovieCloseBtn.classList.remove('hidden');
     el.dateMovieSkipBtn.classList.add('hidden');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
+    el.dateMovieCloseBtn.focus({preventScroll:true});
   }
 
 
-  function playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward) {
+  function playOrdinaryDateMovie(plan, partner, traitLine, closing) {
+    plan = datePlanForRegion(plan);
     clearDateMovieTimers();
     clearConversationTimers();
     hideSpeechBubble();
@@ -8775,73 +9441,33 @@
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
 
-    const special = useReward === true && (state.items.reward || 0) > 0;
-    if (special) {
-      state.items.reward -= 1;
-      if (state.items.reward <= 0) delete state.items.reward;
-    }
-
-    // ごほうび使用時は見た目も明確に別物にする。
-    el.dateMovieScene.dataset.plan = special ? 'special' : plan.id;
-    el.dateMovieScene.classList.toggle('special-reward', special);
-    el.dateMoviePlace.textContent = special
-      ? `🎁とくべつなデート・${plan.label}`
-      : `${plan.emoji || '💞'} ${plan.label}`;
+    el.dateMovieScene.dataset.plan = plan.id;
+    el.dateMoviePlace.textContent = `${plan.emoji || '💞'} ${plan.label}`;
 
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
     el.dateMoviePartner.innerHTML = partnerVisualHTML(partner, 'medium');
 
-    const specialMiddleLines = [
-      '「おしゃれした?」「いつもの服」「そっか。似合ってる」',
-      'ふたりともすこしだけよそいきの顔をしていた。',
-      '「帰ったら、今日のこと自慢しよう」「誰に?」',
-      '先に笑いだしたほうが、何がおかしいのか説明できなかった。',
+    const book = globalThis.NaotocchiMovieDialogue;
+    const local = state.regionId === 'deepsea' && book.deepsea[plan.id];
+    const scenes = local || book.dates[plan.id];
+    const story = pickMovieStory(`date:${local ? 'deepsea' : 'land'}:${plan.id}`, scenes);
+    const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id;
+    const aside = pickMovieStory(`partner:${partnerId}`, book.partners[partnerId]);
+    const extra = [];
+    const beats = [
+      `${partner.label}と、${plan.label}。`,
+      ...story,
+      ...(aside.length ? aside : [{speaker:'pet',text:'今のこと、あとでまた話そう。'}, {speaker:'partner',text:'うん。続きも一緒にね。'}]),
+      ...extra,
+      state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings) : closing,
     ];
-    const specialClosingLines = [
-      '「帰ったら何しよう」「今日の話を、もう一回」',
-      '「次の予定は?」「まだない」「じゃあ、今はここにいよう」',
-      '帰りぎわ、どちらもすぐには歩きださなかった。',
-      '帰り道で、今日撮った写真をまた見せあった。さっきも見た。',
-    ];
-    const planLine = pickConversationLine([plan.line, ...(plan.variations || DATE_PLAN_VARIATIONS[plan.id] || [])].filter(Boolean));
-    const beats = special
-      ? [
-          `🎁 ${partner.label}と、${plan.label}。`,
-          planLine,
-          specialMiddleLines[Math.floor(Math.random() * specialMiddleLines.length)],
-          traitLine,
-          hasNaotoItem('naoto_ring')
-            ? '💍「今日の合言葉、ふたりだけで決めよっか」'
-            : '「写真とろう」って言ったのに、なぜか何枚もとった。',
-          specialClosingLines[Math.floor(Math.random() * specialClosingLines.length)],
-          '🎁この日のことが、ひとつ思い出に残った。',
-        ]
-      : [
-          `${partner.label}と、${plan.label}。`,
-          planLine,
-          traitLine,
-          closing,
-        ];
 
-    if (special) pushLifeLog('💝', `とくべつなデートのおもいで: ${partner.label}と${plan.label}`);
-
-    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
-    el.dateMovieCaption.classList.add('beat');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
-
-    // 文章を読んで余韻も残せる速度。通常は3.5秒/文、特別デートは4秒/文。
-    const step = special ? 4000 : 3500;
-    for (let i = 1; i < beats.length; i += 1) {
-      dateMovieTimers.push(setTimeout(() => {
-        el.dateMovieCaption.classList.remove('beat');
-        void el.dateMovieCaption.offsetWidth;
-        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
-        el.dateMovieCaption.classList.add('beat');
-        el.dateMovie.scrollIntoView({ block: 'nearest' });
-      }, step * i));
-    }
-    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
+    const mood = state.regionId === 'deepsea' ? 'deepsea' : plan.id;
+    const action = {walk:'walk', lost:'walk', shop:'walk', nap:'rest', rain:'shelter', star:'gaze', sunset:'gaze', photo:'pose', eat:'share'}[plan.id] || 'talk';
+    el.dateMovieScene.classList.remove('anniversary-major');
+    playMovieBeats(beats, {step:3500, kind:'date', theme:mood,
+      actions:beats.map((_, i) => i === 0 ? 'arrive' : i === beats.length - 1 ? 'together' : action)});
     saveState();
   }
 
@@ -8852,13 +9478,10 @@
     { years: 50, icon: '🥇', title: 'きんこんしき' },
   ];
 
-  function pickMovieLine(lines) {
-    return lines[Math.floor(Math.random() * lines.length)];
-  }
-
   function partnerAnniversaryLine(partner, years) {
     // 年数と名前は最初の字幕にあるので、ここは相手固有の短い一言にする。
-    const lines = PARTNER_ANNIVERSARY_LINES[partner.id] || PARTNER_SIGNATURE_LINES[partner.id];
+    const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id;
+    const lines = PARTNER_ANNIVERSARY_LINES[id] || PARTNER_SIGNATURE_LINES[id];
     return lines?.length ? pickConversationLine(lines) : null;
   }
 
@@ -8873,7 +9496,6 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.classList.remove('special-reward');
     el.dateMovieScene.classList.toggle('anniversary-major', milestone.years >= 25);
     el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
@@ -8885,115 +9507,18 @@
     const signatureAnniversary = partnerAnniversaryLine(state.partner, milestone.years);
 
 
-    const sharedMemory = hadMismatch
-      ? [
-          '「いろいろあったね」「ほんとにね。でもまだとなりにいる」',
-          'すれちがった日の話も、いまはふたりでできる話になっていた。',
-          '「あのときちゃんとはなしてよかったね」',
-          '「あのときの話、する?」「お茶いれてからにしよ」',
-          '「仲直りの一言、何回も練習した」「聞こえてたよ」',
-          '「あのときはごめんね」「うん。今日はとなりで飲もう」',
-        ]
-      : [
-          '「思い出せない日もいっぱいあるね」「たぶんそれでいいんだよ」',
-          '何でもない日のほうが、あとからたくさん思い出せた。',
-          '「結局、ふつうの日がいちばん多かったね」',
-          '「静かだね」「ふたりとも話すこと忘れたね」',
-          '「予定ないね」「じゃあ、いつもの席にしよ」',
-          '「今日の話は?」「おやつがおいしかった」「それで十分」',
-        ];
+    const book = globalThis.NaotocchiMovieDialogue;
+    const years = milestone.years >= 50 ? 50 : milestone.years >= 25 ? 25 : milestone.years === 10 ? 10 : 1;
+    const memoryKey = hadMismatch ? 'reconciled' : 'everyday';
+    const beats = [
+      `${name}と${years === 1 ? '初めての結婚記念日' : `結婚して${years}年`}。`,
+      ...pickMovieStory(`anniversary:${years}`, book.anniversaries[years]),
+      ...(signatureAnniversary ? [{speaker:'partner',text:signatureAnniversary.replace(/^「|」$/g, '')}] : []),
+      ...pickMovieStory(`memory:${memoryKey}`, book.shared[memoryKey]),
+    ];
 
-    let beats;
-    if (milestone.years >= 50) {
-      beats = [
-        `${name}と結婚して50年。`,
-        pickMovieLine([
-          '「50ねんだって」「今日のお茶はいつもどおりね」',
-          '「50ねんたったらしいよ」「ほんと?まだしゃべることあるね」',
-          '「急がなくなったね」「待つのも上手になった」',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        pickMovieLine([
-          '昔の写真を見た。笑うときのくせは、今も同じだった。',
-          '「昔のふたり、信じるかな」「まず座ってもらおう」',
-          '手をつながなくても、曲がる角はいつも同じだった。',
-        ]),
-        pickMovieLine([
-          '「まだいっしょにいるね」「うん。まだいるね」',
-          '「ここまで来たね」「じゃあ、もう少し行こっか」',
-          '「これからもよろしく、でいい?」「うん。こちらこそ」',
-        ]),
-        'ふたりはまた、いつもの速さで歩きだした。',
-      ];
-    } else if (milestone.years >= 25) {
-      beats = [
-        `${name}と結婚して25年。銀婚式。`,
-        pickMovieLine([
-          '「銀婚式だって」「銀って何かもらえるの?」「知らない笑」',
-          '「25ねん。長かった?」「短かったって言ったらうそになるね」',
-          '「昔のしゃしん見る?」「それはちょっとこわい」',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        pickMovieLine([
-          '古い写真をひらいた。ふたりとも、同じ一枚で笑った。',
-          '「このころ若いね」「今もまあまあいけるでしょ」',
-          '忘れた日もある。となりにいたことは、思い出せた。',
-        ]),
-        pickMovieLine([
-          '「ここまできたね」「うん。意外ときたね」',
-          '「また25ねん後もこれやる?」「そのとき考えよ」',
-          '「これからもよろしく」「それ、何回目?」',
-        ]),
-        '帰り道は、いつもとほとんどおなじだった。',
-      ];
-    } else if (milestone.years === 10) {
-      beats = [
-        `${name}と結婚して10年。`,
-        pickMovieLine([
-          '「10ねんだって」「そんなにたった?」',
-          '「10周年らしいよ」「じゃあ今日はちょっといいもの食べよ」',
-          '「あの日から10ねん」「あの日ってどの日?」「そこから!?」',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        pickMovieLine([
-          '「変わった?」「変わった。でも変わってないとこもある」',
-          '「10年前より近い?」「席の話ならそうだね」',
-          'ふたりで10年前の話をして、半分くらい記憶がちがっていた。',
-        ]),
-        '「まあ、これからもよろしく」',
-      ];
-    } else {
-      beats = [
-        `${name}と初めての結婚記念日。`,
-        pickMovieLine([
-          '「1ねんたったね」「まだ1ねんなんだね」',
-          '「きょう記念日だよ」「忘れてないよ。たぶん」',
-          '「結婚して1ねん」「なんかもっと長い気がする笑」',
-        ]),
-        pickMovieLine([
-          '「まだ新婚っていっていい?」「いいんじゃない?」',
-          '「1年目、どう?」「面接みたいに聞かないで笑」',
-          'ふたりとも少しだけ照れながら、最初の一年を思い返した。',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        '「来年もやろうね。忘れてたら呼んで」',
-      ];
-    }
-
-    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
-    el.dateMovieCaption.classList.add('beat');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
-    const step = 4000;
-    for (let i = 1; i < beats.length; i += 1) {
-      dateMovieTimers.push(setTimeout(() => {
-        el.dateMovieCaption.classList.remove('beat');
-        void el.dateMovieCaption.offsetWidth;
-        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
-        el.dateMovieCaption.classList.add('beat');
-        el.dateMovie.scrollIntoView({ block: 'nearest' });
-      }, step * i));
-    }
-    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 800));
+    playMovieBeats(beats, {step:4000, endingDelay:800, kind:'anniversary',
+      theme:state.regionId === 'deepsea' ? 'deepsea' : milestone.years >= 50 ? 'star' : 'special'});
   }
 
   function checkMarriageMilestones(prevAge, age) {
@@ -9011,7 +9536,8 @@
     }
   }
 
-  function goOnDate(plan, useReward) {
+  function goOnDate(plan) {
+    if (!plan || !DATE_PLANS.some(p => p.id === plan.id)) return false;
     plan = datePlanForRegion(plan);
     const blocked = dateBlockReason();
     if (blocked) {
@@ -9021,26 +9547,7 @@
       render();
       return;
     }
-    // Native dialogs may be suppressed by an embedded browser. Keep this
-    // decision in the game, and commit no date effects until a choice is made.
-    if ((state.items.reward || 0) > 0 && typeof useReward !== 'boolean') {
-      pendingDatePlan = plan;
-      dateOpen = true;
-      clearDateMovieTimers();
-      clearConversationTimers();
-      hideSpeechBubble();
-      el.dateChooser.classList.add('hidden');
-      el.dateMovie.classList.add('hidden');
-      el.dateRewardPlan.textContent = compactJapaneseText(`${state.partner.label}と、${plan.label}`);
-      el.dateRewardCount.textContent = `ごほうびを${state.items.reward}こ持っている`;
-      el.dateRewardConfirm.classList.remove('hidden');
-      render();
-      el.dateRewardTitle.focus({ preventScroll: true });
-      el.dateRewardConfirm.scrollIntoView({ block: 'nearest' });
-      return;
-    }
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
@@ -9052,6 +9559,7 @@
     state.lifetime.datesEnjoyed += 1;
     state.affectionStreak = 0;
     partner.affection = clamp((partner.affection ?? 100) + DATE_AFFECTION_BOOST, 0, 100);
+    startRelationshipPositive('partner',partner);
     state.happiness = clamp(state.happiness + 12, 0, 100);
     state.energy = clamp(state.energy - 6, 0, 100);
     state.hunger = clamp(state.hunger - 4, 0, 100);
@@ -9062,56 +9570,51 @@
     } else {
       rememberSpecialDate(plan, partner);
     }
-
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward);
+    playOrdinaryDateMovie(plan, partner, traitLine, closing);
     render();
   }
 
   // ================================================================
-  // そだち90「でんせつ」で おきる「でんせつの であい」
+  // そだち70「たびだち」から おきる「でんせつの であい」
   // ================================================================
   // 1つの 人生で 1かいだけ、しかも「いつ おきるか わからない」ように
-  // tick ごとの ていかくりつで しのばせてある(そだち90に とどいた しゅんかんに
+  // tick ごとの ていかくりつで しのばせてある(そだち70に とどいた しゅんかんに
   // おきるのでは なく、そのあとの ふつうの じかんに とつぜん おきる)。
-  // もらえる ものは わざと ちいさい - でんせつの ゆめ(レア種族)や
-  // そだち100・ずかんクリア・パーフェクトクリアの やくわりを とらない ように、
-  // ここは「みた ことが ある か どうか」だけが のこる イベントに している。
+  // ゲーム上の ごほうびは なく、「みた ことが ある か どうか」と
+  // 人生の おもいでだけが のこる イベントに している。
   // 5つの パターンは ほうこうせいを わざと バラバラに して ある
   const LEGEND_ENCOUNTER_CHANCE = 0.012;
 
   const LEGEND_ENCOUNTERS = [
     {
-      id: 'gate', emoji: '⛩️', name: 'そらにうかぶとりい', vibe: '神々しい',
-      flash: '見上げると、雲よりずっと下にとりいがひとつうかんでいる',
-      story: 'くぐれる高さではないのに、なぜか足がとまった。しばらく見ていると、とりいがほんの少しこちらへかたむいた。風はなかった',
+      id: 'gate', emoji: '▣', name: 'むこうのまど', vibe: '境界',
+      flash: 'いつもの景色に、見たことのない窓がひとつある',
+      story: '窓の向こうには白い壁と向かい合った椅子がある。ここではない場所らしいが、誰の場所なのかはわからない',
     },
     {
-      id: 'stairs', emoji: '🪜', name: 'どこにもつながらないかいだん', vibe: '意味不明',
-      flash: '野原のまんなかに、階段だけが立っている',
-      story: '何段のぼったかわからなくなって、いったんおりた。地面から見ると3段しかない。もう一度のぼる気にはなれなかった',
+      id: 'stairs', emoji: '○', name: 'たまごのないところ', vibe: '誕生',
+      flash: '卵のからのそばに、こちらでは見ない写真が落ちている',
+      story: '写真には小さな命が写っているのに、どこにも卵がない。生まれかたは、この世界だけの決まりなのかもしれない',
     },
     {
-      id: 'boss', emoji: '🦑', name: 'あやまりにきただいおういか', vibe: '笑える',
-      flash: 'とてつもなく大きなイカが、なぜかものすごく丁寧におじぎをしている',
-      story: '「このたびは、まことに申し訳ございませんでした」とイカが言った。何のことか聞いても、もう一度深くおじぎをするだけ。とりあえず「いいよ」と言ったら帰っていった',
+      id: 'boss', emoji: '◐', name: 'むかしのぼく', vibe: '姿',
+      flash: '自分の影だけが、いまの姿とは違っている',
+      story: '影はこの人生で過ごした姿へ次々と変わる。どれが本当なのか、影は答えてくれない',
     },
     {
-      id: 'lamp', emoji: '🏮', name: 'よなかのあかり', vibe: '温かい',
-      flash: 'まっくらな道の先に、小さなあかりがひとつついている',
-      story: '近づくと、暗がりから「おかえり」と聞こえた。だれも見えない。通りすぎて振り返ると、あかりだけがまだそこにあった',
+      id: 'lamp', emoji: '·', name: '100のむこう', vibe: '時間',
+      flash: '道の先に、99までの数字と、その先の100が見える',
+      story: '100の先をたずねても答えはない。この世界から見えるのは、そこまでらしい',
     },
     {
-      id: 'mirror', emoji: '🪞', name: 'としをとったじぶん', vibe: '美しい・こわい',
-      flash: '水たまりに、いまよりずっと年をとった自分がうつっている',
-      story: '水たまりの自分だけが先に笑った。口が何かを言うように動いたところで、水面がゆれた。消える直前の顔は、おだやかだった',
+      id: 'mirror', emoji: '◌', name: 'みているひと', vibe: '気配',
+      flash: 'ここではないどこかから、見られているような気がする',
+      story: '姿は見えない。ときどき紙や音や影だけが残る。こちらが見つけたのか、向こうに見つけられたのかもわからない',
     },
   ];
-
-  const LEGEND_COIN_GIFT = 200;
-
   // でんせつの であいが おきる じょうけん。ミニゲーム中・すいみん中・
   // なにかの がめんを ひらいている あいだは おきない(みのがす のが
   // いちばん もったいない イベントな ため)
@@ -9124,7 +9627,7 @@
     triggerLegendEncounter();
   }
 
-  function playLegendEncounterMovie(legend, coins) {
+  function playLegendEncounterMovie(legend) {
     clearDateMovieTimers();
     clearConversationTimers();
     hideSpeechBubble();
@@ -9134,116 +9637,32 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.classList.remove('special-reward', 'anniversary-major');
-    el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
-    el.dateMoviePlace.textContent = `${legend.emoji}でんせつのであい`;
+    el.dateMovieScene.classList.remove('anniversary-major');
+    el.dateMovieScene.dataset.plan = legend.id === 'gate' ? 'talk' : legend.id === 'stairs' ? 'photo' : legend.id === 'boss' ? 'sunset' : legend.id === 'lamp' ? 'star' : 'photo';
+    el.dateMoviePlace.textContent = legend.name || LEGEND_ENCOUNTERS.find(entry => entry.id === legend.id)?.name || 'でんせつのであい';
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
-    el.dateMoviePartner.textContent = legend.emoji;
+    // The new legends are traces and seams rather than named characters.
+    // Keep the second figure abstract so no region, species, or real-world person is asserted.
+    el.dateMoviePartner.innerHTML = displayIconHTML(legend.emoji);
 
-    const beatsById = {
-      gate: [
-        '空を見上げた。',
-        '⛩️雲より下に、とりいがひとつ浮かんでいる。',
-        '風はない。',
-        'それなのに、とりいが少しだけこちらへかたむいた。',
-        '「……いま、動いたよね?」',
-      ],
-      stairs: [
-        '野原のまんなかに、階段だけが立っていた。',
-        '「……どこ行くの、これ」',
-        'のぼってものぼっても、何段目かわからない。',
-        'いったんおりて振り返る。',
-        '階段は、3段しかなかった。',
-        '「もうのぼらない」',
-      ],
-      boss: [
-        '🦑とてつもなく大きなイカがあらわれた。',
-        'ダイオウイカは、ものすごく丁寧におじぎをした。',
-        '🦑「このたびは、まことに申し訳ございませんでした」',
-        '「……なにが?」',
-        '🦑もう一度、深々とおじぎをした。',
-        '「まあ……いいよ」',
-        '🦑ダイオウイカは帰っていった。',
-      ],
-      lamp: [
-        'まっくらな道の先に、小さなあかりがひとつ。',
-        '近づくと、暗がりから声がした。',
-        '「おかえり」',
-        '「……ただいま?」',
-        '振り返ると、あかりだけがまだそこにあった。',
-      ],
-      mirror: [
-        '水たまりをのぞきこんだ。',
-        'そこには、ずっと年をとった自分がいた。',
-        '「……これ、自分?」',
-        '水の中の自分だけが、先にわらった。',
-        '何かを言いかけた瞬間、水面がゆれた。',
-        '消える直前の顔は、おだやかだった。',
-      ],
+    const story = pickMovieStory(`legend:${legend.id}`, globalThis.NaotocchiMovieDialogue.legends[legend.id]);
+    const beats = story.length ? story : [legend.flash, legend.story];
+    const speakers = {
+      pet:petSpeaker(),
+      legend:{kind:'legend', id:legend.id, label:legend.id === 'lamp' ? 'むこうの声' : legend.id === 'mirror' ? 'だれか' : legend.name,
+        art:el.dateMoviePartner.innerHTML},
     };
-    // 文ごとに混ぜず、一つの短い物語を丸ごと選ぶ。
-    const alternateBeatsById = {
-      "gate": [
-        "空にとりいが浮かんでいた。",
-        "少しだけおじぎをしてみた。",
-        "とりいの向こうに、同じ空が見えた。",
-        "「……通ってないのに、通った気がする」",
-        "振り返ると、とりいはまた遠くにいた。"
-      ],
-      "stairs": [
-        "行き先のない階段に座ってみた。",
-        "ひと休みしただけなのに、景色がひとつ上がっていた。",
-        "「……今、のぼった?」",
-        "足はずっと同じ段にあった。",
-        "もう少し座るのはやめておいた。"
-      ],
-      "boss": [
-        "🦑大きなイカが、遠くからおじぎをしている。",
-        "近づいてみたら、まだおじぎをしていた。",
-        "🦑「お時間をとらせてしまい……」",
-        "「話す前からあやまってない?」",
-        "🦑イカは少し考えて、もう一度おじぎをした。",
-        "何の用だったのかは、最後までわからなかった。"
-      ],
-      "lamp": [
-        "遠くに小さなあかりが見えた。",
-        "足を止めると、あかりも止まった。",
-        "一歩進むと、少しだけ近づいた。",
-        "「……待ち合わせ?」",
-        "返事はなく、あかりはしばらくとなりにいた。"
-      ],
-      "mirror": [
-        "水たまりの中で、年をとった自分が手をふった。",
-        "こちらも手をふってみる。",
-        "水の中の自分は、まだこちらを見ていた。",
-        "「……そっちも元気?」",
-        "返事のかわりに、小さな波がひとつ広がった。",
-        "もう一度見ると、いつもの顔に戻っていた。"
-      ]
-    };
-    const stories = [beatsById[legend.id], alternateBeatsById[legend.id]].filter(Boolean);
-    const beats = (stories.length ? pickMovieLine(stories) : [legend.flash, legend.story]).concat([`💰足もとに${coins}コインがきちんと積まれていた。`]);
-    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
-    el.dateMovieCaption.classList.add('beat');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
-    const step = 3500;
-    for (let i = 1; i < beats.length; i += 1) {
-      dateMovieTimers.push(setTimeout(() => {
-        el.dateMovieCaption.classList.remove('beat');
-        void el.dateMovieCaption.offsetWidth;
-        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
-        el.dateMovieCaption.classList.add('beat');
-        el.dateMovie.scrollIntoView({ block: 'nearest' });
-      }, step * i));
-    }
-    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
+    playMovieBeats(beats, {kind:'legend', legend:legend.id, speakers,
+      theme:({mirror:'water', gate:'special', stairs:'special', boss:'sunset', lamp:'star'})[legend.id] || 'walk'});
+
   }
 
   // まだ みた ことの ない パターンを ゆうせんして えらぶ ので、いっしょうを
   // かさねる ほど あたらしい でんせつに であえる(ぜんぶ みた あとは
   // どれかが もういちど でる - コンプリートは じっせきに ならない)
   function triggerLegendEncounter() {
+    if (state.legendMet) return;
     const seen = state.lifetime.legendsMet || [];
     const unseen = LEGEND_ENCOUNTERS.filter((e) => !seen.includes(e.id));
     const pool = unseen.length ? unseen : LEGEND_ENCOUNTERS;
@@ -9254,16 +9673,11 @@
     const legend = pool.find((entry, index) => (roll -= weights[index]) < 0) || pool[pool.length - 1];
     state.legendMet = true;
     if (!seen.includes(legend.id)) state.lifetime.legendsMet = seen.concat(legend.id);
-    const coins = Math.round(LEGEND_COIN_GIFT * coinMultiplier());
-    state.lifetime.money += coins;
-    state.happiness = 100;
-    applyGrowth(8);
-    applyDecline(-25);
     pushLifeLog(legend.emoji, `${legend.name}にであった`);
     // 一生に一度の特別イベントなので、通常通知へ長文を流さず専用ムービーで見せる。
     setMessage('');
     emotePet('love');
-    playLegendEncounterMovie(legend, coins);
+    playLegendEncounterMovie(legend);
     saveState();
     render();
   }
@@ -9515,242 +9929,6 @@
     return pickConversationLine(lines);
   }
 
-  // rewards for a great minigame result: each heals the death meter by a
-  // different amount. weight controls drop rarity - the strongest healers
-  // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
-  // items still tends to be mostly low-tier
-  // ================================================================
-  // ごほうび(かいふくアイテム)
-  // ================================================================
-  // 日常ステータスは「たべる・あそぶ・ねる・くすり」で戻せるため、
-  // ごほうびの主役にはしない。ごほうびは一生の中でたまる「おとろえ」を
-  // ほどくもの、上位はさらに「いのち」を立て直すものとして役割を分ける。
-  // rank が上がるほど希少で、人生ダメージへの回復力も大きくなる。
-  const RECOVERY_ITEMS = [
-    { id: 'reward', label: 'ごほうび', emoji: '🎁', tier: 'special', rank: 1, weight: 1,
-      effects: {}, desc: 'デートやたびをとくべつなおもいでにできる' },
-  ];
-
-  const FUN_ITEMS = [
-    {
-      "id": "fun_candy",
-      "label": "キャンディ",
-      "emoji": "🍭",
-      "narration": "🍭キャンディをぺろぺろ。ちいさなおやつタイム!",
-      "emote": "happy",
-      "petLines": [
-        "あまーい!",
-        "もうひとくち!",
-        "これすき!",
-        "ちいさくなった。どこへ消えたんだろ",
-        "最後だけずっとなめてたい"
-      ],
-      "partnerLines": [
-        "おいしそうだね",
-        "ひとくちちょうだい?",
-        "うれしそうでかわいい",
-        "半分は難しいね。感想だけちょうだい",
-        "ほっぺのふくらみで場所がわかる"
-      ],
-      "companionLines": [
-        "ぼくもたべたい!",
-        "あまいにおい!",
-        "いいなー!",
-        "包み紙の音で来ちゃった!",
-        "その色、何の味?"
-      ]
-    },
-    {
-      "id": "fun_bubbles",
-      "label": "しゃぼんだま",
-      "emoji": "🫧",
-      "narration": "🫧しゃぼんだまがふわふわひろがった",
-      "emote": "fun",
-      "petLines": [
-        "まてまて〜!",
-        "こっちにもきた!",
-        "われるまえにつかまえる!",
-        "ふれたらいなくなるの、ずるい",
-        "大きいのほど慎重に見送る"
-      ],
-      "partnerLines": [
-        "ふふ、たのしそう",
-        "きれいだね",
-        "そっちにもとんでるよ",
-        "消える前に同じの見られたね",
-        "近づいたら顔が映ってた"
-      ],
-      "companionLines": [
-        "こっちこっち!",
-        "おおきいのきた!",
-        "つかまえた!…われた!",
-        "三つ数えたら二つになった!",
-        "あっちの大きいの、追いかけよう!"
-      ]
-    },
-    {
-      "id": "fun_balloon",
-      "label": "ふうせん",
-      "emoji": "🎈",
-      "narration": "🎈ふうせんがふわり。つられて見あげた",
-      "emote": "fun",
-      "petLines": [
-        "どこまでいくの?",
-        "おちてこーい!",
-        "ふわふわ〜",
-        "持ってるほうが引っぱられてる",
-        "軽そうなのに目が離せない"
-      ],
-      "partnerLines": [
-        "にげないようにみてよう",
-        "なんかいいね",
-        "ずっとみてられる",
-        "ひも、ここで持ってるね",
-        "そっちに行きたいみたい。ついていく?"
-      ],
-      "companionLines": [
-        "つかまえる!",
-        "たかい!",
-        "ぼくのところにも!",
-        "天井まで行ったら呼んで!",
-        "まるいのにころがらない!"
-      ]
-    },
-    {
-      "id": "fun_fireworks",
-      "label": "はなび",
-      "emoji": "🎇",
-      "narration": "🎇よぞらにはなびがひらいた",
-      "emote": "fun",
-      "petLines": [
-        "わあっ!",
-        "もういっかい!",
-        "おおきい!",
-        "光ったあとに音が来た!",
-        "次を待ってたら、もう終わりそう!"
-      ],
-      "partnerLines": [
-        "きれい…",
-        "いっしょにみれてよかった",
-        "このままみてたいね",
-        "同じところでびっくりしたね",
-        "今の声、はなびより近かった"
-      ],
-      "companionLines": [
-        "どーん!",
-        "びっくりした!",
-        "つぎくるかな?",
-        "大きいの来た!拍手が遅れた!",
-        "音のほうにも名前つけたい!"
-      ]
-    },
-    {
-      "id": "fun_camera",
-      "label": "カメラ",
-      "emoji": "📸",
-      "narration": "📸カメラにむかって、ちょっといい顔をした",
-      "emote": "happy",
-      "petLines": [
-        "はい、チーズ!",
-        "どう?うつってる?",
-        "もう1まい!",
-        "まじめな顔がいちばんへん",
-        "自分の顔にまだ慣れてない"
-      ],
-      "partnerLines": [
-        "このしゃしん、とっておこうね",
-        "もうすこしこっち",
-        "いいかおしてる",
-        "その顔も残しとこう",
-        "さっきの一枚、消さないでね"
-      ],
-      "companionLines": [
-        "ぼくもはいる!",
-        "へんなかおする!",
-        "みせてみせて!",
-        "全員入った?はしっこ見せて!",
-        "撮る前に笑っちゃった!"
-      ]
-    },
-    {
-      "id": "fun_musicbox",
-      "label": "オルゴール",
-      "emoji": "🎵",
-      "narration": "🎵小さな箱から、やわらかい音が広がった",
-      "emote": "happy",
-      "petLines": [
-        "ゆらゆら〜",
-        "このおとすき",
-        "なんかねむくなる…",
-        "ふたを閉じてもまだ頭で鳴ってる",
-        "次の音を待つのがたのしい"
-      ],
-      "partnerLines": [
-        "おちつくね",
-        "このままゆっくりしよう",
-        "いいきょくだね",
-        "話の続きはこの曲のあとにしよ",
-        "黙って聴く時間もいいね"
-      ],
-      "companionLines": [
-        "おどろう!",
-        "ふしぎなおと!",
-        "もういっかいききたい!",
-        "小さな箱なのに音が広い!",
-        "静かに聴く練習ならできる!"
-      ]
-    },
-    {
-      "id": "fun_surprise",
-      "label": "びっくりばこ",
-      "emoji": "🪄",
-      "narration": "🪄びっくりばこがびよーん!",
-      "emote": "fun",
-      "petLines": [
-        "うわっ!",
-        "びっくりしたー!",
-        "もうこわくないぞ!",
-        "知っててもびっくりする!",
-        "ふたに勝った顔をしておこう"
-      ],
-      "partnerLines": [
-        "ふふ、いいかおした",
-        "びっくりしたね",
-        "次はこっちが開けてみるね",
-        "驚くタイミングまで一緒だったね",
-        "次はそっちが開けてみる?"
-      ],
-      "companionLines": [
-        "わああ!",
-        "もう1かい!",
-        "いまのみた!?",
-        "箱のほうが元気だった!",
-        "閉めたらまた待ってるの?"
-      ]
-    }
-  ];
-
-  function randomFunItem() {
-    return FUN_ITEMS[Math.floor(Math.random() * FUN_ITEMS.length)];
-  }
-
-  function playFunScene(item) {
-    clearConversationTimers();
-    hideSpeechBubble();
-    setMessage(item.narration || `${item.emoji} ${item.label}であそんだ`);
-    showStoryEvent({ emoji: item.emoji, item, message: item.label });
-    emotePet(item.emote || 'fun');
-
-    const beats = [{ speaker: petSpeaker(), text: pickConversationLine(item.petLines) }];
-    if (state.partner && Math.random() < 0.85) beats.push({ speaker: partnerSpeaker(), text: pickConversationLine(item.partnerLines) });
-    if (state.companions.length && Math.random() < 0.85) beats.push({ speaker: companionSpeaker(), text: pickConversationLine(item.companionLines) });
-
-    const crownExtra = hasNaotoItem('naoto_crown') && Math.random() < 0.25;
-    if (crownExtra) beats.push({ speaker: petSpeaker(), text: '👑きょうはなんだかとくべつ!' });
-
-    playConversationBeats(beats);
-  }
-
   const RECOVERY_EFFECT_LABELS = {
     hunger: 'おなか', happiness: 'ごきげん', energy: 'げんき',
     health: 'けんこう', decline: 'おとろえ', life: 'いのち',
@@ -9771,7 +9949,12 @@
     return Math.min(GOAL_AGE, Math.floor(state.ageTicks / AGE_TICKS_PER_YEAR));
   }
 
-  function stageForAge(age) {
+  function stageMinsForLine(line) {
+    return LIFE_STAGE_RULES?.minsForLine(line) || LIFE_STAGES.map((stage) => stage.min);
+  }
+
+  function stageForAge(age, line) {
+    if (LIFE_STAGE_RULES) return LIFE_STAGE_RULES.stageForAge(age, line);
     for (let i = LIFE_STAGES.length - 1; i >= 0; i -= 1) {
       if (age >= LIFE_STAGES[i].min) return i;
     }
@@ -9790,15 +9973,25 @@
   let suppressLifeEvents = false;
 
   function hatchEgg() {
+    if (state.stage !== STAGE.EGG || state.infinite) return;
+    clearPetExpression();
     audio.play('hatch');
-    state.speciesLine = pickDreamLine() || pickRandomLine();
+    const reservedLine = pickDreamLine();
+    state.speciesLine = reservedLine || pickRandomLine();
     state.stage = STAGE.GROWING;
     state.ageTicks = 0;
     state.stageIndex = 0;
+    if (!state.lifetime.raisedSpecies.includes(state.speciesLine)) state.lifetime.raisedSpecies.push(state.speciesLine);
     const identity = rollIdentity(state.speciesLine);
     state.gender = identity.gender;
     state.orientationId = identity.orientationId;
     state.attractedTo = identity.attractedTo;
+    if (reservedLine) {
+      const id = `c_egg_${NORMAL_LINES.includes(reservedLine) ? 'normal' : 'rare'}`;
+      ITEM_SYSTEM.take(state, id);
+      recordItemUse(id);
+      state.lifetime.nextEggLine = null; state.lifetime.nextEggKind = null;
+    }
     setMessage('たまごがぱかり。ちいさななおとっちと、目があった。');
     emotePet('happy');
     pushLifeLog('🥚', 'たまごからうまれた');
@@ -9810,8 +10003,9 @@
   function onAgeChanged(prevAge) {
     const age = currentAge();
     if (age === prevAge) return;
-    const before = stageForAge(prevAge);
-    const after = stageForAge(age);
+    const before = stageForAge(prevAge, state.speciesLine);
+    const after = stageForAge(age, state.speciesLine);
+    if (after !== before) clearTemporaryForm();
     state.stageIndex = after;
     state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, age);
     const sexChange = updateClownfishSex(state, after);
@@ -9827,10 +10021,9 @@
     const stage = currentVisualStage();
     setMessage(stage.message || `${stage.label}になった!`);
     emotePet('fun');
-    state.lifetime.money += 100;
     pushLifeLog(stage.emoji, `${age}さい${stage.label}になった`);
     showStoryEvent({ emoji: stage.emoji, petReaction:true, message: `${age}さいになった！\n${stage.label}` });
-    celebrateAgeSpeech(age, stage.label);
+    speakEvent('evolve', {age,stageLabel:stage.label,partnerChance:0.8,companionChance:0.75});
     checkStoryEvents('evolve');
     // すがたが かわった しゅんかんだけ、へんしんの ちゅうせんを おこなう
     rollTransformChance();
@@ -9846,15 +10039,14 @@
   }
 
   // 1さいごと: ちいさな トースト。5さいごと: すこし にぎやか。
-  // 10さいごと: 「としの おくりもの」(そだち30で 解禁)
   // 40〜70さいは すがたの かわりめが 18分・30分と あいて、なにも おきない
   // じかんが ながかった。その あいだを うめる、1かいずつの ちいさな できごと
   const MIDLIFE_EVENTS = [
     { age: 44, emoji: '🎣', solo: '趣味を見つけた。静かな時間が好きになった', pair: 'ふたりで趣味をはじめた。静かな時間を分けあった', happiness: 10, growth: 6 },
-    { age: 50, emoji: '🎂', solo: '50さいのお祝い。遠くから手紙が届いた', pair: '50さいのお祝い。こいびととお祝いの時間を過ごした', happiness: 8, money: 150 },
+    { age: 50, emoji: '🎂', solo: '50さいのお祝い。遠くから手紙が届いた', pair: '50さいのお祝い。こいびととお祝いの時間を過ごした', happiness: 8 },
     { age: 56, emoji: '📚', solo: '昔のアルバムを開いた。笑っている自分がいた', pair: '昔のアルバムをふたりで開いた。笑っている自分たちがいた', happiness: 6, decline: -10 },
     { age: 62, emoji: '🌻', solo: '庭に小さな花を植えた。明日が少し楽しみになった', pair: 'ふたりで庭に花を植えた。明日が少し楽しみになった', happiness: 6, growth: 8 },
-    { age: 66, emoji: '🧳', solo: '小さな旅の計画を立てた。つぎの旅はきっといい日になる', pair: 'ふたりで旅の計画を立てた。つぎの旅はきっといい日になる', money: 100, travelCharm: true },
+    { age: 66, emoji: '🧳', solo: '小さな旅の計画を立てた。つぎの旅はきっといい日になる', pair: 'ふたりで旅の計画を立てた。つぎの旅はきっといい日になる' },
   ];
   function maybeMidlifeEvent(age) {
     const ev = MIDLIFE_EVENTS.find((e) => e.age === age);
@@ -9864,13 +10056,10 @@
     seen.push(age);
     const text = state.partner ? ev.pair : ev.solo;
     if (ev.happiness) state.happiness = clamp(state.happiness + ev.happiness, 0, 100);
-    if (ev.money) state.lifetime.money += ev.money;
     if (ev.growth) applyGrowth(ev.growth, { silent: true });
     if (ev.decline) applyDecline(ev.decline);
-    if (ev.travelCharm) state.oneTimeBoosts.travelGuarantee = true;
-    const extra = [ev.money ? `💰+${ev.money}` : '', ev.travelCharm ? '🧭たびのおまもりが手元にある' : ''].filter(Boolean).join('／');
     pushLifeLog(ev.emoji, `${age}さい：${text}`);
-    showStoryEvent({ emoji: ev.emoji, petReaction: true, message: `${text}${extra ? '\n' + extra : ''}` });
+    showStoryEvent({ emoji: ev.emoji, petReaction: true, message: text });
     return true;
   }
 
@@ -9880,20 +10069,7 @@
     celebrateAgeSpeech(age);
     applyDecline(-5, { silent: true });
     maybeMidlifeEvent(age);
-    const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
-    state.lifetime.money += bonus;
-    if (age % 10 === 0 && Math.random() < (isEquipped('itemluck1') ? 0.32 : 0.25)) {
-      state.items.reward = (state.items.reward || 0) + 1;
-      setMessage(`🎁 ${age}さい。どこからかごほうびが1ことどいた!`);
-      emotePet('love');
-    } else if (age % 5 === 0) {
-      const fun = randomFunItem();
-      state.items[fun.id] = (state.items[fun.id] || 0) + 1;
-      setMessage(`🎂 ${age}さい。${fun.emoji}${fun.label}をもらって、さっそくしまいこんだ`);
-      emotePet('happy');
-    } else {
-      setBirthdayToast(`🎂 ${age}さいになった`);
-    }
+    setBirthdayToast(`🎂 ${age}さいになった`);
     if (age === 90) {
       state.miracleGuard = true;
       setMessage('🌅 90さい。いつもの場所で、しばらくゆっくりしていた');
@@ -9906,18 +10082,9 @@
   function growthMultiplier() {
     return state.boostTicks > 0 ? 2 : 1;
   }
-  // せいちょう2ばい: ミニゲームの Sランクで 2ふん、きょうの チャレンジで 10ぷん(かさなる、さいだい 10ぷん)
+  // 通常ミニゲームの Sランクで2分追加（最大10分）。日次報酬は含めない。
   const BOOST_TICKS_S_RANK = 40;
-  const BOOST_TICKS_DAILY = 200;
   const BOOST_TICKS_MAX = 200;
-  // きょうの チャレンジの ごほうび: きほん 10 + れんぞく日数に おうじて +5/日(さいだい 60)、
-  // 3・7・14・30にち の ふしめで ボーナス
-  const DAILY_STREAK_MILESTONES = { 3: 30, 7: 100, 14: 200, 30: 500 };
-  function dailyStreakReward(streak) {
-    const base = 10 + 5 * Math.min(Math.max(0, streak - 1), 10);
-    const bonus = DAILY_STREAK_MILESTONES[streak] || 0;
-    return { coins: base + bonus, milestone: bonus ? `${streak}日連続ボーナス💰${bonus}を含む` : '' };
-  }
   function grantGrowthBoost(ticks) {
     if (!isLiveLife() || state.infinite) return 0;
     state.boostTicks = Math.min(BOOST_TICKS_MAX, (state.boostTicks || 0) + ticks);
@@ -9937,7 +10104,8 @@
       if (state.growth >= HATCH_GROWTH) { state.growth = 0; hatchEgg(); }
       return;
     }
-    state.growth += amount > 0 ? amount * growthMultiplier() : amount;
+    // Growth already stores fractions; keep sodachi and its thresholds integer.
+    state.growth += amount > 0 ? amount * growthMultiplier() * (hasNaotoItem('naoto_lantern') ? 1.1 : 1) : amount;
     if (state.growth < 0) state.growth = 0;
     while (state.growth >= sodachiCost(state.sodachi) && state.sodachi < SODACHI_MAX) {
       state.growth -= sodachiCost(state.sodachi);
@@ -9990,18 +10158,16 @@
   function onSodachiMilestone(value) {
     const perk = SODACHI_PERKS[value];
     if (!perk) return;
-    const reward = Math.round(perk.coins * coinMultiplier());
-    state.lifetime.money += reward;
-    speakEvent('money', { coins: reward, partnerChance: 0.4, companionChance: 0.4 });
+    ITEM_SYSTEM.normalize(state);
+    const paid = state.itemLife.milestonesPaid || (state.itemLife.milestonesPaid = []);
+    if (paid.includes(value)) return;
+    paid.push(value);
     pushLifeLog(perk.emoji, `そだちが${value}にとどいた— ${perk.name}`);
     showStoryEvent({ emoji: perk.emoji, message: `そだち${value}！ ${perk.name}\n${perk.desc}` });
-    if (value === 90) state.lifetime.dreamEggs.rare += 1;
+    if (value === 90) ITEM_SYSTEM.grant(state, 'c_egg_rare');
     if (value === 100) {
-      state.lifetime.dreamEggs.normal += 1;
-      state.lifetime.money += 5000;
-      // 「その人生の のこりは 不死」を UI でも はっきりさせる。
-      // ここで いのちを まんたんに もどし、おわかれの まえぶれも けす
-      setMessage('👑そだち100。💰5000とたまごのゆめをもらった');
+      ITEM_SYSTEM.grant(state, 'c_egg_normal');
+      setMessage('そだち100。ふしぎなたまごをもらった');
     } else {
       setMessage(`${perk.emoji}そだち${value}! ${perk.name}`);
     }
@@ -10019,6 +10185,17 @@
   // 解禁されない(endingTiersReached・レインボーの 解禁も とまる)
   let grandGoalPending = null;
 
+  // RH-10(Roadmap §8.9): ④ ずかん / ⑤ PERFECT の おいわいは、見る まえに とじても 次に ひらいた とき もういちど 出す。
+  // 見おわったら(とじる / ♾️ へ)消す。人生の おわり(life)は 保存しない(いままでどおり)
+  function clearPendingGrandGoal() {
+    if (state.lifetime && state.lifetime.pendingGrandGoal) { delete state.lifetime.pendingGrandGoal; saveState(); }
+  }
+  function restorePendingGrandGoal() {
+    const goal = state.lifetime && state.lifetime.pendingGrandGoal;
+    const reached = goal === 'perfect' ? state.lifetime.perfectCleared : goal === 'dex' ? state.lifetime.dexCleared : false;
+    if (reached && !grandGoalPending) grandGoalPending = goal;
+    else if (goal && !reached) delete state.lifetime.pendingGrandGoal;
+  }
   function checkGrandGoals() {
     if (!state.lifetime) return;
     const { dexComplete, achComplete } = endingProgress();
@@ -10030,22 +10207,15 @@
     if (dexComplete && !state.lifetime.dexCleared) {
       state.lifetime.dexCleared = true;
       grandGoalPending = 'dex';
+      state.lifetime.pendingGrandGoal = 'dex';
     }
     if (achComplete && !state.lifetime.perfectCleared) {
       state.lifetime.perfectCleared = true;
       // dex-complete は全実績の一部なので、⑤成立時には④も必ず成立済み。
       // 同時成立なら PERFECT を最終表示として優先する。
       grandGoalPending = 'perfect';
+      state.lifetime.pendingGrandGoal = 'perfect';
     }
-  }
-
-  // そだち30で +25%、70で さらに +50%(累計 ×1.75)。そだち100の
-  // その人生では さらに うわのせ しない(即時5000コインで かわりに わたす)
-  function coinMultiplier() {
-    let m = 1;
-    if (hasPerk(30)) m *= 1.25;
-    if (hasPerk(70)) m *= 1.4;
-    return m;
   }
 
   // いま「いきている 人生」を そうさ できる じょうたいか
@@ -10054,6 +10224,20 @@
   }
 
   function triggerDeath() {
+    if (state.stage === STAGE.GROWING && currentAge() < GOAL_AGE && !isImmortal()
+        && ITEM_SYSTEM.take(state, 'c_life_charm')) {
+      state.deathMeter = 0;
+      state.dying = false;
+      state.dyingTicks = 0;
+      recordItemUse('c_life_charm');
+      setMessage('いのちのおまもりが、なおとっちを助けた');
+      emotePet('happy');
+      saveState();
+      render();
+      return;
+    }
+    invalidateCareAfterglow();
+    clearPetExpression();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.DEAD;
@@ -10069,6 +10253,8 @@
   // ここでは そだち・ずかん・じっせき・コインが すべて とまるので、
   // 「もうひとつの freePlay」には ならない(§12)
   function enterFarewell() {
+    invalidateCareAfterglow();
+    clearPetExpression();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.FAREWELL;
@@ -10094,6 +10280,7 @@
   // そのまま かえってくる(§27「♾️ ⇄ 通常の人生を いつでも 行き来できる」)
   function enterInfinite() {
     if (state.infinite) return;
+    clearPetExpression();
     // ずかん・じっせき・lifetime は 人生を またぐ きろく な ので しまわない。
     // = ♾️ の あいだに ふえた おかね・ずかん・じっせきは もどっても のこる
     const snapshot = JSON.parse(JSON.stringify(state));
@@ -10116,16 +10303,22 @@
   // でいりした こと じたいは、なにも きろくに のこさない
   function exitInfinite() {
     if (!state.infinite) return;
+    clearPetExpression();
     const snapshot = state.infiniteReturn;
+    // モード切替でも使用後5秒の実時間は保持し、待ち時間を延長しない。
+    const gamePassReadyAt = Math.max(state.gamePassReadyAt || 0, snapshot?.gamePassReadyAt || 0);
     // 人生を またぐ きろくは そのまま ひきつぐ(♾️ で えた ぶんも のこす)
     const lifetime = state.lifetime;
+    const duel = state.duel;
     const discoveredStages = state.discoveredStages;
     const achievementsUnlocked = state.achievementsUnlocked;
     if (!snapshot) {
       // ふるい セーブ(旧 freePlay からの ひきつぎ など)には しまってある
       // 人生が ない。その ばあいだけ あたらしい たまごから はじめる
       state = freshState();
+      state.gamePassReadyAt = gamePassReadyAt;
       state.lifetime = lifetime;
+      state.duel = duel;
       state.discoveredStages = discoveredStages;
       state.achievementsUnlocked = achievementsUnlocked;
       state.declineBaseline = lifetime.devolutions || 0;
@@ -10134,13 +10327,16 @@
       return;
     }
     state = Object.assign({}, snapshot, {
+      gamePassReadyAt,
       lifetime,
+      duel,
       discoveredStages,
       achievementsUnlocked,
       infinite: false,
       infiniteForm: null,
       infiniteReturn: null,
     });
+    ITEM_SYSTEM.normalize(state);
     setMessage('♾️のせかいから、この子のいっしょうにもどってきた');
     emotePet('happy');
     showPendingClownfishTransition();
@@ -10157,8 +10353,8 @@
     // SECRET れんくんが天寿をまっとうした人生だけ、通常カードの情報を
     // 削らずに小さな専用回想を添える。別Renderer/別エンディングにはせず、
     // 248形態共通の人生記録フローを保ったまま「同じ一人が育った」ことを見せる。
-    if (state.speciesLine === 'ren' && age >= GOAL_AGE) {
-      const renStages = SPECIES.ren?.stages || [];
+    if (state.speciesLine === SECRET_LINE && age >= GOAL_AGE) {
+      const renStages = SPECIES[SECRET_LINE]?.stages || [];
       const renMemories = [0, 2, 4, 5, 7]
         .map((stageIndex) => renStages[stageIndex])
         .filter(Boolean)
@@ -10180,7 +10376,7 @@
     } else if (state.legendMet) {
       rows.push('<div class="lifecard-line">でんせつにであった</div>');
     }
-    rows.push(`<div class="lifecard-line">びょうきを${state.totalSicknessCount}かいのりこえた／ずかん${state.discoveredStages.length}／${ALL_LINES.length * STAGES_PER_LINE}</div>`);
+    rows.push(`<div class="lifecard-line">びょうきを${state.totalSicknessCount}かいのりこえた／ずかん${dexFoundCount()}／${dexTotalCount()}</div>`);
     const stats = lifeSummaryStats();
     if (stats.bestGame) rows.push(`<div class="lifecard-line">いちばんとくいなゲーム: ${displayIconHTML(stats.bestGame.emoji)}${escapeHtml(stats.bestGame.name)} ${stats.bestGame.best}てん</div>`);
     const log = state.lifeLog || [];
@@ -10199,7 +10395,7 @@
     if (!shown.length) return '<div class="life-timeline-empty">まだ できごとは ない</div>';
     let lastAge = null;
     return '<div class="life-timeline">' + shown.map((e) => {
-      const ageCell = e.age !== lastAge ? `<span class="life-timeline-age">${e.age}さい</span>` : '<span class="life-timeline-age"></span>';
+      const ageCell = e.age !== lastAge ? `<span class="life-timeline-age">${escapeHtml(e.age)}さい</span>` : '<span class="life-timeline-age"></span>';
       lastAge = e.age;
       return `<div class="life-timeline-row">${ageCell}<span class="life-timeline-icon">${lifeLogIconHTML(e,line)}</span><span class="life-timeline-text">${commentTextHTML(compactJapaneseText(e.text))}</span></div>`;
     }).join('') + '</div>';
@@ -10260,7 +10456,7 @@
     if (el.profilePastLives) {
       const past = (state.lifetime.pastLives || []).slice().reverse();
       el.profilePastLives.innerHTML = past.length
-        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${p.age}さい・そだち${p.sodachi}${p.married ? '・💍' : ''}${p.companions ? `・なかま${p.companions}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
+        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${escapeHtml(p.age)}さい・そだち${escapeHtml(p.sodachi)}${p.married ? '・💍' : ''}${p.companions ? `・なかま${escapeHtml(p.companions)}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
         : '<div class="profile-hint">まだ おわかれした子は いない</div>';
     }
   }
@@ -10337,11 +10533,10 @@
     return false;
   }
 
-  // いのちが つきない じょうたい(そだち100の 特典 / なおとの リング)
+  // いのちがつきないのは無限モードだけ。そだち100でも通常の人生は続く。
   function isImmortal() {
     return state.infinite;
   }
-
   // ================================================================
   // おわかれの まえぶれ - 予告なく 死なせない ための しくみ
   // ================================================================
@@ -10394,13 +10589,52 @@
     }, 1200);
   }
 
-  // 「たまごの ゆめ」「でんせつの ゆめ」で 次の たまごの しゅぞくを えらんで
-  // いた ばあいは それを つかう。つかったら 在庫から へらす
+  // New reservations draw from unraised species. A funded legacy choice stays
+  // valid even if already raised; only a successful hatch spends its stock.
+  function dreamLines(kind) {
+    return (kind === 'normal' ? NORMAL_LINES : kind === 'rare' ? RARE_LINES : []).filter(line => !isSecretLine(line));
+  }
+  function unraisedEggLines(kind) {
+    const raised = new Set(experiencedSpecies());
+    return dreamLines(kind).filter(line => !raised.has(line));
+  }
+  function openDreamPicker(kind) {
+    return ['normal','rare'].includes(kind) && useConsumableItem(`c_egg_${kind}`);
+  }
+  function reserveNextEgg(kind) {
+    const id = `c_egg_${kind}`, L = state.lifetime;
+    if (!itemUseAllowed(id) || !ITEM_SYSTEM.stock(state,id) || L.nextEggLine || L.nextEggKind) return false;
+    const pool = unraisedEggLines(kind);
+    if (!pool.length) return false;
+    L.nextEggLine = pool[Math.floor(Math.random() * pool.length)];
+    L.nextEggKind = kind;
+    setMessage('次の人生のたまごを予約しました。中身は生まれるまでのお楽しみ。');
+    saveState(); render(); return true;
+  }
+  function reservedEggKind() {
+    const L = state.lifetime;
+    if (!L.nextEggLine && !L.nextEggKind) return null;
+    // Legacy reservations may omit kind. Malformed reservations still get a
+    // cancellation control, but pickDreamLine never allows an invalid hatch.
+    return ['normal','rare'].includes(L.nextEggKind) ? L.nextEggKind
+      : RARE_LINES.includes(L.nextEggLine) ? 'rare' : 'normal';
+  }
+  function cancelNextEgg(id) {
+    if (id !== `c_egg_${reservedEggKind()}`) return false;
+    state.lifetime.nextEggLine = null; state.lifetime.nextEggKind = null;
+    // Stock is held until hatch, so releasing the reservation must not grant
+    // another egg or refund coins. Repeated/stale clicks are harmless.
+    setMessage('予約を取り消しました。たまごはふくろに残っています。');
+    saveState(); render(); return true;
+  }
   function pickDreamLine() {
-    const dream = state.lifetime.nextEggLine;
-    if (!dream || !SPECIES[dream]) return null;
-    state.lifetime.nextEggLine = null;
-    return dream;
+    if (state.stage !== STAGE.EGG || state.infinite) return null;
+    const L = state.lifetime, line = L.nextEggLine;
+    // Old saves may omit the kind. Explicit invalid values never infer a pool.
+    const kind = L.nextEggKind == null ? (NORMAL_LINES.includes(line) ? 'normal' : RARE_LINES.includes(line) ? 'rare' : null) : L.nextEggKind;
+    if (dreamLines(kind).includes(line) && ITEM_SYSTEM.stock(state,`c_egg_${kind}`) > 0) return line;
+    L.nextEggLine = null; L.nextEggKind = null;
+    return null;
   }
 
   // ================================================================
@@ -10428,7 +10662,7 @@
   let lastStoryEventMessage = null;
   let deathCardShown = false;
 
-  function checkStoryEvents(context) {
+  function checkStoryEvents(context, delayMs = 0) {
     if (state.stage === STAGE.DEAD || gameActive) return;
     const pool = STORY_EVENT_POOLS[context];
     if (!pool || pool.length === 0) return;
@@ -10438,13 +10672,26 @@
     const choices = pool.length > 1 ? pool.filter((e) => e.message !== lastStoryEventMessage) : pool;
     const event = choices[Math.floor(Math.random() * choices.length)];
     lastStoryEventMessage = event.message;
-    showStoryEvent({...event,petReaction:true});
+    if (delayMs > 0) {
+      const serial = careReactionSerial;
+      const life = state;
+      if (careStoryTimer) clearTimeout(careStoryTimer);
+      careStoryTimer = setTimeout(() => {
+        careStoryTimer = null;
+        if (state !== life || careReactionSerial !== serial || !emotionCueContextVisible()) return;
+        showStoryEvent({...event,petReaction:true});
+      },delayMs);
+    } else {
+      showStoryEvent({...event,petReaction:true});
+    }
   }
 
   let storyFlashTimer = null;
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
+    invalidateCareAfterglow();
+    clearPetExpression();
     audio.play('notify');
     const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
       : event.environmentMoment ? commentAnimalVisual(event.emoji) || {emoji:event.emoji,illustrationContext:'environment'} : null;
@@ -10456,6 +10703,8 @@
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
     setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
+    renderPetVisual();
+    cancelEmotionCue(true);
     renderWorldScene(true);
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
@@ -10463,6 +10712,8 @@
     storyFlashTimer = setTimeout(() => {
       el.storyFlash.classList.add('hidden');
       renderWorldScene();
+      syncHomeEmotion();
+      renderPetVisual();
     }, STORY_FLASH_DURATION_MS);
   }
 
@@ -10476,6 +10727,7 @@
     // ためた ときだけ かえる(applyGrowth さんしょう)ので、ここでは
     // ステータスの げんしょうも ねんれいも すすめない
     if (state.stage === STAGE.EGG) return;
+    ITEM_SYSTEM.advance(state);
 
     if (!state.infinite) {
       const prevAge = currentAge();
@@ -10485,7 +10737,7 @@
         checkMarriageMilestones(prevAge, currentAge());
       }
       if (currentAge() >= GOAL_AGE) {
-        state.stageIndex = stageForAge(GOAL_AGE);
+        state.stageIndex = stageForAge(GOAL_AGE, state.speciesLine);
         state.lifetime.maxAgeReached = GOAL_AGE;
         enterFarewell();
         return;
@@ -10507,8 +10759,6 @@
       // ちょうネクタイ/リボンけいを そうびしていると、それぞれ 満腹/機嫌の
       // 時間経過による げんしょうが ゆるやかに なる(上位アイテムほど
       // さらに ゆるやかに)
-      const hungerFactor = isEquipped('bowtie') ? 0.78 : 1;
-      const happinessFactor = isEquipped('ribbon') ? 0.78 : 1;
       // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに
       // 基本がめんで しばらく ながめていても あわてなくて いい よう、
       // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
@@ -10518,30 +10768,38 @@
       { const envNow = currentEnvironment(); noteEnvironmentSeen(envNow.time, envNow.weather, envNow.weatherSource); }
       // 0.35/tick: 100→30 が やく 10分。「つねに お世話しないと」に ならず、
       // ほのぼの ながめて いられる はやさ(以前 0.6 = やく 6分)
-      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * hungerFactor * legendFactor * envMod.hunger, 0, 100);
-      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * happinessFactor * legendFactor * envMod.happy, 0, 100);
+      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * legendFactor * envMod.hunger, 0, 100);
+      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * legendFactor * envMod.happy, 0, 100);
+      if (isEquipped('bowtie') && state.hunger <= ITEM_AUTO_CARE_DANGER) {
+        state.hunger = 100;
+        itemContextReaction('bowtie', 'おなかが危なくなる前に、自動でごはんを食べてまんたんになった。');
+      }
+      if (isEquipped('ribbon') && state.happiness <= ITEM_AUTO_CARE_DANGER) {
+        state.happiness = 100;
+        itemContextReaction('ribbon', 'リボンを揺らして気分転換。ごきげんがまんたんになった。');
+      }
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
         // 元気回復は startSleepRecovery() の100msタイマーで滑らかに行う。
         // tick側では回復しないので、起こした後に遅れて回復することもない。
       } else {
-        // 元気けいの アイテムを そうびしていると、おきている あいだの
-        // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.32/tick)
+        // おきている あいだの 基本の げんしょうスピード(0.32/tick)
         // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
         // よりも すこし ゆっくりめに おさえてある
-        const energyFactor = isEquipped('energy1') ? 0.82 : 1;
-        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor * legendFactor, 0, 100);
+        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * legendFactor, 0, 100);
       }
 
       // なおとの ひみつは日常のお世話そのものを無効化しない。
 
-      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい。
-      // なおとの ランタンを もっていると そもそも 二度と たまらなくなる)
-      const poopFactor = isEquipped('poop1') ? 0.7 : 1;
+      // 紙は発生を減らさず、3個たまったとき1個だけ手伝う。
       // 3.5%/tick = やく 1.5分に 1こ(以前 8% = 40秒に 1こ で そうじが おいつかなかった)
-      if (Math.random() < 0.035 * poopFactor && state.poopCount < MAX_POOP) {
+      if (Math.random() < 0.035 && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
+      }
+      if (isEquipped('poop1') && state.poopCount >= 3) {
+        state.poopCount = 0;
+        itemContextReaction('poop1', 'たまったうんちを、まとめて全部おそうじした。');
       }
       if (state.poopCount >= MAX_POOP) {
         state.happiness = clamp(state.happiness - 2, 0, 100);
@@ -10559,26 +10817,32 @@
       if (!state.isSick && neglected && !infantGrace) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
-        const sicknessChance = 0.03 * (isEquipped('scarf') ? 0.65 : 1);
+        const sicknessChance = 0.03;
         if (Math.random() < sicknessChance) {
-          // びょうきよけの おふだ(つかいきりアイテム)を もっていれば、
-          // ここで 1かいぶん つかって びょうきを ふせぐ
-          if (state.oneTimeBoosts.sicknessShieldCount > 0) {
-            state.oneTimeBoosts.sicknessShieldCount -= 1;
-          } else {
-            const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
-            state.isSick = true;
-            state.sicknessType = sickness.label;
-            state.totalSicknessCount += 1;
-            applyDecline(10);
-            raiseDeathMeter(4);
-            setMessage(`${sickness.label}になってしまった…くすりをあげよう`);
-          }
+          const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
+          state.isSick = true;
+          state.sicknessType = sickness.label;
+          state.totalSicknessCount += 1;
+          applyDecline(10);
+          raiseDeathMeter(4);
+          setMessage(`${sickness.label}になってしまった…くすりをあげよう`);
         }
       }
 
       // health responds to neglect - a pet with a long history of illness is
       // frailer overall: sickness hits its health harder, and it doesn't take
+      if (isEquipped('scarf') && state.isSick) {
+        state.isSick = false;
+        state.sicknessType = null;
+        state.health = clamp(state.health + 20, 0, 100);
+        state.energy = clamp(state.energy - 10, 0, 100);
+        applyGrowth(8);
+        applyDecline(-12);
+        recordSicknessCure();
+        checkStoryEvents('medicine-cure');
+        itemContextReaction('scarf', '病気に気づいて、自動でくすりを使って治した。');
+      }
+
       // as long a losing streak to be fatal
       let healthDelta = 0;
       if (state.hunger <= 0) healthDelta -= 2;
@@ -10602,7 +10866,7 @@
         state.lowHealthStreak = 0;
       }
       const deathThreshold = Math.max(6, 15 - state.totalSicknessCount);
-      // なおとの リング / そだち100 / ♾️ の あいだは この けいろでも 死亡しない
+      // 無限モードだけは、この経路でも死亡しない。奇跡を先に使う。
       if (state.lowHealthStreak >= deathThreshold && !isImmortal()) {
         if (state.miracleGuard) {
           state.miracleGuard = false;
@@ -10617,7 +10881,7 @@
       // 「死亡」メーターは びょうき・ていけんこう・ミニゲーム大失敗・
       // たべすぎ など「なにか やらかした とき」に くわえて、としを とるほど
       // わずかに 自然にも あがる(raiseDeathMeter() を通すので、こいびと/
-      // 夫婦や かんむりの けいげん効果は ここにも かかる)。
+      // 夫婦の けいげん効果は ここにも かかる)。
       // 「死亡メーターの 上昇が はやすぎて むずかしい」という フィードバックを
       // うけて、上限を すぐ したの wellCared による -2/tick の 自動かいふくより
       // ひかえめな 大きさに おさえてある(以前は 上限が -2を うわまわり、
@@ -10638,9 +10902,9 @@
       const baseAgeRisk = age >= 70
         ? lerp(0.06, 0.90, (age - 70) / 30)
         : 0;
-      // ①クリア報酬「なおとの おまもり」は、人生の両端を守る。
-      // 幼少期だけでなく、70さい以降の老いによる自然リスクにも同じ軽減をかける。
-      const charmProtectsAge = age < 10 || age >= 70;
+      // ①クリア報酬は70歳以降の年齢由来のリスクだけを28%軽減する。
+      const charmProtectsAge = age >= 70;
+      if (charmProtectsAge && hasNaotoItem('naoto_charm') && state.lifetime.itemProgress.ticks % 100 === 0) itemContextReaction('naoto_charm','おまもりが小さく光った。年齢によるいのちのリスクを28%やわらげている。');
       const ageRisk = charmProtectsAge && hasNaotoItem('naoto_charm') ? baseAgeRisk * 0.72 : baseAgeRisk;
       const sodachiProtection = lerp(1, 0.55, state.sodachi / SODACHI_MAX);
       const fromAge = ageRisk * sodachiProtection;
@@ -10732,6 +10996,7 @@
 
   function bouncePet() {
     if (castMotion) {
+      stopActiveEmotionCue();
       if (!conversationIsBusy()) castMotion.emote('bounce');
       petBusyUntil = Date.now() + 960;
       return;
@@ -10746,6 +11011,7 @@
   function emotePet(kind) {
     if (kind === 'sad') audio.play('sad'); else if (kind === 'fun') audio.play('chirp');
     if (castMotion) {
+      stopActiveEmotionCue();
       if (!conversationIsBusy()) castMotion.emote({happy:'bounce',fun:'bounce',sad:'droop',angry:'shake',love:'love'}[kind] || 'nod');
       petBusyUntil = Date.now() + 1400;
       return;
@@ -10783,17 +11049,18 @@
   function scheduleIdlePerk() {
     const delay = 4000 + Math.random() * 5000;
     setTimeout(() => {
-      const idleOk = !gameActive
+      const idleOk = !gameActive && pageVisible()
         && state.stage !== STAGE.DEAD
         && state.stage !== STAGE.EGG
         && !state.isSleeping && !state.isSick && !state.dying
-        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
-        && Date.now() >= petBusyUntil;
+        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen();
       if (idleOk) {
         if (castMotion) {
-          castMotion.idle();
-          petBusyUntil = Date.now() + 1600;
-        } else {
+          const excludePet = homeEmotion.state !== 'normal' || homeEmotion.suppressPetIdle
+            || !!careAfterglowTimer || Date.now() < petBusyUntil || castMotion.isActive({kind:'pet'});
+          const duration = castMotion.idle({excludePet});
+          if (duration && !excludePet) petBusyUntil = Date.now() + duration;
+        } else if (!careAfterglowTimer && Date.now() >= petBusyUntil) {
         el.pet.classList.add('idle-perk');
         petBusyUntil = Date.now() + 520;
         setTimeout(() => el.pet.classList.remove('idle-perk'), 520);
@@ -10810,7 +11077,7 @@
     // 放置会話は掛け合いより間を空ける。吹き出し自体の表示時間は共通。
     const delay = 5200 + Math.random() * 3800;
     setTimeout(() => {
-      const canGreet = !gameActive
+      const canGreet = !gameActive && pageVisible()
         && state.stage === STAGE.GROWING
         && !state.isSleeping
         && !state.transformOptions
@@ -10818,18 +11085,22 @@
         && !conversationIsBusy()
         && !isAnyMenuOverlayOpen();
       if (canGreet) {
-        const choices = [{ kind: 'pet', weight: 4 }];
+        const currentEmotion = deriveHomeEmotion();
+        const excludePet = currentEmotion.state !== 'normal' || currentEmotion.suppressPetIdle;
+        const petIdleBlocked = excludePet || !!careAfterglowTimer
+          || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'});
+        const choices = petIdleBlocked ? [] : [{ kind: 'pet', weight: 4 }];
         // 恋人・仲間がいる人生では本人だけが独占せず、周囲もかなりよく割り込む。
-        if (state.partner) choices.push({ kind: 'partner', weight: 4 });
-        if (state.companions.length) choices.push({ kind: 'companion', weight: 4 });
+        if (homePresentPartner()) choices.push({ kind: 'partner', weight: 4 });
+        if (homePresentCompanions().length) choices.push({ kind: 'companion', weight: 4 });
         const expanded = choices.flatMap((x) => Array(x.weight).fill(x.kind));
         const kind = expanded[Math.floor(Math.random() * expanded.length)];
         if (kind === 'partner') {
-          setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[state.partner.id], PARTNER_IDLE_LINES), partnerSpeaker());
+          if(homePresentPartner() && homeInitiative('affection_interaction','partner:'+state.partner.id))setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[state.partner.id], PARTNER_IDLE_LINES), partnerSpeaker());
         } else if (kind === 'companion') {
           const speaker = companionSpeaker();
-          setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker?.id], COMPANION_IDLE_LINES), speaker);
-        } else {
+          if(speaker && homeInitiative('greeting','companion:'+speaker.id))setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker.id], COMPANION_IDLE_LINES), speaker);
+        } else if (kind === 'pet') {
           const memoryGreeting = Math.random() < 0.3 ? pickMemoryGreeting() : null;
           // 方言は本人の短い遊びとして時々。通常の独り言の大半を占めさせない。
           const greetingPool = Math.random() < 0.08 ? IDLE_GREETINGS_DIALECT : IDLE_GREETINGS;
@@ -10860,22 +11131,33 @@
   // (overlayIs('item') だけで じゅうぶん カバーできる)
   function isAnyMenuOverlayOpen() {
     return !!activeOverlay || duelOpen
-      || dateOpen || companionInviteOpen
+      || dateOpen || companionInviteOpen || !!pendingItemScene || !!itemSceneRecord
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
       // 「ひらいている がめん」。ここを いれないと、おいわいの うえに
       // なかまの さそいが かぶさって、クリアの ボタンが おせなく なる
-      || !!grandGoalPending || !!dexDetail;
+      || !!grandGoalPending || !!dexDetail
+      // 「めぐる」も ホームを まるごと おきかえる がめん。ここに いれる ことで
+      // じかんの ていし・なかまの さそい/でんせつとの であい/ひとりごとの
+      // よくせい・せわの おしらせの ひょうじ よくせい が ぜんぶ そろう
+      || meguruActive;
+  }
+
+  // 「じかんが すすまない がめん」を 1か所で きめる。ひらいている あいだは
+  // せわが できない がめん(メニュー系・めぐる・ミニゲーム・へんしんの えらび)
+  // では tick() を まるごと とめる。とめておかないと、めぐっている あいだや
+  // ゲームの さいちゅうに おなかが へりつづけて、しんでしまう ことが あった
+  // RH-9: タブが かくれて いる あいだは ふつうの tick も、なかまの であい・けしきの できごと・ひとりごと も おこさない
+  // (恋愛・なかま・discovery を かってに すすめない)。もどった ときに るすの 処理を 1 回だけ する
+  function pageVisible() {
+    return document.visibilityState !== 'hidden';
+  }
+  function isTimePaused() {
+    return gameActive || !!state.transformOptions || isAnyMenuOverlayOpen();
   }
 
   function pickCompanionByRegion(pool) {
-    if (!pool.length) return null;
-    const weighted = [];
-    pool.forEach((c) => {
-      const local = Array.isArray(c.preferredRegions) && c.preferredRegions.includes(state.regionId);
-      const weight = local ? 4 : 1;
-      for (let i = 0; i < weight; i += 1) weighted.push(c);
-    });
-    return weighted[Math.floor(Math.random() * weighted.length)] || pool[0];
+    return pickRingCandidate(pool, 'companion', c =>
+      Array.isArray(c.preferredRegions) && c.preferredRegions.includes(state.regionId) ? 4 : 1);
   }
 
   function scheduleCompanionEncounter() {
@@ -10891,7 +11173,7 @@
       const rareRemaining = hasPerk(80)
         ? RARE_COMPANIONS.filter((c) => !hasActiveCompanionId(c.id))
         : [];
-      const canEncounter = !gameActive
+      const canEncounter = !gameActive && pageVisible()
         && state.stage === STAGE.GROWING
         && !state.isSleeping
         && !state.transformOptions
@@ -10903,7 +11185,7 @@
         const useRare = rareRemaining.length > 0
           && (remaining.length === 0 || Math.random() < RARE_COMPANION_CHANCE);
         const pool = useRare ? rareRemaining : remaining;
-        const companion = useRare ? pool[Math.floor(Math.random() * pool.length)] : pickCompanionByRegion(pool);
+        const companion = useRare ? pickRingCandidate(pool, 'companion') : pickCompanionByRegion(pool);
         openCompanionInvite(companion, useRare);
       }
       scheduleCompanionEncounter();
@@ -10945,6 +11227,30 @@
     return '';
   }
 
+  // Presentation only: care-status owns every care threshold.
+  function renderHomeCareColors() {
+    const signals = CARE_STATUS?.signals(state, {petAvailable:state.affectionStreak < affectionSpamThreshold()}) || {};
+    const mood = EMOTION_STATE?.resolve({playable:signals.playable, happiness:signals.happiness, petAvailable:signals.petAvailable});
+    const moodColor = mood?.state === 'unhappy' ? '#76d9ef' : '#f58a19';
+    const energyColor = signals.energy && signals.energy !== 'none' ? '#8c56ce' : '#347de3';
+    for (const [bar,color] of [[el.hungerBar,'#ffe03b'],[el.happinessBar,moodColor],[el.energyBar,energyColor],[el.healthBar,'#a5d934'],[el.deathBar,'#e53950']]) {
+      bar.style.setProperty('--home-meter-color',color);
+    }
+    for (const [button,color] of [[el.feedBtn,'#ffe03b'],[el.playBtn,'#222222'],[el.cleanBtn,'#a77545'],[el.sleepBtn,energyColor],[el.medicineBtn,'#a5d934'],[el.playWithBtn,moodColor],[el.courtBtn,'#ed65aa']]) {
+      button.style.setProperty('--home-action-color',color);
+    }
+  }
+
+  function progressMeterColor(value, decline) {
+    const stops = decline
+      ? [[176,181,190],[255,224,59],[245,138,25],[229,57,80]]
+      : [[52,125,227],[140,86,206],[240,190,45]];
+    const position = clamp(value,0,100) / 100 * (stops.length-1);
+    const index = Math.min(Math.floor(position),stops.length-2);
+    const fraction = position-index;
+    return `rgb(${stops[index].map((channel,i)=>Math.round(channel+(stops[index+1][i]-channel)*fraction)).join(', ')})`;
+  }
+
   function updateBar(elBar, value, baseClass) {
     elBar.style.width = `${clamp(value, 0, 100)}%`;
     elBar.className = `bar-fill ${baseClass} ${barClass(value)}`.trim();
@@ -10959,6 +11265,7 @@
       ? (value <= 30 ? 'low' : '')
       : (value >= 70 ? 'high' : '');
     elBar.className = `bar-fill ${baseClass} ${flag}`.trim();
+    if (baseClass !== 'death') elBar.style.setProperty('--home-meter-color',progressMeterColor(value,baseClass === 'devo'));
     renderMeterValue(elBar, value, baseClass, true);
   }
 
@@ -10978,7 +11285,46 @@
   // これが ♾️ の とくてん「ねんれいと みためを きりはなす」の 実体
   function currentFormStageIndex() {
     if (state.infinite && state.infiniteForm) return state.infiniteForm.stageIndex;
-    return stageForAge(currentAge());
+    return stageForAge(currentAge(), state.speciesLine);
+  }
+
+  const TEMPORARY_FORM_MS = 5 * 60 * 1000;
+  // RH-9: 待ち時間の 上限。時計が すすんだ 端末で 書かれた save・こわれた 値で ずっと 待たされない ように、
+  // 読む ときに「いま + 本来の 長さ」で おさえる(もっと 早い 値は そのまま)
+  const GAME_PASS_WAIT_MS = 5000;
+  function gamePassReadyAt() {
+    const at = Number(state.gamePassReadyAt) || 0, cap = Date.now() + GAME_PASS_WAIT_MS;
+    if (at > cap) state.gamePassReadyAt = cap;
+    return Math.min(at, cap);
+  }
+  function clearTemporaryForm() {
+    if (state.itemLife?.temporaryForm) delete state.itemLife.temporaryForm;
+  }
+
+  function currentVisualForm() {
+    const actual = {line:state.speciesLine,index:currentFormStageIndex()};
+    const form = state.itemLife?.temporaryForm;
+    if (!form) return actual;
+    const valid = state.stage === STAGE.GROWING && !state.infinite
+      && ALL_LINES.includes(form.line) && Number.isInteger(form.index)
+      && form.index >= 0 && form.index < STAGES_PER_LINE
+      && form.originLine === state.speciesLine && form.originIndex === currentFormStageIndex()
+      && Number.isFinite(form.expiresAt) && form.expiresAt > Date.now();
+    if (!valid) { clearTemporaryForm(); return actual; }
+    if (form.expiresAt > Date.now() + TEMPORARY_FORM_MS) form.expiresAt = Date.now() + TEMPORARY_FORM_MS; // RH-9: 上限で おさえる
+    return {line:form.line,index:form.index};
+  }
+
+  function applyTemporaryForm(line, index) {
+    if (!ALL_LINES.includes(line) || !Number.isInteger(index) || index < 0 || index >= STAGES_PER_LINE) return false;
+    const originLine = state.speciesLine, originIndex = currentFormStageIndex();
+    state.itemLife.temporaryForm = {line,index,expiresAt:Date.now()+TEMPORARY_FORM_MS,originLine,originIndex};
+    recordDiscoveryKey(`${line}:${index}`);
+    return {message:`${SPECIES[line].stages[index].label}のすがたになった`};
+  }
+
+  function temporaryDexKeys() {
+    return [...NORMAL_LINES,...RARE_LINES].flatMap(line => SPECIES[line].stages.map((_,index) => `${line}:${index}`));
   }
 
   function escapeHtml(value) {
@@ -10997,15 +11343,19 @@
     if (!asset) {
       return `<span class="character-visual character-${size} emoji-only"><span class="character-emoji-fallback">${displayIconHTML(emoji)}</span></span>`;
     }
+    const fallback = stage?.fallbackAsset
+      ? ` data-fallback-asset="${escapeHtml(stage.fallbackAsset)}"` : '';
+    const accent = stage?.accent || '';
     return `<span class="character-visual character-${size} has-asset">
-      <img class="character-asset" src="${escapeHtml(asset)}" alt="" draggable="false">
+      <img class="character-asset" src="${escapeHtml(asset)}"${fallback} alt="" draggable="false">
       <span class="character-emoji-fallback">${safeEmoji}</span>
+      ${accent}
     </span>`;
   }
 
   function setStageVisual(target, stage, size = 'medium') {
     if (!target) return;
-    const key = JSON.stringify([stage?.asset, stage?.emoji, size]);
+    const key = JSON.stringify([stage?.asset, stage?.fallbackAsset, stage?.emoji, stage?.accent, size]);
     if (target === el.petSprite && target.dataset.visualKey === key && target.innerHTML) return;
     target.dataset.visualKey = key;
     target.innerHTML = stageVisualHTML(stage, size);
@@ -11023,7 +11373,21 @@
     // A new inner visual restarts a finite reaction without forcing layout or
     // replacing the shared cast-sway / petSprite motion layers.
     if (reaction) el.petSprite.dataset.visualKey = '';
-    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
+    const baseStage = currentVisualStage();
+    const emotion = deriveHomeEmotion();
+    const contextVisible = petExpressionContextVisible();
+    const expression = PET_EXPRESSION?.resolve(emotion, {
+      sleeping:state.isSleeping,
+      blocked:!contextVisible,
+      reaction:currentPetExpressionReaction(emotion),
+    }) || 'normal';
+    const candidate = PET_EXPRESSION?.assetFor(baseStage.asset,expression) || baseStage.asset;
+    const asset = candidate && failedCastAssets.has(candidate) ? baseStage.asset : candidate;
+    const accent = PET_EXPRESSION?.accentFor?.(baseStage.asset,expression) || '';
+    const visualStage = asset !== baseStage.asset
+      ? {...baseStage,asset,fallbackAsset:baseStage.asset,accent} : {...baseStage,accent};
+    el.petSprite.dataset.expression = expression;
+    setStageVisual(el.petSprite, visualStage, 'hero');
     if (!reaction || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
     const visual = el.petSprite.querySelector('.character-visual');
     if (!visual) return;
@@ -11064,12 +11428,24 @@
       img.closest('.comment-picture')?.classList.add('asset-failed');
       return;
     }
+    if (img.classList.contains('item-asset')) {
+      img.closest('.item-picture')?.classList.add('asset-failed');
+      return;
+    }
     if (img.classList.contains('scenery-asset')) {
       img.closest('.scenery-picture')?.classList.add('asset-failed');
       return;
     }
     if (!img.classList.contains('character-asset')) return;
     const wrapper = img.closest('.character-visual');
+    const fallbackAsset = img.getAttribute('data-fallback-asset');
+    const failedAsset = img.getAttribute('src');
+    if (fallbackAsset && failedAsset !== fallbackAsset) {
+      if (failedAsset) failedCastAssets.add(failedAsset);
+      img.setAttribute('src',fallbackAsset);
+      img.removeAttribute('data-fallback-asset');
+      return;
+    }
     if (wrapper) wrapper.classList.add('asset-failed');
     const asset = img.getAttribute('src');
     if (asset && !failedCastAssets.has(asset)) {
@@ -11080,7 +11456,8 @@
 
   function currentVisualStage() {
     if (state.stage === STAGE.EGG) return eggVisualStage();
-    return personalVisualStage(state, currentFormStageIndex());
+    const form = currentVisualForm();
+    return personalVisualStage(form.line === state.speciesLine ? state : {...state,speciesLine:form.line}, form.index);
   }
 
   function personalVisualStage(person, index) {
@@ -11098,8 +11475,8 @@
     if (state.stage === STAGE.EGG) return '🥚';
     // 亡くなったあとも、おばけに置きかえず「そのときの すがた」を残す。
     // 人生記録カードやメイン画面でも、最後に育っていた姿をそのまま見せる。
-    const stages = state.speciesLine && SPECIES[state.speciesLine].stages;
-    return stages?.[currentFormStageIndex()]?.emoji || '❓';
+    const form = currentVisualForm();
+    return SPECIES[form.line]?.stages[form.index]?.emoji || '❓';
   }
 
   function currentStageLabel() {
@@ -11362,6 +11739,18 @@
   }
 
   function render() {
+    updateHomeVisits();
+    scheduleHistoryLayerSync();
+    // 実時間の残りだけ待つ。保存からの再開でも5秒を延長しない。
+    clearTimeout(gamePassCooldownTimer);
+    const passRemaining = gamePassReadyAt() - Date.now();
+    gamePassCooldownTimer = passRemaining > 0 ? setTimeout(() => render(), passRemaining) : null;
+    clearTimeout(temporaryFormTimer);
+    if (state.itemLife?.temporaryForm) currentVisualForm(); // RH-9: 上限で おさえてから のこりを はかる
+    const temporaryRemaining = (state.itemLife?.temporaryForm?.expiresAt || 0) - Date.now();
+    temporaryFormTimer = temporaryRemaining > 0 ? setTimeout(() => render(), temporaryRemaining) : null;
+    if (temporaryRemaining <= 0) clearTemporaryForm();
+
     if (state.isSleeping && !sleepRecoveryTimer) startSleepRecovery();
     const isDead = state.stage === STAGE.DEAD;
     const isEgg = state.stage === STAGE.EGG;
@@ -11379,7 +11768,8 @@
     const moneyHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
     if (el.moneyLabel.innerHTML !== moneyHTML) el.moneyLabel.innerHTML = moneyHTML;
     el.moneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
-    el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[state.speciesLine] || currentStageLabel());
+    const visualForm = currentVisualForm();
+    el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[visualForm.line] || currentStageLabel());
     el.stageLabel.textContent = currentStageLabel();
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
@@ -11388,6 +11778,7 @@
       : '';
 
     if (el.careMeters) el.careMeters.classList.toggle('hidden', isEgg);
+    renderHomeCareColors();
     updateBar(el.hungerBar, isEgg || isOver ? 0 : state.hunger, 'hunger');
     updateBar(el.happinessBar, isEgg || isOver ? 0 : state.happiness, 'happiness');
     updateBar(el.energyBar, isEgg || isOver ? 0 : state.energy, 'energy');
@@ -11446,7 +11837,7 @@
     // こうすると なかみの たかさに あわせて がめんが のびるので、
     // スマホで したが 見きれたり、おわかれバーと かさなったり しない
     const lifeCardVisible = !el.lifeCardOverlay.classList.contains('hidden');
-    el.screenNormal.classList.toggle('hidden', gameActive || !!grandGoalPending || lifeCardVisible);
+    el.screenNormal.classList.toggle('hidden', gameActive || meguruActive || !!grandGoalPending || lifeCardVisible);
     el.farewellBar.classList.toggle('hidden', state.stage !== STAGE.FAREWELL || !!grandGoalPending || lifeCardVisible);
     applyTheme();
 
@@ -11469,7 +11860,9 @@
     setHTMLIfChanged(el.endingBadges, [...endingTiersReached]
       // tier0の🎉は「100さいクリア済み」の証。セーブに古い値が残っても
       // clears===0なら画面には絶対に出さない。
-      .filter((tierIndex) => tierIndex !== 0 || (state.lifetime.clears || 0) > 0)
+      .filter((tierIndex) => tierIndex !== GOAL_TIER.life || (state.lifetime.clears || 0) > 0)
+      // 未知の tier(未来版の 値など)は save に のこし、表示だけ とばす
+      .filter((tierIndex) => Number.isInteger(tierIndex) && ENDING_TIERS[tierIndex] !== undefined)
       .sort((a, b) => a - b)
       .map((tierIndex) => {
         const label = ENDING_TIER_UNLOCK_LABELS[tierIndex] || ENDING_TIERS[tierIndex].title;
@@ -11491,11 +11884,12 @@
       el.message.scrollTop = 0;
     }
     renderCareNotice(true);
+    syncHomeEmotion();
 
     const disableCare = isOver || isEgg || hasTransformChoice;
     // さいごの じかん は お世話が できる(そだち等は とまっている)
     el.feedBtn.disabled = disableCare;
-    el.playBtn.disabled = disableCare || state.isSleeping;
+    el.playBtn.disabled = disableCare || state.isSleeping || Date.now() < gamePassReadyAt();
     el.cleanBtn.disabled = disableCare || state.poopCount === 0;
     el.sleepBtn.disabled = disableCare;
     el.medicineBtn.disabled = disableCare;
@@ -11589,7 +11983,7 @@
     if (el.weatherFx) el.weatherFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.timeTint) el.timeTint.classList.toggle('suppressed', gameActive);
 
-    el.device.classList.toggle('ui-game-active', gameActive);
+    el.device.classList.toggle('ui-game-active', gameActive || meguruActive);
     el.device.classList.toggle('ui-menu-open', isAnyMenuOverlayOpen());
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
@@ -11597,7 +11991,6 @@
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
       && !el.screenNormal.classList.contains('hidden') && !suppressFrontFx);
     renderWorldScene(suppressFrontFx);
-    renderItemsRow(disableCare);
     renderHomeCast();
     positionWeatherSky();
   }
@@ -11634,19 +12027,34 @@
     activeOverlay = null;
     currentLocationIntent += 1;
     duelOpen = false;
+    closeItemScene();
     dateOpen = false;
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     companionInviteOpen = false;
     pickerOpen = false;
     pickerItem = null;
     dexDetail = null;
     orientationHintOpen = false;
     clearDateMovieTimers();
+    releaseMoviePresentation();
   }
 
-  function openExclusiveMenu(kind) {
+  // めぐるの うえに「たび」を かぶせる。めぐるは とまった まま まって いて、
+  // 地域を えらぶと これまでどおり travelToRegion() が うごき、
+  // めぐるは frameFn の 同期で その 地域へ 入りなおす
+  function openTravelOverlay() {
     if (gameActive || state.transformOptions) return;
+    if (!meguruActive) return openExclusiveMenu('travel');
+    audio.play('open');
+    clearConversationTimers();
+    hideSpeechBubble();
+    closeAllMenuOverlays();
+    activeOverlay = 'travel';
+    render();
+    focusOverlayClose('travel');
+  }
+  function openExclusiveMenu(kind) {
+    if (gameActive || meguruActive || state.transformOptions) return;
     audio.play('open');
     clearConversationTimers();
     hideSpeechBubble();
@@ -11678,6 +12086,10 @@
   // 受け持つ)。ふつうクリアは ふわっと おちる かるい かんじ、ずかんは
   // はっぱが ゆれながら おちる しぜんな かんじ、じっせきは まわりに はじける
   // ごうかな かんじ、PERFECTは その両方を いちばん たくさん・はやく
+  // RH-5: 既知の 未解決の 網羅の すきま。GOAL_TIER_IDS は 5 段 だが、ここは 4 段 だった ころの 4 件 のまま で、
+  // perfect(GOAL_TIER.perfect)の 分が ない(perfect では 演出が 出ない)。4 件が 正しい 仕様 では ない。
+  // 中身(見た目)は RH-5 では 決めない(Roadmap の 後続の visual / content cleanup 候補)。5 件目を 足したら
+  // tests/content-registry-test.cjs の KNOWN_GAPS から 外す
   const ENDING_CELEBRATIONS = [
     { kinds: ['fall'], pool: ['🎉', '🎊', '✨', '🎈'], count: 10 },
     { kinds: ['sway'], pool: ['🍃', '🌿', '📖', '✨'], count: 12 },
@@ -11784,6 +12196,7 @@
   let gameListSort = 'genre'; // genre / unplayed / low / high
   const GAME_LIST_SORTS = [['genre', 'ジャンル'], ['unplayed', 'まだあそんでない'], ['low', 'ランクの低い順'], ['high', 'ベストの高い順']];
 
+  let quickListOpen = false;
   function renderGameList() {
     if (!el.gameListGrid) return;
     const pool = buildMinigamePool();
@@ -11818,11 +12231,19 @@
     if (daily) {
       const dInfo = minigameInfo(daily);
       const done = dailyChallengeToday();
-      const streak = state.lifetime.dailyStreak || 0;
       const status = done && done.score != null
         ? `<span class="mg-rank rank-${done.rank}">${done.rank}</span><span class="daily-score">${done.score}点</span>`
         : `<button type="button" class="mg-tap-btn primary daily-start" data-game-id="${daily.id}">ちょうせん</button>`;
-      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ${streak > 0 ? `<span class="daily-streak">🔥${streak}日連続</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? '今日はクリア済み。また明日!' : '1日1回。クリアで💰10〜60＋連続ボーナス／せいちょう2ばい（10分）'}</span></div><div class="daily-status">${status}</div></div></div>`;
+      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? '今日はクリア済み。また明日!' : '1日1回。成功でラッキーコイン1個'}</span></div><div class="daily-status">${status}</div></div></div>`;
+    }
+    // クイックモード カード(ふつうの ゲームとは べつの あそび)
+    if (QUICK_RUN) {
+      const q = quickStats();
+      const qRec = minigameRecordOf(QUICK_RUN);
+      const qStatus = q.runs ? `<span class="daily-score">さいこう ✔${q.bestCleared}／${quickMod.QUICK_RULES.TOTAL}${qRec ? `<span class="mg-rank rank-${minigameRankOf(qRec.best)}">${minigameRankOf(qRec.best)}</span>` : ''}</span>` : `<span class="daily-score">まだあそんでいない</span>`;
+      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="quick-list-toggle">${quickListOpen ? 'いちらんをとじる' : 'ひとつずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">げんき消費なし。20/20完走で100コイン</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
+        + (quickListOpen ? `<div class="quick-solo-list">${quickMod.QUICK_GAMES.map((g) => { const r = q.single[g.id]; return `<button type="button" class="quick-solo-start" data-quick-id="${g.id}"><span class="quick-solo-cue">${escapeHtml(g.cue)}</span><span class="quick-solo-motif">${escapeHtml(g.motif)}</span><span class="quick-solo-best">${r ? `✔${r.best}／${quickMod.QUICK_RULES.SOLO_TOTAL}` : '—'}</span></button>`; }).join('')}</div>` : '')
+        + '</div>';
     }
     html += `<div class="game-list-sorts">${GAME_LIST_SORTS.map(([id, label]) => `<button type="button" class="game-list-sort ${gameListSort === id ? 'active' : ''}" data-sort="${id}">${label}</button>`).join('')}</div>`;
     html += `<div class="game-list-hint">タップでゲームをはじめるよ（げんきを使う）。むずかしさ：${DIFFICULTY_CHOICES[minigameDifficultyMode()][1]}（せかい画面で変えられる）</div>`;
@@ -12045,7 +12466,7 @@
     saveState();
     render();
     if (seasonAfter !== seasonBefore) {
-      celebrateSeasonChange(state.regionId, seasonAfter);
+      celebrateSeasonChange(currentRegionId(), seasonAfter);
     }
   }
 
@@ -12054,10 +12475,18 @@
   // 地域は selected の ハイライトを つけつつ、そこへは「たびに でる」
   // いみが ないので タップできないよう disabled に する
   function renderTravelRegionGrid() {
+    // いちばん うえ: いまいる 地域の なかへ はいる「○○をめぐる」(地域えらびは その した に そのまま)
+    if (el.meguruEntry) {
+      const r = findRegion(state.regionId);
+      const loc = selectedLocality();
+      const name = loc ? `げんざいち（${escapeHtml(loc.display || loc.name || '')}）` : escapeHtml(r.label);
+      const icon = loc ? '📍' : environmentIconHTML('region', r.id, r.emoji);
+      el.meguruEntry.innerHTML = meguruMod ? `<button type="button" class="meguru-enter-btn" id="meguruEnterBtn"><span class="meguru-enter-icon">${icon}</span><span class="meguru-enter-text"><span class="meguru-enter-title">${name}をめぐる</span><span class="meguru-enter-sub">いまいる ばしょの なかを あるいて、であった みんなに あいにいく</span></span></button>` : '';
+    }
     // 地域カード: こうか・出やすいゲーム・こいびと候補・ごとうちゲーム・おとずれた しるし
     const visited = new Set([...(state.lifetime.regionsVisited || []), ...(state.lifetime.specialRegionsVisited || [])]);
     const swatch = (region) => {
-      const isCurrent = region.id === state.regionId && !(region.id === 'home' && state.lifetime.currentLocationSelected);
+      const isCurrent = region.id === currentRegionId() && !(region.id === 'home' && state.lifetime.currentLocationSelected);
       const effect = ENV_EFFECTS.region[region.id] ? ENV_EFFECTS.region[region.id].text : '';
       const weights = ENV_GAME_WEIGHTS.region[region.id] || {};
       const ups = MINIGAME_GENRES.filter((g) => weights[g.id] > 1).map((g) => g.emoji + g.label);
@@ -12108,7 +12537,7 @@
       if (d.step === 'answering') return 'question';
       if (d.step === 'review') return 'answerReview';
       if (d.step === 'ready') return 'codeOut';
-      if (d.step === 'done') return d.revealSent ? 'result' : 'codeOut';
+      if (d.step === 'done') return d.revealSent || !ITEM_SYSTEM.validMatchId(d.matchId) ? 'result' : 'codeOut';
     } else if (d.role === 'guesser') {
       if (d.step === 'guessing') return 'guessList';
       if (d.step === 'suspicion') return 'guessSuspicion';
@@ -12119,6 +12548,13 @@
   }
 
   function renderDuelOverlay() {
+    const stake = ITEM_SYSTEM.duelStake(state);
+    const cancel = document.getElementById('duelCancelMatchBtn');
+    cancel.classList.toggle('hidden', !stake || stake.status !== 'reserved');
+    cancel.textContent = stake?.published ? 'かけきんをあきらめてやめる' : 'とりけしてかけきんをもどす';
+    document.getElementById('duelStakeHint').textContent = stake?.status === 'reserved'
+      ? `かけきん${stake.bet}は予約済み。とじるだけなら続きが残ります。${stake.published ? 'やめると返金できません。相手の結果は自動で変わりません。' : 'コードを表示するまでは取り消して返金できます。'}`
+      : state.lifetime.duelNotice || '始めるときにかけきんを予約します。コード表示後の取り消しは返金できません。';
     const sections = {
       duelHomeSection: duelUiStep === 'home',
       duelBetSection: duelUiStep === 'bet',
@@ -12194,12 +12630,7 @@
       el.duelCodeOutBox.value = code;
       el.duelCodeOutHint.textContent = hint;
       el.duelCodeOutCopyMsg.classList.add('hidden');
-      // 挑戦コードを 発行して あいての 返事まちの あいだ(d.step==='ready')
-      // だけ「やめる」を 出す。発行ずみの コードは 書きかえられない ため、
-      // ないようを 変えたい ときは まっさらな しょうぶを つくりなおす
-      // しかない。すでに 推理コードを よみこんで けっちゃくずみ
-      // (d.step==='done')の 決着コードがめんでは 出さない
-      el.duelAbandonBtn.classList.toggle('hidden', !(d.role === 'challenger' && d.step === 'ready'));
+
     }
 
     if (duelUiStep === 'codeIn' && state.duel) {
@@ -12207,7 +12638,6 @@
       el.duelCodeInHint.textContent = d.role === 'challenger'
         ? 'あいてからとどいた「推理コード」をここに入れてください'
         : 'あいてからとどいた「決着コード」をここに入れてください';
-      el.duelCodeInAbandonBtn.classList.toggle('hidden', !(d.role === 'challenger' && d.step === 'ready'));
     }
 
     if (duelUiStep === 'result' && state.duel) {
@@ -12217,8 +12647,7 @@
 
   // A(かいとうしゃ)の しつもん画面。おなじ しつもんの なかで
   // 1.本心を えらぶ → 2.本音/うそを えらぶ(+ひとこと証言)、の 2だんかいを
-  // つづけて おこなう(pendingTruth が null なら 1だんかいめ、はいって
-  // いれば 2だんかいめを 表示する)ことで、画面いどうを へらしている。
+  // つづけて おこなう(pendingTruth が null なら 1だんかいめ、はいって  // いれば 2だんかいめを 表示する)ことで、画面いどうを へらしている。
   // すでに こたえずみの しつもんを もどる/編集で 見なおしている ときも
   // おなじ 画面を つかい、以前の 本心/証言が pending に つみなおされた
   // じょうたいで 表示される
@@ -12477,31 +12906,13 @@
     }).join('') + susLine;
   }
 
-  // 「ごほうび」セクション。9この かいふくアイテムが なにに きくのかを
-  // 画面じょうで はっきり させる ための いちらん(ふつう / とくべつ の
-  // 2段階が 目で わかる ように、とくべつには 💫 を つける)。
-  // もっている ものは タップで その場で つかえる
-  function renderRewardItemGrid() {
-    const count = state.items.reward || 0;
-    el.rewardItemGrid.innerHTML = `
-      <button type="button" class="shop-item reward-item ${count > 0 ? 'owned' : 'locked'}" data-id="reward">
-        <span class="shop-item-badge">💫</span>
-        <span class="shop-item-emoji">${careIconHTML('gift')}</span>
-        <span class="shop-item-label">ごほうび</span>
-        <span class="shop-item-desc">デートや旅を特別な思い出にできるよ。使うかどうかは出かけるときに選べます</span>
-        <span class="shop-item-status">${count > 0 ? `${count}こもっている` : 'まだもっていない'}</span>
-      </button>
-    `;
-  }
-
   function renderItemOverlay() {
     el.itemMoneyLabel.innerHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
     el.itemMoneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
-    renderRewardItemGrid();
     el.shopItemGrid.innerHTML = SHOP_ITEMS.map((item) => {
       const owned = state.lifetime.ownedShopItems.includes(item.id);
       const equipped = state.lifetime.equippedItemId === item.id;
-      const statusText = !owned ? `💰${item.price}` : (equipped ? 'みにつけている' : 'タップでみにつける');
+      let statusText = !owned ? `💰${item.price}` : (equipped ? 'みにつけている' : 'タップでみにつける');
       const badge = equipped ? '⭐' : (owned ? '✔️' : '');
       return `
         <button type="button" class="shop-item ${equipped ? 'equipped owned' : (owned ? 'owned' : '')}" data-id="${item.id}">
@@ -12515,6 +12926,7 @@
     }).join('');
     renderNaotoItemGrid();
     renderConsumableItemGrid();
+    renderItemMemories();
   }
 
   // 「なおとの〜」でんせつアイテム: unlockTier に とどいていない あいだは
@@ -12527,7 +12939,7 @@
     el.naotoGreetingBtn.innerHTML = authorUnlocked
       ? `${authorVisualHTML('thumb')}<span>ナオトにはなしかける</span>` : '';
     el.naotoItemGrid.innerHTML = NAOTO_ITEMS.map((item) => {
-      const unlocked = state.lifetime.endingTiersReached.includes(item.unlockTier);
+      const unlocked = hasNaotoItem(item.id) || state.lifetime.endingTiersReached.includes(item.unlockTier);
       if (!unlocked) {
         return `
           <button type="button" class="shop-item" disabled data-id="${item.id}">
@@ -12567,84 +12979,269 @@
       state.lifetime.money -= item.price;
       state.lifetime.ownedShopItems.push(id);
       state.lifetime.equippedItemId = id;
-      setMessage(`${item.label}を買って身につけた!${item.emoji}`);
+      setMessage(`${item.label}を買って身につけた!`);
       emotePet('happy');
     } else if (state.lifetime.equippedItemId === id) {
       state.lifetime.equippedItemId = null;
       setMessage(`${item.label}をはずした`);
     } else {
       state.lifetime.equippedItemId = id;
-      setMessage(`${item.label}を身につけた!${item.emoji}`);
+      setMessage(`${item.label}を身につけた!`);
       emotePet('happy');
     }
     saveState();
     render();
   }
 
-  // つかいきり アイテムの いちらん(みこうにゅう/こうにゅうずみ の きがえが
-  // ない ため、ねだんの みだけ つねに 出す。available()を みたさない ときは
-  // グレー表示にして、おした ときに unavailableMessage を 出す)
+  function itemUseAllowed(id) {
+    if (id === 'c_egg_normal' || id === 'c_egg_rare') return !state.infinite && [STAGE.EGG,STAGE.GROWING].includes(state.stage);
+    return state.stage === STAGE.GROWING && (!state.dying || id === 'c_life');
+  }
+
+  // Identity and relationship IDs are separate: a new relationship gets new
+  // letters, while a reunion with the same person cannot refresh a life shield.
+  function itemPartnerIdentity(partner) {
+    if (!partner) return null;
+    const origin = partner.originId || partner.guestSnapshot?.originId;
+    if (partner.id === 'guest' && validGuestOriginId(origin)) return `guest-origin:${origin}`;
+    return partner.id === 'guest'
+      ? `guest:${JSON.stringify(partner.guestSnapshot || {label:partner.label,gender:partner.gender,attractedTo:partner.attractedTo})}`
+      : `partner:${WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id}`;
+  }
+
+  function itemRelationshipKey(partner) {
+    if (!partner.itemRelationshipId) partner.itemRelationshipId = ++state.lifetime.itemProgress.relationshipSerial;
+    return partner.itemRelationshipId;
+  }
+
+
+  function itemMemorySnapshot(key, text, extra = {}) {
+    return {
+      key, age:currentAge(), speciesLine:state.speciesLine, stage:currentFormStageIndex(),
+      pet:{speciesLine:state.speciesLine,stage:currentFormStageIndex(),gender:state.gender,orientationId:state.orientationId,attractedTo:[...state.attractedTo]},
+      partnerId:state.partner?.id || null,
+      partner:state.partner ? JSON.parse(JSON.stringify(state.partner)) : null,
+      companions:state.companions.map(c => ({...c})),
+      environment:JSON.parse(JSON.stringify(currentEnvironment())), text, ...extra,
+    };
+  }
+
+  function rememberPartnerLetter(milestone) {
+    if (!isEquipped('partner1') || !state.partner) return;
+    const p = state.partner;
+    const lines = {court:'きょうから、会う約束がひとつ増えたね。',repair:'最後まで聞いてくれてありがとう。また、となりで話そう。',marriage:'これからの「ただいま」も、きみに届けたい。'};
+    const signature = PARTNER_SIGNATURE_LINES[WORLD_MASTER?.compatibility?.partnerAliases?.[p.id] || p.id]?.[0] || 'また、きみの話を聞かせてね。';
+    addItemMemory('letters', itemMemorySnapshot(`letter:${itemRelationshipKey(p)}:${milestone}`, `${p.label}からの手紙。「${lines[milestone]}」${signature}`, {event:milestone}));
+    itemContextReaction('partner1', '手紙をそっとひらいて、もう一度読んだ。');
+  }
+
+
+  // One short, presentation-only follow-up; newer equipment events replace older ones.
+  // Let the triggering action finish its notice and conversation before using the same slot.
+  let itemContextTimer = null;
+  function scheduleItemContextMessage(text) {
+    clearTimeout(itemContextTimer);
+    const life = state;
+    const expiresAt = Date.now() + 15000;
+    const deliver = () => {
+      itemContextTimer = null;
+      if (state !== life) return;
+      // めぐるがホームを使っているあいだは、道具の短い通知を後ろの
+      // 通知欄へ出さない。戻ったあとの同じ人生でだけ続けて待つ。
+      // (careNoticeVisible() は めぐるちゅう false に なるので、その まえに みる)
+      if (meguruActive) {
+        itemContextTimer = setTimeout(deliver, 250);
+        return;
+      }
+      if (!careNoticeVisible() || state.isSleeping) return;
+      if (Date.now() > expiresAt) return;
+      const notice = CARE_STATUS?.assess(state, {immortal:isImmortal()});
+      if (notice && notice.severity !== 'info') return;
+      if (message || careFeedback || speechActive || conversationIsBusy() || !el.storyFlash.classList.contains('hidden')) {
+        itemContextTimer = setTimeout(deliver, 250);
+        return;
+      }
+      setMessage(text);
+    };
+    itemContextTimer = setTimeout(deliver, 0);
+  }
+
+  function itemContextReaction(id, text) {
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches !== true) {
+      const item = SHOP_ITEMS.find(item => item.id === id) || NAOTO_ITEMS.find(item => item.id === id);
+      if (item) {
+        const icon = document.createElement('span');
+        icon.className = 'emote-particle';
+        icon.innerHTML = itemIconHTML(item);
+        icon.style.left = '48%';
+        icon.style.setProperty('--drift','8px');
+        icon.addEventListener('animationend',() => icon.remove());
+        el.petArea.appendChild(icon);
+      }
+      el.petSprite.animate?.([{transform:'translateY(0)'},{transform:'translateY(-4px) rotate(-3deg)'},{transform:'translateY(0)'}], {duration:500});
+    }
+    el.petSprite.dataset.itemReaction = id;
+    el.petSprite.title = text;
+    scheduleItemContextMessage(text);
+  }
+
+  const ITEM_REGION_SCENES = {
+    home:['庭の小さな影をたどる','窓辺で風の音を聞く'],
+    city:['路地の看板を見て歩く','広場の時計を見上げる'],
+    countryside:['草の小道をたどる','畑のはしでひと休み'],
+    forest:['木陰の小道をたどる','落ち葉の音を聞く'],
+    mountain:['岩場の向こうを見渡す','谷に声を届ける'],
+    snow:['雪の足あとをたどる','氷の模様をながめる'],
+    sea:['貝がらを並べてみる','波の音を数える'],
+    deepsea:['岩かげの光をたどる','光る泡と並んで進む'],
+    river_lake:['水面の輪をながめる','岸辺の石でひと休み'],
+    jungle:['大きな葉の下を歩く','木の根元の音を聞く'],
+    desert:['砂の模様をたどる','日かげで風を待つ'],
+    star_stop:['ベンチから星の道をさがす','時刻表の光をたどる'],
+    memory_lake:['水面にうつる影を見つめる','岸辺で昔の声を聞く'],
+  };
+
+  function itemRegionScenes(region, env = currentEnvironment()) {
+    const local = ITEM_REGION_SCENES[region.id] || [`${region.label}の道をたどる`,`${region.label}の静かな場所で休む`];
+    const mood = region.id === 'star_stop' ? '星明かりの中で' : region.id === 'deepsea' ? '静かな水の中で' : env.weather === 'snow' ? '雪をよけながら' : env.weather === 'rain' ? '雨音を聞きながら' : env.time === 'night' ? '夜の静けさの中で' : env.season === 'winter' ? '冬の空気の中で' : env.season === 'autumn' ? '秋の風の中で' : env.season === 'summer' ? '夏の風の中で' : 'やわらかな風の中で';
+    return local.map((label,i) => ({id:String(i),label,text:`${region.label}。${mood}、${label}。`}));
+  }
+
+  let pendingItemScene = null;
+  let itemSceneRecord = null;
+  function closeItemScene() {
+    pendingItemScene = null;
+    itemSceneRecord = null;
+    el.itemSceneOverlay.classList.add('hidden');
+  }
+
+  function showItemSceneMemory(record) {
+    closeAllMenuOverlays();
+    itemSceneRecord = record;
+    el.itemSceneTitle.textContent = 'たびのおもいで';
+    el.itemSceneText.textContent = record.text;
+    const pet = SPECIES[record.speciesLine]?.stages[record.stage];
+    el.itemSceneActors.innerHTML = `${pet ? stageVisualHTML(pet,'medium') : ''}${record.partner ? partnerVisualHTML(record.partner,'medium') : ''}`;
+    el.itemSceneActors.classList.remove('hidden');
+    el.itemSceneChoiceGrid.innerHTML = '';
+    el.itemSceneCancelBtn.textContent = 'おうちにもどる';
+    el.itemSceneOverlay.classList.remove('hidden');
+    render();
+  }
+
+  function travelStartAllowed(region) {
+    return !!region && [...REGIONS,...SPECIAL_REGIONS].includes(region)
+      && state.stage === STAGE.GROWING && !state.dying
+      && !state.isSleeping && !gameActive && !state.transformOptions
+      && (!region.special || hasPerk(70));
+  }
+
+
+  function addItemMemory(kind, record) {
+    const existing = record?.key && state.lifetime.itemMemories[kind]?.find(m => m.key === record.key);
+    if (existing) return existing;
+    const memory = ITEM_SYSTEM.remember(state, kind, {...record,kind});
+    if (memory) saveState();
+    return memory;
+  }
+
+  // RH-10(P1-8 ①): 使い切りの あいてむは「一度でも 手に入れた」で 数える。つかった / もらった 記録(ownedConsumableItems)か、
+  // いま もって いる(在庫)。死にかけた ときだけ つかわれる c_life_charm も、もって いれば 数える。save には 何も 足さない
+  function consumableEverAcquired(l, id) {
+    return (l.ownedConsumableItems || []).includes(id) || ITEM_SYSTEM.stock(state, id) > 0;
+  }
+  function recordItemUse(id, consumed = true) {
+    if (consumed) state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
+    if (!state.lifetime.ownedConsumableItems.includes(id)) state.lifetime.ownedConsumableItems.push(id);
+  }
+
+  function buyConsumableItem(id) {
+    const item = CONSUMABLE_ITEMS.find(it => it.id === id);
+    const meta = ITEM_SYSTEM.CATALOG[id];
+    if (!item || !meta || meta.price == null || !Number.isFinite(state.lifetime.money) || state.lifetime.money < meta.price) return false;
+    if (item.eggKind && (ITEM_SYSTEM.stock(state,id) > 0 || !itemUseAllowed(id) || !item.available())) return false;
+    if (!ITEM_SYSTEM.grant(state, id)) return false;
+    state.lifetime.money -= meta.price;
+    state.lifetime.itemPurchases[id] = (state.lifetime.itemPurchases[id] || 0) + 1;
+    if (item.eggKind) return reserveNextEgg(item.eggKind);
+    setMessage(`${item.label}をふくろに入れた`);
+    saveState(); render(); return true;
+  }
+
   function renderConsumableItemGrid() {
     if (el.onetimeActive) { const list = activeBoostSummary(); el.onetimeActive.textContent = list.length ? `いまのこうか：${list.join('／')}` : 'いまのこうかはない'; }
-    el.onetimeItemGrid.innerHTML = CONSUMABLE_ITEMS.map((item) => {
-      const usable = !item.available || item.available();
-      // ★ グレーアウトしているのに 理由が どこにも 書いていない、という
-      //   じょうたいを なくす。つかえない ときは そのまま 理由を 出す
-      const status = usable
-        ? `💰${item.price}`
-        : `つかえません: ${item.unavailableMessage || 'いまはつかえない'}`;
-      return `
-        <button type="button" class="shop-item ${usable ? '' : 'locked'}" data-id="${item.id}">
-          <span class="shop-item-emoji">${item.emoji}</span>
-          <span class="shop-item-label">${item.label}</span>
-          <span class="shop-item-desc">${item.desc}</span>
-          <span class="shop-item-status">${status}</span>
-        </button>
-      `;
+    el.onetimeItemGrid.innerHTML = CONSUMABLE_ITEMS.map(item => {
+      const meta = ITEM_SYSTEM.CATALOG[item.id];
+      const stock = ITEM_SYSTEM.stock(state, item.id);
+      const usable = itemUseAllowed(item.id) && (!item.available || item.available());
+      const reserved = item.eggKind && reservedEggKind() === item.eggKind;
+      const status = reserved ? `次の人生：？？？／ふくろに${stock}こ（うち1こを予約中）。生まれるときに1こ使います。`
+        : `${stock}こ／1回に1こ`;
+      const canBuy = Number.isFinite(state.lifetime.money) && state.lifetime.money >= meta.price
+        && (!item.eggKind || usable);
+      const reason = (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
+      return `<div class="shop-item" data-item-id="${item.id}">
+        <span class="shop-item-emoji">${itemIconHTML(item)}</span>
+        <span class="shop-item-label">${item.label}</span>
+        <span class="shop-item-desc">${meta.desc}</span>
+        <span class="shop-item-status">${status}${reason && !reserved ? `／${reason}` : ''}</span>
+        ${item.eggKind && (reserved || stock > 0) ? '' : meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${!canBuy ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
+        ${reserved ? `<button type="button" data-item-action="cancel" data-id="${item.id}">よやくをとりけす</button>`
+          : item.automatic || (item.eggKind && !stock) ? '' : `<button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>${item.eggKind ? 'よやくする' : 'つかう'}</button>`}
+      </div>`;
     }).join('');
   }
 
-  // つかいきり アイテムを こうにゅうする。picker つきの アイテムは、この
-  // じてんでは まだ おかねを はらわず(pickerOverlay で なにを えらぶかを
-  // きめてから resolvePickerSelection() が はらう)、picker なしの アイテムは
-  // その場で はらって すぐに こうかを はっきする
   function useConsumableItem(id) {
-    const item = CONSUMABLE_ITEMS.find((it) => it.id === id);
-    if (!item) return;
+    const item = CONSUMABLE_ITEMS.find(it => it.id === id);
+    if (!item || !ITEM_SYSTEM.stock(state, id) || !itemUseAllowed(id)) return false;
     if (item.available && !item.available()) {
-      setMessage(item.unavailableMessage || 'いまはつかえない…');
-      render();
-      return;
+      setMessage(item.unavailableMessage || '今は使えない'); render(); return false;
     }
-    if (state.lifetime.money < item.price) {
-      setMessage('おかねがたりない…');
-      render();
-      return;
-    }
+    if (item.eggKind) return reserveNextEgg(item.eggKind);
     if (item.picker) {
-      openPicker(item);
-      return;
+      if (item.picker === 'transform-ticket') {
+        ticketTransformOptions = pickTicketTransformCandidates();
+        if (!ticketTransformOptions.length) return false;
+      } else if (item.picker === 'companion-ticket') {
+        ticketEncounterOptions=ticketCompanionCandidates(item.companionKind).map(c => c.id);
+        if (!ticketEncounterOptions.length) return false;
+      } else if (item.picker === 'match-ticket') {
+        ticketEncounterOptions=ticketMatchCandidates().map(c => c.id);
+        if (!ticketEncounterOptions.length) return false;
+      }
+      openPicker(item); return false;
     }
-    state.lifetime.money -= item.price;
-    state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
-    if (!state.lifetime.ownedConsumableItems) state.lifetime.ownedConsumableItems = [];
-    if (!state.lifetime.ownedConsumableItems.includes(item.id)) state.lifetime.ownedConsumableItems.push(item.id);
-    const result = item.apply() || {};
-    if (result.message) setMessage(result.message);
-    emotePet(result.emote || 'happy');
-    // ときの すな/せいちょうのくすり けいの アイテムは checkMeters() ごし
-    // に ねんれいや せいちょう段階を うごかせる ため、その 1かいで
-    // しぼう/ゲームクリアに とどく ことも ある。そのばあいは アイテム画面
-    // ごしに ならないよう、専用の えんしゅつ画面が 前に 出られる ように とじる
-    if (state.stage === STAGE.DEAD) {
-      closeOverlay('item');
-    }
-    saveState();
-    render();
+    const result = item.apply();
+    if (result === false) return false;
+    if (!ITEM_SYSTEM.take(state, id)) return false;
+    recordItemUse(id);
+    if (result?.message) setMessage(result.message);
+    emotePet(result?.emote || 'happy');
+    saveState(); render(); return true;
   }
 
   let pickerOpen = false;
   let pickerItem = null;
+  let ticketTransformOptions = null;
+  let ticketEncounterOptions = null;
+
+  function ticketCompanionCandidates(kind) {
+    const pool = kind === 'rare' ? RARE_COMPANIONS : COMPANIONS;
+    return pool.filter(c => !hasActiveCompanionId(c.id));
+  }
+
+  function ticketMatchCandidates() {
+    if (state.partner) return [];
+    return ALL_PARTNER_CANDIDATES.filter(candidate => mutualRomanticMatch(state,candidate));
+  }
+
+  function calledMatchCandidate() {
+    const call = state.calledMatch;
+    if (!call || call.regionId !== state.regionId || state.partner) return null;
+    const candidate = ALL_PARTNER_CANDIDATES.find(c => c.id === call.id);
+    return candidate && mutualRomanticMatch(state,candidate) ? candidate : null;
+  }
 
   function openPicker(item) {
     pickerItem = item;
@@ -12653,6 +13250,8 @@
   }
 
   function closePicker() {
+    if (pickerItem?.picker === 'transform-ticket') ticketTransformOptions = null;
+    if (pickerItem?.picker === 'companion-ticket' || pickerItem?.picker === 'match-ticket') ticketEncounterOptions = null;
     pickerOpen = false;
     pickerItem = null;
     render();
@@ -12664,6 +13263,61 @@
   function resolvePickerSelection(value) {
     const item = pickerItem;
     if (!item) return;
+    if (item.picker === 'transform') {
+      if (!itemUseAllowed(item.id) || !ITEM_SYSTEM.stock(state, item.id) || !item.available()) { closePicker(); return; }
+      const result = item.apply(value);
+      if (result === false) { closePicker(); return; }
+      ITEM_SYSTEM.take(state, item.id);
+      recordItemUse(item.id);
+      pickerOpen = false; pickerItem = null;
+      setMessage(result.message); saveState(); render(); return;
+    }
+    if (item.picker === 'transform-ticket') {
+      const valid = itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id)
+        && Array.isArray(ticketTransformOptions) && ticketTransformOptions.includes(value)
+        && !state.transformOptions;
+      if (!valid) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      pickerOpen=false; pickerItem=null;
+      state.transformOptions=ticketTransformOptions;
+      ticketTransformOptions=null;
+      chooseTransform(value);
+      return;
+    }
+    if (item.picker === 'dex-form') {
+      if (/^dex-[0-9]+$/.test(String(value))) value = temporaryDexKeys()[Number(value.slice(4))];
+      const valid = itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id)
+        && temporaryDexKeys().includes(value);
+      const [line,indexText] = String(value).split(':');
+      const result = valid ? applyTemporaryForm(line,Number(indexText)) : false;
+      if (!result) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      pickerOpen=false; pickerItem=null;
+      setMessage(result.message); saveState(); render(); return;
+    }
+    if (item.picker === 'companion-ticket') {
+      const candidates=ticketCompanionCandidates(item.companionKind);
+      const companion=candidates.find(c => c.id === value);
+      const valid=itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id) && !pendingCompanionId
+        && Array.isArray(ticketEncounterOptions) && ticketEncounterOptions.includes(value) && !!companion;
+      if (!valid) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      pickerOpen=false; pickerItem=null; ticketEncounterOptions=null;
+      closeOverlay('item');
+      openCompanionInvite(companion,item.companionKind === 'rare');
+      saveState(); return;
+    }
+    if (item.picker === 'match-ticket') {
+      const candidate=ticketMatchCandidates().find(c => c.id === value);
+      const valid=itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id) && !state.partner
+        && Array.isArray(ticketEncounterOptions) && ticketEncounterOptions.includes(value) && !!candidate;
+      if (!valid) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      state.calledMatch={id:candidate.id,regionId:state.regionId};
+      pickerOpen=false; pickerItem=null; ticketEncounterOptions=null;
+      setMessage(`${candidate.emoji} ${candidate.label}が会いにきた`);
+      saveState(); render(); return;
+    }
     if (state.lifetime.money < item.price) {
       setMessage('おかねがたりない…');
       closePicker();
@@ -12695,26 +13349,34 @@
     el.pickerTitle.textContent = item.label;
     el.pickerHint.textContent = `${item.desc}(💰${item.price})`;
     let html = '';
-    if (item.picker === 'dreamline') {
-      // 「たまごの ゆめ」- つぎの たまごの しゅぞくを えらぶ。レア5しゅは
-      // そだち90の「でんせつの ゆめ」を もっている ときだけ えらべる
-      const rareOk = (state.lifetime.dreamEggs && state.lifetime.dreamEggs.rare > 0);
-      const lines = rareOk ? ALL_LINES : NORMAL_LINES;
+    if (item.picker === 'transform' || item.picker === 'transform-ticket') {
+      el.pickerHint.textContent = 'へんしんする姿を1つ選んでね。決めるまで使わない';
       el.pickerGrid.className = 'theme-grid';
-      html = lines.map((line) => `
-        <div class="dex-cell known tappable" data-picker-value="${line}">
-          <span class="dex-cell-emoji">${stageVisualHTML(SPECIES[line].stages[0], 'thumb')}</span>
-          <span class="dex-cell-label">${SPECIES_DISPLAY_NAMES[line] || line}</span>
-        </div>
-      `).join('');
-    } else if (item.picker === 'dex') {
+      const options = item.picker === 'transform-ticket' ? ticketTransformOptions : state.transformOptions;
+      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge(), line)].label}</button>`).join('');
+    } else if (item.picker === 'dex' || item.picker === 'dex-form') {
       el.pickerGrid.className = 'theme-grid';
-      html = ALL_LINES.map((line) => SPECIES[line].stages.map((stage, i) => `
-        <div class="dex-cell known tappable" data-picker-value="${line}:${i}">
-          <span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span>
-          <span class="dex-cell-label">${stage.label}</span>
-        </div>
-      `).join('')).join('');
+      el.pickerHint.textContent = '図鑑の枠を1つ選んでね。？？？は選んだあとに登録され、5分だけその姿になります。決めるまで使いません。';
+      const keys = temporaryDexKeys();
+      html = keys.map((key, slot) => {
+        const [line, index] = key.split(':');
+        const stage = SPECIES[line].stages[Number(index)];
+        const known = state.discoveredStages.includes(key);
+        return `<button type="button" class="dex-cell ${known ? 'known' : 'locked'} tappable" data-picker-value="dex-${slot}">
+          <span class="dex-cell-emoji">${known ? stageVisualHTML(stage, 'thumb') : '？'}</span>
+          <span class="dex-cell-label">${known ? escapeHtml(stage.label) : '？？？'}</span>
+        </button>`;
+      }).join('');
+    } else if (item.picker === 'companion-ticket') {
+      el.pickerHint.textContent='呼ぶなかまを選んでね。決めるまで使わない';
+      el.pickerGrid.className='theme-grid';
+      const candidates=(ticketEncounterOptions || []).map(allCompanionsById).filter(Boolean);
+      html=candidates.map(c => `<div class="dex-cell known tappable" data-picker-value="${c.id}"><span class="dex-cell-emoji">${companionVisualHTML(c,'thumb')}</span><span class="dex-cell-label">${escapeHtml(c.name)}</span></div>`).join('');
+    } else if (item.picker === 'match-ticket') {
+      el.pickerHint.textContent='会いたい相手を選んでね。決めるまで使わない';
+      el.pickerGrid.className='theme-grid';
+      const candidates=(ticketEncounterOptions || []).map(id => ALL_PARTNER_CANDIDATES.find(c => c.id === id)).filter(Boolean);
+      html=candidates.map(c => `<div class="dex-cell known tappable" data-picker-value="${c.id}"><span class="dex-cell-emoji">${partnerVisualHTML(c,'thumb')}</span><span class="dex-cell-label">${escapeHtml(c.label)}</span></div>`).join('');
     } else if (item.picker === 'achievement') {
       el.pickerGrid.className = 'ach-grid';
       html = ACHIEVEMENTS.filter((ach) => !state.achievementsUnlocked.includes(ach.id)).map((ach) => `
@@ -12771,9 +13433,9 @@
       el.gameClearArt.alt = tier.artAlt || tier.title;
     }
     el.gameClearOverlay.dataset.goal = String(tierIndex + 1);
-    el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
-    el.gameClearOverlay.classList.toggle('tier-2', tierIndex === 2);
-    el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= 3);
+    el.gameClearOverlay.classList.toggle('tier-1', tierIndex === GOAL_TIER.lifeClear);
+    el.gameClearOverlay.classList.toggle('tier-2', tierIndex === GOAL_TIER.best);
+    el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= GOAL_TIER.dex);
     // ⑤を一度でも達成していれば、人生を残したまま♾️のせかいへ進める。
     el.gameClearFreePlayBtn.classList.toggle('hidden', !state.lifetime.perfectCleared);
     el.gameClearCloseBtn.classList.remove('hidden');
@@ -12784,13 +13446,13 @@
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
-    if (tierIndex < 3) {
+    if (tierIndex < GOAL_TIER.dex) {
       const reward = NAOTO_ITEMS.find((item) => item.unlockTier === tierIndex);
       if (reward) el.gameClearDesc.innerHTML += `<br>${escapeHtml(reward.emoji)} ${escapeHtml(reward.label)}をもらった!<br>${escapeHtml(reward.desc)}`;
     }
-    if (tierIndex === 3) {
-      const totalForms = ALL_LINES.length * STAGES_PER_LINE;
-      const knownForms = Math.min(state.discoveredStages.length, totalForms);
+    if (tierIndex === GOAL_TIER.dex) {
+      const totalForms = dexTotalCount();
+      const knownForms = dexFoundCount();
       el.gameClearDesc.innerHTML += `<br>📖みつけたすがた: ${knownForms} / ${totalForms}<br>👑なおとのかんむりをもらった!`;
     }
     if (meetsAuthor) {
@@ -12799,12 +13461,12 @@
       el.gameClearDesc.innerHTML += '<br>このあと、おわかれのじかんに<br>この子のいっしょうをきろくできるよ。';
     }
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
-    const hadPerfect = state.lifetime.endingTiersReached.includes(4);
+    const hadPerfect = state.lifetime.endingTiersReached.includes(GOAL_TIER.perfect);
     qualifyingEndingTiers().forEach((t) => {
       if (!state.lifetime.endingTiersReached.includes(t)) state.lifetime.endingTiersReached.push(t);
     });
     syncNaotoRewardItems();
-    if (!hadPerfect && state.lifetime.endingTiersReached.includes(4)) {
+    if (!hadPerfect && state.lifetime.endingTiersReached.includes(GOAL_TIER.perfect)) {
       state.lifetime.screenThemeId = 'rainbow';
     }
     if (!endingCelebrationShown) {
@@ -12826,7 +13488,7 @@
 
   function openDexDetail(line, stageIndex) {
     if (!SPECIES[line] || !SPECIES[line].stages[stageIndex]) return;
-    if (!state.discoveredStages.includes(`${line}:${stageIndex}`)) return;
+    if (!knownDexKeys().has(`${line}:${stageIndex}`)) return;
     dexDetail = { line, stageIndex };
     render();
   }
@@ -12839,32 +13501,34 @@
     el.dexDetailOverlay.classList.toggle('rare', isRare);
     setStageVisual(el.dexDetailEmoji, stage, 'detail');
     el.dexDetailLabel.textContent = stage.label;
-    el.dexDetailMeta.textContent = `${isRare ? '✨レア' : ''}${SPECIES_DISPLAY_NAMES[line] || line} ／ ${LIFE_STAGES[stageIndex].name}(${LIFE_STAGES[stageIndex].min}さい〜)`;
+    const stageMin = stageMinsForLine(line)[stageIndex];
+    el.dexDetailMeta.textContent = `${isRare ? '✨レア' : ''}${SPECIES_DISPLAY_NAMES[line] || line} ／ 第${stageIndex + 1}段階(${stageMin}さい〜)`;
     el.dexDetailDesc.textContent = stageDesc(line, stageIndex);
     el.dexDetailTransformBtn.classList.toggle('hidden', !state.infinite);
   }
 
   function renderDex() {
-    const discoveredCount = state.discoveredStages.length;
-    const totalCount = ALL_LINES.length * STAGES_PER_LINE;
+    const discoveredCount = dexFoundCount();
+    const totalCount = dexTotalCount();
     // ヘッダーの ぜんたい数は、しゅぞく・なかま・こいびとの 3セクション
     // ぶんを あわせた かずで あらわす(dex-complete じっせきの はんてい
     // じたいは しゅぞくだけの totalCount の ままで、ここは 表示だけ)
     const companionEntries = companionDexEntries();
-    const combinedDiscovered = discoveredCount + companionEntries.filter((c) => hasRecruitedCompanionId(c.id)).length + state.lifetime.partnersRecorded.length;
+    const combinedDiscovered = discoveredCount + companionEntries.filter((c) => hasRecruitedCompanionId(c.id)).length + partnersFoundCount();
     const combinedTotal = totalCount + companionEntries.length + ALL_PARTNER_CANDIDATES.length;
     el.dexProgress.textContent = `${combinedDiscovered} / ${combinedTotal}`;
     el.dexFreePlayHint.classList.toggle('hidden', !state.infinite);
     renderDexSummary();
+    const knownKeys = knownDexKeys();
     el.dexGrid.innerHTML = ALL_LINES.map((line) => {
       const stages = SPECIES[line].stages;
-      const knownCount = stages.filter((_, i) => state.discoveredStages.includes(`${line}:${i}`)).length;
-      const isRare = RARE_LINES.includes(line) || line === 'ren';
+      const knownCount = stages.filter((_, i) => knownKeys.has(`${line}:${i}`)).length;
+      const isRare = RARE_LINES.includes(line) || isSecretLine(line);
       const name = knownCount ? (SPECIES_DISPLAY_NAMES[line] || line) : '？？？';
       const head = `<div class="dex-line-head"><span class="dex-line-name">${escapeHtml(name)}${knownCount && isRare ? ' <span class="dex-line-rare">✨レア</span>' : ''}</span><span class="dex-line-bar"><span class="dex-line-fill" style="width:${(knownCount / stages.length * 100).toFixed(0)}%"></span></span><span class="dex-line-count">${knownCount}/${stages.length}</span></div>`;
       const cells = stages
         .map((stage, i) => {
-          const known = state.discoveredStages.includes(`${line}:${i}`);
+          const known = knownKeys.has(`${line}:${i}`);
           if (!known) return `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
           // であった すがたは いつでも タップして、なまえ・しゅぞく・
           // ライフステージ・せつめい文を 読める(§28)。♾️ の せかいでは
@@ -12882,23 +13546,27 @@
   // ずかんの あたまの まとめ: ふつう/レアの うまりぐあい と「いまの子の つぎの すがた」
   function renderDexSummary() {
     if (!el.dexSummary) return;
-    const known = new Set(state.discoveredStages);
+    const known = knownDexKeys();
     const count = (lines) => lines.reduce((a, line) => a + SPECIES[line].stages.filter((_, i) => known.has(`${line}:${i}`)).length, 0);
     const normal = count(NORMAL_LINES), normalTotal = NORMAL_LINES.length * STAGES_PER_LINE;
-    const rare = count([...RARE_LINES, 'ren']), rareTotal = (RARE_LINES.length + 1) * STAGES_PER_LINE;
+    const rare = count([...RARE_LINES, ...SECRET_LINES]), rareTotal = (RARE_LINES.length + SECRET_LINES.length) * STAGES_PER_LINE;
     const linesStarted = ALL_LINES.filter((line) => SPECIES[line].stages.some((_, i) => known.has(`${line}:${i}`))).length;
     let next = '';
     if (state.stage === STAGE.GROWING && state.speciesLine && SPECIES[state.speciesLine]) {
       const stages = SPECIES[state.speciesLine].stages;
-      const idx = stages.findIndex((_, i) => i > (state.stageIndex || 0) && !known.has(`${state.speciesLine}:${i}`));
-      if (idx > 0 && LIFE_STAGES[idx]) next = `今の子のつぎの姿は${LIFE_STAGES[idx].min}さい（あと${Math.max(0, LIFE_STAGES[idx].min - currentAge())}年）`;
+      const currentIndex = currentFormStageIndex();
+      const idx = stages.findIndex((_, i) => i > currentIndex && !known.has(`${state.speciesLine}:${i}`));
+      const stageMins = stageMinsForLine(state.speciesLine);
+      if (idx > 0 && Number.isFinite(stageMins[idx])) next = `今の子のつぎの姿は${stageMins[idx]}さい（あと${Math.max(0, stageMins[idx] - currentAge())}年）`;
       else if (idx < 0) next = '今の子の姿は全部見た';
     }
     const bar = (v, t, cls) => `<span class="records-bar"><span class="records-bar-fill ${cls}" style="width:${(t ? v / t * 100 : 0).toFixed(1)}%"></span></span>`;
     el.dexSummary.innerHTML = `<div class="records-summary dex-summary"><div class="records-head"><span class="records-title">📗ずかんのまとめ</span><span class="records-headline">${linesStarted}/${ALL_LINES.length}しゅぞく</span></div>`
       + `<div class="records-row"><span class="records-label">ふつう</span>${bar(normal, normalTotal, 'dex-fill')}<span class="records-num">${normal}/${normalTotal}</span></div>`
       + `<div class="records-row"><span class="records-label">レア</span>${bar(rare, rareTotal, 'dex-fill-rare')}<span class="records-num">${rare}/${rareTotal}</span></div>`
-      + (next ? `<div class="dex-next">🔎 ${next}</div>` : '') + '</div>';
+      + (next ? `<div class="dex-next">🔎 ${next}</div>` : '')
+      // 「いまの版で何種類みつけたか」と「むかし コンプリートした きろく」は べつもの。数は水増しせず、きろくだけ そえる
+      + (state.lifetime.dexCleared === true && !isDexComplete() ? '<div class="dex-next">📖 ずかんコンプリートの きろく あり</div>' : '') + '</div>';
   }
 
   // ずかんの したの ほうに、なかまイベントで であえる COMPANIONS の
@@ -12964,8 +13632,11 @@
   // 本体キャラの左右の列に表示する。話者の安定IDで短い反応を結びつける。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = state.companions
-      .map((sc) => allCompanionsById(sc.id))
+    const recruited = homePresentCompanions()
+      .map((sc) => {
+        const def = allCompanionsById(sc.id);
+        return def ? {...def, ...relationshipVisual('companion',sc,def.asset)} : null;
+      })
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
@@ -12978,21 +13649,23 @@
   }
 
   // こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
-  // ハートで囲み、中央セルの左上に表示する。けっこんずみの ときは
+  // 状態別のハートを添える。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
-    const p = !hide && state.partner;
+    const p = !hide && homePresentPartner();
     el.partnerCompanion.classList.toggle('hidden', !p);
     if (!p) {
       el.partnerCompanion.innerHTML = '';
       return;
     }
-    const key = JSON.stringify([p.id,p.label,p.emoji,p.married]);
+    const expression = relationshipVisual('partner',p,null).expression;
+    el.partnerCompanion.dataset.relationshipPositive = String(expression === 'positive');
+    const key = JSON.stringify([p.id,p.label,p.emoji,p.married,expression]);
     if (key === el.partnerCompanion.dataset.visualKey && el.partnerCompanion.innerHTML) return;
     el.partnerCompanion.dataset.visualKey = key;
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}${ring}</span><span class="partner-heart">💕</span>`;
+      `<span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion', true)}</span>${ring}`;
   }
 
   let companionRenderKey = null;
@@ -13001,35 +13674,36 @@
   let currentLocationIntent = 0;
   const SFX_CHOICES = { on: ['🔔', 'こうかおん ON'], off: ['🔕', 'OFF'] };
   const BGM_CHOICES = { on: ['🎵', 'BGM ON'], off: ['🔇', 'OFF'] };
+  const QUICK_VOICE_CHOICES = { tts: ['📣', 'よみあげ'], pico: ['🎤', 'ぴこぴこ（ことばなし）'], off: ['🔕', 'こえなし'] };
   const TIME_CHOICES = {auto:['🕐','げんざい'],morning:['🌅','あさ'],day:['☀️','ひる'],evening:['🌇','ゆう'],night:['🌙','よる']};
   const WEATHER_CHOICES = {auto:['📍','げんざい'],sunny:['☀️','はれ'],cloudy:['☁️','くもり'],rain:['🌧️','あめ'],snow:['❄️','ゆき']};
 
   // --- せかいの こうか: てんき・じかんたい・きせつ・地域 ごとの ステータス補正 ---
   // happy/hunger: 自然減の ばいりつ(小さいほど さがりにくい)、sleep: ねむりの
-  // かいふく、play: ミニゲームの げんき消費、coin: ミニゲームの おかね、
+  // かいふく、play: ミニゲームの げんき消費、
   // meet: なかまとの であいやすさ。text は せかい画面の せつめい
   const ENV_EFFECTS = {
     weather: {
-      sunny: { happy: 0.85, coin: 1.1, text: 'ごきげんが下がりにくい・ゲームのおかね+10%' },
+      sunny: { happy: 0.85, text: 'ごきげんが下がりにくい' },
       cloudy: { meet: 1.15, text: 'なかまに出会いやすい' },
-      rain: { happy: 1.15, meet: 0.7, coin: 1.15, text: 'ごきげんが下がりやすい・出会いがへる・ゲームのおかね+15%' },
+      rain: { happy: 1.15, meet: 0.7, text: 'ごきげんが下がりやすい・出会いがへる' },
       snow: { hunger: 1.1, play: 1.2, sleep: 1.15, text: 'おなかがすきやすい・あそぶと疲れやすい・ねるとよく回復する' },
     },
     time: {
       morning: { sleep: 1.2, hunger: 1.1, text: 'ねむると回復が早い・おなかがすきやすい' },
-      day: { coin: 1.1, text: 'ゲームのおかね+10%' },
+      day: { text: '' },
       evening: { happy: 0.9, text: 'ごきげんが下がりにくい' },
       night: { happy: 1.1, meet: 0.6, sleep: 1.3, text: '夜ふかしはごきげんが下がりやすい・出会いがへる・ねるとよく回復する' },
     },
     season: {
       spring: { happy: 0.9, meet: 1.2, text: 'ごきげんが下がりにくい・出会いがふえる' },
-      summer: { play: 1.15, hunger: 1.1, coin: 1.05, text: 'あそぶと疲れやすい・おなかがすきやすい' },
-      autumn: { coin: 1.15, happy: 0.95, text: 'ゲームのおかね+15%' },
+      summer: { play: 1.15, hunger: 1.1, text: 'あそぶと疲れやすい・おなかがすきやすい' },
+      autumn: { happy: 0.95, text: 'ごきげんが下がりにくい' },
       winter: { hunger: 1.15, sleep: 1.1, text: 'おなかがすきやすい・ねるとよく回復する' },
     },
     region: {
       home: { text: 'おちつく' },
-      city: { coin: 1.1, text: 'ゲームのおかね+10%' },
+      city: { text: '' },
       countryside: { hunger: 0.9, text: 'おなかがすきにくい' },
       forest: { meet: 1.3, text: 'なかまに出会いやすい' },
       mountain: { sleep: 1.1, play: 1.1, text: 'ねるとよく回復する・あそぶと疲れやすい' },
@@ -13038,7 +13712,7 @@
       deepsea: { happy: 0.9, meet: 0.8, text: 'ごきげんが下がりにくい・出会いがへる' },
       river_lake: { happy: 0.9, text: 'ごきげんが下がりにくい' },
       jungle: { meet: 1.4, hunger: 1.05, text: 'なかまにとても出会いやすい・少しおなかがすきやすい' },
-      desert: { hunger: 1.1, coin: 1.2, text: 'ゲームのおかね+20%・おなかがすきやすい' },
+      desert: { hunger: 1.1, text: 'おなかがすきやすい' },
       star_stop: { happy: 0.85, play: 0.9, text: 'ごきげんが下がりにくい・あそぶ疲れがへる' },
       memory_lake: { happy: 0.85, sleep: 1.15, text: 'ごきげんが下がりにくい・ねるとよく回復する' },
     },
@@ -13082,8 +13756,8 @@
     const snapshot = environmentTracker?.snapshot();
     const observed = snapshot?.weather;
     const fresh = observed && Date.now() - Date.parse(observed.measuredAt) <= 2 * 60 * 60 * 1000;
-    if (fresh && state.regionId === 'home') return { weather: observed.mode, source: 'observed' };
-    const sim = window.NaotocchiEnvironment?.simulatedWeather?.(state.regionId, getEffectiveSeason());
+    if (fresh && currentRegionId() === 'home') return { weather: observed.mode, source: 'observed' };
+    const sim = window.NaotocchiEnvironment?.simulatedWeather?.(currentRegionId(), getEffectiveSeason());
     return sim ? { weather: sim.mode, source: 'sim' } : { weather: null, source: 'none' };
   }
   function currentTimeOfDay() {
@@ -13112,7 +13786,7 @@
   }
   function currentEnvironment() {
     const w = effectiveWeather();
-    const environment = { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
+    const environment = { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: currentRegionId() };
     const locality = selectedLocality();
     if (locality) environment.locality = locality;
     return environment;
@@ -13124,8 +13798,11 @@
   function envModifiers() {
     const env = currentEnvironment();
     const parts = [ENV_EFFECTS.weather[env.weather], ENV_EFFECTS.time[env.time], hasSurfaceSeasons(env.region) && ENV_EFFECTS.season[env.season], ENV_EFFECTS.region[env.region]];
-    const out = { happy: 1, hunger: 1, sleep: 1, play: 1, coin: 1, meet: 1 };
-    for (const part of parts) { if (!part) continue; for (const k of Object.keys(out)) if (part[k] != null) out[k] *= part[k]; }
+    const out = { happy: 1, hunger: 1, sleep: 1, play: 1, meet: 1 };
+    for (let i = 0; i < parts.length; i += 1) {
+      const part = parts[i]; if (!part) continue;
+      for (const k of Object.keys(out)) if (part[k] != null) out[k] *= part[k];
+    }
     for (const k of Object.keys(out)) out[k] = clamp(out[k], 0.7, 1.5);
     return out;
   }
@@ -13278,7 +13955,7 @@
       { emoji: '🦇', message: 'こうもりが飛んでいった。ちょっとびっくり', happiness: 1 },
     ],
     night: [
-      { emoji: '⭐', message: '流れ星にお願い。💰+8', money: 8 },
+      { emoji: '⭐', message: '流れ星にお願い。' },
       { emoji: '🦉', message: 'ふくろうの声…ちょっとこわい。ごきげん-2', happiness: -2 },
       { emoji: '🌙', message: '月がきれいだね。ごきげん+5', happiness: 5 },
     ],
@@ -13307,7 +13984,7 @@
     ],
     desert: [
       { emoji: '💧', message: 'オアシスのそばでひと休み。げんき+6', energy: 6 },
-      { emoji: '✨', message: '砂の中に、小さなかざりを見つけた。💰+8', money: 8 },
+      { emoji: '✨', message: '砂の中に、小さなかざりを見つけた。' },
     ],
     deepsea: [
       { emoji: '🪼', message: '光るくらげが、ゆっくり道を横切った。ごきげん+6', happiness: 6 },
@@ -13315,7 +13992,7 @@
     ],
     star_stop: [
       { emoji: '⭐', message: '星をひとつ見送った。次はどこへ行くのだろう。ごきげん+6', happiness: 6 },
-      { emoji: '✨', message: 'ベンチの下に星のかけらが落ちていた。💰+8', money: 8 },
+      { emoji: '✨', message: 'ベンチの下に星のかけらが落ちていた。' },
       { emoji: '🌌', message: '遠くの星の明かりを数えて休んだ。げんき+5', energy: 5 },
     ],
     memory_lake: [
@@ -13333,23 +14010,38 @@
       return true;
     })];
   }
+  function drawEnvironmentMoment(pool) {
+    if (!pool.length) return null;
+    const factors = pool.map(moment => crownAchievementWeight('moment', moment));
+    // 効果がない場合は、従来の発生判定→内容抽選の順番もそのまま保つ。
+    if (factors.every(factor => factor === 1)) {
+      return Math.random() < 0.45 ? pool[Math.floor(Math.random() * pool.length)] : null;
+    }
+    const weights = factors.map(factor => 45 / pool.length * factor);
+    let roll = Math.random() * (55 + weights.reduce((sum, weight) => sum + weight, 0));
+    for (let i = 0; i < pool.length; i++) {
+      roll -= weights[i];
+      if (roll < 0) return pool[i];
+    }
+    return null; // 「発生なし」の基礎重み55も同じ抽選に含める。
+  }
+
   function scheduleEnvironmentMoment() {
     const delay = 150000 + Math.random() * 150000;
     setTimeout(() => {
       try {
-        const idleOk = !gameActive
+        const idleOk = !gameActive && pageVisible()
           && state.stage === STAGE.GROWING
           && !state.isSleeping && !state.isSick && !state.dying
           && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
           && !message && !pendingCompanionId;
-        if (idleOk && Math.random() < 0.45) {
+        if (idleOk) {
           const env = currentEnvironment();
           const pool = environmentMomentPool(env);
-          if (pool.length) {
-            const m = pool[Math.floor(Math.random() * pool.length)];
+          const m = drawEnvironmentMoment(pool);
+          if (m) {
             if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
-            if (m.money) state.lifetime.money += m.money;
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
             const memories = m.memory ? (state.lifeLog || []).filter((entry) => typeof entry.text === 'string' && entry.text.trim()) : [];
             const memory = memories.length ? memories[Math.floor(Math.random() * memories.length)] : null;
@@ -13374,7 +14066,7 @@
   });
 
   function homeCastMotionRadius() {
-    const count = state.companions.filter(c=>allCompanionsById(c.id)).length;
+    const count = homePresentCompanions().filter(c=>allCompanionsById(c.id)).length;
     return window.NaotocchiCastMotion?.motionRadiusFor(count) || 0;
   }
 
@@ -13383,7 +14075,7 @@
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD) return actors;
     if (state.partner && !el.partnerCompanion.classList.contains('hidden')) {
       const node = el.partnerCompanion.querySelector('.partner-emoji');
-      if (node) actors.push({kind:'partner',id:state.partner.id,node,size:parseFloat(el.partnerCompanion.style.width) || 52});
+      if (node) actors.push({kind:'partner',id:state.partner.id,node,attachment:el.partnerCompanion.querySelector('.partner-ring'),size:parseFloat(el.partnerCompanion.style.width) || 52});
     }
     if (!el.petAccessory.classList.contains('hidden')) actors.push({kind:'accessory',node:el.petAccessory});
     for (const [side,direction] of [[el.companionLeft,1],[el.companionRight,-1]]) {
@@ -13391,9 +14083,80 @@
         actors.push({kind:'companion',id:node.dataset.companionId,node,direction});
       }
     }
+    const visualForm=currentVisualForm();
+    for(const actor of actors)actor.personality=window.NaotocchiCastMotion?.personalityFor(actor.kind==='pet'?visualForm.line:actor.id,actor.kind==='pet'?visualForm.index:0,WORLD_MASTER?.motionPersonality);
     return actors;
   }
 
+  function relationshipTargets() {
+    return [...state.companions.map(entity=>({kind:'companion',id:entity.id,entity})),
+      ...(state.partner?[{kind:'partner',id:state.partner.id,entity:state.partner}]:[])]
+      .map(t=>({...t,reaction:relationshipReactions?.info(t.entity) || homeSocialReactions?.info(t.entity)})).filter(t=>t.reaction);
+  }
+  const relationshipMotionTokens = new WeakMap();
+  // Every cue is a child of its actor: local motion and idle carry it together.
+  // Ephemeral DOM metadata never enters state/save. Layout still reserves its
+  // original partner-heart/ring space; the cast solver is untouched.
+  const relationshipCueNodes = new Map();
+  let relationshipHeartMode = 'all';
+  let relationshipCastFrames = null;
+  function renderRelationshipReactions() {
+    if(!relationshipCastFrames)return;
+    const {layout,recruited}=relationshipCastFrames;
+    // Partner expression replaces its subtree even when cast layout is cached.
+    // Restore the existing solver's ring coordinates; never relocate the ring.
+    if(state.partner?.married && layout.partner && layout.ring){
+      const ring=el.partnerCompanion.querySelector('.partner-ring'),frame=layout.ring;
+      if(ring){ring.style.left=(frame.x-layout.partner.x)+'px';ring.style.top=(frame.y-layout.partner.y)+'px';
+        ring.style.width=frame.w+'px';ring.style.height=frame.h+'px';ring.style.fontSize=frame.w+'px';}
+    }
+    if(!RELATIONSHIP_EXPRESSION)return;
+    const actors=homeCastActors(),targets=relationshipTargets();
+    const visible=!gameActive && !meguruActive && !isAnyMenuOverlayOpen()
+      && state.stage!==STAGE.EGG && state.stage!==STAGE.DEAD && !state.transformOptions
+      && document.visibilityState!=='hidden' && !document.body.classList.contains('movie-active')
+      && !el.screenNormal.classList.contains('hidden');
+    const wanted=new Set();
+    for(const actor of actors) {
+      if(!['companion','partner'].includes(actor.kind))continue;
+      const entity=actor.kind==='partner'?state.partner:state.companions.find(c=>allCompanionsById(c.id)?.id===actor.id);
+      if(!entity)continue;
+      const expression=relationshipVisual(actor.kind,entity,null).expression;
+      actor.node.dataset.relationshipState=expression;
+      const target=targets.find(t=>t.kind===actor.kind && t.entity===entity),reaction=target?.reaction;
+      const elapsed=reaction?Date.now()-reaction.startedAt:0;
+      if(visible && reaction && (relationshipMotionTokens.get(actor.node)!==reaction || elapsed<900 && !castMotion?.isActive(target))){
+        castMotion?.relationship({...target,id:actor.id},elapsed);relationshipMotionTokens.set(actor.node,reaction);
+      }
+      const f=actor.kind==='partner'?layout.partner:layout.companions[recruited.findIndex(c=>c.id===actor.id)];
+      const showHeart=actor.kind==='partner'||expression==='positive'&&(relationshipHeartMode!=='representative'||target===targets[0]);
+      const showAura=expression!=='normal';
+      if(!visible || !f || (!showHeart&&!showAura))continue;
+      const key=actor.kind+':'+actor.id;wanted.add(key);
+      let entry=relationshipCueNodes.get(key);
+      if(!entry || entry.owner!==actor.node || entry.expression!==expression || entry.reaction!==reaction || entry.showHeart!==showHeart){
+        if(entry)for(const node of [entry.heart,entry.aura])if(node?.parentNode)node.parentNode.removeChild(node);
+        entry={owner:actor.node,expression,reaction,showHeart};
+        if(showAura){const node=document.createElement('span');node.className='relationship-aura';node.dataset.relationshipState=expression;
+          node.setAttribute('aria-hidden','true');if(reaction)node.style.animationDelay=(-elapsed)+'ms';actor.node.appendChild(node);entry.aura=node;}
+        if(showHeart){const node=document.createElement('span');node.className='relationship-heart';node.dataset.relationshipState=expression;
+          node.dataset.relationshipTarget=key;node.setAttribute('aria-hidden','true');node.innerHTML=RELATIONSHIP_EXPRESSION.heartMarkup(expression);
+          if(reaction)node.style.animationDelay=(-elapsed)+'ms';actor.node.appendChild(node);entry.heart=node;}
+        relationshipCueNodes.set(key,entry);
+      }
+      const bounds=RELATIONSHIP_EXPRESSION.ART_BOUNDS[actor.id]||[0,0,128,128];
+      const body={x:f.x+f.w*bounds[0]/128,y:f.y+f.h*bounds[1]/128,w:f.w*(bounds[2]-bounds[0])/128,h:f.h*(bounds[3]-bounds[1])/128};
+      if(entry.aura){const node=entry.aura;node.style.left=(body.x-f.x-2)+'px';node.style.top=(body.y-f.y-2)+'px';node.style.width=(body.w+4)+'px';node.style.height=(body.h+4)+'px';}
+      if(entry.heart){const size=RELATIONSHIP_EXPRESSION.heartSize(actor.kind,expression,f.w);
+        const box=RELATIONSHIP_EXPRESSION.heartAnchor(body,{width:layout.width,height:layout.height,size});
+        const node=entry.heart;node.style.left=(box.x-f.x)+'px';node.style.top=(box.y-f.y)+'px';
+        node.style.width=box.w+'px';node.style.height=box.h+'px';node.style.setProperty('--relationship-float',(-Math.min(3,box.y))+'px');}
+    }
+    for(const [key,entry] of relationshipCueNodes)if(!wanted.has(key)){
+      for(const node of [entry.heart,entry.aura])if(node?.parentNode)node.parentNode.removeChild(node);
+      relationshipCueNodes.delete(key);
+    }
+  }
   let homeSpeechAnchors = null;
   function pointHomeSpeech() {
     if (!homeSpeechAnchors || !el.speechBubble) return;
@@ -13417,10 +14180,10 @@
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const main = currentVisualStage();
-    const p = state.partner;
+    const p = homePresentPartner();
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[p?.id] || p?.id;
     const partnerAsset = WORLD_MASTER?.partners?.find(def => def.id === partnerId)?.asset;
-    const recruited = state.companions.map(sc => allCompanionsById(sc.id)).filter(Boolean);
+    const recruited = homePresentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
     // Let sparse scenes share more of the available height with the care keys.
     // Measure after changing this attribute, before starting a speech reaction.
     el.device.dataset.castCrowded = String(recruited.length > 0);
@@ -13432,12 +14195,14 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
-    if (key === homeCastLayoutKey) { pointHomeSpeech(); return; }
+    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
     const layout = window.NaotocchiCast.layoutHomeCast(args);
+    relationshipCastFrames={layout,recruited,args};
+    for(const actor of homeCastActors())relationshipMotionTokens.delete(actor.node);
     const area=layout.conversation;
     el.petArea.style.setProperty('--home-speech-x',area.x+'px');
     el.petArea.style.setProperty('--home-speech-y',area.y+'px');
@@ -13477,12 +14242,17 @@
     el.petSprite.style.setProperty('--care-sweat-left',Math.max(1,frame.w * box[0] / 128-dropWidth * .7) + 'px');
     el.petSprite.style.setProperty('--care-sweat-right',Math.max(1,frame.w * (128-box[2]) / 128-dropWidth * .7) + 'px');
     el.petSprite.style.setProperty('--care-sweat-travel',travel + 'px');
+    const faceSweat=PET_EXPRESSION?.sweatFor?.(args.mainAsset,frame.w,frame.h,frame.artOffsetY || 0);
+    if(faceSweat) for(const key of ['top','left','right','travel']) {
+      el.petSprite.style.setProperty('--care-sweat-'+key,faceSweat[key]+'px');
+    }
     const left=el.companionLeft.children,right=el.companionRight.children;
     layout.companions.forEach((frame,i)=>place((i%2?right:left)[Math.floor(i/2)],frame));
     if (layout.partner) el.partnerCompanion.querySelectorAll('.partner-heart').forEach((node,i)=>{
       const frame=layout.hearts[i];
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
+    renderRelationshipReactions();
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
@@ -13504,7 +14274,7 @@
     el.screen.dataset.weather = weather || 'unknown';
     document.body.dataset.time = visualTime;
     document.body.dataset.weather = weather || 'unknown';
-    applyWeatherFx(weather, time, state.regionId);
+    applyWeatherFx(weather, time, currentRegionId());
     const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : environmentContextLabel(eff.source);
     el.environmentLabel.innerHTML = `${environmentIconHTML('time',time,TIME_CHOICES[time][0])} ${TIME_CHOICES[time][1]}・${weather ? environmentIconHTML('weather',weather,WEATHER_CHOICES[weather][0]) + ' ' + WEATHER_CHOICES[weather][1] + (eff.source === 'sim' ? '(よそう)' : '') : escapeHtml(weatherText)}`;
     const selected = selectedLocality();
@@ -13540,6 +14310,7 @@
       if (el.gameLengthGrid) renderEnvironmentChoices(el.gameLengthGrid, GAME_LENGTH_CHOICES, minigameLengthMode());
       if (el.sfxModeGrid) renderEnvironmentChoices(el.sfxModeGrid, SFX_CHOICES, state.lifetime.soundSfx === false ? 'off' : 'on');
       if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');
+      if (el.quickVoiceGrid) renderEnvironmentChoices(el.quickVoiceGrid, QUICK_VOICE_CHOICES, QUICK_VOICE_CHOICES[state.lifetime.quickVoice] ? state.lifetime.quickVoice : 'tts');
     }
     maybeRefreshEnvironment();
     renderWorldScene();
@@ -13576,11 +14347,12 @@
   // 正体を みせない。「なんだか わからない ものを えらぶ」という
   // 隠しキャラ らしい たいけんに する(いちど であえば ふつうに 名前が出る)
   function isHiddenTransformLine(line) {
-    return line === 'ren' && !state.discoveredStages.some((e) => e.startsWith('ren:'));
+    return line === SECRET_LINE && !state.discoveredStages.some((e) => e.startsWith(`${SECRET_LINE}:`));
   }
 
   function renderTransformChoices() {
-    const options = state.transformOptions || [];
+    // RH-8: 知らない しゅぞく(未来の save など)は えがかない(save には のこる)
+    const options = (state.transformOptions || []).filter((line) => SPECIES[line] || isHiddenTransformLine(line));
     el.transformChoices.innerHTML = options
       .map((line) => {
         if (isHiddenTransformLine(line)) {
@@ -13591,7 +14363,7 @@
             </button>
           `;
         }
-        const stage = SPECIES[line].stages[stageForAge(currentAge())];
+        const stage = SPECIES[line].stages[stageForAge(currentAge(), line)];
         return `
           <button class="transform-choice-btn" data-line="${line}">
             <span class="transform-choice-emoji">${stageVisualHTML(stage, 'thumb')}</span>
@@ -13632,17 +14404,26 @@
 
   function chooseTransform(line) {
     if (!state.transformOptions || !state.transformOptions.includes(line)) return;
-    // ★ ねんれいは ぜったいに かえない。すがたは stageForAge() から きまるので
-    // ここで かえるのは しゅぞくの ラインだけ(35さいのいぬ → 35さいのねこ)
+    clearPetExpression();
+    // ねんれいは ぜったいに かえない。変身先では「同じ年齢が、その生き物の
+    // どの時期か」を専用プロフィールから引きなおす。
+    const beforeStageIndex = currentFormStageIndex();
     state.speciesLine = line;
+    const afterStageIndex = stageForAge(currentAge(), line);
+    state.stageIndex = afterStageIndex;
+    clearTemporaryForm();
     state.transformOptions = null;
     state.lifetime.transforms += 1;
     state.transformsThisLife += 1;
-    if (!state.transformStageDone.includes(String(state.stageIndex))) {
-      state.transformStageDone.push(String(state.stageIndex));
+    if (!state.lifetime.raisedSpecies.includes(line)) state.lifetime.raisedSpecies.push(line);
+    // へんしん抽選が起きた「変身前の段階」を消化済みにする。変身先で段階番号が
+    // 前後しても、同じ抽選をその場でもう一度引けないようにする。
+    if (!state.transformStageDone.includes(String(beforeStageIndex))) {
+      state.transformStageDone.push(String(beforeStageIndex));
     }
-    const stage = SPECIES[line].stages[stageForAge(currentAge())];
-    const wasHiddenRen = line === 'ren' && hiddenRenRevealPending;
+    const stage = SPECIES[line].stages[afterStageIndex];
+    const lifeStageAside = LIFE_STAGE_RULES?.transformAside(line, beforeStageIndex, afterStageIndex) || '';
+    const wasHiddenRen = line === SECRET_LINE && hiddenRenRevealPending;
     hiddenRenRevealPending = false;
     const breakupMessage = rerollIdentityAndBreakupIfNeeded(line);
     pushLifeLog(stage.emoji, wasHiddenRen ? 'れんくんにであった' : `${stage.label}にへんしんした`);
@@ -13650,9 +14431,10 @@
       // 隠しキャラを ひきあてた しゅんかんだけの、せんようの ひとこと
       showStoryEvent({ emoji: '🕯️', message: 'なんで人間がいるの?と思ったが、なぜかだれも気にしていない' });
     }
-    setMessage(wasHiddenRen
+    const transformMessage = wasHiddenRen
       ? `？？？のしょうたいは「${stage.label}」だった…!${breakupMessage}`
-      : `${stage.label}にへんしんした!${breakupMessage}`);
+      : `${stage.label}にへんしんした!${breakupMessage}`;
+    setMessage(lifeStageAside ? `${transformMessage} ${lifeStageAside}` : transformMessage);
     checkStoryEvents('transform');
     speakEvent('transform', { partnerChance: 0.65, companionChance: 0.65 });
     emotePet(breakupMessage ? 'sad' : 'fun');
@@ -13682,44 +14464,16 @@
 
   el.transformSkipBtn.addEventListener('click', skipTransform);
 
-  // ごほうびはミニゲーム大成功などで入手。一生のダメージである
-  // おとろえを主に回復し、上位3種はさらにいのちも立て直す。
-  function renderItemsRow(disableUse) {
-    const entries = FUN_ITEMS.filter((item) => (state.items[item.id] || 0) > 0);
-    if (!entries.length) { el.itemsRow.innerHTML = ''; return; }
-    el.itemsRow.innerHTML = entries.map((item) => `
-      <button class="item-btn" data-item-id="${item.id}" title="${item.label}" ${disableUse ? 'disabled' : ''}>
-        <span class="item-emoji">${itemIconHTML(item,true)}</span><span class="item-count">${state.items[item.id]}</span>
-      </button>
-    `).join('');
+  function itemEnvironmentLabels(env = {}) {
+    return {time:TIME_CHOICES[env.time]?.[1],weather:WEATHER_CHOICES[env.weather]?.[1] || environmentContextLabel(env.weatherSource),season:SEASON_INFO[env.season]?.label,region:env.locality?.display || [...REGIONS,...SPECIAL_REGIONS].find(r=>r.id===env.region)?.label};
   }
 
-  function useItem(itemId) {
-    const item = FUN_ITEMS.find((it) => it.id === itemId);
-    if (!item || !(state.items[itemId] > 0)) return;
-    state.items[itemId] -= 1;
-    if (state.items[itemId] <= 0) delete state.items[itemId];
-    state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
-    if (!Array.isArray(state.lifetime.ownedConsumableItems)) state.lifetime.ownedConsumableItems = [];
-    if (!state.lifetime.ownedConsumableItems.includes(itemId)) state.lifetime.ownedConsumableItems.push(itemId);
-    state.happiness = clamp(state.happiness + 2, 0, 100);
-    playFunScene(item);
-    saveState(); render();
+  let itemMemoriesOpen = false;
+  function renderItemMemories() {
+    document.getElementById('itemMemoriesPanel').classList.toggle('hidden', !itemMemoriesOpen);
+    if (itemMemoriesOpen) document.getElementById('itemMemoriesList').innerHTML = window.NaotocchiItemMemories.render(Object.fromEntries(Object.entries(state.lifetime.itemMemories).map(([kind,records])=>[kind,records.map(r=>({...r,environmentLabels:r.environmentLabels || itemEnvironmentLabels(r.environment)}))])));
   }
-
-  el.itemsRow.addEventListener('click', (e) => {
-    const btn = e.target.closest('.item-btn');
-    if (btn && !btn.disabled) useItem(btn.dataset.itemId);
-  });
-
-  el.rewardItemGrid.addEventListener('click', () => {
-    const count = state.items.reward || 0;
-    setMessage(count > 0
-      ? `🎁ごほうびを${count}こもっている。デートやたびをとくべつな思い出にできるよ`
-      : '🎁ごほうびはとてもレア。デートやたびのとくべつな思い出につかえるよ');
-    render();
-  });
-
+  document.getElementById('itemMemoriesBtn').addEventListener('click',()=>{itemMemoriesOpen=!itemMemoriesOpen;renderItemMemories();});
   // --- minigames (triggered by the play button) ---
 
   const SEASON = { SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter' };
@@ -13769,6 +14523,366 @@
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js を読みこめませんでした(index.html で script.js より前に <script src="games.js"> が必要です)');
   const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, canvasIllustrations:CANVAS_ILLUSTRATIONS, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, createTouchPad, createPadRow, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  // クイックモード(quick.js): 1つ 3〜6びょうの ゲームを 指示(文字+こえ)つきで つぎつぎ
+  // あそぶ。本体からは 1本の ゲーム 'quick-run' として startMinigame/finishMinigame を とおる
+  // 記録とセッションは共通。育成には影響せず、混合20/20完走だけ100コイン。
+  const QUICK_FOOD_EMOJI = ['🍙', '🍎', '🍰', '🍓', '🍩', '🍇'];
+  const quickMod = typeof installNaotocchiQuick === 'function' ? installNaotocchiQuick({
+    sfx: (name) => audio.play(name),
+    voice: (text) => audio.voice(text),
+    clamp, lerp, escapeHtml, createMgCanvas,
+    currentSprite: () => currentSprite(),
+    partnerEmoji: () => (state.partner && state.partner.emoji) || null,
+    companionEmojis: () => (state.companions || []).map((c) => { const d = allCompanionsById(c.id); return d && d.emoji; }).filter(Boolean),
+    foodEmojis: () => QUICK_FOOD_EMOJI,
+    seasonId: () => getEffectiveSeason(),
+    onRunEnd: (stats) => recordQuickRun(stats),
+  }) : null;
+  const QUICK_RUN = quickMod ? quickMod.makeQuickRun() : null;
+  // ================================================================
+  // めぐる(meguru.js): いまいる 地域の なかを あるき、ずかんに のった みんなに あう
+  // ================================================================
+  // 「たび」の 地域えらび(travelToRegion)は そのまま。ここは その うえの べつの がめん。
+  // 地域を かえる ときは かならず 本体の travelToRegion() を とおる(めぐる の なかの
+  // 「たび」ボタンも ふつうの たび がめんを ひらくだけ)
+  // RH-8: めぐるの きろく(であった・はなした・見つけた・ちず・みち)は frame の なかで 何回 よばれても、
+  // saveState(実績・ゴールの 判定と JSON の 書き出し)は frame の そとで 1 回に まとめる。
+  // microtask なので つぎの frame・タブを 閉じる イベントより さきに かならず 確定する。bridge の 署名は そのまま
+  let meguruSaveQueued = false;
+  const queueMicro = typeof queueMicrotask === 'function' ? queueMicrotask : (fn) => Promise.resolve().then(fn);
+  function saveMeguruRecordSoon() {
+    if (meguruSaveQueued) return;
+    meguruSaveQueued = true;
+    queueMicro(() => { meguruSaveQueued = false; saveState(); });
+  }
+  // URL overrides are QA-only; rendering preferences never enter save/schema.
+  // Any explicit 2D value wins, including duplicated/conflicting parameters.
+  const MEGURU3D_ON = (() => {
+    try { return !/(?:^|[?&])meguru3d=0(?:&|$)/.test(String(location.search || '')); }
+    catch (_) { return true; }
+  })();
+  const meguruBridge = {
+    clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
+    getState: () => state,
+    currentEnvironment: () => currentEnvironment(),
+    findRegion,
+    resolveRegionId: (id, site) => resolveRegionId(id, site), canonicalRegionId, // RH-4: めぐるは 地域 ID を 自分で 判定しない
+    regionLabel: (id, local) => { const r = findRegion(id); const loc = local ? selectedLocality() : null; return loc ? `📍${escapeHtml(loc.display || loc.name || '')}` : environmentIconHTML('region', r.id, r.emoji) + escapeHtml(r.label); },
+    regionPlainLabel: (id, local) => { const loc = local ? selectedLocality() : null; return loc ? (loc.display || loc.name || findRegion(id).label) : findRegion(id).label; },
+    selectedLocality: () => selectedLocality(),
+    dailyKey: () => dailyKey(),
+    SPECIES,
+    speciesStageDesc: (line, i) => stageDesc(line, i),
+    allCompanionsById, canonicalCompanionId,
+    // けしきの かんさ よう: なかま・レアなかま ぜんいんの emoji を しる ため
+    allCompanions: () => [...COMPANIONS, ...RARE_COMPANIONS],
+    partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
+    partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
+    currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
+    expressionPlayerInput: () => ({profile:deriveHomeEmotion(), sleeping:state.isSleeping,
+      blocked:state.stage !== STAGE.GROWING, base:currentVisualStage().asset}),
+    expressionRelationshipInput: (actor) => {
+      const entity = actor.kind === 'companion'
+        ? (state.companions || []).find(c => canonicalCompanionId(c.id) === actor.id)
+        : actor.kind === 'partner' && state.partner && canonicalPartnerId(state.partner.id) === actor.id ? state.partner : null;
+      return entity ? {value:actor.kind === 'companion' ? entity.bond : entity.affection, positive:!!relationshipReactions?.active(entity)} : null;
+    },
+    playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
+    // イラストの さしかえを とおさない ところ(のりものの えなど)で つかう ふつうの 絵文字。
+    // playerGlyph は イラスト よう の しるし(\uE000)を かえす ことが あるので、
+    // なまの canvas に そのまま かくと とうふ(□)に なる
+    playerEmoji: () => currentSprite(),
+    // キャラ(じゅうみん)よう: 絵文字 → イラスト/キャラの え。オフスクリーンでも きく
+    wrapCanvasCtx: (c) => (CANVAS_ILLUSTRATIONS && c ? CANVAS_ILLUSTRATIONS.canvas(c) || c : c),
+    // けしき(こもの・しゃへいぶつ・めじるし)よう: キャラの え には ぜったいに ならない
+    sceneryCtx: (c) => (SCENERY_CANVAS && c ? SCENERY_CANVAS.canvas(c) || c : c),
+    resolveScenery: (emoji) => (SCENERY_RESOLVE ? SCENERY_RESOLVE(emoji) : null),
+    // え の よみこみが すすむと かわる ばんごう(めぐる の 立て看板キャッシュを つくりなおす きっかけ)と、まえもって よみこむ
+    illustrationDecoded: () => (SCENERY_CANVAS && SCENERY_CANVAS.decoded) || null,   // しらべもの よう(さきに デコードした 絵の かず・バイト)
+    illustrationVersion: () => (CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.version : 0) + (SCENERY_CANVAS ? SCENERY_CANVAS.version : 0),
+    // よみこみ おわりの Promise を かえす(めぐるの corridor が 着く まえに 絵を よみこみ おえて から したく する ため。つかわない ひとは そのまま)
+    // opts.decode: けしきの 絵(atlas など)を 画面の そとで さきに デコードして おく(めぐるの corridor。はじめて えがく frame を かるく する)
+    prepareIllustrations: (sceneryList, actorList, opts) => { try { const a = SCENERY_CANVAS ? SCENERY_CANVAS.prepare(sceneryList || [], opts || {}) : null; const b = CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.prepare(actorList || []) : null; return Promise.all([a, b]).catch(() => false); } catch (_) { /* よみこみの しっぱいは えがきを とめない */ return Promise.resolve(false); } },
+    resolveDisplay: (emoji) => (DISPLAY_CATALOG ? DISPLAY_CATALOG.resolve(emoji) : null),
+    ALL_LINES, currentPetLine: () => state.speciesLine || null,
+    isAuthorUnlocked: () => isAuthorUnlocked(),
+    authorAsset: WORLD_MASTER?.playerSpecies?.author?.asset || null,
+    perfTier: () => mgPerfTier,
+    // 3D prototype(forest だけ)。?meguru3d=1 と WebGL2 が そろった ときだけ。セーブには のこさない
+    meguru3d: MEGURU3D_ON,
+    onExit: () => stopMeguru(),
+    // めぐるの なかから「たび」を ひらく。openExclusiveMenu は めぐる中だと
+    // はじかれる(それが「おしても 何も おきない」の げんいん)ので、
+    // めぐるの うえに かぶせる せんようの 入口を とおす。travelToRegion() は 無変更
+    openTravel: () => openTravelOverlay(),
+    // オーバーレイが かぶさって いる あいだ、めぐるは せかいを すすめない
+    menuOpen: () => !!activeOverlay,
+    recordMet: (key) => { const m = meguruStats(); if (!m.met[key]) { m.met[key] = 1; saveMeguruRecordSoon(); } },
+    recordTalk: (key) => { const m = meguruStats(); m.talks[key] = (m.talks[key] || 0) + 1; m.talkCount += 1; saveMeguruRecordSoon(); },
+    // スポットの はっけん(地域ごと)。ずかん・じっせきとは べつの きろく
+    recordSpot: (regionId, spotId) => { const m = meguruStats(); const list = m.spots[regionId] || (m.spots[regionId] = []); if (!list.includes(spotId)) { list.push(spotId); saveMeguruRecordSoon(); } },
+    discoveredSpots: (regionId) => { const m = meguruStats(); return (m.spots[regionId] || []).slice(); },
+    // ちず(あるいた きろく)。地区・とおった みち・見つけた めじるし を id だけで もつ。
+    // あるいた ざひょうは のこさない ので、ふえかたは せかいの おおきさ ぶんで とまる
+    recordMapBits: (regionId, kind, ids) => {
+      const m = meguruStats(); const bag = m[kind]; if (!bag) return;
+      const list = bag[regionId] || (bag[regionId] = []);
+      let added = false;
+      for (const id of (Array.isArray(ids) ? ids : [ids])) if (id && !list.includes(id)) { list.push(id); added = true; }
+      if (added) saveMeguruRecordSoon();
+    },
+    // その地域の きろくを よむ。まだ 一度も きろくして いない ときは null(= 旧セーブ)。
+    // よびだしがわが「すでに 見つけた スポット」から あんぜんに 組みなおす
+    mapRecords: (regionId) => {
+      const m = meguruStats();
+      const read = (bag) => (Object.prototype.hasOwnProperty.call(bag, regionId) ? (bag[regionId] || []).slice() : null);
+      return { zones: read(m.zones), paths: read(m.paths), marks: read(m.marks) };
+    },
+    // ---- せかいのちず(Phase 1)。地域の はっけん と みちの はっけんを わけて もつ ----
+    // 地域: 旧セーブの regionsVisited / specialRegionsVisited から そのまま 組みなおせる。
+    // みち: それとは べつ。「行った ことが ある」だけでは ぜったいに ひらかない
+    worldRegions: () => {
+      const m = meguruStats();
+      const seeded = meguruMod ? meguruMod.seedWorldRegions(state.lifetime) : ['home'];
+      const out = [];
+      for (const id of [...(m.world.regions || []), ...seeded]) if (id && !out.includes(id)) out.push(id);
+      if (out.length !== (m.world.regions || []).length) { m.world.regions = out.slice(); saveState(); }
+      return out.slice();
+    },
+    // ---- Phase 2: となりの 地域へ じぶんで 移動する(「たび」とは べつの みち) ----
+    // ここで おこるのは「いま いる 地域」「はじめて きた きろく」「ライフログ」「ほぞん」だけ。
+    // **たびの ひよう(げんき・おなか)・たびづかれ・そだち・きげんボーナス・たびの せりふ・
+    // ストーリー判定・えんしゅつは 1つも おこらない**(あるいて となりへ 出ただけ なので)
+    enterRegionByMove: (regionId, opts = {}) => {
+      const region = findRegion(regionId);
+      if (!region || region.id === currentRegionId()) return { ok: false, first: false };
+      if (!state.lifetime.specialRegionsVisited) state.lifetime.specialRegionsVisited = [];
+      const isSpecial = !!region.special;
+      const list = isSpecial ? state.lifetime.specialRegionsVisited : state.lifetime.regionsVisited;
+      const first = !list.includes(region.id);
+      state.regionId = region.id;
+      // 「いまいる ばしょ」の ひょうじだけを もどす しくみとは べつなので、ここで けす
+      state.lifetime.currentLocationSelected = false;
+      state.lifetime.currentLocation = null;
+      if (first) {
+        list.push(region.id);
+        const how = opts.by === 'gondola' ? 'ゴンドラで' : opts.by === 'dive' ? 'もぐって' : 'あるいて';
+        pushLifeLog(region.emoji, `${how}${region.label}までいった`);
+      }
+      saveState();
+      return { ok: true, first, label: region.label, emoji: region.emoji };
+    },
+    worldLinks: () => meguruStats().world.links.slice(),
+    recordWorldLinks: (ids) => {
+      const m = meguruStats(); let added = false;
+      for (const id of (Array.isArray(ids) ? ids : [ids])) if (id && !m.world.links.includes(id)) { m.world.links.push(id); added = true; }
+      if (added) saveMeguruRecordSoon();
+    },
+    // みちの はっけんを しらべる ための「地域ごとの 見つけた spot」。せかいのちずを
+    // ひらいた ときだけ よむ
+    allDiscoveredSpots: () => {
+      const m = meguruStats(), out = {};
+      for (const id of Object.keys(m.spots)) out[id] = (m.spots[id] || []).slice();
+      return out;
+    },
+    seedMapRecords: (regionId, rec) => {
+      const m = meguruStats(); let changed = false;
+      for (const kind of ['zones', 'paths', 'marks']) {
+        const bag = m[kind];
+        if (Object.prototype.hasOwnProperty.call(bag, regionId)) continue;
+        bag[regionId] = ((rec && rec[kind]) || []).slice(); changed = true;
+      }
+      if (changed) saveState();
+    },
+  };
+  // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
+  // Home is a static care stage: project visits into the existing cast, not a second movement AI.
+  var homeVisits = null, homeVisitLast = null, homeVisitLife = null;
+  function homeInitiative(type,key) {
+    const session=meguruMod?.socialSession;
+    if(!session || !session.attempt(type,key))return false;
+    session.emit(type,key,{context:'home',reason:'idle'});return true;
+  }
+  function homePresentCompanions() {
+    const key=homeVisits?.current?.key;
+    return state.companions.filter(c=>'companion:'+canonicalCompanionId(c.id)===key);
+  }
+  function homePresentPartner() {return state.partner && homeVisits?.current?.key==='partner:'+state.partner.id ? state.partner : null;}
+  function updateHomeVisits() {
+    if(!homeVisits)return;
+    const now=Date.now(),delta=homeVisitLast==null?0:(now-homeVisitLast>5000?0:Math.max(0,(now-homeVisitLast)/1000)); homeVisitLast=now;
+    if(homeVisitLife!==state){homeVisits.clear('life_changed');homeVisitLife=state;}
+    if(document.visibilityState==='hidden' || gameActive || meguruActive || state.isSleeping || state.stage!==STAGE.GROWING || isAnyMenuOverlayOpen()) {homeVisits.clear('interrupted');return;}
+    const relations=state.companions.filter(c=>(c.bond||0)>=60).map(c=>({key:'companion:'+canonicalCompanionId(c.id)}));
+    if(state.partner)relations.push({key:'partner:'+state.partner.id});
+    homeVisits.update(delta,relations);
+  }
+  const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru(meguruBridge) : null;
+  homeVisits = meguruMod?.socialSession && window.NaotocchiRelationshipLife?.createVisits(meguruMod.socialSession);
+  document.addEventListener('visibilitychange',()=>{homeVisitLast=null;if(!pageVisible())homeVisits?.clear('hidden');});
+  if (meguruMod?.socialSession) meguruMod.expressionEvents?.subscribe(meguruMod.socialSession);
+  // Home uses its existing 2D relationship presentation; social cues remain separate from care rewards.
+  const homeSocialTimers = new Set();
+  const newHomeSocialReactions = () => {
+    for(const timer of homeSocialTimers)clearTimeout(timer);
+    homeSocialTimers.clear();
+    return RELATIONSHIP_EXPRESSION?.createReactions({now:()=>Date.now(),
+      schedule:(fn,ms)=>{const timer=setTimeout(()=>{homeSocialTimers.delete(timer);fn();},ms);homeSocialTimers.add(timer);return timer;},
+      cancel:timer=>{clearTimeout(timer);homeSocialTimers.delete(timer);},onExpire:()=>render()});
+  };
+  homeSocialReactions = newHomeSocialReactions();
+  meguruMod?.socialSession?.subscribe(event=>{
+    if(event.context!=='home')return;
+    if(event.type==='return_to_free_life'){homeSocialReactions=newHomeSocialReactions();return;}
+    if(!['visit','greeting','affection_interaction','reunion'].includes(event.type)||!pageVisible()||meguruActive)return;
+    const [kind,id]=event.actorKey.split(':');
+    const entity=kind==='partner'&&relationshipId(kind,state.partner)===id?state.partner:kind==='companion'?state.companions.find(c=>relationshipId(kind,c)===id):null;
+    if(entity)homeSocialReactions?.start(entity);
+  });
+  document.addEventListener('visibilitychange',()=>{if(!pageVisible())homeSocialReactions=newHomeSocialReactions();});
+
+  // Preload once. A failed session stays on Canvas until page reload.
+  let meguru3dRenderer = null;
+  let meguru3dFailed = false, meguru3dSettled = false;
+  let meguruStartToken = 0, meguruStartTimer = null;
+  let resolveMeguru3d;
+  const meguru3dReady = new Promise((resolve) => { resolveMeguru3d = resolve; });
+  function disableMeguru3d(err) {
+    meguru3dFailed = true; meguru3dRenderer = null;
+    if (!meguru3dSettled) { meguru3dSettled = true; resolveMeguru3d(); }
+    try { console.warn('meguru 3D → 2D', err && err.message); } catch (_) { /* logging cannot block fallback */ }
+  }
+  if (MEGURU3D_ON && meguruMod && !/[?&]m3d2d=1(?:&|$)/.test(String(location.search || ''))) {
+    try {
+      const probe = document.createElement('canvas');
+      const gl = probe.getContext && probe.getContext('webgl2');
+      if (!gl) throw new Error('WebGL2 unavailable');
+      const release = gl.getExtension('WEBGL_lose_context');
+      if (release) release.loseContext();
+      const src = document.getElementById('meguru3dModule')?.dataset.src;
+      if (!src) throw new Error('3D module URL unavailable');
+      const q = String(location.search || '');
+      // Keep the classic-script/Vite boundary: no dynamic import here.
+      const tag = document.createElement('script');
+      tag.type = 'module'; tag.src = src;
+      tag.onload = () => {
+        if (meguru3dSettled || meguru3dFailed) return;
+        try {
+          const m = window.NaotocchiMeguru3D;
+          const faceQ = (q.match(/[?&]c3dface=([ABC])(?:&|$)/) || [])[1];
+          if (!m) throw new Error('3D module did not initialize');
+          meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), char3d: !/[?&]char3d=0(?:&|$)/.test(q), char3dFace: faceQ || 'C', playerKey: () => meguruBridge.currentPetKey(), onFallback: disableMeguru3d });
+          if (typeof meguru3dRenderer !== 'function') throw new Error('3D renderer unavailable');
+          meguru3dSettled = true; resolveMeguru3d();
+        } catch (err) { disableMeguru3d(err); }
+      };
+      tag.onerror = () => disableMeguru3d(new Error('3D module load failed'));
+      document.head.appendChild(tag);
+    } catch (err) { disableMeguru3d(err); }
+  } else { meguru3dSettled = true; resolveMeguru3d(); }
+
+  function meguruStats() {
+    const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
+    if (!m.met || typeof m.met !== 'object') m.met = {};
+    if (!m.talks || typeof m.talks !== 'object') m.talks = {};
+    if (!m.spots || typeof m.spots !== 'object') m.spots = {};
+    // ちずの きろく。旧セーブには ない ので、ここで からの いれものだけ 用意する
+    if (!m.zones || typeof m.zones !== 'object') m.zones = {};
+    if (!m.paths || typeof m.paths !== 'object') m.paths = {};
+    if (!m.marks || typeof m.marks !== 'object') m.marks = {};
+    // せかいのちずの きろく。旧セーブには ない ので、ここで からの いれものだけ 用意する。
+    // もつのは id の あつまり 2つだけ(地域 と みち)。ざひょうは 1つも のこさない
+    if (!m.world || typeof m.world !== 'object') m.world = { regions: [], links: [] };
+    if (!Array.isArray(m.world.regions)) m.world.regions = [];
+    if (!Array.isArray(m.world.links)) m.world.links = [];
+    return m;
+  }
+  function startMeguru() {
+    if (!meguruMod || gameActive || meguruActive || !el.meguruOverlay) return false;
+    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
+    closeAllMenuOverlays();
+    clearConversationTimers();
+    hideSpeechBubble();
+    meguruActive = true;
+    scheduleHistoryLayerSync(); // RH-10: 戻るの 層
+    renderWorldScene(true);
+    el.screenNormal.classList.add('hidden');
+    el.meguruOverlay.classList.remove('hidden');
+    el.meguruOverlay.innerHTML = '';
+    const token = ++meguruStartToken;
+    const begin = () => {
+      if (!meguruActive || token !== meguruStartToken || meguruRun) return;
+      clearTimeout(meguruStartTimer); meguruStartTimer = null;
+      el.meguruOverlay.innerHTML = '';
+      meguruStats().visits += 1;
+      meguruRun = meguruMod.start(el.meguruOverlay, meguru3dRenderer && !meguru3dFailed ? { renderer: meguru3dRenderer } : undefined);
+      globalThis.__meguruRun = meguruRun;
+      globalThis.__meguruBridge = meguruBridge;
+      audio.play('open');
+      render();
+    };
+    if (meguru3dSettled) begin();
+    else {
+      el.meguruOverlay.innerHTML = '<div role="status" aria-live="polite" style="margin:28vh 16px 12px;padding:24px;text-align:center;background:rgba(255,255,255,.96);color:#26352c;border-radius:16px">箱庭を よみこんでいます…<br><small>時間がかかるときは 2Dで はじめます</small></div>';
+      const cancel = document.createElement('button');
+      cancel.type = 'button'; cancel.className = 'mg-tap-btn'; cancel.textContent = 'もどる'; cancel.onclick = stopMeguru;
+      Object.assign(cancel.style, { display: 'block', margin: '12px auto' });
+      el.meguruOverlay.appendChild(cancel);
+      render(); // Commit closed menus now, so the loading/cancel UI is reachable.
+      meguruStartTimer = setTimeout(() => {
+        if (!meguruActive || token !== meguruStartToken) return;
+        disableMeguru3d(new Error('3D module load timed out (5000ms)'));
+        begin();
+      }, 5000);
+      meguru3dReady.then(begin);
+    }
+    return true;
+  }
+  function stopMeguru() {
+    meguruMod?.resetExpressions?.();
+    if (!meguruActive) return;
+    meguruActive = false;
+    ++meguruStartToken; clearTimeout(meguruStartTimer); meguruStartTimer = null;
+    globalThis.__meguruRun = null;
+    const run = meguruRun; meguruRun = null;
+    if (run && run.running) run.stop();
+    el.meguruOverlay.classList.add('hidden');
+    el.meguruOverlay.innerHTML = '';
+    el.screenNormal.classList.remove('hidden');
+    saveState();
+    render();
+  }
+  // 「1本ずつ」: えらんだ 1本を 10かい あそぶ(id 'quick-solo')。おなじ id で 1つ つくって つかいまわす
+  const quickSoloRuns = {};
+  function quickSoloRun(gameId) {
+    if (!quickMod || !quickMod.QUICK_GAMES.some((g) => g.id === gameId)) return null;
+    return quickSoloRuns[gameId] || (quickSoloRuns[gameId] = quickMod.makeQuickRun({ only: gameId }));
+  }
+  function quickStats() {
+    const q = state.lifetime.quick || (state.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} });
+    if (!q.single || typeof q.single !== 'object') q.single = {};
+    return q;
+  }
+  function recordQuickRun(stats) {
+    const q = quickStats();
+    if (stats.solo) {
+      const r = q.single[stats.solo] || (q.single[stats.solo] = { runs: 0, best: 0 });
+      r.runs += 1; r.best = Math.max(r.best, stats.cleared);
+    } else {
+      q.runs += 1;
+      q.bestCleared = Math.max(q.bestCleared, stats.cleared);
+      q.bestCombo = Math.max(q.bestCombo, stats.maxCombo);
+    }
+    q.totalCleared += stats.cleared;
+    for (const [id, n] of Object.entries(stats.plays || {})) q.plays[id] = (q.plays[id] || 0) + n;
+    for (const [id, n] of Object.entries(stats.clears || {})) q.clears[id] = (q.clears[id] || 0) + n;
+  }
+  // gameId を わたすと その 1本だけの ラン、なしなら ぜんぶ まぜた ラン
+  function startQuickRun(gameId) {
+    const run = gameId ? quickSoloRun(gameId) : QUICK_RUN;
+    if (!run) return false;
+    return tryStartPlay(run);
+  }
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -13837,6 +14951,8 @@
     towerDefense: 'strategy', roguelike: 'strategy',
   };
   const MINIGAME_INFO = {
+    'quick-run': { name: 'クイックモード', emoji: '⚡', desc: 'みじかい指示のとおりに、つぎつぎそうさ。' },
+    'quick-solo': { name: 'クイック（1本ずつ）', emoji: '⚡', desc: 'えらんだ1本を10回。' },
     'road-themed': { name: 'ロードラン', emoji: '🏃', desc: 'よいものをキャッチ。わるいものはよけよう。' },
     'stack-themed': { name: 'つみあげタワー', emoji: '🏗️', desc: 'ゆれるクレーンから落として、高くつもう。' },
     'stack-snowman': { name: 'ゆきだるまタワー', emoji: '⛄', desc: '丸く重ねよう。' },
@@ -13866,8 +14982,7 @@
     'tower-defense': { name: 'タワーディフェンス', emoji: '🏰', desc: 'お城を4ウェーブ守りきれ。' },
     'roguelike-dungeon': { name: 'ローグライク', emoji: '⚔️', desc: 'ダンジョンを2階降りて脱出。' },
     'grand-prix-3d': { name: 'グランプリ', emoji: '🏁', desc: 'ライバル5台と2周レース。' },
-    'sky-shooter': { name: 'スカイシューター', emoji: '✈️', desc: 'たくさんの弾をかわして、ボスをたおせ。' },
-    'jump-quest': { name: 'ジャンプクエスト', emoji: '🍄', desc: '走って飛んで、旗まで。' },
+    'sky-shooter': { name: 'スカイシューター', emoji: '✈️', desc: 'たくさんの弾をかわして、ボスをたおせ。' },    'jump-quest': { name: 'ジャンプクエスト', emoji: '🍄', desc: '走って飛んで、旗まで。' },
     'push-puzzle': { name: 'そうこばん', emoji: '📦', desc: '箱をおして★へ。' },
     'reversi-6': { name: 'オセロ', emoji: '⚫', desc: '角を取って、相手に勝とう。' },
     'billiards-6': { name: 'ビリヤード', emoji: '🎱', desc: '6このボールを全部ポケットへ。' },
@@ -13933,7 +15048,7 @@
     'hit-blow': { name: 'ヒット&ブロー', emoji: '🎯', desc: 'かくれた4色のならびを当てろ。' },
     'lunar-lander': { name: 'ルナランダー', emoji: '🌙', desc: '逆噴射でやさしく着陸。' },
     'shanghai-tiles': { name: '上海', emoji: '🀄', desc: '同じ絵の牌を2枚ずつ取ってくずせ。' },
-    'beach-volley': { name: 'ビーチバレー', emoji: '🏐', desc: 'うけて上げてスパイク。先に5点。' },
+    'beach-volley': { name: 'ビーチバレー', emoji: '🏐', desc: 'うけて上げてスパイク。先に4点。' },
     'slide-puzzle': { name: 'スライドパズル', emoji: '🧩', desc: 'ピースをすべらせて、絵を完成させよう。' },
     'sugoroku-race': { name: 'すごろく', emoji: '🎲', desc: 'サイコロをねらって止めて、先にゴール。' },
     'takoyaki-grill': { name: 'たこやきやさん', emoji: '🐙', desc: 'ちょうどいい焼き具合で、返して取れ。' },
@@ -13942,11 +15057,13 @@
   // ヒント文(class="mg-hint" の さいしょの 文)から 生成した 表(id → 文)。
   // ゲームを 足したら ここにも 1行 足す(smoke-test が もれを 検査する)
   const MINIGAME_CONTROLS = {
+    "quick-run": "「たべろ!」「よけろ!」などの指示が出たら、すぐそのとおりにタップ・れんだ・なぞる。1つ3〜5秒で○か✕。3回しっぱいでおわり、20こできたらパーフェクト!",
+    "quick-solo": "えらんだ1本だけを10回くりかえす。2回ごとにレベルが上がる。3回しっぱいでおわり、10こできたらパーフェクト!",
     "road-themed": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-themed": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-snowman": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "bowling-3d": "ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。したのパッドを左右になぞって立ち位置を変えよう。",
-    "archery-3d": "画面をおさえて後ろへ引っぱり、はなすと発射。風の分だけずらしてねらおう。",
+    "archery-3d": "画面をおさえて後ろへ引っぱり、はなすと発射。○が当たるところ（風の分も入っている）。まっすぐ下へ、いっぱいに引くとよく当たる。",
     "breakout-classic": "画面かしたのパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。",
     "dragDecorate-cake": "下のトッピングを指でドラッグして、点線の場所に置く。ヒントに合ったトッピングを選ぼう。",
     "dragDecorate-bento": "見本を覚えてね!見本が消えたら、同じ場所に具をドラッグしてもどそう。",
@@ -13963,7 +15080,7 @@
     "space-gunner-3d": "したのパッドか画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
     "mini-golf-physics": "ボールから後ろへ引っぱって、はなすとパット。引っぱる長さで強さが決まる。",
     "real-fishing": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
-    "basketball-3d": "ボールを上へはらってシュート。はらう長さと速さで、飛ぶ距離が変わる。バックボードに当ててもOK。",
+    "basketball-3d": "ボールを上へはらってシュート。はらっている間に出る白い輪が、ボールの落ちる場所。緑になったらリングの真上!",
     "pingpong-3d": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に4点取ろう!",
     "chain-puzzle": "したのパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
     "street-fight": "したのパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!",
@@ -13992,7 +15109,7 @@
     "match-3": "となり合うフルーツを、スワイプか2回のタップで入れかえる。たて・横に3つ以上そろうと消える。4つ・5つや、れんさで大きくかせごう。",
     "gomoku-9": "マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。",
     "tank-battle": "したのパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。",
-    "tennis-rally": "したのパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。4ポイント先取り。",
+    "tennis-rally": "したのパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。3ポイント先取り。",
     "picross-5": "数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長おしで、ぬらない印をつけよう。",
     "darts-board": "画面をおさえてねらいを動かし、はなすと投げる。おさえている間は手がゆれるので、早めにはなすのがコツ。真ん中のブルは50点!",
     "hang-glider-3d": "したのパッドか画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。",
@@ -14006,8 +15123,8 @@
     "asteroids-classic": "したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
     "yacht-dice": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふり直す。役をタップして記録。同じ役は1回だけ。",
     "lights-out": "タップしたマスと、上下左右のライトが反転する。全部消せばクリア。「さいてい」の手数をめざそう。",
-    "doodle-jump": "したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっている。",
-    "curling-ice": "🔴を上へスワイプ。速いほど強く、ななめなら曲がる。投げたあとは連打でのばそう。真ん中に一番近い石のチームが得点。",
+    "doodle-jump": "したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。",
+    "curling-ice": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
     "jenga-tower": "タップしたブロックをぬいて、上につみ直すよ。真ん中を残すと安定し、はしだけだとくずれやすい。安定度（%）を見ながら選ぼう。",
     "line-trace": "●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指をはなすと判定するよ。",
     "checkers-6": "こまをタップして、光ったマスへ。ななめ前に1マス進める。相手のこまを飛びこすと取れる（続けて飛べる）。奥まで行くと👑キングになり、後ろにも進める。",
@@ -14016,7 +15133,7 @@
     "domino-run": "道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。余った手持ちはボーナス。",
     "sudoku-mini": "難易度により4×4（1〜4）か6×6（1〜6）。たて・横・太いわくの中に、それぞれの数字を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。",
     "mancala-kalah": "下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。",
-    "plane-landing": "したのパッドか画面をたてになぞって機首を上げ下げ。緑の線を目安に、滑走路の⬛へふわっと降りよう。風で浮きしずみするよ。",
+    "plane-landing": "緑の線にのせて飛べば▲に着陸できる。接地の直前に機首を上げるとふわっと浮いて◎までのびる（これが高得点）。風で流されるので線にのせ直そう。",
     "dot-eater": "したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
     "missile-command": "空をタップすると、一番近い基地から迎撃ミサイルが飛ぶ。爆発の輪に敵のミサイルをまきこんで、町を守れ!基地の弾はウェーブごとに補給される。",
     "area-claim": "したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。60%取ればクリア。✨が線にふれると1ミス。",
@@ -14024,7 +15141,7 @@
     "hit-blow": "答えは6色のうち4色（同じ色は2つない）。色を4つ選んで「けってい」。🎯ヒット＝色も場所も当たり。💨ブロー＝色はあるけど場所がちがう。",
     "lunar-lander": "したのパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
     "shanghai-tiles": "上に牌がなく、左か右が空いている牌だけ取れる。同じ絵の2枚をタップして消そう。必ず解ききれるならびになっている。",
-    "beach-volley": "したのパッドを左右になぞって動いてボールの下へ。ふれると高く上がる（うけ）。🏐アタックをおしながらふれると、相手のコートへスパイク!先に5点取ろう。",
+    "beach-volley": "すなの○がボールの落ちる場所。したのパッドを左右になぞって、そこへ走ろう。ふれると高く上がる（うけ）。🏐アタックをおしながらふれるとスパイク!先に4点取ろう。",
     "slide-puzzle": "空いたマスのとなりのピースを、タップかスワイプですべらせる。左上から順番にならべて、絵を完成させよう。",
     "sugoroku-race": "「🎲とめる」をおすと、回っているサイコロが止まる。ねらって止めよう!➕は進む、➖はもどる、⭐はコイン、💤は1回休み。先にゴールへ!",
     "takoyaki-grill": "きつね色（緑のゾーン）になったら、タップでひっくり返す。裏もきつね色になったら、タップで取り出す。早いと生、おそいとこげ!",
@@ -14041,7 +15158,7 @@
     "stack-sakura": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "ring-flight-summer": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
     "stack-leaves": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
-    "curling-winter": "🔴を上へスワイプ。速いほど強く、ななめなら曲がる。投げたあとは連打でのばそう。真ん中に一番近い石のチームが得点。",
+    "curling-winter": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
   };
   function minigameInfo(game) {
     const info = MINIGAME_INFO[game.id];
@@ -14100,30 +15217,97 @@
   // ================================================================
   // シールちょう
   // ================================================================
-  // いままでの 絵(しゅぞくの すがた・なかま・こいびと・あいてむ・けしき)を
-  // シールに して あつめ、4つの ページに はって あそぶ。あつめた シールと
-  // はった ばしょは lifetime に のこる(「はじめから」でも きえない)。
-  //   ・てにいれかた: ずかんに はじめて のった すがた / なかまに なった /
-  //     こいびとに なった とき その シール、きょうの チャレンジ クリアで 1まい、
-  //     Sランクで 30%、あとは おかねで シールパック(3まい)
-  //   ・かぶった シールは「かけら」に なり、12こで あたらしい 1まいと こうかんできる
-  //   ・ページごとの「おだい」を たっせいすると おかねと かけらが もらえる
-  const STICKER_PAGES = [
-    { id: 'home', label: 'おうち', emoji: '🏠', colors: ['#ffe9f0', '#fff8e8', '#e9f5d8'] },
-    { id: 'travel', label: 'たび', emoji: '🗺️', colors: ['#cfe9ff', '#eaf7ff', '#d9f0c9'] },
-    { id: 'friends', label: 'なかま', emoji: '🐾', colors: ['#fff3cf', '#ffe6c2', '#f7d9b0'] },
-    { id: 'memory', label: 'きねん', emoji: '🎀', colors: ['#ece4ff', '#f8eaff', '#ffe6f2'] },
-  ];
-  const STICKER_RARITY = {
-    common: { label: 'ふつう', kakera: 1, weight: 70 },
-    uncommon: { label: 'めずらしい', kakera: 3, weight: 25 },
-    rare: { label: 'レア', kakera: 8, weight: 5 },
-  };
-  const STICKER_KINDS = { form: 'しゅぞく', companion: 'なかま', partner: 'こいびと', item: 'あいてむ', scenery: 'けしき' };
-  const STICKER_PACK_PRICE = 30;
-  const STICKER_PACK_SIZE = 3;
-  const STICKER_KAKERA_PACK = 12;
+  // 1ページから はじめ、ひつようなぶんだけ さいだい15ページまで ふやせる。
+  // ページは ぶんるいではなく自由な台紙で、どのシールもどのページにも はれる。
+  // はいけいは通常地域から自由にえらべ、とくべつな2地域は実際に訪れてから解放。
+  // 旧「おうち／たび／なかま／きねん」4ページのセーブは中身を失わず自由ページへ移行する。
+  const STICKER_LEGACY_PAGES = ['home', 'travel', 'friends', 'memory'];
+  const STICKER_BOOK_MAX_PAGES = 15;
   const STICKER_PAGE_MAX = 24;
+  const STICKER_RARITY = {
+    common: { label: 'ふつう', weight: 70 },
+    uncommon: { label: 'めずらしい', weight: 25 },
+    rare: { label: 'レア', weight: 5 },
+  };
+  // kind id は古いセーブ・抽選との互換のため scenery のまま。表示名だけ「その他」にする。
+  const STICKER_KINDS = { form: 'しゅぞく', companion: 'なかま', partner: 'こいびと', item: 'あいてむ', scenery: 'その他' };
+  const STICKER_PACK_PRICE = 30;
+  const STICKER_THEME_PRICE = 60;
+  const STICKER_PACK_SIZE = 3;
+  const STICKER_COPY_MAX = 9;
+  // シールが主役になるよう、地域の景色は低コントラストの抽象SVGへ要約する。
+  // 同じSVGを画面とPNG書き出しで使い、地域モチーフの食い違いを防ぐ。
+  const STICKER_BACKGROUND_THEMES = {
+    home: {
+      colors: ['#fff0f4', '#fff9eb', '#eaf5df'], motif: 'quiet-room',
+      art: '<g opacity="0.11" fill="none" stroke="#b77c91" stroke-width="2"><path d="M0 80H640M0 160H640M0 240H640"/><path d="M80 0V300M240 0V300M400 0V300M560 0V300"/></g><path opacity="0.15" fill="#b7c99d" d="M0 360Q160 330 320 360T640 350V480H0Z"/><path opacity="0.18" fill="none" stroke="#9e7f8d" stroke-width="4" d="M70 360V305H155V360M92 305V274H133V305"/>',
+    },
+    city: {
+      colors: ['#eee9f8', '#c6bdd9', '#726a89'], motif: 'city-windows',
+      art: '<g opacity="0.16" fill="#554c70"><path d="M0 300H72V185H128V300H185V225H250V300H305V150H390V300H448V205H516V300H572V170H640V480H0Z"/></g><g opacity="0.2" fill="#fff4bc"><path d="M24 328h14v9H24zM52 328h14v9H52zM212 344h14v9h-14zM335 324h15v10h-15zM367 324h15v10h-15zM475 338h15v10h-15zM596 320h15v10h-15z"/></g><path opacity="0.12" fill="none" stroke="#f8e7ff" stroke-width="3" d="M0 382H640M0 410H640"/>',
+    },
+    countryside: {
+      colors: ['#fff7dc', '#dceab2', '#91b96e'], motif: 'field-patches',
+      art: '<path opacity="0.14" fill="#87aa66" d="M0 278Q112 226 226 272T448 266T640 274V480H0Z"/><g opacity="0.18" fill="none" stroke="#6f9553" stroke-width="3"><path d="M0 345Q160 308 320 345T640 338M0 386Q160 348 320 386T640 378M80 310L35 480M210 300L185 480M360 305L375 480M520 300L580 480"/></g>',
+    },
+    forest: {
+      colors: ['#dcebd6', '#9fc28c', '#55764e'], motif: 'small-leaves',
+      art: '<g opacity="0.16" fill="#315d3b"><path d="M0 480V305H640V480Z"/><path d="M62 360V205h18v155M205 360V170h22v190M386 360V200h20v160M548 360V155h22v205"/><ellipse cx="70" cy="205" rx="82" ry="62"/><ellipse cx="216" cy="170" rx="96" ry="72"/><ellipse cx="396" cy="200" rx="90" ry="66"/><ellipse cx="560" cy="155" rx="104" ry="76"/></g><g opacity="0.2" fill="#edf6dd"><ellipse cx="76" cy="92" rx="15" ry="7" transform="rotate(-28 76 92)"/><ellipse cx="151" cy="65" rx="12" ry="6" transform="rotate(31 151 65)"/><ellipse cx="270" cy="95" rx="14" ry="7" transform="rotate(-22 270 95)"/><ellipse cx="382" cy="62" rx="13" ry="6" transform="rotate(26 382 62)"/><ellipse cx="495" cy="105" rx="15" ry="7" transform="rotate(-30 495 105)"/><ellipse cx="585" cy="70" rx="12" ry="6" transform="rotate(34 585 70)"/></g>',
+    },
+    mountain: {
+      colors: ['#edf1e9', '#b4c1ae', '#687663'], motif: 'mountain-ridges',
+      art: '<path opacity="0.16" fill="#5d6a5c" d="M0 352 145 178l84 87L342 125l154 169 70-76 74 92v170H0Z"/><path opacity="0.22" fill="none" stroke="#f5f7ef" stroke-width="5" d="m104 226 41-48 32 34M294 176l48-51 47 52M536 251l30-33 28 35"/><path opacity="0.12" fill="none" stroke="#465346" stroke-width="3" d="M0 377Q165 335 324 373T640 360M0 414Q165 374 324 410T640 399"/>',
+    },
+    snow: {
+      colors: ['#ffffff', '#e5f0f8', '#b9d0e3'], motif: 'snowfield',
+      art: '<g opacity="0.2" fill="none" stroke="#7fa8c6" stroke-width="2"><path d="M85 70v34M68 87h34M73 75l24 24M97 75 73 99M250 118v28M236 132h28M240 122l20 20M260 122l-20 20M500 72v36M482 90h36M487 77l26 26M513 77l-26 26"/></g><g opacity="0.18" fill="#ffffff"><circle cx="170" cy="70" r="5"/><circle cx="350" cy="92" r="7"/><circle cx="575" cy="135" r="5"/><circle cx="430" cy="45" r="4"/></g><path opacity="0.2" fill="#f8fcff" d="M0 330Q130 270 262 326T520 318T640 300V480H0Z"/><path opacity="0.18" fill="none" stroke="#8cb3cc" stroke-width="3" d="M0 337Q130 277 262 333T520 325T640 307"/>',
+    },
+    sea: {
+      colors: ['#d7efff', '#82cce7', '#3f9cca'], motif: 'open-waves',
+      art: '<path opacity="0.2" fill="none" stroke="#ffffff" stroke-width="4" d="M0 190Q40 170 80 190T160 190T240 190T320 190T400 190T480 190T560 190T640 190M0 245Q55 220 110 245T220 245T330 245T440 245T550 245T660 245M0 315Q70 286 140 315T280 315T420 315T560 315T700 315"/><path opacity="0.12" fill="#256f9b" d="M0 350Q115 320 225 352T450 345T640 336V480H0Z"/>',
+    },
+    deepsea: {
+      colors: ['#173754', '#0a2238', '#03111f'], motif: 'deep-current',
+      art: '<g opacity="0.18" fill="none" stroke="#79b8c9" stroke-width="3"><path d="M105-20Q60 100 112 220T92 500M325-20Q270 105 330 235T305 500M540-20Q495 110 548 230T530 500"/></g><g opacity="0.22" fill="none" stroke="#8bd1d7" stroke-width="2"><circle cx="75" cy="350" r="10"/><circle cx="100" cy="305" r="6"/><circle cx="470" cy="370" r="12"/><circle cx="500" cy="315" r="7"/><circle cx="240" cy="405" r="8"/><circle cx="260" cy="365" r="4"/></g><path opacity="0.13" fill="#000914" d="M0 420Q105 372 205 418T420 411T640 396V480H0Z"/>',
+    },
+    river_lake: {
+      colors: ['#e2f4ec', '#91c8bc', '#4d8a7e'], motif: 'flowing-water',
+      art: '<g opacity="0.19" fill="none" stroke="#f5ffff" stroke-width="3"><path d="M-40 110Q100 65 240 110T520 110T800 110M-70 200Q70 155 210 200T490 200T770 200M-25 310Q115 265 255 310T535 310T815 310"/><ellipse cx="145" cy="382" rx="62" ry="16"/><ellipse cx="145" cy="382" rx="34" ry="8"/><ellipse cx="505" cy="350" rx="54" ry="14"/></g>',
+    },
+    jungle: {
+      colors: ['#d7efb8', '#70aa59', '#285b39'], motif: 'tropical-canopy',
+      art: '<g opacity="0.2" fill="#174d30"><path d="M0 0h155q-20 65-88 98Q83 45 0 80ZM640 0H485q18 72 88 112-14-67 67-92ZM0 480V295q92 10 134 92-72-32-90 93ZM640 480V285q-95 18-142 105 77-38 100 90Z"/><path d="M190 0q60 90 14 180-18-85-76-130ZM420 0q-48 92 4 180 10-88 70-135ZM260 480q30-118-56-184 38 108-10 184ZM420 480q-22-120 69-181-45 104-20 181Z"/></g><g opacity="0.13" fill="none" stroke="#e8f3b9" stroke-width="5"><path d="M10 230Q160 175 305 235T630 220M0 270Q155 215 320 278T650 255"/></g>',
+    },
+    desert: {
+      colors: ['#fff3d8', '#edc982', '#d59a54'], motif: 'dune-wind',
+      art: '<path opacity="0.18" fill="#b7773d" d="M0 330Q120 245 250 326T505 318T640 280V480H0Z"/><path opacity="0.2" fill="#f9dda0" d="M0 390Q155 300 315 385T640 360V480H0Z"/><g opacity="0.17" fill="none" stroke="#a86e3d" stroke-width="3"><path d="M25 150Q125 115 225 150M310 105Q410 72 515 105M420 195Q510 165 610 195"/></g>',
+    },
+    star_stop: {
+      colors: ['#302b61', '#18183d', '#070713'], motif: 'orbits',
+      art: '<g opacity="0.24" fill="#fff8ce"><circle cx="70" cy="70" r="3"/><circle cx="155" cy="125" r="2"/><circle cx="252" cy="58" r="4"/><circle cx="365" cy="115" r="2"/><circle cx="480" cy="55" r="3"/><circle cx="575" cy="145" r="4"/><circle cx="110" cy="300" r="2"/><circle cx="415" cy="325" r="3"/></g><g opacity="0.2" fill="none" stroke="#b8a8e8" stroke-width="3"><ellipse cx="320" cy="250" rx="250" ry="92" transform="rotate(-12 320 250)"/><ellipse cx="330" cy="245" rx="170" ry="54" transform="rotate(18 330 245)"/></g><path opacity="0.24" fill="none" stroke="#fff4c2" stroke-width="4" d="M455 110 535 72"/><circle opacity="0.24" fill="#fff4c2" cx="450" cy="113" r="6"/>',
+    },
+    memory_lake: {
+      colors: ['#f4f7fb', '#d9e3ee', '#b7b2cf'], motif: 'lake-ripples',
+      art: '<g opacity="0.2" fill="none" stroke="#8b91b4" stroke-width="3"><ellipse cx="170" cy="290" rx="115" ry="25"/><ellipse cx="170" cy="290" rx="68" ry="13"/><ellipse cx="480" cy="355" rx="100" ry="22"/><ellipse cx="480" cy="355" rx="52" ry="10"/><path d="M35 205H270M340 230H610M80 390H360"/></g><g opacity="0.18" fill="#ffffff"><circle cx="120" cy="105" r="18"/><circle cx="300" cy="75" r="10"/><circle cx="455" cy="135" r="22"/><circle cx="565" cy="88" r="12"/></g><path opacity="0.14" fill="#fdfdff" d="M0 250Q160 230 320 252T640 246V480H0Z"/>',
+    },
+  };
+  const STICKER_BACKGROUND_COLORS = Object.fromEntries(Object.entries(STICKER_BACKGROUND_THEMES).map(([id, theme]) => [id, theme.colors]));
+  function stickerBackgroundColors(id) {
+    return STICKER_BACKGROUND_COLORS[id] || ['#f4f0ff', '#fffaf0', '#e5f3ea'];
+  }
+  const stickerBackgroundSvgCache = new Map();
+  function stickerBackgroundSvg(id) {
+    const safeId = Object.prototype.hasOwnProperty.call(STICKER_BACKGROUND_THEMES, id) ? id : 'home';
+    if (stickerBackgroundSvgCache.has(safeId)) return stickerBackgroundSvgCache.get(safeId);
+    const theme = STICKER_BACKGROUND_THEMES[safeId];
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" preserveAspectRatio="xMidYMid slice" data-sticker-background="${safeId}" data-motif="${theme.motif}"><defs><linearGradient id="sticker-bg-${safeId}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${theme.colors[0]}"/><stop offset="0.55" stop-color="${theme.colors[1]}"/><stop offset="1" stop-color="${theme.colors[2]}"/></linearGradient></defs><rect width="640" height="480" fill="url(#sticker-bg-${safeId})"/>${theme.art}</svg>`;
+    stickerBackgroundSvgCache.set(safeId, svg);
+    return svg;
+  }
+  function stickerBackgroundDataUrl(id) {
+    return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(stickerBackgroundSvg(id))}`;
+  }
+
   const STICKER_SCENERY = [
     ['cherry_blossom', 'さくら', '🌸'], ['sunflower', 'ひまわり', '🌻'], ['maple_leaf', 'もみじ', '🍁'], ['green_leaf', 'わかば', '🌿'],
     ['tree', 'き', '🌳'], ['pine', 'まつ', '🌲'], ['palm', 'やしのき', '🌴'], ['cactus', 'サボテン', '🌵'],
@@ -14132,6 +15316,8 @@
     ['sun', 'たいよう', '☀️'], ['cloud', 'くも', '☁️'], ['rain', 'あめ', '🌧️'], ['snow', 'ゆき', '❄️'],
     ['moon', 'つき', '🌙'], ['sunrise', 'あさひ', '🌅'], ['sunset', 'ゆうやけ', '🌇'],
   ];
+  const STICKER_TASK_ADEPT_ID = 'scenery:silver_sticker_book';
+  const STICKER_TASK_MASTER_ID = 'scenery:golden_sticker_book';
   let stickerCatalogCache = null;
   function stickerCatalog() {
     if (stickerCatalogCache) return stickerCatalogCache;
@@ -14139,10 +15325,10 @@
     for (const line of ALL_LINES) {
       const stages = (SPECIES[line] && SPECIES[line].stages) || [];
       stages.forEach((stage, i) => {
-        const rare = RARE_LINES.includes(line) || line === 'ren';
+        const rare = RARE_LINES.includes(line) || isSecretLine(line);
         list.push({
           id: `form:${line}:${i}`, kind: 'form', label: stage.label, rarity: rare ? 'rare' : i >= 6 ? 'uncommon' : 'common',
-          secret: line === 'ren', art: { asset: stage.asset || '', emoji: stage.emoji || '❓' },
+          secret: isSecretLine(line), art: { asset: stage.asset || '', emoji: stage.emoji || '❓' },
           visual: () => stageVisualHTML(stage, 'thumb'),
         });
       });
@@ -14154,8 +15340,38 @@
       const def = WORLD_MASTER?.partners?.find((x) => x.id === aliasId);
       list.push({ id: `partner:${p.id}`, kind: 'partner', label: p.label, rarity: 'uncommon', art: { asset: def?.asset || '', emoji: p.emoji || '💞' }, visual: () => partnerVisualHTML(p, 'thumb') });
     }
-    for (const item of SHOP_ITEMS) list.push({ id: `item:${item.id}`, kind: 'item', label: item.label, rarity: 'common', art: { asset: '', emoji: item.emoji }, visual: () => itemIconHTML(item) });
+    const stickerItemFallbacks = new Map(SHOP_ITEMS.map((item) => [item.id, item.emoji]));
+    for (const [id, def] of Object.entries(ITEM_SYSTEM.CATALOG)) {
+      const visualId = id === 'new_themed_pack' ? 'sticker_pack' : id;
+      const item = { id: visualId, label: def.label, emoji: stickerItemFallbacks.get(id) || '🎁' };
+      list.push({
+        id: `item:${id}`,
+        kind: 'item',
+        label: def.label,
+        rarity: 'common',
+        art: { asset: `assets/items/unified/${visualId}.png`, emoji: item.emoji },
+        visual: () => itemIconHTML(item),
+      });
+    }
     for (const [key, label, emoji] of STICKER_SCENERY) list.push({ id: `scenery:${key}`, kind: 'scenery', label, rarity: 'common', art: { asset: '', emoji }, visual: () => uiIconHTML(key, '', emoji) || escapeHtml(emoji) });
+    list.push({
+      id: STICKER_TASK_ADEPT_ID,
+      kind: 'scenery',
+      label: 'ぎんのシールちょう',
+      rarity: 'rare',
+      rewardOnly: true,
+      art: { asset: '', emoji: '🥈' },
+      visual: () => '<span class="sticker-master-visual sticker-master-silver" aria-label="ぎんのシールちょう">🥈📒</span>',
+    });
+    list.push({
+      id: STICKER_TASK_MASTER_ID,
+      kind: 'scenery',
+      label: 'きんのシールちょう',
+      rarity: 'rare',
+      rewardOnly: true,
+      art: { asset: '', emoji: '🥇' },
+      visual: () => '<span class="sticker-master-visual" aria-label="きんのシールちょう">🥇📒</span>',
+    });
     stickerCatalogCache = list;
     return list;
   }
@@ -14166,46 +15382,116 @@
   }
   function stickerSecretUnlocked(s) {
     if (!s.secret) return true;
-    return state.discoveredStages.some((k) => k.startsWith('ren:'));
+    return state.discoveredStages.some((k) => k.startsWith(`${SECRET_LINE}:`));
   }
   // パックから でる・かぞえる たいしょう(ひみつの しゅぞくは であってから)
-  function stickerPackPool() { return stickerCatalog().filter((s) => stickerSecretUnlocked(s)); }
+  function stickerPackPool() { return stickerCatalog().filter((s) => stickerSecretUnlocked(s) && !s.rewardOnly); }
   function stickerStore() {
     const L = state.lifetime;
-    if (!L.stickers || typeof L.stickers !== 'object') L.stickers = { owned: {}, kakera: 0, pages: {}, tasksDone: [], packsOpened: 0, seen: [] };
+    if (!L.stickers || typeof L.stickers !== 'object') {
+      L.stickers = { owned: {}, pages: {}, pageOrder: ['page-1'], pageMeta: { 'page-1': { background: 'home' } }, tasksDone: [], packsOpened: 0, seen: [] };
+    }
     const s = L.stickers;
     if (!s.owned || typeof s.owned !== 'object') s.owned = {};
     if (!s.pages || typeof s.pages !== 'object') s.pages = {};
     if (!Array.isArray(s.tasksDone)) s.tasksDone = [];
+    // 旧4分類のお題を達成済みなら、対応する自由ページ版も達成済みとして引き継ぐ。
+    const legacyTaskMap = {
+      'home-form-3': 'page-any-3',
+      'page-form-3': 'page-any-3',
+      'home-item-2': 'page-item-2',
+      'travel-scenery-3': 'page-other-3',
+      'travel-8': 'page-8',
+      'friends-companion-3': 'page-companion-3',
+      'any-12': 'page-8',
+      'all-pages': 'multi-pages-2',
+      'multi-pages-3': 'multi-pages-2',
+    };
+    const retiredStickerTasks = new Set(['friends-partner-1','memory-elder-1','memory-rare-1','page-partner-1','page-elder-1','page-rare-1']);
+    s.tasksDone = [...new Set(s.tasksDone
+      .filter((id) => !retiredStickerTasks.has(id))
+      .map((id) => legacyTaskMap[id] || id))];
     if (!Array.isArray(s.seen)) s.seen = [];
-    s.kakera = Math.max(0, Math.floor(Number(s.kakera) || 0));
+    // 旧ポイントは廃止。旧セーブに残っていても使わず削除する。
+    if (Object.prototype.hasOwnProperty.call(s, 'kakera')) delete s.kakera;
+    for (const id of Object.keys(s.owned)) {
+      const count = Math.floor(Number(s.owned[id]) || 0);
+      if (count <= 0) delete s.owned[id];
+      else s.owned[id] = Math.min(STICKER_COPY_MAX, count);
+    }
     s.packsOpened = Math.max(0, Math.floor(Number(s.packsOpened) || 0));
+
+    // 旧4分類ページを、使っているページだけ自由ページへ移す。
+    // 4ページが全部空なら、まっさらな1ページだけから始める。
+    if (!Array.isArray(s.pageOrder) || !s.pageOrder.length) {
+      const oldPages = STICKER_LEGACY_PAGES.filter((id) => Array.isArray(s.pages[id]) && s.pages[id].length);
+      const extraPages = Object.keys(s.pages).filter((id) => !STICKER_LEGACY_PAGES.includes(id) && Array.isArray(s.pages[id]) && s.pages[id].length);
+      const sourcePages = [...oldPages, ...extraPages].slice(0, STICKER_BOOK_MAX_PAGES);
+      const migratedPages = {};
+      const order = [];
+      if (sourcePages.length) {
+        sourcePages.forEach((oldId, i) => {
+          const id = `page-${i + 1}`;
+          migratedPages[id] = s.pages[oldId];
+          order.push(id);
+        });
+      } else {
+        migratedPages['page-1'] = [];
+        order.push('page-1');
+      }
+      s.pages = migratedPages;
+      s.pageOrder = order;
+      s.pageMeta = {};
+    }
+    s.pageOrder = [...new Set(s.pageOrder.filter((id) => typeof id === 'string' && id))].slice(0, STICKER_BOOK_MAX_PAGES);
+    if (!s.pageOrder.length) s.pageOrder = ['page-1'];
+    if (!s.pageMeta || typeof s.pageMeta !== 'object' || Array.isArray(s.pageMeta)) s.pageMeta = {};
+    for (const id of s.pageOrder) {
+      if (!Array.isArray(s.pages[id])) s.pages[id] = [];
+      if (!s.pageMeta[id] || typeof s.pageMeta[id] !== 'object') s.pageMeta[id] = {};
+      if (typeof s.pageMeta[id].background !== 'string') s.pageMeta[id].background = 'home';
+    }
+    for (const id of Object.keys(s.pages)) if (!s.pageOrder.includes(id)) delete s.pages[id];
+    for (const id of Object.keys(s.pageMeta)) if (!s.pageOrder.includes(id)) delete s.pageMeta[id];
     return s;
   }
   function ownedStickerCount(id) { return stickerStore().owned[id] || 0; }
   function ownedStickerKinds(lifetime = state.lifetime) {
     const owned = lifetime && lifetime.stickers && lifetime.stickers.owned;
-    return owned ? Object.keys(owned).filter((k) => owned[k] > 0).length : 0;
+    return owned ? Object.keys(owned).filter((k) => owned[k] > 0 && stickerById(k)).length : 0;
   }
-  // もどり値 { sticker, dup, kakera }。かぶった ぶんは かけらに なる(まいすうも ふえるので、
-  // おなじ シールを もう1まい はる ことも できる)
+  // おなじシールも別の1枚として所持できる。1種類につき最大9枚。
   function grantSticker(id, source) {
     const sticker = stickerById(id);
     if (!sticker) return null;
     const store = stickerStore();
-    const dup = ownedStickerCount(id) > 0;
-    store.owned[id] = ownedStickerCount(id) + 1;
-    let kakera = 0;
-    if (dup) { kakera = STICKER_RARITY[sticker.rarity].kakera; store.kakera += kakera; }
-    return { sticker, dup, kakera, source: source || '' };
+    const before = ownedStickerCount(id);
+    if (before >= STICKER_COPY_MAX) return null;
+    const count = before + 1;
+    store.owned[id] = count;
+    return { sticker, dup: before > 0, count, source: source || '' };
   }
   function drawRandomSticker(pool, onlyNew) {
-    let cand = pool;
-    if (onlyNew) { const fresh = pool.filter((s) => !ownedStickerCount(s.id)); if (fresh.length) cand = fresh; }
+    let cand = pool.filter((s) => ownedStickerCount(s.id) < STICKER_COPY_MAX);
+    if (onlyNew) {
+      const fresh = cand.filter((s) => !ownedStickerCount(s.id));
+      if (fresh.length) cand = fresh;
+    }
     if (!cand.length) return null;
     const byRarity = { common: [], uncommon: [], rare: [] };
     for (const s of cand) byRarity[s.rarity].push(s);
     const rarities = Object.keys(STICKER_RARITY).filter((r) => byRarity[r].length);
+    const factors = cand.map(sticker => crownAchievementWeight('sticker', sticker));
+    if (factors.some(factor => factor !== 1)) {
+      const weights = cand.map((sticker, i) => STICKER_RARITY[sticker.rarity].weight
+        / byRarity[sticker.rarity].length * factors[i]);
+      let roll = Math.random() * weights.reduce((sum, weight) => sum + weight, 0);
+      for (let i = 0; i < cand.length; i++) {
+        roll -= weights[i];
+        if (roll < 0) return cand[i];
+      }
+      return cand[cand.length - 1];
+    }
     const total = rarities.reduce((a, r) => a + STICKER_RARITY[r].weight, 0);
     let roll = Math.random() * total;
     let picked = rarities[rarities.length - 1];
@@ -14213,47 +15499,58 @@
     const arr = byRarity[picked];
     return arr[Math.floor(Math.random() * arr.length)];
   }
+  function stickerDrawablePool(pool = stickerPackPool()) {
+    return pool.filter((s) => ownedStickerCount(s.id) < STICKER_COPY_MAX);
+  }
   // イベントで もらう 1まい(まだ もっていない ものが あれば それを ゆうせん)
   function grantRandomSticker(source) {
     const s = drawRandomSticker(stickerPackPool(), true);
     return s ? grantSticker(s.id, source) : null;
   }
   let lastStickerPack = null;
-  function finishStickerPack(count, onlyNew, source) {
+  function finishStickerPack(count, onlyNew, source, pool = stickerPackPool()) {
     const store = stickerStore();
-    const pool = stickerPackPool();
     const results = [];
     for (let i = 0; i < count; i++) {
       const s = drawRandomSticker(pool, onlyNew);
-      if (s) results.push(grantSticker(s.id, source));
+      if (!s) break;
+      const granted = grantSticker(s.id, source);
+      if (granted) results.push(granted);
     }
-    store.packsOpened += 1;
+    if (results.length) store.packsOpened += 1;
     lastStickerPack = results;
     return results;
   }
   function openStickerPack() {
     if (state.lifetime.money < STICKER_PACK_PRICE) { setMessage('おかねがたりない…'); return null; }
+    if (!stickerDrawablePool().length) { setMessage(`シールは ぜんぶ${STICKER_COPY_MAX}まいまで あつまっているよ`); return null; }
     state.lifetime.money -= STICKER_PACK_PRICE;
     const results = finishStickerPack(STICKER_PACK_SIZE, false, 'pack');
     const fresh = results.filter((r) => !r.dup).length;
-    setMessage(fresh ? `🏷️シールパックをあけた!あたらしいシールが${fresh}まい` : '🏷️シールパックをあけた…ぜんぶ かぶり(かけらになった)');
+    const copies = results.length - fresh;
+    setMessage(fresh
+      ? `🏷️シールパックをあけた!あたらしいシールが${fresh}まい${copies ? `・もっているシールが${copies}まい` : ''}`
+      : `🏷️シールパックをあけた!もっているシールが${results.length}まい ふえた`);
     emotePet('happy');
     return results;
   }
-  function openKakeraPack() {
-    const store = stickerStore();
-    if (store.kakera < STICKER_KAKERA_PACK) { setMessage('かけらがたりない…'); return null; }
-    store.kakera -= STICKER_KAKERA_PACK;
-    const results = finishStickerPack(1, true, 'kakera');
-    setMessage(results.length ? `✨かけらが「${results[0].sticker.label}」のシールになった!` : 'シールが なかった');
-    emotePet('happy');
-    return results;
+  function openThemedStickerPack(kind) {
+    if (!Object.prototype.hasOwnProperty.call(STICKER_KINDS, kind) || state.lifetime.money < STICKER_THEME_PRICE) return null;
+    const pool = stickerPackPool().filter(s => s.kind === kind);
+    if (!stickerDrawablePool(pool).length) {
+      setMessage(`${STICKER_KINDS[kind]}のシールは ぜんぶ${STICKER_COPY_MAX}まいまで あつまっているよ`);
+      return null;
+    }
+    state.lifetime.money -= STICKER_THEME_PRICE;
+    return finishStickerPack(STICKER_PACK_SIZE, false, 'theme', pool);
   }
 
   // ---- ページ(はりつけ) ----
   let stickerSerial = 0;
+  function stickerPageIds() { return stickerStore().pageOrder.slice(); }
   function stickerPage(pageId) {
     const store = stickerStore();
+    if (!store.pageOrder.includes(pageId)) return [];
     if (!Array.isArray(store.pages[pageId])) store.pages[pageId] = [];
     const page = store.pages[pageId];
     for (const p of page) {
@@ -14264,15 +15561,57 @@
   }
   function stickerPages() {
     const out = {};
-    for (const pg of STICKER_PAGES) out[pg.id] = stickerPage(pg.id);
+    for (const id of stickerPageIds()) out[id] = stickerPage(id);
     return out;
   }
+  function stickerBackgroundOptions() {
+    const normal = REGIONS.map((r) => ({ id: r.id, label: r.label, emoji: r.emoji, special: false }));
+    const visited = new Set(state.lifetime.specialRegionsVisited || []);
+    const special = SPECIAL_REGIONS.filter((r) => visited.has(r.id)).map((r) => ({ id: r.id, label: r.label, emoji: r.emoji, special: true }));
+    return [...normal, ...special];
+  }
+  function stickerPageBackground(pageId) {
+    const store = stickerStore();
+    const meta = store.pageMeta[pageId] || (store.pageMeta[pageId] = { background: 'home' });
+    // RH-8: いま えらべない 背景(知らない ID・まだ いっていない とくべつな 地域・未来の save)は 表示だけ home に する。
+    // save の 値は 書きかえない(RH-2 と おなじ: 知らない 値は のこし、いまの 表示と 進行には 数えない)
+    return stickerBackgroundOptions().some((r) => r.id === meta.background) ? meta.background : 'home';
+  }
+  function setStickerPageBackground(pageId, backgroundId) {
+    const store = stickerStore();
+    if (!store.pageOrder.includes(pageId) || !stickerBackgroundOptions().some((r) => r.id === backgroundId)) return false;
+    store.pageMeta[pageId].background = backgroundId;
+    return true;
+  }
+  function stickerPageInfo(pageId) {
+    const ids = stickerPageIds();
+    const i = ids.indexOf(pageId);
+    if (i < 0) return null;
+    const background = stickerPageBackground(pageId);
+    const region = [...REGIONS, ...SPECIAL_REGIONS].find((r) => r.id === background) || REGIONS[0];
+    return { id: pageId, index: i, label: `${i + 1}ページ`, background, emoji: region?.emoji || '📒', colors: stickerBackgroundColors(background) };
+  }
+  function addStickerPage() {
+    const store = stickerStore();
+    if (store.pageOrder.length >= STICKER_BOOK_MAX_PAGES) {
+      setMessage(`シールちょうは${STICKER_BOOK_MAX_PAGES}ページまで`);
+      return null;
+    }
+    let n = 1, id;
+    do { id = `page-${n++}`; } while (store.pageOrder.includes(id));
+    store.pageOrder.push(id);
+    store.pages[id] = [];
+    store.pageMeta[id] = { background: 'home' };
+    stickerCurrentPage = id;
+    stickerSelected = null;
+    return id;
+  }
   function placedStickerCount(id) {
-    return STICKER_PAGES.reduce((a, pg) => a + stickerPage(pg.id).filter((p) => p.id === id).length, 0);
+    return stickerPageIds().reduce((a, pageId) => a + stickerPage(pageId).filter((p) => p.id === id).length, 0);
   }
   // はる: ページの まんなか。x/y は ページの はば・たかさ に たいする 0〜1
   function placeSticker(pageId, id, at) {
-    if (!STICKER_PAGES.some((pg) => pg.id === pageId) || !stickerById(id)) return null;
+    if (!stickerPageIds().includes(pageId) || !stickerById(id)) return null;
     if (!ownedStickerCount(id)) { setMessage('そのシールは まだ もっていない'); return null; }
     const page = stickerPage(pageId);
     if (page.length >= STICKER_PAGE_MAX) { setMessage(`このページは いっぱい(${STICKER_PAGE_MAX}まいまで)`); return null; }
@@ -14301,20 +15640,37 @@
   }
 
   // ---- おだい ----
+  // ページのテーマは自由なので、「どのページに貼るか」を指定しないお題だけにする。
+  const anyPageHas = (pages, predicate) => Object.values(pages).some(predicate);
   const countStickerKind = (page, kind) => page.filter((p) => stickerById(p.id)?.kind === kind).length;
   const STICKER_TASKS = [
-    { id: 'home-form-3', page: 'home', label: 'おうちに しゅぞくの シールを 3まい はる', reward: { coins: 20, kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'form') >= 3 },
-    { id: 'home-item-2', page: 'home', label: 'おうちに あいてむの シールを 2まい はる', reward: { coins: 20, kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'item') >= 2 },
-    { id: 'travel-scenery-3', page: 'travel', label: 'たびに けしきの シールを 3まい はる', reward: { coins: 25, kakera: 3 }, check: (pages) => countStickerKind(pages.travel, 'scenery') >= 3 },
-    { id: 'travel-8', page: 'travel', label: 'たびの ページに 8まい はる', reward: { coins: 30, kakera: 4 }, check: (pages) => pages.travel.length >= 8 },
-    { id: 'friends-companion-3', page: 'friends', label: 'なかまの ページに なかまを 3にん はる', reward: { coins: 25, kakera: 3 }, check: (pages) => countStickerKind(pages.friends, 'companion') >= 3 },
-    { id: 'friends-partner-1', page: 'friends', label: 'なかまの ページに こいびとを はる', reward: { coins: 25, kakera: 4 }, check: (pages) => countStickerKind(pages.friends, 'partner') >= 1 },
-    { id: 'memory-elder-1', page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { coins: 30, kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
-    { id: 'memory-rare-1', page: 'memory', label: 'きねんに レアな シールを はる', reward: { coins: 40, kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
-    { id: 'any-12', page: null, label: 'どれかの ページに 12まい はる', reward: { coins: 40, kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
-    { id: 'all-pages', page: null, label: '4つの ページ ぜんぶに はる', reward: { coins: 50, kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
-  ];
-  // たっせいした おだいを かえす(ほうびは ここで わたす。1かいだけ)
+    { id: 'page-any-3', supply: { count: 3, matches: () => true }, page: null, label: 'ひとつの ページに シールを 3まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 3) },
+    { id: 'same-sticker-2', supply: { count: 0, matches: () => false }, page: null, label: 'ひとつの ページに 同じシールを 2まい はる', check: (pages) => anyPageHas(pages, p => {
+      const counts = {};
+      for (const placed of p) counts[placed.id] = (counts[placed.id] || 0) + 1;
+      return Object.values(counts).some((n) => n >= 2);
+    }) },
+    { id: 'page-item-2', supply: { count: 2, matches: s => s.kind === 'item' }, page: null, label: 'ひとつの ページに あいてむを 2まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'item') >= 2) },
+    { id: 'page-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: null, label: 'ひとつの ページに なかまを 3にん はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'companion') >= 3) },
+    { id: 'page-other-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: null, label: 'ひとつの ページに その他の シールを 3まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'scenery') >= 3) },
+    { id: 'page-8', supply: { count: 8, matches: () => true }, page: null, label: 'ひとつの ページに 8まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 8) },
+    { id: 'multi-pages-2', supply: { count: 2, matches: () => true }, page: null, label: '2つの ページに シールを はる', check: (pages) => Object.values(pages).filter((p) => p.length >= 1).length >= 2 },
+    { id: 'background-change', supply: { count: 0, matches: () => false }, page: null, label: 'はいけいを かえる', check: (_pages, store) => store.pageOrder.some((id) => stickerPageBackground(id) !== 'home') },
+  ]
+  function crownNeedsTaskSticker(candidate) {
+    const store = stickerStore(), pages = stickerPages();
+    return STICKER_TASKS.some(task => {
+      if (store.tasksDone.includes(task.id) || task.check(pages, store) || !task.supply.matches(candidate)) return false;
+      const matches = task.supply.matches;
+      const owned = Object.entries(store.owned).reduce((sum, [id, count]) => {
+        const sticker = stickerById(id);
+        return sum + (sticker && matches(sticker) ? Math.max(0, count) : 0);
+      }, 0);
+      return owned < task.supply.count;
+    });
+  }
+
+  // たっせいした おだいを かえす。ポイント制廃止後は達成記録そのものを残す。
   function checkStickerTasks() {
     const store = stickerStore();
     const pages = stickerPages();
@@ -14322,25 +15678,33 @@
     for (const task of STICKER_TASKS) {
       if (store.tasksDone.includes(task.id)) continue;
       let ok = false;
-      try { ok = !!task.check(pages); } catch (err) { ok = false; }
+      try { ok = !!task.check(pages, store); } catch (err) { ok = false; }
       if (!ok) continue;
       store.tasksDone.push(task.id);
-      state.lifetime.money += task.reward.coins;
-      store.kakera += task.reward.kakera;
       done.push(task);
-      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」💰+${task.reward.coins}・かけら+${task.reward.kakera}` });
+      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」` });
+    }
+    const doneCount = STICKER_TASKS.filter((task) => store.tasksDone.includes(task.id)).length;
+    if (doneCount >= 5 && ownedStickerCount(STICKER_TASK_ADEPT_ID) === 0) {
+      const silver = grantSticker(STICKER_TASK_ADEPT_ID, 'task-adept');
+      if (silver && !gameActive) showStoryEvent({ emoji: '🥈', message: 'おだい 5こたっせい！「ぎんのシールちょう」を もらった！' });
+    }
+    const allDone = doneCount === STICKER_TASKS.length;
+    if (allDone && ownedStickerCount(STICKER_TASK_MASTER_ID) === 0) {
+      const gold = grantSticker(STICKER_TASK_MASTER_ID, 'task-master');
+      if (gold && !gameActive) showStoryEvent({ emoji: '🥇', message: 'おだい ぜんぶたっせい！「きんのシールちょう」を もらった！' });
     }
     return done;
   }
 
   // ---- がめん ----
-  let stickerCurrentPage = 'home';
+  let stickerCurrentPage = 'page-1';
   let stickerSelected = null;
   let stickerFilterKind = 'owned';
   let stickerNewIds = new Set();
   let stickerDrag = null;
   function setStickerPage(pageId) {
-    if (!STICKER_PAGES.some((pg) => pg.id === pageId)) return;
+    if (!stickerPageIds().includes(pageId)) return;
     stickerCurrentPage = pageId;
     stickerSelected = null;
   }
@@ -14362,30 +15726,60 @@
   function renderStickerBoard() {
     if (!el.stickerBoard) return;
     const page = stickerPage(stickerCurrentPage);
-    el.stickerBoard.className = `sticker-board page-${stickerCurrentPage}`;
+    const info = stickerPageInfo(stickerCurrentPage);
+    const colors = info?.colors || stickerBackgroundColors('home');
+    el.stickerBoard.className = 'sticker-board';
     el.stickerBoard.dataset.page = stickerCurrentPage;
+    el.stickerBoard.dataset.background = info?.background || 'home';
+    el.stickerBoard.style.background = colors[1];
+    el.stickerBoard.style.backgroundImage = `url("${stickerBackgroundDataUrl(info?.background || 'home')}")`;
+    el.stickerBoard.style.backgroundSize = 'cover';
+    el.stickerBoard.style.backgroundPosition = 'center';
     setHTMLIfChanged(el.stickerBoard, page.map((p) => stickerPlacedHTML(p, p.k === stickerSelected)).join('') || '<div class="sticker-board-empty">まだ なにも はっていない</div>');
     if (el.stickerTools) el.stickerTools.classList.toggle('hidden', stickerSelected == null || !findPlacedSticker(stickerCurrentPage, stickerSelected));
   }
   function renderStickerOverlay() {
     if (!el.stickerOverlay) return;
     const store = stickerStore();
-    const pool = stickerPackPool();
-    const ownedKinds = pool.filter((s) => ownedStickerCount(s.id) > 0).length;
-    el.stickerProgress.textContent = `${ownedKinds} / ${pool.length}`;
-    setHTMLIfChanged(el.stickerPageTabs, STICKER_PAGES.map((pg) => `<button type="button" class="ach-tab${pg.id === stickerCurrentPage ? ' active' : ''}" data-page="${pg.id}" role="tab" aria-selected="${pg.id === stickerCurrentPage}">${pg.emoji} ${pg.label}<small>${stickerPage(pg.id).length}</small></button>`).join(''));
+    const pageIds = stickerPageIds();
+    if (!pageIds.includes(stickerCurrentPage)) stickerCurrentPage = pageIds[0];
+    const collectiblePool = stickerPackPool();
+    const pool = stickerCatalog().filter((s) => stickerSecretUnlocked(s) && (!s.rewardOnly || ownedStickerCount(s.id) > 0));
+    const ownedKinds = collectiblePool.filter((s) => ownedStickerCount(s.id) > 0).length;
+    el.stickerProgress.textContent = `${ownedKinds} / ${collectiblePool.length}`;
+    setHTMLIfChanged(el.stickerPageTabs, pageIds.map((id, i) => `<button type="button" class="ach-tab${id === stickerCurrentPage ? ' active' : ''}" data-page="${id}" role="tab" aria-selected="${id === stickerCurrentPage}"><span>${i + 1}</span><small>${stickerPage(id).length}まい</small></button>`).join(''));
+
+    const addBtn = document.getElementById('stickerAddPageBtn');
+    if (addBtn) {
+      addBtn.disabled = pageIds.length >= STICKER_BOOK_MAX_PAGES;
+      addBtn.textContent = pageIds.length >= STICKER_BOOK_MAX_PAGES ? `${STICKER_BOOK_MAX_PAGES}ページまで` : `＋ ページを追加（${pageIds.length}/${STICKER_BOOK_MAX_PAGES}）`;
+    }
+    const backgroundSelect = document.getElementById('stickerBackgroundSelect');
+    if (backgroundSelect) {
+      const options = stickerBackgroundOptions();
+      backgroundSelect.innerHTML = options.map((r) => `<option value="${r.id}">${r.emoji} ${escapeHtml(r.label)}</option>`).join('');
+      backgroundSelect.value = stickerPageBackground(stickerCurrentPage);
+    }
+
     renderStickerBoard();
-    // おだい: いまの ページの ものと、ページを とわない もの
-    const tasks = STICKER_TASKS.filter((t) => t.page === stickerCurrentPage || t.page === null);
-    setHTMLIfChanged(el.stickerTasks, tasks.map((t) => {
-      const done = store.tasksDone.includes(t.id);
-      return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span><span class="sticker-task-reward">💰${t.reward.coins}・かけら${t.reward.kakera}</span></div>`;
-    }).join(''));
-    el.stickerPackBtn.innerHTML = `🎁 シールパック(${STICKER_PACK_SIZE}まい) ${careIconHTML('coin')}${STICKER_PACK_PRICE}`;
-    el.stickerPackBtn.disabled = state.lifetime.money < STICKER_PACK_PRICE;
-    el.stickerKakeraBtn.textContent = `✨ かけらで あたらしい1まい(かけら ${store.kakera}/${STICKER_KAKERA_PACK})`;
-    el.stickerKakeraBtn.disabled = store.kakera < STICKER_KAKERA_PACK;
-    el.stickerOwnedCount.textContent = `${ownedKinds}しゅるい・かけら ${store.kakera}`;
+    const taskDoneCount = STICKER_TASKS.filter((t) => store.tasksDone.includes(t.id)).length;
+    setHTMLIfChanged(el.stickerTasks,
+      STICKER_TASKS.map((t) => {
+        const done = store.tasksDone.includes(t.id);
+        return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span></div>`;
+      }).join('')
+      + `<div class="profile-hint sticker-task-goal">${taskDoneCount}/8たっせい　5こで「シールちょうのたつじん」＋ぎんのシールちょう／8こぜんぶで「シールちょうマスター」＋きんのシールちょう</div>`
+    );
+    const coin = careIconHTML('coin');
+    const packAvailable = stickerDrawablePool().length > 0;
+    el.stickerPackBtn.innerHTML = `${itemIconHTML({id:'sticker_pack',emoji:'🎁'})} シールパック（${STICKER_PACK_SIZE}まい） ${coin}${STICKER_PACK_PRICE}`;
+    el.stickerPackBtn.disabled = state.lifetime.money < STICKER_PACK_PRICE || !packAvailable;
+    const themeKind = document.getElementById('stickerThemeKind').value;
+    const themeAvailable = stickerDrawablePool(collectiblePool.filter((s) => s.kind === themeKind)).length > 0;
+    const themeBtn = document.getElementById('stickerThemePackBtn');
+    themeBtn.innerHTML = `ぶんるいパック（${STICKER_PACK_SIZE}まい） ${coin}${STICKER_THEME_PRICE}`;
+    themeBtn.disabled = state.lifetime.money < STICKER_THEME_PRICE || !themeAvailable;
+    el.stickerOwnedCount.textContent = `${ownedKinds}しゅるい・同じシールは${STICKER_COPY_MAX}まいまで`;
     const filters = [['owned', 'もっている'], ...Object.entries(STICKER_KINDS)];
     setHTMLIfChanged(el.stickerFilter, filters.map(([k, label]) => `<button type="button" class="ach-tab${k === stickerFilterKind ? ' active' : ''}" data-filter="${k}">${label}</button>`).join(''));
     const shown = stickerFilterKind === 'owned' ? pool.filter((s) => ownedStickerCount(s.id) > 0) : pool.filter((s) => s.kind === stickerFilterKind);
@@ -14400,7 +15794,7 @@
   function renderStickerPackResult(results) {
     if (!el.stickerPackResult) return;
     if (!results || !results.length) { el.stickerPackResult.classList.add('hidden'); return; }
-    el.stickerPackResult.innerHTML = results.map((r) => `<div class="sticker-pack-card rarity-${r.sticker.rarity}"><span class="sticker-cell-art">${r.sticker.visual()}</span><span>${escapeHtml(r.sticker.label)}</span><span class="${r.dup ? 'badge-dup' : 'badge-new'}">${r.dup ? `かぶり(かけら+${r.kakera})` : 'NEW!'}</span><span class="sticker-pack-rarity">${STICKER_RARITY[r.sticker.rarity].label}</span></div>`).join('');
+    el.stickerPackResult.innerHTML = results.map((r) => `<div class="sticker-pack-card rarity-${r.sticker.rarity}"><span class="sticker-cell-art">${r.sticker.visual()}</span><span>${escapeHtml(r.sticker.label)}</span><span class="${r.dup ? 'badge-dup' : 'badge-new'}">${r.dup ? `${r.count}まいめ` : 'NEW!'}</span><span class="sticker-pack-rarity">${STICKER_RARITY[r.sticker.rarity].label}</span></div>`).join('');
     el.stickerPackResult.classList.remove('hidden');
   }
   // ページを 1まいの 画像(PNG の data URL)に する。canvas が つかえない ときは null
@@ -14418,7 +15812,7 @@
     return stickerImageCache.get(src);
   }
   async function exportStickerPageImage(pageId) {
-    const pg = STICKER_PAGES.find((p) => p.id === pageId);
+    const pg = stickerPageInfo(pageId);
     if (!pg || typeof document === 'undefined') return null;
     const cv = document.createElement('canvas');
     const Wc = 640, Hc = 480;
@@ -14427,11 +15821,13 @@
     const ctx = CANVAS_ILLUSTRATIONS?.canvas(rawContext) || rawContext;
     if(CANVAS_ILLUSTRATIONS) await CANVAS_ILLUSTRATIONS.prepare([pg.emoji,...stickerPage(pageId).map(p => stickerById(p.id)?.art?.emoji).filter(Boolean)]);
     if (!ctx || typeof ctx.fillRect !== 'function' || typeof cv.toDataURL !== 'function') return null;
-    const g = ctx.createLinearGradient(0, 0, 0, Hc);
-    g.addColorStop(0, pg.colors[0]); g.addColorStop(0.5, pg.colors[1]); g.addColorStop(1, pg.colors[2]);
-    ctx.fillStyle = g; ctx.fillRect(0, 0, Wc, Hc);
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    for (let y = 8; y < Hc; y += 28) for (let x = 8; x < Wc; x += 28) { ctx.beginPath(); ctx.arc(x, y, 1.5, 0, Math.PI * 2); ctx.fill(); }
+    const backgroundImage = await loadStickerImage(stickerBackgroundDataUrl(pg.background));
+    if (backgroundImage) ctx.drawImage(backgroundImage, 0, 0, Wc, Hc);
+    else {
+      const g = ctx.createLinearGradient(0, 0, 0, Hc);
+      g.addColorStop(0, pg.colors[0]); g.addColorStop(0.55, pg.colors[1]); g.addColorStop(1, pg.colors[2]);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, Wc, Hc);
+    }
     for (const p of stickerPage(pageId)) {
       const s = stickerById(p.id);
       if (!s) continue;
@@ -14588,7 +15984,7 @@
   }
 
   function isSeasonExclusiveGame(game) {
-    if (!hasSurfaceSeasons(state.regionId)) return false;
+    if (!hasSurfaceSeasons(currentRegionId())) return false;
     const seasonEntries = SEASONAL_MINIGAMES[getEffectiveSeason()];
     return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
   }
@@ -14601,6 +15997,27 @@
   // 出やすさは ぜんゲーム 同確率。いま いる地域 / いまの きせつの ゲームだけ
   // 袋に 2まい 入れて、滞在中は 約2ばい 出やすくする(ほかの 地域でも
   // ふつうの 確率で 出る。「出ない ゲーム」は つくらない)
+  function minigameDrawWeight(game) {
+    const played = minigamePlayCount(game);
+    let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
+    if (isRegionExclusiveGame(game)) weight *= 1.45;
+    if (isSeasonExclusiveGame(game)) weight *= 1.25;
+    return weight * environmentGameWeight(game);
+  }
+  let minigameCrownFactors = '';
+  function refreshCrownMinigameQueue() {
+    const factors = currentMinigamePool.map(game => crownAchievementWeight('game', game));
+    const signature = factors.join('');
+    if (signature === minigameCrownFactors) return;
+    const wasBiased = minigameCrownFactors.includes('2');
+    minigameCrownFactors = signature;
+    if (!wasBiased && !factors.includes(2)) return;
+    // 未消化の券だけを並べ直す。達成後も古い優遇順を残さず、券の追加・再消費もしない。
+    minigameQueue = minigameQueue.map(i => ({ i,
+      key: Math.pow(Math.random(), 1 / (minigameDrawWeight(currentMinigamePool[i]) * factors[i]))
+    })).sort((a, b) => a.key - b.key).map(entry => entry.i);
+  }
+
   function refillMinigameQueue() {
     currentMinigamePool = buildMinigamePool();
     minigameQueueRegionId = state.regionId;
@@ -14610,12 +16027,7 @@
     // ものほど キューの うしろ(=つぎに 出てきやすい ところ)に よりやすい
     // よう、じゅうみつきの らんすうキーで ならびかえる(Efraimidis-Spirakis ほう)
     const weighted = currentMinigamePool.map((game, i) => {
-      const played = minigamePlayCount(game);
-      let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
-      if (isRegionExclusiveGame(game)) weight *= 1.45;
-      if (isSeasonExclusiveGame(game)) weight *= 1.25;
-      // てんき・じかんたい・きせつ・地域に あう ジャンルを 出やすく する
-      weight *= environmentGameWeight(game);
+      const weight = minigameDrawWeight(game);
       return { i, key: Math.pow(Math.random(), 1 / weight) };
     });
     weighted.sort((a, b) => a.key - b.key);
@@ -14633,6 +16045,8 @@
       const insertAt = Math.floor(Math.random() * (minigameQueue.length + 1));
       minigameQueue.splice(insertAt, 0, ticket);
     }
+    minigameCrownFactors = '';
+    refreshCrownMinigameQueue();
     // すぐ さっき あそんだのと おなじ ものに ならないよう ちぇっく。
     // プールの なかみは 地域が かわるたびに かわりうるので、いんでっくす
     // ではなく ゲームじたい(れいがい なく おなじ オブジェクト)で くらべる
@@ -14688,6 +16102,7 @@
     if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId || minigameQueueSeason !== effectiveSeasonNow) {
       refillMinigameQueue();
     }
+    refreshCrownMinigameQueue();
     if (regionJustChanged) regionArrivalBoostLeft = REGION_ARRIVAL_BOOST_PLAYS;
     if (seasonJustChanged) seasonArrivalBoostLeft = SEASON_ARRIVAL_BOOST_PLAYS;
 
@@ -14819,8 +16234,9 @@
   let mgCodeDepth = 0;      // > 0 なら「ゲームの コードの なか」
   let mgCodeSession = 0;    // その コードが どの セッションに ぞくするか
   let activeMinigame = null;
-  let dailyPending = false;       // つぎに はじまる ゲームが「きょうの チャレンジ」か
-  let activeMinigameDaily = false; // いま うごいている ゲームが きょうの チャレンジか
+  let activeMinigameEquipment = null;
+  let gamePassCooldownTimer = null;
+  let temporaryFormTimer = null;
   function mgRunTagged(session, fn, thisArg, args) {
     const prevDepth = mgCodeDepth;
     const prevSession = mgCodeSession;
@@ -14944,11 +16360,13 @@
 
   function retireMinigameInner() {
     const game = activeMinigame;
-    activeMinigameDaily = false;
+    const isQuick = game?.id === 'quick-run' || game?.id === 'quick-solo';
     closeMinigameScreen();
     audio.play('close');
-    state.energy = clamp(state.energy - 6, 0, 100);
-    state.happiness = clamp(state.happiness + 2, 0, 100);
+    if (!isQuick) {
+      state.energy = clamp(state.energy - 6, 0, 100);
+      state.happiness = clamp(state.happiness + 2, 0, 100);
+    }
     let message = 'むりせず途中でやめた。また今度ちょうせん!';
     if (pendingCompanionId) {
       const companion = allCompanionsById(pendingCompanionId);
@@ -14958,10 +16376,10 @@
     if (game && minigameInfo(game).name) message = `${minigameInfo(game).emoji} ${message}`;
     setMessage(message);
     emotePet('happy');
-    checkMeters();
+    if (!isQuick) checkMeters();
     saveState();
     render();
-    showPendingClownfishTransition();
+    if (!isQuick) showPendingClownfishTransition();
   }
 
   let mgQuitConfirmTimer = null;
@@ -14996,6 +16414,7 @@
 
   function finishMinigame(score, customMessage) {
     const game = activeMinigame;
+    if (!gameActive || !game || !Number.isFinite(score)) return;
     // ここから さきの ふつうの がめんの タイマー(えもーと/ふきだし など)に
     // ゲームの セッションの しるしが つかない よう、いったん「ゲームの
     // コードの そと」に 出る(finally で もとに もどす ので、この あとに
@@ -15009,81 +16428,69 @@
     }
   }
 
+  function ordinaryMinigameCoins(result, equipmentId) {
+    const base = result === 'great' ? 60 : result === 'success' ? 30 : 0;
+    return equipmentId === 'star' ? base * 3 : base;
+  }
+
   function finishMinigameInner(game, score, customMessage) {
     const careBefore = CARE_STATUS?.snapshot(state);
     // じこベスト/ランクは アイテムの ボーナスを のせる まえの てんすうで
     const record = recordMinigameResult(game, score);
-    // サングラスを そうびしていると、ミニゲームの とくてんに ボーナスが つく。
-    // つかいきりアイテムの「やる気の おまもり/大成功の おまもり」は、この
-    // ミニゲーム 1かいだけ とくてんを おおきく 底上げする(大成功の おまもりは
-    // +100で どんな スコアからでも かならず 大成功あつかいに なる)
-    const glassesBonus = isEquipped('glasses') ? 6 : 0;
-    const minigameBoostBonus = state.oneTimeBoosts.minigameBoost === 'big' ? 100 : state.oneTimeBoosts.minigameBoost === 'small' ? 25 : 0;
-    state.oneTimeBoosts.minigameBoost = null;
-    const clampedScore = clamp(score + glassesBonus + minigameBoostBonus, 0, 100);
-    const happinessGain = Math.round(5 + (clampedScore / 100) * 20);
-    state.happiness = clamp(state.happiness + happinessGain, 0, 100);
-    state.energy = clamp(state.energy - Math.round(12 * envModifiers().play), 0, 100);
-    state.minigameScoreSum += clampedScore;
+    // 記録・ランク・勧誘は実点。装備は開始時の1枠で判定する。
+    const rawScore = record?.score ?? clamp(Math.round(score), 0, 100);
+    const clampedScore = rawScore;
+    const isGreat = clampedScore >= 70;
+    const isBad = clampedScore < 30;
+    const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
+    state.minigameScoreSum += rawScore;
     state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
-    // fills regardless of score - unlike evo/devo, playing itself (not
-    // skill) is what earns a shot at choosing a different growth line。
-    // シルクハットを そうびしていると たまりやすさに ボーナスが つく
-    const hatBonus = isEquipped('hat') ? 4 : 0;
-    // 1かい あそぶと +25(4かいで 満タン)。満タンに なったら その場で へんしんの チャンス
-    state.transformMeter = clamp(state.transformMeter + (25 + hatBonus) * (hasPerk(60) ? 1.2 : 1), 0, 100);
+    if (isQuick) {
+      // 混合の実点100は20/20。ソロ・未完走には支払わず、装備や環境も掛けない。
+      const coins = game.id === 'quick-run' && score === 100 ? 100 : 0;
+      state.lifetime.money += coins;
+      pendingCompanionId = null;
+      setMessage((customMessage || resultMessageForScore(score)) + (coins ? '／100コインをもらった!' : ''));
+      closeMinigameScreen();
+      showMinigameResultToast(record);
+      audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
+      saveState(); // 実績・記録は残し、育成・勧誘・ストーリーの結果処理を通さない。
+      render();
+      return;
+    }
+    state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
+    const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
+    state.energy = clamp(state.energy - energyCost, 0, 100);
+    state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
     offerTransformIfReady();
 
-    // good play pushes the evolution meter, a real miss pushes both the
-    // devolution and death meters - this is the main engine behind the
-    // fast-paced transform/regress/die loop, not just the passive clock
     let itemMessage = '';
-    const isGreat = clampedScore >= 70;
-    // 30点未満だけ「しっぱい」。ペナルティも ひかえめ(以前 40点未満で おとろえ16・いのち5)
-    const isBad = clampedScore < 30;
     if (isGreat) {
       applyGrowth(14); applyDecline(-8);
-      const fun = randomFunItem();
-      state.items[fun.id] = (state.items[fun.id] || 0) + 1;
-      const gotReward = Math.random() < (isEquipped('itemluck1') ? 0.16 : 0.12);
-      if (gotReward) state.items.reward = (state.items.reward || 0) + 1;
-      // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる。
-      // つかいきりアイテムの「ラッキーコイン」は、この ミニゲーム 1かいだけ
-      // もらえる おかねを 2ばいにする
-      const starFactor = isEquipped('star') ? 1.25 : 1;
-      const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
-      state.oneTimeBoosts.doubleCoins = false;
-      const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost * envModifiers().coin);
-      state.lifetime.money += coins;
-      itemMessage = gotReward ? `おたのしみに${fun.emoji}${fun.label}、さらに🎁と💰${coins}をもらった!` : `おたのしみに${fun.emoji}${fun.label}と💰${coins}をもらった!`;
-    } else if (clampedScore >= 30) {
+    } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
-    } else if (state.oneTimeBoosts.safetyNet) {
-      // つかいきりアイテムの「スコアほけん」は、この ミニゲーム 1かいだけ
-      // しっぱい時の たいか/しぼうメーター上昇を まるごと なかった ことにする
-      state.oneTimeBoosts.safetyNet = false;
     } else {
       applyDecline(8);
       raiseDeathMeter(2);
     }
+    const result = isGreat ? 'great' : isBad ? 'failure' : 'success';
+    const coins = ordinaryMinigameCoins(result, activeMinigameEquipment);
+    if (coins > 0) {
+      state.lifetime.money += coins;
+      itemMessage += `／${coins}コインをもらった${isGreat ? '!' : ''}`;
+    }
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
-    // きょうの チャレンジ: きょうの スコアを きろくし、💰+10 と れんぞく日数
-    if (activeMinigameDaily && record) {
-      activeMinigameDaily = false;
-      const key = dailyKey();
-      const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-      const streak = state.lifetime.dailyLastDate === dailyKey(yesterday) ? (state.lifetime.dailyStreak || 0) + 1 : 1;
-      state.lifetime.dailyChallenge = { date: key, gameId: game ? game.id : null, score: record.score, rank: record.rank };
-      state.lifetime.dailyStreak = streak; state.lifetime.dailyLastDate = key;
-      const reward = dailyStreakReward(streak);
-      state.lifetime.money += reward.coins;
-      grantGrowthBoost(BOOST_TICKS_DAILY);
-      const dailySticker = grantRandomSticker('daily');
-      resultMessage += `／🗓️今日のチャレンジクリア!／💰+${reward.coins}／✨せいちょう2ばい(10分)${streak >= 2 ? `／🔥${streak}日連続` : ''}${reward.milestone ? `／🎉${reward.milestone}` : ''}${dailySticker ? `／🏷️シール「${dailySticker.sticker.label}」` : ''}`;
+    // 入口ではなく、完了した日の指定ゲーム・実点・未受領の日付で判定する。
+    const dailyCompleted = record && score >= 30 && !dailyChallengeToday()
+      && game.id === dailyChallengeGame()?.id;
+    if (dailyCompleted) {
+      state.lifetime.dailyChallenge = { date: dailyKey(), gameId: game.id, score: record.score, rank: record.rank };
+      ITEM_SYSTEM.grant(state, 'c_coin2');
+      resultMessage += '／🗓️今日のチャレンジクリア!／ラッキーコイン1個をもらった';
     }
-    if (record && record.rank === 'S' && !activeMinigameDaily) {
+    if (record && record.rank === 'S' && !dailyCompleted) {
       grantGrowthBoost(BOOST_TICKS_S_RANK);
       resultMessage += '／✨Sランク!せいちょう2ばいを2分追加（合計10分まで）';
       if (Math.random() < 0.3) {
@@ -15092,6 +16499,7 @@
       }
     }
     let recruitedNow = false;
+    let recruitedMotionTarget = null;
 
     // なかまイベントの さいちゅうだった プレイなら、つうじょうの けっか
     // メッセージを なかまに なれたか どうかの けっかに おきかえる(ステータス
@@ -15102,7 +16510,7 @@
       if (companion) {
         const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
         const threshold = isRare ? RARE_COMPANION_RECRUIT_THRESHOLD : COMPANION_RECRUIT_THRESHOLD;
-        if (clampedScore >= threshold) {
+        if (rawScore >= threshold) {
           const record = isRare
             ? state.lifetime.rareCompanionsRecruited
             : state.lifetime.companionsRecruited;
@@ -15116,6 +16524,7 @@
           }
           pushLifeLog(companion.emoji, `${companion.name}がなかまになった`);
           recruitedNow = true;
+          recruitedMotionTarget = {kind:'companion',id:companion.id};
           resultMessage = isRare
             ? `${companion.emoji} ${companion.joined}`
             : `${companion.emoji} ${companion.name}がなかまになった!`;
@@ -15132,7 +16541,8 @@
     closeMinigameScreen();
     const resultDuration = showMinigameResultToast(record) || 0;
     // 成績を読んでから感想を出す。別のお世話や再プレイで会話は取り消せる。
-    if (isGreat) speakEvent('minigame_great', { delayMs: resultDuration, partnerChance: 0.5, companionChance: 0.6 });
+    if (recruitedMotionTarget) speakEvent('companion_new', {delayMs:resultDuration,motionTarget:recruitedMotionTarget,partnerChance:0.5,companionChance:0.6});
+    else if (isGreat) speakEvent('minigame_great', { delayMs: resultDuration, partnerChance: 0.5, companionChance: 0.6 });
     else if (isBad) speakEvent('minigame_bad', { delayMs: resultDuration, partnerChance: 0.45, companionChance: 0.5 });
     audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
 
@@ -15152,10 +16562,15 @@
   // ゲームきろく からの みちすじ = tryStartPlay だけ。テストや ハーネスからの
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
+    invalidateCareAfterglow();
+    clearPetExpression();
     clearConversationTimers();
     hideSpeechBubble();
     hideMinigameResultToast();
     gameActive = true;
+    renderPetVisual();
+    cancelEmotionCue(true);
+    scheduleHistoryLayerSync(); // RH-10: 戻るの 層(ミニゲームは render を まだ よばない)
     renderWorldScene(true);
     castMotion?.clear();
     el.device.classList.add('ui-game-active');
@@ -15196,7 +16611,7 @@
     const session = mgSessionSerial;
     mgSession = session;
     activeMinigame = game;
-    activeMinigameDaily = dailyPending; dailyPending = false;
+    activeMinigameEquipment = state.lifetime.equippedItemId;
     showMinigameQuit();
     // ゲームがわから おくれて/2かい よばれても、その セッションが もう
     // おわっていれば なにも しない
@@ -15427,8 +16842,7 @@
   function recoverSleepStepInner() {
     // 100ms ごと。0→100 が やく 5びょう(まつ じかんが そうさの じゃまに
     // ならない はやさ。げんきは「あそぶ まえに ねる」の ひとてま だけに する)
-    const boost = isEquipped('sleepboost1') ? 0.4 : 0;
-    const step = ((state.isSick ? 1.3 : 2.0) + boost) * envModifiers().sleep;
+    const step = (state.isSick ? 1.3 : 2.0) * envModifiers().sleep;
     const before = state.energy;
     state.energy = clamp(state.energy + step, 0, 100);
     if (state.energy !== before) render();
@@ -15438,11 +16852,13 @@
   function startSleepRecovery() {
     stopSleepRecovery();
     if (!state.isSleeping) return;
-    // 「ねる」を押したその場で最初の回復を1回入れ、その後100msごとに
-    // なめらかに回復し続ける。最初の100ms待ちをなくして反応を即時にする。
-    if (state.isSleeping && state.energy < 100) {
-      sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
+    if (isEquipped('sleepboost1')) {
+      const changed = state.energy < 100;
+      state.energy = 100;
+      if (changed) itemContextReaction('sleepboost1', 'ふかふかのまくらで、すぐにげんきまんたん。');
+      return;
     }
+    if (state.energy < 100) sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
     recoverSleepStep();
   }
 
@@ -15629,6 +17045,8 @@
 
   function withFeedback(fn, afterRender) {
     return () => {
+      const reactionSerial = invalidateCareAfterglow();
+      clearPetExpression();
       clearConversationTimers();
       hideSpeechBubble();
       const careBefore = CARE_STATUS?.snapshot(state);
@@ -15637,7 +17055,7 @@
       recordCareChange(careBefore);
       render();
       // クリア後の挨拶は、保存時の実績通知で消えないよう最後に表示する。
-      if (afterRender) afterRender(result);
+      if (afterRender) afterRender(result,reactionSerial);
     };
   }
 
@@ -15668,19 +17086,22 @@
         setMessage('🍚たべすぎた');
         speakEvent('overfeed');
       }
-      checkStoryEvents('overfeed');
+      checkStoryEvents('overfeed',SPEECH_DURATION_MS+120);
       checkMeters();
-      emotePet('angry');
       return;
     }
+    if (isEquipped('bowtie')) itemContextReaction('bowtie','ちょうネクタイを直して、いただきます。食べ終えたら小さくおじぎ。');
     state.happiness = clamp(state.happiness + 3, 0, 100);
     applyGrowth(4); applyDecline(-4);
     if (!checkMeters()) {
       setMessage(randomActionMessage('feed'));
       speakEvent('feed');
       checkStoryEvents('feed');
+      return {fed:true,reacted:true};
     }
-    emotePet('happy');
+    return {fed:true,reacted:false};
+  }, (result,reactionSerial) => {
+    if (result?.fed && result.reacted) scheduleCareAfterglow(reactionSerial,1000,'bounce',signals => signals.hunger === 'none');
   }));
 
 
@@ -15735,6 +17156,32 @@
     mgStopHold(btn);
   });
 
+  function applyGamePassSuccess() {
+    const careBefore = CARE_STATUS?.snapshot(state);
+    // 通常成功の育成だけ。点数、記録、日次、勧誘、予約アイテムには触れない。
+    pendingCompanionId = null;
+    clearConversationTimers();
+    hideSpeechBubble();
+    hideMinigameResultToast();
+    state.affectionStreak = 0;
+    state.travelStreak = 0;
+    state.happiness = clamp(state.happiness + 15, 0, 100);
+    state.energy = clamp(state.energy - Math.max(1, Math.round(12 * envModifiers().play)), 0, 100);
+    state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
+    offerTransformIfReady();
+    applyGrowth(7);
+    applyDecline(-3);
+    state.lifetime.money += 30;
+    state.gamePassReadyAt = Date.now() + GAME_PASS_WAIT_MS;
+    setMessage('ゲームパスで通常成功!／30コインをもらった');
+    audio.play('clear');
+    emotePet('happy');
+    checkMeters();
+    saveState();
+    recordCareChange(careBefore);
+    render();
+  }
+
   // 「あそぶ」ボタン(ランダム)と「ゲームきろく」からの えらんで あそぶ の
   // 共通いりぐち。chosenGame が あれば その ゲームを、なければ 抽選する。
   // えらんで あそんだ ときも プレイ回数・直前ゲーム・ジャンルの きろくは
@@ -15747,16 +17194,24 @@
       render();
       return false;
     }
-    if (el.playBtn.disabled) return false;
-    if (state.energy < 10) {
+    const isQuick = chosenGame?.id === 'quick-run' || chosenGame?.id === 'quick-solo';
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.EGG || state.transformOptions) return false;
+    if (!isQuick && Date.now() < gamePassReadyAt()) return false;
+    if (!isQuick && state.energy < 10) {
       setMessage(randomBlockedMessage('lowEnergyPlay'));
       saveState();
       render();
       return false;
     }
+    if (!isQuick && state.lifetime.equippedItemId === 'gamepass1') {
+      applyGamePassSuccess();
+      return true;
+    }
     state.actionCounts.play += 1;
-    state.affectionStreak = 0;
-    state.travelStreak = 0;
+    if (!isQuick) {
+      state.affectionStreak = 0;
+      state.travelStreak = 0;
+    }
     recordEnvironmentPlay();
     let game;
     if (chosenGame) {
@@ -15768,7 +17223,7 @@
     } else {
       game = pickRandomMinigame();
     }
-    startMinigame(game, { intro: isFirstMinigamePlay(game) });
+    startMinigame(game, { intro: !game.noIntro && isFirstMinigamePlay(game) });
     return true;
   }
 
@@ -15807,8 +17262,7 @@
       setMessage(randomActionMessage('sleep'));
       speakEvent('sleep');
       startSleepRecovery();
-      return;
-    }
+      return;    }
     // すいみんは「20tick いじょう ねてから おきた」ときだけ みとめる
     // (ねる→おきるの 連打で かせげてしまう ぬけみちを ふさぐ)
     stopSleepRecovery();
@@ -15819,7 +17273,6 @@
       speakEvent('wake');
       checkStoryEvents('wake');
     }
-    emotePet('happy');
   }));
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
@@ -15837,8 +17290,9 @@
       if (!checkMeters()) {
         setMessage(randomActionMessage('cure'));
         speakEvent('medicine_cure');
+        return {cured:true,reacted:true};
       }
-      emotePet('happy');
+      return {cured:true,reacted:false};
     } else {
       state.happiness = clamp(state.happiness - 10, 0, 100);
       state.health = clamp(state.health - 5, 0, 100);
@@ -15847,8 +17301,12 @@
         setMessage('💊びょうきではないのに、くすりを飲ませた');
         speakEvent('medicine_wrong');
       }
-      emotePet('angry');
+      return {cured:false};
     }
+  }, (result,reactionSerial) => {
+    // Recovery is now the immediate medicine_cure L3 motion; do not add a delayed second bounce.
+    // Keep the approved happy face after care, independently of movement.
+    if (result?.cured && result.reacted) scheduleCareAfterglow(reactionSerial,1000,null,signals => !signals.sick);
   }));
 
   // じゃれる(もとの なでる/はなしかけるを ひとつに まとめたボタン)は
@@ -15899,9 +17357,12 @@
       applyGrowth(1.5); applyDecline(-2);
       // じゃれるは、そばに いる なかま ぜんいんの bond も まとめて かいふく
       // する(なかまが はなれて いかないよう、ここで つなぎとめる)
+      const beforeBonds = state.companions.map(c => ({id:c.id,bond:c.bond}));
       state.companions.forEach((c) => {
         c.bond = clamp((c.bond ?? 100) + COMPANION_PLAYWITH_BOND_BOOST + (hasPerk(40) ? state.sodachi / 5 : 0), 0, 100);
       });
+      const positiveIds = RELATIONSHIP_EXPRESSION?.companionPositiveIds(beforeBonds,state.companions) || [];
+      for (const c of state.companions) if (positiveIds.includes(c.id)) startRelationshipPositive('companion',c);
     }
     const hasCompanions = state.companions.length > 0;
     const reaction = spammed
@@ -15915,7 +17376,6 @@
       speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
       if (!spammed) checkStoryEvents('pet');
     }
-    emotePet(spammed ? 'angry' : 'happy');
   }));
 
   const PARTNER_FIRST_ENCOUNTERS = {
@@ -15994,6 +17454,7 @@
       // かさねれば、れんあいタイプが ちがっても いっしょに いる ことに きめられる
       const p = state.partner;
       p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+      startRelationshipPositive('partner',p);
       p.repair = (p.repair || 0) + 1;
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (p.repair >= MISMATCH_REPAIR_NEEDED) {
@@ -16001,6 +17462,7 @@
         p.repair = 0;
         applyGrowth(12); applyDecline(-15);
         pushLifeLog('💞', `${p.label}となかなおりした`);
+        rememberPartnerLetter('repair');
         if (!checkMeters()) {
           setMessage(`${p.emoji} ${p.label}とちゃんと話した。恋愛タイプは変わったけれど、それでもいっしょにいることにした`);
         }
@@ -16055,12 +17517,15 @@
     // とくべつな たびさき(SPECIAL_REGIONS)には こいびとこうほが いない ので、
     // candidates が からの ことが ある。あいてが いない ときは しっぱいでは なく
     // 「ひとりの じかん」として かるく かえす(ここを まもらないと undefined に なる)
+    const calledCandidate = calledMatchCandidate();
     const regionCandidates = findRegion(state.regionId).candidates || [];
     let candidate;
-    if (state.guest && Math.random() < 0.6) {
+    if (calledCandidate) {
+      candidate = calledCandidate;
+    } else if (state.guest && Math.random() < 0.6) {
       candidate = guestCandidate(state.guest);
     } else if (regionCandidates.length) {
-      candidate = regionCandidates[Math.floor(Math.random() * regionCandidates.length)];
+      candidate = pickRingCandidate(regionCandidates, 'partner');
     }
     if (!candidate) {
       state.happiness = clamp(state.happiness + 2, 0, 100);
@@ -16103,11 +17568,9 @@
     // がんばっているほど とおりやすくは なる
     const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
     const happinessBonus = (state.happiness / 100) * 0.15;
-    // おはなを そうびしていると、きゅうあいの せいこうりつに ボーナスが つく
-    const flowerBonus = isEquipped('flower') ? 0.1 : 0;
     // そだち50の「こいの きざし」で +10%、さらに いまの そだちに おうじて 最大+20%
     const sodachiBonus = (hasPerk(50) ? 0.1 : 0) + (hasPerk(50) ? Math.min(0.2, state.sodachi / 500) : 0);
-    const successChance = clamp(0.35 + traitBonus + happinessBonus + flowerBonus + sodachiBonus, 0.15, 0.85);
+    const successChance = clamp(0.35 + traitBonus + happinessBonus + sodachiBonus, 0.15, 0.85);
 
     if (Math.random() < successChance) {
       state.partner = {
@@ -16118,10 +17581,14 @@
         orientationId: orientationIdFor(candidate.gender, candidate.orientationId, candidate.attractedTo),
         attractedTo: [...candidate.attractedTo],
         affinityTrait: candidate.affinityTrait,
+        ...(candidate.id === 'guest' ? { ...(candidate.originId ? {originId:candidate.originId} : {}), guestSnapshot: JSON.parse(JSON.stringify(state.guest)) } : {}),
         affection: 100,
         married: false,
         bondCount: 0,
       };
+      startRelationshipPositive('partner',state.partner);
+      state.calledMatch = null;
+      rememberPartnerLetter('court');
       state.happiness = clamp(state.happiness + 8, 0, 100);
       applyGrowth(10); applyDecline(-5);
       pushLifeLog('💑', `${candidate.label}とこいびとになった`);
@@ -16160,7 +17627,9 @@
   el.menuCloseBtn.addEventListener('click', () => { closeOverlay('menu'); render(); });
   el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));
   el.gamesBtn.addEventListener('click', () => { achTab = 'games'; openExclusiveMenu('ach'); });
+  if (el.quickBtn) el.quickBtn.addEventListener('click', () => { closeAllMenuOverlays(); clearConversationTimers(); hideSpeechBubble(); render(); startQuickRun(); });
   el.travelBtn.addEventListener('click', () => openExclusiveMenu('travel'));
+  if (el.meguruEntry) el.meguruEntry.addEventListener('click', (e) => { const btn = e.target && e.target.closest ? e.target.closest('#meguruEnterBtn') : null; if (btn) startMeguru(); });
   el.worldCloseBtn.addEventListener('click', () => { closeOverlay('world'); render(); });
   el.travelCloseBtn.addEventListener('click', () => { closeAllMenuOverlays(); render(); });
   el.seasonModeGrid.addEventListener('click', (e) => {
@@ -16199,6 +17668,14 @@
       if (!btn || !BGM_CHOICES[btn.dataset.id]) return;
       state.lifetime.soundBgm = btn.dataset.id === 'on'; saveState(); renderEnvironment();
       audioSettingsChanged();
+    });
+  }
+  if (el.quickVoiceGrid) {
+    el.quickVoiceGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.theme-swatch');
+      if (!btn || !QUICK_VOICE_CHOICES[btn.dataset.id]) return;
+      state.lifetime.quickVoice = btn.dataset.id; state.lifetime.quickVoiceChosen = true; saveState(); renderEnvironment();
+      audio.voice('よけろ'); // ためしに ひとこと
     });
   }
   el.weatherModeGrid.addEventListener('click', (e) => {
@@ -16262,51 +17739,31 @@
   // 増減・たびづかれ判定・ずかん用の きろくなど、なかみは いぜんの
   // ランダム移動時と まったく おなじ ロジックで、行き先だけが
   // 「ランダムに えらばれた もの」から「タップで えらんだ もの」に かわった
-  function travelToRegion(region) {
-    if (!region) return;
+  function travelToRegion(region, choice) {
+    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
+    if (region?.special && !hasPerk(70)) { setMessage('そのばしょへつづく道はまだ見つからない');render();return false; }
+    if (!travelStartAllowed(region)) return false;
+    const sameLocalHome = region.id === 'home' && currentRegionId() === 'home' && state.lifetime.currentLocationSelected;
+    if (region.id === currentRegionId() && !sameLocalHome) return false;
     currentLocationIntent += 1;
-    // たびの けっかは 「せかい」がめんの うえではなく、もとの 基本がめんの
-    // メッセージらんに 出す ので、じっこうまえに がめんを とじておく。
-    // どちらの ぶんき(ねている/じっさいに たびに でる)でも さいごに
-    // かならず saveState()/render() まで とおるよう、はやい return は
-    // つかわず if/else で くみたてる
     if (overlayIs('travel') || overlayIs('world')) activeOverlay = null;
-    if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingTravel'));
-      saveState();
-      render();
-      return;
-    }
-    // そだち70に とどいていない ときに とくべつな たびさきへ いこうと
-    // しても いけない(ボタンが 出ていない ときの ねんの ための まもり)
-    if (region.special && !hasPerk(70)) {
-      setMessage('地図をひらいたけれど、そのばしょへつづく道はまだ見つからない');
-      saveState();
-      render();
-      return;
-    }
     // 現在地の景色と通常のおうちは、ゲーム上はどちらも home。同じ地域の
     // 表示だけを戻す操作では、旅の消費や記録を発生させない。
-    if (region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected) {
+    if (region.id === 'home' && currentRegionId() === 'home' && state.lifetime.currentLocationSelected) {
       state.lifetime.currentLocationSelected = false;
       state.lifetime.currentLocation = null;
       saveState();
       render();
       return;
     }
+    state.calledMatch = null;
     state.lifetime.currentLocationSelected = false;
     state.lifetime.currentLocation = null;
-    const specialRewardTrip = (state.items.reward || 0) > 0 && window.confirm('🎁ごほうびを1こ使って、とくべつな旅にしますか？');
-    if (specialRewardTrip) { state.items.reward -= 1; if (state.items.reward <= 0) delete state.items.reward; }
     state.affectionStreak = 0;
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
     // 機嫌の ボーナスが なくなり、逆に すこし へってしまう。つかいきり
-    // アイテムの「たびの おまもり」を もっていれば、この たび 1かいだけ
-    // かならず「たびづかれ」なしの よい けっかに なる
-    const travelGuaranteed = state.oneTimeBoosts.travelGuarantee;
-    state.oneTimeBoosts.travelGuarantee = false;
-    const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
+    const spammedTravel = state.travelStreak > travelSpamThreshold();
     // とくべつな たびさきは、regionsVisited では なく specialRegionsVisited に
     // つむ。regionsVisited に いれて しまうと、じっせきの「せかい いっしゅう
     // (ぜんぶの地域(REGIONS の 11))」が「ふつうの地域7つ + とくべつ1つ」でも 成立して
@@ -16326,30 +17783,28 @@
     }
     // たびは からだを つかう ので、元気/満腹が すこし へる(移動で つかれ、
     // ごはんの タイミングも のがす)
-    state.energy = clamp(state.energy - 6, 0, 100);
-    state.hunger = clamp(state.hunger - 4, 0, 100);
+    if (isEquipped('travel1')) {
+      itemContextReaction('travel1', `${region.label}へ身軽に出発。げんきとおなかを消費しなかった。`);
+    } else {
+      state.energy = clamp(state.energy - 6, 0, 100);
+      state.hunger = clamp(state.hunger - 4, 0, 100);
+    }
     if (spammedTravel) {
       state.happiness = clamp(state.happiness - 3, 0, 100);
       applyDecline(5);
     } else {
       applyGrowth(firstVisit ? (isSpecial ? 12 : 6) : (isSpecial ? 4 : 2));
       applyDecline(-2);
-      // リュックサックけいの アイテムを そうびしていると、たびの きげん
-      // ボーナスが 上乗せされる
-      const travelBonus = isEquipped('travel1') ? 2 : 0;
       // そだち70(たびだち)に とうたつしていると、たびの きげんボーナスが 2ばいに なる
-      state.happiness = clamp(state.happiness + (5 + travelBonus) * (hasPerk(70) ? 2 : 1), 0, 100);
+      state.happiness = clamp(state.happiness + 5 * (hasPerk(70) ? 2 : 1), 0, 100);
     }
     let reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
     speakEvent('travel', { partnerChance: 0.7, companionChance: 0.75 });
     checkStoryEvents('travel');
-    if (hasNaotoItem('naoto_lantern') && Math.random() < 0.18) reaction += ' 🏮道の先に、不思議なあかりがひとつ見えた。';
+    const travelMemory = null;
     if (!checkMeters()) {
-      if (specialRewardTrip) {
-        pushLifeLog('🎁', `とくべつな旅のおもいで: ${region.label}`);
-        setMessage(`🎁 ${region.emoji} ${region.label}で、いつもよりゆっくりすごした。${reaction}`);
-      } else {
+      {
         setMessage(spammedTravel
           ? `${region.emoji} ${region.label}にやってきた!でも、旅の疲れでちょっとぐったり…${reaction}`
           : `${region.emoji} ${region.label}にやってきた!${reaction}`);
@@ -16357,9 +17812,12 @@
     }
     emotePet(spammedTravel ? 'sad' : 'fun');
     saveState();
+    if (travelMemory) showItemSceneMemory(travelMemory);
     render();
+    return true;
   }
 
+  el.itemSceneCancelBtn.addEventListener('click', () => { closeItemScene();render(); });
   el.travelRegionGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.theme-swatch');
     if (!btn || btn.disabled) return;
@@ -16391,39 +17849,24 @@
     closeDateOverlay();
   });
 
-  function confirmDateReward(useReward) {
-    const plan = pendingDatePlan;
-    if (!dateOpen || !plan) return;
-    pendingDatePlan = null;
-    goOnDate(plan, useReward);
-  }
-
-  function returnToDateChoices() {
-    if (!dateOpen || !pendingDatePlan) return;
-    pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
-    el.dateChooser.classList.remove('hidden');
-    render();
-    el.dateCancelBtn.focus({ preventScroll: true });
-    el.dateChooser.scrollIntoView({ block: 'nearest' });
-  }
-
-  el.dateRewardUseBtn.addEventListener('click', () => confirmDateReward(true));
-  el.dateRewardSkipBtn.addEventListener('click', () => confirmDateReward(false));
-  el.dateRewardBackBtn.addEventListener('click', returnToDateChoices);
-  el.dateRewardConfirm.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      returnToDateChoices();
-    }
-  });
-
   el.dateMovieSkipBtn.addEventListener('click', () => {
     finishDateMovie();
   });
 
   el.dateMovieCloseBtn.addEventListener('click', () => {
     closeDateOverlay();
+  });
+
+  el.dateMovie.addEventListener('keydown', (event) => {
+    if (!moviePresentation) return;
+    const finished = el.dateMovieScene.dataset.complete === 'true';
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      if (finished) closeDateOverlay(); else finishDateMovie();
+    } else if (event.key === 'Tab') {
+      event.preventDefault();
+      (finished ? el.dateMovieCloseBtn : el.dateMovieSkipBtn).focus({preventScroll:true});
+    }
   });
 
   // なかまからの さそい: 「あそぶ!」で ミニゲームへ、「また こんど」で
@@ -16489,10 +17932,9 @@
   // 2だんかいの かくにん + 3びょうの ながおし で ごそうさを ふせぐ
   el.wipeBtn.addEventListener('click', () => {
     const L = state.lifetime;
-    const dexTotal = ALL_LINES.length * STAGES_PER_LINE;
     el.wipeSummary.innerHTML = [
-      `ずかん<b>${state.discoveredStages.length} / ${dexTotal}</b>`,
-      `じっせき<b>${state.achievementsUnlocked.length} / ${ACHIEVEMENTS.length}</b>`,
+      `ずかん<b>${dexFoundCount()} / ${dexTotalCount()}</b>`,
+      `じっせき<b>${achievementsUnlockedCount()} / ${ACHIEVEMENTS.length}</b>`,
       `おかね<b>💰${L.money}</b>`,
       `そうび<b>${(L.ownedShopItems || []).length}こ</b>`,
       `これまでそだてたこ<b>${(L.pastLives || []).length}ひき</b>`,
@@ -16573,10 +18015,12 @@
     // たどりつかない(♾️ の あいだ resetBtn は かくれている)が、ねんの ため
     if (state.stage !== STAGE.EGG && !state.infinite) archiveLifeAndReset();
     const lifetime = state.lifetime;
+    const duel = state.duel;
     // 古いセーブデータには resets フィールドが無いので || 0 で補う
     lifetime.resets = (lifetime.resets || 0) + 1;
     const achievementsUnlocked = state.achievementsUnlocked;
     state = freshState();
+    state.duel = duel;
     state.declineBaseline = lifetime.devolutions;
     state.discoveredStages = discoveredStages;
     state.lifetime = lifetime;
@@ -16598,6 +18042,7 @@
   el.gameClearCloseBtn.addEventListener('click', withFeedback(() => {
     const goal = grandGoalPending;
     grandGoalPending = null;
+    clearPendingGrandGoal();
     return goal;
   }, (goal) => {
     if (goal === 'dex' || goal === 'perfect') showAuthorGreeting(goal);
@@ -16606,6 +18051,7 @@
   el.gameClearFreePlayBtn.addEventListener('click', withFeedback(() => {
     const goal = grandGoalPending;
     grandGoalPending = null;
+    clearPendingGrandGoal();
     // ⑤ パーフェクトクリアの ごほうび: ねんれいから じゆうに なった
     // ♾️ の せかいへ はいる(enterInfinite() さんしょう)
     enterInfinite();
@@ -16671,13 +18117,18 @@
   }
   if (el.gameListGrid) {
     el.gameListGrid.addEventListener('click', (e) => {
+      const quickToggle = e.target && e.target.closest ? e.target.closest('.quick-list-toggle') : null;
+      if (quickToggle) { quickListOpen = !quickListOpen; renderGameList(); return; }
       const sortBtn = e.target && e.target.closest ? e.target.closest('.game-list-sort') : null;
       if (sortBtn) { gameListSort = sortBtn.dataset.sort; renderGameList(); return; }
+      const quickSolo = e.target && e.target.closest ? e.target.closest('.quick-solo-start') : null;
+      const quickStart = e.target && e.target.closest ? e.target.closest('.quick-start') : null;
+      if (quickStart || quickSolo) { closeAllMenuOverlays(); clearConversationTimers(); hideSpeechBubble(); render(); startQuickRun(quickSolo ? quickSolo.dataset.quickId : null); return; }
       const dailyBtn = e.target && e.target.closest ? e.target.closest('.daily-start') : null;
       const cell = e.target && e.target.closest ? e.target.closest('.game-cell') : null;
       if (!cell && !dailyBtn) return;
       const game = buildMinigamePool().find((g) => g.id === (dailyBtn ? dailyBtn.dataset.gameId : cell.dataset.gameId));
-      if (dailyBtn) { if (dailyChallengeToday()) return; dailyPending = true; }
+      if (dailyBtn && dailyChallengeToday()) return;
       if (!game) return;
       // いちらんを とじてから はじめる。あそべない ときは ふつうの がめんに
       // りゆうの メッセージが 出る(ねている/げんき不足 など)
@@ -16685,14 +18136,26 @@
       clearConversationTimers();
       hideSpeechBubble();
       render();
-      if (!tryStartPlay(game)) dailyPending = false;
+      tryStartPlay(game);
     });
   }
 
   el.themeBtn.addEventListener('click', () => openExclusiveMenu('theme'));
   // ---- シールちょう ----
   el.stickerBtn.addEventListener('click', () => openExclusiveMenu('sticker'));
-  el.stickerCloseBtn.addEventListener('click', () => { closeOverlay('sticker'); render(); });
+  el.stickerCloseBtn.addEventListener('click', () => {
+    closeOverlay('sticker'); render();
+  });
+  document.getElementById('stickerAddPageBtn').addEventListener('click', () => {
+    const id = addStickerPage();
+    if (id) { audio.play('good'); saveState(); render(); }
+  });
+  document.getElementById('stickerBackgroundSelect').addEventListener('change', (e) => {
+    if (!setStickerPageBackground(stickerCurrentPage, e.target.value)) return;
+    checkStickerTasks();
+    saveState();
+    render();
+  });
   el.stickerPageTabs.addEventListener('click', (e) => {
     const btn = e.target && e.target.closest ? e.target.closest('[data-page]') : null;
     if (!btn) return;
@@ -16726,14 +18189,13 @@
     render();
     renderStickerPackResult(results);
   });
-  el.stickerKakeraBtn.addEventListener('click', () => {
-    const results = openKakeraPack();
-    if (results) { audio.play('levelup'); saveState(); }
-    render();
-    renderStickerPackResult(results);
+  document.getElementById('stickerThemeKind').addEventListener('change', () => renderStickerOverlay());
+  document.getElementById('stickerThemePackBtn').addEventListener('click', () => {
+    const results = openThemedStickerPack(document.getElementById('stickerThemeKind').value);
+    if (results) { audio.play('levelup'); saveState(); render(); renderStickerPackResult(results); }
   });
   el.stickerExportBtn.addEventListener('click', () => {
-    const pg = STICKER_PAGES.find((p) => p.id === stickerCurrentPage);
+    const pg = stickerPageInfo(stickerCurrentPage);
     el.stickerExportView.innerHTML = '<p class="profile-hint">がぞうを つくっている…</p>';
     el.stickerExportView.classList.remove('hidden');
     exportStickerPageImage(stickerCurrentPage).then((url) => {
@@ -16764,9 +18226,11 @@
     buyOrEquipShopItem(btn.dataset.id);
   });
   if (el.onetimeItemGrid) el.onetimeItemGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.shop-item');
-    if (!btn) return;
-    useConsumableItem(btn.dataset.id);
+    const btn = e.target.closest('button[data-item-action]');
+    if (!btn || btn.disabled) return;
+    else if (btn.dataset.itemAction === 'buy') buyConsumableItem(btn.dataset.id);
+    else if (btn.dataset.itemAction === 'cancel') cancelNextEgg(btn.dataset.id);
+    else if (btn.dataset.itemAction === 'use') useConsumableItem(btn.dataset.id);
   });
 
   el.naotoItemGrid.addEventListener('click', () => {
@@ -16893,14 +18357,21 @@
     return json;
   }
   // --- じどうバックアップ(3世代) ---
+  // RH-8: セーブの たびに 3 世代ぶんの JSON を parse しない。localStorage の 文字列が 前と 同じ なら 前の 結果を つかう
+  // (別の タブが 書きかえたら 文字列が かわる ので parse しなおす)。かえす のは 毎回 あたらしい 配列
+  let saveSnapsCache = null;
   function readSaveSnaps() {
     try {
-      const list = JSON.parse(localStorage.getItem(SAVE_SNAP_KEY) || '[]');
-      return Array.isArray(list) ? list.filter((s) => s && typeof s.raw === 'string' && typeof s.at === 'number') : [];
+      const text = localStorage.getItem(SAVE_SNAP_KEY) || '[]';
+      if (saveSnapsCache && saveSnapsCache.text === text) return saveSnapsCache.list.slice();
+      const list = JSON.parse(text);
+      const out = Array.isArray(list) ? list.filter((s) => s && typeof s.raw === 'string' && typeof s.at === 'number') : [];
+      saveSnapsCache = { text, list: out };
+      return out.slice();
     } catch (e) { return []; }
   }
   function writeSaveSnaps(list) {
-    try { localStorage.setItem(SAVE_SNAP_KEY, JSON.stringify(list)); return true; } catch (e) { return false; }
+    try { const text = JSON.stringify(list); localStorage.setItem(SAVE_SNAP_KEY, text); saveSnapsCache = { text, list: list.slice() }; return true; } catch (e) { return false; }
   }
   // force=true は セーブコードの よみこみ/もどす の 直前に、いまの セーブを
   // かならず のこす ため(あとで「もどすのを やめる」が できる)
@@ -16927,6 +18398,7 @@
         if (!takeSaveSnapshot(saved, true)) throw new Error('Previous save could not be retained');
       }
       if (lastGoodSaveRaw) localStorage.setItem(SAVE_BACKUP_KEY, lastGoodSaveRaw);
+      markSaveWriter();
       localStorage.setItem(SAVE_KEY, raw);
       return true;
     } catch (err) {
@@ -16939,7 +18411,9 @@
       const s = JSON.parse(raw);
       if (!s || typeof s !== 'object' || !s.lifetime || typeof s.stage !== 'string') return null;
       const age = Math.max(0, Math.floor((s.ageTicks || 0) / AGE_TICKS_PER_YEAR));
-      const stage = s.stage === STAGE.EGG ? 'たまご' : s.stage === STAGE.DEAD ? 'おわり' : LIFE_STAGES[stageForAge(age)].name;
+      const stageIndex = stageForAge(age, s.speciesLine);
+      const stage = s.stage === STAGE.EGG ? 'たまご' : s.stage === STAGE.DEAD ? 'おわり'
+        : (SPECIES[s.speciesLine]?.stages?.[stageIndex]?.label || LIFE_STAGES[stageIndex]?.name || '');
       const species = s.stage === STAGE.EGG ? '' : (SPECIES_DISPLAY_NAMES[s.speciesLine] || '');
       return { species, stage, age, money: Math.max(0, Math.round(s.lifetime.money || 0)) };
     } catch (e) { return null; }
@@ -17077,6 +18551,10 @@
     render();
   });
 
+  document.getElementById('duelCancelMatchBtn').addEventListener('click', () => {
+    if (!abandonDuelChallenge()) return;
+    saveState(); goToDuelStep('home'); render();
+  });
   el.duelCloseBtn.addEventListener('click', () => {
     duelOpen = false;
     render();
@@ -17307,22 +18785,6 @@
     render();
   });
 
-  // A: 発行ずみの 挑戦コードは 書きかえられない ため、ないようを 変えたい
-  // ときは「このしょうぶを やめて 新しく作る」で しあい じたいを はいきし、
-  // かけきん入力からの あたらしい しょうぶへ すすむ
-  el.duelAbandonBtn.addEventListener('click', () => {
-    if (!abandonDuelChallenge()) return;
-    saveState();
-    goToDuelStep('bet');
-    render();
-  });
-  el.duelCodeInAbandonBtn.addEventListener('click', () => {
-    if (!abandonDuelChallenge()) return;
-    saveState();
-    goToDuelStep('bet');
-    render();
-  });
-
   el.duelCodeInBtn.addEventListener('click', () => {
     const raw = el.duelCodeInInput.value;
     if (!raw.trim()) return;
@@ -17358,6 +18820,7 @@
   });
 
   el.duelResultCloseBtn.addEventListener('click', () => {
+    if (!state.duel || state.duel.step !== 'done') return;
     state.duel = null;
     goToDuelStep('home');
     saveState();
@@ -17389,6 +18852,7 @@
   // あやしい・挑戦/推理/決着コード・とくてん・A/Bの いちじてきな 役割)
   // だけを まとめて はいきする ため、永続データには まったく えいきょう しない
   el.duelRematchBtn.addEventListener('click', () => {
+    if (!state.duel || state.duel.step !== 'done') return;
     state.duel = null;
     goToDuelStep('home');
     saveState();
@@ -17398,6 +18862,13 @@
   const OFFLINE_MIN_MS = 2 * 60 * 1000;
   const OFFLINE_CAP_TICKS = 600; // 30ぷんぶん
   const OFFLINE_FLOOR = 20;
+  // RH-9: 離れていた 時間は 打ち切らずに そのまま あらわす(7日3時間 など)。ゲームへの 反映は この下の 上限の まま
+  function formatAbsence(minutes) {
+    if (minutes >= 24 * 60) { const days = Math.floor(minutes / (24 * 60)), hours = Math.floor((minutes % (24 * 60)) / 60); return hours ? `${days}日${hours}時間` : `${days}日`; }
+    return minutes >= 120 ? `${Math.floor(minutes / 60)}時間` : `${minutes}分`;
+  }
+  // タブが かくれた 時刻(メモリだけ。save には 書かない)。とじた ときは save の savedAt、かくれた ときは これが 起点
+  let hiddenSince = 0;
   function applyOfflineProgress(now = Date.now(), savedAtOverride) {
     const savedAt = savedAtOverride != null ? Number(savedAtOverride) || 0 : Number(state.savedAt) || 0;
     if (!savedAt || state.stage !== STAGE.GROWING || state.infinite) return null;
@@ -17419,50 +18890,47 @@
     else state.energy = clamp(state.energy + 0.05 * ticks, 0, 100);
     let poop = 0;
     if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
-    // おみやげ: 5ふんに 1コイン(さいだい 12)、30ぷんいじょうなら ときどき おたのしみ
-    const coins = Math.min(12, Math.floor(elapsed / (5 * 60 * 1000)));
-    let gift = null;
-    if (coins > 0) state.lifetime.money += coins;
-    if (elapsed >= 30 * 60 * 1000 && Math.random() < 0.35) { gift = randomFunItem(); state.items[gift.id] = (state.items[gift.id] || 0) + 1; }
     const parts = [];
     const d = (k, label) => { const diff = Math.round(state[k] - before[k]); if (diff) parts.push(`${label}${diff > 0 ? '+' : ''}${diff}`); };
     d('hunger', 'おなか'); d('happiness', 'ごきげん'); d('energy', 'げんき');
     if (poop) parts.push('うんち+1');
-    if (coins) parts.push(`💰+${coins}`);
-    if (gift) parts.push(`${gift.emoji}${gift.label}`);
-    const span = minutes >= 120 ? `${Math.floor(minutes / 60)}時間` : `${minutes}分`;
+    const span = formatAbsence(minutes);
     const summary = `🏠おかえり。留守のあいだ（${span}）、${sleeping ? 'ぐっすり寝ていた' : 'おとなしく待っていた'}。${parts.length ? '変化：' + parts.join('／') : ''}`;
     pushLifeLog('🏠', `るすばん：${span}`);
     setMessage(summary);
-    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ${gift ? `\n${gift.emoji}${gift.label}を見つけて、とっておいた` : coins ? `\n💰${coins}を拾っておいた` : ''}` });
-    return { ticks, minutes, coins, gift, poop, sleeping };
+    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ` });
+    return { ticks, minutes, poop, sleeping };
   }
 
   function loop() {
-    if (gameActive) {
-      // still age/decay stats in the background, but don't touch the DOM
-      // while a minigame owns the screen
-      tick();
-      saveState();
-      return;
-    }
-    // うそつきしょうぶは しつもんを かんがえたり、あいてからの コードを
+    // RH-9: かくれて いる タブでは すすめない(ブラウザの 間引きで 端末ごとに すすみかたが かわらない ように)
+    if (!pageVisible()) return;
+    // RH-9: べつの タブが 引きついだ あとは すすめない・書かない(案内を 出しつづける)
+    if (otherTabTookOver) { if (message !== compactJapaneseText(OTHER_TAB_MESSAGE)) setCriticalMessage(OTHER_TAB_MESSAGE); return; }
+    // せわが できない がめんが ひらいている あいだは、じかんを とめる
+    // (isTimePaused: メニュー系オーバーレイ・うそつきしょうぶ・デート・
+    // なかまの さそい・おいわい・めぐる・ミニゲーム・へんしんの えらび)。
+    // うそつきしょうぶは しつもんを かんがえたり あいてからの コードを
     // まったりと、ほかの がめんより ずっと 長く 同じ がめんに とどまる
     // ことが 想定される(あいては べつの端末で べつの タイミングに あそぶ
     // 非同期な しくみなので、なおさら)。あいてむ・ずかん・じっせき・
     // でざいんも、なにを こうにゅうするか/どの すがたか/どの いろ・がら
     // にするか などを じっくり ながめて えらぶ がめんな ので、おなじく
-    // 時間の すすみを とめる。ここで とめておかないと、えらんでいる
+    // 時間の すすみを とめる。めぐるは 地域を あるきまわる あいだ ホームが
+    // まるごと かくれる ので、とめないと めぐっている あいだに おなかが
+    // へりつづけて しんでしまう ことが あった。ミニゲームも 以前は うらで
+    // ステータスが へりつづけて いたが、あそんでいる あいだは せわが
+    // できない ので おなじく とめる。とめておかないと、えらんでいる
     // あいだに 死亡メーターが すすんで しんでしまう、といった ことが
     // おきてしまうため、これらの がめんが ひらいている あいだは tick()
     // じたいを まるごと スキップする(とじれば また ふつうに じかんが
-    // すすみだす)。プロフィールも、せいかく傾向や こいびと・なかまの
-    // ようすを じっくり 見返す がめんな ので おなじく とめる。つうしん
-    // はぶ(あいてコード・しょうぶの いりぐち一覧)も、コードを つくったり
-    // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
-    // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
-    // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (isAnyMenuOverlayOpen()) { renderEnvironment(); return; }
+    // すすみだす)。基本がめん(なにも ひらいていない とき)は、ながめて
+    // いる だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
+    if (isTimePaused()) {
+      // ゲーム/めぐるが がめんを もっている あいだは DOM にも さわらない
+      if (!gameActive && !meguruActive) renderEnvironment();
+      return;
+    }
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
@@ -17498,7 +18966,7 @@
     saveState();
   } else {
     // 復旧できた場合は次の保存から再開。候補が全滅した場合は原本を保持する。
-    setTimeout(() => setMessage(saveWriteBlocked
+    setTimeout(() => setCriticalMessage(saveWriteBlocked
       ? 'きろくを読みこめませんでした。前のきろくを守るため、いまは保存を止めています'
       : '前のきろくから元にもどしました。内容をたしかめてください'), 250);
   }
@@ -17507,6 +18975,7 @@
   // としも とらない)。ねていれば げんきが かいふくする。もどってきたら
   // 「おかえり」の おしらせと、るすの ながさに おうじた ちいさな おみやげ
   applyOfflineProgress(Date.now(), bootSavedAt);
+  restorePendingGrandGoal();
   render();
   showPendingClownfishTransition();
   setInterval(loop, TICK_MS);
@@ -17518,13 +18987,28 @@
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
+      meguruMod?.suspendExpressions?.();
+      invalidateCareAfterglow();
+      clearPetExpression(true);
+      cancelEmotionCue(true);
       clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
       renderCareAttention(null, false);
+      if (!hiddenSince) hiddenSince = Date.now();
       saveState();
     }
   });
   window.addEventListener('beforeunload', () => {
     saveState();
+  });
+  // RH-9: ほかの タブが save を 書いたら(セーブコードの よみこみ・もどす を ふくむ)すぐ 読みとり専用に する。
+  // storage event は 自分の 書きこみでは こないが、reload の ときは 同じ タブの まえの ページの 書きこみが とどく ので、
+  // 書いた タブ(SAVE_WRITER_KEY)が 自分なら むしする。複製した タブ(sessionStorage が 写る)は 書く まえの revision の 判定で 止まる
+  window.addEventListener('storage', (e) => {
+    if (!e || e.key !== SAVE_KEY || e.newValue == null) return;
+    let writer = null;
+    try { writer = localStorage.getItem(SAVE_WRITER_KEY); } catch (err) { /* storage unavailable */ }
+    if (saveTabId && writer === saveTabId) return;
+    yieldToOtherTab();
   });
   function syncHomeViewport() {
     const viewport = window.visualViewport;
@@ -17542,24 +19026,74 @@
   window.addEventListener('resize', syncHomeViewport);
   window.visualViewport?.addEventListener('resize', syncHomeViewport);
   syncHomeViewport();
+  // RH-10(Roadmap §8.4): Escape と ブラウザの 戻る(Android の 戻る・iOS の スワイプ)は 同じ closeTopLayer を とおる。
+  // かえす 値: 'closed'(1 つ とじた・確認を 出した)/ 'stay'(とじられない 場面)/ false(home。何も しない)
+  function closeTopLayer() {
+    if (!el.wipeConfirmOverlay.classList.contains('hidden')) { cancelWipeConfirmation(); return 'closed'; }
+    if (!el.wipeOverlay.classList.contains('hidden')) { cancelWipePrompt(); return 'closed'; }
+    if (meguruActive && meguruRun && meguruRun.mapOpen) { meguruRun.closeMap(); return 'closed'; }
+    // ミニゲームは すぐには おわらせない。やめるかの 確認を 出す
+    if (gameActive) { if (el.mgQuitBtn) setMinigameQuitConfirm(true); return 'stay'; }
+    if (dateOpen || duelOpen || companionInviteOpen || state.transformOptions || grandGoalPending) return 'stay';
+    if (meguruActive) { stopMeguru(); el.menuBtn.focus(); return 'closed'; }
+    if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); return 'closed'; }
+    return false;
+  }
+  function historyLayerOpen() {
+    return gameActive || meguruActive || !!state.transformOptions || isAnyMenuOverlayOpen()
+      || !el.wipeConfirmOverlay.classList.contains('hidden') || !el.wipeOverlay.classList.contains('hidden');
+  }
+  // home 以外の 層に いる あいだだけ、history に entry を 1 つだけ もつ(層の あいだの 移動では ふやさない)。
+  // UI で 閉じて home に もどったら、その entry を history.back() で けす(その popstate は むしする)
+  // RH-10(§8.6): パネル(role=dialog)が ひらいて いる あいだ、その 下に かくれた ホームの 画面を inert に する
+  // (Tab で うしろに 行かない・読み上げで 読まない)。下の ボタンの 列と ヘッダーは パネルの きりかえに つかう ので そのまま
+  function syncModalInert() {
+    if (!el.screenNormal) return;
+    const modal = isAnyMenuOverlayOpen() && !meguruActive || !!state.transformOptions
+      || !el.wipeConfirmOverlay.classList.contains('hidden') || !el.wipeOverlay.classList.contains('hidden')
+      || !el.lifeCardOverlay.classList.contains('hidden');
+    if (el.screenNormal.inert !== modal) el.screenNormal.inert = modal;
+  }
+  function syncHistoryLayer() {
+    historySyncQueued = false;
+    syncModalInert();
+    if (typeof history === 'undefined' || typeof history.pushState !== 'function') return;
+    const open = historyLayerOpen();
+    if (open && !historyLayer) { history.pushState({ nt: 'layer' }, ''); historyLayer = true; }
+    else if (!open && historyLayer) { historyLayer = false; ignoreNextPop++; history.back(); }
+  }
+  function scheduleHistoryLayerSync() {
+    if (historySyncQueued) return;
+    historySyncQueued = true;
+    Promise.resolve().then(syncHistoryLayer);
+  }
+  window.addEventListener('popstate', () => {
+    if (ignoreNextPop) { ignoreNextPop--; return; }
+    if (!historyLayer) return; // home で 戻る: ページを はなれる(何も しない)
+    historyLayer = false;
+    closeTopLayer();
+    // まだ 層の 中(とじられない 場面・ミニゲームの 確認・層が かさなって いた)なら entry を もどして とどまる
+    syncHistoryLayer();
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
-    if (!el.wipeConfirmOverlay.classList.contains('hidden')) {
-      e.preventDefault();
-      cancelWipeConfirmation();
-      return;
-    }
-    if (!el.wipeOverlay.classList.contains('hidden')) {
-      e.preventDefault();
-      cancelWipePrompt();
-      return;
-    }
-    if (dateOpen || duelOpen || companionInviteOpen || gameActive || state.transformOptions) return;
-    if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); }
+    if (gameActive) return; // ミニゲームの Escape は ミニゲームの keydown が うけもつ(確認の 出し入れ)
+    if (closeTopLayer()) e.preventDefault();
   });
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') { renderEnvironment(); maybeRefreshEnvironment(); }
+    if (document.visibilityState === 'visible') {
+      // RH-9: かくれて いた あいだの ぶんを、とじて いた ときと 同じ るすの 処理で 1 回だけ 反映する
+      if (hiddenSince) {
+        const since = hiddenSince; hiddenSince = 0;
+        if (applyOfflineProgress(Date.now(), since)) { saveState(); render(); }
+      }
+      renderEnvironment(); maybeRefreshEnvironment(); syncHomeEmotion();
+      renderPetVisual();
+    }
   });
   window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change', renderEnvironment);
   globalThis.NaotocchiDisplayIllustrations?.create({document,iconHTML:displayIconHTML}).install(el.device);
+  // RH-9: 起動が おわった しるし(index.html の 救済パネルは これが 立たない ときだけ 出る)
+  globalThis.__naotocchiBooted = true;
+  globalThis.__naotocchiBootGuard?.done?.();
 })();

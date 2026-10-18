@@ -11,11 +11,11 @@
     const bubble=doc.getElementById('speechBubble');
     if(visible(bubble)) {
       const frames=[...doc.querySelectorAll('#petSprite .character-asset,.partner-emoji .character-asset,.companion-chip-small .character-asset')].filter(visible).map(img=>{
-        const r=rect(img), asset=img.getAttribute('src').split('?')[0];
+        const r=rect(img), asset=(img.getAttribute('data-fallback-asset') || img.getAttribute('src')).split('?')[0];
         const b=win.NaotocchiCastBounds?.[asset]?.box || [0,0,128,128];
         return {x:r.x+r.width*b[0]/128,y:r.y+r.height*b[1]/128,right:r.x+r.width*b[2]/128,bottom:r.y+r.height*b[3]/128};
       });
-      const extra=[...doc.querySelectorAll('#petAccessory:not(.hidden),.partner-heart')].filter(visible).map(rect);
+      const extra=[...doc.querySelectorAll('#petAccessory:not(.hidden),.partner-heart,.partner-emoji .relationship-heart')].filter(visible).map(rect);
       const bodies=[...frames,...extra];
       const r=rect(bubble), top=Math.min(...bodies.map(b=>b.y)), bottom=Math.max(...bodies.map(b=>b.bottom));
       const gap=r.bottom<=top?top-r.bottom:r.y>=bottom?r.y-bottom:-1;
@@ -43,6 +43,16 @@
     const quit=doc.getElementById('mgQuit');
     if(visible(quit)) {
       result.game=rect(doc.getElementById('minigameOverlay'));
+      const start=doc.getElementById('mgIntroStart');
+      if(visible(start)) {
+        const r=rect(start), hit=doc.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+        result.start={...r,clickable:hit===start || start.contains(hit)};
+        if(!inside(r) || !result.start.clickable) errors.push('start is offscreen or covered');
+        for(const e of [...quit.querySelectorAll('button')].filter(visible)) {
+          const q=rect(e);
+          if(r.x<q.right && r.right>q.x && r.y<q.bottom && r.bottom>q.y) errors.push('start overlaps '+e.id);
+        }
+      }
       result.controls=[...quit.querySelectorAll('button')].filter(visible).map(e=>{
         const r=rect(e), hit=doc.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
         const clickable=hit===e || e.contains(hit);

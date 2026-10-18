@@ -1,0 +1,7 @@
+(node:6) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/nonplayer-author-hair-source-fix/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/nonplayer-author-hair-source-fix/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+42 nonauthor rows: exact input, produced attributes/indices, transforms, owners, faceSpec/target PASS
+author all nonhead geometry, bones, transforms and canonical face defaults: exact PASS
+Shared humanoid factory byte-identical to base; previous player-family default evidence reused unchanged

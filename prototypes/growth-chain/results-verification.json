@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "jobs": 48,
+  "trials": 3840,
+  "witnesses": 95,
+  "actions": 554528,
+  "checks": [
+    "seed initialization",
+    "full legal action histories",
+    "final checksum",
+    "chain and 08 event counts",
+    "egg earn/spend",
+    "game-over vs censoring",
+    "summary denominators"
+  ]
+}

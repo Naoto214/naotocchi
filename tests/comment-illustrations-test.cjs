@@ -58,7 +58,11 @@ test('event text, captions and birthday notices use the same inline presentation
   assert.match(h.get('birthdayToast').innerHTML,/data-care-icon="gift"/);
   const source=fs.readFileSync('script.js','utf8');
   assert.doesNotMatch(source,/el\.(speechText|dateMovieCaption|storyFlashText|birthdayToast)\.textContent\s*=/);
-  assert.equal((source.match(/setCommentText\(el\.dateMovieCaption,/g)||[]).length,6);
+  h.api.playLegendEncounterMovie({id:'mirror',emoji:'🪞'},8);
+  const opening=h.get('dateMovieCaption').textContent;
+  h.advance(3500);
+  assert.ok(opening.length>0);
+  assert.notEqual(h.get('dateMovieCaption').textContent,opening,'the shared movie player advances its subtitle');
 });
 
 test('birthday and milestone symbols depict their own objects without unrelated atlas substitutes',()=>{

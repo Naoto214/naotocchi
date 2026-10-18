@@ -1,0 +1,62 @@
+{
+  "run": 38032036132,
+  "source": "61412b0b0dcb097e738476fda7a69cb142a0786c",
+  "evidenceKind": "Decoded successful GitHub job logs; artifact ZIP bytes not downloaded for these lightweight summaries",
+  "jobs": [
+    {
+      "job": 114154815449,
+      "summary": {
+        "kind": "smoke",
+        "coverage": 13,
+        "issues": [],
+        "samples": 0,
+        "hidden": 0,
+        "partial": 0,
+        "maxPartyObstacleOverlap": 4.263256414560601e-14,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      },
+      "artifactId": 11662961021,
+      "evidence": [
+        "2026-10-10T06:46:33.6059427Z home         3D=true walk=410 pen=0.0/0.0 party=27 calls=58 tris=34786 js=5.9 enter=252ms spot=bigtree err=0/0 fb=0",
+        "2026-10-10T06:47:00.7091797Z city         3D=true walk=313 pen=0.0/0.0 party=27 calls=60 tris=129650 js=8.3 enter=568ms spot=tower err=0/0 fb=0",
+        "2026-10-10T06:47:24.8622140Z countryside  3D=true walk=346 pen=0.0/0.0 party=27 calls=75 tris=119640 js=7.4 enter=759ms spot=watermill err=0/0 fb=0",
+        "2026-10-10T06:47:50.0777367Z forest       3D=true walk=325 pen=0.0/0.0 party=27 calls=81 tris=148062 js=9.3 enter=458ms spot=mush1 err=0/0 fb=0",
+        "2026-10-10T06:48:14.0968757Z mountain     3D=true walk=350 pen=0.0/0.0 party=27 calls=76 tris=106698 js=8.7 enter=411ms spot=bigfalls err=0/0 fb=0",
+        "2026-10-10T06:48:34.9463200Z snow         3D=true walk=395 pen=0.0/0.0 party=27 calls=69 tris=69834 js=6.5 enter=557ms spot=lodge err=0/0 fb=0",
+        "2026-10-10T06:48:56.8356196Z sea          3D=true walk=371 pen=0.0/0.0 party=27 calls=68 tris=69288 js=8.0 enter=371ms spot=lighthouse err=0/0 fb=0",
+        "2026-10-10T06:49:17.6679466Z deepsea      3D=true walk=404 pen=0.0/0.0 party=27 calls=59 tris=73746 js=6.2 enter=332ms spot=coralcity err=0/0 fb=0",
+        "2026-10-10T06:49:43.5378010Z river_lake   3D=true walk=345 pen=0.0/0.0 party=27 calls=94 tris=114268 js=8.6 enter=777ms spot=bridge2 err=0/0 fb=0",
+        "2026-10-10T06:50:13.9000467Z jungle       3D=true walk=296 pen=0.0/0.0 party=27 calls=90 tris=173318 js=10.5 enter=577ms spot=falls err=0/0 fb=0",
+        "2026-10-10T06:50:36.5180423Z desert       3D=true walk=376 pen=0.0/0.0 party=27 calls=65 tris=90878 js=7.1 enter=350ms spot=oasis err=0/0 fb=0",
+        "2026-10-10T06:50:58.3390632Z star_stop    3D=true walk=385 pen=0.0/0.0 party=27 calls=53 tris=66398 js=5.1 enter=330ms spot=stop err=0/0 fb=0",
+        "2026-10-10T06:51:19.0320185Z memory_lake  3D=true walk=433 pen=0.0/0.0 party=27 calls=60 tris=51666 js=6.7 enter=317ms spot=shore err=0/0 fb=0",
+        "2026-10-10T06:51:19.1232174Z {\"kind\":\"smoke\",\"coverage\":13,\"issues\":[],\"samples\":0,\"hidden\":0,\"partial\":0,\"maxPartyObstacleOverlap\":4.263256414560601e-14,\"caveat\":\"ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration\"}"
+      ]
+    },
+    {
+      "job": 114154815537,
+      "summary": {
+        "kind": "corridor",
+        "coverage": 8,
+        "issues": [],
+        "samples": 0,
+        "hidden": 0,
+        "partial": 0,
+        "maxPartyObstacleOverlap": 0,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      },
+      "artifactId": 11662246948,
+      "evidence": [
+        "2026-10-10T06:46:53.2929192Z home|forest|home         started=true arrived=true samples=56 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:47:29.4531274Z forest|mountain|forest   started=true arrived=true samples=46 corridor3D=true playerOK=true maxGhost=6 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:48:15.6686921Z city|sea|city            started=true arrived=true samples=48 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:48:51.1911797Z countryside|forest|countryside started=true arrived=true samples=38 corridor3D=true playerOK=true maxGhost=5 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:49:38.1585328Z home|forest|forest       started=true arrived=true samples=48 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:50:23.5615982Z forest|mountain|mountain started=true arrived=true samples=48 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:51:09.6180546Z city|sea|sea             started=true arrived=true samples=49 corridor3D=true playerOK=true maxGhost=41 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:51:43.6597389Z countryside|forest|forest started=true arrived=true samples=39 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined",
+        "2026-10-10T06:51:43.7520194Z {\"kind\":\"corridor\",\"coverage\":8,\"issues\":[],\"samples\":0,\"hidden\":0,\"partial\":0,\"maxPartyObstacleOverlap\":0,\"caveat\":\"ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration\"}"
+      ]
+    }
+  ]
+}

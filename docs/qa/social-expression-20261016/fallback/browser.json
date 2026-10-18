@@ -1,0 +1,210 @@
+[
+  {
+    "width": 375,
+    "height": 667,
+    "is3D": false,
+    "party": 1,
+    "buttons": [
+      {
+        "id": "mgrAccompany",
+        "x": 257,
+        "y": 95.1875,
+        "w": 84,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialWalk",
+        "x": 135,
+        "y": 145,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialAdventure",
+        "x": 135,
+        "y": 241,
+        "w": 112,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialEnd",
+        "x": 135,
+        "y": 289,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialClose",
+        "x": 135,
+        "y": 337,
+        "w": 98,
+        "h": 44
+      }
+    ],
+    "layout": {
+      "limit": 644,
+      "avail": 577,
+      "over": 0,
+      "shrink": 0,
+      "H": 380,
+      "want": 220
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "is3D": false,
+    "party": 1,
+    "buttons": [
+      {
+        "id": "mgrAccompany",
+        "x": 272,
+        "y": 105.78125,
+        "w": 84,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialWalk",
+        "x": 150,
+        "y": 155.59375,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialAdventure",
+        "x": 150,
+        "y": 251.59375,
+        "w": 112,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialEnd",
+        "x": 150,
+        "y": 299.59375,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialClose",
+        "x": 150,
+        "y": 347.59375,
+        "w": 98,
+        "h": 44
+      }
+    ],
+    "layout": {
+      "limit": 817.59375,
+      "avail": 740,
+      "over": 0,
+      "shrink": 0,
+      "H": 275,
+      "want": 303
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "is3D": false,
+    "party": 1,
+    "buttons": [
+      {
+        "id": "mgrAccompany",
+        "x": 312,
+        "y": 105.78125,
+        "w": 84,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialWalk",
+        "x": 190,
+        "y": 155.59375,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialAdventure",
+        "x": 190,
+        "y": 251.59375,
+        "w": 112,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialEnd",
+        "x": 190,
+        "y": 299.59375,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialClose",
+        "x": 190,
+        "y": 347.59375,
+        "w": 98,
+        "h": 44
+      }
+    ],
+    "layout": {
+      "limit": 905.59375,
+      "avail": 828,
+      "over": 0,
+      "shrink": 0,
+      "H": 615,
+      "want": 391
+    },
+    "errors": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "is3D": false,
+    "party": 1,
+    "buttons": [
+      {
+        "id": "mgrAccompany",
+        "x": 530,
+        "y": 38.1875,
+        "w": 84,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialWalk",
+        "x": 600,
+        "y": 88,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialAdventure",
+        "x": 600,
+        "y": 184,
+        "w": 112,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialEnd",
+        "x": 600,
+        "y": 232,
+        "w": 98,
+        "h": 44
+      },
+      {
+        "id": "mgrSocialClose",
+        "x": 600,
+        "y": 280,
+        "w": 98,
+        "h": 44
+      }
+    ],
+    "layout": {
+      "limit": 376,
+      "avail": 366,
+      "over": 0,
+      "shrink": 0,
+      "H": 220,
+      "want": 220
+    },
+    "errors": []
+  }
+]

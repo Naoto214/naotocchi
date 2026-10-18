@@ -1,0 +1,189 @@
+{
+  "when": "2026-10-06T12:00:57.003Z",
+  "revision": "quality3",
+  "sourceCommit": "f6414b6c5a80232553587f5e736c6b728e2b3ae1",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "aquatic",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "jellyfish:1": {
+      "requestedStage": 1,
+      "harnessStageIndex": 0,
+      "playerKey": "jellyfish:0",
+      "player3d": true,
+      "specKey": {
+        "id": "jellyfish",
+        "stage": 1,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/aquatic-distance/player-jellyfish-1-front.png",
+      "back": "test-results/full-rollout/aquatic-distance/player-jellyfish-1-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 38406,
+        "meshes": 84,
+        "bones": 54,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 4.319,
+        "cpuMsP95": 51.2,
+        "buildMsTotal": 292.4,
+        "buildMsMax": 66.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "jellyfish:2": {
+      "requestedStage": 2,
+      "harnessStageIndex": 1,
+      "playerKey": "jellyfish:1",
+      "player3d": true,
+      "specKey": {
+        "id": "jellyfish",
+        "stage": 2,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/aquatic-distance/player-jellyfish-2-front.png",
+      "back": "test-results/full-rollout/aquatic-distance/player-jellyfish-2-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 39542,
+        "meshes": 84,
+        "bones": 54,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 12,
+        "cpuMsAvg": 4.288,
+        "cpuMsP95": 30.9,
+        "buildMsTotal": 343.5,
+        "buildMsMax": 84.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "jellyfish:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "jellyfish:2",
+      "player3d": true,
+      "specKey": {
+        "id": "jellyfish",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/aquatic-distance/player-jellyfish-3-front.png",
+      "back": "test-results/full-rollout/aquatic-distance/player-jellyfish-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 38250,
+        "meshes": 83,
+        "bones": 54,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.8,
+        "cpuMsP95": 23.9,
+        "buildMsTotal": 309.4,
+        "buildMsMax": 75.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "jellyfish:4": {
+      "requestedStage": 4,
+      "harnessStageIndex": 3,
+      "playerKey": "jellyfish:3",
+      "player3d": true,
+      "specKey": {
+        "id": "jellyfish",
+        "stage": 4,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/aquatic-distance/player-jellyfish-4-front.png",
+      "back": "test-results/full-rollout/aquatic-distance/player-jellyfish-4-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 37554,
+        "meshes": 89,
+        "bones": 57,
+        "materials": 3,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.617,
+        "cpuMsP95": 25.7,
+        "buildMsTotal": 287.8,
+        "buildMsMax": 68.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "jellyfish:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "jellyfish:6",
+      "player3d": true,
+      "specKey": {
+        "id": "jellyfish",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/aquatic-distance/player-jellyfish-7-front.png",
+      "back": "test-results/full-rollout/aquatic-distance/player-jellyfish-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 39570,
+        "meshes": 89,
+        "bones": 57,
+        "materials": 3,
+        "atlases": 11,
+        "eyeGeos": 12,
+        "cpuMsAvg": 4.307,
+        "cpuMsP95": 31.5,
+        "buildMsTotal": 340.8,
+        "buildMsMax": 66.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

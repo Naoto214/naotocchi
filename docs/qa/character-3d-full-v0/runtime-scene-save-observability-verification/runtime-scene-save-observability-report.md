@@ -1,0 +1,34 @@
+# Repeated scene save observability
+
+QA-only diagnostic implementation complete. Actual ad96 save-failure cause remains OPEN; unchanged-save verdict is not corrected or waived.
+
+- Base `494e426b`; committed head `051e22ab513dfdb305ec7e3c8c8f99298e1bec26`.
+- Isolated `/workspace/scratch/150320e8a2fd/rollout-runtime-scene-save-observability`, branch `work/runtime-scene-save-observability`; clean after local commit.
+- No production/model/Expression/renderer/World/Home/save/gameplay/registry/promotion/workflow/capture edits; no push/browser download/image capture/full suite.
+
+Read `runtime-scene-save-scope-audit.md` and raw `ad96-scene-failure.log`. Actual ad96 completed all three repeated cycles, then rejected `unchanged save`. Parent subsequently recovered actual flags save=false/storage=false/saveWrites=false/getter=true, writes20→23, step+region restored, three complete samples and no readiness error. That artifact has no state/storage deltas or call stacks, so matching source hypotheses do not establish cause.
+
+## Changes: four files
+
+- `tools/character-3d/runtime-integration.cjs`: retain overall raw parsed save/storage before and after, overall field/storage deltas, normal observed save-call stacks, write counts and explicit event-cap indicator. Record concise deltas/events for baseline readiness, every warmup/cycle phase, whole warmup and each of three cycles, and cleanup. Interval finally blocks preserve evidence when natural enterWorld/readiness throws. Log dirty/different intervals with phase labels before outer validation.
+- Same tool temporarily observes every synchronous `renderer.draw` and `setChar3D` call during the proof using existing `saveSnapshot` / `observeSaveBoundary` / `saveDelta`. Retain dirty proofs rather than discard them, including phase and available save-call provenance. Restore both renderer methods in finally, even if recording the cleanup observation throws. Temporary browser helper globals are removed on evaluate failure too.
+- `tests/character-3d-runtime-scene-diagnostics-test.cjs`: three primary regressions for first-city seed observability plus unchanged original REJECT, dirty draw/flag mutations, and throwing city transition with cleanup deltas; one browser helper serialization/restoration regression. Existing deferred7→11, exact roster, hidden city cache and timeout persistence tests retained.
+- `tests/character-3d-runtime-save-boundary-test.cjs`: actual protected `bridge.seedMapRecords('city',…)` regression through existing runtime harness and normal storage. It proves first empty-city-bag migration/write/call-stack observability, repeat seed preserves existing bag and causes no new write, and subsequent read-only presentation boundary remains clean. Normal saveState may also update achievements/revision/timestamps: the actual test does not pretend its effects are only three map arrays.
+- `tools/character-3d/runtime-integration-remove-it.cjs`: four scoped observability controls and `--scene-save-observability-only`; existing `--scene-diagnostics-only` automatically includes these new controls in the existing focused dedicated step. No workflow edit/job/framework.
+
+No save/getter swap, state normalization, city pre-seeding, write suppression or reset added. Per-phase city/forest deltas legitimately include QA's existing explicit region field assignments; scopes label QA placement and natural application operations without attribution to presentation. Save evidence preserves the original prewarmup baseline. `validateRepeated` is byte-identical, so even a one-time warmup city seed remains REJECT under the current gate. New constituent boundary data is diagnostic evidence; no new validation rule or permissive baseline was introduced.
+
+## Focused verification
+
+Commands ran from worktree; raw logs in main `.superpowers/sdd/1772ca6d6997/`.
+
+1. `node --test --test-name-pattern='scene save diagnostics' tests/character-3d-runtime-scene-diagnostics-test.cjs` before implementation: **3RED**, exact missing phase/boundary observation assertions (`runtime-scene-save-observability-before.log`). Test fixture getItem was fixed before establishing those meaningful REDs.
+2. Initial combined `node --test tests/character-3d-runtime-scene-diagnostics-test.cjs tests/character-3d-runtime-save-boundary-test.cjs tests/character-3d-runtime-integration-test.cjs`: **25PASS/0FAIL**, exit0 (`runtime-scene-save-observability-focused.log`). Existing nine integration tests including actual currently registered role presenter test passed. Unchanged functional/metric/gate functions were reused afterward rather than running another45-role test.
+3. Final `node --test tests/character-3d-runtime-scene-diagnostics-test.cjs tests/character-3d-runtime-save-boundary-test.cjs`: **18PASS/0FAIL**, exit0 (`runtime-scene-save-observability-final.log`). Eleven scene + seven save-boundary tests. An intermediate real-seed test expected a missing whole bag to produce a leaf path; actual saveDelta correctly emits the absent bag path with city array in its value. Test adjusted to the observed real schema, retaining exact first/repeat write assertions (`runtime-scene-save-observability-new.log` final18PASS).
+4. `node tools/character-3d/runtime-integration-remove-it.cjs --scene-save-observability-only`: **4RED**, restored focused GREEN, exact tool SHA256 `beaf70bd332bb1594819e7f6b773819f4dbfe160eb74c1952c6fca83afe40d87` (`runtime-scene-save-observability-controls.log`). Controls omit warmup/city observation, discard save-call stacks, discard dirty draw proof, and omit cleanup observation. No production file mutated.
+5. Same-runtime base/current export-function comparison: **14 functions exact**, original prewarmup save/storage/write and postwarmup resource baseline expressions exact (`runtime-scene-save-observability-identity.log`). Functions: functionalRows, validateFunctional, functionalRun, recordFunctionalResult, saveDelta, saveSnapshot, observeSaveBoundary, installSaveCounter, validateRepeated, validateCityCache, appearanceWindows, isolatedAnimation, installAppearanceProbe, retainRepeatedResult. Temporary base QA module deleted in finally. Functional45/Author and separate timing measurements remain unchanged.
+6. `git diff --check 494e426b HEAD`: exit0. Worktree clean.
+
+## Pending actual diagnosis
+
+Root owns scene-only diagnostic CI on this observer. Need actual warmup/cycle/cleanup deltas and call stacks to distinguish first-city seed, ordinary queued saves/timers, or synchronous/deferred presentation mutation. No ad96 cause/PASS claim. Existing event stack collector caps at256 events; explicit eventLimitReached discloses that limit while write counts remain exact. Synchronous observer adds QA overhead during repeated-scene draws; adapters are restored before later native metrics/isolated animation. Actual renderer/performance approval is separate.

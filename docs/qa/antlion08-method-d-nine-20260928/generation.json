@@ -1,0 +1,133 @@
+{
+  "date": "2026-09-28",
+  "method": "built-in image_gen; one separate call per state; only normal08 image reference",
+  "raw_note": "raw tool outputs retained in original generated_images; sources/*.png are normalized intermediate evidence, not additional candidates",
+  "states": {
+    "happy": {
+      "raw_source_name": "exec-ab5efbbe-78c4-4d19-9201-8dadcb51b1b5.png",
+      "raw_sha256": "aef48f59fa4b14b0ceb0139e541c12ccc7e00ee240e76f8e79f81efdec7a7c4a",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/happy.png",
+      "normalized_sha256": "943a1c467c46b91560f0a7e091ef6b969b4fc6d2d95364b79142a21918c1b566",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "strained": {
+      "raw_source_name": "exec-50326564-c8c1-4fde-a449-bc8c98e51649.png",
+      "raw_sha256": "971478bd60f4e7ac3dd2c67f74f4ab85fbbec00ec963542a5a956b0f814fb3c8",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/strained.png",
+      "normalized_sha256": "23e97c2ece33a0b6b441c63be7c34f3c9f485ada90ebfb5b442423dfff957ae3",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "hungry": {
+      "raw_source_name": "exec-f18ad12f-154e-453a-acc3-89111dd5c50b.png",
+      "raw_sha256": "2caca0cbc97b7e6949900dd8fc0d3a27dc0d88afa9a3f238edc0ebbac5ea7317",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/hungry.png",
+      "normalized_sha256": "e62e60c740a15523c103c9efcf7de140405b04b5606380ba24c66469c99dc13a",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "sick": {
+      "raw_source_name": "exec-e9dbc1b0-7994-4f17-a618-5a3c57e8b7a9.png",
+      "raw_sha256": "52328a6ae279947203a31a877db5f2c9d48c55a1473d14a08d3e4e096ccf93b3",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/sick.png",
+      "normalized_sha256": "3bbe79330be4b528bb0cb480ee05f4fa005e6513cde958e8befff0dbf561ce9f",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "sulky": {
+      "raw_source_name": "exec-1e39439a-7bf1-4fbb-a628-de8cc8473933.png",
+      "raw_sha256": "dddc10a57460a991eb50e510719c8cd602a33b753ffdc430aa0c47ccc25e1fd1",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/sulky.png",
+      "normalized_sha256": "10964f9670a8287ec62096710305c1affc5e0b233adb125fab820ecd31e8f1d2",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "weak": {
+      "raw_source_name": "exec-69d3ebd6-928d-42ba-802b-bd7da37b4d31.png",
+      "raw_sha256": "1d9c13888553e5e0f5eacf1d568ba73f9cf079a1f776bebf51995ba86f84dd4e",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/weak.png",
+      "normalized_sha256": "a4258416e78ae549490d29b8573aa5f83279350580718fa816390c5930716390",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "critical": {
+      "raw_source_name": "exec-25702ecf-03a8-453b-97d3-b8421af39db3.png",
+      "raw_sha256": "133981fafd00160acb45bbaa90d14539b0c2d78837970483e85e2ecd7fe823b0",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/critical.png",
+      "normalized_sha256": "324dbc03baa0f0fbe472ec4a03d13a2949b3bbfbc5d875a06eb600d5b9b6f551",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "wantsPlay": {
+      "raw_source_name": "exec-22bc1c9a-8de1-4535-8721-c49407be91df.png",
+      "raw_sha256": "ee3cc4382f01daf146c6f357790bd8fe65634b9b81f7aa285df64e3598acde96",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/wantsPlay.png",
+      "normalized_sha256": "7a9ca122f5a1c3566edaf2c647a4a2bdf1a6e678adc42da63042e76c65c613f6",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    },
+    "sleeping": {
+      "raw_source_name": "exec-65c242a3-1b28-4b93-9d02-21ed73048fef.png",
+      "raw_sha256": "f0b2ed43a9034d01a674333bc5822d659632a119c431c801430e8b7cc9e03863",
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "normalized_source": "sources/sleeping.png",
+      "normalized_sha256": "0a7e9a1eaa140c99c1c248f4afeaef54da125a01272712baeeaeb455cb5af505",
+      "generation_calls": 1,
+      "retries": 0,
+      "body_reference": "assets/characters/antlion/08.png",
+      "existing_expression_pixels_used": false
+    }
+  }
+}

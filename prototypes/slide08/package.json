@@ -1,0 +1,17 @@
+{
+  "name": "naotocchi-slide08-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:dom": "node tests/ui-dom.cjs",
+    "test:mutation": "node tests/mutation.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "measure": "node experiments.mjs matrix && node experiments.mjs policies && node analyze.mjs --diversity",
+    "verify": "node verify-all.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "playwright": "1.49.1"
+  }
+}

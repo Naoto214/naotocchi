@@ -1,0 +1,1159 @@
+{
+ "home": {
+  "region": "home",
+  "enterMs": 171,
+  "entry": {
+   "region": "home",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 53,
+    "triangles": 15708,
+    "textures": 31,
+    "geometries": 23,
+    "objects": 214,
+    "actors": 28,
+    "drawMsAvg": 8.366666666658906,
+    "drawMsP95": 4.5,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 627,
+  "pen": {
+   "player": 0,
+   "party": 7.105427357601002e-15,
+   "n": 64
+  },
+  "afterWalk": {
+   "region": "home",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 54,
+    "triangles": 15736,
+    "textures": 31,
+    "geometries": 24,
+    "objects": 214,
+    "actors": 28,
+    "drawMsAvg": 3.701136363633189,
+    "drawMsP95": 4.5,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -119,
+    "z": 806
+   }
+  },
+  "spot": {
+   "id": "bigtree",
+   "label": "おおきなき",
+   "x": 0,
+   "z": 2600,
+   "landmark": "bigtree"
+  },
+  "atSpot": {
+   "region": "home",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 50,
+    "triangles": 15212,
+    "textures": 31,
+    "geometries": 24,
+    "objects": 214,
+    "actors": 28,
+    "drawMsAvg": 3.221296296293278,
+    "drawMsP95": 4.300000000046566,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 2480
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "city": {
+  "region": "city",
+  "enterMs": 601,
+  "entry": {
+   "region": "city",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 57,
+    "triangles": 54710,
+    "textures": 31,
+    "geometries": 26,
+    "objects": 906,
+    "actors": 28,
+    "drawMsAvg": 15.218749999985448,
+    "drawMsP95": 206.0999999998603,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 448,
+  "pen": {
+   "player": 0,
+   "party": 4.263256414560601e-14,
+   "n": 59
+  },
+  "afterWalk": {
+   "region": "city",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 56,
+    "triangles": 54686,
+    "textures": 31,
+    "geometries": 26,
+    "objects": 906,
+    "actors": 28,
+    "drawMsAvg": 5.537499999994907,
+    "drawMsP95": 5.400000000139698,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -54,
+    "z": 635
+   }
+  },
+  "spot": {
+   "id": "tower",
+   "label": "とけいとう",
+   "x": 0,
+   "z": 6250,
+   "landmark": "tower"
+  },
+  "atSpot": {
+   "region": "city",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 59,
+    "triangles": 52294,
+    "textures": 31,
+    "geometries": 27,
+    "objects": 906,
+    "actors": 28,
+    "drawMsAvg": 4.723456790121732,
+    "drawMsP95": 5.400000000139698,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 6130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "countryside": {
+  "region": "countryside",
+  "enterMs": 184,
+  "entry": {
+   "region": "countryside",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 52,
+    "triangles": 44874,
+    "textures": 31,
+    "geometries": 22,
+    "objects": 626,
+    "actors": 28,
+    "drawMsAvg": 8.800000000034924,
+    "drawMsP95": 134,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 531,
+  "pen": {
+   "player": 0,
+   "party": 7.105427357601002e-15,
+   "n": 58
+  },
+  "afterWalk": {
+   "region": "countryside",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 55,
+    "triangles": 46178,
+    "textures": 31,
+    "geometries": 27,
+    "objects": 626,
+    "actors": 28,
+    "drawMsAvg": 3.7140845070514357,
+    "drawMsP95": 5.300000000046566,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -62,
+    "z": 717
+   }
+  },
+  "spot": {
+   "id": "watermill",
+   "label": "みずぐるま",
+   "x": 1350,
+   "z": 3300,
+   "landmark": "windmill"
+  },
+  "atSpot": {
+   "region": "countryside",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 59,
+    "triangles": 46242,
+    "textures": 31,
+    "geometries": 28,
+    "objects": 626,
+    "actors": 28,
+    "drawMsAvg": 4.012643678172695,
+    "drawMsP95": 6.100000000093132,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 1350,
+    "z": 3180
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "forest": {
+  "region": "forest",
+  "enterMs": 606,
+  "entry": {
+   "region": "forest",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 57,
+    "triangles": 109074,
+    "textures": 33,
+    "geometries": 27,
+    "objects": 1050,
+    "actors": 28,
+    "drawMsAvg": 13.971428571485117,
+    "drawMsP95": 163.30000000004657,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 432,
+  "pen": {
+   "player": 0,
+   "party": 4.263256414560601e-14,
+   "n": 58
+  },
+  "afterWalk": {
+   "region": "forest",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 59,
+    "triangles": 109226,
+    "textures": 37,
+    "geometries": 31,
+    "objects": 1050,
+    "actors": 28,
+    "drawMsAvg": 4.745901639370981,
+    "drawMsP95": 5.900000000139698,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -64,
+    "z": 617
+   }
+  },
+  "spot": {
+   "id": "mush1",
+   "label": "ひかるキノコ",
+   "x": -1300,
+   "z": 3600,
+   "landmark": "glowmushroom"
+  },
+  "atSpot": {
+   "region": "forest",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 63,
+    "triangles": 109770,
+    "textures": 37,
+    "geometries": 34,
+    "objects": 1050,
+    "actors": 28,
+    "drawMsAvg": 4.826027397280049,
+    "drawMsP95": 6.2000000001862645,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -1300,
+    "z": 3480
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "mountain": {
+  "region": "mountain",
+  "enterMs": 415,
+  "entry": {
+   "region": "mountain",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 64,
+    "triangles": 70072,
+    "textures": 35,
+    "geometries": 33,
+    "objects": 663,
+    "actors": 28,
+    "drawMsAvg": 13.735294117633362,
+    "drawMsP95": 190.10000000009313,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 491,
+  "pen": {
+   "player": 0,
+   "party": 2.842170943040401e-14,
+   "n": 55
+  },
+  "afterWalk": {
+   "region": "mountain",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 65,
+    "triangles": 70080,
+    "textures": 35,
+    "geometries": 34,
+    "objects": 663,
+    "actors": 28,
+    "drawMsAvg": 4.769444444439917,
+    "drawMsP95": 5.900000000139698,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -88,
+    "z": 673
+   }
+  },
+  "spot": {
+   "id": "bigfalls",
+   "label": "おおたき",
+   "x": -1400,
+   "z": 3900,
+   "landmark": "waterfall"
+  },
+  "atSpot": {
+   "region": "mountain",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 65,
+    "triangles": 69656,
+    "textures": 35,
+    "geometries": 34,
+    "objects": 663,
+    "actors": 28,
+    "drawMsAvg": 5.041176470585496,
+    "drawMsP95": 5.900000000139698,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -1400,
+    "z": 3780
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "snow": {
+  "region": "snow",
+  "enterMs": 328,
+  "entry": {
+   "region": "snow",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 56,
+    "triangles": 45662,
+    "textures": 32,
+    "geometries": 27,
+    "objects": 378,
+    "actors": 28,
+    "drawMsAvg": 9.723809523851655,
+    "drawMsP95": 5.800000000046566,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 576,
+  "pen": {
+   "player": 0,
+   "party": 0,
+   "n": 60
+  },
+  "afterWalk": {
+   "region": "snow",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 56,
+    "triangles": 45662,
+    "textures": 32,
+    "geometries": 27,
+    "objects": 378,
+    "actors": 28,
+    "drawMsAvg": 3.9337662337740955,
+    "drawMsP95": 5.099999999860302,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -79,
+    "z": 761
+   }
+  },
+  "spot": {
+   "id": "lodge",
+   "label": "ロッジ",
+   "x": -1000,
+   "z": 1200,
+   "landmark": "lodge"
+  },
+  "atSpot": {
+   "region": "snow",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 55,
+    "triangles": 45214,
+    "textures": 32,
+    "geometries": 27,
+    "objects": 378,
+    "actors": 28,
+    "drawMsAvg": 4.114893617034157,
+    "drawMsP95": 5.099999999860302,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -1000,
+    "z": 1080
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "sea": {
+  "region": "sea",
+  "enterMs": 399,
+  "entry": {
+   "region": "sea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 56,
+    "triangles": 47264,
+    "textures": 33,
+    "geometries": 26,
+    "objects": 380,
+    "actors": 28,
+    "drawMsAvg": 10.336842105258256,
+    "drawMsP95": 155.60000000009313,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 340,
+    "z": 190
+   }
+  },
+  "walked": 534,
+  "pen": {
+   "player": 0,
+   "party": 5.684341886080802e-14,
+   "n": 65
+  },
+  "afterWalk": {
+   "region": "sea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 56,
+    "triangles": 47264,
+    "textures": 33,
+    "geometries": 26,
+    "objects": 380,
+    "actors": 28,
+    "drawMsAvg": 3.780555555561376,
+    "drawMsP95": 4.5,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 251,
+    "z": 717
+   }
+  },
+  "spot": {
+   "id": "lighthouse",
+   "label": "とうだい",
+   "x": 1550,
+   "z": 6700,
+   "landmark": "lighthouse"
+  },
+  "atSpot": {
+   "region": "sea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 54,
+    "triangles": 46636,
+    "textures": 33,
+    "geometries": 27,
+    "objects": 380,
+    "actors": 28,
+    "drawMsAvg": 3.2829545454508415,
+    "drawMsP95": 4.2999999998137355,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 1550,
+    "z": 6580
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "deepsea": {
+  "region": "deepsea",
+  "enterMs": 190,
+  "entry": {
+   "region": "deepsea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 52,
+    "triangles": 47258,
+    "textures": 31,
+    "geometries": 21,
+    "objects": 612,
+    "actors": 28,
+    "drawMsAvg": 9.188888888857845,
+    "drawMsP95": 124,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 537,
+  "pen": {
+   "player": 0,
+   "party": 6.394884621840902e-14,
+   "n": 62
+  },
+  "afterWalk": {
+   "region": "deepsea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 52,
+    "triangles": 47258,
+    "textures": 31,
+    "geometries": 21,
+    "objects": 612,
+    "actors": 28,
+    "drawMsAvg": 3.3722222222196354,
+    "drawMsP95": 4.399999999906868,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -94,
+    "z": 719
+   }
+  },
+  "spot": {
+   "id": "coralcity",
+   "label": "サンゴのまち",
+   "x": 0,
+   "z": 900,
+   "landmark": "coral"
+  },
+  "atSpot": {
+   "region": "deepsea",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 52,
+    "triangles": 47258,
+    "textures": 31,
+    "geometries": 21,
+    "objects": 612,
+    "actors": 28,
+    "drawMsAvg": 2.9370786516869627,
+    "drawMsP95": 4.300000000046566,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 780
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "river_lake": {
+  "region": "river_lake",
+  "enterMs": 403,
+  "entry": {
+   "region": "river_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 59,
+    "triangles": 57262,
+    "textures": 35,
+    "geometries": 29,
+    "objects": 624,
+    "actors": 28,
+    "drawMsAvg": 12.078947368457815,
+    "drawMsP95": 180.70000000018626,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 450,
+  "pen": {
+   "player": 0,
+   "party": 2.842170943040401e-14,
+   "n": 53
+  },
+  "afterWalk": {
+   "region": "river_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 62,
+    "triangles": 57822,
+    "textures": 35,
+    "geometries": 31,
+    "objects": 624,
+    "actors": 28,
+    "drawMsAvg": 4.867164179112818,
+    "drawMsP95": 4.899999999906868,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -112,
+    "z": 626
+   }
+  },
+  "spot": {
+   "id": "bridge2",
+   "label": "おおきなはし",
+   "x": 0,
+   "z": 2250,
+   "landmark": "bridge"
+  },
+  "atSpot": {
+   "region": "river_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 67,
+    "triangles": 57698,
+    "textures": 35,
+    "geometries": 31,
+    "objects": 624,
+    "actors": 28,
+    "drawMsAvg": 4.909638554225283,
+    "drawMsP95": 5,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 2130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "jungle": {
+  "region": "jungle",
+  "enterMs": 349,
+  "entry": {
+   "region": "jungle",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 64,
+    "triangles": 148680,
+    "textures": 35,
+    "geometries": 30,
+    "objects": 1262,
+    "actors": 28,
+    "drawMsAvg": 18.95000000001164,
+    "drawMsP95": 193,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 365,
+  "pen": {
+   "player": 0,
+   "party": 4.973799150320701e-14,
+   "n": 49
+  },
+  "afterWalk": {
+   "region": "jungle",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 64,
+    "triangles": 148680,
+    "textures": 35,
+    "geometries": 31,
+    "objects": 1262,
+    "actors": 28,
+    "drawMsAvg": 5.71730769230411,
+    "drawMsP95": 4.199999999953434,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -64,
+    "z": 549
+   }
+  },
+  "spot": {
+   "id": "falls",
+   "label": "たき",
+   "x": -1200,
+   "z": 4050,
+   "landmark": "waterfall"
+  },
+  "atSpot": {
+   "region": "jungle",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 69,
+    "triangles": 148332,
+    "textures": 35,
+    "geometries": 32,
+    "objects": 1262,
+    "actors": 28,
+    "drawMsAvg": 6.038709677417852,
+    "drawMsP95": 7.800000000046566,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -1200,
+    "z": 3930
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "desert": {
+  "region": "desert",
+  "enterMs": 360,
+  "entry": {
+   "region": "desert",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 52,
+    "triangles": 50064,
+    "textures": 33,
+    "geometries": 25,
+    "objects": 418,
+    "actors": 28,
+    "drawMsAvg": 12.621052631605906,
+    "drawMsP95": 192.70000000018626,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 513,
+  "pen": {
+   "player": 0,
+   "party": 5.684341886080802e-14,
+   "n": 62
+  },
+  "afterWalk": {
+   "region": "desert",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 52,
+    "triangles": 50064,
+    "textures": 33,
+    "geometries": 25,
+    "objects": 418,
+    "actors": 28,
+    "drawMsAvg": 4.489041095889773,
+    "drawMsP95": 4.600000000093132,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -64,
+    "z": 699
+   }
+  },
+  "spot": {
+   "id": "oasis",
+   "label": "オアシス",
+   "x": -1500,
+   "z": 4400,
+   "landmark": "palms"
+  },
+  "atSpot": {
+   "region": "desert",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 52,
+    "triangles": 49584,
+    "textures": 33,
+    "geometries": 26,
+    "objects": 418,
+    "actors": 28,
+    "drawMsAvg": 3.8777777777777778,
+    "drawMsP95": 4.2000000001862645,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -1500,
+    "z": 4280
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "star_stop": {
+  "region": "star_stop",
+  "enterMs": 315,
+  "entry": {
+   "region": "star_stop",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 47,
+    "triangles": 34782,
+    "textures": 31,
+    "geometries": 18,
+    "objects": 297,
+    "actors": 28,
+    "drawMsAvg": 8.145454545473596,
+    "drawMsP95": 3.8999999999068677,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 190
+   }
+  },
+  "walked": 587,
+  "pen": {
+   "player": 0,
+   "party": 0,
+   "n": 59
+  },
+  "afterWalk": {
+   "region": "star_stop",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 47,
+    "triangles": 34782,
+    "textures": 31,
+    "geometries": 18,
+    "objects": 297,
+    "actors": 28,
+    "drawMsAvg": 3.256962025325887,
+    "drawMsP95": 3.7000000001862645,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -5,
+    "z": 777
+   }
+  },
+  "spot": {
+   "id": "stop",
+   "label": "ていりゅうじょ",
+   "x": 0,
+   "z": 250,
+   "landmark": "bigstop"
+  },
+  "atSpot": {
+   "region": "star_stop",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 47,
+    "triangles": 34782,
+    "textures": 31,
+    "geometries": 18,
+    "objects": 297,
+    "actors": 28,
+    "drawMsAvg": 2.8864583333440046,
+    "drawMsP95": 3.7000000001862645,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": 0,
+    "z": 130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ },
+ "memory_lake": {
+  "region": "memory_lake",
+  "enterMs": 356,
+  "entry": {
+   "region": "memory_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 49,
+    "triangles": 29046,
+    "textures": 31,
+    "geometries": 20,
+    "objects": 298,
+    "actors": 28,
+    "drawMsAvg": 8.485000000044238,
+    "drawMsP95": 133.60000000009313,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -160,
+    "z": 190
+   }
+  },
+  "walked": 607,
+  "pen": {
+   "player": 0,
+   "party": 1.4210854715202004e-14,
+   "n": 62
+  },
+  "afterWalk": {
+   "region": "memory_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 47,
+    "triangles": 28998,
+    "textures": 31,
+    "geometries": 20,
+    "objects": 298,
+    "actors": 28,
+    "drawMsAvg": 3.3589041096139187,
+    "drawMsP95": 3.800000000046566,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -212,
+    "z": 795
+   }
+  },
+  "spot": {
+   "id": "shore",
+   "label": "みずうみのほとり",
+   "x": -160,
+   "z": 250,
+   "landmark": null
+  },
+  "atSpot": {
+   "region": "memory_lake",
+   "w3d": true,
+   "is3D": true,
+   "failed": false,
+   "party": 27,
+   "canvases": 2,
+   "stats": {
+    "calls": 49,
+    "triangles": 29046,
+    "textures": 31,
+    "geometries": 20,
+    "objects": 298,
+    "actors": 28,
+    "drawMsAvg": 2.9775280899138012,
+    "drawMsP95": 3.7999999998137355,
+    "pixelRatio": 2
+   },
+   "player": {
+    "x": -160,
+    "z": 130
+   }
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "fallbackWarnings": []
+ }
+}

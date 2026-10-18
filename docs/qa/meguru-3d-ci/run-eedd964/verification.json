@@ -1,0 +1,1422 @@
+{
+  "run_id": 37699392254,
+  "source_commit": "eedd964f5d081748dd19924d4b10acaa58f3bfd6",
+  "recovered_original_files": 219,
+  "verification": "Fresh ZIP digest, source SHA256, job commit, exit code, original-file hashes and summaries checked on recovery.",
+  "regression_counts": [
+    [
+      "tests",
+      "2881"
+    ],
+    [
+      "pass",
+      "2881"
+    ],
+    [
+      "fail",
+      "0"
+    ],
+    [
+      "tests",
+      "80"
+    ],
+    [
+      "pass",
+      "80"
+    ],
+    [
+      "fail",
+      "0"
+    ]
+  ],
+  "regression_command": "package pipeline with Node test concurrency4, not unmodified npm test",
+  "smoke": {
+    "kind": "smoke",
+    "coverage": 13,
+    "issues": [],
+    "samples": 0,
+    "hidden": 0,
+    "partial": 0,
+    "maxPartyObstacleOverlap": 0.004852588928741852,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "visibility": {
+    "kind": "visibility",
+    "coverage": 13,
+    "issues": [],
+    "samples": 2832,
+    "hidden": 0,
+    "partial": 1,
+    "maxPartyObstacleOverlap": 0,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "corridor": {
+    "kind": "corridor",
+    "coverage": 8,
+    "issues": [],
+    "samples": 0,
+    "hidden": 0,
+    "partial": 0,
+    "maxPartyObstacleOverlap": 0,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "artifacts": [
+    {
+      "artifact_id": 11517606885,
+      "zip_sha256": "aa780af6eb6e7e5c7d6f1992bbaed3a6a651969cc6972b2c0f3f40b637cbd1c4",
+      "kind": "regression",
+      "exit_code": 0,
+      "files": [
+        {
+          "path": "regression/command.txt",
+          "size": 4421,
+          "sha256": "48f7c62f57fc40310f81244be423ff378d931a00d28de90223b0a9c84a202652",
+          "git_blob_sha": "9994b9481fe60a024ea2f562676b8d903ca3ae5d"
+        },
+        {
+          "path": "regression/commit.txt",
+          "size": 41,
+          "sha256": "a9546143753222dc4084ee90f90e6bc9f8c31c84b946588add0ed37101a275d1",
+          "git_blob_sha": "b089b3ad24cb1a1bf363dfdc9574143f9c72f5b5"
+        },
+        {
+          "path": "regression/exit-code.txt",
+          "size": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+        },
+        {
+          "path": "regression/full.log",
+          "size": 693753,
+          "sha256": "5f84e5ee9bfa45d3ae7f827f85144815a93527419f54e3ce26e1fb8fae4966bb",
+          "git_blob_sha": "07e3b889baaaf4389049d2a8644c25573b672fab"
+        },
+        {
+          "path": "regression/node-version.txt",
+          "size": 9,
+          "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+          "git_blob_sha": "7492960b6acf3ca6f24c35db63348e0f443d2e01"
+        },
+        {
+          "path": "regression/source-sha256.txt",
+          "size": 233,
+          "sha256": "834218f718111bcca9f99a49232a099f13ad11509e7746843e9e2ee4d260460c",
+          "git_blob_sha": "d57b404c23dea57df652afca9860365e08fc7a21"
+        }
+      ]
+    },
+    {
+      "artifact_id": 11516668254,
+      "zip_sha256": "7ea48c9e44caf5284daf78a3337fc1da719b19f4e486870a87edb823ede10dee",
+      "kind": "smoke",
+      "exit_code": 0,
+      "files": [
+        {
+          "path": "smoke/browser-environment.json",
+          "size": 152,
+          "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18",
+          "git_blob_sha": "f2237f337cbbbf14e3ce137e1ce102c6bd662667"
+        },
+        {
+          "path": "smoke/commit.txt",
+          "size": 41,
+          "sha256": "a9546143753222dc4084ee90f90e6bc9f8c31c84b946588add0ed37101a275d1",
+          "git_blob_sha": "b089b3ad24cb1a1bf363dfdc9574143f9c72f5b5"
+        },
+        {
+          "path": "smoke/node-version.txt",
+          "size": 9,
+          "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+          "git_blob_sha": "7492960b6acf3ca6f24c35db63348e0f443d2e01"
+        },
+        {
+          "path": "smoke/runner-exit-code.txt",
+          "size": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+        },
+        {
+          "path": "smoke/smoke/city-3d.png",
+          "size": 218901,
+          "sha256": "d12c24865136e21e3e0ed9e3052ed5a3cfca0f22b4cfb56e1b8973d83a2a20ee",
+          "git_blob_sha": "ba7b9c2db76c41a1c9fb5918523b719bc927bfba"
+        },
+        {
+          "path": "smoke/smoke/countryside-3d.png",
+          "size": 320442,
+          "sha256": "3a67c44458aa86029b26fc7b5e71159786b66dfb458f6229b21b862542ec25c9",
+          "git_blob_sha": "5db6794826123ff90c7ca9f7b10253d08a887cca"
+        },
+        {
+          "path": "smoke/smoke/deepsea-3d.png",
+          "size": 260476,
+          "sha256": "35e87819c9fa0fd41c94cb0bd027a9eaa6b77c4e97ea799cc50c38380869b201",
+          "git_blob_sha": "9cf850594a052d5943c3a4ca68c9e30b354562eb"
+        },
+        {
+          "path": "smoke/smoke/desert-3d.png",
+          "size": 354855,
+          "sha256": "c055e4a9f512acbb5b6a8c3cd449a0ef7d5790c1841243239ae62f5e6a0b70c2",
+          "git_blob_sha": "b8d3c7dc8bf2753773aefe0c565107fe0c31fa87"
+        },
+        {
+          "path": "smoke/smoke/forest-3d.png",
+          "size": 368615,
+          "sha256": "3f626ca8e29b3b09003a23811fb1e2755dfd9f08742ee890fac9cc9b3d58b564",
+          "git_blob_sha": "5e8437699eca0708d1248dbcda4c53db77974d5e"
+        },
+        {
+          "path": "smoke/smoke/home-3d.png",
+          "size": 294802,
+          "sha256": "e305abbdd547f95bf33cf4f86060dc9c53f40adfe2f203b50a3c39d0d68864f3",
+          "git_blob_sha": "cf45972be60bf60d7dabd4964af1885edd8cb5f4"
+        },
+        {
+          "path": "smoke/smoke/jungle-3d.png",
+          "size": 344857,
+          "sha256": "81ef7ef1dfac3581ba84797629b1956ab447300570b0813abf5f968e15f2605f",
+          "git_blob_sha": "bcf4c8645d5b2dee81447e0affefd1586c384dfe"
+        },
+        {
+          "path": "smoke/smoke/memory_lake-3d.png",
+          "size": 309706,
+          "sha256": "8e2230e6adba55d4811b18eeca38fc6acf035f2240475775cac47ece7e5cc424",
+          "git_blob_sha": "e3d81132a1bf42aa887590b141db407ac7142380"
+        },
+        {
+          "path": "smoke/smoke/mountain-3d.png",
+          "size": 280652,
+          "sha256": "31c6c4b0b600e66f103495a173d6864014c43cf87c879e35d8f3f3f61737ecd9",
+          "git_blob_sha": "d9ef95db6212110d166e90711286cd8023154a09"
+        },
+        {
+          "path": "smoke/smoke/regions-smoke.json",
+          "size": 42386,
+          "sha256": "5187014283fb9ad10cd1c5fab69cfde3f334f59a52d6ec5a3d6f21649218a1d4",
+          "git_blob_sha": "8c1baf065d32b50501b1141021b76ade2731019e"
+        },
+        {
+          "path": "smoke/smoke/river_lake-3d.png",
+          "size": 345276,
+          "sha256": "e7ee40280767efd4b12156290a5d0c404a521d0fc0762ff008ba0da325aa6235",
+          "git_blob_sha": "c61fef68ccae57fcdd9351464f7f24aabc58631a"
+        },
+        {
+          "path": "smoke/smoke/sea-3d.png",
+          "size": 220400,
+          "sha256": "28e97a87c45ea3cddaedf702bc7df38ca91e0af2035539310fadd6a07aca722f",
+          "git_blob_sha": "22b313a231413c7a8d686eb47ed3d4abb5825f66"
+        },
+        {
+          "path": "smoke/smoke/snow-3d.png",
+          "size": 327665,
+          "sha256": "47f3eb8e782122b7e26300739e987b0e33e52116090a8d13dc8373231af89102",
+          "git_blob_sha": "1fc0c385de1b2fceffaca273cec04a0cb50d246f"
+        },
+        {
+          "path": "smoke/smoke/star_stop-3d.png",
+          "size": 321794,
+          "sha256": "56548a843f728ad65cdfa6aaef10fa596e6bd2471606301029dbab1ba52e6c72",
+          "git_blob_sha": "870cc65b576f7bb6d69e90547a0da62f03ef6543"
+        },
+        {
+          "path": "smoke/smoke.log",
+          "size": 1506,
+          "sha256": "ec199cc594f4a988905d797e50b8a18b057b9387a3b8f5d55c26afe91df60f7a",
+          "git_blob_sha": "9633f49d987d796c6cb5c6e74aa9f2a1eebe7e22"
+        },
+        {
+          "path": "smoke/source-sha256.txt",
+          "size": 233,
+          "sha256": "834218f718111bcca9f99a49232a099f13ad11509e7746843e9e2ee4d260460c",
+          "git_blob_sha": "d57b404c23dea57df652afca9860365e08fc7a21"
+        },
+        {
+          "path": "smoke/summary.json",
+          "size": 274,
+          "sha256": "b973cda2f75188422ddbd2df26783eb2333114f007bca1934f580bc67b68c7a7",
+          "git_blob_sha": "b3ba24a7bc19850114fae462454ef792a9ab2224"
+        },
+        {
+          "path": "smoke/summary.log",
+          "size": 241,
+          "sha256": "946e8c5e6a66478978389bf1c43e549fea44d34dc882655720532cc264c9980e",
+          "git_blob_sha": "e00a9d1a9755996969a64a2562d58b4359296710"
+        }
+      ]
+    },
+    {
+      "artifact_id": 11516623934,
+      "zip_sha256": "559369e55188a341d1b12f229ec1b3bfda8177aa6b0e2c6b8bf8d2d51d385f1e",
+      "kind": "visibility",
+      "exit_code": 0,
+      "files": [
+        {
+          "path": "visibility/browser-environment.json",
+          "size": 152,
+          "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18",
+          "git_blob_sha": "f2237f337cbbbf14e3ce137e1ce102c6bd662667"
+        },
+        {
+          "path": "visibility/commit.txt",
+          "size": 41,
+          "sha256": "a9546143753222dc4084ee90f90e6bc9f8c31c84b946588add0ed37101a275d1",
+          "git_blob_sha": "b089b3ad24cb1a1bf363dfdc9574143f9c72f5b5"
+        },
+        {
+          "path": "visibility/node-version.txt",
+          "size": 9,
+          "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+          "git_blob_sha": "7492960b6acf3ca6f24c35db63348e0f443d2e01"
+        },
+        {
+          "path": "visibility/runner-exit-code.txt",
+          "size": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+        },
+        {
+          "path": "visibility/source-sha256.txt",
+          "size": 233,
+          "sha256": "834218f718111bcca9f99a49232a099f13ad11509e7746843e9e2ee4d260460c",
+          "git_blob_sha": "d57b404c23dea57df652afca9860365e08fc7a21"
+        },
+        {
+          "path": "visibility/summary.json",
+          "size": 263,
+          "sha256": "8253120768cb0bc5fa5ba0f41b6f4e9f50a266b5d34c5b2c264dd8a0790a6f53",
+          "git_blob_sha": "fae9883d7724a980480dce815a1d50c9b5578a63"
+        },
+        {
+          "path": "visibility/summary.log",
+          "size": 230,
+          "sha256": "173e2e5f190760a79709b5e2396f5564c03f62aba979db684d8356288e5b2031",
+          "git_blob_sha": "42e02349d958d503b24a2c70d8e7a00f45e30415"
+        },
+        {
+          "path": "visibility/visibility/vis-audit.json",
+          "size": 27625,
+          "sha256": "33671c3e97350a7b14a3c6e3e487223787b5f8f9426499c4eaa75d7f159cb879",
+          "git_blob_sha": "8f468237e506e018e5be5dd2792c68543cfe56f0"
+        },
+        {
+          "path": "visibility/visibility.log",
+          "size": 980,
+          "sha256": "6fb256f414972077639690cd4c243bc5f92a0663110a00553f79ee431697b999",
+          "git_blob_sha": "60c82746002c1c641427b2a15ad64da2ef717100"
+        }
+      ]
+    },
+    {
+      "artifact_id": 11516379466,
+      "zip_sha256": "03ea658756583c9866d6f8bc37278ac9d36d26ae45c882d334d81173a2fc683a",
+      "kind": "captures",
+      "exit_code": 0,
+      "files": [
+        {
+          "path": "captures/after/city-arcade-vq.jpg",
+          "size": 75714,
+          "sha256": "44f8c32e26a2097ccd00bd31783180ffda1d9a23bd246346315c951efac135f1",
+          "git_blob_sha": "f8d8b39573811d8bf251dabf2ae3d614b9dbab29"
+        },
+        {
+          "path": "captures/after/city-market-vq.jpg",
+          "size": 68715,
+          "sha256": "bde20286d5f2a6790c1409d72e4f9e2700ff55c6a6cda5af74957e698f67b780",
+          "git_blob_sha": "af929e55bb6ddb3d1cce157b7e2dac8b96cc5da9"
+        },
+        {
+          "path": "captures/after/city-vq.jpg",
+          "size": 68821,
+          "sha256": "fb2c5233dbea0547a9a6f28e2338f5734569d88f3b5c512a6a19aaab1529aed7",
+          "git_blob_sha": "36af1f49001109fb8272737dad2421c05085a120"
+        },
+        {
+          "path": "captures/after/countryside-autumn-vq.jpg",
+          "size": 78941,
+          "sha256": "bd341aabb9955a044ad1ec7c5b2e391a6fe3bac80b4821f8087a848351e5776c",
+          "git_blob_sha": "826f706710ae2bd88c1852942aeab97276c0c9aa"
+        },
+        {
+          "path": "captures/after/countryside-river-vq.jpg",
+          "size": 86088,
+          "sha256": "522134f943555cf921966d2c45df941dcd3f694c29b8399dd94d714b4eda011b",
+          "git_blob_sha": "ae24d112b3ec281fd0ff62423de6784e592a7137"
+        },
+        {
+          "path": "captures/after/countryside-vq.jpg",
+          "size": 78495,
+          "sha256": "a38348c965f3f0d1bf76c6a6e12f181b285604a31a80a586959ac4cbef5e27cd",
+          "git_blob_sha": "a639481555d63a1e2a4e43f1fcff308b5c3a8d70"
+        },
+        {
+          "path": "captures/after/deepsea-vq.jpg",
+          "size": 44588,
+          "sha256": "76f0d7bc077abd48131350a111468351ed092663f0db09ac827bac2eb0c53766",
+          "git_blob_sha": "81437886b79c35f2c49eca73feafc16a068efdb4"
+        },
+        {
+          "path": "captures/after/desert-slope-vq.jpg",
+          "size": 53942,
+          "sha256": "746b16a2e6148bed6e6cb264d42671b368e5c7052f37cdb6f0ad30156703ad69",
+          "git_blob_sha": "e5937e30ace5253cef5d3cfed385be008e2bae29"
+        },
+        {
+          "path": "captures/after/desert-vq.jpg",
+          "size": 71834,
+          "sha256": "1d701e9382e75c0998e7dff7c7be5e1a16017ed9e99e73fc396a6cb3b2bf9e72",
+          "git_blob_sha": "0468ce3180a8388b1788b1729c80beb2d675d486"
+        },
+        {
+          "path": "captures/after/entrance-15.jpg",
+          "size": 64869,
+          "sha256": "85661b8c7fe0c0c9d5f89d002a6f70b7730bfae0a1d97b8005d540abc5581c8f",
+          "git_blob_sha": "02caa1104eb568c7b73a4e0bd544acdd1516b44e"
+        },
+        {
+          "path": "captures/after/entrance-196.jpg",
+          "size": 69818,
+          "sha256": "f4bf5adc0c1d8f36f7259ab67d72c4ad2c51fbe8f9378cf548483d192caee981",
+          "git_blob_sha": "2d667f70ffafc1f55db8b4499bac065e535a23b4"
+        },
+        {
+          "path": "captures/after/entrance-45.jpg",
+          "size": 67813,
+          "sha256": "8e1226e878caa3536506219c1b7276887fc395fdefcdda749e90cba9b883d11f",
+          "git_blob_sha": "0bc41d499c54fc40c38d2a9968ef2c17b67f2875"
+        },
+        {
+          "path": "captures/after/entrance-64.jpg",
+          "size": 81684,
+          "sha256": "f5b659bde1c3d98f8f47f9becd3ee5cca5b9a0ba53d644baba36fe1c1b69dab9",
+          "git_blob_sha": "2fb3c40eac12fdc7ba92346d8a9eb1e9bd8dffc3"
+        },
+        {
+          "path": "captures/after/forest-autumn-vq.jpg",
+          "size": 83438,
+          "sha256": "7e68b1ddca1490a97651ec70259af9dd84ae3578ffbff4fdba67c761d9ed10dc",
+          "git_blob_sha": "1d8d36af576f4e740f1e74d366f76dabc769661c"
+        },
+        {
+          "path": "captures/after/forest-bridge-vq.jpg",
+          "size": 78389,
+          "sha256": "4fd4b3eafd059c0095549cac0ddc3bc37d3e523f1bad98c405f307ec00262b45",
+          "git_blob_sha": "5d620bd5ec55618aa26744a740f4e93119ef0768"
+        },
+        {
+          "path": "captures/after/forest-creek-vq.jpg",
+          "size": 74479,
+          "sha256": "69daee4c267ce41d1fa7742e80f12c7e98611be8195cd7db3ae1fb27a4909213",
+          "git_blob_sha": "43b0ebbf410880002b0fb57d140bd1ae5d4d1f9b"
+        },
+        {
+          "path": "captures/after/forest-vq.jpg",
+          "size": 82175,
+          "sha256": "d775d440fdb1cadc6a4886dff988da9369bebb32bfac34d2b6a14590b5737780",
+          "git_blob_sha": "e9e8bec964864f079de6b3f7cfb7f4c23215e923"
+        },
+        {
+          "path": "captures/after/forest-winter-vq.jpg",
+          "size": 71115,
+          "sha256": "f4ef7bce0fe1570f5c482e99474ba6539dbccd2b15cc690ea78cc7f4aeab89c2",
+          "git_blob_sha": "b10dcadc90d74ce6b59b1e60b62dc044d14e5107"
+        },
+        {
+          "path": "captures/after/home-house-vq.jpg",
+          "size": 71022,
+          "sha256": "208d075e4a5ecca3c7c7094361bfcd0a7ad3dc73e3f70a4d4e637bfb1755bbd2",
+          "git_blob_sha": "ff41638aa690b600d430e573a2e4e744c81b2e07"
+        },
+        {
+          "path": "captures/after/home-spring-vq.jpg",
+          "size": 80587,
+          "sha256": "e5e7cc2f9b67479a948029f3ab9f8156e051dbe849dc412a85e4e38acd1298de",
+          "git_blob_sha": "8c7ccbeeb12c8c9e3f932080f0abc7edcec8d1c5"
+        },
+        {
+          "path": "captures/after/home-vq.jpg",
+          "size": 80732,
+          "sha256": "7762f4392bb2c9c65eaf48de7a38eb0e7fa5f9ae29beba2fb7c01772819e6441",
+          "git_blob_sha": "b9c013ca7c90363db0669a6cd09550a1d8a0f2c8"
+        },
+        {
+          "path": "captures/after/jungle-vq.jpg",
+          "size": 76218,
+          "sha256": "637ddcaca55bf73e0cf3357645599417bb4d66a4ced7ac3a4e0a18081c520f98",
+          "git_blob_sha": "77433300ba94754a07471e2b4afd33370f66fc80"
+        },
+        {
+          "path": "captures/after/memory_lake-vq.jpg",
+          "size": 60307,
+          "sha256": "0ed84722cce7ce39bf34dc3282f9970b74cb0c87b2f3f00ae88871b12ec07928",
+          "git_blob_sha": "1aa0ced30630dc67ba9e5d54d9c6f419cf2621d5"
+        },
+        {
+          "path": "captures/after/mountain-slope-vq.jpg",
+          "size": 64477,
+          "sha256": "faca4604faa6e0105241bc76e68660e3b63e365f79694a53a1460e9e5c107e1f",
+          "git_blob_sha": "c89c54b85287534396a0a6950d8b5692d331c6cd"
+        },
+        {
+          "path": "captures/after/mountain-summer-vq.jpg",
+          "size": 75795,
+          "sha256": "37239e48571518df0fdabdb46e1fdec5b141490fe6f2e614725eab84bdac657a",
+          "git_blob_sha": "6bc9cfe730f7209af11ec357f6ecb9197a1ba51e"
+        },
+        {
+          "path": "captures/after/mountain-vq.jpg",
+          "size": 74503,
+          "sha256": "87d2b5988f6ca1aa99be918f265ef4b032a0cba74032db889f687bac7df62df5",
+          "git_blob_sha": "c076114c572eee09e13e3e48d9bb49d93082e5c4"
+        },
+        {
+          "path": "captures/after/mountain-winter-vq.jpg",
+          "size": 81908,
+          "sha256": "a392ba5c4987455a9e4af332421e65519e408084e8c2ab6f9971bbe5d705073f",
+          "git_blob_sha": "d30a8c96d909ba3bf0db843b0c8a59ab0090b21d"
+        },
+        {
+          "path": "captures/after/oasis-vq.jpg",
+          "size": 71813,
+          "sha256": "972f3cecfac8a657e6395d3a06ef2d3840ea01d8209e4c844d159793c6f7a481",
+          "git_blob_sha": "9f1434db56ea4c5bb1e363a6d81d04433a72c448"
+        },
+        {
+          "path": "captures/after/river-bridge-vq.jpg",
+          "size": 72896,
+          "sha256": "e23966a86498b13d2a0b34dedf9de223aca0d117e5f9323d3fec7b2c594ceaa5",
+          "git_blob_sha": "6886f2d6b7a13154d28eeae208a6e5d8b3e748cc"
+        },
+        {
+          "path": "captures/after/river-bridge2-vq.jpg",
+          "size": 63113,
+          "sha256": "0d8ce5888f5a4b4eb4999ecc297025ed87210d3399e3b42f59bab0871641cde0",
+          "git_blob_sha": "3f10438ed3851d86bffb4a5423308274c3b999a7"
+        },
+        {
+          "path": "captures/after/river-stonebridge-vq.jpg",
+          "size": 70998,
+          "sha256": "443730f3d1a4f4f65e4c919695c3fd588d7b58e62ab0cc4e385f1513e6a9bcce",
+          "git_blob_sha": "9548156610932a7ee79a04292cc7231efe1e84f5"
+        },
+        {
+          "path": "captures/after/river_lake-vq.jpg",
+          "size": 72268,
+          "sha256": "d4c7a880203d211bf527d5c5d0302f974bc59334d5042b0443d1d8661ead6f64",
+          "git_blob_sha": "884ca312b45896668d39b5c703cb39a9e7c29551"
+        },
+        {
+          "path": "captures/after/sea-vq.jpg",
+          "size": 81426,
+          "sha256": "242eb9abc0963012b4b0f740e80b239a4f015dde2907f99dcd660f874cfc87bf",
+          "git_blob_sha": "d4879d6c196d8c5b3871b3b9746c779a03b9248d"
+        },
+        {
+          "path": "captures/after/snow-vq.jpg",
+          "size": 69800,
+          "sha256": "f31fc5e14b9671eabfdbe66018f6148691d1966d9aa5cd85e300ae20fd4c6632",
+          "git_blob_sha": "5f8d99dea929c2e53e0b4ba5eae3668c54469061"
+        },
+        {
+          "path": "captures/after/star_stop-vq.jpg",
+          "size": 71399,
+          "sha256": "2e212ca6bb6a6999217f89713c025753b9849b77e20757a195298cdc9039907e",
+          "git_blob_sha": "276c305b17516de789421c503ae926890ba73d94"
+        },
+        {
+          "path": "captures/before/city-arcade-vq.jpg",
+          "size": 74940,
+          "sha256": "1c92c6a068be96621bc9f4b0ea940dacb7b9facb3cf34111c64813341180402e",
+          "git_blob_sha": "2e95ee59434a2b0fe87d7d658cab2f41608140a7"
+        },
+        {
+          "path": "captures/before/city-market-vq.jpg",
+          "size": 68778,
+          "sha256": "8f834f0db25e0214910aa9eaa4504a78b3866bd66a9ab98fbdd6a8416e5976fd",
+          "git_blob_sha": "5d71f41c64b9d15f1a01ac0ccd80e904e40193ed"
+        },
+        {
+          "path": "captures/before/city-vq.jpg",
+          "size": 69894,
+          "sha256": "7554264968a6afcf3c690214b2e0c316b35f49def28ebc0aa8d1fbedb963c968",
+          "git_blob_sha": "295a9d393758171cb09b60f5a9bf5a4cf4489859"
+        },
+        {
+          "path": "captures/before/countryside-autumn-vq.jpg",
+          "size": 78897,
+          "sha256": "0a99bd54aa454ff9051b9868c822d851106b7869331a2f28bb2dc6ceae20a86a",
+          "git_blob_sha": "d4edcff35fd2c08c9782ff66197bbeb8c904894c"
+        },
+        {
+          "path": "captures/before/countryside-river-vq.jpg",
+          "size": 85565,
+          "sha256": "35fa807758fc2df36e4e18605e7ed507babdc7c2a7f9d322d70d626792fe7c6c",
+          "git_blob_sha": "45cd819b7abc50c8492e41c825dc064b8b1dcbe2"
+        },
+        {
+          "path": "captures/before/countryside-vq.jpg",
+          "size": 78456,
+          "sha256": "32cb28297571ab3e8d9ceb08677ceabb7273d992a53d8b148b23f23fced3f96d",
+          "git_blob_sha": "6cce6b4c6db91226bb78b1602d21c6c96eaccfaf"
+        },
+        {
+          "path": "captures/before/deepsea-vq.jpg",
+          "size": 44136,
+          "sha256": "82fa211f53c4f34baf90e6268a4a5b506ada52f74c2d4c6c3428e97063379bda",
+          "git_blob_sha": "c1f47d83555fda5c2c86244dc22010000e652fde"
+        },
+        {
+          "path": "captures/before/desert-slope-vq.jpg",
+          "size": 53819,
+          "sha256": "ae00e77ac22c00d7794a0263cc1f5d58dd797105f34b231b2c03a9b39c6a7af2",
+          "git_blob_sha": "afe292722cea603b3aa15a14fde6a73fe055d6b0"
+        },
+        {
+          "path": "captures/before/desert-vq.jpg",
+          "size": 71839,
+          "sha256": "28171ffea3deb30016e3204bb5cbd261fa32f67a05f116a1d55521b1877911c8",
+          "git_blob_sha": "e6e0a7472759650defab556bd7add94ceb1e63b8"
+        },
+        {
+          "path": "captures/before/entrance-15.jpg",
+          "size": 64866,
+          "sha256": "f921335dae8d9ef87440e8bc2920bdca710b52bc6cfd20c6134dabbeddb520c3",
+          "git_blob_sha": "49d75ffb381fa12a698900aaa6d8b0036ca72b43"
+        },
+        {
+          "path": "captures/before/entrance-196.jpg",
+          "size": 69864,
+          "sha256": "282e7f64a64f6e733f526bce0bf1c9200cc2bd18ec4244b646f48f1e83cd4ef8",
+          "git_blob_sha": "bb4eb1985ef4514dadbb0df68eab8a1390882c08"
+        },
+        {
+          "path": "captures/before/entrance-45.jpg",
+          "size": 68013,
+          "sha256": "1ba177512bb7457c1b2ffe5ed2c1364ad8baa668407cc98da81021cb790b4e3c",
+          "git_blob_sha": "6c230286f4cb1505c4de7483f96438cb44d20f90"
+        },
+        {
+          "path": "captures/before/entrance-64.jpg",
+          "size": 81768,
+          "sha256": "cb783462ec91e7dcf6e8138e1432ecbb2b2dd61a56005da1bca8e16a6e7ae715",
+          "git_blob_sha": "3ba30a7fc61d056a4118068376977d008baca1a0"
+        },
+        {
+          "path": "captures/before/forest-autumn-vq.jpg",
+          "size": 82970,
+          "sha256": "721e5296be3a426ebaa61c3267c3ba75dd16b1c543e3398e2d972697e761749c",
+          "git_blob_sha": "651476750dc4a39336f2b90568820abb21320668"
+        },
+        {
+          "path": "captures/before/forest-bridge-vq.jpg",
+          "size": 78250,
+          "sha256": "13054047423da8b4c837ba5a2017fa92ab5e37f934c89dad276e4191b223f431",
+          "git_blob_sha": "760f56846daca11d7b3261f38f1b6293d1f1a730"
+        },
+        {
+          "path": "captures/before/forest-creek-vq.jpg",
+          "size": 74432,
+          "sha256": "0fd67f0f28983b31b7126c1e61c70f4e5348cae92dd61c685679cfb8efaeb070",
+          "git_blob_sha": "c47be2064ea5230a4c8eb299ec5cf9010762e46d"
+        },
+        {
+          "path": "captures/before/forest-vq.jpg",
+          "size": 82880,
+          "sha256": "c55f12ef40ff80a6848a476cbf5f87897f519882c582a3f7fceaf432af494601",
+          "git_blob_sha": "5353f2b99bb3822ec3496ac7d0f2c4b597652180"
+        },
+        {
+          "path": "captures/before/forest-winter-vq.jpg",
+          "size": 70817,
+          "sha256": "51f5552338ba16b38b12b40afdf173b0eaf9a5e710dbbc3fde0f862b6c646824",
+          "git_blob_sha": "6cb881ffa51c0dd7bdf64c7b60b40d251a0bfe36"
+        },
+        {
+          "path": "captures/before/home-house-vq.jpg",
+          "size": 71152,
+          "sha256": "06cead38a98b41af9973f6fcd3611000885f28c6256ce8173b90e5b7b58f7817",
+          "git_blob_sha": "47ab91e082bfc00fe06843aafff61cfd78afbd21"
+        },
+        {
+          "path": "captures/before/home-spring-vq.jpg",
+          "size": 80797,
+          "sha256": "526f4eea04fd3997f504ce7f8aa7dedc57abac1c10f4a175e45802b41837c8ce",
+          "git_blob_sha": "40e021a53bf39b2e4f1a1c0193716d994c8aee66"
+        },
+        {
+          "path": "captures/before/home-vq.jpg",
+          "size": 80786,
+          "sha256": "aceafa8ee7986813168e465a397693307c7881c6bbb44342dbf7ad6f0b0f25ef",
+          "git_blob_sha": "11ea9b86e5dd94d7d404b11f1cb00c36202e984b"
+        },
+        {
+          "path": "captures/before/jungle-vq.jpg",
+          "size": 76600,
+          "sha256": "90f57c12a4c08af1358779d20f7846c4472ff855845c666b0fb7950fc9d111df",
+          "git_blob_sha": "bd62dff539969300fde136a0086c4aa523cde948"
+        },
+        {
+          "path": "captures/before/memory_lake-vq.jpg",
+          "size": 60341,
+          "sha256": "8df5f9734f4e9fde93a7ecce8330aa90242ba5dd90aba459cb9123ecf7563af1",
+          "git_blob_sha": "42ac569d14778cea2aae0b4020ff94863d88614f"
+        },
+        {
+          "path": "captures/before/mountain-slope-vq.jpg",
+          "size": 64413,
+          "sha256": "336aa2cc2f2c2970232e562ccd43276c89f32a52463ac89fb5766f55b589a3c9",
+          "git_blob_sha": "98490912de34efd80e960ce6717b5d866fe5780b"
+        },
+        {
+          "path": "captures/before/mountain-summer-vq.jpg",
+          "size": 75755,
+          "sha256": "132674aae43e6fb9cee7d509272b2ac1cb5263d3fd16a15b39cbeceb1253e040",
+          "git_blob_sha": "e0aaf0a52f2ca25aba40e856322e52d50d0c3dd8"
+        },
+        {
+          "path": "captures/before/mountain-vq.jpg",
+          "size": 74150,
+          "sha256": "9aad091e1e8e68e0951bb1bc78c281116fdc7b5e87d7327b0dd6fdabb1449fb7",
+          "git_blob_sha": "b6f86c0130ef83e482b2858433e50c7b00d53047"
+        },
+        {
+          "path": "captures/before/mountain-winter-vq.jpg",
+          "size": 81483,
+          "sha256": "9df353955df4b2b1ce28eb3df01e697b1401b555c42baf237a81584fd7d29488",
+          "git_blob_sha": "798e1428909706f05158de2f68bd3a5d177c18bb"
+        },
+        {
+          "path": "captures/before/oasis-vq.jpg",
+          "size": 72233,
+          "sha256": "ace166d863cd495c4f07bfc07f17aa508b188a680d1f3c8d97ee833047aeb82e",
+          "git_blob_sha": "1ed70ab2ff48b43df6ad31cc319a53183fa7a594"
+        },
+        {
+          "path": "captures/before/river-bridge-vq.jpg",
+          "size": 72828,
+          "sha256": "aa3c49ffd9c4081542d4436fb9b12ad5daf7019c39ec4a68edda7b28b95a4252",
+          "git_blob_sha": "60ea2af8b717230962c8e844e47cefd709028559"
+        },
+        {
+          "path": "captures/before/river-bridge2-vq.jpg",
+          "size": 62500,
+          "sha256": "c3509f124eecfd4ff3030af3521b52c6014313be5e82e079300b901cba88958a",
+          "git_blob_sha": "5df42848ab82e74fab584926ccf4e1918930484a"
+        },
+        {
+          "path": "captures/before/river-stonebridge-vq.jpg",
+          "size": 70519,
+          "sha256": "0e7b0eddc5fc57d5edbfacc1a79f43260a639a43b66f70156b852deb6dc6f036",
+          "git_blob_sha": "6a21394c05abdf6581ea172a45a0f385d9dbd43e"
+        },
+        {
+          "path": "captures/before/river_lake-vq.jpg",
+          "size": 72137,
+          "sha256": "9b572e4d99838e4c9ee1b467a032cf6ba8566d2fc7e9b4d59cafd385c9e72310",
+          "git_blob_sha": "1b3e1e80d1b1eb5f9a70d15a9cc7f93ebd8e969d"
+        },
+        {
+          "path": "captures/before/sea-vq.jpg",
+          "size": 81342,
+          "sha256": "1f42e1f058606531cf8f62771637bc3bb2ad86ad87e84e0da4c4cdaded19f356",
+          "git_blob_sha": "d19ccf0a8791c33c181d5f7965cf014d89499515"
+        },
+        {
+          "path": "captures/before/snow-vq.jpg",
+          "size": 69843,
+          "sha256": "b62c7492e5d315e4bae9ab4826f5ef1c6da55fdd87b32144610f629e23792939",
+          "git_blob_sha": "41a32f5a17187913f1042baeb09958ed01adb6b1"
+        },
+        {
+          "path": "captures/before/star_stop-vq.jpg",
+          "size": 71649,
+          "sha256": "2c244c569bf760f827fcb5b99a69faa7d82617ad9113ef3473bdfb2417ecab3b",
+          "git_blob_sha": "c1449a7cd6bec6675963ef77c744ff032ce8a1f8"
+        },
+        {
+          "path": "captures/before-commit.txt",
+          "size": 41,
+          "sha256": "b22d4476f92e6febc2d0bf2207f19af42058e2882a4c8f377c9310c6308c4554",
+          "git_blob_sha": "c36244c5a16cdcb193a9d7c7512a182cc8c52a23"
+        },
+        {
+          "path": "captures/browser-environment.json",
+          "size": 152,
+          "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18",
+          "git_blob_sha": "f2237f337cbbbf14e3ce137e1ce102c6bd662667"
+        },
+        {
+          "path": "captures/commit.txt",
+          "size": 41,
+          "sha256": "a9546143753222dc4084ee90f90e6bc9f8c31c84b946588add0ed37101a275d1",
+          "git_blob_sha": "b089b3ad24cb1a1bf363dfdc9574143f9c72f5b5"
+        },
+        {
+          "path": "captures/entrance-after.log",
+          "size": 910,
+          "sha256": "36a0ee245a5408c8720981aac6b42e6a6fa3aa06e037ff8fe13c6b96c774e78b",
+          "git_blob_sha": "c7c028a48e873585f8bd45e5d6f857621c9b42ac"
+        },
+        {
+          "path": "captures/entrance-before.log",
+          "size": 910,
+          "sha256": "e0729b90f82d0ca912de71a8e7c546f78844edc39157605f6337641d8ebf9f33",
+          "git_blob_sha": "d08406cefd42d1b4a079dcdf4c869d1cac8505ad"
+        },
+        {
+          "path": "captures/entrance-recipe.json",
+          "size": 892,
+          "sha256": "a881bcdad1501fcdb38d9a1b441931af92cb08b33a39f3260f43e8ce504ccf19",
+          "git_blob_sha": "44977810fa99c54cd8d4140b2500a23336a5304c"
+        },
+        {
+          "path": "captures/gallery-after/family-barn.jpg",
+          "size": 24406,
+          "sha256": "c9e0aa54603d9cc1d141be8ed3717c283cdb7a05ec81533e22ba4752930753c4",
+          "git_blob_sha": "115e1b8ecf2ed0ec828c91dcef366032ffd17a28"
+        },
+        {
+          "path": "captures/gallery-after/family-cabin.jpg",
+          "size": 27263,
+          "sha256": "663185a9cdd2369e95b592081f3f88c34cd8130ec53d958296eb736cf8b0ac27",
+          "git_blob_sha": "8c87c502fd4b3d958427dff8a8e877b982fe3669"
+        },
+        {
+          "path": "captures/gallery-after/family-cottage.jpg",
+          "size": 25111,
+          "sha256": "9ca85e1d440c7780fe225e9ec99264dc1c6b3cdbfb1807524b894fd17f61e7fe",
+          "git_blob_sha": "626ca194ce4760e3f826e66d56c1fc6ced9974a6"
+        },
+        {
+          "path": "captures/gallery-after/family-farmhouse.jpg",
+          "size": 28417,
+          "sha256": "fe3a4541b5d537d4670451af851ca395f5f6dc1c27d68be1f386aca297af4ca3",
+          "git_blob_sha": "2b536a1a960c85ea7430a0a3d48158703fcbe32f"
+        },
+        {
+          "path": "captures/gallery-after/family-hut.jpg",
+          "size": 25311,
+          "sha256": "81929e1c41f28aa0e3c0747e2d6a2755e37232beb781eaaf63a2619b7117dfdd",
+          "git_blob_sha": "ccd4a822848586955fe49e9cdf96b3097ad754de"
+        },
+        {
+          "path": "captures/gallery-after/family-shed.jpg",
+          "size": 27608,
+          "sha256": "eab3789805b62abb1bd470d7afdff5179674b1bdf0f0d8e438c5eda92dd1fd23",
+          "git_blob_sha": "8757b8f0ee9ec832b18362aae721be8fe364bbec"
+        },
+        {
+          "path": "captures/gallery-after/family-shop.jpg",
+          "size": 25110,
+          "sha256": "fbbb9df6dbb1bd3b8bc86ee8ff2f52a2f68b2e33e7434535e74dd51311fbef92",
+          "git_blob_sha": "d509a1bb4b6e07ade4375962e434f07bf8d91d40"
+        },
+        {
+          "path": "captures/gallery-after/family-single.jpg",
+          "size": 25344,
+          "sha256": "2e51ed2f77ca79c1c586c1ca68c2e48e8c52fe41e6962e2c1fdbed6e1e29f925",
+          "git_blob_sha": "c38902243fe875475b9e8dd8760433aa13c6b2cc"
+        },
+        {
+          "path": "captures/gallery-after/family-twostorey.jpg",
+          "size": 27898,
+          "sha256": "d0c389e6135a1dc7b5b91c11802dee4ad9a36a75961dff9bdaa832dddcdc2238",
+          "git_blob_sha": "fb3a0eb739332bed67e8570356b01ba00246c893"
+        },
+        {
+          "path": "captures/gallery-after/prop-bike.jpg",
+          "size": 29003,
+          "sha256": "d9662358a49a6dcfd8cdd62e6ecfebf60001027bc6b666ab2ae046c74bddb052",
+          "git_blob_sha": "0e7856a88f8cbf08206d91a435a14e589a8dc3ba"
+        },
+        {
+          "path": "captures/gallery-after/prop-boxprop.jpg",
+          "size": 19055,
+          "sha256": "9ced8f082e99383ccf1c706728abf4c3297fcc9e0ddaa30a1ce7a27864c57cee",
+          "git_blob_sha": "b53b22458df59e65cc104af9d8be03264fb3e10b"
+        },
+        {
+          "path": "captures/gallery-after/prop-car.jpg",
+          "size": 20837,
+          "sha256": "5467ec8e72718605506ab9b846cddfd7f05cebbece8db9a97bafa791bf330051",
+          "git_blob_sha": "ce6e92dc15030583a9c4202ab7f3cc051c63270d"
+        },
+        {
+          "path": "captures/gallery-after/prop-ferris.jpg",
+          "size": 27478,
+          "sha256": "8f07e818c78f73e8e49990f5c8f5cc74d3575c4493bde1fbf2e2ff384237ee6b",
+          "git_blob_sha": "0ec171bd1c745adcdf93ee46bb51c64b120ef427"
+        },
+        {
+          "path": "captures/gallery-after/prop-ruin.jpg",
+          "size": 24298,
+          "sha256": "88d751d6f36fafcc683b533c541c98e7bde4ff152cf1978cd85a6c16c6fff24a",
+          "git_blob_sha": "37c7241eb1935402ef7ae6ce9c052a4b2af5d9ab"
+        },
+        {
+          "path": "captures/gallery-after/prop-signpost.jpg",
+          "size": 16560,
+          "sha256": "4ecf7b164b17b8ca6b9b839a1d9d959019e8e9c0c306c77b1b86221a715d08e5",
+          "git_blob_sha": "ef114dac61ceb0a986c3e61e20cfd26c34ffa277"
+        },
+        {
+          "path": "captures/gallery-after/prop-stall.jpg",
+          "size": 18819,
+          "sha256": "d6feb3a5c8e58f424b2d50ed8cd00a2d0ec7fc8947dcaae6f1b37879acaebdf8",
+          "git_blob_sha": "d4d45dea29179b99cd6ce4e7ad24320143e10ed6"
+        },
+        {
+          "path": "captures/gallery-after/prop-statue.jpg",
+          "size": 17759,
+          "sha256": "06d044ec4a12c088be29ae81808b4412035d357f3c59b9af8da5f78c3871975d",
+          "git_blob_sha": "e324ffacf754f1110c172aa2c955137599a45ae2"
+        },
+        {
+          "path": "captures/gallery-after/prop-telescope.jpg",
+          "size": 18438,
+          "sha256": "a3513c860884b84c7008a45f754a6d82bbac155875f2bd559677990a4c774fab",
+          "git_blob_sha": "560b6591320dba5c4aa58ee1a32a0344e3094648"
+        },
+        {
+          "path": "captures/gallery-after/prop-tractor.jpg",
+          "size": 22733,
+          "sha256": "bb102373497f3f6361a958ba7e68960e0a911b70ffa0408b5fc5e94e91d21a10",
+          "git_blob_sha": "caa843a5177ce5a3817d9bd4596eb273f69feab6"
+        },
+        {
+          "path": "captures/gallery-after/prop-wheel.jpg",
+          "size": 27958,
+          "sha256": "5afa5d5e43ddd14fe7a11f221f0a30d5838fc48f4c0509743f42189f2cb7aba7",
+          "git_blob_sha": "25a38d5987938951fbcd89092aedd86027559366"
+        },
+        {
+          "path": "captures/gallery-after/vegetation-forest-fern.jpg",
+          "size": 26068,
+          "sha256": "dbe717b82891c795293a4e355ee64f7c1267d6cb08675de51d99cdc5ca0e60f8",
+          "git_blob_sha": "618a649c6576a14c45d41693c2a1a103596e0010"
+        },
+        {
+          "path": "captures/gallery-after/vegetation-forest-tree.jpg",
+          "size": 25441,
+          "sha256": "35e456bdb324689b62e7232fba47b668dc6faecf2f8b06808b9e08684547b5c9",
+          "git_blob_sha": "df4fc0336f2ffa2f3b4c04b72b0f5e459497dae9"
+        },
+        {
+          "path": "captures/gallery-after/vegetation-jungle-fern.jpg",
+          "size": 30647,
+          "sha256": "336c509496e2951ee53c9ef44dc34dc11fd3a7bc269a6f2ebb4e5fe1aa1099d9",
+          "git_blob_sha": "1f1914f45d85d23e2fbda4ce57d546f0ca5a867b"
+        },
+        {
+          "path": "captures/gallery-after/vegetation-jungle-tree.jpg",
+          "size": 27205,
+          "sha256": "bec66de4f0c270ae1d3fe8019d68a9af63484bdda70c6fbdd18d381054e90dca",
+          "git_blob_sha": "9b08be01b20d4f06c41d8d5b19394df8c9c44621"
+        },
+        {
+          "path": "captures/gallery-after.log",
+          "size": 1393,
+          "sha256": "a6dc9a3248ae155aaaa14a2a912becfb551e60c5b0ddf7b1dc7e4be5d24c0e04",
+          "git_blob_sha": "150876e5054066bee52c755298caa5709a471570"
+        },
+        {
+          "path": "captures/gallery-before/family-barn.jpg",
+          "size": 24406,
+          "sha256": "c9e0aa54603d9cc1d141be8ed3717c283cdb7a05ec81533e22ba4752930753c4",
+          "git_blob_sha": "115e1b8ecf2ed0ec828c91dcef366032ffd17a28"
+        },
+        {
+          "path": "captures/gallery-before/family-cabin.jpg",
+          "size": 27263,
+          "sha256": "663185a9cdd2369e95b592081f3f88c34cd8130ec53d958296eb736cf8b0ac27",
+          "git_blob_sha": "8c87c502fd4b3d958427dff8a8e877b982fe3669"
+        },
+        {
+          "path": "captures/gallery-before/family-cottage.jpg",
+          "size": 25111,
+          "sha256": "9ca85e1d440c7780fe225e9ec99264dc1c6b3cdbfb1807524b894fd17f61e7fe",
+          "git_blob_sha": "626ca194ce4760e3f826e66d56c1fc6ced9974a6"
+        },
+        {
+          "path": "captures/gallery-before/family-farmhouse.jpg",
+          "size": 28417,
+          "sha256": "fe3a4541b5d537d4670451af851ca395f5f6dc1c27d68be1f386aca297af4ca3",
+          "git_blob_sha": "2b536a1a960c85ea7430a0a3d48158703fcbe32f"
+        },
+        {
+          "path": "captures/gallery-before/family-hut.jpg",
+          "size": 25311,
+          "sha256": "81929e1c41f28aa0e3c0747e2d6a2755e37232beb781eaaf63a2619b7117dfdd",
+          "git_blob_sha": "ccd4a822848586955fe49e9cdf96b3097ad754de"
+        },
+        {
+          "path": "captures/gallery-before/family-shed.jpg",
+          "size": 27608,
+          "sha256": "eab3789805b62abb1bd470d7afdff5179674b1bdf0f0d8e438c5eda92dd1fd23",
+          "git_blob_sha": "8757b8f0ee9ec832b18362aae721be8fe364bbec"
+        },
+        {
+          "path": "captures/gallery-before/family-shop.jpg",
+          "size": 25110,
+          "sha256": "fbbb9df6dbb1bd3b8bc86ee8ff2f52a2f68b2e33e7434535e74dd51311fbef92",
+          "git_blob_sha": "d509a1bb4b6e07ade4375962e434f07bf8d91d40"
+        },
+        {
+          "path": "captures/gallery-before/family-single.jpg",
+          "size": 25344,
+          "sha256": "2e51ed2f77ca79c1c586c1ca68c2e48e8c52fe41e6962e2c1fdbed6e1e29f925",
+          "git_blob_sha": "c38902243fe875475b9e8dd8760433aa13c6b2cc"
+        },
+        {
+          "path": "captures/gallery-before/family-twostorey.jpg",
+          "size": 27898,
+          "sha256": "d0c389e6135a1dc7b5b91c11802dee4ad9a36a75961dff9bdaa832dddcdc2238",
+          "git_blob_sha": "fb3a0eb739332bed67e8570356b01ba00246c893"
+        },
+        {
+          "path": "captures/gallery-before/prop-bike.jpg",
+          "size": 29003,
+          "sha256": "d9662358a49a6dcfd8cdd62e6ecfebf60001027bc6b666ab2ae046c74bddb052",
+          "git_blob_sha": "0e7856a88f8cbf08206d91a435a14e589a8dc3ba"
+        },
+        {
+          "path": "captures/gallery-before/prop-boxprop.jpg",
+          "size": 19055,
+          "sha256": "9ced8f082e99383ccf1c706728abf4c3297fcc9e0ddaa30a1ce7a27864c57cee",
+          "git_blob_sha": "b53b22458df59e65cc104af9d8be03264fb3e10b"
+        },
+        {
+          "path": "captures/gallery-before/prop-car.jpg",
+          "size": 20837,
+          "sha256": "5467ec8e72718605506ab9b846cddfd7f05cebbece8db9a97bafa791bf330051",
+          "git_blob_sha": "ce6e92dc15030583a9c4202ab7f3cc051c63270d"
+        },
+        {
+          "path": "captures/gallery-before/prop-ferris.jpg",
+          "size": 27478,
+          "sha256": "8f07e818c78f73e8e49990f5c8f5cc74d3575c4493bde1fbf2e2ff384237ee6b",
+          "git_blob_sha": "0ec171bd1c745adcdf93ee46bb51c64b120ef427"
+        },
+        {
+          "path": "captures/gallery-before/prop-ruin.jpg",
+          "size": 24298,
+          "sha256": "88d751d6f36fafcc683b533c541c98e7bde4ff152cf1978cd85a6c16c6fff24a",
+          "git_blob_sha": "37c7241eb1935402ef7ae6ce9c052a4b2af5d9ab"
+        },
+        {
+          "path": "captures/gallery-before/prop-signpost.jpg",
+          "size": 16560,
+          "sha256": "4ecf7b164b17b8ca6b9b839a1d9d959019e8e9c0c306c77b1b86221a715d08e5",
+          "git_blob_sha": "ef114dac61ceb0a986c3e61e20cfd26c34ffa277"
+        },
+        {
+          "path": "captures/gallery-before/prop-stall.jpg",
+          "size": 18819,
+          "sha256": "d6feb3a5c8e58f424b2d50ed8cd00a2d0ec7fc8947dcaae6f1b37879acaebdf8",
+          "git_blob_sha": "d4d45dea29179b99cd6ce4e7ad24320143e10ed6"
+        },
+        {
+          "path": "captures/gallery-before/prop-statue.jpg",
+          "size": 17759,
+          "sha256": "06d044ec4a12c088be29ae81808b4412035d357f3c59b9af8da5f78c3871975d",
+          "git_blob_sha": "e324ffacf754f1110c172aa2c955137599a45ae2"
+        },
+        {
+          "path": "captures/gallery-before/prop-telescope.jpg",
+          "size": 18438,
+          "sha256": "a3513c860884b84c7008a45f754a6d82bbac155875f2bd559677990a4c774fab",
+          "git_blob_sha": "560b6591320dba5c4aa58ee1a32a0344e3094648"
+        },
+        {
+          "path": "captures/gallery-before/prop-tractor.jpg",
+          "size": 22733,
+          "sha256": "bb102373497f3f6361a958ba7e68960e0a911b70ffa0408b5fc5e94e91d21a10",
+          "git_blob_sha": "caa843a5177ce5a3817d9bd4596eb273f69feab6"
+        },
+        {
+          "path": "captures/gallery-before/prop-wheel.jpg",
+          "size": 27958,
+          "sha256": "5afa5d5e43ddd14fe7a11f221f0a30d5838fc48f4c0509743f42189f2cb7aba7",
+          "git_blob_sha": "25a38d5987938951fbcd89092aedd86027559366"
+        },
+        {
+          "path": "captures/gallery-before/vegetation-forest-fern.jpg",
+          "size": 26068,
+          "sha256": "dbe717b82891c795293a4e355ee64f7c1267d6cb08675de51d99cdc5ca0e60f8",
+          "git_blob_sha": "618a649c6576a14c45d41693c2a1a103596e0010"
+        },
+        {
+          "path": "captures/gallery-before/vegetation-forest-tree.jpg",
+          "size": 25441,
+          "sha256": "35e456bdb324689b62e7232fba47b668dc6faecf2f8b06808b9e08684547b5c9",
+          "git_blob_sha": "df4fc0336f2ffa2f3b4c04b72b0f5e459497dae9"
+        },
+        {
+          "path": "captures/gallery-before/vegetation-jungle-fern.jpg",
+          "size": 30647,
+          "sha256": "336c509496e2951ee53c9ef44dc34dc11fd3a7bc269a6f2ebb4e5fe1aa1099d9",
+          "git_blob_sha": "1f1914f45d85d23e2fbda4ce57d546f0ca5a867b"
+        },
+        {
+          "path": "captures/gallery-before/vegetation-jungle-tree.jpg",
+          "size": 27205,
+          "sha256": "bec66de4f0c270ae1d3fe8019d68a9af63484bdda70c6fbdd18d381054e90dca",
+          "git_blob_sha": "9b08be01b20d4f06c41d8d5b19394df8c9c44621"
+        },
+        {
+          "path": "captures/gallery-before.log",
+          "size": 1393,
+          "sha256": "a6dc9a3248ae155aaaa14a2a912becfb551e60c5b0ddf7b1dc7e4be5d24c0e04",
+          "git_blob_sha": "150876e5054066bee52c755298caa5709a471570"
+        },
+        {
+          "path": "captures/node-version.txt",
+          "size": 9,
+          "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+          "git_blob_sha": "7492960b6acf3ca6f24c35db63348e0f443d2e01"
+        },
+        {
+          "path": "captures/runner-exit-code.txt",
+          "size": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+        },
+        {
+          "path": "captures/source-sha256.txt",
+          "size": 233,
+          "sha256": "834218f718111bcca9f99a49232a099f13ad11509e7746843e9e2ee4d260460c",
+          "git_blob_sha": "d57b404c23dea57df652afca9860365e08fc7a21"
+        },
+        {
+          "path": "captures/world-after.log",
+          "size": 7817,
+          "sha256": "02c09a31788fcb00b2d8f8135e2d25ec936b2713e3f1f005ebc32189ef80d11b",
+          "git_blob_sha": "d34ce02272ffaab3ce0093997d463136d805fff5"
+        },
+        {
+          "path": "captures/world-before.log",
+          "size": 7811,
+          "sha256": "6f683118286d84bef06959fb7461f1868bc14ed80dc0dbc7a3fcb9d1dded7bfc",
+          "git_blob_sha": "fe37f9f11abff1cbeb51fa2d568da984085b3218"
+        },
+        {
+          "path": "captures/world-recipe.json",
+          "size": 6149,
+          "sha256": "bdf9b43b48cb50a5b3aeb9edce88a045648617e9300e385d12766a1af4204a0a",
+          "git_blob_sha": "0da61527a2a934ceb594f5af14b0184f106925ab"
+        }
+      ]
+    },
+    {
+      "artifact_id": 11516199663,
+      "zip_sha256": "10bdb7185985da624991ae71e404468a657d62f107f01619f09139ddc0fa90fb",
+      "kind": "corridor",
+      "exit_code": 0,
+      "files": [
+        {
+          "path": "corridor/browser-environment.json",
+          "size": 152,
+          "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18",
+          "git_blob_sha": "f2237f337cbbbf14e3ce137e1ce102c6bd662667"
+        },
+        {
+          "path": "corridor/commit.txt",
+          "size": 41,
+          "sha256": "a9546143753222dc4084ee90f90e6bc9f8c31c84b946588add0ed37101a275d1",
+          "git_blob_sha": "b089b3ad24cb1a1bf363dfdc9574143f9c72f5b5"
+        },
+        {
+          "path": "corridor/corridor/city_sea_city-arrived.png",
+          "size": 279721,
+          "sha256": "ace562eb75164f9a4af8b943d5092447031c9e3a028c0aa33fc8a3cbcbfe71cc",
+          "git_blob_sha": "d7dae2d66a71e3dd00cbf344f512c4f33087fc3f"
+        },
+        {
+          "path": "corridor/corridor/city_sea_city-corridor-0.png",
+          "size": 248309,
+          "sha256": "75fbf537f3e6ee7a66074aa9dbc4a5b2901dfdec0968a3ac14a3cbfbf2c9660d",
+          "git_blob_sha": "4feb94ad817de19925200e441923d5765f7ba860"
+        },
+        {
+          "path": "corridor/corridor/city_sea_city-corridor-1.png",
+          "size": 237220,
+          "sha256": "8aa5c71b9153f7b0ff0d5ce4abd320d6209eca75fbcc2547d0b60a2dcf0e227c",
+          "git_blob_sha": "8640bdd9fbd8d9df8215125d5de57a1ab24fb6cc"
+        },
+        {
+          "path": "corridor/corridor/city_sea_city-corridor-2.png",
+          "size": 265445,
+          "sha256": "a793ccd4dbcdb41fc9b522fe78bc034b2e2b3a4356395d001fb1d1b4356aa9e6",
+          "git_blob_sha": "39faa97b2fef186e2c50102f90a226e932272b19"
+        },
+        {
+          "path": "corridor/corridor/city_sea_city-corridor-3.png",
+          "size": 251430,
+          "sha256": "4896749e8b97f463fcded032254eb90960cb86f6c6e62f437b242abf4f27a755",
+          "git_blob_sha": "d27f60edb710070518b87c9d94032e4d0d55c98e"
+        },
+        {
+          "path": "corridor/corridor/city_sea_city-corridor-4.png",
+          "size": 285369,
+          "sha256": "b513706bdba9474ca618c966969a06e497df0baaa8b8308861b613b4271abb3e",
+          "git_blob_sha": "b2d6fe71e4bf639fe68286be7c1b10e964e6a674"
+        },
+        {
+          "path": "corridor/corridor/city_sea_sea-arrived.png",
+          "size": 267342,
+          "sha256": "e8f2dc3e641b78f2db9a50faf50a3ac2b7c27724032e2fd062f1d691a77e6515",
+          "git_blob_sha": "0bcc83a2b6b1353c69bd60c23f5d17d282c877ee"
+        },
+        {
+          "path": "corridor/corridor/city_sea_sea-corridor-0.png",
+          "size": 253695,
+          "sha256": "08eab51486066440e65de04c392d664d5a678a9c4de3812d60633d9121644130",
+          "git_blob_sha": "1510355d90896c3bb6ced3e0069deef4aa3b8b6b"
+        },
+        {
+          "path": "corridor/corridor/city_sea_sea-corridor-1.png",
+          "size": 253354,
+          "sha256": "8ccd0d678152a7b5ef0679e9a71f89b2a65af56d56ab389ac7e86882b3cabdd9",
+          "git_blob_sha": "41a3c9fe9ed481ce8e7d299265b0abc380c7a0b4"
+        },
+        {
+          "path": "corridor/corridor/city_sea_sea-corridor-2.png",
+          "size": 259716,
+          "sha256": "34fa7ffc2c734b504d211a968edb933ddd9fd5149933fa531df148826f9e7cdf",
+          "git_blob_sha": "fe86b22e0faeb05ec77322104f3f9342af7d7fb6"
+        },
+        {
+          "path": "corridor/corridor/city_sea_sea-corridor-3.png",
+          "size": 231551,
+          "sha256": "8c6645490c0808c65d045c351d33df554b4da968ae04a6e8c8d6e054490e1f9c",
+          "git_blob_sha": "4185d4d6e4958d88ea067b65b100b2849b11f173"
+        },
+        {
+          "path": "corridor/corridor/corridor-qa.json",
+          "size": 86643,
+          "sha256": "a6c769c7d75e1998976bd2a4d3f31146ea72dd3242ad45c1f273fcc8ff4cf267",
+          "git_blob_sha": "525de0165bd88e3df7467f87e0efbf6f8f61f9b4"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_countryside-arrived.png",
+          "size": 301130,
+          "sha256": "43e62d1ab7687e3bb2af28436f810cad033f8360fbf3977134d17e8b23d5ed10",
+          "git_blob_sha": "b92dc76e4971f51ce157d278b071394d70ffe91b"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_countryside-corridor-0.png",
+          "size": 253406,
+          "sha256": "fec342c6b7f2e2869ad0029aa480c3b9473f5c14beee5e207ca227b949e69d7c",
+          "git_blob_sha": "765bc44a84dc5bf7bb4f2f226066a717a9590ad4"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_countryside-corridor-1.png",
+          "size": 261771,
+          "sha256": "2ad28fdead914fdb0ed743654a50a46e90401e1952dbd9320017248272bd19d6",
+          "git_blob_sha": "e5ad41fdcd88a1fa01029f4f695797236fd5cec8"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_countryside-corridor-2.png",
+          "size": 270262,
+          "sha256": "6c53b44ef7002fab313510c8261b8222f421306b3a541cbce2b04f00c03ad66d",
+          "git_blob_sha": "333dafbde631c44c64a03f762871db321211b815"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_countryside-corridor-3.png",
+          "size": 261068,
+          "sha256": "9609f4024533284f17cf4a4c2b8d30c9e18a80ac4c609fd0ad003b155a7bd32e",
+          "git_blob_sha": "ea37b229402a623d95d9a45910d01077eeab2f57"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_forest-arrived.png",
+          "size": 325384,
+          "sha256": "325b27e0e4a2807a2750437abf4bfa49e4161d79857a1303f2e358b1be75eb68",
+          "git_blob_sha": "9cc7ebf877a5f6f85eeea1e01b704b55fa20015c"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_forest-corridor-0.png",
+          "size": 258553,
+          "sha256": "0e466fad378388a79ffc13f2f5a9621e20aa58331b09bac304b80bbfe83d3718",
+          "git_blob_sha": "5fe4366487033f442406fa15b89500ca5445b2c6"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_forest-corridor-1.png",
+          "size": 271297,
+          "sha256": "04265d6f6f042707d80d036b2b10f819805496bfd3e6f9d3a94327cbee2ac7a3",
+          "git_blob_sha": "d17f17663a3d705082d1f7e0078eba741f3c9878"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_forest-corridor-2.png",
+          "size": 272431,
+          "sha256": "0c75379efea4ac51413cfb941c8fc521fde4bb7a884fc94cf16c772bab2da1a9",
+          "git_blob_sha": "1c77fd275f3d554b81f6a1b87dd3dff5ca6b2a80"
+        },
+        {
+          "path": "corridor/corridor/countryside_forest_forest-corridor-3.png",
+          "size": 262091,
+          "sha256": "97a3e6bf94b5eea95ad9cfd2dba8957fbd17a3939d096802cd516f068c8031d8",
+          "git_blob_sha": "220bf5c2f3f93e6a623cf46b73ad861877d25536"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_forest-arrived.png",
+          "size": 271662,
+          "sha256": "9d819f462fb0654193d0f778d9ca00fba176162054108503a68fda5f615daf00",
+          "git_blob_sha": "dc8d5d1011eec0aeb19c5d016795f5f481f025e4"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_forest-corridor-0.png",
+          "size": 262848,
+          "sha256": "f8944e6ad5aeaa11e4fb1a5c7140b2b90533bc1df7dd61eb23afac8689ddeee7",
+          "git_blob_sha": "7122157d9929b257924fde31e62619cc733df2b7"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_forest-corridor-1.png",
+          "size": 261700,
+          "sha256": "4e7843e4d3bec3dc6f3580319f52875b650355d1c8da214cc956216472bbfba4",
+          "git_blob_sha": "00b7d973164a255e2ec65ac36256f2e5486107db"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_forest-corridor-2.png",
+          "size": 266866,
+          "sha256": "949c7f1141b87d760f76a8bde23cda47fc615d7a62b1c177cb90a66b00361c70",
+          "git_blob_sha": "4f4a41f41e9367b3bc2f530403879b28c12dc98c"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_forest-corridor-3.png",
+          "size": 264549,
+          "sha256": "c477dae85a26770df84480762af403858dcdaf6a2b8313768c0e9fe715ec2b73",
+          "git_blob_sha": "f4c774133850025b255bb86057b931000b03c046"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_mountain-arrived.png",
+          "size": 344015,
+          "sha256": "938ca16d4918d7436cf35f6ca846e116669976d5fb6d3c5c545d0b87d9ad402a",
+          "git_blob_sha": "8b60f0588258510e2223026ceafa104446426196"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_mountain-corridor-0.png",
+          "size": 261892,
+          "sha256": "e13c126cd734b9a0021a7029bdde0ac6d8fc93f37a13a9d6fe8042c18b70885e",
+          "git_blob_sha": "23db3ededa7e3208380bb360f21b7ed51c9a1f5e"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_mountain-corridor-1.png",
+          "size": 260986,
+          "sha256": "c0a691f22924eb7f5985a55897442b57ec297ab2f5edc616a45a1601f6605dcc",
+          "git_blob_sha": "9530da44c93cd72e3aecf463386b11f4c79bb795"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_mountain-corridor-2.png",
+          "size": 261707,
+          "sha256": "38213df86e98ccfb65c359eea03b207d309275e8e41f833a9fe85a11d3680e02",
+          "git_blob_sha": "e813016e9401c6b5886186c4c6a5bc9399b1c10b"
+        },
+        {
+          "path": "corridor/corridor/forest_mountain_mountain-corridor-3.png",
+          "size": 256226,
+          "sha256": "0d929085dc6ae008b8922014d8be3b9733e593cc1421590d0270f5b6d3b2610f",
+          "git_blob_sha": "9b40e66e2b93abdde16c6b5353382891e1c1cd07"
+        },
+        {
+          "path": "corridor/corridor/home_forest_forest-arrived.png",
+          "size": 298358,
+          "sha256": "45a4416e4644a240dc2f22d2ff094715c1b36b42887eac2075d5eed8ca225098",
+          "git_blob_sha": "e875a49840b1c3f9d070693b8a58646fdc2b0239"
+        },
+        {
+          "path": "corridor/corridor/home_forest_forest-corridor-0.png",
+          "size": 266001,
+          "sha256": "1181b8454c78d5b3a0862889cc5626fb8e4dcf4b09b7af9deea9988591b02275",
+          "git_blob_sha": "eac3130a82a09b65dad12dab746c8e734cdff1f9"
+        },
+        {
+          "path": "corridor/corridor/home_forest_forest-corridor-1.png",
+          "size": 262748,
+          "sha256": "f6863bfe11a273225bd35d74876e808c9db1d785c596f83d1e8b597fc36af96d",
+          "git_blob_sha": "a1165891e9a9859d9a12951780a1399c49d3ca9a"
+        },
+        {
+          "path": "corridor/corridor/home_forest_forest-corridor-2.png",
+          "size": 257335,
+          "sha256": "8b9a0788a1a93694c9af399b341cea8007b11665981fa70dc15e0c28b753e1d0",
+          "git_blob_sha": "e6ae3f4f584067f0626d7c6868eff5ce8df2fcec"
+        },
+        {
+          "path": "corridor/corridor/home_forest_forest-corridor-3.png",
+          "size": 248685,
+          "sha256": "f45d4f7d73bc2fdc59943cc95cecc77cf4c14207e3f09acb113fa8844b1314c1",
+          "git_blob_sha": "2976a6cf021f39150cbfbd51b0adf583cec1ed23"
+        },
+        {
+          "path": "corridor/corridor/home_forest_home-arrived.png",
+          "size": 315717,
+          "sha256": "9f7c0be4fae83332e84400231235e6855f0651ee3bdf4ae72e93bb2750b380e4",
+          "git_blob_sha": "ee511e64ce7ade57bc02e11b147810164b3928fe"
+        },
+        {
+          "path": "corridor/corridor/home_forest_home-corridor-0.png",
+          "size": 257033,
+          "sha256": "8834e23f262da4c39e86d92fb45b54d3b956d9c05bb698dae942c666a83c5a67",
+          "git_blob_sha": "51e8c01fe90db07e7566494f2d09d4bd4214ceb3"
+        },
+        {
+          "path": "corridor/corridor/home_forest_home-corridor-1.png",
+          "size": 261060,
+          "sha256": "e89f90fa610768d4eb0807e14528c6d6b57cb28070129362b5544049637f2160",
+          "git_blob_sha": "70c95ee6e318ffd00ca3bc09ac931a4edc741f67"
+        },
+        {
+          "path": "corridor/corridor/home_forest_home-corridor-2.png",
+          "size": 277747,
+          "sha256": "88820fea5f63a8327373f62b6fadaef937bc4e857a52b43a91c662a21ac1e80b",
+          "git_blob_sha": "c2289f842fd7e11cc82a66b894ad44ce90d09d56"
+        },
+        {
+          "path": "corridor/corridor/home_forest_home-corridor-3.png",
+          "size": 264322,
+          "sha256": "2e318423c1e8b15b8cc15af9e791e3fcfe539a8cc801a496fb6285603f69fe9b",
+          "git_blob_sha": "91b85fa176b85b0ae23a436dad57c31ad1c3264a"
+        },
+        {
+          "path": "corridor/corridor.log",
+          "size": 1056,
+          "sha256": "5b04dfe4ae6bd533df129cca787a7a166a3b3491a64cfd580e104344bc139732",
+          "git_blob_sha": "0850254c7997299617f2a6b2b5c29dabe0015a06"
+        },
+        {
+          "path": "corridor/node-version.txt",
+          "size": 9,
+          "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+          "git_blob_sha": "7492960b6acf3ca6f24c35db63348e0f443d2e01"
+        },
+        {
+          "path": "corridor/runner-exit-code.txt",
+          "size": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+        },
+        {
+          "path": "corridor/source-sha256.txt",
+          "size": 233,
+          "sha256": "834218f718111bcca9f99a49232a099f13ad11509e7746843e9e2ee4d260460c",
+          "git_blob_sha": "d57b404c23dea57df652afca9860365e08fc7a21"
+        },
+        {
+          "path": "corridor/summary.json",
+          "size": 257,
+          "sha256": "19c90339925e4a7e238137f649d621999ff4f2c0b1da2f66fbc2f24850b11d2d",
+          "git_blob_sha": "1a3315dd02f4121be7173a7ae9423bfd9fd28aa4"
+        },
+        {
+          "path": "corridor/summary.log",
+          "size": 224,
+          "sha256": "57c189ddec11d771525997f498f842738802a766d10b3d356c96fb9cd2226d0b",
+          "git_blob_sha": "69afc051b83a7e163fd9178ee5b37d6acb81b887"
+        }
+      ]
+    }
+  ],
+  "human_qa_approved": false,
+  "iphone_approved": false,
+  "overlap_difference_cause": "unconfirmed; all three recorded product source hashes identical across both runs"
+}

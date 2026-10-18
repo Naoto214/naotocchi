@@ -1,0 +1,790 @@
+{
+  "generator": "built-in imagegen; one independent original-referenced edit per expression",
+  "baseline_head": "902a452109157c48dee30834d96222b66b7a85d7",
+  "status": "30 candidates; human review pending; marker/sweat placement issues tracked separately",
+  "normalization": "tools/normalize-expression-image.cjs: projected approved canvas 128px, alpha threshold 128, nearest-neighbor fit to visible master bounds",
+  "records": [
+    {
+      "stage": "01",
+      "state": "hungry",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-a57b0bb7-256e-4d84-8f7f-83560bf9e6b2.png",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "0aad7ad67b0d1a179542cdfee09a9a1e4f36223b9dd7fe74e6631bb5ff21a604",
+      "final": "assets/characters/expressions/starfish/01-hungry.png",
+      "final_sha256": "c726f85570dcacc802724e0ec9befd790ed937442dfb3c52d08d9771618ac0f8",
+      "prompt": "Use case: precise-object-edit. Edit target: the provided approved stage01 floating starfish larva sprite. Produce ONE standalone transparent sprite, not a sheet. Change ONLY its existing eyes, eyebrows and mouth to HUNGRY: longing slightly drooping eyes looking forward and a small open pleading mouth, cute yearning to eat, not smiling happily. Preserve the exact vertically elongated blue translucent larval body, silhouette, all lobes/protrusions and their count, highlights, pixel-art texture, colors, orientation, proportions, face location and size. This is a bilateral floating LARVA, never turn it into a five-armed starfish. Do not add anything to body or background. No food, thought bubbles, sweat, tears, marks, text, extra faces, floor or shadows: those are separate runtime layers. Keep the whole character same composition on transparent square canvas."
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-f2fd87f9-406f-47e6-b3d5-063d4fe3ed92.png",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, eyebrows and mouth of this approved stage01 floating LARVA to TIRED: heavy sleepy eyelids, weary eyebrows and a small weary mouth; tired but not asleep. ONE standalone transparent sprite, not a sheet. Keep exact blue translucent vertically elongated larval silhouette, all lobes/protrusions/count, highlights, pixel-art texture, orientation, proportions, face position/size and canvas composition. Never turn this bilateral larva into a five-armed starfish. Body pose and color unchanged. No sweat, tears, food, thought bubbles, symbols, text, extra faces or shadows; these are separate runtime layers. Transparent background.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "b8cf26bcb406e2db00d5d966be6dbd24ad1dd9fd29e7323ef8e3e1bf50c894cc",
+      "final": "assets/characters/expressions/starfish/01-tired.png",
+      "final_sha256": "4ba73b031caecf274b9fdc0e50b8d48b3e3078868dbfa837dd1775969a23448e"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-89c04d28-03c2-431c-b604-50a55b3d3f81.png",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, eyebrows and mouth of this approved stage01 floating LARVA to SICK: unwell, pained half-closed eyes with softly worried eyebrows and a small wavering mouth, visibly sick but alive. ONE standalone transparent sprite, not a sheet. Keep exact blue translucent vertically elongated larval silhouette, all lobes/protrusions/count, highlights, pixel-art texture, orientation, proportions, face position/size and canvas composition. Never turn this bilateral larva into a five-armed starfish. Body pose and color unchanged. No sweat, tears, food, thought bubbles, symbols, text, extra faces or shadows; these are separate runtime layers. Transparent background.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "23b07d84457607f87afb6a2244a1a504865cc5f84e605057906c4a9250e892f6",
+      "final": "assets/characters/expressions/starfish/01-sick.png",
+      "final_sha256": "c266bca730ab1d70d09cb90d0690f7cb4634984d2444fc9d897d8ba575c3d5a1"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-1bc038a2-9814-4b4b-9ce6-15157334a962.png",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, eyebrows and mouth of this approved stage01 floating LARVA to SULKY: pouting annoyed eyes, lowered eyebrows and a tiny sideways pout; grumpy, not pained. ONE standalone transparent sprite, not a sheet. Keep exact blue translucent vertically elongated larval silhouette, all lobes/protrusions/count, highlights, pixel-art texture, orientation, proportions, face position/size and canvas composition. Never turn this bilateral larva into a five-armed starfish. Body pose and color unchanged. No sweat, tears, food, thought bubbles, symbols, text, extra faces or shadows; these are separate runtime layers. Transparent background.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "9353412f2a6e6ea0da217a35409871831df85844fa5a5798a5f4edb23df866cd",
+      "final": "assets/characters/expressions/starfish/01-sulky.png",
+      "final_sha256": "ad10c6d0889ea020c531f94152ea5817155201b6013881b6fbf5dc6c136e1a71"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-05362ea9-4486-4bee-9200-05b515774f68.png",
+      "prompt": "Use case: precise-object-edit. Change ONLY this approved floating stage01 larva's eyes/eyebrows/mouth to WEAK: weak lowered eyes with little energy and a tiny slack mouth, more depleted than tired but responsive. Preserve EXACT original blue translucent vertically elongated bilateral larval body, protrusion count/positions, highlights, pixel-art texture, proportions, orientation, face position and whole-canvas framing. Not a starfish yet: no five-arm star shape. ONE transparent standalone sprite, no sheet. No sweat, tears, food, bubbles, state symbols, text, extra faces, floor or shadows. All those effects are separate runtime layers. Keep body unchanged.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "99b55673ca5a06983dbbd46a6bf832fd735066ed8afd20d508722c72831d1b2e",
+      "final": "assets/characters/expressions/starfish/01-weak.png",
+      "final_sha256": "ea62645cf1bae736063c2c7c190c7c58944062b290ee5a1e592c8e48b5e63851"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-77a521ec-2b1f-4f26-8a9d-21e6b69183a5.png",
+      "prompt": "Use case: precise-object-edit. Change ONLY this approved floating stage01 larva's eyes/eyebrows/mouth to CRITICAL: almost closed exhausted eyes and a very small limp mouth; severely depleted but visibly alive, no injury or death. Preserve EXACT original blue translucent vertically elongated bilateral larval body, protrusion count/positions, highlights, pixel-art texture, proportions, orientation, face position and whole-canvas framing. Not a starfish yet: no five-arm star shape. ONE transparent standalone sprite, no sheet. No sweat, tears, food, bubbles, state symbols, text, extra faces, floor or shadows. All those effects are separate runtime layers. Keep body unchanged.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "1ce43941553a19b65c6e3b1fe37a099c4bb46e59c80dfdb7df518ad2e78e1bfb",
+      "final": "assets/characters/expressions/starfish/01-critical.png",
+      "final_sha256": "c7f8d197a941bc9217c488a6176225108e067f0394daeeb490c389b40e737d37"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-30f4352b-bb04-47de-a0dc-9c21a0eb99f3.png",
+      "prompt": "Use case: precise-object-edit. Change ONLY this approved floating stage01 larva's eyes/eyebrows/mouth to WANTSPLAY: bright expectant wide eyes, raised eyebrows, small calling smile; reaching out emotionally for attention while body pose stays exactly unchanged. Preserve EXACT original blue translucent vertically elongated bilateral larval body, protrusion count/positions, highlights, pixel-art texture, proportions, orientation, face position and whole-canvas framing. Not a starfish yet: no five-arm star shape. ONE transparent standalone sprite, no sheet. No sweat, tears, food, bubbles, state symbols, text, extra faces, floor or shadows. All those effects are separate runtime layers. Keep body unchanged.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "138c763adbb16e0e8ec6df140883302b17f81d660ea176b4c78bbdae181624f0",
+      "final": "assets/characters/expressions/starfish/01-wantsPlay.png",
+      "final_sha256": "0412e63fc4397067aeb076b0cbba16d68ff769eb41f8c8cb6626841e456d0baa"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-4f541692-627e-44cb-9b55-ef98bea5a513.png",
+      "prompt": "Use case: precise-object-edit. Change ONLY this approved floating stage01 larva's eyes/eyebrows/mouth to SLEEPING: fully closed relaxed eyelids and a tiny peaceful smile; genuinely asleep, no awake pupils. Preserve EXACT original blue translucent vertically elongated bilateral larval body, protrusion count/positions, highlights, pixel-art texture, proportions, orientation, face position and whole-canvas framing. Not a starfish yet: no five-arm star shape. ONE transparent standalone sprite, no sheet. No sweat, tears, food, bubbles, state symbols, text, extra faces, floor or shadows. All those effects are separate runtime layers. Keep body unchanged.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "2f382893e2f629a8370bda1b8483f81f18af50caae7c27344ca942bde51672ab",
+      "final": "assets/characters/expressions/starfish/01-sleeping.png",
+      "final_sha256": "600510b92d09dd4c48d2bd31543a1ef2a324ed875d7fc68b19552f61ee3728c6"
+    },
+    {
+      "stage": "01",
+      "state": "happy",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-9d4f4fd0-ad43-45ae-bed3-1776d7231439.png",
+      "prompt": "Use case: precise-object-edit. Change ONLY this approved floating stage01 larva's eyes/eyebrows/mouth to HAPPY: joyfully narrowed smiling eyes and an open cheerful smiling mouth. Preserve EXACT original blue translucent vertically elongated bilateral larval body, protrusion count/positions, highlights, pixel-art texture, proportions, orientation, face position and whole-canvas framing. Not a starfish yet: no five-arm star shape. ONE transparent standalone sprite, no sheet. No sweat, tears, food, bubbles, state symbols, text, extra faces, floor or shadows. All those effects are separate runtime layers. Keep body unchanged.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "1bf080d2beff56f4f81ab2023dbdde4065c950e42f8a84818129f7882d9e3213",
+      "final": "assets/characters/expressions/starfish/01-happy.png",
+      "final_sha256": "6d155030e4a1fbfcf1b8afd82d55350dbe241b6b26d216ebe45f9c6719035305"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-cd059b9b-14b4-4018-bf9b-68115eaf11f8.png",
+      "prompt": "Use case: precise-object-edit. Change ONLY this approved floating stage01 larva's eyes/eyebrows/mouth to STRAINED: uncomfortable squeezed eyes and a small grimacing mouth; dislike/too much food/unwanted medicine, not angry. Preserve EXACT original blue translucent vertically elongated bilateral larval body, protrusion count/positions, highlights, pixel-art texture, proportions, orientation, face position and whole-canvas framing. Not a starfish yet: no five-arm star shape. ONE transparent standalone sprite, no sheet. No sweat, tears, food, bubbles, state symbols, text, extra faces, floor or shadows. All those effects are separate runtime layers. Keep body unchanged.",
+      "original": "assets/characters/starfish/01.png",
+      "original_sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "source_sha256": "19a4e9f81743d87fa05f95c5a7a528a51c0879b1268763a860822ada3824cfc8",
+      "final": "assets/characters/expressions/starfish/01-strained.png",
+      "final_sha256": "8d42385199ecf91e8f8959a9d909eb2fdfec389e72b05c92c8a07454cde1a0b9"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-96670fc0-c8eb-4d6e-9ab4-645d08501b22.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to HUNGRY: longing, slightly drooping eyes and a small open pleading mouth; cute yearning to eat, not happy. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "dc5013fe0ab7fbd8993e5d1f1534d83bfe81aacaddf9dd680e69189fce341374",
+      "final": "assets/characters/expressions/starfish/02-hungry.png",
+      "final_sha256": "e24989e84d8d83b7acaf6597793a11134002d87391e681315eac86c7042ccdd0"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-4a08d7b5-a100-4031-9dee-83d73230ce8f.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to SICK: unwell, pained half-closed eyes with softly worried eyebrows and a small wavering mouth, visibly sick but alive. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "93589f9546a920d93400d1a595f75b8069fec716075eb8bf6620f22066658b2a",
+      "final": "assets/characters/expressions/starfish/02-sick.png",
+      "final_sha256": "d1fbd5854b5dc45bf4c63583779118d9d7e0530f22eb67733d7d4ff4d6912b12"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-73a1e6bd-dfb4-47d2-beb6-e125fef3da94.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to SULKY: pouting annoyed eyes, lowered eyebrows and a tiny sideways pout; grumpy, not pained. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "b026239bada64eede235d7fdc549b2ae6cdcc005484b87a523842553ca92a9da",
+      "final": "assets/characters/expressions/starfish/02-sulky.png",
+      "final_sha256": "39f61b1137e58fe431e5a769acc259c2d10e61ccadea3548d63bdc3102eb9c42"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-c40d00c2-5663-439d-8a66-62cf528ac2d8.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to TIRED: heavy sleepy eyelids, weary eyebrows and a small weary mouth; tired but not asleep. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "94b945488bba836fcf522f3d91ec676102ddace744b72e6bfaf9a0aa7018f3bb",
+      "final": "assets/characters/expressions/starfish/02-tired.png",
+      "final_sha256": "3963b47e5c57758614aaaefa79794751be84241451d9e1a9761fae8ae89eb802"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-c1f7f51b-c433-4563-9166-d7c1784a9811.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to CRITICAL: almost closed exhausted eyes and a very small limp mouth; severely depleted but visibly alive, no injury or death. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "87b302784f41f688bf2546ef0ced8002518e3490dd8d6b1ea2204a0f88364aab",
+      "final": "assets/characters/expressions/starfish/02-critical.png",
+      "final_sha256": "ec6a20fb4bd1825f93fac1102772bfd2bd3446f962441a54f6235d92410f0ba9"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-019d7972-c8f7-4557-9f1e-c995597d07fb.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to SLEEPING: fully closed relaxed eyelids and a tiny peaceful smile; genuinely asleep, no awake pupils. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "c61aec0d47e2969dbdf41e87e42464e1b85b01f7612e53e7230eb994dfd440d6",
+      "final": "assets/characters/expressions/starfish/02-sleeping.png",
+      "final_sha256": "4c8781075a4c71da12de1ac2e1d916f18d5e37eea07c78280d8c903b689ed794"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-469fb255-94ec-4236-9ef5-36124bed355f.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to WANTSPLAY: bright expectant wide eyes, raised eyebrows, small calling smile; reaching out emotionally for attention while body pose stays exactly unchanged. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "810a7467acc05de65809b642ba6a2b1fa2e013432adec7ff2beba292e0b7b4a8",
+      "final": "assets/characters/expressions/starfish/02-wantsPlay.png",
+      "final_sha256": "5a559fcc803109a7ae92003fb328988b2c4b75bfbac52f12119a1723537a9db7"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-de424dee-1be0-4fdd-8358-be641e18df02.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to WEAK: weak lowered eyes with little energy and a tiny slack mouth, more depleted than tired but responsive. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "16ba725f1ab60ecc01a77860a7bd0bab05d492742ec31239acd726fc8fa6d210",
+      "final": "assets/characters/expressions/starfish/02-weak.png",
+      "final_sha256": "bbc4e6cc98061eb3738ff6a4def2309a4b307b7445b0f2bde9c9ef39d5a63e39"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-b828cda5-996e-4994-acf9-548980ef0b61.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to STRAINED: uncomfortable squeezed eyes and a small grimacing mouth; dislike/too much food/unwanted medicine, not angry. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "b84742d7e89437028da348755cb907f722718c80da2507e0a250c1662e7eedf0",
+      "final": "assets/characters/expressions/starfish/02-strained.png",
+      "final_sha256": "c0b01ebfeeccab2ac0ce5346c3ea86c60b762fb42df2d04114c8899986be494f"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-ed4d7478-90eb-4679-9493-4c6be544ac60.png",
+      "prompt": "Use case: precise-object-edit. Edit target is approved stage02 LATE FLOATING LARVA. Change ONLY the existing eyes, eyebrows and mouth to HAPPY: joyfully narrowed smiling eyes and an open cheerful smiling mouth. ONE standalone transparent sprite. Preserve EXACT original elongated diagonal blue translucent larval body, three rounded anterior protrusions (top/upper left/upper right), two side lobes, long lower tail, all highlights and pixel-art texture, color, orientation, proportions, face position/size and canvas framing. Never make it a starfish or stage01, no developing orange star. No body pose change, extra face, sweat, tears, food, bubbles, state marks, text or shadows. Those effects are separate layers. Transparent background.",
+      "original": "assets/characters/starfish/02.png",
+      "original_sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "source_sha256": "687d27f6d19fab1b3b6863165f62c688a31786b8d4f61a9ece8c8259343cde63",
+      "final": "assets/characters/expressions/starfish/02-happy.png",
+      "final_sha256": "0505233776ee5adbab473709ee860e16115d7bee4a9bfb19dfd35f7968a4ed78"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-91f37b82-c8a3-4030-bd09-b5c4607017a1.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to SICK: unwell, pained half-closed eyes with softly worried eyebrows and a small wavering mouth, visibly sick but alive. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "2030b015785d551bcf7a0fb64a02159d2e585517ec82ca86d33618293196bef7",
+      "final": "assets/characters/expressions/starfish/03-sick.png",
+      "final_sha256": "47edd5c7394f1e4513c8c787ca4325d4e041df9abe1b7f0847a15d2bb12a59c1"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-87a651e5-6669-47c1-8ba4-f8da60953c40.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to HUNGRY: longing, slightly drooping eyes and a small open pleading mouth; cute yearning to eat, not happy. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "a9d983d176d4bf1e0ff23851de5dea35f03603ea2a21d1607841cb317a929f5c",
+      "final": "assets/characters/expressions/starfish/03-hungry.png",
+      "final_sha256": "77b57ba47e1bf21b3f2143fcfd0e6842faf59bda8a5fb5bc2f2002463dd3b70f"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-6e57560a-e56b-4dbe-a801-a0231f9cd218.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to TIRED: heavy sleepy eyelids, weary eyebrows and a small weary mouth; tired but not asleep. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "c4e3c26674d469f3f96f83464e695baf0f08d2d162b6ef90d6a025357f2c7fa1",
+      "final": "assets/characters/expressions/starfish/03-tired.png",
+      "final_sha256": "70e6780fc341c62872636423469f68a5fcc09fcdc6d72245652d27b8489b38de"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-a9eea9f1-5bf2-4755-842a-08f15d7a5f6f.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to SULKY: pouting annoyed eyes, lowered eyebrows and a tiny sideways pout; grumpy, not pained. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "07bdd8bfdacb8e26e64d02869e32fa16d1d8afb8040b0fdeea936c1f5762435f",
+      "final": "assets/characters/expressions/starfish/03-sulky.png",
+      "final_sha256": "ab91acd03f37d42c931663cf1807e643d8abe8ff370abf81a3234955b56b9ce1"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-11ef3498-9101-4618-9c7a-3925f488b5f0.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to WEAK: weak lowered eyes with little energy and a tiny slack mouth, more depleted than tired but responsive. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "d2a0d38adf4d8991d3f58359a32aa404d0f2269cf03e2a6f60ca9ded1bbd9805",
+      "final": "assets/characters/expressions/starfish/03-weak.png",
+      "final_sha256": "7b59b97fda5dac2f64ff6c28567e4472ed02fbbf2d20cb1759b008b03c3b45fe"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-b5be2601-6793-460a-8294-eac190d52040.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to CRITICAL: almost closed exhausted eyes and a very small limp mouth; severely depleted but visibly alive, no injury or death. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "57435185823ab915fbc7d6c6b1e8f19a1e497f774807057013116579faf297f4",
+      "final": "assets/characters/expressions/starfish/03-critical.png",
+      "final_sha256": "bd3c2d60307f668756d20b663b9c1d8c0125e3cc16792763d7e0eedadddd9f6a"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-566559b0-522d-4e2a-9b2c-50534471fbee.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to WANTSPLAY: bright expectant wide eyes, raised eyebrows, small calling smile; reaching out emotionally for attention while body pose stays exactly unchanged. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "5feb2d4e169c8268efa36591229738d7a017bc4c163b5172b33293a389d85d73",
+      "final": "assets/characters/expressions/starfish/03-wantsPlay.png",
+      "final_sha256": "20d37d9a1c3c464e2395269f1c58e885db13b9518bbfb554587d5c51f6ec5856"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-9ab5b325-c7d0-484e-818a-b337a1f5e1e2.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to SLEEPING: fully closed relaxed eyelids and a tiny peaceful smile; genuinely asleep, no awake pupils. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "37fdb3f57cabb23eccc695d2141ed750c9afb35325b76d083c199416ab4cab0c",
+      "final": "assets/characters/expressions/starfish/03-sleeping.png",
+      "final_sha256": "feb5cdf9a3c16016b3ef5f8c8636c7fe1d0ff2d8b67b3d248be8c78778183ce7"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-d8ffa7b9-029d-42da-8ca0-8d88980b513b.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to STRAINED: uncomfortable squeezed eyes and a small grimacing mouth; dislike/too much food/unwanted medicine, not angry. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "90d36c5738c5dc9fe1c9f962b29c082707b894be0d59ef05275813cb55fa04fa",
+      "final": "assets/characters/expressions/starfish/03-strained.png",
+      "final_sha256": "6b26dd3b43757390db272b6222724ee16091de177918fb1ead1e665e9741710d"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "source": "/workspace/scratch/768fc4e0e9ad/generated_images/exec-eaf00602-8456-4b0c-ba50-42a5de94cdc4.png",
+      "prompt": "Use case: precise-object-edit. Edit target: approved stage03 metamorphosing larva/starfish sprite. It is ONE continuous body, ONE individual, ONE FACE, NOT two creatures. Change ONLY the existing face on the pink-orange star side to HAPPY: joyfully narrowed smiling eyes and an open cheerful smiling mouth. Keep exact original star shape, arms, colors, highlights, position, proportions and pixel-art texture. Keep attached upper-left blue residual larval structure EXACTLY as reference, completely FACELESS: no eyes, no mouth, no separate emotions. Preserve its organic continuous connection to orange body, blue lobes/count and orientation. No pose change, no extra faces, sweat, tears, food, bubbles, marks, text or shadows. Effects are separate runtime layers. ONE standalone transparent sprite, same framing, no sheet.",
+      "original": "assets/characters/starfish/03.png",
+      "original_sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "source_sha256": "afd93bd971c9c3c892a28b39520938cbb3bd981b1c9f2da0a9799ded354241f4",
+      "final": "assets/characters/expressions/starfish/03-happy.png",
+      "final_sha256": "51bb7c9ff4258225a7ab49c1121557d560dbb6337606a2cbb43b3312c5a69d19"
+    }
+  ],
+  "asset_audit": [
+    {
+      "stage": "01",
+      "state": "hungry",
+      "file": "assets/characters/expressions/starfish/01-hungry.png",
+      "sha256": "c726f85570dcacc802724e0ec9befd790ed937442dfb3c52d08d9771618ac0f8",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.967425256581883
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "file": "assets/characters/expressions/starfish/01-sick.png",
+      "sha256": "c266bca730ab1d70d09cb90d0690f7cb4634984d2444fc9d897d8ba575c3d5a1",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9684704830053668
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "file": "assets/characters/expressions/starfish/01-tired.png",
+      "sha256": "4ba73b031caecf274b9fdc0e50b8d48b3e3078868dbfa837dd1775969a23448e",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9696496317786208
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "file": "assets/characters/expressions/starfish/01-sulky.png",
+      "sha256": "ad10c6d0889ea020c531f94152ea5817155201b6013881b6fbf5dc6c136e1a71",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9656019656019657
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "file": "assets/characters/expressions/starfish/01-weak.png",
+      "sha256": "ea62645cf1bae736063c2c7c190c7c58944062b290ee5a1e592c8e48b5e63851",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9631449631449631
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "file": "assets/characters/expressions/starfish/01-critical.png",
+      "sha256": "c7f8d197a941bc9217c488a6176225108e067f0394daeeb490c389b40e737d37",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9705159705159705
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "file": "assets/characters/expressions/starfish/01-wantsPlay.png",
+      "sha256": "0412e63fc4397067aeb076b0cbba16d68ff769eb41f8c8cb6626841e456d0baa",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9631614199598124
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "file": "assets/characters/expressions/starfish/01-sleeping.png",
+      "sha256": "600510b92d09dd4c48d2bd31543a1ef2a324ed875d7fc68b19552f61ee3728c6",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9694401070711577
+    },
+    {
+      "stage": "01",
+      "state": "happy",
+      "file": "assets/characters/expressions/starfish/01-happy.png",
+      "sha256": "6d155030e4a1fbfcf1b8afd82d55350dbe241b6b26d216ebe45f9c6719035305",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.964947532931458
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "file": "assets/characters/expressions/starfish/01-strained.png",
+      "sha256": "8d42385199ecf91e8f8959a9d909eb2fdfec389e72b05c92c8a07454cde1a0b9",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9645642968575886
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "file": "assets/characters/expressions/starfish/02-hungry.png",
+      "sha256": "e24989e84d8d83b7acaf6597793a11134002d87391e681315eac86c7042ccdd0",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.976696542893726
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "file": "assets/characters/expressions/starfish/02-sick.png",
+      "sha256": "d1fbd5854b5dc45bf4c63583779118d9d7e0530f22eb67733d7d4ff4d6912b12",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9806701030927835
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "file": "assets/characters/expressions/starfish/02-tired.png",
+      "sha256": "3963b47e5c57758614aaaefa79794751be84241451d9e1a9761fae8ae89eb802",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9786796814795787
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "file": "assets/characters/expressions/starfish/02-sulky.png",
+      "sha256": "39f61b1137e58fe431e5a769acc259c2d10e61ccadea3548d63bdc3102eb9c42",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9793495095508519
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "file": "assets/characters/expressions/starfish/02-weak.png",
+      "sha256": "bbc4e6cc98061eb3738ff6a4def2309a4b307b7445b0f2bde9c9ef39d5a63e39",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9707991803278688
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "file": "assets/characters/expressions/starfish/02-critical.png",
+      "sha256": "ec6a20fb4bd1825f93fac1102772bfd2bd3446f962441a54f6235d92410f0ba9",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9801699716713881
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "file": "assets/characters/expressions/starfish/02-wantsPlay.png",
+      "sha256": "5a559fcc803109a7ae92003fb328988b2c4b75bfbac52f12119a1723537a9db7",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9791344667697064
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "file": "assets/characters/expressions/starfish/02-sleeping.png",
+      "sha256": "4c8781075a4c71da12de1ac2e1d916f18d5e37eea07c78280d8c903b689ed794",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9711860046308207
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "file": "assets/characters/expressions/starfish/02-happy.png",
+      "sha256": "0505233776ee5adbab473709ee860e16115d7bee4a9bfb19dfd35f7968a4ed78",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9749168159713335
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "file": "assets/characters/expressions/starfish/02-strained.png",
+      "sha256": "c0b01ebfeeccab2ac0ce5346c3ea86c60b762fb42df2d04114c8899986be494f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9773429454170958
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "file": "assets/characters/expressions/starfish/03-hungry.png",
+      "sha256": "77b57ba47e1bf21b3f2143fcfd0e6842faf59bda8a5fb5bc2f2002463dd3b70f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9507815098104423
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "file": "assets/characters/expressions/starfish/03-sick.png",
+      "sha256": "47edd5c7394f1e4513c8c787ca4325d4e041df9abe1b7f0847a15d2bb12a59c1",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9514887922382067
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "file": "assets/characters/expressions/starfish/03-tired.png",
+      "sha256": "70e6780fc341c62872636423469f68a5fcc09fcdc6d72245652d27b8489b38de",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9533869885982562
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "file": "assets/characters/expressions/starfish/03-sulky.png",
+      "sha256": "ab91acd03f37d42c931663cf1807e643d8abe8ff370abf81a3234955b56b9ce1",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9512195121951219
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "file": "assets/characters/expressions/starfish/03-weak.png",
+      "sha256": "7b59b97fda5dac2f64ff6c28567e4472ed02fbbf2d20cb1759b008b03c3b45fe",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9494848786972416
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "file": "assets/characters/expressions/starfish/03-critical.png",
+      "sha256": "bd3c2d60307f668756d20b663b9c1d8c0125e3cc16792763d7e0eedadddd9f6a",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9531145344943067
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "file": "assets/characters/expressions/starfish/03-wantsPlay.png",
+      "sha256": "20d37d9a1c3c464e2395269f1c58e885db13b9518bbfb554587d5c51f6ec5856",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9436854381872709
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "file": "assets/characters/expressions/starfish/03-sleeping.png",
+      "sha256": "feb5cdf9a3c16016b3ef5f8c8636c7fe1d0ff2d8b67b3d248be8c78778183ce7",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9474209650582363
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "file": "assets/characters/expressions/starfish/03-happy.png",
+      "sha256": "51bb7c9ff4258225a7ab49c1121557d560dbb6337606a2cbb43b3312c5a69d19",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9507323568575233
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "file": "assets/characters/expressions/starfish/03-strained.png",
+      "sha256": "6b26dd3b43757390db272b6222724ee16091de177918fb1ead1e665e9741710d",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "silhouetteIoU": 0.9573109243697479
+    }
+  ]
+}

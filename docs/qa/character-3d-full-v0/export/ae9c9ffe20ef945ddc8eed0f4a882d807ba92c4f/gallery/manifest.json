@@ -1,0 +1,23 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11612053569,
+    "name": "full-rollout-wave-review-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:18ad61c0457910f58ed1616eca3c11d033a109a2dc2363f1331e52287efa5e71"
+  },
+  "files": [
+    {
+      "path": "gallery/result.json",
+      "sha256": "450f3b71f3a9376098e983bb9f27408aab78cc72eb15ce993160f50de37cae3c",
+      "bytes": 5249
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792592014,
+  "artifactJobName": "wave-review",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

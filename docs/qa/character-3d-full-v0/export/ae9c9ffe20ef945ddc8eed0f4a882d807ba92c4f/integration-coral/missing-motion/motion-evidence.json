@@ -1,0 +1,3705 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "coral",
+      "stage": 1
+    },
+    {
+      "id": "coral",
+      "stage": 3
+    },
+    {
+      "id": "coral",
+      "stage": 4
+    },
+    {
+      "id": "coral",
+      "stage": 6
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -4.8612448207401195e-9,
+          -0.3400000035762787
+        ],
+        [
+          0.3700000047683716,
+          0.7544129546594872,
+          0.3624995691220675
+        ]
+      ],
+      "file": "coral-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.01914942052645691,
+          -0.3400000035762787
+        ],
+        [
+          0.3700000047683716,
+          0.7735623800471889,
+          0.3624995691220675
+        ]
+      ],
+      "file": "coral-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -4.76837147544984e-9,
+          -0.3400000035762787
+        ],
+        [
+          0.3700000047683716,
+          0.7400000095367432,
+          0.3624995691220675
+        ]
+      ],
+      "file": "coral-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.00957470792547939,
+          -0.3400000035762787
+        ],
+        [
+          0.3700000047683716,
+          0.7495747222305941,
+          0.3624995691220675
+        ]
+      ],
+      "file": "coral-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.040043859214985454,
+          -0.39411772128107064
+        ],
+        [
+          0.3700000047683716,
+          0.8420435015874871,
+          0.34448208732716995
+        ]
+      ],
+      "file": "coral-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.019409144254143355,
+          -0.39411772128107064
+        ],
+        [
+          0.3700000047683716,
+          0.821408786626645,
+          0.34448208732716995
+        ]
+      ],
+      "file": "coral-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.021797966592799305,
+          -0.3930665105182618
+        ],
+        [
+          0.3700000047683716,
+          0.7658271168053791,
+          0.34448208732716995
+        ]
+      ],
+      "file": "coral-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.016654867598117667,
+          -0.3930665105182618
+        ],
+        [
+          0.3700000047683716,
+          0.7709702158000608,
+          0.34448208732716995
+        ]
+      ],
+      "file": "coral-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.46971888051845595,
+          -0.06821115957201854,
+          -0.448554533378561
+        ],
+        [
+          0.46971888051845595,
+          0.8052429302121992,
+          0.5538276661213537
+        ]
+      ],
+      "file": "coral-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.46971888051845595,
+          0.021022226601020655,
+          -0.448554533378561
+        ],
+        [
+          0.46971888051845595,
+          0.8944763163852384,
+          0.5538276661213537
+        ]
+      ],
+      "file": "coral-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.46971888051845595,
+          -0.06821115948005387,
+          -0.44855453336560114
+        ],
+        [
+          0.46971888051845595,
+          0.7909710013991231,
+          0.5518164388677296
+        ]
+      ],
+      "file": "coral-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.46971888051845595,
+          -0.023594466393534262,
+          -0.44855453336560114
+        ],
+        [
+          0.46971888051845595,
+          0.8355876944856427,
+          0.5518164388677296
+        ]
+      ],
+      "file": "coral-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1480,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.06408593316453316,
+          -0.33576494563827497
+        ],
+        [
+          0.3700000047683716,
+          0.7376019510340582,
+          0.45446687036242833
+        ]
+      ],
+      "file": "coral-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1480,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.029317069605491387,
+          -0.33576494563827497
+        ],
+        [
+          0.3700000047683716,
+          0.8310049538040828,
+          0.45446687036242833
+        ]
+      ],
+      "file": "coral-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1480,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.06408593316453316,
+          -0.335764945623662
+        ],
+        [
+          0.3700000047683716,
+          0.7242225393479502,
+          0.45219908807227693
+        ]
+      ],
+      "file": "coral-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1480,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.01738443177952089,
+          -0.335764945623662
+        ],
+        [
+          0.3700000047683716,
+          0.7709240407329625,
+          0.45219908807227693
+        ]
+      ],
+      "file": "coral-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.07788487775309658,
+          -0.3334901647123796
+        ],
+        [
+          0.3700000047683716,
+          0.7256880534788575,
+          0.48041018977850414
+        ]
+      ],
+      "file": "coral-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.06893286671939791,
+          -0.3334901647123796
+        ],
+        [
+          0.3700000047683716,
+          0.7346400645125561,
+          0.48041018977850414
+        ]
+      ],
+      "file": "coral-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.07788487775309658,
+          -0.3334901646942927
+        ],
+        [
+          0.3700000047683716,
+          0.7126820259833577,
+          0.4776033049559722
+        ]
+      ],
+      "file": "coral-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.07340887223624724,
+          -0.3334901646942927
+        ],
+        [
+          0.3700000047683716,
+          0.7171580315002071,
+          0.4776033049559722
+        ]
+      ],
+      "file": "coral-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.36950571227739065,
+          -0.03347220287385118,
+          -0.33865432260796574
+        ],
+        [
+          0.3704942972593525,
+          0.7463812560863293,
+          0.40570847061531123
+        ]
+      ],
+      "file": "coral-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.36950571227739065,
+          0.05635817916731909,
+          -0.33865432260796574
+        ],
+        [
+          0.3704942972593525,
+          0.8362116381274995,
+          0.40570847061531123
+        ]
+      ],
+      "file": "coral-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.03347220287385118,
+          -0.33865432259971096
+        ],
+        [
+          0.3700000047683716,
+          0.7325995917764174,
+          0.40442741127540904
+        ]
+      ],
+      "file": "coral-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.011442988146733953,
+          -0.33865432259971096
+        ],
+        [
+          0.3700000047683716,
+          0.7775147827970026,
+          0.40442741127540904
+        ]
+      ],
+      "file": "coral-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.0016850147640847905,
+          -0.40787026270104415
+        ],
+        [
+          0.3700000047683716,
+          0.8153793365963078,
+          0.3439412917847202
+        ]
+      ],
+      "file": "coral-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.08588081942287026,
+          -0.40787026270104415
+        ],
+        [
+          0.3700000047683716,
+          0.8995751412550933,
+          0.3439412917847202
+        ]
+      ],
+      "file": "coral-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.029235898093640002,
+          -0.40654614148953766
+        ],
+        [
+          0.3700000047683716,
+          0.7701064310970355,
+          0.3439412917847202
+        ]
+      ],
+      "file": "coral-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1280,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          0.02059223247330408,
+          -0.40654614148953766
+        ],
+        [
+          0.3700000047683716,
+          0.8199345616639796,
+          0.3439412917847202
+        ]
+      ],
+      "file": "coral-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3687642735409193,
+          -0.05707918715619475,
+          -0.33648097143540423
+        ],
+        [
+          0.3712357359958239,
+          0.7625338075591251,
+          0.44474138110848616
+        ]
+      ],
+      "file": "coral-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3687642735409193,
+          0.010639237435632047,
+          -0.33648097143540423
+        ],
+        [
+          0.3712357359958239,
+          0.8302522321509519,
+          0.44474138110848616
+        ]
+      ],
+      "file": "coral-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.05707918715619475,
+          -0.33648097142207667
+        ],
+        [
+          0.3700000047683716,
+          0.7486979509013959,
+          0.4426730823816401
+        ]
+      ],
+      "file": "coral-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1120,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.3700000047683716,
+          -0.02321997486028135,
+          -0.33648097142207667
+        ],
+        [
+          0.3700000047683716,
+          0.7825571631973093,
+          0.4426730823816401
+        ]
+      ],
+      "file": "coral-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0592365887706126,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.011798288143085513,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0783860141583144,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.010351632721722126,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0390000343322754,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.0007769200278712612,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0485747470261262,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.03389411236962351,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.1336563128285218,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.01325939740878141,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.1130215978676798,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.007351632721722126,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0516318288482218,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.002208533727040489,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0567749278429035,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5642707068673731,
+          -0.03594771353078724,
+          -0.3545721385668874
+        ],
+        [
+          0.5822835355181262,
+          1.0948423758554742,
+          0.5023701979094668
+        ]
+      ],
+      "file": "coral-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5642707068673731,
+          0.053285672642251945,
+          -0.3545721385668874
+        ],
+        [
+          0.5822835355181262,
+          1.1840757620285132,
+          0.5023701979094668
+        ]
+      ],
+      "file": "coral-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5642707068673731,
+          -0.015351632721722127,
+          -0.3547080322701395
+        ],
+        [
+          0.5822835355181262,
+          1.074803815942405,
+          0.49954632607347355
+        ]
+      ],
+      "file": "coral-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5642707068673731,
+          0.029265060364797472,
+          -0.3547080322701395
+        ],
+        [
+          0.5822835355181262,
+          1.1194205090289244,
+          0.49954632607347355
+        ]
+      ],
+      "file": "coral-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5508,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.042090850718940004,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          0.9954236000450184,
+          0.33454639550289356
+        ]
+      ],
+      "file": "coral-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5508,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.05131215205108454,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0888266028150428,
+          0.33454639550289356
+        ]
+      ],
+      "file": "coral-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5508,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.022730534758418797,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          0.9766381824476397,
+          0.3313623065205158
+        ]
+      ],
+      "file": "coral-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5508,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.023970966626593468,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0233396838326518,
+          0.3313623065205158
+        ]
+      ],
+      "file": "coral-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.044471896448324263,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          0.9702978640097017,
+          0.3730287441857578
+        ]
+      ],
+      "file": "coral-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.0355198854146256,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          0.9792498750434004,
+          0.3730287441857578
+        ]
+      ],
+      "file": "coral-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.025523502103984356,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          0.9520366980094332,
+          0.3690877260919836
+        ]
+      ],
+      "file": "coral-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.021047496587135023,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          0.9565127035262826,
+          0.3690877260919836
+        ]
+      ],
+      "file": "coral-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5392206995553753,
+          -0.03370980498955575,
+          -0.2546935975551605
+        ],
+        [
+          0.5596057684354999,
+          1.0233481132123188,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5392206995553753,
+          0.05612057705161452,
+          -0.2546935975551605
+        ],
+        [
+          0.5596057684354999,
+          1.113178495253489,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.01393756741285324,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0039979111763506,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.030977623607731895,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0489131021969358,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.001973199419418134,
+          -0.26659342427775135
+        ],
+        [
+          0.559111475944519,
+          1.1032959200480925,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.0861690040782036,
+          -0.26659342427775135
+        ],
+        [
+          0.559111475944519,
+          1.1874917247068781,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.008351632721722126,
+          -0.2647342864852038
+        ],
+        [
+          0.559111475944519,
+          1.0522240333694517,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.041476497845221956,
+          -0.2647342864852038
+        ],
+        [
+          0.559111475944519,
+          1.1020521639363958,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5384792608189038,
+          -0.03901928212486362,
+          -0.2546935975551605
+        ],
+        [
+          0.5603472071719714,
+          1.0314888067485792,
+          0.3202439565072107
+        ]
+      ],
+      "file": "coral-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5384792608189038,
+          0.028699142466963173,
+          -0.2546935975551605
+        ],
+        [
+          0.5603472071719714,
+          1.099207231340406,
+          0.3202439565072107
+        ]
+      ],
+      "file": "coral-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          -0.019041083740070464,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.0120625157254257,
+          0.3173399532362543
+        ]
+      ],
+      "file": "coral-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5148,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5397149920463562,
+          0.014818128555842934,
+          -0.2546935975551605
+        ],
+        [
+          0.559111475944519,
+          1.045921728021339,
+          0.3173399532362543
+        ]
+      ],
+      "file": "coral-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9788354866343228,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.011798288143085513,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9979849120220246,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.010351632721722126,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9601349830627441,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.0007769200278712612,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.969709695756595,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.03389411236962351,
+          -0.28083224039280147
+        ],
+        [
+          0.598164975643158,
+          1.0563867509460114,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.01325939740878141,
+          -0.28083224039280147
+        ],
+        [
+          0.598164975643158,
+          1.0357520359851693,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.007351632721722126,
+          -0.27946831577802117
+        ],
+        [
+          0.598164975643158,
+          0.9758942268421601,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.002208533727040489,
+          -0.27946831577802117
+        ],
+        [
+          0.598164975643158,
+          0.9810373258368418,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6250160769109709,
+          -0.04306967842175192,
+          -0.4071218953415875
+        ],
+        [
+          0.6333879552650676,
+          1.0224328531720264,
+          0.5460909697490856
+        ]
+      ],
+      "file": "coral-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6250160769109709,
+          0.04616370775128727,
+          -0.4071218953415875
+        ],
+        [
+          0.6333879552650676,
+          1.1116662393450654,
+          0.5460909697490856
+        ]
+      ],
+      "file": "coral-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6250160769109709,
+          -0.04306967842175192,
+          -0.40723061034468855
+        ],
+        [
+          0.6333879552650676,
+          1.0039153153982177,
+          0.5434814432352918
+        ]
+      ],
+      "file": "coral-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6250160769109709,
+          0.0015470146647676777,
+          -0.40723061034468855
+        ],
+        [
+          0.6333879552650676,
+          1.0485320084847372,
+          0.5434814432352918
+        ]
+      ],
+      "file": "coral-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4788,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.04464262568328378,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9267040676564564,
+          0.3613975595010861
+        ]
+      ],
+      "file": "coral-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4788,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.04876037708674076,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          1.020107070426481,
+          0.3613975595010861
+        ]
+      ],
+      "file": "coral-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4788,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.04464262568328378,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9093445527279732,
+          0.3584551580380002
+        ]
+      ],
+      "file": "coral-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4788,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.0020588757017284826,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9560460541129855,
+          0.3584551580380002
+        ]
+      ],
+      "file": "coral-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.05433149168265576,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9049118102152263,
+          0.3966049600224822
+        ]
+      ],
+      "file": "coral-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.045379480648957096,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.913863821248925,
+          0.3966049600224822
+        ]
+      ],
+      "file": "coral-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.05433149168265576,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.8880367536906693,
+          0.3929630839727401
+        ]
+      ],
+      "file": "coral-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.04985548616580643,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.8925127592075186,
+          0.3929630839727401
+        ]
+      ],
+      "file": "coral-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5886557190484784,
+          -0.03370980498955575,
+          -0.2546935975551605
+        ],
+        [
+          0.5986592681341388,
+          0.9498816341282836,
+          0.2961702330575808
+        ]
+      ],
+      "file": "coral-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5886557190484784,
+          0.05612057705161452,
+          -0.2546935975551605
+        ],
+        [
+          0.5986592681341388,
+          1.039712016169454,
+          0.2961702330575808
+        ]
+      ],
+      "file": "coral-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.022255081699212722,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9320002045901173,
+          0.2945080845822187
+        ]
+      ],
+      "file": "coral-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.022660109321372413,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9769153956107025,
+          0.2945080845822187
+        ]
+      ],
+      "file": "coral-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.001973199419418134,
+          -0.2990377840842173
+        ],
+        [
+          0.598164975643158,
+          1.0269096456253497,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.0861690040782036,
+          -0.2990377840842173
+        ],
+        [
+          0.598164975643158,
+          1.111105450284135,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.008351632721722126,
+          -0.2973197637050301
+        ],
+        [
+          0.598164975643158,
+          0.9773673138299723,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4588,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          0.041476497845221956,
+          -0.2973197637050301
+        ],
+        [
+          0.598164975643158,
+          1.0271954443969165,
+          0.2761576473712921
+        ]
+      ],
+      "file": "coral-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5879142803120069,
+          -0.03901928212486362,
+          -0.2546935975551605
+        ],
+        [
+          0.5994007068706103,
+          0.9598748415505719,
+          0.3482921569516739
+        ]
+      ],
+      "file": "coral-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5879142803120069,
+          0.028699142466963173,
+          -0.2546935975551605
+        ],
+        [
+          0.5994007068706103,
+          1.0275932661423988,
+          0.3482921569516739
+        ]
+      ],
+      "file": "coral-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.03878024728334075,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.9419230985417526,
+          0.34560858136048944
+        ]
+      ],
+      "file": "coral-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4428,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5891500115394592,
+          -0.004921034987427353,
+          -0.2546935975551605
+        ],
+        [
+          0.598164975643158,
+          0.975782310837666,
+          0.34560858136048944
+        ]
+      ],
+      "file": "coral-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23048,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.03339805547860131,
+          -0.39000001549720764
+        ],
+        [
+          0.8218534469604493,
+          0.9971585493571467,
+          0.33946359924538494
+        ]
+      ],
+      "file": "coral-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 23048,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.014248630090899578,
+          -0.39000001549720764
+        ],
+        [
+          0.8218534469604493,
+          1.0163079747448485,
+          0.33946359924538494
+        ]
+      ],
+      "file": "coral-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 23048,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.032759990692138696,
+          -0.39000001549720764
+        ],
+        [
+          0.8218534469604493,
+          0.9781079864501954,
+          0.33946359924538494
+        ]
+      ],
+      "file": "coral-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 23048,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.023185277998287818,
+          -0.39000001549720764
+        ],
+        [
+          0.8218534469604493,
+          0.9876826991440463,
+          0.33946359924538494
+        ]
+      ],
+      "file": "coral-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          0.008339332819684298,
+          -0.3978840099867443
+        ],
+        [
+          0.8218534469604493,
+          1.0606574588684539,
+          0.33884070923683984
+        ]
+      ],
+      "file": "coral-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.012295382141157774,
+          -0.3978840099867443
+        ],
+        [
+          0.8218534469604493,
+          1.0400227439076117,
+          0.33884070923683984
+        ]
+      ],
+      "file": "coral-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.052866127663024925,
+          -0.3977135433825662
+        ],
+        [
+          0.8218534469604493,
+          0.9798158077481912,
+          0.33882650368781464
+        ]
+      ],
+      "file": "coral-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.0477230286683433,
+          -0.3977135433825662
+        ],
+        [
+          0.8218534469604493,
+          0.9849589067428728,
+          0.33882650368781464
+        ]
+      ],
+      "file": "coral-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6925710994542364,
+          -0.0895636562326677,
+          -0.580433107150832
+        ],
+        [
+          0.8848881464937572,
+          1.0540736307413823,
+          0.5726524418576636
+        ]
+      ],
+      "file": "coral-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6925710994542364,
+          -0.0003302700596285041,
+          -0.580433107150832
+        ],
+        [
+          0.8848881464937572,
+          1.1433070169144215,
+          0.5726524418576636
+        ]
+      ],
+      "file": "coral-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6925710994542364,
+          -0.08937079235454651,
+          -0.5804059284076504
+        ],
+        [
+          0.8848881464937572,
+          1.035209458614064,
+          0.5713737738659046
+        ]
+      ],
+      "file": "coral-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6925710994542364,
+          -0.044754099268026905,
+          -0.5804059284076504
+        ],
+        [
+          0.8848881464937572,
+          1.0798261517005836,
+          0.5713737738659046
+        ]
+      ],
+      "file": "coral-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 24168,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.07260277619293104,
+          -0.38674623377021544
+        ],
+        [
+          0.8218534469604493,
+          0.9596867132130802,
+          0.4284771290210953
+        ]
+      ],
+      "file": "coral-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 24168,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          0.02080022657709351,
+          -0.38674623377021544
+        ],
+        [
+          0.8218534469604493,
+          1.0530897159831047,
+          0.4284771290210953
+        ]
+      ],
+      "file": "coral-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 24168,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.0724219733555179,
+          -0.3867155880675258
+        ],
+        [
+          0.8218534469604493,
+          0.9420022412461406,
+          0.42647947423928734
+        ]
+      ],
+      "file": "coral-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 24168,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.025720471970505622,
+          -0.3867155880675258
+        ],
+        [
+          0.8218534469604493,
+          0.9887037426311529,
+          0.42647947423928734
+        ]
+      ],
+      "file": "coral-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.08593745621063752,
+          -0.3845182515865648
+        ],
+        [
+          0.8218534469604493,
+          0.9407963801295074,
+          0.4511395280703518
+        ]
+      ],
+      "file": "coral-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.07698544517693885,
+          -0.3845182515865648
+        ],
+        [
+          0.8218534469604493,
+          0.9497483911632061,
+          0.4511395280703518
+        ]
+      ],
+      "file": "coral-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.08576169910488216,
+          -0.38448032071545385
+        ],
+        [
+          0.8218534469604493,
+          0.9236054352627596,
+          0.44866698610189826
+        ]
+      ],
+      "file": "coral-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.08128569358803282,
+          -0.38448032071545385
+        ],
+        [
+          0.8218534469604493,
+          0.928081440779609,
+          0.44866698610189826
+        ]
+      ],
+      "file": "coral-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718189213163354,
+          -0.04267418089525736,
+          -0.38936257675287866
+        ],
+        [
+          0.8223477394514301,
+          0.9766174976362254,
+          0.38576879034133316
+        ]
+      ],
+      "file": "coral-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718189213163354,
+          0.047156201145912915,
+          -0.38936257675287866
+        ],
+        [
+          0.8223477394514301,
+          1.0664478796773957,
+          0.38576879034133316
+        ]
+      ],
+      "file": "coral-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.04248794221227439,
+          -0.38934526514239964
+        ],
+        [
+          0.8218534469604493,
+          0.9584013412113909,
+          0.38464032473541976
+        ]
+      ],
+      "file": "coral-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          0.0024272488083107446,
+          -0.38934526514239964
+        ],
+        [
+          0.8218534469604493,
+          1.0033165322319761,
+          0.38464032473541976
+        ]
+      ],
+      "file": "coral-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.02955064813796643,
+          -0.40826439646101853
+        ],
+        [
+          0.8218534469604493,
+          1.027516127418397,
+          0.33850297615820124
+        ]
+      ],
+      "file": "coral-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          0.05464515652081903,
+          -0.40826439646101853
+        ],
+        [
+          0.8218534469604493,
+          1.1117119320771824,
+          0.33850297615820124
+        ]
+      ],
+      "file": "coral-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.05983619468781812,
+          -0.4065142160349218
+        ],
+        [
+          0.8218534469604493,
+          0.9776252166941322,
+          0.33848508263061305
+        ]
+      ],
+      "file": "coral-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 23368,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.010008064120874044,
+          -0.4065142160349218
+        ],
+        [
+          0.8218534469604493,
+          1.0274533472610763,
+          0.33848508263061305
+        ]
+      ],
+      "file": "coral-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.7174477744268828,
+          -0.06597461898962584,
+          -0.38742645604232157
+        ],
+        [
+          0.8230891781879015,
+          0.9924976152178913,
+          0.4199701121947097
+        ]
+      ],
+      "file": "coral-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.7174477744268828,
+          0.0017438056022009568,
+          -0.38742645604232157
+        ],
+        [
+          0.8230891781879015,
+          1.060216039809718,
+          0.4199701121947097
+        ]
+      ],
+      "file": "coral-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.06578764797771233,
+          -0.3873985060631143
+        ],
+        [
+          0.8218534469604493,
+          0.9742098291072167,
+          0.41814817943695126
+        ]
+      ],
+      "file": "coral-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22728,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.718683505654335,
+          -0.03192843568179893,
+          -0.3873985060631143
+        ],
+        [
+          0.8218534469604493,
+          1.0080690414031301,
+          0.41814817943695126
+        ]
+      ],
+      "file": "coral-6-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,13 @@
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /×1/. Input:
+
+'普通01 ×0'
+
+    at /workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/evolution-eggs-ui.cjs:4:262
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: '普通01 ×0',
+  expected: /×1/,
+  operator: 'match',
+  diff: 'simple'
+}

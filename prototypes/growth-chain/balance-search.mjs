@@ -1,0 +1,10 @@
+// Targeted continuation, not an unbiased cohort rate. At most two future drops.
+import fs from 'node:fs';import {applyAction,placements,spawnPose,stateHash,replay} from './session.mjs';import {itemActions,evaluate} from './policy.mjs';import {toolTransaction} from './live-tools.mjs';
+const dir=new URL('./balance-results-20261014/',import.meta.url);
+function value(s){if(s.over)return -1e9;const high=s.board.flatMap((r,y)=>r.flatMap((c,x)=>c?.s===8?[{x,y}]:[]));let gap=100;for(let i=0;i<high.length;i++)for(let j=i+1;j<high.length;j++){const a=high[i],b=high[j],dx=Math.abs(a.x-b.x);if(dx<=1)gap=Math.min(gap,Math.abs(a.y-b.y)+(dx===0?0:1));}return -gap*200+evaluate(s)+high.length*300;}
+const starts=JSON.parse(fs.readFileSync(new URL('search-starts.json',dir))),results=[];
+for(const start of starts){let beam=[{s:start.state,path:[],drops:0}],found=null,expanded=0;
+ for(let depth=0;depth<8&&!found;depth++){const rows=[],seen=new Set();for(const node of beam){for(const a of [...(node.drops<2?placements(node.s):[]),...itemActions(node.s,'both')]){let z;try{z=a.type==='drop'?applyAction(node.s,a,false):toolTransaction(node.s,spawnPose(node.s.rules),a).state;}catch{continue;}expanded++;const path=[...node.path,a];if(z.last.eggs.some(n=>n>0)){found={s:z,path};break;}if(z.over)continue;const key=JSON.stringify([z.board,z.gauge,z.eggs,z.queue.slice(0,2)]);if(seen.has(key))continue;seen.add(key);rows.push({s:z,path,drops:node.drops+(a.type==='drop'),v:value(z)});}if(found)break;}rows.sort((a,b)=>b.v-a.v);beam=rows.slice(0,20);if(!beam.length)break;}
+ const row={seed:start.seed,condition:start.condition,step:start.step,expanded,found:!!found};if(found){row.record={version:start.initial.version,initial:start.initial,actions:[...start.prefix,...found.path],hash:stateHash(found.s)};replay(row.record);row.continuation=found.path;row.eggs=found.s.last.eggs;}results.push(row);console.log(row.seed,row.step,row.found,expanded);
+}
+fs.writeFileSync(new URL('targeted-search.json',dir),JSON.stringify(results,null,2));

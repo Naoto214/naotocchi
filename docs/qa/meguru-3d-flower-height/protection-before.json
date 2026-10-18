@@ -1,0 +1,109 @@
+{
+  "checkout": "04c2a82db1c06e5d8e45f7f2717990cfc8100a05",
+  "regions": {
+    "home": {
+      "world2d": "f86c3d5aab09e7c99b98fcccc3b4efcee10cdf8c76ab7e5d6eccaa5698012192",
+      "canonical3d": "c38fec576aa1e50bd5ca91657f27c35bc7ffe831abcd209f401fdbb158337a81",
+      "collision": "6894b49b2cde74fbf6b4b9bf105ba31e9e92d8d132b325e7dd8143cea1dcc011",
+      "rendered": "59e5dd042ba3e32d8acee87645af6aaf12e2619fa2ca520287f4dfadc10f9af0",
+      "objects": 283,
+      "parts": 1786
+    },
+    "city": {
+      "world2d": "2ebde62eb7f0b88b70041eeea3501c9181b273c919cee84bdc38806ff0f878eb",
+      "canonical3d": "a3ab037280ddf55f227226af9c90ad228b32a8b137e94a0fd4da04dc2e16d749",
+      "collision": "ade2544b75db6241a3981f8b641a3cd9f67a2f1e3417c86ed3a00b01317ef46c",
+      "rendered": "452071a52b488cfde7c584e7a694e8027b53ccc9a9447bdf464e082b1d27288a",
+      "objects": 1096,
+      "parts": 12682
+    },
+    "countryside": {
+      "world2d": "46c144336fbca66ecde632ec0cb56b95e2654709c78ef4812eed84a2f2305fa5",
+      "canonical3d": "514303ddb36b6372037a992bde3abd73f3b0c8735a8ec17c85e7698eb65a2e03",
+      "collision": "f841c45248434c5f203c8f66a953979c5becf80cd4fe1a40a8ec6b7ab09d75d1",
+      "rendered": "fe7d16e8fca4dcc9094f64d91c91a002d95f476665f19bfb1fc70338e2c903d3",
+      "objects": 899,
+      "parts": 6541
+    },
+    "forest": {
+      "world2d": "ccb9b4c41a2af77c1f464ead930093a6d78d69efe182f698de388db4f3ccef12",
+      "canonical3d": "8ad97178cf59625ac1d3decc122b5f8c294fbc98836aa9d36d0f5c31674bbd29",
+      "collision": "f5149040e6583b741f31e61d501ce3a31345c91411300c0e24081d17970ce06e",
+      "rendered": "4d08e69d655aefd894522fc9a329e5cd30e3b71cc30dd503f07a5695f0f3577c",
+      "objects": 1315,
+      "parts": 6339
+    },
+    "jungle": {
+      "world2d": "e911a1665c16d07481954471a9a32cf89a84bf8f2114f5ec9c2be114d455583e",
+      "canonical3d": "4542c4a97ff688381aee85a77c14ac432c1e06d987813cbc7f31c58ca5735b1f",
+      "collision": "4740b340d39d09ae7c9e6b641bb2fd5f713d24e9acb44f9f0206d627ae1da651",
+      "rendered": "396c17d3c99510b196aae14ebdaebd0b7f3d8945f33a9cca1b0d85258f3a2303",
+      "objects": 1482,
+      "parts": 9885
+    },
+    "sea": {
+      "world2d": "ef631beb75701b8297b6aac7545a5c97ea17974129320697e5d55d680fa6173d",
+      "canonical3d": "3f68cc32b51e688335ccf4304d82de8410904ad273f6dc90237dd477c9894888",
+      "collision": "1ebb2439c2e7d2b8bb928614d61e390340a44bb627c327dbba1b9565fa4d0cfa",
+      "rendered": "d0ff324b792e7998feaf3deb9a0b8bb8202f25f797051d011c97ee75eb0c03ab",
+      "objects": 529,
+      "parts": 3249
+    },
+    "river_lake": {
+      "world2d": "dd76763ec3d0e3bc66670398784a801fa6c7069d4a8a50c3f467b20a31d41b2f",
+      "canonical3d": "80ec24c2e37c213ffec739d86104a2725d15f916cf05cf5f2fcc27f375160cef",
+      "collision": "5de0759936e6989b5723e5d4001d7c093a7974bf839cc10bf6fa648ecf6eeb72",
+      "rendered": "ffa88680db9f1a81d1051a414b7f57ea66ef3a3d07d1c78b7dab40ac2448cd07",
+      "objects": 831,
+      "parts": 5159
+    },
+    "mountain": {
+      "world2d": "785f7d3aaa8fcc133c42f0abce1130eb26798f8e9abf4b32c6b622fa4a97e016",
+      "canonical3d": "087bbf1eff8d447624d7a0f66d6616321bbb673f1c10f06b447fee2fdbcc0088",
+      "collision": "a291ceb4306e964419b6ed9f39de207a05682cdea4e5f58f7ab85e9a7b35dd80",
+      "rendered": "4f334e925d3ca86a185589e3484ed914a1a893f9f99b917f7a668ef53e688eee",
+      "objects": 781,
+      "parts": 3461
+    },
+    "snow": {
+      "world2d": "a0ff25df1cec328bac5e5625fb2c5493cdf11ef85e0c7c2b760ba9f63da43d99",
+      "canonical3d": "ac769636f294db9b72fcff62fe83b28e5c6448f4004eafb31c33c965b9aa170d",
+      "collision": "46cf214e8930b136c82432629f6d04e61f948551a68fb4bae08e214f60aaec76",
+      "rendered": "476d0253a4dd31d24a9c42333f3b0706acb45877be984805e7ee2d3213fdba44",
+      "objects": 527,
+      "parts": 2233
+    },
+    "desert": {
+      "world2d": "30b435111daf8709497a0db66b83b1b2b53332946b30adfda0947fe368b30da8",
+      "canonical3d": "dfa92d2da7de87a89be3ab3c7f08545a1e8ac40fe089cbb25a707651cdb60f79",
+      "collision": "f452a9528700a2a80ee1794793969d0f768d9a78efeaa4b1fe20178a547cca73",
+      "rendered": "c76ff10f111581e148720626d9093d4a490c1eb612d98d4376c3e6af02b1f180",
+      "objects": 611,
+      "parts": 2388
+    },
+    "memory_lake": {
+      "world2d": "1049bf97a1af727bd19f3390d62c060f745ffabde75cef914f343cbbaa0e1b25",
+      "canonical3d": "2189de44073e9f4f539a876ac54af7593fc9d866d75f007dc0db5b3a33b4fa77",
+      "collision": "d810c5481b9e738ca6f467fbebb7aa88aad1982ffd13906e57b2ad8109ac37c3",
+      "rendered": "5ecccf6e0fe12d6056a9b88eb338b3570707976335e8cfe721f2965b561dba90",
+      "objects": 352,
+      "parts": 2005
+    },
+    "deepsea": {
+      "world2d": "6906a797462cd3b2ca28dafacc406d150340bde0cb82a2e9d43e22fa6263a3a3",
+      "canonical3d": "8e7bfd98c6019ddf20fd2b549b5b686f40983fb4d4eb154974c8d873a346487e",
+      "collision": "60504427512cdd54460e1d8771526553c86eb594625933255efc5be5d6809118",
+      "rendered": "c3d2bf1708965d73a60724716e543e7cc1fadf87807d9effb8e1366d2ebd6e2c",
+      "objects": 712,
+      "parts": 2857
+    },
+    "star_stop": {
+      "world2d": "ee1ac2ead0e830c07657416fa2f6652edf4996e11b0739f2d324f413222db70c",
+      "canonical3d": "3bb12640100a467d76729a992771e578f8d4b712c59624d0dfad65a4a39f2764",
+      "collision": "4d4cb4e4ee3632a8149f40ae657667f6b5355f1013c3caafebf295a94ad7e76d",
+      "rendered": "31ddd3df630a1c4aa2058f52de67e28e0d2f594ab4e1a346573f46029dc7f886",
+      "objects": 463,
+      "parts": 2169
+    }
+  }
+}

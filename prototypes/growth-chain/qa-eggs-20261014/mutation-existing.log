@@ -1,0 +1,18 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test:mutation
+> node tests/mutation.cjs
+
+KILLED hold cancel
+KILLED pointer click double
+KILLED phase order
+KILLED ready intermission
+KILLED preview writes state
+KILLED hidden editor
+KILLED final whole component
+KILLED final score
+KILLED final growth gauge
+KILLED partial unlock
+KILLED live collision
+KILLED selection freezes time
+12/12 targeted mutants killed; 6 clean baselines PASS

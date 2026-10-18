@@ -1,0 +1,160 @@
+{
+  "resume_head": "a662da3cedb20f39eabb76ea19b60421d98c4866",
+  "step4_baseline": "2b0969ac4fc64a636e12673a25740c59793f8ca5",
+  "step4_complete": true,
+  "approved_production_matches": [
+    {
+      "path": "assets/characters/expressions/antlion/07-critical.png",
+      "sha256": "f1f24ed925d1fed368ebe5adc85eb9a7060a2dea9c7f8ce617e7a12c37ae5c97",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/07-hungry.png",
+      "sha256": "d7dc6c4e7193534cfc0524d9beede22e7ec72a14b7eaa8cb350c68cacd745d11",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/07-strained.png",
+      "sha256": "8abd70730055245f8934a95e53fc17340113ad86bf376c33b3a14a67a73df9f4",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/07-tired.png",
+      "sha256": "f8471ba9d52d557a95adda900e9564ce5a36fce19c27b4f38ca4b3a2a7837fb5",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/07-weak.png",
+      "sha256": "5355d8211a77150d3e72e2618232a5411b3e3b32608fdfbcf37690d383f754b8",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/dog/03-wantsPlay.png",
+      "sha256": "e8faa9223a4e5bdad4ffabafb32c596c6361daab8c9f18e5c1edee70b655f11a",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-critical.png",
+      "sha256": "67fe4ed67069735926dafc0f7f1a9fdb3dfb59deab38a5c36d9fca62829d0529",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-happy.png",
+      "sha256": "d5fb3908d5a4ab09f30c56784ae3299499b74fcb7e8b989171f023e743431c19",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-hungry.png",
+      "sha256": "a9621df6e19c4e3039c5be4e1aba58ef9372c402c8f29554c2b45de6b041ffe7",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-sick.png",
+      "sha256": "4852f6b4cee0b8a5e7ff5ae5061c0c25c9f9b279e042cf7478a5b646c9a6e4a4",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-sleeping.png",
+      "sha256": "51160b6f31dd8da5d3081764f38d937a99c8e884583f481a404f437cbb4ab0c6",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-strained.png",
+      "sha256": "b16cae6b7aa7bfbe1048c2c023f9cc82e622b47e8af7e9a8d3feb2fa27d558f0",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-sulky.png",
+      "sha256": "e2e041c014eba37e26bafc78a63ef48043831f8e251829acb412a7a1f6a35ff9",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-tired.png",
+      "sha256": "407c3ba7846fcf0a58058c5054b2fc94606a5ad868583eaafa3f181a5a57e0d8",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-wantsPlay.png",
+      "sha256": "baeea72ba6b5cc5f4fd14631df82231103a314b539b3b969e52f142cd5bd9a56",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-weak.png",
+      "sha256": "67bdda126378e439bc97bfe6e37682527573880d11d87372290c1158fd291d52",
+      "authority": "approved after hash / locked16"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-happy.png",
+      "sha256": "a57e0c5ff540258da43414fc2dd215ea6c110dbf5f25706fcadb5ff48ff22df9",
+      "source": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "candidate": "method-D final candidate"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-strained.png",
+      "sha256": "55e9e083b2118bf47b3fbd26b55373831c0d5b05047619c2ff73458d681d86cc",
+      "source": "docs/qa/antlion08-method-d-nine-20260928/candidates/strained.png",
+      "candidate": "A"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-hungry.png",
+      "sha256": "cefbbf6c25c9835d09f67cda266c19f7d8e1f47ef7c28324ade9dc1e132682ce",
+      "source": "docs/qa/antlion08-eye-review-20260929/candidates/hungry-B.png",
+      "candidate": "B"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-sick.png",
+      "sha256": "b7d99326718c8830137f83b001d4e99acbd018bd2083f573e51c73b57f760b5f",
+      "source": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "candidate": "method-D final candidate"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-tired.png",
+      "sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161",
+      "source": "docs/qa/antlion08-method-d4-20260928/tired-d4-candidate.png",
+      "candidate": "D4"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-sulky.png",
+      "sha256": "4c702c641f299446af142c5595a3ec7f796122bc241ed7f80316feca598b56f9",
+      "source": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "candidate": "method-D final candidate"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-weak.png",
+      "sha256": "5a76b0f8b3c6fd3b4b2b4f1927ad0b55f8ff8c7ff0a3e404fb80788b04b513a7",
+      "source": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "candidate": "method-D final candidate"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-critical.png",
+      "sha256": "dd79d2fbf0624ab9ea78f4ddfaa66e7805ec2baf65773a01a1964475c7137a49",
+      "source": "docs/qa/antlion08-method-d-nine-20260928/candidates/critical.png",
+      "candidate": "A"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-wantsPlay.png",
+      "sha256": "86752efc4217a7eaa090742ff92ebd1676ae36e4d61392a468a55707a4eba2bd",
+      "source": "docs/qa/antlion08-eye-review-20260929/candidates/WP-CL3.png",
+      "candidate": "CL3"
+    },
+    {
+      "path": "assets/characters/expressions/antlion/08-sleeping.png",
+      "sha256": "010d2b3253687af436dfea1e964dcee72fbcea6717e6db8244549e1230ee7490",
+      "source": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "candidate": "method-D final candidate"
+    }
+  ],
+  "step4_non_target_character_png_unchanged": 2755,
+  "all_existing_image_files_unchanged_this_step": 3280,
+  "production_image_changes_this_step": 0,
+  "protected_runtime_unchanged": [
+    "pet-expression.js",
+    "pet-expression.css",
+    "care-attention.css",
+    "script.js",
+    "cast-bounds.js",
+    "cast-layout.js",
+    "emotion-state.js"
+  ],
+  "git_diff_check": "PASS"
+}

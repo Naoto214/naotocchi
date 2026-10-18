@@ -1,0 +1,29 @@
+{
+  "source_head": "19bf225b4dcd35a5064b3230b8f67ba8b4c9079c",
+  "D1_direct_input": true,
+  "D2_comparison_only": true,
+  "D1_D2_preserved": true,
+  "changed_pixels": 233,
+  "protected_changes": 0,
+  "alpha_changes": 0,
+  "assets_verified": 2862,
+  "existing_tracked_files_verified": 3798,
+  "approved16_preserved": true,
+  "focused": {
+    "pass": 852,
+    "fail": 0
+  },
+  "reproducible_outputs": {
+    "tired-d3-candidate.png": "c1a6bee7ddb394d17b1ff46fce68785004eec4960db084efefacb5194fb5acb2",
+    "audit.json": "0ba0b6607f51c5c1a3fbdea7038eb88cad84aaf0775a5e660d87b2aa15a96e32",
+    "01-sizes.svg": "9abfff14de117580f9c17f6102015d1f275d1823f44bb426473b5d16153907a9",
+    "02-rear.svg": "202e9821c5c347901fef1fe5bc910a879d992f51b111a6a97632d9ed54267750",
+    "03-64px-detail.svg": "18f4829be406dfb79546ef0913396bb014e8ce5b79aeeab58f98a2aac8240942",
+    "comparison.html": "81de5782d65a240bdd5a32def6842009f2ddf40daff37e1634b4554f68eacbc8"
+  },
+  "git_diff_check": "PASS",
+  "full_test": "not run",
+  "quick_mode": "not run; known initial FAIL unresolved",
+  "human_approved": false,
+  "production_adopted": false
+}

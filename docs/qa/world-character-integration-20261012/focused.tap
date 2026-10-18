@@ -1,0 +1,542 @@
+TAP version 13
+# Subtest: every static assets/… reference in HTML, CSS and JS exists with the exact case
+ok 1 - every static assets/… reference in HTML, CSS and JS exists with the exact case
+  ---
+  duration_ms: 104.516408
+  type: 'test'
+  ...
+# Subtest: every script and stylesheet carries a token whose hash matches the file (bump-versions formula)
+ok 2 - every script and stylesheet carries a token whose hash matches the file (bump-versions formula)
+  ---
+  duration_ms: 71.268805
+  type: 'test'
+  ...
+# Subtest: dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist
+ok 3 - dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist
+  ---
+  duration_ms: 570.882679
+  type: 'test'
+  ...
+# Subtest: the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path
+ok 4 - the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path
+  ---
+  duration_ms: 6.318952
+  type: 'test'
+  ...
+# Subtest: the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case
+ok 5 - the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case
+  ---
+  duration_ms: 195.020611
+  type: 'test'
+  ...
+# Subtest: npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent
+ok 6 - npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent
+  ---
+  duration_ms: 492.804501
+  type: 'test'
+  ...
+# (node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/f50bce74ad86/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/f50bce74ad86/naotocchi/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: groundY: presenter follows signed world height each frame without mutating actor or input
+ok 7 - groundY: presenter follows signed world height each frame without mutating actor or input
+  ---
+  duration_ms: 419.916962
+  type: 'test'
+  ...
+# Subtest: groundY: omitted and nonfinite heights reset to legacy zero after elevated frame
+ok 8 - groundY: omitted and nonfinite heights reset to legacy zero after elevated frame
+  ---
+  duration_ms: 2.441713
+  type: 'test'
+  ...
+# Subtest: groundY: world offset is unscaled and preserves hover animation and isolated fallback
+ok 9 - groundY: world offset is unscaled and preserves hover animation and isolated fallback
+  ---
+  duration_ms: 96.803894
+  type: 'test'
+  ...
+# Subtest: 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来
+ok 10 - 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来
+  ---
+  duration_ms: 8.373661
+  type: 'test'
+  ...
+# Subtest: 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある)
+ok 11 - 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある)
+  ---
+  duration_ms: 5.180675
+  type: 'test'
+  ...
+# Subtest: 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある
+ok 12 - 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある
+  ---
+  duration_ms: 1.175062
+  type: 'test'
+  ...
+# Subtest: 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか)
+ok 13 - 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか)
+  ---
+  duration_ms: 1094.87705
+  type: 'test'
+  ...
+# Subtest: 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ
+ok 14 - 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ
+  ---
+  duration_ms: 0.992487
+  type: 'test'
+  ...
+# Subtest: 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる)
+ok 15 - 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる)
+  ---
+  duration_ms: 1.827647
+  type: 'test'
+  ...
+# Subtest: 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない
+ok 16 - 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない
+  ---
+  duration_ms: 9.296203
+  type: 'test'
+  ...
+# Subtest: 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら
+ok 17 - 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら
+  ---
+  duration_ms: 2.707945
+  type: 'test'
+  ...
+# Subtest: 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも
+ok 18 - 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも
+  ---
+  duration_ms: 26.648979
+  type: 'test'
+  ...
+# Subtest: 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし
+ok 19 - 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし
+  ---
+  duration_ms: 4.085192
+  type: 'test'
+  ...
+# Subtest: 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし
+ok 20 - 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし
+  ---
+  duration_ms: 4.03713
+  type: 'test'
+  ...
+# Subtest: 12. canonical emotion と 意味が 一致(\#368 の 語彙・Home の Expression PNG の 対応)
+ok 21 - 12. canonical emotion と 意味が 一致(\#368 の 語彙・Home の Expression PNG の 対応)
+  ---
+  duration_ms: 15.446451
+  type: 'test'
+  ...
+# Subtest: 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま)
+ok 22 - 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま)
+  ---
+  duration_ms: 1.687686
+  type: 'test'
+  ...
+# Subtest: 14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ
+ok 23 - 14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ
+  ---
+  duration_ms: 10.677737
+  type: 'test'
+  ...
+# Subtest: 15. flag・QA の 状態は セーブしない(schema も そのまま)
+ok 24 - 15. flag・QA の 状態は セーブしない(schema も そのまま)
+  ---
+  duration_ms: 225.357423
+  type: 'test'
+  ...
+# Subtest: 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない)
+ok 25 - 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない)
+  ---
+  duration_ms: 2.727454
+  type: 'test'
+  ...
+# Subtest: 17. reviewed World integration source is pinned; Character runtime cannot move actors
+ok 26 - 17. reviewed World integration source is pinned; Character runtime cannot move actors
+  ---
+  duration_ms: 2.070744
+  type: 'test'
+  ...
+# Subtest: 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D
+ok 27 - 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D
+  ---
+  duration_ms: 35.42737
+  type: 'test'
+  ...
+# Subtest: 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない)
+ok 28 - 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない)
+  ---
+  duration_ms: 40.761036
+  type: 'test'
+  ...
+# Subtest: 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない)
+ok 29 - 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない)
+  ---
+  duration_ms: 11.308649
+  type: 'test'
+  ...
+# Subtest: 21. 表情の きりかえで texture / material を つくりなおさない
+ok 30 - 21. 表情の きりかえで texture / material を つくりなおさない
+  ---
+  duration_ms: 93.173148
+  type: 'test'
+  ...
+# Subtest: 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱)
+ok 31 - 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱)
+  ---
+  duration_ms: 17.393878
+  type: 'test'
+  ...
+# Subtest: 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない
+ok 32 - 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない
+  ---
+  duration_ms: 56.391744
+  type: 'test'
+  ...
+# Subtest: 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない
+ok 33 - 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない
+  ---
+  duration_ms: 25.564884
+  type: 'test'
+  ...
+# Subtest: 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ)
+ok 34 - 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ)
+  ---
+  duration_ms: 44.144271
+  type: 'test'
+  ...
+# Subtest: 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D
+ok 35 - 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D
+  ---
+  duration_ms: 51.806418
+  type: 'test'
+  ...
+# Subtest: 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。\#368 の expr が あれば それを 優先
+ok 36 - 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。\#368 の expr が あれば それを 優先
+  ---
+  duration_ms: 3.735615
+  type: 'test'
+  ...
+# Subtest: 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分)
+ok 37 - 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分)
+  ---
+  duration_ms: 4.105413
+  type: 'test'
+  ...
+# Subtest: 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる
+ok 38 - 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる
+  ---
+  duration_ms: 3.855637
+  type: 'test'
+  ...
+# Subtest: 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない
+ok 39 - 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない
+  ---
+  duration_ms: 190.226319
+  type: 'test'
+  ...
+# Subtest: 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)
+ok 40 - 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)
+  ---
+  duration_ms: 22.326148
+  type: 'test'
+  ...
+# Subtest: 32. 統合 World 3D: 地域・corridor は明示許可、force2d / failure は fallback
+ok 41 - 32. 統合 World 3D: 地域・corridor は明示許可、force2d / failure は fallback
+  ---
+  duration_ms: 2.38009
+  type: 'test'
+  ...
+# Subtest: 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない)
+ok 42 - 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない)
+  ---
+  duration_ms: 0.816552
+  type: 'test'
+  ...
+# Subtest: 34. Relationship Expression の 回帰: relationship-expression.js は そのまま
+ok 43 - 34. Relationship Expression の 回帰: relationship-expression.js は そのまま
+  ---
+  duration_ms: 0.298381
+  type: 'test'
+  ...
+# (node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/f50bce74ad86/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/f50bce74ad86/naotocchi/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに 隠す 物 だけ・もとの いろ・大きな 物は うすく・ちらつかない・変わった instance だけ 送る
+ok 44 - GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに 隠す 物 だけ・もとの いろ・大きな 物は うすく・ちらつかない・変わった instance だけ 送る
+  ---
+  duration_ms: 122.784836
+  type: 'test'
+  ...
+# Subtest: GT-2. ray の 格子(pure): 線分が とおる ます目の instance だけ が 候補
+ok 45 - GT-2. ray の 格子(pure): 線分が とおる ます目の instance だけ が 候補
+  ---
+  duration_ms: 0.925586
+  type: 'test'
+  ...
+# Subtest: GT-3. 予算(HQ-4): うすい 板は 1 まい・幹は ふたなし・mound は 下半分 なし・花の まんなか 8 三角形。透明 fade で けさない
+ok 46 - GT-3. 予算(HQ-4): うすい 板は 1 まい・幹は ふたなし・mound は 下半分 なし・花の まんなか 8 三角形。透明 fade で けさない
+  ---
+  duration_ms: 0.27226
+  type: 'test'
+  ...
+# Subtest: GT-4. Terrain v1(HQ-5): 意味の ある 起伏。道 / spot は 平ら、ひらけた ところ に 丘、小川は 谷、池は くぼ地、海は 水へ ひくく。ランダムな こぶ だけ では ない
+ok 47 - GT-4. Terrain v1(HQ-5): 意味の ある 起伏。道 / spot は 平ら、ひらけた ところ に 丘、小川は 谷、池は くぼ地、海は 水へ ひくく。ランダムな こぶ だけ では ない
+  ---
+  duration_ms: 18569.009706
+  type: 'test'
+  ...
+# Subtest: GT-5. Creek / River v3(HQ-6): 小川は spot の 円盤の ならび では なく 1 本の ながれ。橋の spot の 下を とおり、道を 横切る ところは 橋 か 飛び石。道 / かたい 物 の 上を ながれない
+ok 48 - GT-5. Creek / River v3(HQ-6): 小川は spot の 円盤の ならび では なく 1 本の ながれ。橋の spot の 下を とおり、道を 横切る ところは 橋 か 飛び石。道 / かたい 物 の 上を ながれない
+  ---
+  duration_ms: 3012.806539
+  type: 'test'
+  ...
+# Subtest: GT-6. Water(HQ-7): 海 / 川 / 池 で 水の 面を かえる(海 = 浅瀬 → 沖 → 水平線、川 = 谷の 中の ながれる 面、池 = しずかな くぼ地の 面)
+ok 49 - GT-6. Water(HQ-7): 海 / 川 / 池 で 水の 面を かえる(海 = 浅瀬 → 沖 → 水平線、川 = 谷の 中の ながれる 面、池 = しずかな くぼ地の 面)
+  ---
+  duration_ms: 0.969783
+  type: 'test'
+  ...
+# Subtest: GT-7. home と countryside(HQ-10): いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)、いなか = ひろい 畑 と 用水路 と 板の はし(庭 なし)
+ok 50 - GT-7. home と countryside(HQ-10): いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)、いなか = ひろい 畑 と 用水路 と 板の はし(庭 なし)
+  ---
+  duration_ms: 1.341524
+  type: 'test'
+  ...
+# Subtest: GT-8. forest と jungle(HQ-11): もり = つめたい みどり・たおれた 丸太・しだ・きのこ・見とおし ほどほど。ジャングル = 多層(大きな は の 下草・ヤシ・canopy の つる)・しめった もや
+ok 51 - GT-8. forest と jungle(HQ-11): もり = つめたい みどり・たおれた 丸太・しだ・きのこ・見とおし ほどほど。ジャングル = 多層(大きな は の 下草・ヤシ・canopy の つる)・しめった もや
+  ---
+  duration_ms: 598.180083
+  type: 'test'
+  ...
+# Subtest: GT-9. Tree v4(HQ-12): 根もとの はり・2 だんの 幹(すこし かたむく)・かんむりへ のびる 枝・白っぽい ほそい 木(すずしい 地域)
+ok 52 - GT-9. Tree v4(HQ-12): 根もとの はり・2 だんの 幹(すこし かたむく)・かんむりへ のびる 枝・白っぽい ほそい 木(すずしい 地域)
+  ---
+  duration_ms: 5.623873
+  type: 'test'
+  ...
+# Subtest: GT-10. props gate(HQ-13): ラベル なしで わかる。自転車は 立って いる、水車 / 観覧車の わ は たて
+ok 53 - GT-10. props gate(HQ-13): ラベル なしで わかる。自転車は 立って いる、水車 / 観覧車の わ は たて
+  ---
+  duration_ms: 9398.436668
+  type: 'test'
+  ...
+# Subtest: GT-11. 13 地域の grammar(HQ-14): 背景の 絵 なしで 3D だけで 地域が わかる きまり
+ok 54 - GT-11. 13 地域の grammar(HQ-14): 背景の 絵 なしで 3D だけで 地域が わかる きまり
+  ---
+  duration_ms: 0.478792
+  type: 'test'
+  ...
+# Subtest: GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)で 地面が かわる・大木も 季節の いろ・3D でも 雨 / 雪
+ok 55 - GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)で 地面が かわる・大木も 季節の いろ・3D でも 雨 / 雪
+  ---
+  duration_ms: 0.481467
+  type: 'test'
+  ...
+# Subtest: GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない
+ok 56 - GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない
+  ---
+  duration_ms: 7.17961
+  type: 'test'
+  ...
+# (node:17) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/f50bce74ad86/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/f50bce74ad86/naotocchi/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 1. フラグなし: forest の world は いまの 2D の まま(props・あたり・3D の しるし なし)
+ok 57 - 1. フラグなし: forest の world は いまの 2D の まま(props・あたり・3D の しるし なし)
+  ---
+  duration_ms: 4.345856
+  type: 'test'
+  ...
+# Subtest: 2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の そとへ(約 1.5 × 大きさ まで)。おけない ものは 3D では おかない
+ok 58 - 2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の そとへ(約 1.5 × 大きさ まで)。おけない ものは 3D では おかない
+  ---
+  duration_ms: 5.29045
+  type: 'test'
+  ...
+# Subtest: 3. 3D の かたい 物は かならず あたりが あり、あたまより 下の 見た目は あたり + 10 まで(とおれる 木・見えない かべ なし)
+ok 59 - 3. 3D の かたい 物は かならず あたりが あり、あたまより 下の 見た目は あたり + 10 まで(とおれる 木・見えない かべ なし)
+  ---
+  duration_ms: 3.651078
+  type: 'test'
+  ...
+# Subtest: 3b. ランドマーク(3D だけ): spot から 見た むきを たもって おく(±30 度)。たきは がけ = あたりの 箱 で、たきつぼ・あわ と いっしょ
+ok 60 - 3b. ランドマーク(3D だけ): spot から 見た むきを たもって おく(±30 度)。たきは がけ = あたりの 箱 で、たきつぼ・あわ と いっしょ
+  ---
+  duration_ms: 19.4906
+  type: 'test'
+  ...
+# Subtest: 3c. せかいは 3D・キャラだけ 2D: けしきの 物に 立て看板・意味の ちがう 置きかえ・なぞの placeholder は ない
+ok 61 - 3c. せかいは 3D・キャラだけ 2D: けしきの 物に 立て看板・意味の ちがう 置きかえ・なぞの placeholder は ない
+  ---
+  duration_ms: 2.680133
+  type: 'test'
+  ...
+# Subtest: 3d. すかし(occlusion)は カメラ → player の あいだに ある かたい 物 だけ。とおい から すける こと は ない
+ok 62 - 3d. すかし(occlusion)は カメラ → player の あいだに ある かたい 物 だけ。とおい から すける こと は ない
+  ---
+  duration_ms: 58.863384
+  type: 'test'
+  ...
+# Subtest: 3e. たき は うしろ・よこ からも 岩の おか: がけの うしろに 岩の かたまり(あたり つき)が あり、見た目 = あたり
+ok 63 - 3e. たき は うしろ・よこ からも 岩の おか: がけの うしろに 岩の かたまり(あたり つき)が あり、見た目 = あたり
+  ---
+  duration_ms: 6.438212
+  type: 'test'
+  ...
+# Subtest: 4. 3D モードでも 道は ふさがない: 道はばの 3/4 の なか・spot の まんなか は あいて いる
+ok 64 - 4. 3D モードでも 道は ふさがない: 道はばの 3/4 の なか・spot の まんなか は あいて いる
+  ---
+  duration_ms: 3758.875696
+  type: 'test'
+  ...
+# Subtest: 5. 3D モードの forest: 50 の spot に ぜんぶ あるいて 行ける
+ok 65 - 5. 3D モードの forest: 50 の spot に ぜんぶ あるいて 行ける
+  ---
+  duration_ms: 2566.742201
+  type: 'test'
+  ...
+# Subtest: 6. 3D モードの forest: 27 にんの なかまも player も かたい 物に めりこまない
+ok 66 - 6. 3D モードの forest: 27 にんの なかまも player も かたい 物に めりこまない
+  ---
+  duration_ms: 2886.995955
+  type: 'test'
+  ...
+# Subtest: 7. レンダラー: WebGL が ない ところでは すぐ 2D(こわれない・この あいだ ずっと 2D)
+ok 67 - 7. レンダラー: WebGL が ない ところでは すぐ 2D(こわれない・この あいだ ずっと 2D)
+  ---
+  duration_ms: 1.297597
+  type: 'test'
+  ...
+# Subtest: 8. フラグは URL だけ・セーブに のこさない。Three.js は version 固定で repo の なか。ふだんは よみこまない
+ok 68 - 8. フラグは URL だけ・セーブに のこさない。Three.js は version 固定で repo の なか。ふだんは よみこまない
+  ---
+  duration_ms: 8.066989
+  type: 'test'
+  ...
+# Subtest: 9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(フラグなし)は かわらない
+ok 69 - 9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(フラグなし)は かわらない
+  ---
+  duration_ms: 18693.655693
+  type: 'test'
+  ...
+# Subtest: 10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない
+ok 70 - 10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない
+  ---
+  duration_ms: 2296.214992
+  type: 'test'
+  ...
+# Subtest: 11. 全地域(registry から): 3D モードで ぜんぶの spot と gate に 道に そって あるいて 行ける(とじこめ なし)
+ok 71 - 11. 全地域(registry から): 3D モードで ぜんぶの spot と gate に 道に そって あるいて 行ける(とじこめ なし)
+  ---
+  duration_ms: 18695.489773
+  type: 'test'
+  ...
+# Subtest: presentation flag=false: discovered ordinary spots remain recorded with mode-specific map display
+ok 72 - presentation flag=false: discovered ordinary spots remain recorded with mode-specific map display
+  ---
+  duration_ms: 1431.85794
+  type: 'test'
+  ...
+# Subtest: presentation flag=false: ordinary, landmark and zone notifications preserve their mode
+ok 73 - presentation flag=false: ordinary, landmark and zone notifications preserve their mode
+  ---
+  duration_ms: 6075.163086
+  type: 'test'
+  ...
+# Subtest: presentation flag=true: discovered ordinary spots remain recorded with mode-specific map display
+ok 74 - presentation flag=true: discovered ordinary spots remain recorded with mode-specific map display
+  ---
+  duration_ms: 2843.772518
+  type: 'test'
+  ...
+# Subtest: presentation flag=true: ordinary, landmark and zone notifications preserve their mode
+ok 75 - presentation flag=true: ordinary, landmark and zone notifications preserve their mode
+  ---
+  duration_ms: 4372.238729
+  type: 'test'
+  ...
+# Subtest: browser gate rejects vanished player, orphan holders, resource leaks, and 2D city
+ok 76 - browser gate rejects vanished player, orphan holders, resource leaks, and 2D city
+  ---
+  duration_ms: 5.603413
+  type: 'test'
+  ...
+# Subtest: save isolation requires all four independently observed boundaries
+ok 77 - save isolation requires all four independently observed boundaries
+  ---
+  duration_ms: 0.610631
+  type: 'test'
+  ...
+# Subtest: browser fixture uses native production player and companion identities
+ok 78 - browser fixture uses native production player and companion identities
+  ---
+  duration_ms: 360.130483
+  type: 'test'
+  ...
+# (node:39) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/f50bce74ad86/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/f50bce74ad86/naotocchi/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: integration: intentional hidden billboard is healthy when 3D body is attached
+ok 79 - integration: intentional hidden billboard is healthy when 3D body is attached
+  ---
+  duration_ms: 992.825277
+  type: 'test'
+  ...
+# Subtest: integration: hidden, degenerate and detached 3D body remain reported as failures
+ok 80 - integration: hidden, degenerate and detached 3D body remain reported as failures
+  ---
+  duration_ms: 7.698553
+  type: 'test'
+  ...
+# Subtest: integration: one broken 3D actor falls back to visible 2D billboard
+ok 81 - integration: one broken 3D actor falls back to visible 2D billboard
+  ---
+  duration_ms: 1.411239
+  type: 'test'
+  ...
+# Subtest: integration: on-screen body verification is distinct from pixel/occlusion proof
+ok 82 - integration: on-screen body verification is distinct from pixel/occlusion proof
+  ---
+  duration_ms: 10.071403
+  type: 'test'
+  ...
+# Subtest: integration: main Character API and World regional/corridor features survive the same source
+ok 83 - integration: main Character API and World regional/corridor features survive the same source
+  ---
+  duration_ms: 21.091676
+  type: 'test'
+  ...
+# Subtest: hybrid real routing requires approved region/world or both corridor endpoints
+ok 84 - hybrid real routing requires approved region/world or both corridor endpoints
+  ---
+  duration_ms: 6.132491
+  type: 'test'
+  ...
+# Subtest: force2d and WebGL failure retain actual canvas fallback
+ok 85 - force2d and WebGL failure retain actual canvas fallback
+  ---
+  duration_ms: 1.227291
+  type: 'test'
+  ...
+# Subtest: diagnostics default off; explicit perf or QA opt-in survives lazy creation; reduced motion forwarded
+ok 86 - diagnostics default off; explicit perf or QA opt-in survives lazy creation; reduced motion forwarded
+  ---
+  duration_ms: 6.505464
+  type: 'test'
+  ...
+1..86
+# tests 86
+# suites 0
+# pass 86
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 53877.986489

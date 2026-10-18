@@ -1,0 +1,189 @@
+{
+  "when": "2026-10-06T14:56:57.537Z",
+  "revision": "quality3",
+  "sourceCommit": "4460ffeedee03e405b04fa742b6e3c3943c19695",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "cicada:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "cicada:2",
+      "player3d": true,
+      "specKey": {
+        "id": "cicada",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-cicada-3-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-cicada-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 41134,
+        "meshes": 90,
+        "bones": 59,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.207,
+        "cpuMsP95": 46.1,
+        "buildMsTotal": 328.6,
+        "buildMsMax": 76.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "cicada:5": {
+      "requestedStage": 5,
+      "harnessStageIndex": 4,
+      "playerKey": "cicada:4",
+      "player3d": true,
+      "specKey": {
+        "id": "cicada",
+        "stage": 5,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-cicada-5-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-cicada-5-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 45286,
+        "meshes": 99,
+        "bones": 68,
+        "materials": 2,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 4.731,
+        "cpuMsP95": 45.3,
+        "buildMsTotal": 343,
+        "buildMsMax": 74.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "cicada:6": {
+      "requestedStage": 6,
+      "harnessStageIndex": 5,
+      "playerKey": "cicada:5",
+      "player3d": true,
+      "specKey": {
+        "id": "cicada",
+        "stage": 6,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-cicada-6-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-cicada-6-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 43022,
+        "meshes": 98,
+        "bones": 67,
+        "materials": 2,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.696,
+        "cpuMsP95": 49.5,
+        "buildMsTotal": 370.7,
+        "buildMsMax": 70.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "cicada:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "cicada:6",
+      "player3d": true,
+      "specKey": {
+        "id": "cicada",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-cicada-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-cicada-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 43014,
+        "meshes": 98,
+        "bones": 67,
+        "materials": 2,
+        "atlases": 11,
+        "eyeGeos": 11,
+        "cpuMsAvg": 4.824,
+        "cpuMsP95": 47.2,
+        "buildMsTotal": 326.6,
+        "buildMsMax": 72,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "cicada:8": {
+      "requestedStage": 8,
+      "harnessStageIndex": 7,
+      "playerKey": "cicada:7",
+      "player3d": true,
+      "specKey": {
+        "id": "cicada",
+        "stage": 8,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-cicada-8-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-cicada-8-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 43014,
+        "meshes": 98,
+        "bones": 67,
+        "materials": 2,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.896,
+        "cpuMsP95": 50.1,
+        "buildMsTotal": 384.6,
+        "buildMsMax": 79.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

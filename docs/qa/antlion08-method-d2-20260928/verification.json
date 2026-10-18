@@ -1,0 +1,41 @@
+{
+  "checks_passed": 13,
+  "checks": [
+    "D1 SHA preserved",
+    "D2 SHA",
+    "only233 targeted pixels",
+    "alpha and protected complement unchanged",
+    "body ROIs zero",
+    "49 components unchanged",
+    "all2862 assets unchanged",
+    "approved16 locked",
+    "every old tracked file unchanged",
+    "852 focused pass0fail",
+    "z-order regression",
+    "D2 and QA deterministic",
+    "git diff --check"
+  ],
+  "source_head": "e1c18fcf6b95ed2ce2f3c065d13eaa9de43024aa",
+  "existing_files_verified": 3786,
+  "assets_verified": 2862,
+  "D1_unchanged": true,
+  "production_changes": 0,
+  "new_candidate_pngs": 1,
+  "focused": {
+    "pass": 852,
+    "fail": 0
+  },
+  "full_test": "not run",
+  "quick_mode": "not run; known initial FAIL unresolved",
+  "reproducible_outputs": {
+    "tired-d2-candidate.png": "7b550b5575626af5d7adbcb4aaef69aa65ea03dd037459dc0b1abf426c7a2a24",
+    "audit.json": "afef54f60c6d4590eee39432b22d5312d03d133f3bd1600d8af3635ddf1e7a44",
+    "01-sizes.svg": "f82dc5f7959afa53b98081addcaf2d83eb25222ebc7bd8b2ccf0729d07a7d45f",
+    "02-rear-detail.svg": "8fd2ac9aff6657ad5738dd402948a9c7c34f4102256193b964f348f3b3138566",
+    "03-full-detail.svg": "dc16edb1abbe1cd20a0193712548b67d29956f9a19e41069b736910ebf239535",
+    "04-mask.svg": "7a42125616108936d865b59994f4990cc0b5589b29bfec6fa8ec85ff592fa566",
+    "comparison.html": "a7a82cc72e48c595dd8d903a19329740343ea130c63b3e51b766f92ee6980d06"
+  },
+  "human_approved": false,
+  "production_adopted": false
+}

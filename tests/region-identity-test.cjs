@@ -104,13 +104,14 @@ test('regional game preference does not leak into a former visual base', () => {
   }
 });
 
-test('snow country, desert and jungle offer a distinct benefit after combined modifiers', () => {
+test('regional care modifiers retain their differences without coin bonuses', () => {
   const h=harness(),s=h.api.state(); Object.assign(s.lifetime,{timeMode:'day',seasonMode:'summer',weatherMode:'sunny'});
   const effects=id=>{s.regionId=id;return h.api.envModifiers();};
   const home=effects('home'),city=effects('city'),forest=effects('forest');
   assert.ok(effects('snow').sleep>home.sleep);
   assert.ok(effects('snow').play<home.play);
-  assert.ok(effects('desert').coin>city.coin);
+  assert.ok(effects('desert').hunger>city.hunger);
+  assert.equal(effects('desert').coin,undefined);
   assert.ok(effects('jungle').meet>forest.meet);
   assert.ok(effects('memory_lake').sleep>effects('star_stop').sleep);
   assert.ok(effects('star_stop').play<effects('memory_lake').play);
@@ -148,7 +149,7 @@ test('legend affinity is a soft preference and never overrides unseen priority',
     for(let i=0;i<60;i++) {
       h.sandbox.legendRoll=(i+.5)/60;
       vm.runInContext('Math.random=()=>legendRoll',h.sandbox);
-      s.lifetime.legendsMet=[];h.api.triggerLegendEncounter();
+      s.legendMet=false;s.lifetime.legendsMet=[];h.api.triggerLegendEncounter();
       const id=s.lifetime.legendsMet[0];out[id]=(out[id]||0)+1;
     }
     return out;
@@ -156,7 +157,7 @@ test('legend affinity is a soft preference and never overrides unseen priority',
   const home=counts('home'),forest=counts('forest');
   assert.equal(Object.keys(home).length,5);assert.equal(Object.keys(forest).length,5);
   assert.ok(forest.lamp>home.lamp,'forest must actually prefer the lamp');
-  s.lifetime.legendsMet=['stairs','boss','lamp','mirror'];
+  s.legendMet=false;s.lifetime.legendsMet=['stairs','boss','lamp','mirror'];
   h.api.triggerLegendEncounter();assert.ok(s.lifetime.legendsMet.includes('gate'));
 });
 

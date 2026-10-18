@@ -1,0 +1,1238 @@
+{
+  "sourceCommit": "de0b38d06a4fec8d7d4e42497b9757996d8f2f7f",
+  "environment": "headless Chromium + SwiftShader software WebGL",
+  "physicalIPhone": "NOT_RUN",
+  "pixelOcclusion": "requires screenshot inspection; body/frustum checks alone are not pixel proof",
+  "checks": [
+    {
+      "name": "initial production appearance",
+      "pass": true,
+      "detail": {
+        "sample": {
+          "region": "forest",
+          "is3D": true,
+          "failed": false,
+          "player": {
+            "missFrames": 0,
+            "ok": true,
+            "why": "",
+            "mode": "3d",
+            "meshes": 12,
+            "inFrustum": 12,
+            "pixelVisibility": "NOT_MEASURED"
+          },
+          "stats": {
+            "live": 3,
+            "templates": 3,
+            "built": 3,
+            "tris": 12530,
+            "meshes": 39,
+            "bones": 30,
+            "materials": 1,
+            "atlases": 3,
+            "eyeGeos": 6,
+            "cpuMsAvg": 113.3,
+            "cpuMsP95": 125.1,
+            "buildMsTotal": 274.1,
+            "buildMsMax": 122.9,
+            "fallbacks": 0,
+            "removed": 0,
+            "created": 3,
+            "failedTemplates": 0,
+            "buildsThisFrame": 1
+          },
+          "holders": 3,
+          "canvasCount": 1
+        },
+        "appearance": {
+          "label": "Observed appearance-window RAF intervals, including neighbor frames; not isolated first-build CPU",
+          "sampleCount": 25,
+          "windows": [
+            {
+              "timestampMs": 8423,
+              "live": 1,
+              "created": 1,
+              "templates": 1,
+              "built": 1,
+              "frames": [
+                {
+                  "timestampMs": 8423,
+                  "intervalMs": 266.60000000000036,
+                  "live": 1,
+                  "created": 1,
+                  "templates": 1,
+                  "built": 1
+                },
+                {
+                  "timestampMs": 8456.3,
+                  "intervalMs": 33.29999999999927,
+                  "live": 1,
+                  "created": 1,
+                  "templates": 1,
+                  "built": 1
+                }
+              ],
+              "maxIntervalMs": 266.60000000000036
+            },
+            {
+              "timestampMs": 8589.7,
+              "live": 2,
+              "created": 2,
+              "templates": 2,
+              "built": 2,
+              "frames": [
+                {
+                  "timestampMs": 8456.3,
+                  "intervalMs": 33.29999999999927,
+                  "live": 1,
+                  "created": 1,
+                  "templates": 1,
+                  "built": 1
+                },
+                {
+                  "timestampMs": 8589.7,
+                  "intervalMs": 133.40000000000146,
+                  "live": 2,
+                  "created": 2,
+                  "templates": 2,
+                  "built": 2
+                },
+                {
+                  "timestampMs": 8606.3,
+                  "intervalMs": 16.599999999998545,
+                  "live": 2,
+                  "created": 2,
+                  "templates": 2,
+                  "built": 2
+                }
+              ],
+              "maxIntervalMs": 133.40000000000146
+            },
+            {
+              "timestampMs": 8939.7,
+              "live": 3,
+              "created": 3,
+              "templates": 3,
+              "built": 3,
+              "frames": [
+                {
+                  "timestampMs": 8606.3,
+                  "intervalMs": 16.599999999998545,
+                  "live": 2,
+                  "created": 2,
+                  "templates": 2,
+                  "built": 2
+                },
+                {
+                  "timestampMs": 8939.7,
+                  "intervalMs": 333.40000000000146,
+                  "live": 3,
+                  "created": 3,
+                  "templates": 3,
+                  "built": 3
+                },
+                {
+                  "timestampMs": 8956.3,
+                  "intervalMs": 16.599999999998545,
+                  "live": 3,
+                  "created": 3,
+                  "templates": 3,
+                  "built": 3
+                }
+              ],
+              "maxIntervalMs": 333.40000000000146
+            }
+          ],
+          "maxAppearanceWindowIntervalMs": 333.40000000000146
+        }
+      }
+    },
+    {
+      "name": "player does not disappear over 120 rendered frames",
+      "pass": true,
+      "detail": {
+        "frames": 120,
+        "missFrames": 0,
+        "pixelVisibility": "NOT_MEASURED"
+      }
+    },
+    {
+      "name": "character 3D to 2D to 3D and save isolation",
+      "pass": true,
+      "detail": {
+        "off": {
+          "region": "forest",
+          "is3D": true,
+          "failed": false,
+          "player": {
+            "missFrames": 0,
+            "ok": true,
+            "why": "",
+            "mode": "2d",
+            "pixelVisibility": "NOT_MEASURED"
+          },
+          "stats": {
+            "live": 0,
+            "templates": 3,
+            "built": 3,
+            "tris": 0,
+            "meshes": 0,
+            "bones": 0,
+            "materials": 1,
+            "atlases": 3,
+            "eyeGeos": 6,
+            "cpuMsAvg": 2.323,
+            "cpuMsP95": 0.3,
+            "buildMsTotal": 274.1,
+            "buildMsMax": 122.9,
+            "fallbacks": 0,
+            "removed": 3,
+            "created": 3,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "holders": 0,
+          "canvasCount": 1
+        },
+        "on": {
+          "region": "forest",
+          "is3D": true,
+          "failed": false,
+          "player": {
+            "missFrames": 0,
+            "ok": true,
+            "why": "",
+            "mode": "3d",
+            "meshes": 12,
+            "inFrustum": 12,
+            "pixelVisibility": "NOT_MEASURED"
+          },
+          "stats": {
+            "live": 3,
+            "templates": 3,
+            "built": 3,
+            "tris": 12530,
+            "meshes": 39,
+            "bones": 30,
+            "materials": 1,
+            "atlases": 3,
+            "eyeGeos": 6,
+            "cpuMsAvg": 2.306,
+            "cpuMsP95": 0.3,
+            "buildMsTotal": 274.1,
+            "buildMsMax": 122.9,
+            "fallbacks": 0,
+            "removed": 3,
+            "created": 6,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "holders": 3,
+          "canvasCount": 1
+        },
+        "proofs": [
+          {
+            "state": true,
+            "storage": true,
+            "writes": true,
+            "getter": true
+          },
+          {
+            "state": true,
+            "storage": true,
+            "writes": true,
+            "getter": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "one actor failure retains other 3D actors",
+      "pass": false,
+      "error": "page.waitForFunction: Timeout 60000ms exceeded.\n    at ready (/workspace/scratch/f50bce74ad86/naotocchi/tools/meguru-3d-qa/character-integration.cjs:56:26)\n    at /workspace/scratch/f50bce74ad86/naotocchi/tools/meguru-3d-qa/character-integration.cjs:61:1090\n    at async record (/workspace/scratch/f50bce74ad86/naotocchi/tools/meguru-3d-qa/character-integration.cjs:42:62)\n    at async run (/workspace/scratch/f50bce74ad86/naotocchi/tools/meguru-3d-qa/character-integration.cjs:61:5)"
+    },
+    {
+      "name": "regional scene home",
+      "pass": true,
+      "detail": {
+        "region": "home",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.122,
+          "cpuMsP95": 0.3,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 11,
+          "created": 14,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene city",
+      "pass": true,
+      "detail": {
+        "region": "city",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.145,
+          "cpuMsP95": 0.3,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 14,
+          "created": 17,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene countryside",
+      "pass": true,
+      "detail": {
+        "region": "countryside",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.144,
+          "cpuMsP95": 0.3,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 17,
+          "created": 20,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene forest",
+      "pass": true,
+      "detail": {
+        "region": "forest",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.143,
+          "cpuMsP95": 0.3,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 20,
+          "created": 23,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene mountain",
+      "pass": true,
+      "detail": {
+        "region": "mountain",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.142,
+          "cpuMsP95": 0.3,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 23,
+          "created": 26,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene snow",
+      "pass": true,
+      "detail": {
+        "region": "snow",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.145,
+          "cpuMsP95": 0.3,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 26,
+          "created": 29,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene sea",
+      "pass": true,
+      "detail": {
+        "region": "sea",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.169,
+          "cpuMsP95": 0.4,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 29,
+          "created": 32,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene deepsea",
+      "pass": true,
+      "detail": {
+        "region": "deepsea",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.166,
+          "cpuMsP95": 0.4,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 32,
+          "created": 35,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene river_lake",
+      "pass": true,
+      "detail": {
+        "region": "river_lake",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.198,
+          "cpuMsP95": 0.5,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 35,
+          "created": 38,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene jungle",
+      "pass": true,
+      "detail": {
+        "region": "jungle",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.2,
+          "cpuMsP95": 0.6,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 38,
+          "created": 41,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene desert",
+      "pass": true,
+      "detail": {
+        "region": "desert",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.19,
+          "cpuMsP95": 0.5,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 41,
+          "created": 44,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene star_stop",
+      "pass": true,
+      "detail": {
+        "region": "star_stop",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.191,
+          "cpuMsP95": 0.5,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 44,
+          "created": 47,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "regional scene memory_lake",
+      "pass": true,
+      "detail": {
+        "region": "memory_lake",
+        "is3D": true,
+        "failed": false,
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": "",
+          "mode": "3d",
+          "meshes": 12,
+          "inFrustum": 12,
+          "pixelVisibility": "NOT_MEASURED"
+        },
+        "stats": {
+          "live": 3,
+          "templates": 3,
+          "built": 3,
+          "tris": 12530,
+          "meshes": 39,
+          "bones": 30,
+          "materials": 1,
+          "atlases": 3,
+          "eyeGeos": 6,
+          "cpuMsAvg": 0.195,
+          "cpuMsP95": 0.5,
+          "buildMsTotal": 274.1,
+          "buildMsMax": 122.9,
+          "fallbacks": 1,
+          "removed": 47,
+          "created": 50,
+          "failedTemplates": 0,
+          "buildsThisFrame": 0
+        },
+        "holders": 3,
+        "canvasCount": 1,
+        "oldDetached": true
+      }
+    },
+    {
+      "name": "terrain groundY matches actual holder at slope and crossing samples",
+      "pass": true,
+      "detail": {
+        "rows": [
+          {
+            "x": 0,
+            "z": 250,
+            "expected": 0,
+            "actual": 0,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          },
+          {
+            "x": 0,
+            "z": 800,
+            "expected": 0,
+            "actual": 0,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          },
+          {
+            "x": -700,
+            "z": 1150,
+            "expected": 0,
+            "actual": 0,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          },
+          {
+            "x": -600,
+            "z": 2500,
+            "expected": 6,
+            "actual": 6,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          },
+          {
+            "x": -1500,
+            "z": 2200,
+            "expected": 6,
+            "actual": 6,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          },
+          {
+            "x": -1637.648891018577,
+            "z": 1212.946673055731,
+            "expected": -6,
+            "actual": -6,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          },
+          {
+            "x": -2486.6176862091247,
+            "z": 2328.6892634185815,
+            "expected": -6,
+            "actual": -6,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          },
+          {
+            "x": -2740,
+            "z": 200,
+            "expected": 18.08064031600952,
+            "actual": 18.08064031600952,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            }
+          }
+        ],
+        "slope": true,
+        "crossings": 4
+      }
+    },
+    {
+      "name": "corridor production views retain 3D player and cleanup",
+      "pass": true,
+      "detail": {
+        "samples": [
+          {
+            "fraction": 0,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            },
+            "sample": {
+              "region": "forest",
+              "is3D": true,
+              "failed": false,
+              "player": {
+                "missFrames": 4,
+                "ok": true,
+                "why": "",
+                "mode": "3d",
+                "meshes": 12,
+                "inFrustum": 12,
+                "pixelVisibility": "NOT_MEASURED"
+              },
+              "stats": {
+                "live": 3,
+                "templates": 3,
+                "built": 3,
+                "tris": 12530,
+                "meshes": 39,
+                "bones": 30,
+                "materials": 1,
+                "atlases": 3,
+                "eyeGeos": 6,
+                "cpuMsAvg": 0.201,
+                "cpuMsP95": 0.6,
+                "buildMsTotal": 274.1,
+                "buildMsMax": 122.9,
+                "fallbacks": 1,
+                "removed": 53,
+                "created": 56,
+                "failedTemplates": 0,
+                "buildsThisFrame": 0
+              },
+              "holders": 3,
+              "canvasCount": 1
+            }
+          },
+          {
+            "fraction": 0.25,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            },
+            "sample": {
+              "region": "forest",
+              "is3D": true,
+              "failed": false,
+              "player": {
+                "missFrames": 4,
+                "ok": true,
+                "why": "",
+                "mode": "3d",
+                "meshes": 12,
+                "inFrustum": 12,
+                "pixelVisibility": "NOT_MEASURED"
+              },
+              "stats": {
+                "live": 3,
+                "templates": 3,
+                "built": 3,
+                "tris": 12530,
+                "meshes": 39,
+                "bones": 30,
+                "materials": 1,
+                "atlases": 3,
+                "eyeGeos": 6,
+                "cpuMsAvg": 0.199,
+                "cpuMsP95": 0.6,
+                "buildMsTotal": 274.1,
+                "buildMsMax": 122.9,
+                "fallbacks": 1,
+                "removed": 53,
+                "created": 56,
+                "failedTemplates": 0,
+                "buildsThisFrame": 0
+              },
+              "holders": 3,
+              "canvasCount": 1
+            }
+          },
+          {
+            "fraction": 0.5,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            },
+            "sample": {
+              "region": "forest",
+              "is3D": true,
+              "failed": false,
+              "player": {
+                "missFrames": 4,
+                "ok": true,
+                "why": "",
+                "mode": "3d",
+                "meshes": 12,
+                "inFrustum": 12,
+                "pixelVisibility": "NOT_MEASURED"
+              },
+              "stats": {
+                "live": 3,
+                "templates": 3,
+                "built": 3,
+                "tris": 12530,
+                "meshes": 39,
+                "bones": 30,
+                "materials": 1,
+                "atlases": 3,
+                "eyeGeos": 6,
+                "cpuMsAvg": 0.197,
+                "cpuMsP95": 0.6,
+                "buildMsTotal": 274.1,
+                "buildMsMax": 122.9,
+                "fallbacks": 1,
+                "removed": 53,
+                "created": 56,
+                "failedTemplates": 0,
+                "buildsThisFrame": 0
+              },
+              "holders": 3,
+              "canvasCount": 1
+            }
+          },
+          {
+            "fraction": 0.75,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            },
+            "sample": {
+              "region": "forest",
+              "is3D": true,
+              "failed": false,
+              "player": {
+                "missFrames": 4,
+                "ok": true,
+                "why": "",
+                "mode": "3d",
+                "meshes": 12,
+                "inFrustum": 12,
+                "pixelVisibility": "NOT_MEASURED"
+              },
+              "stats": {
+                "live": 3,
+                "templates": 3,
+                "built": 3,
+                "tris": 12530,
+                "meshes": 39,
+                "bones": 30,
+                "materials": 1,
+                "atlases": 3,
+                "eyeGeos": 6,
+                "cpuMsAvg": 0.196,
+                "cpuMsP95": 0.6,
+                "buildMsTotal": 274.1,
+                "buildMsMax": 122.9,
+                "fallbacks": 1,
+                "removed": 53,
+                "created": 56,
+                "failedTemplates": 0,
+                "buildsThisFrame": 0
+              },
+              "holders": 3,
+              "canvasCount": 1
+            }
+          },
+          {
+            "fraction": 1,
+            "proof": {
+              "state": true,
+              "storage": true,
+              "writes": true,
+              "getter": true
+            },
+            "sample": {
+              "region": "forest",
+              "is3D": true,
+              "failed": false,
+              "player": {
+                "missFrames": 4,
+                "ok": true,
+                "why": "",
+                "mode": "3d",
+                "meshes": 12,
+                "inFrustum": 12,
+                "pixelVisibility": "NOT_MEASURED"
+              },
+              "stats": {
+                "live": 3,
+                "templates": 3,
+                "built": 3,
+                "tris": 12530,
+                "meshes": 39,
+                "bones": 30,
+                "materials": 1,
+                "atlases": 3,
+                "eyeGeos": 6,
+                "cpuMsAvg": 0.194,
+                "cpuMsP95": 0.6,
+                "buildMsTotal": 274.1,
+                "buildMsMax": 122.9,
+                "fallbacks": 1,
+                "removed": 53,
+                "created": 56,
+                "failedTemplates": 0,
+                "buildsThisFrame": 0
+              },
+              "holders": 3,
+              "canvasCount": 1
+            }
+          }
+        ],
+        "restored": {
+          "region": "forest",
+          "is3D": true,
+          "failed": false,
+          "player": {
+            "missFrames": 4,
+            "ok": true,
+            "why": "",
+            "mode": "3d",
+            "meshes": 12,
+            "inFrustum": 12,
+            "pixelVisibility": "NOT_MEASURED"
+          },
+          "stats": {
+            "live": 3,
+            "templates": 3,
+            "built": 3,
+            "tris": 12530,
+            "meshes": 39,
+            "bones": 30,
+            "materials": 1,
+            "atlases": 3,
+            "eyeGeos": 6,
+            "cpuMsAvg": 0.195,
+            "cpuMsP95": 0.6,
+            "buildMsTotal": 274.1,
+            "buildMsMax": 122.9,
+            "fallbacks": 1,
+            "removed": 56,
+            "created": 59,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "holders": 3,
+          "canvasCount": 1
+        },
+        "oldDetached": true,
+        "proof": {
+          "state": true,
+          "storage": true,
+          "writes": true,
+          "getter": true
+        },
+        "scope": "production corridor views at five positions; not a physical input/travel commit test"
+      }
+    },
+    {
+      "name": "URL flags / no flags",
+      "pass": true,
+      "detail": {
+        "world": false,
+        "char": false,
+        "reduced": false
+      }
+    },
+    {
+      "name": "URL flags / character flag only",
+      "pass": true,
+      "detail": {
+        "world": false,
+        "char": false,
+        "reduced": false
+      }
+    },
+    {
+      "name": "URL flags / world only",
+      "pass": true,
+      "detail": {
+        "world": true,
+        "char": false,
+        "reduced": false
+      }
+    },
+    {
+      "name": "URL flags / forced 2D",
+      "pass": true,
+      "detail": {
+        "world": false,
+        "char": false,
+        "reduced": false
+      }
+    },
+    {
+      "name": "URL flags / reduced motion",
+      "pass": true,
+      "detail": {
+        "world": true,
+        "char": true,
+        "reduced": true
+      }
+    }
+  ],
+  "screenshots": [
+    "forest-production.png",
+    "forest-characters-2d.png",
+    "forest-shiba-fallback.png",
+    "region-home.png",
+    "region-city.png",
+    "region-countryside.png",
+    "region-forest.png",
+    "region-mountain.png",
+    "region-snow.png",
+    "region-sea.png",
+    "region-deepsea.png",
+    "region-river_lake.png",
+    "region-jungle.png",
+    "region-desert.png",
+    "region-star_stop.png",
+    "region-memory_lake.png"
+  ],
+  "errors": [],
+  "status": "FAIL",
+  "browserVersion": "134.0.6998.35",
+  "scope": "Preliminary local run of earlier QA runner; sole failure was harness expecting deliberately broken actor identity to recover after hooks reset. Fallback rendering itself and all other checks passed. Superseded by current runner validation; sourceCommit identifies base HEAD, not dirty working tree."
+}

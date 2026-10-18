@@ -1,0 +1,51 @@
+✖ live gallery accepts every approved exact nonplayer key without dog fallback (2.882881ms)
+✖ full gallery live links resolve production role keys and preserve legacy and player stages (2.512604ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 161.664668
+
+✖ failing tests:
+
+test at tests/character-3d-gallery-routing-test.cjs:3:1
+✖ live gallery accepts every approved exact nonplayer key without dog fallback (2.882881ms)
+  AssertionError [ERR_ASSERTION]: partner:high_eagle must remain selected
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-gallery-routing-test.cjs:6:96)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/character-3d-gallery-routing-test.cjs:9:1
+✖ full gallery live links resolve production role keys and preserve legacy and player stages (2.512604ms)
+  AssertionError [ERR_ASSERTION]: partner:high_eagle
+  + actual - expected
+  
+  + 'high_eagle'
+  - 'partner:high_eagle'
+  
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-gallery-routing-test.cjs:14:67)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'high_eagle',
+    expected: 'partner:high_eagle',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

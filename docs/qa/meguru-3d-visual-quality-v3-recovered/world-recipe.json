@@ -1,0 +1,81 @@
+[
+  {
+    "region": "home",
+    "spot": "yard",
+    "yaw": 0,
+    "dz": -150,
+    "name": "home-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "home",
+    "spot": "house",
+    "yaw": 90,
+    "dx": 200,
+    "name": "home-house-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "countryside",
+    "spot": "village",
+    "yaw": 0,
+    "dz": -200,
+    "name": "countryside-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "countryside",
+    "spot": "meadow",
+    "yaw": 0,
+    "dz": -250,
+    "dist": 650,
+    "name": "countryside-river-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "countryside",
+    "spot": "village",
+    "yaw": 0,
+    "dz": -200,
+    "name": "countryside-autumn-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "autumn"
+    ]
+  },
+  {
+    "region": "home",
+    "spot": "yard",
+    "yaw": 0,
+    "dz": -150,
+    "name": "home-spring-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "spring"
+    ]
+  }
+]

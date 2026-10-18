@@ -1,0 +1,176 @@
+TAP version 13
+# Subtest: reviewed missing selector is exact86 legal stages in15 families and excludes accepted136 plus Pilot26
+ok 1 - reviewed missing selector is exact86 legal stages in15 families and excludes accepted136 plus Pilot26
+  ---
+  duration_ms: 2.227953
+  type: 'test'
+  ...
+# Subtest: selector rejects duplicates accepted stages and illegal family stages
+ok 2 - selector rejects duplicates accepted stages and illegal family stages
+  ---
+  duration_ms: 1.816321
+  type: 'test'
+  ...
+# Subtest: integration retains31stage aggregate gallery scene performance and dedicated while skipping accepted recaptures
+ok 3 - integration retains31stage aggregate gallery scene performance and dedicated while skipping accepted recaptures
+  ---
+  duration_ms: 3.514024
+  type: 'test'
+  ...
+# Subtest: ordinary unscoped and every existing family-marker combination retain previous job routing
+ok 4 - ordinary unscoped and every existing family-marker combination retain previous job routing
+  ---
+  duration_ms: 9.476453
+  type: 'test'
+  ...
+# Subtest: integration reuses family capture tool with bounded separate motion child and unchanged aggregate paths
+ok 5 - integration reuses family capture tool with bounded separate motion child and unchanged aggregate paths
+  ---
+  duration_ms: 1985.480462
+  type: 'test'
+  ...
+# Subtest: nested motion metadata cannot pollute same-source248-stage distance aggregation
+ok 6 - nested motion metadata cannot pollute same-source248-stage distance aggregation
+  ---
+  duration_ms: 210.018492
+  type: 'test'
+  ...
+# Subtest: production role planner covers live master identities, preserves legacy keys and requires final45 explicitly
+ok 7 - production role planner covers live master identities, preserves legacy keys and requires final45 explicitly
+  ---
+  duration_ms: 11.234337
+  type: 'test'
+  ...
+# Subtest: functional gate rejects wrong role/template, stand-in, overlay, fallback and save mutation
+ok 8 - functional gate rejects wrong role/template, stand-in, overlay, fallback and save mutation
+  ---
+  duration_ms: 1.988962
+  type: 'test'
+  ...
+# Subtest: author functional gate requires natural2D actual same actor and complete restoration
+ok 9 - author functional gate requires natural2D actual same actor and complete restoration
+  ---
+  duration_ms: 1.135564
+  type: 'test'
+  ...
+# Subtest: repeated scene gate requires cleanup, warm cache/resource plateau and unchanged save counters
+ok 10 - repeated scene gate requires cleanup, warm cache/resource plateau and unchanged save counters
+  ---
+  duration_ms: 2.025207
+  type: 'test'
+  ...
+# Subtest: final integration wiring stays in existing scene job and requests production45 without capture
+ok 11 - final integration wiring stays in existing scene job and requests production45 without capture
+  ---
+  duration_ms: 0.550501
+  type: 'test'
+  ...
+# Subtest: appearance windows use timestamped creation events and neighbors, never unrelated startup maximum
+ok 12 - appearance windows use timestamped creation events and neighbors, never unrelated startup maximum
+  ---
+  duration_ms: 0.345862
+  type: 'test'
+  ...
+# (node:113) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/rollout-runtime-scene-baseline/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/rollout-runtime-scene-baseline/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: production served lookup matches local spec bytes and unresolved roles remain unresolved
+ok 13 - production served lookup matches local spec bytes and unresolved roles remain unresolved
+  ---
+  duration_ms: 106.535434
+  type: 'test'
+  ...
+# Subtest: actual presenter actor fallback becomes a functional error without changing save
+ok 14 - actual presenter actor fallback becomes a functional error without changing save
+  ---
+  duration_ms: 1340.577124
+  type: 'test'
+  ...
+# Subtest: strict boundaries isolate renderer effects from observed application progression and retain exact field deltas
+ok 15 - strict boundaries isolate renderer effects from observed application progression and retain exact field deltas
+  ---
+  duration_ms: 2.277307
+  type: 'test'
+  ...
+# Subtest: strict boundaries preserve every dirty presentation failure, including writes, getter swaps and thrown actions
+ok 16 - strict boundaries preserve every dirty presentation failure, including writes, getter swaps and thrown actions
+  ---
+  duration_ms: 0.904616
+  type: 'test'
+  ...
+# Subtest: failing functional row is recorded with validation error and boundary delta before error propagates
+ok 17 - failing functional row is recorded with validation error and boundary delta before error propagates
+  ---
+  duration_ms: 0.47709
+  type: 'test'
+  ...
+# Subtest: runtime marker routes only existing Meguru and focused dedicated jobs, preserving integration and ordinary behavior
+ok 18 - runtime marker routes only existing Meguru and focused dedicated jobs, preserving integration and ordinary behavior
+  ---
+  duration_ms: 2.196666
+  type: 'test'
+  ...
+# Subtest: real Meguru record APIs progress outside presentation boundaries without suppressing save calls
+ok 19 - real Meguru record APIs progress outside presentation boundaries without suppressing save calls
+  ---
+  duration_ms: 145.371345
+  type: 'test'
+  ...
+# Subtest: functional validation rejects dirty constituent boundaries even when aggregate flags claim unchanged
+ok 20 - functional validation rejects dirty constituent boundaries even when aggregate flags claim unchanged
+  ---
+  duration_ms: 92.074863
+  type: 'test'
+  ...
+# Subtest: scene timeout retains warmup on phase, expected and last actual composition/resources, and restoration
+ok 21 - scene timeout retains warmup on phase, expected and last actual composition/resources, and restoration
+  ---
+  duration_ms: 15.838616
+  type: 'test'
+  ...
+# Subtest: scene diagnostic path preserves strict hidden city cache and resource gates on completed cycles
+ok 22 - scene diagnostic path preserves strict hidden city cache and resource gates on completed cycles
+  ---
+  duration_ms: 7.988127
+  type: 'test'
+  ...
+# Subtest: failed scene raw result is written with failing verdict before original error propagates
+ok 23 - failed scene raw result is written with failing verdict before original error propagates
+  ---
+  duration_ms: 6.085225
+  type: 'test'
+  ...
+# Subtest: scene-only marker requires runtime marker, skips only production45 step and keeps scene and native metrics
+ok 24 - scene-only marker requires runtime marker, skips only production45 step and keeps scene and native metrics
+  ---
+  duration_ms: 0.697042
+  type: 'test'
+  ...
+# Subtest: held current view waits for deferred seven-to-eleven exact actors before freezing scene composition
+ok 25 - held current view waits for deferred seven-to-eleven exact actors before freezing scene composition
+  ---
+  duration_ms: 2.925626
+  type: 'test'
+  ...
+# Subtest: same count with substituted actor template cannot satisfy exact scene composition readiness
+ok 26 - same count with substituted actor template cannot satisfy exact scene composition readiness
+  ---
+  duration_ms: 4.897082
+  type: 'test'
+  ...
+# Subtest: natural city cache follows actual preserved show false and rejects visibility identity and growth defects
+ok 27 - natural city cache follows actual preserved show false and rejects visibility identity and growth defects
+  ---
+  duration_ms: 9.568712
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2417.092073

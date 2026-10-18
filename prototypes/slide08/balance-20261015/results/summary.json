@@ -1,0 +1,7321 @@
+{
+  "manifest": {
+    "version": 1,
+    "sourceHead": "05778f7e8475c09133834685d3e60e308cb9ffbf",
+    "conditions": [
+      {
+        "id": "A",
+        "count": 24,
+        "single": 2,
+        "bulk": 6,
+        "prior": "cost2"
+      },
+      {
+        "id": "B",
+        "count": 30,
+        "single": 4,
+        "bulk": 12,
+        "prior": "count30"
+      },
+      {
+        "id": "C",
+        "count": 24,
+        "single": 4,
+        "bulk": 12,
+        "prior": "base"
+      },
+      {
+        "id": "D",
+        "count": 30,
+        "single": 2,
+        "bulk": 6,
+        "prior": null
+      }
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "limits": {
+      "width": 80,
+      "maxDepth": 100,
+      "maxNodes": 500000,
+      "maxMs": 5000
+    },
+    "policies": [
+      {
+        "id": "cluster",
+        "mode": "beam",
+        "itemPenalty": 0,
+        "actionSet": "all"
+      },
+      {
+        "id": "item-aware",
+        "mode": "beam",
+        "itemPenalty": 4,
+        "actionSet": "all"
+      },
+      {
+        "id": "slides-only",
+        "mode": "bfs",
+        "itemPenalty": 0,
+        "actionSet": "slides"
+      }
+    ],
+    "largeClearThreshold": 4,
+    "longItemStreak": 3,
+    "reuse": "Prior successful cluster witnesses reused. Prior unproven searches rerun only to collect missing bestPath diagnostics; original results immutable."
+  },
+  "notes": [
+    "Rates are solver witness rates, not true solvability or human win rates.",
+    "Success-only denominators are survivor-biased; use paired seeds to compare successful paths.",
+    "08 diagnostics cover saved best paths, not every state visited.",
+    "Reused witness runtimes are historical and are not timing benchmarks."
+  ],
+  "groups": [
+    {
+      "condition": "A",
+      "policy": "cluster",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 983,
+          "slides": 232,
+          "evolvingSlides": 174,
+          "chainActions": 195,
+          "slideChainActions": 86,
+          "largeClears": 102
+        },
+        "freshSearch": {
+          "n": 33,
+          "nodes": 9056382,
+          "maxMs": 2167.720867,
+          "totalMs": 45428.49359299999
+        },
+        "solved": 10,
+        "unsolvableInActionScope": 0,
+        "unproven": 30,
+        "reached08OnSavedPath": 19,
+        "same08OnSavedPath": 10,
+        "reasons": {
+          "frontier-exhausted": 19,
+          "witness": 10,
+          "depth": 11
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 10,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 206,
+          "range": [
+            8,
+            34
+          ],
+          "meanMoves": 20.6,
+          "slides": 66,
+          "eggs": 114,
+          "single": 8,
+          "bulk": 18,
+          "itemRatio": 0.6796116504854369,
+          "evolvingSlides": 46,
+          "evolvingSlideRate": 0.696969696969697,
+          "slideChainRate": 0.2878787878787879,
+          "chainRate": 0.18932038834951456,
+          "maxChain": 5,
+          "meanReduction": 1.0825242718446602,
+          "slideReduction": 160,
+          "largeClearRate": 0.1407766990291262,
+          "largeSlideClearRate": 0.2878787878787879,
+          "noImmediateSlideEvolutionRate": 0.2766990291262136,
+          "itemsEnablingSlides": 22,
+          "setupSlidesFollowedByEvolution": 9,
+          "longItemShare": 0.7857142857142857,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 31,
+            "items": 19,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          },
+          {
+            "seed": 5,
+            "moves": 34,
+            "items": 16,
+            "slides": 18
+          },
+          {
+            "seed": 9,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 16,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 24,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 34,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 16,
+            "slides": 5
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 488,
+          "slides": 128,
+          "evolvingSlides": 91,
+          "chainActions": 96,
+          "slideChainActions": 43,
+          "largeClears": 57
+        },
+        "freshSearch": {
+          "n": 13,
+          "nodes": 3712809,
+          "maxMs": 1859.8435370000002,
+          "totalMs": 19104.809795999994
+        },
+        "solved": 7,
+        "unsolvableInActionScope": 0,
+        "unproven": 13,
+        "reached08OnSavedPath": 13,
+        "same08OnSavedPath": 7,
+        "reasons": {
+          "frontier-exhausted": 9,
+          "witness": 7,
+          "depth": 4
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 7,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 149,
+          "range": [
+            8,
+            34
+          ],
+          "meanMoves": 21.285714285714285,
+          "slides": 52,
+          "eggs": 78,
+          "single": 7,
+          "bulk": 12,
+          "itemRatio": 0.6510067114093959,
+          "evolvingSlides": 32,
+          "evolvingSlideRate": 0.6153846153846154,
+          "slideChainRate": 0.21153846153846154,
+          "chainRate": 0.1610738255033557,
+          "maxChain": 4,
+          "meanReduction": 1.0134228187919463,
+          "slideReduction": 107,
+          "largeClearRate": 0.1342281879194631,
+          "largeSlideClearRate": 0.25,
+          "noImmediateSlideEvolutionRate": 0.28859060402684567,
+          "itemsEnablingSlides": 14,
+          "setupSlidesFollowedByEvolution": 9,
+          "longItemShare": 0.8144329896907216,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 31,
+            "items": 19,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          },
+          {
+            "seed": 5,
+            "moves": 34,
+            "items": 16,
+            "slides": 18
+          },
+          {
+            "seed": 9,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 16,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 495,
+          "slides": 104,
+          "evolvingSlides": 83,
+          "chainActions": 99,
+          "slideChainActions": 43,
+          "largeClears": 45
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 5343573,
+          "maxMs": 2167.720867,
+          "totalMs": 26323.683796999998
+        },
+        "solved": 3,
+        "unsolvableInActionScope": 0,
+        "unproven": 17,
+        "reached08OnSavedPath": 6,
+        "same08OnSavedPath": 3,
+        "reasons": {
+          "depth": 7,
+          "frontier-exhausted": 10,
+          "witness": 3
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 3,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 57,
+          "range": [
+            14,
+            22
+          ],
+          "meanMoves": 19,
+          "slides": 14,
+          "eggs": 36,
+          "single": 1,
+          "bulk": 6,
+          "itemRatio": 0.7543859649122807,
+          "evolvingSlides": 14,
+          "evolvingSlideRate": 1,
+          "slideChainRate": 0.5714285714285714,
+          "chainRate": 0.2631578947368421,
+          "maxChain": 5,
+          "meanReduction": 1.263157894736842,
+          "slideReduction": 53,
+          "largeClearRate": 0.15789473684210525,
+          "largeSlideClearRate": 0.42857142857142855,
+          "noImmediateSlideEvolutionRate": 0.24561403508771928,
+          "itemsEnablingSlides": 8,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": 0.7209302325581395,
+          "maxItemStreak": 12
+        },
+        "seeds": [
+          {
+            "seed": 24,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 34,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 16,
+            "slides": 5
+          }
+        ]
+      }
+    },
+    {
+      "condition": "A",
+      "policy": "item-aware",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1061,
+          "slides": 616,
+          "evolvingSlides": 167,
+          "chainActions": 158,
+          "slideChainActions": 77,
+          "largeClears": 89
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 17432206,
+          "maxMs": 3164.517544000002,
+          "totalMs": 90319.034301
+        },
+        "solved": 9,
+        "unsolvableInActionScope": 0,
+        "unproven": 31,
+        "reached08OnSavedPath": 20,
+        "same08OnSavedPath": 9,
+        "reasons": {
+          "budget": 26,
+          "witness": 9,
+          "depth": 5
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 9,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 301,
+          "range": [
+            10,
+            63
+          ],
+          "meanMoves": 33.44444444444444,
+          "slides": 209,
+          "eggs": 69,
+          "single": 7,
+          "bulk": 16,
+          "itemRatio": 0.30564784053156147,
+          "evolvingSlides": 42,
+          "evolvingSlideRate": 0.20095693779904306,
+          "slideChainRate": 0.09569377990430622,
+          "chainRate": 0.11295681063122924,
+          "maxChain": 4,
+          "meanReduction": 0.6744186046511628,
+          "slideReduction": 138,
+          "largeClearRate": 0.07641196013289037,
+          "largeSlideClearRate": 0.07177033492822966,
+          "noImmediateSlideEvolutionRate": 0.627906976744186,
+          "itemsEnablingSlides": 19,
+          "setupSlidesFollowedByEvolution": 22,
+          "longItemShare": 0.31521739130434784,
+          "maxItemStreak": 4
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 19,
+            "items": 10,
+            "slides": 9
+          },
+          {
+            "seed": 2,
+            "moves": 39,
+            "items": 15,
+            "slides": 24
+          },
+          {
+            "seed": 3,
+            "moves": 35,
+            "items": 14,
+            "slides": 21
+          },
+          {
+            "seed": 5,
+            "moves": 46,
+            "items": 9,
+            "slides": 37
+          },
+          {
+            "seed": 9,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 17,
+            "items": 7,
+            "slides": 10
+          },
+          {
+            "seed": 24,
+            "moves": 63,
+            "items": 11,
+            "slides": 52
+          },
+          {
+            "seed": 30,
+            "moves": 62,
+            "items": 16,
+            "slides": 46
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 464,
+          "slides": 262,
+          "evolvingSlides": 82,
+          "chainActions": 73,
+          "slideChainActions": 35,
+          "largeClears": 48
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 7821394,
+          "maxMs": 3164.517544000002,
+          "totalMs": 41230.82204000001
+        },
+        "solved": 7,
+        "unsolvableInActionScope": 0,
+        "unproven": 13,
+        "reached08OnSavedPath": 13,
+        "same08OnSavedPath": 7,
+        "reasons": {
+          "budget": 11,
+          "witness": 7,
+          "depth": 2
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 7,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 176,
+          "range": [
+            10,
+            46
+          ],
+          "meanMoves": 25.142857142857142,
+          "slides": 111,
+          "eggs": 47,
+          "single": 6,
+          "bulk": 12,
+          "itemRatio": 0.3693181818181818,
+          "evolvingSlides": 31,
+          "evolvingSlideRate": 0.27927927927927926,
+          "slideChainRate": 0.10810810810810811,
+          "chainRate": 0.11931818181818182,
+          "maxChain": 4,
+          "meanReduction": 0.8920454545454546,
+          "slideReduction": 100,
+          "largeClearRate": 0.10795454545454546,
+          "largeSlideClearRate": 0.10810810810810811,
+          "noImmediateSlideEvolutionRate": 0.5,
+          "itemsEnablingSlides": 14,
+          "setupSlidesFollowedByEvolution": 16,
+          "longItemShare": 0.35384615384615387,
+          "maxItemStreak": 4
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 19,
+            "items": 10,
+            "slides": 9
+          },
+          {
+            "seed": 2,
+            "moves": 39,
+            "items": 15,
+            "slides": 24
+          },
+          {
+            "seed": 3,
+            "moves": 35,
+            "items": 14,
+            "slides": 21
+          },
+          {
+            "seed": 5,
+            "moves": 46,
+            "items": 9,
+            "slides": 37
+          },
+          {
+            "seed": 9,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 17,
+            "items": 7,
+            "slides": 10
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 597,
+          "slides": 354,
+          "evolvingSlides": 85,
+          "chainActions": 85,
+          "slideChainActions": 42,
+          "largeClears": 41
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 9610812,
+          "maxMs": 2822.0675699999993,
+          "totalMs": 49088.21226100001
+        },
+        "solved": 2,
+        "unsolvableInActionScope": 0,
+        "unproven": 18,
+        "reached08OnSavedPath": 7,
+        "same08OnSavedPath": 2,
+        "reasons": {
+          "budget": 15,
+          "depth": 3,
+          "witness": 2
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 2,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 125,
+          "range": [
+            62,
+            63
+          ],
+          "meanMoves": 62.5,
+          "slides": 98,
+          "eggs": 22,
+          "single": 1,
+          "bulk": 4,
+          "itemRatio": 0.216,
+          "evolvingSlides": 11,
+          "evolvingSlideRate": 0.11224489795918367,
+          "slideChainRate": 0.08163265306122448,
+          "chainRate": 0.104,
+          "maxChain": 4,
+          "meanReduction": 0.368,
+          "slideReduction": 38,
+          "largeClearRate": 0.032,
+          "largeSlideClearRate": 0.030612244897959183,
+          "noImmediateSlideEvolutionRate": 0.808,
+          "itemsEnablingSlides": 5,
+          "setupSlidesFollowedByEvolution": 6,
+          "longItemShare": 0.2222222222222222,
+          "maxItemStreak": 3
+        },
+        "seeds": [
+          {
+            "seed": 24,
+            "moves": 63,
+            "items": 11,
+            "slides": 52
+          },
+          {
+            "seed": 30,
+            "moves": 62,
+            "items": 16,
+            "slides": 46
+          }
+        ]
+      }
+    },
+    {
+      "condition": "A",
+      "policy": "slides-only",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1497,
+          "slides": 1497,
+          "evolvingSlides": 318,
+          "chainActions": 83,
+          "slideChainActions": 83,
+          "largeClears": 34
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 16026636,
+          "maxMs": 2137.513651999994,
+          "totalMs": 60031.73564399994
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 40,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 23,
+          "depth": 17
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 685,
+          "slides": 685,
+          "evolvingSlides": 155,
+          "chainActions": 42,
+          "slideChainActions": 42,
+          "largeClears": 18
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 8331456,
+          "maxMs": 2014.7225139999937,
+          "totalMs": 30900.16040200001
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 13,
+          "depth": 7
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 812,
+          "slides": 812,
+          "evolvingSlides": 163,
+          "chainActions": 41,
+          "slideChainActions": 41,
+          "largeClears": 16
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 7695180,
+          "maxMs": 2137.513651999994,
+          "totalMs": 29131.575241999933
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 10,
+          "depth": 10
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      }
+    },
+    {
+      "condition": "B",
+      "policy": "cluster",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1249,
+          "slides": 288,
+          "evolvingSlides": 233,
+          "chainActions": 275,
+          "slideChainActions": 137,
+          "largeClears": 140
+        },
+        "freshSearch": {
+          "n": 24,
+          "nodes": 5914302,
+          "maxMs": 1855.9083379999793,
+          "totalMs": 29634.36127599998
+        },
+        "solved": 32,
+        "unsolvableInActionScope": 0,
+        "unproven": 8,
+        "reached08OnSavedPath": 33,
+        "same08OnSavedPath": 32,
+        "reasons": {
+          "frontier-exhausted": 6,
+          "witness": 32,
+          "depth": 2
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 32,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 968,
+          "range": [
+            11,
+            46
+          ],
+          "meanMoves": 30.25,
+          "slides": 235,
+          "eggs": 615,
+          "single": 70,
+          "bulk": 48,
+          "itemRatio": 0.7572314049586777,
+          "evolvingSlides": 189,
+          "evolvingSlideRate": 0.8042553191489362,
+          "slideChainRate": 0.46808510638297873,
+          "chainRate": 0.22107438016528927,
+          "maxChain": 5,
+          "meanReduction": 0.8894628099173554,
+          "slideReduction": 646,
+          "largeClearRate": 0.11673553719008264,
+          "largeSlideClearRate": 0.31063829787234043,
+          "noImmediateSlideEvolutionRate": 0.26962809917355374,
+          "itemsEnablingSlides": 122,
+          "setupSlidesFollowedByEvolution": 26,
+          "longItemShare": 0.8362892223738063,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 40,
+            "items": 30,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 42,
+            "items": 30,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 27,
+            "items": 20,
+            "slides": 7
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 5,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 7,
+            "moves": 23,
+            "items": 19,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 41,
+            "items": 32,
+            "slides": 9
+          },
+          {
+            "seed": 10,
+            "moves": 25,
+            "items": 19,
+            "slides": 6
+          },
+          {
+            "seed": 11,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 12,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 14,
+            "moves": 35,
+            "items": 29,
+            "slides": 6
+          },
+          {
+            "seed": 15,
+            "moves": 35,
+            "items": 26,
+            "slides": 9
+          },
+          {
+            "seed": 16,
+            "moves": 46,
+            "items": 29,
+            "slides": 17
+          },
+          {
+            "seed": 17,
+            "moves": 37,
+            "items": 30,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 20,
+            "items": 15,
+            "slides": 5
+          },
+          {
+            "seed": 19,
+            "moves": 34,
+            "items": 25,
+            "slides": 9
+          },
+          {
+            "seed": 20,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 21,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 23,
+            "moves": 38,
+            "items": 29,
+            "slides": 9
+          },
+          {
+            "seed": 24,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 26,
+            "moves": 35,
+            "items": 28,
+            "slides": 7
+          },
+          {
+            "seed": 28,
+            "moves": 30,
+            "items": 23,
+            "slides": 7
+          },
+          {
+            "seed": 30,
+            "moves": 28,
+            "items": 21,
+            "slides": 7
+          },
+          {
+            "seed": 31,
+            "moves": 30,
+            "items": 22,
+            "slides": 8
+          },
+          {
+            "seed": 32,
+            "moves": 33,
+            "items": 24,
+            "slides": 9
+          },
+          {
+            "seed": 33,
+            "moves": 39,
+            "items": 28,
+            "slides": 11
+          },
+          {
+            "seed": 34,
+            "moves": 16,
+            "items": 10,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 26,
+            "items": 20,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 27,
+            "items": 21,
+            "slides": 6
+          },
+          {
+            "seed": 37,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 38,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 39,
+            "moves": 28,
+            "items": 22,
+            "slides": 6
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 624,
+          "slides": 146,
+          "evolvingSlides": 110,
+          "chainActions": 132,
+          "slideChainActions": 69,
+          "largeClears": 76
+        },
+        "freshSearch": {
+          "n": 4,
+          "nodes": 1169262,
+          "maxMs": 1589.7923489999957,
+          "totalMs": 5587.884736999986
+        },
+        "solved": 16,
+        "unsolvableInActionScope": 0,
+        "unproven": 4,
+        "reached08OnSavedPath": 16,
+        "same08OnSavedPath": 16,
+        "reasons": {
+          "frontier-exhausted": 4,
+          "witness": 16
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 16,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 491,
+          "range": [
+            11,
+            46
+          ],
+          "meanMoves": 30.6875,
+          "slides": 123,
+          "eggs": 305,
+          "single": 40,
+          "bulk": 23,
+          "itemRatio": 0.7494908350305499,
+          "evolvingSlides": 92,
+          "evolvingSlideRate": 0.7479674796747967,
+          "slideChainRate": 0.45528455284552843,
+          "chainRate": 0.20977596741344195,
+          "maxChain": 5,
+          "meanReduction": 0.8574338085539714,
+          "slideReduction": 329,
+          "largeClearRate": 0.12219959266802444,
+          "largeSlideClearRate": 0.3252032520325203,
+          "noImmediateSlideEvolutionRate": 0.23828920570264767,
+          "itemsEnablingSlides": 52,
+          "setupSlidesFollowedByEvolution": 16,
+          "longItemShare": 0.8369565217391305,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 40,
+            "items": 30,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 42,
+            "items": 30,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 27,
+            "items": 20,
+            "slides": 7
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 5,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 7,
+            "moves": 23,
+            "items": 19,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 41,
+            "items": 32,
+            "slides": 9
+          },
+          {
+            "seed": 10,
+            "moves": 25,
+            "items": 19,
+            "slides": 6
+          },
+          {
+            "seed": 11,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 12,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 14,
+            "moves": 35,
+            "items": 29,
+            "slides": 6
+          },
+          {
+            "seed": 15,
+            "moves": 35,
+            "items": 26,
+            "slides": 9
+          },
+          {
+            "seed": 16,
+            "moves": 46,
+            "items": 29,
+            "slides": 17
+          },
+          {
+            "seed": 17,
+            "moves": 37,
+            "items": 30,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 20,
+            "items": 15,
+            "slides": 5
+          },
+          {
+            "seed": 19,
+            "moves": 34,
+            "items": 25,
+            "slides": 9
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 625,
+          "slides": 142,
+          "evolvingSlides": 123,
+          "chainActions": 143,
+          "slideChainActions": 68,
+          "largeClears": 64
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 4745040,
+          "maxMs": 1855.9083379999793,
+          "totalMs": 24046.476538999996
+        },
+        "solved": 16,
+        "unsolvableInActionScope": 0,
+        "unproven": 4,
+        "reached08OnSavedPath": 17,
+        "same08OnSavedPath": 16,
+        "reasons": {
+          "witness": 16,
+          "frontier-exhausted": 2,
+          "depth": 2
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 16,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 477,
+          "range": [
+            16,
+            39
+          ],
+          "meanMoves": 29.8125,
+          "slides": 112,
+          "eggs": 310,
+          "single": 30,
+          "bulk": 25,
+          "itemRatio": 0.7651991614255765,
+          "evolvingSlides": 97,
+          "evolvingSlideRate": 0.8660714285714286,
+          "slideChainRate": 0.48214285714285715,
+          "chainRate": 0.23270440251572327,
+          "maxChain": 5,
+          "meanReduction": 0.9224318658280922,
+          "slideReduction": 317,
+          "largeClearRate": 0.1111111111111111,
+          "largeSlideClearRate": 0.29464285714285715,
+          "noImmediateSlideEvolutionRate": 0.3018867924528302,
+          "itemsEnablingSlides": 70,
+          "setupSlidesFollowedByEvolution": 10,
+          "longItemShare": 0.8356164383561644,
+          "maxItemStreak": 16
+        },
+        "seeds": [
+          {
+            "seed": 20,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 21,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 23,
+            "moves": 38,
+            "items": 29,
+            "slides": 9
+          },
+          {
+            "seed": 24,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 26,
+            "moves": 35,
+            "items": 28,
+            "slides": 7
+          },
+          {
+            "seed": 28,
+            "moves": 30,
+            "items": 23,
+            "slides": 7
+          },
+          {
+            "seed": 30,
+            "moves": 28,
+            "items": 21,
+            "slides": 7
+          },
+          {
+            "seed": 31,
+            "moves": 30,
+            "items": 22,
+            "slides": 8
+          },
+          {
+            "seed": 32,
+            "moves": 33,
+            "items": 24,
+            "slides": 9
+          },
+          {
+            "seed": 33,
+            "moves": 39,
+            "items": 28,
+            "slides": 11
+          },
+          {
+            "seed": 34,
+            "moves": 16,
+            "items": 10,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 26,
+            "items": 20,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 27,
+            "items": 21,
+            "slides": 6
+          },
+          {
+            "seed": 37,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 38,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 39,
+            "moves": 28,
+            "items": 22,
+            "slides": 6
+          }
+        ]
+      }
+    },
+    {
+      "condition": "B",
+      "policy": "item-aware",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1135,
+          "slides": 586,
+          "evolvingSlides": 243,
+          "chainActions": 205,
+          "slideChainActions": 113,
+          "largeClears": 115
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 13749662,
+          "maxMs": 2577.247009999992,
+          "totalMs": 67708.80126400013
+        },
+        "solved": 24,
+        "unsolvableInActionScope": 0,
+        "unproven": 16,
+        "reached08OnSavedPath": 27,
+        "same08OnSavedPath": 24,
+        "reasons": {
+          "budget": 16,
+          "witness": 24
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 24,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 656,
+          "range": [
+            15,
+            49
+          ],
+          "meanMoves": 27.333333333333332,
+          "slides": 335,
+          "eggs": 238,
+          "single": 51,
+          "bulk": 32,
+          "itemRatio": 0.4893292682926829,
+          "evolvingSlides": 155,
+          "evolvingSlideRate": 0.4626865671641791,
+          "slideChainRate": 0.2208955223880597,
+          "chainRate": 0.19054878048780488,
+          "maxChain": 5,
+          "meanReduction": 1.021341463414634,
+          "slideReduction": 485,
+          "largeClearRate": 0.11128048780487805,
+          "largeSlideClearRate": 0.14925373134328357,
+          "noImmediateSlideEvolutionRate": 0.3795731707317073,
+          "itemsEnablingSlides": 74,
+          "setupSlidesFollowedByEvolution": 64,
+          "longItemShare": 0.5233644859813084,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 2,
+            "moves": 18,
+            "items": 12,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 26,
+            "items": 11,
+            "slides": 15
+          },
+          {
+            "seed": 4,
+            "moves": 37,
+            "items": 16,
+            "slides": 21
+          },
+          {
+            "seed": 7,
+            "moves": 16,
+            "items": 8,
+            "slides": 8
+          },
+          {
+            "seed": 9,
+            "moves": 15,
+            "items": 8,
+            "slides": 7
+          },
+          {
+            "seed": 10,
+            "moves": 34,
+            "items": 20,
+            "slides": 14
+          },
+          {
+            "seed": 12,
+            "moves": 28,
+            "items": 12,
+            "slides": 16
+          },
+          {
+            "seed": 14,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 15,
+            "moves": 24,
+            "items": 18,
+            "slides": 6
+          },
+          {
+            "seed": 17,
+            "moves": 22,
+            "items": 12,
+            "slides": 10
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 14,
+            "slides": 15
+          },
+          {
+            "seed": 20,
+            "moves": 26,
+            "items": 13,
+            "slides": 13
+          },
+          {
+            "seed": 23,
+            "moves": 49,
+            "items": 16,
+            "slides": 33
+          },
+          {
+            "seed": 24,
+            "moves": 20,
+            "items": 12,
+            "slides": 8
+          },
+          {
+            "seed": 26,
+            "moves": 30,
+            "items": 15,
+            "slides": 15
+          },
+          {
+            "seed": 28,
+            "moves": 24,
+            "items": 13,
+            "slides": 11
+          },
+          {
+            "seed": 30,
+            "moves": 16,
+            "items": 7,
+            "slides": 9
+          },
+          {
+            "seed": 31,
+            "moves": 48,
+            "items": 13,
+            "slides": 35
+          },
+          {
+            "seed": 33,
+            "moves": 44,
+            "items": 20,
+            "slides": 24
+          },
+          {
+            "seed": 34,
+            "moves": 23,
+            "items": 13,
+            "slides": 10
+          },
+          {
+            "seed": 35,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 36,
+            "moves": 24,
+            "items": 14,
+            "slides": 10
+          },
+          {
+            "seed": 38,
+            "moves": 48,
+            "items": 20,
+            "slides": 28
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 517,
+          "slides": 255,
+          "evolvingSlides": 110,
+          "chainActions": 104,
+          "slideChainActions": 51,
+          "largeClears": 63
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 6472191,
+          "maxMs": 2502.8268509999907,
+          "totalMs": 31737.05144599991
+        },
+        "solved": 12,
+        "unsolvableInActionScope": 0,
+        "unproven": 8,
+        "reached08OnSavedPath": 14,
+        "same08OnSavedPath": 12,
+        "reasons": {
+          "budget": 8,
+          "witness": 12
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 12,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 284,
+          "range": [
+            15,
+            37
+          ],
+          "meanMoves": 23.666666666666668,
+          "slides": 132,
+          "eggs": 109,
+          "single": 29,
+          "bulk": 14,
+          "itemRatio": 0.5352112676056338,
+          "evolvingSlides": 75,
+          "evolvingSlideRate": 0.5681818181818182,
+          "slideChainRate": 0.25,
+          "chainRate": 0.20774647887323944,
+          "maxChain": 5,
+          "meanReduction": 1.1549295774647887,
+          "slideReduction": 227,
+          "largeClearRate": 0.13732394366197184,
+          "largeSlideClearRate": 0.20454545454545456,
+          "noImmediateSlideEvolutionRate": 0.2711267605633803,
+          "itemsEnablingSlides": 30,
+          "setupSlidesFollowedByEvolution": 25,
+          "longItemShare": 0.618421052631579,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 2,
+            "moves": 18,
+            "items": 12,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 26,
+            "items": 11,
+            "slides": 15
+          },
+          {
+            "seed": 4,
+            "moves": 37,
+            "items": 16,
+            "slides": 21
+          },
+          {
+            "seed": 7,
+            "moves": 16,
+            "items": 8,
+            "slides": 8
+          },
+          {
+            "seed": 9,
+            "moves": 15,
+            "items": 8,
+            "slides": 7
+          },
+          {
+            "seed": 10,
+            "moves": 34,
+            "items": 20,
+            "slides": 14
+          },
+          {
+            "seed": 12,
+            "moves": 28,
+            "items": 12,
+            "slides": 16
+          },
+          {
+            "seed": 14,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 15,
+            "moves": 24,
+            "items": 18,
+            "slides": 6
+          },
+          {
+            "seed": 17,
+            "moves": 22,
+            "items": 12,
+            "slides": 10
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 14,
+            "slides": 15
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 618,
+          "slides": 331,
+          "evolvingSlides": 133,
+          "chainActions": 101,
+          "slideChainActions": 62,
+          "largeClears": 52
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 7277471,
+          "maxMs": 2577.247009999992,
+          "totalMs": 35971.749818000215
+        },
+        "solved": 12,
+        "unsolvableInActionScope": 0,
+        "unproven": 8,
+        "reached08OnSavedPath": 13,
+        "same08OnSavedPath": 12,
+        "reasons": {
+          "witness": 12,
+          "budget": 8
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 12,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 372,
+          "range": [
+            16,
+            49
+          ],
+          "meanMoves": 31,
+          "slides": 203,
+          "eggs": 129,
+          "single": 22,
+          "bulk": 18,
+          "itemRatio": 0.4543010752688172,
+          "evolvingSlides": 80,
+          "evolvingSlideRate": 0.39408866995073893,
+          "slideChainRate": 0.2019704433497537,
+          "chainRate": 0.1774193548387097,
+          "maxChain": 5,
+          "meanReduction": 0.9193548387096774,
+          "slideReduction": 258,
+          "largeClearRate": 0.0913978494623656,
+          "largeSlideClearRate": 0.11330049261083744,
+          "noImmediateSlideEvolutionRate": 0.46236559139784944,
+          "itemsEnablingSlides": 44,
+          "setupSlidesFollowedByEvolution": 39,
+          "longItemShare": 0.4378698224852071,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 20,
+            "moves": 26,
+            "items": 13,
+            "slides": 13
+          },
+          {
+            "seed": 23,
+            "moves": 49,
+            "items": 16,
+            "slides": 33
+          },
+          {
+            "seed": 24,
+            "moves": 20,
+            "items": 12,
+            "slides": 8
+          },
+          {
+            "seed": 26,
+            "moves": 30,
+            "items": 15,
+            "slides": 15
+          },
+          {
+            "seed": 28,
+            "moves": 24,
+            "items": 13,
+            "slides": 11
+          },
+          {
+            "seed": 30,
+            "moves": 16,
+            "items": 7,
+            "slides": 9
+          },
+          {
+            "seed": 31,
+            "moves": 48,
+            "items": 13,
+            "slides": 35
+          },
+          {
+            "seed": 33,
+            "moves": 44,
+            "items": 20,
+            "slides": 24
+          },
+          {
+            "seed": 34,
+            "moves": 23,
+            "items": 13,
+            "slides": 10
+          },
+          {
+            "seed": 35,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 36,
+            "moves": 24,
+            "items": 14,
+            "slides": 10
+          },
+          {
+            "seed": 38,
+            "moves": 48,
+            "items": 20,
+            "slides": 28
+          }
+        ]
+      }
+    },
+    {
+      "condition": "B",
+      "policy": "slides-only",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1339,
+          "slides": 1339,
+          "evolvingSlides": 416,
+          "chainActions": 108,
+          "slideChainActions": 108,
+          "largeClears": 43
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 19966644,
+          "maxMs": 2426.2981900000013,
+          "totalMs": 81933.36599799996
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 40,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 39,
+          "depth": 1
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 693,
+          "slides": 693,
+          "evolvingSlides": 210,
+          "chainActions": 52,
+          "slideChainActions": 52,
+          "largeClears": 24
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 10000000,
+          "maxMs": 2284.1059840000235,
+          "totalMs": 41263.29805899999
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 20
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 646,
+          "slides": 646,
+          "evolvingSlides": 206,
+          "chainActions": 56,
+          "slideChainActions": 56,
+          "largeClears": 19
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 9966644,
+          "maxMs": 2426.2981900000013,
+          "totalMs": 40670.06793899997
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "depth": 1,
+          "budget": 19
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      }
+    },
+    {
+      "condition": "C",
+      "policy": "cluster",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1287,
+          "slides": 342,
+          "evolvingSlides": 222,
+          "chainActions": 212,
+          "slideChainActions": 96,
+          "largeClears": 67
+        },
+        "freshSearch": {
+          "n": 36,
+          "nodes": 8342452,
+          "maxMs": 1637.2040029999916,
+          "totalMs": 41800.84297999996
+        },
+        "solved": 6,
+        "unsolvableInActionScope": 0,
+        "unproven": 34,
+        "reached08OnSavedPath": 16,
+        "same08OnSavedPath": 6,
+        "reasons": {
+          "frontier-exhausted": 33,
+          "witness": 6,
+          "depth": 1
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 6,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 178,
+          "range": [
+            17,
+            42
+          ],
+          "meanMoves": 29.666666666666668,
+          "slides": 49,
+          "eggs": 97,
+          "single": 27,
+          "bulk": 5,
+          "itemRatio": 0.7247191011235955,
+          "evolvingSlides": 27,
+          "evolvingSlideRate": 0.5510204081632653,
+          "slideChainRate": 0.24489795918367346,
+          "chainRate": 0.17415730337078653,
+          "maxChain": 5,
+          "meanReduction": 0.7078651685393258,
+          "slideReduction": 87,
+          "largeClearRate": 0.0898876404494382,
+          "largeSlideClearRate": 0.20408163265306123,
+          "noImmediateSlideEvolutionRate": 0.29775280898876405,
+          "itemsEnablingSlides": 17,
+          "setupSlidesFollowedByEvolution": 10,
+          "longItemShare": 0.8527131782945736,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 2,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 3,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 42,
+            "items": 27,
+            "slides": 15
+          },
+          {
+            "seed": 20,
+            "moves": 38,
+            "items": 25,
+            "slides": 13
+          },
+          {
+            "seed": 31,
+            "moves": 22,
+            "items": 17,
+            "slides": 5
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 665,
+          "slides": 191,
+          "evolvingSlides": 115,
+          "chainActions": 100,
+          "slideChainActions": 45,
+          "largeClears": 36
+        },
+        "freshSearch": {
+          "n": 16,
+          "nodes": 3908183,
+          "maxMs": 1637.2040029999916,
+          "totalMs": 19347.40537400008
+        },
+        "solved": 4,
+        "unsolvableInActionScope": 0,
+        "unproven": 16,
+        "reached08OnSavedPath": 8,
+        "same08OnSavedPath": 4,
+        "reasons": {
+          "frontier-exhausted": 15,
+          "witness": 4,
+          "depth": 1
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 4,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 118,
+          "range": [
+            17,
+            42
+          ],
+          "meanMoves": 29.5,
+          "slides": 31,
+          "eggs": 64,
+          "single": 21,
+          "bulk": 2,
+          "itemRatio": 0.7372881355932204,
+          "evolvingSlides": 19,
+          "evolvingSlideRate": 0.6129032258064516,
+          "slideChainRate": 0.22580645161290322,
+          "chainRate": 0.16101694915254236,
+          "maxChain": 5,
+          "meanReduction": 0.6779661016949152,
+          "slideReduction": 57,
+          "largeClearRate": 0.0847457627118644,
+          "largeSlideClearRate": 0.22580645161290322,
+          "noImmediateSlideEvolutionRate": 0.2966101694915254,
+          "itemsEnablingSlides": 11,
+          "setupSlidesFollowedByEvolution": 5,
+          "longItemShare": 0.896551724137931,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 2,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 3,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 42,
+            "items": 27,
+            "slides": 15
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 622,
+          "slides": 151,
+          "evolvingSlides": 107,
+          "chainActions": 112,
+          "slideChainActions": 51,
+          "largeClears": 31
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 4434269,
+          "maxMs": 1536.764743000036,
+          "totalMs": 22453.437605999876
+        },
+        "solved": 2,
+        "unsolvableInActionScope": 0,
+        "unproven": 18,
+        "reached08OnSavedPath": 8,
+        "same08OnSavedPath": 2,
+        "reasons": {
+          "witness": 2,
+          "frontier-exhausted": 18
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 2,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 60,
+          "range": [
+            22,
+            38
+          ],
+          "meanMoves": 30,
+          "slides": 18,
+          "eggs": 33,
+          "single": 6,
+          "bulk": 3,
+          "itemRatio": 0.7,
+          "evolvingSlides": 8,
+          "evolvingSlideRate": 0.4444444444444444,
+          "slideChainRate": 0.2777777777777778,
+          "chainRate": 0.2,
+          "maxChain": 4,
+          "meanReduction": 0.7666666666666667,
+          "slideReduction": 30,
+          "largeClearRate": 0.1,
+          "largeSlideClearRate": 0.16666666666666666,
+          "noImmediateSlideEvolutionRate": 0.3,
+          "itemsEnablingSlides": 6,
+          "setupSlidesFollowedByEvolution": 5,
+          "longItemShare": 0.7619047619047619,
+          "maxItemStreak": 12
+        },
+        "seeds": [
+          {
+            "seed": 20,
+            "moves": 38,
+            "items": 25,
+            "slides": 13
+          },
+          {
+            "seed": 31,
+            "moves": 22,
+            "items": 17,
+            "slides": 5
+          }
+        ]
+      }
+    },
+    {
+      "condition": "C",
+      "policy": "item-aware",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1099,
+          "slides": 616,
+          "evolvingSlides": 199,
+          "chainActions": 168,
+          "slideChainActions": 93,
+          "largeClears": 61
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 18656522,
+          "maxMs": 3554.3159469999955,
+          "totalMs": 94103.3077549999
+        },
+        "solved": 4,
+        "unsolvableInActionScope": 0,
+        "unproven": 36,
+        "reached08OnSavedPath": 17,
+        "same08OnSavedPath": 4,
+        "reasons": {
+          "budget": 34,
+          "witness": 4,
+          "depth": 2
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 3,
+            "egg": 0,
+            "single": 1,
+            "bulk": 0
+          },
+          "moves": 96,
+          "range": [
+            10,
+            35
+          ],
+          "meanMoves": 24,
+          "slides": 50,
+          "eggs": 30,
+          "single": 14,
+          "bulk": 2,
+          "itemRatio": 0.4791666666666667,
+          "evolvingSlides": 23,
+          "evolvingSlideRate": 0.46,
+          "slideChainRate": 0.18,
+          "chainRate": 0.13541666666666666,
+          "maxChain": 2,
+          "meanReduction": 0.875,
+          "slideReduction": 60,
+          "largeClearRate": 0.09375,
+          "largeSlideClearRate": 0.12,
+          "noImmediateSlideEvolutionRate": 0.3958333333333333,
+          "itemsEnablingSlides": 11,
+          "setupSlidesFollowedByEvolution": 10,
+          "longItemShare": 0.41304347826086957,
+          "maxItemStreak": 6
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 17,
+            "items": 6,
+            "slides": 11
+          },
+          {
+            "seed": 2,
+            "moves": 35,
+            "items": 16,
+            "slides": 19
+          },
+          {
+            "seed": 3,
+            "moves": 34,
+            "items": 19,
+            "slides": 15
+          },
+          {
+            "seed": 9,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 533,
+          "slides": 301,
+          "evolvingSlides": 108,
+          "chainActions": 80,
+          "slideChainActions": 46,
+          "largeClears": 33
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 8671361,
+          "maxMs": 2574.5057110000052,
+          "totalMs": 41516.46274800005
+        },
+        "solved": 4,
+        "unsolvableInActionScope": 0,
+        "unproven": 16,
+        "reached08OnSavedPath": 10,
+        "same08OnSavedPath": 4,
+        "reasons": {
+          "budget": 15,
+          "witness": 4,
+          "depth": 1
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 3,
+            "egg": 0,
+            "single": 1,
+            "bulk": 0
+          },
+          "moves": 96,
+          "range": [
+            10,
+            35
+          ],
+          "meanMoves": 24,
+          "slides": 50,
+          "eggs": 30,
+          "single": 14,
+          "bulk": 2,
+          "itemRatio": 0.4791666666666667,
+          "evolvingSlides": 23,
+          "evolvingSlideRate": 0.46,
+          "slideChainRate": 0.18,
+          "chainRate": 0.13541666666666666,
+          "maxChain": 2,
+          "meanReduction": 0.875,
+          "slideReduction": 60,
+          "largeClearRate": 0.09375,
+          "largeSlideClearRate": 0.12,
+          "noImmediateSlideEvolutionRate": 0.3958333333333333,
+          "itemsEnablingSlides": 11,
+          "setupSlidesFollowedByEvolution": 10,
+          "longItemShare": 0.41304347826086957,
+          "maxItemStreak": 6
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 17,
+            "items": 6,
+            "slides": 11
+          },
+          {
+            "seed": 2,
+            "moves": 35,
+            "items": 16,
+            "slides": 19
+          },
+          {
+            "seed": 3,
+            "moves": 34,
+            "items": 19,
+            "slides": 15
+          },
+          {
+            "seed": 9,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 566,
+          "slides": 315,
+          "evolvingSlides": 91,
+          "chainActions": 88,
+          "slideChainActions": 47,
+          "largeClears": 28
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 9985161,
+          "maxMs": 3554.3159469999955,
+          "totalMs": 52586.84500699985
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 7,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 19,
+          "depth": 1
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      }
+    },
+    {
+      "condition": "C",
+      "policy": "slides-only",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1497,
+          "slides": 1497,
+          "evolvingSlides": 318,
+          "chainActions": 83,
+          "slideChainActions": 83,
+          "largeClears": 34
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 16026636,
+          "maxMs": 2492.9521810000297,
+          "totalMs": 65521.818269999465
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 40,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 23,
+          "depth": 17
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 685,
+          "slides": 685,
+          "evolvingSlides": 155,
+          "chainActions": 42,
+          "slideChainActions": 42,
+          "largeClears": 18
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 8331456,
+          "maxMs": 2492.9521810000297,
+          "totalMs": 35499.39996099984
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 13,
+          "depth": 7
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 812,
+          "slides": 812,
+          "evolvingSlides": 163,
+          "chainActions": 41,
+          "slideChainActions": 41,
+          "largeClears": 16
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 7695180,
+          "maxMs": 2306.8572719999356,
+          "totalMs": 30022.418308999622
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 10,
+          "depth": 10
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      }
+    },
+    {
+      "condition": "D",
+      "policy": "cluster",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 913,
+          "slides": 220,
+          "evolvingSlides": 182,
+          "chainActions": 243,
+          "slideChainActions": 116,
+          "largeClears": 159
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 7750020,
+          "maxMs": 2080.266287999926,
+          "totalMs": 41347.123719999916
+        },
+        "solved": 34,
+        "unsolvableInActionScope": 0,
+        "unproven": 6,
+        "reached08OnSavedPath": 36,
+        "same08OnSavedPath": 34,
+        "reasons": {
+          "frontier-exhausted": 3,
+          "witness": 34,
+          "depth": 3
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 34,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 743,
+          "range": [
+            6,
+            38
+          ],
+          "meanMoves": 21.852941176470587,
+          "slides": 193,
+          "eggs": 474,
+          "single": 10,
+          "bulk": 66,
+          "itemRatio": 0.7402422611036339,
+          "evolvingSlides": 162,
+          "evolvingSlideRate": 0.8393782383419689,
+          "slideChainRate": 0.533678756476684,
+          "chainRate": 0.2759084791386272,
+          "maxChain": 5,
+          "meanReduction": 1.240915208613728,
+          "slideReduction": 674,
+          "largeClearRate": 0.1816958277254374,
+          "largeSlideClearRate": 0.44559585492227977,
+          "noImmediateSlideEvolutionRate": 0.30148048452220727,
+          "itemsEnablingSlides": 104,
+          "setupSlidesFollowedByEvolution": 15,
+          "longItemShare": 0.8272727272727273,
+          "maxItemStreak": 23
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 35,
+            "items": 25,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 27,
+            "items": 19,
+            "slides": 8
+          },
+          {
+            "seed": 7,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 9,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 35,
+            "items": 30,
+            "slides": 5
+          },
+          {
+            "seed": 11,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 12,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 14,
+            "moves": 29,
+            "items": 22,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 28,
+            "items": 23,
+            "slides": 5
+          },
+          {
+            "seed": 16,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 17,
+            "moves": 15,
+            "items": 10,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 23,
+            "slides": 6
+          },
+          {
+            "seed": 19,
+            "moves": 15,
+            "items": 12,
+            "slides": 3
+          },
+          {
+            "seed": 20,
+            "moves": 31,
+            "items": 25,
+            "slides": 6
+          },
+          {
+            "seed": 21,
+            "moves": 31,
+            "items": 26,
+            "slides": 5
+          },
+          {
+            "seed": 22,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 24,
+            "moves": 8,
+            "items": 4,
+            "slides": 4
+          },
+          {
+            "seed": 26,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 27,
+            "moves": 26,
+            "items": 21,
+            "slides": 5
+          },
+          {
+            "seed": 28,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 29,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 30,
+            "moves": 33,
+            "items": 25,
+            "slides": 8
+          },
+          {
+            "seed": 31,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 32,
+            "moves": 38,
+            "items": 20,
+            "slides": 18
+          },
+          {
+            "seed": 33,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 34,
+            "moves": 19,
+            "items": 13,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 36,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          },
+          {
+            "seed": 38,
+            "moves": 13,
+            "items": 9,
+            "slides": 4
+          },
+          {
+            "seed": 39,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 479,
+          "slides": 107,
+          "evolvingSlides": 89,
+          "chainActions": 122,
+          "slideChainActions": 53,
+          "largeClears": 82
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 4124253,
+          "maxMs": 2080.266287999926,
+          "totalMs": 21590.020028999774
+        },
+        "solved": 16,
+        "unsolvableInActionScope": 0,
+        "unproven": 4,
+        "reached08OnSavedPath": 18,
+        "same08OnSavedPath": 16,
+        "reasons": {
+          "frontier-exhausted": 2,
+          "witness": 16,
+          "depth": 2
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 16,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 366,
+          "range": [
+            6,
+            35
+          ],
+          "meanMoves": 22.875,
+          "slides": 89,
+          "eggs": 240,
+          "single": 7,
+          "bulk": 30,
+          "itemRatio": 0.7568306010928961,
+          "evolvingSlides": 76,
+          "evolvingSlideRate": 0.8539325842696629,
+          "slideChainRate": 0.5056179775280899,
+          "chainRate": 0.2650273224043716,
+          "maxChain": 5,
+          "meanReduction": 1.1775956284153006,
+          "slideReduction": 319,
+          "largeClearRate": 0.18032786885245902,
+          "largeSlideClearRate": 0.47191011235955055,
+          "noImmediateSlideEvolutionRate": 0.2923497267759563,
+          "itemsEnablingSlides": 54,
+          "setupSlidesFollowedByEvolution": 9,
+          "longItemShare": 0.8411552346570397,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 35,
+            "items": 25,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 27,
+            "items": 19,
+            "slides": 8
+          },
+          {
+            "seed": 7,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 9,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 35,
+            "items": 30,
+            "slides": 5
+          },
+          {
+            "seed": 11,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 12,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 14,
+            "moves": 29,
+            "items": 22,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 28,
+            "items": 23,
+            "slides": 5
+          },
+          {
+            "seed": 16,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 17,
+            "moves": 15,
+            "items": 10,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 23,
+            "slides": 6
+          },
+          {
+            "seed": 19,
+            "moves": 15,
+            "items": 12,
+            "slides": 3
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 434,
+          "slides": 113,
+          "evolvingSlides": 93,
+          "chainActions": 121,
+          "slideChainActions": 63,
+          "largeClears": 77
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 3625767,
+          "maxMs": 1936.1049249999924,
+          "totalMs": 19757.103691000142
+        },
+        "solved": 18,
+        "unsolvableInActionScope": 0,
+        "unproven": 2,
+        "reached08OnSavedPath": 18,
+        "same08OnSavedPath": 18,
+        "reasons": {
+          "witness": 18,
+          "depth": 1,
+          "frontier-exhausted": 1
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 18,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 377,
+          "range": [
+            8,
+            38
+          ],
+          "meanMoves": 20.944444444444443,
+          "slides": 104,
+          "eggs": 234,
+          "single": 3,
+          "bulk": 36,
+          "itemRatio": 0.7241379310344828,
+          "evolvingSlides": 86,
+          "evolvingSlideRate": 0.8269230769230769,
+          "slideChainRate": 0.5576923076923077,
+          "chainRate": 0.2864721485411141,
+          "maxChain": 5,
+          "meanReduction": 1.3023872679045092,
+          "slideReduction": 355,
+          "largeClearRate": 0.1830238726790451,
+          "largeSlideClearRate": 0.4230769230769231,
+          "noImmediateSlideEvolutionRate": 0.3103448275862069,
+          "itemsEnablingSlides": 50,
+          "setupSlidesFollowedByEvolution": 6,
+          "longItemShare": 0.8131868131868132,
+          "maxItemStreak": 23
+        },
+        "seeds": [
+          {
+            "seed": 20,
+            "moves": 31,
+            "items": 25,
+            "slides": 6
+          },
+          {
+            "seed": 21,
+            "moves": 31,
+            "items": 26,
+            "slides": 5
+          },
+          {
+            "seed": 22,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 24,
+            "moves": 8,
+            "items": 4,
+            "slides": 4
+          },
+          {
+            "seed": 26,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 27,
+            "moves": 26,
+            "items": 21,
+            "slides": 5
+          },
+          {
+            "seed": 28,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 29,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 30,
+            "moves": 33,
+            "items": 25,
+            "slides": 8
+          },
+          {
+            "seed": 31,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 32,
+            "moves": 38,
+            "items": 20,
+            "slides": 18
+          },
+          {
+            "seed": 33,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 34,
+            "moves": 19,
+            "items": 13,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 36,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          },
+          {
+            "seed": 38,
+            "moves": 13,
+            "items": 9,
+            "slides": 4
+          },
+          {
+            "seed": 39,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          }
+        ]
+      }
+    },
+    {
+      "condition": "D",
+      "policy": "item-aware",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 800,
+          "slides": 435,
+          "evolvingSlides": 183,
+          "chainActions": 193,
+          "slideChainActions": 113,
+          "largeClears": 148
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 11532763,
+          "maxMs": 2865.5617060000077,
+          "totalMs": 59567.38855100016
+        },
+        "solved": 28,
+        "unsolvableInActionScope": 0,
+        "unproven": 12,
+        "reached08OnSavedPath": 34,
+        "same08OnSavedPath": 28,
+        "reasons": {
+          "budget": 12,
+          "witness": 28
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 27,
+            "egg": 1,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 595,
+          "range": [
+            6,
+            47
+          ],
+          "meanMoves": 21.25,
+          "slides": 339,
+          "eggs": 195,
+          "single": 7,
+          "bulk": 54,
+          "itemRatio": 0.43025210084033616,
+          "evolvingSlides": 134,
+          "evolvingSlideRate": 0.3952802359882006,
+          "slideChainRate": 0.25073746312684364,
+          "chainRate": 0.23697478991596638,
+          "maxChain": 5,
+          "meanReduction": 1.322689075630252,
+          "slideReduction": 522,
+          "largeClearRate": 0.1781512605042017,
+          "largeSlideClearRate": 0.1976401179941003,
+          "noImmediateSlideEvolutionRate": 0.42016806722689076,
+          "itemsEnablingSlides": 48,
+          "setupSlidesFollowedByEvolution": 43,
+          "longItemShare": 0.45703125,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 2,
+            "moves": 16,
+            "items": 11,
+            "slides": 5
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 4,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 7,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 9,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 40,
+            "items": 15,
+            "slides": 25
+          },
+          {
+            "seed": 12,
+            "moves": 47,
+            "items": 8,
+            "slides": 39
+          },
+          {
+            "seed": 14,
+            "moves": 17,
+            "items": 10,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 16,
+            "moves": 25,
+            "items": 13,
+            "slides": 12
+          },
+          {
+            "seed": 17,
+            "moves": 14,
+            "items": 8,
+            "slides": 6
+          },
+          {
+            "seed": 18,
+            "moves": 18,
+            "items": 11,
+            "slides": 7
+          },
+          {
+            "seed": 19,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          },
+          {
+            "seed": 20,
+            "moves": 24,
+            "items": 11,
+            "slides": 13
+          },
+          {
+            "seed": 22,
+            "moves": 33,
+            "items": 10,
+            "slides": 23
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 7,
+            "slides": 6
+          },
+          {
+            "seed": 24,
+            "moves": 12,
+            "items": 5,
+            "slides": 7
+          },
+          {
+            "seed": 26,
+            "moves": 41,
+            "items": 12,
+            "slides": 29
+          },
+          {
+            "seed": 28,
+            "moves": 10,
+            "items": 6,
+            "slides": 4
+          },
+          {
+            "seed": 29,
+            "moves": 29,
+            "items": 11,
+            "slides": 18
+          },
+          {
+            "seed": 31,
+            "moves": 42,
+            "items": 10,
+            "slides": 32
+          },
+          {
+            "seed": 32,
+            "moves": 19,
+            "items": 9,
+            "slides": 10
+          },
+          {
+            "seed": 34,
+            "moves": 32,
+            "items": 14,
+            "slides": 18
+          },
+          {
+            "seed": 35,
+            "moves": 15,
+            "items": 7,
+            "slides": 8
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 6,
+            "slides": 15
+          },
+          {
+            "seed": 39,
+            "moves": 22,
+            "items": 10,
+            "slides": 12
+          }
+        ]
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 372,
+          "slides": 189,
+          "evolvingSlides": 83,
+          "chainActions": 96,
+          "slideChainActions": 53,
+          "largeClears": 77
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 5230006,
+          "maxMs": 2562.9730380000547,
+          "totalMs": 26576.469438000116
+        },
+        "solved": 15,
+        "unsolvableInActionScope": 0,
+        "unproven": 5,
+        "reached08OnSavedPath": 18,
+        "same08OnSavedPath": 15,
+        "reasons": {
+          "budget": 5,
+          "witness": 15
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 14,
+            "egg": 1,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 282,
+          "range": [
+            6,
+            47
+          ],
+          "meanMoves": 18.8,
+          "slides": 144,
+          "eggs": 104,
+          "single": 6,
+          "bulk": 28,
+          "itemRatio": 0.48936170212765956,
+          "evolvingSlides": 65,
+          "evolvingSlideRate": 0.4513888888888889,
+          "slideChainRate": 0.2847222222222222,
+          "chainRate": 0.25886524822695034,
+          "maxChain": 4,
+          "meanReduction": 1.4574468085106382,
+          "slideReduction": 260,
+          "largeClearRate": 0.19858156028368795,
+          "largeSlideClearRate": 0.2361111111111111,
+          "noImmediateSlideEvolutionRate": 0.3333333333333333,
+          "itemsEnablingSlides": 21,
+          "setupSlidesFollowedByEvolution": 19,
+          "longItemShare": 0.5434782608695652,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 2,
+            "moves": 16,
+            "items": 11,
+            "slides": 5
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 4,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 7,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 9,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 40,
+            "items": 15,
+            "slides": 25
+          },
+          {
+            "seed": 12,
+            "moves": 47,
+            "items": 8,
+            "slides": 39
+          },
+          {
+            "seed": 14,
+            "moves": 17,
+            "items": 10,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 16,
+            "moves": 25,
+            "items": 13,
+            "slides": 12
+          },
+          {
+            "seed": 17,
+            "moves": 14,
+            "items": 8,
+            "slides": 6
+          },
+          {
+            "seed": 18,
+            "moves": 18,
+            "items": 11,
+            "slides": 7
+          },
+          {
+            "seed": 19,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          }
+        ]
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 428,
+          "slides": 246,
+          "evolvingSlides": 100,
+          "chainActions": 97,
+          "slideChainActions": 60,
+          "largeClears": 71
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 6302757,
+          "maxMs": 2865.5617060000077,
+          "totalMs": 32990.91911300004
+        },
+        "solved": 13,
+        "unsolvableInActionScope": 0,
+        "unproven": 7,
+        "reached08OnSavedPath": 16,
+        "same08OnSavedPath": 13,
+        "reasons": {
+          "witness": 13,
+          "budget": 7
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 13,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 313,
+          "range": [
+            10,
+            42
+          ],
+          "meanMoves": 24.076923076923077,
+          "slides": 195,
+          "eggs": 91,
+          "single": 1,
+          "bulk": 26,
+          "itemRatio": 0.3769968051118211,
+          "evolvingSlides": 69,
+          "evolvingSlideRate": 0.35384615384615387,
+          "slideChainRate": 0.22564102564102564,
+          "chainRate": 0.21725239616613418,
+          "maxChain": 5,
+          "meanReduction": 1.2012779552715656,
+          "slideReduction": 262,
+          "largeClearRate": 0.1597444089456869,
+          "largeSlideClearRate": 0.16923076923076924,
+          "noImmediateSlideEvolutionRate": 0.4984025559105431,
+          "itemsEnablingSlides": 27,
+          "setupSlidesFollowedByEvolution": 24,
+          "longItemShare": 0.3559322033898305,
+          "maxItemStreak": 4
+        },
+        "seeds": [
+          {
+            "seed": 20,
+            "moves": 24,
+            "items": 11,
+            "slides": 13
+          },
+          {
+            "seed": 22,
+            "moves": 33,
+            "items": 10,
+            "slides": 23
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 7,
+            "slides": 6
+          },
+          {
+            "seed": 24,
+            "moves": 12,
+            "items": 5,
+            "slides": 7
+          },
+          {
+            "seed": 26,
+            "moves": 41,
+            "items": 12,
+            "slides": 29
+          },
+          {
+            "seed": 28,
+            "moves": 10,
+            "items": 6,
+            "slides": 4
+          },
+          {
+            "seed": 29,
+            "moves": 29,
+            "items": 11,
+            "slides": 18
+          },
+          {
+            "seed": 31,
+            "moves": 42,
+            "items": 10,
+            "slides": 32
+          },
+          {
+            "seed": 32,
+            "moves": 19,
+            "items": 9,
+            "slides": 10
+          },
+          {
+            "seed": 34,
+            "moves": 32,
+            "items": 14,
+            "slides": 18
+          },
+          {
+            "seed": 35,
+            "moves": 15,
+            "items": 7,
+            "slides": 8
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 6,
+            "slides": 15
+          },
+          {
+            "seed": 39,
+            "moves": 22,
+            "items": 10,
+            "slides": 12
+          }
+        ]
+      }
+    },
+    {
+      "condition": "D",
+      "policy": "slides-only",
+      "all": {
+        "n": 40,
+        "initialBoardsWithEvolvingSlide": 40,
+        "savedPath": {
+          "moves": 1339,
+          "slides": 1339,
+          "evolvingSlides": 416,
+          "chainActions": 108,
+          "slideChainActions": 108,
+          "largeClears": 43
+        },
+        "freshSearch": {
+          "n": 40,
+          "nodes": 19966644,
+          "maxMs": 2296.5509940000484,
+          "totalMs": 82765.08966400055
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 40,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 39,
+          "depth": 1
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "exploratory": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 693,
+          "slides": 693,
+          "evolvingSlides": 210,
+          "chainActions": 52,
+          "slideChainActions": 52,
+          "largeClears": 24
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 10000000,
+          "maxMs": 2296.5509940000484,
+          "totalMs": 41633.15070100012
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "budget": 20
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      },
+      "heldOut": {
+        "n": 20,
+        "initialBoardsWithEvolvingSlide": 20,
+        "savedPath": {
+          "moves": 646,
+          "slides": 646,
+          "evolvingSlides": 206,
+          "chainActions": 56,
+          "slideChainActions": 56,
+          "largeClears": 19
+        },
+        "freshSearch": {
+          "n": 20,
+          "nodes": 9966644,
+          "maxMs": 2222.7318610000657,
+          "totalMs": 41131.93896300043
+        },
+        "solved": 0,
+        "unsolvableInActionScope": 0,
+        "unproven": 20,
+        "reached08OnSavedPath": 0,
+        "same08OnSavedPath": 0,
+        "reasons": {
+          "depth": 1,
+          "budget": 19
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 0,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 0,
+          "range": null,
+          "meanMoves": null,
+          "slides": 0,
+          "eggs": 0,
+          "single": 0,
+          "bulk": 0,
+          "itemRatio": null,
+          "evolvingSlides": 0,
+          "evolvingSlideRate": null,
+          "slideChainRate": null,
+          "chainRate": null,
+          "maxChain": 0,
+          "meanReduction": null,
+          "slideReduction": 0,
+          "largeClearRate": null,
+          "largeSlideClearRate": null,
+          "noImmediateSlideEvolutionRate": null,
+          "itemsEnablingSlides": 0,
+          "setupSlidesFollowedByEvolution": 0,
+          "longItemShare": null,
+          "maxItemStreak": 0
+        },
+        "seeds": []
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "left": [
+        "A",
+        "cluster"
+      ],
+      "right": [
+        "A",
+        "item-aware"
+      ],
+      "seeds": [
+        1,
+        3,
+        5,
+        9,
+        15,
+        18,
+        24
+      ],
+      "leftStats": {
+        "n": 7,
+        "initialBoardsWithEvolvingSlide": 7,
+        "savedPath": {
+          "moves": 138,
+          "slides": 48,
+          "evolvingSlides": 30,
+          "chainActions": 23,
+          "slideChainActions": 13,
+          "largeClears": 21
+        },
+        "freshSearch": {
+          "n": 1,
+          "nodes": 96392,
+          "maxMs": 572.4400829999977,
+          "totalMs": 572.4400829999977
+        },
+        "solved": 7,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 7,
+        "same08OnSavedPath": 7,
+        "reasons": {
+          "witness": 7
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 7,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 138,
+          "range": [
+            8,
+            34
+          ],
+          "meanMoves": 19.714285714285715,
+          "slides": 48,
+          "eggs": 71,
+          "single": 7,
+          "bulk": 12,
+          "itemRatio": 0.6521739130434783,
+          "evolvingSlides": 30,
+          "evolvingSlideRate": 0.625,
+          "slideChainRate": 0.2708333333333333,
+          "chainRate": 0.16666666666666666,
+          "maxChain": 5,
+          "meanReduction": 1.1159420289855073,
+          "slideReduction": 109,
+          "largeClearRate": 0.15217391304347827,
+          "largeSlideClearRate": 0.2708333333333333,
+          "noImmediateSlideEvolutionRate": 0.2826086956521739,
+          "itemsEnablingSlides": 14,
+          "setupSlidesFollowedByEvolution": 7,
+          "longItemShare": 0.8222222222222222,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 31,
+            "items": 19,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          },
+          {
+            "seed": 5,
+            "moves": 34,
+            "items": 16,
+            "slides": 18
+          },
+          {
+            "seed": 9,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 18,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 24,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 7,
+        "initialBoardsWithEvolvingSlide": 7,
+        "savedPath": {
+          "moves": 200,
+          "slides": 139,
+          "evolvingSlides": 30,
+          "chainActions": 19,
+          "slideChainActions": 12,
+          "largeClears": 19
+        },
+        "freshSearch": {
+          "n": 7,
+          "nodes": 1553304,
+          "maxMs": 2082.414002000005,
+          "totalMs": 8107.773245000011
+        },
+        "solved": 7,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 7,
+        "same08OnSavedPath": 7,
+        "reasons": {
+          "witness": 7
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 7,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 200,
+          "range": [
+            10,
+            63
+          ],
+          "meanMoves": 28.571428571428573,
+          "slides": 139,
+          "eggs": 43,
+          "single": 6,
+          "bulk": 12,
+          "itemRatio": 0.305,
+          "evolvingSlides": 30,
+          "evolvingSlideRate": 0.2158273381294964,
+          "slideChainRate": 0.08633093525179857,
+          "chainRate": 0.095,
+          "maxChain": 4,
+          "meanReduction": 0.79,
+          "slideReduction": 102,
+          "largeClearRate": 0.095,
+          "largeSlideClearRate": 0.08633093525179857,
+          "noImmediateSlideEvolutionRate": 0.605,
+          "itemsEnablingSlides": 13,
+          "setupSlidesFollowedByEvolution": 14,
+          "longItemShare": 0.3114754098360656,
+          "maxItemStreak": 4
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 19,
+            "items": 10,
+            "slides": 9
+          },
+          {
+            "seed": 3,
+            "moves": 35,
+            "items": 14,
+            "slides": 21
+          },
+          {
+            "seed": 5,
+            "moves": 46,
+            "items": 9,
+            "slides": 37
+          },
+          {
+            "seed": 9,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 17,
+            "items": 7,
+            "slides": 10
+          },
+          {
+            "seed": 24,
+            "moves": 63,
+            "items": 11,
+            "slides": 52
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "B",
+        "cluster"
+      ],
+      "right": [
+        "B",
+        "item-aware"
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        12,
+        14,
+        15,
+        17,
+        18,
+        20,
+        23,
+        24,
+        26,
+        28,
+        30,
+        31,
+        33,
+        34,
+        35,
+        36,
+        38
+      ],
+      "leftStats": {
+        "n": 24,
+        "initialBoardsWithEvolvingSlide": 24,
+        "savedPath": {
+          "moves": 703,
+          "slides": 168,
+          "evolvingSlides": 141,
+          "chainActions": 151,
+          "slideChainActions": 78,
+          "largeClears": 85
+        },
+        "freshSearch": {
+          "n": 12,
+          "nodes": 2423457,
+          "maxMs": 1576.2590009999985,
+          "totalMs": 12636.571450999996
+        },
+        "solved": 24,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 24,
+        "same08OnSavedPath": 24,
+        "reasons": {
+          "witness": 24
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 24,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 703,
+          "range": [
+            11,
+            42
+          ],
+          "meanMoves": 29.291666666666668,
+          "slides": 168,
+          "eggs": 444,
+          "single": 56,
+          "bulk": 35,
+          "itemRatio": 0.7610241820768137,
+          "evolvingSlides": 141,
+          "evolvingSlideRate": 0.8392857142857143,
+          "slideChainRate": 0.4642857142857143,
+          "chainRate": 0.2147937411095306,
+          "maxChain": 5,
+          "meanReduction": 0.9061166429587483,
+          "slideReduction": 489,
+          "largeClearRate": 0.12091038406827881,
+          "largeSlideClearRate": 0.34523809523809523,
+          "noImmediateSlideEvolutionRate": 0.267425320056899,
+          "itemsEnablingSlides": 96,
+          "setupSlidesFollowedByEvolution": 17,
+          "longItemShare": 0.8317757009345794,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 40,
+            "items": 30,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 42,
+            "items": 30,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 27,
+            "items": 20,
+            "slides": 7
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 7,
+            "moves": 23,
+            "items": 19,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 41,
+            "items": 32,
+            "slides": 9
+          },
+          {
+            "seed": 10,
+            "moves": 25,
+            "items": 19,
+            "slides": 6
+          },
+          {
+            "seed": 12,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 14,
+            "moves": 35,
+            "items": 29,
+            "slides": 6
+          },
+          {
+            "seed": 15,
+            "moves": 35,
+            "items": 26,
+            "slides": 9
+          },
+          {
+            "seed": 17,
+            "moves": 37,
+            "items": 30,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 20,
+            "items": 15,
+            "slides": 5
+          },
+          {
+            "seed": 20,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 23,
+            "moves": 38,
+            "items": 29,
+            "slides": 9
+          },
+          {
+            "seed": 24,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 26,
+            "moves": 35,
+            "items": 28,
+            "slides": 7
+          },
+          {
+            "seed": 28,
+            "moves": 30,
+            "items": 23,
+            "slides": 7
+          },
+          {
+            "seed": 30,
+            "moves": 28,
+            "items": 21,
+            "slides": 7
+          },
+          {
+            "seed": 31,
+            "moves": 30,
+            "items": 22,
+            "slides": 8
+          },
+          {
+            "seed": 33,
+            "moves": 39,
+            "items": 28,
+            "slides": 11
+          },
+          {
+            "seed": 34,
+            "moves": 16,
+            "items": 10,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 26,
+            "items": 20,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 27,
+            "items": 21,
+            "slides": 6
+          },
+          {
+            "seed": 38,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 24,
+        "initialBoardsWithEvolvingSlide": 24,
+        "savedPath": {
+          "moves": 656,
+          "slides": 335,
+          "evolvingSlides": 155,
+          "chainActions": 125,
+          "slideChainActions": 74,
+          "largeClears": 73
+        },
+        "freshSearch": {
+          "n": 24,
+          "nodes": 5749662,
+          "maxMs": 2228.147127000033,
+          "totalMs": 29101.80972400005
+        },
+        "solved": 24,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 24,
+        "same08OnSavedPath": 24,
+        "reasons": {
+          "witness": 24
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 24,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 656,
+          "range": [
+            15,
+            49
+          ],
+          "meanMoves": 27.333333333333332,
+          "slides": 335,
+          "eggs": 238,
+          "single": 51,
+          "bulk": 32,
+          "itemRatio": 0.4893292682926829,
+          "evolvingSlides": 155,
+          "evolvingSlideRate": 0.4626865671641791,
+          "slideChainRate": 0.2208955223880597,
+          "chainRate": 0.19054878048780488,
+          "maxChain": 5,
+          "meanReduction": 1.021341463414634,
+          "slideReduction": 485,
+          "largeClearRate": 0.11128048780487805,
+          "largeSlideClearRate": 0.14925373134328357,
+          "noImmediateSlideEvolutionRate": 0.3795731707317073,
+          "itemsEnablingSlides": 74,
+          "setupSlidesFollowedByEvolution": 64,
+          "longItemShare": 0.5233644859813084,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 2,
+            "moves": 18,
+            "items": 12,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 26,
+            "items": 11,
+            "slides": 15
+          },
+          {
+            "seed": 4,
+            "moves": 37,
+            "items": 16,
+            "slides": 21
+          },
+          {
+            "seed": 7,
+            "moves": 16,
+            "items": 8,
+            "slides": 8
+          },
+          {
+            "seed": 9,
+            "moves": 15,
+            "items": 8,
+            "slides": 7
+          },
+          {
+            "seed": 10,
+            "moves": 34,
+            "items": 20,
+            "slides": 14
+          },
+          {
+            "seed": 12,
+            "moves": 28,
+            "items": 12,
+            "slides": 16
+          },
+          {
+            "seed": 14,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 15,
+            "moves": 24,
+            "items": 18,
+            "slides": 6
+          },
+          {
+            "seed": 17,
+            "moves": 22,
+            "items": 12,
+            "slides": 10
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 14,
+            "slides": 15
+          },
+          {
+            "seed": 20,
+            "moves": 26,
+            "items": 13,
+            "slides": 13
+          },
+          {
+            "seed": 23,
+            "moves": 49,
+            "items": 16,
+            "slides": 33
+          },
+          {
+            "seed": 24,
+            "moves": 20,
+            "items": 12,
+            "slides": 8
+          },
+          {
+            "seed": 26,
+            "moves": 30,
+            "items": 15,
+            "slides": 15
+          },
+          {
+            "seed": 28,
+            "moves": 24,
+            "items": 13,
+            "slides": 11
+          },
+          {
+            "seed": 30,
+            "moves": 16,
+            "items": 7,
+            "slides": 9
+          },
+          {
+            "seed": 31,
+            "moves": 48,
+            "items": 13,
+            "slides": 35
+          },
+          {
+            "seed": 33,
+            "moves": 44,
+            "items": 20,
+            "slides": 24
+          },
+          {
+            "seed": 34,
+            "moves": 23,
+            "items": 13,
+            "slides": 10
+          },
+          {
+            "seed": 35,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 36,
+            "moves": 24,
+            "items": 14,
+            "slides": 10
+          },
+          {
+            "seed": 38,
+            "moves": 48,
+            "items": 20,
+            "slides": 28
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "C",
+        "cluster"
+      ],
+      "right": [
+        "C",
+        "item-aware"
+      ],
+      "seeds": [
+        2,
+        3,
+        9
+      ],
+      "leftStats": {
+        "n": 3,
+        "initialBoardsWithEvolvingSlide": 3,
+        "savedPath": {
+          "moves": 76,
+          "slides": 16,
+          "evolvingSlides": 13,
+          "chainActions": 15,
+          "slideChainActions": 6,
+          "largeClears": 8
+        },
+        "freshSearch": {
+          "n": 0,
+          "nodes": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "solved": 3,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 3,
+        "same08OnSavedPath": 3,
+        "reasons": {
+          "witness": 3
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 3,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 76,
+          "range": [
+            17,
+            36
+          ],
+          "meanMoves": 25.333333333333332,
+          "slides": 16,
+          "eggs": 44,
+          "single": 15,
+          "bulk": 1,
+          "itemRatio": 0.7894736842105263,
+          "evolvingSlides": 13,
+          "evolvingSlideRate": 0.8125,
+          "slideChainRate": 0.375,
+          "chainRate": 0.19736842105263158,
+          "maxChain": 5,
+          "meanReduction": 0.7631578947368421,
+          "slideReduction": 44,
+          "largeClearRate": 0.10526315789473684,
+          "largeSlideClearRate": 0.4375,
+          "noImmediateSlideEvolutionRate": 0.25,
+          "itemsEnablingSlides": 8,
+          "setupSlidesFollowedByEvolution": 1,
+          "longItemShare": 0.8833333333333333,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 2,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 3,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 3,
+        "initialBoardsWithEvolvingSlide": 3,
+        "savedPath": {
+          "moves": 79,
+          "slides": 39,
+          "evolvingSlides": 17,
+          "chainActions": 11,
+          "slideChainActions": 7,
+          "largeClears": 6
+        },
+        "freshSearch": {
+          "n": 3,
+          "nodes": 596921,
+          "maxMs": 1385.2113949999912,
+          "totalMs": 3057.6013820000226
+        },
+        "solved": 3,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 3,
+        "same08OnSavedPath": 3,
+        "reasons": {
+          "witness": 3
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 2,
+            "egg": 0,
+            "single": 1,
+            "bulk": 0
+          },
+          "moves": 79,
+          "range": [
+            10,
+            35
+          ],
+          "meanMoves": 26.333333333333332,
+          "slides": 39,
+          "eggs": 26,
+          "single": 13,
+          "bulk": 1,
+          "itemRatio": 0.5063291139240507,
+          "evolvingSlides": 17,
+          "evolvingSlideRate": 0.4358974358974359,
+          "slideChainRate": 0.1794871794871795,
+          "chainRate": 0.13924050632911392,
+          "maxChain": 2,
+          "meanReduction": 0.7848101265822784,
+          "slideReduction": 42,
+          "largeClearRate": 0.0759493670886076,
+          "largeSlideClearRate": 0.10256410256410256,
+          "noImmediateSlideEvolutionRate": 0.4050632911392405,
+          "itemsEnablingSlides": 10,
+          "setupSlidesFollowedByEvolution": 7,
+          "longItemShare": 0.475,
+          "maxItemStreak": 6
+        },
+        "seeds": [
+          {
+            "seed": 2,
+            "moves": 35,
+            "items": 16,
+            "slides": 19
+          },
+          {
+            "seed": 3,
+            "moves": 34,
+            "items": 19,
+            "slides": 15
+          },
+          {
+            "seed": 9,
+            "moves": 10,
+            "items": 5,
+            "slides": 5
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "D",
+        "cluster"
+      ],
+      "right": [
+        "D",
+        "item-aware"
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22,
+        23,
+        24,
+        26,
+        28,
+        29,
+        31,
+        32,
+        34,
+        35,
+        36,
+        39
+      ],
+      "leftStats": {
+        "n": 28,
+        "initialBoardsWithEvolvingSlide": 28,
+        "savedPath": {
+          "moves": 593,
+          "slides": 158,
+          "evolvingSlides": 131,
+          "chainActions": 165,
+          "slideChainActions": 87,
+          "largeClears": 113
+        },
+        "freshSearch": {
+          "n": 28,
+          "nodes": 4531632,
+          "maxMs": 1532.8207290000282,
+          "totalMs": 24853.162286999985
+        },
+        "solved": 28,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 28,
+        "same08OnSavedPath": 28,
+        "reasons": {
+          "witness": 28
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 28,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 593,
+          "range": [
+            6,
+            38
+          ],
+          "meanMoves": 21.178571428571427,
+          "slides": 158,
+          "eggs": 371,
+          "single": 10,
+          "bulk": 54,
+          "itemRatio": 0.7335581787521079,
+          "evolvingSlides": 131,
+          "evolvingSlideRate": 0.8291139240506329,
+          "slideChainRate": 0.5506329113924051,
+          "chainRate": 0.2782462057335582,
+          "maxChain": 5,
+          "meanReduction": 1.269814502529511,
+          "slideReduction": 559,
+          "largeClearRate": 0.1905564924114671,
+          "largeSlideClearRate": 0.46835443037974683,
+          "noImmediateSlideEvolutionRate": 0.28161888701517707,
+          "itemsEnablingSlides": 82,
+          "setupSlidesFollowedByEvolution": 13,
+          "longItemShare": 0.8160919540229885,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 35,
+            "items": 25,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 27,
+            "items": 19,
+            "slides": 8
+          },
+          {
+            "seed": 7,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 9,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 35,
+            "items": 30,
+            "slides": 5
+          },
+          {
+            "seed": 12,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 14,
+            "moves": 29,
+            "items": 22,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 28,
+            "items": 23,
+            "slides": 5
+          },
+          {
+            "seed": 16,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 17,
+            "moves": 15,
+            "items": 10,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 23,
+            "slides": 6
+          },
+          {
+            "seed": 19,
+            "moves": 15,
+            "items": 12,
+            "slides": 3
+          },
+          {
+            "seed": 20,
+            "moves": 31,
+            "items": 25,
+            "slides": 6
+          },
+          {
+            "seed": 22,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 24,
+            "moves": 8,
+            "items": 4,
+            "slides": 4
+          },
+          {
+            "seed": 26,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 28,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 29,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 31,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 32,
+            "moves": 38,
+            "items": 20,
+            "slides": 18
+          },
+          {
+            "seed": 34,
+            "moves": 19,
+            "items": 13,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 36,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          },
+          {
+            "seed": 39,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 28,
+        "initialBoardsWithEvolvingSlide": 28,
+        "savedPath": {
+          "moves": 595,
+          "slides": 339,
+          "evolvingSlides": 134,
+          "chainActions": 141,
+          "slideChainActions": 85,
+          "largeClears": 106
+        },
+        "freshSearch": {
+          "n": 28,
+          "nodes": 5532763,
+          "maxMs": 2096.7965740000363,
+          "totalMs": 28782.160859999945
+        },
+        "solved": 28,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 28,
+        "same08OnSavedPath": 28,
+        "reasons": {
+          "witness": 28
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 27,
+            "egg": 1,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 595,
+          "range": [
+            6,
+            47
+          ],
+          "meanMoves": 21.25,
+          "slides": 339,
+          "eggs": 195,
+          "single": 7,
+          "bulk": 54,
+          "itemRatio": 0.43025210084033616,
+          "evolvingSlides": 134,
+          "evolvingSlideRate": 0.3952802359882006,
+          "slideChainRate": 0.25073746312684364,
+          "chainRate": 0.23697478991596638,
+          "maxChain": 5,
+          "meanReduction": 1.322689075630252,
+          "slideReduction": 522,
+          "largeClearRate": 0.1781512605042017,
+          "largeSlideClearRate": 0.1976401179941003,
+          "noImmediateSlideEvolutionRate": 0.42016806722689076,
+          "itemsEnablingSlides": 48,
+          "setupSlidesFollowedByEvolution": 43,
+          "longItemShare": 0.45703125,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 2,
+            "moves": 16,
+            "items": 11,
+            "slides": 5
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 4,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 7,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 9,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 40,
+            "items": 15,
+            "slides": 25
+          },
+          {
+            "seed": 12,
+            "moves": 47,
+            "items": 8,
+            "slides": 39
+          },
+          {
+            "seed": 14,
+            "moves": 17,
+            "items": 10,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 16,
+            "moves": 25,
+            "items": 13,
+            "slides": 12
+          },
+          {
+            "seed": 17,
+            "moves": 14,
+            "items": 8,
+            "slides": 6
+          },
+          {
+            "seed": 18,
+            "moves": 18,
+            "items": 11,
+            "slides": 7
+          },
+          {
+            "seed": 19,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          },
+          {
+            "seed": 20,
+            "moves": 24,
+            "items": 11,
+            "slides": 13
+          },
+          {
+            "seed": 22,
+            "moves": 33,
+            "items": 10,
+            "slides": 23
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 7,
+            "slides": 6
+          },
+          {
+            "seed": 24,
+            "moves": 12,
+            "items": 5,
+            "slides": 7
+          },
+          {
+            "seed": 26,
+            "moves": 41,
+            "items": 12,
+            "slides": 29
+          },
+          {
+            "seed": 28,
+            "moves": 10,
+            "items": 6,
+            "slides": 4
+          },
+          {
+            "seed": 29,
+            "moves": 29,
+            "items": 11,
+            "slides": 18
+          },
+          {
+            "seed": 31,
+            "moves": 42,
+            "items": 10,
+            "slides": 32
+          },
+          {
+            "seed": 32,
+            "moves": 19,
+            "items": 9,
+            "slides": 10
+          },
+          {
+            "seed": 34,
+            "moves": 32,
+            "items": 14,
+            "slides": 18
+          },
+          {
+            "seed": 35,
+            "moves": 15,
+            "items": 7,
+            "slides": 8
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 6,
+            "slides": 15
+          },
+          {
+            "seed": 39,
+            "moves": 22,
+            "items": 10,
+            "slides": 12
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "A",
+        "cluster"
+      ],
+      "right": [
+        "B",
+        "cluster"
+      ],
+      "seeds": [
+        1,
+        3,
+        5,
+        9,
+        15,
+        16,
+        18,
+        24,
+        34,
+        36
+      ],
+      "leftStats": {
+        "n": 10,
+        "initialBoardsWithEvolvingSlide": 10,
+        "savedPath": {
+          "moves": 206,
+          "slides": 66,
+          "evolvingSlides": 46,
+          "chainActions": 39,
+          "slideChainActions": 19,
+          "largeClears": 29
+        },
+        "freshSearch": {
+          "n": 3,
+          "nodes": 438646,
+          "maxMs": 829.6631750000015,
+          "totalMs": 2144.006089999999
+        },
+        "solved": 10,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 10,
+        "same08OnSavedPath": 10,
+        "reasons": {
+          "witness": 10
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 10,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 206,
+          "range": [
+            8,
+            34
+          ],
+          "meanMoves": 20.6,
+          "slides": 66,
+          "eggs": 114,
+          "single": 8,
+          "bulk": 18,
+          "itemRatio": 0.6796116504854369,
+          "evolvingSlides": 46,
+          "evolvingSlideRate": 0.696969696969697,
+          "slideChainRate": 0.2878787878787879,
+          "chainRate": 0.18932038834951456,
+          "maxChain": 5,
+          "meanReduction": 1.0825242718446602,
+          "slideReduction": 160,
+          "largeClearRate": 0.1407766990291262,
+          "largeSlideClearRate": 0.2878787878787879,
+          "noImmediateSlideEvolutionRate": 0.2766990291262136,
+          "itemsEnablingSlides": 22,
+          "setupSlidesFollowedByEvolution": 9,
+          "longItemShare": 0.7857142857142857,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 31,
+            "items": 19,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          },
+          {
+            "seed": 5,
+            "moves": 34,
+            "items": 16,
+            "slides": 18
+          },
+          {
+            "seed": 9,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 16,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 24,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 34,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 16,
+            "slides": 5
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 10,
+        "initialBoardsWithEvolvingSlide": 10,
+        "savedPath": {
+          "moves": 306,
+          "slides": 80,
+          "evolvingSlides": 61,
+          "chainActions": 72,
+          "slideChainActions": 35,
+          "largeClears": 31
+        },
+        "freshSearch": {
+          "n": 3,
+          "nodes": 489316,
+          "maxMs": 1130.6209349999845,
+          "totalMs": 2749.124531999987
+        },
+        "solved": 10,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 10,
+        "same08OnSavedPath": 10,
+        "reasons": {
+          "witness": 10
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 10,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 306,
+          "range": [
+            16,
+            46
+          ],
+          "meanMoves": 30.6,
+          "slides": 80,
+          "eggs": 186,
+          "single": 27,
+          "bulk": 13,
+          "itemRatio": 0.738562091503268,
+          "evolvingSlides": 61,
+          "evolvingSlideRate": 0.7625,
+          "slideChainRate": 0.4375,
+          "chainRate": 0.23529411764705882,
+          "maxChain": 5,
+          "meanReduction": 0.8333333333333334,
+          "slideReduction": 199,
+          "largeClearRate": 0.10130718954248366,
+          "largeSlideClearRate": 0.2625,
+          "noImmediateSlideEvolutionRate": 0.30718954248366015,
+          "itemsEnablingSlides": 44,
+          "setupSlidesFollowedByEvolution": 10,
+          "longItemShare": 0.8362831858407079,
+          "maxItemStreak": 17
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 40,
+            "items": 30,
+            "slides": 10
+          },
+          {
+            "seed": 3,
+            "moves": 27,
+            "items": 20,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 9,
+            "moves": 41,
+            "items": 32,
+            "slides": 9
+          },
+          {
+            "seed": 15,
+            "moves": 35,
+            "items": 26,
+            "slides": 9
+          },
+          {
+            "seed": 16,
+            "moves": 46,
+            "items": 29,
+            "slides": 17
+          },
+          {
+            "seed": 18,
+            "moves": 20,
+            "items": 15,
+            "slides": 5
+          },
+          {
+            "seed": 24,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 34,
+            "moves": 16,
+            "items": 10,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 27,
+            "items": 21,
+            "slides": 6
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "C",
+        "cluster"
+      ],
+      "right": [
+        "A",
+        "cluster"
+      ],
+      "seeds": [
+        3,
+        9,
+        15
+      ],
+      "leftStats": {
+        "n": 3,
+        "initialBoardsWithEvolvingSlide": 3,
+        "savedPath": {
+          "moves": 82,
+          "slides": 24,
+          "evolvingSlides": 12,
+          "chainActions": 14,
+          "slideChainActions": 5,
+          "largeClears": 8
+        },
+        "freshSearch": {
+          "n": 0,
+          "nodes": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "solved": 3,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 3,
+        "same08OnSavedPath": 3,
+        "reasons": {
+          "witness": 3
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 3,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 82,
+          "range": [
+            17,
+            42
+          ],
+          "meanMoves": 27.333333333333332,
+          "slides": 24,
+          "eggs": 42,
+          "single": 14,
+          "bulk": 2,
+          "itemRatio": 0.7073170731707317,
+          "evolvingSlides": 12,
+          "evolvingSlideRate": 0.5,
+          "slideChainRate": 0.20833333333333334,
+          "chainRate": 0.17073170731707318,
+          "maxChain": 3,
+          "meanReduction": 0.7073170731707317,
+          "slideReduction": 37,
+          "largeClearRate": 0.0975609756097561,
+          "largeSlideClearRate": 0.20833333333333334,
+          "noImmediateSlideEvolutionRate": 0.32926829268292684,
+          "itemsEnablingSlides": 6,
+          "setupSlidesFollowedByEvolution": 5,
+          "longItemShare": 0.896551724137931,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 3,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 42,
+            "items": 27,
+            "slides": 15
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 3,
+        "initialBoardsWithEvolvingSlide": 3,
+        "savedPath": {
+          "moves": 45,
+          "slides": 12,
+          "evolvingSlides": 11,
+          "chainActions": 8,
+          "slideChainActions": 4,
+          "largeClears": 8
+        },
+        "freshSearch": {
+          "n": 0,
+          "nodes": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "solved": 3,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 3,
+        "same08OnSavedPath": 3,
+        "reasons": {
+          "witness": 3
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 3,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 45,
+          "range": [
+            8,
+            19
+          ],
+          "meanMoves": 15,
+          "slides": 12,
+          "eggs": 23,
+          "single": 6,
+          "bulk": 4,
+          "itemRatio": 0.7333333333333333,
+          "evolvingSlides": 11,
+          "evolvingSlideRate": 0.9166666666666666,
+          "slideChainRate": 0.3333333333333333,
+          "chainRate": 0.17777777777777778,
+          "maxChain": 4,
+          "meanReduction": 1.4222222222222223,
+          "slideReduction": 42,
+          "largeClearRate": 0.17777777777777778,
+          "largeSlideClearRate": 0.5,
+          "noImmediateSlideEvolutionRate": 0.08888888888888889,
+          "itemsEnablingSlides": 2,
+          "setupSlidesFollowedByEvolution": 1,
+          "longItemShare": 0.8181818181818182,
+          "maxItemStreak": 7
+        },
+        "seeds": [
+          {
+            "seed": 3,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "B",
+        "cluster"
+      ],
+      "right": [
+        "D",
+        "cluster"
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        26,
+        28,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39
+      ],
+      "leftStats": {
+        "n": 31,
+        "initialBoardsWithEvolvingSlide": 31,
+        "savedPath": {
+          "moves": 932,
+          "slides": 228,
+          "evolvingSlides": 182,
+          "chainActions": 206,
+          "slideChainActions": 105,
+          "largeClears": 109
+        },
+        "freshSearch": {
+          "n": 15,
+          "nodes": 3106891,
+          "maxMs": 1671.7952480000095,
+          "totalMs": 16168.049805000017
+        },
+        "solved": 31,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 31,
+        "same08OnSavedPath": 31,
+        "reasons": {
+          "witness": 31
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 31,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 932,
+          "range": [
+            11,
+            46
+          ],
+          "meanMoves": 30.06451612903226,
+          "slides": 228,
+          "eggs": 588,
+          "single": 70,
+          "bulk": 46,
+          "itemRatio": 0.7553648068669528,
+          "evolvingSlides": 182,
+          "evolvingSlideRate": 0.7982456140350878,
+          "slideChainRate": 0.4605263157894737,
+          "chainRate": 0.22103004291845493,
+          "maxChain": 5,
+          "meanReduction": 0.8916309012875536,
+          "slideReduction": 617,
+          "largeClearRate": 0.11695278969957082,
+          "largeSlideClearRate": 0.30701754385964913,
+          "noImmediateSlideEvolutionRate": 0.27253218884120173,
+          "itemsEnablingSlides": 117,
+          "setupSlidesFollowedByEvolution": 26,
+          "longItemShare": 0.8338068181818182,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 40,
+            "items": 30,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 42,
+            "items": 30,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 27,
+            "items": 20,
+            "slides": 7
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 5,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 7,
+            "moves": 23,
+            "items": 19,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 41,
+            "items": 32,
+            "slides": 9
+          },
+          {
+            "seed": 10,
+            "moves": 25,
+            "items": 19,
+            "slides": 6
+          },
+          {
+            "seed": 11,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 12,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 14,
+            "moves": 35,
+            "items": 29,
+            "slides": 6
+          },
+          {
+            "seed": 15,
+            "moves": 35,
+            "items": 26,
+            "slides": 9
+          },
+          {
+            "seed": 16,
+            "moves": 46,
+            "items": 29,
+            "slides": 17
+          },
+          {
+            "seed": 17,
+            "moves": 37,
+            "items": 30,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 20,
+            "items": 15,
+            "slides": 5
+          },
+          {
+            "seed": 19,
+            "moves": 34,
+            "items": 25,
+            "slides": 9
+          },
+          {
+            "seed": 20,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 21,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 23,
+            "moves": 38,
+            "items": 29,
+            "slides": 9
+          },
+          {
+            "seed": 24,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 26,
+            "moves": 35,
+            "items": 28,
+            "slides": 7
+          },
+          {
+            "seed": 28,
+            "moves": 30,
+            "items": 23,
+            "slides": 7
+          },
+          {
+            "seed": 30,
+            "moves": 28,
+            "items": 21,
+            "slides": 7
+          },
+          {
+            "seed": 31,
+            "moves": 30,
+            "items": 22,
+            "slides": 8
+          },
+          {
+            "seed": 32,
+            "moves": 33,
+            "items": 24,
+            "slides": 9
+          },
+          {
+            "seed": 33,
+            "moves": 39,
+            "items": 28,
+            "slides": 11
+          },
+          {
+            "seed": 34,
+            "moves": 16,
+            "items": 10,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 26,
+            "items": 20,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 27,
+            "items": 21,
+            "slides": 6
+          },
+          {
+            "seed": 38,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 39,
+            "moves": 28,
+            "items": 22,
+            "slides": 6
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 31,
+        "initialBoardsWithEvolvingSlide": 31,
+        "savedPath": {
+          "moves": 677,
+          "slides": 177,
+          "evolvingSlides": 146,
+          "chainActions": 184,
+          "slideChainActions": 91,
+          "largeClears": 122
+        },
+        "freshSearch": {
+          "n": 31,
+          "nodes": 5272806,
+          "maxMs": 1532.8207290000282,
+          "totalMs": 28793.62334099994
+        },
+        "solved": 31,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 31,
+        "same08OnSavedPath": 31,
+        "reasons": {
+          "witness": 31
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 31,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 677,
+          "range": [
+            6,
+            38
+          ],
+          "meanMoves": 21.838709677419356,
+          "slides": 177,
+          "eggs": 431,
+          "single": 9,
+          "bulk": 60,
+          "itemRatio": 0.7385524372230429,
+          "evolvingSlides": 146,
+          "evolvingSlideRate": 0.8248587570621468,
+          "slideChainRate": 0.5141242937853108,
+          "chainRate": 0.2717872968980798,
+          "maxChain": 5,
+          "meanReduction": 1.2363367799113738,
+          "slideReduction": 611,
+          "largeClearRate": 0.18020679468242246,
+          "largeSlideClearRate": 0.4350282485875706,
+          "noImmediateSlideEvolutionRate": 0.30280649926144754,
+          "itemsEnablingSlides": 94,
+          "setupSlidesFollowedByEvolution": 15,
+          "longItemShare": 0.838,
+          "maxItemStreak": 23
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 35,
+            "items": 25,
+            "slides": 10
+          },
+          {
+            "seed": 2,
+            "moves": 30,
+            "items": 24,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 5,
+            "moves": 27,
+            "items": 19,
+            "slides": 8
+          },
+          {
+            "seed": 7,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 9,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 35,
+            "items": 30,
+            "slides": 5
+          },
+          {
+            "seed": 11,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 12,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 14,
+            "moves": 29,
+            "items": 22,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 28,
+            "items": 23,
+            "slides": 5
+          },
+          {
+            "seed": 16,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 17,
+            "moves": 15,
+            "items": 10,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 23,
+            "slides": 6
+          },
+          {
+            "seed": 19,
+            "moves": 15,
+            "items": 12,
+            "slides": 3
+          },
+          {
+            "seed": 20,
+            "moves": 31,
+            "items": 25,
+            "slides": 6
+          },
+          {
+            "seed": 21,
+            "moves": 31,
+            "items": 26,
+            "slides": 5
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 24,
+            "moves": 8,
+            "items": 4,
+            "slides": 4
+          },
+          {
+            "seed": 26,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 28,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 30,
+            "moves": 33,
+            "items": 25,
+            "slides": 8
+          },
+          {
+            "seed": 31,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 32,
+            "moves": 38,
+            "items": 20,
+            "slides": 18
+          },
+          {
+            "seed": 33,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 34,
+            "moves": 19,
+            "items": 13,
+            "slides": 6
+          },
+          {
+            "seed": 35,
+            "moves": 11,
+            "items": 6,
+            "slides": 5
+          },
+          {
+            "seed": 36,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          },
+          {
+            "seed": 38,
+            "moves": 13,
+            "items": 9,
+            "slides": 4
+          },
+          {
+            "seed": 39,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "B",
+        "item-aware"
+      ],
+      "right": [
+        "D",
+        "item-aware"
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        12,
+        14,
+        15,
+        17,
+        18,
+        20,
+        23,
+        24,
+        26,
+        28,
+        31,
+        34,
+        35,
+        36
+      ],
+      "leftStats": {
+        "n": 21,
+        "initialBoardsWithEvolvingSlide": 21,
+        "savedPath": {
+          "moves": 548,
+          "slides": 274,
+          "evolvingSlides": 132,
+          "chainActions": 107,
+          "slideChainActions": 64,
+          "largeClears": 65
+        },
+        "freshSearch": {
+          "n": 21,
+          "nodes": 4814146,
+          "maxMs": 2228.147127000033,
+          "totalMs": 24551.79782300006
+        },
+        "solved": 21,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 21,
+        "same08OnSavedPath": 21,
+        "reasons": {
+          "witness": 21
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 21,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 548,
+          "range": [
+            15,
+            49
+          ],
+          "meanMoves": 26.095238095238095,
+          "slides": 274,
+          "eggs": 199,
+          "single": 49,
+          "bulk": 26,
+          "itemRatio": 0.5,
+          "evolvingSlides": 132,
+          "evolvingSlideRate": 0.48175182481751827,
+          "slideChainRate": 0.23357664233576642,
+          "chainRate": 0.19525547445255476,
+          "maxChain": 5,
+          "meanReduction": 1.062043795620438,
+          "slideReduction": 416,
+          "largeClearRate": 0.11861313868613138,
+          "largeSlideClearRate": 0.16423357664233576,
+          "noImmediateSlideEvolutionRate": 0.36678832116788324,
+          "itemsEnablingSlides": 61,
+          "setupSlidesFollowedByEvolution": 55,
+          "longItemShare": 0.5912408759124088,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 2,
+            "moves": 18,
+            "items": 12,
+            "slides": 6
+          },
+          {
+            "seed": 3,
+            "moves": 26,
+            "items": 11,
+            "slides": 15
+          },
+          {
+            "seed": 4,
+            "moves": 37,
+            "items": 16,
+            "slides": 21
+          },
+          {
+            "seed": 7,
+            "moves": 16,
+            "items": 8,
+            "slides": 8
+          },
+          {
+            "seed": 9,
+            "moves": 15,
+            "items": 8,
+            "slides": 7
+          },
+          {
+            "seed": 10,
+            "moves": 34,
+            "items": 20,
+            "slides": 14
+          },
+          {
+            "seed": 12,
+            "moves": 28,
+            "items": 12,
+            "slides": 16
+          },
+          {
+            "seed": 14,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 15,
+            "moves": 24,
+            "items": 18,
+            "slides": 6
+          },
+          {
+            "seed": 17,
+            "moves": 22,
+            "items": 12,
+            "slides": 10
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 14,
+            "slides": 15
+          },
+          {
+            "seed": 20,
+            "moves": 26,
+            "items": 13,
+            "slides": 13
+          },
+          {
+            "seed": 23,
+            "moves": 49,
+            "items": 16,
+            "slides": 33
+          },
+          {
+            "seed": 24,
+            "moves": 20,
+            "items": 12,
+            "slides": 8
+          },
+          {
+            "seed": 26,
+            "moves": 30,
+            "items": 15,
+            "slides": 15
+          },
+          {
+            "seed": 28,
+            "moves": 24,
+            "items": 13,
+            "slides": 11
+          },
+          {
+            "seed": 31,
+            "moves": 48,
+            "items": 13,
+            "slides": 35
+          },
+          {
+            "seed": 34,
+            "moves": 23,
+            "items": 13,
+            "slides": 10
+          },
+          {
+            "seed": 35,
+            "moves": 20,
+            "items": 13,
+            "slides": 7
+          },
+          {
+            "seed": 36,
+            "moves": 24,
+            "items": 14,
+            "slides": 10
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 21,
+        "initialBoardsWithEvolvingSlide": 21,
+        "savedPath": {
+          "moves": 435,
+          "slides": 252,
+          "evolvingSlides": 97,
+          "chainActions": 103,
+          "slideChainActions": 63,
+          "largeClears": 78
+        },
+        "freshSearch": {
+          "n": 21,
+          "nodes": 4113881,
+          "maxMs": 2096.7965740000363,
+          "totalMs": 21298.135348000098
+        },
+        "solved": 21,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 21,
+        "same08OnSavedPath": 21,
+        "reasons": {
+          "witness": 21
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 20,
+            "egg": 1,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 435,
+          "range": [
+            6,
+            47
+          ],
+          "meanMoves": 20.714285714285715,
+          "slides": 252,
+          "eggs": 138,
+          "single": 5,
+          "bulk": 40,
+          "itemRatio": 0.4206896551724138,
+          "evolvingSlides": 97,
+          "evolvingSlideRate": 0.38492063492063494,
+          "slideChainRate": 0.25,
+          "chainRate": 0.2367816091954023,
+          "maxChain": 5,
+          "meanReduction": 1.3563218390804597,
+          "slideReduction": 401,
+          "largeClearRate": 0.1793103448275862,
+          "largeSlideClearRate": 0.1984126984126984,
+          "noImmediateSlideEvolutionRate": 0.41839080459770117,
+          "itemsEnablingSlides": 32,
+          "setupSlidesFollowedByEvolution": 29,
+          "longItemShare": 0.44808743169398907,
+          "maxItemStreak": 8
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 18,
+            "items": 10,
+            "slides": 8
+          },
+          {
+            "seed": 2,
+            "moves": 16,
+            "items": 11,
+            "slides": 5
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 4,
+            "moves": 11,
+            "items": 4,
+            "slides": 7
+          },
+          {
+            "seed": 7,
+            "moves": 13,
+            "items": 8,
+            "slides": 5
+          },
+          {
+            "seed": 9,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 10,
+            "moves": 40,
+            "items": 15,
+            "slides": 25
+          },
+          {
+            "seed": 12,
+            "moves": 47,
+            "items": 8,
+            "slides": 39
+          },
+          {
+            "seed": 14,
+            "moves": 17,
+            "items": 10,
+            "slides": 7
+          },
+          {
+            "seed": 15,
+            "moves": 17,
+            "items": 11,
+            "slides": 6
+          },
+          {
+            "seed": 17,
+            "moves": 14,
+            "items": 8,
+            "slides": 6
+          },
+          {
+            "seed": 18,
+            "moves": 18,
+            "items": 11,
+            "slides": 7
+          },
+          {
+            "seed": 20,
+            "moves": 24,
+            "items": 11,
+            "slides": 13
+          },
+          {
+            "seed": 23,
+            "moves": 13,
+            "items": 7,
+            "slides": 6
+          },
+          {
+            "seed": 24,
+            "moves": 12,
+            "items": 5,
+            "slides": 7
+          },
+          {
+            "seed": 26,
+            "moves": 41,
+            "items": 12,
+            "slides": 29
+          },
+          {
+            "seed": 28,
+            "moves": 10,
+            "items": 6,
+            "slides": 4
+          },
+          {
+            "seed": 31,
+            "moves": 42,
+            "items": 10,
+            "slides": 32
+          },
+          {
+            "seed": 34,
+            "moves": 32,
+            "items": 14,
+            "slides": 18
+          },
+          {
+            "seed": 35,
+            "moves": 15,
+            "items": 7,
+            "slides": 8
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 6,
+            "slides": 15
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "C",
+        "cluster"
+      ],
+      "right": [
+        "B",
+        "cluster"
+      ],
+      "seeds": [
+        2,
+        3,
+        9,
+        15,
+        20,
+        31
+      ],
+      "leftStats": {
+        "n": 6,
+        "initialBoardsWithEvolvingSlide": 6,
+        "savedPath": {
+          "moves": 178,
+          "slides": 49,
+          "evolvingSlides": 27,
+          "chainActions": 31,
+          "slideChainActions": 12,
+          "largeClears": 16
+        },
+        "freshSearch": {
+          "n": 2,
+          "nodes": 357177,
+          "maxMs": 1037.8434000000125,
+          "totalMs": 1737.1754430000437
+        },
+        "solved": 6,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 6,
+        "same08OnSavedPath": 6,
+        "reasons": {
+          "witness": 6
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 6,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 178,
+          "range": [
+            17,
+            42
+          ],
+          "meanMoves": 29.666666666666668,
+          "slides": 49,
+          "eggs": 97,
+          "single": 27,
+          "bulk": 5,
+          "itemRatio": 0.7247191011235955,
+          "evolvingSlides": 27,
+          "evolvingSlideRate": 0.5510204081632653,
+          "slideChainRate": 0.24489795918367346,
+          "chainRate": 0.17415730337078653,
+          "maxChain": 5,
+          "meanReduction": 0.7078651685393258,
+          "slideReduction": 87,
+          "largeClearRate": 0.0898876404494382,
+          "largeSlideClearRate": 0.20408163265306123,
+          "noImmediateSlideEvolutionRate": 0.29775280898876405,
+          "itemsEnablingSlides": 17,
+          "setupSlidesFollowedByEvolution": 10,
+          "longItemShare": 0.8527131782945736,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 2,
+            "moves": 36,
+            "items": 29,
+            "slides": 7
+          },
+          {
+            "seed": 3,
+            "moves": 17,
+            "items": 13,
+            "slides": 4
+          },
+          {
+            "seed": 9,
+            "moves": 23,
+            "items": 18,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 42,
+            "items": 27,
+            "slides": 15
+          },
+          {
+            "seed": 20,
+            "moves": 38,
+            "items": 25,
+            "slides": 13
+          },
+          {
+            "seed": 31,
+            "moves": 22,
+            "items": 17,
+            "slides": 5
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 6,
+        "initialBoardsWithEvolvingSlide": 6,
+        "savedPath": {
+          "moves": 208,
+          "slides": 51,
+          "evolvingSlides": 38,
+          "chainActions": 39,
+          "slideChainActions": 20,
+          "largeClears": 25
+        },
+        "freshSearch": {
+          "n": 2,
+          "nodes": 433137,
+          "maxMs": 1374.1969469999894,
+          "totalMs": 2209.2789219999977
+        },
+        "solved": 6,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 6,
+        "same08OnSavedPath": 6,
+        "reasons": {
+          "witness": 6
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 6,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 208,
+          "range": [
+            27,
+            42
+          ],
+          "meanMoves": 34.666666666666664,
+          "slides": 51,
+          "eggs": 136,
+          "single": 14,
+          "bulk": 7,
+          "itemRatio": 0.7548076923076923,
+          "evolvingSlides": 38,
+          "evolvingSlideRate": 0.7450980392156863,
+          "slideChainRate": 0.39215686274509803,
+          "chainRate": 0.1875,
+          "maxChain": 5,
+          "meanReduction": 0.7067307692307693,
+          "slideReduction": 126,
+          "largeClearRate": 0.1201923076923077,
+          "largeSlideClearRate": 0.3137254901960784,
+          "noImmediateSlideEvolutionRate": 0.2932692307692308,
+          "itemsEnablingSlides": 31,
+          "setupSlidesFollowedByEvolution": 8,
+          "longItemShare": 0.802547770700637,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 2,
+            "moves": 42,
+            "items": 30,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 27,
+            "items": 20,
+            "slides": 7
+          },
+          {
+            "seed": 9,
+            "moves": 41,
+            "items": 32,
+            "slides": 9
+          },
+          {
+            "seed": 15,
+            "moves": 35,
+            "items": 26,
+            "slides": 9
+          },
+          {
+            "seed": 20,
+            "moves": 33,
+            "items": 27,
+            "slides": 6
+          },
+          {
+            "seed": 31,
+            "moves": 30,
+            "items": 22,
+            "slides": 8
+          }
+        ]
+      }
+    },
+    {
+      "left": [
+        "A",
+        "cluster"
+      ],
+      "right": [
+        "D",
+        "cluster"
+      ],
+      "seeds": [
+        1,
+        3,
+        5,
+        9,
+        15,
+        16,
+        18,
+        24,
+        34,
+        36
+      ],
+      "leftStats": {
+        "n": 10,
+        "initialBoardsWithEvolvingSlide": 10,
+        "savedPath": {
+          "moves": 206,
+          "slides": 66,
+          "evolvingSlides": 46,
+          "chainActions": 39,
+          "slideChainActions": 19,
+          "largeClears": 29
+        },
+        "freshSearch": {
+          "n": 3,
+          "nodes": 438646,
+          "maxMs": 829.6631750000015,
+          "totalMs": 2144.006089999999
+        },
+        "solved": 10,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 10,
+        "same08OnSavedPath": 10,
+        "reasons": {
+          "witness": 10
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 10,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 206,
+          "range": [
+            8,
+            34
+          ],
+          "meanMoves": 20.6,
+          "slides": 66,
+          "eggs": 114,
+          "single": 8,
+          "bulk": 18,
+          "itemRatio": 0.6796116504854369,
+          "evolvingSlides": 46,
+          "evolvingSlideRate": 0.696969696969697,
+          "slideChainRate": 0.2878787878787879,
+          "chainRate": 0.18932038834951456,
+          "maxChain": 5,
+          "meanReduction": 1.0825242718446602,
+          "slideReduction": 160,
+          "largeClearRate": 0.1407766990291262,
+          "largeSlideClearRate": 0.2878787878787879,
+          "noImmediateSlideEvolutionRate": 0.2766990291262136,
+          "itemsEnablingSlides": 22,
+          "setupSlidesFollowedByEvolution": 9,
+          "longItemShare": 0.7857142857142857,
+          "maxItemStreak": 14
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 31,
+            "items": 19,
+            "slides": 12
+          },
+          {
+            "seed": 3,
+            "moves": 19,
+            "items": 15,
+            "slides": 4
+          },
+          {
+            "seed": 5,
+            "moves": 34,
+            "items": 16,
+            "slides": 18
+          },
+          {
+            "seed": 9,
+            "moves": 18,
+            "items": 13,
+            "slides": 5
+          },
+          {
+            "seed": 15,
+            "moves": 8,
+            "items": 5,
+            "slides": 3
+          },
+          {
+            "seed": 16,
+            "moves": 25,
+            "items": 18,
+            "slides": 7
+          },
+          {
+            "seed": 18,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 24,
+            "moves": 14,
+            "items": 11,
+            "slides": 3
+          },
+          {
+            "seed": 34,
+            "moves": 22,
+            "items": 16,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 21,
+            "items": 16,
+            "slides": 5
+          }
+        ]
+      },
+      "rightStats": {
+        "n": 10,
+        "initialBoardsWithEvolvingSlide": 10,
+        "savedPath": {
+          "moves": 199,
+          "slides": 53,
+          "evolvingSlides": 45,
+          "chainActions": 57,
+          "slideChainActions": 31,
+          "largeClears": 41
+        },
+        "freshSearch": {
+          "n": 10,
+          "nodes": 1556647,
+          "maxMs": 1532.8207290000282,
+          "totalMs": 8519.094630000065
+        },
+        "solved": 10,
+        "unsolvableInActionScope": 0,
+        "unproven": 0,
+        "reached08OnSavedPath": 10,
+        "same08OnSavedPath": 10,
+        "reasons": {
+          "witness": 10
+        },
+        "successOnly": {
+          "winningActions": {
+            "slide": 10,
+            "egg": 0,
+            "single": 0,
+            "bulk": 0
+          },
+          "moves": 199,
+          "range": [
+            6,
+            35
+          ],
+          "meanMoves": 19.9,
+          "slides": 53,
+          "eggs": 124,
+          "single": 4,
+          "bulk": 18,
+          "itemRatio": 0.7336683417085427,
+          "evolvingSlides": 45,
+          "evolvingSlideRate": 0.8490566037735849,
+          "slideChainRate": 0.5849056603773585,
+          "chainRate": 0.2864321608040201,
+          "maxChain": 4,
+          "meanReduction": 1.3165829145728642,
+          "slideReduction": 193,
+          "largeClearRate": 0.20603015075376885,
+          "largeSlideClearRate": 0.5094339622641509,
+          "noImmediateSlideEvolutionRate": 0.25125628140703515,
+          "itemsEnablingSlides": 25,
+          "setupSlidesFollowedByEvolution": 4,
+          "longItemShare": 0.8013698630136986,
+          "maxItemStreak": 20
+        },
+        "seeds": [
+          {
+            "seed": 1,
+            "moves": 35,
+            "items": 25,
+            "slides": 10
+          },
+          {
+            "seed": 3,
+            "moves": 6,
+            "items": 4,
+            "slides": 2
+          },
+          {
+            "seed": 5,
+            "moves": 27,
+            "items": 19,
+            "slides": 8
+          },
+          {
+            "seed": 9,
+            "moves": 9,
+            "items": 6,
+            "slides": 3
+          },
+          {
+            "seed": 15,
+            "moves": 28,
+            "items": 23,
+            "slides": 5
+          },
+          {
+            "seed": 16,
+            "moves": 24,
+            "items": 19,
+            "slides": 5
+          },
+          {
+            "seed": 18,
+            "moves": 29,
+            "items": 23,
+            "slides": 6
+          },
+          {
+            "seed": 24,
+            "moves": 8,
+            "items": 4,
+            "slides": 4
+          },
+          {
+            "seed": 34,
+            "moves": 19,
+            "items": 13,
+            "slides": 6
+          },
+          {
+            "seed": 36,
+            "moves": 14,
+            "items": 10,
+            "slides": 4
+          }
+        ]
+      }
+    }
+  ]
+}

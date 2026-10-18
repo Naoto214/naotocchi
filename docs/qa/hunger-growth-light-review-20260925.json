@@ -1,0 +1,494 @@
+{
+  "reviewedSpecies": [
+    "venus_flytrap",
+    "mushroom",
+    "dragon",
+    "phoenix",
+    "god",
+    "world_tree"
+  ],
+  "reviewedStages": 48,
+  "stoppingPoint": "world_tree01 meaning clarification",
+  "stages": [
+    {
+      "id": "venus_flytrap",
+      "stage": 1,
+      "canonical": "目覚めるたね",
+      "description": "まだ小さく丸まっている。目覚めの時間を静かに待っている。",
+      "path": "assets/characters/venus_flytrap/01.png",
+      "imageSha256": "d586056a4e164ac574fccc5cf4b2acf86beb76c710dc9b8d36d14e9bfb0e024c",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "d586056a4e164ac574fccc5cf4b2acf86beb76c710dc9b8d36d14e9bfb0e024c"
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 2,
+      "canonical": "小さな口の芽",
+      "description": "小さな口のような葉が出た。開けたまま待っている。",
+      "path": "assets/characters/venus_flytrap/02.png",
+      "imageSha256": "0c0067ce3b95e27dc9463a51ea785f8fcad3d3c380d10cfa423367e97d4d09ea",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "0c0067ce3b95e27dc9463a51ea785f8fcad3d3c380d10cfa423367e97d4d09ea"
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 3,
+      "canonical": "若葉のハエトリグサ",
+      "description": "若い葉が増えてきた。急に動く用事はまだない。",
+      "path": "assets/characters/venus_flytrap/03.png",
+      "imageSha256": "b7edace25d2d34220702708d0af7f4fac5b399fcd86251e729873af5b5b60c74",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "b7edace25d2d34220702708d0af7f4fac5b399fcd86251e729873af5b5b60c74"
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 4,
+      "canonical": "口を広げた葉",
+      "description": "閉じるのが上手になった。開き直るには少し時間がかかる。",
+      "path": "assets/characters/venus_flytrap/04.png",
+      "imageSha256": "062ff88a73e4abcec43f6881288a1915517cc7c35a8c54295819850aeda5d5a6",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "062ff88a73e4abcec43f6881288a1915517cc7c35a8c54295819850aeda5d5a6"
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 5,
+      "canonical": "育ちざかりの葉",
+      "description": "葉を広げて待つ。動かない時間のほうがずっと長い。",
+      "path": "assets/characters/venus_flytrap/05.png",
+      "imageSha256": "58e8790f4d077f7088bfab312b68b4bc9af525fa8709b05beea7db4503e0a45b",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "58e8790f4d077f7088bfab312b68b4bc9af525fa8709b05beea7db4503e0a45b"
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 6,
+      "canonical": "大きな口の葉",
+      "description": "立派な葉が並んでいる。話しかける葉を少し迷う。",
+      "path": "assets/characters/venus_flytrap/06.png",
+      "imageSha256": "4934f0480cdbbaae77bbc7d99737766df1671581cdf1f9832992bc77403e7693",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "4934f0480cdbbaae77bbc7d99737766df1671581cdf1f9832992bc77403e7693"
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 7,
+      "canonical": "口がいっぱい",
+      "description": "口のような葉がいっぱい。閉じる用事がなければとても静か。",
+      "path": "assets/characters/venus_flytrap/07.png",
+      "imageSha256": "84b47f608d3daf2b4bcf57567b0c20574ffdb34a6fbcff8c7e6f12172007e216",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "84b47f608d3daf2b4bcf57567b0c20574ffdb34a6fbcff8c7e6f12172007e216"
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 8,
+      "canonical": "花咲くハエトリグサ",
+      "description": "高いところに白い花が咲いた。食事の場所とは分けているらしい。",
+      "path": "assets/characters/venus_flytrap/08.png",
+      "imageSha256": "1a2660506e3bfb98584abc08d815e12c4f46bb903122e4037e046adfc945857f",
+      "accentSha256": "9c08ea134c60456868e42e7889cfcf1c3a52663a37f15efd94cb64413e3ed618",
+      "freshSha256": "1a2660506e3bfb98584abc08d815e12c4f46bb903122e4037e046adfc945857f"
+    },
+    {
+      "id": "mushroom",
+      "stage": 1,
+      "canonical": "キノコの小さな粒",
+      "description": "小さな粒がふわふわしている。キノコになる場所を探しているらしい。",
+      "path": "assets/characters/mushroom/01.png",
+      "imageSha256": "a12b080494b48c483cb10ac9300e53f9d08fc690860920163c7552c7c7a84f16",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "a12b080494b48c483cb10ac9300e53f9d08fc690860920163c7552c7c7a84f16"
+    },
+    {
+      "id": "mushroom",
+      "stage": 2,
+      "canonical": "広がるキノコの糸",
+      "description": "細い糸があちこちにつながった。どこまでが自分かは聞かないでおく。",
+      "path": "assets/characters/mushroom/02.png",
+      "imageSha256": "4f21304d95f45cd1380b8560f206ddd6a3b82ac01705f0694f901077b7f96bb0",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "4f21304d95f45cd1380b8560f206ddd6a3b82ac01705f0694f901077b7f96bb0"
+    },
+    {
+      "id": "mushroom",
+      "stage": 3,
+      "canonical": "小さなキノコの芽",
+      "description": "小さなキノコの芽が顔を出した。まだ小さくても、かさはもう一人前。",
+      "path": "assets/characters/mushroom/03.png",
+      "imageSha256": "55022b95a49cfaf8b43ec351019a7fdf733e724fc71e7e9e72b33e35675bcc1e",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "55022b95a49cfaf8b43ec351019a7fdf733e724fc71e7e9e72b33e35675bcc1e"
+    },
+    {
+      "id": "mushroom",
+      "stage": 4,
+      "canonical": "のびる子キノコ",
+      "description": "背がすっとのびた。雨がなくても、かさは持っている。",
+      "path": "assets/characters/mushroom/04.png",
+      "imageSha256": "74c4e1b86a7898b0c5534dfe997e36defb95c7b277eae8daf350600566ea7c5d",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "74c4e1b86a7898b0c5534dfe997e36defb95c7b277eae8daf350600566ea7c5d"
+    },
+    {
+      "id": "mushroom",
+      "stage": 5,
+      "canonical": "育ちざかりのキノコ",
+      "description": "背が伸びてきた。昨日と同じ高さで探すと見落とす。",
+      "path": "assets/characters/mushroom/05.png",
+      "imageSha256": "20ebc6457d975c52c4f4beef38f5da855276d85d1a433e3a9e6be85f5b03e207",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "20ebc6457d975c52c4f4beef38f5da855276d85d1a433e3a9e6be85f5b03e207"
+    },
+    {
+      "id": "mushroom",
+      "stage": 6,
+      "canonical": "かさを広げたキノコ",
+      "description": "かさを広げた。下に入った虫とは、とくに約束していない。",
+      "path": "assets/characters/mushroom/06.png",
+      "imageSha256": "1c165152179115c920c6c839992f295cb5513b980ca3ef1859bfb98f42ab5f06",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "1c165152179115c920c6c839992f295cb5513b980ca3ef1859bfb98f42ab5f06"
+    },
+    {
+      "id": "mushroom",
+      "stage": 7,
+      "canonical": "粉を飛ばすキノコ",
+      "description": "キノコのもとになる粉を送り出している。引っ越し先は風と相談するらしい。",
+      "path": "assets/characters/mushroom/07.png",
+      "imageSha256": "e621465e511a0234fcebfddf43c20a1d4b64dfaf7ccd79210ba3e577e52f3d3f",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "e621465e511a0234fcebfddf43c20a1d4b64dfaf7ccd79210ba3e577e52f3d3f"
+    },
+    {
+      "id": "mushroom",
+      "stage": 8,
+      "canonical": "年を重ねたキノコ",
+      "description": "かさの端が少し下がった。土の中では、まだ話が続いている。",
+      "path": "assets/characters/mushroom/08.png",
+      "imageSha256": "9a431ab24c02560cf4240d50efea37663fdf8c29df6d50fa7908597fce74a52b",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "9a431ab24c02560cf4240d50efea37663fdf8c29df6d50fa7908597fce74a52b"
+    },
+    {
+      "id": "dragon",
+      "stage": 1,
+      "canonical": "ちびりゅう",
+      "description": "まだトカゲにしか見えない。炎も出ない。でも誇りは高い。",
+      "path": "assets/characters/dragon/01.png",
+      "imageSha256": "ee4253c9060ee40344c6eb5a18eee8441c1ac165f3124ce30f5d9fe43dcba468",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "ee4253c9060ee40344c6eb5a18eee8441c1ac165f3124ce30f5d9fe43dcba468"
+    },
+    {
+      "id": "dragon",
+      "stage": 2,
+      "canonical": "子りゅう",
+      "description": "うろこが固くなってきた。動くとこつこつ音がする。",
+      "path": "assets/characters/dragon/02.png",
+      "imageSha256": "9dabb093a8d25ac9de2fb572c9812da70d22da127c8c41364bdc23f18d51f2f2",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "9dabb093a8d25ac9de2fb572c9812da70d22da127c8c41364bdc23f18d51f2f2"
+    },
+    {
+      "id": "dragon",
+      "stage": 3,
+      "canonical": "つのの生えたりゅう",
+      "description": "初めて煙をはいた。自分でびっくりしてむせた。",
+      "path": "assets/characters/dragon/03.png",
+      "imageSha256": "862eb8a705db9d996a93b97dc83d1e6347c2440053871b21ce82fb4e284b7e13",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "862eb8a705db9d996a93b97dc83d1e6347c2440053871b21ce82fb4e284b7e13"
+    },
+    {
+      "id": "dragon",
+      "stage": 4,
+      "canonical": "小さなつばさのりゅう",
+      "description": "宝物を集めはじめた。1個目はペットボトルのふた。",
+      "path": "assets/characters/dragon/04.png",
+      "imageSha256": "5a176b88933207a3468f7afafb7b060ced9734e6de95ac28e3dd3296ef2812ca",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "5a176b88933207a3468f7afafb7b060ced9734e6de95ac28e3dd3296ef2812ca"
+    },
+    {
+      "id": "dragon",
+      "stage": 5,
+      "canonical": "つばさの育ったりゅう",
+      "description": "つばさが重い。飛ぶより、引きずって歩くほうが速い。",
+      "path": "assets/characters/dragon/05.png",
+      "imageSha256": "3b7b28d248ecbe9a806902d10cda8cd96382a2fad3a1257f1862d5280cc1dc47",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "3b7b28d248ecbe9a806902d10cda8cd96382a2fad3a1257f1862d5280cc1dc47"
+    },
+    {
+      "id": "dragon",
+      "stage": 6,
+      "canonical": "火をふくりゅう",
+      "description": "ようやく飛んだ。着地で小さなクレーターを作った。",
+      "path": "assets/characters/dragon/06.png",
+      "imageSha256": "61b1e3c00fb37a3e67396c0e13eddf1ad8aa550d426bb7189308042a1f840211",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "61b1e3c00fb37a3e67396c0e13eddf1ad8aa550d426bb7189308042a1f840211"
+    },
+    {
+      "id": "dragon",
+      "stage": 7,
+      "canonical": "大きなりゅう",
+      "description": "空にいるときだけ静か。地面に降りるとよくしゃべる。",
+      "path": "assets/characters/dragon/07.png",
+      "imageSha256": "d0dd2e26caf8c101fe902846fd60549665325127644aba9fea64ad32307c78b4",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "d0dd2e26caf8c101fe902846fd60549665325127644aba9fea64ad32307c78b4"
+    },
+    {
+      "id": "dragon",
+      "stage": 8,
+      "canonical": "いにしえのりゅう",
+      "description": "背中に雲がかかる大きさ。もう誰も大きさを測ろうとしない。",
+      "path": "assets/characters/dragon/08.png",
+      "imageSha256": "b14fbf6ce1315c58ec58921454091ee0bde1588157dc093827210453929f6553",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "b14fbf6ce1315c58ec58921454091ee0bde1588157dc093827210453929f6553"
+    },
+    {
+      "id": "phoenix",
+      "stage": 1,
+      "canonical": "火のひな",
+      "description": "あたたかい。あたたかすぎて、持つとちょっと熱い。",
+      "path": "assets/characters/phoenix/01.png",
+      "imageSha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b"
+    },
+    {
+      "id": "phoenix",
+      "stage": 2,
+      "canonical": "よちよち火の鳥",
+      "description": "よちよち歩く。歩いたあとが少しこげている。",
+      "path": "assets/characters/phoenix/02.png",
+      "imageSha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6"
+    },
+    {
+      "id": "phoenix",
+      "stage": 3,
+      "canonical": "若い火の鳥",
+      "description": "羽の先がゆらゆら燃えている。本人は涼しい顔。",
+      "path": "assets/characters/phoenix/03.png",
+      "imageSha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237"
+    },
+    {
+      "id": "phoenix",
+      "stage": 4,
+      "canonical": "空を飛ぶ火の鳥",
+      "description": "飛んだあとに火の粉が舞う。周りはいつも少しあわてている。",
+      "path": "assets/characters/phoenix/04.png",
+      "imageSha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f"
+    },
+    {
+      "id": "phoenix",
+      "stage": 5,
+      "canonical": "燃えさかる火の鳥",
+      "description": "つばさを広げると、夜でも朝に見える。",
+      "path": "assets/characters/phoenix/05.png",
+      "imageSha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851"
+    },
+    {
+      "id": "phoenix",
+      "stage": 6,
+      "canonical": "金色の火の鳥",
+      "description": "一度燃えつきた。3秒で戻ってきた。",
+      "path": "assets/characters/phoenix/06.png",
+      "imageSha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973"
+    },
+    {
+      "id": "phoenix",
+      "stage": 7,
+      "canonical": "年を重ねた火の鳥",
+      "description": "何度も死んで、何度も帰ってくる。もう数えていない。",
+      "path": "assets/characters/phoenix/07.png",
+      "imageSha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971"
+    },
+    {
+      "id": "phoenix",
+      "stage": 8,
+      "canonical": "灰からよみがえる鳥",
+      "description": "終わりがない。だから急がない。",
+      "path": "assets/characters/phoenix/08.png",
+      "imageSha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2"
+    },
+    {
+      "id": "god",
+      "stage": 1,
+      "canonical": "光の粒",
+      "description": "光の粒がいる。小さいのに、つい目で追ってしまう。",
+      "path": "assets/characters/god/01.png",
+      "imageSha256": "3e9ba7ff83036637beab953d84d321b13f13ae6e2e0cef4fab8a4d2adcb46ca5",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "3e9ba7ff83036637beab953d84d321b13f13ae6e2e0cef4fab8a4d2adcb46ca5"
+    },
+    {
+      "id": "god",
+      "stage": 2,
+      "canonical": "光の子",
+      "description": "羽が生えてきた。まだかざり。",
+      "path": "assets/characters/god/02.png",
+      "imageSha256": "47f4bd18d29ab15c8977776f05d2a7fdf22183c6b3a69020c8953fe80c38cf68",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "47f4bd18d29ab15c8977776f05d2a7fdf22183c6b3a69020c8953fe80c38cf68"
+    },
+    {
+      "id": "god",
+      "stage": 3,
+      "canonical": "小さな精霊",
+      "description": "小さな精霊になった。呼ぶと光の向きが少し変わる。",
+      "path": "assets/characters/god/03.png",
+      "imageSha256": "68184e0b5f36156281403e1100569088b620f570991319b5daa12216596e39a7",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "68184e0b5f36156281403e1100569088b620f570991319b5daa12216596e39a7"
+    },
+    {
+      "id": "god",
+      "stage": 4,
+      "canonical": "見習いかみさま",
+      "description": "小さな奇跡を起こせる。なくした物がすぐ見つかるくらい。",
+      "path": "assets/characters/god/04.png",
+      "imageSha256": "493e5f6866f33750bb2319107df728f3fbf0589b4ab250bc82c0801b1486fdf9",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "493e5f6866f33750bb2319107df728f3fbf0589b4ab250bc82c0801b1486fdf9"
+    },
+    {
+      "id": "god",
+      "stage": 5,
+      "canonical": "かみさま",
+      "description": "周りの人が、なぜか背すじをのばす。",
+      "path": "assets/characters/god/05.png",
+      "imageSha256": "4fb80b48f2c3009044b31f930507aa484d2969efba2b19c0408e960895314c98",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "4fb80b48f2c3009044b31f930507aa484d2969efba2b19c0408e960895314c98"
+    },
+    {
+      "id": "god",
+      "stage": 6,
+      "canonical": "大いなるかみさま",
+      "description": "祈りが届くようになった。だいたい全部かなえてしまう。",
+      "path": "assets/characters/god/06.png",
+      "imageSha256": "10afbe41502067c5fd4244035c8f5845cc695f94ac64eaa2f8b9a25273d1c16a",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "10afbe41502067c5fd4244035c8f5845cc695f94ac64eaa2f8b9a25273d1c16a"
+    },
+    {
+      "id": "god",
+      "stage": 7,
+      "canonical": "神々しい光",
+      "description": "そこにいるだけで、周りの音が少し遠くなる。",
+      "path": "assets/characters/god/07.png",
+      "imageSha256": "4f6352b11fe931d3d6b586b45d42e3b3fee1230f4136a8e0a7269b424a651772",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "4f6352b11fe931d3d6b586b45d42e3b3fee1230f4136a8e0a7269b424a651772"
+    },
+    {
+      "id": "god",
+      "stage": 8,
+      "canonical": "光そのもの",
+      "description": "顔がもう太陽になっている。とくに説明はない。",
+      "path": "assets/characters/god/08.png",
+      "imageSha256": "1a3ad9b9fc3adf621f67c421b4af1c541c9d9286db207b06f7230c6f2fa17f89",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "1a3ad9b9fc3adf621f67c421b4af1c541c9d9286db207b06f7230c6f2fa17f89"
+    },
+    {
+      "id": "world_tree",
+      "stage": 1,
+      "canonical": "光る芽",
+      "description": "小さな芽が光っている。寝るときは少し暗くしてくれる。",
+      "path": "assets/characters/world_tree/01.png",
+      "imageSha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581"
+    },
+    {
+      "id": "world_tree",
+      "stage": 2,
+      "canonical": "ふしぎな苗",
+      "description": "葉のそばに不思議な気配がある。呼ぶといったん静かになる。",
+      "path": "assets/characters/world_tree/02.png",
+      "imageSha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b"
+    },
+    {
+      "id": "world_tree",
+      "stage": 3,
+      "canonical": "小さな木",
+      "description": "枝が伸びた。木陰には、ときどき知らない足跡がある。",
+      "path": "assets/characters/world_tree/03.png",
+      "imageSha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716"
+    },
+    {
+      "id": "world_tree",
+      "stage": 4,
+      "canonical": "精霊の木",
+      "description": "枝の間で声がする。聞き返すと葉っぱの音に戻る。",
+      "path": "assets/characters/world_tree/04.png",
+      "imageSha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e"
+    },
+    {
+      "id": "world_tree",
+      "stage": 5,
+      "canonical": "大樹",
+      "description": "大きな木になった。根もとの昼寝場所が人気らしい。",
+      "path": "assets/characters/world_tree/05.png",
+      "imageSha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61"
+    },
+    {
+      "id": "world_tree",
+      "stage": 6,
+      "canonical": "巨大な木",
+      "description": "上のほうが見えない。落ちた葉が届くまで少し待つ。",
+      "path": "assets/characters/world_tree/06.png",
+      "imageSha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13"
+    },
+    {
+      "id": "world_tree",
+      "stage": 7,
+      "canonical": "雲をこえる木",
+      "description": "雲が枝にかかる。雨宿りの相談は下のほうで受けつける。",
+      "path": "assets/characters/world_tree/07.png",
+      "imageSha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d"
+    },
+    {
+      "id": "world_tree",
+      "stage": 8,
+      "canonical": "世界樹",
+      "description": "世界を支えているらしい。それでも新しい葉は小さい。",
+      "path": "assets/characters/world_tree/08.png",
+      "imageSha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+      "accentSha256": "f9fdd30449a0cfd7f44907716a0f020a47929375ac79e5393c1e0f343fd41721",
+      "freshSha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f"
+    }
+  ]
+}

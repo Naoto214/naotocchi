@@ -1,0 +1,32 @@
+(node:11) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ owl source candidate owns paired ear tufts, asymmetric folded wings and cream feather markings (139.468765ms)
+✔ owl candidate retains canonical face, owned finite motion and scoped capture (79.995862ms)
+✔ owl revised source details avoid coarse paint bands and expose its folded wing (0.196486ms)
+✖ owl held wing is actually visible ahead of breast and lower head (9.52907ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 317.629888
+
+✖ failing tests:
+
+test at tests/character-3d-owl-candidate-test.cjs:11:1
+✖ owl held wing is actually visible ahead of breast and lower head (9.52907ms)
+  AssertionError [ERR_ASSERTION]: held wing must emerge in front of breast/head, not merely extend forward locally
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-owl-candidate-test.cjs:12:640)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

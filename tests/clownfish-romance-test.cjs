@@ -339,7 +339,12 @@ test('a same-tick elder achievement cannot replace the completed sex-change noti
 test('stage-7 notice waits until finished minigame results have been readable',()=>{
   const {h,s}=setup({ageTicks:799});
   h.api.startMinigame({id:'stage7-probe',start(){}});
+  // the clock is paused while a minigame owns the screen, so loop() alone
+  // never reaches age 40 here; drive the one tick directly (the notice
+  // still has to wait until the game is over and its result was readable)
   h.api.loop();
+  assert.equal(s.ageTicks,799,'time does not pass during a minigame');
+  h.api.tick();
   assert.equal(s.gender,'male');
   assert.match(s.pendingClownfishTransition,/変わる途中/);
   h.api.finishMinigame(50);
@@ -354,8 +359,13 @@ test('stage-7 notice waits until finished minigame results have been readable',(
 test('newborn clownfish hatch male for a binary roll and save that identity',()=>{
   const {h,s,storage}=setup({stage:'egg',speciesLine:null,gender:null,orientationId:null,attractedTo:[],growth:0});
   s.lifetime.nextEggLine='clownfish';
+  s.lifetime.nextEggKind='normal';
+  s.items.c_egg_normal=1;
   h.sandbox.Math.random=()=>0.6;
-  for(let i=0;i<5;i++) h.dispatch(h.get('playWithBtn'),'click');
+  h.get('lifeCardOverlay').classList.add('hidden');
+  for(let i=0;i<5;i++)h.dispatch(h.get('playWithBtn'),'click');
+  assert.equal(s.speciesLine,'clownfish');
+  assert.equal(h.api.itemStock('c_egg_normal'),0);
   assert.equal(s.stage,'growing');
   assert.equal(s.gender,'male');
   assert.equal(s.ageTicks,0);

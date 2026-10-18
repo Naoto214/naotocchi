@@ -1,0 +1,768 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613351159,
+    "name": "full-rollout-stages-dandelion-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:d8227b104a896d35e9fd0a0f15e4830dd965e883b472be428f14b826c43e3246"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "dc45123160b4ca99476e3972d27b22cba3f5cbb6545475f5c6cd00cbca91585a",
+      "bytes": 7703
+    },
+    {
+      "path": "missing-motion/dandelion-2-dislike-idle-normal.jpg",
+      "sha256": "f8c2176f1a8c9942bc76b8c8a4b5802a54711710bb992834f0adc567c5f8a0fe",
+      "bytes": 13580
+    },
+    {
+      "path": "missing-motion/dandelion-2-dislike-idle-reduced.jpg",
+      "sha256": "f6b15505328e6bb92cba6ec321a69001fc935fd7c91947370e0d05ee2ad292e8",
+      "bytes": 13556
+    },
+    {
+      "path": "missing-motion/dandelion-2-dislike-walk-normal.jpg",
+      "sha256": "ddf368424b04b34948e875c8fa3ac993f957a27254461af31b05ee111032d79d",
+      "bytes": 13677
+    },
+    {
+      "path": "missing-motion/dandelion-2-dislike-walk-reduced.jpg",
+      "sha256": "c0cb38390ddafb30563eda1d480ed7dc61c3df34445db90258e078cbdd60ecb6",
+      "bytes": 13605
+    },
+    {
+      "path": "missing-motion/dandelion-2-motion.jpg",
+      "sha256": "6aa2b8048885f449e3c947cf5c1310185113e1d9047166a2e17eac353a6da46c",
+      "bytes": 564885
+    },
+    {
+      "path": "missing-motion/dandelion-2-normal-idle-normal.jpg",
+      "sha256": "6ce21d1ea1c6c0a1c05b752053d74a91f5ef4eccb47746a7164ce56def9d1d33",
+      "bytes": 13427
+    },
+    {
+      "path": "missing-motion/dandelion-2-normal-idle-reduced.jpg",
+      "sha256": "6c0aa08fc7bd2de15cbb6396c4c6df9f55a267dccdef40ffb1afa193de7cf7ca",
+      "bytes": 13427
+    },
+    {
+      "path": "missing-motion/dandelion-2-normal-walk-normal.jpg",
+      "sha256": "3e086a4147ead5f06c409e6b87c672b0a183086baf2d834a5f318382afa7f0bb",
+      "bytes": 13617
+    },
+    {
+      "path": "missing-motion/dandelion-2-normal-walk-reduced.jpg",
+      "sha256": "331d149819390d95cb5bb332b0cdb3283a6942b68ecae383195ac89bd5070af2",
+      "bytes": 13443
+    },
+    {
+      "path": "missing-motion/dandelion-2-positive-idle-normal.jpg",
+      "sha256": "55fb4b0d96123a8c94bdb1402a5e636c6d5f940d4953ba988801e25a95d69ef2",
+      "bytes": 13523
+    },
+    {
+      "path": "missing-motion/dandelion-2-positive-idle-reduced.jpg",
+      "sha256": "3a235e1695ca1cba11c34155f091db5f950555e8798ece96a33b8844ad69048e",
+      "bytes": 13307
+    },
+    {
+      "path": "missing-motion/dandelion-2-positive-walk-normal.jpg",
+      "sha256": "47dcfdfd30b33d3d8bd6a1f1dc7c1d3374b93debaaee028b80cad855e5980a05",
+      "bytes": 13586
+    },
+    {
+      "path": "missing-motion/dandelion-2-positive-walk-reduced.jpg",
+      "sha256": "e94c834a83e8ebf944f5fbaa7d63f29e48d301d299aff0b0a459dc013a307a20",
+      "bytes": 13385
+    },
+    {
+      "path": "missing-motion/dandelion-2-sick-idle-normal.jpg",
+      "sha256": "cb22c95a976260b2f88271e1f72c1fadc3e8f1b9f7afaf2c469516aa666e23be",
+      "bytes": 13869
+    },
+    {
+      "path": "missing-motion/dandelion-2-sick-idle-reduced.jpg",
+      "sha256": "c536697654d4beaed8c7203632130756c0234f51e5f58f212633fc22334f9035",
+      "bytes": 13740
+    },
+    {
+      "path": "missing-motion/dandelion-2-sick-walk-normal.jpg",
+      "sha256": "d0e17b2ea8f4005a319b6d11f11f8861c72964d4d34e739bd08491e0aedb12d5",
+      "bytes": 13927
+    },
+    {
+      "path": "missing-motion/dandelion-2-sick-walk-reduced.jpg",
+      "sha256": "5591d7d0884af9f5f1d55fd890f269d2378447de496d01873b0ddeecf2cde5d4",
+      "bytes": 13798
+    },
+    {
+      "path": "missing-motion/dandelion-2-sleeping-idle-normal.jpg",
+      "sha256": "f9443be93f193ffff5dadf30e1a1e960d51068fe5be1d07eae2f3c13ecc04c8f",
+      "bytes": 12944
+    },
+    {
+      "path": "missing-motion/dandelion-2-sleeping-idle-reduced.jpg",
+      "sha256": "23b69a44ec735843f4f742e8399f26de0d7d16df18cf4f6db51752ee1c7b016e",
+      "bytes": 13173
+    },
+    {
+      "path": "missing-motion/dandelion-2-sleeping-walk-normal.jpg",
+      "sha256": "aa5d86556f976c390fb1e8c17b9dba944640da5706e40ae69eab072e18f47e07",
+      "bytes": 13081
+    },
+    {
+      "path": "missing-motion/dandelion-2-sleeping-walk-reduced.jpg",
+      "sha256": "fc363bca9b2ecd9470680c7ab7f84045cc5136191ab4539367a91dc624371624",
+      "bytes": 13261
+    },
+    {
+      "path": "missing-motion/dandelion-2-strained-idle-normal.jpg",
+      "sha256": "7ec23506d086f33d10eee45b2e68c5ec7f94b4c2e76618c30365e2f5c0c4fe39",
+      "bytes": 13634
+    },
+    {
+      "path": "missing-motion/dandelion-2-strained-idle-reduced.jpg",
+      "sha256": "8b272833f58265696141ec54aecfe3809a88019de5ed3b099f4c4da8e9418840",
+      "bytes": 13832
+    },
+    {
+      "path": "missing-motion/dandelion-2-strained-walk-normal.jpg",
+      "sha256": "3af4872766418f0c1788e596a8110998defad71070a0edbfc4c1101f426a4c8e",
+      "bytes": 13619
+    },
+    {
+      "path": "missing-motion/dandelion-2-strained-walk-reduced.jpg",
+      "sha256": "dcac188bbf785732f88911266dff0a0ee4392a3279b0e1e7d2c6318007f4cad5",
+      "bytes": 13815
+    },
+    {
+      "path": "missing-motion/dandelion-2-tired-idle-normal.jpg",
+      "sha256": "d8ea1d012bf1f02fd8a6f0336dca4155556f04d572112a4fa9eaf2872c8dae63",
+      "bytes": 13187
+    },
+    {
+      "path": "missing-motion/dandelion-2-tired-idle-reduced.jpg",
+      "sha256": "9cffb4305f3557cc58472e3d4b2a4cbfd3b2d0620f3097280fb2054454f5c5cf",
+      "bytes": 13346
+    },
+    {
+      "path": "missing-motion/dandelion-2-tired-walk-normal.jpg",
+      "sha256": "98db70736428488f6481db79acdcb4864638e7fc9711e5fece5f8198ce616c55",
+      "bytes": 13193
+    },
+    {
+      "path": "missing-motion/dandelion-2-tired-walk-reduced.jpg",
+      "sha256": "09d22ebfdd6265e9fcc145a7fa921cf5f320fec7c7d75044244edf44dc62cc99",
+      "bytes": 13444
+    },
+    {
+      "path": "missing-motion/dandelion-2-wantsPlay-idle-normal.jpg",
+      "sha256": "5942803f441f8ffd24c90cebc16947c9e221ce816acbd933324de45b26d3a72d",
+      "bytes": 13712
+    },
+    {
+      "path": "missing-motion/dandelion-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "b864317aae51672c57c12d3aa95d3cca59148f3f23cddd23763bb3a001a720fc",
+      "bytes": 13500
+    },
+    {
+      "path": "missing-motion/dandelion-2-wantsPlay-walk-normal.jpg",
+      "sha256": "ed31a812513326506c497a0b1e0c92a6db16b5a965184e2dd6d29a01363ff8ae",
+      "bytes": 13742
+    },
+    {
+      "path": "missing-motion/dandelion-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "df35fe95a8bd93aaead011fe01fb12d7866cbdd2c61a6727553daa0fa30b7e40",
+      "bytes": 13510
+    },
+    {
+      "path": "missing-motion/dandelion-3-dislike-idle-normal.jpg",
+      "sha256": "481d7509059b5ea2415fe89d4f267c51fd39d5852ef45a75efc2a5d732e15304",
+      "bytes": 11364
+    },
+    {
+      "path": "missing-motion/dandelion-3-dislike-idle-reduced.jpg",
+      "sha256": "d390ae1cf0bd8d0c4204c414340700ccc9235bcdbb0001169426b453b4c34eff",
+      "bytes": 11502
+    },
+    {
+      "path": "missing-motion/dandelion-3-dislike-walk-normal.jpg",
+      "sha256": "4b442ef9485e28825885cdb3e88515ca00f325f49b6ce56c226cc425681cf72a",
+      "bytes": 11481
+    },
+    {
+      "path": "missing-motion/dandelion-3-dislike-walk-reduced.jpg",
+      "sha256": "eb43fa13ccb30dd04e1dfb81b4e4cdf5e036315d0745c87eaebf0ef85386fd3c",
+      "bytes": 11547
+    },
+    {
+      "path": "missing-motion/dandelion-3-motion.jpg",
+      "sha256": "c3adfc8aa2dff7ea8e3a02d49ef17c73062ef0d03b5c960863bd777e042dc51c",
+      "bytes": 518890
+    },
+    {
+      "path": "missing-motion/dandelion-3-normal-idle-normal.jpg",
+      "sha256": "b1a359c42afe6b79385d0687078192c7fabcfff3499cc4beefe9bfffb823c8a7",
+      "bytes": 11434
+    },
+    {
+      "path": "missing-motion/dandelion-3-normal-idle-reduced.jpg",
+      "sha256": "bdb92fc2f58f5e828e3fc4f38c99b717106f44538281ccc46b307c2654ff2de2",
+      "bytes": 11489
+    },
+    {
+      "path": "missing-motion/dandelion-3-normal-walk-normal.jpg",
+      "sha256": "741f62105eba51f730a352faeed6b6b334af90986ce669f5822654697122d954",
+      "bytes": 11624
+    },
+    {
+      "path": "missing-motion/dandelion-3-normal-walk-reduced.jpg",
+      "sha256": "24f4f92c8f9e7dcaf330ba9733aa96632b6755eecbcd8bfbca1ad0fce9588cb5",
+      "bytes": 11518
+    },
+    {
+      "path": "missing-motion/dandelion-3-positive-idle-normal.jpg",
+      "sha256": "1cae673b4559ac7bb1178fc75c93f1dd617949e8055789d1f4f468d977e15434",
+      "bytes": 11578
+    },
+    {
+      "path": "missing-motion/dandelion-3-positive-idle-reduced.jpg",
+      "sha256": "485e0e31d80e7b536a6264d69d0a244c1440f40d3a3784d9555eaff014efc457",
+      "bytes": 11515
+    },
+    {
+      "path": "missing-motion/dandelion-3-positive-walk-normal.jpg",
+      "sha256": "97c215167b3a5e16df42335e01a572377974ef761a43dbc5e0ce9a20e76a5c81",
+      "bytes": 11636
+    },
+    {
+      "path": "missing-motion/dandelion-3-positive-walk-reduced.jpg",
+      "sha256": "a8a142860b3bf74d0ef9e9277089f17d11b076d2116a2e8f47e522c157009ce5",
+      "bytes": 11568
+    },
+    {
+      "path": "missing-motion/dandelion-3-sick-idle-normal.jpg",
+      "sha256": "571cf53c916414a114ebf652a8febdce8e3f324599fd4b3b9941897bbd72ecea",
+      "bytes": 11147
+    },
+    {
+      "path": "missing-motion/dandelion-3-sick-idle-reduced.jpg",
+      "sha256": "8e2dc24edd6e6d71453838a501808d620fd038e6b0cef32f1b9b6bf2afe58f29",
+      "bytes": 11195
+    },
+    {
+      "path": "missing-motion/dandelion-3-sick-walk-normal.jpg",
+      "sha256": "2012652ff8242ff0c4da40d37f3fc376206d805d54260dc4e5494782a71a22b8",
+      "bytes": 11212
+    },
+    {
+      "path": "missing-motion/dandelion-3-sick-walk-reduced.jpg",
+      "sha256": "383e66e771255a55790460176ef3e3db4fff00f7f3490a5c8974679bd7f413f1",
+      "bytes": 11255
+    },
+    {
+      "path": "missing-motion/dandelion-3-sleeping-idle-normal.jpg",
+      "sha256": "f13678489740644a52dbd6a838925af8b76027f72a30ea4627b76a614d2ed87f",
+      "bytes": 11181
+    },
+    {
+      "path": "missing-motion/dandelion-3-sleeping-idle-reduced.jpg",
+      "sha256": "a561243aeee9e8f624e9bdbdd5edafd3d67dfc02e5963794bcf99525cb0f9747",
+      "bytes": 11140
+    },
+    {
+      "path": "missing-motion/dandelion-3-sleeping-walk-normal.jpg",
+      "sha256": "04e3a60c4450df6f7db676b36b36b8b40ce63801b0b1bf9e48e96f148d2230b1",
+      "bytes": 11329
+    },
+    {
+      "path": "missing-motion/dandelion-3-sleeping-walk-reduced.jpg",
+      "sha256": "15d34e3e211ffeb4d9a0eebc333ea28feecb35624bb50edf0c01c4dcc1d34c9d",
+      "bytes": 11231
+    },
+    {
+      "path": "missing-motion/dandelion-3-strained-idle-normal.jpg",
+      "sha256": "b48b6351d090e9694c78dbd5b3fbe2fecbdd5b2f3bd2be7ce3972a12a9aae156",
+      "bytes": 11451
+    },
+    {
+      "path": "missing-motion/dandelion-3-strained-idle-reduced.jpg",
+      "sha256": "4a72827e5b212d7727ad0429d6b1741f3030ef621839948e59d66ad2390ada0c",
+      "bytes": 11489
+    },
+    {
+      "path": "missing-motion/dandelion-3-strained-walk-normal.jpg",
+      "sha256": "efdcdbe992374e3676698d1658e3096b6d8da6229c355df1b025834ad39c3715",
+      "bytes": 11444
+    },
+    {
+      "path": "missing-motion/dandelion-3-strained-walk-reduced.jpg",
+      "sha256": "a735ae08644d4fc461e62e1254575e0346174cca7e0c57a9fbea5805f82811f3",
+      "bytes": 11496
+    },
+    {
+      "path": "missing-motion/dandelion-3-tired-idle-normal.jpg",
+      "sha256": "fee6b339f0da7a69ab9256afdc3565fc4cb9b666567d858bfe509c7fe71c9b21",
+      "bytes": 11095
+    },
+    {
+      "path": "missing-motion/dandelion-3-tired-idle-reduced.jpg",
+      "sha256": "304dd804f82b023dda8b3df39e2a55a5e08eb1cf15c21792bbfdb2391fb9f848",
+      "bytes": 11005
+    },
+    {
+      "path": "missing-motion/dandelion-3-tired-walk-normal.jpg",
+      "sha256": "22743ddcf7c9c00c3b84003af0bd459278b16279ed3895d902a54f9a5c5c6dab",
+      "bytes": 11100
+    },
+    {
+      "path": "missing-motion/dandelion-3-tired-walk-reduced.jpg",
+      "sha256": "536e532372420287eed8892eea3df55bda14013fe3099e47cdbf43cec1ecda1b",
+      "bytes": 11123
+    },
+    {
+      "path": "missing-motion/dandelion-3-wantsPlay-idle-normal.jpg",
+      "sha256": "e2e74fb008fe57bef01a52cf3d02af732be84df32788c0f6f77ff68a720b75ef",
+      "bytes": 11815
+    },
+    {
+      "path": "missing-motion/dandelion-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "ecd49f157f440113984478e99bf9856145e6f8f56db93237f6ee3a2abcda8212",
+      "bytes": 11727
+    },
+    {
+      "path": "missing-motion/dandelion-3-wantsPlay-walk-normal.jpg",
+      "sha256": "57438977a3e6732ac109bb275e68b05b0ff7faab9bce64fdad8cf4f55206903e",
+      "bytes": 11832
+    },
+    {
+      "path": "missing-motion/dandelion-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "b0520b0fc88a58f8f5f17b1b42570256afc05976d84d91af2d3611cf881ae269",
+      "bytes": 11740
+    },
+    {
+      "path": "missing-motion/dandelion-5-dislike-idle-normal.jpg",
+      "sha256": "8d921d83087263b724b6b9e5974cb54e472e4c7e3f4771e0dd7fbad22689f55c",
+      "bytes": 13241
+    },
+    {
+      "path": "missing-motion/dandelion-5-dislike-idle-reduced.jpg",
+      "sha256": "9ee40fcae2bdd0a2a7c6da40c9e92f23698421200b372f8119c9e38f71ea0465",
+      "bytes": 13294
+    },
+    {
+      "path": "missing-motion/dandelion-5-dislike-walk-normal.jpg",
+      "sha256": "28fcc2635df62f1019f214560bc858ffddabf51a4bcf5bbe99a8a862bdf9a1dc",
+      "bytes": 13338
+    },
+    {
+      "path": "missing-motion/dandelion-5-dislike-walk-reduced.jpg",
+      "sha256": "7f1ee472af406b7936bd676c28bbc0a34c302f01acf84d118b26fad55a3b9e25",
+      "bytes": 13057
+    },
+    {
+      "path": "missing-motion/dandelion-5-motion.jpg",
+      "sha256": "5463f4ed5b098cbf7707b1ceb0f9519e64c5e1fcd72569c313220328ed72f341",
+      "bytes": 558977
+    },
+    {
+      "path": "missing-motion/dandelion-5-normal-idle-normal.jpg",
+      "sha256": "de1dd0d9d4330a4b198e0420594f592cf440cd6ae618aefdd747eec3ecbec326",
+      "bytes": 13322
+    },
+    {
+      "path": "missing-motion/dandelion-5-normal-idle-reduced.jpg",
+      "sha256": "d7a084a65962523c6aac0f7f3e980451157e2459b98c4b123dcf2f11693388f8",
+      "bytes": 13330
+    },
+    {
+      "path": "missing-motion/dandelion-5-normal-walk-normal.jpg",
+      "sha256": "d470fb1d97048b824b4e764e6f058f704ca756bae62c43127745a3164d97f143",
+      "bytes": 13413
+    },
+    {
+      "path": "missing-motion/dandelion-5-normal-walk-reduced.jpg",
+      "sha256": "768a796e6c9856c2d5afc0854444cdf56ba594326db02c7b80103b8c4d4d860c",
+      "bytes": 13336
+    },
+    {
+      "path": "missing-motion/dandelion-5-positive-idle-normal.jpg",
+      "sha256": "8b0c711e1d3c913fd87bfd82f902e27082f850eb06a2245710cbe048dfc461a6",
+      "bytes": 13411
+    },
+    {
+      "path": "missing-motion/dandelion-5-positive-idle-reduced.jpg",
+      "sha256": "bdd793f26103e0f3a9dbd4e2d3ad647b618aae01624acd84881644127eb45677",
+      "bytes": 13460
+    },
+    {
+      "path": "missing-motion/dandelion-5-positive-walk-normal.jpg",
+      "sha256": "229a1d2e0ec589da9b2ae4d29d572e99697b6a23725c22ce25fc3b40ce077483",
+      "bytes": 13519
+    },
+    {
+      "path": "missing-motion/dandelion-5-positive-walk-reduced.jpg",
+      "sha256": "70b9e9819f522d5b9d2c063c95617973d8b0c11359c411a246900b45c77f4fb3",
+      "bytes": 13650
+    },
+    {
+      "path": "missing-motion/dandelion-5-sick-idle-normal.jpg",
+      "sha256": "b01cb02e94d485c64e9ab48739394f5f890f1a4a9d42207f6ea1a67b7d2b2488",
+      "bytes": 13036
+    },
+    {
+      "path": "missing-motion/dandelion-5-sick-idle-reduced.jpg",
+      "sha256": "5523ddd39dd5967470fcc199ec9f5405e4a96ce92bf9bd989edfa57d326d19d6",
+      "bytes": 13152
+    },
+    {
+      "path": "missing-motion/dandelion-5-sick-walk-normal.jpg",
+      "sha256": "bcca81b9010b56d7cb444a7307beed15897d12a28bdecc8a7af2f839ad7e8ef2",
+      "bytes": 13220
+    },
+    {
+      "path": "missing-motion/dandelion-5-sick-walk-reduced.jpg",
+      "sha256": "28c41e4e1e333e433571a7ce9d95dbc2ae5886be16acbc5fa54a458dca95ab65",
+      "bytes": 13223
+    },
+    {
+      "path": "missing-motion/dandelion-5-sleeping-idle-normal.jpg",
+      "sha256": "e1f9104af640877d221f8a822af0c463c59dc256d66d808213da4d43ff1262d4",
+      "bytes": 12627
+    },
+    {
+      "path": "missing-motion/dandelion-5-sleeping-idle-reduced.jpg",
+      "sha256": "84bc3b50091a0abc75acb1c366446001780ca08e1f03a65c8db30d7e4540a883",
+      "bytes": 12519
+    },
+    {
+      "path": "missing-motion/dandelion-5-sleeping-walk-normal.jpg",
+      "sha256": "8bb2e06a3d220bef3fa39400bb3a2abd4236009e1c81367ecc3df35a9d262740",
+      "bytes": 12863
+    },
+    {
+      "path": "missing-motion/dandelion-5-sleeping-walk-reduced.jpg",
+      "sha256": "dffbb218388716c9f02490121651f6d072653a5fad7d36943d33326a9b80413e",
+      "bytes": 12617
+    },
+    {
+      "path": "missing-motion/dandelion-5-strained-idle-normal.jpg",
+      "sha256": "d844c259b8448c8ebb8794fb5e10d73d4fbf63054242474064f8c54684d26756",
+      "bytes": 13576
+    },
+    {
+      "path": "missing-motion/dandelion-5-strained-idle-reduced.jpg",
+      "sha256": "a5e10c541bbb971ec372dc178533b4d93a6001ad705d5f45573f7d2d87dc2810",
+      "bytes": 13417
+    },
+    {
+      "path": "missing-motion/dandelion-5-strained-walk-normal.jpg",
+      "sha256": "1efee918d0a40ce336972b68896a1d41b036d18c0d169038c56f9bcd898b7922",
+      "bytes": 13489
+    },
+    {
+      "path": "missing-motion/dandelion-5-strained-walk-reduced.jpg",
+      "sha256": "0a14faa9739a73091bd66fee2c712b5f0b20ee9ece6677f399c4556e155024bf",
+      "bytes": 13194
+    },
+    {
+      "path": "missing-motion/dandelion-5-tired-idle-normal.jpg",
+      "sha256": "6b2e6293586e696c80b6e28b49a646f6434eaa4789da3cd319a0dcc4a007f2b7",
+      "bytes": 12686
+    },
+    {
+      "path": "missing-motion/dandelion-5-tired-idle-reduced.jpg",
+      "sha256": "1854ea3a330d503303a787d432be4cb8c59033fa37a2d9db2bdeb263ac3f7d37",
+      "bytes": 12557
+    },
+    {
+      "path": "missing-motion/dandelion-5-tired-walk-normal.jpg",
+      "sha256": "6291ad03d7eb39270ec9b7085dd145b98ae98b6871df5205cf08597bb73ac6d5",
+      "bytes": 12938
+    },
+    {
+      "path": "missing-motion/dandelion-5-tired-walk-reduced.jpg",
+      "sha256": "57fa29f7da02d83d6a4bf21f4f6968a3302632eea2e2fc529cc6a25f4f0fabfc",
+      "bytes": 12660
+    },
+    {
+      "path": "missing-motion/dandelion-5-wantsPlay-idle-normal.jpg",
+      "sha256": "771b868209040bb61b94f1b1a61fbe53cfd67dd1ece01884d909f0e7acbb629e",
+      "bytes": 13713
+    },
+    {
+      "path": "missing-motion/dandelion-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "091ed8ef8b506782864269f281c4dbdb135b528f3a0adffa70be7a40e7e647c8",
+      "bytes": 13765
+    },
+    {
+      "path": "missing-motion/dandelion-5-wantsPlay-walk-normal.jpg",
+      "sha256": "bba7ce4ac2aecb092fdd0ac7343aa44d9cc112dc28ab373dd3cdee74310b1bbe",
+      "bytes": 13744
+    },
+    {
+      "path": "missing-motion/dandelion-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "17de6ca2c5854f47be9a23395f54cc38fd231b561f47ffb635d35c73b46f80f7",
+      "bytes": 13861
+    },
+    {
+      "path": "missing-motion/dandelion-7-dislike-idle-normal.jpg",
+      "sha256": "3b06c915993bf402be387a8436348b46cb7d62e43b523877582ce7e01b842908",
+      "bytes": 14783
+    },
+    {
+      "path": "missing-motion/dandelion-7-dislike-idle-reduced.jpg",
+      "sha256": "e242f3c1547072aa9d612623e031b6a012a3cce611c69d50d813742e5322b35b",
+      "bytes": 14706
+    },
+    {
+      "path": "missing-motion/dandelion-7-dislike-walk-normal.jpg",
+      "sha256": "1e7b29a8df3c2240c790f8542095ee6fb4ed4d56c1c14405d7efbe4589b5f069",
+      "bytes": 14699
+    },
+    {
+      "path": "missing-motion/dandelion-7-dislike-walk-reduced.jpg",
+      "sha256": "052fcef1f75b956f4e7e650a582747e563d20c14133c39935e2b7e636e009aa0",
+      "bytes": 14679
+    },
+    {
+      "path": "missing-motion/dandelion-7-motion.jpg",
+      "sha256": "f4c79f5cd82383a029949190e1080c279befef1a0981d9097a03fe4588ddec58",
+      "bytes": 597586
+    },
+    {
+      "path": "missing-motion/dandelion-7-normal-idle-normal.jpg",
+      "sha256": "354cbe06f17bf08b7d237d8b33502b0d5f3eec7b13684a093cef0002161b157a",
+      "bytes": 14520
+    },
+    {
+      "path": "missing-motion/dandelion-7-normal-idle-reduced.jpg",
+      "sha256": "811276b248be6bbbd4121b0f0df448412a445c655d633c315a72a0cb7282819c",
+      "bytes": 14490
+    },
+    {
+      "path": "missing-motion/dandelion-7-normal-walk-normal.jpg",
+      "sha256": "0b58ed2c8c78dc9e600eb5d28939f4c48ec9ec546d020d76e26f73ee3bbd0502",
+      "bytes": 14677
+    },
+    {
+      "path": "missing-motion/dandelion-7-normal-walk-reduced.jpg",
+      "sha256": "1a9e812880a5bd13c85c3efede703a4330079bf8bb757919623e28d07ba85bb8",
+      "bytes": 14601
+    },
+    {
+      "path": "missing-motion/dandelion-7-positive-idle-normal.jpg",
+      "sha256": "2fccbce9149f73a250d4090bb818978ce1d7d658bef4a44bc3c6fe3619595cdc",
+      "bytes": 14670
+    },
+    {
+      "path": "missing-motion/dandelion-7-positive-idle-reduced.jpg",
+      "sha256": "68571677c77527e1a138ce308a60d636524f29b761de89755d73c83ca33ac172",
+      "bytes": 14548
+    },
+    {
+      "path": "missing-motion/dandelion-7-positive-walk-normal.jpg",
+      "sha256": "e200e42f28e74be2cfea4fbeb76a25f1605bcabb63bd624f1b00bd3d8d8086bc",
+      "bytes": 14708
+    },
+    {
+      "path": "missing-motion/dandelion-7-positive-walk-reduced.jpg",
+      "sha256": "935690d62d36a43123ef59fcfd818f808d923fa6e629bb562d318c285ec21eba",
+      "bytes": 14627
+    },
+    {
+      "path": "missing-motion/dandelion-7-sick-idle-normal.jpg",
+      "sha256": "36ae6532e69dd87ab73dafebca4b0fef29dc6cd7c3e00bfc9103ad413bcfd29b",
+      "bytes": 14624
+    },
+    {
+      "path": "missing-motion/dandelion-7-sick-idle-reduced.jpg",
+      "sha256": "eb44c4280a1ca573fa92a9729f236b9192a0d75675bb8c75e861077cdec1348c",
+      "bytes": 14667
+    },
+    {
+      "path": "missing-motion/dandelion-7-sick-walk-normal.jpg",
+      "sha256": "25afb157026ebd699c23796380692d40e2408aa1355962514611cfac8e66c1cb",
+      "bytes": 14827
+    },
+    {
+      "path": "missing-motion/dandelion-7-sick-walk-reduced.jpg",
+      "sha256": "1d477353f3aa99fdb45b90727cfb05f290a337130e4e8075f30afd078409240e",
+      "bytes": 14705
+    },
+    {
+      "path": "missing-motion/dandelion-7-sleeping-idle-normal.jpg",
+      "sha256": "585c48bda58d40a8505974d1cea784af1ba615e72f0d60ef18854a317e85c472",
+      "bytes": 14022
+    },
+    {
+      "path": "missing-motion/dandelion-7-sleeping-idle-reduced.jpg",
+      "sha256": "949bf91a0ab061715e009f4d3bd20e58ab5883617aaa5002f5ff5a8d2fb20796",
+      "bytes": 14118
+    },
+    {
+      "path": "missing-motion/dandelion-7-sleeping-walk-normal.jpg",
+      "sha256": "347329572971f52435f3f7bdb75e1cf9fef9725900a4cd41cdd30a0198cf989b",
+      "bytes": 14149
+    },
+    {
+      "path": "missing-motion/dandelion-7-sleeping-walk-reduced.jpg",
+      "sha256": "e51e5f812540d2913c43dfdaaa41bd2a256e35e41e3a2afa3bb8af99513be91d",
+      "bytes": 14233
+    },
+    {
+      "path": "missing-motion/dandelion-7-strained-idle-normal.jpg",
+      "sha256": "338a4c849361361ddfdc37eb6657305834be1d0a69dcb3628377993e36adc44c",
+      "bytes": 14543
+    },
+    {
+      "path": "missing-motion/dandelion-7-strained-idle-reduced.jpg",
+      "sha256": "1db3887665d20fdcebe1ad8887a0720815ce1f5aacaf7227bec233c7fd92d4e2",
+      "bytes": 14658
+    },
+    {
+      "path": "missing-motion/dandelion-7-strained-walk-normal.jpg",
+      "sha256": "4b3902fc7a6c953dc90f7be449333d9b69201efa506f9b937ead186b82a3f53f",
+      "bytes": 14440
+    },
+    {
+      "path": "missing-motion/dandelion-7-strained-walk-reduced.jpg",
+      "sha256": "b6ca92253929980a5a263a0499625c5940662cba48c5fab8f177a3bdc6323a11",
+      "bytes": 14710
+    },
+    {
+      "path": "missing-motion/dandelion-7-tired-idle-normal.jpg",
+      "sha256": "50f1d1c81f0cb0e71164ecfef53493108b291f10183d3dbad9b0279c6b8af6b3",
+      "bytes": 14252
+    },
+    {
+      "path": "missing-motion/dandelion-7-tired-idle-reduced.jpg",
+      "sha256": "a3c384727fc0647eb3c69cc9c26c138348e274bbc77d215fec6ce33cb58b4afe",
+      "bytes": 14162
+    },
+    {
+      "path": "missing-motion/dandelion-7-tired-walk-normal.jpg",
+      "sha256": "4fa3f99339d935dc594ecec2d9483797f80db3a15a43f41c42559a5fa201f688",
+      "bytes": 14114
+    },
+    {
+      "path": "missing-motion/dandelion-7-tired-walk-reduced.jpg",
+      "sha256": "d4ab232479eb99634b0662f335973d35ed7271fb277a5d546be9d8defbaf04a1",
+      "bytes": 14306
+    },
+    {
+      "path": "missing-motion/dandelion-7-wantsPlay-idle-normal.jpg",
+      "sha256": "6f850096c9307e2f2c88025c891044d085e15af9da8262eca786bb1942461e7b",
+      "bytes": 14983
+    },
+    {
+      "path": "missing-motion/dandelion-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "0bb37f5b0d58bbf5dacf5dbc54973aa5f09b97a2d51c122f9131adc5f1b73528",
+      "bytes": 14741
+    },
+    {
+      "path": "missing-motion/dandelion-7-wantsPlay-walk-normal.jpg",
+      "sha256": "b0cca628f79d208cf5abdb8973e727bb44caae3fdf52c21f1f2d09610b33ba48",
+      "bytes": 15005
+    },
+    {
+      "path": "missing-motion/dandelion-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "c2a6175eea53203385523393b7f814eb495a4eadb381e9e32b75f18f2a1a805c",
+      "bytes": 14934
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "ca4f236e28cc88a452295b14494a5f58b2011fe6804724064b0c2a0a91c64220",
+      "bytes": 75493
+    },
+    {
+      "path": "player-dandelion-1-back.png",
+      "sha256": "3d60a153259221a54334e723ae893f01656fd5c49829947585f9171b93299cbe",
+      "bytes": 310978
+    },
+    {
+      "path": "player-dandelion-1-front.png",
+      "sha256": "4c15c0dc39cfbc390a824a45d8536610b07f6b2b83d7098f5f4b62bd4fa4b1d4",
+      "bytes": 314055
+    },
+    {
+      "path": "player-dandelion-2-back.png",
+      "sha256": "6f51ef80745b9c7c9175ec85039524c07be6eccc15388842e33c580b667f8937",
+      "bytes": 309103
+    },
+    {
+      "path": "player-dandelion-2-front.png",
+      "sha256": "06803bbb63098f0cc5962a8a099fce0d2378ed61f042661647bb28315cd7f4c4",
+      "bytes": 312397
+    },
+    {
+      "path": "player-dandelion-3-back.png",
+      "sha256": "045a3779c1f909d2447fd599c30e9aa80f4ce3dc7c602f2f774c4d0168ea6cd5",
+      "bytes": 309597
+    },
+    {
+      "path": "player-dandelion-3-front.png",
+      "sha256": "75a2f80838374c8e3ce4383fdf9e31e7657e1b5e06dd85e57865355d00973c40",
+      "bytes": 317219
+    },
+    {
+      "path": "player-dandelion-4-back.png",
+      "sha256": "734bc5acbfa3fd07dddf432847050294081a0900fd32312202b553687feefda0",
+      "bytes": 309219
+    },
+    {
+      "path": "player-dandelion-4-front.png",
+      "sha256": "6a9e26e0031c5554f48c2fe74b206d14297ab811e03466b09ac4d66533e55a7f",
+      "bytes": 317619
+    },
+    {
+      "path": "player-dandelion-5-back.png",
+      "sha256": "0449eeb93e25af16164a60c9f346c9602022356bc2db26a575aa5565ae446c4e",
+      "bytes": 314341
+    },
+    {
+      "path": "player-dandelion-5-front.png",
+      "sha256": "7674aa00b2ddfea6e472ffb5f41c4a8c3da02edb2bf569045c4e8b8ac031051a",
+      "bytes": 314549
+    },
+    {
+      "path": "player-dandelion-6-back.png",
+      "sha256": "3cb0d04af8bc82f298035d41079027999ec883fbfbd31ea57bc5c158cd164d6e",
+      "bytes": 311035
+    },
+    {
+      "path": "player-dandelion-6-front.png",
+      "sha256": "d94116bcf0ec8b895417f0bbdded110531bc6d55ea210443e2b37985be3ec737",
+      "bytes": 312919
+    },
+    {
+      "path": "player-dandelion-7-back.png",
+      "sha256": "07d39e79f26057a90d7eaad23fe478dc75b7d419c25bb84bf3bb50cb41a1214e",
+      "bytes": 320086
+    },
+    {
+      "path": "player-dandelion-7-front.png",
+      "sha256": "d7e35c835cf0e940c9ebdaed82f5e62aaca835909ae5f40556c7535784caf3bf",
+      "bytes": 319307
+    },
+    {
+      "path": "player-dandelion-8-back.png",
+      "sha256": "dc4b5b87dc1233b2e5f4f3d696c4abee599a6c7bf2ca22e9c66e3e324389b601",
+      "bytes": 313439
+    },
+    {
+      "path": "player-dandelion-8-front.png",
+      "sha256": "882bff496d5fedcc22356adc0fc138a53edd2fbbdc3bf979189f3b3f0f6d721b",
+      "bytes": 315138
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866031,
+  "artifactJobName": "stage-evidence (dandelion)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

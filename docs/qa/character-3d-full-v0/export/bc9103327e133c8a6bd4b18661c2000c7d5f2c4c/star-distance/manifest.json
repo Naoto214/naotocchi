@@ -1,0 +1,36 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "bc9103327e133c8a6bd4b18661c2000c7d5f2c4c",
+  "artifact": {
+    "id": 11591756938,
+    "name": "full-rollout-mythic-distance-star-bc9103327e133c8a6bd4b18661c2000c7d5f2c4c",
+    "digest": "sha256:7cae0c2efd77f32f9277881f4bf3362e0a57e7a8be8024381efe9acb92c8329d"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "a1f7989961b793555f118041905f75c6d96c2495d8cdca1ae3630345cc7697fb",
+      "bytes": 2184
+    },
+    {
+      "path": "player-star-3-back.png",
+      "sha256": "c221f9d96111add1fc0bb9114907d8256fb52e4865aef5431ab436e502733dd4",
+      "bytes": 320565
+    },
+    {
+      "path": "player-star-3-front.png",
+      "sha256": "bb8b1ff7002230f48d8500a6c50eae161530c11c2066f3d4810f44b9934d3be4",
+      "bytes": 312841
+    },
+    {
+      "path": "player-star-7-back.png",
+      "sha256": "aaccbac8e4ab9c17e557645f173eb4b8ec8e9473d28fb15f026dc045ca3bff75",
+      "bytes": 316547
+    },
+    {
+      "path": "player-star-7-front.png",
+      "sha256": "6d792c768b936fd630dc2a0ab9a70a8d57a56e4a82ed9739d083ca9d5b1a1846",
+      "bytes": 320330
+    }
+  ]
+}

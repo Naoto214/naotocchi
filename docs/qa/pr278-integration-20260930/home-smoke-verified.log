@@ -1,0 +1,14 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+'normal' !== 'hungry'
+
+    at /workspace/scratch/1f1446e31ed3/integration-repo/docs/qa/pr278-integration-20260930/home-smoke.cjs:21:464
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at process.processImmediate (node:internal/timers:502:9) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'normal',
+  expected: 'hungry',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

@@ -1,0 +1,18 @@
+{
+  "source_head": "11548d239f77920d33c152b978f0c07017d3c3df",
+  "existing_tracked_files_hash_preserved": 3980,
+  "all11_input_sha256_preserved": true,
+  "source_image_changes": 0,
+  "regeneration": 0,
+  "production_replacement": 0,
+  "human_approval": false,
+  "runtime_tests": "not rerun; QA-only",
+  "artifact_sha256": {
+    "hungry-bilateral.png": "25c7c8654e7363f649d4a25c9e3bb3e76cfef5ae9bc0a49e61b759aabe6c2c40",
+    "wantsPlay-bilateral.png": "f6276bc93b588870ae75b7f11b76ae5231a80fe54494365fbe187d64dc89058b",
+    "size-comparison.png": "65e562294f5437e50af0ae12bd0665e4c15bee6f8f78906fc624d281924d83ce",
+    "reference-faces.png": "34c0f72c1a113d5c1f150717ddae66f7a7b683bf49e863933c77dc4093eea830",
+    "measurements.json": "60df4c465d25c4746aa0688484a6771db0881aecf1211e4cee43e5bb3ffa282c",
+    "comparison.html": "1fbd7f3c847c82af35d01d2d4d38a01d6bd216bd9dc51b5256e1aff2ea9c022f"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "home": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "city": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "countryside": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "forest": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "mountain": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "snow": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "sea": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "deepsea": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "river_lake": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "jungle": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "desert": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "star_stop": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  },
+  "memory_lake": {
+    "twoD": true,
+    "canonical": true,
+    "collisions": true,
+    "objects": true
+  }
+}

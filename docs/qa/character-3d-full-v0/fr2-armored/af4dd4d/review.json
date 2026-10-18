@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "af4dd4d83f1ea64db3f9d4f12e08183d7ceb47c4",
+  "artifacts": {
+    "waveMotion": 11434417604,
+    "normalDistance": 11434490326
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "PASS",
+  "reason": "Compact continuous shell whorls, physical aperture/inner wall, two owned stalk eyes and one mouth, two pincers/six legs,03empty-shell prop. Closed curling whorls are simplified and faceted at aperture; accepted for v0. All8views/64states/4normaldistance directly inspected.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

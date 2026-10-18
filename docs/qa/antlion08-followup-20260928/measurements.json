@@ -1,0 +1,683 @@
+{
+  "source_head": "3126a7ce9e6c17a1c2ee3208c3be6dcea1b13b8f",
+  "date": "2026-09-28",
+  "assets": {
+    "normal": {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe"
+    },
+    "happy": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "sha256": "a57e0c5ff540258da43414fc2dd215ea6c110dbf5f25706fcadb5ff48ff22df9"
+    },
+    "strained": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/strained.png",
+      "sha256": "55e9e083b2118bf47b3fbd26b55373831c0d5b05047619c2ff73458d681d86cc"
+    },
+    "hungry": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c"
+    },
+    "sick": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "sha256": "b7d99326718c8830137f83b001d4e99acbd018bd2083f573e51c73b57f760b5f"
+    },
+    "tired": {
+      "path": "assets/characters/expressions/antlion/08-tired.png",
+      "sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161"
+    },
+    "sulky": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "sha256": "4c702c641f299446af142c5595a3ec7f796122bc241ed7f80316feca598b56f9"
+    },
+    "weak": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "sha256": "5a76b0f8b3c6fd3b4b2b4f1927ad0b55f8ff8c7ff0a3e404fb80788b04b513a7"
+    },
+    "critical": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/critical.png",
+      "sha256": "dd79d2fbf0624ab9ea78f4ddfaa66e7805ec2baf65773a01a1964475c7137a49"
+    },
+    "wantsPlay": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "sha256": "98fbc19d6a07ce65bf28d3baf9f5955be28ae3fef052c68394b4548b2897dc66"
+    },
+    "sleeping": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "sha256": "010d2b3253687af436dfea1e964dcee72fbcea6717e6db8244549e1230ee7490"
+    }
+  },
+  "metrics": {
+    "normal": {
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe",
+      "independent_components_all": 25,
+      "independent_pixels_all": 189,
+      "rear_roi": [
+        8,
+        59,
+        62,
+        118
+      ],
+      "rear_independent_components_intersecting": 20,
+      "rear_independent_pixels": 171,
+      "rear_independent_coverage": 0.05367231638418079,
+      "rear_centroid_xy": [
+        28.95906432748538,
+        95.50877192982456
+      ],
+      "rear_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "independent_alpha_pixels": 13
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "independent_alpha_pixels": 18
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "independent_alpha_pixels": 0
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "independent_alpha_pixels": 8
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "independent_alpha_pixels": 36
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "independent_alpha_pixels": 0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "independent_alpha_pixels": 50
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "independent_alpha_pixels": 29
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "independent_alpha_pixels": 17
+        }
+      ],
+      "rear_particle_like_components": 19,
+      "rear_particle_like_pixels": 98,
+      "exterior_roi_alpha_pixels": 88,
+      "exterior_trail_main_pixels": 0,
+      "note": "Alpha 8-neighbour components, not semantic particle counts. Particle-like excludes reviewed normal detached trail17; candidates body-connected trail already excluded with main. Tiny ambiguous fragments remain counted, not automatically classified as particles."
+    },
+    "tired": {
+      "sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161",
+      "independent_components_all": 48,
+      "independent_pixels_all": 178,
+      "rear_roi": [
+        8,
+        59,
+        62,
+        118
+      ],
+      "rear_independent_components_intersecting": 35,
+      "rear_independent_pixels": 135,
+      "rear_independent_coverage": 0.0423728813559322,
+      "rear_centroid_xy": [
+        30.903703703703705,
+        88.22962962962963
+      ],
+      "rear_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "independent_alpha_pixels": 19
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "independent_alpha_pixels": 29
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "independent_alpha_pixels": 1
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "independent_alpha_pixels": 10
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "independent_alpha_pixels": 34
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "independent_alpha_pixels": 1
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "independent_alpha_pixels": 17
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "independent_alpha_pixels": 7
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "independent_alpha_pixels": 17
+        }
+      ],
+      "rear_particle_like_components": 35,
+      "rear_particle_like_pixels": 135,
+      "exterior_roi_alpha_pixels": 95,
+      "exterior_trail_main_pixels": 65,
+      "note": "Alpha 8-neighbour components, not semantic particle counts. Particle-like excludes reviewed normal detached trail17; candidates body-connected trail already excluded with main. Tiny ambiguous fragments remain counted, not automatically classified as particles."
+    },
+    "strained": {
+      "sha256": "55e9e083b2118bf47b3fbd26b55373831c0d5b05047619c2ff73458d681d86cc",
+      "independent_components_all": 32,
+      "independent_pixels_all": 162,
+      "rear_roi": [
+        8,
+        59,
+        62,
+        118
+      ],
+      "rear_independent_components_intersecting": 25,
+      "rear_independent_pixels": 128,
+      "rear_independent_coverage": 0.040175768989328314,
+      "rear_centroid_xy": [
+        31.9765625,
+        89.765625
+      ],
+      "rear_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "independent_alpha_pixels": 21
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "independent_alpha_pixels": 24
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "independent_alpha_pixels": 0
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "independent_alpha_pixels": 7
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "independent_alpha_pixels": 27
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "independent_alpha_pixels": 0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "independent_alpha_pixels": 16
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "independent_alpha_pixels": 10
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "independent_alpha_pixels": 23
+        }
+      ],
+      "rear_particle_like_components": 25,
+      "rear_particle_like_pixels": 128,
+      "exterior_roi_alpha_pixels": 112,
+      "exterior_trail_main_pixels": 82,
+      "note": "Alpha 8-neighbour components, not semantic particle counts. Particle-like excludes reviewed normal detached trail17; candidates body-connected trail already excluded with main. Tiny ambiguous fragments remain counted, not automatically classified as particles."
+    },
+    "sick": {
+      "sha256": "b7d99326718c8830137f83b001d4e99acbd018bd2083f573e51c73b57f760b5f",
+      "independent_components_all": 41,
+      "independent_pixels_all": 135,
+      "rear_roi": [
+        8,
+        59,
+        62,
+        118
+      ],
+      "rear_independent_components_intersecting": 27,
+      "rear_independent_pixels": 90,
+      "rear_independent_coverage": 0.02824858757062147,
+      "rear_centroid_xy": [
+        35.15555555555556,
+        91.28888888888889
+      ],
+      "rear_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "independent_alpha_pixels": 10
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "independent_alpha_pixels": 17
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "independent_alpha_pixels": 1
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "independent_alpha_pixels": 4
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "independent_alpha_pixels": 22
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "independent_alpha_pixels": 0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "independent_alpha_pixels": 7
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "independent_alpha_pixels": 6
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "independent_alpha_pixels": 23
+        }
+      ],
+      "rear_particle_like_components": 27,
+      "rear_particle_like_pixels": 90,
+      "exterior_roi_alpha_pixels": 84,
+      "exterior_trail_main_pixels": 69,
+      "note": "Alpha 8-neighbour components, not semantic particle counts. Particle-like excludes reviewed normal detached trail17; candidates body-connected trail already excluded with main. Tiny ambiguous fragments remain counted, not automatically classified as particles.",
+      "small_components": [
+        {
+          "pixels": [
+            [
+              77,
+              95
+            ],
+            [
+              77,
+              96
+            ],
+            [
+              78,
+              96
+            ],
+            [
+              77,
+              97
+            ]
+          ],
+          "min_distance_to_main_pixels": 2.23606797749979,
+          "RGBA": [
+            [
+              156,
+              82,
+              0,
+              255
+            ],
+            [
+              253,
+              242,
+              203,
+              255
+            ],
+            [
+              150,
+              82,
+              3,
+              255
+            ],
+            [
+              153,
+              83,
+              7,
+              255
+            ]
+          ]
+        },
+        {
+          "pixels": [
+            [
+              73,
+              102
+            ],
+            [
+              72,
+              103
+            ],
+            [
+              73,
+              103
+            ],
+            [
+              73,
+              104
+            ]
+          ],
+          "min_distance_to_main_pixels": 2.0,
+          "RGBA": [
+            [
+              149,
+              81,
+              4,
+              255
+            ],
+            [
+              146,
+              82,
+              0,
+              255
+            ],
+            [
+              210,
+              151,
+              61,
+              255
+            ],
+            [
+              157,
+              88,
+              5,
+              255
+            ]
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "sha256": "dd79d2fbf0624ab9ea78f4ddfaa66e7805ec2baf65773a01a1964475c7137a49",
+      "independent_components_all": 95,
+      "independent_pixels_all": 265,
+      "rear_roi": [
+        8,
+        59,
+        62,
+        118
+      ],
+      "rear_independent_components_intersecting": 53,
+      "rear_independent_pixels": 189,
+      "rear_independent_coverage": 0.059322033898305086,
+      "rear_centroid_xy": [
+        32.026455026455025,
+        87.85714285714286
+      ],
+      "rear_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "independent_alpha_pixels": 32
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "independent_alpha_pixels": 40
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "independent_alpha_pixels": 1
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "independent_alpha_pixels": 14
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "independent_alpha_pixels": 37
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "independent_alpha_pixels": 0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "independent_alpha_pixels": 22
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "independent_alpha_pixels": 11
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "independent_alpha_pixels": 32
+        }
+      ],
+      "rear_particle_like_components": 53,
+      "rear_particle_like_pixels": 189,
+      "exterior_roi_alpha_pixels": 104,
+      "exterior_trail_main_pixels": 70,
+      "note": "Alpha 8-neighbour components, not semantic particle counts. Particle-like excludes reviewed normal detached trail17; candidates body-connected trail already excluded with main. Tiny ambiguous fragments remain counted, not automatically classified as particles."
+    }
+  },
+  "limits": [
+    "No new tolerance threshold. No inference from component count to anatomical leg or semantic particle count.",
+    "All crops are shared absolute coordinates, with no registration/warping that could conceal anatomy differences.",
+    "Readability is an observer QA judgment, not a blinded recognition experiment."
+  ]
+}

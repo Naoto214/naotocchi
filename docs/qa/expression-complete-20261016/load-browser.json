@@ -1,0 +1,17 @@
+{
+  "actors": 27,
+  "frames": 60,
+  "states": 12,
+  "warmupFrames": 12,
+  "cpuAnimationMs": {
+    "p50": 0.20000000298023224,
+    "p95": 1.6999999955296516
+  },
+  "renderSubmitMs": {
+    "p50": 2.6999999955296516,
+    "p95": 15.300000004470348
+  },
+  "calls": 303,
+  "triangles": 287308,
+  "environment": "Chromium SwiftShader; isolated 800x500 scene, not World FPS, GPU completion time, iPhone, RAM or baseline comparison"
+}

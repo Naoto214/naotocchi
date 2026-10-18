@@ -1,0 +1,29 @@
+/* Color connects state marks, meters and the matching home action.
+   Existing warning classes, focus rings and disabled affordances remain active. */
+#device .home-meters .bar-fill {
+  background:var(--home-meter-color) !important;
+}
+#device #careActions button:not(#menuBtn):not(#travelBtn) {
+  border-color:var(--home-action-color);
+  box-shadow:inset 0 0 0 1px var(--home-action-color),0 3px 9px #17374738;
+}
+#device #careActions button[data-care-recommended="true"] {
+  box-shadow:inset 0 0 0 2px var(--home-action-color),0 3px 9px #17374738;
+}
+/* A masked border preserves the translucent center and rounded button shape. */
+#device #careActions #travelBtn {position:relative;border-color:transparent}
+#device #careActions #travelBtn::after {
+  content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;
+  background:linear-gradient(120deg,#ffe03b,#a5d934,#347de3,#8c56ce,#ed65aa,#f58a19);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask-composite:exclude;pointer-events:none;
+}
+#device #careActions #travelBtn:disabled {border-color:GrayText}
+#device #careActions #travelBtn:disabled::after {display:none}
+@media (forced-colors:active) {
+  #device .home-meters .bar-fill {background:Highlight !important}
+  #device #careActions button {border-color:ButtonText !important;box-shadow:none !important}
+  #device #careActions #travelBtn::after {display:none}
+}

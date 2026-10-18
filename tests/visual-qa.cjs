@@ -24,6 +24,7 @@ function createFixtures() {
         save.lifetime.partnersRecorded = api.ALL_PARTNER_CANDIDATES.map(c => c.id);
         save.lifetime.partnersMarried = ['robot_neighbor'];
         fixtures[name] = JSON.parse(JSON.stringify(save));
+        fixtures[name].items = fixtures[name].lifetime.itemInventory;
         return fixtures[name];
       };
       for (const [name, count, weather, time, season] of [
@@ -92,12 +93,46 @@ function createFixtures() {
       make('all26',26);
       make('legacy28',26).companions.push({id:'koala',bond:95},{id:'kinoko',bond:95});
       const equipped = make('equipped',26);
-      equipped.lifetime.ownedShopItems = ['crown'];
-      equipped.lifetime.equippedItemId = 'crown';
-      equipped.items.fun_bubbles = 1;
+      equipped.lifetime.ownedShopItems = ['gamepass1'];
+      equipped.lifetime.equippedItemId = 'gamepass1';
       make('legend',26,{sodachi:95,maxSodachi:95});
       make('sleeping',26,{isSleeping:true,energy:20});
       make('sick',26,{isSick:true,sicknessType:'かぜ'});
+      // Recovery pilot only: real Home and the real medicine button, no motion hooks.
+      for (const [name,line,years,count,paired] of [
+        ['alone','cat',25,0,false],['pair','cat',25,0,true],['dense26','woman',25,26,true],
+        ['small','dog',2,0,false],['large','dragon',85,26,true],['float','ghost',25,26,true],
+        ['rigid','turtle',25,26,true],['plant','mushroom',25,26,true],
+      ]) {
+        const save=make('recovery_'+name,count,{
+          speciesLine:line,ageTicks:years*api.AGE_TICKS_PER_YEAR,stageIndex:api.stageForAge(years),
+          partner:paired?partner('forest_bear',{married:true}):null,
+          isSick:true,sicknessType:'かぜ',isSleeping:false,health:70,energy:90,hunger:90,happiness:90,
+          decline:0,deathMeter:0,dying:false,affectionStreak:0,transformMeter:0,
+        });
+        save.savedAt=0;
+        Object.assign(save.lifetime,{ownedShopItems:['ribbon'],equippedItemId:'ribbon',
+          timeMode:'day',weatherMode:'sunny',seasonMode:'summer'});
+      }
+      // L2: reload a complete save, then use the actual Home care buttons.
+      for (const action of ['feed','play','clean','wake']) {
+        for (const [scene,count,paired] of [['solo',0,false],['pair',0,true],['few',3,true],['dense26',26,true]]) {
+          const save=make('l2_'+action+'_'+scene,count,{
+            speciesLine:'cat',ageTicks:25*api.AGE_TICKS_PER_YEAR,stageIndex:api.stageForAge(25),
+            partner:paired?partner('forest_bear',{married:true,affection:80}):null,
+            isSick:false,isSleeping:action==='wake',health:90,energy:80,hunger:45,happiness:80,
+            poopCount:3,decline:0,deathMeter:0,dying:false,affectionStreak:0,transformMeter:0,
+          });
+          save.savedAt=0;
+          Object.assign(save.lifetime,{ownedShopItems:['ribbon'],equippedItemId:'ribbon',
+            timeMode:'day',weatherMode:'sunny',seasonMode:'summer'});
+        }
+      }
+      for(const action of ['play','clean']) {
+        const save=JSON.parse(JSON.stringify(fixtures['l2_'+action+'_dense26']));
+        save.companions.forEach(c=>c.bond=20);save.partner.affection=20;
+        fixtures['l2_'+action+'_'+(action==='play'?'rescue26':'lonely26')]=save;
+      }
       // Status fixtures use the same production save format and life rules.
       // Critical scenes have a short real lifetime; load again to observe care.
       make('care_health_zero',26,{health:0,hunger:0,happiness:0,energy:0,
@@ -129,20 +164,18 @@ function createFixtures() {
       make('care_infinite',26,{infinite:true,health:0,hunger:0,energy:0,deathMeter:95});
       const illustrated=make('ui_illustrations',26,{hunger:80,health:90,energy:80,happiness:80});
       illustrated.lifetime.money=9999;
-      illustrated.lifetime.ownedShopItems=['flower','ribbon','bowtie','poop1','scarf','glasses','energy1','hat','travel1','sleepboost1','star','bond1','partner1','crown','itemluck1'];
+      illustrated.lifetime.ownedShopItems=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
       illustrated.lifetime.equippedItemId='ribbon';
       illustrated.lifetime.endingTiersReached=[0,1,2,3];
       illustrated.lifetime.ownedNaotoItems=['naoto_charm','naoto_lantern','naoto_ring','naoto_crown'];
       illustrated.lifetime.clears=1;illustrated.lifetime.lifeClears=1;illustrated.lifetime.bestLives=1;illustrated.lifetime.dexCleared=true;
       illustrated.lifetime.consumablesUsed=2;
-      for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) illustrated.items[id]=2;
       const allBadges=JSON.parse(JSON.stringify(illustrated));
       Object.assign(allBadges,{isSick:true,sicknessType:'げんいんふめいのこうねつ',isSleeping:true,energy:35});
       allBadges.lifetime.endingTiersReached=[0,1,2,3,4];
       fixtures.badges_transparent=allBadges;
       const comments=make('comment_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
       comments.lifetime.money=9999;comments.lifetime.consumablesUsed=2;
-      for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) comments.items[id]=2;
       const notices=make('notice_food_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
       notices.achievementsUnlocked=api.ACHIEVEMENTS.filter((a,i)=>i%2===0).map(a=>a.id);
       notices.lifetime.achievementUnlockedAt=Object.fromEntries(notices.achievementsUnlocked.map(id=>[id,Date.now()]));
@@ -225,6 +258,15 @@ function createFixtures() {
         first.lifetime.partnersRecorded = [];
         first.lifetime.partnersMarried = [];
         first.lifetime.partnerEncounters = [];
+      }
+      // Relationship pilot: no player needs to acquire these partners to QA them.
+      for (const id of ['forest_bear','rock_octopus']) for (const value of [20,50]) for (const density of ['pair','dense']) {
+        make('relationship_' + id + '_' + value + '_' + density, density === 'dense' ? 26 : 2, {
+          partner:partner(id,{married:false,affection:value,bondCount:0}),
+          companions:(density === 'dense' ? ids : ['otter','clock']).map(id=>({id,bond:value})),
+          sodachi:30,maxSodachi:30,affectionStreak:0,ageTicks:500,stageIndex:5,
+          hunger:90,health:90,energy:90,happiness:90,
+        });
       }
       return fixtures;
     })()

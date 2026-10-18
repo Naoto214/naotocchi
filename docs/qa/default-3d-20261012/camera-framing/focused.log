@@ -1,0 +1,30 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (87.090397ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (35.941943ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (304.989774ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (1.981964ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (91.135042ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (243.332701ms)
+✔ index.html asset references exist and carry cache tokens (11.630513ms)
+✔ the bump tool rewrites only cache tokens (0.585874ms)
+(node:16) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0b3c9b0df346/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0b3c9b0df346/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normal URL requests both 3D layers, waits visibly and starts exactly once (10.337654ms)
+✔ QA URL priorities: any 2D override wins, char3d=0 keeps world (18.466267ms)
+✔ timeout ignores late load, remains Canvas on reopen, and counts one visit (3.166669ms)
+✔ cancel and reopen cannot let old completion start a stale run (2.616373ms)
+✔ module error and unavailable WebGL use Canvas without retries (5.388956ms)
+✔ runtime fallback locks subsequent visits to Canvas (2.826144ms)
+✔ diagnostic logger failure cannot interrupt fallback (3.206132ms)
+✔ wide 3D framing retains horizon, elevation and feet at every yaw (74.949032ms)
+✔ portrait projection is unchanged; wide compensation joins continuously (26.92884ms)
+✔ wide camera retains vertical field of view instead of cropping the distance (10.772586ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1028.419874

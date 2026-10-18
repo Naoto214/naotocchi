@@ -1,0 +1,609 @@
+{
+  "pairs": 68,
+  "changed": [
+    {
+      "name": "countryside-autumn-vq",
+      "beforeTriangles": 119228,
+      "afterTriangles": 119270,
+      "beforeCalls": 54,
+      "afterCalls": 54
+    },
+    {
+      "name": "countryside-river-vq",
+      "beforeTriangles": 119480,
+      "afterTriangles": 119522,
+      "beforeCalls": 55,
+      "afterCalls": 55
+    },
+    {
+      "name": "countryside-vq",
+      "beforeTriangles": 119228,
+      "afterTriangles": 119270,
+      "beforeCalls": 54,
+      "afterCalls": 54
+    },
+    {
+      "name": "river-bridge-vq",
+      "beforeTriangles": 113414,
+      "afterTriangles": 113456,
+      "beforeCalls": 55,
+      "afterCalls": 55
+    },
+    {
+      "name": "river-bridge2-vq",
+      "beforeTriangles": 110682,
+      "afterTriangles": 110724,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "river-stonebridge-vq",
+      "beforeTriangles": 113378,
+      "afterTriangles": 113420,
+      "beforeCalls": 56,
+      "afterCalls": 56
+    },
+    {
+      "name": "river_lake-vq",
+      "beforeTriangles": 112550,
+      "afterTriangles": 112592,
+      "beforeCalls": 43,
+      "afterCalls": 43
+    },
+    {
+      "name": "wheel-countryside-0",
+      "beforeTriangles": 117668,
+      "afterTriangles": 117710,
+      "beforeCalls": 51,
+      "afterCalls": 51
+    },
+    {
+      "name": "wheel-countryside-1",
+      "beforeTriangles": 119200,
+      "afterTriangles": 119242,
+      "beforeCalls": 57,
+      "afterCalls": 57
+    },
+    {
+      "name": "wheel-countryside-2",
+      "beforeTriangles": 117924,
+      "afterTriangles": 117966,
+      "beforeCalls": 58,
+      "afterCalls": 58
+    },
+    {
+      "name": "wheel-countryside-3",
+      "beforeTriangles": 117534,
+      "afterTriangles": 117576,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "wheel-river_lake-0",
+      "beforeTriangles": 113514,
+      "afterTriangles": 113556,
+      "beforeCalls": 59,
+      "afterCalls": 59
+    },
+    {
+      "name": "wheel-river_lake-1",
+      "beforeTriangles": 110742,
+      "afterTriangles": 110784,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "wheel-river_lake-2",
+      "beforeTriangles": 110742,
+      "afterTriangles": 110784,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "wheel-river_lake-3",
+      "beforeTriangles": 110928,
+      "afterTriangles": 110970,
+      "beforeCalls": 53,
+      "afterCalls": 53
+    },
+    {
+      "name": "entrance-45",
+      "beforeTriangles": 34462,
+      "afterTriangles": 34456,
+      "beforeCalls": 46,
+      "afterCalls": 43
+    },
+    {
+      "name": "prop-wheel",
+      "beforeTriangles": 4884,
+      "afterTriangles": 4926,
+      "beforeCalls": 11,
+      "afterCalls": 12
+    },
+    {
+      "name": "prop-wheel-river",
+      "beforeTriangles": 4884,
+      "afterTriangles": 4926,
+      "beforeCalls": 11,
+      "afterCalls": 12
+    }
+  ],
+  "all": [
+    {
+      "name": "city-arcade-vq",
+      "beforeTriangles": 130462,
+      "afterTriangles": 130462,
+      "beforeCalls": 49,
+      "afterCalls": 49
+    },
+    {
+      "name": "city-market-vq",
+      "beforeTriangles": 130214,
+      "afterTriangles": 130214,
+      "beforeCalls": 43,
+      "afterCalls": 43
+    },
+    {
+      "name": "city-vq",
+      "beforeTriangles": 130486,
+      "afterTriangles": 130486,
+      "beforeCalls": 50,
+      "afterCalls": 50
+    },
+    {
+      "name": "countryside-autumn-vq",
+      "beforeTriangles": 119228,
+      "afterTriangles": 119270,
+      "beforeCalls": 54,
+      "afterCalls": 54
+    },
+    {
+      "name": "countryside-river-vq",
+      "beforeTriangles": 119480,
+      "afterTriangles": 119522,
+      "beforeCalls": 55,
+      "afterCalls": 55
+    },
+    {
+      "name": "countryside-vq",
+      "beforeTriangles": 119228,
+      "afterTriangles": 119270,
+      "beforeCalls": 54,
+      "afterCalls": 54
+    },
+    {
+      "name": "deepsea-vq",
+      "beforeTriangles": 73332,
+      "afterTriangles": 73332,
+      "beforeCalls": 36,
+      "afterCalls": 36
+    },
+    {
+      "name": "desert-slope-vq",
+      "beforeTriangles": 89914,
+      "afterTriangles": 89914,
+      "beforeCalls": 34,
+      "afterCalls": 34
+    },
+    {
+      "name": "desert-vq",
+      "beforeTriangles": 90304,
+      "afterTriangles": 90304,
+      "beforeCalls": 41,
+      "afterCalls": 41
+    },
+    {
+      "name": "forest-autumn-vq",
+      "beforeTriangles": 147852,
+      "afterTriangles": 147852,
+      "beforeCalls": 60,
+      "afterCalls": 60
+    },
+    {
+      "name": "forest-bridge-vq",
+      "beforeTriangles": 147134,
+      "afterTriangles": 147134,
+      "beforeCalls": 50,
+      "afterCalls": 50
+    },
+    {
+      "name": "forest-creek-vq",
+      "beforeTriangles": 148094,
+      "afterTriangles": 148094,
+      "beforeCalls": 65,
+      "afterCalls": 65
+    },
+    {
+      "name": "forest-vq",
+      "beforeTriangles": 147852,
+      "afterTriangles": 147852,
+      "beforeCalls": 60,
+      "afterCalls": 60
+    },
+    {
+      "name": "forest-winter-vq",
+      "beforeTriangles": 152314,
+      "afterTriangles": 152314,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "home-house-vq",
+      "beforeTriangles": 34696,
+      "afterTriangles": 34696,
+      "beforeCalls": 40,
+      "afterCalls": 40
+    },
+    {
+      "name": "home-spring-vq",
+      "beforeTriangles": 35132,
+      "afterTriangles": 35132,
+      "beforeCalls": 42,
+      "afterCalls": 42
+    },
+    {
+      "name": "home-vq",
+      "beforeTriangles": 35132,
+      "afterTriangles": 35132,
+      "beforeCalls": 42,
+      "afterCalls": 42
+    },
+    {
+      "name": "jungle-vq",
+      "beforeTriangles": 172794,
+      "afterTriangles": 172794,
+      "beforeCalls": 62,
+      "afterCalls": 62
+    },
+    {
+      "name": "memory_lake-vq",
+      "beforeTriangles": 51204,
+      "afterTriangles": 51204,
+      "beforeCalls": 35,
+      "afterCalls": 35
+    },
+    {
+      "name": "mountain-slope-vq",
+      "beforeTriangles": 106924,
+      "afterTriangles": 106924,
+      "beforeCalls": 63,
+      "afterCalls": 63
+    },
+    {
+      "name": "mountain-summer-vq",
+      "beforeTriangles": 106354,
+      "afterTriangles": 106354,
+      "beforeCalls": 55,
+      "afterCalls": 55
+    },
+    {
+      "name": "mountain-vq",
+      "beforeTriangles": 106342,
+      "afterTriangles": 106342,
+      "beforeCalls": 54,
+      "afterCalls": 54
+    },
+    {
+      "name": "mountain-winter-vq",
+      "beforeTriangles": 104146,
+      "afterTriangles": 104146,
+      "beforeCalls": 54,
+      "afterCalls": 54
+    },
+    {
+      "name": "oasis-vq",
+      "beforeTriangles": 90544,
+      "afterTriangles": 90544,
+      "beforeCalls": 43,
+      "afterCalls": 43
+    },
+    {
+      "name": "river-bridge-vq",
+      "beforeTriangles": 113414,
+      "afterTriangles": 113456,
+      "beforeCalls": 55,
+      "afterCalls": 55
+    },
+    {
+      "name": "river-bridge2-vq",
+      "beforeTriangles": 110682,
+      "afterTriangles": 110724,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "river-stonebridge-vq",
+      "beforeTriangles": 113378,
+      "afterTriangles": 113420,
+      "beforeCalls": 56,
+      "afterCalls": 56
+    },
+    {
+      "name": "river_lake-vq",
+      "beforeTriangles": 112550,
+      "afterTriangles": 112592,
+      "beforeCalls": 43,
+      "afterCalls": 43
+    },
+    {
+      "name": "sea-vq",
+      "beforeTriangles": 69804,
+      "afterTriangles": 69804,
+      "beforeCalls": 50,
+      "afterCalls": 50
+    },
+    {
+      "name": "snow-vq",
+      "beforeTriangles": 69408,
+      "afterTriangles": 69408,
+      "beforeCalls": 45,
+      "afterCalls": 45
+    },
+    {
+      "name": "star_stop-vq",
+      "beforeTriangles": 65984,
+      "afterTriangles": 65984,
+      "beforeCalls": 30,
+      "afterCalls": 30
+    },
+    {
+      "name": "wheel-countryside-0",
+      "beforeTriangles": 117668,
+      "afterTriangles": 117710,
+      "beforeCalls": 51,
+      "afterCalls": 51
+    },
+    {
+      "name": "wheel-countryside-1",
+      "beforeTriangles": 119200,
+      "afterTriangles": 119242,
+      "beforeCalls": 57,
+      "afterCalls": 57
+    },
+    {
+      "name": "wheel-countryside-2",
+      "beforeTriangles": 117924,
+      "afterTriangles": 117966,
+      "beforeCalls": 58,
+      "afterCalls": 58
+    },
+    {
+      "name": "wheel-countryside-3",
+      "beforeTriangles": 117534,
+      "afterTriangles": 117576,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "wheel-river_lake-0",
+      "beforeTriangles": 113514,
+      "afterTriangles": 113556,
+      "beforeCalls": 59,
+      "afterCalls": 59
+    },
+    {
+      "name": "wheel-river_lake-1",
+      "beforeTriangles": 110742,
+      "afterTriangles": 110784,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "wheel-river_lake-2",
+      "beforeTriangles": 110742,
+      "afterTriangles": 110784,
+      "beforeCalls": 46,
+      "afterCalls": 46
+    },
+    {
+      "name": "wheel-river_lake-3",
+      "beforeTriangles": 110928,
+      "afterTriangles": 110970,
+      "beforeCalls": 53,
+      "afterCalls": 53
+    },
+    {
+      "name": "entrance-15",
+      "beforeTriangles": 34240,
+      "afterTriangles": 34240,
+      "beforeCalls": 34,
+      "afterCalls": 34
+    },
+    {
+      "name": "entrance-196",
+      "beforeTriangles": 34240,
+      "afterTriangles": 34240,
+      "beforeCalls": 34,
+      "afterCalls": 34
+    },
+    {
+      "name": "entrance-45",
+      "beforeTriangles": 34462,
+      "afterTriangles": 34456,
+      "beforeCalls": 46,
+      "afterCalls": 43
+    },
+    {
+      "name": "entrance-64",
+      "beforeTriangles": 34856,
+      "afterTriangles": 34856,
+      "beforeCalls": 40,
+      "afterCalls": 40
+    },
+    {
+      "name": "family-barn",
+      "beforeTriangles": 4856,
+      "afterTriangles": 4856,
+      "beforeCalls": 17,
+      "afterCalls": 17
+    },
+    {
+      "name": "family-cabin",
+      "beforeTriangles": 4930,
+      "afterTriangles": 4930,
+      "beforeCalls": 15,
+      "afterCalls": 15
+    },
+    {
+      "name": "family-cottage",
+      "beforeTriangles": 4868,
+      "afterTriangles": 4868,
+      "beforeCalls": 15,
+      "afterCalls": 15
+    },
+    {
+      "name": "family-farmhouse",
+      "beforeTriangles": 4892,
+      "afterTriangles": 4892,
+      "beforeCalls": 15,
+      "afterCalls": 15
+    },
+    {
+      "name": "family-hut",
+      "beforeTriangles": 4880,
+      "afterTriangles": 4880,
+      "beforeCalls": 14,
+      "afterCalls": 14
+    },
+    {
+      "name": "family-shed",
+      "beforeTriangles": 4842,
+      "afterTriangles": 4842,
+      "beforeCalls": 15,
+      "afterCalls": 15
+    },
+    {
+      "name": "family-shop",
+      "beforeTriangles": 4844,
+      "afterTriangles": 4844,
+      "beforeCalls": 15,
+      "afterCalls": 15
+    },
+    {
+      "name": "family-single",
+      "beforeTriangles": 4856,
+      "afterTriangles": 4856,
+      "beforeCalls": 15,
+      "afterCalls": 15
+    },
+    {
+      "name": "family-twostorey",
+      "beforeTriangles": 4968,
+      "afterTriangles": 4968,
+      "beforeCalls": 16,
+      "afterCalls": 16
+    },
+    {
+      "name": "prop-bike",
+      "beforeTriangles": 4932,
+      "afterTriangles": 4932,
+      "beforeCalls": 11,
+      "afterCalls": 11
+    },
+    {
+      "name": "prop-boxprop",
+      "beforeTriangles": 4658,
+      "afterTriangles": 4658,
+      "beforeCalls": 9,
+      "afterCalls": 9
+    },
+    {
+      "name": "prop-car",
+      "beforeTriangles": 4768,
+      "afterTriangles": 4768,
+      "beforeCalls": 9,
+      "afterCalls": 9
+    },
+    {
+      "name": "prop-ferris",
+      "beforeTriangles": 4950,
+      "afterTriangles": 4950,
+      "beforeCalls": 10,
+      "afterCalls": 10
+    },
+    {
+      "name": "prop-ruin",
+      "beforeTriangles": 4980,
+      "afterTriangles": 4980,
+      "beforeCalls": 12,
+      "afterCalls": 12
+    },
+    {
+      "name": "prop-signpost",
+      "beforeTriangles": 4656,
+      "afterTriangles": 4656,
+      "beforeCalls": 9,
+      "afterCalls": 9
+    },
+    {
+      "name": "prop-stall",
+      "beforeTriangles": 4706,
+      "afterTriangles": 4706,
+      "beforeCalls": 10,
+      "afterCalls": 10
+    },
+    {
+      "name": "prop-statue",
+      "beforeTriangles": 4674,
+      "afterTriangles": 4674,
+      "beforeCalls": 9,
+      "afterCalls": 9
+    },
+    {
+      "name": "prop-telescope",
+      "beforeTriangles": 4690,
+      "afterTriangles": 4690,
+      "beforeCalls": 8,
+      "afterCalls": 8
+    },
+    {
+      "name": "prop-tractor",
+      "beforeTriangles": 4768,
+      "afterTriangles": 4768,
+      "beforeCalls": 9,
+      "afterCalls": 9
+    },
+    {
+      "name": "prop-wheel",
+      "beforeTriangles": 4884,
+      "afterTriangles": 4926,
+      "beforeCalls": 11,
+      "afterCalls": 12
+    },
+    {
+      "name": "prop-wheel-river",
+      "beforeTriangles": 4884,
+      "afterTriangles": 4926,
+      "beforeCalls": 11,
+      "afterCalls": 12
+    },
+    {
+      "name": "vegetation-forest-fern",
+      "beforeTriangles": 4834,
+      "afterTriangles": 4834,
+      "beforeCalls": 8,
+      "afterCalls": 8
+    },
+    {
+      "name": "vegetation-forest-tree",
+      "beforeTriangles": 4782,
+      "afterTriangles": 4782,
+      "beforeCalls": 10,
+      "afterCalls": 10
+    },
+    {
+      "name": "vegetation-jungle-fern",
+      "beforeTriangles": 4874,
+      "afterTriangles": 4874,
+      "beforeCalls": 8,
+      "afterCalls": 8
+    },
+    {
+      "name": "vegetation-jungle-tree",
+      "beforeTriangles": 4826,
+      "afterTriangles": 4826,
+      "beforeCalls": 12,
+      "afterCalls": 12
+    }
+  ]
+}

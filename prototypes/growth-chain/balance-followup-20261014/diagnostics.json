@@ -1,0 +1,696 @@
+[
+  {
+    "condition": "life2-12-egg0",
+    "seed": 100,
+    "drops": 187,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 101,
+    "drops": 227,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 102,
+    "drops": 158,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 103,
+    "drops": 157,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 72,
+    "drops": 183,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 73,
+    "drops": 268,
+    "first08": 155,
+    "remainingAfterFirst08": 113,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 74,
+    "drops": 139,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 75,
+    "drops": 208,
+    "first08": 147,
+    "remainingAfterFirst08": 61,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 76,
+    "drops": 120,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 77,
+    "drops": 218,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 78,
+    "drops": 161,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 79,
+    "drops": 199,
+    "first08": 118,
+    "remainingAfterFirst08": 81,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 80,
+    "drops": 177,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 81,
+    "drops": 200,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 82,
+    "drops": 174,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 83,
+    "drops": 166,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 84,
+    "drops": 212,
+    "first08": 108,
+    "remainingAfterFirst08": 104,
+    "firstMultiple": {
+      "drop": 117,
+      "remainingDrops": 95,
+      "positions": [
+        {
+          "x": 1,
+          "y": 11,
+          "k": 4
+        },
+        {
+          "x": 4,
+          "y": 13,
+          "k": 4
+        }
+      ]
+    },
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 85,
+    "drops": 191,
+    "first08": 108,
+    "remainingAfterFirst08": 83,
+    "firstMultiple": null,
+    "positive": [
+      {
+        "type": "transform",
+        "net": 4,
+        "gained": 16,
+        "boardReduction": 16
+      }
+    ]
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 86,
+    "drops": 250,
+    "first08": 176,
+    "remainingAfterFirst08": 74,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 87,
+    "drops": 215,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 88,
+    "drops": 272,
+    "first08": 160,
+    "remainingAfterFirst08": 112,
+    "firstMultiple": {
+      "drop": 170,
+      "remainingDrops": 102,
+      "positions": [
+        {
+          "x": 0,
+          "y": 11,
+          "k": 4
+        },
+        {
+          "x": 4,
+          "y": 12,
+          "k": 4
+        }
+      ]
+    },
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 89,
+    "drops": 191,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 90,
+    "drops": 188,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 91,
+    "drops": 284,
+    "first08": 155,
+    "remainingAfterFirst08": 129,
+    "firstMultiple": {
+      "drop": 178,
+      "remainingDrops": 106,
+      "positions": [
+        {
+          "x": 1,
+          "y": 12,
+          "k": 4
+        },
+        {
+          "x": 3,
+          "y": 13,
+          "k": 4
+        }
+      ]
+    },
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 92,
+    "drops": 192,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 93,
+    "drops": 176,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 94,
+    "drops": 201,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 95,
+    "drops": 129,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 96,
+    "drops": 117,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 97,
+    "drops": 268,
+    "first08": 104,
+    "remainingAfterFirst08": 164,
+    "firstMultiple": {
+      "drop": 183,
+      "remainingDrops": 85,
+      "positions": [
+        {
+          "x": 3,
+          "y": 12,
+          "k": 4
+        },
+        {
+          "x": 2,
+          "y": 13,
+          "k": 4
+        }
+      ]
+    },
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 98,
+    "drops": 130,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-12-egg0",
+    "seed": 99,
+    "drops": 143,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 100,
+    "drops": 211,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 101,
+    "drops": 195,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 102,
+    "drops": 240,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": [
+      {
+        "type": "transform",
+        "net": 2,
+        "gained": 10,
+        "boardReduction": 10
+      }
+    ]
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 103,
+    "drops": 251,
+    "first08": 68,
+    "remainingAfterFirst08": 183,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 72,
+    "drops": 241,
+    "first08": 170,
+    "remainingAfterFirst08": 71,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 73,
+    "drops": 230,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 74,
+    "drops": 259,
+    "first08": 121,
+    "remainingAfterFirst08": 138,
+    "firstMultiple": null,
+    "positive": [
+      {
+        "type": "transform",
+        "net": 1,
+        "gained": 9,
+        "boardReduction": 9
+      }
+    ]
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 75,
+    "drops": 198,
+    "first08": 119,
+    "remainingAfterFirst08": 79,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 76,
+    "drops": 231,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 77,
+    "drops": 210,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 78,
+    "drops": 154,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 79,
+    "drops": 190,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 80,
+    "drops": 217,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 81,
+    "drops": 270,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 82,
+    "drops": 274,
+    "first08": 154,
+    "remainingAfterFirst08": 120,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 83,
+    "drops": 192,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 84,
+    "drops": 205,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 85,
+    "drops": 301,
+    "first08": 103,
+    "remainingAfterFirst08": 198,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 86,
+    "drops": 159,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 87,
+    "drops": 210,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 88,
+    "drops": 242,
+    "first08": 200,
+    "remainingAfterFirst08": 42,
+    "firstMultiple": {
+      "drop": 212,
+      "remainingDrops": 30,
+      "positions": [
+        {
+          "x": 1,
+          "y": 11,
+          "k": 4
+        },
+        {
+          "x": 3,
+          "y": 11,
+          "k": 4
+        }
+      ]
+    },
+    "positive": [
+      {
+        "type": "transform",
+        "net": 2,
+        "gained": 10,
+        "boardReduction": 10
+      }
+    ]
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 89,
+    "drops": 207,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 90,
+    "drops": 223,
+    "first08": 106,
+    "remainingAfterFirst08": 117,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 91,
+    "drops": 188,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 92,
+    "drops": 235,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 93,
+    "drops": 181,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 94,
+    "drops": 235,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 95,
+    "drops": 294,
+    "first08": 143,
+    "remainingAfterFirst08": 151,
+    "firstMultiple": {
+      "drop": 189,
+      "remainingDrops": 105,
+      "positions": [
+        {
+          "x": 4,
+          "y": 11,
+          "k": 4
+        },
+        {
+          "x": 2,
+          "y": 12,
+          "k": 4
+        }
+      ]
+    },
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 96,
+    "drops": 208,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 97,
+    "drops": 210,
+    "first08": 118,
+    "remainingAfterFirst08": 92,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 98,
+    "drops": 234,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  },
+  {
+    "condition": "life2-8-egg0",
+    "seed": 99,
+    "drops": 216,
+    "first08": null,
+    "remainingAfterFirst08": null,
+    "firstMultiple": null,
+    "positive": []
+  }
+]

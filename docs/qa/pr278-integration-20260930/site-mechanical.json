@@ -1,0 +1,1287 @@
+{
+  "stageSheets": [
+    {
+      "line": "cat",
+      "stage": "01",
+      "sha256": "a19b25a1e399af9422b3ad3b75702e9f6891be6832bc5c03ead0edbf93bf26ad"
+    },
+    {
+      "line": "cat",
+      "stage": "02",
+      "sha256": "dd3d6f9944fed10622b5efb5dafb9e8fcf4831e77f4ab93e4b29ea1fdfc0c456"
+    },
+    {
+      "line": "cat",
+      "stage": "03",
+      "sha256": "3131b861d196695d8e3d953410551628cb918336966d2e1cdfdff05b652ad934"
+    },
+    {
+      "line": "cat",
+      "stage": "04",
+      "sha256": "9a622872b2c60bcc08e4092b30488b58eb9745f982c2e4c3902a30ebe47de515"
+    },
+    {
+      "line": "cat",
+      "stage": "05",
+      "sha256": "afcdf2755cd8d3eb7317cf491bef573be0efde8dbec83bdaf280335524155adc"
+    },
+    {
+      "line": "cat",
+      "stage": "06",
+      "sha256": "cbdd732cfc44fe7f6eca30e1ab1ff2fa9c438f466b5900841ddc9fff950f642c"
+    },
+    {
+      "line": "cat",
+      "stage": "07",
+      "sha256": "5eeed4a899f02fc2e57509be4083cc76fe48a9491c476d95477a4899f5036614"
+    },
+    {
+      "line": "cat",
+      "stage": "08",
+      "sha256": "aac1d9bf38c4f4495f68fcbabba0a62b138f0128ed0b78262e668082c291f88f"
+    },
+    {
+      "line": "dog",
+      "stage": "01",
+      "sha256": "52b347615b42619184b8db698f12d81fbc370920811a05ba8cad02c77ba2aa54"
+    },
+    {
+      "line": "dog",
+      "stage": "02",
+      "sha256": "256ddf498a0b728028f39bc1bbce84a2f1eba844e3defc884dada7d896a603e6"
+    },
+    {
+      "line": "dog",
+      "stage": "03",
+      "sha256": "ca9b8fc8053a09c1737101542ff145d94801fa5eb28723d992779bd50c92e8df"
+    },
+    {
+      "line": "dog",
+      "stage": "04",
+      "sha256": "764f4e12de7c85969c5fb603f7b93df8f8ff355e0248da092b889bde1273d4aa"
+    },
+    {
+      "line": "dog",
+      "stage": "05",
+      "sha256": "10dce130baea7401536a7c0aa7fdbf6e24027bdc41d6438e1207e6e03b6999b3"
+    },
+    {
+      "line": "dog",
+      "stage": "06",
+      "sha256": "bd5e96a8142ccab56eb50ab7d4b5351f9c4a4268939f6d2e087ae2debc62ed28"
+    },
+    {
+      "line": "dog",
+      "stage": "07",
+      "sha256": "ae3c5440a8a9bf54ebbb7befe0144f426e5f8b61eede28efaba6dfc8d833bc23"
+    },
+    {
+      "line": "dog",
+      "stage": "08",
+      "sha256": "7323801ab2bcedd015ad848d7a1a81f2625c1f334c5ad32ac1c6e496f7885644"
+    },
+    {
+      "line": "man",
+      "stage": "01",
+      "sha256": "66f832e03164452197963c94f11338bc5ae2e0c1213f7406ce7a17237c55f89f"
+    },
+    {
+      "line": "man",
+      "stage": "02",
+      "sha256": "88dde67eade549e74bfeeb8c13a5c21dfbed31c1464971ab5de4c652ddd47dd0"
+    },
+    {
+      "line": "man",
+      "stage": "03",
+      "sha256": "ca6e89b42f0c440241db3b85b4c3e6547ed8f1e1bf08fb34f713971b2b37c6a7"
+    },
+    {
+      "line": "man",
+      "stage": "04",
+      "sha256": "89722c609c55f5b9ad82ec2421a16fa5c4ec1f55b072e7aae6f80ef3ea629cb3"
+    },
+    {
+      "line": "man",
+      "stage": "05",
+      "sha256": "87d4767449fc7f7dec983666d7101e3fe5fb38d9ea34657591ce79d15afd0622"
+    },
+    {
+      "line": "man",
+      "stage": "06",
+      "sha256": "5752566640920ec5b636215aa928e6c279c15d376e744080a81cb9ab32c5bc55"
+    },
+    {
+      "line": "man",
+      "stage": "07",
+      "sha256": "5e60bab791359cff28b1616d167086223eabfd7c745ef10c7a6c51e39bcd08ef"
+    },
+    {
+      "line": "man",
+      "stage": "08",
+      "sha256": "3b2c0125fee9b45d96b075f286208419bf17e8cad3f793a087c71aa44ed82946"
+    },
+    {
+      "line": "woman",
+      "stage": "01",
+      "sha256": "dd60c07e624cd5f2ce11a8a1db2fdb666a9b01b0c8a49bc205afcfc61deeee20"
+    },
+    {
+      "line": "woman",
+      "stage": "02",
+      "sha256": "6312ba21b85a8f94f0b9a8ebecc438975fa1dd02d14568c501d3f57f9869debb"
+    },
+    {
+      "line": "woman",
+      "stage": "03",
+      "sha256": "7221baf3adf0887e0bf460a023e387666017678b2c98b0c0c106dbefba2c3af2"
+    },
+    {
+      "line": "woman",
+      "stage": "04",
+      "sha256": "76ec8e979a9852e515b6858f2f99790b74509f5a52f4cfbe1a0d68a7de497507"
+    },
+    {
+      "line": "woman",
+      "stage": "05",
+      "sha256": "ec7399981d3e6f33f7ca60792e877f2054888436d28131da732638b57ee3ee81"
+    },
+    {
+      "line": "woman",
+      "stage": "06",
+      "sha256": "04f1fcb6f0e869ab9cca30787b969c917a715b44e1616c32f733559c62e04ab5"
+    },
+    {
+      "line": "woman",
+      "stage": "07",
+      "sha256": "397af7f2047b1b6d86e6286b806dee09cd00707a77b2c2b0ed104447d523efe6"
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "sha256": "9f305718be294e9c7b2f064ef3275093e1c90c9f687ebeddc6b8a17d82470ffa"
+    },
+    {
+      "line": "penguin",
+      "stage": "01",
+      "sha256": "81a74c441469f1869e2931deb04cffe2711dbbf68ec81513213a3b3fc5538de4"
+    },
+    {
+      "line": "penguin",
+      "stage": "02",
+      "sha256": "51368f60bcc81d6d95b51dba633931722e4df1cd0d22a0270b94cb8e07bedb37"
+    },
+    {
+      "line": "penguin",
+      "stage": "03",
+      "sha256": "2fc1ab0647a848d500213dd8d2a40166836d74209335875095366ce0e2eb82c9"
+    },
+    {
+      "line": "penguin",
+      "stage": "04",
+      "sha256": "199e1a2e9141c25c64b78a4716def81fd436856d89e80103f12ae2ed6eb9ebdd"
+    },
+    {
+      "line": "penguin",
+      "stage": "05",
+      "sha256": "bbe1c4c63d0ebe75f5948094a33471a90815fc3e3eb9665cfaac6072ca491787"
+    },
+    {
+      "line": "penguin",
+      "stage": "06",
+      "sha256": "d64e795f08b240b25d899226aa2e9d074ef4461b4fc4352012307d0e0654f591"
+    },
+    {
+      "line": "penguin",
+      "stage": "07",
+      "sha256": "ef7d34c88d7b91ce05bd5de486f18325d49d937d14683b31cc9c5e63a173d1dc"
+    },
+    {
+      "line": "penguin",
+      "stage": "08",
+      "sha256": "3616f97487ca3deaa79ca93200b87ba45b18e3acff8db82d866d0f9c692b6f22"
+    },
+    {
+      "line": "turtle",
+      "stage": "01",
+      "sha256": "2d514bea32403f2cc861d54072c848948c3718aee20f1b3e3b7fda113c49be82"
+    },
+    {
+      "line": "turtle",
+      "stage": "02",
+      "sha256": "f2f366bb94c0019b72904f5425260368e4bf5446370e59d722f4033fa391645b"
+    },
+    {
+      "line": "turtle",
+      "stage": "03",
+      "sha256": "50f9d1214dcae243e6af366827db2461be0c105fc3079ebd335f9647d3e6af9f"
+    },
+    {
+      "line": "turtle",
+      "stage": "04",
+      "sha256": "abfe3117a2960c2b7e2bf347b35f17861d5832bf8a50a935f68e0113c083e56c"
+    },
+    {
+      "line": "turtle",
+      "stage": "05",
+      "sha256": "73276295b5754decfd9369f6e803747f60a2c561ce60ffdcdc5368be7a9dd033"
+    },
+    {
+      "line": "turtle",
+      "stage": "06",
+      "sha256": "56603fab1657ddc0ce94f8247721626ece265c89379182123dad10044df67774"
+    },
+    {
+      "line": "turtle",
+      "stage": "07",
+      "sha256": "4c65c4e4df5d4871f30add7b948e96766e36b522549da4e8529495cdcb6243f9"
+    },
+    {
+      "line": "turtle",
+      "stage": "08",
+      "sha256": "6b73b52e64df00a4e618e5e22d8a38e2ba4e528d08e0c5f07f81db7c3e0fe151"
+    },
+    {
+      "line": "frog",
+      "stage": "01",
+      "sha256": "c512fb9182342ac5c8f948b8c0988e204ea0aa77bc438cafb01cc0941e762a3a"
+    },
+    {
+      "line": "frog",
+      "stage": "02",
+      "sha256": "003fbcf955199db1a2081ffb50daddf2c1b38c4dc8c2c37c488fba53a71f8763"
+    },
+    {
+      "line": "frog",
+      "stage": "03",
+      "sha256": "72e0267640c01ed5264043edcfb1332b55ab3022a6cf25275a1e9e193c69ed0c"
+    },
+    {
+      "line": "frog",
+      "stage": "04",
+      "sha256": "620a33d1e240aa778b9c6f14937c7dbe6cb8ec0b0c2fa2d591cb52091283aa0f"
+    },
+    {
+      "line": "frog",
+      "stage": "05",
+      "sha256": "3fb1b18dff4ed190c416b90415a8b28578c7c5b5e0850973b157eed1fbffaf9b"
+    },
+    {
+      "line": "frog",
+      "stage": "06",
+      "sha256": "665985c29b9552951d4ea6c5f8eae8b65610cf468a0f9ef46b8acb6a28e34733"
+    },
+    {
+      "line": "frog",
+      "stage": "07",
+      "sha256": "dd7a8274f9827b163fe776e66614b39c70c52e08943a938b082e4c15a8fd6bea"
+    },
+    {
+      "line": "frog",
+      "stage": "08",
+      "sha256": "9bac6445a60870d7081c1ab4fbd7fb94731c5aebb73e6f0df420a3b149482462"
+    },
+    {
+      "line": "clownfish",
+      "stage": "01",
+      "sha256": "638cb1fb591dbedb87b77cc6a86902ccd30edc14a06e1d6d8be031c678f4dfe9"
+    },
+    {
+      "line": "clownfish",
+      "stage": "02",
+      "sha256": "9603784b22d0fb3fae41db55f37a5b349a2ca7006bed1ed32547d1a17162c497"
+    },
+    {
+      "line": "clownfish",
+      "stage": "03",
+      "sha256": "471d3293c906aa2b25d23b1aeb56e860c2151e3a2a492131f5d99703acd935a3"
+    },
+    {
+      "line": "clownfish",
+      "stage": "04",
+      "sha256": "7fecc460b2ab49d3543c6da7e2bed39e647fba6169b8154f5d8b15d5945bb257"
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "sha256": "676c073ad8d8f247868dd8253464171ae3396b5524e2df9c96157fe9bfe3adf5"
+    },
+    {
+      "line": "clownfish",
+      "stage": "06",
+      "sha256": "befb35bf8fee75eda9cfd25180e489fc5c3ba9c4f38e613c612ae45fa9175b35"
+    },
+    {
+      "line": "clownfish",
+      "stage": "07",
+      "sha256": "23fa6da2fcb5bffd7ba5d8cb1b8f2508393fe08e82cfe79b292e7e294099bc01"
+    },
+    {
+      "line": "clownfish",
+      "stage": "08",
+      "sha256": "3238868a53f10d99bb478452ae0ac1f090d2cf598dca64077ccafdf249e30cf7"
+    },
+    {
+      "line": "salmon",
+      "stage": "01",
+      "sha256": "7a65e0b2894cdf31c4a4e7259247256931fa0670d9f88b1ad31f6be048914fd2"
+    },
+    {
+      "line": "salmon",
+      "stage": "02",
+      "sha256": "4f00e0a212500294705e1aa1cb36be4e11ff4c89db7150e38981476b6427a7ac"
+    },
+    {
+      "line": "salmon",
+      "stage": "03",
+      "sha256": "682efa3517ff927c37ca5f162be177a48d47fa26cc88cd553429a04b80be8eb3"
+    },
+    {
+      "line": "salmon",
+      "stage": "04",
+      "sha256": "22eb608c153a8445e7fdc167840321bd49a3658424e9d0dafd10271a871156e9"
+    },
+    {
+      "line": "salmon",
+      "stage": "05",
+      "sha256": "971a5c248eb28fce26b0cd8e2ebb86dd395626a269add16b5c1fa2a816b3a73e"
+    },
+    {
+      "line": "salmon",
+      "stage": "06",
+      "sha256": "1439763970fd30524ba88fffd4588f7e8b67d9ba2d20db0095b3c24efdf41c53"
+    },
+    {
+      "line": "salmon",
+      "stage": "07",
+      "sha256": "86da8bb3cbb12e1f55b4e3d08a380cb2a3a4d8489ec3895f663f2d92806f2d44"
+    },
+    {
+      "line": "salmon",
+      "stage": "08",
+      "sha256": "8e4b98ab0c3ee3aa8537df2cd39af4b90f0d08448cbc706261080a90665a2771"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "01",
+      "sha256": "ca8d6ff726c003114722e58b560e02bebfc859d58b3b309ec27a3f30e103f9b3"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "02",
+      "sha256": "3d8a4761f68551fdb917934b567ef3e254222d0c4ddfed2134e20552a208e012"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "03",
+      "sha256": "afbd2b6a2fa644b893799b9bfbd3d8eef2b0ace1ad80b51bf0fd50d1d4df7f83"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "04",
+      "sha256": "0d22f86b91cd98a24ab53d3a91578a756bb603e9f580a5ea0f28038bf6556947"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "05",
+      "sha256": "00dd7830eb430cdfa8e765a326c9fc9d807a11fc76cf45ce3ad6ba2b73fdf938"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "06",
+      "sha256": "6c2fce13196c7d407c42681184b1a63594432829672c95e426e02f4fead0c6d2"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "07",
+      "sha256": "eaa7081eefd986202154ff5a517597c761f0974791d20dcf6022264a024c7b80"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": "08",
+      "sha256": "eab8aa468be66d28513ad9c60685ffd4a6e0a5124e3b0feee67efedfa814cd8e"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "01",
+      "sha256": "5d235567513aa1f97801d94a97472e540c8ae11b0a30ee2250401c484eb5d436"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "02",
+      "sha256": "1bd58ffde600cff95a996f2e1cc2b2442fcb52bb37a3ba069e1d84d65c1f6613"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "03",
+      "sha256": "f6197f294abac9345a829ef7b8be0f62679776a56a8b592caf595bea7487525c"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "04",
+      "sha256": "813b37756eae71619125d32d05ada827265448d6cdcd3041b29c67d982fa6074"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "05",
+      "sha256": "d7124500e99eb7992c13dec08c40bd6a37714f2c5f94211ab0e66131852e0b70"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "06",
+      "sha256": "4c20c7d7f128e3fed12b2fcd22307686677ddc8654aa475dc73b94e000878041"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "07",
+      "sha256": "1cb9adca2f2942cf4f0af188ccdc068be48fe1df3f82ed0a451ae7a0c705254c"
+    },
+    {
+      "line": "jellyfish",
+      "stage": "08",
+      "sha256": "324374ac3e1d3ee79015fcbff34add4c7c2f91609304f41e68c80855c6745907"
+    },
+    {
+      "line": "starfish",
+      "stage": "01",
+      "sha256": "24a5a0187b2fd6db388cd5cd029837b2773cd472f47283ce8509e76d16615df0"
+    },
+    {
+      "line": "starfish",
+      "stage": "02",
+      "sha256": "aebf2f84e0be3e9cdfff2d1fd039e5157d60ba43dd63a7484780846ad7a45c93"
+    },
+    {
+      "line": "starfish",
+      "stage": "03",
+      "sha256": "dfd60c807ee0b6673d6a20f2a4bd730af9327d749e1906c6bb85673caca68c5c"
+    },
+    {
+      "line": "starfish",
+      "stage": "04",
+      "sha256": "684aea78150f2f1404ffa96117167740da8f92cdae1598cfbb1426b8e97533b7"
+    },
+    {
+      "line": "starfish",
+      "stage": "05",
+      "sha256": "276aeb9d736e62addb2a28dc4cbbf1a0dc809db1211ae4a570c73f9bb7c040e2"
+    },
+    {
+      "line": "starfish",
+      "stage": "06",
+      "sha256": "0dc7a90d03bb62f2ab709e5ca1ab113f3439d2cbea09c59ee5822069f540f810"
+    },
+    {
+      "line": "starfish",
+      "stage": "07",
+      "sha256": "6bf041ef145ef675f9391e2165128dfd1db9f9d2f89c1ccd61e1a98ba7bac350"
+    },
+    {
+      "line": "starfish",
+      "stage": "08",
+      "sha256": "4ab1b951f14d5ff7e9ab2b15d4a7556b6dc426e9e1341cc5d2ec2ff7d478047a"
+    },
+    {
+      "line": "coral",
+      "stage": "01",
+      "sha256": "70f6ffea184208fc629c7bfc6ada49d03c38d08ecfeb0afea8b58be862821fcc"
+    },
+    {
+      "line": "coral",
+      "stage": "02",
+      "sha256": "5993b3d001a12d953460894ab7b682e016e8e11999b25fa2d8a635f381524e24"
+    },
+    {
+      "line": "coral",
+      "stage": "03",
+      "sha256": "dbed9140d6ee8315d20982ae2d66dadd3524a1c1bd1a8db6bcd0c0b98f932390"
+    },
+    {
+      "line": "coral",
+      "stage": "04",
+      "sha256": "0cc3f072ea2ee345badcb34bfb0482b7c529ecbd7c997755efa6e5bf8e69d246"
+    },
+    {
+      "line": "coral",
+      "stage": "05",
+      "sha256": "325b1eff5fb84c891c68da3089ed8e1e721a095387179cc522d406587d6366b0"
+    },
+    {
+      "line": "coral",
+      "stage": "06",
+      "sha256": "72c7aef39380b8101da9b9780cdd336360736b002f3774a0cb39aa3e63520c76"
+    },
+    {
+      "line": "coral",
+      "stage": "07",
+      "sha256": "d708b4ebd958d515d02ee142ceaee8e206068b44486d7d69ee372bc5ee5ba516"
+    },
+    {
+      "line": "coral",
+      "stage": "08",
+      "sha256": "1ea1499b08b73131f068c5d483bdb5e54a98e75477999f73fb14535b7a15936a"
+    },
+    {
+      "line": "butterfly",
+      "stage": "01",
+      "sha256": "afbca9eb6f5300ef3708e9c82eef3553090f0813b748485ac7dfc41bca99a02b"
+    },
+    {
+      "line": "butterfly",
+      "stage": "02",
+      "sha256": "89cb8e84b5963f3b9572ead815f85ef04b416688cdb800899ea31d9732bdb4b6"
+    },
+    {
+      "line": "butterfly",
+      "stage": "03",
+      "sha256": "2ff9b7a1f68c481c9f377f08bf2d993089b63cb1b3f098c438eab9a83cfa26ff"
+    },
+    {
+      "line": "butterfly",
+      "stage": "04",
+      "sha256": "a19ca23126a75bf9a8feac9f0c23e7657061053b9116ddeef969cc5ae8a2f0ab"
+    },
+    {
+      "line": "butterfly",
+      "stage": "05",
+      "sha256": "d3113752abededdf206b80f5cdafe7d1ab88cbd49224e4184f62b13475fac51c"
+    },
+    {
+      "line": "butterfly",
+      "stage": "06",
+      "sha256": "a9abe26d589375a7cac742bd5c0aa3984520a5aba37bb241f22f95dfce3bd337"
+    },
+    {
+      "line": "butterfly",
+      "stage": "07",
+      "sha256": "d7e14c3c264f3e3b91cc56ca0302eeecbf468ea96159509cc1733d33c9243fb0"
+    },
+    {
+      "line": "butterfly",
+      "stage": "08",
+      "sha256": "81de141dfedb34c9759adbef9c647f114bfb877daeb8feab0c6cfbdc4f8c9a2a"
+    },
+    {
+      "line": "beetle",
+      "stage": "01",
+      "sha256": "100e44fa972098976eec166bef5b600f36e5b0f87eb39d142b852e0310b92386"
+    },
+    {
+      "line": "beetle",
+      "stage": "02",
+      "sha256": "cfd6423a4ee3d66069665b440b4208bc60a0610f88698dc0a7669a28fec387fd"
+    },
+    {
+      "line": "beetle",
+      "stage": "03",
+      "sha256": "48078da94fc33c406cd1acadb44087d61bb906e96bcd086130e94515a811f3ab"
+    },
+    {
+      "line": "beetle",
+      "stage": "04",
+      "sha256": "29e896bee88678dfb70a7a498722ba824a93d6805a15ec46fec38122424cbbc6"
+    },
+    {
+      "line": "beetle",
+      "stage": "05",
+      "sha256": "52474bc0fb11c9769415f2fad78bcfab82981079c83d0fc2a9285655e633c9d6"
+    },
+    {
+      "line": "beetle",
+      "stage": "06",
+      "sha256": "2ac94724a4b6da808b1c75f25e3fa6f09e479b54e29013fc5758c8595926d17c"
+    },
+    {
+      "line": "beetle",
+      "stage": "07",
+      "sha256": "2fc60eee53bde0e80b3f9966bd50f91fe0b1453716f859572d3963684e94be1e"
+    },
+    {
+      "line": "beetle",
+      "stage": "08",
+      "sha256": "88aa3bb445e32698afd4ee6b846978ca527a3bf97b98fea40cb2f6904ca0c1f1"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "01",
+      "sha256": "a31a2f5724b39e3c581dbed20b009fa918aa799c05d2ec2a19e32576f847ec83"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "02",
+      "sha256": "cdb2fcdae9ee9b44e457fed4e26d7f9cc5e6743136ca399d7c87469c2b18b036"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "03",
+      "sha256": "895cfbd440ae4cf5590fd0d907190b51989ef6a367fa5c48d5902941a3078e73"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "04",
+      "sha256": "39583d82c2f98369d0649e6354e95ccc0423af5eda159d7c80eeb9da8832a502"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "05",
+      "sha256": "3c92eda4619164359b07c6768ad8a308048ed664b553266a25853dd4e5111560"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "06",
+      "sha256": "6e41a2f37575def86cb165c7fca1b7fbaa33ff5c6b8152fe765724ecd05dd456"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "07",
+      "sha256": "aa9540c15fc81a7988310865d2cd386f9f582506f0b60e9fd5089849444b70ee"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": "08",
+      "sha256": "d785cb185888fa326a0b066094c503b597dd12a080294284ac10ba3f518b5abe"
+    },
+    {
+      "line": "cicada",
+      "stage": "01",
+      "sha256": "da4a9ffc15b2d1bfc1125ae278b37edfea211a73de0080bad643495d69492c7c"
+    },
+    {
+      "line": "cicada",
+      "stage": "02",
+      "sha256": "c12f731e0443ace63ce6a212cc45ef182a01e3e2b42ab1e429d5aca4ce7d18f3"
+    },
+    {
+      "line": "cicada",
+      "stage": "03",
+      "sha256": "59bfefc202e7618c878c4d0a71029443e13f2927690db679bb6e12b5051bb52c"
+    },
+    {
+      "line": "cicada",
+      "stage": "04",
+      "sha256": "d0d80d0671355591cf58be22e25d8b941a9e2e9d6997f4f94d66275f288d9c00"
+    },
+    {
+      "line": "cicada",
+      "stage": "05",
+      "sha256": "bd5c755271ce8bb00bb91bebc262aeb59878adefc8b23e79d2d7a7fcecde838c"
+    },
+    {
+      "line": "cicada",
+      "stage": "06",
+      "sha256": "768559c819bde83a5e83db16b24c7fb391c7606200a1dea5ae2fe0a8d29a3509"
+    },
+    {
+      "line": "cicada",
+      "stage": "07",
+      "sha256": "74963c53f0c6a3cc14ed89b4be27d3f582b46d9c8ef916c80d26297e88783477"
+    },
+    {
+      "line": "cicada",
+      "stage": "08",
+      "sha256": "0abeb25a4d8c856c68f92211ea58045f1e43fc603c529464a306d27b0d8a9c26"
+    },
+    {
+      "line": "antlion",
+      "stage": "01",
+      "sha256": "88a59a4463278c2449dc9b80bb91e111d31946a05749bae25add0a8cc5716bc1"
+    },
+    {
+      "line": "antlion",
+      "stage": "02",
+      "sha256": "049587d72ef76d9a4e53f3c25e78a9dd57a6dbbdd350551cd52b2f9817d811ba"
+    },
+    {
+      "line": "antlion",
+      "stage": "03",
+      "sha256": "b462a852f04b51ca37b7276303952c4e46d2482f7cbca166a6891c2c580b5e95"
+    },
+    {
+      "line": "antlion",
+      "stage": "04",
+      "sha256": "25156dc432ce7d44e3853e57278d66336b1e9943011543f935539db303be39b0"
+    },
+    {
+      "line": "antlion",
+      "stage": "05",
+      "sha256": "57e75f5b13d078cd88b9d134d5fabc2f7bce0bc13ec9b0bc8dc20beeb2a5ab04"
+    },
+    {
+      "line": "antlion",
+      "stage": "06",
+      "sha256": "91e029666a779c193cc3ad657c9d80ce6ea7e92c93635eb91b965c10b570652c"
+    },
+    {
+      "line": "antlion",
+      "stage": "07",
+      "sha256": "ff213b94b601e188bc217507b2b593177c604ab6939fb64455db60515e0aaa8c"
+    },
+    {
+      "line": "antlion",
+      "stage": "08",
+      "sha256": "f6aa47cabd1f53a1a32097c6e62ccdde4f634de7aefa4fcde586040440b0ef0f"
+    },
+    {
+      "line": "dandelion",
+      "stage": "01",
+      "sha256": "5de90b365a7cf12b00b804476b4b2e57eab831cba78c2d5c07f99954bd019470"
+    },
+    {
+      "line": "dandelion",
+      "stage": "02",
+      "sha256": "c7c94d3eac8fb0bd7534a5c69fcbf3b36f1a94ccebd8218f1e5858f5b7a9995c"
+    },
+    {
+      "line": "dandelion",
+      "stage": "03",
+      "sha256": "e185eeb0aa9ca88cb5e23f4a77ded56e588d273ac7867b12f2e9259afd20c161"
+    },
+    {
+      "line": "dandelion",
+      "stage": "04",
+      "sha256": "51364d773da9283a27ae618fc003a26a17be8deeeb1d1d55c6574716c41ef187"
+    },
+    {
+      "line": "dandelion",
+      "stage": "05",
+      "sha256": "eb184aa8a8f283bdeb8963f4efa5270cd306b8e51601ad0eefd8b4e0d553a076"
+    },
+    {
+      "line": "dandelion",
+      "stage": "06",
+      "sha256": "c012c320cbecdcd854606890da9590dc8c7aceb4d754ed3be1adc0b50998bec6"
+    },
+    {
+      "line": "dandelion",
+      "stage": "07",
+      "sha256": "ee543575b1df577638a0ef284850ff3ba7b1b32908aa02eefc5d8138a67ca468"
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "sha256": "f31ef80de2d043bd44484e7a5c05e927c2883ba84a9a0298e0191e34573f2494"
+    },
+    {
+      "line": "sakura",
+      "stage": "01",
+      "sha256": "d69da6d2792c46483fb9d52596ee3979de701719343dc6440e7ea443f3473ee6"
+    },
+    {
+      "line": "sakura",
+      "stage": "02",
+      "sha256": "d17ba991e1c16d9ed56af3c9c6e8f48d811b9215da057e45fc4e234b2367ed44"
+    },
+    {
+      "line": "sakura",
+      "stage": "03",
+      "sha256": "d26489e87882e64621c70828b7c95956547f90e92fcac959e10d792c96cc0039"
+    },
+    {
+      "line": "sakura",
+      "stage": "04",
+      "sha256": "19c7d764ff5c650f20df50b81f19061ead96396b76e7ca4798fc95c487aa3040"
+    },
+    {
+      "line": "sakura",
+      "stage": "05",
+      "sha256": "03fd2266207f4f02bc0ae09d91019014037ec34cb5d43a8a38eb3642ac371ab1"
+    },
+    {
+      "line": "sakura",
+      "stage": "06",
+      "sha256": "cda42ef265974f7f5e55f5c266de13c5659e1395f4d6e230d382f1c6b18f47ef"
+    },
+    {
+      "line": "sakura",
+      "stage": "07",
+      "sha256": "09e1e569fb0e3d2ff74a9886d035e411d704f5e38f36ed16c3d7d68e781c92c0"
+    },
+    {
+      "line": "sakura",
+      "stage": "08",
+      "sha256": "a1495f935ca045d4f3b18668192a5b3ac26d731b095115c369aa2ea904fbcdc2"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "01",
+      "sha256": "5eb0805da1d9edae687c1c67e5cfb61ca59fc111acad11cca942b0f6d21b5bf6"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "02",
+      "sha256": "7d4d4230db144141f270075d713a469fea43bf2b44e52703b013bb53f88d6cf2"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "03",
+      "sha256": "074337cc9b4a1bb7c545b62af4d5f449e17e2cd8a587223389db1d1666d9cc3d"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "04",
+      "sha256": "ec1a608a0c7a52ac1280b44e86fce9992e4d480971fe93dc6c77580b3ecee02b"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "05",
+      "sha256": "b95a30822c1494c10fa3662d4f05d065b481b9d754f3cd2b5f444599a5f28be5"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "06",
+      "sha256": "e4323f92a8d046e378c977cc135630b18592e9b322aa544d32ca081173ffadf2"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "07",
+      "sha256": "c49fb884b63926348f42f6bc6a71dc36eed88d37c742e8c4f58253ac2a9494c3"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": "08",
+      "sha256": "f25b7a59b3e4a19fd1fd4635cedd11b42d5546b2e2277043e453ec86e295f9ca"
+    },
+    {
+      "line": "mushroom",
+      "stage": "01",
+      "sha256": "5d17adfcd8d1985a1789a6793cdc57fd735eb3e71228647b956a3b55883134dc"
+    },
+    {
+      "line": "mushroom",
+      "stage": "02",
+      "sha256": "da68a3ffc6d046e2de214edcdf0e8780272e277e2e15ff5083db11af9acff178"
+    },
+    {
+      "line": "mushroom",
+      "stage": "03",
+      "sha256": "85f566ed30717b33e9cf114676190661c28975c863dab006e3c73141056bd931"
+    },
+    {
+      "line": "mushroom",
+      "stage": "04",
+      "sha256": "f1138b7e31cb8b90db862a554bffffc6f6496f7cd9e62ecbc13af13a423fbdf7"
+    },
+    {
+      "line": "mushroom",
+      "stage": "05",
+      "sha256": "3922af7340618457b633592bbb60f33bc1454e78867c3a8235e5346b757df484"
+    },
+    {
+      "line": "mushroom",
+      "stage": "06",
+      "sha256": "c446968c75e9fcc9c6cd01fa0f126ed14e65d0cd7b237bf39b5865b7ad4a47a1"
+    },
+    {
+      "line": "mushroom",
+      "stage": "07",
+      "sha256": "6915dedff104a2ef684f7b7c5008055022476ff2edb99d5102e448a065b64b7a"
+    },
+    {
+      "line": "mushroom",
+      "stage": "08",
+      "sha256": "fe31ffae1780f29fee77df7672a3f6162af575f324dc86d5d8cd54e10c685b86"
+    },
+    {
+      "line": "dragon",
+      "stage": "01",
+      "sha256": "950460a9a680b24bfa1f52fe5126a09fac13a8b15a16efc7800898c7c64942ba"
+    },
+    {
+      "line": "dragon",
+      "stage": "02",
+      "sha256": "1327b6d2c972ecc32839a645147101cf4e5428aac5d1cf2f5941dda78f966741"
+    },
+    {
+      "line": "dragon",
+      "stage": "03",
+      "sha256": "98b68ae909d23f4aabd99e5af0ec3032da9b1a4f9dd18a45203e6309abd115d6"
+    },
+    {
+      "line": "dragon",
+      "stage": "04",
+      "sha256": "0ac27c8aba556fde882218622e913dc96d8ebf52db8146279dd99c2f14e95891"
+    },
+    {
+      "line": "dragon",
+      "stage": "05",
+      "sha256": "deb3c8d433be1442059d223be36a65fca8f4f1e58109a51c69649bd8adb379b8"
+    },
+    {
+      "line": "dragon",
+      "stage": "06",
+      "sha256": "7179e555eccc82be67c8dd4ae50b75dafdd271c2e26f04a40f5504a9b03af369"
+    },
+    {
+      "line": "dragon",
+      "stage": "07",
+      "sha256": "2f5ec9b1f17b785744bed67f7482a0b259891f807cf0bc16a8e093dcb2c6e25d"
+    },
+    {
+      "line": "dragon",
+      "stage": "08",
+      "sha256": "b4f1e0539ea1effde015dc9b6cb1f0026b6c48e1dcc3fb641886858a04892d58"
+    },
+    {
+      "line": "phoenix",
+      "stage": "01",
+      "sha256": "b297a92050757c471a1c37e4f6a66ebadb2c27fe72341a5c9c549346bda3c8cc"
+    },
+    {
+      "line": "phoenix",
+      "stage": "02",
+      "sha256": "b1a59aee5d62f03c4873ee8bd78c1a99aa0eb7bf3f109b459e072f253c0bdf6f"
+    },
+    {
+      "line": "phoenix",
+      "stage": "03",
+      "sha256": "b25a19c48deff511c62f1fb31a40fd597b2c6d6b354e5da455eac55833cf0f3b"
+    },
+    {
+      "line": "phoenix",
+      "stage": "04",
+      "sha256": "527ecf67be9db7cb9292fa584ff22c62c18b417390340c20900ec169ac22733b"
+    },
+    {
+      "line": "phoenix",
+      "stage": "05",
+      "sha256": "ee454fcf1f37ec4029aac26deed73aa37d1095e2de9a6afae88ef2434da10c8f"
+    },
+    {
+      "line": "phoenix",
+      "stage": "06",
+      "sha256": "e23409d559c26f1c5ca45ae5ead0a75986a83d1d03d8bcc4859c89187b5cbca6"
+    },
+    {
+      "line": "phoenix",
+      "stage": "07",
+      "sha256": "c5336a868b373db8b7c614c7eca466a7d6751e0cfa39cc3fac912fd284c19958"
+    },
+    {
+      "line": "phoenix",
+      "stage": "08",
+      "sha256": "cc17a0c12c4113bf710fe17bf84a0f7cfeefe77e67d215646db1157730f919bb"
+    },
+    {
+      "line": "god",
+      "stage": "01",
+      "sha256": "eea38bab60558fd5033810ad0e612b687032c1da4cce99972b2160f36dc3a90e"
+    },
+    {
+      "line": "god",
+      "stage": "02",
+      "sha256": "ec2bd25bf5d4c4492e1f46d5257abb9204fc701a946a723a2c7e722a7acd4202"
+    },
+    {
+      "line": "god",
+      "stage": "03",
+      "sha256": "f8a25018b4c5e5ab4548484924561ae87623addeea09d914ca9c0d89e4a3bb49"
+    },
+    {
+      "line": "god",
+      "stage": "04",
+      "sha256": "9b45830b61d408315ec86ddb56bf8de75e9d7038022c176e2e189c9d3d2274e4"
+    },
+    {
+      "line": "god",
+      "stage": "05",
+      "sha256": "d308ae6fc001b7f2feef86340ab11f6d4fd108d1aecbd41a9d9eb1388b596816"
+    },
+    {
+      "line": "god",
+      "stage": "06",
+      "sha256": "ca0c10683e08fc5a0eaba4ab48a547d024793054e95eea243bf91059f551da2d"
+    },
+    {
+      "line": "god",
+      "stage": "07",
+      "sha256": "20960e319e7d3738ee44b08c04e38d4ae625ff4c1f47bb1be51d44e21c051ee1"
+    },
+    {
+      "line": "god",
+      "stage": "08",
+      "sha256": "1941972ded5331d90916254c66f4c3fd2c6ca1e4da54d35a1b9991dbf1163485"
+    },
+    {
+      "line": "world_tree",
+      "stage": "01",
+      "sha256": "46aa0da5304ce8e5c5cbbb13116cd324140e90224082e36f605d95114fa8a6db"
+    },
+    {
+      "line": "world_tree",
+      "stage": "02",
+      "sha256": "97ea578ffb8241dbf65d05112b087e19a7222fadf4170af546add7d1761d2d32"
+    },
+    {
+      "line": "world_tree",
+      "stage": "03",
+      "sha256": "da6e047845d7f1c2fac4d82090f8730db26b571dfa336a52743665a545ea4537"
+    },
+    {
+      "line": "world_tree",
+      "stage": "04",
+      "sha256": "b898831d37ce0324ca6ff03e4ea7a17fae88692e79a74886e429d44f22eff569"
+    },
+    {
+      "line": "world_tree",
+      "stage": "05",
+      "sha256": "e849ac087d05bdb9f35cb992ac54dc105d6f747a2fb7551f80845ce4a9e6aca1"
+    },
+    {
+      "line": "world_tree",
+      "stage": "06",
+      "sha256": "fd092a184a7acdeae505480d1da7b6d29fe42a6acffb3b2fb8f70e88f0eff72c"
+    },
+    {
+      "line": "world_tree",
+      "stage": "07",
+      "sha256": "628a9fd7aec11c7be2c00f6666cfafa5878e12195033d71bde6a397b7281e773"
+    },
+    {
+      "line": "world_tree",
+      "stage": "08",
+      "sha256": "1d6f4fdc1a1bc2d1c4b74bde163c445b2ba14abcbcfea63ad3bf5aa81fd7a819"
+    },
+    {
+      "line": "ghost",
+      "stage": "01",
+      "sha256": "4e897c1d9c62aad6703a028822ff0acceeff1820be61abf6909a66f91b2d1e69"
+    },
+    {
+      "line": "ghost",
+      "stage": "02",
+      "sha256": "6e4b512e766f7f0ac1806957fddb5e2edf651bcf2565e4a38e8bbc6f225e2f8d"
+    },
+    {
+      "line": "ghost",
+      "stage": "03",
+      "sha256": "e69dad6643905c4cb209205d39f8c50a557c92cebb3b429d25115bf571487fd8"
+    },
+    {
+      "line": "ghost",
+      "stage": "04",
+      "sha256": "c06ab695681a1ae26190fe81e335f980d508803715f77e3d3f91cd29d01d6f7f"
+    },
+    {
+      "line": "ghost",
+      "stage": "05",
+      "sha256": "98dce0ef03a038b4fc167c309103e558847220a58bb28f8df4f799a4e4f87c72"
+    },
+    {
+      "line": "ghost",
+      "stage": "06",
+      "sha256": "f4a4b2ce77d78fbb9d51bbcfd0195e9fe1d958d084bd2e4d851dfab43a96c32d"
+    },
+    {
+      "line": "ghost",
+      "stage": "07",
+      "sha256": "eb4aef70429e78216a007efcaab7b98db781adffd57de9c36b5b261b279b1f23"
+    },
+    {
+      "line": "ghost",
+      "stage": "08",
+      "sha256": "cad224ce12c18edb9099910727d0120b8e35e8a85943a11fbe7d3d1f29a329cb"
+    },
+    {
+      "line": "star",
+      "stage": "01",
+      "sha256": "986d6228a54b3c50d0ce64197ef38a825937f31600bcbbaaf33a8e5b79a62f5a"
+    },
+    {
+      "line": "star",
+      "stage": "02",
+      "sha256": "4f5fb140fc974a5aa181af84644402e17d83e980d270deb9692f4a4da4958f20"
+    },
+    {
+      "line": "star",
+      "stage": "03",
+      "sha256": "4186b7c4a3c4ce1457e43b291c16bf1d34ca8a70a21c2f2deada6b35a3efbb59"
+    },
+    {
+      "line": "star",
+      "stage": "04",
+      "sha256": "f1bf8855f4fa031c34f04352d0327f22763eae561d29873bb816a0deaf7326e2"
+    },
+    {
+      "line": "star",
+      "stage": "05",
+      "sha256": "5e9fadef5eac9e5e676b801311c0c5a13e14d68afb05300e429eb26ea6e13690"
+    },
+    {
+      "line": "star",
+      "stage": "06",
+      "sha256": "fef07250e68f5979e8cf2d536ff3ee4797bd210090e5a821461e912e5ee78e8c"
+    },
+    {
+      "line": "star",
+      "stage": "07",
+      "sha256": "002d5a88189ebf88b61c8ebb560c238a3fe34a3bad24660c505d2b7e551a1b0d"
+    },
+    {
+      "line": "star",
+      "stage": "08",
+      "sha256": "3bfde894e9f8535ba9258010556241909750ea79a2226e7e8d21aea5951de61b"
+    },
+    {
+      "line": "plush",
+      "stage": "01",
+      "sha256": "f7752d0b0407802ccd5eeff03a4e8f7dc602ac557816e273f9667203040ef849"
+    },
+    {
+      "line": "plush",
+      "stage": "02",
+      "sha256": "0be12bf4a9b35cad1d0ca05b8c335d408bcb9794ce2f119e56c7501f31dc9207"
+    },
+    {
+      "line": "plush",
+      "stage": "03",
+      "sha256": "6b6334d1254a1b04314cace203e8252d70c4bf753a22a77a4a8934ec3b8ae9c6"
+    },
+    {
+      "line": "plush",
+      "stage": "04",
+      "sha256": "03168f11bf4001583247a77e0b4bb752f254b4e9aa3f78ab4427b0db8d2bdb7d"
+    },
+    {
+      "line": "plush",
+      "stage": "05",
+      "sha256": "84f985ef2fa3188f456af4b8f7b4f3ec98700721640e861c07c30ea9655660ec"
+    },
+    {
+      "line": "plush",
+      "stage": "06",
+      "sha256": "b9ba4b181980bb5f12a1ad67a9e9b11d352464f570f72b0badf0a9163e558b6c"
+    },
+    {
+      "line": "plush",
+      "stage": "07",
+      "sha256": "b70f964bada0f114951bc85ecb54eab3010a89255545a0cbd036566e523fbf82"
+    },
+    {
+      "line": "plush",
+      "stage": "08",
+      "sha256": "e1b02c3eb0079bdf2798eb61a67fc03aacaa84c8844072af85f9e79b97a8b928"
+    },
+    {
+      "line": "unknown",
+      "stage": "01",
+      "sha256": "9e8d368eb2aeae05b8bd552ffc4540458fa4e184066bddbe6823c4fc56d9f91c"
+    },
+    {
+      "line": "unknown",
+      "stage": "02",
+      "sha256": "a94c29d3a197bc64dc969ad8c1ad4b3cd2074c179162f9846f23e8fc197d1332"
+    },
+    {
+      "line": "unknown",
+      "stage": "03",
+      "sha256": "84ac38df10c69dfc54828131a8099f5a4676650d4bd83339f81a3536da386ff5"
+    },
+    {
+      "line": "unknown",
+      "stage": "04",
+      "sha256": "79cf087f85bce6b2e5b6c7f95d8a23a6db2b6824a61c860c703df3b1128dc2f6"
+    },
+    {
+      "line": "unknown",
+      "stage": "05",
+      "sha256": "28dd2b1ab8fe9bf668364643655f315ff413e753dea2c6cbe9c17a629aa9277f"
+    },
+    {
+      "line": "unknown",
+      "stage": "06",
+      "sha256": "b1ed5748d5855de1af283cba5b667a94c69c19ff28bb0bf691950ae70dab1759"
+    },
+    {
+      "line": "unknown",
+      "stage": "07",
+      "sha256": "b7827058cf37c5a3ae00f6daf2050df12ba40ddc1ea2dc9e398a45449dd1777c"
+    },
+    {
+      "line": "unknown",
+      "stage": "08",
+      "sha256": "36719838fdf7f0e2a3d4993897ea4359edc98af591148ae545dd88cdff9e4556"
+    },
+    {
+      "line": "ren",
+      "stage": "01",
+      "sha256": "f0008f5ad1b1841a3b9436dda97d59b0208a4f84bae4278042863b212e1ef848"
+    },
+    {
+      "line": "ren",
+      "stage": "02",
+      "sha256": "aeb6aaf7cbe8c1503aec4fd537973cc05f64a105e107946f94ac68e4a56788dc"
+    },
+    {
+      "line": "ren",
+      "stage": "03",
+      "sha256": "e1e51fd861edb105af4f585c561dea5614c6d8bc1ec675e289b9e1e61505d70f"
+    },
+    {
+      "line": "ren",
+      "stage": "04",
+      "sha256": "8f0b9e0b39733a2c00a46590e92291e36b5d2566cb940b339eb0131848600209"
+    },
+    {
+      "line": "ren",
+      "stage": "05",
+      "sha256": "570f7557ea5e555a2a095016290af2e4922e7c48939c8624605c53434812e617"
+    },
+    {
+      "line": "ren",
+      "stage": "06",
+      "sha256": "878752f9e7f56c2e2a2bb216ef89c0b31a0c71d65ee2e3e3f5fd3bab70ab41a2"
+    },
+    {
+      "line": "ren",
+      "stage": "07",
+      "sha256": "6701432a63206431b7ed7083a9abd2e5ccc63a631dd8ee193e80fc61694096de"
+    },
+    {
+      "line": "ren",
+      "stage": "08",
+      "sha256": "9b80c2a206d0ba9dd50eeb4118835786615712191ab99e0d9b3a3118f0ee5aa0"
+    }
+  ],
+  "lines": 31,
+  "hungerAssignments": 248,
+  "categories": [
+    "algae_aquatic_plant",
+    "aquatic_small_prey",
+    "benthic_small_prey",
+    "decaying_wood_humus",
+    "fish",
+    "fly",
+    "food_bowl",
+    "humus",
+    "insect",
+    "leaf",
+    "milk",
+    "nectar",
+    "neutral_nutrition",
+    "omnivore_food",
+    "organic_nutrients",
+    "plant_sap",
+    "rice",
+    "tree_sap",
+    "water"
+  ],
+  "foodIcons": [
+    "assets/marks/hunger/algae.svg",
+    "assets/marks/hunger/aquatic.svg",
+    "assets/marks/hunger/benthic.svg",
+    "assets/marks/hunger/bowl.svg",
+    "assets/marks/hunger/fish.svg",
+    "assets/marks/hunger/insect.svg",
+    "assets/marks/hunger/leaf.svg",
+    "assets/marks/hunger/milk.svg",
+    "assets/marks/hunger/nectar.svg",
+    "assets/marks/hunger/neutral.svg",
+    "assets/marks/hunger/organic.svg",
+    "assets/marks/hunger/rice.svg",
+    "assets/marks/hunger/sap.svg",
+    "assets/marks/hunger/water.svg",
+    "assets/marks/hunger/wood.svg"
+  ],
+  "previewReferences": 42,
+  "missingReferences": 0,
+  "scope": "all 248 SVG sheets regenerated in memory using production bytes, no publication or visual reapproval"
+}

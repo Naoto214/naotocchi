@@ -1,0 +1,1146 @@
+{
+  "summary": [
+    {
+      "dir": "left",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "left",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.0000013163224252821237,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.0000013163224252821237,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.000001942685202038774,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "left",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 3.467933432487996,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 3.4663782251322743,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 4.333744365765142,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 2.598995636581691,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "left",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 8.134563968742114,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 8.134563968742114,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 10.167813954457927,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 6.099749957147409,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "left",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.0000013163224252821237,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.0000013163224252821237,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.000001942685202038774,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "left",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 6.799325547035551e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "up",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "up",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.000006313072105967876,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.000006313072105967876,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.000005686709329211226,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "up",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 3.467933432487996,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 3.4663782251322743,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 4.333744365765142,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 2.598995636581691,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "up",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 8.134563968742114,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 8.134571598136631,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 10.167813954457927,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 6.099749957147409,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "up",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.000006313072105967876,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.000006313072105967876,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.000005686709329211226,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "up",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 6.799325547035551e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "right",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "right",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0.000008945716956532124,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.000006313072105967876,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0.000005686709300789516,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0.000006939434911146236,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "right",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 3.4663629663432403,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 3.4679410618825273,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 4.333751995159673,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 2.6005672918551,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "right",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 8.134571598136631,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 8.134571598136631,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 10.167821583852458,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 6.101321612420861,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "right",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0.000008945716956532124,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.000006313072105967876,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0.000005686709300789516,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0.000006939434911146236,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "right",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 9.066525308298878e-10,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 6.799609764129855e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "down",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "down",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0.000008945716956532124,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.000008945716956532124,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0.000005686709300789516,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0.000006939434911146236,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "down",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 3.4663629663432403,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 3.4679410618825273,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 4.333751995159673,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 2.6005672918551,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "down",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 8.134571598136631,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 8.134571598136631,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 10.167821583852458,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 6.101321612420861,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "down",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0.000008945716956532124,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.000008945716956532124,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0.000005686709300789516,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0.000006939434911146236,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    },
+    {
+      "dir": "down",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 9.066525308298878e-10,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 9.066525308298878e-10,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 6.799609764129855e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": false
+    }
+  ],
+  "failures": [
+    "left/start: raster differs from unobscured foreground",
+    "left/middle: raster differs from unobscured foreground",
+    "left/rotated-middle: raster differs from unobscured foreground",
+    "left/rotated-middle: resize drift 3.467933432487996",
+    "left/rotated-middle: resize drift 3.4663782251322743",
+    "left/rotated-middle: resize drift 4.333744365765142",
+    "left/rotated-middle: resize drift 2.598995636581691",
+    "left/small-middle: raster differs from unobscured foreground",
+    "left/small-middle: resize drift 8.134563968742114",
+    "left/small-middle: resize drift 8.134563968742114",
+    "left/small-middle: resize drift 10.167813954457927",
+    "left/small-middle: resize drift 6.099749957147409",
+    "left/returned-middle: raster differs from unobscured foreground",
+    "left/end: raster differs from unobscured foreground",
+    "left: evolution traps foreground in cell stacking context",
+    "up/start: raster differs from unobscured foreground",
+    "up/middle: raster differs from unobscured foreground",
+    "up/rotated-middle: raster differs from unobscured foreground",
+    "up/rotated-middle: resize drift 3.467933432487996",
+    "up/rotated-middle: resize drift 3.4663782251322743",
+    "up/rotated-middle: resize drift 4.333744365765142",
+    "up/rotated-middle: resize drift 2.598995636581691",
+    "up/small-middle: raster differs from unobscured foreground",
+    "up/small-middle: resize drift 8.134563968742114",
+    "up/small-middle: resize drift 8.134571598136631",
+    "up/small-middle: resize drift 10.167813954457927",
+    "up/small-middle: resize drift 6.099749957147409",
+    "up/returned-middle: raster differs from unobscured foreground",
+    "up/end: raster differs from unobscured foreground",
+    "up: evolution traps foreground in cell stacking context",
+    "right/start: raster differs from unobscured foreground",
+    "right/middle: raster differs from unobscured foreground",
+    "right/rotated-middle: raster differs from unobscured foreground",
+    "right/rotated-middle: resize drift 3.4663629663432403",
+    "right/rotated-middle: resize drift 3.4679410618825273",
+    "right/rotated-middle: resize drift 4.333751995159673",
+    "right/rotated-middle: resize drift 2.6005672918551",
+    "right/small-middle: raster differs from unobscured foreground",
+    "right/small-middle: resize drift 8.134571598136631",
+    "right/small-middle: resize drift 8.134571598136631",
+    "right/small-middle: resize drift 10.167821583852458",
+    "right/small-middle: resize drift 6.101321612420861",
+    "right/returned-middle: raster differs from unobscured foreground",
+    "right/end: raster differs from unobscured foreground",
+    "right: evolution traps foreground in cell stacking context",
+    "down/start: raster differs from unobscured foreground",
+    "down/middle: raster differs from unobscured foreground",
+    "down/rotated-middle: raster differs from unobscured foreground",
+    "down/rotated-middle: resize drift 3.4663629663432403",
+    "down/rotated-middle: resize drift 3.4679410618825273",
+    "down/rotated-middle: resize drift 4.333751995159673",
+    "down/rotated-middle: resize drift 2.6005672918551",
+    "down/small-middle: raster differs from unobscured foreground",
+    "down/small-middle: resize drift 8.134571598136631",
+    "down/small-middle: resize drift 8.134571598136631",
+    "down/small-middle: resize drift 10.167821583852458",
+    "down/small-middle: resize drift 6.101321612420861",
+    "down/returned-middle: raster differs from unobscured foreground",
+    "down/end: raster differs from unobscured foreground",
+    "down: evolution traps foreground in cell stacking context"
+  ]
+}
