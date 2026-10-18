@@ -45,5 +45,8 @@
     "C-panda"
   ],
   "approval": "429-card production authorized; no per-batch approval needed",
-  "main_merge": false
+  "main_merge": false,
+  "production_paused": true,
+  "pause_reason": "User authorized growth diversity revision only; remaining406 prohibited this turn",
+  "latest_review": "growth-review/README.md"
 }

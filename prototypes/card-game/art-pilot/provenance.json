@@ -681,8 +681,8 @@
     {
       "id": "M-beetle-07",
       "name": "カブトムシ⑦",
-      "scene": "Mature strong Japanese rhinoceros beetle exactly as reference: rich copper chestnut wing cases, amber brown face, long strong upright forked horn, six legs and gentle dark eyes. Standing proudly on broad oak bark beside a small patch of tree sap, warm summer forest light and distant soft leaves, full body.",
-      "identity_review": "銅褐色の翅・がっしりした体・二股角を維持。",
+      "scene": "Mature beetle feeding quietly at a bead of tree sap on an upright oak trunk. Close side view, trunk occupying RIGHT third and beetle climbing almost vertically, head turned toward sap. Quiet blue-green evening woodland beyond on left, soft natural dusk, not dark. NOT the old diagonal branch in yellow midday forest. Preserve copper-brown wingcases, single forked head horn, six legs, cute face and mature body.",
+      "identity_review": "Canonical 2D and before/after visually checked; see growth-review/README.md",
       "sources": [
         {
           "path": "assets/characters/beetle/07.png",
@@ -691,15 +691,41 @@
         }
       ],
       "illustration": "illustrations/M-beetle-07.png",
-      "sha256": "be873858315edb94bd5fa7a1052c296bda02b594bc5ec3daa2f91d4183ef2438",
+      "sha256": "6ad53ccc60af43731656003e4ec3fe4442a58d2350ed665969a466314c379196",
       "dimensions": [
         1536,
         1024
       ],
       "format": "PNG",
-      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
-      "approval": "production_qa_complete_under_batch_authorization",
-      "preview": "previews/M-beetle-07.png"
+      "generation": "built-in image_gen identity-preserve edit; growth-review/revision-prompts.json",
+      "approval": "revision_qa_complete_under_user_authorization",
+      "preview": "previews/M-beetle-07.png",
+      "history": [
+        {
+          "id": "M-beetle-07",
+          "name": "カブトムシ⑦",
+          "scene": "Mature strong Japanese rhinoceros beetle exactly as reference: rich copper chestnut wing cases, amber brown face, long strong upright forked horn, six legs and gentle dark eyes. Standing proudly on broad oak bark beside a small patch of tree sap, warm summer forest light and distant soft leaves, full body.",
+          "identity_review": "銅褐色の翅・がっしりした体・二股角を維持。",
+          "sources": [
+            {
+              "path": "assets/characters/beetle/07.png",
+              "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+              "blob": "441eb4388f624a2631aa15ca61fe8e76d7df4b17"
+            }
+          ],
+          "illustration": "growth-review/before/M-beetle-07.png",
+          "sha256": "be873858315edb94bd5fa7a1052c296bda02b594bc5ec3daa2f91d4183ef2438",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG",
+          "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+          "approval": "production_qa_complete_under_batch_authorization",
+          "preview": "growth-review/before/M-beetle-07-card.png"
+        }
+      ],
+      "revision": "growth-story-v2"
     },
     {
       "id": "M-beetle-08",
@@ -819,8 +845,8 @@
     {
       "id": "M-cat-05",
       "name": "ねこ⑤",
-      "scene": "Slender standing young grey cat, face now grey rather than the white face of younger stages; small pale muzzle, large dark eyes, pink inner ears, pale toes, long tail curved upward, all four paws grounded. Looking along a sunny garden wall with a distant orchard; balanced confident standing posture.",
-      "identity_review": "灰色の顔・細長い胴と脚・立ち姿を維持。",
+      "scene": "Slender adolescent grey cat carefully exploring the top of a low garden wall, seen in right-facing side three-quarter view. One forepaw tests the next broad stepping stone. Low camera reveals open sky and distant rooftops beyond wall, soft clear morning. Full long legs and curled upright tail visible. Preserve grey face, slim long torso, triangular ears, no collar; do not make a white-faced kitten. NOT a front portrait on garden path.",
+      "identity_review": "Canonical 2D and before/after visually checked; see growth-review/README.md",
       "sources": [
         {
           "path": "assets/characters/cat/05.png",
@@ -829,15 +855,41 @@
         }
       ],
       "illustration": "illustrations/M-cat-05.png",
-      "sha256": "8263d1a034ec98b749c54f3f6f8d843a36b950339391e51faad0b17ce09bfb07",
+      "sha256": "22e1d7761543b66db7a6fd45f24876d68413ff9fe2169b3a23fa11e69930fbce",
       "dimensions": [
         1536,
         1024
       ],
       "format": "PNG",
-      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
-      "approval": "production_qa_complete_under_batch_authorization",
-      "preview": "previews/M-cat-05.png"
+      "generation": "built-in image_gen identity-preserve edit; growth-review/revision-prompts.json",
+      "approval": "revision_qa_complete_under_user_authorization",
+      "preview": "previews/M-cat-05.png",
+      "history": [
+        {
+          "id": "M-cat-05",
+          "name": "ねこ⑤",
+          "scene": "Slender standing young grey cat, face now grey rather than the white face of younger stages; small pale muzzle, large dark eyes, pink inner ears, pale toes, long tail curved upward, all four paws grounded. Looking along a sunny garden wall with a distant orchard; balanced confident standing posture.",
+          "identity_review": "灰色の顔・細長い胴と脚・立ち姿を維持。",
+          "sources": [
+            {
+              "path": "assets/characters/cat/05.png",
+              "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+              "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+            }
+          ],
+          "illustration": "growth-review/before/M-cat-05.png",
+          "sha256": "8263d1a034ec98b749c54f3f6f8d843a36b950339391e51faad0b17ce09bfb07",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG",
+          "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+          "approval": "production_qa_complete_under_batch_authorization",
+          "preview": "growth-review/before/M-cat-05-card.png"
+        }
+      ],
+      "revision": "growth-story-v2"
     },
     {
       "id": "M-cat-06",
@@ -865,8 +917,8 @@
     {
       "id": "M-cat-07",
       "name": "ねこ⑦",
-      "scene": "Mature calm grey seated cat with grey face, half-lidded dark eyes, subtle pale muzzle, pale toes and low curved tail resting beside body; preserve relaxed slight smile. Resting in dappled shade under a garden tree, cool soft green light and distant warm cottage.",
-      "identity_review": "半眼・低く休めた尾・落ち着いた座位・灰色の顔を維持。",
+      "scene": "Mature grey cat resting seated under a wooden veranda roof after gentle rain, facing slightly RIGHT, half-lidded calm eyes and low curled tail exactly as canonical. Medium close view from slightly above shows wet paving and a quiet puddle reflecting pale sky below veranda. Sparse background, soft overcast daylight, dry sheltered cat, full body. Preserve grey face, mature seated proportions. NOT a sunny flower garden front portrait.",
+      "identity_review": "Canonical 2D and before/after visually checked; see growth-review/README.md",
       "sources": [
         {
           "path": "assets/characters/cat/07.png",
@@ -875,15 +927,41 @@
         }
       ],
       "illustration": "illustrations/M-cat-07.png",
-      "sha256": "4f228473b864509d84bcf7edab871cf1df9f42fea8dd7276c132f87b6ab621b3",
+      "sha256": "868979101356b2c015a58377fb9e5ee9fc96ce42c60d2a24076302594d0bb28e",
       "dimensions": [
         1536,
         1024
       ],
       "format": "PNG",
-      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
-      "approval": "production_qa_complete_under_batch_authorization",
-      "preview": "previews/M-cat-07.png"
+      "generation": "built-in image_gen identity-preserve edit; growth-review/revision-prompts.json",
+      "approval": "revision_qa_complete_under_user_authorization",
+      "preview": "previews/M-cat-07.png",
+      "history": [
+        {
+          "id": "M-cat-07",
+          "name": "ねこ⑦",
+          "scene": "Mature calm grey seated cat with grey face, half-lidded dark eyes, subtle pale muzzle, pale toes and low curved tail resting beside body; preserve relaxed slight smile. Resting in dappled shade under a garden tree, cool soft green light and distant warm cottage.",
+          "identity_review": "半眼・低く休めた尾・落ち着いた座位・灰色の顔を維持。",
+          "sources": [
+            {
+              "path": "assets/characters/cat/07.png",
+              "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+              "blob": "0240f4f09f37a9605012b672ce45b53b99558ef2"
+            }
+          ],
+          "illustration": "growth-review/before/M-cat-07.png",
+          "sha256": "4f228473b864509d84bcf7edab871cf1df9f42fea8dd7276c132f87b6ab621b3",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG",
+          "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+          "approval": "production_qa_complete_under_batch_authorization",
+          "preview": "growth-review/before/M-cat-07-card.png"
+        }
+      ],
+      "revision": "growth-story-v2"
     },
     {
       "id": "M-cat-08",
@@ -934,8 +1012,8 @@
     {
       "id": "M-clownfish-02",
       "name": "カクレクマノミ②",
-      "scene": "One small slender juvenile clownfish, light orange peach body with emerging pale bands, open large dark eyes, small triangular dorsal fin and fan tail as canonical. Exploring a sunlit sandy patch with a few rounded pebbles beside an anemone. Clear side view, gentle curious face.",
-      "identity_review": "淡い橙色・現れ始めた縞・小さな体を維持。",
+      "scene": "Tiny pale peach juvenile with emerging faint white stripes on its FIRST short outing from shelter. Face RIGHT and slightly upward, swimming through a small gap between smooth rounded rocks; the gap frames distant open turquoise water. Near camera, large soft rock forms create intimate scale, few small sea plants below, sparse surroundings. Preserve slender tiny body, open eyes, pale fins, faint bands. NO pink anemone meadow or busy coral panorama.",
+      "identity_review": "Canonical 2D and before/after visually checked; see growth-review/README.md",
       "sources": [
         {
           "path": "assets/characters/clownfish/02.png",
@@ -944,15 +1022,41 @@
         }
       ],
       "illustration": "illustrations/M-clownfish-02.png",
-      "sha256": "52a01c6a67b593b684a6e7c1ce40adcac43f7455602937ec2bb2baa73fdf66af",
+      "sha256": "1c079036a02415e40e5983ba583994b8625cf109f49400139b27d0f8bbc58a87",
       "dimensions": [
         1536,
         1024
       ],
       "format": "PNG",
-      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
-      "approval": "production_qa_complete_under_batch_authorization",
-      "preview": "previews/M-clownfish-02.png"
+      "generation": "built-in image_gen identity-preserve edit; growth-review/revision-prompts.json",
+      "approval": "revision_qa_complete_under_user_authorization",
+      "preview": "previews/M-clownfish-02.png",
+      "history": [
+        {
+          "id": "M-clownfish-02",
+          "name": "カクレクマノミ②",
+          "scene": "One small slender juvenile clownfish, light orange peach body with emerging pale bands, open large dark eyes, small triangular dorsal fin and fan tail as canonical. Exploring a sunlit sandy patch with a few rounded pebbles beside an anemone. Clear side view, gentle curious face.",
+          "identity_review": "淡い橙色・現れ始めた縞・小さな体を維持。",
+          "sources": [
+            {
+              "path": "assets/characters/clownfish/02.png",
+              "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+              "blob": "1c26e7d531291af5dfda49d1d124699d8789d8cb"
+            }
+          ],
+          "illustration": "growth-review/before/M-clownfish-02.png",
+          "sha256": "52a01c6a67b593b684a6e7c1ce40adcac43f7455602937ec2bb2baa73fdf66af",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG",
+          "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+          "approval": "production_qa_complete_under_batch_authorization",
+          "preview": "growth-review/before/M-clownfish-02-card.png"
+        }
+      ],
+      "revision": "growth-story-v2"
     },
     {
       "id": "M-clownfish-03",
@@ -980,8 +1084,8 @@
     {
       "id": "M-clownfish-04",
       "name": "カクレクマノミ④",
-      "scene": "One slim youthful orange clownfish with bold white dark-edged bands, friendly wide dark eye, defined dorsal fin and orange fan tail. Swimming across a small sunlit coral arch with spacious blue water behind, lively side pose, preserve stripe positions and shape.",
-      "identity_review": "細身の若魚・白い頭部帯と尾側帯を維持。",
+      "scene": "Young slender orange clownfish facing RIGHT, body angled upward into a gentle current along a reef ledge. Low underwater viewpoint with open blue water across upper two thirds, one rounded coral ledge below, softly bending short sea plants indicate movement. No dramatic ocean surf, no speed lines. Full fish prominent in left-center, preserve slim youthful body, exact white bands and black fin edging from source. NOT a left-facing fish centered in a flowerlike anemone garden.",
+      "identity_review": "Canonical 2D and before/after visually checked; see growth-review/README.md",
       "sources": [
         {
           "path": "assets/characters/clownfish/04.png",
@@ -990,15 +1094,41 @@
         }
       ],
       "illustration": "illustrations/M-clownfish-04.png",
-      "sha256": "721066edd68fe8d612fce82f74463de864b8ed179742e6939e825d0427683265",
+      "sha256": "67d038f519f3f0281405c9d12175aee21c61cd2666d11a9e8d207edd5353e1f1",
       "dimensions": [
         1536,
         1024
       ],
       "format": "PNG",
-      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
-      "approval": "production_qa_complete_under_batch_authorization",
-      "preview": "previews/M-clownfish-04.png"
+      "generation": "built-in image_gen identity-preserve edit; growth-review/revision-prompts.json",
+      "approval": "revision_qa_complete_under_user_authorization",
+      "preview": "previews/M-clownfish-04.png",
+      "history": [
+        {
+          "id": "M-clownfish-04",
+          "name": "カクレクマノミ④",
+          "scene": "One slim youthful orange clownfish with bold white dark-edged bands, friendly wide dark eye, defined dorsal fin and orange fan tail. Swimming across a small sunlit coral arch with spacious blue water behind, lively side pose, preserve stripe positions and shape.",
+          "identity_review": "細身の若魚・白い頭部帯と尾側帯を維持。",
+          "sources": [
+            {
+              "path": "assets/characters/clownfish/04.png",
+              "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+              "blob": "644de0269c3e148e1a3a015c85277d1171178b49"
+            }
+          ],
+          "illustration": "growth-review/before/M-clownfish-04.png",
+          "sha256": "721066edd68fe8d612fce82f74463de864b8ed179742e6939e825d0427683265",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG",
+          "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+          "approval": "production_qa_complete_under_batch_authorization",
+          "preview": "growth-review/before/M-clownfish-04-card.png"
+        }
+      ],
+      "revision": "growth-story-v2"
     },
     {
       "id": "M-clownfish-05",
@@ -1049,8 +1179,8 @@
     {
       "id": "M-clownfish-07",
       "name": "カクレクマノミ⑦",
-      "scene": "One fuller taller-bodied clownfish exactly canonical, orange body, broad white bands with dark edges, content half-lidded eye, more developed dorsal outline and orange tail. Moving slowly through open water at the edge of the anemone home, a soft sea-green background and late-day rays. Preserve stage-specific rounded silhouette; no clothes or human gender symbols.",
-      "identity_review": "丸みが増した体・落ち着いた半眼を維持。",
+      "scene": "Transition-stage rounded orange clownfish turning gently to face RIGHT toward the illuminated entrance of a sheltered rocky recess. Three-quarter side view, whole body recognizable, calm half-lidded eye; fuller and deeper than young fish but not the tall-backed stage08. Soft reflected light on ochre rock floor, a few quiet anemone tentacles at far edge, open water visible as a small luminous opening. Sparse intimate composition, softly lit not dark. Preserve source band count, placement, rounded belly and fins; no invented biological anatomy.",
+      "identity_review": "Canonical 2D and before/after visually checked; see growth-review/README.md",
       "sources": [
         {
           "path": "assets/characters/clownfish/07.png",
@@ -1059,21 +1189,47 @@
         }
       ],
       "illustration": "illustrations/M-clownfish-07.png",
-      "sha256": "7a2b976aa5ced22acdfa133c5b8ab15ae78e9b46c69ac88d113a155fef1ad43a",
+      "sha256": "33d18e837a43901e55933ad2a5d9040b0c29e9945716f7f0b3f373dd9baf492f",
       "dimensions": [
         1536,
         1024
       ],
       "format": "PNG",
-      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
-      "approval": "production_qa_complete_under_batch_authorization",
-      "preview": "previews/M-clownfish-07.png"
+      "generation": "built-in image_gen identity-preserve edit; growth-review/revision-prompts.json",
+      "approval": "revision_qa_complete_under_user_authorization",
+      "preview": "previews/M-clownfish-07.png",
+      "history": [
+        {
+          "id": "M-clownfish-07",
+          "name": "カクレクマノミ⑦",
+          "scene": "One fuller taller-bodied clownfish exactly canonical, orange body, broad white bands with dark edges, content half-lidded eye, more developed dorsal outline and orange tail. Moving slowly through open water at the edge of the anemone home, a soft sea-green background and late-day rays. Preserve stage-specific rounded silhouette; no clothes or human gender symbols.",
+          "identity_review": "丸みが増した体・落ち着いた半眼を維持。",
+          "sources": [
+            {
+              "path": "assets/characters/clownfish/07.png",
+              "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+              "blob": "25ce73c60887f8339b35881da8ff5b53c6cafe48"
+            }
+          ],
+          "illustration": "growth-review/before/M-clownfish-07.png",
+          "sha256": "7a2b976aa5ced22acdfa133c5b8ab15ae78e9b46c69ac88d113a155fef1ad43a",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG",
+          "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+          "approval": "production_qa_complete_under_batch_authorization",
+          "preview": "growth-review/before/M-clownfish-07-card.png"
+        }
+      ],
+      "revision": "growth-story-v2"
     },
     {
       "id": "M-clownfish-08",
       "name": "カクレクマノミ⑧",
-      "scene": "One large robust round female leader clownfish exactly canonical: tall deep orange body, broad white dark-edged bands, high rounded serrated dorsal outline, small pleased eye and confident smile, full orange fan tail. Calmly surveying a broad sunlit reef from the foreground, anemone below and gentle turquoise distance. Only one visible fish as canonical, no human accessories.",
-      "identity_review": "深い丸い体・高い背びれ・閉じた目の表情を維持。",
+      "scene": "Deep-bodied adult female leader with high dorsal fin and pleased CLOSED smiling eye, swimming facing RIGHT above the outer edge of her home reef. A broad calm blue water vista occupies upper half, viewed slightly from below; large mature fish in right-center takes 45 percent width, home anemone small at bottom-left, coral terrace recedes far below. Natural late-afternoon underwater shafts from upper RIGHT, spacious majestic but cute. Preserve exact rounded canonical silhouette, stripes, high dorsal and single fan tail. Only one fish, no added entourage. NOT pink anemone flower garden at eye-level.",
+      "identity_review": "Canonical 2D and before/after visually checked; see growth-review/README.md",
       "sources": [
         {
           "path": "assets/characters/clownfish/08.png",
@@ -1082,17 +1238,44 @@
         }
       ],
       "illustration": "illustrations/M-clownfish-08.png",
-      "sha256": "52c420fff2185319d166045b6a5d76fc0ee022d45c52b4905f41adb8a8ecb382",
+      "sha256": "985cd5e1d2aead57bb9ed9cb26162d0bf1bcd8f907a17500b3da884cb257f328",
       "dimensions": [
         1536,
         1024
       ],
       "format": "PNG",
-      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
-      "approval": "production_qa_complete_under_batch_authorization",
-      "preview": "previews/M-clownfish-08.png"
+      "generation": "built-in image_gen identity-preserve edit; growth-review/revision-prompts.json",
+      "approval": "revision_qa_complete_under_user_authorization",
+      "preview": "previews/M-clownfish-08.png",
+      "history": [
+        {
+          "id": "M-clownfish-08",
+          "name": "カクレクマノミ⑧",
+          "scene": "One large robust round female leader clownfish exactly canonical: tall deep orange body, broad white dark-edged bands, high rounded serrated dorsal outline, small pleased eye and confident smile, full orange fan tail. Calmly surveying a broad sunlit reef from the foreground, anemone below and gentle turquoise distance. Only one visible fish as canonical, no human accessories.",
+          "identity_review": "深い丸い体・高い背びれ・閉じた目の表情を維持。",
+          "sources": [
+            {
+              "path": "assets/characters/clownfish/08.png",
+              "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+              "blob": "5801175fda74d90bde41e63e224f67ff85fbd596"
+            }
+          ],
+          "illustration": "growth-review/before/M-clownfish-08.png",
+          "sha256": "52c420fff2185319d166045b6a5d76fc0ee022d45c52b4905f41adb8a8ecb382",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG",
+          "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+          "approval": "production_qa_complete_under_batch_authorization",
+          "preview": "growth-review/before/M-clownfish-08-card.png"
+        }
+      ],
+      "revision": "growth-story-v2"
     }
   ],
   "remaining_not_started": 429,
-  "approved_art_direction": "User approved original seven; retain existing character design and soft storybook style."
+  "approved_art_direction": "User approved original seven; retain existing character design and soft storybook style.",
+  "growth_review": "growth-review/README.md"
 }
