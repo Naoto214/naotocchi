@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 396,
+  "generated_count": 436,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -9516,6 +9516,926 @@
       "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/M-stagbeetle-08.png"
+    },
+    {
+      "id": "M-star-01",
+      "name": "ほし①",
+      "scene": "Small irregular cobalt-violet cloud with two tiny eyes begins to gather above a distant pastel horizon, asymmetrical wisps drifting right, wide gentle celestial dawn.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e3c6031a375245321763df7a9aa24c826a0b022c"
+        }
+      ],
+      "illustration": "illustrations/M-star-01.png",
+      "sha256": "d10456bae6029f8cce898a884d52d18a58f26c42744c050c2cb13f1239748f75",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-01.png"
+    },
+    {
+      "id": "M-star-02",
+      "name": "ほし②",
+      "scene": "Rounder compact blue spiral cloud with sweet face in luminous center coils clockwise, seen closer with a sweeping curved dust trail to left in lavender space.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6f917f0549a2fd5e6ce484b97eefc5e49662ce51"
+        }
+      ],
+      "illustration": "illustrations/M-star-02.png",
+      "sha256": "1812f8fc6b1e846c2d849aa6360f3fec2082432ac331d71354352d47064d76d6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-02.png"
+    },
+    {
+      "id": "M-star-03",
+      "name": "ほし③",
+      "scene": "Orange golden protostar disk with purple elliptical rings and cute central face, tilted strongly diagonal, warm birth glow against soft blue star nursery.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f8c1e0179af2cd7aebda4e710d9d2ab780336ca0"
+        }
+      ],
+      "illustration": "illustrations/M-star-03.png",
+      "sha256": "f43df57d23c8326a583ab04281893a5c8f70bafb388421d96641286371cb9bb2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-03.png"
+    },
+    {
+      "id": "M-star-04",
+      "name": "ほし④",
+      "scene": "Small yellow young round star with irregular short orange rays and happy face, floating above distant snowy hill at twilight, high-right position and low viewpoint.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "85759170272ae7606d10f26be07949f3a01a3d35"
+        }
+      ],
+      "illustration": "illustrations/M-star-04.png",
+      "sha256": "fde3a9d0931144a4d06552de734fb8a64d7288495a73cd653da13b35ccf6b647",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-04.png"
+    },
+    {
+      "id": "M-star-05",
+      "name": "ほし⑤",
+      "scene": "Bright mature golden round star with evenly spaced long sharp rays and happy face, frontal near view in pale peach cosmic morning, luminous airy light.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8ab38a42b4eae743a896e994cc23f939adade5af"
+        }
+      ],
+      "illustration": "illustrations/M-star-05.png",
+      "sha256": "d730b2b4cf425c573751b47e2009732b8c65e765911dc49e37511c57c3746b68",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-05.png"
+    },
+    {
+      "id": "M-star-06",
+      "name": "ほし⑥",
+      "scene": "Large swollen orange-red round star with curling flame edge and drowsy face, three-quarter sense of roundness, deep rosy clouds, gentle not scary.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "913fdce42b2f85254a50ad09f02dcfe11890c28d"
+        }
+      ],
+      "illustration": "illustrations/M-star-06.png",
+      "sha256": "1078ccaa2507f83d695401061fb7626a7b97a0813ba7f0d908c6d1a8414d8c44",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-06.png"
+    },
+    {
+      "id": "M-star-07",
+      "name": "ほし⑦",
+      "scene": "Joyful star bursting outward into purple orange curling rays, preserve the cute face in bright core, dynamic diagonal flare in blue-lilac space, no violent mood.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cf8a46fe50812e5d4a2a33d7999460c7eabf38dc"
+        }
+      ],
+      "illustration": "illustrations/M-star-07.png",
+      "sha256": "9362528691e9c0a40c6223f18283a46daaaf342c401a93803d871275e03c4fea",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-07.png"
+    },
+    {
+      "id": "M-star-08",
+      "name": "ほし⑧",
+      "scene": "Small blue-violet spiral remnant with tiny sweet face, floating near a quiet silver cloud and scattered new specks, wide tranquil ending at blue dawn.",
+      "identity_review": "Visual comparison to canonical character references: Canonical star stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/star/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a439e38c6a1de21c0a88544b3c4da6316bcc9ba5"
+        }
+      ],
+      "illustration": "illustrations/M-star-08.png",
+      "sha256": "5f7ba7ec2acb6bbf97c6ffa9fd0aae1fec0d8651b8c252eb15e34ab7abb57601",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-star-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-star-08.png"
+    },
+    {
+      "id": "M-turtle-01",
+      "name": "かめ①",
+      "scene": "Tiny newborn light-green turtle with low small olive shell, crouched at the edge of a broad dew-covered leaf by pond, facing left, intimate macro morning.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e671b90723795718db1868ff90633a90d727b6d6"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-01.png",
+      "sha256": "94702093be35d96597f71fdb6ec71953313bbec13e05f471d28b6a88154f7ffd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-01.png"
+    },
+    {
+      "id": "M-turtle-02",
+      "name": "かめ②",
+      "scene": "Small bright-eyed baby turtle taking a determined step toward RIGHT through wet pebbles by shallow pond, shell slightly larger, low ground-level angle.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a1e9f1be29ea4955d8694831593fd32cc5e984f0"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-02.png",
+      "sha256": "85d54eba9e6f50997226177e3ed0e120fab4c8f08c2f8ad7a5192875a3285542",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-02.png"
+    },
+    {
+      "id": "M-turtle-03",
+      "name": "かめ③",
+      "scene": "Winking child turtle with stronger legs and wider shell reaching toward a floating little leaf, head to left, half in shallow clear water, side profile.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "124bae80dc5e3169e11849dc77d4a0d15124b765"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-03.png",
+      "sha256": "dac83767d2426367aab824854ed80ef388a950f530ba6ff61c14b06f69e44e24",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-03.png"
+    },
+    {
+      "id": "M-turtle-04",
+      "name": "かめ④",
+      "scene": "Young turtle with slightly longer neck and patterned domed olive shell, walking uphill to RIGHT along sunny riverbank, seen from rear-side with face visible.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "da1ccfcbe1901e97dc2aad623cb4421709097e78"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-04.png",
+      "sha256": "b4d4410c50f5df71af94792e6bf3ae9e1157cc4358805d03b7ac0bc201081112",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-04.png"
+    },
+    {
+      "id": "M-turtle-05",
+      "name": "かめ⑤",
+      "scene": "Happy adult turtle with bigger domed dark-green shell pauses to nibble a water plant at left of a shaded stream, front three-quarter view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "1db6fdf589c856dd0476a24e2ffff35beaa6dae4"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-05.png",
+      "sha256": "6358d9f863ad1f2976fc6de4154b745715ca1bae2ff820ffb0e2cbcdc2ae8b99",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-05.png"
+    },
+    {
+      "id": "M-turtle-06",
+      "name": "かめ⑥",
+      "scene": "Large bulky turtle with tall heavy olive shell resting on a warm broad stone, head to RIGHT, near eye-level wide view, tranquil afternoon.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4f8b065e6a2153f11ec85c1a11e72b1b9ef1cc1f"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-06.png",
+      "sha256": "44b5431a15d0bd28987ce0515d2a8aab4086bc19c301255592ec340ead5e7402",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-06.png"
+    },
+    {
+      "id": "M-turtle-07",
+      "name": "かめ⑦",
+      "scene": "Old turtle with dark olive weathered shell and gentle alert face, walking left on moss beside exposed tree roots, high three-quarter view, mellow light.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5605ec3958fc03a4271c2a350de875e0210ace60"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-07.png",
+      "sha256": "546427cc52012657ea4da55e59a7e89b674be20f97720aeaad080c03659babb5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-07.png"
+    },
+    {
+      "id": "M-turtle-08",
+      "name": "かめ⑧",
+      "scene": "Long-lived sleepy turtle with distinctly moss-covered high shell and lowered eyelids, resting facing RIGHT near fallen yellow leaves and soft pond reflection, peaceful late afternoon.",
+      "identity_review": "Visual comparison to canonical character references: Canonical turtle stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/turtle/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2a075b9e432b4013d1ae0562d628bfacf58e606b"
+        }
+      ],
+      "illustration": "illustrations/M-turtle-08.png",
+      "sha256": "8b861c72431a4cf4b1754703bed0b13158f2237e7b557b011315c06ca92604e2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-turtle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-turtle-08.png"
+    },
+    {
+      "id": "M-starfish-01",
+      "name": "ヒトデ①",
+      "scene": "Round translucent blue baby sphere with red cheeks and cute face, NO star arms yet, drifting just above pale sand and tiny sea-grass in clear sunlit water, macro.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/01.png",
+          "ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
+          "blob": "cb526cc981ce620b96e71054ca02d1030e00dafd"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-01.png",
+      "sha256": "e72cce83bbaa527e9e60c9cd4513380cd6a700109bc051a75fbe2d84d812fabf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-01.png"
+    },
+    {
+      "id": "M-starfish-02",
+      "name": "ヒトデ②",
+      "scene": "Translucent pale cyan tiny star with EXACTLY FIVE tapering arms, face in middle, drifting diagonally clockwise above shell fragments, delicate light passing through arms, view from above.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/02.png",
+          "ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
+          "blob": "68deb4b9546c8aaa402a30ce7abb524aab5b5d76"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-02.png",
+      "sha256": "a47c5dccc7413f842a84985b73a5e8aee0e4115a9ff88897d3da4fe5390ff393",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-02.png"
+    },
+    {
+      "id": "M-starfish-03",
+      "name": "ヒトデ③",
+      "scene": "Small warm peach-yellow star with pink markings near arm ends, EXACTLY FIVE arms and cheerful central face, settling on a pale shell at right, shallow turquoise pool, oblique view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/03.png",
+          "ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
+          "blob": "d4aa66cdf64cda3b51ac3532cbac78c4a064ea3c"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-03.png",
+      "sha256": "76e0e9e568d08352d5c4ed61e0e628bfbdff19fbc4856e780aa45e08f89e347c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-03.png"
+    },
+    {
+      "id": "M-starfish-04",
+      "name": "ヒトデ④",
+      "scene": "Plump pink five-arm star with soft rounded limbs and cute central face, one arm gently curled, on a smooth tidal rock with foam beyond, near frontal overhead.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "68fc30bf963714a577dec3d3889a2bc66b9e6bb9"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-04.png",
+      "sha256": "f9753c73316e678cc1f82da06b15ffb147cb172c058ecc348ed09f83a60c84b3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-04.png"
+    },
+    {
+      "id": "M-starfish-05",
+      "name": "ヒトデ⑤",
+      "scene": "Golden-yellow young five-arm star with orange edge and cute face, moving toward left across rippled sand beside sea-grass, overhead wide pool view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2dc900c69b34fc50724ebf0b6868c22fd2074e91"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-05.png",
+      "sha256": "296cf57f36fb2bc28fc74ad7fcf626f817aef83244426ca39cf49db274aedb59",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-05.png"
+    },
+    {
+      "id": "M-starfish-06",
+      "name": "ヒトデ⑥",
+      "scene": "Orange five-arm young star with distinct cream bumps on arms and joyful face, climbing a low coral-covered rock to right, low oblique underwater view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0697fa923c0bb532e0f4031e248601699bce1f87"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-06.png",
+      "sha256": "a072c429eb946305b46dc799de469707eba483d14714992123d61bcdbcc86b45",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-06.png"
+    },
+    {
+      "id": "M-starfish-07",
+      "name": "ヒトデ⑦",
+      "scene": "Adult pale pink-orange five-arm star with slender slightly curved arms, quietly nestled between pale stones and pink sea-anemone scenery, high diagonal view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e25bda3a8cd8073ac83875c3cf6943a2c82eaa17"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-07.png",
+      "sha256": "45ea6bde6b399a7e9d0ea00fc0f1bdf1d35a33845126075dbb369fb5099d2b48",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-07.png"
+    },
+    {
+      "id": "M-starfish-08",
+      "name": "ヒトデ⑧",
+      "scene": "Large vivid red-orange five-arm star with many orderly golden bumps and cheerful face, stretching across broad sunlit reef stone with a few blue bubbles, distant blue water beyond.",
+      "identity_review": "Visual comparison to canonical character references: Canonical starfish stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/starfish/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "465c567afb68c43a31bf7a7f426a64813ef80f24"
+        }
+      ],
+      "illustration": "illustrations/M-starfish-08.png",
+      "sha256": "19553cc78747a64058b22842ebbd3ca4620050beaba3f56a887a9e3a1eb6e369",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-starfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-starfish-08.png"
+    },
+    {
+      "id": "M-unknown-01",
+      "name": "？？？①",
+      "scene": "Tiny black-violet round speck with two small white eyes, suspended over a dew bead on pale moss, close macro view, silver-blue morning.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d7a682d9f1fdd8aa9400ca27e0742218fd916b1"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-01.png",
+      "sha256": "57fb084389a190ac8f8111f300eacdd70e169aa6e9bdc9e1277368f7a56506ef",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-01.png"
+    },
+    {
+      "id": "M-unknown-02",
+      "name": "？？？②",
+      "scene": "Small translucent cobalt blue jelly mound with cute white eyes, happily wobbling beside a shallow puddle, front view, soft green and blue forest light.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "552a894d53dae239e4613aa7f8703da4623134ad"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-02.png",
+      "sha256": "92a72605028478a8962463ed209a9737eed8a6bb7f9f375354236e0b6dc2f09f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-02.png"
+    },
+    {
+      "id": "M-unknown-03",
+      "name": "？？？③",
+      "scene": "Round blue cosmic blob with TWO short blue feet and tiny side nubs, making first step to RIGHT over a smooth mossy pebble, three-quarter low view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5b00ac6d136dcc79068fe2092de968cee2b28352"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-03.png",
+      "sha256": "34964504c6e7314c96442abd4010e1579ebaea56161616c20644fe6ca7986a22",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-03.png"
+    },
+    {
+      "id": "M-unknown-04",
+      "name": "？？？④",
+      "scene": "Blue round blob now with TWO short antenna stalks ending in blue eye-like spheres and two feet, peering left around a fern, curious face, medium forest view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fca2b21e4dd336773a3ad09989017f2cff63c39e"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-04.png",
+      "sha256": "1fd79f249a15577162887b1b8fc2347e032e14b2bb32c7ccfac7ea854923589d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-04.png"
+    },
+    {
+      "id": "M-unknown-05",
+      "name": "？？？⑤",
+      "scene": "Small blue-violet round creature with two delicate translucent butterfly-like wings on each side as in reference and two tiny feet, hovering toward RIGHT above white wildflowers, airy sunlight.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cc64255c3c7c38be2092e72a2821048f204099bd"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-05.png",
+      "sha256": "8cfbd8516c69e64c75d72fbce96f8b36e66d6312e2ccab55bce126b95cf72650",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-05.png"
+    },
+    {
+      "id": "M-unknown-06",
+      "name": "？？？⑥",
+      "scene": "Giant rounded cobalt jelly creature with white eyes and two squat feet, towering gently beside small trees and stream, low wide view, starry specks inside body, friendly not monstrous.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8e1345ec25db6b8099c922bdb0248ad17c6e10f0"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-06.png",
+      "sha256": "bc68772f6bac216e84197d0ccdd99c666bf252b257507833cd97c616be932f53",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-06.png"
+    },
+    {
+      "id": "M-unknown-07",
+      "name": "？？？⑦",
+      "scene": "Very tiny bright-blue round creature with white eyes, delightfully surprised on the tip of a clover leaf, macro with large dew droplets, no drawn exclamation marks.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "167d4673c3251881cb19f7ddcd667ead55e5abb6"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-07.png",
+      "sha256": "4a15fbce7ffd887a61674ea623a4b2be07e0e2f658ce33e59c149e48fea768ce",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-07.png"
+    },
+    {
+      "id": "M-unknown-08",
+      "name": "？？？⑧",
+      "scene": "Small dark-violet speck with tiny face and tapered wispy curl above it, floating toward left over a quiet puddle reflecting dawn, gentle completion, spacious misty scene.",
+      "identity_review": "Visual comparison to canonical character references: Canonical unknown stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/unknown/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "18bc2521997c36e1fe92cddb40b1bed13531d0a2"
+        }
+      ],
+      "illustration": "illustrations/M-unknown-08.png",
+      "sha256": "b4c085130cd6da97b8f06cee8bb8e7013fc304d3d40144ae09e81bcbe72d9071",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-unknown-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-unknown-08.png"
+    },
+    {
+      "id": "M-venus_flytrap-01",
+      "name": "ハエトリグサ①",
+      "scene": "One brown pointed oval seed with cute black eyes, smile and rosy cheeks, waking among tiny amber pebbles and damp moss, diagonal lean, intimate morning macro.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "61f940fabf1420bf768ed2c4402db4cbbd921896"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-01.png",
+      "sha256": "e5053758809f82250eefc548b308f31f111c70c2e602a3b301c24ca16e0579af",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-01.png"
+    },
+    {
+      "id": "M-venus_flytrap-02",
+      "name": "ハエトリグサ②",
+      "scene": "Small cream-faced sprout in pebbles with TWO green paddle leaves tipped red and one upright central bud, dew sparkles, side-left sun, low view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0d94f5388b1e9f06bc18c56814480a13263c7338"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-02.png",
+      "sha256": "074daf95405b43b285ff9e30acf76f895f692adc29b228d6b4cd3e9d8803adef",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-02.png"
+    },
+    {
+      "id": "M-venus_flytrap-03",
+      "name": "ハエトリグサ③",
+      "scene": "Cream-faced leafy rosette with several broad pointed green leaves, no developed red traps yet, growing beside soft reeds in damp soil, overhead three-quarter view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "948dda10cc447c2df4a7cd4fdb14bab63a0a319d"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-03.png",
+      "sha256": "83aae60cbc56aebbc2c2d5d904c74720d4a738308db8ec783e221052bb5ddafc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-03.png"
+    },
+    {
+      "id": "M-venus_flytrap-04",
+      "name": "ハエトリグサ④",
+      "scene": "Small plant with cream face at base and TWO stalked traps, one larger open pink-red mouth to left and one smaller green trap to right, cheerful expressions, sunny marsh edge.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b65342b79a08cc152ca807e218f4f91f8c476a7d"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-04.png",
+      "sha256": "b5f3df63bfc1c51eff75d69f124bfe39a4481d31c370e8eb2799b8d9babafdc7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-04.png"
+    },
+    {
+      "id": "M-venus_flytrap-05",
+      "name": "ハエトリグサ⑤",
+      "scene": "Stronger plant with THREE red-interior green traps, large central elevated trap and two side traps above small cream face, slight rightward sway in gentle breeze by stream.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "eecfeab6e43c3f648268ba8b00acea6303a774ce"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-05.png",
+      "sha256": "b20581aa6a875b9666e733d67e1d952950f679ed98c93f2c0547e0805d8b4d9d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-05.png"
+    },
+    {
+      "id": "M-venus_flytrap-06",
+      "name": "ハエトリグサ⑥",
+      "scene": "ONE huge low open green flytrap mouth with red interior and round blue-purple face inside as reference, pointed green rim bristles, playful happy expression, close low view, no prey.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "65a0e7304dfae895721d9c86482a728717aa9a9f"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-06.png",
+      "sha256": "8eb73e2790a75cb74f3c04af168590027f2cf8bb91243939ec55f302f2058fd0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-06.png"
+    },
+    {
+      "id": "M-venus_flytrap-07",
+      "name": "ハエトリグサ⑦",
+      "scene": "Full plant with FIVE separate red-interior green traps on branching stalks, one highest central trap and four side traps, many green leaves at base, overhead marsh clearing.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "421fce6ce64fb50218fafe9f8e105ea0e72d24fe"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-07.png",
+      "sha256": "bd14dfedb8d594ddf0f4d6e913b4fa1cb7ffe9250933d800c6449133ddc34c7c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-07.png"
+    },
+    {
+      "id": "M-venus_flytrap-08",
+      "name": "ハエトリグサ⑧",
+      "scene": "Flowering plant with tall slender stems and white five-petal flowers with pale pink edges and yellow smiling centers, green leafy base, no huge mouths, delicate meadow breeze and warm sunlight.",
+      "identity_review": "Visual comparison to canonical character references: Canonical venus_flytrap stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/venus_flytrap/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a2ea24bb8bd8cce88a214c261a506739c21ef91b"
+        }
+      ],
+      "illustration": "illustrations/M-venus_flytrap-08.png",
+      "sha256": "da6d81b43874c66aa72859f95a3398ba1621a8100ba4919135abe05dd3a08323",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-venus_flytrap-08.png"
     }
   ],
   "remaining_not_started": 429,

@@ -7324,13 +7324,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e3c6031a375245321763df7a9aa24c826a0b022c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/01.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-01 ① 1/4「まだちいさなものへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-star-02",
@@ -7344,13 +7344,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "6f917f0549a2fd5e6ce484b97eefc5e49662ce51",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/02.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-02 ② 2/5「ちいさなものがあつまる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-star-03",
@@ -7364,13 +7364,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f8c1e0179af2cd7aebda4e710d9d2ab780336ca0",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/03.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-03 ③ 4/5「まだかたちをえらべる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-star-04",
@@ -7384,13 +7384,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "85759170272ae7606d10f26be07949f3a01a3d35",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/04.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-04 ④ 6/6 — 能力なし",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-star-05",
@@ -7404,13 +7404,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "8ab38a42b4eae743a896e994cc23f939adade5af",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/05.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-05 ⑤ 9/6「かがやきのさきに」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-star-06",
@@ -7424,13 +7424,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "913fdce42b2f85254a50ad09f02dcfe11890c28d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/06.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-06 ⑥ 7/8「ふくらみをてばなす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-star-07",
@@ -7444,13 +7444,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "cf8a46fe50812e5d4a2a33d7999460c7eabf38dc",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/07.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-07 ⑦ 10/3「はじけてのこる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-star-08",
@@ -7464,13 +7464,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a439e38c6a1de21c0a88544b3c4da6316bcc9ba5",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-star-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=star:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/star/08.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-star-08 ⑧ 2/10「おおきかったひのなごり」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-01",
@@ -7484,13 +7484,13 @@
       "source_ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
       "source_blob": "cb526cc981ce620b96e71054ca02d1030e00dafd",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/01.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-01 ① 2/2 — 能力なし",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "既存inventoryで未登録だった2D正本をremote tree/blobと照合して参照復元。元画像は変更なし。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-02",
@@ -7504,13 +7504,13 @@
       "source_ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
       "source_blob": "68deb4b9546c8aaa402a30ce7abb524aab5b5d76",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/02.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-02 ② 3/3「たりないところをみつける」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "既存inventoryで未登録だった2D正本をremote tree/blobと照合して参照復元。元画像は変更なし。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-03",
@@ -7524,13 +7524,13 @@
       "source_ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
       "source_blob": "d4aa66cdf64cda3b51ac3532cbac78c4a064ea3c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/03.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-03 ③ 4/4「すこしずつなおす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "既存inventoryで未登録だった2D正本をremote tree/blobと照合して参照復元。元画像は変更なし。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-04",
@@ -7544,13 +7544,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "68fc30bf963714a577dec3d3889a2bc66b9e6bb9",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/04.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-04 ④ 5/4「なくしてもすすむ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-05",
@@ -7564,13 +7564,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2dc900c69b34fc50724ebf0b6868c22fd2074e91",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/05.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-05 ⑤ 6/5「またひろがる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-06",
@@ -7584,13 +7584,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0697fa923c0bb532e0f4031e248601699bce1f87",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/06.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-06 ⑥ 6/6「きずもけいけん」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-07",
@@ -7604,13 +7604,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e25bda3a8cd8073ac83875c3cf6943a2c82eaa17",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/07.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-07 ⑦ 7/6「さいせいする」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-starfish-08",
@@ -7624,13 +7624,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "465c567afb68c43a31bf7a7f426a64813ef80f24",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-starfish-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=starfish:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/starfish/08.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-starfish-08 ⑧ 6/7「なくしたものもじぶん」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-01",
@@ -7644,13 +7644,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e671b90723795718db1868ff90633a90d727b6d6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/01.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-01 ① 2/2 — 能力なし",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-02",
@@ -7664,13 +7664,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a1e9f1be29ea4955d8694831593fd32cc5e984f0",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/02.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-02 ② 3/3「こうらにかくれる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-03",
@@ -7684,13 +7684,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "124bae80dc5e3169e11849dc77d4a0d15124b765",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/03.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-03 ③ 4/4「ゆっくりすすむ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-04",
@@ -7704,13 +7704,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "da1ccfcbe1901e97dc2aad623cb4421709097e78",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/04.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-04 ④ 5/4「きけんをこえて」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-05",
@@ -7724,13 +7724,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "1db6fdf589c856dd0476a24e2ffff35beaa6dae4",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/05.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-05 ⑤ 6/5「ここでくらす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-06",
@@ -7744,13 +7744,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "4f8b065e6a2153f11ec85c1a11e72b1b9ef1cc1f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/06.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-06 ⑥ 6/6「おおきなこうら」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-07",
@@ -7764,13 +7764,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5605ec3958fc03a4271c2a350de875e0210ace60",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/07.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-07 ⑦ 5/7「きけんをおぼえる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-turtle-08",
@@ -7784,13 +7784,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2a075b9e432b4013d1ae0562d628bfacf58e606b",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-turtle-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=turtle:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/turtle/08.png",
       "card_text_source": "53-waterside-three-lines-card-text-draft.md#M-turtle-08 ⑧ 4/8「ながくいきる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-01",
@@ -7804,13 +7804,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2d7a682d9f1fdd8aa9400ca27e0742218fd916b1",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/01.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-01 ① 2/2「なにもないところに」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-02",
@@ -7824,13 +7824,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "552a894d53dae239e4613aa7f8703da4623134ad",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/02.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-02 ② 4/2「おいつけばいい？」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-03",
@@ -7844,13 +7844,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5b00ac6d136dcc79068fe2092de968cee2b28352",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/03.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-03 ③ 3/6「うごいたさきがさき？」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-04",
@@ -7864,13 +7864,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fca2b21e4dd336773a3ad09989017f2cff63c39e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/04.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-04 ④ 2/8「そちらにみえるもの」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-05",
@@ -7884,13 +7884,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "cc64255c3c7c38be2092e72a2821048f204099bd",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/05.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-05 ⑤ 7/4「じぶんのばんじゃなくても」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-06",
@@ -7904,13 +7904,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "8e1345ec25db6b8099c922bdb0248ad17c6e10f0",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/06.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-06 ⑥ 10/3 — 能力なし",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-07",
@@ -7924,13 +7924,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "167d4673c3251881cb19f7ddcd667ead55e5abb6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/07.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-07 ⑦ 1/10「ちいさいほうがさき？」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-unknown-08",
@@ -7944,13 +7944,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "18bc2521997c36e1fe92cddb40b1bed13531d0a2",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-unknown-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=unknown:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/unknown/08.png",
       "card_text_source": "68-mystery-two-lines-card-text-draft.md#M-unknown-08 ⑧ 5/5「またてんにみえる？」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-01",
@@ -7964,13 +7964,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "61f940fabf1420bf768ed2c4402db4cbbd921896",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/01.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-01 ① 1/3「ふたつめのけはい」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-02",
@@ -7984,13 +7984,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0d94f5388b1e9f06bc18c56814480a13263c7338",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/02.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-02 ② 3/3「おなじさわりかた」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-03",
@@ -8004,13 +8004,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "948dda10cc447c2df4a7cd4fdb14bab63a0a319d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/03.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-03 ③ 4/4「とらえておぼえる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-04",
@@ -8024,13 +8024,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b65342b79a08cc152ca807e218f4f91f8c476a7d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/04.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-04 ④ 6/4「もういちどならとじる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-05",
@@ -8044,13 +8044,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "eecfeab6e43c3f648268ba8b00acea6303a774ce",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/05.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-05 ⑤ 7/5「いくつものくち」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-06",
@@ -8064,13 +8064,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "65a0e7304dfae895721d9c86482a728717aa9a9f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/06.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-06 ⑥ 9/5「くりかえしをとらえる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-07",
@@ -8084,13 +8084,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "421fce6ce64fb50218fafe9f8e105ea0e72d24fe",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/07.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-07 ⑦ 7/6「つぎにひらくまで」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-venus_flytrap-08",
@@ -8104,13 +8104,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a2ea24bb8bd8cce88a214c261a506739c21ef91b",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-venus_flytrap-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=venus_flytrap:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/venus_flytrap/08.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-venus_flytrap-08 ⑧ 5/8「たべるばしょとはな」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-woman-01",

@@ -1,6 +1,6 @@
 {
-  "completed": 396,
-  "not_started": 56,
+  "completed": 436,
+  "not_started": 16,
   "repair_pending": 0,
   "original46_four_sizes_byte_identical": true,
   "duplicate_image_hashes": 0,
@@ -9498,1041 +9498,1041 @@
     },
     {
       "id": "M-star-01",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-01-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-01-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-star-02",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-02-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-02-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-star-03",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-03-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-03-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-star-04",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-04-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-04-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-star-05",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-05-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-05-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-star-06",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-06-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-06-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-star-07",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-07-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-07-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-star-08",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-star-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-08-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-star-08-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-01",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-01-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-01-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-02",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-02-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-02-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-03",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-03-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-03-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-04",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-04-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-04-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-05",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-05-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-05-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-06",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-06-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-06-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-07",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-07-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-07-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-starfish-08",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-starfish-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-08-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-starfish-08-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-01",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-01-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-01-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-02",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-02-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-02-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-03",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-03-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-03-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-04",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-04-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-04-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-05",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-05-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-05-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-06",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-06-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-06-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-07",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-07-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-07-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-turtle-08",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-turtle-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-08-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-turtle-08-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-01",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-01-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-01-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-02",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-02-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-02-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-03",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-03-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-03-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-04",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-04-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-04-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-05",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-05-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-05-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-06",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-06-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-06-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-07",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-07-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-07-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-unknown-08",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-unknown-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-08-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-unknown-08-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-01",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-01-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-01-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-02",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-02-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-02-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-03",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-03-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-03-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-04",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-04-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-04-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-05",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-05-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-05-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-06",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-06-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-06-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-07",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-07-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-07-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "M-venus_flytrap-08",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/M-venus_flytrap-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-08-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-venus_flytrap-08-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10542,23 +10542,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-01.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-01-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-01-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10568,23 +10568,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-02.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-02-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-02-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10594,23 +10594,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-03.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-03-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-03-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10620,23 +10620,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-04.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-04-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-04-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10646,23 +10646,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-05.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-05-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-05-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10672,23 +10672,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-06.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-06-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-06-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10698,23 +10698,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-07.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-07-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-07-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -10724,23 +10724,23 @@
       "files": [
         {
           "path": "illustrations/M-woman-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-08.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-08-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/M-woman-08-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
