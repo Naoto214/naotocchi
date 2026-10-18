@@ -1,6 +1,6 @@
 {
-  "completed": 155,
-  "not_started": 297,
+  "completed": 171,
+  "not_started": 281,
   "repair_pending": 0,
   "original46_four_sizes_byte_identical": true,
   "duplicate_image_hashes": 0,
@@ -1672,287 +1672,287 @@
     },
     {
       "id": "G-connect-four",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-connect-four.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-connect-four.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-connect-four-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-connect-four-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-crane-game-3d",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-crane-game-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-crane-game-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-crane-game-3d-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-crane-game-3d-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-curling-ice",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-curling-ice.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-curling-ice.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-curling-ice-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-curling-ice-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-curling-winter",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-curling-winter.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-curling-winter.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-curling-winter-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-curling-winter-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-darts-board",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-darts-board.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-darts-board.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-darts-board-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-darts-board-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-domino-run",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-domino-run.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-domino-run.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-domino-run-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-domino-run-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-doodle-jump",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-doodle-jump.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-doodle-jump.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-doodle-jump-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-doodle-jump-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-dot-eater",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-dot-eater.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-dot-eater.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-dot-eater-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-dot-eater-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-downhill-mountain",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-downhill-mountain.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-downhill-mountain.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-downhill-mountain-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-downhill-mountain-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-downhill-snow",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-downhill-snow.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-downhill-snow.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-downhill-snow-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-downhill-snow-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-dragDecorate-bento",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-dragDecorate-bento.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-dragDecorate-bento.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-dragDecorate-bento-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-dragDecorate-bento-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -1984,53 +1984,53 @@
     },
     {
       "id": "G-falling-block-puzzle",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-falling-block-puzzle.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-falling-block-puzzle.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-falling-block-puzzle-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-falling-block-puzzle-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-fishing-deepsea",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-fishing-deepsea.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fishing-deepsea.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fishing-deepsea-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fishing-deepsea-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
@@ -2062,79 +2062,79 @@
     },
     {
       "id": "G-fishing-sea",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-fishing-sea.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fishing-sea.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fishing-sea-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fishing-sea-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-fp-dungeon",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-fp-dungeon.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fp-dungeon.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fp-dungeon-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-fp-dungeon-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-free-kick-3d",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-free-kick-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-free-kick-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-free-kick-3d-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-free-kick-3d-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },

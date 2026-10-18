@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 155,
+  "generated_count": 171,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -3875,6 +3875,394 @@
       "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/G-checkers-6.png"
+    },
+    {
+      "id": "G-connect-four",
+      "name": "コネクトフォー",
+      "scene": "Panda drops one RED counter into a blue upright Connect Four rack while monkey watches from the other side of a round table. Rack front nearly face-on, EXACTLY 7 columns and6rows of round holes (42), some red and yellow discs in lower holes, upper holes empty, four red discs line up on bottom row. Cozy library with fern and rainy window, no ocean. Rack large and countable.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for panda, monkey",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-connect-four.png",
+      "sha256": "6bade1285fcdbd9b37613a286b547f045871a317b20ad40f03bc5c9aa0310c7e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-connect-four.png"
+    },
+    {
+      "id": "G-crane-game-3d",
+      "name": "クレーンゲーム",
+      "scene": "Golden hamster operates joystick of a glass claw machine at a pastel indoor amusement arcade. One three-pronged metal claw hanging from cable securely grips one tiny star-shaped cushion above a pile of colorful plush prizes. Hamster face reflected subtly, paws one on joystick one on blank button, no signs or labels. Side composition with face and prize visible.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for hamster",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-crane-game-3d.png",
+      "sha256": "64ab3628d0a8b8fc5d828e58ccdf9fc495040a9df912c662cdf3c0cc629ac5a0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-crane-game-3d.png"
+    },
+    {
+      "id": "G-curling-ice",
+      "name": "カーリング",
+      "scene": "Navy white penguin low beside a released granite curling stone with red handle, gliding toward red blue concentric target rings on a glassy frozen lake. Low camera behind stone, penguin smiling in side profile, snowless distant pine shore and blue winter daylight, simple quiet solo practice; orange beak feet, twoflippers.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for penguin_friend",
+      "sources": [
+        {
+          "path": "assets/characters/companions/penguin_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+        }
+      ],
+      "illustration": "illustrations/G-curling-ice.png",
+      "sha256": "17e1c72255e99bf521348cbda32f3e7979ce9815934240a1ae27515bd3c8a975",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-curling-ice.png"
+    },
+    {
+      "id": "G-curling-winter",
+      "name": "ふゆのカーリング大会",
+      "scene": "White round seal and white rabbit competing at a festive outdoor winter curling event with snowy firs and triangular unmarked bunting. Rabbit carefully sweeps ice ahead of a yellow-handled stone while seal watches beside a red-handled stone. High diagonal view includes blue-red target circle and a few well-spaced granite stones. Rabbit twoforepaws on one brush, seal twoflippers, faces distinct.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for seal, rabbit_friend",
+      "sources": [
+        {
+          "path": "assets/characters/companions/seal.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "97b79e21a27fdbd798da66362af20f3e1ed1f68c"
+        },
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-curling-winter.png",
+      "sha256": "2d35a6e8cbcd012026785385a13be03eb5324497f02b53f3540431c374cbda16",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-curling-winter.png"
+    },
+    {
+      "id": "G-darts-board",
+      "name": "ダーツ",
+      "scene": "Brown cream monkey throws a soft dart toward circular segmented dartboard fixed to a tree in a sunny orchard. Exactly two arms, one just released dart, other holds spare safely downward, two feet and curling tail. One dart in air toward bullseye, clear sport pose, side view. Board has contrasting radial wedges and red green rings but absolutely NO digits labels lettering.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for monkey",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-darts-board.png",
+      "sha256": "257bc8e909ff83768d93099918801d5f18d05d85f95f3095faf552ec1313922b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-darts-board.png"
+    },
+    {
+      "id": "G-domino-run",
+      "name": "ドミノたおし",
+      "scene": "Orange squirrel carefully fills one gap in a winding row of upright colorful wooden domino blocks on a woodland cabin floor. At far end a final block will tap a small brass bell. Some first blocks tilted in a clear chain reaction, remaining upright, plain blocks with no spots or numerals. Close low floor viewpoint, squirrel delighted with twoforepaws clearly placed, largefluffytail.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for squirrel",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-domino-run.png",
+      "sha256": "97f126fb62c883d37e59c22571c2a3841a886f3ffd516a056a0ac8a4c0e98def",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-domino-run.png"
+    },
+    {
+      "id": "G-doodle-jump",
+      "name": "ぴょんぴょんジャンプ",
+      "scene": "White rabbit joyfully bounds upward between small floating grassy platforms, body stretched in midjump from lowerleft toward upperright, two long ears, twoforepaws and twohindfeet distinct. Soft pink morning clouds and distant hilltops, platforms at different heights with flowers, one springy mushroom on lower platform, friendly magical playground. Full silhouette and vertical movement within landscape composition.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for rabbit_friend",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-doodle-jump.png",
+      "sha256": "7768c623f6dcf6b8db07c21a432c168658c663fc18521c27c2aef9c813d186fd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-doodle-jump.png"
+    },
+    {
+      "id": "G-dot-eater",
+      "name": "ドットイーター",
+      "scene": "Golden hamster runs through a bright low hedge maze collecting a dotted trail of small golden round snacks, cheeks full and happy. One friendly translucent lilac ghost follows several turns behind, clearly separated. High three-quarter viewpoint shows maze lanes and trail ending at hamster mouth; no iconic branded character, no text. Dappled woodland light, clear chunky maze shapes.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for hamster",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-dot-eater.png",
+      "sha256": "da3ad41d32daa4d3c6ec4bffeaec71d46778fc8e0ac0b44662397550ea7f219d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-dot-eater.png"
+    },
+    {
+      "id": "G-downhill-mountain",
+      "name": "やまの岩場のぼり",
+      "scene": "Brown cream monkey climbing a sunlit natural gray rocky hillside, onehand reaches next secure rockhold while other hand grips lowerhold, twofeet rest on separate ledges, curledtail behind. Upward view to grassy mountain summit and pale clouds, wildflowers in cracks, concentration and hope, no snow, full fourlimbs anatomically clear, mountainclimbing not skiing.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for monkey",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-downhill-mountain.png",
+      "sha256": "000dd264c20ffb44e14b863bbd064a55ab56a22a2f102aefb8d9d54f952c7f9b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-downhill-mountain.png"
+    },
+    {
+      "id": "G-downhill-snow",
+      "name": "ゆきのゲレンデ",
+      "scene": "Orange cream shiba rides one ochre snowboard downhill through fresh powder, twohindpaws planted on board, twoforepaws extended for balance, curledtail and face preserved, small plain dark protective helmet leaves earsvisible. Curving path around soft pine shadows, snow spray behind, bright alpine sky, low side camera dynamic diagonal. No lettering/clothinglogos.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for shiba",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        }
+      ],
+      "illustration": "illustrations/G-downhill-snow.png",
+      "sha256": "0b6c7960479b50c102fc4bcc498aebba49ea0159a161871f32b3b80ebb82eff4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-downhill-snow.png"
+    },
+    {
+      "id": "G-dragDecorate-bento",
+      "name": "おべんとうづくり",
+      "scene": "Round panda prepares a Japanese bento box on a sunny home kitchen table, onepaw placing a broccoli floret into a compartment beside onigiri rice triangles, yellow rolled omelet, red cherry tomatoes and carrots. Otherpaw steadies the open box. Close threequarter overhead view, simple picture-only sample bento beside it, no text, warm domestic apron optional but no identity changes, no ocean.",
+      "identity_review": "Visual comparison to canonical character references: Preserve exact canonical 2D faces, body proportions, fur colors and markings for panda; calico cat with white chest, orange and brown patches, thick striped upright tail, compared to cat_friend 2D after generation",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        }
+      ],
+      "illustration": "illustrations/G-dragDecorate-bento.png",
+      "sha256": "a12a0081aad7fe5b60cae93f1eaa24b63a74b204501f1f8140b165a8cea834fc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-dragDecorate-bento.png"
+    },
+    {
+      "id": "G-falling-block-puzzle",
+      "name": "ブロックパズル",
+      "scene": "Brown masked tanuki fits a blue L-shaped four-square block into a gap in a vertical transparent falling-block puzzle tray, colorful tetromino pieces neatly stacked below. One completed horizontal bottom row softly dissolves into sparkles, hand dropping new piece from above. Cozy indoor playroom, front threequarter view, rectangular tray geometry readable, no numbers orUI.",
+      "identity_review": "Visual comparison to canonical character references: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-falling-block-puzzle.png",
+      "sha256": "7b258b00e300e039a07494c2c79dd41b119cdc6e738d52a1c72e6251931aa03a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-falling-block-puzzle.png"
+    },
+    {
+      "id": "G-fishing-deepsea",
+      "name": "しんかいフィッシング",
+      "scene": "Brown cream otter aboard a small sturdy boat at twilight uses a fishing rod and reel with line descending deep under dark blue water. Split waterline composition: otter and boat prominent in upperleft, beneath them vast luminous indigo depths with a small unusual deep-sea fish approaching lure and distant bioluminescent specks. Fish simple original non-character wildlife, no injury, gentle adventurous wonder, no shallow coral or bright seabed.",
+      "identity_review": "Visual comparison to canonical character references: Brown otter with cream muzzle throat belly, round ears and long smooth tapered tail, rounded paws and whiskers.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/G-fishing-deepsea.png",
+      "sha256": "1632f5fa7d022c7aee924b2fd28d66cc3686cb0e4864803fd747c4aa967ae1dd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-fishing-deepsea.png"
+    },
+    {
+      "id": "G-fishing-sea",
+      "name": "うみのさかなつり",
+      "scene": "Orange cream shiba sitting on a sunny wooden seaside pier reels in a small silver-blue fish just above sparkling turquoise water, curved fishingrod and taut line clearly connected, twoforepaws on rod/reel, hindpaws planted and curledtail beside. Wider airy coastal view with gulls, low shore rocks and warm morning light; fish lively without injury, no oceanbottomcutaway.",
+      "identity_review": "Visual comparison to canonical character references: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        }
+      ],
+      "illustration": "illustrations/G-fishing-sea.png",
+      "sha256": "3c669de2c3cc8ba210b2a9db45b422b7ad021c2571078c870d135a9d3ef78e0c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-fishing-sea.png"
+    },
+    {
+      "id": "G-fp-dungeon",
+      "name": "たからさがしダンジョン",
+      "scene": "Golden hamster explores a welcoming ancient stone dungeon corridor and discovers an open small wooden treasure chest glowing softly with colorful gems. Low eye-level camera past a mossy arch, hamster onepaw holding warm lantern otherpaw touches chestlid, face visible with delight. Sunbeam through small opening, no horror or enemies, winding corridor visible beyond and friendly adventure.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-fp-dungeon.png",
+      "sha256": "0cf8f0950655e99a855c21d24d1171ae41872f24a71afaec5295532d8f43d1fc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-fp-dungeon.png"
+    },
+    {
+      "id": "G-free-kick-3d",
+      "name": "フリーキック",
+      "scene": "White rabbit takes a soccer free kick on a green park field, onehindleg planted and other follows through after striking black-white ball; twoforepaws balanced, ears sweptback. Ball curves toward a white goal beyond two plain wooden training dummy silhouettes. Panda goalkeeper in distance reaches with twoforepaws, full rounded body, no uniformdigits. Side diagonal action view, afternoon sun, clear ball trajectory.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail. / Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        },
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        }
+      ],
+      "illustration": "illustrations/G-free-kick-3d.png",
+      "sha256": "b282f1a79001527f7ec592a5e0f5fda8f7825924d3758eb5a39d2111c5194f6e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-b-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-free-kick-3d.png"
     }
   ],
   "remaining_not_started": 429,
