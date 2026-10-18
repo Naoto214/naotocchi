@@ -1,6 +1,6 @@
 {
-  "status": "pending_user_approval",
-  "generated_count": 7,
+  "status": "seven_approved_sixteen_pending",
+  "generated_count": 23,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -29,7 +29,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided, first candidate; no variants generated",
-      "approval": "pending",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-beetle-04.png"
     },
     {
@@ -52,7 +52,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided, first candidate; no variants generated",
-      "approval": "pending",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/C-cat_friend.png"
     },
     {
@@ -75,7 +75,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided, first candidate; no variants generated",
-      "approval": "pending",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/P-forest_bear.png"
     },
     {
@@ -98,7 +98,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided, first candidate; no variants generated",
-      "approval": "pending",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/W-forest.png"
     },
     {
@@ -126,7 +126,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided, first candidate; no variants generated",
-      "approval": "pending",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/G-fishing-river.png"
     },
     {
@@ -149,7 +149,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided, first candidate; no variants generated",
-      "approval": "pending",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/I-travel1.png"
     },
     {
@@ -177,8 +177,393 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided, first candidate; no variants generated",
-      "approval": "pending",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/E-new-encounter.png"
+    },
+    {
+      "id": "M-dandelion-01",
+      "name": "タンポポ①",
+      "scene": "Single orange teardrop seed with cute face and white parachute tuft exactly as reference, gently landing on moist soil beside a dew bead at dawn. Close low camera.",
+      "identity_review": "橙色のしずく形のたね・顔・白い冠毛を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f988b16dbc251cbe7263f2dff700796f12270d04"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-01.png",
+      "sha256": "5e6467124512b528bf815de4b2a176229eebdfdaa97500e2f59e5453b0fe752a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-01.png"
+    },
+    {
+      "id": "M-dandelion-02",
+      "name": "タンポポ②",
+      "scene": "Round orange smiling seed body, TWO large green oval leaves and tiny central shoot, little feet as reference. Fresh sprout beside a shallow rain puddle, bright morning.",
+      "identity_review": "橙色の丸い胴・双葉・小さい中央の芽・足を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "07d9b2e23a3707c2ceeafac8b2754529e2e546ad"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-02.png",
+      "sha256": "3bdda1078fcfade92e5715bcca1abe5fff63f59bc10261ac796b2dffc6436bc4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-02.png"
+    },
+    {
+      "id": "M-dandelion-03",
+      "name": "タンポポ③",
+      "scene": "Small cream smiling face nestled in low rosette of jagged green leaves exactly reference. Close ground-level view in soft grass beside a pebble after rain.",
+      "identity_review": "低い葉の輪・ギザギザの葉・淡色の顔を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "063847b42edf6ee1163f2294b84272963d1efcf9"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-03.png",
+      "sha256": "84e597c65c8c5db67f8f7a07a32109e557448de7d4e444473c8f5e82b6473a40",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-03.png"
+    },
+    {
+      "id": "M-dandelion-04",
+      "name": "タンポポ④",
+      "scene": "Larger dense radial rosette of sharply lobed green leaves around cream round face as reference, NO flower/stalk. Breezy sunny meadow edge, side lit leaves.",
+      "identity_review": "密な葉の広がり・ウインク・花のない姿を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "bcbc7132f21a1399d6f704af723d396f9aedc55b"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-04.png",
+      "sha256": "e1932b14bf10662d159b20abf11f110fdf838f123893609da68ef3476cdb1ac6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-04.png"
+    },
+    {
+      "id": "M-dandelion-05",
+      "name": "タンポポ⑤",
+      "scene": "Tall green stalk with golden yellow closed bud face enclosed in green sepals, sleepy eyes as reference, basal serrated leaves. Quiet evening garden, warm sun behind low stone wall.",
+      "identity_review": "黄色い閉じたつぼみ・緑のがく・茎・閉じた目を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c3c0121439430404c394805c8d612104fe314c22"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-05.png",
+      "sha256": "001009fad4216647f7a8937f7dfeeda9a9483e2c0f2b6d71238f342e07ba96a8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-05.png"
+    },
+    {
+      "id": "M-dandelion-06",
+      "name": "タンポポ⑥",
+      "scene": "Yellow round many-petalled flower with joyful winking face, green stalk and basal serrated leaves as reference. Brilliant but gentle morning meadow, a few distant flowers without faces.",
+      "identity_review": "黄色い花びら・笑顔・茎・根元の葉を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "63b895d1662c6720639371d2bfa5d19dea9ec4e7"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-06.png",
+      "sha256": "b06b3a960b2c90dd722bc329341f5d35707b1ecfbfea8c67ceb28f0563128797",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-06.png"
+    },
+    {
+      "id": "M-dandelion-07",
+      "name": "タンポポ⑦",
+      "scene": "White fluffy rounded seedhead surrounding cute winking face, green stalk and basal leaves exactly reference. Pale blue sky after rain, luminous soft seed fibers, close portrait in meadow.",
+      "identity_review": "白い綿毛の輪・ウインク・茎・葉を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "bd4a935cc4c3fd885a7867e6c99083afc54ca716"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-07.png",
+      "sha256": "540dc414cad8e3c0d82a711d2c610c4a29851ab0722ca2df42bf420d7cc88c8f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-07.png"
+    },
+    {
+      "id": "M-dandelion-08",
+      "name": "タンポポ⑧",
+      "scene": "Group of FIVE floating tiny cheerful white fluffy round face seed parachutes with brown hanging seeds exactly reference. Wind carrying them diagonally over a sunlit rolling meadow, all five in focus clearly visible, sense of hopeful journey.",
+      "identity_review": "5体の白い冠毛の顔・下がる茶色のたねを維持。",
+      "sources": [
+        {
+          "path": "assets/characters/dandelion/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21a1b4d69e5a19925ad512caa3436f90548d8fbe"
+        }
+      ],
+      "illustration": "illustrations/M-dandelion-08.png",
+      "sha256": "c9ef987e1d5d0bb8f4d802502c58a0ada0808215485da5b60c96e21578c68174",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/M-dandelion-08.png"
+    },
+    {
+      "id": "C-otter",
+      "name": "あそびずきカワウソ",
+      "scene": "Brown cute otter with cream muzzle and belly, small round ears, dark paws and long tapered tail exactly reference, floating on its back in a clear flowing stream playing with a smooth pebble on its belly; diagonal playful pose, reeds at edges.",
+      "identity_review": "茶色・淡い口元と腹・丸耳・4肢・長い尾を確認。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/C-otter.png",
+      "sha256": "18c7dc50cfdfe39104ff9ea429537f17844ab07dab65dcfb1003693738c91470",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/C-otter.png"
+    },
+    {
+      "id": "C-owl",
+      "name": "ものしりふくろう",
+      "scene": "Brown owl with pointed ear tufts, cream face discs and patterned belly, half-lidded wise eyes exactly reference, perched on a sturdy branch beside an open blank picture book, quiet blue dusk forest. Warm gentle light, no writing on book.",
+      "identity_review": "耳羽・淡い顔盤・半眼・腹の模様・2翼2脚を確認。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/owl.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9a9dfdb9d69b00609d9b654ef481cef4d38a6fed"
+        }
+      ],
+      "illustration": "illustrations/C-owl.png",
+      "sha256": "81d9f2a28bad6d26a053f72480bdbc955b1535bf75916da9173b6284a117f93b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/C-owl.png"
+    },
+    {
+      "id": "P-grove_deer",
+      "name": "こだちのシカ",
+      "scene": "Slender cute spotted brown fawn, large pink ears, cream underside and short tail, NO antlers exactly reference, walking delicately across a shallow woodland brook beneath fresh birch trees. Full four legs and ears visible, serene morning.",
+      "identity_review": "茶色・白い斑点・大きい耳・細い4脚・短い尾・角なしを確認。",
+      "sources": [
+        {
+          "path": "assets/characters/partners/grove_deer.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "7b0a041cf7d0be6c535c3985cb342f1d4ae79d5f"
+        }
+      ],
+      "illustration": "illustrations/P-grove_deer.png",
+      "sha256": "d1cc8bd7198b7ed0a6eef96c46f8b825016dc9cd59aff6b84aa5975510b8e55b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/P-grove_deer.png"
+    },
+    {
+      "id": "W-sea",
+      "name": "うみ",
+      "scene": "Wide underwater coral garden based on canonical sea landscape, sunbeams through turquoise surface, pastel pink and blue corals and kelp framing spacious sandy path into distance. Landscape itself is protagonist, no anthropomorphic characters, soft painterly storybook, not photographic.",
+      "identity_review": "本編の珊瑚・海藻・砂地の奥行きを横長構図へ展開。",
+      "sources": [
+        {
+          "path": "assets/world/sea-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "7fbe617be98bd1f210b2986e7e8957f834d09f08"
+        }
+      ],
+      "illustration": "illustrations/W-sea.png",
+      "sha256": "586e8e295e05987d17bd63c0b53348d45e20aaca719db2ab7ac48f79e4856645",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/W-sea.png"
+    },
+    {
+      "id": "G-dragDecorate-cake",
+      "name": "ケーキのかざりつけ",
+      "scene": "TWO canonical characters: reference otter and owl together decorating a small strawberry cake on low kitchen table, otter placing berry with one paw and owl watching with tilted head beside bowl of berries. Preserve brown cream designs, full bodies/tails/ear tufts, cozy bright kitchen window, no clothing, no text.",
+      "identity_review": "カワウソとふくろうの特徴を維持。机による脚の自然な遮蔽あり。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        },
+        {
+          "path": "assets/characters/companions/owl.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9a9dfdb9d69b00609d9b654ef481cef4d38a6fed"
+        }
+      ],
+      "illustration": "illustrations/G-dragDecorate-cake.png",
+      "sha256": "3dcb1098d25403f2fc4ec2fd3984d72b9d926d09cf40b6392f9326e86690f074",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/G-dragDecorate-cake.png"
+    },
+    {
+      "id": "G-beach-volley",
+      "name": "ビーチバレー",
+      "scene": "TWO canonical characters otter and calico cat playing beach volleyball across a low simple net on golden beach, colorful ball between them in air. Otter leaps to tap ball; cat ready on other side, preserve cream orange dark calico patches half-lidded eyes and banded tail, otter cream belly long tail. All limbs and tails visible, playful motion, clear silhouettes, blue ocean, no clothes, no text.",
+      "identity_review": "カワウソの長い尾と淡い腹、三毛猫の色分け・半眼・縞尾を維持。4肢ずつ、外周切れなし。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        },
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        }
+      ],
+      "illustration": "illustrations/G-beach-volley.png",
+      "sha256": "461ba51e7a1e91e8767a301a88fe1663a7dc9e7992e7a2e94a87224957093f89",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/G-beach-volley.png"
+    },
+    {
+      "id": "I-naoto_lantern",
+      "name": "なおとのランタン",
+      "scene": "Canonical round orange-red ribbed paper lantern with dark red ribs, golden dark metal cap, red dangling loop/tassel exactly reference. Lantern suspended from a tree branch above a gently glowing garden stepping-stone path at twilight, object large centered, soft warm light, no face, no lettering.",
+      "identity_review": "赤橙の丸胴・縦横の骨・金色の上下部・吊り紐・下がる飾りを維持。",
+      "sources": [
+        {
+          "path": "assets/items/unified/naoto_lantern.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b2f0805f22b4835cc9dc42f6ea49f050a79936e0"
+        }
+      ],
+      "illustration": "illustrations/I-naoto_lantern.png",
+      "sha256": "bc214055d20e001d22e7f1f4c4cb48bcd23a6cb0f5016c3a35671b604614f3a1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/I-naoto_lantern.png"
+    },
+    {
+      "id": "E-midlife-flower",
+      "name": "庭に小さな花を植えた",
+      "scene": "Canonical otter and owl together planting ONE small ordinary flower seedling in a tidy garden bed next to cottage. Otter kneels with paws near earth, owl on low stone edging watching kindly. Brown cream fur/feathers exact, all parts visible. Small watering can aside, angled overhead composition, gentle afternoon, no anthropomorphic flower, no clothing or writing.",
+      "identity_review": "カワウソとふくろうの顔・配色・尾・耳羽を維持。庭の苗は情景小物。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        },
+        {
+          "path": "assets/characters/companions/owl.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9a9dfdb9d69b00609d9b654ef481cef4d38a6fed"
+        }
+      ],
+      "illustration": "illustrations/E-midlife-flower.png",
+      "sha256": "ee478dd299af16464ea243ea24e52957a59d2f5d4417857ab98c61ed9322ae89",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
+      "approval": "pending_user_approval",
+      "preview": "previews/E-midlife-flower.png"
     }
-  ]
+  ],
+  "remaining_not_started": 429,
+  "approved_art_direction": "User approved original seven; retain existing character design and soft storybook style."
 }
