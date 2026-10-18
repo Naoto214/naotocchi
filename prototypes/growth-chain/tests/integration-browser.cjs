@@ -34,7 +34,7 @@ const root = path.resolve(__dirname, '../../..');
       await page.addInitScript(s=>{if(!localStorage.getItem('naotocchi-save-v1'))localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));},fixture);
       await page.goto(base+'/'); await page.locator('.device.ui-home-active').waitFor();
       await page.click('#menuBtn');
-      const entry=page.locator('.independent-game'); await entry.scrollIntoViewIfNeeded();
+      const entry=page.locator('.independent-game[href="prototypes/naopoyo/"]'); await entry.scrollIntoViewIfNeeded();
       const rect=await entry.boundingBox(); assert.ok(rect.width>=44&&rect.height>=44&&rect.y>=0&&rect.y+rect.height<=height);
       await page.screenshot({path:path.join(output,`main-menu-${width}.png`)});
       await entry.click(); await page.waitForURL('**/prototypes/naopoyo/');
