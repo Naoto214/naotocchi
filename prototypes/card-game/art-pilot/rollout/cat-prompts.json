@@ -1,0 +1,90 @@
+[
+  {
+    "id": "M-cat-01",
+    "stage": "01",
+    "form": "あかちゃんねこ",
+    "scene": "Tiny grey sleeping kitten curled up in a soft round nest of clean cloth near a cottage window; white face, closed eyes, very small folded ears, grey tail curled around body. Dawn diffuse light, intimate low viewpoint.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. あかちゃんねこ: Tiny grey sleeping kitten curled up in a soft round nest of clean cloth near a cottage window; white face, closed eyes, very small folded ears, grey tail curled around body. Dawn diffuse light, intimate low viewpoint. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/01.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-cat-02",
+    "stage": "02",
+    "form": "よちよちこねこ",
+    "scene": "Small seated kitten, large upright grey ears with muted pink interiors, round white face with large dark eyes, pale chest and toes, short grey body and curled upright tail. Taking a pause by a wooden doorstep with a few tiny daisies; gentle morning light.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. よちよちこねこ: Small seated kitten, large upright grey ears with muted pink interiors, round white face with large dark eyes, pale chest and toes, short grey body and curled upright tail. Taking a pause by a wooden doorstep with a few tiny daisies; gentle morning light. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/02.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-cat-03",
+    "stage": "03",
+    "form": "こねこ",
+    "scene": "Small standing playful grey kitten with white round face, dark open eyes, tiny pink mouth, upright ears and rising curved tail; one forepaw lifted. Reaching toward a single drifting leaf beside garden stepping stones. Fresh natural spring light.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. こねこ: Small standing playful grey kitten with white round face, dark open eyes, tiny pink mouth, upright ears and rising curved tail; one forepaw lifted. Reaching toward a single drifting leaf beside garden stepping stones. Fresh natural spring light. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/03.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-cat-04",
+    "stage": "04",
+    "form": "おてんばねこ",
+    "scene": "Slender grey adolescent cat in a stretched leaping pose exactly as source, white face, one eye winking, open other eye, long curved tail; four legs only. Bounding over a low mossy root in a cottage garden, airy summer light; full body and tail safely inside canvas.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. おてんばねこ: Slender grey adolescent cat in a stretched leaping pose exactly as source, white face, one eye winking, open other eye, long curved tail; four legs only. Bounding over a low mossy root in a cottage garden, airy summer light; full body and tail safely inside canvas. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/04.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-cat-05",
+    "stage": "05",
+    "form": "若いねこ",
+    "scene": "Slender standing young grey cat, face now grey rather than the white face of younger stages; small pale muzzle, large dark eyes, pink inner ears, pale toes, long tail curved upward, all four paws grounded. Looking along a sunny garden wall with a distant orchard; balanced confident standing posture.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. 若いねこ: Slender standing young grey cat, face now grey rather than the white face of younger stages; small pale muzzle, large dark eyes, pink inner ears, pale toes, long tail curved upward, all four paws grounded. Looking along a sunny garden wall with a distant orchard; balanced confident standing posture. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/05.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-cat-06",
+    "stage": "06",
+    "form": "大人のねこ",
+    "scene": "Adult seated grey cat exactly as source: grey face, light muzzle and chest, pink inner ears, open friendly dark eyes and smiling pink mouth, pale toes, broad long tail curving up beside body. Sitting on a wooden veranda beside a sunlit flowerpot, calm late morning.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. 大人のねこ: Adult seated grey cat exactly as source: grey face, light muzzle and chest, pink inner ears, open friendly dark eyes and smiling pink mouth, pale toes, broad long tail curving up beside body. Sitting on a wooden veranda beside a sunlit flowerpot, calm late morning. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/06.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-cat-07",
+    "stage": "07",
+    "form": "落ちついたねこ",
+    "scene": "Mature calm grey seated cat with grey face, half-lidded dark eyes, subtle pale muzzle, pale toes and low curved tail resting beside body; preserve relaxed slight smile. Resting in dappled shade under a garden tree, cool soft green light and distant warm cottage.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. 落ちついたねこ: Mature calm grey seated cat with grey face, half-lidded dark eyes, subtle pale muzzle, pale toes and low curved tail resting beside body; preserve relaxed slight smile. Resting in dappled shade under a garden tree, cool soft green light and distant warm cottage. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/07.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-cat-08",
+    "stage": "08",
+    "form": "おとしよりのねこ",
+    "scene": "Round plump old grey cat curled seated low, fluffy white facial mask and brows, happy closed eyes, pale muzzle/chest and toes, grey tail wrapped around body, pink inner ears. Warm autumn veranda beside fallen leaves and a folded blanket; peaceful soft afternoon light.",
+    "prompt": "Use case: illustration-story, identity-preserving scene expansion. One 1536x1024 PNG, 3:2 landscape card illustration. Image 1 is the canonical character identity: preserve exact age, body shape, face color, ears, tail and eye expression; do not substitute another cat breed. Image 2 is warm delicate storybook STYLE ONLY, do not copy its creature or underground environment. おとしよりのねこ: Round plump old grey cat curled seated low, fluffy white facial mask and brows, happy closed eyes, pale muzzle/chest and toes, grey tail wrapped around body, pink inner ears. Warm autumn veranda beside fallen leaves and a folded blanket; peaceful soft afternoon light. Use soft hand-painted watercolor/gouache texture, tender natural light and readable silhouette. Cat occupies about 55 percent width, fully within frame, background gentle and spacious. Exactly one cat, no additional characters, no clothes or invented accessories, no extra legs/tails. No text, numbers, symbols, card frame, border or UI.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/cat/08.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  }
+]

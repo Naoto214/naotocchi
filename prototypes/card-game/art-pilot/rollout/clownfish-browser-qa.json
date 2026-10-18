@@ -1,0 +1,101 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "id": "M-clownfish-01",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    },
+    {
+      "id": "M-clownfish-02",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    },
+    {
+      "id": "M-clownfish-03",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    },
+    {
+      "id": "M-clownfish-04",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    },
+    {
+      "id": "M-clownfish-05",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    },
+    {
+      "id": "M-clownfish-06",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    },
+    {
+      "id": "M-clownfish-07",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    },
+    {
+      "id": "M-clownfish-08",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "mark": "shell"
+    }
+  ],
+  "mobile": [
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430
+    }
+  ],
+  "errors": [],
+  "physicalSafari": false
+}

@@ -1,0 +1,150 @@
+[
+  {
+    "id": "M-dragon-01",
+    "scene": "Tiny red-orange baby dragon with large round eyes, cream segmented belly and short tail, no wings and no long horns, sitting beside a smooth warm pebble at sunny cave entrance, curious paw touching a fallen leaf, intimate eye-level view.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage1 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Tiny red-orange baby dragon with large round eyes, cream segmented belly and short tail, no wings and no long horns, sitting beside a smooth warm pebble at sunny cave entrance, curious paw touching a fallen leaf, intimate eye-level view. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage1 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/01.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-f40e9ab1-a123-4bd5-a13a-f4de12627e76.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-3ebd5142-2ee9-4ce4-8239-1a8098d4cb98.png",
+    "revision_prompt": "Edit the FIRST illustration with a precise character correction only. Remove BOTH cream-colored horns from the dragon's head completely. The SECOND image is exact canonical stage01 and has NO HORNS yet; retain only tiny red/orange scale spikes on head, no cream horn protrusions. Keep original pose,body,face,limbs,tail,environment,composition,delicate watercolor style. Match canonical facial features. Horns first develop at stage3, so this stage must be entirely hornless. Output1536x1024 PNG3:2, no text,numbers,frame.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/01.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "e6eb7c228c6af56dbad6b0b68015caf82e9dd45d"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-dragon-02",
+    "scene": "Child red dragon with longer raised curving tail, small orange back spines, cream belly and friendly open mouth, no wings or large horns. Fourlegged walk through a grassy woodland path facing right, low side view, morning mushrooms distant.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage2 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Child red dragon with longer raised curving tail, small orange back spines, cream belly and friendly open mouth, no wings or large horns. Fourlegged walk through a grassy woodland path facing right, low side view, morning mushrooms distant. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage2 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/02.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-ffe88f64-8704-4f89-bc6f-79b1e478ba99.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-4fc37edf-561c-481b-a7fb-6f5f9b60c559.png",
+    "revision_prompt": "Edit the FIRST illustration with a precise character correction only. Remove BOTH cream-colored horns from the dragon's head completely. The SECOND image is exact canonical stage02 and has NO HORNS yet; retain only tiny red/orange scale spikes on head, no cream horn protrusions. Keep original pose,body,face,limbs,tail,environment,composition,delicate watercolor style. Match canonical facial features. Horns first develop at stage3, so this stage must be entirely hornless. Output1536x1024 PNG3:2, no text,numbers,frame.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/02.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "759fab20466a660cc6dead95c00d1c78bce2ea9c"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-dragon-03",
+    "scene": "Young red dragon has newly grown two long pale gold horns and defined cheekspikes, cream segmented belly, still no wings. Fourlegged body leans down to look at its horned reflection in a clear shallow pool, body facing left, threequarter overhead view, noon glade.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage3 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Young red dragon has newly grown two long pale gold horns and defined cheekspikes, cream segmented belly, still no wings. Fourlegged body leans down to look at its horned reflection in a clear shallow pool, body facing left, threequarter overhead view, noon glade. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage3 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/03.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-3f0d4d1c-3f46-487f-9e25-38832fc6ec4c.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/03.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "74745ac7ef6dc29e27bf125233f793415d93f1c8"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-dragon-04",
+    "scene": "Round red adolescent dragon with two pale horns and TINY developing red batwings on back, upright bipedal stance on two hindfeet and two little forearms, cream round belly. Practises stretching tiny wings while balancing on low mossy stump, fullbody frontal view, gentle afternoon meadow. Cannot fly yet.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage4 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Round red adolescent dragon with two pale horns and TINY developing red batwings on back, upright bipedal stance on two hindfeet and two little forearms, cream round belly. Practises stretching tiny wings while balancing on low mossy stump, fullbody frontal view, gentle afternoon meadow. Cannot fly yet. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage4 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/04.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-519a4ce5-3cd7-40fb-a398-9032b3a2053a.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/04.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ebe959c9eff25d64cf22411180ecddf8598155d8"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-dragon-05",
+    "scene": "Red young dragon with fully grown large red-orange batwings, two creamhorns, cream belly, sturdy hindlegs and two small forearms. Gently gliding just above flowered hill, side view facing left, full wings and tail visible, early golden hour; joyful nonthreatening expression.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage5 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Red young dragon with fully grown large red-orange batwings, two creamhorns, cream belly, sturdy hindlegs and two small forearms. Gently gliding just above flowered hill, side view facing left, full wings and tail visible, early golden hour; joyful nonthreatening expression. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage5 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/05.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-28a5f408-c99e-4e68-a34b-ecebad9ccadb.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "d5d8a85dc199b482cb223d2b1e32cf7ad680268e"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-dragon-06",
+    "scene": "Red adult dragon with larger horns and strong red-orange wings, cream armored belly, blows one small warm golden puff of fire UPWARD into empty air while seated beside rocky clearing. Threequarter right view, playful impressed face, no targets or burning objects, warm twilight.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage6 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Red adult dragon with larger horns and strong red-orange wings, cream armored belly, blows one small warm golden puff of fire UPWARD into empty air while seated beside rocky clearing. Threequarter right view, playful impressed face, no targets or burning objects, warm twilight. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage6 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/06.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-f42cac2d-200b-4b51-952e-26a7305ed4a2.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fe943c346c2df69a0cb6d851c2c4394495faa2f7"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-dragon-07",
+    "scene": "Large sturdy bright red dragon with broad cream chest, two long gold horns and spread large red-orange wings, sitting proudly on hilltop above winding river and distant green hills, frontal wide low-angle view. Kind confident smile, no crown or armor, broad adult build.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage7 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Large sturdy bright red dragon with broad cream chest, two long gold horns and spread large red-orange wings, sitting proudly on hilltop above winding river and distant green hills, frontal wide low-angle view. Kind confident smile, no crown or armor, broad adult build. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage7 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/07.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-56f986d3-eede-4a33-b4cb-fdca3c9860c6.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/07.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "011677eeea0119b7d4bde4ed3f3c6e016a1fec9a"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-dragon-08",
+    "scene": "Ancient dragon with deep bronze-orange scales, long branching golden horns, wise narrow friendly eyes, cream-gold plated chest and aged brown-orange wings, resting with long tail coiled around its broad body on mossy terrace above clouds at sunrise. Leftthreequarter view, calm ancient dignity, never scary.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Cute delicate watercolor/gouache storybook, soft natural light, refined color and brush texture. Input is exact authoritative2D growthstage8 character. Preserve reference face,body,colors,horn development and exact wing development. Scene:Ancient dragon with deep bronze-orange scales, long branching golden horns, wise narrow friendly eyes, cream-gold plated chest and aged brown-orange wings, resting with long tail coiled around its broad body on mossy terrace above clouds at sunrise. Leftthreequarter view, calm ancient dignity, never scary. Four limbs only (twoforelimbs/twohinds) plus correct wings ONLY if reference haswings. Main character legible at small scale, clear silhouette, welcoming mood. No text,numerals,frame,watermark.",
+    "identity": "Canonical dragon stage8 face, horn and wing development, colors and age.",
+    "sources": [
+      "assets/characters/dragon/08.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-24e133a7-4e80-47ac-a4bb-06982ef8ec99.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/dragon/08.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "e2cad69c91dd5d014c738b2ed20ee4e9f774ac15"
+      }
+    ],
+    "qa_status": "complete_qa"
+  }
+]

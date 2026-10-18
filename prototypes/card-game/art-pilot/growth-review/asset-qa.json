@@ -1,0 +1,1128 @@
+{
+  "baseline": "7a10e8f3bcd4902567a5f0425c01ef8f23602504",
+  "revised": [
+    "M-beetle-07",
+    "M-cat-05",
+    "M-cat-07",
+    "M-clownfish-02",
+    "M-clownfish-04",
+    "M-clownfish-07",
+    "M-clownfish-08"
+  ],
+  "revised_count": 7,
+  "unchanged_cards": 39,
+  "completed": 46,
+  "not_started": 406,
+  "all_184_png_valid": true,
+  "unique_current_art_hashes": 46,
+  "archived_originals_match": true,
+  "pupa_and_dandelion_unchanged": true,
+  "physical_iPhone_Safari": false,
+  "blind_human_test_performed": false,
+  "files": [
+    {
+      "path": "illustrations/M-beetle-04.png",
+      "valid": true,
+      "sha256": "c5a141c12b0a3a06776942bfaf24671622516788234385b41c770d32a19d84ff",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-04.png",
+      "valid": true,
+      "sha256": "267f7df7ea1d56517388461c1bf8dcd46accbf00f123d82f32a1426e192446d6",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-04-80.png",
+      "valid": true,
+      "sha256": "ca7b0ad4d5f9dadd7aa5015d4ff78ad9884a4537a777276699045c192818e89f",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-04-110.png",
+      "valid": true,
+      "sha256": "b041c1e510e3a5aa778eee18e0b6c9b50c2a60c80f186560f0d0a6e6b18f12d6",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/C-cat_friend.png",
+      "valid": true,
+      "sha256": "786a5e8d2ab1a5b309f0b24a45b43b84e5ad6e07591aa64633aa8e363a83a23e",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-cat_friend.png",
+      "valid": true,
+      "sha256": "0537d7bc778172ec6f8b7b30005cfbac1793e525d01130e0746f10aba199bd65",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-cat_friend-80.png",
+      "valid": true,
+      "sha256": "32dbd93d27cf632272cff44f89648996996b64ea0365351c1970e21a996dbe6d",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-cat_friend-110.png",
+      "valid": true,
+      "sha256": "f3dfba08f839da3ff437b63a1d2986048a3ec2a97104f9019ebc5b4a98ce9086",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/P-forest_bear.png",
+      "valid": true,
+      "sha256": "72a3717aee0adbd912ca0c19df62a913fa5a782d6650c40d42c2e828522127f4",
+      "unchanged": true
+    },
+    {
+      "path": "previews/P-forest_bear.png",
+      "valid": true,
+      "sha256": "f584b7375f445ebc5bf5dd13187eea18a7b68279b24b7f1d59e53a0e53b24e63",
+      "unchanged": true
+    },
+    {
+      "path": "previews/P-forest_bear-80.png",
+      "valid": true,
+      "sha256": "9c43bf694769c3d87d6390f7a5eaf36bfc68f2d7ade7fb27b1ef23714632bbde",
+      "unchanged": true
+    },
+    {
+      "path": "previews/P-forest_bear-110.png",
+      "valid": true,
+      "sha256": "9f25d49f28f571ed2f348fea491572d8047c598e76b703c0e899fa6c24e1267b",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/W-forest.png",
+      "valid": true,
+      "sha256": "cb791ef80facb36828195f3155328eed9f6564b1774c80bb924e14c08ffe3888",
+      "unchanged": true
+    },
+    {
+      "path": "previews/W-forest.png",
+      "valid": true,
+      "sha256": "e86df7eec156c08d643b57a301368b6012cd1b3569892613813be5198ea88d51",
+      "unchanged": true
+    },
+    {
+      "path": "previews/W-forest-80.png",
+      "valid": true,
+      "sha256": "c2353127a3a5095f6e8d4dcdb53dcd243d508a66822a2e17d133a73eabaa24d3",
+      "unchanged": true
+    },
+    {
+      "path": "previews/W-forest-110.png",
+      "valid": true,
+      "sha256": "72e21d3c3aae3a395b49120d950cbe5558276dacfb947595a253c8a82cb22ead",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/G-fishing-river.png",
+      "valid": true,
+      "sha256": "944cb7911d5aa3fc4ff7bdc95a3619b399901008bd956ee2deecbb0b79bcaa72",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-fishing-river.png",
+      "valid": true,
+      "sha256": "245c31ff30d63cbebf5a3b786b33bb591641a83d8a64634ccd7dd324cbae9c1d",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-fishing-river-80.png",
+      "valid": true,
+      "sha256": "36560b5dfaccb750d1d821b014fd51749e3a9766a3ce2c0d4607d52e982f4642",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-fishing-river-110.png",
+      "valid": true,
+      "sha256": "71ef39803f8934b8167e2d722d8d256fb18490e9554a5565db1a769be0512701",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/I-travel1.png",
+      "valid": true,
+      "sha256": "d99734cba53bd4e2f07ebbabab249289e3fb6770c62319c849e7f2acc35de1f4",
+      "unchanged": true
+    },
+    {
+      "path": "previews/I-travel1.png",
+      "valid": true,
+      "sha256": "5faf104b45071528550dd7bc1b69f52607cac5aab7e06c2df35e39b4ed23fc6b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/I-travel1-80.png",
+      "valid": true,
+      "sha256": "dcc2340332a2ca84f998a020bc1295f3d11a7b1b52c8a1433f6ab7755bee6785",
+      "unchanged": true
+    },
+    {
+      "path": "previews/I-travel1-110.png",
+      "valid": true,
+      "sha256": "2d03a3ad8ce274aac4af655e068a65a1b419f6ac3cd6f6f6dacba80ad29e77a2",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/E-new-encounter.png",
+      "valid": true,
+      "sha256": "db7430004a351f90fc26b0376f34d2d21b0b4a9d9764f88c0808fcd9af87c9ec",
+      "unchanged": true
+    },
+    {
+      "path": "previews/E-new-encounter.png",
+      "valid": true,
+      "sha256": "36aec563b162c00354d5762edc2bb859d2c235c7a7064f9e932ca9e0986cfd59",
+      "unchanged": true
+    },
+    {
+      "path": "previews/E-new-encounter-80.png",
+      "valid": true,
+      "sha256": "f21f4946678818638e62395e217c354f0cf8028e03f415bc13eb5e2ec032f16b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/E-new-encounter-110.png",
+      "valid": true,
+      "sha256": "6ff76de7ba387b08e6338d2ca08fdfd0e746ad584e53c98f263789677d41746e",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-01.png",
+      "valid": true,
+      "sha256": "5e6467124512b528bf815de4b2a176229eebdfdaa97500e2f59e5453b0fe752a",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-01.png",
+      "valid": true,
+      "sha256": "a29b081abdd12c492e32d780ce8715f1d0f95ede6accefe715eb600d0763b09e",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-01-80.png",
+      "valid": true,
+      "sha256": "b831c8be15b127de559fb4db6054b4c3194a31a0bf5b36b2e3faebadfa72fc60",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-01-110.png",
+      "valid": true,
+      "sha256": "8eabefae7c1f585eb8b73ee93c7f1dee207ee06977d3259a29921ae0e17c9a1c",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-02.png",
+      "valid": true,
+      "sha256": "3bdda1078fcfade92e5715bcca1abe5fff63f59bc10261ac796b2dffc6436bc4",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-02.png",
+      "valid": true,
+      "sha256": "7b381fd2f5d81c755b3f1f3ade70c42f55efe614d76377aba3f378d58d4ce066",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-02-80.png",
+      "valid": true,
+      "sha256": "26a12d6723e5edf0fc03bc47adb591e58106739fa4bdb716e39c38e0f9dbc0b4",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-02-110.png",
+      "valid": true,
+      "sha256": "384ede2f69a16f9fdc0b484ebfbaf6077ed985b1967a30526e79bfbed123c0bf",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-03.png",
+      "valid": true,
+      "sha256": "84e597c65c8c5db67f8f7a07a32109e557448de7d4e444473c8f5e82b6473a40",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-03.png",
+      "valid": true,
+      "sha256": "43e069859a2e1ef5782fcb7de895a2e836690fe36359f8c294d79c56f6855b83",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-03-80.png",
+      "valid": true,
+      "sha256": "9373ae9c479bea1b129c292e643d50fb0039c52edc17841d646020cad6a728ec",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-03-110.png",
+      "valid": true,
+      "sha256": "597487456773498a6fbec6516307a191dfa244b9958c8e32d61d9ee9d75a61d6",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-04.png",
+      "valid": true,
+      "sha256": "e1932b14bf10662d159b20abf11f110fdf838f123893609da68ef3476cdb1ac6",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-04.png",
+      "valid": true,
+      "sha256": "e806195258b3bbd18cba069448ca95d852d1c76f0ebe4eb7d1d3a62ca4151296",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-04-80.png",
+      "valid": true,
+      "sha256": "3b09b921b77c6502193cb06e661a65c48d40c7337bdf71cd950f9e8374665855",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-04-110.png",
+      "valid": true,
+      "sha256": "f30aecf837548734b9d67b406602e94c7c1bbdd86bbe21521c193b42b5236b05",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-05.png",
+      "valid": true,
+      "sha256": "001009fad4216647f7a8937f7dfeeda9a9483e2c0f2b6d71238f342e07ba96a8",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-05.png",
+      "valid": true,
+      "sha256": "58fec828756d190177eea7ad024229434d95e80f233369378f11685f442e3c3e",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-05-80.png",
+      "valid": true,
+      "sha256": "79017c6fb1ead2fe1b2d5135fdd56a7ec827789fadb9ff3a71de7561e30db9f7",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-05-110.png",
+      "valid": true,
+      "sha256": "95f9ad40cdc49ab643cff05f95f0dabc0c50b841e0262de15318dc38b493b801",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-06.png",
+      "valid": true,
+      "sha256": "b06b3a960b2c90dd722bc329341f5d35707b1ecfbfea8c67ceb28f0563128797",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-06.png",
+      "valid": true,
+      "sha256": "4bcb7aab708f47676955f36c237caa794e8bebce702b00a733e5b2b3acfe0984",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-06-80.png",
+      "valid": true,
+      "sha256": "25ddb61b079484b43722f16046c41b964590f96bd79bf9d0f1571d01a004a51c",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-06-110.png",
+      "valid": true,
+      "sha256": "37ae586746f62a205ce5d5ae5582bb96ea6e910436de0f1799c93d05e6bab06b",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-07.png",
+      "valid": true,
+      "sha256": "540dc414cad8e3c0d82a711d2c610c4a29851ab0722ca2df42bf420d7cc88c8f",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-07.png",
+      "valid": true,
+      "sha256": "005988aa5b018813c75070a8f68176911b6809d373c6dcbf7b4681b7815ac170",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-07-80.png",
+      "valid": true,
+      "sha256": "1c03c110254a0f794fa018b1499b5443c19f7bf03cd7e908d11adcdeb4640f67",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-07-110.png",
+      "valid": true,
+      "sha256": "eb3b2dcd236fc9bacc966c54ce0f223f6f5b546f2fd4309e99c4e5df891191fa",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-dandelion-08.png",
+      "valid": true,
+      "sha256": "c9ef987e1d5d0bb8f4d802502c58a0ada0808215485da5b60c96e21578c68174",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-08.png",
+      "valid": true,
+      "sha256": "04a470d74a0be4a0703ac15e107ee21bf50a13b665d17ebe3cb5ce52c36b6535",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-08-80.png",
+      "valid": true,
+      "sha256": "1b7027262776b2b0fa01392aee3877a924e518b988aacc203e5d5c125c9cf016",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-dandelion-08-110.png",
+      "valid": true,
+      "sha256": "8f2eec94241f8b04aa8bd756acb3c0a8c62668235f25fa1ca61a683117c32a48",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/C-otter.png",
+      "valid": true,
+      "sha256": "18c7dc50cfdfe39104ff9ea429537f17844ab07dab65dcfb1003693738c91470",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-otter.png",
+      "valid": true,
+      "sha256": "278ade9d6c84a5ef821c609fb75e99d66383c1ba496b5740205d1b2c8f12bbff",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-otter-80.png",
+      "valid": true,
+      "sha256": "24fa6a153be2c08276c4013abd96cf4100a6e7fa776c4fb3eb922b2082460167",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-otter-110.png",
+      "valid": true,
+      "sha256": "98bf489c9bdc3db860a9557df7a0c069345119d5e1c7784f9f23010e430bd650",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/C-owl.png",
+      "valid": true,
+      "sha256": "81d9f2a28bad6d26a053f72480bdbc955b1535bf75916da9173b6284a117f93b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-owl.png",
+      "valid": true,
+      "sha256": "01de39f6ab8d5b57e8dc5a60a6135fb244de80a21bebc3e849492687986132d8",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-owl-80.png",
+      "valid": true,
+      "sha256": "9e24c7c63cc3b9f06dfc9c7aeda884def0c2dcf22dc59e097872ac34b5fb7f4b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/C-owl-110.png",
+      "valid": true,
+      "sha256": "dd92d829b5fcdb9f5b4cf70f893969038e9c842ab6cc8b68d8fb7b8da037b1cd",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/P-grove_deer.png",
+      "valid": true,
+      "sha256": "d1cc8bd7198b7ed0a6eef96c46f8b825016dc9cd59aff6b84aa5975510b8e55b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/P-grove_deer.png",
+      "valid": true,
+      "sha256": "0904a6c1c3f2981d8e3392dfdc6edc52c2702992ee839b537dc9b3d29b050d47",
+      "unchanged": true
+    },
+    {
+      "path": "previews/P-grove_deer-80.png",
+      "valid": true,
+      "sha256": "7683b133db7641520d66f251a3e1f1e330639da741f0faffa8913c9d6ece4abc",
+      "unchanged": true
+    },
+    {
+      "path": "previews/P-grove_deer-110.png",
+      "valid": true,
+      "sha256": "b8cbde36165e7e57a380985bddd1fa855843aacfc6282d9c573745e7df97a316",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/W-sea.png",
+      "valid": true,
+      "sha256": "586e8e295e05987d17bd63c0b53348d45e20aaca719db2ab7ac48f79e4856645",
+      "unchanged": true
+    },
+    {
+      "path": "previews/W-sea.png",
+      "valid": true,
+      "sha256": "925f38c04eeee97936c5dc7a5f4a7896720741721bb318406f35653ee8700059",
+      "unchanged": true
+    },
+    {
+      "path": "previews/W-sea-80.png",
+      "valid": true,
+      "sha256": "89678b319b4730b7888689afa17ea21c25fc5c06a266d548b4f5c38104718e6e",
+      "unchanged": true
+    },
+    {
+      "path": "previews/W-sea-110.png",
+      "valid": true,
+      "sha256": "87282d364f8422aab65e6eaf1afee3bedaa290b0b0814cfed07e28c6fcaf8721",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/G-dragDecorate-cake.png",
+      "valid": true,
+      "sha256": "3dcb1098d25403f2fc4ec2fd3984d72b9d926d09cf40b6392f9326e86690f074",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-dragDecorate-cake.png",
+      "valid": true,
+      "sha256": "7474902f386dcb9c0a515b2a76f2fc92f8d846e42519f3d8d193fb6f17c1de35",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-dragDecorate-cake-80.png",
+      "valid": true,
+      "sha256": "eddc4887279a7b474f39e706a885a700e4d0089f70ea39967df72980f10a51b0",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-dragDecorate-cake-110.png",
+      "valid": true,
+      "sha256": "84cba3cbfef2becbc3a8b94a7f6752183b74c57b31f3e89fcec3d16721af1c27",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/G-beach-volley.png",
+      "valid": true,
+      "sha256": "461ba51e7a1e91e8767a301a88fe1663a7dc9e7992e7a2e94a87224957093f89",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-beach-volley.png",
+      "valid": true,
+      "sha256": "b531b68ae5d1da7354822ba020abd4fa02bfcd91dac21650a55daac00aab5769",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-beach-volley-80.png",
+      "valid": true,
+      "sha256": "8dc807575c629e1c98fb6653081b28fe2283e9ce7c266990f458e9c8f44f6178",
+      "unchanged": true
+    },
+    {
+      "path": "previews/G-beach-volley-110.png",
+      "valid": true,
+      "sha256": "fd74a3b7f15a847aa65b73c6d22810fe378d0314569f73aec7ef7e5b3bcfdf88",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/I-naoto_lantern.png",
+      "valid": true,
+      "sha256": "bc214055d20e001d22e7f1f4c4cb48bcd23a6cb0f5016c3a35671b604614f3a1",
+      "unchanged": true
+    },
+    {
+      "path": "previews/I-naoto_lantern.png",
+      "valid": true,
+      "sha256": "fc0fcc3547f5d75998a1a817a6ce942c93d7fc5053eae04e6914dfbe2a6d079b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/I-naoto_lantern-80.png",
+      "valid": true,
+      "sha256": "678828c99ff0e7748deed56a649b97928f143cb91db088685cbe64f690520d0a",
+      "unchanged": true
+    },
+    {
+      "path": "previews/I-naoto_lantern-110.png",
+      "valid": true,
+      "sha256": "29e6352e6af133946465a814e8f26dcfcbfc9d56b66d24d7dad01198af7f2da0",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/E-midlife-flower.png",
+      "valid": true,
+      "sha256": "ee478dd299af16464ea243ea24e52957a59d2f5d4417857ab98c61ed9322ae89",
+      "unchanged": true
+    },
+    {
+      "path": "previews/E-midlife-flower.png",
+      "valid": true,
+      "sha256": "23b7b5e48b449165c4e1a859c68ed59cba645ba10abd75b25f557b5f7a0dcf30",
+      "unchanged": true
+    },
+    {
+      "path": "previews/E-midlife-flower-80.png",
+      "valid": true,
+      "sha256": "32015ac62bbb13449ae7a08e7f1643221173d1a47857f38edec7e70027beb715",
+      "unchanged": true
+    },
+    {
+      "path": "previews/E-midlife-flower-110.png",
+      "valid": true,
+      "sha256": "16dbbe61dd7beae6afeffeac4b0b8da0b3bae3abe7978b7eface18e946263c7e",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-beetle-01.png",
+      "valid": true,
+      "sha256": "7eb3dc7c0ebcb527b8ddd0f112fcc619745ee6751e3e5edb46f6991846f8d827",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-01.png",
+      "valid": true,
+      "sha256": "18d8efd8d93254d01c50c3c5cb009be48617397bba188c511d3958ab0d1f5596",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-01-80.png",
+      "valid": true,
+      "sha256": "0def8cec5cadd854adc9d1f9398c908b0074b7959fa1c85bf78f40efd0bd6ed2",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-01-110.png",
+      "valid": true,
+      "sha256": "7b79b3e417ade1ddbd77375fff871bbb1a2a17ebba639fd4a2f5a8760b70571a",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-beetle-02.png",
+      "valid": true,
+      "sha256": "bd0cf0b4064cd47d87a7d6d0b3240108b3c7d39b23515d01fbe31f5578c1a8e2",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-02.png",
+      "valid": true,
+      "sha256": "133ca5f283fe3461fcf02158e5b65b43ad541b222568c333ae8996379aedb4c4",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-02-80.png",
+      "valid": true,
+      "sha256": "35bd6cb00574cf1986a4582f610ddcf940b317fa1137c2ec4d312d2984889382",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-02-110.png",
+      "valid": true,
+      "sha256": "f4215ba448e89b867f4c9e2ac7d43a5c9bc49315b436bbca2d5e85f94894142e",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-beetle-03.png",
+      "valid": true,
+      "sha256": "30f7b68121e4d9efe8c1391b82fa256084d82242b19a0644185f002be1864fb9",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-03.png",
+      "valid": true,
+      "sha256": "cf58599309a7f5c8cf4cbf020af4f3618cad86aeaff6a9d28c2fd745cf35ae1a",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-03-80.png",
+      "valid": true,
+      "sha256": "76953211135039eac314215e4dff8a3e871bedd77d8abec95db9370fe91880c1",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-03-110.png",
+      "valid": true,
+      "sha256": "fa8f620fddcff55e07c1cc6e6d96384577148fe45cce12e35fa57fbfbf061f07",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-beetle-05.png",
+      "valid": true,
+      "sha256": "ed878b13ece77423a88c57c086f4d70c43f2026b2c11e1a6346bcf3704bb2dde",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-05.png",
+      "valid": true,
+      "sha256": "b013d7d7ef66d051d188649140f7fc80f1843dfbb6080ad0924a31770782a1c6",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-05-80.png",
+      "valid": true,
+      "sha256": "27e94d27641526feacc859e1e50ceb71ba909ad52bbc13e47260fdbf95511e18",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-05-110.png",
+      "valid": true,
+      "sha256": "57daaa5a44eec6784a365726c49592b7b7234ea5b9be78a3bc2e80b1727cb8d8",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-beetle-06.png",
+      "valid": true,
+      "sha256": "8358034b9713b17247340792589a8043757132c89840c39f0ca3e0b72a952839",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-06.png",
+      "valid": true,
+      "sha256": "ac36e629f36eca54447dc1ca9f7d681178c07f5a8a847630ebd4a661df312e80",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-06-80.png",
+      "valid": true,
+      "sha256": "4cdcd53a76509a6da11460fcf40aa7f2116120ceac5050056d78b615bfa32872",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-06-110.png",
+      "valid": true,
+      "sha256": "0921ae0094b9f06bff423f56af3696a91c9eacafec62ab7560936796b21e9c0f",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-beetle-07.png",
+      "valid": true,
+      "sha256": "6ad53ccc60af43731656003e4ec3fe4442a58d2350ed665969a466314c379196",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-beetle-07.png",
+      "valid": true,
+      "sha256": "854374e2dc1f6be4c480776e0e10f81337cda59077f9d216da8ef92fdb198cc0",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-beetle-07-80.png",
+      "valid": true,
+      "sha256": "5db11f7d6512602dc5c0a05dfce6a85ae4c67a25f249ef8d5ac0795c30210300",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-beetle-07-110.png",
+      "valid": true,
+      "sha256": "342256127528aac82096e847c53b510fe02d3de56d709218c02a3c995314d655",
+      "unchanged": false
+    },
+    {
+      "path": "illustrations/M-beetle-08.png",
+      "valid": true,
+      "sha256": "89d2ec63e9885c8534bdcc00bfd6d467ab453e399505d3d4b847461787613c67",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-08.png",
+      "valid": true,
+      "sha256": "b889ef0d4a2f1c8f3aaf235975428c8f2ad31d3d174920a63c638fb2d630f01d",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-08-80.png",
+      "valid": true,
+      "sha256": "96c1556663f01f46fbd219839b761a0c62096631a5c06c080ebf4dcc1f3f3c77",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-beetle-08-110.png",
+      "valid": true,
+      "sha256": "c8cc5eb1e05e36769e4c3d2452d7bd8c00895bea0cb93bef7385ca90a1ff80b6",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-cat-01.png",
+      "valid": true,
+      "sha256": "6c62f9e001df85577c8449fe6ab234e49ee8decb2a77d64c477aefec48eacaaa",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-01.png",
+      "valid": true,
+      "sha256": "3bc2e410ee76d6e7c8c7aaa259e74920844945cbac4be0b541b4661a6c637818",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-01-80.png",
+      "valid": true,
+      "sha256": "a6c6a9c1a3722dc9ddb00de600511ddc0a6b668fbf928d2e4eaafba8b972aa6c",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-01-110.png",
+      "valid": true,
+      "sha256": "4d1832e2fd97bc447787de4bb24cafa0a24d258d1f35cc53e722089636d366b3",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-cat-02.png",
+      "valid": true,
+      "sha256": "72d2a22d60b8567afe69c8f9f7985d4e51cad42158bb5155f5ccb790604e937a",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-02.png",
+      "valid": true,
+      "sha256": "0412cafb7f5c8d9ebc726de28c82596505f88c635e35afd708d96af38ca5774e",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-02-80.png",
+      "valid": true,
+      "sha256": "5b0a2337eaf2ed248b066fb082b8c40a62d737ef8844859e86f880ec9d6d3cfe",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-02-110.png",
+      "valid": true,
+      "sha256": "40251c33d04d0e0500bf5cbf8e51291f2c9254f18404e7c2e0adc82a7f5db4f4",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-cat-03.png",
+      "valid": true,
+      "sha256": "7321240017448e242bbf94c8e68c9dc914d2d17e711f20bde9c8067320537c0b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-03.png",
+      "valid": true,
+      "sha256": "b70c314d9827cb22ed66d27118f66b71190061be54613a376c916c984ba4e4c7",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-03-80.png",
+      "valid": true,
+      "sha256": "234ca9d53fa1e6cd616856ecb08f7ef4dfc4ccb35d0d449fbbd9f4a644d4c306",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-03-110.png",
+      "valid": true,
+      "sha256": "e35d1732420223f049df5d6778042960ddcac53f651b694b87b4c2908105798a",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-cat-04.png",
+      "valid": true,
+      "sha256": "6726c7fb6c094d253dc64aea17b70cc9d6f37f40c6f2de778d5a36716affde1c",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-04.png",
+      "valid": true,
+      "sha256": "9954885eda7e0b23cf15405bdc93d38f60fcd469092b14359eb25274accd7f4c",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-04-80.png",
+      "valid": true,
+      "sha256": "ca34656cb24e1ed083560ae748df7edb894617d2c963ec54bbf646be46e0b65f",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-04-110.png",
+      "valid": true,
+      "sha256": "8a09782196de020c960b120db1c66e940f776db8ab0da041da95747a2ef67fc7",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-cat-05.png",
+      "valid": true,
+      "sha256": "22e1d7761543b66db7a6fd45f24876d68413ff9fe2169b3a23fa11e69930fbce",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-cat-05.png",
+      "valid": true,
+      "sha256": "0e980acd9de097056aadaa3b61924ad7787fa61437532d844f5ce6875f976b50",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-cat-05-80.png",
+      "valid": true,
+      "sha256": "43b8c44bb73ec2ae8c231c19f6e9f4a6d7f1f66fc51d3188c08391c4be985679",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-cat-05-110.png",
+      "valid": true,
+      "sha256": "8c6215be15821165f4b3642269373128f39370680d3969a230caf2e7461b153e",
+      "unchanged": false
+    },
+    {
+      "path": "illustrations/M-cat-06.png",
+      "valid": true,
+      "sha256": "3e7cdf6d01d76639e493dbd56d53fdb2b37f5eb2483f72965171e9e4c4ba3b83",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-06.png",
+      "valid": true,
+      "sha256": "97463a97f89acc1680bc8a41aa5c260bcf02b7b73d67f1f84c28135cac991649",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-06-80.png",
+      "valid": true,
+      "sha256": "ebabedb2d75d6fca586c8abe7b98f93251f37db4ba4b853bbc6545b3e072b4b8",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-06-110.png",
+      "valid": true,
+      "sha256": "d5481190cd4f0a314bb6c285e6ee0e92b00b98dde009091abcc22fe285c0fb32",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-cat-07.png",
+      "valid": true,
+      "sha256": "868979101356b2c015a58377fb9e5ee9fc96ce42c60d2a24076302594d0bb28e",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-cat-07.png",
+      "valid": true,
+      "sha256": "4d5d9c017eb222f09bd9c32eb0d689672067528a283bb84988d395fe22bd01af",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-cat-07-80.png",
+      "valid": true,
+      "sha256": "0d209db11d41baec87af4080c21ff20e4097253e75cb779877d6bdd9164d4cbd",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-cat-07-110.png",
+      "valid": true,
+      "sha256": "0e19dfc3b4407b180b5ee7483041eff2c68c01294352c3197bf0bc49aef64f70",
+      "unchanged": false
+    },
+    {
+      "path": "illustrations/M-cat-08.png",
+      "valid": true,
+      "sha256": "016f66910e97c751fcb33310db55db89f1f891dbf748440694ca6b72707aefce",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-08.png",
+      "valid": true,
+      "sha256": "64290b2d178476b286938fe622992992b4d0c8d5b4d14e3b4aeb1c49d1a83a73",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-08-80.png",
+      "valid": true,
+      "sha256": "a059d5c31ff3609a5868671242805a019d4a9b2dbf1c0e3728bd326c74dcc952",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-cat-08-110.png",
+      "valid": true,
+      "sha256": "54342f611cf2e2695b4ca82843cc55b106019865222540c245d56222392b5520",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-clownfish-01.png",
+      "valid": true,
+      "sha256": "f07258fa7c6029ae7cd5b49561dd35a8528f59619d340f1a06dfebc684906ed7",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-01.png",
+      "valid": true,
+      "sha256": "aabef51e5911e481b8fc93cdf4a4ae19f1914acb2edd6aad36e367df547b502c",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-01-80.png",
+      "valid": true,
+      "sha256": "6ea7f4fea7d683b8b69b3afa34f0cfba2713a84ea050a199f2204ac0fdd121d4",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-01-110.png",
+      "valid": true,
+      "sha256": "a1853f8dbe068982a650a5657f4adce1694cb6b7ac4a27729205744116fc75ff",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-clownfish-02.png",
+      "valid": true,
+      "sha256": "1c079036a02415e40e5983ba583994b8625cf109f49400139b27d0f8bbc58a87",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-02.png",
+      "valid": true,
+      "sha256": "e1b9d11215083ba5a5865010a33513afe449f53b97af1c124c0919c59f4f346e",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-02-80.png",
+      "valid": true,
+      "sha256": "79c447e0d0e589583e93e573383076e81805508c07eab1f9594f95ac60e6e1d0",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-02-110.png",
+      "valid": true,
+      "sha256": "071999ff109d97549e80273ad7ce8d34dbb6afcc7a7272021bdae6e00662fccd",
+      "unchanged": false
+    },
+    {
+      "path": "illustrations/M-clownfish-03.png",
+      "valid": true,
+      "sha256": "e15a2d01adb40630311e54eb16fde5d26dd5bb52adf5e42a51f2d23fd49f4b67",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-03.png",
+      "valid": true,
+      "sha256": "b53dd48ead6d69708db699ae22a7912c2159e0c05cdb4cf252ecb6cfceb83dd4",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-03-80.png",
+      "valid": true,
+      "sha256": "7d70f5e60280cd372b33a0b408ff486f1f2081ce60da3db884f2507248a5f234",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-03-110.png",
+      "valid": true,
+      "sha256": "b3b27713d923e756429f56a74a1726a3e1ec67243cfa33e583f3ba50de03013d",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-clownfish-04.png",
+      "valid": true,
+      "sha256": "67d038f519f3f0281405c9d12175aee21c61cd2666d11a9e8d207edd5353e1f1",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-04.png",
+      "valid": true,
+      "sha256": "a5ac116b1e4d35624e3e0988b803dfbc22116a3d82450704c59d833b09d4e5d0",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-04-80.png",
+      "valid": true,
+      "sha256": "f01f96c81b5a2400fc2058bf960b25c51360ed6005ccd89641cc1dd9343a3347",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-04-110.png",
+      "valid": true,
+      "sha256": "059043ef0615cfec7169b0a28dcd978a86513eb29ddb8fd2e86143a5587e72fa",
+      "unchanged": false
+    },
+    {
+      "path": "illustrations/M-clownfish-05.png",
+      "valid": true,
+      "sha256": "e3d9c3d575b0bf3dec5c2e65e31b48a793980918c58e0a515448bae25ea22e07",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-05.png",
+      "valid": true,
+      "sha256": "470bb4970e5c19feeb925735e47c57464dcf42efdbab1b8320b5854ffa722ab3",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-05-80.png",
+      "valid": true,
+      "sha256": "99099289730efe4c85123917e0ad947c9357c41d42e2826a4bf6d61ed4125d11",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-05-110.png",
+      "valid": true,
+      "sha256": "7399ddd2feb1333b2f602a79b0d2900ce5ba620027725115ea6809396a1cb272",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-clownfish-06.png",
+      "valid": true,
+      "sha256": "ae5cfb01cd5ab0bebf9c414d41129033c92424ec0cd37079acc49efcb7c7d512",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-06.png",
+      "valid": true,
+      "sha256": "ad6f8f4e262e23a243db22533dfc10902386ce00244346bb960ccde4869c2b2b",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-06-80.png",
+      "valid": true,
+      "sha256": "f6a409ae02f28f694572b22371e6735b2ae9a751779394973b6cf9c0d469a446",
+      "unchanged": true
+    },
+    {
+      "path": "previews/M-clownfish-06-110.png",
+      "valid": true,
+      "sha256": "92ba9a201eb800085be01517a35ec179cdb00d503c4174dd0a0583e68381d48f",
+      "unchanged": true
+    },
+    {
+      "path": "illustrations/M-clownfish-07.png",
+      "valid": true,
+      "sha256": "33d18e837a43901e55933ad2a5d9040b0c29e9945716f7f0b3f373dd9baf492f",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-07.png",
+      "valid": true,
+      "sha256": "4c46ff21ce8cbeb055d17068fd7203b8ccc485ba1929a8b4c2d655393d64d947",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-07-80.png",
+      "valid": true,
+      "sha256": "b4170eab6fe035085b18c8e6f273971f4fdc8d357b28a42f754242381ef51f4a",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-07-110.png",
+      "valid": true,
+      "sha256": "893b30e4756c0215d2d5c176d077e30cbe90eca5db7f6d91be03f00ab5ca06c1",
+      "unchanged": false
+    },
+    {
+      "path": "illustrations/M-clownfish-08.png",
+      "valid": true,
+      "sha256": "985cd5e1d2aead57bb9ed9cb26162d0bf1bcd8f907a17500b3da884cb257f328",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-08.png",
+      "valid": true,
+      "sha256": "3074c0c4e1d81f6ddfa01c36cb8f20cf808326c7535b4ad43458f2b52d90da8e",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-08-80.png",
+      "valid": true,
+      "sha256": "501df6ccce85a9a2143e76985ab415a19b9df00d62358612f9e4c5f50c9eeffb",
+      "unchanged": false
+    },
+    {
+      "path": "previews/M-clownfish-08-110.png",
+      "valid": true,
+      "sha256": "1e3dc9a6d3f8a505ea184ddea9f3f0c2f6d9efc82960e9b24512d7aa3247f688",
+      "unchanged": false
+    }
+  ]
+}

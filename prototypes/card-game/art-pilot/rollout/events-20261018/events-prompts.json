@@ -1,0 +1,565 @@
+[
+  {
+    "id": "E-big-illness",
+    "keys": [
+      "cat/06",
+      "companions/otter"
+    ],
+    "sources": [
+      "assets/characters/cat/06.png",
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "identity": "cat/06, companions/otter canonical 2D reference identities",
+    "scene": "The gray adult cat from first reference resting under a light quilt on a low bed, eyes tired but calm, cool cloth on forehead; faithful otter friend places a cup of water beside bed. Gentle serious illness cared for at home, clean soft morning room; no injury, hospital machinery or distress. Cat cream face/chest gray body; otter brown with cream muzzle/chest and thick tail.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: The gray adult cat from first reference resting under a light quilt on a low bed, eyes tired but calm, cool cloth on forehead; faithful otter friend places a cup of water beside bed. Gentle serious illness cared for at home, clean soft morning room; no injury, hospital machinery or distress. Cat cream face/chest gray body; otter brown with cream muzzle/chest and thick tail.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-830c167c-856c-4954-893e-b22ef89f7b26.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      },
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "E-boss",
+    "keys": [
+      "cat/05"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png"
+    ],
+    "identity": "cat/05 canonical 2D reference identities",
+    "scene": "A gigantic friendly coral-pink squid politely bows its long triangular mantle toward the small canonical gray cat on a sunny shore, apologetic round eyes, two lateral fins, eight short arms and two long tentacles coherently attached around mouth. Cat looks surprised but forgiving. Whimsical comical apology, no attack, no text. Squid has no established 2D sprite and is a scene character based on original episode.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: A gigantic friendly coral-pink squid politely bows its long triangular mantle toward the small canonical gray cat on a sunny shore, apologetic round eyes, two lateral fins, eight short arms and two long tentacles coherently attached around mouth. Cat looks surprised but forgiving. Whimsical comical apology, no attack, no text. Squid has no established 2D sprite and is a scene character based on original episode.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f02d3986-e24a-4e6a-93b8-aa0ee618fcf2.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      }
+    ],
+    "first_candidate": "/workspace/scratch/12defc51d7b0/generated_images/exec-0daed896-17ae-448e-a484-5eda8cf55efa.png",
+    "revision_prompt": "Keep this apology scene and its character design and watercolor style. Widen the view enough to show the COMPLETE giant squid mantle tip, both lateral fins and every arm inside the canvas with visible sky margin at top. Do not crop the squid. Preserve bowing apologetic pose and smaller gray cat. Make exactly eight shorter arms plus two longer feeding tentacles coherently attached beneath squid head; no tentacles growing from mantle sides. 1536x1024 PNG, no text, no frame.",
+    "second_candidate": "/workspace/scratch/12defc51d7b0/generated_images/exec-b7ada410-136b-480b-90eb-dc59e01a3fff.png",
+    "second_revision_prompt": "Anatomical correction to this exact squid apology illustration, keep all colors, facial expression, bow and cat and beach. The two extremely long tentacles currently emerge near the SIDE OF THE MANTLE, which is incorrect. Remove both long side arches completely. Draw instead TWO long thin feeding tentacles extending FORWARD ON THE GROUND from the same cluster directly BELOW the FACE as the eight short arms. All ten appendages originate together below the face, no arm or tentacle attached anywhere above eyes or at mantle sides. The two long tentacles curve loosely flat on the sand in the foreground, with spoon-shaped ends, no loops beside mantle. Preserve the eight shorter downward arms and coherent separation. Mantle sides above eyes have ONLY two triangular fins near the tip. Full entire squid inside frame. Soft storybook painting, 1536x1024 PNG, no writing/frame."
+  },
+  {
+    "id": "E-fateful-transform",
+    "keys": [
+      "cat/04",
+      "cat/05"
+    ],
+    "sources": [
+      "assets/characters/cat/04.png",
+      "assets/characters/cat/05.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/04.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png"
+    ],
+    "identity": "cat/04, cat/05 canonical 2D reference identities",
+    "scene": "A magical but gentle moment of growth: canonical young running gray cat from first reference left leaps across a ribbon of warm drifting leaves; on right its slightly taller adolescent form exactly from second reference emerges, standing confidently. Two temporally successive poses of SAME species, not fused bodies, no wings or invented marks. Meadow at dawn, storybook transformation in one scene, clear two silhouettes.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: A magical but gentle moment of growth: canonical young running gray cat from first reference left leaps across a ribbon of warm drifting leaves; on right its slightly taller adolescent form exactly from second reference emerges, standing confidently. Two temporally successive poses of SAME species, not fused bodies, no wings or invented marks. Meadow at dawn, storybook transformation in one scene, clear two silhouettes.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-a383c650-3696-4bc3-911b-92ee964b3302.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/04.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "141552146e2b0d2cc46eb6da1c5bd4ed3166996a"
+      },
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      }
+    ]
+  },
+  {
+    "id": "E-final-time",
+    "keys": [
+      "cat/08"
+    ],
+    "sources": [
+      "assets/characters/cat/08.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/08.png"
+    ],
+    "identity": "cat/08 canonical 2D reference identities",
+    "scene": "Canonical oldest gray cat, round cream muzzle and closed peaceful smiling eyes, sits on an old cottage porch watching the final warm light of sunset. Beside it a small open keepsake box with a dried flower and a few wordless picture mementos. Quiet gratitude at life's closing season, alive and at peace, not death or mourning. Wide gentle view, cat large right foreground.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical oldest gray cat, round cream muzzle and closed peaceful smiling eyes, sits on an old cottage porch watching the final warm light of sunset. Beside it a small open keepsake box with a dried flower and a few wordless picture mementos. Quiet gratitude at life's closing season, alive and at peace, not death or mourning. Wide gentle view, cat large right foreground.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-b6c4b709-770a-4a46-bda4-405417f98cc7.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/08.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "4200cd599e2c607ec3b099e7729de03b6453cba9"
+      }
+    ]
+  },
+  {
+    "id": "E-first-date",
+    "keys": [
+      "cat/05",
+      "partners/forest_bear"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png",
+      "assets/characters/partners/forest_bear.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/partners/forest_bear.png"
+    ],
+    "identity": "cat/05, partners/forest_bear canonical 2D reference identities",
+    "scene": "Shy first romantic outing between canonical adolescent-adult gray cat and kind round brown forest bear with tan muzzle and belly: they sit near each other on a low garden picnic blanket, cat nudges a single daisy toward bear, tentative happy eye contact, two small cups. No clothes added, no human anatomy, size difference retained; spring pond and bright soft morning.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Shy first romantic outing between canonical adolescent-adult gray cat and kind round brown forest bear with tan muzzle and belly: they sit near each other on a low garden picnic blanket, cat nudges a single daisy toward bear, tentative happy eye contact, two small cups. No clothes added, no human anatomy, size difference retained; spring pond and bright soft morning.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-a9f0ad38-9404-42fe-8ea0-21dd1bc31834.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      },
+      {
+        "path": "assets/characters/partners/forest_bear.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+      }
+    ]
+  },
+  {
+    "id": "E-gate",
+    "keys": [
+      "cat/05"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png"
+    ],
+    "identity": "cat/05 canonical 2D reference identities",
+    "scene": "A single vermilion torii gate floats well above ground but below white clouds in a bright open meadow. Small canonical gray cat in lower foreground tilts head up, full body, wonder. Gate slightly tilted toward viewer, impossible to walk through from ground, two pillars and two crossbars coherent, no writing, no stairs connecting. Airy magical encounter.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: A single vermilion torii gate floats well above ground but below white clouds in a bright open meadow. Small canonical gray cat in lower foreground tilts head up, full body, wonder. Gate slightly tilted toward viewer, impossible to walk through from ground, two pillars and two crossbars coherent, no writing, no stairs connecting. Airy magical encounter.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-7d2f4b61-5c16-4457-b51f-78be6ecc7d34.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      }
+    ]
+  },
+  {
+    "id": "E-lamp",
+    "keys": [
+      "cat/06"
+    ],
+    "sources": [
+      "assets/characters/cat/06.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png"
+    ],
+    "identity": "cat/06 canonical 2D reference identities",
+    "scene": "A quiet blue midnight lane with one small warm paper lantern glowing ahead beside a closed cottage gate; canonical gray cat cautiously approaches and then looks back toward the light, full profile left. No visible host: welcoming presence implied only by warm light. Night scene softly luminous and reassuring, not horror or overly dark; lantern no letters.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: A quiet blue midnight lane with one small warm paper lantern glowing ahead beside a closed cottage gate; canonical gray cat cautiously approaches and then looks back toward the light, full profile left. No visible host: welcoming presence implied only by warm light. Night scene softly luminous and reassuring, not horror or overly dark; lantern no letters.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-c7629837-2381-413f-8a53-d40f3811b740.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      }
+    ]
+  },
+  {
+    "id": "E-midlife-50th",
+    "keys": [
+      "cat/06",
+      "companions/otter"
+    ],
+    "sources": [
+      "assets/characters/cat/06.png",
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "identity": "cat/06, companions/otter canonical 2D reference identities",
+    "scene": "Canonical mature gray cat celebrates a midlife birthday with canonical brown cream otter friend at a garden table. Small cake with a few ordinary candles, no numeric candles, no writing, a simple flower garland behind. Cat happy and reflective; otter presents a little wrapped gift with two paws. Both anatomies natural, seated full bodies; golden afternoon.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical mature gray cat celebrates a midlife birthday with canonical brown cream otter friend at a garden table. Small cake with a few ordinary candles, no numeric candles, no writing, a simple flower garland behind. Cat happy and reflective; otter presents a little wrapped gift with two paws. Both anatomies natural, seated full bodies; golden afternoon.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-2f7caa5d-8459-4602-813e-edc32782fb82.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      },
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "E-midlife-album",
+    "keys": [
+      "cat/06",
+      "cat/01",
+      "cat/04"
+    ],
+    "sources": [
+      "assets/characters/cat/06.png",
+      "assets/characters/cat/01.png",
+      "assets/characters/cat/04.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/01.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/04.png"
+    ],
+    "identity": "cat/06, cat/01, cat/04 canonical 2D reference identities",
+    "scene": "Mature gray cat from reference1 lovingly looks down at an open photo album on a cottage rug. Three large wordless painted snapshots show its same gray-cream identity at curled newborn from reference2, running juvenile from reference3, and mature sitting stage. Album readable pictures only, no letters/numbers. View over cat shoulder with face in gentle profile, paws distinct, nostalgic window light.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Mature gray cat from reference1 lovingly looks down at an open photo album on a cottage rug. Three large wordless painted snapshots show its same gray-cream identity at curled newborn from reference2, running juvenile from reference3, and mature sitting stage. Album readable pictures only, no letters/numbers. View over cat shoulder with face in gentle profile, paws distinct, nostalgic window light.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-2fb1dc1c-e339-4c69-8b45-b7005ee1b1cc.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      },
+      {
+        "path": "assets/characters/cat/01.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "4b9d6e9931c92930e25f3f9fcb176eaec872fa4f"
+      },
+      {
+        "path": "assets/characters/cat/04.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "141552146e2b0d2cc46eb6da1c5bd4ed3166996a"
+      }
+    ]
+  },
+  {
+    "id": "E-midlife-hobby",
+    "keys": [
+      "cat/06"
+    ],
+    "sources": [
+      "assets/characters/cat/06.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png"
+    ],
+    "identity": "cat/06 canonical 2D reference identities",
+    "scene": "Canonical mature gray cat discovers watercolor painting at a low easel in a garden. One front paw gently holds a thick paintbrush, other rests naturally by a small palette; hind paws seated on ground, only four limbs. Canvas simple flower still life, no writing. Cat eager expression and original gray cream markings, no clothes. Fresh creative morning.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical mature gray cat discovers watercolor painting at a low easel in a garden. One front paw gently holds a thick paintbrush, other rests naturally by a small palette; hind paws seated on ground, only four limbs. Canvas simple flower still life, no writing. Cat eager expression and original gray cream markings, no clothes. Fresh creative morning.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-076ac103-a671-4fd4-b298-bdba79c1353f.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      }
+    ]
+  },
+  {
+    "id": "E-midlife-travel-plan",
+    "keys": [
+      "cat/06",
+      "companions/otter"
+    ],
+    "sources": [
+      "assets/characters/cat/06.png",
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "identity": "cat/06, companions/otter canonical 2D reference identities",
+    "scene": "Canonical mature gray cat and brown cream otter lean toward a wordless illustrated map on a low kitchen table, planning a modest trip. Map shows a nearby hill, stream, cottage and path without labels; small red backpack beside stool. Cat points with one paw, otter holds rolled edge; both faces visible, natural separate limbs. Broad side view, soft late afternoon.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical mature gray cat and brown cream otter lean toward a wordless illustrated map on a low kitchen table, planning a modest trip. Map shows a nearby hill, stream, cottage and path without labels; small red backpack beside stool. Cat points with one paw, otter holds rolled edge; both faces visible, natural separate limbs. Broad side view, soft late afternoon.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f822cadf-e828-4692-b9ea-e4e7eeb0609d.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      },
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "E-mirror",
+    "keys": [
+      "cat/05",
+      "cat/08"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png",
+      "assets/characters/cat/08.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/08.png"
+    ],
+    "identity": "cat/05, cat/08 canonical 2D reference identities",
+    "scene": "Canonical young gray cat from reference1 stands beside a clear shallow rain puddle and looks down. In the puddle ONLY the older serene gray cat from reference2 appears, closed peaceful smiling eyes and rounder face; reflection correctly contained in the water and reversed spatially beneath the young cat. No physical second cat above ground, no mirror frame. Poetic gentle magical age reflection, warm sky after rain.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical young gray cat from reference1 stands beside a clear shallow rain puddle and looks down. In the puddle ONLY the older serene gray cat from reference2 appears, closed peaceful smiling eyes and rounder face; reflection correctly contained in the water and reversed spatially beneath the young cat. No physical second cat above ground, no mirror frame. Poetic gentle magical age reflection, warm sky after rain.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-e1092ae4-3eee-4d6e-8aab-bdf6e3c85e8d.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      },
+      {
+        "path": "assets/characters/cat/08.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "4200cd599e2c607ec3b099e7729de03b6453cba9"
+      }
+    ],
+    "first_candidate": "/workspace/scratch/12defc51d7b0/generated_images/exec-f443beea-3de6-45b3-a067-8b60381584c0.png",
+    "revision_prompt": "Correct ONLY the magical reflection and its spatial orientation. Keep the real young gray cat and warm garden. The old gray cat is an image reflected in the puddle, NOT a second upright animal standing in water. Reflect the old form upside-down vertically: its paws/body should be near the real cat's feet at the far water edge, and its smiling white elderly face should extend toward the near/lower edge of the puddle, inverted to the viewer. The old image must be flat on water, semi-transparent with small horizontal ripples crossing it; no shadow or volumetric cat sitting on water. Preserve the old round form and closed smiling eyes from existing image. A coherent water reflection showing its future aged self. 1536x1024 PNG, no text/frame."
+  },
+  {
+    "id": "E-misunderstanding",
+    "keys": [
+      "cat/05",
+      "partners/forest_bear"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png",
+      "assets/characters/partners/forest_bear.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/partners/forest_bear.png"
+    ],
+    "identity": "cat/05, partners/forest_bear canonical 2D reference identities",
+    "scene": "Canonical gray cat and round brown cream-bellied forest bear have a small romantic misunderstanding: sit at opposite ends of a garden bench turned slightly away, looking wistful not angry, space between them and a single unopened daisy bouquet. Subtle cool cloudy light, open path behind, no speech or letters. Both full distinct bodies, no extra limbs.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical gray cat and round brown cream-bellied forest bear have a small romantic misunderstanding: sit at opposite ends of a garden bench turned slightly away, looking wistful not angry, space between them and a single unopened daisy bouquet. Subtle cool cloudy light, open path behind, no speech or letters. Both full distinct bodies, no extra limbs.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-c2b5448f-b40d-49bd-aa60-71645aec7cbe.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      },
+      {
+        "path": "assets/characters/partners/forest_bear.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+      }
+    ]
+  },
+  {
+    "id": "E-naoto",
+    "keys": [
+      "author/naoto",
+      "cat/06",
+      "companions/otter"
+    ],
+    "sources": [
+      "assets/characters/author/naoto.png",
+      "assets/characters/cat/06.png",
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/author/naoto.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "identity": "author/naoto, cat/06, companions/otter canonical 2D reference identities",
+    "scene": "Canonical Naoto character from first reference, youthful friendly man with wavy dark brown center-parted hair, white open jacket over navy shirt, dark blue trousers and shoes, stands warmly with canonical gray cat and brown cream otter in a cottage garden. He crouches to help them collect three scattered keepsakes: a flower, a smooth blue pebble, and a small wordless postcard into a basket. Exact chibi face and proportions, no new costume, hands natural, hopeful reconnection.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical Naoto character from first reference, youthful friendly man with wavy dark brown center-parted hair, white open jacket over navy shirt, dark blue trousers and shoes, stands warmly with canonical gray cat and brown cream otter in a cottage garden. He crouches to help them collect three scattered keepsakes: a flower, a smooth blue pebble, and a small wordless postcard into a basket. Exact chibi face and proportions, no new costume, hands natural, hopeful reconnection.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-b52eb2c1-a8d6-454b-8175-294c9d8fba9a.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/author/naoto.png",
+        "ref": "aba67da04c91db70744fc6a4d03334ab5635ba3c",
+        "blob": "e28f9336312ffcc8d241fe90d49848b3bcc2d232"
+      },
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      },
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "E-reconciliation",
+    "keys": [
+      "cat/05",
+      "partners/forest_bear"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png",
+      "assets/characters/partners/forest_bear.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/partners/forest_bear.png"
+    ],
+    "identity": "cat/05, partners/forest_bear canonical 2D reference identities",
+    "scene": "Canonical gray cat and round brown forest bear reconcile on a little garden footbridge. Cat offers a single fresh daisy with one front paw; bear gently accepts with one forepaw, soft mutual smiles and relaxed eye contact. Other limbs separately visible, no hugs that merge bodies. Rain clouds part into warm light, petal on wet boards, intimacy after misunderstanding.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical gray cat and round brown forest bear reconcile on a little garden footbridge. Cat offers a single fresh daisy with one front paw; bear gently accepts with one forepaw, soft mutual smiles and relaxed eye contact. Other limbs separately visible, no hugs that merge bodies. Rain clouds part into warm light, petal on wet boards, intimacy after misunderstanding.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-73c3ecaa-bec8-4ce7-b9e7-880f043b373d.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      },
+      {
+        "path": "assets/characters/partners/forest_bear.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+      }
+    ]
+  },
+  {
+    "id": "E-special-trip-memory",
+    "keys": [
+      "cat/06",
+      "companions/otter"
+    ],
+    "sources": [
+      "assets/characters/cat/06.png",
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/06.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "identity": "cat/06, companions/otter canonical 2D reference identities",
+    "scene": "Canonical gray cat and brown cream otter together at the shore of the memory lake at lavender dusk, each looking at a small wordless painted travel picture held between separate paws. Behind them the lake reflects stars and distant mountains, a willow bough curves overhead. Remembering an extraordinary journey; characters dominant foreground, calm wondrous light, no lettering.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical gray cat and brown cream otter together at the shore of the memory lake at lavender dusk, each looking at a small wordless painted travel picture held between separate paws. Behind them the lake reflects stars and distant mountains, a willow bough curves overhead. Remembering an extraordinary journey; characters dominant foreground, calm wondrous light, no lettering.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-cfe2c4bf-fe1d-4bd1-8b76-ac8cd3e6bdc7.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+      },
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "E-stairs",
+    "keys": [
+      "cat/05"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png"
+    ],
+    "identity": "cat/05 canonical 2D reference identities",
+    "scene": "Three solitary weathered stone steps stand in the middle of an open flowering meadow and lead absolutely nowhere, no platform door building or continuation. Canonical gray cat stands beside bottom step looking puzzlingly at the empty air above. Wide airy whimsical scene with the three steps clearly countable, soft late morning clouds, not frightening.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Three solitary weathered stone steps stand in the middle of an open flowering meadow and lead absolutely nowhere, no platform door building or continuation. Canonical gray cat stands beside bottom step looking puzzlingly at the empty air above. Wide airy whimsical scene with the three steps clearly countable, soft late morning clouds, not frightening.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f2278c36-6c4f-43be-bd91-ec1bab823856.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      }
+    ]
+  },
+  {
+    "id": "E-sudden-trip",
+    "keys": [
+      "cat/05",
+      "companions/otter"
+    ],
+    "sources": [
+      "assets/characters/cat/05.png",
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/05.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "identity": "cat/05, companions/otter canonical 2D reference identities",
+    "scene": "Canonical gray cat and brown cream otter unexpectedly set off on a trip: stepping through an open cottage garden gate onto a winding country path, a small red backpack shared on the ground just picked up by otter, cat looking eagerly toward distant hills. Breezy morning, a few swirling leaves show sudden departure, natural four-limb bodies, no human clothes.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical gray cat and brown cream otter unexpectedly set off on a trip: stepping through an open cottage garden gate onto a winding country path, a small red backpack shared on the ground just picked up by otter, cat looking eagerly toward distant hills. Breezy morning, a few swirling leaves show sudden departure, natural four-limb bodies, no human clothes.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-d19b9e0f-3746-4329-89e7-2180a628118b.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+      },
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "E-wedding-anniversary",
+    "keys": [
+      "cat/07",
+      "partners/forest_bear"
+    ],
+    "sources": [
+      "assets/characters/cat/07.png",
+      "assets/characters/partners/forest_bear.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/cat/07.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/partners/forest_bear.png"
+    ],
+    "identity": "cat/07, partners/forest_bear canonical 2D reference identities",
+    "scene": "Canonical older gray cat with gently tired kind eyes and round brown forest bear celebrate their wedding anniversary on a cottage veranda. They sit affectionately side by side, a small cake and two cups on low table, familiar daisy bouquet in vase, simple paired silver rings on a small cloth as mementos. No text, no numeric candles, no clothing or changed anatomy. Warm settled evening, longstanding bond.",
+    "prompt": "Naotocchi dedicated narrative event-card art, 1536x1024 PNG landscape3:2, no text, letters, numbers, UI or frame. Scene: Canonical older gray cat with gently tired kind eyes and round brown forest bear celebrate their wedding anniversary on a cottage veranda. They sit affectionately side by side, a small cake and two cups on low table, familiar daisy bouquet in vase, simple paired silver rings on a small cloth as mementos. No text, no numeric candles, no clothing or changed anatomy. Warm settled evening, longstanding bond.. Canonical 2D character references establish identity: preserve facial features, body proportions, fur pattern/colors, species and growth stage. Last reference is approved picture-book brushwork only, do not copy its subjects or garden layout. Delicate cute watercolor/gouache, soft natural light, clear uncluttered silhouettes and expressive story, characters identifiable at small card size, beautiful subordinate background. Avoid photorealism, dark aggression, anatomy errors, extra limbs. One coherent scene, not panels.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-509e3f08-86b3-4f48-9f09-19fb626fa31d.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cat/07.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "0240f4f09f37a9605012b672ce45b53b99558ef2"
+      },
+      {
+        "path": "assets/characters/partners/forest_bear.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+      }
+    ]
+  }
+]

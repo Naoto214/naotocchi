@@ -1,0 +1,79 @@
+[
+  {
+    "id": "M-beetle-07",
+    "scene": "Mature beetle feeding quietly at a bead of tree sap on an upright oak trunk. Close side view, trunk occupying RIGHT third and beetle climbing almost vertically, head turned toward sap. Quiet blue-green evening woodland beyond on left, soft natural dusk, not dark. NOT the old diagonal branch in yellow midday forest. Preserve copper-brown wingcases, single forked head horn, six legs, cute face and mature body.",
+    "prompt": "Use case: identity-preserve. Edit the card illustration. Image 1 is the existing illustration/edit target and adopted delicate storybook watercolor/gouache style. Image 2 is the authoritative character design; preserve its exact growth-stage morphology, face, colors, markings, appendages. Change scene, viewing direction, action and framing as described, retaining character identity and the adopted warm, cute finely textured picture-book finish. Scene: Mature beetle feeding quietly at a bead of tree sap on an upright oak trunk. Close side view, trunk occupying RIGHT third and beetle climbing almost vertically, head turned toward sap. Quiet blue-green evening woodland beyond on left, soft natural dusk, not dark. NOT the old diagonal branch in yellow midday forest. Preserve copper-brown wingcases, single forked head horn, six legs, cute face and mature body. Output exactly 1536x1024 landscape PNG, 3:2. No text, numbers, frame, symbols or watermark. Whole subject and all extremities inside frame with breathing room. Background less detailed than subject, readable at 80px. Do not invent extra limbs, fins or characters. Do not copy old background layout.",
+    "references": [
+      "growth-review/before/M-beetle-07.png",
+      "assets/characters/beetle/07.png"
+    ],
+    "source": "assets/characters/beetle/07.png",
+    "generation_output": "exec-5cbb509b-eb55-442f-bbed-b65c0bf751ad.png"
+  },
+  {
+    "id": "M-cat-05",
+    "scene": "Slender adolescent grey cat carefully exploring the top of a low garden wall, seen in right-facing side three-quarter view. One forepaw tests the next broad stepping stone. Low camera reveals open sky and distant rooftops beyond wall, soft clear morning. Full long legs and curled upright tail visible. Preserve grey face, slim long torso, triangular ears, no collar; do not make a white-faced kitten. NOT a front portrait on garden path.",
+    "prompt": "Use case: identity-preserve. Edit the card illustration. Image 1 is the existing illustration/edit target and adopted delicate storybook watercolor/gouache style. Image 2 is the authoritative character design; preserve its exact growth-stage morphology, face, colors, markings, appendages. Change scene, viewing direction, action and framing as described, retaining character identity and the adopted warm, cute finely textured picture-book finish. Scene: Slender adolescent grey cat carefully exploring the top of a low garden wall, seen in right-facing side three-quarter view. One forepaw tests the next broad stepping stone. Low camera reveals open sky and distant rooftops beyond wall, soft clear morning. Full long legs and curled upright tail visible. Preserve grey face, slim long torso, triangular ears, no collar; do not make a white-faced kitten. NOT a front portrait on garden path. Output exactly 1536x1024 landscape PNG, 3:2. No text, numbers, frame, symbols or watermark. Whole subject and all extremities inside frame with breathing room. Background less detailed than subject, readable at 80px. Do not invent extra limbs, fins or characters. Do not copy old background layout.",
+    "references": [
+      "growth-review/before/M-cat-05.png",
+      "assets/characters/cat/05.png"
+    ],
+    "source": "assets/characters/cat/05.png",
+    "generation_output": "exec-54a97135-c0e6-48fc-9996-bbea8f610f2f.png"
+  },
+  {
+    "id": "M-cat-07",
+    "scene": "Mature grey cat resting seated under a wooden veranda roof after gentle rain, facing slightly RIGHT, half-lidded calm eyes and low curled tail exactly as canonical. Medium close view from slightly above shows wet paving and a quiet puddle reflecting pale sky below veranda. Sparse background, soft overcast daylight, dry sheltered cat, full body. Preserve grey face, mature seated proportions. NOT a sunny flower garden front portrait.",
+    "prompt": "Use case: identity-preserve. Edit the card illustration. Image 1 is the existing illustration/edit target and adopted delicate storybook watercolor/gouache style. Image 2 is the authoritative character design; preserve its exact growth-stage morphology, face, colors, markings, appendages. Change scene, viewing direction, action and framing as described, retaining character identity and the adopted warm, cute finely textured picture-book finish. Scene: Mature grey cat resting seated under a wooden veranda roof after gentle rain, facing slightly RIGHT, half-lidded calm eyes and low curled tail exactly as canonical. Medium close view from slightly above shows wet paving and a quiet puddle reflecting pale sky below veranda. Sparse background, soft overcast daylight, dry sheltered cat, full body. Preserve grey face, mature seated proportions. NOT a sunny flower garden front portrait. Output exactly 1536x1024 landscape PNG, 3:2. No text, numbers, frame, symbols or watermark. Whole subject and all extremities inside frame with breathing room. Background less detailed than subject, readable at 80px. Do not invent extra limbs, fins or characters. Do not copy old background layout.",
+    "references": [
+      "growth-review/before/M-cat-07.png",
+      "assets/characters/cat/07.png"
+    ],
+    "source": "assets/characters/cat/07.png",
+    "generation_output": "exec-4477146b-7423-4281-a15d-9a1aa9040478.png"
+  },
+  {
+    "id": "M-clownfish-02",
+    "scene": "Tiny pale peach juvenile with emerging faint white stripes on its FIRST short outing from shelter. Face RIGHT and slightly upward, swimming through a small gap between smooth rounded rocks; the gap frames distant open turquoise water. Near camera, large soft rock forms create intimate scale, few small sea plants below, sparse surroundings. Preserve slender tiny body, open eyes, pale fins, faint bands. NO pink anemone meadow or busy coral panorama.",
+    "prompt": "Use case: identity-preserve. Edit the card illustration. Image 1 is the existing illustration/edit target and adopted delicate storybook watercolor/gouache style. Image 2 is the authoritative character design; preserve its exact growth-stage morphology, face, colors, markings, appendages. Change scene, viewing direction, action and framing as described, retaining character identity and the adopted warm, cute finely textured picture-book finish. Scene: Tiny pale peach juvenile with emerging faint white stripes on its FIRST short outing from shelter. Face RIGHT and slightly upward, swimming through a small gap between smooth rounded rocks; the gap frames distant open turquoise water. Near camera, large soft rock forms create intimate scale, few small sea plants below, sparse surroundings. Preserve slender tiny body, open eyes, pale fins, faint bands. NO pink anemone meadow or busy coral panorama. Output exactly 1536x1024 landscape PNG, 3:2. No text, numbers, frame, symbols or watermark. Whole subject and all extremities inside frame with breathing room. Background less detailed than subject, readable at 80px. Do not invent extra limbs, fins or characters. Do not copy old background layout.",
+    "references": [
+      "growth-review/before/M-clownfish-02.png",
+      "assets/characters/clownfish/02.png"
+    ],
+    "source": "assets/characters/clownfish/02.png",
+    "generation_output": "exec-c9f25720-57ed-4e34-b0e1-e86a447093e1.png"
+  },
+  {
+    "id": "M-clownfish-04",
+    "scene": "Young slender orange clownfish facing RIGHT, body angled upward into a gentle current along a reef ledge. Low underwater viewpoint with open blue water across upper two thirds, one rounded coral ledge below, softly bending short sea plants indicate movement. No dramatic ocean surf, no speed lines. Full fish prominent in left-center, preserve slim youthful body, exact white bands and black fin edging from source. NOT a left-facing fish centered in a flowerlike anemone garden.",
+    "prompt": "Use case: identity-preserve. Edit the card illustration. Image 1 is the existing illustration/edit target and adopted delicate storybook watercolor/gouache style. Image 2 is the authoritative character design; preserve its exact growth-stage morphology, face, colors, markings, appendages. Change scene, viewing direction, action and framing as described, retaining character identity and the adopted warm, cute finely textured picture-book finish. Scene: Young slender orange clownfish facing RIGHT, body angled upward into a gentle current along a reef ledge. Low underwater viewpoint with open blue water across upper two thirds, one rounded coral ledge below, softly bending short sea plants indicate movement. No dramatic ocean surf, no speed lines. Full fish prominent in left-center, preserve slim youthful body, exact white bands and black fin edging from source. NOT a left-facing fish centered in a flowerlike anemone garden. Output exactly 1536x1024 landscape PNG, 3:2. No text, numbers, frame, symbols or watermark. Whole subject and all extremities inside frame with breathing room. Background less detailed than subject, readable at 80px. Do not invent extra limbs, fins or characters. Do not copy old background layout.",
+    "references": [
+      "growth-review/before/M-clownfish-04.png",
+      "assets/characters/clownfish/04.png"
+    ],
+    "source": "assets/characters/clownfish/04.png",
+    "generation_output": "exec-537e728a-669f-40f6-a8e4-a0e07411034f.png"
+  },
+  {
+    "id": "M-clownfish-07",
+    "scene": "Transition-stage rounded orange clownfish turning gently to face RIGHT toward the illuminated entrance of a sheltered rocky recess. Three-quarter side view, whole body recognizable, calm half-lidded eye; fuller and deeper than young fish but not the tall-backed stage08. Soft reflected light on ochre rock floor, a few quiet anemone tentacles at far edge, open water visible as a small luminous opening. Sparse intimate composition, softly lit not dark. Preserve source band count, placement, rounded belly and fins; no invented biological anatomy.",
+    "prompt": "Use case: identity-preserve. Edit the card illustration. Image 1 is the existing illustration/edit target and adopted delicate storybook watercolor/gouache style. Image 2 is the authoritative character design; preserve its exact growth-stage morphology, face, colors, markings, appendages. Change scene, viewing direction, action and framing as described, retaining character identity and the adopted warm, cute finely textured picture-book finish. Scene: Transition-stage rounded orange clownfish turning gently to face RIGHT toward the illuminated entrance of a sheltered rocky recess. Three-quarter side view, whole body recognizable, calm half-lidded eye; fuller and deeper than young fish but not the tall-backed stage08. Soft reflected light on ochre rock floor, a few quiet anemone tentacles at far edge, open water visible as a small luminous opening. Sparse intimate composition, softly lit not dark. Preserve source band count, placement, rounded belly and fins; no invented biological anatomy. Output exactly 1536x1024 landscape PNG, 3:2. No text, numbers, frame, symbols or watermark. Whole subject and all extremities inside frame with breathing room. Background less detailed than subject, readable at 80px. Do not invent extra limbs, fins or characters. Do not copy old background layout.",
+    "references": [
+      "growth-review/before/M-clownfish-07.png",
+      "assets/characters/clownfish/07.png"
+    ],
+    "source": "assets/characters/clownfish/07.png",
+    "generation_output": "exec-d97644db-915a-4d48-b4bf-5b1222b8c01e.png"
+  },
+  {
+    "id": "M-clownfish-08",
+    "scene": "Deep-bodied adult female leader with high dorsal fin and pleased CLOSED smiling eye, swimming facing RIGHT above the outer edge of her home reef. A broad calm blue water vista occupies upper half, viewed slightly from below; large mature fish in right-center takes 45 percent width, home anemone small at bottom-left, coral terrace recedes far below. Natural late-afternoon underwater shafts from upper RIGHT, spacious majestic but cute. Preserve exact rounded canonical silhouette, stripes, high dorsal and single fan tail. Only one fish, no added entourage. NOT pink anemone flower garden at eye-level.",
+    "prompt": "Use case: identity-preserve. Edit the card illustration. Image 1 is the existing illustration/edit target and adopted delicate storybook watercolor/gouache style. Image 2 is the authoritative character design; preserve its exact growth-stage morphology, face, colors, markings, appendages. Change scene, viewing direction, action and framing as described, retaining character identity and the adopted warm, cute finely textured picture-book finish. Scene: Deep-bodied adult female leader with high dorsal fin and pleased CLOSED smiling eye, swimming facing RIGHT above the outer edge of her home reef. A broad calm blue water vista occupies upper half, viewed slightly from below; large mature fish in right-center takes 45 percent width, home anemone small at bottom-left, coral terrace recedes far below. Natural late-afternoon underwater shafts from upper RIGHT, spacious majestic but cute. Preserve exact rounded canonical silhouette, stripes, high dorsal and single fan tail. Only one fish, no added entourage. NOT pink anemone flower garden at eye-level. Output exactly 1536x1024 landscape PNG, 3:2. No text, numbers, frame, symbols or watermark. Whole subject and all extremities inside frame with breathing room. Background less detailed than subject, readable at 80px. Do not invent extra limbs, fins or characters. Do not copy old background layout.",
+    "references": [
+      "growth-review/before/M-clownfish-08.png",
+      "assets/characters/clownfish/08.png"
+    ],
+    "source": "assets/characters/clownfish/08.png",
+    "generation_output": "exec-22d33fde-777a-459c-ae7a-40ee3c131bec.png"
+  }
+]
