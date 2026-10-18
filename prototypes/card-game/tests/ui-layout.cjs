@@ -5,7 +5,7 @@ const {closeDetail,projection,actionButton,reveal}=require('./ui-browser-helpers
  const browser=await(process.env.BROWSER==='webkit'?webkit:chromium).launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
  const page=await browser.newPage({hasTouch:true,isMobile:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  const url=process.env.QA_URL||'http://127.0.0.1:8765/prototypes/card-game/';
- for(const viewport of [{width:844,height:390},{width:932,height:430},{width:667,height:375},{width:844,height:280},{width:390,height:664},{width:320,height:480}]){
+ for(const viewport of [{width:844,height:390},{width:932,height:430},{width:667,height:375},{width:844,height:280},{width:390,height:664},{width:320,height:480},{width:320,height:900}]){
   await page.setViewportSize(viewport);await page.goto(url);assert.equal(await page.locator('#catalog-list .card-face').count(),452);
   await page.locator('#welcome [data-menu]').click();assert.ok(await page.locator('#import').isVisible());await page.locator('#menu-dialog [data-close]').click();
   await page.locator('#new').click();assert.equal(await page.locator('#hand').count(),0);await reveal(page);await closeDetail(page);
@@ -29,6 +29,22 @@ const {closeDetail,projection,actionButton,reveal}=require('./ui-browser-helpers
    await page.waitForFunction(()=>!document.querySelector('.result-notice'),{},{timeout:5000});
    assert.deepEqual(await stableBoxes(),shown,'automatic collapse must leave no spacer');
    assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),originalSave);
+  }
+  if(viewport.height>viewport.width){
+   assert.ok(await page.evaluate(()=>{const shell=document.querySelector('.own-shell'),board=document.querySelector('.player-board.own'),s=shell.getBoundingClientRect(),b=board.getBoundingClientRect();return Math.abs(b.width-(s.width-4))<2&&b.height>=s.height-5;}),'own board must fill its available portrait row');
+  }
+  // Presentation-only long/short result fixture: no game state is changed.
+  const beforeNotice=await stableBoxes();
+  const widths=await page.evaluate(()=>{
+   const host=document.querySelector('#result-feedback'),cell=document.querySelector('.opponent-shell').getBoundingClientRect();
+   const measure=text=>{host.innerHTML='<section class="result-notice"><strong>結果</strong><ul><li><span></span></li></ul><button class="result-collapse">×</button></section>';host.querySelector('li span').textContent=text;const r=host.getBoundingClientRect(),t=host.querySelector('li span').getBoundingClientRect();return {width:r.width,textHeight:t.height};};
+   const short=measure('時 +1'),long=measure('カードを山札の下へ戻しました。'.repeat(12));host.replaceChildren();return {short,long,available:cell.width};
+  });
+  assert.ok(widths.long.width<=widths.available*.96&&widths.long.width>=widths.available*.90);
+  assert.ok(widths.short.width<widths.long.width&&widths.long.textHeight>24);
+  assert.deepEqual(await stableBoxes(),beforeNotice);
+  if(viewport.height>viewport.width){
+   assert.ok(await page.evaluate(()=>{const slot=document.querySelector('.own .slot'),saved=slot.innerHTML,face=document.querySelector('#hand .card-face');slot.innerHTML='<small>比率確認</small><div class="slot-content"><button class="card-tap"></button></div>';slot.querySelector('button').append(face.cloneNode(true));const b=slot.querySelector('.card-face').getBoundingClientRect(),c=slot.querySelector('.slot-content').getBoundingClientRect();slot.innerHTML=saved;return Math.abs(b.width/b.height-2/3)<.01&&b.width<=c.width+1&&b.height<=c.height+1;}),'expanded cells must contain an undistorted 2:3 card');
   }
   // Presentation-only fixture checks CSS in the actual zone contexts, without touching game state.
   const cardsOK=await page.evaluate(async()=>{const ui=await import('./ui-presentation.mjs'),{CARDS}=await import('./engine.mjs'),c=CARDS['M-beetle-01'],fixture=document.createElement('div');fixture.innerHTML='<div class="zone-body"><div class="discard-cards"><div>'+ui.browseButton(c)+'<small class="zone-card-caption">1. test</small></div></div><article class="activation-entry">'+ui.browseButton(c)+'<div><strong>解決順 1</strong></div></article></div>';document.body.append(fixture);

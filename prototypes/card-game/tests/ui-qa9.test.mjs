@@ -23,3 +23,12 @@ test('a board card needed for current choice opens exact action detail directly;
  const html=ui.boardMarkup(v.players.A,'A','A',[],v);assert.match(html,new RegExp('data-inspect="'+c.id+'"'));assert.match(ui.detailMarkup(c,{v,viewer:'A'}),/data-action="choose-one"/);
  v.actions=[];assert.match(ui.boardMarkup(v.players.A,'A','A',[],v),new RegExp('data-browse="'+c.id+'"'));
 });
+
+test('portrait board uses its allocated row and results wrap within available width',()=>{
+ const css=readFileSync(new URL('../style.css',import.meta.url),'utf8');
+ assert.match(css,/\.player-board\.own\{[^}]*height:100%/);
+ assert.match(css,/\.own \.slots\{[^}]*grid-template-rows:repeat\(3,minmax\(54px,1fr\)\)/);
+ assert.match(css,/height:min\(100cqh,150cqw\);width:min\(100cqw,66\.6667cqh\)/);
+ assert.match(css,/#result-feedback\{[^}]*width:max-content;max-width:94%/);
+ assert.match(css,/\.result-notice li>span:last-child\{[^}]*white-space:normal;overflow-wrap:anywhere/);
+});
