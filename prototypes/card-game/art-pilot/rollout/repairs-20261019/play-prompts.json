@@ -1,0 +1,119 @@
+[
+  {
+    "id": "G-gomoku-9",
+    "keys": [
+      "panda",
+      "rabbit_friend"
+    ],
+    "scene": "Panda and rabbit thoughtfully play gomoku at a low wooden table in a quiet bamboo garden. Board viewed almost overhead has EXACTLY NINE parallel lines each direction (9x9 INTERSECTIONS,8x8 squares); round black andwhite stones lie at INTERSECTIONS. One line of exactly FIVE blackstones through center, other white stones scattered separately. Rabbit forepaw just placing finalblackstone. Boardcount clear, nowriting, calm afternoon.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. First reference(s) canonical2D character identity: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. Lastreference is approved picturebookpainting STYLEONLY; do not copy itscharacters or beachbackground. Scene: Panda and rabbit thoughtfully play gomoku at a low wooden table in a quiet bamboo garden. Board viewed almost overhead has EXACTLY NINE parallel lines each direction (9x9 INTERSECTIONS,8x8 squares); round black andwhite stones lie at INTERSECTIONS. One line of exactly FIVE blackstones through center, other white stones scattered separately. Rabbit forepaw just placing finalblackstone. Boardcount clear, nowriting, calm afternoon. Cute delicate watercolor/gouache,softnatural light, fine texturedbrushwork, warmfriendlyexpressions, protagonist readsclearly atsmallcardsize, coherent anatomy. No letters,numbers,watermark,logo,cardframe,UI.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-3a6b4cac-9be9-45d2-9c9e-f92db53c475c.png",
+    "first_candidate": "rollout/repairs-20261019/G-gomoku-9-before.png",
+    "revision_prompt": "Replace ONLY game board and stone placement. Go board viewed from almost directly above, exactly NINE thin straight horizontal lines and NINE thin straight vertical lines making a regular square 9x9 INTERSECTION lattice (8x8 spaces). Only THREE black stones centered on three adjacent intersections in the middle horizontal line, only TWO white stones on separated intersections on another horizontal line. Rabbit holds a fourth black stone just above board. Keep panda rabbit garden watercolor style. No letters or numbers.1536x1024PNG.",
+    "qa_status": "repair_pending",
+    "qa_issue": "Candidate has eight horizontal and nine vertical lines; grid invalid.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-minesweeper-8",
+    "keys": [
+      "tanuki"
+    ],
+    "scene": "Tanuki thoughtfully uncovers safe blank tiles on an eight-by-eight square tabletop mine puzzle board in a sunny study. Several unrevealed tiles carry tiny RED flags indicating hidden round toy mines, a small corner safely open. Hint marks represented by simple dot groups rather than digits. Tanuki paw lifts a single empty safe tile, otherpaw thoughtfulat chin. No explosions; visual metaphor of cautious searching. All64tiles uniformgrid.",
+    "identity": "Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Tanuki thoughtfully uncovers safe blank tiles on an eight-by-eight square tabletop mine puzzle board in a sunny study. Several unrevealed tiles carry tiny RED flags indicating hidden round toy mines, a small corner safely open. Hint marks represented by simple dot groups rather than digits. Tanuki paw lifts a single empty safe tile, otherpaw thoughtfulat chin. No explosions; visual metaphor of cautious searching. All64tiles uniformgrid. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-d3fbc2ae-c48e-422a-9ff5-0f0538e4410e.png",
+    "first_candidate": "rollout/repairs-20261019/G-minesweeper-8-before.png",
+    "revision_prompt": "Replace ONLY the puzzle board with a square wooden tray containing EXACTLY EIGHT ROWS by EIGHT COLUMNS of equal small square tiles (64 cells). Clear near overhead view with all eight rows visible, square proportions and straight uniform separators. Only three tiles have tiny red flags; five tiles have simple dot clusters; all other tiles blank. Keep tanuki face and body, raised paw holding one blank tile above board, sunny room, watercolor. No digits or letters.1536x1024PNG.",
+    "qa_status": "repair_pending",
+    "qa_issue": "Candidate has seven rows and eight columns; grid invalid.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-puzzle-2048",
+    "keys": [
+      "panda"
+    ],
+    "scene": "Panda slides two IDENTICAL palegold squaretiles together across a four-by-four wooden slidingpuzzleboard. At their meetingpoint a warmglow reveals one larger orangegem icon on mergedtile, illustrating merging equal values into greater one. Use GEM SYMBOLS ONLY ontiles, absolutelyno numerals because standaloneartmustbetextfree. Other tiles have matching singlebluegem or twinnedgreen gems. Close overheadthreequarterview, cozy study, clear4by4grid.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+    "sources": [
+      "assets/characters/companions/panda.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Panda slides two IDENTICAL palegold squaretiles together across a four-by-four wooden slidingpuzzleboard. At their meetingpoint a warmglow reveals one larger orangegem icon on mergedtile, illustrating merging equal values into greater one. Use GEM SYMBOLS ONLY ontiles, absolutelyno numerals because standaloneartmustbetextfree. Other tiles have matching singlebluegem or twinnedgreen gems. Close overheadthreequarterview, cozy study, clear4by4grid. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-49f3498b-efdb-44d9-90ed-2e79a444b64a.png",
+    "first_candidate": "rollout/repairs-20261019/G-puzzle-2048-before.png",
+    "revision_prompt": "Correct ONLY the board geometry. Exactly FOUR rows and FOUR columns of equal square tiles, 16 tiles in total. Increase the depth of the board to fit four rows, rather than squeezing three rows. Show each of the four rows distinctly in perspective. Keep panda, room, watercolor, gem-based merging concept. Put two blue gem tiles in the first row, two orange gem tiles meeting in middle row; remaining tiles blank. No text or numerals.1536x1024PNG.",
+    "qa_status": "repair_pending",
+    "qa_issue": "Candidate has three rows and four columns; grid invalid.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      }
+    ]
+  },
+  {
+    "id": "G-ski-jump",
+    "keys": [
+      "rabbit_friend"
+    ],
+    "scene": "White rabbit on TWO long redskis leansforward during a ski jump beyond the lip of a snowy ramp. Bothhindfeet attachedtooneskieach, twoforepaws sweptback forbalance, pinklinedears streamingbehind, smallplainbluehelmet. Wide alpine valley beneath, fullrampandairbornepose, skis separated in gentle V, sunnywinter ratherthandark, no numbers.",
+    "identity": "Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: White rabbit on TWO long redskis leansforward during a ski jump beyond the lip of a snowy ramp. Bothhindfeet attachedtooneskieach, twoforepaws sweptback forbalance, pinklinedears streamingbehind, smallplainbluehelmet. Wide alpine valley beneath, fullrampandairbornepose, skis separated in gentle V, sunnywinter ratherthandark, no numbers. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersclear atsmallcardsize, coherent anatomy and connectedhands/feet. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-2e456ce4-5a0b-4518-bf91-d0d179f26305.png",
+    "first_candidate": "rollout/repairs-20261019/G-ski-jump-before.png",
+    "revision_prompt": "Repair the bunny's ski equipment by changing viewpoint and pose to a front three-quarter view. Exactly TWO red skis lie parallel and clearly separated laterally. Bunny has TWO boots, one LEFT boot attached by binding at CENTER of LEFT ski and one RIGHT boot attached by binding at CENTER of RIGHT ski. Legs naturally bend from bunny hips to their respective boots. Both skis extend equally forward and backward. No poles. Keep cream rabbit identity, blue helmet, joyful jump, snowy mountain, watercolor style. Make connection of each leg through each boot to each separate ski completely obvious.1536x1024PNG.",
+    "second_candidate": "prototypes/card-game/art-pilot/rollout/play-e-20261018/G-ski-jump-second_candidate.png",
+    "second_revision_prompt": "Fix ski equipment and rabbit legs: currently BOTH BOOTS stand on upper ski, lower ski FLOATS UNATTACHED. Repose rabbit legs and skis as needed. Exactly two legs, each foot in its own boot, each boot bound to its own separate red narrow ski. One leg reaches down to near lower ski; other leg attached upper far ski. Side-by-side feet, separate skis, visible bindings. No free-floating ski. Anatomically clear and coherent. Keep identity, charming picturebook style and setting.1536x1024PNG no text.",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  }
+]

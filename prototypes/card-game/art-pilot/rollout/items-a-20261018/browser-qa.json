@@ -1,0 +1,190 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "id": "I-bond1",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-bowtie",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_coin2",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_dex",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_egg_normal",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_egg_rare",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_friend",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_life",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_life_charm",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_match",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_rare_friend",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    },
+    {
+      "id": "I-c_time_back",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#B7A48C",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 0
+    }
+  ],
+  "mobile": [
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430
+    }
+  ],
+  "errors": [],
+  "physicalSafari": false,
+  "browser": "153.0.8010.0"
+}

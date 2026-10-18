@@ -1,0 +1,370 @@
+[
+  {
+    "id": "G-stack-sakura",
+    "keys": [
+      "rabbit_friend"
+    ],
+    "scene": "Use case: illustration-story. Create ONE dedicated Naotocchi card illustration, 1536x1024 PNG landscape 3:2. First image canonical character identity: small cream white rabbit with long pink inner ears, one ear tilting, warm brown eyes, small fluffy tail, tiny pink nose. Last image approved watercolor/gouache style ONLY, do not copy its beach or characters. Scene: rabbit carefully balances pale pink rectangular wooden blocks decorated with painted cherry blossom silhouettes into a gently swaying tower on a picnic table beneath blooming sakura trees. Rabbit steadies lower blocks with one paw and places a final block with the other. A few loose blocks and petals on tabletop; spring river bank in soft distance. Clear block stacking action and readable rabbit, joyful concentration. Cute delicate picture book painting, soft natural light, fine brush texture. Correct four-limbed rabbit anatomy. No text, letters, numerals, watermark, card frame or HUD.",
+    "prompt": "Use case: illustration-story. Create ONE dedicated Naotocchi card illustration, 1536x1024 PNG landscape 3:2. First image canonical character identity: small cream white rabbit with long pink inner ears, one ear tilting, warm brown eyes, small fluffy tail, tiny pink nose. Last image approved watercolor/gouache style ONLY, do not copy its beach or characters. Scene: rabbit carefully balances pale pink rectangular wooden blocks decorated with painted cherry blossom silhouettes into a gently swaying tower on a picnic table beneath blooming sakura trees. Rabbit steadies lower blocks with one paw and places a final block with the other. A few loose blocks and petals on tabletop; spring river bank in soft distance. Clear block stacking action and readable rabbit, joyful concentration. Cute delicate picture book painting, soft natural light, fine brush texture. Correct four-limbed rabbit anatomy. No text, letters, numerals, watermark, card frame or HUD.",
+    "identity": "Cream rabbit with pink inner ears, brown eyes and fluffy tail.",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-6c16465f-9db8-4e8d-92e3-196f531d6067.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-stack-snowman",
+    "keys": [
+      "penguin_friend"
+    ],
+    "scene": "Navy and white penguin with orange beak and feet carefully adds a small smiling snowball onto a tower of three round snowballs, balancing with its other flipper. Snowy garden with fir trees, low viewpoint, soft winter daylight. Tower has a carrot nose and simple pebble face, no twig limbs confused with penguin.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/penguin_friend.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Navy and white penguin with orange beak and feet carefully adds a small smiling snowball onto a tower of three round snowballs, balancing with its other flipper. Snowy garden with fir trees, low viewpoint, soft winter daylight. Tower has a carrot nose and simple pebble face, no twig limbs confused with penguin. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-10890e52-84b5-493a-b9e2-a88ed421978f.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/penguin_friend.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+      }
+    ]
+  },
+  {
+    "id": "G-stack-themed",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster with huge cream cheeks and belly builds a tall tower of colorful plain wooden blocks in a cozy playroom. One paw guides a triangular cap, the other steadies a cube. Wide side view, warmly lit window, orderly spare blocks. Make different block shapes and stacking balancing action clearly visible.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Golden hamster with huge cream cheeks and belly builds a tall tower of colorful plain wooden blocks in a cozy playroom. One paw guides a triangular cap, the other steadies a cube. Wide side view, warmly lit window, orderly spare blocks. Make different block shapes and stacking balancing action clearly visible. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-e79e80cd-ae82-471c-bfce-031bc5f96811.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-street-fight",
+    "keys": [
+      "shiba",
+      "tanuki"
+    ],
+    "scene": "Playful noninjurious martial arts practice in a leafy courtyard. Orange cream shiba stands on two hind legs making one controlled front paw punch into a round padded training mitt held by brown masked tanuki. Tanuki has cream belly and bushy tail. Both smile with focus. Clear separate four-limb bodies, contact only between one paw and mitt, no aggression.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/shiba.png",
+      "assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Playful noninjurious martial arts practice in a leafy courtyard. Orange cream shiba stands on two hind legs making one controlled front paw punch into a round padded training mitt held by brown masked tanuki. Tanuki has cream belly and bushy tail. Both smile with focus. Clear separate four-limb bodies, contact only between one paw and mitt, no aggression. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-32300894-bdf7-4bb6-8f33-a2915e06b87b.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      },
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-submarine-3d",
+    "keys": [
+      "otter"
+    ],
+    "scene": "Brown otter with cream muzzle chest and long tapering tail pilots a yellow round research submarine through turquoise sea. Otter clearly visible behind large round glass cockpit, paws on simple controls. Cone of warm headlight reveals shells and bright tiny fish among underwater arches. Curious exploration and depth, no text.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/otter.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Brown otter with cream muzzle chest and long tapering tail pilots a yellow round research submarine through turquoise sea. Otter clearly visible behind large round glass cockpit, paws on simple controls. Cone of warm headlight reveals shells and bright tiny fish among underwater arches. Curious exploration and depth, no text. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-3bd578e1-e62d-467c-a36d-fcda0a6a7d7e.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "G-sudoku-mini",
+    "keys": [
+      "owl"
+    ],
+    "scene": "Brown cream owl with golden eyes works on a small wooden 4 by 4 SYMBOL sudoku puzzle in a sunny library. Overhead oblique view shows exactly four rows and four columns, thicker divider between pairs of rows and columns. Puzzle uses only leaf, flower, shell and star pictograms, a few cells empty. Owl holds a leaf token above an empty cell. No digits or letters. Cozy bookshelf softly blurred.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/owl.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Brown cream owl with golden eyes works on a small wooden 4 by 4 SYMBOL sudoku puzzle in a sunny library. Overhead oblique view shows exactly four rows and four columns, thicker divider between pairs of rows and columns. Puzzle uses only leaf, flower, shell and star pictograms, a few cells empty. Owl holds a leaf token above an empty cell. No digits or letters. Cozy bookshelf softly blurred. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-d75e22e7-6fd1-46e3-83ea-77e2d4f5bb5a.png",
+    "first_candidate": "rollout/play-f-20261019/G-sudoku-mini-first_candidate.png",
+    "revision_prompt": "Edit ONLY the wooden puzzle board and the token held by owl. Preserve owl, room, pose, lighting, painting style exactly. Board is exactly 4 rows by 4 columns with thicker lines dividing four 2x2 boxes. Remove ALL existing tokens on board. Place ONLY FOUR tokens: top row leftmost cell RED FLOWER; second row second cell BLUE SHELL; third row third cell YELLOW STAR; bottom row rightmost cell GREEN LEAF. All other 12 cells completely EMPTY bare wood. Owl holds an extra RED FLOWER token above board, not touching any cell. Keep spare tokens off board. No digits or text. 1536x1024 PNG.",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/owl.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "9a9dfdb9d69b00609d9b654ef481cef4d38a6fed"
+      }
+    ]
+  },
+  {
+    "id": "G-sugoroku-race",
+    "keys": [
+      "panda",
+      "squirrel"
+    ],
+    "scene": "Panda and rust orange squirrel with enormous curled tail play a cheerful tabletop board race on a garden picnic blanket. Winding path of large colored spaces, two simple animal pawn pieces, one large die with dot pips. Squirrel moves one pawn while panda cheers. No numbered spaces or labels; start marked by arch, finish by plain flag. Three-quarter overhead view.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/squirrel.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Panda and rust orange squirrel with enormous curled tail play a cheerful tabletop board race on a garden picnic blanket. Winding path of large colored spaces, two simple animal pawn pieces, one large die with dot pips. Squirrel moves one pawn while panda cheers. No numbered spaces or labels; start marked by arch, finish by plain flag. Three-quarter overhead view. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-c439f3fb-2e5e-4b0d-b83a-0782e6507886.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/squirrel.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+      }
+    ]
+  },
+  {
+    "id": "G-sushi-belt",
+    "keys": [
+      "cat_friend"
+    ],
+    "scene": "Calico cat with orange dark-brown and cream patches, large fluffy upright tail and golden half-lidded eyes selects a salmon nigiri plate from a gently curved conveyor sushi belt in a bright tiny wooden restaurant. Other plates carry egg nigiri and cucumber rolls. One paw reaches to plate, other rests at counter. Conveyor route legible, food appetizing, no signage or text.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/cat_friend.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Calico cat with orange dark-brown and cream patches, large fluffy upright tail and golden half-lidded eyes selects a salmon nigiri plate from a gently curved conveyor sushi belt in a bright tiny wooden restaurant. Other plates carry egg nigiri and cucumber rolls. One paw reaches to plate, other rests at counter. Conveyor route legible, food appetizing, no signage or text. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-935d471d-daa3-49d4-91b2-c6a2927fed98.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/cat_friend.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+      }
+    ]
+  },
+  {
+    "id": "G-takoyaki-grill",
+    "keys": [
+      "monkey"
+    ],
+    "scene": "Small brown monkey with cream face and belly, round ears and curled tail turns golden takoyaki balls with a slim wooden pick at a friendly outdoor festival stall. Black iron pan with round wells, finished tray with sauce and green garnish, gentle steam, unmarked pastel lanterns. One hand holding pick naturally and other steadying tray. No signs letters or numbers.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/monkey.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Small brown monkey with cream face and belly, round ears and curled tail turns golden takoyaki balls with a slim wooden pick at a friendly outdoor festival stall. Black iron pan with round wells, finished tray with sauce and green garnish, gentle steam, unmarked pastel lanterns. One hand holding pick naturally and other steadying tray. No signs letters or numbers. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-cc035f1f-2234-4caa-a42b-ff67e9b4f160.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      }
+    ]
+  },
+  {
+    "id": "G-tank-battle",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster peeks from hatch of a small blue toy tank on a tabletop obstacle course made of colorful wooden blocks. Soft foam ball emerges from short rounded toy barrel toward a free standing target of wooden blocks. Friendly game diorama in sunny playroom, visible rubber tracks, toy scale, no damage to living beings, no military symbols.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Golden hamster peeks from hatch of a small blue toy tank on a tabletop obstacle course made of colorful wooden blocks. Soft foam ball emerges from short rounded toy barrel toward a free standing target of wooden blocks. Friendly game diorama in sunny playroom, visible rubber tracks, toy scale, no damage to living beings, no military symbols. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-2e86866f-ce86-4d39-a167-e62d79e72243.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-tennis-rally",
+    "keys": [
+      "rabbit_friend",
+      "otter"
+    ],
+    "scene": "Cream rabbit returns a bright yellow tennis ball with one racket held in a paw on near side of a grassy tennis court; brown cream otter with one racket waits across net. Clear two sides of net, correct racket handles connected to paws, low oblique camera, spring sunlight, rabbit in lively but anatomically coherent stance. No scoreboards.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png",
+      "assets/characters/companions/otter.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Cream rabbit returns a bright yellow tennis ball with one racket held in a paw on near side of a grassy tennis court; brown cream otter with one racket waits across net. Clear two sides of net, correct racket handles connected to paws, low oblique camera, spring sunlight, rabbit in lively but anatomically coherent stance. No scoreboards. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-c557b58b-1f9c-411f-935a-e5a45222e81c.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      },
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "G-tilt-maze-3d",
+    "keys": [
+      "hedgehog"
+    ],
+    "scene": "Small round hedgehog with cream face and brown spines holds two opposite edges of a wooden tilt labyrinth board on a tabletop. A single shiny marble rolls along a visible connected passage past round holes toward a star-shaped finish mark. Strong overhead oblique view shows raised wooden walls and tilt. Warm afternoon in woodland workshop, no letters numbers.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/hedgehog.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Small round hedgehog with cream face and brown spines holds two opposite edges of a wooden tilt labyrinth board on a tabletop. A single shiny marble rolls along a visible connected passage past round holes toward a star-shaped finish mark. Strong overhead oblique view shows raised wooden walls and tilt. Warm afternoon in woodland workshop, no letters numbers. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-dcd69eff-4ac2-46d4-8f9a-add307e3e337.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hedgehog.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "fc265081cbb309209d8b68d2d4e62f1ca3a64d8d"
+      }
+    ]
+  },
+  {
+    "id": "G-tower-defense",
+    "keys": [
+      "panda"
+    ],
+    "scene": "Panda thoughtfully places one small wooden defensive tower beside a winding path in a colorful tabletop strategy diorama. Several friendly blob-shaped toy pieces approach along the path toward a small wooden castle, two other towers guard turns. Felt grass, wood bridges, softly glowing shield around castle. Toy game scene, no injury explosions military insignia, warm sunroom.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/panda.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Panda thoughtfully places one small wooden defensive tower beside a winding path in a colorful tabletop strategy diorama. Several friendly blob-shaped toy pieces approach along the path toward a small wooden castle, two other towers guard turns. Felt grass, wood bridges, softly glowing shield around castle. Toy game scene, no injury explosions military insignia, warm sunroom. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-68a1ae4c-b6a7-40ca-9f6c-bd18ab7d7531.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      }
+    ]
+  },
+  {
+    "id": "G-track-field",
+    "keys": [
+      "shiba",
+      "rabbit_friend"
+    ],
+    "scene": "Orange cream shiba and white cream rabbit run a friendly relay on an oval red athletics track. Foreground shiba passes a plain wooden baton to rabbit who reaches back with one forepaw while running forward. Both have four coherent limbs, tails distinct, clear baton handoff, trees and distant hurdles, golden late afternoon. No bib numbers or writing.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/shiba.png",
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Orange cream shiba and white cream rabbit run a friendly relay on an oval red athletics track. Foreground shiba passes a plain wooden baton to rabbit who reaches back with one forepaw while running forward. Both have four coherent limbs, tails distinct, clear baton handoff, trees and distant hurdles, golden late afternoon. No bib numbers or writing. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-9ae9aff0-bf27-4398-a58b-75649af3759a.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      },
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-voxel-mine",
+    "keys": [
+      "tanuki"
+    ],
+    "scene": "Brown masked tanuki with cream belly explores a bright cutaway cavern built from cubic stone and soil blocks. Holds a small wooden handled pickaxe with both paws to gently loosen one cube with glowing turquoise crystal seam. Intact blocks form stairs and arch, small basket of crystals nearby, sunlight entering cave mouth. Cute exploratory mining, no text numbers, distinct cubical geology.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Brown masked tanuki with cream belly explores a bright cutaway cavern built from cubic stone and soil blocks. Holds a small wooden handled pickaxe with both paws to gently loosen one cube with glowing turquoise crystal seam. Intact blocks form stairs and arch, small basket of crystals nearby, sunlight entering cave mouth. Cute exploratory mining, no text numbers, distinct cubical geology. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-b27e9097-4ee2-464f-9cd2-527f6754d395.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-yacht-dice",
+    "keys": [
+      "cat_friend"
+    ],
+    "scene": "Calico cat with orange brown white patches and fluffy tail rolls exactly five cream dice with ordinary dark dot pips from a small wooden dice cup onto green felt tabletop. One forepaw tilts cup, other rests near the tray. Cozy sunny cafe window, dice legible, no printed score sheet or numerals, delighted thoughtful expression.",
+    "identity": "Preserve exact canonical 2D reference appearance, body proportions, fur colors, facial pattern and tail.",
+    "sources": [
+      "assets/characters/companions/cat_friend.png"
+    ],
+    "prompt": "Use case: illustration-story. Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape 3:2. First reference(s) canonical character identities, preserve them exactly. Last reference approved watercolor/gouache STYLE ONLY, do not copy beach or characters from it. Scene: Calico cat with orange brown white patches and fluffy tail rolls exactly five cream dice with ordinary dark dot pips from a small wooden dice cup onto green felt tabletop. One forepaw tilts cup, other rests near the tray. Cozy sunny cafe window, dice legible, no printed score sheet or numerals, delighted thoughtful expression. Cute delicate picture book painting, soft natural light, fine brush texture, focal subjects readable on tiny cards. Coherent anatomy, every hand attached and implements held naturally. No letters, numerals, watermark, logo, card frame, HUD.",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-4ed12a56-1959-4b4d-8ff2-aa97a5b98bf2.png",
+    "first_candidate": "rollout/play-f-20261019/G-yacht-dice-first_candidate.png",
+    "revision_prompt": "Edit ONLY the markings on the five dice. Keep exactly five dice, cat, cup, tray, room and style unchanged. Give each die clean ordinary round black pips, but ONLY on ONE face per die, leave every other visible face completely blank cream. The five marked faces show one dot, two diagonal dots, three diagonal dots, four corner dots, and five dots (four corners and center), one of each. No letters or numerals. Keep cute watercolor and dimensions1536x1024.",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/cat_friend.png",
+        "ref": "e8a35b5203513b70540ef43b963e8dcbd6e9d114",
+        "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>14色比較・未採用</title><link rel="stylesheet" href="../../style.css"><link rel="stylesheet" href="preview.css">
+<div class="palette-nav"><h1>14色比較 · 未採用</h1><p>色だけを変更。6属性は本編2D、むし・くさと6カテゴリーは専用アート。本文・数値・マーク形状は同一。</p><p><a href="?palette=current">現行</a> ／ <a href="?palette=candidate">新案</a> ／ <a href="?palette=improved">改善案</a> ／ <a href="?palette=improved&board=1">深緑背景</a></p></div><main class="gallery"></main>
+<script type="module">
+import {CATALOG} from '../../full-catalog.mjs';
+import {CARD_ART} from '../../ui-art.mjs';
+import {cardMarkup,CATEGORIES} from '../../ui-presentation.mjs';
+import {attributeIcon} from '../symbols/attributes.mjs';
+const palettes=await (await fetch('./palettes.json')).json();
+const selected=[['ひと','M-man-06'],['けもの','M-cat-06'],['みずべ','M-frog-07'],['うみ','M-clownfish-06'],['むし','M-beetle-04'],['くさ','M-dandelion-06'],['げんそう','M-dragon-06'],['ふしぎ','M-star-06'],['なかま','C-cat_friend'],['こいびと','P-forest_bear'],['セカイ','W-sea'],['あそび','G-beach-volley'],['あいてむ','I-naoto_lantern'],['できごと','E-midlife-flower']];
+const artIDs=new Set((await (await fetch('../pilot-cards.json')).json()).map(c=>c.id));
+const q=new URLSearchParams(location.search),palette=q.get('palette')??'current';if(q.has('board'))document.body.classList.add('board');
+function preview(c,key,compact=false){const box=document.createElement('template');box.innerHTML=cardMarkup(c,{compact:compact&&c.type==='main'});const face=box.content.querySelector('.card-face');face.style.setProperty('--card-color',palettes[palette][key]);if(c.type==='main')box.content.querySelector('.card-attribute .icon').outerHTML=attributeIcon(c.attribute);const art=box.content.querySelector('.card-art');const src=artIDs.has(c.id)?`../illustrations/${c.id}.png`:CARD_ART[c.id].replace('../../','/');art.replaceChildren(Object.assign(document.createElement('img'),{src,alt:c.name,className:artIDs.has(c.id)?'pilot-art':'canonical'}));if(q.has('ink')&&['ひと','みずべ','むし','げんそう'].includes(key))box.content.querySelector('.card-attribute .icon').style.color='#353024';return box.innerHTML;}
+for(const [key,id] of selected){const c=CATALOG[id],e=document.createElement('section');e.className='entry';e.dataset.id=id;e.dataset.key=key;e.innerHTML=`<h2>${key} · ${palettes[palette][key]}</h2><p>${id} · ${artIDs.has(id)?'専用アート':'本編2D正本（専用アート未制作）'}</p><div class="card-wrap">${preview(c,key)}</div><div class="sample-small"><div class="w80">${preview(c,key,true)}</div><div class="w110">${preview(c,key,true)}</div></div>`;document.querySelector('.gallery').append(e);}
+if(q.has('card')){document.body.classList.add('single');document.querySelector(`[data-id="${q.get('card')}"]`).classList.add('selected');}window.study={selected,palette};window.pilotReady=true;
+</script></html>

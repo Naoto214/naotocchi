@@ -1,0 +1,79 @@
+[
+  {
+    "id": "M-beetle-01",
+    "stage": "01",
+    "form": "うまれたての幼虫",
+    "scene": "Tiny curled C-shaped cream segmented newborn grub, small golden round head with open dark eyes, pale grey rounded tail, little amber legs close to head. Nestled inside soft humus beneath a fallen oak leaf, a small shaft of morning light; close low viewpoint.",
+    "prompt": "Use case: illustration-story / identity-preserving scene expansion. Create one 1536x1024 PNG landscape 3:2 dedicated card illustration. Reference 1 is the exact canonical character to preserve; expand it into a hand-painted scene without redesigning species, life stage, body silhouette, face, appendages or colors. Reference 2 is STYLE ONLY: adopted warm delicate storybook art, soft light, rounded cute expression, organic detail. Do NOT copy its pupa body or horn onto a larva. Card 01, うまれたての幼虫. Scene and immutable appearance: Tiny curled C-shaped cream segmented newborn grub, small golden round head with open dark eyes, pale grey rounded tail, little amber legs close to head. Nestled inside soft humus beneath a fallen oak leaf, a small shaft of morning light; close low viewpoint. Subject prominent, approximately 55–65% image width, entire anatomy within frame, clean silhouette readable at tiny size, background supports subject without excessive detail. No other characters. No text, numbers, icons, UI, border or card frame. Preserve exact stage; no invented limbs or accessories.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/beetle/01.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-beetle-02",
+    "stage": "02",
+    "form": "育ちざかりの幼虫",
+    "scene": "Longer extended cream segmented growing grub, golden round head and open dark eyes, pale grey tail, small amber legs near head. Crawling along a decaying log beneath soil, tender roots and nutritious wood crumbs, gentle side light; side view.",
+    "prompt": "Use case: illustration-story / identity-preserving scene expansion. Create one 1536x1024 PNG landscape 3:2 dedicated card illustration. Reference 1 is the exact canonical character to preserve; expand it into a hand-painted scene without redesigning species, life stage, body silhouette, face, appendages or colors. Reference 2 is STYLE ONLY: adopted warm delicate storybook art, soft light, rounded cute expression, organic detail. Do NOT copy its pupa body or horn onto a larva. Card 02, 育ちざかりの幼虫. Scene and immutable appearance: Longer extended cream segmented growing grub, golden round head and open dark eyes, pale grey tail, small amber legs near head. Crawling along a decaying log beneath soil, tender roots and nutritious wood crumbs, gentle side light; side view. Subject prominent, approximately 55–65% image width, entire anatomy within frame, clean silhouette readable at tiny size, background supports subject without excessive detail. No other characters. No text, numbers, icons, UI, border or card frame. Preserve exact stage; no invented limbs or accessories.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/beetle/02.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-beetle-03",
+    "stage": "03",
+    "form": "まるまる幼虫",
+    "scene": "Very plump cream C-shaped segmented grub, large body, pale grey tail, golden head with content closed smiling eyes and tiny amber legs near head. Resting curled in a roomy underground pocket beside fine oak roots, soft diffuse warm light; medium close view.",
+    "prompt": "Use case: illustration-story / identity-preserving scene expansion. Create one 1536x1024 PNG landscape 3:2 dedicated card illustration. Reference 1 is the exact canonical character to preserve; expand it into a hand-painted scene without redesigning species, life stage, body silhouette, face, appendages or colors. Reference 2 is STYLE ONLY: adopted warm delicate storybook art, soft light, rounded cute expression, organic detail. Do NOT copy its pupa body or horn onto a larva. Card 03, まるまる幼虫. Scene and immutable appearance: Very plump cream C-shaped segmented grub, large body, pale grey tail, golden head with content closed smiling eyes and tiny amber legs near head. Resting curled in a roomy underground pocket beside fine oak roots, soft diffuse warm light; medium close view. Subject prominent, approximately 55–65% image width, entire anatomy within frame, clean silhouette readable at tiny size, background supports subject without excessive detail. No other characters. No text, numbers, icons, UI, border or card frame. Preserve exact stage; no invented limbs or accessories.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/beetle/03.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-beetle-05",
+    "stage": "05",
+    "form": "出たてのカブトムシ",
+    "scene": "Newly emerged adult Japanese rhinoceros beetle exactly as reference: pale ivory wing cases, golden amber head and thorax, long upright forked horn, six amber legs and small friendly eyes. Standing at the mouth of the soil chamber under the oak, dawn light reveals the fresh pale shell, full body.",
+    "prompt": "Use case: illustration-story / identity-preserving scene expansion. Create one 1536x1024 PNG landscape 3:2 dedicated card illustration. Reference 1 is the exact canonical character to preserve; expand it into a hand-painted scene without redesigning species, life stage, body silhouette, face, appendages or colors. Reference 2 is STYLE ONLY: adopted warm delicate storybook art, soft light, rounded cute expression, organic detail. Do NOT copy its pupa body or horn onto a larva. Card 05, 出たてのカブトムシ. Scene and immutable appearance: Newly emerged adult Japanese rhinoceros beetle exactly as reference: pale ivory wing cases, golden amber head and thorax, long upright forked horn, six amber legs and small friendly eyes. Standing at the mouth of the soil chamber under the oak, dawn light reveals the fresh pale shell, full body. Subject prominent, approximately 55–65% image width, entire anatomy within frame, clean silhouette readable at tiny size, background supports subject without excessive detail. No other characters. No text, numbers, icons, UI, border or card frame. Preserve exact stage; no invented limbs or accessories.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/beetle/05.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-beetle-06",
+    "stage": "06",
+    "form": "若いカブトムシ",
+    "scene": "Young adult Japanese rhinoceros beetle exactly as reference: glossy vivid red-orange wing cases and amber-orange head, long upright forked horn, six orange legs, friendly dark eyes. Climbing a diagonal oak twig towards sunlit green canopy, active but all wings CLOSED as original, full body unobstructed.",
+    "prompt": "Use case: illustration-story / identity-preserving scene expansion. Create one 1536x1024 PNG landscape 3:2 dedicated card illustration. Reference 1 is the exact canonical character to preserve; expand it into a hand-painted scene without redesigning species, life stage, body silhouette, face, appendages or colors. Reference 2 is STYLE ONLY: adopted warm delicate storybook art, soft light, rounded cute expression, organic detail. Do NOT copy its pupa body or horn onto a larva. Card 06, 若いカブトムシ. Scene and immutable appearance: Young adult Japanese rhinoceros beetle exactly as reference: glossy vivid red-orange wing cases and amber-orange head, long upright forked horn, six orange legs, friendly dark eyes. Climbing a diagonal oak twig towards sunlit green canopy, active but all wings CLOSED as original, full body unobstructed. Subject prominent, approximately 55–65% image width, entire anatomy within frame, clean silhouette readable at tiny size, background supports subject without excessive detail. No other characters. No text, numbers, icons, UI, border or card frame. Preserve exact stage; no invented limbs or accessories.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/beetle/06.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-beetle-07",
+    "stage": "07",
+    "form": "りっぱなカブトムシ",
+    "scene": "Mature strong Japanese rhinoceros beetle exactly as reference: rich copper chestnut wing cases, amber brown face, long strong upright forked horn, six legs and gentle dark eyes. Standing proudly on broad oak bark beside a small patch of tree sap, warm summer forest light and distant soft leaves, full body.",
+    "prompt": "Use case: illustration-story / identity-preserving scene expansion. Create one 1536x1024 PNG landscape 3:2 dedicated card illustration. Reference 1 is the exact canonical character to preserve; expand it into a hand-painted scene without redesigning species, life stage, body silhouette, face, appendages or colors. Reference 2 is STYLE ONLY: adopted warm delicate storybook art, soft light, rounded cute expression, organic detail. Do NOT copy its pupa body or horn onto a larva. Card 07, りっぱなカブトムシ. Scene and immutable appearance: Mature strong Japanese rhinoceros beetle exactly as reference: rich copper chestnut wing cases, amber brown face, long strong upright forked horn, six legs and gentle dark eyes. Standing proudly on broad oak bark beside a small patch of tree sap, warm summer forest light and distant soft leaves, full body. Subject prominent, approximately 55–65% image width, entire anatomy within frame, clean silhouette readable at tiny size, background supports subject without excessive detail. No other characters. No text, numbers, icons, UI, border or card frame. Preserve exact stage; no invented limbs or accessories.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/beetle/07.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  },
+  {
+    "id": "M-beetle-08",
+    "stage": "08",
+    "form": "長生きカブトムシ",
+    "scene": "Old Japanese rhinoceros beetle exactly as reference: muted dark earthy brown shell and head, weathered shell markings, subdued eyes, long forked horn and six brown legs. Quietly resting on a mossy root under amber autumn oak leaves, tranquil late afternoon light, full body; dignified and cute, not sad or dead.",
+    "prompt": "Use case: illustration-story / identity-preserving scene expansion. Create one 1536x1024 PNG landscape 3:2 dedicated card illustration. Reference 1 is the exact canonical character to preserve; expand it into a hand-painted scene without redesigning species, life stage, body silhouette, face, appendages or colors. Reference 2 is STYLE ONLY: adopted warm delicate storybook art, soft light, rounded cute expression, organic detail. Do NOT copy its pupa body or horn onto a larva. Card 08, 長生きカブトムシ. Scene and immutable appearance: Old Japanese rhinoceros beetle exactly as reference: muted dark earthy brown shell and head, weathered shell markings, subdued eyes, long forked horn and six brown legs. Quietly resting on a mossy root under amber autumn oak leaves, tranquil late afternoon light, full body; dignified and cute, not sad or dead. Subject prominent, approximately 55–65% image width, entire anatomy within frame, clean silhouette readable at tiny size, background supports subject without excessive detail. No other characters. No text, numbers, icons, UI, border or card frame. Preserve exact stage; no invented limbs or accessories.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/beetle/08.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/M-beetle-04.png"
+    ]
+  }
+]
