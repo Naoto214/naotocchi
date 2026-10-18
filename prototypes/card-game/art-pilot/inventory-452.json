@@ -10,7 +10,7 @@
     "partner": 18,
     "world": 13
   },
-  "scope": "Canonical paths/blobs mapped for 452 cards. Visual production review covers the completed cards recorded in provenance; remaining cards are not yet reviewed.",
+  "scope": "All 452 cards have dedicated reference-guided art, visually reviewed at lot level; all preview sizes and canonical text/colors/marks verified. Original46 assets retained.",
   "cards": [
     {
       "card_id": "C-bat",
@@ -7479,7 +7479,7 @@
       "internal_category": "main",
       "attribute": "うみ",
       "stage": 1,
-      "existing_ui_art": "",
+      "existing_ui_art": "../../assets/characters/starfish/01.png",
       "source_path": "assets/characters/starfish/01.png",
       "source_ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
       "source_blob": "cb526cc981ce620b96e71054ca02d1030e00dafd",
@@ -7499,7 +7499,7 @@
       "internal_category": "main",
       "attribute": "うみ",
       "stage": 2,
-      "existing_ui_art": "",
+      "existing_ui_art": "../../assets/characters/starfish/02.png",
       "source_path": "assets/characters/starfish/02.png",
       "source_ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
       "source_blob": "68deb4b9546c8aaa402a30ce7abb524aab5b5d76",
@@ -7519,7 +7519,7 @@
       "internal_category": "main",
       "attribute": "うみ",
       "stage": 3,
-      "existing_ui_art": "",
+      "existing_ui_art": "../../assets/characters/starfish/03.png",
       "source_path": "assets/characters/starfish/03.png",
       "source_ref": "8a0318e7f6e66dfac1317fd65391710c9bb663c7",
       "source_blob": "d4aa66cdf64cda3b51ac3532cbac78c4a064ea3c",

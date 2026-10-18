@@ -31,12 +31,12 @@
       "remaining": 0
     }
   },
-  "next_lot": "main-final-verification",
+  "next_lot": null,
   "next_ids": [],
   "approval": "All remaining406 authorized 2026-10-18; no per-lot approval needed",
   "main_merge": false,
   "production_paused": false,
-  "latest_review": "rollout/main-world_tree-20261019/README.md",
+  "latest_review": "rollout/final-452-20261019/README.md",
   "completed_ids": [
     "C-bat",
     "C-box",
@@ -492,5 +492,10 @@
     "W-star_stop"
   ],
   "not_started_ids": [],
-  "repair_pending_ids": []
+  "repair_pending_ids": [],
+  "production_complete": true,
+  "all_452_complete": true,
+  "next_action": "Physical iPhone Safari QA; production integration and main merge require separate authorization",
+  "art_complete_commit": "c2e472e909c11fff1c65fa8fdd84b90c53228500",
+  "final_validation": "rollout/final-452-20261019/final-validation.json"
 }
