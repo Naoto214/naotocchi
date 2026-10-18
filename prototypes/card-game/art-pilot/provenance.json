@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 364,
+  "generated_count": 396,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -8780,6 +8780,742 @@
       "generation": "Built-in image_gen; rollout/main-plush-20261019/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/M-plush-08.png"
+    },
+    {
+      "id": "M-ren-01",
+      "name": "れんくん①",
+      "scene": "Canonical babyRen darksidepartedbrown hair blueonesie bluepacifier crawls toward a softblueball on grassy picnicblanket, groundlevel sideview facingright, soft treefilteredmorninglight. Keep pacifier and unique hair.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d06715b0d70163fc29d112f8e886ae7e1fd4a097"
+        }
+      ],
+      "illustration": "illustrations/M-ren-01.png",
+      "sha256": "e54389e0fab728c0acdcc0cbf38a704a88aae2500803cfc2c9da74b66615ea23",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-01.png"
+    },
+    {
+      "id": "M-ren-02",
+      "name": "れんくん②",
+      "scene": "Happy toddlerRen exact brightblue bearTshirt orangebrownshorts blueshoes lifts botharms during firststeps through flowergarden, fullbody centeredfacingviewer, eyesclosedlaughing, noonlight. Exactly2arms2legs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "1c95e84904050f76ec2171e452b6c97e71b54fa8"
+        }
+      ],
+      "illustration": "illustrations/M-ren-02.png",
+      "sha256": "845d6e0dbb5b7404ebfa5d0cf3b4d324fc663f232c785781d2c4e9d122004928",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-02.png"
+    },
+    {
+      "id": "M-ren-03",
+      "name": "れんくん③",
+      "scene": "ChildRen in exact navyfootballkit bluewhitecleats kicking blackwhite soccerball toleft on sunlitgreenfield, sideprofilethreequarter, lively but coherentpose. Shirt must be BLANK, omit canonical jersey number to satisfy text/numeral-free illustration spec. Retain rest ofoutfit.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "1fedb6e8d8811f4dca024ddfbe8b51a930c6bbe5"
+        }
+      ],
+      "illustration": "illustrations/M-ren-03.png",
+      "sha256": "4527a3c0d42183acc27de78a6dd8cff5916fb7df9323f4eb1e798d35cddb09e0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-03.png"
+    },
+    {
+      "id": "M-ren-04",
+      "name": "れんくん④",
+      "scene": "SchoolboyRen whiteandnavy outfit shorts and blackbackpack walking across smallwoodenbridge towardright, lookingdown at creek, cool morninglight, preservehairstyle and youthfulproportions.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "11c71557cd3caaccb01f0e9a4a2238afce31607e"
+        }
+      ],
+      "illustration": "illustrations/M-ren-04.png",
+      "sha256": "64fbeeebac67137c948539c017ce43e67a2f28f9f82fd6a923544490899d156b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-04.png"
+    },
+    {
+      "id": "M-ren-05",
+      "name": "れんくん⑤",
+      "scene": "YoungRen exact darkbluejacket whiteshirt darkpants backpack sits on lowstonewall at townoverlook, onehandonbackpackstrap, feetrelaxed butclear, freshspringafternoon, lookingtowardleft.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "af2d18cbf24a796521ad4620cdd917286173a62d"
+        }
+      ],
+      "illustration": "illustrations/M-ren-05.png",
+      "sha256": "39dfe5d204386e6164e9b76ebe513c0f350a804d5d1533fb8ba8ed4e3df35477",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-05.png"
+    },
+    {
+      "id": "M-ren-06",
+      "name": "れんくん⑥",
+      "scene": "AdultRen in exact darksuit whiteopenshirt blackshoulderbag winks as he pauses beside a flowerstand on tree-linedstreet, facingrightthreequarter, goldenmorning, no necktie ifnotreference.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c4106dcb13c15ae0612fdde4db60536208699cf1"
+        }
+      ],
+      "illustration": "illustrations/M-ren-06.png",
+      "sha256": "46677e061297e335c159b0e137f7068a25a2a50b2d934ee17650d02d23a5da85",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-06.png"
+    },
+    {
+      "id": "M-ren-07",
+      "name": "れんくん⑦",
+      "scene": "OlderRen grayingdarkhair bluecardigan darkpants handsrestinginpockets strolling left along autumnriversidepath, kind openeyes asreference, slightlystockier matureproportion.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "256be041671ef01da4f3b750366d716872be93e9"
+        }
+      ],
+      "illustration": "illustrations/M-ren-07.png",
+      "sha256": "0e70843a11190421b3f5fd54c149ff613daf1767af23bc8917b62fd1a284f853",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-07.png"
+    },
+    {
+      "id": "M-ren-08",
+      "name": "れんくん⑧",
+      "scene": "ElderRen grayhair tanjacket whiteinner darkbrownpants woodencane, closedeyesjoyful smile, seated on gardenstool beside a bloomingpot in sunlitcourtyard. Onehandoncane, onehandonlap, peacefulclosefullbody.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ren stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/ren/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cf590db962ca662e9e9be930fa8d4ec0bbc1ae78"
+        }
+      ],
+      "illustration": "illustrations/M-ren-08.png",
+      "sha256": "1344242964550a06cd50e3aab45ca0022312d0be1a46372b0c3456b5ec707dde",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ren-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ren-08.png"
+    },
+    {
+      "id": "M-sakura-01",
+      "name": "サクラ①",
+      "scene": "Exact brownoval sleeping seed with a tinygreensprout at top, angled on moist springsoil, closemacroview framed by softmoss, dew and warm sunrise. Preserve closedface and seedgrooves; no tree.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28da49687b800ffb3bd56fa8f905f01db9e64cb7"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-01.png",
+      "sha256": "d54c212ef0164c27c77dc8e7cca08698bb582d4314fb224f2258f11c23bf3bed",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-01.png"
+    },
+    {
+      "id": "M-sakura-02",
+      "name": "サクラ②",
+      "scene": "Exact creamround smilingseedbody rooted among littlepebbles with TWO brightgreen leaves on shortstalk, sunlit gardenbed groundview, lean slightlyright in breeze, firstspringmorning.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6b8cd4e2e45207994c559a700074915eee12f81b"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-02.png",
+      "sha256": "cafdd215d9fd9f15dcb08b43dccc8ccef132cf9572bc5269f9a2f1ef4c70aacd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-02.png"
+    },
+    {
+      "id": "M-sakura-03",
+      "name": "サクラ③",
+      "scene": "Small anthropomorphic sapling with exposedrootfeet, brownbranchingtrunk face and sparsegreenleaves exactlyasreference. Standing beside clearcreek in youngspringwood, threequarterleft, fullcanopy readable.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "06c054cdf44bb5ae57d85fbcfdc2e9ca85a0cf46"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-03.png",
+      "sha256": "a14d545a1eed3cf6350e167bb1dcd84a6535dc385e26bdce5ccb733ba37ed716",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-03.png"
+    },
+    {
+      "id": "M-sakura-04",
+      "name": "サクラ④",
+      "scene": "Grown anthropomorphic sakuratree with roundfullpinkblossomcrown and branchingbrowntrunk/rootfeet, sunny riverside greenhill, mediumwide whole-tree composition, facecenteredclear, petals drift gently.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c37b2406b1807091427eecb191fe6a718e94c38b"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-04.png",
+      "sha256": "5ef2975d0ebcfc74b5fe1a9706ff049715484ddb621e65b04a48ef9b4d85dd94",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-04.png"
+    },
+    {
+      "id": "M-sakura-05",
+      "name": "サクラ⑤",
+      "scene": "Exact cluster of FIVE pinkclosed sakurabuds each with tinyface on greenstems and leaves. Macro on a branch in dewy orchard at earlymorning, mainclusterfillsframe, no openflowers yet, backgroundsoft.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "61cd1c48b57b1b8083425feed421675144108c94"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-05.png",
+      "sha256": "1e3ae1c9761dcf8068f9025271d00307431a72b23f17b23f01234ce5c8150948",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-05.png"
+    },
+    {
+      "id": "M-sakura-06",
+      "name": "サクラ⑥",
+      "scene": "Exact open pink sakurablossom cluster with fivepetals perflower and yellowcenters bearing tinycanonicalfaces, greenleaves and fewbuds. Closeview frombelow against softblue sky and dappledcanopy, delicatepetals.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21b7a0fd887ce105f5754b3cd922a25b4eab3d04"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-06.png",
+      "sha256": "f196269cb30217f6664caa2304a197ecf1de643a9a2a81d493cfc26607dacd05",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-06.png"
+    },
+    {
+      "id": "M-sakura-07",
+      "name": "サクラ⑦",
+      "scene": "Exact cluster THREE cheerfulredcherries on joinedbrownstems with onebrightgreenleaf, hanging from sunlitbranch, slightthreequarterview, warm summerorchard and dew. Fruitfaces same as reference.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a006081c30790d41d221147c3b0c822aafdf7d15"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-07.png",
+      "sha256": "27f37a83eb5d4731200349ca4c5a2b285d609e89d5f1a117d39421ddbbc1f66c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-07.png"
+    },
+    {
+      "id": "M-sakura-08",
+      "name": "サクラ⑧",
+      "scene": "Old anthropomorphic sakuratree with barebranchingcrown and a few goldenfallenleaves, exact wiseclosedeyes ongnarledtrunk and rootfeet. Beside quiet gardenpond in lateautumn light, fulltree silhouette, hopefulnewbudtiny notflowers.",
+      "identity_review": "Visual comparison to canonical character references: Canonical sakura stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/sakura/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8d8bc2fd57260bebf37fc253eb689a2594fa6c6b"
+        }
+      ],
+      "illustration": "illustrations/M-sakura-08.png",
+      "sha256": "2bb78af8e6aadc7a4fb42f00b55b49b81023d91d567a77eddad57303bcbc9ec0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-sakura-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-sakura-08.png"
+    },
+    {
+      "id": "M-salmon-01",
+      "name": "さけ①",
+      "scene": "Newborn tiny peachsalmon with largegoldenyolksac underbelly exactlyreference, resting close to gravel in crystalclear shallowstream, leftfacing sideview, magnifiedmacro, sunrays gentle, no adultcolors.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "181edad66cb1bf2506889e45bb6929ed29ed78ea"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-01.png",
+      "sha256": "b6548f1c9724f8eea9be9324128fd33e0eba635f380140e23db235afc6e55092",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-01.png"
+    },
+    {
+      "id": "M-salmon-02",
+      "name": "さけ②",
+      "scene": "Small peachfry withoutyolksac swims right among finefreshwatergrass, close sideview lowangle, softgreenlight, exact roundface fins and orangetail.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2e9fe7a7e5639d206757505e195b11ddbc890bff"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-02.png",
+      "sha256": "0edd9d06be15da12536132f6d08c681f93da2bc85229b49419013ee95010200f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-02.png"
+    },
+    {
+      "id": "M-salmon-03",
+      "name": "さけ③",
+      "scene": "Peachyoung parr with distinct verticaldarkstripes and roundedhead darts left beneath an arching root, rippledstreambackground, exact stripes highlyvisible, diagonalbody.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a0bb30768eee958ebf97166353f574f9513b837e"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-03.png",
+      "sha256": "c977488cfa7060c9d430f0021f1c0d853bd44a47d0fb2ee2a72f123a55216cba",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-03.png"
+    },
+    {
+      "id": "M-salmon-04",
+      "name": "さけ④",
+      "scene": "Slender silver smolt with grayback whitedots asreference swimming right toward riverestuary, wideclearwater with mixed bluegreen light, slighttopview, slimbody and forkedtail.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e6a6a8dd7bd5bf4956da8c89b7dde112fbb235a6"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-04.png",
+      "sha256": "c9b7e9deb90c6c64a5e28cbc78c9a9c7e55886ad39eccce3db8e65b0db0ae9f0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-04.png"
+    },
+    {
+      "id": "M-salmon-05",
+      "name": "さけ⑤",
+      "scene": "Youngsilver ocean salmon with growingbody and spottedback gliding left through brightblue kelpedge, close sideview, soft surfacebeams, no redspawningcolor.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d227b3b879fe2b0db4096b60973935bd640dc9da"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-05.png",
+      "sha256": "1a70171a146266dca38acca792d258471d00738dcfbc56ba181726c38b32ee6d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-05.png"
+    },
+    {
+      "id": "M-salmon-06",
+      "name": "さけ⑥",
+      "scene": "Large mature silver salmon broadbody and darkspeckledback cruising right in openocean below sunlitwaves, slightlybelowview, powerful but cute calmface, clearlylargerbody proportion.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "94ef299aa4914cec54a13ccc23281a579f1da2f7"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-06.png",
+      "sha256": "f5bf767f049825524a740f71b128016c268bb9aa9099bb2bf35f215f9da53d4e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-06.png"
+    },
+    {
+      "id": "M-salmon-07",
+      "name": "さけ⑦",
+      "scene": "Redspawning salmon with olivehead exact hookedmouthandolivetail jumping upstream over smallclear cascade towardleft, autumn riverbanks, keepfishbody coherent, no aggression.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "00f47329aaee32b70bc71f776d0b27c24fb678d6"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-07.png",
+      "sha256": "314b09a204b66a67f3e68ee0b11c303eb194d0bfaf407517733531ff97ffbddb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-07.png"
+    },
+    {
+      "id": "M-salmon-08",
+      "name": "さけ⑧",
+      "scene": "Older redbrown salmon with darkbrownfins and wiseeyes resting justabove gravel in calm shallow spawningstream, facingrightthreequarter, warmautumn leaves reflectedabove, serene returnhome. Entirefishvisible.",
+      "identity_review": "Visual comparison to canonical character references: Canonical salmon stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/salmon/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "66ee6080d6f596e52c7c99c2b486c1720851314b"
+        }
+      ],
+      "illustration": "illustrations/M-salmon-08.png",
+      "sha256": "6005657d5fbf9e207c9b3a7a16aeca4f9da5758d3df5303c6b5601ea5c31cc60",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-salmon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-salmon-08.png"
+    },
+    {
+      "id": "M-stagbeetle-01",
+      "name": "クワガタムシ①",
+      "scene": "Tiny creamC-shaped newborn grub brownhead and smallorangethoraciclegs exactlyreference, curled among crumblyrottingwood in mossylog, macrotopdownview, soft light through smallopening. No adultmandibles.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "339faf5a8ce5d8e3e2fcb0e97b725d8966f26a93"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-01.png",
+      "sha256": "7608e1ad137ad40f4908fafff4b80f91e4e2097fac3c791ac059463df0d4046d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-01.png"
+    },
+    {
+      "id": "M-stagbeetle-02",
+      "name": "クワガタムシ②",
+      "scene": "Growing elongatedcreamgrub with roundbrownhead crawls left along horizontal woodgrain tunnel, sideview, closewarmwoodinterior, tiny sixthoraciclegs nearhead, no legs alongwholeabdomen.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "3d137290db8a04efa734b6f4e8c8c267df2f3342"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-02.png",
+      "sha256": "ddeb54c2b7264d66a0a24c850e63020de485b524911925fae8d476883c775a10",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-02.png"
+    },
+    {
+      "id": "M-stagbeetle-03",
+      "name": "クワガタムシ③",
+      "scene": "Large plumpcream C-shaped grub huge roundbrownhead and graytailtip, curled upright against curved chamberwall, viewslightlybelow, softgoldlight fromupperleft. Distinct from elongatedstage2.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "adc030fb767cfbf687deaf7ee15b97d13b33de97"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-03.png",
+      "sha256": "569d4fc02fe3c9eced6a85e44c4968015f9811cb5e0762c1788b2a433a2b1016",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-03.png"
+    },
+    {
+      "id": "M-stagbeetle-04",
+      "name": "クワガタムシ④",
+      "scene": "Exact goldenpupa with foldedappendages and closedeyes, hangingresting upright in oval pupalchamber inside rottingwood, fullbodyclear macrofrontthreequarter, softamber light, no freewalkingadultlegs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cd75ab827702b26d30d49efcfc6ddf696183f606"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-04.png",
+      "sha256": "7c3ef73de495493ef541e945b3a3273175211123f1ac9d74b17d47902e9c7c16",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-04.png"
+    },
+    {
+      "id": "M-stagbeetle-05",
+      "name": "クワガタムシ⑤",
+      "scene": "Freshlyemerged palecream stagbeetle with tanhead and shortcurvedmandibles, sixlegson smoothbark at logopening, facingright, earlymorningdew. Elytra stillverypale; no blackadultarmor.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "7ef51bca3eb44b96dea1b11cd142d9a54e139dd5"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-05.png",
+      "sha256": "8017dec2cc2127ca107a8695ceac9a9d224905741ddf1ef8aa2cd33efb699084",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-05.png"
+    },
+    {
+      "id": "M-stagbeetle-06",
+      "name": "クワガタムシ⑥",
+      "scene": "Young reddishbrown stagbeetle slenderbody and developingcurvedmandibles, climbing diagonallyleft up smallbranch, threequarterdorsalview, softgreensummercanopy behind. Exactlysixlegs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "eae6e380c48948e30c76d99304afd3e80e4a683a"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-06.png",
+      "sha256": "fb385760b80dae5885c847e73195cfaaa756a906801bd1efea42c1502198bc95",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-06.png"
+    },
+    {
+      "id": "M-stagbeetle-07",
+      "name": "クワガタムシ⑦",
+      "scene": "Impressive glossy navyblack adult stagbeetle broadthorax and long toothedcurvedmandibles, standing on oakbark beside tiny sapdrop, facingrightthreequarter, goldenafternoon, cuteeyes visible. No rhinocerosheadhorn.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "bd37f86632f6a73b248143cf75c57dbe678b33af"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-07.png",
+      "sha256": "5b089e1e4c272f47111cce303142143c1b18b63c8685671967ca1404296fc74e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-07.png"
+    },
+    {
+      "id": "M-stagbeetle-08",
+      "name": "クワガタムシ⑧",
+      "scene": "Old broad dark stagbeetle with goldweatheredmarks on roundedelytra and shorterwornmandibles, rests low facingleft beside dryoakleaf at treebase, gentle lateafternoon, canonical droopywiseeyes. No extra claws.",
+      "identity_review": "Visual comparison to canonical character references: Canonical stagbeetle stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/stagbeetle/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f4b40ca52938ef4f01fda0901edcce1366e18652"
+        }
+      ],
+      "illustration": "illustrations/M-stagbeetle-08.png",
+      "sha256": "852c314cfc1b96d906e7808c72ad176412712e46a039caa64e38ee1ed6b24723",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-stagbeetle-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-stagbeetle-08.png"
     }
   ],
   "remaining_not_started": 429,
