@@ -1,6 +1,6 @@
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
-import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,inspectButton,escapeHTML as h} from './ui-presentation.mjs';
+import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
@@ -13,10 +13,10 @@ const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',session=new H
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');document.body.append(feedbackHost);
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
-const feedback=new ResultFeedback({clear:()=>{feedbackHost.replaceChildren();clearResultMotion();},paint:g=>{
+const feedback=new ResultFeedback({dock:available=>{const b=document.querySelector('[data-result-reopen]');if(b)b.hidden=!available;},clear:()=>{feedbackHost.replaceChildren();clearResultMotion();},paint:g=>{
  feedbackHost.innerHTML=resultNoticeMarkup(g);clearResultMotion();
  for(const r of g.rows){if(r.to==='deck')document.querySelector(`[data-player="${r.seat}"] [data-zone="deck"]`)?.classList.add('result-deck');
-  if(['draw','birth','main','move'].includes(r.kind))for(const c of r.cards)for(const n of document.querySelectorAll('[data-inspect]'))if(n.dataset.inspect===c.id)n.classList.add('result-arrive');
+  if(['draw','birth','main','move'].includes(r.kind))for(const c of r.cards)for(const n of document.querySelectorAll('[data-inspect],[data-browse]'))if((n.dataset.inspect??n.dataset.browse)===c.id)n.classList.add('result-arrive');
  }
 }});
 function persistOrder(){try{localStorage.setItem(ORDER_KEY,handOrder.serialize());}catch{message("手札の表示順はこの画面だけで保持します");}}
@@ -26,7 +26,7 @@ function button(text,handler){const n=el('button',text);n.type='button';n.addEve
 function message(text){$('status').textContent=text;}
 function persist(){try{localStorage.setItem(KEY,session.save());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}}
 function closeDialogs({focus=true}={}){
- for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();}
+ for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();delete d.dataset.browseSeat;delete d.dataset.browseZone;}
  pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;
 }
 function showAutomationStop(){
@@ -57,16 +57,19 @@ function highlight(action=null){
  document.querySelectorAll('.is-selected,.is-destination,.is-target').forEach(n=>n.classList.remove('is-selected','is-destination','is-target'));
  if(!session.viewer)return;
  const v=session.projection,actions=action?[action]:v.actions.filter(a=>a.source===selected||a.choiceCard===selected);
- document.querySelectorAll('[data-inspect]').forEach(n=>{n.classList.toggle('is-eligible',v.actions.some(a=>(v.choice?a.choiceCard:a.source)===n.dataset.inspect));if(n.dataset.inspect===selected)n.classList.add('is-selected');if(actions.some(a=>a.targetCard===n.dataset.inspect))n.classList.add('is-target');});
+ document.querySelectorAll('[data-inspect],[data-browse]').forEach(n=>{const id=n.dataset.inspect??n.dataset.browse;n.classList.toggle('is-eligible',v.actions.some(a=>(v.choice?a.choiceCard:a.source)===id));if(id===selected)n.classList.add('is-selected');if(actions.some(a=>a.targetCard===id))n.classList.add('is-target');});
  for(const a of actions)if(a.destination)document.querySelector(`[data-player="${a.destination.seat}"] [data-slot="${a.destination.index}"]`)?.classList.add('is-destination');
 }
-function inspect(id,{catalog=false,origin=null}={}){
- const v=session.active?session.projection:null,c=catalog?CARDS[id]:visibleCards(v).find(c=>c.id===id);
- if(!c||(!catalog&&!canInspectCard(v,session.viewer,c)))return;closeDialogs({focus:false});dialogOrigin=origin;
- if(!catalog){selected=c.id;highlight();}
+function inspect(id,{catalog=false,origin=null,readOnly=false}={}){
+ if(!catalog&&(!session.active||(!session.viewer&&!session.finished)))return;
+ const zone=origin?.closest('[data-browse-zone]')?.dataset.browseZone,seat=origin?.closest('[data-browse-seat]')?.dataset.browseSeat;
+ const v=session.active?session.projection:null,c=catalog?CARDS[id]:(visibleCards(v).find(c=>c.id===id&&!c.hidden)??visibleCards(v).find(c=>c.id===id));
+ if(!c||(!catalog&&!readOnly&&!canInspectCard(v,session.viewer,c)))return;closeDialogs({focus:false});dialogOrigin=origin;
+ if(!catalog&&!readOnly){selected=c.id;highlight();}
  const hand=!catalog&&session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):[],index=hand.findIndex(x=>x.id===c.id);
- const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');d.innerHTML=detailMarkup(c,{v,viewer:session.viewer,catalog,handPosition:index<0?null:{index,total:hand.length}});
+ const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');d.innerHTML=detailMarkup(c,{v,viewer:session.viewer,catalog,readOnly,handPosition:index<0?null:{index,total:hand.length}});
 
+ if(readOnly&&zone&&seat){const back=button('一覧へ',()=>showZone(seat,zone,null));d.querySelector('.detail-toolbar').prepend(back);}
  d.showModal();d.querySelector('[data-close]').focus();
 }
 function perform(action,revision,who){
@@ -81,12 +84,15 @@ function requestAction(id){
  returnWorkflow=$('card-dialog').open&&$('card-dialog').classList.contains('workflow-dialog');returnDetail=$('card-dialog').open&&!returnWorkflow?selected:null;const origin=dialogOrigin??document.activeElement;closeDialogs({focus:false});dialogOrigin=origin;pending=prepared;highlight(prepared.action);
  const d=$('confirm-dialog');d.innerHTML=confirmationMarkup(prepared);d.showModal();d.querySelector('[data-cancel]').focus();
 }
-function showDiscard(seat,origin){
- const v=session.projection,p=v.players[seat];closeDialogs({focus:false});dialogOrigin=origin;
- const d=$('card-dialog');d.classList.remove('card-detail','workflow-dialog');d.innerHTML=`<button type="button" class="dialog-close" data-close>閉じる ×</button><h2>${seat} の捨て札 · ${p.discard.length}枚</h2><div class="discard-cards">${p.discard.map(c=>inspectButton(c,'card-tap',v,session.viewer)).join('')||'<p>捨て札はありません。</p>'}</div>`;d.showModal();d.querySelector('[data-close]').focus();
+function showZone(seat,zone,origin){
+ const v=session.projection;if(!v||(!session.viewer&&!v.result))return;
+ const html=zoneMarkup(v,seat,zone);if(!html)return;closeDialogs({focus:false});dialogOrigin=origin;
+ const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.dataset.browseSeat=seat;d.dataset.browseZone=zone;d.innerHTML=html;d.showModal();d.querySelector('[data-close]').focus();
 }
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||b.disabled)return;
+ if(b.hasAttribute('data-result-collapse')){feedback.collapse();document.querySelector('[data-result-reopen]')?.focus({preventScroll:true});return;}
+ if(b.hasAttribute('data-result-reopen')){feedback.reopen();return;}
  if(b.hasAttribute('data-close')||b.hasAttribute('data-cancel')){const back=b.hasAttribute('data-cancel')?returnDetail:null;const flow=b.hasAttribute('data-cancel')&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();return;}
  if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();return;}
  if(b.hasAttribute('data-workflow')){openWorkflow();return;}
@@ -102,7 +108,8 @@ document.addEventListener('click',e=>{
  if(b.hasAttribute('data-confirm')){const p=pending;if(p)perform(p.action,p.revision,p.who);return;}
  if(b.dataset.action){requestAction(b.dataset.action);return;}
  if(b.dataset.inspect){inspect(b.dataset.inspect,{catalog:b.hasAttribute('data-catalog'),origin:b});return;}
- if(b.dataset.zone==='discard'){showDiscard(b.dataset.seat,b);return;}
+ if(b.dataset.browse){inspect(b.dataset.browse,{readOnly:true,origin:b});return;}
+ if(b.dataset.zone){showZone(b.dataset.seat,b.dataset.zone,b);return;}
  if(b.hasAttribute('data-home')){feedback.reset();session.clear();closeDialogs();$('game').replaceChildren();$('welcome').hidden=false;$('game').hidden=true;$('export').hidden=true;document.body.classList.remove('playing');renderDeck();$('new').focus();}
 });
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});

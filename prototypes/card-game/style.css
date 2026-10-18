@@ -68,3 +68,13 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(orientation:landscape) and (max-height:500px){#result-feedback{top:48px;max-width:280px}.result-notice{max-height:38vh}}
 
 .result-notice>strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Round 8: result text passes taps through; only the close tab receives input.
+   Reopen lives in the header, not over a card/hand. All result timers are UI-only. */
+#result-feedback{top:calc(var(--ui-vtop,0px) + env(safe-area-inset-top) + 56px);right:auto;left:calc(var(--ui-vleft,0px) + var(--ui-vw,100vw) - env(safe-area-inset-right) - min(280px,calc(var(--ui-vw,100vw) - 24px)) - 12px);width:min(280px,calc(var(--ui-vw,100vw) - 24px));max-width:none;pointer-events:none}
+.result-notice{position:relative;padding-right:44px;max-height:min(150px,32dvh);pointer-events:none}
+.result-collapse{position:absolute;right:0;top:0;width:44px;height:44px;padding:0;border:0;background:transparent;pointer-events:auto;font-size:20px}
+.table-top .result-reopen{flex:none;width:44px;min-height:44px;padding:2px;font-size:18px}.result-reopen small{display:block;font-size:9px}
+.deck-preview{width:120px;height:180px;margin:12px auto}.zone-count{text-align:center;font-weight:bold}.zone-body>p{font-size:12px;margin:10px 0}.zone-body .discard-cards>div{min-width:0;text-align:center}.zone-body .discard-cards small{display:block;font-size:11px;margin-top:6px;overflow-wrap:anywhere}
+.activation-entry{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #71856780}.activation-entry>.card-tap{flex:none;width:70px;height:105px}.activation-entry>div{min-width:0}.activation-entry strong{font-size:13px}.activation-entry p{font-size:12px;overflow-wrap:anywhere}
+@media(orientation:landscape) and (max-height:500px){#result-feedback{top:calc(var(--ui-vtop,0px) + env(safe-area-inset-top) + 48px)}.result-notice{max-height:min(130px,38dvh)}}

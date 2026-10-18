@@ -9,9 +9,9 @@ async function actionButton(page,a){
  // Card use opens that card; required choices use the expanded exact engine list.
  if(!a.source){await page.locator('#operation-panel [data-workflow]').click();b=await find();if(b)return b;throw Error('Missing required operation '+a.label);}
  if(await page.locator('#hand.hand-collapsed').count())await page.locator('[data-hand-toggle]').click();
- let cards=page.locator('#game [data-inspect]'),i=await cards.evaluateAll((ns,id)=>ns.findIndex(n=>n.dataset.inspect===id),a.source);
- if(i<0){const v=await projection(page),seat=Object.entries(v.players).find(([,p])=>p.discard.some(x=>x.id===a.source))?.[0];if(seat){await page.locator(`[data-zone="discard"][data-seat="${seat}"]`).click();cards=page.locator('#card-dialog [data-inspect]');i=await cards.evaluateAll((ns,id)=>ns.findIndex(n=>n.dataset.inspect===id),a.source);}}
- if(i>=0){await cards.nth(i).click();b=await find();if(b)return b;}
+ let cards=page.locator('#game [data-inspect],#game [data-browse]'),i=await cards.evaluateAll((ns,id)=>ns.findIndex(n=>(n.dataset.inspect??n.dataset.browse)===id),a.source);
+ if(i<0){const v=await projection(page),seat=Object.entries(v.players).find(([,p])=>p.discard.some(x=>x.id===a.source))?.[0];if(seat){await page.locator(`[data-zone="discard"][data-seat="${seat}"]`).click();cards=page.locator('#card-dialog [data-browse]');i=await cards.evaluateAll((ns,id)=>ns.findIndex(n=>(n.dataset.inspect??n.dataset.browse)===id),a.source);}}
+ if(i>=0){await cards.nth(i).click();const use=page.locator('#card-dialog .detail-copy [data-inspect]');if(await use.count())await use.click();b=await find();if(b)return b;}
  await closeDetail(page);await page.locator('#operation-panel [data-workflow]').click();b=await find();if(b)return b;
  throw Error('UI cannot reach engine action '+a.label);
 }

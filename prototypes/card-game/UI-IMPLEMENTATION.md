@@ -365,3 +365,36 @@ Independent review found two P2s during development (consumed negation missing; 
 **Browser rendering/iPhone Safari/touch remains user QA.** Managed Sites has no available control-browser; its skill requires skipping browser QA in this environment. No substitute browser/server was started. Node queue/markup/state tests are not a visual or device-performance guarantee. Extremely fast play can supersede an unfinished notice; full recent results remain in history. Intra-command card transitions not recorded by the engine are not fabricated; the displayed boundary differences and public event order are the supported evidence.
 
 All452 definitions/effects, canonical docs, Python and fixed400 assets are unchanged. PR259/381/384 remain Draft/open/unmerged and main is not merged. Only PR384 and the same owner-private UI trial are updated. Publication identifiers are recorded in PR384 after deployment.
+
+## iPhone QA round 8 — compact results and read-only card browsing (2026-10-18 JST)
+
+Starting remote: PR384 HEAD `748d736cf0fc1bba690f27454388f51b3f2512cc`, tree `5cb5ffb9b174b3fd4950c778479a67263e24f08c`. PR381 HEAD `3a987044513fdb6d5e69b52b8af40add5a45ccd4`, tree `e86f089e6778061d7acd39492e96286656455702`; PR259 HEAD `0a9df8f09b5ad657730f29d14e2d357241dace8c`, tree `78677b98fdc229c7acf10e9112ca9744ae0fa7ba`. All confirmed Draft/open/unmerged. No main merge.
+
+### Results
+
+The previous queue waited1.6–3.6seconds and had no user collapse/reopen control. Notices now last2seconds per result group and collapse to a44px result icon in the top management/header row. The close tab immediately collapses the current batch; the icon replays the retained batch in order. Result text is pointer-transparent, so card/hand taps pass through; only the44px close tab receives input. Closing/reopening uses no engine command or game timer and never advances or cancels an effect. Mandatory choice/response instructions, eligible-card shortcuts and pass remain in the existing operation area.
+
+The same short opacity/transform animations and reduced-motion override remain. Toast dimensions are capped and positioned using visualViewport offsets and safe-area insets. No full-screen overlay or new permanent large panel. The latest8 transient groups are retained in memory; the complete existing recent40-group journal remains under 操作・履歴. A newer human command replaces stale transients. Automatic continuation groups preserve their actual revision order. Handoff/background/pagehide/reset clears both queued and retained private payloads plus DOM; cancelled timer callbacks cannot revive them. Restore keeps old records in history without replaying old notifications.
+
+### Browsing
+
+- All three management areas are buttons. The shared zone dialog uses the existing viewport-aware workflow shell and card detail canvas.
+- Deck: approved back and actual `deckCount` only. No card identities/order or shuffle/move command.
+- Discard: exact projected array order, numbered from the first element; tap for artwork/name/full text and printed numbers. No inferred order reversal.
+- Activation: existing public `chain`/`effectQueue`, reversed for actual next-to-resolve order, numbered across both players before filtering by area owner. Shows source/effect, current mandatory-choice effect and remaining links; resolved results stay in existing history. “処理中” does not claim an uncommitted target/payment selection has already resolved.
+- Main/companions/partner/world/prepared: default read-only browsing, independent of response legality. Only safe `visibleCards` projections are consulted; hidden prepared cards show their back without name/text/art. Public chain-source metadata can be used after the physical source leaves the hand.
+- Read-only detail does not select a target or execute an action. An explicit “このカードの操作を開く” link appears only when existing engine candidates allow that card. Hand response selection and direct eligible response shortcuts retain QA6 behavior. Board candidates/targets remain highlighted. Card browsing shares the existing320×480 canvas and2:3 geometry with full text beside/below it. List detail can return to its originating list.
+- Read-only dialogs are synchronously closed and emptied by existing concealment hooks. They retain no private card object and cannot be opened while the session is concealed.
+
+### Verification and limits
+
+**247 passed /0 failed** (QA7 baseline237 plus10 new tests). Command:
+`node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`
+
+Log: `evidence/iphone-round8-tests.log`. New cases cover2second/manual collapse/reopen, ordered multi-result replay, stale callbacks and concealment, deck backs/count, ordered discard expansion, activation LIFO and source details, real-engine suspended resolution, board read-only vs candidate actions, and engine-projected face-down preparation. Existing response automation, exact state/commands, full452/R10 completion, save/restore, private information, double-action rejection and Safari geometry tests remain passing. The QA7 markup assertion now permits the presentation-only close control, while forbidding gameplay controls in notices. Browser action-navigation helper is updated for browse→explicit-use, syntax checked only.
+
+Independent read-only review found no P1/P2 issues; focused24 tests passed. Syntax checks and `git diff --check` passed. Core engine, effects, definitions/catalog, legal enumeration, state/save/replay, automatic progression, Python canon and fixed400 assets are unchanged. The remote commit is built over the complete remote base tree, preserving files absent from this partial local snapshot.
+
+**Not verified here:** browser rendering/delegated DOM clicks, touch ergonomics/performance, safe-area appearance, Safari address-bar changes and rotation on a device. Managed Sites lacks control-browser, so no alternate browser/server was started. The full catalog-regeneration test needing large audit dependencies remains excluded as before; source/hash checks run. User performs final iPhone Safari QA. Useful device checks: wait2seconds→tap 結果→close×; continue a required choice while the notice is visible; tap both deck/discard/activation areas; expand a board card then explicitly open its legal actions; inspect an opponent face-down preparation; background/reveal/rotate with a private result or card detail open.
+
+PR384 and the same owner-private UI trial only are updated. Final GitHub/Site source/version/deployment identifiers are recorded in PR384 after publication.
