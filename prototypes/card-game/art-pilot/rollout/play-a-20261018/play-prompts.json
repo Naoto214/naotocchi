@@ -1,0 +1,410 @@
+[
+  {
+    "id": "G-air-hockey",
+    "keys": [
+      "otter",
+      "shiba"
+    ],
+    "scene": "Canonical otter and shiba happily compete across a smooth white air-hockey table in an airy seaside arcade, each holding one red or blue round striker, one black puck sliding diagonally toward goal slot. Low dynamic corner view, mouths happy, separated paws and tails, table and puck instantly identifiable. No score display.",
+    "identity": "otter / Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+    "sources": [
+      "assets/characters/companions/otter.png",
+      "assets/characters/companions/shiba.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/shiba.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Canonical otter and shiba happily compete across a smooth white air-hockey table in an airy seaside arcade, each holding one red or blue round striker, one black puck sliding diagonally toward goal slot. Low dynamic corner view, mouths happy, separated paws and tails, table and puck instantly identifiable. No score display.. Character identities: otter / Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-325cbf57-9a90-4e83-8f10-62b7be4e9068.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-a-20261018/G-air-hockey-first_candidate.png",
+    "revision_prompt": "Edit this illustration: position otter at LEFT SHORT END and shiba at RIGHT SHORT END of a long rectangular air hockey table, facing EACH OTHER along its long axis, not both along the same side. Camera obliquely above one long side so both opponents faces readable. One goal slot at each SHORT end. Each animal one striker, black puck between them, anatomically coherent four limbs. Preserve their exact faces/colors/tails, watercolor storybook, seaside arcade. 1536x1024, no text/numbers/frame.",
+    "second_candidate": "prototypes/card-game/art-pilot/rollout/play-a-20261018/G-air-hockey-second_candidate.png",
+    "second_revision_prompt": "Correct player placement in this airhockey scene. Keep table exactly as drawn. REMOVE shiba from the far long edge on upper-right. Put shiba at NEAR SHORT END in LOWER RIGHT foreground, with its back and curled tail toward viewer and head looking diagonally UPPER LEFT toward the otter. Shiba's blue striker must be beside the near goal in LOWER RIGHT, held by its forepaw reaching onto table. Otter stays at far short end UPPER LEFT. Viewer sees mostly rear three-quarter shiba with one cheek visible. Both opponents now occupy opposite short ends. Preserve canonical orange cream fur triangular ears curled tail, no extra limbs; preserve watercolor style. 1536x1024 no text/numbers/frame.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      },
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      }
+    ]
+  },
+  {
+    "id": "G-animal-shogi",
+    "keys": [
+      "panda",
+      "rabbit_friend"
+    ],
+    "scene": "Panda and white rabbit thoughtfully play animal shogi on a small wooden 3-column by 4-row board at a low garden table. Chunky wooden square pieces bear only simple lion, giraffe, elephant and chick pictures, no kanji or writing. Rabbit moves a chick piece one square with a paw, panda watches, slightly overhead view shows the board clearly. Do not use chess figurines.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Panda and white rabbit thoughtfully play animal shogi on a small wooden 3-column by 4-row board at a low garden table. Chunky wooden square pieces bear only simple lion, giraffe, elephant and chick pictures, no kanji or writing. Rabbit moves a chick piece one square with a paw, panda watches, slightly overhead view shows the board clearly. Do not use chess figurines.. Character identities: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-67e5d73f-8899-4fb3-ab2c-1ff893a72e1a.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-a-20261018/G-animal-shogi-first_candidate.png",
+    "revision_prompt": "Correct ONLY wooden board and piece arrangement. Board MUST have THREE COLUMNS and FOUR ROWS (12 equal cells): TWO internal lines running front to back, THREE internal cross lines, plus border. Make board deeper to fit 4 ranks. Rear rank: elephant,lion,giraffe; rank2: empty,chick,empty; rank3: empty,chick,empty; front rank:giraffe,lion,elephant. Exactly8 square tiles with animal pictures and4emptycells. Rabbit paw on one chick. Preserve pandas/rabbit anatomies, setting/style. No letters,numbers,writing. 1536x1024.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-archery-3d",
+    "keys": [
+      "monkey"
+    ],
+    "scene": "Brown cream monkey practices archery at a peaceful woodland range, holding a simple wooden bow with one hand and drawing arrow string with other, exactly two arms and two legs and curled tail. Arrow points away from viewer toward a distant concentric circular straw target. Proper bowstring connected at both bow tips, safe target sport, focused joyful expression, side view with full body and target.",
+    "identity": "Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+    "sources": [
+      "assets/characters/companions/monkey.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Brown cream monkey practices archery at a peaceful woodland range, holding a simple wooden bow with one hand and drawing arrow string with other, exactly two arms and two legs and curled tail. Arrow points away from viewer toward a distant concentric circular straw target. Proper bowstring connected at both bow tips, safe target sport, focused joyful expression, side view with full body and target.. Character identities: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-89d3e0d1-e103-4fa0-8119-fe96737008f4.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      }
+    ]
+  },
+  {
+    "id": "G-area-claim",
+    "keys": [
+      "squirrel"
+    ],
+    "scene": "Orange squirrel plays a whimsical territory-claim game on a square tiled garden playfield. It drags a bright blue chalk line from the outer edge around a rectangular region and connects back to the edge; completed region softly colored blue, remaining area cream, a few warm star-shaped game tokens in unclaimed area. Overhead three-quarter view, squirrel clearly drawing enclosure, no numbers or UI.",
+    "identity": "Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+    "sources": [
+      "assets/characters/companions/squirrel.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/squirrel.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Orange squirrel plays a whimsical territory-claim game on a square tiled garden playfield. It drags a bright blue chalk line from the outer edge around a rectangular region and connects back to the edge; completed region softly colored blue, remaining area cream, a few warm star-shaped game tokens in unclaimed area. Overhead three-quarter view, squirrel clearly drawing enclosure, no numbers or UI.. Character identities: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f1941ddc-5b04-4f22-8e5b-b494ab6aab51.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/squirrel.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+      }
+    ]
+  },
+  {
+    "id": "G-asteroids-classic",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster with big cream cheeks pilots a small rounded triangular toy spaceship through an asteroid play-space, visible inside clear bubble cockpit. A thin harmless light beam breaks one drifting gray asteroid into a few soft glowing fragments, other rocks well spaced, deep teal star field but luminous and friendly. Space arcade action, no military imagery, no digits or HUD. Ship and hamster prominent left moving diagonally right.",
+    "identity": "Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Golden hamster with big cream cheeks pilots a small rounded triangular toy spaceship through an asteroid play-space, visible inside clear bubble cockpit. A thin harmless light beam breaks one drifting gray asteroid into a few soft glowing fragments, other rocks well spaced, deep teal star field but luminous and friendly. Space arcade action, no military imagery, no digits or HUD. Ship and hamster prominent left moving diagonally right.. Character identities: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-5861d668-dad1-4972-9df3-cb2c77ffa21b.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-baseball-batting",
+    "keys": [
+      "shiba"
+    ],
+    "scene": "Orange cream shiba in a sunny grassy baseball field swings a wooden baseball bat with both forepaws at one white red-stitched baseball just crossing the home plate. Balanced hind paws, curled tail, expressive concentration, exact natural dog body and face, no extra limbs or clothes. Low diagonal camera, ball and bat separated clearly, backstop distant, no text.",
+    "identity": "Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+    "sources": [
+      "assets/characters/companions/shiba.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/shiba.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Orange cream shiba in a sunny grassy baseball field swings a wooden baseball bat with both forepaws at one white red-stitched baseball just crossing the home plate. Balanced hind paws, curled tail, expressive concentration, exact natural dog body and face, no extra limbs or clothes. Low diagonal camera, ball and bat separated clearly, backstop distant, no text.. Character identities: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-32efd3d4-8764-4eb7-a1ca-c3f5b4a817c8.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      }
+    ]
+  },
+  {
+    "id": "G-basketball-3d",
+    "keys": [
+      "monkey"
+    ],
+    "scene": "Brown cream monkey leaps for a joyful basketball shot toward a small garden court hoop with orange rim and white net. Both hands just released a single orange basketball above head, two legs tucked naturally, curled tail behind. Camera from low side, hoop and ball visible, warm afternoon, no uniforms or digits.",
+    "identity": "Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+    "sources": [
+      "assets/characters/companions/monkey.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Brown cream monkey leaps for a joyful basketball shot toward a small garden court hoop with orange rim and white net. Both hands just released a single orange basketball above head, two legs tucked naturally, curled tail behind. Camera from low side, hoop and ball visible, warm afternoon, no uniforms or digits.. Character identities: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-85964f2c-9af3-4b49-9e24-aed3fc92e5fb.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      }
+    ]
+  },
+  {
+    "id": "G-billiards-6",
+    "keys": [
+      "tanuki"
+    ],
+    "scene": "Round brown tanuki with dark eye mask and cream belly leans over a low green-felt billiards table, using two forepaws to guide one wooden cue toward white cue ball. Six colored plain object balls spaced on table with visible corner pockets, no numbers on balls. Cozy wood-paneled sunlit club room, diagonal overhead composition, careful cheerful expression.",
+    "identity": "Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Round brown tanuki with dark eye mask and cream belly leans over a low green-felt billiards table, using two forepaws to guide one wooden cue toward white cue ball. Six colored plain object balls spaced on table with visible corner pockets, no numbers on balls. Cozy wood-paneled sunlit club room, diagonal overhead composition, careful cheerful expression.. Character identities: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-de44b8c9-f9f9-445f-a242-a358c664a703.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-blackjack-21",
+    "keys": [
+      "panda",
+      "rabbit_friend"
+    ],
+    "scene": "Panda and white rabbit enjoy a friendly blackjack card game on green cloth in a bright home sunroom. Rabbit deciding whether to draw reaches toward a facedown deck, panda opposite lays two cards. Face-up cards show ONLY suit pips hearts/spades/diamonds/clubs, no letters or numerals. A few wooden counters, no cash or casino glamour, game action clear, overhead diagonal view.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Panda and white rabbit enjoy a friendly blackjack card game on green cloth in a bright home sunroom. Rabbit deciding whether to draw reaches toward a facedown deck, panda opposite lays two cards. Face-up cards show ONLY suit pips hearts/spades/diamonds/clubs, no letters or numerals. A few wooden counters, no cash or casino glamour, game action clear, overhead diagonal view.. Character identities: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-dfe6bcc6-e8ba-45c6-9d5c-6a2655ff4af3.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-a-20261018/G-blackjack-21-first_candidate.png",
+    "revision_prompt": "Remove ALL tiny corner glyphs, numerals and letters from every playing card, including panda's two held cards and four table cards. Leave clear blank cream corners, retain central recognizable heart/spade/diamond/club pips ONLY. Keep characters, six faceup cards, facedowndeck, wooden counters and composition unchanged. No text,numbers,letters,cardframe overlay. 1536x1024 watercolor.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-bomber-maze",
+    "keys": [
+      "shiba"
+    ],
+    "scene": "Orange cream shiba plays in a whimsical brick maze, stepping safely around a corner after placing a little round cartoon toy bomb with a short sparkling fuse. A distant soft puff knocks a few toy bricks apart, no violence or injury, rounded bright maze walls and clear corridors. High diagonal view, full dog body and curled tail, joyful arcade adventure, no other characters needed.",
+    "identity": "Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+    "sources": [
+      "assets/characters/companions/shiba.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/shiba.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Orange cream shiba plays in a whimsical brick maze, stepping safely around a corner after placing a little round cartoon toy bomb with a short sparkling fuse. A distant soft puff knocks a few toy bricks apart, no violence or injury, rounded bright maze walls and clear corridors. High diagonal view, full dog body and curled tail, joyful arcade adventure, no other characters needed.. Character identities: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-7a55006c-ce16-457e-b5f2-caa63a9a874c.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      }
+    ]
+  },
+  {
+    "id": "G-bowling-3d",
+    "keys": [
+      "penguin_friend"
+    ],
+    "scene": "Small navy white penguin with orange beak and feet bowls in a sunlit wooden bowling alley. One flipper follows through after releasing a bright blue bowling ball down the lane toward a triangular group of white pins with red neck stripes. Penguin full silhouette foreground left, lane perspective recedes, no footwear/clothing or scoreboards.",
+    "identity": "Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.",
+    "sources": [
+      "assets/characters/companions/penguin_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/penguin_friend.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Small navy white penguin with orange beak and feet bowls in a sunlit wooden bowling alley. One flipper follows through after releasing a bright blue bowling ball down the lane toward a triangular group of white pins with red neck stripes. Penguin full silhouette foreground left, lane perspective recedes, no footwear/clothing or scoreboards.. Character identities: Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-c24b1b49-7b47-4f9f-a215-2c29ce7ed454.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/penguin_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+      }
+    ]
+  },
+  {
+    "id": "G-breakout-classic",
+    "keys": [
+      "rabbit_friend"
+    ],
+    "scene": "White rabbit enthusiastically operates a long horizontal wooden paddle across the bottom of a tabletop breakout playfield, bouncing a shiny cream ball upward into rows of brightly colored rectangular blocks. One block bursts into small harmless confetti at point of contact. Three-quarter view shows paddle ball and suspended rows clearly; airy playroom, no screens with numbers.",
+    "identity": "Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: White rabbit enthusiastically operates a long horizontal wooden paddle across the bottom of a tabletop breakout playfield, bouncing a shiny cream ball upward into rows of brightly colored rectangular blocks. One block bursts into small harmless confetti at point of contact. Three-quarter view shows paddle ball and suspended rows clearly; airy playroom, no screens with numbers.. Character identities: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-c68d488d-d5dc-4d23-a1b8-ae883f381165.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-bubble-shooter",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster aims a small rounded bubble launcher upward at an overhead cluster of red blue yellow green glossy bubbles; one blue bubble is in flight toward two blue bubbles touching together, forming a matching group. Cheerful garden fair, side angle, hamster and launcher full visible, delicate transparent bubble reflections, no numbers.",
+    "identity": "Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Golden hamster aims a small rounded bubble launcher upward at an overhead cluster of red blue yellow green glossy bubbles; one blue bubble is in flight toward two blue bubbles touching together, forming a matching group. Cheerful garden fair, side angle, hamster and launcher full visible, delicate transparent bubble reflections, no numbers.. Character identities: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-3be13779-ae80-4c39-8503-36ec56481bdb.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-catapult-castle",
+    "keys": [
+      "tanuki"
+    ],
+    "scene": "Brown masked tanuki launches one soft round ball with a little wooden catapult at a toy block castle in a meadow. Several blocks tumble and a tiny friendly white ghost game-piece floats above the tower, playful not scary. Catapult sling and pivot readable, tanuki one paw at release lever, wide diagonal action scene, no weapon realism or injury.",
+    "identity": "Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Brown masked tanuki launches one soft round ball with a little wooden catapult at a toy block castle in a meadow. Several blocks tumble and a tiny friendly white ghost game-piece floats above the tower, playful not scary. Catapult sling and pivot readable, tanuki one paw at release lever, wide diagonal action scene, no weapon realism or injury.. Character identities: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-402ac38a-3b96-456b-8190-0425487766f4.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-chain-puzzle",
+    "keys": [
+      "squirrel"
+    ],
+    "scene": "Orange squirrel drops a linked pair of glossy colored balls into a tall transparent rectangular puzzle tray. At bottom four matching red balls touch and start to pop into gentle sparkles, letting a cluster of blue balls above fall toward each other. Side three-quarter close view, game mechanics readable, cozy treehouse window light, no digits/interface.",
+    "identity": "Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+    "sources": [
+      "assets/characters/companions/squirrel.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/squirrel.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Orange squirrel drops a linked pair of glossy colored balls into a tall transparent rectangular puzzle tray. At bottom four matching red balls touch and start to pop into gentle sparkles, letting a cluster of blue balls above fall toward each other. Side three-quarter close view, game mechanics readable, cozy treehouse window light, no digits/interface.. Character identities: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-3b991217-85a2-43b6-bbde-cd9e3791c145.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/squirrel.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+      }
+    ]
+  },
+  {
+    "id": "G-checkers-6",
+    "keys": [
+      "panda",
+      "monkey"
+    ],
+    "scene": "Panda and brown monkey play checkers on a clearly six-by-six alternating dark and cream wooden checkerboard on a low porch table. Round red and charcoal counters only on dark squares, monkey lifts one red counter to jump diagonally over a charcoal one into empty square. Hands separate, full happy faces, high diagonal view, no symbols or numerals.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/monkey.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png"
+    ],
+    "prompt": "One dedicated Naotocchi play-card illustration,1536x1024 PNG landscape3:2. No letters, numbers, scores, card frame or UI. Scene: Panda and brown monkey play checkers on a clearly six-by-six alternating dark and cream wooden checkerboard on a low porch table. Round red and charcoal counters only on dark squares, monkey lifts one red counter to jump diagonally over a charcoal one into empty square. Hands separate, full happy faces, high diagonal view, no symbols or numerals.. Character identities: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.. First reference(s) canonical 2D characters: retain shape face markings colors and limbs, no costume except requested game equipment. Last reference style only: delicate cute watercolor/gouache storybook, soft light, natural joyful expressions, clear activity in one glance at tiny card size. Vary composition to suit activity. Background beautiful but subordinate. Avoid anatomy errors, excess limbs, photorealism or aggression.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f29b7d6f-7394-4144-89c5-d7886f57ce9b.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      }
+    ]
+  }
+]

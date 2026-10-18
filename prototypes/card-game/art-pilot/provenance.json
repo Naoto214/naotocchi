@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 139,
+  "generated_count": 155,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -3487,6 +3487,394 @@
       "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/E-wedding-anniversary.png"
+    },
+    {
+      "id": "G-air-hockey",
+      "name": "エアホッケー",
+      "scene": "Canonical otter and shiba happily compete across a smooth white air-hockey table in an airy seaside arcade, each holding one red or blue round striker, one black puck sliding diagonally toward goal slot. Low dynamic corner view, mouths happy, separated paws and tails, table and puck instantly identifiable. No score display.",
+      "identity_review": "Visual comparison to canonical character references: otter / Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        },
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        }
+      ],
+      "illustration": "illustrations/G-air-hockey.png",
+      "sha256": "b56a412e92e45e3288fe6e4c13dfd667f9b5fd4763b9b6f4e4fc63bc6a6828dd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-air-hockey.png"
+    },
+    {
+      "id": "G-animal-shogi",
+      "name": "どうぶつしょうぎ",
+      "scene": "Panda and white rabbit thoughtfully play animal shogi on a small wooden 3-column by 4-row board at a low garden table. Chunky wooden square pieces bear only simple lion, giraffe, elephant and chick pictures, no kanji or writing. Rabbit moves a chick piece one square with a paw, panda watches, slightly overhead view shows the board clearly. Do not use chess figurines.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-animal-shogi.png",
+      "sha256": "f2da7a5d377a06b08ed7f50e9f3ff5b3030b67dd6e3ad7d8a1e061dd35f6b330",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-animal-shogi.png"
+    },
+    {
+      "id": "G-archery-3d",
+      "name": "アーチェリー",
+      "scene": "Brown cream monkey practices archery at a peaceful woodland range, holding a simple wooden bow with one hand and drawing arrow string with other, exactly two arms and two legs and curled tail. Arrow points away from viewer toward a distant concentric circular straw target. Proper bowstring connected at both bow tips, safe target sport, focused joyful expression, side view with full body and target.",
+      "identity_review": "Visual comparison to canonical character references: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-archery-3d.png",
+      "sha256": "5398a8dae626bfceb9c9ba88d62846db1b23e8fef03ca0066e5fc89a6ab7b053",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-archery-3d.png"
+    },
+    {
+      "id": "G-area-claim",
+      "name": "じんとり",
+      "scene": "Orange squirrel plays a whimsical territory-claim game on a square tiled garden playfield. It drags a bright blue chalk line from the outer edge around a rectangular region and connects back to the edge; completed region softly colored blue, remaining area cream, a few warm star-shaped game tokens in unclaimed area. Overhead three-quarter view, squirrel clearly drawing enclosure, no numbers or UI.",
+      "identity_review": "Visual comparison to canonical character references: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-area-claim.png",
+      "sha256": "818a1a554a7e97f2a414d91a1d08872ec5bb5d5a16182ed7dcda075e1cc6b83e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-area-claim.png"
+    },
+    {
+      "id": "G-asteroids-classic",
+      "name": "アステロイド",
+      "scene": "Golden hamster with big cream cheeks pilots a small rounded triangular toy spaceship through an asteroid play-space, visible inside clear bubble cockpit. A thin harmless light beam breaks one drifting gray asteroid into a few soft glowing fragments, other rocks well spaced, deep teal star field but luminous and friendly. Space arcade action, no military imagery, no digits or HUD. Ship and hamster prominent left moving diagonally right.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-asteroids-classic.png",
+      "sha256": "b083645a71982175d935a79cdb20a563378648ef8d8d0c111fff64b0e208f218",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-asteroids-classic.png"
+    },
+    {
+      "id": "G-baseball-batting",
+      "name": "やきゅう",
+      "scene": "Orange cream shiba in a sunny grassy baseball field swings a wooden baseball bat with both forepaws at one white red-stitched baseball just crossing the home plate. Balanced hind paws, curled tail, expressive concentration, exact natural dog body and face, no extra limbs or clothes. Low diagonal camera, ball and bat separated clearly, backstop distant, no text.",
+      "identity_review": "Visual comparison to canonical character references: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        }
+      ],
+      "illustration": "illustrations/G-baseball-batting.png",
+      "sha256": "e2d2463541fde71f2b064d7bffdabcaa1b4a5d89ef42050a713a78ae512a28ea",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-baseball-batting.png"
+    },
+    {
+      "id": "G-basketball-3d",
+      "name": "バスケ3D",
+      "scene": "Brown cream monkey leaps for a joyful basketball shot toward a small garden court hoop with orange rim and white net. Both hands just released a single orange basketball above head, two legs tucked naturally, curled tail behind. Camera from low side, hoop and ball visible, warm afternoon, no uniforms or digits.",
+      "identity_review": "Visual comparison to canonical character references: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-basketball-3d.png",
+      "sha256": "20f5fde0f6f5636cb3b2d47ad06be7c018c56386a78b23b5bee2c34694e910ea",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-basketball-3d.png"
+    },
+    {
+      "id": "G-billiards-6",
+      "name": "ビリヤード",
+      "scene": "Round brown tanuki with dark eye mask and cream belly leans over a low green-felt billiards table, using two forepaws to guide one wooden cue toward white cue ball. Six colored plain object balls spaced on table with visible corner pockets, no numbers on balls. Cozy wood-paneled sunlit club room, diagonal overhead composition, careful cheerful expression.",
+      "identity_review": "Visual comparison to canonical character references: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-billiards-6.png",
+      "sha256": "6f464f8aa931a324f19c3ad91f3b8e33e94b035aee675e58d38933ac66e3e6b8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-billiards-6.png"
+    },
+    {
+      "id": "G-blackjack-21",
+      "name": "ブラックジャック",
+      "scene": "Panda and white rabbit enjoy a friendly blackjack card game on green cloth in a bright home sunroom. Rabbit deciding whether to draw reaches toward a facedown deck, panda opposite lays two cards. Face-up cards show ONLY suit pips hearts/spades/diamonds/clubs, no letters or numerals. A few wooden counters, no cash or casino glamour, game action clear, overhead diagonal view.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-blackjack-21.png",
+      "sha256": "2c6a7fadb94814a068d69a117153693072288cca3d6f23bd55df529181d4b64d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-blackjack-21.png"
+    },
+    {
+      "id": "G-bomber-maze",
+      "name": "ボンバー",
+      "scene": "Orange cream shiba plays in a whimsical brick maze, stepping safely around a corner after placing a little round cartoon toy bomb with a short sparkling fuse. A distant soft puff knocks a few toy bricks apart, no violence or injury, rounded bright maze walls and clear corridors. High diagonal view, full dog body and curled tail, joyful arcade adventure, no other characters needed.",
+      "identity_review": "Visual comparison to canonical character references: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        }
+      ],
+      "illustration": "illustrations/G-bomber-maze.png",
+      "sha256": "307f09bd922777f3f94e35607d8ccdb1f33bbb3cf017dbe417e9835d07c12ae4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-bomber-maze.png"
+    },
+    {
+      "id": "G-bowling-3d",
+      "name": "ボウリング",
+      "scene": "Small navy white penguin with orange beak and feet bowls in a sunlit wooden bowling alley. One flipper follows through after releasing a bright blue bowling ball down the lane toward a triangular group of white pins with red neck stripes. Penguin full silhouette foreground left, lane perspective recedes, no footwear/clothing or scoreboards.",
+      "identity_review": "Visual comparison to canonical character references: Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/penguin_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+        }
+      ],
+      "illustration": "illustrations/G-bowling-3d.png",
+      "sha256": "514467a7b5e74ecef076209a60ad91012c7ad315411a14470d3d03bce55c9bd1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-bowling-3d.png"
+    },
+    {
+      "id": "G-breakout-classic",
+      "name": "ブロックくずし",
+      "scene": "White rabbit enthusiastically operates a long horizontal wooden paddle across the bottom of a tabletop breakout playfield, bouncing a shiny cream ball upward into rows of brightly colored rectangular blocks. One block bursts into small harmless confetti at point of contact. Three-quarter view shows paddle ball and suspended rows clearly; airy playroom, no screens with numbers.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-breakout-classic.png",
+      "sha256": "6abc446872805e2d089dfaf7bbc26393658436b49571ddb1ac4e87f1abc71213",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-breakout-classic.png"
+    },
+    {
+      "id": "G-bubble-shooter",
+      "name": "バブルシューター",
+      "scene": "Golden hamster aims a small rounded bubble launcher upward at an overhead cluster of red blue yellow green glossy bubbles; one blue bubble is in flight toward two blue bubbles touching together, forming a matching group. Cheerful garden fair, side angle, hamster and launcher full visible, delicate transparent bubble reflections, no numbers.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-bubble-shooter.png",
+      "sha256": "7520bf1887278e56c99fd34b203318382211bfcdd1def50f57bd4c6248238b72",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-bubble-shooter.png"
+    },
+    {
+      "id": "G-catapult-castle",
+      "name": "カタパルト",
+      "scene": "Brown masked tanuki launches one soft round ball with a little wooden catapult at a toy block castle in a meadow. Several blocks tumble and a tiny friendly white ghost game-piece floats above the tower, playful not scary. Catapult sling and pivot readable, tanuki one paw at release lever, wide diagonal action scene, no weapon realism or injury.",
+      "identity_review": "Visual comparison to canonical character references: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-catapult-castle.png",
+      "sha256": "7d9bfd724e5247fdfca980668c5ab27cd155605360dfb0ca9197870c4fcc4168",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-catapult-castle.png"
+    },
+    {
+      "id": "G-chain-puzzle",
+      "name": "れんさパズル",
+      "scene": "Orange squirrel drops a linked pair of glossy colored balls into a tall transparent rectangular puzzle tray. At bottom four matching red balls touch and start to pop into gentle sparkles, letting a cluster of blue balls above fall toward each other. Side three-quarter close view, game mechanics readable, cozy treehouse window light, no digits/interface.",
+      "identity_review": "Visual comparison to canonical character references: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-chain-puzzle.png",
+      "sha256": "7ff8c2f8e66cf40375a85a1a453006d53a7c0e30b4608d9b9594bdde711794e7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-chain-puzzle.png"
+    },
+    {
+      "id": "G-checkers-6",
+      "name": "チェッカー",
+      "scene": "Panda and brown monkey play checkers on a clearly six-by-six alternating dark and cream wooden checkerboard on a low porch table. Round red and charcoal counters only on dark squares, monkey lifts one red counter to jump diagonally over a charcoal one into empty square. Hands separate, full happy faces, high diagonal view, no symbols or numerals.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-checkers-6.png",
+      "sha256": "0702a14a998bc84b0268ab85cca066448c8e1b20e29dabf99e60222136b07794",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-a-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-checkers-6.png"
     }
   ],
   "remaining_not_started": 429,

@@ -964,13 +964,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-air-hockey.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/otter.png;assets/characters/companions/shiba.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-air-hockey — エアホッケー",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "G-animal-shogi",
@@ -984,13 +984,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-animal-shogi.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/panda.png;assets/characters/companions/rabbit_friend.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-animal-shogi — どうぶつしょうぎ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "G-archery-3d",
@@ -1004,13 +1004,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-archery-3d.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/monkey.png",
       "card_text_source": "79-play-batch-1-card-text-draft.md#G-archery-3d — アーチェリー",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-area-claim",
@@ -1024,13 +1024,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-area-claim.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/squirrel.png",
       "card_text_source": "85-play-batch-4-card-text-draft.md#G-area-claim — じんとり",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-asteroids-classic",
@@ -1044,13 +1044,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-asteroids-classic.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/hamster.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-asteroids-classic — アステロイド",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-baseball-batting",
@@ -1064,13 +1064,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-baseball-batting.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/shiba.png",
       "card_text_source": "81-play-batch-2-card-text-draft.md#G-baseball-batting — やきゅう",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-basketball-3d",
@@ -1084,13 +1084,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-basketball-3d.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/monkey.png",
       "card_text_source": "81-play-batch-2-card-text-draft.md#G-basketball-3d — バスケ3D",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-beach-volley",
@@ -1124,13 +1124,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-billiards-6.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/tanuki.png",
       "card_text_source": "81-play-batch-2-card-text-draft.md#G-billiards-6 — ビリヤード",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-blackjack-21",
@@ -1144,13 +1144,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-blackjack-21.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/panda.png;assets/characters/companions/rabbit_friend.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-blackjack-21 — ブラックジャック",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "G-bomber-maze",
@@ -1164,13 +1164,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-bomber-maze.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/shiba.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-bomber-maze — ボンバー",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-bowling-3d",
@@ -1184,13 +1184,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-bowling-3d.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/penguin_friend.png",
       "card_text_source": "79-play-batch-1-card-text-draft.md#G-bowling-3d — ボウリング",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-breakout-classic",
@@ -1204,13 +1204,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-breakout-classic.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/rabbit_friend.png",
       "card_text_source": "79-play-batch-1-card-text-draft.md#G-breakout-classic — ブロックくずし",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-bubble-shooter",
@@ -1224,13 +1224,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-bubble-shooter.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/hamster.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-bubble-shooter — バブルシューター",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-catapult-castle",
@@ -1244,13 +1244,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-catapult-castle.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/tanuki.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-catapult-castle — カタパルト",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-chain-puzzle",
@@ -1264,13 +1264,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-chain-puzzle.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/squirrel.png",
       "card_text_source": "81-play-batch-2-card-text-draft.md#G-chain-puzzle — れんさパズル",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-checkers-6",
@@ -1284,13 +1284,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/G-checkers-6.png",
       "character_3d_reference": "",
-      "supporting_source": "script.js;games.js;game-symbol-art.js",
+      "supporting_source": "assets/characters/companions/panda.png;assets/characters/companions/monkey.png",
       "card_text_source": "85-play-batch-4-card-text-draft.md#G-checkers-6 — チェッカー",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-connect-four",
