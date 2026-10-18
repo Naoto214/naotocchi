@@ -6,6 +6,8 @@ import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
 import {ResultFeedback} from './ui-result-feedback.mjs';
 import {installViewport} from './ui-viewport.mjs';
+import {installArtFallback,fitMainCardCopy} from './ui-art-loading.mjs';
+installArtFallback();
 installViewport();
 const ORDER_KEY='naotocchi-hand-order-v1';
 let handOrder;try{handOrder=new HandOrder(localStorage.getItem(ORDER_KEY));}catch{handOrder=new HandOrder();}
@@ -71,6 +73,8 @@ function inspect(id,{catalog=false,origin=null,readOnly=false}={}){
 
  if(readOnly&&zone&&seat){const back=button('一覧へ',()=>showZone(seat,zone,null));d.querySelector('.detail-toolbar').prepend(back);}
  d.showModal();d.querySelector('[data-close]').focus();
+ const face=d.querySelector('.main-face');
+ document.fonts.ready.then(()=>{if(d.open&&face?.isConnected&&d.contains(face))fitMainCardCopy(face);});
 }
 function perform(action,revision,who){
  if(busy)return;busy=true;
@@ -128,7 +132,7 @@ function renderDeck(){
  const valid=a=>{try{validateDeck(decks[a]);return '準備OK';}catch(e){return e.message;}};
  $('deck-count').textContent=`A：${decks.A.length}/40枚 · ${valid('A')} ／ B：${decks.B.length}/40枚 · ${valid('B')}`;
  $('new').disabled=!['A','B'].every(a=>{try{validateDeck(decks[a]);return true;}catch{return false;}});
- const list=$('deck-list');list.replaceChildren();for(const [id,n] of Object.entries(counts)){const row=el('div',undefined,'deck-row');row.append(el('span',`${CARDS[id].name} × ${n}${supported(id)?'':' · 未対応'}`),button('− 1枚',()=>{deck.splice(deck.indexOf(id),1);saveDraft();}));list.append(row);}
+ const list=$('deck-list');list.replaceChildren();for(const [id,n] of Object.entries(counts)){const row=el('div',undefined,'deck-row');const preview=button('',()=>inspect(id,{catalog:true,origin:preview}));preview.className='card-tap deck-preview-card';preview.setAttribute('aria-label',CARDS[id].name+'を拡大');preview.innerHTML=cardMarkup(CARDS[id],{compact:true});row.append(preview);row.append(el('span',`${CARDS[id].name} × ${n}${supported(id)?'':' · 未対応'}`),button('− 1枚',()=>{deck.splice(deck.indexOf(id),1);saveDraft();}));list.append(row);}
  const query=$('card-search').value.trim().toLowerCase(),type=$('card-type').value;
  const entries=Object.values(CARDS).filter(c=>(!type||c.type===type)&&(!query||`${c.id} ${c.name} ${c.text}`.toLowerCase().includes(query)));
  $('catalog-count').textContent=`${entries.length} / ${Object.keys(CARDS).length}種類を表示`;

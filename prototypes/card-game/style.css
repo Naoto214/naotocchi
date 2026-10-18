@@ -80,3 +80,18 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(orientation:landscape){#operation-panel{max-height:100%;overflow-y:auto}.notice-expand{min-height:52px}}
 
 @media(orientation:landscape) and (max-height:330px){.result-notice{min-height:48px}.result-notice>small{display:none}.result-notice li{min-height:20px}.result-mini,.result-mini>.card-face{width:12px;height:18px}}
+
+/* PR #393 artwork; the existing card/board boxes and viewport geometry stay fixed. */
+.card-attribute .icon{color:var(--mark-ink)}
+.card-art{background:#f5ead5}
+.card-art>.dedicated-art{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;image-rendering:auto;z-index:1}
+.card-art>.dedicated-art[hidden]{display:none}
+.art-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4%;color:#63523d;visibility:hidden}
+.art-fallback .icon{width:30%;height:40%}.art-fallback small{font-size:4cqw}
+.card-art.art-unavailable .art-fallback,.card-art:not(:has(.dedicated-art)) .art-fallback{visibility:visible}
+.card-face:not(.main-face):not(.compact){padding-inline:3%;grid-template-rows:20% auto minmax(0,1fr) 2%}
+.card-face:not(.main-face):not(.compact) .card-art{aspect-ratio:3/2;width:100%;border-radius:8%;align-self:center}
+.card-face:not(.main-face):not(.compact) .card-heading{padding-left:4%;padding-right:24%}
+.card-face:not(.main-face):not(.compact) .card-copy{font-size:3.8cqw}
+.history-cards{display:flex;flex-wrap:wrap;gap:5px;margin-block:6px}.history-cards>span{display:block;width:40px;height:60px;flex:none}.history-cards .card-face{width:100%;height:100%}
+.deck-row .deck-preview-card{width:36px;height:54px;flex:none;padding:0;min-height:0}.deck-row .deck-preview-card>.card-face{width:100%;height:100%}
