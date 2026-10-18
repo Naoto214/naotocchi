@@ -8444,13 +8444,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "521c7417711b81d31860140681b1ba031695193a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-anglerfish.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:anglerfish",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-anglerfish — ひかるチョウチンアンコウ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Deep-sea environment repaired; first candidate retained."
     },
     {
       "card_id": "P-cat_ceo",
@@ -8464,13 +8464,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b339acaaf1e72992d9eb1752a24398f663b621a8",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-cat_ceo.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:cat_ceo",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-cat_ceo — ビルのねこ社長",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-cliff_goat",
@@ -8484,13 +8484,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b47aa2c50512553207852699c682d28052fda21f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-cliff_goat.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:cliff_goat",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-cliff_goat — がけのヤギさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-desert_scorpion",
@@ -8504,13 +8504,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "c2873fa09e8b4384606acf06c08f51cdccd269c2",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-desert_scorpion.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:desert_scorpion",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-desert_scorpion — さばくのサソリさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-field_cow",
@@ -8524,13 +8524,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "13a690dd8dede1ff5a15b46a313c3e93e474f2e3",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-field_cow.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:field_cow",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-field_cow — のはらのうしさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-forest_bear",
@@ -8564,13 +8564,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "3f574b44e4b0357b7fb5217855e876f2979bc864",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-gentle_gorilla.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:gentle_gorilla",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-gentle_gorilla — やさしいゴリラ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-grove_deer",
@@ -8604,13 +8604,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "dd3b7f2963ae14b0168a5eae2715c189f9570b1a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-high_eagle.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:high_eagle",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-high_eagle — たかねのワシ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-knitting_spider",
@@ -8624,13 +8624,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "21ffbf69bdfa3a1c842289aca55132c0d67251ee",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-knitting_spider.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:knitting_spider",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-knitting_spider — あみものがすきなクモさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-oasis_cactus",
@@ -8644,13 +8644,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "9cc780408dce4008bf2f99e6919311f5f3342224",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-oasis_cactus.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:oasis_cactus",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-oasis_cactus — オアシスのサボテンさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-robot_neighbor",
@@ -8664,13 +8664,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e07962ce97fc6a5cd1c009d313f3a4455599d107",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-robot_neighbor.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:robot_neighbor",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-robot_neighbor — となりまちのロボット",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-rock_octopus",
@@ -8684,13 +8684,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e04a7f988113ee83b810c3fc97cad3d86f38c5d6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-rock_octopus.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:rock_octopus",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-rock_octopus — いわばのタコさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-sea_mermaid",
@@ -8704,13 +8704,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f948c5a60ce16da4079fe1f936bf947ccc3e43d2",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-sea_mermaid.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:sea_mermaid",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-sea_mermaid — うみのにんぎょ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-snow_spirit",
@@ -8724,13 +8724,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "161e57e10372f19167717aaee9129b92f57e8259",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-snow_spirit.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:snow_spirit",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-snow_spirit — ゆきのせいれい",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-snowman",
@@ -8744,13 +8744,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "146fb58bb059e976276bb9b0195fdbeda2180aa6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-snowman.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:snowman",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-snowman — とけないゆきだるま",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-sunflower_partner",
@@ -8764,13 +8764,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b7cda8b0f8fb63ff638ec6ebd6d7bfd31fdd45bd",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-sunflower_partner.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:sunflower_partner",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-sunflower_partner — はたけのひまわりさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-swamp_croc",
@@ -8784,13 +8784,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "17cd554e38b910336e00a9ea66f5fbac32120790",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/P-swamp_croc.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/nonplayer-spec.js; key=partner:swamp_croc",
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-swamp_croc — ぬまのワニさん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-city",
@@ -8804,13 +8804,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ecd6b1fc4f05bb332c2cd4befb15d394a65d80dc",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-city.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-city — とかい",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-countryside",
@@ -8824,13 +8824,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d9fff16481019fc8ebc6640194ef6bcb53976bdd",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-countryside.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-countryside — いなか",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-deepsea",
@@ -8844,13 +8844,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "84581571838d588cdb4c8cad681c93671984185a",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-deepsea.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-deepsea — しんかい",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-desert",
@@ -8864,13 +8864,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0cee5173c0682ac628f8a75ff2bd835c8d4b4042",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-desert.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-desert — さばく",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-forest",
@@ -8904,13 +8904,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e91c0693e8bdc4938a8fe60ab3c82d1bad944751",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-home.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-home — おうち",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-jungle",
@@ -8924,13 +8924,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fb428fb06f635b0733d43b9004f77421c1e46f06",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-jungle.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-jungle — ジャングル",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-memory_lake",
@@ -8944,13 +8944,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "4bfc480940c3451ec2aab02a091531f1028f423e",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-memory_lake.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-memory_lake — きおくのみずうみ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-mountain",
@@ -8964,13 +8964,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "64e16fec7d4b1043b0ebe831427311f2b856389e",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-mountain.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-mountain — やま",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-river_lake",
@@ -8984,13 +8984,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "afd08334b88a2678bce434dc2c41a832b50d6330",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-river_lake.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-river_lake — みずべ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-sea",
@@ -9024,13 +9024,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "59ec8e08a7b432fb02ddddc2e974819e08ff393c",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-snow.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-snow — ゆきぐに",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "W-star_stop",
@@ -9044,13 +9044,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f36093795da9cadc10140c90777b5c15f0d9c9d3",
       "classification": "direct_reuse",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/W-star_stop.png",
       "character_3d_reference": "",
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-star_stop — ほしぞらのていりゅうじょ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     }
   ]
 }

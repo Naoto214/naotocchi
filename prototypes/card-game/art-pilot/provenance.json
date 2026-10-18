@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 69,
+  "generated_count": 96,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -1802,6 +1802,627 @@
       "generation": "Built-in image_gen; rollout/continuation-20261018/companions-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/C-watcher.png"
+    },
+    {
+      "id": "P-anglerfish",
+      "name": "ひかるチョウチンアンコウ",
+      "scene": "Swimming slowly above a deep-sea rock garden, its small golden lantern illuminating a safe path through blue coral shapes, welcoming soft eyes, indigo and turquoise water, no threatening teeth.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Rounded plum-purple anglerfish, pale lavender belly, golden big eyes, small friendly mouth, paired fins and one curved stalk ending in a warm glowing ball.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/anglerfish.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "521c7417711b81d31860140681b1ba031695193a"
+        }
+      ],
+      "illustration": "illustrations/P-anglerfish.png",
+      "sha256": "5f32ec35d00fb685ade353252bde3b46435c9f5a57aa48d5d7f19af5ecdafcb7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; one deep-sea environment revision",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-anglerfish.png"
+    },
+    {
+      "id": "P-cat_ceo",
+      "name": "ビルのねこ社長",
+      "scene": "Taking a relaxed break on a city office balcony among potted plants at sunset, looking up warmly from its phone as if greeting an arriving loved one. Full body, confident adult proportions and suit details, soft city windows behind; no logos or readable phone text.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Slender adult anthropomorphic charcoal cat, triangular ears and long tail, golden eyes, tailored dark blue suit, pale shirt, gold tie, dark trousers, small phone as in canonical reference.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/cat_ceo.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b339acaaf1e72992d9eb1752a24398f663b621a8"
+        }
+      ],
+      "illustration": "illustrations/P-cat_ceo.png",
+      "sha256": "955d4bb89c1dcad60ef3ee1837e0fe5078bc1235bb9fc8883ab7f418dcc79119",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-cat_ceo.png"
+    },
+    {
+      "id": "P-cliff_goat",
+      "name": "がけのヤギさん",
+      "scene": "Waiting on a safe broad rocky ledge above an alpine valley, looking back invitingly toward a mountain trail, a few small alpine flowers, bright crisp morning light, full body and both horns.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Cream white shaggy mountain goat, two dark backward curving horns, small beard, split dark hooves, slim four legs.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/cliff_goat.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b47aa2c50512553207852699c682d28052fda21f"
+        }
+      ],
+      "illustration": "illustrations/P-cliff_goat.png",
+      "sha256": "d94447bd9f850630e8299d912076bc3dcefe08eade2c2d0b5a3511603bdc83af",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-cliff_goat.png"
+    },
+    {
+      "id": "P-desert_scorpion",
+      "name": "さばくのサソリさん",
+      "scene": "Resting calmly beside a smooth shaded rock and desert flowers at an oasis edge after sunset, amber body visible against pale pink sand, curved tail held gently above body, welcoming eyes matching reference if visible, no aggression.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Golden amber scorpion, segmented body, eight walking legs, two curved front pincers and one raised segmented tail with small stinger.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/desert_scorpion.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c2873fa09e8b4384606acf06c08f51cdccd269c2"
+        }
+      ],
+      "illustration": "illustrations/P-desert_scorpion.png",
+      "sha256": "969d07d13a6463101c115b4fee0bf85a0c5453e247f5f0bfd29481e7ceed3a26",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-desert_scorpion.png"
+    },
+    {
+      "id": "P-field_cow",
+      "name": "のはらのうしさん",
+      "scene": "Standing quietly in a lush clover field beside a rustic stile, glancing toward viewer while chewing a small sprig, warm midday light after a passing cloud, rolling pasture and a few daisies. Peaceful companionable atmosphere.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Black and white spotted cow, cream muzzle with pink nose, small cream horns, pink inner ears, dark hooves and thin tail with black tuft, leafy grass held at mouth.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/field_cow.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "13a690dd8dede1ff5a15b46a313c3e93e474f2e3"
+        }
+      ],
+      "illustration": "illustrations/P-field_cow.png",
+      "sha256": "c03d80048017f1ba289646e5c5fb894ea696142e65274d9fa0a25ef7c8e744a5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-field_cow.png"
+    },
+    {
+      "id": "P-gentle_gorilla",
+      "name": "やさしいゴリラ",
+      "scene": "Sitting in a bright jungle clearing, carefully offering its tiny yellow flower toward viewer with a very gentle expression. Preserve sturdy gorilla build, huge hands and small delicate flower, soft green light and distant vines.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Broad dark gray gorilla, softer gray face chest palms, strong arms and compact legs, kindly thoughtful eyes, tiny yellow flower held delicately.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/gentle_gorilla.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "3f574b44e4b0357b7fb5217855e876f2979bc864"
+        }
+      ],
+      "illustration": "illustrations/P-gentle_gorilla.png",
+      "sha256": "d7ec0fd149ad9f103b117515884ba080eb4b3fd26105cf7ca144fe0be1c767e8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-gentle_gorilla.png"
+    },
+    {
+      "id": "P-high_eagle",
+      "name": "たかねのワシ",
+      "scene": "On a spacious mountain lookout ledge at dawn, broad wings half open to shelter the space beside it, kindly dignified gaze, layered blue mountains and clouds below, natural feather anatomy and two feet gripping stone.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Bald eagle with cream white head and tail, brown layered wings/body, golden hooked beak and talons, alert calm eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/high_eagle.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "dd3b7f2963ae14b0168a5eae2715c189f9570b1a"
+        }
+      ],
+      "illustration": "illustrations/P-high_eagle.png",
+      "sha256": "a0a8f41db72278ef78b386aed8f984b79ca1335d0486271142ea5af8d8eafb1d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-high_eagle.png"
+    },
+    {
+      "id": "P-knitting_spider",
+      "name": "あみものがすきなクモさん",
+      "scene": "Knitting a small mint scarf on a broad sunlit garden leaf, two front legs handling needles and six remaining legs supporting or resting naturally, cozy dew drops and flower bokeh. No extra arms, no human hands, no scary fangs.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Cute purple spider with round abdomen patterned with pale lavender floral spots, small pale face, big warm eyes, exactly eight slender purple legs, knitting mint-green yarn with needles and a small yarn ball.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/knitting_spider.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21ffbf69bdfa3a1c842289aca55132c0d67251ee"
+        }
+      ],
+      "illustration": "illustrations/P-knitting_spider.png",
+      "sha256": "4f1940e4336ad3c028b45ff43f027aea78cc6e3d6e13da4cc36a71bdc500af03",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-knitting_spider.png"
+    },
+    {
+      "id": "P-oasis_cactus",
+      "name": "オアシスのサボテンさん",
+      "scene": "Standing beside an oasis pool, one cactus arm extended in a friendly welcome, reflected turquoise water and distant pale dunes, soft morning light, pink crown flower, full body with roots on sand.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Upright green cactus person with vertical ribs and fine pale spines, two side arms, small friendly eyes and mouth, tiny pink flower near top, small root feet.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/oasis_cactus.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9cc780408dce4008bf2f99e6919311f5f3342224"
+        }
+      ],
+      "illustration": "illustrations/P-oasis_cactus.png",
+      "sha256": "20aac59fad9fbf1203f44f817fc803ef8a9255bb5657b01031342bd8145dee6f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-oasis_cactus.png"
+    },
+    {
+      "id": "P-robot_neighbor",
+      "name": "となりまちのロボット",
+      "scene": "Waiting at a charming neighboring town tram stop with potted flowers, holding one empty mechanical hand up in greeting, slight shy head tilt, pastel morning street. No text, numbers or signs, retain all mint panels and antenna.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Small cream and mint-green retro robot, square screen face with friendly brown eyes, one top antenna ending in round ball, round side ear disks, segmented arms and legs, mint boots.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/robot_neighbor.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e07962ce97fc6a5cd1c009d313f3a4455599d107"
+        }
+      ],
+      "illustration": "illustrations/P-robot_neighbor.png",
+      "sha256": "67f78488a31138ccccf8eac3b303c463e460f07a9c3987e251ed23f3d8cfc1bd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-robot_neighbor.png"
+    },
+    {
+      "id": "P-rock_octopus",
+      "name": "いわばのタコさん",
+      "scene": "In a shallow crystal-clear tidepool among smooth rocks and small shells, using one arm to offer a pretty shell, remaining seven arms naturally arranged around the body. Side sunlight through water, soft turquoise tones, count eight total arms, no extra arms.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Bright coral-red orange octopus with rounded speckled mantle, big dark eyes and gentle smile, eight distinct curling arms with pale round suckers.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/rock_octopus.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e04a7f988113ee83b810c3fc97cad3d86f38c5d6"
+        }
+      ],
+      "illustration": "illustrations/P-rock_octopus.png",
+      "sha256": "5977e7e2a829a594ef47156c2db20492eaf2c8c4c007904a913c2c8d9d250cc2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-rock_octopus.png"
+    },
+    {
+      "id": "P-sea_mermaid",
+      "name": "うみのにんぎょ",
+      "scene": "Sitting gracefully on a low sea rock where clear shallow water meets a secluded beach, one hand touching the water and the other giving a small welcome, hair gently lifted by sea breeze, pearly morning light, entire single tail and pink fin visible. Match canonical cartoon adult proportions, modest nonsexual storybook.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Adult friendly mermaid with long dark teal wavy hair, warm light skin, green seashell bodice, single turquoise scaled fish tail and pink split caudal fin, two human arms.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/sea_mermaid.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f948c5a60ce16da4079fe1f936bf947ccc3e43d2"
+        }
+      ],
+      "illustration": "illustrations/P-sea_mermaid.png",
+      "sha256": "aa8051c24c7a2644350b358c7d7a05923f4a78b7df1363408775b87a9b0ca2aa",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-sea_mermaid.png"
+    },
+    {
+      "id": "P-snow_spirit",
+      "name": "ゆきのせいれい",
+      "scene": "Floating just above a snowy clearing beside frost-covered branches, softly extending one delicate hand toward a drifting snowflake, gentle cool face, pastel lavender twilight with warm distant horizon. Crystal shapes remain distinct, no wings added.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Delicate small icy blue humanoid spirit, crystalline pointed hair and icy crown-like spikes, pale face, translucent blue angular layered dress, pointed icy limbs.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/snow_spirit.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "161e57e10372f19167717aaee9129b92f57e8259"
+        }
+      ],
+      "illustration": "illustrations/P-snow_spirit.png",
+      "sha256": "db82d418afff86ca0165931cedd2b5d7f3cccc8271bd2b723e095fff80ceb865",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-snow_spirit.png"
+    },
+    {
+      "id": "P-snowman",
+      "name": "とけないゆきだるま",
+      "scene": "Waiting cheerfully on a snowy village path under the first warm rays of spring sun, intact firm snow body with no melting, a few early snowdrops at path edge, stick hand raised in greeting, soft blue shadows.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Three white snowballs, navy knit cap, red scarf, coal eyes and smile, orange carrot nose, dark coal buttons, two branched stick arms.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/snowman.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "146fb58bb059e976276bb9b0195fdbeda2180aa6"
+        }
+      ],
+      "illustration": "illustrations/P-snowman.png",
+      "sha256": "7b6973067dd75d8c51673af013a0e97d49e0eae9c6ad2f7e138cc200341a9006",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-snowman.png"
+    },
+    {
+      "id": "P-sunflower_partner",
+      "name": "はたけのひまわりさん",
+      "scene": "At the front of a sunny field of smaller ordinary sunflowers, turning its friendly face toward viewer and one leaf arm extended, green roots touching cultivated soil, warm late afternoon, main flower face clearly distinct from background.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Sunflower character with one golden-yellow petal ring around round brown smiling face, slender green stem, two leaf arms, root feet.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/sunflower_partner.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b7cda8b0f8fb63ff638ec6ebd6d7bfd31fdd45bd"
+        }
+      ],
+      "illustration": "illustrations/P-sunflower_partner.png",
+      "sha256": "f03b136345b6e32ec8f0baec93822ada2aa71ca0fc28863008f177c932dc07ba",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-sunflower_partner.png"
+    },
+    {
+      "id": "P-swamp_croc",
+      "name": "ぬまのワニさん",
+      "scene": "Sitting peacefully at a lily-covered swamp bank with its thick tail curved alongside, resting a forepaw on a smooth log as if making room for company, kind gaze, warm filtered light, water lilies and reeds; no aggression.",
+      "identity_review": "Visual comparison to canonical 2D sprite: Friendly plump olive green crocodile with pale cream segmented belly, long rounded snout, little visible teeth, dark dorsal ridges, sturdy legs and thick curving tail.",
+      "sources": [
+        {
+          "path": "assets/characters/partners/swamp_croc.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "17cd554e38b910336e00a9ea66f5fbac32120790"
+        }
+      ],
+      "illustration": "illustrations/P-swamp_croc.png",
+      "sha256": "6221f5e4cf09c337030a935ef107c4d572a8ce9f54265896b9fde84d192b56d7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/partners-20261018/partners-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/P-swamp_croc.png"
+    },
+    {
+      "id": "W-city",
+      "name": "とかい",
+      "scene": "Modern friendly city plaza with tall blue glass towers, wide stone pavement, a raised pedestrian skybridge, neat green planted borders and a few young street trees. Bright fresh daytime sky reflecting in windows. Preserve the canonical urban architecture language, no labels on billboards, no readable writing, no people or animals. Broad landscape perspective from plaza level.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Modern friendly city plaza with tall blue glass towers, wide stone pavement, a raised pedestrian skybridge, neat green planted borders and a few young street trees. Bright fresh daytime sky reflecting in windows. Preserve the canonical urban architecture language, no labels on billboards, no readable writing, no people or animals. Broad landscape perspective from plaza level.",
+      "sources": [
+        {
+          "path": "assets/world/city-day-v2.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ecd6b1fc4f05bb332c2cd4befb15d394a65d80dc"
+        }
+      ],
+      "illustration": "illustrations/W-city.png",
+      "sha256": "0d44c1dd519e624f3bbbd8ba86b9b52cc5dec4d4f479943f1215f46134462734",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-city.png"
+    },
+    {
+      "id": "W-countryside",
+      "name": "いなか",
+      "scene": "Peaceful Japanese countryside of green and golden rice paddies, narrow earthen footpath and small irrigation channels, low houses and wooded mountains in the distance, clear summer clouds. Wide sweeping farm landscape, gentle midmorning light, no people or animals.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Peaceful Japanese countryside of green and golden rice paddies, narrow earthen footpath and small irrigation channels, low houses and wooded mountains in the distance, clear summer clouds. Wide sweeping farm landscape, gentle midmorning light, no people or animals.",
+      "sources": [
+        {
+          "path": "assets/world/countryside-v2.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d9fff16481019fc8ebc6640194ef6bcb53976bdd"
+        }
+      ],
+      "illustration": "illustrations/W-countryside.png",
+      "sha256": "bc603be1e742be98828beda34dca7315908d2d878e2f7f627b3526583f42c15d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-countryside.png"
+    },
+    {
+      "id": "W-deepsea",
+      "name": "しんかい",
+      "scene": "Deep ocean seafloor canyon, dark blue towering rock walls around a broad sandy floor, small blue bioluminescent points and sparse pale cold-water coral. NO sunbeams, NO water surface, NO seaweed or kelp. Soft magical blue fill keeps terrain legible and beautiful without making it daylight. No characters, no fish.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Deep ocean seafloor canyon, dark blue towering rock walls around a broad sandy floor, small blue bioluminescent points and sparse pale cold-water coral. NO sunbeams, NO water surface, NO seaweed or kelp. Soft magical blue fill keeps terrain legible and beautiful without making it daylight. No characters, no fish.",
+      "sources": [
+        {
+          "path": "assets/world/deepsea-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "84581571838d588cdb4c8cad681c93671984185a"
+        }
+      ],
+      "illustration": "illustrations/W-deepsea.png",
+      "sha256": "ab8f31db685b11cbce2223ff043a9688dc047d89cbb5a6ab2d60841ad6f79140",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-deepsea.png"
+    },
+    {
+      "id": "W-desert",
+      "name": "さばく",
+      "scene": "Broad golden sand dunes with elegant wind ripples framed by warm sandstone rocks, small palm oasis far to one side, few desert plants in foreground, pale blue sky and soft peach clouds. Sweeping open sunlit landscape, warm but inviting, no characters.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Broad golden sand dunes with elegant wind ripples framed by warm sandstone rocks, small palm oasis far to one side, few desert plants in foreground, pale blue sky and soft peach clouds. Sweeping open sunlit landscape, warm but inviting, no characters.",
+      "sources": [
+        {
+          "path": "assets/world/desert-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0cee5173c0682ac628f8a75ff2bd835c8d4b4042"
+        }
+      ],
+      "illustration": "illustrations/W-desert.png",
+      "sha256": "cebf3595e6b6be5a2aaec0fe86d8f2343a0c5dcb824ca296d37ded600d1cd935",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-desert.png"
+    },
+    {
+      "id": "W-home",
+      "name": "おうち",
+      "scene": "Cozy lived-in cottage interior with warm timber floor and beams, round braided rug, soft sofa and cushions, low table, bookshelves, trailing green house plants and window with sheer cream curtains, small warm table lamp. Wide comfortable room view, afternoon sunlight, no people or animals, books without visible titles or letters.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Cozy lived-in cottage interior with warm timber floor and beams, round braided rug, soft sofa and cushions, low table, bookshelves, trailing green house plants and window with sheer cream curtains, small warm table lamp. Wide comfortable room view, afternoon sunlight, no people or animals, books without visible titles or letters.",
+      "sources": [
+        {
+          "path": "assets/world/home-interior-v2.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e91c0693e8bdc4938a8fe60ab3c82d1bad944751"
+        }
+      ],
+      "illustration": "illustrations/W-home.png",
+      "sha256": "b9ffdb9a0fbf0a8fbc7ebfe1b803ad1ac927d4896ff5a0da183dbbf19901acdb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-home.png"
+    },
+    {
+      "id": "W-jungle",
+      "name": "ジャングル",
+      "scene": "Lush tropical jungle clearing with massive buttress roots and climbing vines, enormous glossy leaves, fern-lined rocky path and distant narrow waterfall into a turquoise pool. Dappled warm morning light and fine mist; rich layered forest, no animals or characters.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Lush tropical jungle clearing with massive buttress roots and climbing vines, enormous glossy leaves, fern-lined rocky path and distant narrow waterfall into a turquoise pool. Dappled warm morning light and fine mist; rich layered forest, no animals or characters.",
+      "sources": [
+        {
+          "path": "assets/world/jungle-v2.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fb428fb06f635b0733d43b9004f77421c1e46f06"
+        }
+      ],
+      "illustration": "illustrations/W-jungle.png",
+      "sha256": "8fe568eeb618c7465b24e32c878e9130528c95d867a2bd8263b51aa947002688",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-jungle.png"
+    },
+    {
+      "id": "W-memory_lake",
+      "name": "きおくのみずうみ",
+      "scene": "A calm pale turquoise lake seen from an empty sandy shore beneath a graceful old tree; mossy stones and reeds frame foreground, hazy mountains reflected in perfectly still water, soft silvery morning light suggesting quiet memories. Serene gentle dreamlike atmosphere, no characters.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: A calm pale turquoise lake seen from an empty sandy shore beneath a graceful old tree; mossy stones and reeds frame foreground, hazy mountains reflected in perfectly still water, soft silvery morning light suggesting quiet memories. Serene gentle dreamlike atmosphere, no characters.",
+      "sources": [
+        {
+          "path": "assets/world/memory_lake-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4bfc480940c3451ec2aab02a091531f1028f423e"
+        }
+      ],
+      "illustration": "illustrations/W-memory_lake.png",
+      "sha256": "90b6ee6b17fba1f97f11ec482791f8376300921643359886f5077d953fa8b6c1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-memory_lake.png"
+    },
+    {
+      "id": "W-mountain",
+      "name": "やま",
+      "scene": "Open high mountain trail with rocky alpine meadow and tiny wildflowers in foreground, rugged snowy peaks beyond and a distant lake in the valley, clear crisp high-altitude daylight and soft clouds. Wide beautiful landscape with broad walking space, no characters.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Open high mountain trail with rocky alpine meadow and tiny wildflowers in foreground, rugged snowy peaks beyond and a distant lake in the valley, clear crisp high-altitude daylight and soft clouds. Wide beautiful landscape with broad walking space, no characters.",
+      "sources": [
+        {
+          "path": "assets/world/mountain-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "64e16fec7d4b1043b0ebe831427311f2b856389e"
+        }
+      ],
+      "illustration": "illustrations/W-mountain.png",
+      "sha256": "c2bf036ac80c9c605a48deadabfc5feccdd160bb1723068c688721497c66b8a7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-mountain.png"
+    },
+    {
+      "id": "W-river_lake",
+      "name": "みずべ",
+      "scene": "Clear blue lake with weathered wooden jetty extending from grassy shore, small wooden rowing boat moored alongside, distant green wooded hills and pale blue mountains, light ripples and a few reeds. Bright calm summer morning, no characters or text.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Clear blue lake with weathered wooden jetty extending from grassy shore, small wooden rowing boat moored alongside, distant green wooded hills and pale blue mountains, light ripples and a few reeds. Bright calm summer morning, no characters or text.",
+      "sources": [
+        {
+          "path": "assets/world/river-lake-v2.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "afd08334b88a2678bce434dc2c41a832b50d6330"
+        }
+      ],
+      "illustration": "illustrations/W-river_lake.png",
+      "sha256": "332ef04120134dc4d88a11b6a9de494bc4cc6954e161f46d3d6889bfdb92aa35",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-river_lake.png"
+    },
+    {
+      "id": "W-snow",
+      "name": "ゆきぐに",
+      "scene": "Fresh snow blanketing a broad clearing between snow-laden fir trees, soft rounded drifts and small frosted bushes, distant blue mountain peaks, crisp pale winter sky and gentle gold winter sun. Unbroken inviting snow foreground, no characters or footprints.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Fresh snow blanketing a broad clearing between snow-laden fir trees, soft rounded drifts and small frosted bushes, distant blue mountain peaks, crisp pale winter sky and gentle gold winter sun. Unbroken inviting snow foreground, no characters or footprints.",
+      "sources": [
+        {
+          "path": "assets/world/snow-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "59ec8e08a7b432fb02ddddc2e974819e08ff393c"
+        }
+      ],
+      "illustration": "illustrations/W-snow.png",
+      "sha256": "c146e69eb31a83de536e1b131c72400ef5ff1ff37f94d5c5cd39ad7dad02b0b2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-snow.png"
+    },
+    {
+      "id": "W-star_stop",
+      "name": "ほしぞらのていりゅうじょ",
+      "scene": "Dreamlike stone terrace reached by shallow old steps amid floating ancient stone arches and columns, small delicate brass astronomical armillary sphere to one side, lush tiny star-like flowers in cracks, vast indigo purple pink Milky Way overhead. No clocks or numbers, no text, no people. Magical serene starlight, readable lavender stone floor.",
+      "identity_review": "Visual comparison to canonical World reference: Canonical environment: Dreamlike stone terrace reached by shallow old steps amid floating ancient stone arches and columns, small delicate brass astronomical armillary sphere to one side, lush tiny star-like flowers in cracks, vast indigo purple pink Milky Way overhead. No clocks or numbers, no text, no people. Magical serene starlight, readable lavender stone floor.",
+      "sources": [
+        {
+          "path": "assets/world/star_stop-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f36093795da9cadc10140c90777b5c15f0d9c9d3"
+        }
+      ],
+      "illustration": "illustrations/W-star_stop.png",
+      "sha256": "0eb80c85d4cf326deb868623751158cafbf9e685a268d278d2eed5f84990ea14",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/W-star_stop.png"
     }
   ],
   "remaining_not_started": 429,

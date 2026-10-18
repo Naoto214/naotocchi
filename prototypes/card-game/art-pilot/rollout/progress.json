@@ -1,6 +1,6 @@
 {
-  "completed": 69,
-  "remaining": 383,
+  "completed": 96,
+  "remaining": 356,
   "categories": {
     "main": {
       "complete": 32,
@@ -11,12 +11,12 @@
       "remaining": 0
     },
     "partner": {
-      "complete": 2,
-      "remaining": 16
+      "complete": 18,
+      "remaining": 0
     },
     "world": {
-      "complete": 2,
-      "remaining": 11
+      "complete": 13,
+      "remaining": 0
     },
     "play": {
       "complete": 3,
@@ -31,29 +31,29 @@
       "remaining": 19
     }
   },
-  "next_lot": "partners-01",
+  "next_lot": "items-01",
   "next_ids": [
-    "P-anglerfish",
-    "P-cat_ceo",
-    "P-cliff_goat",
-    "P-desert_scorpion",
-    "P-field_cow",
-    "P-gentle_gorilla",
-    "P-high_eagle",
-    "P-knitting_spider",
-    "P-oasis_cactus",
-    "P-robot_neighbor",
-    "P-rock_octopus",
-    "P-sea_mermaid",
-    "P-snow_spirit",
-    "P-snowman",
-    "P-sunflower_partner",
-    "P-swamp_croc"
+    "I-bond1",
+    "I-bowtie",
+    "I-c_coin2",
+    "I-c_dex",
+    "I-c_egg_normal",
+    "I-c_egg_rare",
+    "I-c_friend",
+    "I-c_life",
+    "I-c_life_charm",
+    "I-c_match",
+    "I-c_rare_friend",
+    "I-c_time_back",
+    "I-c_time_forward",
+    "I-c_transform",
+    "I-gamepass1",
+    "I-naoto_charm"
   ],
   "approval": "All remaining406 authorized 2026-10-18; no per-lot approval needed",
   "main_merge": false,
   "production_paused": false,
-  "latest_review": "rollout/continuation-20261018/README.md",
+  "latest_review": "rollout/worlds-20261018/README.md",
   "completed_ids": [
     "C-bat",
     "C-box",
@@ -120,18 +120,14 @@
     "M-dandelion-06",
     "M-dandelion-07",
     "M-dandelion-08",
-    "P-forest_bear",
-    "P-grove_deer",
-    "W-forest",
-    "W-sea"
-  ],
-  "not_started_ids": [
     "P-anglerfish",
     "P-cat_ceo",
     "P-cliff_goat",
     "P-desert_scorpion",
     "P-field_cow",
+    "P-forest_bear",
     "P-gentle_gorilla",
+    "P-grove_deer",
     "P-high_eagle",
     "P-knitting_spider",
     "P-oasis_cactus",
@@ -146,13 +142,17 @@
     "W-countryside",
     "W-deepsea",
     "W-desert",
+    "W-forest",
     "W-home",
     "W-jungle",
     "W-memory_lake",
     "W-mountain",
     "W-river_lake",
+    "W-sea",
     "W-snow",
-    "W-star_stop",
+    "W-star_stop"
+  ],
+  "not_started_ids": [
     "I-bond1",
     "I-bowtie",
     "I-c_coin2",
