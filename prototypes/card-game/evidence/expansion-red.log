@@ -1,0 +1,40 @@
+✔ custom decks reject unsupported and copy limits; legacy saves remain exact (4.48448ms)
+✔ higher main birth and time skip use stage/difference payments (3.846423ms)
+✔ search requires private selection and explicit bottom ordering (3.174395ms)
+✔ stat changes apply, expire, and disappear after reincarnation (2.055411ms)
+✔ scheduled growth occurs after next own start and survives source departure (3.876938ms)
+✖ facedown trap is not disclosed by board, targeting labels or action IDs (6.577746ms)
+✔ start trap activates once, consumes prepared source and allows response (5.036641ms)
+✔ replacement partner relationship loss and equipment cleanup apply centrally (1.039667ms)
+✔ new custom decks complete R10 and replay exactly after choices (176.669716ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 325.157077
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/expanded.test.mjs:26:1
+✖ facedown trap is not disclosed by board, targeting labels or action IDs (6.577746ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!str.includes('ほんかくさかなつり'))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi/prototypes/card-game/tests/expanded.test.mjs:27:286)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

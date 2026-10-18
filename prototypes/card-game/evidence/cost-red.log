@@ -1,0 +1,69 @@
+✔ custom decks reject unsupported and copy limits; legacy saves remain exact (18.837718ms)
+✔ higher main birth and time skip use stage/difference payments (6.953291ms)
+✔ search requires private selection and explicit bottom ordering (20.916569ms)
+✔ stat changes apply, expire, and disappear after reincarnation (2.113242ms)
+✔ scheduled growth occurs after next own start and survives source departure (23.405355ms)
+✔ facedown trap is not disclosed by board, targeting labels or action IDs (15.512467ms)
+✔ start trap activates once, consumes prepared source and allows response (14.291922ms)
+✔ replacement partner relationship loss and equipment cleanup apply centrally (13.710634ms)
+✔ new custom decks complete R10 and replay exactly after choices (754.572879ms)
+✔ search reveals only selected cards, never the inspected set (9.020797ms)
+✔ trap setup does not meet face-up play conditions (1.059906ms)
+✔ companion effect enables beach volley only after successful resolution (2.393175ms)
+✔ reversi lasts through challenge end but ends with turn (8.645652ms)
+✔ explicit public searches reveal the inspected set (1.42186ms)
+✔ registered descriptors reference implemented predicates, targets and passive values (45.402801ms)
+✖ activation hand cost is paid atomically before response and cannot be omitted (13.020154ms)
+✖ trigger cost requires both time and hand card at activation (0.896174ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 15
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1384.69616
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/expanded.test.mjs:66:1
+✖ activation hand cost is paid atomically before response and cannot be omitted (13.020154ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(a)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi/prototypes/card-game/tests/expanded.test.mjs:67:195)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/expanded.test.mjs:69:1
+✖ trigger cost requires both time and hand card at activation (0.896174ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi/prototypes/card-game/tests/expanded.test.mjs:70:292)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

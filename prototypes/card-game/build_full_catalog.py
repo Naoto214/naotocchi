@@ -1,0 +1,100 @@
+"""Read-only canonical452 export. Never run matches, approvals, or supervisors.
+
+check-design-data --catalog owns the semantic hierarchy: 15 v2/23 v3,
+indexed drafts and representatives; migration31 and deck08 are mirrors.
+Later95/96 revisions are already synchronized into these primary sources.
+"""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parents[2]
+DOC = ROOT / 'docs/card-game'
+GROUPS = {'cards': ('main', 248), 'companions': ('companion', 26),
+          'partners': ('partner', 18), 'items_current_source': ('item', 26),
+          'play_cards': ('play', 100), 'worlds': ('world', 13), 'events': ('event', 21)}
+# Attribute membership is the canonical checker/71 source table, not effect inference.
+ATTRIBUTES = {'ひと': 'man woman ren', 'けもの': 'dog cat',
+              'みずべ': 'penguin turtle frog salmon',
+              'うみ': 'clownfish hermit_crab jellyfish starfish coral',
+              'むし': 'butterfly beetle stagbeetle cicada antlion',
+              'くさ': 'dandelion sakura venus_flytrap mushroom world_tree',
+              'げんそう': 'dragon phoenix god ghost', 'ふしぎ': 'star plush unknown'}
+
+
+def require(ok, message):
+    if not ok:
+        raise ValueError(message)
+
+
+def build():
+    audit = json.loads(subprocess.check_output(
+        [sys.executable, str(DOC / 'tools/check-design-data.py'), '--catalog'],
+        cwd=ROOT, text=True))
+    require(not audit['errors'], f"canonical audit errors: {audit['errors']}")
+    master = json.loads(subprocess.check_output(['node', '-e',
+        "const fs=require('fs'),vm=require('vm'),c={window:{}};vm.createContext(c);"
+        "vm.runInContext(fs.readFileSync('character-world-master.v1.js','utf8'),c);"
+        "console.log(JSON.stringify(c.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1));"],
+        cwd=ROOT, text=True))
+    rarity = {s['id']: ('rare' if group == 'rare' else 'normal')
+              for group in ('normal', 'rare', 'secret') for s in master['playerSpecies'][group]}
+    attribute = {s: a for a, species in ATTRIBUTES.items() for s in species.split()}
+    result = {}
+    for group, (kind, count) in GROUPS.items():
+        rows = audit[group]
+        require(len(rows) == count, f'{group}: count differs')
+        for row in rows:
+            key = row['id']
+            require(key not in result, f'duplicate {key}')
+            require(row.get('name') and row.get('text'), f'incomplete name/text: {key}')
+            cost = row.get('normal_time', row.get('time'))
+            require(type(cost) is int and cost >= 0, f'incomplete cost: {key}')
+            classification = rarity[row['species']] if kind == 'main' else row.get('rarity')
+            require(classification in ('normal', 'rare'), f'incomplete rarity: {key}')
+            path = ROOT / row.get('path', row.get('source_file', 'docs/card-game/77-current-items-card-text-draft.md'))
+            raw = path.read_bytes()
+            text = raw.decode()
+            require(row['text'] in text or (row['text'] == '能力なし。' and '能力なし' in text), f'body not in primary source: {key}')
+            # Legacy15/23 have stage headings rather than M-ID headings.
+            headings = re.findall(r'^#{1,3} (.+)$', text, re.M)
+            matches = [h for h in headings if re.match(re.escape(key) + r'(?:\s|$)', h)]
+            if not matches and kind == 'main':
+                stage = '①②③④⑤⑥⑦⑧'[row['stage'] - 1]
+                matches = [h for h in headings if h.startswith(f"{stage} {row['power']}/{row['wisdom']}「")]
+            require(len(matches) == 1, f'ambiguous/missing source heading: {key}: {matches}')
+            anchor = matches[0]
+            entry = dict(id=key, name=row['name'], type=kind, cost=cost,
+                         rare=classification == 'rare', text=row['text'],
+                         source=str(path.relative_to(DOC)) + '#' + anchor,
+                         source_sha256=hashlib.sha256(raw).hexdigest())
+            if kind == 'main':
+                for field in ('stage', 'power', 'wisdom'):
+                    require(type(row.get(field)) is int and row[field] > 0, f'missing {field}: {key}')
+                require(row['species'] in attribute, f'missing attribute: {key}')
+                entry.update(stage=row['stage'], species='M-' + row['species'],
+                             power=row['power'], wisdom=row['wisdom'],
+                             attribute=attribute[row['species']], form=row['form'])
+            if kind in ('item', 'play', 'event'):
+                require(row.get('method') in ('すぐつかう', 'しかける', 'みにつける'), f'missing method: {key}')
+                entry['method'] = row['method']
+            result[key] = entry
+    require(len(result) == 452, 'full catalog count differs')
+    require(sum(e['text'] == '能力なし。' for e in result.values()) == 7, 'explicit vanilla count differs')
+    return '// Generated by build_full_catalog.py from canonical452 primary sources.\nexport const CATALOG = ' + json.dumps(dict(sorted(result.items())), ensure_ascii=False, indent=2) + ';\n'
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--check', action='store_true')
+    parser.add_argument('--output', type=Path, default=Path(__file__).with_name('full-catalog.mjs'))
+    args = parser.parse_args()
+    content = build()
+    if args.check:
+        require(args.output.read_text() == content, 'full-catalog.mjs differs from deterministic regeneration')
+    else:
+        args.output.write_text(content)
