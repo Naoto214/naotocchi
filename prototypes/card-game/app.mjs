@@ -11,7 +11,7 @@ const ORDER_KEY='naotocchi-hand-order-v1';
 let handOrder;try{handOrder=new HandOrder(localStorage.getItem(ORDER_KEY));}catch{handOrder=new HandOrder();}
 const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',session=new HotseatSession({autoAdvance:true});
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
-const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');document.body.append(feedbackHost);
+const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
 const feedback=new ResultFeedback({dock:available=>{const b=document.querySelector('[data-result-reopen]');if(b)b.hidden=!available;},clear:()=>{feedbackHost.replaceChildren();clearResultMotion();},paint:g=>{
  feedbackHost.innerHTML=resultNoticeMarkup(g);clearResultMotion();
@@ -46,7 +46,7 @@ function start(next){session.start(next);bindOrder();$('welcome').hidden=true;$(
 function render(){
  if(session.automationStop){showAutomationStop();return;}
  const scrolls=[...document.querySelectorAll('.board-shell')].map(n=>n.scrollTop);dragCleanup();const v=session.projection,hand=session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):null;
- $('game').innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});$('hide').hidden=!session.viewer||!!v.result;if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
+ feedbackHost.remove();$('game').innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});$('game').insertBefore(feedbackHost,document.querySelector('#game .battle-area'));$('hide').hidden=!session.viewer||!!v.result;if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
  document.querySelectorAll('.board-shell').forEach((n,i)=>{n.scrollTop=scrolls[i]??0;});
  dragCleanup=mountHandDrag(document.querySelector('#hand .cards'),{onTap:id=>inspect(id),onReorder:ids=>{if(!session.viewer)return;const scroll=document.querySelector('#hand .cards').scrollLeft;handOrder.reorder(session.viewer,session.projection.players[session.viewer].hand,ids);persistOrder();render();document.querySelector('#hand .cards').scrollLeft=scroll;},onAnnounce:message});
 }

@@ -1,6 +1,6 @@
 // Presentation queue only. No game timers, commands or private-state access.
 export class ResultFeedback {
- constructor({paint,clear,dock=()=>{},schedule=setTimeout,cancel=clearTimeout}){Object.assign(this,{paint,clear,dock,schedule,cancel});this.seen=new Map();this.ticket=0;this.reset();}
+ constructor({paint,clear,dock=()=>{},schedule=(fn,ms)=>globalThis.setTimeout(fn,ms),cancel=id=>globalThis.clearTimeout(id)}){Object.assign(this,{paint,clear,dock,schedule,cancel});this.seen=new Map();this.ticket=0;this.reset();}
  reset(){this.hide();this.seen=new Map();this.epoch=null;this.batch=null;}
  stopTimer(){if(this.timer!==undefined)this.cancel(this.timer);this.ticket++;this.timer=undefined;}
  consumeQueue(){if(this.viewer)this.seen.set(this.viewer,Math.max(this.seen.get(this.viewer)??-1,...(this.queue??[]).map(g=>g.revision)));}

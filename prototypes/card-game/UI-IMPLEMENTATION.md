@@ -398,3 +398,33 @@ Independent read-only review found no P1/P2 issues; focused24 tests passed. Synt
 **Not verified here:** browser rendering/delegated DOM clicks, touch ergonomics/performance, safe-area appearance, Safari address-bar changes and rotation on a device. Managed Sites lacks control-browser, so no alternate browser/server was started. The full catalog-regeneration test needing large audit dependencies remains excluded as before; source/hash checks run. User performs final iPhone Safari QA. Useful device checks: wait2seconds→tap 結果→close×; continue a required choice while the notice is visible; tap both deck/discard/activation areas; expand a board card then explicitly open its legal actions; inspect an opponent face-down preparation; background/reveal/rotate with a private result or card detail open.
 
 PR384 and the same owner-private UI trial only are updated. Final GitHub/Site source/version/deployment identifiers are recorded in PR384 after publication.
+
+## iPhone QA round 9 — separate guidance/results and repair card typography (2026-10-18 JST)
+
+Starting remote PR384 HEAD `7ad0072d2461525dd94c813e18e0aaa21c79d742`, tree `4b6cbf6951bf3b9c1147751c9f613674d62fdd38`; PR381 HEAD `3a987044513fdb6d5e69b52b8af40add5a45ccd4`, tree `e86f089e6778061d7acd39492e96286656455702`; PR259 HEAD `0a9df8f09b5ad657730f29d14e2d357241dace8c`, tree `78677b98fdc229c7acf10e9112ca9744ae0fa7ba`. All Draft/open/unmerged. Owner-private Site audience confirmed unchanged.
+
+### Observed causes
+
+Read and visually inspected the user's IMG_6681/6682/6683 screenshots. IMG_6682 shows `Can only call Window.setTimeout on instances of Window`; IMG_6683 shows discard-card category/stat-label/footer text expanded over artwork and other card regions.
+
+1. `ResultFeedback` stored the raw Window timer functions on an instance, then invoked `this.schedule(...)` / `this.cancel(...)`. Safari requires the Window receiver, not ResultFeedback. An injected strict receiver check reproduced the failure before correction. Default adapters now call `globalThis.setTimeout(...)` and `globalThis.clearTimeout(...)` explicitly. No suppressed error, changed game timer, or delayed command. This also repairs automatic collapse/cancellation after a new action or restored game; the game save had been committed before the old render-time failure, so the timer error did not itself rewrite state.
+2. `.zone-body .discard-cards small` unintentionally matched internal category, stat labels, art annotation and footer. Its font-size/display/margin overrode the compact card rules, including elements intended to be hidden. Analogous broad selectors in activation/result containers could affect card text too. List captions now have a specific class; activation labels and result annotations use direct-child selectors. Discard thumbs are explicitly80×120, activation70×105 and maintain2:3. Compact rendering structurally omits full ability copy, footer and redundant tiny stat-label text; full detail still includes all canonical copy and numeric fields. No card definitions or artwork changed.
+
+### UI behavior
+
+- The existing flow-based operation area is explicitly labeled as 操作案内. It shows `操作 A/B · 必須選択 / 応答 / 効果選択 / 通常行動` plus the next instruction in two compact lines. The large effect thumbnail is removed from this always-visible guide; source details remain under the existing detail control. Pass/end and single non-card choices use exact engine actions directly; legal response shortcuts remain. A board card needed for a current choice/response/trigger opens its action detail directly; other board cards remain read-only browsing. Tapping never directly executes the game action.
+- Results now have their own temporary64px flex row between the header and boards,48px on short landscape screens. They do not overlay a board, operation guide or hand. The row vanishes when empty. It shows the first actual result row plus a remaining-count/history hint; the complete ordered groups and public/private projections are unchanged. Two-second timing, close×, top result-icon replay and reduced-motion remain. No large permanent result panel. A retained host survives ordinary re-render/rotation without duplicating notifications or timer work.
+- Portrait retains separate opponent/own/guide/hand regions. Board tracks can shrink within available space; both boards can scroll internally on short screens while the guide retains its dedicated track. Landscape retains B's three columns. Existing visualViewport/safe-area/detail geometry is reused.
+- Hidden deck/preparation protection, exact discard order, activation resolution order, handoff/background/restore clearing, recent-result history and duplicate-command rejection are unchanged. Viewing, closing and replaying a notification issue no engine command.
+
+### Verification
+
+**252 passed /0 failed** (247 baseline +5 new). Command:
+`node --test --test-skip-pattern='regeneration is deterministic' prototypes/card-game/tests/*.test.mjs`
+Log: `evidence/iphone-round9-tests.log`.
+
+New RED→GREEN tests cover native timer receiver for scheduling/cancellation, guide actor/phase/direct controls, compact/full markup separation for all452 cards, in-flow result-host wiring, and direct board-card actions for a mandatory choice. Existing automatic passes, full452/R10 completion, saves/restores, private information, double actions, result lifecycle/order/replay and viewport geometry all pass. Independent read-only review found no P1/P2 issue;10 focused tests passed. JS syntax and `git diff --check` pass.
+
+Browser regression script adds result-row bounds/close/replay/save checks and computed typography/2:3 checks inside actual discard/activation containers. It is syntax-checked but **not executed**: managed Sites has no control-browser; no substitute browser/server was started. The screenshots are pre-fix device evidence, not post-fix verification. Final Safari appearance, touch targets, scrolling, animation performance, safe-area, address-bar movement and rotation still require user device QA. The large audit-dependency catalog-regeneration test remains excluded as before; catalog source/hash checks run.
+
+Changes are UI, tests and records only. Engine/effects/catalog/card definitions/legal enumeration/state/save/replay/automatic progression, Python canon and fixed400 assets are unchanged. PR259/381/384 remain Draft/open/unmerged; main is not merged. Final GitHub/Site identifiers are recorded in PR384 after publication.
