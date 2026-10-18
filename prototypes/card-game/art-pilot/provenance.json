@@ -1,6 +1,6 @@
 {
-  "status": "23_approved_plus_15_production_qa_complete",
-  "generated_count": 38,
+  "status": "23_approved_plus_23_production_qa_complete",
+  "generated_count": 46,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -907,6 +907,190 @@
       "generation": "image_gen reference-guided; rollout/cat-prompts.json",
       "approval": "production_qa_complete_under_batch_authorization",
       "preview": "previews/M-cat-08.png"
+    },
+    {
+      "id": "M-clownfish-01",
+      "name": "カクレクマノミ①",
+      "scene": "One tiny pale translucent peach baby clownfish matching canonical sprite, rounded small head, closed gentle eyes, faint cream early body bands, tiny delicate fins and fan tail. Drifting safely in clear shallow water beside a softly lit small sea-anemone; close view makes this tiny baby prominent. Not an adult with strong saturated bands.",
+      "identity_review": "淡い半透明の体・閉眼・幼い短い輪郭を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "75aba01dc32d550ecc0abb6af12dcd43f4a4de5f"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-01.png",
+      "sha256": "f07258fa7c6029ae7cd5b49561dd35a8528f59619d340f1a06dfebc684906ed7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-01.png"
+    },
+    {
+      "id": "M-clownfish-02",
+      "name": "カクレクマノミ②",
+      "scene": "One small slender juvenile clownfish, light orange peach body with emerging pale bands, open large dark eyes, small triangular dorsal fin and fan tail as canonical. Exploring a sunlit sandy patch with a few rounded pebbles beside an anemone. Clear side view, gentle curious face.",
+      "identity_review": "淡い橙色・現れ始めた縞・小さな体を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "1c26e7d531291af5dfda49d1d124699d8789d8cb"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-02.png",
+      "sha256": "52a01c6a67b593b684a6e7c1ce40adcac43f7455602937ec2bb2baa73fdf66af",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-02.png"
+    },
+    {
+      "id": "M-clownfish-03",
+      "name": "カクレクマノミ③",
+      "scene": "One chubby child clownfish, brighter orange body with clear white bands edged dark, winking smiling eye and small orange fins exactly canonical. Playing hide and seek among soft pink anemone tentacles, keep its entire head, body and tail visible against gaps; playful curved composition.",
+      "identity_review": "橙色と白黒の縞・片目を閉じた表情を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "7469aba8ea4349798049f3871369c15364fc1850"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-03.png",
+      "sha256": "e15a2d01adb40630311e54eb16fde5d26dd5bb52adf5e42a51f2d23fd49f4b67",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-03.png"
+    },
+    {
+      "id": "M-clownfish-04",
+      "name": "カクレクマノミ④",
+      "scene": "One slim youthful orange clownfish with bold white dark-edged bands, friendly wide dark eye, defined dorsal fin and orange fan tail. Swimming across a small sunlit coral arch with spacious blue water behind, lively side pose, preserve stripe positions and shape.",
+      "identity_review": "細身の若魚・白い頭部帯と尾側帯を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "644de0269c3e148e1a3a015c85277d1171178b49"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-04.png",
+      "sha256": "721066edd68fe8d612fce82f74463de864b8ed179742e6939e825d0427683265",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-04.png"
+    },
+    {
+      "id": "M-clownfish-05",
+      "name": "カクレクマノミ⑤",
+      "scene": "Exactly THREE orange and white clownfish matching canonical group: one large central fish facing left with a calm half-lidded eye, two much smaller companions above-right and below-right, open friendly dark eyes. They swim together beside an anemone garden in gentle afternoon currents. Preserve central versus small fish proportions, no fourth fish.",
+      "identity_review": "正本と同じ3匹構成。大きな1匹と小さな2匹を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a2b3328012549bf25f75dd5693f244caee90b760"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-05.png",
+      "sha256": "e3d9c3d575b0bf3dec5c2e65e31b48a793980918c58e0a515448bae25ea22e07",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-05.png"
+    },
+    {
+      "id": "M-clownfish-06",
+      "name": "カクレクマノミ⑥",
+      "scene": "One adult male clownfish matching canonical sprite: orange oval body, white dark-edged bands, lowered attentive eye, moderate body height, orange fins and fan tail. Guarding a small neat patch of orange eggs attached to a sheltered rock beside an anemone, caring quiet scene, fish large and fully visible; no other fish.",
+      "identity_review": "卵を守るオスの輪郭・縞・開眼を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b11dbbb0cdb27e0441e4f7f378bbac0fd4f666a3"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-06.png",
+      "sha256": "ae5cfb01cd5ab0bebf9c414d41129033c92424ec0cd37079acc49efcb7c7d512",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-06.png"
+    },
+    {
+      "id": "M-clownfish-07",
+      "name": "カクレクマノミ⑦",
+      "scene": "One fuller taller-bodied clownfish exactly canonical, orange body, broad white bands with dark edges, content half-lidded eye, more developed dorsal outline and orange tail. Moving slowly through open water at the edge of the anemone home, a soft sea-green background and late-day rays. Preserve stage-specific rounded silhouette; no clothes or human gender symbols.",
+      "identity_review": "丸みが増した体・落ち着いた半眼を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "25ce73c60887f8339b35881da8ff5b53c6cafe48"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-07.png",
+      "sha256": "7a2b976aa5ced22acdfa133c5b8ab15ae78e9b46c69ac88d113a155fef1ad43a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-07.png"
+    },
+    {
+      "id": "M-clownfish-08",
+      "name": "カクレクマノミ⑧",
+      "scene": "One large robust round female leader clownfish exactly canonical: tall deep orange body, broad white dark-edged bands, high rounded serrated dorsal outline, small pleased eye and confident smile, full orange fan tail. Calmly surveying a broad sunlit reef from the foreground, anemone below and gentle turquoise distance. Only one visible fish as canonical, no human accessories.",
+      "identity_review": "深い丸い体・高い背びれ・閉じた目の表情を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/clownfish/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5801175fda74d90bde41e63e224f67ff85fbd596"
+        }
+      ],
+      "illustration": "illustrations/M-clownfish-08.png",
+      "sha256": "52c420fff2185319d166045b6a5d76fc0ee022d45c52b4905f41adb8a8ecb382",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/clownfish-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-clownfish-08.png"
     }
   ],
   "remaining_not_started": 429,

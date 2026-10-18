@@ -1,10 +1,10 @@
 {
-  "completed": 38,
-  "remaining": 414,
+  "completed": 46,
+  "remaining": 406,
   "categories": {
     "main": {
-      "complete": 24,
-      "remaining": 224
+      "complete": 32,
+      "remaining": 216
     },
     "companion": {
       "complete": 3,
@@ -31,16 +31,18 @@
       "remaining": 19
     }
   },
-  "next_species": "M-clownfish",
+  "next_lot": "companions-01",
   "next_ids": [
-    "M-clownfish-01",
-    "M-clownfish-02",
-    "M-clownfish-03",
-    "M-clownfish-04",
-    "M-clownfish-05",
-    "M-clownfish-06",
-    "M-clownfish-07",
-    "M-clownfish-08"
+    "C-bat",
+    "C-box",
+    "C-chameleon",
+    "C-chicken",
+    "C-clock",
+    "C-hamster",
+    "C-hedgehog",
+    "C-many_tail_fox",
+    "C-monkey",
+    "C-panda"
   ],
   "approval": "429-card production authorized; no per-batch approval needed",
   "main_merge": false
