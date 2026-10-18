@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 300,
+  "generated_count": 332,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -7308,6 +7308,742 @@
       "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/M-ghost-08.png"
+    },
+    {
+      "id": "M-god-01",
+      "name": "かみさま①",
+      "scene": "Tiny glowing round white lightseed with small golden flame tuft, dark round eyes and golden cheeks exactlyasreference, NO halo,wings or limbs. Hovering above one dew-covered wildflower at dawn, lowmacro view, gentle gold light against misty pale blue meadow.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage1 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "924a0bb1986ddbe130957f4f19ca428b0a10b0d5"
+        }
+      ],
+      "illustration": "illustrations/M-god-01.png",
+      "sha256": "e22016267fe4aa5d5c837098cc5eabfe72f3461053eafb502c5d2814262bc851",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-01.png"
+    },
+    {
+      "id": "M-god-02",
+      "name": "かみさま②",
+      "scene": "Little round white lightchild with tiny hands and feet, tiny whitewinglets and thin gold ovalhalo exactlyasreference; smooth roundface darkeyes and pinkcheeks. Sitting on a small fluffy cloud beside tall rainbow-touched meadowflower, front threequarter view, natural morningpastels.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage2 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e450ff60355535668f07a62a710ca1ea89bdeaa0"
+        }
+      ],
+      "illustration": "illustrations/M-god-02.png",
+      "sha256": "5f7feeed428408f574e9c050ac6f8a434e79e8e8a12dba22c41004be9578f8ae",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-02.png"
+    },
+    {
+      "id": "M-god-03",
+      "name": "かみさま③",
+      "scene": "Small white-haired childlike spirit in white gold-edged robe with small feathered wings and thin gold halo, shy closedeyes and rosycheeks asreference. Floating sideways over shallow clearbrook, arms gently extended for balance, fullbody facing left, warm filteredleaflight, exactlytwoarms/twolegs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage3 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f5d97d5f773bfc3279797fcbfc97c452e9e79db5"
+        }
+      ],
+      "illustration": "illustrations/M-god-03.png",
+      "sha256": "0ede24aa6edaa6fee00fe9d65ae830825262f40cb1b16f75b398a6dd2beca573",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-03.png"
+    },
+    {
+      "id": "M-god-04",
+      "name": "かみさま④",
+      "scene": "Young white-haired apprentice deity in white gold-trimmed robe and sandals with smallwhitewings, goldhalo and short gold staff topped by roundorb. Carefully tending one small blooming plant in a skyterrace garden, bent slightlyforward facing right, clear fullbody, midday softlight.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage4 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "450154018bdef5aaf4c244f3f17392c950b25460"
+        }
+      ],
+      "illustration": "illustrations/M-god-04.png",
+      "sha256": "c82b6df6dced6e480d79e3f9f01ee3aada4f00ed512409c21b1693b4529936b3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-04.png"
+    },
+    {
+      "id": "M-god-05",
+      "name": "かみさま⑤",
+      "scene": "White-haired graceful deity with LARGE whitefeatherwings, white-and-gold longflowing robe, thin goldhalo and tallstaff withblueorb, exactface/proportions. Standing in open meadow atop clouds, one hand outstretched in friendly welcome, lowfrontal fullbody view, radiant yet soft morninglight.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage5 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f0e6474572745b488649bcbaa0fa0e2f97ff867a"
+        }
+      ],
+      "illustration": "illustrations/M-god-05.png",
+      "sha256": "c0a87c4a63162df67bec25c9d424fcd56cf81343260b2829c0381a5e0b45c4bd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-05.png"
+    },
+    {
+      "id": "M-god-06",
+      "name": "かみさま⑥",
+      "scene": "Greater deity with flowing whitehair, peaceful closedeyes, more expansive whitefeatherwings and doublegoldhalo, longwhite gold-trim robe, staffblueorb. Floating above tranquil waterfall and mossyrock, gently tilted sideview towardleft, serene natural goldenhour, preciselyreference silhouette.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage6 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c9a81716e861758bc9e29ec4151f1f358107a416"
+        }
+      ],
+      "illustration": "illustrations/M-god-06.png",
+      "sha256": "ebb0a9d78814bf7a9dc16141332454e99d862a80271b90e33c0c2e9ac1d4747f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-06.png"
+    },
+    {
+      "id": "M-god-07",
+      "name": "かみさま⑦",
+      "scene": "Radiant white-haired deity with goldcrownlike halo, flowing goldenwhite robes and surrounding delicate blue-gold luminous particles asreference. Midair above flowering valley, highobliqueview, figure gently openingarms, natural sunrise illuminates trails oflight, keep face clear and kind.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage7 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fe35319b143241d257b8bec675cf584a5782bb97"
+        }
+      ],
+      "illustration": "illustrations/M-god-07.png",
+      "sha256": "af575bfb24643696eaa7fd0d82039969089315d495258bbd33a993a47c8e2a0d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-07.png"
+    },
+    {
+      "id": "M-god-08",
+      "name": "かみさま⑧",
+      "scene": "Round white lightbeing returned to simple face with darkblueeyes and goldencheeks, ornate goldhalo/crown and radial golden starburst rays around sphericalbody, no human body. Floating over open lavender-blue dawnsky and distant cloudsea, close centralview, referenceexact star-ray silhouette, luminous gentle light.",
+      "identity_review": "Visual comparison to canonical character references: Canonical god stage8 exact form, face, costume, wings, staff and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/god/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6f2c1d688d0430ebd9874e8263502841b9758e39"
+        }
+      ],
+      "illustration": "illustrations/M-god-08.png",
+      "sha256": "2d1c02964deddf6ebd9a1190588fe479d01a53c803b77829c09ce7575e5c8219",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-god-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-god-08.png"
+    },
+    {
+      "id": "M-hermit_crab-01",
+      "name": "ヤドカリ①",
+      "scene": "Tiny orange-red hermitcrab with very small round peach spiral shell, beadlike dark eyes on short stalks and small pincers, nestled beside one grainy pebble at wet sandy shore. Close ground-level view, front facingleft, calm blue morningsea. Keep shell very small.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage1 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cd322a60b5b36548f2280ee036ede9a25fcf1d87"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-01.png",
+      "sha256": "be2f0a1f0206b5f58b95752d28f497e784519d33b91db46a2f2b43e8e0276bb4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-01.png"
+    },
+    {
+      "id": "M-hermit_crab-02",
+      "name": "ヤドカリ②",
+      "scene": "Small young orange hermitcrab with pale cream conical shell and distinct spiral ridges, larger eye stalks and two small pincers, walks towardRIGHT across shallow rippled sand beside a thin receding wave. Medium side view, warm sunrise highlights.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage2 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d8e085194a659f9f269eec16352ba05f922f2886"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-02.png",
+      "sha256": "adbdb17a7ef8d5cb4988fe5c757c451eec7956d9998b334b2a665b420456200a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-02.png"
+    },
+    {
+      "id": "M-hermit_crab-03",
+      "name": "ヤドカリ③",
+      "scene": "Orange hermitcrab MOVING HOUSE: body partly emerged beside a large upright pale tan shell, one smaller EMPTY oldshell lying to LEFT with clearly hollow opening. Exactreference transition shape, gently probing larger shell opening with one pincer, overheadthreequarter view in sheltered tidepool, no second crab.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage3 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "65a7b159045d4bae539a69a98d5233fae2724f4b"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-03.png",
+      "sha256": "de0a9b9d1bc72398e1ddca4ff0717d5b1c6e19f918866cad85d7c48fd720b849",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-03.png"
+    },
+    {
+      "id": "M-hermit_crab-04",
+      "name": "ヤドカリ④",
+      "scene": "Young orange-red hermitcrab now securely carries a pink striped spiral shell, slim legs and alert eye stalks. Climbs diagonally UP LEFT over a flat mossy rock while tidepool sparkles below; low side view, brighter late morning, shellcomplete.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage4 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e06ef0be19d49bbc720efb1bbc316841046b0e19"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-04.png",
+      "sha256": "36f84ef2ac0c61159c4a53d3ebbddffd0754599e143ceacb8354c026c4ff73f0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-04.png"
+    },
+    {
+      "id": "M-hermit_crab-05",
+      "name": "ヤドカリ⑤",
+      "scene": "Orange hermitcrab with roomy pale mint-green and cream striped conical shell, happyface and stronger claws, resting comfortably at entrance to a little sandy alcove beneath broad seaweedleaf. Frontthreequarter view facingright, underwater turquoise daylight, open breathing room.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage5 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "215a1df60c0d7e0c7ea52c7d45fee290dfe15c86"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-05.png",
+      "sha256": "725f65a9ca3fe347df00a8c5e520400fcb96522a7fb5118b27642c800134b067",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-05.png"
+    },
+    {
+      "id": "M-hermit_crab-06",
+      "name": "ヤドカリ⑥",
+      "scene": "Larger robust orange hermitcrab carries elongated deepteal-and-gold banded shell with small lightspots asreference, standing on sunlit coral rubble ridge, one pincer raised and other on rock. Side profile facingLEFT, blueopenwater and distanttinyfish behind, entire longshellclear.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage6 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f96bc511085ee3977571c17f6f209398513eac5f"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-06.png",
+      "sha256": "9afb1fed1bd2e31e9389de6264bfc28d08594cb9377fd8445ce6e1059826795e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-06.png"
+    },
+    {
+      "id": "M-hermit_crab-07",
+      "name": "ヤドカリ⑦",
+      "scene": "Large orange hermitcrab with luxurious broad brightblue-and-white spiralstriped shell and strong roundedpincers, walks proudly toward viewer through a mirrorlike tidepool, highoblique view, reflected shell and soft seagrass, afternoon light. Preserve exactly shellpattern.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage7 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f97d433e5619743818fa3122dd23e67046aaaa04"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-07.png",
+      "sha256": "bbcc0f6436706bea0a86e6010a5a682944df8d0a0d560b5fb6569fb1abeb5c56",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-07.png"
+    },
+    {
+      "id": "M-hermit_crab-08",
+      "name": "ヤドカリ⑧",
+      "scene": "Veteran orange hermitcrab with larger mossy olivegreen-and-cream weathered shell, calm halfclosed eyes asreference, sturdyclaws, resting beside a driftwoodroot at shoreline in goldensunset. Right sideclose view, tiny barnaclelike shell details only asreference, peaceful experienced character.",
+      "identity_review": "Visual comparison to canonical character references: Canonical hermit crab stage8 shell geometry, pattern, face and body proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/hermit_crab/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "225dc2e2c2f618c564bed144b76b45bae8cec261"
+        }
+      ],
+      "illustration": "illustrations/M-hermit_crab-08.png",
+      "sha256": "204a06c48ee59f464c7d0770ff2eb103b379e881a53790c93b5f453c00cc85d5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-hermit_crab-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-hermit_crab-08.png"
+    },
+    {
+      "id": "M-jellyfish-01",
+      "name": "クラゲ①",
+      "scene": "Stage1 BLUE POLYP still attached by narrow stalk to underwater pebble. Macro low viewpoint among tiny seagrass in morning shallowwater, tentaclecrown tilted right in current, no swimmingbell.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f68c9f2199268a37d0138ddf1794e7b5b46018e5"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-01.png",
+      "sha256": "897b7f65a1ef74243fd0961df1906d5c816089c08d7b59c8902a9a170744ac50",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-01.png"
+    },
+    {
+      "id": "M-jellyfish-02",
+      "name": "クラゲ②",
+      "scene": "Stage2 stacked blue disks on attached stalk, tentaclecrown. Sideview in shaded rockpool with beam from upperright, disks clearly separated. Show stackedstrobila morphology exactly.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "df38d9be01b493dcda23f7e252d78b972b77acba"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-02.png",
+      "sha256": "9c7c6ecd92e1dca1c2cceea89793a04fc4d846b30a272db3f00dd4e356186f69",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-02.png"
+    },
+    {
+      "id": "M-jellyfish-03",
+      "name": "クラゲ③",
+      "scene": "Stage3 flat blue star-shaped ephyra with eightlobes and central cute face, freelyfloating viewed from above over far sandybottom. Sunlit turquoise water, tinybubbles diagonal, no bell or longadulttentacles.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c8c8a7653e11262b636539a1ce4d57ef7f9dbfb5"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-03.png",
+      "sha256": "ad70f3f09a2d1eacd28707a967aa6d4422d9ff693e47e4cde75a7851212d97f7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-03.png"
+    },
+    {
+      "id": "M-jellyfish-04",
+      "name": "クラゲ④",
+      "scene": "Stage4 tiny roundbluebell baby jellyfish with short purpletentacles, drifting right in warm lagoon, slight undersideview lets face read, a distant kelpfrond behindleft.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f42156c30579952e4f7617d31775c47417c9dd81"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-04.png",
+      "sha256": "fb6dcc62835a2532c5bbcaf0be6ff128ba95f5cd6aae37be2f203b03402b4fa3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-04.png"
+    },
+    {
+      "id": "M-jellyfish-05",
+      "name": "クラゲ⑤",
+      "scene": "Stage5 transparentblue youngcap, few longer purpletentacles and exact winkingface. Floating upwardleft close to rippledwatersurface, sideview, pale goldreflection.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f213eef878a7825634b5daf473cf87aaf9e84e0d"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-05.png",
+      "sha256": "571468c6e8b1f202bc42096781c6a4681752846613b36738ca07d99511db6ba5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-05.png"
+    },
+    {
+      "id": "M-jellyfish-06",
+      "name": "クラゲ⑥",
+      "scene": "Stage6 adultpurplebluecap, longer pink/purple tentacles, exact sleepyeyes. Horizontal drift across calm blue openwater, rays overhead, generous clearspace and dominant subject.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21c8e78d53623b7f7907a2ce9373d24946090785"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-06.png",
+      "sha256": "cc9c85a44e9f2c8205183aec18b45fce90940012ff3e471819c39a52943ec3de",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-06.png"
+    },
+    {
+      "id": "M-jellyfish-07",
+      "name": "クラゲ⑦",
+      "scene": "Stage7 largebluebell with many longfine bluefrills and tiny pinkface. Rising diagonally from soft coralvalley, viewpoint slightlybelow, tentacles swept left, natural luminous midday.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "71e532c2193d355e3c0e3f8f12dda1428391a4d8"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-07.png",
+      "sha256": "582b574c0f896fb9849ff2a758802dc69c297194155e06aaef17a0f9b6a7feda",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-07.png"
+    },
+    {
+      "id": "M-jellyfish-08",
+      "name": "クラゲ⑧",
+      "scene": "Stage8 pale luminous maturebell closedhappyeyes, verylong delicate bluewhitefrills. Serene closeportrait at bluehour, softlight withinbell, natural faroff planktonlike lights, gentle ratherthan dark.",
+      "identity_review": "Visual comparison to canonical character references: Canonical jellyfish stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/jellyfish/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "757066b0303de6d1b080fe2ea00df3a45cdc6a11"
+        }
+      ],
+      "illustration": "illustrations/M-jellyfish-08.png",
+      "sha256": "945acd0253f3f542c3303471f88acf954796c64390597d3250e69bcca715a14f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-jellyfish-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-jellyfish-08.png"
+    },
+    {
+      "id": "M-man-01",
+      "name": "おとこのひと①",
+      "scene": "Brownhaired baby in exact blueonesie crawling left across soft cotton picnicmat beside sunlitgarden. Low closeview of tinyhands and knees, curious smile, softflowers behind. No addedaccessories.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9e67bf4141ac493d4b963ca1e805d225d965fc72"
+        }
+      ],
+      "illustration": "illustrations/M-man-01.png",
+      "sha256": "ee86c23e7e9cb4f7229999ea0670ec030193dd7c87006ab0b7342dad1039abfd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-01.png"
+    },
+    {
+      "id": "M-man-02",
+      "name": "おとこのひと②",
+      "scene": "Brownhaired toddler in bluebearmotifTshirt denimshorts redsneakers crouches to push his redtoycar along smooth gardenpath, facingright, joyful daylight. Entirechild clear.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e7bb9fd1f7309cf75f99ac1b41e2f5ccee6035bd"
+        }
+      ],
+      "illustration": "illustrations/M-man-02.png",
+      "sha256": "4b8f1f9dcd111f9d15e75362a6f3e6d1a4a7ed65ba0dbd318f9c7f74fb410b39",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-02.png"
+    },
+    {
+      "id": "M-man-03",
+      "name": "おとこのひと③",
+      "scene": "Child in exact yellowhat whiteshirt blueshorts backpack walking diagonally towardviewer past flowering hedge on his first outing, earlymorning, lookingup at butterfly. Preserve chibichild age.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "7695d83ae15fb08eafbf87ba9b86c7fbda5f2c97"
+        }
+      ],
+      "illustration": "illustrations/M-man-03.png",
+      "sha256": "95c6a0499c69aa34f19c69bfa922969900cbb324ae393a158ee02c780698f6c7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-03.png"
+    },
+    {
+      "id": "M-man-04",
+      "name": "おとこのひと④",
+      "scene": "Schoolboy in exact navyuniform backpack stands beside low riverside railing, turns left to watch floatingleaves on wayhome. Warm afternoon, slightlyhighangle, age and uniform exact.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "324a17d49112913b5d320ee7e8a7e5e5160a0812"
+        }
+      ],
+      "illustration": "illustrations/M-man-04.png",
+      "sha256": "655e06c52538d43364932a44b327cf1848bd37a95e6d342ce93b708361b244be",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-04.png"
+    },
+    {
+      "id": "M-man-05",
+      "name": "おとこのひと⑤",
+      "scene": "Youngman in whitelongsleeve darkpants brownbag pauses at sunny stationcourtyard, facingrightthreequarter, holds bagstrap with onehand, relaxed hopeful expression. No writing or signs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f39f799af9b9ce389debb52110b15e754a1b6ef2"
+        }
+      ],
+      "illustration": "illustrations/M-man-05.png",
+      "sha256": "d5aca9ca2093c732c2cea6db5318f17eb5ead2eabf1c528858f171d218098333",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-05.png"
+    },
+    {
+      "id": "M-man-06",
+      "name": "おとこのひと⑥",
+      "scene": "Adult in navysuit redtie brownbriefcase walks left across leafy town square in morning, exact closedeyes happyface, fullbody centered, mature but chibi proportions. No signage.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b4458d72b396c136bff9450d186de26c59f964ea"
+        }
+      ],
+      "illustration": "illustrations/M-man-06.png",
+      "sha256": "692bfa46702306b332644adbe3fbb53ede5999d6ceaba9f999cd2bb49c4ea78c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-06.png"
+    },
+    {
+      "id": "M-man-07",
+      "name": "おとこのひと⑦",
+      "scene": "Middleagedman in exact olivebrownoutfit greenbackpack hiking gently up woodlandpath, threequarterright sideview, looks toward distant hill, warm dappledlight, preservehair and face.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "512b6c5b6c66757672b79750b60ad865706277a6"
+        }
+      ],
+      "illustration": "illustrations/M-man-07.png",
+      "sha256": "596a7c00c2bfe7b430c2e244904842240c940f58d9c588c24ebb1258db862ab1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-07.png"
+    },
+    {
+      "id": "M-man-08",
+      "name": "おとこのひと⑧",
+      "scene": "Grayhaired elderlyman tanjacket brownpants cane resting on parkbench at goldenhour, exact gentle closedeyes, twofeetgrounded and onehand oncane, wholebody clear, distantpond. Quiet lived-in story.",
+      "identity_review": "Visual comparison to canonical character references: Canonical man stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/man/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "82a1ce06f9d3063ef6dea8d3f5e5237c021cd316"
+        }
+      ],
+      "illustration": "illustrations/M-man-08.png",
+      "sha256": "539df5df1ee73dc36e8e1bf6cb958ace1e714641d148860d42f3386f219149d5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-man-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-man-08.png"
     }
   ],
   "remaining_not_started": 429,
