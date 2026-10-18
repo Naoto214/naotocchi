@@ -4124,13 +4124,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "43b56bbb099763db7e6a4b804fc4a72385acf010",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/01.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-01 ① 1/3「ねのそばでやすむ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-cicada-02",
@@ -4144,13 +4144,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "3d689711c9258e5d8da7f7ceeeb955d31cfd7473",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/02.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-02 ② 2/4「つちでそだつ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-cicada-03",
@@ -4164,13 +4164,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a5d89767ed4cd26b1f8c064d532414e0585da88c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/03.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-03 ③ 3/5「でるときをえらぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-cicada-04",
@@ -4184,13 +4184,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0cb9a4cd711db0cdb29567b68f5e7a1beb5bd916",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/04.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-04 ④ 4/4「つぎのすがたをさがす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-cicada-05",
@@ -4204,13 +4204,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "dd3db5b9fe8df11b166d05f7249e66ba73d6502f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/05.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-05 ⑤ 2/5「ぬけがらをおいていく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-cicada-06",
@@ -4224,13 +4224,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ab1bb7ec7a96e1fb00d3941e6c42d35782c2e22e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/06.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-06 ⑥ 7/4「なきはじめる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-cicada-07",
@@ -4244,13 +4244,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "121f1f5cea54e9106732efece19ec9f2781ef79d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/07.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-07 ⑦ 9/4「いまこそなく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-cicada-08",
@@ -4264,13 +4264,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b48bf2fc4d563b7dfa6db81c49a6713da1460394",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cicada-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cicada:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cicada/08.png",
       "card_text_source": "55-insect-three-lines-card-text-draft.md#M-cicada-08 ⑧ 4/7「しずかなこえをのこす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-clownfish-01",
@@ -4444,13 +4444,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "24d65a825473b5d4a7480740e9877087e2de4054",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/01.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-01 ① 1/3「すみつく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-coral-02",
@@ -4464,13 +4464,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0ceb402f31d2442152c480c4818d657d1afc7321",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/02.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-02 ② 2/4「ひとつからはじめる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-coral-03",
@@ -4484,13 +4484,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2bdde901fd3847439d09e75c33aee4703da77058",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/03.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-03 ③ 3/5「えだわかれ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-coral-04",
@@ -4504,13 +4504,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f6e83114b79525f1f7ec71026cd348018f2a5297",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/04.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-04 ④ 4/6「ちいさなもり」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-coral-05",
@@ -4524,13 +4524,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "c5a91c8bee63ed33264c706b51843793908d8693",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/05.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-05 ⑤ 5/6「いろいろなものがあつまる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-coral-06",
@@ -4544,13 +4544,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "92e3ac10d69e6792582bd54c28d29b644660ac74",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/06.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-06 ⑥ 5/7「つながりをひろげる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-coral-07",
@@ -4564,13 +4564,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e76338f88a2b44ff51dbdad9e39904cf7865fdff",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/07.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-07 ⑦ 4/8「おおきなすみか」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-coral-08",
@@ -4584,13 +4584,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d6a26e53a8bb4cb34c53b1e65cad89bb2b0c53cf",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-coral-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=coral:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/coral/08.png",
       "card_text_source": "54-ocean-four-lines-card-text-draft.md#M-coral-08 ⑧ 4/9「ひろがるサンゴのうみ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dandelion-01",
@@ -4764,13 +4764,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "1a40fad248473f9d3cd45bd000b454d4487a4762",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/01.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-01 ① 2/1「ついていくはじめのいっぽ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dog-02",
@@ -4784,13 +4784,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b307fdecf30f0b930513cd22597cab88b48d2d93",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/02.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-02 ② 3/2「もっとあそぼ！」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dog-03",
@@ -4804,13 +4804,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "932da9c2379f687eda7d0b71d306deedf50e4cbd",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/03.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-03 ③ 5/3「やってみたあとに」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dog-04",
@@ -4824,13 +4824,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "8ddd04f3dce8431f65e6405544aa8642128bad53",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/04.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-04 ④ 7/4「まずとびこんでみる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dog-05",
@@ -4844,13 +4844,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "029085964b10de856f8152ba4c94a86ac82c8ebc",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/05.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-05 ⑤ 9/5「はしりきったいちにち」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dog-06",
@@ -4864,13 +4864,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "40b97aee35a8dbdfa49490e78a9229967f5227c3",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/06.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-06 ⑥ 7/6「いっしょにあそんだあと」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dog-07",
@@ -4884,13 +4884,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e59914dace6239f0692104123741196d59e0934a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/07.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-07 ⑦ 5/7「みまもってつぎへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dog-08",
@@ -4904,13 +4904,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "618a13a464fd665d04e2e559ba1c154c1794f4d7",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dog-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dog:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dog/08.png",
       "card_text_source": "representatives/02-beast-dog.md#M-dog-08 ⑧ 3/7「そばでむかえるいちにち」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dragon-01",

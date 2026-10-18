@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 249,
+  "generated_count": 273,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -6112,6 +6112,558 @@
       "generation": "Built-in image_gen; rollout/main-butterfly-20261019/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/M-butterfly-08.png"
+    },
+    {
+      "id": "M-cicada-01",
+      "name": "セミ①",
+      "scene": "Tiny amber brown cicada nymph with tiny segmented abdomen, black eyes and six legs rests beside a fine tree root in a cosy soil pocket; intimate side view facing left, warm filtered morning light from tiny opening; no wings.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage1 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "43b56bbb099763db7e6a4b804fc4a72385acf010"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-01.png",
+      "sha256": "25fa4760e8e73de3279272a60e2974af301306986a406d93634c99057cfb568c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-01.png"
+    },
+    {
+      "id": "M-cicada-02",
+      "name": "セミ②",
+      "scene": "Exact reference young amber-orange cicada nymph, six legs ONLY (three pairs) attached to thorax, two antennae, no wings. Side profile facing LEFT, crawling horizontally along a thick root inside cosy earth tunnel. Near side three legs clearly separated: one strong digging foreleg, one slender middle leg, one slender rear leg; far side legs mostly occluded. Small plump abdomen, curious face. Close side view, patch of sunlight enters from upper left. No eight-legged insect.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage2 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "3d689711c9258e5d8da7f7ceeeb955d31cfd7473"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-02.png",
+      "sha256": "1f61889ef6034025d598557887754acc3e77580ab575ee7d15855c439d5e237f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-02.png"
+    },
+    {
+      "id": "M-cicada-03",
+      "name": "セミ③",
+      "scene": "Exact reference mature elongated orange cicada nymph with long segmented abdomen and six legs, no adult wings. Composition must differ from lower stage: straight upright VERTICAL body with head at upper LEFT and abdomen pointing down. Climbing steeply upward on a ROOT inside vertical soil shaft, camera looks DOWN from soil surface; body and large digging forelegs visible, peeking toward exit, a little ring of sky above. A generous full-scene view with larva occupying central half, not huge diagonal closeup.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage3 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a5d89767ed4cd26b1f8c064d532414e0585da88c"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-03.png",
+      "sha256": "7bb0bdfed321fd78002d34c1fb6c86932e396ec897f0f2b0d8b25a434aab349c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-03.png"
+    },
+    {
+      "id": "M-cicada-04",
+      "name": "セミ④",
+      "scene": "Large orange nymph climbs up from a round earth hole at base of tree, whole body now above ground, front legs reaching bark, side view toward right, soft early evening forest greens; no adult wings.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage4 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0cb9a4cd711db0cdb29567b68f5e7a1beb5bd916"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-04.png",
+      "sha256": "281454d6117d45ce7a486a3c78c717db9fb0efb0d1688994d73a992bb8b1e940",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-04.png"
+    },
+    {
+      "id": "M-cicada-05",
+      "name": "セミ⑤",
+      "scene": "Fresh vivid green adult cicada is emerging above its empty amber brown nymph exoskeleton clinging to tree bark, translucent pale mint wings hanging downward, green head and abdomen, red brown eyes; intimate front-three-quarter moonlit dawn scene, preserve reference emergence state.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage5 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "dd3db5b9fe8df11b166d05f7249e66ba73d6502f"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-05.png",
+      "sha256": "b03b719fb49d58d796092849311bf9c94fc2661ac7cffc7f996998b3052f7ab0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-05.png"
+    },
+    {
+      "id": "M-cicada-06",
+      "name": "セミ⑥",
+      "scene": "Young bright lime green adult cicada with red brown eyes, long segmented green abdomen, delicate translucent wings outlined amber, perched along slender twig facing left and beginning to sing in warm morning leaves; low angle, six insect legs, no empty shell.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage6 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ab1bb7ec7a96e1fb00d3941e6c42d35782c2e22e"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-06.png",
+      "sha256": "eb5396afadca4caca01e8597657ed9f67708b25521aa64bd200d1b57de197fe6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-06.png"
+    },
+    {
+      "id": "M-cicada-07",
+      "name": "セミ⑦",
+      "scene": "Mature olive green adult cicada with broader olive head and dark ochre segmented abdomen, large reddish brown eyes and clear long wings with orange veins, singing on sunlit trunk high in summer canopy; frontal elevated view, reference face exactly, no musical symbols.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage7 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "121f1f5cea54e9106732efece19ec9f2781ef79d"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-07.png",
+      "sha256": "04960d7d4691e52c8fc8a91bba509936e705af2bdcfab91204a48fa8006c41b3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-07.png"
+    },
+    {
+      "id": "M-cicada-08",
+      "name": "セミ⑧",
+      "scene": "Older gray brown adult cicada with muted ochre gray face and abdomen, translucent warm veined wings, gently resting on weathered branch overlooking soft sunset meadow; calm close three-quarter right view, subdued warm light, retain exact gray mature morphology.",
+      "identity_review": "Visual comparison to canonical character references: Canonical cicada stage8 exact morphology, face, colors and wing status.",
+      "sources": [
+        {
+          "path": "assets/characters/cicada/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b48bf2fc4d563b7dfa6db81c49a6713da1460394"
+        }
+      ],
+      "illustration": "illustrations/M-cicada-08.png",
+      "sha256": "96c9a7ec2ab2ce96f4b29a40fb7106e2f430ee503a28452a2ac0a85d350b51f2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-cicada-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-cicada-08.png"
+    },
+    {
+      "id": "M-coral-01",
+      "name": "サンゴ①",
+      "scene": "Single tiny round pink coral child with glossy black eyes, rosy cheeks and smiling mouth, smooth spherical body with no limbs or branches, drifting down to settle beside a small lavender pebble on pale sand. Intimate low-angle turquoise underwater morning, one clear subject.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage1 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "24d65a825473b5d4a7480740e9877087e2de4054"
+        }
+      ],
+      "illustration": "illustrations/M-coral-01.png",
+      "sha256": "add4509003e19d2e1f08c428290b60de56cac752d5b43a2d4c16a62d85a89734",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-01.png"
+    },
+    {
+      "id": "M-coral-02",
+      "name": "サンゴ②",
+      "scene": "Single pale peach pink coral polyp anchored to lavender pebbles with a ring of thin pink tentacles, happy open mouth and black eyes, tentacles gently wave in shallow current; side-front close view, light ripples, no large branches or added limbs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage2 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0ceb402f31d2442152c480c4818d657d1afc7321"
+        }
+      ],
+      "illustration": "illustrations/M-coral-02.png",
+      "sha256": "184660212d414b5fb64a1f04ae16ecc217137dc70f3796b62e6a1373c68a9cb7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-02.png"
+    },
+    {
+      "id": "M-coral-03",
+      "name": "サンゴ③",
+      "scene": "Young peach coral with a single tapering trunk, tiny shy face and several long branching arms with softly rounded tips, anchored on purple pebbles. Low viewpoint looking up toward surface sunbeam, modest clear branching silhouette, no walking limbs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage3 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2bdde901fd3847439d09e75c33aee4703da77058"
+        }
+      ],
+      "illustration": "illustrations/M-coral-03.png",
+      "sha256": "0a9d8ce666f8f49d2b8818073b4a899042b87d76016d880e00f7088dafea4d81",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-03.png"
+    },
+    {
+      "id": "M-coral-04",
+      "name": "サンゴ④",
+      "scene": "Small bright pink coral thicket formed of broad soft rounded branching fingers around one cheerful central face, anchored among lavender stones. Higher oblique view across sandy lagoon floor, a few distant tiny fish silhouettes, foreground coral remains large and crisp.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage4 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f6e83114b79525f1f7ec71026cd348018f2a5297"
+        }
+      ],
+      "illustration": "illustrations/M-coral-04.png",
+      "sha256": "34a35b2ae0f343fb402f87c430a1936e4756b657dc0c6bfae9e88df072e88747",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-04.png"
+    },
+    {
+      "id": "M-coral-05",
+      "name": "サンゴ⑤",
+      "scene": "Young orange-red coral forest, one broad antler-shaped colony with many thin rounded branching fingers, dark small eyes and happy face at base, pale golden stones beneath. Opposite side view looking left across clear reef channel, afternoon beams, warm orange shape isolated against blue water.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage5 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5a91c8bee63ed33264c706b51843793908d8693"
+        }
+      ],
+      "illustration": "illustrations/M-coral-05.png",
+      "sha256": "7aaec7ef5668a8d29198018e5c671cd7fe9f9c799d395772bc0798615ad4ba18",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-05.png"
+    },
+    {
+      "id": "M-coral-06",
+      "name": "サンゴ⑥",
+      "scene": "Several colorful coral branches in a compact group: golden orange front-center, pink left, purple tall rear, blue right, tiny friendly faces matching reference. Medium wide low-angle reef scene with open water between branches and several tiny background fish passing behind, vivid natural turquoise.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage6 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "92e3ac10d69e6792582bd54c28d29b644660ac74"
+        }
+      ],
+      "illustration": "illustrations/M-coral-06.png",
+      "sha256": "eecab5b0dc2607c8e4e3b02d100719aa938d9163ff25e691f16b40c14bbaa99f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-06.png"
+    },
+    {
+      "id": "M-coral-07",
+      "name": "サンゴ⑦",
+      "scene": "Large tall coral forest in exact reference form, densely clustered golden orange upper branches, bright magenta left, vivid cyan right, purple lower, pebble base, each tiny face preserved. Expansive blue reef vista from slightly above, many tiny distant fish shelter between branches. Central colony dominates.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage7 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e76338f88a2b44ff51dbdad9e39904cf7865fdff"
+        }
+      ],
+      "illustration": "illustrations/M-coral-07.png",
+      "sha256": "917d5195053bc99e2865a36b4420318a5c51d075cd4f7ce0e178eea393b14cb9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-07.png"
+    },
+    {
+      "id": "M-coral-08",
+      "name": "サンゴ⑧",
+      "scene": "Broad low rounded coral reef garden matching reference, diverse yellow green cyan blue rounded cushion corals behind pink purple orange daisy-like polyps at front, several tiny smiling faces. Wide high oblique view across softly rippled sand with sunset light through shallow water; broad rounded silhouette, not tall branching forest.",
+      "identity_review": "Visual comparison to canonical character references: Canonical coral stage8 exact silhouette, face, colors and branching.",
+      "sources": [
+        {
+          "path": "assets/characters/coral/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d6a26e53a8bb4cb34c53b1e65cad89bb2b0c53cf"
+        }
+      ],
+      "illustration": "illustrations/M-coral-08.png",
+      "sha256": "0ee4db73e037ef551cee4c83ab40451ea9881ee1637e5246d8b52c9519555926",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-coral-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-coral-08.png"
+    },
+    {
+      "id": "M-dog-01",
+      "name": "いぬ①",
+      "scene": "Tiny newborn tan puppy with floppy dark brown ears, closed sleepy eyes and short rounded body, lying curled with chin on paws in a soft cream blanket nest by a sunny cottage window; close overhead view. Four paws, no collar.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage1 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "1a40fad248473f9d3cd45bd000b454d4487a4762"
+        }
+      ],
+      "illustration": "illustrations/M-dog-01.png",
+      "sha256": "e4e3280ea06bc6321bb0736c2fa74fdf2e53788bcf15af4401bc030af4d472ca",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-01.png"
+    },
+    {
+      "id": "M-dog-02",
+      "name": "いぬ②",
+      "scene": "Very young tan puppy sits a little unsteadily on a woven mat at open doorway, floppy dark ears, large round curious black eyes, little cream muzzle, short legs and small upward tail. Eye-level front view with warm garden beyond, no adult proportions.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage2 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b307fdecf30f0b930513cd22597cab88b48d2d93"
+        }
+      ],
+      "illustration": "illustrations/M-dog-02.png",
+      "sha256": "3cac597a79a1859e4d0f801000f04d6989d83c2e52bd055b50b0cb061d3f7b9b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-02.png"
+    },
+    {
+      "id": "M-dog-03",
+      "name": "いぬ③",
+      "scene": "Small playful tan puppy with newly upright dark brown ears, large eyes and cream muzzle, lifts one forepaw while trotting RIGHT after a yellow fallen leaf along a garden path; full side view, short puppy body, four legs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage3 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "932da9c2379f687eda7d0b71d306deedf50e4cbd"
+        }
+      ],
+      "illustration": "illustrations/M-dog-03.png",
+      "sha256": "8d6892def5c7e330e7e01f0ea2139badf8564a92f395bae256e089ff33c0fcb0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-03.png"
+    },
+    {
+      "id": "M-dog-04",
+      "name": "いぬ④",
+      "scene": "Lively adolescent tan dog performs a play bow, front paws stretched out, bottom high and tail curled upward, ears upright, delighted closed eyes as reference. Facing LEFT toward a simple red ball on grassy lawn, low close viewpoint, lively morning.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage4 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8ddd04f3dce8431f65e6405544aa8642128bad53"
+        }
+      ],
+      "illustration": "illustrations/M-dog-04.png",
+      "sha256": "1e23012272965829fe3578b6ec384d09f1202e0a7ffa24d78dc72f66a7dba423",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-04.png"
+    },
+    {
+      "id": "M-dog-05",
+      "name": "いぬ⑤",
+      "scene": "Young slim longer-legged tan dog with erect dark ears, cream muzzle and chest, alert calm smile, walks along a shallow stream stepping from one mossy stone to another. Full-body side three-quarter view facing right, summer woodland, tail uprightcurved. No ball.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage5 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "029085964b10de856f8152ba4c94a86ac82c8ebc"
+        }
+      ],
+      "illustration": "illustrations/M-dog-05.png",
+      "sha256": "5c552747f27eca81eaf4120942b549715d2700f8fe7863b979d18f36b60f0cdc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-05.png"
+    },
+    {
+      "id": "M-dog-06",
+      "name": "いぬ⑥",
+      "scene": "Strong full-grown tan dog with broader chest and sturdy legs, upright ears and happy open mouth, proudly brings a small natural wooden stick along sunny meadow trail toward viewer. Fullbody frontal threequarter movement, four legs, curled uplifted tail, no human hands.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage6 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "40b97aee35a8dbdfa49490e78a9229967f5227c3"
+        }
+      ],
+      "illustration": "illustrations/M-dog-06.png",
+      "sha256": "d0228831df220c9275a106df1cf3bff0da3f37f9f26a269445c817dae87d2425",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-06.png"
+    },
+    {
+      "id": "M-dog-07",
+      "name": "いぬ⑦",
+      "scene": "Calmer middle-aged tan dog with one ear upright and one ear floppy exactly as reference, slightly pale muzzle, seated beside a garden bench looking gently to left, one forepaw rests naturally beside a tiny fallen flower. Late afternoon, close side view, relaxed curledtail.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage7 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e59914dace6239f0692104123741196d59e0934a"
+        }
+      ],
+      "illustration": "illustrations/M-dog-07.png",
+      "sha256": "8487aa6f30bda9a83975e7e90f3e7565cc8add2072e5c5a1584f7b1596ec6767",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-07.png"
+    },
+    {
+      "id": "M-dog-08",
+      "name": "いぬ⑧",
+      "scene": "Old tan dog with both ears floppy and broad pale cream muzzle and cheeks, eyes gently closed in a smiling expression, sits with paws together on cozy porch in golden sunset, head slightly turned right, tail laid low on wooden floor. Fuller elderlybody asreference, no clothing.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dog stage8 exact ears, face, coat and age proportions.",
+      "sources": [
+        {
+          "path": "assets/characters/dog/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "618a13a464fd665d04e2e559ba1c154c1794f4d7"
+        }
+      ],
+      "illustration": "illustrations/M-dog-08.png",
+      "sha256": "4c16a93cfa058696e98e1dbad6975efe65d448bb60c0aca4b1a4917452ae48de",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dog-08.png"
     }
   ],
   "remaining_not_started": 429,
