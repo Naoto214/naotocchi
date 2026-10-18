@@ -15,12 +15,19 @@ const {closeDetail,projection,actionButton,reveal}=require('./ui-browser-helpers
    return{overflow:document.documentElement.scrollWidth>innerWidth,ordered:landscape?far.right<=near.left&&near.right<=panel.left:far.bottom<=near.top&&near.bottom<=panel.top,separate:Math.max(far.bottom,near.bottom,panel.bottom)<=hand.top+1,pinned:far.top>=0&&far.bottom<=innerHeight,slots:[...document.querySelectorAll('.own .slot')].every(n=>{const b=n.getBoundingClientRect();return b.height>=20&&(landscape?Math.abs(b.width/b.height-1.05)<.05:b.height>=44);}),eggs:[...document.querySelectorAll('.egg-main .egg-image')].every(n=>{const b=n.getBoundingClientRect(),p=n.parentElement.getBoundingClientRect();return b.top>=p.top&&b.bottom<=p.bottom+1&&getComputedStyle(n).objectFit==='contain';})};
   });assert.ok(!check.overflow&&check.ordered&&check.separate&&check.pinned&&check.slots&&check.eggs,JSON.stringify({viewport,check}));
   assert.equal(await page.locator('#operation-panel .operation-notice').count(),1);if(viewport.height>viewport.width){assert.ok((await page.locator('#operation-panel').boundingBox()).height<=60);assert.ok((await page.locator('.own-shell').boundingBox()).height>=72);}assert.equal(await page.locator('#operation-panel [data-choice-card]').count(),0);
-  // QA9: result row never overlaps a board or guide; close/replay does not change the save.
-  if(await page.locator('.result-notice').count()){
-   const originalSave=await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1'));
-   assert.ok(await page.evaluate(()=>{const r=document.querySelector('#result-feedback').getBoundingClientRect(),b=document.querySelector('.battle-area').getBoundingClientRect();return r.bottom<=b.top&&getComputedStyle(document.querySelector('#result-feedback')).position!=='fixed';}));
+  // QA10: compare actual boxes with/without/replayed/auto-hidden results at every viewport.
+  const stableBoxes=()=>page.evaluate(()=>[...document.querySelectorAll('.opponent-shell,.own-shell,#operation-panel,#hand,.slot,.hand-card')].map(n=>{const r=n.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};}));
+  await page.evaluate(()=>Promise.all([...document.querySelectorAll('#hand .hand-card')].flatMap(n=>n.getAnimations()).map(a=>a.finished.catch(()=>{}))));
+  if(!await page.locator('.result-notice').count())await page.locator('[data-result-reopen]').click();
+  assert.equal(await page.locator('.result-notice').count(),1);
+  {
+   const originalSave=await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),shown=await stableBoxes();
+   assert.ok(await page.evaluate(()=>{const r=document.querySelector('#result-feedback').getBoundingClientRect(),b=document.querySelector('.opponent-shell').getBoundingClientRect();return getComputedStyle(document.querySelector('#result-feedback')).position==='absolute'&&r.top>=b.top&&r.top<b.bottom&&r.left>=b.left&&r.right<=b.right+1;}));
    await page.locator('[data-result-collapse]').click();assert.equal(await page.locator('.result-notice').count(),0);assert.ok(await page.locator('#operation-panel').isVisible());
-   await page.locator('[data-result-reopen]').click();await page.waitForFunction(()=>!document.querySelector('.result-notice'),{},{timeout:5000});
+   assert.deepEqual(await stableBoxes(),shown,'manual collapse must not move or rescale the table');
+   await page.locator('[data-result-reopen]').click();assert.deepEqual(await stableBoxes(),shown,'replay must not move or rescale the table');
+   await page.waitForFunction(()=>!document.querySelector('.result-notice'),{},{timeout:5000});
+   assert.deepEqual(await stableBoxes(),shown,'automatic collapse must leave no spacer');
    assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),originalSave);
   }
   // Presentation-only fixture checks CSS in the actual zone contexts, without touching game state.
