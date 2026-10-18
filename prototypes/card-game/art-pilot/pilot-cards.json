@@ -1,0 +1,81 @@
+[
+  {
+    "id": "M-beetle-04",
+    "name": "カブトムシ④",
+    "type": "main",
+    "cost": 4,
+    "rare": false,
+    "text": "このメインからときおくりする時、そのときおくりで支払う時を1少なくしてもよい。この軽減を適用したときおくりを終えた後、このターン自分はもうときおくりできない。",
+    "source": "15-test-deck-b-main-16-draft.md#④ 1/4「さなぎのじかん」",
+    "source_sha256": "6db5aee2f74b0a8c3a809e302fa054aa0b48e9210c5487952a16cbb898ee1085",
+    "stage": 4,
+    "species": "M-beetle",
+    "power": 1,
+    "wisdom": 4,
+    "attribute": "むし",
+    "form": "さなぎ"
+  },
+  {
+    "id": "C-cat_friend",
+    "name": "きまぐれなねこ",
+    "type": "companion",
+    "cost": 0,
+    "rare": false,
+    "text": "1ターンに1回。自分のターンに、このカードをなかま枠から山札の一番下に置き、自分の捨て札の「きまぐれなねこ」以外のなかまカード1枚を対象として発動できる。そのカードを手札に戻す。",
+    "source": "72-companion-26-card-text-draft.md#C-cat_friend — きまぐれなねこ",
+    "source_sha256": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117"
+  },
+  {
+    "id": "P-forest_bear",
+    "name": "もりのクマさん",
+    "type": "partner",
+    "cost": 0,
+    "rare": false,
+    "text": "1ラウンドに1回。自分のメインが相手の効果で捨て札に置かれるなら、このカードにみにつけられたカード1枚を捨て札に置くことで、代わりにそのメインをメイン枠に残してもよい。",
+    "source": "74-partner-18-card-text-draft.md#P-forest_bear — もりのクマさん",
+    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+  },
+  {
+    "id": "W-forest",
+    "name": "もり",
+    "type": "world",
+    "cost": 2,
+    "rare": false,
+    "text": "自分のなかまが2枚以上いる間、自分のメインのちえ+1。",
+    "source": "89-world-13-card-text-draft.md#W-forest — もり",
+    "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269"
+  },
+  {
+    "id": "G-fishing-river",
+    "name": "みずべのさかなつり",
+    "type": "play",
+    "cost": 1,
+    "rare": false,
+    "text": "自分のセカイが「みずべ」なら発動できる。自分の捨て札のセカイ1枚を対象とし、手札に戻す。戻したなら、相手のセカイと同名かどうかを確認し、同名なら1枚引く。",
+    "source": "87-play-batch-5-card-text-draft.md#G-fishing-river — みずべのさかなつり",
+    "source_sha256": "b87a3288c053d2ddb811d6dc341de03370a014f570516d145948e978980169f4",
+    "method": "すぐつかう"
+  },
+  {
+    "id": "I-travel1",
+    "name": "リュックサック",
+    "type": "item",
+    "cost": 2,
+    "rare": false,
+    "text": "メインまたはなかまにみにつける。1ターンに1回。自分のセカイがある状態で、手札からセカイを通常配置して変更する時、そのための時を1少なくする。",
+    "source": "77-current-items-card-text-draft.md#I-travel1 — リュックサック",
+    "source_sha256": "ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02",
+    "method": "みにつける"
+  },
+  {
+    "id": "E-new-encounter",
+    "name": "あたらしいであい",
+    "type": "event",
+    "cost": 1,
+    "rare": false,
+    "text": "自分のなかま枠またはこいびと枠に空きがある場合に発動できる。山札上4枚を見る。その中からなかまかこいびと1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+    "source": "91-event-21-card-text-draft.md#E-new-encounter — あたらしいであい",
+    "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "method": "すぐつかう"
+  }
+]

@@ -1,0 +1,184 @@
+{
+  "status": "pending_user_approval",
+  "generated_count": 7,
+  "style_reference": "references/approved-pupa-card.png",
+  "illustration_constraints": [
+    "No text, numbers, card frames, category marks or UI baked into illustration",
+    "Character identity grounded in supplied original images",
+    "Landscape 1536x1024, central readable subject, soft storybook watercolor/gouache",
+    "Original files are never overwritten"
+  ],
+  "cards": [
+    {
+      "id": "M-beetle-04",
+      "name": "カブトムシ④",
+      "scene": "土中の蛹室、細い根と柔らかな金色の光。正式採用カードを優先。",
+      "identity_review": "黄金色・節状腹部・畳んだ脚・角を確認。本編スプライトより丸い顔と大きな目は採用済みカードに合わせたもの。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9c7411f80c79ae56c3dd5f572a0426a2a8c757ea"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-04.png",
+      "sha256": "c5a141c12b0a3a06776942bfaf24671622516788234385b41c770d32a19d84ff",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided, first candidate; no variants generated",
+      "approval": "pending",
+      "preview": "previews/M-beetle-04.png"
+    },
+    {
+      "id": "C-cat_friend",
+      "name": "きまぐれなねこ",
+      "scene": "木の縁側でくつろぐ三毛猫。",
+      "identity_review": "クリーム白・橙・濃茶の三毛、半眼、ピンクの耳、曲がった尾、横臥姿勢を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        }
+      ],
+      "illustration": "illustrations/C-cat_friend.png",
+      "sha256": "786a5e8d2ab1a5b309f0b24a45b43b84e5ad6e07591aa64633aa8e363a83a23e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided, first candidate; no variants generated",
+      "approval": "pending",
+      "preview": "previews/C-cat_friend.png"
+    },
+    {
+      "id": "P-forest_bear",
+      "name": "もりのクマさん",
+      "scene": "森のピクニックで待つクマ。",
+      "identity_review": "茶色・淡い腹と口元・丸耳・座り姿・肉球を維持。光により毛色は暖かめ。",
+      "sources": [
+        {
+          "path": "assets/characters/partners/forest_bear.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+        }
+      ],
+      "illustration": "illustrations/P-forest_bear.png",
+      "sha256": "72a3717aee0adbd912ca0c19df62a913fa5a782d6650c40d42c2e828522127f4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided, first candidate; no variants generated",
+      "approval": "pending",
+      "preview": "previews/P-forest_bear.png"
+    },
+    {
+      "id": "W-forest",
+      "name": "もり",
+      "scene": "木々に囲まれた明るい草地。",
+      "identity_review": "大木・苔石・シダ・青白の小花・草地を維持。生物キャラクターなし。",
+      "sources": [
+        {
+          "path": "assets/world/forest-v1.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a1cf3b5bbc016e74cc4f5ab3126a7f82c38d99c7"
+        }
+      ],
+      "illustration": "illustrations/W-forest.png",
+      "sha256": "cb791ef80facb36828195f3155328eed9f6564b1774c80bb924e14c08ffe3888",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided, first candidate; no variants generated",
+      "approval": "pending",
+      "preview": "previews/W-forest.png"
+    },
+    {
+      "id": "G-fishing-river",
+      "name": "みずべのさかなつり",
+      "scene": "本編の三毛猫が湖畔の桟橋で浮きを眺める。",
+      "identity_review": "三毛猫の配色と顔・尾、湖と桟橋の世界観を参照。魚を捕まえる描写なし。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        },
+        {
+          "path": "assets/world/river-lake-v2.webp",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "afd08334b88a2678bce434dc2c41a832b50d6330"
+        }
+      ],
+      "illustration": "illustrations/G-fishing-river.png",
+      "sha256": "944cb7911d5aa3fc4ff7bdc95a3619b399901008bd956ee2deecbb0b79bcaa72",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided, first candidate; no variants generated",
+      "approval": "pending",
+      "preview": "previews/G-fishing-river.png"
+    },
+    {
+      "id": "I-travel1",
+      "name": "リュックサック",
+      "scene": "森への道の切り株に置かれた赤いリュック。",
+      "identity_review": "赤い本体・角丸フラップ・金色留め具・前面ポケット・側面ポケットを維持。",
+      "sources": [
+        {
+          "path": "assets/items/unified/travel1.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5084a0323b894091077d236d149c0442e7aa6e6d"
+        }
+      ],
+      "illustration": "illustrations/I-travel1.png",
+      "sha256": "d99734cba53bd4e2f07ebbabab249289e3fb6770c62319c849e7f2acc35de1f4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided, first candidate; no variants generated",
+      "approval": "pending",
+      "preview": "previews/I-travel1.png"
+    },
+    {
+      "id": "E-new-encounter",
+      "name": "あたらしいであい",
+      "scene": "森の道ではじめて向き合う三毛猫とクマ。",
+      "identity_review": "猫と熊の特徴を維持。猫の目は出会いへの反応で開き気味。2体の輪郭・脚は分離。",
+      "sources": [
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        },
+        {
+          "path": "assets/characters/partners/forest_bear.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+        }
+      ],
+      "illustration": "illustrations/E-new-encounter.png",
+      "sha256": "db7430004a351f90fc26b0376f34d2d21b0b4a9d9764f88c0808fcd9af87c9ec",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided, first candidate; no variants generated",
+      "approval": "pending",
+      "preview": "previews/E-new-encounter.png"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+const fs=require('node:fs'),path=require('node:path');
+const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES,'playwright'):'playwright');
+const sharp=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES,'sharp'):'sharp');
+(async()=>{
+ const browser=await chromium.launch({headless:true,...(process.env.PILOT_CHROMIUM?{executablePath:process.env.PILOT_CHROMIUM}:{}),args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu']});
+ const page=await browser.newPage({viewport:{width:1200,height:1200},deviceScaleFactor:1});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
+ const base=process.env.PILOT_URL??'http://127.0.0.1:8765/prototypes/card-game/art-pilot/index.html';
+ const cards=JSON.parse(fs.readFileSync(path.join(__dirname,'pilot-cards.json')));
+ async function ready(url){await page.goto(url);await page.waitForFunction(()=>window.pilotReady);await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));});}
+ const checks=[];
+ for(const c of cards){await ready(`${base}?card=${c.id}`);const card=page.locator('.selected .card-wrap .card-face');await card.screenshot({path:path.join(__dirname,'previews',c.id+'.png')});checks.push(await card.evaluate((e,c)=>{const r=e.getBoundingClientRect(),a=e.querySelector('.card-art').getBoundingClientRect(),copy=e.querySelector('.card-copy'),t=copy.getBoundingClientRect();return {id:c.id,width:r.width,height:r.height,ratio:r.width/r.height,canonicalText:copy.querySelector('p').textContent===c.text,textVisible:getComputedStyle(copy.querySelector('p')).display!=='none',attributeCount:e.querySelectorAll('.card-attribute').length,artBeforeCopy:a.bottom<=t.top+1,textFits:copy.scrollHeight<=copy.clientHeight+1,imageFit:getComputedStyle(e.querySelector('.pilot-art')).objectFit};},c));}
+ const mobile=[];
+ for(const width of [320,390,430]){await page.setViewportSize({width,height:844});await ready(base);mobile.push(await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,cards:[...document.querySelectorAll('.card-wrap .card-face')].map(e=>{const r=e.getBoundingClientRect(),a=e.querySelector('.card-art').getBoundingClientRect(),t=e.querySelector('.card-copy').getBoundingClientRect();return {name:e.getAttribute('aria-label'),width:r.width,height:r.height,artBeforeCopy:a.bottom<=t.top+1};})})));if(width===390){await page.screenshot({path:path.join(__dirname,'previews','iphone-390-gallery.png'),fullPage:true});for(const c of cards){for(const [klass,w] of [['small',80],['hand',110]])await page.locator(`[data-id="${c.id}"] .thumb.${klass} .card-face`).screenshot({path:path.join(__dirname,'previews',`${c.id}-${w}.png`)});}}}
+ const tiles=[];for(let i=0;i<cards.length;i++)tiles.push({input:await sharp(path.join(__dirname,'previews',cards[i].id+'.png')).resize(240,360).png().toBuffer(),left:24+i*264,top:24});
+ await sharp({create:{width:1872,height:408,channels:4,background:'#f4efe2'}}).composite(tiles).png().toFile(path.join(__dirname,'previews','seven-card-overview.png'));
+ for(const w of [80,110]){const tiles=cards.map((c,i)=>({input:path.join(__dirname,'previews',`${c.id}-${w}.png`),left:15+(i%3)*125,top:20+Math.floor(i/3)*225}));await sharp({create:{width:390,height:700,channels:4,background:'#f4efe2'}}).composite(tiles).png().toFile(path.join(__dirname,'previews',`iphone-width-${w}.png`));}
+ const result={browser:await browser.version(),method:'Chromium actual existing cardMarkup + style.css, preview-only art replacement; viewport simulation, not physical iPhone Safari',errors,checks,mobile};
+ fs.writeFileSync(path.join(__dirname,'evidence','browser-qa.json'),JSON.stringify(result,null,2)+'\n');await browser.close();
+ const good=!errors.length&&checks.every(c=>c.width===600&&c.height===900&&c.canonicalText&&c.textVisible&&c.artBeforeCopy&&c.textFits&&c.attributeCount===(c.id.startsWith('M-')?1:0))&&mobile.every(m=>m.scrollWidth<=m.width&&m.cards.every(c=>Math.abs(c.width/c.height-2/3)<.002&&c.artBeforeCopy));
+ console.log(JSON.stringify({pass:good,errors,checks,mobile}));if(!good)process.exit(1);
+})().catch(e=>{console.error(e);process.exit(1)});
