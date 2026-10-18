@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 273,
+  "generated_count": 300,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -6664,6 +6664,650 @@
       "generation": "Built-in image_gen; rollout/main-dog-20261019/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/M-dog-08.png"
+    },
+    {
+      "id": "M-dragon-01",
+      "name": "りゅう①",
+      "scene": "Tiny red-orange baby dragon with large round eyes, cream segmented belly and short tail, no wings and no long horns, sitting beside a smooth warm pebble at sunny cave entrance, curious paw touching a fallen leaf, intimate eye-level view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage1 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e6eb7c228c6af56dbad6b0b68015caf82e9dd45d"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-01.png",
+      "sha256": "bcf8df5952449d40a35198ecb09058c100be3e31a6003899e5fbf539688da0c2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-01.png"
+    },
+    {
+      "id": "M-dragon-02",
+      "name": "りゅう②",
+      "scene": "Child red dragon with longer raised curving tail, small orange back spines, cream belly and friendly open mouth, no wings or large horns. Fourlegged walk through a grassy woodland path facing right, low side view, morning mushrooms distant.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage2 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "759fab20466a660cc6dead95c00d1c78bce2ea9c"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-02.png",
+      "sha256": "6cb11033d690f27baf7e937796b1964cebaf1acd207ab1f273d3fd48241748f2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-02.png"
+    },
+    {
+      "id": "M-dragon-03",
+      "name": "りゅう③",
+      "scene": "Young red dragon has newly grown two long pale gold horns and defined cheekspikes, cream segmented belly, still no wings. Fourlegged body leans down to look at its horned reflection in a clear shallow pool, body facing left, threequarter overhead view, noon glade.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage3 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "74745ac7ef6dc29e27bf125233f793415d93f1c8"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-03.png",
+      "sha256": "52daa62164a0ddb7fb4a6a84717511ca0f452d8f8cc33d0be34212f37a2bc8a6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-03.png"
+    },
+    {
+      "id": "M-dragon-04",
+      "name": "りゅう④",
+      "scene": "Round red adolescent dragon with two pale horns and TINY developing red batwings on back, upright bipedal stance on two hindfeet and two little forearms, cream round belly. Practises stretching tiny wings while balancing on low mossy stump, fullbody frontal view, gentle afternoon meadow. Cannot fly yet.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage4 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ebe959c9eff25d64cf22411180ecddf8598155d8"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-04.png",
+      "sha256": "0f55169f8e48e80ec5de91f06ac2de9ec080a34f48b20e48ecfdb145d7660df4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-04.png"
+    },
+    {
+      "id": "M-dragon-05",
+      "name": "りゅう⑤",
+      "scene": "Red young dragon with fully grown large red-orange batwings, two creamhorns, cream belly, sturdy hindlegs and two small forearms. Gently gliding just above flowered hill, side view facing left, full wings and tail visible, early golden hour; joyful nonthreatening expression.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage5 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d5d8a85dc199b482cb223d2b1e32cf7ad680268e"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-05.png",
+      "sha256": "895eecf2d323ccfc1d8b3d34675dbe35666ad83fb90bf6f09821f28f74a12599",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-05.png"
+    },
+    {
+      "id": "M-dragon-06",
+      "name": "りゅう⑥",
+      "scene": "Red adult dragon with larger horns and strong red-orange wings, cream armored belly, blows one small warm golden puff of fire UPWARD into empty air while seated beside rocky clearing. Threequarter right view, playful impressed face, no targets or burning objects, warm twilight.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage6 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fe943c346c2df69a0cb6d851c2c4394495faa2f7"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-06.png",
+      "sha256": "86e39fd74761a105bb056d3692385a96e46fc50db2bb72014aa63bc98cd50ab4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-06.png"
+    },
+    {
+      "id": "M-dragon-07",
+      "name": "りゅう⑦",
+      "scene": "Large sturdy bright red dragon with broad cream chest, two long gold horns and spread large red-orange wings, sitting proudly on hilltop above winding river and distant green hills, frontal wide low-angle view. Kind confident smile, no crown or armor, broad adult build.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage7 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "011677eeea0119b7d4bde4ed3f3c6e016a1fec9a"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-07.png",
+      "sha256": "f6114298a092553e5f5b494ad008de7fce86fde60ad08edadb83ae4f430eb43d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-07.png"
+    },
+    {
+      "id": "M-dragon-08",
+      "name": "りゅう⑧",
+      "scene": "Ancient dragon with deep bronze-orange scales, long branching golden horns, wise narrow friendly eyes, cream-gold plated chest and aged brown-orange wings, resting with long tail coiled around its broad body on mossy terrace above clouds at sunrise. Leftthreequarter view, calm ancient dignity, never scary.",
+      "identity_review": "Visual comparison to canonical character references: Canonical dragon stage8 face, horn and wing development, colors and age.",
+      "sources": [
+        {
+          "path": "assets/characters/dragon/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e2cad69c91dd5d014c738b2ed20ee4e9f774ac15"
+        }
+      ],
+      "illustration": "illustrations/M-dragon-08.png",
+      "sha256": "0027e35df17b03af4713dfa27622517fe3c7b7bd2629607749c5eb51ad187128",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-dragon-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-dragon-08.png"
+    },
+    {
+      "id": "M-frog-01",
+      "name": "かえる①",
+      "scene": "Tiny round green tadpole with sleepy closed eyes and one very short translucent palegreen fin-tail, NO LEGS, drifting just above small pond pebble beneath lily leaves. Intimate underwater macro side view, early morning rays and one tiny airbubble.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage1 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6e78d662c1218a90cd9b717d2e3f4d57c1dff42a"
+        }
+      ],
+      "illustration": "illustrations/M-frog-01.png",
+      "sha256": "2f535686db9bd8a82d7ae6df7766f1df1a344274a56785abfdd14d63525532c9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-01.png"
+    },
+    {
+      "id": "M-frog-02",
+      "name": "かえる②",
+      "scene": "Young green tadpole with larger round head, open black eyes, rosycheeks and long translucent lightgreen leafy fin-tail, NO LEGS. Swimming RIGHT through a gap between long pondgrass stems, medium underwater sideview, clear blue-green water.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage2 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fab2f724e21e2fdc773cc2474310f65237418766"
+        }
+      ],
+      "illustration": "illustrations/M-frog-02.png",
+      "sha256": "462a339da83428f2104a812d42452828caa31c222710949d0246cab90eec438e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-02.png"
+    },
+    {
+      "id": "M-frog-03",
+      "name": "かえる③",
+      "scene": "Green tadpole has exactly TWO TINY HINDLEGS beginning to protrude beneath body and long translucent fin-tail, no forelegs yet. Turning LEFT beside submerged leaf, view slightly from above so hindlegs clearly visible, sunbeam and pond sand below.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage3 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "48922f97aec46a9407b0b1c1fe16bd67763010ef"
+        }
+      ],
+      "illustration": "illustrations/M-frog-03.png",
+      "sha256": "0bec3b5426a7276f8d648e827564fb9d6a39594c30c8c0203259f90e23ea64ac",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-03.png"
+    },
+    {
+      "id": "M-frog-04",
+      "name": "かえる④",
+      "scene": "Green tailed froglet with FOUR small developed legs and still a LONG fin-tail, round green face close toreference, climbing gently onto half-submerged mossy stone. Waterline threequarter view, tail still in water, morning pond grasses.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage4 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "282438baefce144b39d85092b6e0852ec2097cb5"
+        }
+      ],
+      "illustration": "illustrations/M-frog-04.png",
+      "sha256": "766a9bc4878552c47cef760d96013b082ec4f5e3cd4aeb711e665ca4607de849",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-04.png"
+    },
+    {
+      "id": "M-frog-05",
+      "name": "かえる⑤",
+      "scene": "Small brightgreen froglet now mostly onland with four legs and only a VERY SHORT residual tail, cream belly, rosy cheeks and happyface matchingreference. Sitting at shore on wetleaf, looking curiously toward dry meadow, low frontview, tiny tail must remain visible at side.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage5 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "573ba3fb038b1443c5f6fed56bbae838bd454469"
+        }
+      ],
+      "illustration": "illustrations/M-frog-05.png",
+      "sha256": "d8bae8b5037c8975da241197d9bc350dca8aeac24109893551a10f5b9ef967b5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-05.png"
+    },
+    {
+      "id": "M-frog-06",
+      "name": "かえる⑥",
+      "scene": "Young slim green frog with four long delicate limbs and NO TAIL, cream throat and belly, cheerful closed eyes and open mouth. Mid-leap from one lilypad toward next, side view facing left, complete feet readable, sunlight and splashes, no extra limbs.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage6 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4f8f25d532bffc76730d35681b8d16faafe3a607"
+        }
+      ],
+      "illustration": "illustrations/M-frog-06.png",
+      "sha256": "2ccc21077292fe96c5b2f9f1a6ab120d3ae58eca324578f4011aab9c20fef743",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-06.png"
+    },
+    {
+      "id": "M-frog-07",
+      "name": "かえる⑦",
+      "scene": "Full-grown broader green frog with large round open eyes, prominent cream belly and strong folded hindlegs, rosy cheeks, no tail. Seated front-facing on broad lily pad in gentle rain, big raindrop circles around, reeds and pale lotus beyond.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage7 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9dbdbb092ba88acbf7bc9c5bce44f38cb4c305fb"
+        }
+      ],
+      "illustration": "illustrations/M-frog-07.png",
+      "sha256": "9b48d0140bf5ca76bb8524074731b7387375add494c0d2a833b1bc3c5c08fc77",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-07.png"
+    },
+    {
+      "id": "M-frog-08",
+      "name": "かえる⑧",
+      "scene": "Older stout olivegreen frog with mottled dark-green skin, large cream belly and peaceful closed eyes, four limbs and no tail, resting calmly on mossy shorestone under a broad leaf at sunset. Side-threequarter view right, warm quiet pond and softly glowing distant reflections.",
+      "identity_review": "Visual comparison to canonical character references: Canonical frog stage8 exact legs, tail, face and body.",
+      "sources": [
+        {
+          "path": "assets/characters/frog/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ad381f1018b512c4126f1ad7411a3477406834f3"
+        }
+      ],
+      "illustration": "illustrations/M-frog-08.png",
+      "sha256": "84dfb3eacbd93024dc788fb347401c804155d2e9a8faf24c188372945fa4d332",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-frog-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-frog-08.png"
+    },
+    {
+      "id": "G-gomoku-9",
+      "name": "五目ならべ",
+      "scene": "Panda and rabbit enjoy gomoku in sunny bamboo garden. The complete square board fills LEFT two-thirds of illustration, directly OVERHEAD almost flat with all edges visible, EXACT geometrical pattern from first reference (NINE horizontal and NINE vertical lines, five black stones on same middle horizontal line and four white stones at exact shown intersections). On RIGHT third, two small reference characters sitting beside board, pleased with the five-stone line. Do not add/remove/reposition any gridline or stone. No paws covering board.",
+      "identity_review": "Visual comparison to canonical character references: Canonical companion identities and exact separately drawn board geometry. Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        },
+        {
+          "path": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/gomoku-geometry.png",
+          "ref": "this_art_commit",
+          "blob": "f83eb7603a40a5cd032c720bc5f72af9ebe9971c",
+          "purpose": "exact geometric diagram, not character artwork"
+        }
+      ],
+      "illustration": "illustrations/G-gomoku-9.png",
+      "sha256": "66ec04bcf2fb89cf09ea45ba278e1c2f974b492b98c2ebda4c9b8553e99c49ed",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/board-repairs-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-gomoku-9.png"
+    },
+    {
+      "id": "G-minesweeper-8",
+      "name": "マインスイーパー",
+      "scene": "Tanuki thoughtfully considers a toy mine-finding puzzle in bright wooden study. Complete board fills LEFT two-thirds, directly overhead almost flat with all edgesvisible, EXACTLY EIGHT rows by EIGHT columns =64 uniform square raised covered tiles, four small red flags on fourcorner tiles exactly as firstreference. ALL other tiles are closed and blank, no hint digits or dots. Tanuki sits onRIGHT third besideboard with thoughtful paw on cheek, small greenleaf. Do not obscure board or alter64tilegeometry. No explosions.",
+      "identity_review": "Visual comparison to canonical character references: Canonical companion identities and exact separately drawn board geometry. Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        },
+        {
+          "path": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/minesweeper-geometry.png",
+          "ref": "this_art_commit",
+          "blob": "e1b9397f2471df2843e0369b05dc0d2c288d19ee",
+          "purpose": "exact geometric diagram, not character artwork"
+        }
+      ],
+      "illustration": "illustrations/G-minesweeper-8.png",
+      "sha256": "c852326131da4f18ad31b854a809264c3de78b00b6f798264160163988dd0049",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/board-repairs-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-minesweeper-8.png"
+    },
+    {
+      "id": "G-puzzle-2048",
+      "name": "2048",
+      "scene": "Panda thoughtfully plays merge-equal-tile puzzle on wooden table in sunnystudy. Complete board fills LEFT two-thirds, directly overhead almostflat with all edgesvisible. Exactlayout fromfirstreference: FOUR rows and FOUR columns =16 squarecells, two adjacent identicalgold-diamond tiles in row2 columns2and3, one blue-diamondtile at bottomleft; othercells blank. Panda atRIGHT third with one paw gesturing toward matching pair, hint of warm glow between them. No paws overgrid. Do not add/remove cells or tiles. No numerals anywhere; symbols only.",
+      "identity_review": "Visual comparison to canonical character references: Canonical companion identities and exact separately drawn board geometry. Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/2048-geometry.png",
+          "ref": "this_art_commit",
+          "blob": "97eb76ef7fb7a672100d81d3588a3ad2f0b9cef4",
+          "purpose": "exact geometric diagram, not character artwork"
+        }
+      ],
+      "illustration": "illustrations/G-puzzle-2048.png",
+      "sha256": "8cb431cbce687f113d4c3745084316da103403397100351ee0a8a21ad3e3de9a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/board-repairs-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-puzzle-2048.png"
+    },
+    {
+      "id": "M-ghost-01",
+      "name": "おばけ①",
+      "scene": "Very tiny pale icyblue round soul flame with two small squarelike dark-blue eyes and one little curling flame tuft, NO arms and no halo, floating beside dew on a mossy woodland stone at dawn. Close gentle view, soft cream and blue light, friendly magical atmosphere.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage1 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee60758b3970981688bb0aa7202d533ce8328916"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-01.png",
+      "sha256": "07a19b5f437ad6092b19823f76f082721b8e8c81d283ec949d87843ddad44550",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-01.png"
+    },
+    {
+      "id": "M-ghost-02",
+      "name": "おばけ②",
+      "scene": "Small pale blue-white teardrop ghost with smooth roundhead, two darkblue rectangular eyes, simple tapering curled tail and NO hands, shyly peeking around old cottage windowpost into sunlit garden. Side threequarter view, warm light through translucent body.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage2 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9400d367862c526182ec919dfa9ab7b48d34fc0b"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-02.png",
+      "sha256": "94bc05e429bff9357ff8b5c266bce39d2f309543f62492a8554ee222fd9d25cf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-02.png"
+    },
+    {
+      "id": "M-ghost-03",
+      "name": "おばけ③",
+      "scene": "Playful little paleblue ghost now has TWO small round hands, pink cheeks, simple darkblue eyes and swept side tuft, curled tapering tail. Floating above a wooden readingdesk while nudging a single fallen leaf with one hand, high obliqueview, sunny room, no visible writing onclosedbooks.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage3 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "33f61fae7ed3af2ece29bcb3031722959f0d6d5a"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-03.png",
+      "sha256": "50c382fe0fcf4e229f90d92e8f4df327bfcaf40002c18ad493e2a3c7a6b4f4ed",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-03.png"
+    },
+    {
+      "id": "M-ghost-04",
+      "name": "おばけ④",
+      "scene": "Medium upright pale blue-white ghost with two larger rounded hands, long flowing tapered tail and open happy pink mouth, darkblue eyes. Gently gliding across a flower-lined garden bridge toward right, full side view, bright cloudy day, welcoming gesture, no halo or beard.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage4 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2e2a6804b1bcbcb89bdeebdee0ae54e2f24bd53d"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-04.png",
+      "sha256": "dc0bfe61ac103c7643e33191804e7e7213d208e728a5f68ebd00a4fe9d6c76cf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-04.png"
+    },
+    {
+      "id": "M-ghost-05",
+      "name": "おばけ⑤",
+      "scene": "Large pale blue ghost with curled flame-shaped headtip, TWO raised wavy hands and exaggerated dark-blue zigzag smiling mouth and triangular eyes exactly as reference; one small blue wispy flame floats beside head. Playful pretend-boo pose from behind a garden hedge, warm dusk sky, cute not horror, no teeth gore.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage5 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6678eaca4868b41370139d396a74698b46898adb"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-05.png",
+      "sha256": "068332b63dd75d0d00fcfb5a71e43c2f050a610d74ba25b9170afb4b68fde3f0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-05.png"
+    },
+    {
+      "id": "M-ghost-06",
+      "name": "おばけ⑥",
+      "scene": "Old pale blue ghost with long flowing beard, closed peaceful eyes and curledflameheadtip, no halo, three little blue flames around it. Sitting floating crossleglike within flowingtail on mossy stone beside quiet stream, sideleft view, moonrise with soft natural twilight, reassuring.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage6 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "64ba8f7eed49e91255b5ea166aa88119e7b6ff89"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-06.png",
+      "sha256": "3cc648987a61354cce311d85d4bf204edd2a307e6cca594cb80565dc6eca71a1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-06.png"
+    },
+    {
+      "id": "M-ghost-07",
+      "name": "おばけ⑦",
+      "scene": "Peaceful elder pale blue ghost with long beard, closed eyes and hands gently folded, GOLDEN OVAL HALO overhead and small blue flames around body asreference. Floating before sunlit ancient woodlandarch, frontal centered portrait, softwarm shafts of dawn light, no religious added symbols.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage7 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a581bc3128ca0077b838b089af4596c5f357be39"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-07.png",
+      "sha256": "496a9bd1240b6da36f1f739b8f070b231a983e5f7568430950d94aaea568b631",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-07.png"
+    },
+    {
+      "id": "M-ghost-08",
+      "name": "おばけ⑧",
+      "scene": "Slender airy pale blue elder spirit with thin flowing whitebeard and ribbonlike fading tail, closed serene eyes, delicate gold halo and tiny goldstars matching reference. Drifting upward toward open rosy morning sky above distant treetops, diagonal rightwardfullbody view, luminous and hopeful, no graveyard.",
+      "identity_review": "Visual comparison to canonical character references: Canonical ghost stage8 exact eyes, silhouette, hands, beard and halo.",
+      "sources": [
+        {
+          "path": "assets/characters/ghost/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4ee5d8645c6f0ea5b60ffb18a66712ba0ad3ad04"
+        }
+      ],
+      "illustration": "illustrations/M-ghost-08.png",
+      "sha256": "2ceb93bf7d9a87df80519c0a0b4a13a9016c3b5f17b9a13b94cc06c385a8e799",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-ghost-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-ghost-08.png"
     }
   ],
   "remaining_not_started": 429,

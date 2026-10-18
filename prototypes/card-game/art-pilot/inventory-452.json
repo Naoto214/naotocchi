@@ -1709,8 +1709,8 @@
       "supporting_source": "assets/characters/companions/panda.png;assets/characters/companions/rabbit_friend.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-gomoku-9 — 五目ならべ",
       "pilot": false,
-      "production_status": "repair_pending",
-      "notes": "Candidate has eight horizontal and nine vertical lines; grid invalid."
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "G-grand-prix-3d",
@@ -1989,8 +1989,8 @@
       "supporting_source": "assets/characters/companions/tanuki.png",
       "card_text_source": "81-play-batch-2-card-text-draft.md#G-minesweeper-8 — マインスイーパー",
       "pilot": false,
-      "production_status": "repair_pending",
-      "notes": "Candidate has seven rows and eight columns; grid invalid."
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "G-mini-golf-physics",
@@ -2209,8 +2209,8 @@
       "supporting_source": "assets/characters/companions/panda.png",
       "card_text_source": "83-play-batch-3-card-text-draft.md#G-puzzle-2048 — 2048",
       "pilot": false,
-      "production_status": "repair_pending",
-      "notes": "Candidate has three rows and four columns; grid invalid."
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "G-race-3d",
@@ -4924,13 +4924,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e6eb7c228c6af56dbad6b0b68015caf82e9dd45d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/01.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-01 ① 3/2「まだつかわない」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-dragon-02",
@@ -4944,13 +4944,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "759fab20466a660cc6dead95c00d1c78bce2ea9c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/02.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-02 ② 5/3「のこしたちからをあすへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-dragon-03",
@@ -4964,13 +4964,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "74745ac7ef6dc29e27bf125233f793415d93f1c8",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/03.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-03 ③ 7/4「たくわえをみせる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dragon-04",
@@ -4984,13 +4984,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ebe959c9eff25d64cf22411180ecddf8598155d8",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/04.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-04 ④ 8/4「たからをえらぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dragon-05",
@@ -5004,13 +5004,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d5d8a85dc199b482cb223d2b1e32cf7ad680268e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/05.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-05 ⑤ 9/5「ためたぶんだけとぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dragon-06",
@@ -5024,13 +5024,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fe943c346c2df69a0cb6d851c2c4394495faa2f7",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/06.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-06 ⑥ 10/5「たくわえをときはなつ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dragon-07",
@@ -5044,13 +5044,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "011677eeea0119b7d4bde4ed3f3c6e016a1fec9a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/07.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-07 ⑦ 9/7「つかいどころをえらぶ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-dragon-08",
@@ -5064,13 +5064,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e2cad69c91dd5d014c738b2ed20ee4e9f774ac15",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-dragon-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=dragon:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/dragon/08.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-dragon-08 ⑧ 7/9「たからをくらしにかえる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-01",
@@ -5084,13 +5084,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "6e78d662c1218a90cd9b717d2e3f4d57c1dff42a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/01.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-01 ① 1/2「いまのすいめんにあわせる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-02",
@@ -5104,13 +5104,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "fab2f724e21e2fdc773cc2474310f65237418766",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/02.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-02 ② 2/3「まだばしょをきめない」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-03",
@@ -5124,13 +5124,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "48922f97aec46a9407b0b1c1fe16bd67763010ef",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/03.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-03 ③ 3/4「つぎのばしょへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-04",
@@ -5144,13 +5144,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "282438baefce144b39d85092b6e0852ec2097cb5",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/04.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-04 ④ 5/4「わたったさきですぐに」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-05",
@@ -5164,13 +5164,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "573ba3fb038b1443c5f6fed56bbae838bd454469",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/05.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-05 ⑤ 6/5「わたってとびこむ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-06",
@@ -5184,13 +5184,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "4f8f25d532bffc76730d35681b8d16faafe3a607",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/06.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-06 ⑥ 7/6「いまのばしょをいかす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-07",
@@ -5204,13 +5204,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "9dbdbb092ba88acbf7bc9c5bce44f38cb4c305fb",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/07.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-07 ⑦ 5/7「むかしのばしょからつぎへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-frog-08",
@@ -5224,13 +5224,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ad381f1018b512c4126f1ad7411a3477406834f3",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-frog-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=frog:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/frog/08.png",
       "card_text_source": "representatives/03-waterside-frog.md#M-frog-08 ⑧ 4/8「ひとつのばしょにしばられない」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-01",
@@ -5244,13 +5244,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ee60758b3970981688bb0aa7202d533ce8328916",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/01.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-01 ① 2/4「いなくなったあとで」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-02",
@@ -5264,13 +5264,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "9400d367862c526182ec919dfa9ab7b48d34fc0b",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/02.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-02 ② 3/5「あとからひっかかる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-03",
@@ -5284,13 +5284,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "33f61fae7ed3af2ece29bcb3031722959f0d6d5a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/03.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-03 ③ 5/5「さわったあとがのこる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-04",
@@ -5304,13 +5304,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2e2a6804b1bcbcb89bdeebdee0ae54e2f24bd53d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/04.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-04 ④ 6/6「すきまにけはいをのこす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-05",
@@ -5324,13 +5324,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "6678eaca4868b41370139d396a74698b46898adb",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/05.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-05 ⑤ 7/6「すがたよりながくまもる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-06",
@@ -5344,13 +5344,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "64ba8f7eed49e91255b5ea166aa88119e7b6ff89",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/06.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-06 ⑥ 5/8「むかしのすみかをしる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-07",
@@ -5364,13 +5364,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a581bc3128ca0077b838b089af4596c5f357be39",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/07.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-07 ⑦ 3/9「そばからみまもる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-ghost-08",
@@ -5384,13 +5384,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "4ee5d8645c6f0ea5b60ffb18a66712ba0ad3ad04",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-ghost-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=ghost:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/ghost/08.png",
       "card_text_source": "59-fantasy-three-lines-card-text-draft.md#M-ghost-08 ⑧ 1/10「さよならのまえに」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-god-01",
