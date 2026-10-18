@@ -4,9 +4,14 @@
 
 ## 試遊
 
-オーナー専用試遊Site: https://naotocchi-card-trial.kerzion214.chatgpt.site
+本編メニューの「CARD GAME」から同一端末2人対戦を開けます。
 
-Site project: `appgprj_6acf7174c93c8191af3ec3af31994e7d`。既存本編やGitHub Pagesには組み込まず、独立配信します。公開結果・配信commitは `evidence/trial-deployment.json` を参照してください。実機Safariの最終確認は未実施です。
+- 本編: https://naoto214.github.io/naotocchi/
+- CARD GAME: https://naoto214.github.io/naotocchi/prototypes/card-game/
+- 本人専用UI試遊版（維持）: https://naotocchi-card-ui-trial.kerzion214.chatgpt.site/
+- 以前のブラウザ試遊版（維持）: https://naotocchi-card-trial.kerzion214.chatgpt.site/
+
+Pagesと本人専用Siteの保存領域は別です。途中対戦を移す場合は既存の書出し／読込を利用してください。11回のiPhone QAを反映していますが、公開版での最終通し対戦・回転・Safariバー開閉は実機で確認してください。
 
 ローカル配信: リポジトリルートで `python3 -m http.server 8000 --bind 0.0.0.0`。PCでは `http://localhost:8000/prototypes/card-game/`、同じLANのiPhoneでは `http://<PCのIP>:8000/prototypes/card-game/`。
 
@@ -50,4 +55,4 @@ node --test prototypes/card-game/tests/*.test.mjs
 
 実機iPhone Safariの表示・タッチ・保存復帰・通し対戦はユーザーによる最終QAが必要です。今回の検証で未解決の重大な進行不能は確認していませんが、全組み合わせに不具合がないことの保証ではありません。AI対戦、オンライン対戦、アート・音響、細かなバランス調整、網羅的戦略証明は対象外です。
 
-固定400戦入力、承認、停止証拠、正本docsは変更・実行しません。PR381とPR259はDraft/open/unmergedを維持します。
+固定400戦入力、承認、停止証拠、正本docsは変更・実行しません。非アート版はPR259→381→384の順にmainへ統合します。制作中の専用アートPR393は取り込みません。統合記録は `INTEGRATION-20261018.md` を参照してください。
