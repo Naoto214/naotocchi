@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 186,
+  "generated_count": 200,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -4628,6 +4628,338 @@
       "generation": "Built-in image_gen; rollout/play-c-20261018/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/G-memory-cards.png"
+    },
+    {
+      "id": "G-mini-golf-physics",
+      "name": "ミニゴルフ",
+      "scene": "Navy white penguin holds a smallputter with twoflippers and gently putts a whitegolfball toward a roundhole with plainyellowflag on a lush miniaturegolfcourse. Curvingbankedgreen andtinywoodenbridge createfunobstacle, lowballlevelcamera, brightmorning, penguin orangefeetplanted, no digits orflagtext.",
+      "identity_review": "Visual comparison to canonical character references: Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/penguin_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+        }
+      ],
+      "illustration": "illustrations/G-mini-golf-physics.png",
+      "sha256": "bcc20ee07210e704e7cb31eb5a3e1aa277a37bd7b31b46c6b38716e589c2946c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-mini-golf-physics.png"
+    },
+    {
+      "id": "G-missile-command",
+      "name": "ミサイルコマンド",
+      "scene": "Golden round hamster operates a friendly toy defense console above a miniature colorful town, pressing a blankroundbutton. Three slim glowing incoming streaks in sky are intercepted by expanding soft rainbow light circles from a small rounded launcher. Safe arcadegame diorama, no military insignia, no destruction/injury, mainfocushamster and protective lightumbrella, luminous twilightsky.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-missile-command.png",
+      "sha256": "b7e62d903a02524dedb22279109a218291883eff17758a6637a1adcc3cc7ec6f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-missile-command.png"
+    },
+    {
+      "id": "G-p3-drive",
+      "name": "ハイウェイドライブ",
+      "scene": "Shiba drives a small red convertible along a broad winding highway through rolling countryside. Front threequarterview ofhappyface, forepaws steeringwheel, plainseatbelt, earsandcurledtailvisible. A few floatinggolden coins andbluegem aheadalonglane, onebluecar far ahead and roadsideorangecones indicate avoidancegame. No roadsignletters,no carlogos,numplate blank.",
+      "identity_review": "Visual comparison to canonical character references: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/shiba.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+        }
+      ],
+      "illustration": "illustrations/G-p3-drive.png",
+      "sha256": "8005386d07cb0c985fd879572b49ecf947433ec74bf4f651c2940245ed28a59d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-p3-drive.png"
+    },
+    {
+      "id": "G-p3-space",
+      "name": "うちゅうフライト",
+      "scene": "White rabbit pilots a small teal rocket with clearbubblecockpit, bothforepaws oncontrols, longears fitinside. Rocket flies through glowing golden starcollectibles while curving around a large rounded graymeteor in upperright. Deepviolet skywithpastelnebula, friendly nonviolent spacetravel, diagonalupwardmotion, no weapons,textornumbers, fullrocket silhouette.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-p3-space.png",
+      "sha256": "9624eb5dcd12c6e59cca7c684af21a47c921e2201475893b4d64ee151c69dbbb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-p3-space.png"
+    },
+    {
+      "id": "G-picross-5",
+      "name": "ピクロス",
+      "scene": "Panda carefully colors dark blue squares on a small5by5wooden picturepuzzlegrid at a brightwindowtable. Filledsquares form a simple tiny symmetric heartlikepixelpicture, unfilledsquares cream, severalgraydotclues at margins INSTEADofnumbers. Exactly5columns5rows. Panda uses bluecrayon withonepaw otherpaw restsedge, thoughtfulgentleface, no lettersor numerals.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        }
+      ],
+      "illustration": "illustrations/G-picross-5.png",
+      "sha256": "d2fa8ad40b7b82acfa2711a81bcdbc3160c1b3764cef35ac6cb86f25ef8af4e2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-picross-5.png"
+    },
+    {
+      "id": "G-pinball-physics",
+      "name": "ピンボール",
+      "scene": "Orange squirrel enthusiastically plays a colorful pinballtable, oneforepaw at eachsidebutton, eyesfollowing shiny silverball bouncing from redroundbumper toward twoyellow flippers at bottom. Near overhead diagonalview shows full playfield, curvedlanes and launchspring, tabletopwoodentoy in sunlitplayroom. No score screenornumbers,no text, expressiveclearsquirrelface andcurledtail.",
+      "identity_review": "Visual comparison to canonical character references: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-pinball-physics.png",
+      "sha256": "df85d2f4197e58640e5994b0c307c98bf008e79c55ee174ea896101e4b52416a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-pinball-physics.png"
+    },
+    {
+      "id": "G-pingpong-3d",
+      "name": "ピンポンラリー",
+      "scene": "Monkey and white rabbit rally one small white pingpongball across a blue tablewithlowcenternet. Monkey at LEFT SHORT END with redpaddle, rabbit at RIGHT SHORT END with bluepaddle, facing eachother down longtableaxis. Camera fromlongside sees bothfaces inprofile and fulltable; ball justclearingnet, natural2arms2legs, joyfulsunnygardencourt, no text.",
+      "identity_review": "Visual comparison to canonical character references: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        },
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-pingpong-3d.png",
+      "sha256": "dde15f2f189df3b7d6e2f6cff2e5c2704d34b9d09058531aac6bb82ebf9eb2bc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-pingpong-3d.png"
+    },
+    {
+      "id": "G-pipe-connect",
+      "name": "パイプつなぎ",
+      "scene": "Otter rotates one elbow pipe segment in a wooden square pipe-puzzle tray outdoors by a gardenpond. Connected blue pipes create an unbroken winding route from a little water tank at left to a flowerwateringoutlet at right; one loose elbow being turned closes finalgap. Water visible in connected transparentsections, twoforepaws distinct, thoughtfulsmile, cleanreadablepipeconnections andnodeadend atsource/outlet.",
+      "identity_review": "Visual comparison to canonical character references: Brown otter, cream muzzle throat belly, roundears, whiskers andsmooth longtaperedtail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/G-pipe-connect.png",
+      "sha256": "aa86d44d7466a2f7ce95069689e3aa42a3f44f073488fcaf419f4b90a40e4fe5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-pipe-connect.png"
+    },
+    {
+      "id": "G-plane-landing",
+      "name": "ひこうき着陸",
+      "scene": "Golden hamster pilots a rounded cream and blue propellerplane in a gentle landingapproach over a grassy airfield. Two mainwheels nearlytouch a clear pavedrunway, one smalltailwheel behind, wingsproperlyconnected, frontpropeller softmotionblur. Cockpitwindow shows roundcreamcheeks and tiny pinkpaws, redwhitestripedwindsock andflowerbanks, sunrisegoldlight. No letteringordigits, fullplanevisible.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-plane-landing.png",
+      "sha256": "308e01027bd5f2f615c3df036e26287bed743d6c7f31a48e7641a7710e8ba11e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-plane-landing.png"
+    },
+    {
+      "id": "G-push-puzzle",
+      "name": "そうこばん",
+      "scene": "Tanuki uses BOTH forepaws to push a plain woodencrate onto a yellow star target painted on a stonefloor inside cozywarehouse. Other crates form a simple navigablepuzzle withclearpath andtwootherstartargets, highdiagonalcamera, twohindfeet braced andbrownfluffytail, nofacesoncrates,nobrandtext. Warmwindowlight, visiblepushingeffortbuthappy.",
+      "identity_review": "Visual comparison to canonical character references: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-push-puzzle.png",
+      "sha256": "54293c3a1b63bf3034891fc9ad3966c5db813a04fbbf6f09d2854654a4b09f63",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-push-puzzle.png"
+    },
+    {
+      "id": "G-race-3d",
+      "name": "ゴールをめざして",
+      "scene": "White rabbit rides a small green open racingkart toward a blackwhite checkered finisharch on a sunny forestroad, seen rear threequarter withcheek andlongears visible. Bothforepaws steeringwheel, fluffyshorttailbehindseat, road curves into arch, one distant rivalcart. Clearforwardmotion andgoal, differentview fromgrandprixfrontshot, no text/roadnumbers, brightstorybook.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-race-3d.png",
+      "sha256": "66d51e144ac63a2c273d645e10abfe567b53effa0d657b5546def37b71139e1d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-race-3d.png"
+    },
+    {
+      "id": "G-real-fishing",
+      "name": "ほんかくさかなつり",
+      "scene": "Panda at the edge of a calm lake intheearlymorning carefully reels a fishingrod while a silverfish swirls belowwater near afloat. Forepaws hold rodandturnreel, seatedroundedbody onwoodenstool, plainbucket beside, reeds andsoftmist. Close sideview shows bendrod andcontinuousline,floatandsmallfish, peacefulfocusedexpression, no injury, no seaside surf.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        }
+      ],
+      "illustration": "illustrations/G-real-fishing.png",
+      "sha256": "93301aaaf42ea336c47d60a308eede4670ec294bf2729837faad659d94cae9ee",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-real-fishing.png"
+    },
+    {
+      "id": "G-reversi-6",
+      "name": "オセロ",
+      "scene": "Monkey and squirrel play reversi on a clearly SIX-by-SIX green board withthinwoodframe at a woodlandpicnictable. Blackwhite round discs centered INSIDE squares, a shortrow of threewhitediscs bracketedbyblackdiscs, monkey flipsmiddleone fromwhite toblack. Nearlyoverhead boardview with bothfaces above, naturalhandsdistinct, no lettersdigits, softleafshadow.",
+      "identity_review": "Visual comparison to canonical character references: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair. / Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        },
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-reversi-6.png",
+      "sha256": "84b18a9d9ffd9406e88e67e8c3e215b40ea7f06e4f9aea88b22eacb1959a4498",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-reversi-6.png"
+    },
+    {
+      "id": "G-rhythm-highway-3d",
+      "name": "リズムハイウェイ",
+      "scene": "Golden round hamster joyfully taps a small set of three glowing blank pads as a magical three-lane musical roadway stretches away into a pastel twilight horizon. Colored square note-tiles descend eachlane towardpadsofmatchingcolor, softlightpulses and starbursts conveybeat. Hamster two tiny pinkpaws alternatingpads, cheeksandshortnubtailpreserved, musicrhythmgamenotcartraffic, no printednoteslettersnumbers.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-rhythm-highway-3d.png",
+      "sha256": "ff1cdf50f5ac7d8f9092dec578a3a24cb4bd296dfedf0c19ead8d283164f6894",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-rhythm-highway-3d.png"
     }
   ],
   "remaining_not_started": 429,

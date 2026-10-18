@@ -1,7 +1,7 @@
 {
-  "completed": 186,
-  "not_started": 265,
-  "repair_pending": 1,
+  "completed": 200,
+  "not_started": 249,
+  "repair_pending": 3,
   "original46_four_sizes_byte_identical": true,
   "duplicate_image_hashes": 0,
   "id_count": 452,
@@ -2556,417 +2556,417 @@
     },
     {
       "id": "G-minesweeper-8",
-      "status": "not_started",
+      "status": "repair_pending",
       "files": [
         {
           "path": "illustrations/G-minesweeper-8.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-minesweeper-8.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-minesweeper-8-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-minesweeper-8-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-mini-golf-physics",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-mini-golf-physics.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-mini-golf-physics.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-mini-golf-physics-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-mini-golf-physics-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-missile-command",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-missile-command.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-missile-command.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-missile-command-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-missile-command-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-p3-drive",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-p3-drive.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-p3-drive.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-p3-drive-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-p3-drive-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-p3-space",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-p3-space.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-p3-space.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-p3-space-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-p3-space-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-picross-5",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-picross-5.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-picross-5.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-picross-5-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-picross-5-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-pinball-physics",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-pinball-physics.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pinball-physics.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pinball-physics-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pinball-physics-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-pingpong-3d",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-pingpong-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pingpong-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pingpong-3d-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pingpong-3d-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-pipe-connect",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-pipe-connect.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pipe-connect.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pipe-connect-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-pipe-connect-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-plane-landing",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-plane-landing.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-plane-landing.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-plane-landing-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-plane-landing-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-push-puzzle",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-push-puzzle.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-push-puzzle.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-push-puzzle-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-push-puzzle-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-puzzle-2048",
-      "status": "not_started",
+      "status": "repair_pending",
       "files": [
         {
           "path": "illustrations/G-puzzle-2048.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-puzzle-2048.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-puzzle-2048-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-puzzle-2048-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-race-3d",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-race-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-race-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-race-3d-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-race-3d-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-real-fishing",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-real-fishing.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-real-fishing.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-real-fishing-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-real-fishing-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-reversi-6",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-reversi-6.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-reversi-6.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-reversi-6-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-reversi-6-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },
     {
       "id": "G-rhythm-highway-3d",
-      "status": "not_started",
+      "status": "complete_qa",
       "files": [
         {
           "path": "illustrations/G-rhythm-highway-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-rhythm-highway-3d.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-rhythm-highway-3d-80.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         },
         {
           "path": "previews/G-rhythm-highway-3d-110.png",
-          "exists": false,
-          "valid": false
+          "exists": true,
+          "valid": true
         }
       ]
     },

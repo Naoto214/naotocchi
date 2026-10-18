@@ -1,6 +1,6 @@
 {
-  "completed": 186,
-  "remaining": 266,
+  "completed": 200,
+  "remaining": 252,
   "categories": {
     "main": {
       "complete": 32,
@@ -19,8 +19,8 @@
       "remaining": 0
     },
     "play": {
-      "complete": 50,
-      "remaining": 50
+      "complete": 64,
+      "remaining": 36
     },
     "item": {
       "complete": 26,
@@ -31,29 +31,29 @@
       "remaining": 0
     }
   },
-  "next_lot": "play-04",
+  "next_lot": "play-05",
   "next_ids": [
-    "G-minesweeper-8",
-    "G-mini-golf-physics",
-    "G-missile-command",
-    "G-p3-drive",
-    "G-p3-space",
-    "G-picross-5",
-    "G-pinball-physics",
-    "G-pingpong-3d",
-    "G-pipe-connect",
-    "G-plane-landing",
-    "G-push-puzzle",
-    "G-puzzle-2048",
-    "G-race-3d",
-    "G-real-fishing",
-    "G-reversi-6",
-    "G-rhythm-highway-3d"
+    "G-ring-flight-3d",
+    "G-ring-flight-summer",
+    "G-road-city",
+    "G-road-desert",
+    "G-road-jungle",
+    "G-road-themed",
+    "G-roguelike-dungeon",
+    "G-shanghai-tiles",
+    "G-ski-jump",
+    "G-sky-shooter",
+    "G-slide-puzzle",
+    "G-snake-classic",
+    "G-solitaire-klondike",
+    "G-space-gunner-3d",
+    "G-stack-acorn",
+    "G-stack-harvest"
   ],
   "approval": "All remaining406 authorized 2026-10-18; no per-lot approval needed",
   "main_merge": false,
   "production_paused": false,
-  "latest_review": "rollout/play-c-20261018/README.md",
+  "latest_review": "rollout/play-d-20261018/README.md",
   "completed_ids": [
     "C-bat",
     "C-box",
@@ -152,6 +152,20 @@
     "G-mancala-kalah",
     "G-match-3",
     "G-memory-cards",
+    "G-mini-golf-physics",
+    "G-missile-command",
+    "G-p3-drive",
+    "G-p3-space",
+    "G-picross-5",
+    "G-pinball-physics",
+    "G-pingpong-3d",
+    "G-pipe-connect",
+    "G-plane-landing",
+    "G-push-puzzle",
+    "G-race-3d",
+    "G-real-fishing",
+    "G-reversi-6",
+    "G-rhythm-highway-3d",
     "I-bond1",
     "I-bowtie",
     "I-c_coin2",
@@ -243,22 +257,6 @@
     "W-star_stop"
   ],
   "not_started_ids": [
-    "G-minesweeper-8",
-    "G-mini-golf-physics",
-    "G-missile-command",
-    "G-p3-drive",
-    "G-p3-space",
-    "G-picross-5",
-    "G-pinball-physics",
-    "G-pingpong-3d",
-    "G-pipe-connect",
-    "G-plane-landing",
-    "G-push-puzzle",
-    "G-puzzle-2048",
-    "G-race-3d",
-    "G-real-fishing",
-    "G-reversi-6",
-    "G-rhythm-highway-3d",
     "G-ring-flight-3d",
     "G-ring-flight-summer",
     "G-road-city",
@@ -510,6 +508,8 @@
     "M-world_tree-08"
   ],
   "repair_pending_ids": [
-    "G-gomoku-9"
+    "G-gomoku-9",
+    "G-minesweeper-8",
+    "G-puzzle-2048"
   ]
 }
