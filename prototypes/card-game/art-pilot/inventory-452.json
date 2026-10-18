@@ -2964,13 +2964,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "923472d0288ea51bc784a0cb320f7033dd4c9b4d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-bond1.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-bond1 — おともだちバッジ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-bowtie",
@@ -2984,13 +2984,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "3011096487faa56c0aa0eff98fbcab4381c31988",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-bowtie.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-bowtie — おべんとうばこ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_coin2",
@@ -3004,13 +3004,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "f919ae67e385b9ce71835f1359e8b2c5730fcc41",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_coin2.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_coin2 — ラッキーコイン",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_dex",
@@ -3024,13 +3024,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "760074f249e74ad345bd586b76e5e532f0935d95",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_dex.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_dex — ずかんチケット",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_egg_normal",
@@ -3044,13 +3044,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "60dd2f5793d57c0dfd599e0e5a480d953bdfc3ee",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_egg_normal.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_egg_normal — ふしぎなたまご",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_egg_rare",
@@ -3064,13 +3064,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5d2779b9c5592bd468dedfbb258bfd3489e29c00",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_egg_rare.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_egg_rare — レアなたまご",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_friend",
@@ -3084,13 +3084,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "923472d0288ea51bc784a0cb320f7033dd4c9b4d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_friend.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_friend — おともだちチケット",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_life",
@@ -3104,13 +3104,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e27beb787d2182bb6b344ef1584ffb2c23146be7",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_life.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_life — いのちのくすり",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_life_charm",
@@ -3124,13 +3124,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "7185b18c69a7e5751b497d273c95c9d8c95e5afe",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_life_charm.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_life_charm — いのちのおまもり",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_match",
@@ -3144,13 +3144,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "4ccefce7b66cfdc244d2ee10a3d0b22a8b49b95a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_match.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_match — おみあいチケット",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_rare_friend",
@@ -3164,13 +3164,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "92ac1a3647fd4ed26fc137c450e18292c1d239ff",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_rare_friend.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_rare_friend — レアなかまチケット",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_time_back",
@@ -3184,13 +3184,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "2cf57189dfc2f31e4b5996c42e426710b9120621",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_time_back.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_time_back — ときのチケット・まえ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_time_forward",
@@ -3204,13 +3204,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a0f895d480abc76bba4279bf4f8a0e0a65ed00ef",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_time_forward.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_time_forward — ときのチケット・あと",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-c_transform",
@@ -3224,13 +3224,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "9167b0a5e22bc263f558d580744c827a27465f6d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-c_transform.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-c_transform — へんしんチケット",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-gamepass1",
@@ -3244,13 +3244,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b078db1a876691f0974d7010f457464e578a53ff",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-gamepass1.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-gamepass1 — ゲームパス",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-naoto_charm",
@@ -3264,13 +3264,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "7ecd284bd79145452d4ea85ff125bd81997cb551",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-naoto_charm.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-naoto_charm — なおとのおまもり",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-naoto_crown",
@@ -3284,13 +3284,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0b1b5fe370d686c208070bdac785952fc7402533",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-naoto_crown.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-naoto_crown — なおとのかんむり",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-naoto_lantern",
@@ -3324,13 +3324,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "dd818031b28037e3cb3f5b6f15d978948c7c543d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-naoto_ring.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-naoto_ring — なおとのリング",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-partner1",
@@ -3344,13 +3344,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "6fe477bf677c93ef8087f48f51fee065cb77ef24",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-partner1.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-partner1 — らぶれたー",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-poop1",
@@ -3364,13 +3364,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0aaa1b0dfa9bfcc69089a0a68be11c7379b5d701",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-poop1.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-poop1 — トイレットペーパー",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-ribbon",
@@ -3384,13 +3384,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ce59fd13c5ea041c0003d33fc439d51db89cfb71",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-ribbon.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-ribbon — おもちゃばこ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-scarf",
@@ -3404,13 +3404,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "9587583aeb78b5a6c019b6a0e160dd42b34e9da0",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-scarf.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-scarf — きゅうきゅうばこ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-sleepboost1",
@@ -3424,13 +3424,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "80d2c55aab4e20706002a82cf9787c6b7d644a49",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-sleepboost1.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-sleepboost1 — ふかふかまくら",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-star",
@@ -3444,13 +3444,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a0b44bb0f3250d8e0526a1df737e5473ecf1c4e9",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/I-star.png",
       "character_3d_reference": "",
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-star — スターバッジ",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "I-travel1",

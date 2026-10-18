@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 96,
+  "generated_count": 120,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -2423,6 +2423,558 @@
       "generation": "Built-in image_gen; rollout/worlds-20261018/worlds-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/W-star_stop.png"
+    },
+    {
+      "id": "I-bond1",
+      "name": "おともだちバッジ",
+      "scene": "Pinned prominently to a small folded sage fabric travel pouch on a sunny park bench; friendship picnic preparations softly blurred behind. Three-quarter close view, badge is hero.",
+      "identity_review": "Visual comparison to canonical unified item reference: round cream and honey-gold badge, brown central paw print with four toe pads, beveled brown rim",
+      "sources": [
+        {
+          "path": "assets/items/unified/bond1.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "923472d0288ea51bc784a0cb320f7033dd4c9b4d"
+        }
+      ],
+      "illustration": "illustrations/I-bond1.png",
+      "sha256": "931ed84df9cba70fb105fe10eb504360265f01dcd31caff8091d3595dc7af6de",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-bond1.png"
+    },
+    {
+      "id": "I-bowtie",
+      "name": "おべんとうばこ",
+      "scene": "Picnic lunch on a blue checked cloth at a grassy hilltop; open lunchbox large in foreground, morning wildflowers and breeze, overhead diagonal view.",
+      "identity_review": "Visual comparison to canonical unified item reference: open orange rectangular bento box, white rice at left, green vegetables at back, rolled yellow egg and red side dish at right, small front clasp",
+      "sources": [
+        {
+          "path": "assets/items/unified/bowtie.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "3011096487faa56c0aa0eff98fbcab4381c31988"
+        }
+      ],
+      "illustration": "illustrations/I-bowtie.png",
+      "sha256": "1e9f521b227dd7fe8d25b8ad269f41e17a30cefcd7500ff517f04e61052bb42e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-bowtie.png"
+    },
+    {
+      "id": "I-c_coin2",
+      "name": "ラッキーコイン",
+      "scene": "Small treasure found beside mossy stepping stones in a sunlit garden, pouch dominant left of center, solitary gleaming coin, soft clover and dewdrops.",
+      "identity_review": "Visual comparison to canonical unified item reference: plump ochre-gold drawstring money pouch tied with a red cord, one thick gold coin leaning at front",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_coin2.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "f919ae67e385b9ce71835f1359e8b2c5730fcc41"
+        }
+      ],
+      "illustration": "illustrations/I-c_coin2.png",
+      "sha256": "5eca47356c489512ae6c02a38062f07b8180d9970b941feca3d7ee6aa0fa1a7c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_coin2.png"
+    },
+    {
+      "id": "I-c_dex",
+      "name": "ずかんチケット",
+      "scene": "Open picture field guide on a tree-stump study desk, real fern and a single butterfly nearby, tranquil woodland observation. High oblique angle, clear readable object silhouette.",
+      "identity_review": "Visual comparison to canonical unified item reference: open cream field guide with brown cover and green spine: a leafy sprig illustration on left page, orange butterfly and brown mushroom pictures on right; no writing",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_dex.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "760074f249e74ad345bd586b76e5e532f0935d95"
+        }
+      ],
+      "illustration": "illustrations/I-c_dex.png",
+      "sha256": "232187c6411e73d00cfee166b72ed2330003810ffdcd1886ee151203e3e456a0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_dex.png"
+    },
+    {
+      "id": "I-c_egg_normal",
+      "name": "ふしぎなたまご",
+      "scene": "Single mysterious egg nestled among soft dry grasses in a low woven nest beneath young leaves; tender morning light and dew, intimate low viewpoint.",
+      "identity_review": "Visual comparison to canonical unified item reference: one ivory egg with a few large pale blue patches, intact shell, no face, no limbs",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_egg_normal.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "60dd2f5793d57c0dfd599e0e5a480d953bdfc3ee"
+        }
+      ],
+      "illustration": "illustrations/I-c_egg_normal.png",
+      "sha256": "a1079b098d912756a920178da2725e960d7caf7f7e4263b60b31181cea8969ed",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_egg_normal.png"
+    },
+    {
+      "id": "I-c_egg_rare",
+      "name": "レアなたまご",
+      "scene": "Rare egg on a natural moss cushion in a hidden limestone alcove, narrow shaft of golden dawn light makes shell shimmer, pale flowering vine framing distant cave opening.",
+      "identity_review": "Visual comparison to canonical unified item reference: one ivory egg with pale blue patches identical shape to reference, small golden four-point glint beside its upper right, intact shell",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_egg_rare.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5d2779b9c5592bd468dedfbb258bfd3489e29c00"
+        }
+      ],
+      "illustration": "illustrations/I-c_egg_rare.png",
+      "sha256": "5157d54887d670fef2e0116db7d8b76f6870e72b67730e593c71cbb02b917edc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_egg_rare.png"
+    },
+    {
+      "id": "I-c_friend",
+      "name": "おともだちチケット",
+      "scene": "Invitation token placed on a warm wooden cafe counter beside two empty tiny teacups, open sunlit garden gate blurred behind, low side angle, token propped upright.",
+      "identity_review": "Visual comparison to canonical unified item reference: round cream badge/token with dark brown paw print of four toes, honey-gold rim, exact same object silhouette as reference",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "923472d0288ea51bc784a0cb320f7033dd4c9b4d"
+        }
+      ],
+      "illustration": "illustrations/I-c_friend.png",
+      "sha256": "fc33624cc1b8511db302a48fc3cd44b0da274b034cb499581343d1f25b954009",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_friend.png"
+    },
+    {
+      "id": "I-c_life",
+      "name": "いのちのくすり",
+      "scene": "Luminous amber bottle on a folded clean white cloth at a cottage window, green healing herbs and soft rain-washed garden behind, no sick people, gentle caring mood.",
+      "identity_review": "Visual comparison to canonical unified item reference: small amber orange medicine bottle, cream ridged screw cap, pale cream plus sign on its front, rounded square body",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_life.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e27beb787d2182bb6b344ef1584ffb2c23146be7"
+        }
+      ],
+      "illustration": "illustrations/I-c_life.png",
+      "sha256": "286c225fc4827af2417128bdeb7fe260523fefe50efebc42e4cb4ab4c3adcaa0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_life.png"
+    },
+    {
+      "id": "I-c_life_charm",
+      "name": "いのちのおまもり",
+      "scene": "Pendant hanging from a slim budding branch above a small woodland spring, brown cord visibly connected, pink heart charm clear, soft protection-like reflected light, close portrait of object.",
+      "identity_review": "Visual comparison to canonical unified item reference: round deep blue pendant with concentric bright blue white and dark navy circular center, tied brown cord, small pink heart charm attached at upper right",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_life_charm.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "7185b18c69a7e5751b497d273c95c9d8c95e5afe"
+        }
+      ],
+      "illustration": "illustrations/I-c_life_charm.png",
+      "sha256": "8a4998137955651037ae45ae68de7063eaf1fd2f34a850457df3a76cfecf45ea",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_life_charm.png"
+    },
+    {
+      "id": "I-c_match",
+      "name": "おみあいチケット",
+      "scene": "Ticket resting at a slight angle against a tiny vase on a garden tea table prepared for two, early peach sunset, gentle rose petals, ticket large and clear.",
+      "identity_review": "Visual comparison to canonical unified item reference: cream rectangular invitation ticket with warm gold top band and brown border, simple blue bust silhouette left and pink bust silhouette right with red heart between, no writing",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_match.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4ccefce7b66cfdc244d2ee10a3d0b22a8b49b95a"
+        }
+      ],
+      "illustration": "illustrations/I-c_match.png",
+      "sha256": "e7ca98cbb62b09d2d4d3a92c8f07afe12a6b967fe888297bdff35328925d72bf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_match.png"
+    },
+    {
+      "id": "I-c_rare_friend",
+      "name": "レアなかまチケット",
+      "scene": "Precious token inside an open little velvet-lined wooden keepsake box on an attic windowsill, rich sunset light, floating dust, discovery and anticipation.",
+      "identity_review": "Visual comparison to canonical unified item reference: cream circular paw token with brown four-toe paw print and gold rim plus two small warm star glints at upper right",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_rare_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "92ac1a3647fd4ed26fc137c450e18292c1d239ff"
+        }
+      ],
+      "illustration": "illustrations/I-c_rare_friend.png",
+      "sha256": "a8b9341c8ac714fd74cdb263054f1c23579444ca80dd3e203c640c1df91a705e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_rare_friend.png"
+    },
+    {
+      "id": "I-c_time_back",
+      "name": "ときのチケット・まえ",
+      "scene": "Clock on a worktable beside a closed memory album and dried flower, cool blue morning shade, view slightly from above, blue backwards arrow unmistakable.",
+      "identity_review": "Visual comparison to canonical unified item reference: round brown-rim cream clock with brown hands and plain tick marks, no digits, a thick blue curved arrow runs counterclockwise over upper left rim pointing down-left",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_time_back.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2cf57189dfc2f31e4b5996c42e426710b9120621"
+        }
+      ],
+      "illustration": "illustrations/I-c_time_back.png",
+      "sha256": "5ff21cdc233e6b1834ca422ec5710798e1f135f555b798686269593f7cc93af0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-a-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_time_back.png"
+    },
+    {
+      "id": "I-c_time_forward",
+      "name": "ときのチケット・あと",
+      "scene": "Clock upright beside fresh green seedlings on a bright windowsill, warm sunrise reaching toward future garden, low frontal diagonal view, coral forward arrow clear.",
+      "identity_review": "Visual comparison to canonical unified item reference: round brown-rim cream clock with brown hands and plain tick marks, no digits, thick coral red curved arrow clockwise over upper right rim pointing down-right",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_time_forward.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a0f895d480abc76bba4279bf4f8a0e0a65ed00ef"
+        }
+      ],
+      "illustration": "illustrations/I-c_time_forward.png",
+      "sha256": "642a0cf0f791c49bc933f8348608ac87ecfd9ba307086d7f98624065bd88eea1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_time_forward.png"
+    },
+    {
+      "id": "I-c_transform",
+      "name": "へんしんチケット",
+      "scene": "Two-arrow transformation sign as a treasured hand-sized object laid across a forked woodland path stone, sunlit leaves in different shapes around it, overhead view, no post required.",
+      "identity_review": "Visual comparison to canonical unified item reference: two chunky wooden directional arrows, top lavender arrow points right, lower sage green arrow points left, ochre edge, no writing",
+      "sources": [
+        {
+          "path": "assets/items/unified/c_transform.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9167b0a5e22bc263f558d580744c827a27465f6d"
+        }
+      ],
+      "illustration": "illustrations/I-c_transform.png",
+      "sha256": "e91a48abfa3524fc4cde6187e137af08229753b77330863e4b3c878fad0c987f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-c_transform.png"
+    },
+    {
+      "id": "I-gamepass1",
+      "name": "ゲームパス",
+      "scene": "Game pass propped against a basket of colorful wooden playthings in a cozy sunroom, playful afternoon light, card object dominant in foreground. No words or digits.",
+      "identity_review": "Visual comparison to canonical unified item reference: sky blue rounded rectangular pass, cream game controller icon with brown plus pad on left and two red buttons on right, small golden star upper right, dark blue rim",
+      "sources": [
+        {
+          "path": "assets/items/unified/gamepass1.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b078db1a876691f0974d7010f457464e578a53ff"
+        }
+      ],
+      "illustration": "illustrations/I-gamepass1.png",
+      "sha256": "3310fd806b8ac7821f533cf63cde2b97a9c2f35ecd03af99e7a641cc9313d1e2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-gamepass1.png"
+    },
+    {
+      "id": "I-naoto_charm",
+      "name": "なおとのおまもり",
+      "scene": "Pendant laid in curved brown cord on soft cream fabric inside an open cottage window, gentle blue reflected light from rain-cleared sky, intimate top-down close-up.",
+      "identity_review": "Visual comparison to canonical unified item reference: royal blue round pendant, concentric cyan white navy center, brown knotted cord, NO pink heart charm",
+      "sources": [
+        {
+          "path": "assets/items/unified/naoto_charm.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "7ecd284bd79145452d4ea85ff125bd81997cb551"
+        }
+      ],
+      "illustration": "illustrations/I-naoto_charm.png",
+      "sha256": "09e317d4cd0949119adeecb51b802655d668b8c1ac2276811aed45ffa0be4687",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-naoto_charm.png"
+    },
+    {
+      "id": "I-naoto_crown",
+      "name": "なおとのかんむり",
+      "scene": "Crown resting on a cream cushion atop a weathered stone garden pedestal, spring blossoms and bright sky, celebratory yet modest, crown fills central foreground.",
+      "identity_review": "Visual comparison to canonical unified item reference: small silver crown with blue velvet lobes, silver arched ribs, blue gemstones, central hanging oval sapphire, top small blue jewel, silver base with small dark-blue diamond motifs",
+      "sources": [
+        {
+          "path": "assets/items/unified/naoto_crown.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0b1b5fe370d686c208070bdac785952fc7402533"
+        }
+      ],
+      "illustration": "illustrations/I-naoto_crown.png",
+      "sha256": "5aef5007f2421a0347b39a518028ee529e95c7de5f917d76c6ed10b8c2a5f3e5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-naoto_crown.png"
+    },
+    {
+      "id": "I-naoto_ring",
+      "name": "なおとのリング",
+      "scene": "Ring leaning on a smooth pale river pebble beside clear shallow water, refracted blue light and gentle ripples, close low macro view, silhouette and gemstone sharply legible.",
+      "identity_review": "Visual comparison to canonical unified item reference: silver ring with a large angular faceted vivid blue diamond in a silver setting, simple silver band",
+      "sources": [
+        {
+          "path": "assets/items/unified/naoto_ring.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "dd818031b28037e3cb3f5b6f15d978948c7c543d"
+        }
+      ],
+      "illustration": "illustrations/I-naoto_ring.png",
+      "sha256": "ac54b2672bb68bfa10576bc06de407e9ed155a09d1dd94ecbd3bb33534ff9192",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-naoto_ring.png"
+    },
+    {
+      "id": "I-partner1",
+      "name": "らぶれたー",
+      "scene": "Love letter on a wooden porch swing beside one fresh pink flower, morning garden beyond, warm hopeful intimacy, envelope prominent in a diagonal overhead composition.",
+      "identity_review": "Visual comparison to canonical unified item reference: closed cream envelope with triangular folded flap and single red heart seal at center, warm brown outline, no writing",
+      "sources": [
+        {
+          "path": "assets/items/unified/partner1.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6fe477bf677c93ef8087f48f51fee065cb77ef24"
+        }
+      ],
+      "illustration": "illustrations/I-partner1.png",
+      "sha256": "c39be145dcb765e10bddb9665455d8ba405c277f45012f407cc7ab3a2d4af72e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-partner1.png"
+    },
+    {
+      "id": "I-poop1",
+      "name": "トイレットペーパー",
+      "scene": "Clean roll on a pale wooden bathroom shelf by a small sunlit frosted window and potted fern, friendly everyday still life, bright hygienic cream and mint colors.",
+      "identity_review": "Visual comparison to canonical unified item reference: one white toilet paper roll with brown cardboard core, short unrolled sheet cascading forward, rounded soft paper texture",
+      "sources": [
+        {
+          "path": "assets/items/unified/poop1.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0aaa1b0dfa9bfcc69089a0a68be11c7379b5d701"
+        }
+      ],
+      "illustration": "illustrations/I-poop1.png",
+      "sha256": "c20cf0421a573e393cdfef60f3b2f9ae57b227196cdb3887a4384cc8dda224e1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-poop1.png"
+    },
+    {
+      "id": "I-ribbon",
+      "name": "おもちゃばこ",
+      "scene": "Toy box on a woven rug in a cozy playroom, sunbeam from left, a few wooden blocks beside it but box is hero, low child-height view, objects match reference.",
+      "identity_review": "Visual comparison to canonical unified item reference: open sky blue rectangular toy box with yellow star emblem on front, visible red ball, yellow block, green toy and small brown teddy bear",
+      "sources": [
+        {
+          "path": "assets/items/unified/ribbon.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ce59fd13c5ea041c0003d33fc439d51db89cfb71"
+        }
+      ],
+      "illustration": "illustrations/I-ribbon.png",
+      "sha256": "542eaecc48914c44800ae9c6c0e1ed41a143167e8920b4d596b285c184c68dd8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-ribbon.png"
+    },
+    {
+      "id": "I-scarf",
+      "name": "きゅうきゅうばこ",
+      "scene": "First aid kit ready on a picnic bench along a safe woodland trail, folded clean bandage to side, caring outdoor atmosphere, soft midday light.",
+      "identity_review": "Visual comparison to canonical unified item reference: closed cream rectangular first aid kit with rounded corners, red top rim and red handle, small red plus emblem centered front",
+      "sources": [
+        {
+          "path": "assets/items/unified/scarf.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9587583aeb78b5a6c019b6a0e160dd42b34e9da0"
+        }
+      ],
+      "illustration": "illustrations/I-scarf.png",
+      "sha256": "6061d79dbad4c85bfa1a0d5a03c8f456fb6725993d65fbb92cf3301c92975b9e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-scarf.png"
+    },
+    {
+      "id": "I-sleepboost1",
+      "name": "ふかふかまくら",
+      "scene": "Plump moon pillow on a small cream quilted bed near an open window at quiet blue twilight, pale moon outside, cozy not dark, pillow dominates three-quarter view.",
+      "identity_review": "Visual comparison to canonical unified item reference: soft blue rectangular pillow with cream crescent moon centered, dark blue stitched edges, small gray corner tassels",
+      "sources": [
+        {
+          "path": "assets/items/unified/sleepboost1.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "80d2c55aab4e20706002a82cf9787c6b7d644a49"
+        }
+      ],
+      "illustration": "illustrations/I-sleepboost1.png",
+      "sha256": "06078ce76f57d00aaefbc47ec28608805cabad390495a3692652c40c357d48a5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-sleepboost1.png"
+    },
+    {
+      "id": "I-star",
+      "name": "スターバッジ",
+      "scene": "Golden star badge on folded pale blue festival ribbon on a wooden games table, soft colorful bunting far behind, sunny sense of achievement, close frontal view.",
+      "identity_review": "Visual comparison to canonical unified item reference: bright gold five-point star badge, beveled facets and warm orange shading, no face",
+      "sources": [
+        {
+          "path": "assets/items/unified/star.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a0b44bb0f3250d8e0526a1df737e5473ecf1c4e9"
+        }
+      ],
+      "illustration": "illustrations/I-star.png",
+      "sha256": "7543dd1db16aaee8cd67aab99c3e7441ea27de498cc64bcf61b0f60b6f1e9313",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/I-star.png"
     }
   ],
   "remaining_not_started": 429,
