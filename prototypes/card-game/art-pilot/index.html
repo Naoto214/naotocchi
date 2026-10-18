@@ -8,15 +8,15 @@ html,body{overflow:auto;height:auto;min-height:100%;background:#f4efe2;color:#45
 .card-face:not(.main-face) .card-heading{padding-left:4%;padding-right:24%}
 .card-face:not(.main-face) .card-copy{font-size:3.8cqw}
 </style>
-<header><h1>なおとっち CARD GAME · 承認済み7枚＋追加16枚</h1><p>7枚の画風は正式採用済み。追加16枚はレビュー用です。既存#384の枠・能力本文を再利用し、Pilot内だけ属性SVGと画像領域を調整しています。承認済み14色と背景に応じたマーク線色を共通配色正本から適用。イラストはタップで原寸表示。</p><p class="note">小表示：80×120px／110×165px。実機iPhone Safariの最終確認は未完了。能力の全文は大きなカードで確認してください。8属性SVGは採用原画のモチーフに統一済み。非メインには属性を付与していません。</p></header><main class="gallery"></main>
+<header><h1>なおとっち CARD GAME · 承認済み23枚＋本格制作</h1><p>23枚のPilotは正式承認済み。本格制作分を順次追加しています。既存#384の枠・能力本文を再利用し、Pilot内だけ属性SVGと画像領域を調整しています。承認済み14色と背景に応じたマーク線色を共通配色正本から適用。イラストはタップで原寸表示。</p><p class="note">小表示：80×120px／110×165px。実機iPhone Safariの最終確認は未完了。能力の全文は大きなカードで確認してください。8属性SVGは採用原画のモチーフに統一済み。非メインには属性を付与していません。</p></header><main class="gallery"></main>
 <script type="module">
 import {applyArtColors} from './approved-colors.mjs';
 import {attributeIcon} from './symbols/attributes.mjs';
 import {CATALOG} from '../full-catalog.mjs';
 import {cardMarkup,CATEGORIES} from '../ui-presentation.mjs';
-const ids=(await (await fetch('./pilot-cards.json')).json()).map(c=>c.id);
+const ids=await (await fetch('./production-cards.json')).json();
 const names={ 'M-beetle-04':'さなぎ（カブトムシ）' };
-function preview(c,compact=false){const box=document.createElement('template');box.innerHTML=cardMarkup(c,{compact:compact&&c.type==='main'});const face=box.content.querySelector('.card-face');if(compact)face.classList.add('pilot-small');if(c.type==='main')box.content.querySelector('.card-attribute .icon').outerHTML=attributeIcon(c.attribute);applyArtColors(face,c);const art=box.content.querySelector('.card-art');art.replaceChildren(Object.assign(document.createElement('img'),{className:'pilot-art',src:`illustrations/${c.id}.png`,alt:`${names[c.id]??c.name}・専用イラスト`}));return box.innerHTML;}
+function preview(c,compact=false){const box=document.createElement('template');box.innerHTML=cardMarkup(c,{compact:compact&&c.type==='main'});const face=box.content.querySelector('.card-face');if(compact)face.classList.add('pilot-small');if(c.type==='main')box.content.querySelector('.card-attribute .icon').outerHTML=attributeIcon(c.attribute);applyArtColors(face,c);if(!compact&&c.id==='M-cat-07')box.content.querySelector('.card-copy').style.fontSize='2.9cqw';const art=box.content.querySelector('.card-art');art.replaceChildren(Object.assign(document.createElement('img'),{className:'pilot-art',src:`illustrations/${c.id}.png`,alt:`${names[c.id]??c.name}・専用イラスト`}));return box.innerHTML;}
 for(const id of ids){const c=CATALOG[id],e=document.createElement('section');e.className='entry';e.dataset.id=id;e.innerHTML=`<h2>${CATEGORIES[c.type][0]} · ${names[id]??c.name}</h2><p class="note">${id}</p><div class="card-wrap">${preview(c)}</div><div class="small-row"><div class="thumb small">${preview(c,true)}</div><div class="thumb hand">${preview(c,true)}</div></div><a href="illustrations/${id}.png"><img class="raw" src="illustrations/${id}.png" alt="${c.name}の文字なしイラスト"></a>`;document.querySelector('.gallery').append(e);}
 const id=new URLSearchParams(location.search).get('card');if(id&&ids.includes(id)){document.body.classList.add('single');document.querySelector(`[data-id="${id}"]`).classList.add('selected');}
 window.pilotReady=true;

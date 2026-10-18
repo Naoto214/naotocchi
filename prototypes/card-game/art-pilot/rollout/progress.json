@@ -1,0 +1,47 @@
+{
+  "completed": 38,
+  "remaining": 414,
+  "categories": {
+    "main": {
+      "complete": 24,
+      "remaining": 224
+    },
+    "companion": {
+      "complete": 3,
+      "remaining": 23
+    },
+    "partner": {
+      "complete": 2,
+      "remaining": 16
+    },
+    "world": {
+      "complete": 2,
+      "remaining": 11
+    },
+    "play": {
+      "complete": 3,
+      "remaining": 97
+    },
+    "item": {
+      "complete": 2,
+      "remaining": 24
+    },
+    "event": {
+      "complete": 2,
+      "remaining": 19
+    }
+  },
+  "next_species": "M-clownfish",
+  "next_ids": [
+    "M-clownfish-01",
+    "M-clownfish-02",
+    "M-clownfish-03",
+    "M-clownfish-04",
+    "M-clownfish-05",
+    "M-clownfish-06",
+    "M-clownfish-07",
+    "M-clownfish-08"
+  ],
+  "approval": "429-card production authorized; no per-batch approval needed",
+  "main_merge": false
+}

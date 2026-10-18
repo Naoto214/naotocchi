@@ -229,7 +229,7 @@
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-otter — あそびずきカワウソ",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -249,7 +249,7 @@
       "supporting_source": "",
       "card_text_source": "72-companion-26-card-text-draft.md#C-owl — ものしりふくろう",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -729,7 +729,7 @@
       "supporting_source": "",
       "card_text_source": "91-event-21-card-text-draft.md#E-midlife-flower — 庭に小さな花を植えた",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
     },
     {
@@ -1109,7 +1109,7 @@
       "supporting_source": "script.js;games.js;game-symbol-art.js",
       "card_text_source": "85-play-batch-4-card-text-draft.md#G-beach-volley — ビーチバレー",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
     },
     {
@@ -1529,7 +1529,7 @@
       "supporting_source": "script.js;games.js;game-symbol-art.js",
       "card_text_source": "79-play-batch-1-card-text-draft.md#G-dragDecorate-cake — ケーキのかざりつけ",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
     },
     {
@@ -3309,7 +3309,7 @@
       "supporting_source": "",
       "card_text_source": "77-current-items-card-text-draft.md#I-naoto_lantern — なおとのランタン",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "最新mainの統一アイテム画像を正本に背景追加。UIブランチの古い仮画像一覧に未登録。"
     },
     {
@@ -3644,13 +3644,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "84042c6ac38c29648aa1f6e21f6e69464b1567b7",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-beetle-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=beetle:01",
       "supporting_source": "",
       "card_text_source": "15-test-deck-b-main-16-draft.md#① 2/2「ためこむ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第1ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-beetle-02",
@@ -3664,13 +3664,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "458bc37328aa5bd313ebefd40b4757d0fc18dc7d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-beetle-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=beetle:02",
       "supporting_source": "",
       "card_text_source": "15-test-deck-b-main-16-draft.md#② 3/2「そだつ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第1ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-beetle-03",
@@ -3684,13 +3684,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d35547ffe989bd76a1defc7f1aa1aa1d9abc3e3a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-beetle-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=beetle:03",
       "supporting_source": "",
       "card_text_source": "15-test-deck-b-main-16-draft.md#③ 5/3「まだいく？ とまる？」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第1ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-beetle-04",
@@ -3724,13 +3724,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "beb19d3f2f73f8400444815f4897f5b743af904c",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-beetle-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=beetle:05",
       "supporting_source": "",
       "card_text_source": "15-test-deck-b-main-16-draft.md#⑤ 5/3「うまれかわる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第1ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-beetle-06",
@@ -3744,13 +3744,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "8ba18abbd9bb0bfed0c0b699eacb4fd286cce980",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-beetle-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=beetle:06",
       "supporting_source": "",
       "card_text_source": "15-test-deck-b-main-16-draft.md#⑥ 8/4「とびたつ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第1ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-beetle-07",
@@ -3764,13 +3764,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "441eb4388f624a2631aa15ca61fe8e76d7df4b17",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-beetle-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=beetle:07",
       "supporting_source": "",
       "card_text_source": "15-test-deck-b-main-16-draft.md#⑦ 10/4「ぜんせいき」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第1ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-beetle-08",
@@ -3784,13 +3784,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "81dd41edac4e806fce4a8d932877a137005a0997",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-beetle-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=beetle:08",
       "supporting_source": "",
       "card_text_source": "15-test-deck-b-main-16-draft.md#⑧ 6/6「つよさのあと」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第1ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-butterfly-01",
@@ -3964,13 +3964,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "4b9d6e9931c92930e25f3f9fcb176eaec872fa4f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:01",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-01 ① 1/2「まずみる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cat-02",
@@ -3984,13 +3984,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "167690d4819499e39a6dceec1e9ff8a4389576be",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:02",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-02 ② 2/3「まつ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cat-03",
@@ -4004,13 +4004,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "456842c18ca1d4251fd252de9a423ce35ca6cfd3",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:03",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-03 ③ 4/4 — 能力なし",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cat-04",
@@ -4024,13 +4024,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "141552146e2b0d2cc46eb6da1c5bd4ed3166996a",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:04",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-04 ④ 6/5「とびつく」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cat-05",
@@ -4044,13 +4044,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:05",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-05 ⑤ 8/5「ねらいをさだめる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cat-06",
@@ -4064,13 +4064,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:06",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-06 ⑥ 7/6「かわす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cat-07",
@@ -4084,13 +4084,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "0240f4f09f37a9605012b672ce45b53b99558ef2",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:07",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-07 ⑦ 5/7「みてからかえる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cat-08",
@@ -4104,13 +4104,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "4200cd599e2c607ec3b099e7729de03b6453cba9",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-cat-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=cat:08",
       "supporting_source": "",
       "card_text_source": "52-beast-cat-card-text-draft.md#M-cat-08 ⑧ 3/8「必要な時だけ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2D正本の外見を保ち、情景・光・背景を追加。 本格制作第2ロット：画像・プレビュー検証済み。"
     },
     {
       "card_id": "M-cicada-01",
@@ -4609,7 +4609,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-01 ① 1/3「ねづくばしょ」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -4629,7 +4629,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-02 ② 2/3「おなじつちにねづく」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -4649,7 +4649,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-03 ③ 3/4「となりへはをひろげる」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -4669,7 +4669,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-04 ④ 5/4「あしもとをかためる」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -4689,7 +4689,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-05 ⑤ 6/5「つぼみをまもつ」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -4709,7 +4709,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-06 ⑥ 7/5「ちいさくさく」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -4729,7 +4729,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-07 ⑦ 4/7「わたげをおくる」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -4749,7 +4749,7 @@
       "supporting_source": "",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-dandelion-08 ⑧ 3/9「ちがうところへたねをまく」",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -8589,7 +8589,7 @@
       "supporting_source": "",
       "card_text_source": "74-partner-18-card-text-draft.md#P-grove_deer — こだちのシカ",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
     },
     {
@@ -9009,7 +9009,7 @@
       "supporting_source": "world-scene.js;world-environment.js",
       "card_text_source": "89-world-13-card-text-draft.md#W-sea — うみ",
       "pilot": true,
-      "production_status": "stage2_pending_user_approval",
+      "production_status": "approved_art",
       "notes": "風景画像を再利用可能。横長構図への調整・絵本調の統一は個別判断。"
     },
     {

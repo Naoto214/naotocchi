@@ -1,6 +1,6 @@
 {
-  "status": "seven_approved_sixteen_pending",
-  "generated_count": 23,
+  "status": "23_approved_plus_15_production_qa_complete",
+  "generated_count": 38,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -200,7 +200,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-01.png"
     },
     {
@@ -223,7 +223,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-02.png"
     },
     {
@@ -246,7 +246,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-03.png"
     },
     {
@@ -269,7 +269,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-04.png"
     },
     {
@@ -292,7 +292,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-05.png"
     },
     {
@@ -315,7 +315,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-06.png"
     },
     {
@@ -338,7 +338,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-07.png"
     },
     {
@@ -361,7 +361,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/M-dandelion-08.png"
     },
     {
@@ -384,7 +384,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/C-otter.png"
     },
     {
@@ -407,7 +407,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/C-owl.png"
     },
     {
@@ -430,7 +430,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/P-grove_deer.png"
     },
     {
@@ -453,7 +453,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/W-sea.png"
     },
     {
@@ -481,7 +481,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/G-dragDecorate-cake.png"
     },
     {
@@ -509,7 +509,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/G-beach-volley.png"
     },
     {
@@ -532,7 +532,7 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/I-naoto_lantern.png"
     },
     {
@@ -560,8 +560,353 @@
       ],
       "format": "PNG",
       "generation": "image_gen reference-guided first candidate; prompt in stage2-scenes.json",
-      "approval": "pending_user_approval",
+      "approval": "approved_by_user_2026-10-18",
       "preview": "previews/E-midlife-flower.png"
+    },
+    {
+      "id": "M-beetle-01",
+      "name": "カブトムシ①",
+      "scene": "Tiny curled C-shaped cream segmented newborn grub, small golden round head with open dark eyes, pale grey rounded tail, little amber legs close to head. Nestled inside soft humus beneath a fallen oak leaf, a small shaft of morning light; close low viewpoint.",
+      "identity_review": "小さなC字の乳白色体節・灰白尾・金色頭を維持。頭側の脚は一部重なって見える。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "84042c6ac38c29648aa1f6e21f6e69464b1567b7"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-01.png",
+      "sha256": "7eb3dc7c0ebcb527b8ddd0f112fcc619745ee6751e3e5edb46f6991846f8d827",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-beetle-01.png"
+    },
+    {
+      "id": "M-beetle-02",
+      "name": "カブトムシ②",
+      "scene": "Longer extended cream segmented growing grub, golden round head and open dark eyes, pale grey tail, small amber legs near head. Crawling along a decaying log beneath soil, tender roots and nutritious wood crumbs, gentle side light; side view.",
+      "identity_review": "伸びた体型・乳白色体節・灰白尾・開眼を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "458bc37328aa5bd313ebefd40b4757d0fc18dc7d"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-02.png",
+      "sha256": "bd0cf0b4064cd47d87a7d6d0b3240108b3c7d39b23515d01fbe31f5578c1a8e2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-beetle-02.png"
+    },
+    {
+      "id": "M-beetle-03",
+      "name": "カブトムシ③",
+      "scene": "Very plump cream C-shaped segmented grub, large body, pale grey tail, golden head with content closed smiling eyes and tiny amber legs near head. Resting curled in a roomy underground pocket beside fine oak roots, soft diffuse warm light; medium close view.",
+      "identity_review": "大きく丸まる体型・閉じた笑顔・灰白尾を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d35547ffe989bd76a1defc7f1aa1aa1d9abc3e3a"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-03.png",
+      "sha256": "30f7b68121e4d9efe8c1391b82fa256084d82242b19a0644185f002be1864fb9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-beetle-03.png"
+    },
+    {
+      "id": "M-beetle-05",
+      "name": "カブトムシ⑤",
+      "scene": "Newly emerged adult Japanese rhinoceros beetle exactly as reference: pale ivory wing cases, golden amber head and thorax, long upright forked horn, six amber legs and small friendly eyes. Standing at the mouth of the soil chamber under the oak, dawn light reveals the fresh pale shell, full body.",
+      "identity_review": "淡い白い翅と金色の体・二股角を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "beb19d3f2f73f8400444815f4897f5b743af904c"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-05.png",
+      "sha256": "ed878b13ece77423a88c57c086f4d70c43f2026b2c11e1a6346bcf3704bb2dde",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-beetle-05.png"
+    },
+    {
+      "id": "M-beetle-06",
+      "name": "カブトムシ⑥",
+      "scene": "Young adult Japanese rhinoceros beetle exactly as reference: glossy vivid red-orange wing cases and amber-orange head, long upright forked horn, six orange legs, friendly dark eyes. Climbing a diagonal oak twig towards sunlit green canopy, active but all wings CLOSED as original, full body unobstructed.",
+      "identity_review": "赤橙の翅・橙の体・二股角を維持。奥側脚は体幹で一部遮蔽。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8ba18abbd9bb0bfed0c0b699eacb4fd286cce980"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-06.png",
+      "sha256": "8358034b9713b17247340792589a8043757132c89840c39f0ca3e0b72a952839",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-beetle-06.png"
+    },
+    {
+      "id": "M-beetle-07",
+      "name": "カブトムシ⑦",
+      "scene": "Mature strong Japanese rhinoceros beetle exactly as reference: rich copper chestnut wing cases, amber brown face, long strong upright forked horn, six legs and gentle dark eyes. Standing proudly on broad oak bark beside a small patch of tree sap, warm summer forest light and distant soft leaves, full body.",
+      "identity_review": "銅褐色の翅・がっしりした体・二股角を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "441eb4388f624a2631aa15ca61fe8e76d7df4b17"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-07.png",
+      "sha256": "be873858315edb94bd5fa7a1052c296bda02b594bc5ec3daa2f91d4183ef2438",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-beetle-07.png"
+    },
+    {
+      "id": "M-beetle-08",
+      "name": "カブトムシ⑧",
+      "scene": "Old Japanese rhinoceros beetle exactly as reference: muted dark earthy brown shell and head, weathered shell markings, subdued eyes, long forked horn and six brown legs. Quietly resting on a mossy root under amber autumn oak leaves, tranquil late afternoon light, full body; dignified and cute, not sad or dead.",
+      "identity_review": "低彩度の茶色・殻の斑模様・低い姿勢を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/beetle/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "81dd41edac4e806fce4a8d932877a137005a0997"
+        }
+      ],
+      "illustration": "illustrations/M-beetle-08.png",
+      "sha256": "89d2ec63e9885c8534bdcc00bfd6d467ab453e399505d3d4b847461787613c67",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/beetle-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-beetle-08.png"
+    },
+    {
+      "id": "M-cat-01",
+      "name": "ねこ①",
+      "scene": "Tiny grey sleeping kitten curled up in a soft round nest of clean cloth near a cottage window; white face, closed eyes, very small folded ears, grey tail curled around body. Dawn diffuse light, intimate low viewpoint.",
+      "identity_review": "小さい折れ耳・閉眼・白い顔・丸まる寝姿を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4b9d6e9931c92930e25f3f9fcb176eaec872fa4f"
+        }
+      ],
+      "illustration": "illustrations/M-cat-01.png",
+      "sha256": "6c62f9e001df85577c8449fe6ab234e49ee8decb2a77d64c477aefec48eacaaa",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-01.png"
+    },
+    {
+      "id": "M-cat-02",
+      "name": "ねこ②",
+      "scene": "Small seated kitten, large upright grey ears with muted pink interiors, round white face with large dark eyes, pale chest and toes, short grey body and curled upright tail. Taking a pause by a wooden doorstep with a few tiny daisies; gentle morning light.",
+      "identity_review": "白い顔・大きい立ち耳・短い座り姿・上向き尾を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "167690d4819499e39a6dceec1e9ff8a4389576be"
+        }
+      ],
+      "illustration": "illustrations/M-cat-02.png",
+      "sha256": "72d2a22d60b8567afe69c8f9f7985d4e51cad42158bb5155f5ccb790604e937a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-02.png"
+    },
+    {
+      "id": "M-cat-03",
+      "name": "ねこ③",
+      "scene": "Small standing playful grey kitten with white round face, dark open eyes, tiny pink mouth, upright ears and rising curved tail; one forepaw lifted. Reaching toward a single drifting leaf beside garden stepping stones. Fresh natural spring light.",
+      "identity_review": "白い顔・上げた前足・細身の子猫・立った尾を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "456842c18ca1d4251fd252de9a423ce35ca6cfd3"
+        }
+      ],
+      "illustration": "illustrations/M-cat-03.png",
+      "sha256": "7321240017448e242bbf94c8e68c9dc914d2d17e711f20bde9c8067320537c0b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-03.png"
+    },
+    {
+      "id": "M-cat-04",
+      "name": "ねこ④",
+      "scene": "Slender grey adolescent cat in a stretched leaping pose exactly as source, white face, one eye winking, open other eye, long curved tail; four legs only. Bounding over a low mossy root in a cottage garden, airy summer light; full body and tail safely inside canvas.",
+      "identity_review": "片目ウィンク・四肢を伸ばす跳躍・長い尾を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "141552146e2b0d2cc46eb6da1c5bd4ed3166996a"
+        }
+      ],
+      "illustration": "illustrations/M-cat-04.png",
+      "sha256": "6726c7fb6c094d253dc64aea17b70cc9d6f37f40c6f2de778d5a36716affde1c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-04.png"
+    },
+    {
+      "id": "M-cat-05",
+      "name": "ねこ⑤",
+      "scene": "Slender standing young grey cat, face now grey rather than the white face of younger stages; small pale muzzle, large dark eyes, pink inner ears, pale toes, long tail curved upward, all four paws grounded. Looking along a sunny garden wall with a distant orchard; balanced confident standing posture.",
+      "identity_review": "灰色の顔・細長い胴と脚・立ち姿を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        }
+      ],
+      "illustration": "illustrations/M-cat-05.png",
+      "sha256": "8263d1a034ec98b749c54f3f6f8d843a36b950339391e51faad0b17ce09bfb07",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-05.png"
+    },
+    {
+      "id": "M-cat-06",
+      "name": "ねこ⑥",
+      "scene": "Adult seated grey cat exactly as source: grey face, light muzzle and chest, pink inner ears, open friendly dark eyes and smiling pink mouth, pale toes, broad long tail curving up beside body. Sitting on a wooden veranda beside a sunlit flowerpot, calm late morning.",
+      "identity_review": "座位・開眼・笑顔・上に曲がる尾を維持。初稿の白い顔を淡い灰色へ1回修正。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        }
+      ],
+      "illustration": "illustrations/M-cat-06.png",
+      "sha256": "3e7cdf6d01d76639e493dbd56d53fdb2b37f5eb2483f72965171e9e4c4ba3b83",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json; 1 face-color correction: rollout/cat-06-revision.txt",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-06.png"
+    },
+    {
+      "id": "M-cat-07",
+      "name": "ねこ⑦",
+      "scene": "Mature calm grey seated cat with grey face, half-lidded dark eyes, subtle pale muzzle, pale toes and low curved tail resting beside body; preserve relaxed slight smile. Resting in dappled shade under a garden tree, cool soft green light and distant warm cottage.",
+      "identity_review": "半眼・低く休めた尾・落ち着いた座位・灰色の顔を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0240f4f09f37a9605012b672ce45b53b99558ef2"
+        }
+      ],
+      "illustration": "illustrations/M-cat-07.png",
+      "sha256": "4f228473b864509d84bcf7edab871cf1df9f42fea8dd7276c132f87b6ab621b3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-07.png"
+    },
+    {
+      "id": "M-cat-08",
+      "name": "ねこ⑧",
+      "scene": "Round plump old grey cat curled seated low, fluffy white facial mask and brows, happy closed eyes, pale muzzle/chest and toes, grey tail wrapped around body, pink inner ears. Warm autumn veranda beside fallen leaves and a folded blanket; peaceful soft afternoon light.",
+      "identity_review": "白い顔・閉眼・丸い低い体型・体に沿う尾を維持。",
+      "sources": [
+        {
+          "path": "assets/characters/cat/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4200cd599e2c607ec3b099e7729de03b6453cba9"
+        }
+      ],
+      "illustration": "illustrations/M-cat-08.png",
+      "sha256": "016f66910e97c751fcb33310db55db89f1f891dbf748440694ca6b72707aefce",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "image_gen reference-guided; rollout/cat-prompts.json",
+      "approval": "production_qa_complete_under_batch_authorization",
+      "preview": "previews/M-cat-08.png"
     }
   ],
   "remaining_not_started": 429,
