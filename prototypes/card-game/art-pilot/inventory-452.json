@@ -8124,13 +8124,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "c73584181f8c9e2c81a0f8bd19c45b00eacce118",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/01.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-01 ① 1/1「ちがうものをみつける」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-woman-02",
@@ -8144,13 +8144,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "c9b91daeb82617d34724e439b05197dcfe4dd11d",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/02.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-02 ② 2/3「ちがうやりかた」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-woman-03",
@@ -8164,13 +8164,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "365f02e843961368bfcad368a9e4a3db7364bc30",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/03.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-03 ③ 3/4「ふたつのとくい」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-woman-04",
@@ -8184,13 +8184,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "3d6b7a144e28411c0b45c1f9c621f5733f5decd6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/04.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-04 ④ 5/5「いっしょにいどむ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-woman-05",
@@ -8204,13 +8204,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "c213257f33f563c379c0157bf4526cba9f32cfd1",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/05.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-05 ⑤ 7/5「だれと、どこで、つぎへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-woman-06",
@@ -8224,13 +8224,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "d405cea108ca14add950a505a40b9584443af9d4",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/06.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-06 ⑥ 7/6「りょうりつする」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-woman-07",
@@ -8244,13 +8244,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "8bb2d895284977ea3752dab4f58447235b90a45f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/07.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-07 ⑦ 6/7「けいけんをつなぐ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-woman-08",
@@ -8264,13 +8264,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "76befcb3b15a0db3c2255277ec57cf6faabd3870",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-woman-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=woman:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/woman/08.png",
       "card_text_source": "51-human-woman-ren-card-text-draft.md#M-woman-08 ⑧ 5/8「つぎのみちをのこす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-world_tree-01",
@@ -8284,13 +8284,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a5fa2560987cee999c204bc4d4f9d724038fcddd",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-01.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:01",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/01.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-01 ① 1/4「ちいさなひかりのね」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-world_tree-02",
@@ -8304,13 +8304,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "db6d38a2dd2b895328ab7749b9fece476af44d75",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-02.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:02",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/02.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-02 ② 2/5「くらしにねをのばす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-world_tree-03",
@@ -8324,13 +8324,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "b31306bca468b6662b9a676ea734854aa2d16bd6",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-03.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:03",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/03.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-03 ③ 3/6「こかげににがす」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-world_tree-04",
@@ -8344,13 +8344,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "e100bfa4115b61be3054a7305ffcb9a40ee480b5",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-04.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:04",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/04.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-04 ④ 4/7「したくがめぐる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "M-world_tree-05",
@@ -8364,13 +8364,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "5e5c370bf8dbfa043953c7b1be9335c2c9ccaa01",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-05.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:05",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/05.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-05 ⑤ 5/8「ねもとのくらし」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-world_tree-06",
@@ -8384,13 +8384,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "476a7506e8098c73dcaef228cf850f80e93d022f",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-06.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:06",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/06.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-06 ⑥ 6/8「くらしからつぎのしたくへ」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-world_tree-07",
@@ -8404,13 +8404,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "eb5224c55b09b29cd2ff19f14608853c48ca0beb",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-07.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:07",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/07.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-07 ⑦ 6/9「むかしのねでささえる」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "M-world_tree-08",
@@ -8424,13 +8424,13 @@
       "source_ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
       "source_blob": "a2b13879946a97f290f1b9b442f5f00d72ea7b7e",
       "classification": "background_add",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/M-world_tree-08.png",
       "character_3d_reference": "character-3d/spec.js;character-3d/rollout-spec.js; key=world_tree:08",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/world_tree/08.png",
       "card_text_source": "57-plant-four-lines-card-text-draft.md#M-world_tree-08 ⑧ 6/10「せかいにあたらしいはを」",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "2D正本の外見を保ち、情景・光・背景を追加。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "P-anglerfish",

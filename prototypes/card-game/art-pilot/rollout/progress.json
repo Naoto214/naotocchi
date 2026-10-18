@@ -1,10 +1,10 @@
 {
-  "completed": 436,
-  "remaining": 16,
+  "completed": 452,
+  "remaining": 0,
   "categories": {
     "main": {
-      "complete": 232,
-      "remaining": 16
+      "complete": 248,
+      "remaining": 0
     },
     "companion": {
       "complete": 26,
@@ -31,29 +31,12 @@
       "remaining": 0
     }
   },
-  "next_lot": "main-woman",
-  "next_ids": [
-    "M-woman-01",
-    "M-woman-02",
-    "M-woman-03",
-    "M-woman-04",
-    "M-woman-05",
-    "M-woman-06",
-    "M-woman-07",
-    "M-woman-08",
-    "M-world_tree-01",
-    "M-world_tree-02",
-    "M-world_tree-03",
-    "M-world_tree-04",
-    "M-world_tree-05",
-    "M-world_tree-06",
-    "M-world_tree-07",
-    "M-world_tree-08"
-  ],
+  "next_lot": "main-final-verification",
+  "next_ids": [],
   "approval": "All remaining406 authorized 2026-10-18; no per-lot approval needed",
   "main_merge": false,
   "production_paused": false,
-  "latest_review": "rollout/main-venus_flytrap-20261019/README.md",
+  "latest_review": "rollout/main-world_tree-20261019/README.md",
   "completed_ids": [
     "C-bat",
     "C-box",
@@ -460,6 +443,22 @@
     "M-venus_flytrap-06",
     "M-venus_flytrap-07",
     "M-venus_flytrap-08",
+    "M-woman-01",
+    "M-woman-02",
+    "M-woman-03",
+    "M-woman-04",
+    "M-woman-05",
+    "M-woman-06",
+    "M-woman-07",
+    "M-woman-08",
+    "M-world_tree-01",
+    "M-world_tree-02",
+    "M-world_tree-03",
+    "M-world_tree-04",
+    "M-world_tree-05",
+    "M-world_tree-06",
+    "M-world_tree-07",
+    "M-world_tree-08",
     "P-anglerfish",
     "P-cat_ceo",
     "P-cliff_goat",
@@ -492,23 +491,6 @@
     "W-snow",
     "W-star_stop"
   ],
-  "not_started_ids": [
-    "M-woman-01",
-    "M-woman-02",
-    "M-woman-03",
-    "M-woman-04",
-    "M-woman-05",
-    "M-woman-06",
-    "M-woman-07",
-    "M-woman-08",
-    "M-world_tree-01",
-    "M-world_tree-02",
-    "M-world_tree-03",
-    "M-world_tree-04",
-    "M-world_tree-05",
-    "M-world_tree-06",
-    "M-world_tree-07",
-    "M-world_tree-08"
-  ],
+  "not_started_ids": [],
   "repair_pending_ids": []
 }

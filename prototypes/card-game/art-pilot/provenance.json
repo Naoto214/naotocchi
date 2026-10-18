@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 436,
+  "generated_count": 452,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -10436,6 +10436,374 @@
       "generation": "Built-in image_gen; rollout/main-venus_flytrap-20261019/play-prompts.json; revised candidate; all prior candidates retained",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/M-venus_flytrap-08.png"
+    },
+    {
+      "id": "M-woman-01",
+      "name": "おんなのひと①",
+      "scene": "Brown-haired baby girl in pink onesie with single hair curl, crawling toward RIGHT toward soft cloth ball on a woven nursery rug, low intimate viewpoint, natural window light.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c73584181f8c9e2c81a0f8bd19c45b00eacce118"
+        }
+      ],
+      "illustration": "illustrations/M-woman-01.png",
+      "sha256": "b03e167d66cd77a319921230628611f6faee21d7e60fe2cde3de770c1b5ee3bb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-01.png"
+    },
+    {
+      "id": "M-woman-02",
+      "name": "おんなのひと②",
+      "scene": "Brown-haired toddler girl with two little side pigtails, pink dress and pink shoes, hugging small white-pink bunny toy while toddling left through home garden, flowers at knee height.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c9b91daeb82617d34724e439b05197dcfe4dd11d"
+        }
+      ],
+      "illustration": "illustrations/M-woman-02.png",
+      "sha256": "cbdf8beae163b8ebb13a58c1b2fe72de9c14bd10453c6874cde23dece9fcab64",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-02.png"
+    },
+    {
+      "id": "M-woman-03",
+      "name": "おんなのひと③",
+      "scene": "Little brown-haired girl with yellow school hat, coral-pink dress, red backpack and brown shoes, stepping RIGHT across a sunlit little bridge on way to school, full body compact chibi.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "365f02e843961368bfcad368a9e4a3db7364bc30"
+        }
+      ],
+      "illustration": "illustrations/M-woman-03.png",
+      "sha256": "630b4ad85effd323d6780770b684e5cd6ae741c594f9b17a0535fe9efdbc267e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-03.png"
+    },
+    {
+      "id": "M-woman-04",
+      "name": "おんなのひと④",
+      "scene": "Brown-haired schoolgirl with white blouse, red ribbon, blue skirt and navy shoulder bag, turning LEFT toward falling cherry petals in courtyard, playful wink as reference, full body.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "3d6b7a144e28411c0b45c1f9c621f5733f5decd6"
+        }
+      ],
+      "illustration": "illustrations/M-woman-04.png",
+      "sha256": "d282b77ba3d93fead532d360bebe105e8e7a10821f84fa93aa30fba4a0f836a6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-04.png"
+    },
+    {
+      "id": "M-woman-05",
+      "name": "おんなのひと⑤",
+      "scene": "Young woman with brown hair side bun, cream short-sleeve blouse, brown long skirt, cream shoulder bag and brown shoes, standing by flower stall looking RIGHT, compact cute full-body.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c213257f33f563c379c0157bf4526cba9f32cfd1"
+        }
+      ],
+      "illustration": "illustrations/M-woman-05.png",
+      "sha256": "a02a0f658d136a2cf44cd4afa68200bfad9daf869e0742d6d6cd55b0fe18a8f9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-05.png"
+    },
+    {
+      "id": "M-woman-06",
+      "name": "おんなのひと⑥",
+      "scene": "Adult woman with loose wavy brown hair, dark teal/navy jacket and dark trousers over cream top, carrying small teal shoulder bag, walking LEFT along airy town path, mature face but compact chibi.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "d405cea108ca14add950a505a40b9584443af9d4"
+        }
+      ],
+      "illustration": "illustrations/M-woman-06.png",
+      "sha256": "2d3f2cdf6778b7f211daa654ca08081f9e8e17d921e61f66988225945f1e0f6e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-06.png"
+    },
+    {
+      "id": "M-woman-07",
+      "name": "おんなのひと⑦",
+      "scene": "Calm middle-aged woman with brown side bun and closed smiling eyes, tan cardigan and beige pleated dress, dark shoulder bag, strolling RIGHT in autumn park, compact chibi.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8bb2d895284977ea3752dab4f58447235b90a45f"
+        }
+      ],
+      "illustration": "illustrations/M-woman-07.png",
+      "sha256": "d8a0291ddefc07a04b5812aee3e87d1f72714a33f3539384213f9c32c0db739e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-07.png"
+    },
+    {
+      "id": "M-woman-08",
+      "name": "おんなのひと⑧",
+      "scene": "Gray-haired grandmother with high neat bun and closed happy eyes, purple cardigan and navy skirt, seated on porch holding a small cream cat safely in both arms, warm garden light, whole body.",
+      "identity_review": "Visual comparison to canonical character references: Canonical woman stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/woman/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "76befcb3b15a0db3c2255277ec57cf6faabd3870"
+        }
+      ],
+      "illustration": "illustrations/M-woman-08.png",
+      "sha256": "d1d62520804c67f83666d7b0f2ea9aba7a1a1eaebac00b49034ea9d7d4cf4e1d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-woman-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-woman-08.png"
+    },
+    {
+      "id": "M-world_tree-01",
+      "name": "世界樹①",
+      "scene": "Glowing golden teardrop-shaped seed with cute face and orange rim rests upright in soft forest moss, warm inner light and dewdrops, close macro low view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage1 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a5fa2560987cee999c204bc4d4f9d724038fcddd"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-01.png",
+      "sha256": "67e6eca4ba1ea6eec430255debee0ee51fa88d9ec70960fd45a26b590ec9f81c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-01.png"
+    },
+    {
+      "id": "M-world_tree-02",
+      "name": "世界樹②",
+      "scene": "Tiny cream-faced sprout in curled brown roots with TWO teal leaves marked by glowing golden veins, growing in sunlit woodland soil beside a stream, slight diagonal right view.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage2 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/02.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "db6d38a2dd2b895328ab7749b9fece476af44d75"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-02.png",
+      "sha256": "891d105da887c026fe36d73b53df206d685591e6247c6bc4ef5e6cfc8ce042e4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-02.png"
+    },
+    {
+      "id": "M-world_tree-03",
+      "name": "世界樹③",
+      "scene": "Small cheerful tree with short thick orange-brown trunk face, exposed spreading roots and dense rounded lime-green crown, beside woodland path with little flowers, eye-level left three-quarter.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage3 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/03.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "b31306bca468b6662b9a676ea734854aa2d16bd6"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-03.png",
+      "sha256": "d5d79ee8877d61c631a5eb2fbd19931d9906264097be263f3623c3c6949713bb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-03.png"
+    },
+    {
+      "id": "M-world_tree-04",
+      "name": "世界樹④",
+      "scene": "Slender golden spirit tree with THREE distinct leafy bough clusters and fine tall trunk with tiny face, growing on a misty ridge, upward low viewpoint and open airy silhouette.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage4 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "e100bfa4115b61be3054a7305ffcb9a40ee480b5"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-04.png",
+      "sha256": "3b716fd883fcd9ce36189059a5f40f62001ecc2a70e0cf61c427146cc79e3883",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-04.png"
+    },
+    {
+      "id": "M-world_tree-05",
+      "name": "世界樹⑤",
+      "scene": "Large broad-trunk green tree with clear sweet face and hanging blue glowing fruit/orbs, rooted by a woodland pool, front three-quarter, sparkling midday natural light.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage5 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5e5c370bf8dbfa043953c7b1be9335c2c9ccaa01"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-05.png",
+      "sha256": "8faa33f05107d3ede320bf72cbe1cc4a2228a8521ded8a6041b541d46bd2db9a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-05.png"
+    },
+    {
+      "id": "M-world_tree-06",
+      "name": "世界樹⑥",
+      "scene": "Huge wide layered canopy tree with thick golden face-bearing trunk and dangling cyan diamond crystals, viewed from across a small river, low panoramic landscape gives scale.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage6 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "476a7506e8098c73dcaef228cf850f80e93d022f"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-06.png",
+      "sha256": "be586b9972d7ad6d6afb86f67a9cc20dd5668caa14a2aa75663d28c240ede4e4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-06.png"
+    },
+    {
+      "id": "M-world_tree-07",
+      "name": "世界樹⑦",
+      "scene": "Tall ancient tree extending above white clouds, thick amber trunk and hanging round GOLDEN fruits, green crown luminous, warm sunrise side view, preserve face on trunk.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage7 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "eb5224c55b09b29cd2ff19f14608853c48ca0beb"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-07.png",
+      "sha256": "9506bb39a94f51aef30eb4925b7d6694e133a4d05ee2926222383881c687a701",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-07.png"
+    },
+    {
+      "id": "M-world_tree-08",
+      "name": "世界樹⑧",
+      "scene": "Majestic green world tree with radiant gold trunk, spreading roots and TWO thin cyan orbital light rings around crown and root area as canonical, floating above misty island landscape at soft dawn, full silhouette and readable face.",
+      "identity_review": "Visual comparison to canonical character references: Canonical world_tree stage8 exact face,body,color and stage-specific form.",
+      "sources": [
+        {
+          "path": "assets/characters/world_tree/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "a2b13879946a97f290f1b9b442f5f00d72ea7b7e"
+        }
+      ],
+      "illustration": "illustrations/M-world_tree-08.png",
+      "sha256": "ab436e1d0c9b16c3277bb833a6c14eb2414cb9f05a8ee90ecef9e9562f23f01d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/main-world_tree-20261019/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/M-world_tree-08.png"
     }
   ],
   "remaining_not_started": 429,
