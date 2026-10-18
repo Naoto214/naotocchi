@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 120,
+  "generated_count": 139,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -2975,6 +2975,518 @@
       "generation": "Built-in image_gen; rollout/items-b-20261018/items-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/I-star.png"
+    },
+    {
+      "id": "E-big-illness",
+      "name": "おおきなびょうき",
+      "scene": "The gray adult cat from first reference resting under a light quilt on a low bed, eyes tired but calm, cool cloth on forehead; faithful otter friend places a cup of water beside bed. Gentle serious illness cared for at home, clean soft morning room; no injury, hospital machinery or distress. Cat cream face/chest gray body; otter brown with cream muzzle/chest and thick tail.",
+      "identity_review": "Visual comparison to canonical character references: cat/06, companions/otter canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        },
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/E-big-illness.png",
+      "sha256": "7e92e13c3b9add9fe45f44b08325bb9ca29419d0f2b577f47ad5071e148d8de9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-big-illness.png"
+    },
+    {
+      "id": "E-boss",
+      "name": "あやまりにきただいおういか",
+      "scene": "A gigantic friendly coral-pink squid politely bows its long triangular mantle toward the small canonical gray cat on a sunny shore, apologetic round eyes, two lateral fins, eight short arms and two long tentacles coherently attached around mouth. Cat looks surprised but forgiving. Whimsical comical apology, no attack, no text. Squid has no established 2D sprite and is a scene character based on original episode.",
+      "identity_review": "Visual comparison to canonical character references: cat/05 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        }
+      ],
+      "illustration": "illustrations/E-boss.png",
+      "sha256": "ad0df242637e53d807a1381a21abb8ad4cf6fe7853d7edf4cfc9125ff00cc924",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-boss.png"
+    },
+    {
+      "id": "E-fateful-transform",
+      "name": "うんめいのへんしん",
+      "scene": "A magical but gentle moment of growth: canonical young running gray cat from first reference left leaps across a ribbon of warm drifting leaves; on right its slightly taller adolescent form exactly from second reference emerges, standing confidently. Two temporally successive poses of SAME species, not fused bodies, no wings or invented marks. Meadow at dawn, storybook transformation in one scene, clear two silhouettes.",
+      "identity_review": "Visual comparison to canonical character references: cat/04, cat/05 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "141552146e2b0d2cc46eb6da1c5bd4ed3166996a"
+        },
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        }
+      ],
+      "illustration": "illustrations/E-fateful-transform.png",
+      "sha256": "dec3863d2839526c2898546461c9245bd75ab86b4d2f157df4c433386c835f27",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-fateful-transform.png"
+    },
+    {
+      "id": "E-final-time",
+      "name": "さいごのじかん",
+      "scene": "Canonical oldest gray cat, round cream muzzle and closed peaceful smiling eyes, sits on an old cottage porch watching the final warm light of sunset. Beside it a small open keepsake box with a dried flower and a few wordless picture mementos. Quiet gratitude at life's closing season, alive and at peace, not death or mourning. Wide gentle view, cat large right foreground.",
+      "identity_review": "Visual comparison to canonical character references: cat/08 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4200cd599e2c607ec3b099e7729de03b6453cba9"
+        }
+      ],
+      "illustration": "illustrations/E-final-time.png",
+      "sha256": "a72ac6612f5e5819208fe4066ed582a1aba8704b118f83a4728b6ae25fe2cb93",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-final-time.png"
+    },
+    {
+      "id": "E-first-date",
+      "name": "はじめてのデート",
+      "scene": "Shy first romantic outing between canonical adolescent-adult gray cat and kind round brown forest bear with tan muzzle and belly: they sit near each other on a low garden picnic blanket, cat nudges a single daisy toward bear, tentative happy eye contact, two small cups. No clothes added, no human anatomy, size difference retained; spring pond and bright soft morning.",
+      "identity_review": "Visual comparison to canonical character references: cat/05, partners/forest_bear canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        },
+        {
+          "path": "assets/characters/partners/forest_bear.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+        }
+      ],
+      "illustration": "illustrations/E-first-date.png",
+      "sha256": "c93631343329baca3f702a3f1fca473de11aade2db9790af82309e9dcb34037d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-first-date.png"
+    },
+    {
+      "id": "E-gate",
+      "name": "そらにうかぶとりい",
+      "scene": "A single vermilion torii gate floats well above ground but below white clouds in a bright open meadow. Small canonical gray cat in lower foreground tilts head up, full body, wonder. Gate slightly tilted toward viewer, impossible to walk through from ground, two pillars and two crossbars coherent, no writing, no stairs connecting. Airy magical encounter.",
+      "identity_review": "Visual comparison to canonical character references: cat/05 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        }
+      ],
+      "illustration": "illustrations/E-gate.png",
+      "sha256": "694ca0419ca62199b1e6ce0bfb9445894c8a5f818970e57cf7fef420b5c0e74a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-gate.png"
+    },
+    {
+      "id": "E-lamp",
+      "name": "よなかのあかり",
+      "scene": "A quiet blue midnight lane with one small warm paper lantern glowing ahead beside a closed cottage gate; canonical gray cat cautiously approaches and then looks back toward the light, full profile left. No visible host: welcoming presence implied only by warm light. Night scene softly luminous and reassuring, not horror or overly dark; lantern no letters.",
+      "identity_review": "Visual comparison to canonical character references: cat/06 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        }
+      ],
+      "illustration": "illustrations/E-lamp.png",
+      "sha256": "166027d1a356b160c88bb2663fccdf6b92e0bacb98397f37bf60f69593134f89",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-lamp.png"
+    },
+    {
+      "id": "E-midlife-50th",
+      "name": "50さいのお祝い",
+      "scene": "Canonical mature gray cat celebrates a midlife birthday with canonical brown cream otter friend at a garden table. Small cake with a few ordinary candles, no numeric candles, no writing, a simple flower garland behind. Cat happy and reflective; otter presents a little wrapped gift with two paws. Both anatomies natural, seated full bodies; golden afternoon.",
+      "identity_review": "Visual comparison to canonical character references: cat/06, companions/otter canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        },
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/E-midlife-50th.png",
+      "sha256": "469bd900f8ededefd1df10c72051410bddd20b606369a5aa956a69101ec51e3f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-midlife-50th.png"
+    },
+    {
+      "id": "E-midlife-album",
+      "name": "昔のアルバム",
+      "scene": "Mature gray cat from reference1 lovingly looks down at an open photo album on a cottage rug. Three large wordless painted snapshots show its same gray-cream identity at curled newborn from reference2, running juvenile from reference3, and mature sitting stage. Album readable pictures only, no letters/numbers. View over cat shoulder with face in gentle profile, paws distinct, nostalgic window light.",
+      "identity_review": "Visual comparison to canonical character references: cat/06, cat/01, cat/04 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        },
+        {
+          "path": "assets/characters/cat/01.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4b9d6e9931c92930e25f3f9fcb176eaec872fa4f"
+        },
+        {
+          "path": "assets/characters/cat/04.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "141552146e2b0d2cc46eb6da1c5bd4ed3166996a"
+        }
+      ],
+      "illustration": "illustrations/E-midlife-album.png",
+      "sha256": "63387026cb808907af64cb353306512b61f97b656d64e18ade02904f47808a52",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-midlife-album.png"
+    },
+    {
+      "id": "E-midlife-hobby",
+      "name": "趣味を見つけた",
+      "scene": "Canonical mature gray cat discovers watercolor painting at a low easel in a garden. One front paw gently holds a thick paintbrush, other rests naturally by a small palette; hind paws seated on ground, only four limbs. Canvas simple flower still life, no writing. Cat eager expression and original gray cream markings, no clothes. Fresh creative morning.",
+      "identity_review": "Visual comparison to canonical character references: cat/06 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        }
+      ],
+      "illustration": "illustrations/E-midlife-hobby.png",
+      "sha256": "bd8834e623de87daa58745a289a1bd57e30cbbb0810918eccf3ddeb1cadd77f9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-midlife-hobby.png"
+    },
+    {
+      "id": "E-midlife-travel-plan",
+      "name": "小さな旅の計画",
+      "scene": "Canonical mature gray cat and brown cream otter lean toward a wordless illustrated map on a low kitchen table, planning a modest trip. Map shows a nearby hill, stream, cottage and path without labels; small red backpack beside stool. Cat points with one paw, otter holds rolled edge; both faces visible, natural separate limbs. Broad side view, soft late afternoon.",
+      "identity_review": "Visual comparison to canonical character references: cat/06, companions/otter canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        },
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/E-midlife-travel-plan.png",
+      "sha256": "24057349fcd372ee5954abfaff4d92c70625550c5f54382c5082ab5bc76a7263",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-midlife-travel-plan.png"
+    },
+    {
+      "id": "E-mirror",
+      "name": "としをとったじぶん",
+      "scene": "Canonical young gray cat from reference1 stands beside a clear shallow rain puddle and looks down. In the puddle ONLY the older serene gray cat from reference2 appears, closed peaceful smiling eyes and rounder face; reflection correctly contained in the water and reversed spatially beneath the young cat. No physical second cat above ground, no mirror frame. Poetic gentle magical age reflection, warm sky after rain.",
+      "identity_review": "Visual comparison to canonical character references: cat/05, cat/08 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        },
+        {
+          "path": "assets/characters/cat/08.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "4200cd599e2c607ec3b099e7729de03b6453cba9"
+        }
+      ],
+      "illustration": "illustrations/E-mirror.png",
+      "sha256": "ea005c5ab45a70c9c45b4c9e8c418f086479eb369c04cb29989f988acf51ddbb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-mirror.png"
+    },
+    {
+      "id": "E-misunderstanding",
+      "name": "すれちがい",
+      "scene": "Canonical gray cat and round brown cream-bellied forest bear have a small romantic misunderstanding: sit at opposite ends of a garden bench turned slightly away, looking wistful not angry, space between them and a single unopened daisy bouquet. Subtle cool cloudy light, open path behind, no speech or letters. Both full distinct bodies, no extra limbs.",
+      "identity_review": "Visual comparison to canonical character references: cat/05, partners/forest_bear canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        },
+        {
+          "path": "assets/characters/partners/forest_bear.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+        }
+      ],
+      "illustration": "illustrations/E-misunderstanding.png",
+      "sha256": "8f4c7509dd3ef63f5ae31ae0f79c6331400f66681f09fe35b5877b655817e46c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-misunderstanding.png"
+    },
+    {
+      "id": "E-naoto",
+      "name": "なおと",
+      "scene": "Canonical Naoto character from first reference, youthful friendly man with wavy dark brown center-parted hair, white open jacket over navy shirt, dark blue trousers and shoes, stands warmly with canonical gray cat and brown cream otter in a cottage garden. He crouches to help them collect three scattered keepsakes: a flower, a smooth blue pebble, and a small wordless postcard into a basket. Exact chibi face and proportions, no new costume, hands natural, hopeful reconnection.",
+      "identity_review": "Visual comparison to canonical character references: author/naoto, cat/06, companions/otter canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/author/naoto.png",
+          "ref": "aba67da04c91db70744fc6a4d03334ab5635ba3c",
+          "blob": "e28f9336312ffcc8d241fe90d49848b3bcc2d232"
+        },
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        },
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/E-naoto.png",
+      "sha256": "f8f3a9f5b2e6b52dbc25e1c6c573082de6ad833e549c94dcfa01c1a7ca0b3521",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-naoto.png"
+    },
+    {
+      "id": "E-reconciliation",
+      "name": "なかなおり",
+      "scene": "Canonical gray cat and round brown forest bear reconcile on a little garden footbridge. Cat offers a single fresh daisy with one front paw; bear gently accepts with one forepaw, soft mutual smiles and relaxed eye contact. Other limbs separately visible, no hugs that merge bodies. Rain clouds part into warm light, petal on wet boards, intimacy after misunderstanding.",
+      "identity_review": "Visual comparison to canonical character references: cat/05, partners/forest_bear canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        },
+        {
+          "path": "assets/characters/partners/forest_bear.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+        }
+      ],
+      "illustration": "illustrations/E-reconciliation.png",
+      "sha256": "40e48de1d817cecc3a025ee37b2fa8c2d1eda9da2d4daf64513923453a681e04",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-reconciliation.png"
+    },
+    {
+      "id": "E-special-trip-memory",
+      "name": "とくべつなたびのおもいで",
+      "scene": "Canonical gray cat and brown cream otter together at the shore of the memory lake at lavender dusk, each looking at a small wordless painted travel picture held between separate paws. Behind them the lake reflects stars and distant mountains, a willow bough curves overhead. Remembering an extraordinary journey; characters dominant foreground, calm wondrous light, no lettering.",
+      "identity_review": "Visual comparison to canonical character references: cat/06, companions/otter canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/06.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "5f37f0e1395bd71ba30dce1d9878a72573a5ec42"
+        },
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/E-special-trip-memory.png",
+      "sha256": "852511e863d60ce0c45341bf0b2d330ccd8f78f20627d3445fbd5fed086dd6a1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-special-trip-memory.png"
+    },
+    {
+      "id": "E-stairs",
+      "name": "どこにもつながらないかいだん",
+      "scene": "Three solitary weathered stone steps stand in the middle of an open flowering meadow and lead absolutely nowhere, no platform door building or continuation. Canonical gray cat stands beside bottom step looking puzzlingly at the empty air above. Wide airy whimsical scene with the three steps clearly countable, soft late morning clouds, not frightening.",
+      "identity_review": "Visual comparison to canonical character references: cat/05 canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        }
+      ],
+      "illustration": "illustrations/E-stairs.png",
+      "sha256": "3b9aaefbb0c723f4440066d883e693aac17ceead53cc01e4529a4fe65717d1e5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-stairs.png"
+    },
+    {
+      "id": "E-sudden-trip",
+      "name": "とつぜんのたび",
+      "scene": "Canonical gray cat and brown cream otter unexpectedly set off on a trip: stepping through an open cottage garden gate onto a winding country path, a small red backpack shared on the ground just picked up by otter, cat looking eagerly toward distant hills. Breezy morning, a few swirling leaves show sudden departure, natural four-limb bodies, no human clothes.",
+      "identity_review": "Visual comparison to canonical character references: cat/05, companions/otter canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/05.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "ee44a5ab1b9f8fe1435855909968fec570d7b17f"
+        },
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/E-sudden-trip.png",
+      "sha256": "a960ca6adb4dad445356b21a44f5add3ecd5c8114b9ad6fdbef5f27d5c189615",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-sudden-trip.png"
+    },
+    {
+      "id": "E-wedding-anniversary",
+      "name": "けっこんきねんび",
+      "scene": "Canonical older gray cat with gently tired kind eyes and round brown forest bear celebrate their wedding anniversary on a cottage veranda. They sit affectionately side by side, a small cake and two cups on low table, familiar daisy bouquet in vase, simple paired silver rings on a small cloth as mementos. No text, no numeric candles, no clothing or changed anatomy. Warm settled evening, longstanding bond.",
+      "identity_review": "Visual comparison to canonical character references: cat/07, partners/forest_bear canonical 2D reference identities",
+      "sources": [
+        {
+          "path": "assets/characters/cat/07.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0240f4f09f37a9605012b672ce45b53b99558ef2"
+        },
+        {
+          "path": "assets/characters/partners/forest_bear.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fb9581e82577a1a9ba62333ee2c083f4c81457d5"
+        }
+      ],
+      "illustration": "illustrations/E-wedding-anniversary.png",
+      "sha256": "31270e4bd5b6c077c241ad32494ead073ddc76e63fbcab066d0729fee104452e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/events-20261018/events-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/E-wedding-anniversary.png"
     }
   ],
   "remaining_not_started": 429,

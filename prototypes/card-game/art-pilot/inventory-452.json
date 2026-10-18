@@ -544,13 +544,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-big-illness.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/06.png;assets/characters/companions/otter.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-big-illness — おおきなびょうき",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-boss",
@@ -564,13 +564,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-boss.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-boss — あやまりにきただいおういか",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "E-fateful-transform",
@@ -584,13 +584,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-fateful-transform.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/04.png;assets/characters/cat/05.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-fateful-transform — うんめいのへんしん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-final-time",
@@ -604,13 +604,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-final-time.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/08.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-final-time — さいごのじかん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-first-date",
@@ -624,13 +624,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-first-date.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png;assets/characters/partners/forest_bear.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-first-date — はじめてのデート",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-gate",
@@ -644,13 +644,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-gate.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-gate — そらにうかぶとりい",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-lamp",
@@ -664,13 +664,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-lamp.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/06.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-lamp — よなかのあかり",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-midlife-50th",
@@ -684,13 +684,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-midlife-50th.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/06.png;assets/characters/companions/otter.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-midlife-50th — 50さいのお祝い",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-midlife-album",
@@ -704,13 +704,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-midlife-album.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/06.png;assets/characters/cat/01.png;assets/characters/cat/04.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-midlife-album — 昔のアルバム",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-midlife-flower",
@@ -744,13 +744,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-midlife-hobby.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/06.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-midlife-hobby — 趣味を見つけた",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-midlife-travel-plan",
@@ -764,13 +764,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-midlife-travel-plan.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/06.png;assets/characters/companions/otter.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-midlife-travel-plan — 小さな旅の計画",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-mirror",
@@ -784,13 +784,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-mirror.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png;assets/characters/cat/08.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-mirror — としをとったじぶん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. Revision history retained."
     },
     {
       "card_id": "E-misunderstanding",
@@ -804,13 +804,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-misunderstanding.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png;assets/characters/partners/forest_bear.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-misunderstanding — すれちがい",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-naoto",
@@ -824,13 +824,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-naoto.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/author/naoto.png;assets/characters/cat/06.png;assets/characters/companions/otter.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-naoto — なおと",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-new-encounter",
@@ -864,13 +864,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-reconciliation.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png;assets/characters/partners/forest_bear.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-reconciliation — なかなおり",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-special-trip-memory",
@@ -884,13 +884,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-special-trip-memory.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/06.png;assets/characters/companions/otter.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-special-trip-memory — とくべつなたびのおもいで",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-stairs",
@@ -904,13 +904,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-stairs.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-stairs — どこにもつながらないかいだん",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-sudden-trip",
@@ -924,13 +924,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-sudden-trip.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/05.png;assets/characters/companions/otter.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-sudden-trip — とつぜんのたび",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "E-wedding-anniversary",
@@ -944,13 +944,13 @@
       "source_ref": "",
       "source_blob": "",
       "classification": "new_scene",
-      "existing_card_candidate": "",
+      "existing_card_candidate": "illustrations/E-wedding-anniversary.png",
       "character_3d_reference": "",
-      "supporting_source": "",
+      "supporting_source": "assets/characters/cat/07.png;assets/characters/partners/forest_bear.png",
       "card_text_source": "91-event-21-card-text-draft.md#E-wedding-anniversary — けっこんきねんび",
       "pilot": false,
-      "production_status": "not_started",
-      "notes": "専用ラスタ画像の対応を確認できず。カード本文を情景根拠とし、登場人物・道具は確認済み正本から選ぶ。"
+      "production_status": "complete_qa",
+      "notes": "2026-10-18 continuation: 2D identity visually reviewed; 4 PNG sizes and Chromium layout verified. "
     },
     {
       "card_id": "G-air-hockey",
