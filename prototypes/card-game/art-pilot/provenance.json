@@ -1,6 +1,6 @@
 {
   "status": "production_in_progress",
-  "generated_count": 200,
+  "generated_count": 216,
   "style_reference": "references/approved-pupa-card.png",
   "illustration_constraints": [
     "No text, numbers, card frames, category marks or UI baked into illustration",
@@ -4960,6 +4960,379 @@
       "generation": "Built-in image_gen; rollout/play-d-20261018/play-prompts.json; first candidate",
       "approval": "production_qa_complete_under_406_card_authorization",
       "preview": "previews/G-rhythm-highway-3d.png"
+    },
+    {
+      "id": "G-ring-flight-3d",
+      "name": "リングフライト3D",
+      "scene": "Navy white penguin pilots a small creamblue propellerplane through a large floatinggolden ring above greenmountains andwhiteclouds. Plane centered inside ring, three more rings recede through sky in curvingcourse. Frontthreequartercamera shows penguin face in cockpit, wings andpropeller, full ringandplane, clear aerialchallenge, no lettersnumbers.",
+      "identity_review": "Visual comparison to canonical character references: Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/penguin_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+        }
+      ],
+      "illustration": "illustrations/G-ring-flight-3d.png",
+      "sha256": "61c5ed89ba57ecf2300869a8e87a5e8bb0ed368aec54c5552eb61579a4bc11cf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-ring-flight-3d.png"
+    },
+    {
+      "id": "G-ring-flight-summer",
+      "name": "なつのうみフライト",
+      "scene": "White rabbit pilots a small coralpink seaplane low over summerocean at sunset, banking through a turquoise luminousring justabove sparklingwater. Sideview with goldenpinksky, distantpalmislands, wave spray belowfloats, longears in cockpit. Distinct from mountainringflight, warmseasonalholidayadventure, coherentwingsandtwofloats,no lettersnumbers.",
+      "identity_review": "Visual comparison to canonical character references: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/rabbit_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+        }
+      ],
+      "illustration": "illustrations/G-ring-flight-summer.png",
+      "sha256": "e88619ab61462876bc6511dc547229ec77f010107f0a9567698645c5910ae203",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-ring-flight-summer.png"
+    },
+    {
+      "id": "G-road-city",
+      "name": "とかいラン",
+      "scene": "Canonical limegreen turquoise-spotted chameleon with black sunglasses runs down a bright citysidewalk, curledspiraltail, reaching onehand toward floatingdoughnut while gracefully sidestepping an orangeconstructionbarrier. Citycafes andflowerboxes background without signs/text, a smallpigeon distant, playfulobstaclerun, four connectedlimbs, smoothgreenbody nofur.",
+      "identity_review": "Visual comparison to canonical character references: Lime green chameleon with turquoise spots, curled spiral tail, little dorsal crest, black sunglasses.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/chameleon.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0e8189a045924b954a70b3266fed41e9a2551880"
+        }
+      ],
+      "illustration": "illustrations/G-road-city.png",
+      "sha256": "93d30a741e53e78253e0adc5d8ff08231f8b36f269d062535c6ef015b0b9b4a0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-road-city.png"
+    },
+    {
+      "id": "G-road-desert",
+      "name": "さばくラン",
+      "scene": "Brown masked tanuki wearing a smallplaincap runs over golden sand toward a sparklingblue waterdrop collectible beside an oasis, carefully stepping around a smallscorpion faroffpath. Long curvingdunes, palmshade andwarmhazy noonlight, frontal diagonal view, fluffybodycreamface andtwoarms/twolegsvisible, no scarythreats or text.",
+      "identity_review": "Visual comparison to canonical character references: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/tanuki.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+        }
+      ],
+      "illustration": "illustrations/G-road-desert.png",
+      "sha256": "66ab465d3d4b277ee140c760710058a5caec51c02a9563bf39d5a2ed96933693",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-road-desert.png"
+    },
+    {
+      "id": "G-road-jungle",
+      "name": "ジャングルラン",
+      "scene": "Brown cream monkey dashes along a lushjungle path, onehand catches a ripebanana collectible, otherarm balances while jumping over low thornyvines. Long curlingtail andbothfeetvisible, big monstera leaves, mango andcoconut scattered onpath, distantfriendlysnake safelyaside. Sunbeams throughgreen canopy, joyful motion, no letters.",
+      "identity_review": "Visual comparison to canonical character references: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/monkey.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+        }
+      ],
+      "illustration": "illustrations/G-road-jungle.png",
+      "sha256": "e0b912c327b316af4acb0b4accf8d8acabe0ccfb80bc1ceb769982e826c0cc22",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-road-jungle.png"
+    },
+    {
+      "id": "G-road-themed",
+      "name": "よけてキャッチ",
+      "scene": "Small round hedgehog with creamface andbrowncreamspines, tiny paws, runs sideways along an orchard trail collecting redapples in a little basket while avoiding roundedstones. Low sideview spines andtinyfeetclear, basket heldbytwoforepaws, windingpath with clearlyseparated goodfruit andobstacles, brightsoft morning, no text.",
+      "identity_review": "Visual comparison to canonical character references: Small hedgehog curled almost spherical, brown cream tipped spines surround light cream face, round startled dark eyes, rosy cheeks, tiny paws.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hedgehog.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fc265081cbb309209d8b68d2d4e62f1ca3a64d8d"
+        }
+      ],
+      "illustration": "illustrations/G-road-themed.png",
+      "sha256": "e6be6212f5b987acffb80591df152a99e1bdbdcfebfab6f50da2ca19dce9617f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-road-themed.png"
+    },
+    {
+      "id": "G-roguelike-dungeon",
+      "name": "ローグライク",
+      "scene": "Calico cat withwhitechest orangebrownpatches andthickstripedtail explores a brightfriendly stone dungeon at a branchingcorridor. Holds a small lantern inoneforepaw androlledblankmap inother; descendingstairs ahead, wooden treasurechest andgentleblue slimecreature on sidepath. Threequarterrearview withcatlookingback cheekvisible, warm lamps andmoss, adventurousnotdarkviolent, no mapwriting.",
+      "identity_review": "Visual comparison to canonical character references: White calico cat, orange anddarkbrown patches onheadandbody, slightlyhalf-liddedamber eyes, fluffy striped uprighttail withwhite tip.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        }
+      ],
+      "illustration": "illustrations/G-roguelike-dungeon.png",
+      "sha256": "770004b1ddcede80ead40659310711ee265ad8cfbae321d35262463244ba8fd9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-roguelike-dungeon.png"
+    },
+    {
+      "id": "G-shanghai-tiles",
+      "name": "上海",
+      "scene": "Panda andcalico cat remove a matching pair of ivorypicturetiles from a steppedstacked Shanghai tile puzzle on a lowtable in a blossomgarden. Tiles show ONLY paintedflowers,bamboo,plums, no kanji,numeralsorletters. Panda lifts a plumtile from freeedge, matching plumtile placedbesideboard, cat pointsatpair. Differenttileheightsandfreeedges readable, naturalpaws.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / White calico cat, orange anddarkbrown patches onheadandbody, slightlyhalf-liddedamber eyes, fluffy striped uprighttail withwhite tip.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        },
+        {
+          "path": "assets/characters/companions/cat_friend.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+        }
+      ],
+      "illustration": "illustrations/G-shanghai-tiles.png",
+      "sha256": "1f9d002b04699ecabde2ca85ec5d342f2416ef4ad4b0f2571be0d03ca8081d5d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-shanghai-tiles.png"
+    },
+    {
+      "id": "G-sky-shooter",
+      "name": "スカイシューター",
+      "scene": "Green turquoise-spotted chameleon withblacksunglasses pilots a small yellow toypropellerfighter high in a softpastel sky, weaving between widelyspaced glowinggameorbs while sending harmless bluebubbleprojectiles toward a large smilingpurple toyairship ahead. Aerialarcadechallenge, no injury realisticweapons or militarysymbols, chameleon identifiable inroundcockpit, no text.",
+      "identity_review": "Visual comparison to canonical character references: Lime green chameleon with turquoise spots, curled spiral tail, little dorsal crest, black sunglasses.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/chameleon.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "0e8189a045924b954a70b3266fed41e9a2551880"
+        }
+      ],
+      "illustration": "illustrations/G-sky-shooter.png",
+      "sha256": "b09b37a1e773b7286afd17d0a99d9c228ad873f8dc8dc6021d7eee3d34e4b356",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-sky-shooter.png"
+    },
+    {
+      "id": "G-slide-puzzle",
+      "name": "スライドパズル",
+      "scene": "Golden hamster withenormouscreamcheeks andtinypinkpaws slides one woodensquare tile into an adjacentemptyspace in a small THREEbyTHREE slidingpicturepuzzle. EighttilesandONEemptycell, tiles together show a simple sunflowerpicture almostcomplete, seams clear. Cozy homegardenwindow, highdiagonalview, onepawpushestile othersteadiestray, no numeralsletters.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-slide-puzzle.png",
+      "sha256": "14d0ea953de1f95b2834687221ecaf13bdf2355360d8185845b56088efdda2fd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; revised candidate; all prior candidates retained",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-slide-puzzle.png"
+    },
+    {
+      "id": "G-snake-classic",
+      "name": "スネーク",
+      "scene": "Otter happily steers a small toy joystick beside a square green gardenmaze board where a friendly segmented green toy snake follows a rightangle path toward one brightredapple. Snake is clearly a gamepiece, simple roundeyes and smoothroundedsegments, longbodywithoutselfintersection. Overheaddiagonalview, otterface prominent, brightwoodlandlight,no numbersUI.",
+      "identity_review": "Visual comparison to canonical character references: Brown otter cream muzzle andbelly, roundears whiskers andlongtaperedtail.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/otter.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+        }
+      ],
+      "illustration": "illustrations/G-snake-classic.png",
+      "sha256": "469cd4f098cbb160f833c0ad4c5c24486996ce685900e6581cafdd4ae0230534",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-snake-classic.png"
+    },
+    {
+      "id": "G-solitaire-klondike",
+      "name": "ソリティア",
+      "scene": "Orange multiple-tailed fox with creamruff andcream-tippedtailfan plays solitarycardgame at a cozywindowdesk. Exactlyseven tableaucolumns ofoverlappingcreamplayingcards, stockdeck top left andfourfoundationpositions top right. Faceupcards contain ONLY heartspadeclubdiamondpips, NO cornernumeralsorletters. Fox darkbrownpaw moves onecard, thoughtfulamberhalf-liddedeyes, quietafternoon.",
+      "identity_review": "Visual comparison to canonical character references: Small orange fox with multiple distinct fluffy cream-tipped orange tails fanning behind, cream cheek ruff and bib, dark brown paws, amber half-lidded eyes, long pointed ears.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/many_tail_fox.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "8da00961942db7fb3fbd7b01dfbf394b6328fe90"
+        }
+      ],
+      "illustration": "illustrations/G-solitaire-klondike.png",
+      "sha256": "cfd69d1ae47159c46da2197386af0ed0cb4bb8009271972f12f92bde6046c012",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-solitaire-klondike.png"
+    },
+    {
+      "id": "G-space-gunner-3d",
+      "name": "スペースガンナー",
+      "scene": "Golden round hamster sits at a small futuristic bubbleblaster turret inside a roundedspacepod, firing a stream of softglowingblueorbs at colorful toy alien targets hovering among violetstars. Podviewfrominside shows hamsterprofile andbothpinkhands oncontrols, enemy targets looklike friendly mechanical toys, sparklesatcontact notdestruction, no realisticcombat,no lettersHUD.",
+      "identity_review": "Visual comparison to canonical character references: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hamster.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+        }
+      ],
+      "illustration": "illustrations/G-space-gunner-3d.png",
+      "sha256": "1644cf4c5baa820d9ad7f7652f24668c09a1bf344c23e0b3e5a9e94a7430ebc5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-space-gunner-3d.png"
+    },
+    {
+      "id": "G-stack-acorn",
+      "name": "きのみタワー",
+      "scene": "Orange squirrel carefully stacks rounded woodblockplatforms decorated with a single acornpicture into a tall whimsical tower in an autumnforestglade. Onepaw positions a new acorn-topped block onhighestlayer, otherpaw balances, hugecurledtailbehind, severalchestnuts onground. Sideview fulltower andbody, warmfilteredlight, no writing.",
+      "identity_review": "Visual comparison to canonical character references: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/squirrel.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+        }
+      ],
+      "illustration": "illustrations/G-stack-acorn.png",
+      "sha256": "47747c4f792cc68334626dcebe3286e3b6e3e38d18426abcf38a07734181d094",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-stack-acorn.png"
+    },
+    {
+      "id": "G-stack-harvest",
+      "name": "しゅうかくタワー",
+      "scene": "Panda stacks golden straw-colored rectangularbundles andsmallwoodencrates ofharvest into a balancingtower in a sunny countrysidefarmyard. Newtoplevel is a small sheaf of ripewheat on a flatblock, bothforepaws carefullylowerit, creamfacefocused. Pumpkin,basketcornandgrain nearby, distantbarnandfields, stabledistinctlayers,no lettering.",
+      "identity_review": "Visual comparison to canonical character references: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/panda.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+        }
+      ],
+      "illustration": "illustrations/G-stack-harvest.png",
+      "sha256": "be0c047543b948148843ae78496356638be29e671e2ef8210397f4b602375461",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-stack-harvest.png"
+    },
+    {
+      "id": "G-stack-leaves",
+      "name": "おちばタワー",
+      "scene": "Round tiny hedgehog withcreamface andbrownspines balances flat redorangegoldenleaf-pattern blocks into a delicate autumnleaf tower beside a foreststump. Oneleafblock gentlylanding on top, hedgehogtinyforepaws reachup, manyrealmapleleaves swirl inbreeze, lowerperspective andgoldenlateafternoon, clearstackinggame withplayfultension, no writing.",
+      "identity_review": "Visual comparison to canonical character references: Small hedgehog curled almost spherical, brown cream tipped spines surround light cream face, round startled dark eyes, rosy cheeks, tiny paws.",
+      "sources": [
+        {
+          "path": "assets/characters/companions/hedgehog.png",
+          "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+          "blob": "fc265081cbb309209d8b68d2d4e62f1ca3a64d8d"
+        }
+      ],
+      "illustration": "illustrations/G-stack-leaves.png",
+      "sha256": "6d00313c113419fa587fc0cfe8183b4ec61c57cd1ef449b3a78959d0f1afc613",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "generation": "Built-in image_gen; rollout/play-e-20261018/play-prompts.json; first candidate",
+      "approval": "production_qa_complete_under_406_card_authorization",
+      "preview": "previews/G-stack-leaves.png"
     }
   ],
   "remaining_not_started": 429,

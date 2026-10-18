@@ -1,6 +1,6 @@
 {
-  "completed": 200,
-  "remaining": 252,
+  "completed": 216,
+  "remaining": 236,
   "categories": {
     "main": {
       "complete": 32,
@@ -19,8 +19,8 @@
       "remaining": 0
     },
     "play": {
-      "complete": 64,
-      "remaining": 36
+      "complete": 80,
+      "remaining": 20
     },
     "item": {
       "complete": 26,
@@ -31,29 +31,29 @@
       "remaining": 0
     }
   },
-  "next_lot": "play-05",
+  "next_lot": "play-06",
   "next_ids": [
-    "G-ring-flight-3d",
-    "G-ring-flight-summer",
-    "G-road-city",
-    "G-road-desert",
-    "G-road-jungle",
-    "G-road-themed",
-    "G-roguelike-dungeon",
-    "G-shanghai-tiles",
-    "G-ski-jump",
-    "G-sky-shooter",
-    "G-slide-puzzle",
-    "G-snake-classic",
-    "G-solitaire-klondike",
-    "G-space-gunner-3d",
-    "G-stack-acorn",
-    "G-stack-harvest"
+    "G-stack-sakura",
+    "G-stack-snowman",
+    "G-stack-themed",
+    "G-street-fight",
+    "G-submarine-3d",
+    "G-sudoku-mini",
+    "G-sugoroku-race",
+    "G-sushi-belt",
+    "G-takoyaki-grill",
+    "G-tank-battle",
+    "G-tennis-rally",
+    "G-tilt-maze-3d",
+    "G-tower-defense",
+    "G-track-field",
+    "G-voxel-mine",
+    "G-yacht-dice"
   ],
   "approval": "All remaining406 authorized 2026-10-18; no per-lot approval needed",
   "main_merge": false,
   "production_paused": false,
-  "latest_review": "rollout/play-d-20261018/README.md",
+  "latest_review": "rollout/play-e-20261018/README.md",
   "completed_ids": [
     "C-bat",
     "C-box",
@@ -166,6 +166,22 @@
     "G-real-fishing",
     "G-reversi-6",
     "G-rhythm-highway-3d",
+    "G-ring-flight-3d",
+    "G-ring-flight-summer",
+    "G-road-city",
+    "G-road-desert",
+    "G-road-jungle",
+    "G-road-themed",
+    "G-roguelike-dungeon",
+    "G-shanghai-tiles",
+    "G-sky-shooter",
+    "G-slide-puzzle",
+    "G-snake-classic",
+    "G-solitaire-klondike",
+    "G-space-gunner-3d",
+    "G-stack-acorn",
+    "G-stack-harvest",
+    "G-stack-leaves",
     "I-bond1",
     "I-bowtie",
     "I-c_coin2",
@@ -257,23 +273,6 @@
     "W-star_stop"
   ],
   "not_started_ids": [
-    "G-ring-flight-3d",
-    "G-ring-flight-summer",
-    "G-road-city",
-    "G-road-desert",
-    "G-road-jungle",
-    "G-road-themed",
-    "G-roguelike-dungeon",
-    "G-shanghai-tiles",
-    "G-ski-jump",
-    "G-sky-shooter",
-    "G-slide-puzzle",
-    "G-snake-classic",
-    "G-solitaire-klondike",
-    "G-space-gunner-3d",
-    "G-stack-acorn",
-    "G-stack-harvest",
-    "G-stack-leaves",
     "G-stack-sakura",
     "G-stack-snowman",
     "G-stack-themed",
@@ -510,6 +509,7 @@
   "repair_pending_ids": [
     "G-gomoku-9",
     "G-minesweeper-8",
-    "G-puzzle-2048"
+    "G-puzzle-2048",
+    "G-ski-jump"
   ]
 }
