@@ -1,0 +1,443 @@
+{
+  "scenario": "cpu-trial-v1-independent",
+  "fixed400Executed": false,
+  "matches": [
+    {
+      "deckName": "default",
+      "seed": 202610191,
+      "humanSeat": "A",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 30,
+          "B": 40
+        }
+      },
+      "commands": 257,
+      "cpuDecisions": 97,
+      "steps": 193,
+      "kinds": {
+        "choose": 17,
+        "pass": 198,
+        "place": 19,
+        "trigger": 13,
+        "relationship": 8,
+        "challenge": 2
+      },
+      "choices": {
+        "egg_bottom": 4,
+        "birth_bottom": 1,
+        "sleep_bottom": 12
+      },
+      "maxSaveBytes": 315479,
+      "midgameRestore": true,
+      "saveSha256": "4ee279474ce56711cf815eb8543bbd871752bf3aa0fcbed8e7e503ca9fb47e1e"
+    },
+    {
+      "deckName": "default",
+      "seed": 202610191,
+      "humanSeat": "B",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 30,
+          "B": 40
+        }
+      },
+      "commands": 257,
+      "cpuDecisions": 95,
+      "steps": 192,
+      "kinds": {
+        "choose": 17,
+        "pass": 198,
+        "place": 19,
+        "trigger": 13,
+        "relationship": 8,
+        "challenge": 2
+      },
+      "choices": {
+        "egg_bottom": 4,
+        "birth_bottom": 1,
+        "sleep_bottom": 12
+      },
+      "maxSaveBytes": 232518,
+      "midgameRestore": true,
+      "saveSha256": "49a4af9397cdd98ac21606828b2da50efb19a6ad2e7e1c03b4caef5f30e4d7ba"
+    },
+    {
+      "deckName": "default",
+      "seed": 202610192,
+      "humanSeat": "A",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "A",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 70,
+          "B": 35
+        }
+      },
+      "commands": 238,
+      "cpuDecisions": 96,
+      "steps": 206,
+      "kinds": {
+        "choose": 4,
+        "pass": 202,
+        "place": 13,
+        "trigger": 2,
+        "relationship": 8,
+        "challenge": 9
+      },
+      "choices": {
+        "egg_bottom": 2,
+        "birth_bottom": 1,
+        "sleep_bottom": 1
+      },
+      "maxSaveBytes": 213470,
+      "midgameRestore": true,
+      "saveSha256": "0336fc4f8e15a4362cb24b6025757ec0ae847f00e59aa5c2b308951785b22daf"
+    },
+    {
+      "deckName": "default",
+      "seed": 202610192,
+      "humanSeat": "B",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "A",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 65,
+          "B": 40
+        }
+      },
+      "commands": 238,
+      "cpuDecisions": 109,
+      "steps": 198,
+      "kinds": {
+        "choose": 4,
+        "pass": 202,
+        "place": 13,
+        "trigger": 2,
+        "relationship": 8,
+        "challenge": 9
+      },
+      "choices": {
+        "egg_bottom": 2,
+        "birth_bottom": 1,
+        "sleep_bottom": 1
+      },
+      "maxSaveBytes": 225372,
+      "midgameRestore": true,
+      "saveSha256": "36df2602130dd1b64bdb6213968bd13d2c09a95564eef269150f8efa66fbe96b"
+    },
+    {
+      "deckName": "expanded",
+      "seed": 202610191,
+      "humanSeat": "A",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 30,
+          "B": 65
+        }
+      },
+      "commands": 261,
+      "cpuDecisions": 88,
+      "steps": 186,
+      "kinds": {
+        "choose": 7,
+        "pass": 214,
+        "place": 14,
+        "trigger": 9,
+        "relationship": 8,
+        "challenge": 7,
+        "programPlay": 2
+      },
+      "choices": {
+        "egg_bottom": 4,
+        "birth_bottom": 1,
+        "activation_selection": 2
+      },
+      "maxSaveBytes": 148519,
+      "midgameRestore": true,
+      "saveSha256": "227e6dec4a0b2a5a366cdc6492b4285b036a091c11dd870315138ce1cc323200"
+    },
+    {
+      "deckName": "expanded",
+      "seed": 202610191,
+      "humanSeat": "B",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 30,
+          "B": 65
+        }
+      },
+      "commands": 261,
+      "cpuDecisions": 98,
+      "steps": 188,
+      "kinds": {
+        "choose": 7,
+        "pass": 214,
+        "place": 14,
+        "trigger": 9,
+        "relationship": 8,
+        "challenge": 7,
+        "programPlay": 2
+      },
+      "choices": {
+        "egg_bottom": 4,
+        "birth_bottom": 1,
+        "activation_selection": 2
+      },
+      "maxSaveBytes": 118581,
+      "midgameRestore": true,
+      "saveSha256": "87b02933bd4b444f673791ee09cb596ede77e647d03f07ab48c190cc225d9b99"
+    },
+    {
+      "deckName": "expanded",
+      "seed": 202610192,
+      "humanSeat": "A",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 30,
+          "B": 50
+        }
+      },
+      "commands": 227,
+      "cpuDecisions": 84,
+      "steps": 173,
+      "kinds": {
+        "choose": 4,
+        "pass": 191,
+        "place": 12,
+        "challenge": 4,
+        "relationship": 8,
+        "trigger": 5,
+        "programPlay": 2,
+        "skip": 1
+      },
+      "choices": {
+        "egg_bottom": 2,
+        "activation_selection": 1,
+        "program_look": 1
+      },
+      "maxSaveBytes": 120681,
+      "midgameRestore": true,
+      "saveSha256": "a81fc57601f046d1fe87f0806e90c6333101b2d290e0818e68dbc71cafb80bbd"
+    },
+    {
+      "deckName": "expanded",
+      "seed": 202610192,
+      "humanSeat": "B",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 30,
+          "B": 50
+        }
+      },
+      "commands": 214,
+      "cpuDecisions": 79,
+      "steps": 161,
+      "kinds": {
+        "choose": 3,
+        "pass": 183,
+        "place": 12,
+        "challenge": 4,
+        "relationship": 8,
+        "programPlay": 2,
+        "trigger": 1,
+        "skip": 1
+      },
+      "choices": {
+        "egg_bottom": 2,
+        "program_look": 1
+      },
+      "maxSaveBytes": 105649,
+      "midgameRestore": true,
+      "saveSha256": "b9eb5bc4b54c6fa2d981ba70d3839b3cc6f496df9298ec1fb76090f2f3e6cce1"
+    },
+    {
+      "deckName": "selections",
+      "seed": 202610191,
+      "humanSeat": "A",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "A",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 75,
+          "B": 55
+        }
+      },
+      "commands": 447,
+      "cpuDecisions": 172,
+      "steps": 353,
+      "kinds": {
+        "choose": 103,
+        "pass": 266,
+        "place": 17,
+        "programAbility": 26,
+        "programPlay": 5,
+        "relationship": 8,
+        "trigger": 13,
+        "challenge": 9
+      },
+      "choices": {
+        "egg_bottom": 4,
+        "choose_top": 20,
+        "search_order": 53,
+        "activation_selection": 12,
+        "birth_bottom": 1,
+        "search_take": 13
+      },
+      "maxSaveBytes": 394207,
+      "midgameRestore": true,
+      "saveSha256": "94a4804b238b6b7a02d631035c44b9b60e46edc909e1eac483addf933db25596"
+    },
+    {
+      "deckName": "selections",
+      "seed": 202610191,
+      "humanSeat": "B",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "A",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 80,
+          "B": 50
+        }
+      },
+      "commands": 431,
+      "cpuDecisions": 177,
+      "steps": 339,
+      "kinds": {
+        "choose": 103,
+        "pass": 256,
+        "place": 15,
+        "programAbility": 26,
+        "programPlay": 4,
+        "relationship": 8,
+        "trigger": 10,
+        "challenge": 9
+      },
+      "choices": {
+        "egg_bottom": 4,
+        "choose_top": 20,
+        "search_order": 53,
+        "activation_selection": 12,
+        "birth_bottom": 1,
+        "search_take": 13
+      },
+      "maxSaveBytes": 417866,
+      "midgameRestore": true,
+      "saveSha256": "a17199c758743c768ddc5361d76c2f88f46f41fcc0e0f32e6d911ed44b598471"
+    },
+    {
+      "deckName": "selections",
+      "seed": 202610192,
+      "humanSeat": "A",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 55,
+          "B": 80
+        }
+      },
+      "commands": 300,
+      "cpuDecisions": 119,
+      "steps": 253,
+      "kinds": {
+        "choose": 10,
+        "pass": 239,
+        "place": 14,
+        "relationship": 8,
+        "challenge": 11,
+        "trigger": 15,
+        "programPlay": 3
+      },
+      "choices": {
+        "egg_bottom": 3,
+        "search_order": 4,
+        "activation_selection": 3
+      },
+      "maxSaveBytes": 271022,
+      "midgameRestore": true,
+      "saveSha256": "f099094540de4a5cffb064441306d6183eeffa3720b918be360c556a0cb2b721"
+    },
+    {
+      "deckName": "selections",
+      "seed": 202610192,
+      "humanSeat": "B",
+      "policySeed": 312019,
+      "humanPolicy": "beginner-test-driver:431019",
+      "round": 10,
+      "result": {
+        "winner": "B",
+        "reason": "R10最終比較",
+        "growth": {
+          "A": 55,
+          "B": 80
+        }
+      },
+      "commands": 300,
+      "cpuDecisions": 133,
+      "steps": 252,
+      "kinds": {
+        "choose": 10,
+        "pass": 239,
+        "place": 14,
+        "relationship": 8,
+        "challenge": 11,
+        "trigger": 15,
+        "programPlay": 3
+      },
+      "choices": {
+        "egg_bottom": 3,
+        "search_order": 4,
+        "activation_selection": 3
+      },
+      "maxSaveBytes": 218094,
+      "midgameRestore": true,
+      "saveSha256": "4744f5d9f28b74e998c34fe21df32d4e1d48325dfb0317007b4e3c3fd964c8b2"
+    }
+  ]
+}

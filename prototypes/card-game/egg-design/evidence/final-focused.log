@@ -1,0 +1,45 @@
+✔ illustrated CPU boards preserve viewer orientation and hidden art through restore (113.969315ms)
+✔ illustrated history keeps CPU newest-first order and actual result text (1.556443ms)
+✔ all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art (184.145751ms)
+✔ hidden identity is never read, embedded or requested by art rendering (1.055963ms)
+✔ safe hand, both boards, discard and activation use shared dedicated thumbnails (10.193648ms)
+✔ private draws appear as images only in the owner result notice and history (3.236801ms)
+✔ all card faces apply the approved fourteen classifications and approved SVG geometry (38.057347ms)
+✔ image errors clear request attributes and preserve the existing card box (11.604262ms)
+✔ approved long-copy exceptions apply only to full detail faces (3.544524ms)
+✔ egg is a tappable state card only in the empty main slot, in both orientations (22.314803ms)
+✔ egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions (0.571109ms)
+✔ real opening return and birth switch the top card and replay preserves the same display (148.329534ms)
+✔ real dragon removal exposes opponent egg and retains the engine discard destination (84.800551ms)
+✔ seven declarations require an explicit native choice, with no default main action (45.838681ms)
+✔ each declaration survives confirmation, command, chain and exact hit/miss resolution (315.930019ms)
+✔ CPU observes and chooses from the seven legal declarations without seeing deck order (98.363665ms)
+✔ only the turn owner field is marked, independent of human seat and response actor (36.602089ms)
+✔ field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion (0.690746ms)
+✔ egg history distinguishes normal and extra draws, return order and actual net hand count (96.454642ms)
+✔ CPU session commits each declaration using the same command and resolution as human play (508.358805ms)
+✔ normal main draws one; egg deck exhaustion follows possible parts, never a return-first redraw (348.612397ms)
+✔ draw annotations do not alter four-second notice content or reveal card identities (2.638323ms)
+✔ egg return history records the committed return even when a reservation immediately redraws it (32.234496ms)
+✔ old response taps cannot execute after a state transition in CPU or hotseat (1238.868163ms)
+✔ a gesture cannot be replayed, retargeted, or survive a render (6.885896ms)
+✔ restore to the same revision, hide, and fresh accessibility activation (17.925695ms)
+✔ held keyboard and browser multi-click cannot end a newly displayed turn (6.257272ms)
+✔ response and end-turn have distinct permanent slots and labels (90.392361ms)
+✔ capture listener blocks stale and retargeted DOM events before the action handler (1.124362ms)
+✔ held Enter is cancelled before native click and a pre-render select gesture is refused (1.040662ms)
+✔ hand ordering is seat-local, instance-based, persistent and never changes engine save (30.894834ms)
+✔ whole detail card fits Safari reduced viewports and portrait after rotation (0.667355ms)
+✔ mandatory choices work inside card detail; hidden detail exposes no choices or identities (2.918292ms)
+✔ action hints mirror engine destinations and only expose safe choice card IDs (114.978461ms)
+✔ hand presentation highlights selected instance and exposes accessible reorder controls only in reorder mode (16.233725ms)
+✔ all 452 details keep current full text in the independent readable column (35.658861ms)
+✔ UI session completes a match and renders/restores the finished public result (915.882156ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9741.689687

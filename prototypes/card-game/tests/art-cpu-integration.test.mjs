@@ -13,7 +13,7 @@ test('illustrated CPU boards preserve viewer orientation and hidden art through 
   for(const c of v.players[humanSeat].hand)assert.ok(html.includes(CARD_ART[c.cardId].small));
   assert.equal(v.players[s.cpuSeat].hand,undefined);
   const r=restoreMatch(s.save());r.reveal();assert.equal(r.engineSave,s.engineSave);assert.equal(gameMarkup(r.projection,humanSeat),html);
-  s.hide();assert.doesNotMatch(gameMarkup(s.projection,null),/dedicated-art|\.webp/);
+  s.hide();assert.doesNotMatch(gameMarkup(s.projection,null),/dedicated-art|art-delivery\//);
  }
 });
 test('illustrated history keeps CPU newest-first order and actual result text',()=>{

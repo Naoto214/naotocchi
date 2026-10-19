@@ -2,7 +2,7 @@ import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from '.
 import {HotseatSession} from './ui-session.mjs';
 import {CpuSession,restoreMatch} from './cpu-session.mjs';
 import {CpuScheduler} from './cpu-scheduler.mjs';
-import {cardActions,cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
+import {eggDetailMarkup,cardActions,cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
@@ -128,6 +128,12 @@ document.addEventListener('click',e=>{
  }
  if(b.hasAttribute('data-confirm')){const p=pending;if(p)perform(p.action,p.revision,p.who);return;}
  if(b.dataset.action){requestAction(b.dataset.action);return;}
+ if(b.dataset.eggDetail){
+  const seat=b.dataset.eggDetail,v=session.projection;
+  if(!session.active||(!session.viewer&&!session.finished)||!v?.players[seat]||v.players[seat].board.main)return;
+  cpu.cancel();closeDialogs({focus:false});dialogOrigin=b;selected=null;
+  const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');d.innerHTML=eggDetailMarkup();d.showModal();input.stamp();d.querySelector('[data-close]').focus();return;
+ }
  if(b.dataset.inspect){inspect(b.dataset.inspect,{catalog:b.hasAttribute('data-catalog'),origin:b});return;}
  if(b.dataset.browse){inspect(b.dataset.browse,{readOnly:true,origin:b});return;}
  if(b.dataset.zone){showZone(b.dataset.seat,b.dataset.zone,b);return;}

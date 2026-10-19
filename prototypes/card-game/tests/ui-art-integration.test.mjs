@@ -27,8 +27,8 @@ test('safe hand, both boards, discard and activation use shared dedicated thumbn
  v.players.A.board.main=c;v.players.B.board.main=c;v.players.A.discard=[c];v.chain=[{actor:'A',name:c.name}];v.effectQueue=[{card:c,ability:'効果'}];
  const html=gameMarkup(v,'A');assert.ok((html.match(/class="dedicated-art"/g)??[]).length>=v.players.A.hand.length+2);
  for(const zone of ['discard','activation'])assert.match(zoneMarkup(v,'A',zone),/class="dedicated-art"/);
- assert.doesNotMatch(zoneMarkup(v,'A','deck'),/dedicated-art|\.webp/);
- session.hide();assert.doesNotMatch(gameMarkup(session.projection,null),/dedicated-art|\.webp/);
+ assert.doesNotMatch(zoneMarkup(v,'A','deck'),/dedicated-art|art-delivery\//);
+ session.hide();assert.doesNotMatch(gameMarkup(session.projection,null),/dedicated-art|art-delivery\//);
 });
 test('private draws appear as images only in the owner result notice and history',()=>{
  const before=createGame(4),after=structuredClone(before),id=after.players.A.deck.shift();after.players.A.hand.push(id);after.revision++;
@@ -36,7 +36,7 @@ test('private draws appear as images only in the owner result notice and history
  for(const viewer of ['A','B','public']){
   const notice=resultNoticeMarkup(result[viewer]),history=resultHistoryMarkup({results:[result[viewer]]},viewer==='public'?null:viewer);
   if(viewer==='A'){assert.match(notice,/dedicated-art/);assert.match(history,/dedicated-art/);}
-  else {assert.doesNotMatch(notice+history,/dedicated-art|\.webp/);assert.ok(!(notice+history).includes(after.cards[id].cardId));}
+  else {assert.doesNotMatch(notice+history,/dedicated-art|art-delivery\//);assert.ok(!(notice+history).includes(after.cards[id].cardId));}
  }
 });
 
