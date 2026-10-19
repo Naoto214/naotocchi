@@ -1,0 +1,47 @@
+{
+  "tests": 266,
+  "pass": 265,
+  "fail": 1,
+  "failingTest": "regeneration is deterministic and read-only in check mode",
+  "FUN_ITEMS_fixed": true,
+  "currentItemAudit": {
+    "main_commit": "4ed128d31405267e4ee032fe36fbb589b4bc634b",
+    "core_source_entries": 26,
+    "source_groups": {
+      "equipment": 10,
+      "consumable": 12,
+      "goal": 4
+    },
+    "registered_current": 14,
+    "retired_source": 24,
+    "unregistered_core": 12,
+    "unregistered_collection_sources": 2,
+    "body_entries": 26,
+    "method_counts": {
+      "しかける": 1,
+      "みにつける": 14,
+      "すぐつかう": 11
+    },
+    "rarity_counts": {
+      "normal": 22,
+      "rare": 4
+    },
+    "identical_body_groups": [],
+    "manual_cases": 40,
+    "actual_source_verified": false,
+    "errors": []
+  },
+  "remainingCanonicalAuditErrors": [
+    "Form name/source mismatch: M-unknown-02",
+    "Form name/source mismatch: M-unknown-03",
+    "Form name/source mismatch: M-unknown-04",
+    "Form name/source mismatch: M-unknown-05",
+    "Form name/source mismatch: M-unknown-06",
+    "Form name/source mismatch: M-unknown-07",
+    "Form name/source mismatch: M-unknown-08",
+    "Form name/source mismatch: M-sakura-01",
+    "96 current catalog hash",
+    "97 current catalog hash"
+  ],
+  "catalogChanged": false
+}

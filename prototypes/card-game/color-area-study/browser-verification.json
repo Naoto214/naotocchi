@@ -1,0 +1,723 @@
+{
+  "browser": "Cloud Chrome",
+  "url": "https://naotocchi-color-study-397.kerzion214.chatgpt.site/",
+  "ownerPrivate": true,
+  "pngRendered": true,
+  "variants": 5,
+  "representatives": 14,
+  "normalWidth": 320,
+  "smallWidths": [
+    80,
+    110
+  ],
+  "phoneCssWidths": [
+    320,
+    390,
+    430
+  ],
+  "physicalIPhoneQA": false,
+  "checks320": [
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-man-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 58,
+      "y": 358.78125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-cat-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 392,
+      "y": 358.78125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-frog-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 726,
+      "y": 358.78125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-clownfish-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 58,
+      "y": 902.375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-beetle-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 392,
+      "y": 902.375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dandelion-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 726,
+      "y": 902.375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dragon-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 58,
+      "y": 1445.96875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-unknown-05",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 392,
+      "y": 1445.96875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "C-cat_friend",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 726,
+      "y": 1445.96875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "P-sea_mermaid",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 58,
+      "y": 1989.5625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "W-forest",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 392,
+      "y": 1989.5625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "G-area-claim",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 726,
+      "y": 1989.5625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "I-bowtie",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 58,
+      "y": 2533.15625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "E-new-encounter",
+      "titleArtOverlap": false,
+      "variant": "current",
+      "w": 320,
+      "x": 392,
+      "y": 2533.15625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-man-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 58,
+      "y": 3193.140625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-cat-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 392,
+      "y": 3193.140625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-frog-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 726,
+      "y": 3193.140625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-clownfish-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 58,
+      "y": 3736.734375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-beetle-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 392,
+      "y": 3736.734375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dandelion-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 726,
+      "y": 3736.734375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dragon-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 58,
+      "y": 4280.328125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-unknown-05",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 392,
+      "y": 4280.328125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "C-cat_friend",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 726,
+      "y": 4280.328125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "P-sea_mermaid",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 58,
+      "y": 4823.921875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "W-forest",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 392,
+      "y": 4823.921875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "G-area-claim",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 726,
+      "y": 4823.921875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "I-bowtie",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 58,
+      "y": 5367.515625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "E-new-encounter",
+      "titleArtOverlap": false,
+      "variant": "a",
+      "w": 320,
+      "x": 392,
+      "y": 5367.515625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-man-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 58,
+      "y": 6027.5
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-cat-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 392,
+      "y": 6027.5
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-frog-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 726,
+      "y": 6027.5
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-clownfish-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 58,
+      "y": 6571.09375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-beetle-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 392,
+      "y": 6571.09375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dandelion-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 726,
+      "y": 6571.09375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dragon-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 58,
+      "y": 7114.6875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-unknown-05",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 392,
+      "y": 7114.6875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "C-cat_friend",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 726,
+      "y": 7114.6875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "P-sea_mermaid",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 58,
+      "y": 7658.28125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "W-forest",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 392,
+      "y": 7658.28125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "G-area-claim",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 726,
+      "y": 7658.28125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "I-bowtie",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 58,
+      "y": 8201.875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "E-new-encounter",
+      "titleArtOverlap": false,
+      "variant": "b",
+      "w": 320,
+      "x": 392,
+      "y": 8201.875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-man-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 58,
+      "y": 8861.859375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-cat-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 392,
+      "y": 8861.859375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-frog-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 726,
+      "y": 8861.859375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-clownfish-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 58,
+      "y": 9405.453125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-beetle-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 392,
+      "y": 9405.453125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dandelion-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 726,
+      "y": 9405.453125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dragon-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 58,
+      "y": 9949.046875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-unknown-05",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 392,
+      "y": 9949.046875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "C-cat_friend",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 726,
+      "y": 9949.046875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "P-sea_mermaid",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 58,
+      "y": 10492.640625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "W-forest",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 392,
+      "y": 10492.640625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "G-area-claim",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 726,
+      "y": 10492.640625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "I-bowtie",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 58,
+      "y": 11036.234375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "E-new-encounter",
+      "titleArtOverlap": false,
+      "variant": "ab",
+      "w": 320,
+      "x": 392,
+      "y": 11036.234375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-man-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 58,
+      "y": 11696.21875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-cat-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 392,
+      "y": 11696.21875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-frog-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 726,
+      "y": 11696.21875
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-clownfish-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 58,
+      "y": 12239.8125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-beetle-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 392,
+      "y": 12239.8125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dandelion-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 726,
+      "y": 12239.8125
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-dragon-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 58,
+      "y": 12783.40625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "M-unknown-05",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 392,
+      "y": 12783.40625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "C-cat_friend",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 726,
+      "y": 12783.40625
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "P-sea_mermaid",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 58,
+      "y": 13327
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "W-forest",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 392,
+      "y": 13327
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "G-area-claim",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 726,
+      "y": 13327
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "I-bowtie",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 58,
+      "y": 13870.59375
+    },
+    {
+      "copyOverflow": false,
+      "h": 480,
+      "id": "E-new-encounter",
+      "titleArtOverlap": false,
+      "variant": "ab-soft",
+      "w": 320,
+      "x": 392,
+      "y": 13870.59375
+    }
+  ],
+  "knownVisualIssue": "B/AB mystery cost inherits white heading ink on a light cost badge",
+  "capture": "Viewport JPEG screenshots; normalized to observed 1363x936 CSS viewport, stitched at measured scroll offsets; PNG crops preserve rendered cards. Not native lossless browser PNG."
+}
