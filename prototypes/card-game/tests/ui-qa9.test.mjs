@@ -11,7 +11,8 @@ test('compact card markup omits full-copy/footer and tiny stat labels across all
 });
 test('result overlay is outside flow and anchored to the opponent grid cell without a spacer',()=>{
  const app=readFileSync(new URL('../app.mjs',import.meta.url),'utf8'),css=readFileSync(new URL('../style.css',import.meta.url),'utf8');
- assert.match(app,/querySelector\('#game \.battle-area'\)\.append\(feedbackHost\)/);
+ // Parent identity and continuous connection are exercised in ui-continuity.test.mjs.
+ assert.match(app,/updateGameDOM\(\$\('game'\),next.content,feedbackHost\)/);
  const rule=css.match(/#result-feedback\{([^}]+)\}/)?.[1]??'';
  assert.match(rule,/position:absolute/);assert.match(rule,/grid-column:1\/2/);assert.match(rule,/grid-row:1\/2/);
  assert.doesNotMatch(rule,/flex:|flex-basis:|min-height:|margin:/);assert.match(css,/#result-feedback:empty\{display:none/);
