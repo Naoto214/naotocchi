@@ -58,7 +58,7 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 /* Results overlay the opponent grid cell; absolute positioning contributes no track size. */
 #result-feedback{position:absolute;grid-column:1/2;grid-row:1/2;inset:4px 0 auto;justify-self:center;z-index:10;min-width:0;width:max-content;max-width:94%;max-height:100%;pointer-events:none;overflow:hidden}
 #result-feedback:empty{display:none}
-.result-notice{position:relative;min-height:64px;overflow:hidden;padding:5px 48px 5px 8px;border:1px solid #bdaa77;border-radius:8px;background:#122f2a;color:#fff2cf;pointer-events:none;animation:result-enter .2s ease-out}
+.result-notice{position:relative;min-height:64px;overflow:hidden;padding:5px 48px 5px 8px;border:1px solid #bdaa77;border-radius:8px;background:#122f2a;color:#fff2cf;pointer-events:none}
 .result-notice>strong{font-size:11px;display:block;line-height:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .result-notice>small{display:block;font-size:9px;color:#d4d5bd;line-height:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .result-notice ul{list-style:none;padding:0;margin:2px 0}.result-notice li{display:flex;align-items:center;gap:5px;font-size:11px;min-height:24px;line-height:1.3}.result-notice li>span:last-child{min-width:0;white-space:normal;overflow-wrap:anywhere}
@@ -80,3 +80,92 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(orientation:landscape){#operation-panel{max-height:100%;overflow-y:auto}.notice-expand{min-height:52px}}
 
 @media(orientation:landscape) and (max-height:330px){.result-notice{min-height:48px}.result-notice>small{display:none}.result-notice li{min-height:20px}.result-mini,.result-mini>.card-face{width:12px;height:18px}}
+
+.match-options{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.match-options label{display:grid;gap:5px;min-width:130px;flex:1}.match-options select{width:100%;min-height:44px}.match-options [hidden]{display:none}.cpu-thinking{justify-content:center;min-height:44px;padding:4px 6px}
+
+/* Face-to-face positions only: card content and canonical slot IDs stay upright. */
+.opponent .board-layout{grid-template-columns:36px minmax(0,1fr)}
+.opponent .board-field{grid-column:2;grid-row:1}
+.opponent .management{grid-column:1;grid-row:1}
+.opponent .management>[data-zone="deck"]{grid-row:1}
+.opponent .management>[data-zone="activation"]{grid-row:2}
+.opponent .management>[data-zone="discard"]{grid-row:3}
+
+/* Opponent parking follows the reversed main row; keep card contents upright. */
+.opponent .board-field{display:flex;flex-direction:column}
+.opponent .egg-parking{order:1;flex:none;margin-top:3px;margin-bottom:0}
+.opponent .management{padding-top:0;padding-bottom:23px}
+@media(orientation:portrait){.opponent .egg-parking{margin-top:2px}.opponent .management{padding-bottom:14px}}
+/* Same gold/ivory badge palette; reserve the existing heading side lane. */
+.card-cost{width:22cqw;height:22cqw;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;font-size:18cqw;font-weight:900;font-variant-numeric:lining-nums tabular-nums;line-height:1;letter-spacing:0;color:#241b12;background:#fff8e2;border-width:max(1px,.8cqw);box-shadow:0 0 0 1px #fff5c9,inset 0 0 0 1px #ead8a6;isolation:isolate}
+
+/* Turn status stays in the existing 44px header; no extra layout row. */
+.table-top .turn-indicator{border-left:3px solid #91cfa4;border-radius:5px;padding:3px 5px;background:#204b3c;overflow:hidden}
+.table-top .turn-other{border-color:#92bee9;background:#203e56}
+.table-top .turn-finished{border-color:#e3cd93;background:#3b453e}
+.table-top .turn-indicator strong{font-size:13px;line-height:17px;white-space:nowrap}
+.table-top .turn-indicator small{font-size:10px;line-height:13px;white-space:nowrap}
+.result-important{border-color:#ebc1ab;max-height:134px}
+.milestone-symbol{display:inline-block;color:#f0bbc5;animation:milestone-glow 1.4s ease-out}
+.milestone-cause{font-size:11px;line-height:14px;margin:2px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.milestone-values{display:flex;flex-wrap:wrap;gap:1px 8px;max-height:42px;overflow-y:auto;pointer-events:auto;font-size:11px;line-height:14px}
+.milestone-values>span{display:block}
+@keyframes milestone-glow{0%{transform:scale(.8)}30%{transform:scale(1.18);text-shadow:0 0 10px #f3c3b0}100%{transform:scale(1);text-shadow:none}}
+@media(max-width:360px){.table-top .turn-indicator strong{font-size:12px}.table-top .turn-indicator small{font-size:9px}.table-top{gap:4px}}
+@media(prefers-reduced-motion:reduce){.milestone-symbol{animation:none!important}}
+
+/* Reserve the result button's width, including while a notice is visible. */
+.table-top button{width:44px;min-width:44px;padding:2px;overflow-wrap:anywhere}
+.table-top .result-reopen[hidden]{display:block!important;visibility:hidden;pointer-events:none}
+
+/* Overlay only: preserve gold border, field metrics and scroll geometry. */
+.player-board{position:relative}
+.player-board.field-turn-self{--field-turn-color:#83ffc0;--field-turn-glow:#61efaa80}
+.player-board.field-turn-other{--field-turn-color:#75caff;--field-turn-glow:#59baff80}
+.player-board.field-turn-active::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 2px var(--field-turn-color),0 0 8px 2px var(--field-turn-glow);pointer-events:none;z-index:2}
+.declaration-picker{display:grid;gap:6px;flex:none;font-size:13px;padding:4px 0}
+.declaration-picker select{width:100%;min-width:0;min-height:44px;font-size:16px;color:#fff4d2;background:#18392f;border:1px solid #dfc17d;border-radius:6px;padding:8px}
+.detail-command:has([data-declaration]){flex:none;max-height:none}
+.detail-actions:has([data-declaration]){flex:none;overflow:visible}
+@media(prefers-reduced-motion:reduce){.field-turn-active::after{animation:none!important;transition:none!important}}
+
+/* Response never occupies the end-turn hit area. Empty slots retain their width. */
+.pass-rail.actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;flex:none}
+.pass-rail>span{min-width:0;display:block}.pass-rail button{width:100%;min-height:44px;padding:4px;font-size:11px;text-align:center;touch-action:manipulation}
+.actions button[data-pass-intent="response"]{background:#254e68;border-color:#91c7e8;color:#f1f9ff}
+.actions button[data-pass-intent="end-turn"]{background:#edd49a;border-color:#edd49a;color:#34341d}
+@media(orientation:portrait){.operation-notice:has(.pass-rail){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}.operation-notice:has(.pass-rail) .notice-expand{min-height:44px}.pass-rail button{font-size:10px}}
+/* PR #393 artwork; the existing card/board boxes and viewport geometry stay fixed. */
+.card-attribute .icon{color:var(--mark-ink)}
+.card-art{background:#f5ead5}
+.card-art>.dedicated-art{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;image-rendering:auto;z-index:1}
+.card-art>.dedicated-art[hidden]{display:none}
+.art-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4%;color:#63523d;visibility:hidden}
+.art-fallback .icon{width:30%;height:40%}.art-fallback small{font-size:4cqw}
+.card-art.art-unavailable .art-fallback,.card-art:not(:has(.dedicated-art)) .art-fallback{visibility:visible}
+.card-face:not(.main-face):not(.compact){padding-inline:3%;grid-template-rows:20% auto minmax(0,1fr) 2%}
+.card-face:not(.main-face):not(.compact) .card-art{aspect-ratio:3/2;width:100%;border-radius:8%;align-self:center}
+.card-face:not(.main-face):not(.compact) .card-heading{padding-left:4%;padding-right:24%}
+.card-face:not(.main-face):not(.compact) .card-copy{font-size:3.8cqw}
+.history-cards{display:flex;flex-wrap:wrap;gap:5px;margin-block:6px}.history-cards>span{display:block;width:40px;height:60px;flex:none}.history-cards .card-face{width:100%;height:100%}
+.deck-row .deck-preview-card{width:36px;height:54px;flex:none;padding:0;min-height:0}.deck-row .deck-preview-card>.card-face{width:100%;height:100%}
+/* Adopted AB-soft: PR #397 0f6f9bcb, approved 2026-10-19. */
+.card-face{--study-frame:1.4cqw;--study-band:55%;--band-ink:#211d18}
+.card-face::before{
+ content:"";position:absolute;inset:2.6%;border:var(--study-frame) solid var(--card-color);border-radius:4%;z-index:0;pointer-events:none;
+}
+.card-face .card-heading{
+ background:linear-gradient(100deg,color-mix(in srgb,var(--card-color) var(--study-band),white),color-mix(in srgb,var(--card-color) var(--study-band),white));
+ border-radius:12% 12% 8% 8%;box-shadow:inset 0 0 0 1px #b49950;color:var(--band-ink);
+}
+.card-face .card-stats>span{
+ background:linear-gradient(110deg,color-mix(in srgb,var(--card-color) 35%,#fffdf2),#fffdf2 50%,color-mix(in srgb,var(--card-color) 35%,#fffdf2));
+ box-shadow:inset 0 -1.6cqw var(--card-color),inset 0 0 0 1px #fff8dd,0 0 0 1px #d9c992;
+}
+.card-face::after{
+ content:"";position:absolute;bottom:3.3%;left:8%;right:8%;height:2%;background:var(--card-color);border:1px solid #b49950;border-radius:50%;z-index:0;pointer-events:none;
+}
+
+
+/* Cost ink is independent of heading ink; no size/placement override of CPU work. */
+.card-face .card-cost{color:#211d18}

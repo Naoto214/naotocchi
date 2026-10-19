@@ -1,0 +1,38 @@
+✔ all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art (95.757612ms)
+✔ hidden identity is never read, embedded or requested by art rendering (0.839915ms)
+✔ safe hand, both boards, discard and activation use shared dedicated thumbnails (13.598726ms)
+✖ private draws appear as images only in the owner result notice and history (5.278432ms)
+✔ all card faces apply the approved fourteen classifications and approved SVG geometry (51.348188ms)
+✔ image errors clear request attributes and preserve the existing card box (1.598162ms)
+✔ approved long-copy exceptions apply only to full detail faces (1.346843ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 523.627454
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/ui-art-integration.test.mjs:33:1
+✖ private draws appear as images only in the owner result notice and history (5.278432ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /dedicated-art/. Input:
+  
+  '<details class="result-history"><summary>対戦履歴 · 最新から過去へ（自分だけのカード情報を含む）</summary><section data-result-revision="1"><h3>R1 · Aのターン · 操作 A <small>手順1</small></h3><ul><li>A：たまご返却：0枚を山札の下へ · 処理全体の手札 7 → 8枚</li><li>A：手札に追加（山札から） アーチェリー</li></ul></section></details>'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/41453dd691db/integration/prototypes/card-game/tests/ui-art-integration.test.mjs:38:64)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<details class="result-history"><summary>対戦履歴 · 最新から過去へ（自分だけのカード情報を含む）</summary><section data-result-revision="1"><h3>R1 · Aのターン · 操作 A <small>手順1</small></h3><ul><li>A：たまご返却：0枚を山札の下へ · 処理全体の手札 7 → 8枚</li><li>A：手札に追加（山札から） アーチェリー</li></ul></section></details>',
+    expected: /dedicated-art/,
+    operator: 'match',
+    diff: 'simple'
+  }

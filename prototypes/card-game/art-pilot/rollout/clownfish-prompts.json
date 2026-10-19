@@ -1,0 +1,90 @@
+[
+  {
+    "id": "M-clownfish-01",
+    "stage": "01",
+    "form": "透けたあかちゃん",
+    "scene": "One tiny pale translucent peach baby clownfish matching canonical sprite, rounded small head, closed gentle eyes, faint cream early body bands, tiny delicate fins and fan tail. Drifting safely in clear shallow water beside a softly lit small sea-anemone; close view makes this tiny baby prominent. Not an adult with strong saturated bands.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. 透けたあかちゃん. One tiny pale translucent peach baby clownfish matching canonical sprite, rounded small head, closed gentle eyes, faint cream early body bands, tiny delicate fins and fan tail. Drifting safely in clear shallow water beside a softly lit small sea-anemone; close view makes this tiny baby prominent. Not an adult with strong saturated bands. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/01.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  },
+  {
+    "id": "M-clownfish-02",
+    "stage": "02",
+    "form": "しまが出た子",
+    "scene": "One small slender juvenile clownfish, light orange peach body with emerging pale bands, open large dark eyes, small triangular dorsal fin and fan tail as canonical. Exploring a sunlit sandy patch with a few rounded pebbles beside an anemone. Clear side view, gentle curious face.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. しまが出た子. One small slender juvenile clownfish, light orange peach body with emerging pale bands, open large dark eyes, small triangular dorsal fin and fan tail as canonical. Exploring a sunlit sandy patch with a few rounded pebbles beside an anemone. Clear side view, gentle curious face. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/02.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  },
+  {
+    "id": "M-clownfish-03",
+    "stage": "03",
+    "form": "かくれんぼの子",
+    "scene": "One chubby child clownfish, brighter orange body with clear white bands edged dark, winking smiling eye and small orange fins exactly canonical. Playing hide and seek among soft pink anemone tentacles, keep its entire head, body and tail visible against gaps; playful curved composition.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. かくれんぼの子. One chubby child clownfish, brighter orange body with clear white bands edged dark, winking smiling eye and small orange fins exactly canonical. Playing hide and seek among soft pink anemone tentacles, keep its entire head, body and tail visible against gaps; playful curved composition. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/03.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  },
+  {
+    "id": "M-clownfish-04",
+    "stage": "04",
+    "form": "若いクマノミ",
+    "scene": "One slim youthful orange clownfish with bold white dark-edged bands, friendly wide dark eye, defined dorsal fin and orange fan tail. Swimming across a small sunlit coral arch with spacious blue water behind, lively side pose, preserve stripe positions and shape.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. 若いクマノミ. One slim youthful orange clownfish with bold white dark-edged bands, friendly wide dark eye, defined dorsal fin and orange fan tail. Swimming across a small sunlit coral arch with spacious blue water behind, lively side pose, preserve stripe positions and shape. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/04.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  },
+  {
+    "id": "M-clownfish-05",
+    "stage": "05",
+    "form": "群れのクマノミ",
+    "scene": "Exactly THREE orange and white clownfish matching canonical group: one large central fish facing left with a calm half-lidded eye, two much smaller companions above-right and below-right, open friendly dark eyes. They swim together beside an anemone garden in gentle afternoon currents. Preserve central versus small fish proportions, no fourth fish.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. 群れのクマノミ. Exactly THREE orange and white clownfish matching canonical group: one large central fish facing left with a calm half-lidded eye, two much smaller companions above-right and below-right, open friendly dark eyes. They swim together beside an anemone garden in gentle afternoon currents. Preserve central versus small fish proportions, no fourth fish. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/05.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  },
+  {
+    "id": "M-clownfish-06",
+    "stage": "06",
+    "form": "卵を守るオス",
+    "scene": "One adult male clownfish matching canonical sprite: orange oval body, white dark-edged bands, lowered attentive eye, moderate body height, orange fins and fan tail. Guarding a small neat patch of orange eggs attached to a sheltered rock beside an anemone, caring quiet scene, fish large and fully visible; no other fish.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. 卵を守るオス. One adult male clownfish matching canonical sprite: orange oval body, white dark-edged bands, lowered attentive eye, moderate body height, orange fins and fan tail. Guarding a small neat patch of orange eggs attached to a sheltered rock beside an anemone, caring quiet scene, fish large and fully visible; no other fish. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/06.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  },
+  {
+    "id": "M-clownfish-07",
+    "stage": "07",
+    "form": "メスへ変わる途中",
+    "scene": "One fuller taller-bodied clownfish exactly canonical, orange body, broad white bands with dark edges, content half-lidded eye, more developed dorsal outline and orange tail. Moving slowly through open water at the edge of the anemone home, a soft sea-green background and late-day rays. Preserve stage-specific rounded silhouette; no clothes or human gender symbols.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. メスへ変わる途中. One fuller taller-bodied clownfish exactly canonical, orange body, broad white bands with dark edges, content half-lidded eye, more developed dorsal outline and orange tail. Moving slowly through open water at the edge of the anemone home, a soft sea-green background and late-day rays. Preserve stage-specific rounded silhouette; no clothes or human gender symbols. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/07.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  },
+  {
+    "id": "M-clownfish-08",
+    "stage": "08",
+    "form": "群れのリーダーのメス",
+    "scene": "One large robust round female leader clownfish exactly canonical: tall deep orange body, broad white dark-edged bands, high rounded serrated dorsal outline, small pleased eye and confident smile, full orange fan tail. Calmly surveying a broad sunlit reef from the foreground, anemone below and gentle turquoise distance. Only one visible fish as canonical, no human accessories.",
+    "prompt": "Use case: illustration-story; identity-preserving scene expansion. Make one 1536x1024 PNG 3:2 landscape card art. Reference 1 is exact character and life-stage identity. Preserve body silhouette, fins, band placement, face, expression and number of characters. Reference 2 is adopted storybook underwater environment/style only. 群れのリーダーのメス. One large robust round female leader clownfish exactly canonical: tall deep orange body, broad white dark-edged bands, high rounded serrated dorsal outline, small pleased eye and confident smile, full orange fan tail. Calmly surveying a broad sunlit reef from the foreground, anemone below and gentle turquoise distance. Only one visible fish as canonical, no human accessories. Soft detailed hand-painted watercolor/gouache, natural underwater illumination, cute expressive character, no photorealism. Main subject occupies 50–65% width, fully within frame, easily readable at 80px; restrained background detail. No text, lettering, numbers, card frame, border, attribute icon or UI. Do not create extra fins or tails or a different growth stage.",
+    "refs": [
+      "/workspace/scratch/f6e6285c7b19/naotocchi/assets/characters/clownfish/08.png",
+      "/workspace/scratch/f6e6285c7b19/naotocchi/prototypes/card-game/art-pilot/illustrations/W-sea.png"
+    ]
+  }
+]

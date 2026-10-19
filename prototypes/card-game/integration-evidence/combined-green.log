@@ -1,0 +1,21 @@
+✔ approved soft design is global for every face, not a study opt-in (2.420043ms)
+✔ cost ink cannot inherit a white heading color (0.248562ms)
+✔ all 452 faces preserve formal colors, marks, and unique dedicated art at both resolutions (548.186448ms)
+✔ hidden cards retain the blue-silver back without front content (5.383257ms)
+✔ illustrated CPU boards preserve viewer orientation and hidden art through restore (24.744944ms)
+✔ illustrated history keeps CPU newest-first order and actual result text (0.54933ms)
+✔ all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art (33.160418ms)
+✔ hidden identity is never read, embedded or requested by art rendering (0.363588ms)
+✔ safe hand, both boards, discard and activation use shared dedicated thumbnails (7.740452ms)
+✔ private draws appear as images only in the owner result notice and history (2.539439ms)
+✔ all card faces apply the approved fourteen classifications and approved SVG geometry (6.530705ms)
+✔ image errors clear request attributes and preserve the existing card box (0.86776ms)
+✔ approved long-copy exceptions apply only to full detail faces (0.433822ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 995.491377

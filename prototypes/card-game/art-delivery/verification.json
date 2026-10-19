@@ -1,0 +1,20 @@
+{
+  "cards": 452,
+  "originals_decoded": 452,
+  "approved_previews_decoded": 1356,
+  "optimized_decoded": 904,
+  "missing": 0,
+  "duplicate_originals": 0,
+  "duplicate_decoded_art": 0,
+  "duplicate_derivatives": 0,
+  "totals": {
+    "original": 1287568992,
+    "small": 17128656,
+    "large": 120446468
+  },
+  "small_decoded_rgba_bytes": 393216,
+  "large_decoded_rgba_bytes": 3538944,
+  "original_decoded_rgba_bytes": 6291456,
+  "browser_measured": false,
+  "iphone_safari_measured": false
+}

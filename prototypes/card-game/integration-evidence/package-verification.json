@@ -1,0 +1,4739 @@
+{
+  "files": [
+    {
+      "path": "UI-IMPLEMENTATION.md",
+      "sha256": "15d0e94f2f866b023541a96432c286b399330d721d81bb8e537e8d4806e03cce",
+      "bytes": 67237
+    },
+    {
+      "path": "ability-copy.mjs",
+      "sha256": "00f51aabdd6a8a2195fbfed7da52a33914b62897919041874b6f56807e47526b",
+      "bytes": 3083
+    },
+    {
+      "path": "advanced-effects.mjs",
+      "sha256": "b9b844ebae604993e5c93900a9ccc41a24af113b6a816e2a1367255e26f378a5",
+      "bytes": 4227
+    },
+    {
+      "path": "advanced-equipment.mjs",
+      "sha256": "cedaf38d64c5f4c46b24551d6d385c95e30167b963151248548287c34036cf15",
+      "bytes": 2798
+    },
+    {
+      "path": "advanced-inspection.mjs",
+      "sha256": "5918ae6f58150294be9336ba64dc785f6e88181c84cf6957facc977f7000166a",
+      "bytes": 7727
+    },
+    {
+      "path": "app.mjs",
+      "sha256": "4959d875d81249a9bfefab67a838ed855a3f7a90e2d521e8ff7b25f817f3ffa2",
+      "bytes": 22559
+    },
+    {
+      "path": "art-delivery/large/C-bat-8bb68ffb2000.webp",
+      "sha256": "8bb68ffb2000b43f76997ca6170fb65519662549f392950f58c25d303fdfb6ad",
+      "bytes": 255344
+    },
+    {
+      "path": "art-delivery/large/C-box-ab1056c265a2.webp",
+      "sha256": "ab1056c265a2f8d8c03ab8c31300170f3020f947192255b9ee5b48a9c66e1f9b",
+      "bytes": 243056
+    },
+    {
+      "path": "art-delivery/large/C-cat_friend-d31e55bb5cdf.webp",
+      "sha256": "d31e55bb5cdfb45759ff0243076321cfe9e3dd423f9216fb720cde2f54b09f1d",
+      "bytes": 222940
+    },
+    {
+      "path": "art-delivery/large/C-chameleon-822e26b33217.webp",
+      "sha256": "822e26b33217efa54ddae7f52eb7dd10c8ab3d157cd61c5131ef6d6a0737aaa7",
+      "bytes": 294078
+    },
+    {
+      "path": "art-delivery/large/C-chicken-e7eca7aa95e9.webp",
+      "sha256": "e7eca7aa95e994772b14ac870b8068c23d477d6a4d8733e2321a912a7e43155f",
+      "bytes": 288308
+    },
+    {
+      "path": "art-delivery/large/C-clock-32451ab4c4c5.webp",
+      "sha256": "32451ab4c4c5cafae5c30ec6a136bf2ffd88b2d863466d502eb40120c51fdba1",
+      "bytes": 252874
+    },
+    {
+      "path": "art-delivery/large/C-hamster-cc292e8035d2.webp",
+      "sha256": "cc292e8035d2e9c918664a0895dfe14dea4fbcda4a31b8d14296190a8e19d63e",
+      "bytes": 272850
+    },
+    {
+      "path": "art-delivery/large/C-hedgehog-f6978454fe2a.webp",
+      "sha256": "f6978454fe2ab592a82d7b362b1b009ab14b3b4715996139c17fc48794946b86",
+      "bytes": 264976
+    },
+    {
+      "path": "art-delivery/large/C-many_tail_fox-09bee8704b77.webp",
+      "sha256": "09bee8704b7711a2e70540a1dd7df2db192683ca681b28cf01a3986c976c518d",
+      "bytes": 329840
+    },
+    {
+      "path": "art-delivery/large/C-monkey-df4ee7a3f78f.webp",
+      "sha256": "df4ee7a3f78fe70ae6c1c8d1b201a83c61b90aa43b181b146927e95787b17667",
+      "bytes": 297178
+    },
+    {
+      "path": "art-delivery/large/C-otter-882946f6c5bc.webp",
+      "sha256": "882946f6c5bca291f72382efd72896b8d0c5b9e26b9f40c80e7cfb5d90b8fa39",
+      "bytes": 297212
+    },
+    {
+      "path": "art-delivery/large/C-owl-5092be653aa0.webp",
+      "sha256": "5092be653aa03337fec50bf69d6a57329f78af3377cb41b8c71edbd0737a0790",
+      "bytes": 251630
+    },
+    {
+      "path": "art-delivery/large/C-panda-57bff5e576f5.webp",
+      "sha256": "57bff5e576f5795da254347f0d5d3b975b68e070c88cc74d99f7dc0bc41b20c7",
+      "bytes": 278858
+    },
+    {
+      "path": "art-delivery/large/C-parrot-04fd5066a8d3.webp",
+      "sha256": "04fd5066a8d3c0e52ec9f0cdaef87968ebae6b7fcce60160df60fc93e368c94a",
+      "bytes": 234368
+    },
+    {
+      "path": "art-delivery/large/C-penguin_friend-cafdbd76f6eb.webp",
+      "sha256": "cafdbd76f6ebed961e2a37672bbedbe5ee906c448420c9a4a80ecb92349d8cd6",
+      "bytes": 242960
+    },
+    {
+      "path": "art-delivery/large/C-punyu-1db823a138c5.webp",
+      "sha256": "1db823a138c50954af60dfa324b5d42a12d66a009abbbc06d5bc506f26ad98d4",
+      "bytes": 242052
+    },
+    {
+      "path": "art-delivery/large/C-rabbit_friend-dcc7725fb210.webp",
+      "sha256": "dcc7725fb210b83691eaebbe645f888ea1fadfc384d51db458f1c5f3e1ed0351",
+      "bytes": 271118
+    },
+    {
+      "path": "art-delivery/large/C-seal-da35fa63c0ec.webp",
+      "sha256": "da35fa63c0ecfb9583a6e7d08e50d843cb6a1a3134e7d5d7acf29417e9af2ca9",
+      "bytes": 295190
+    },
+    {
+      "path": "art-delivery/large/C-sekizou-f1d28303edff.webp",
+      "sha256": "f1d28303edff8a896d1668b635af360d85ebe3be9eb73f40e9bf1f6bb406099f",
+      "bytes": 274004
+    },
+    {
+      "path": "art-delivery/large/C-sheep-67788a463a75.webp",
+      "sha256": "67788a463a75335e7d1f996ae1ec0b562d45854f13faf92305b9c76697a2ee23",
+      "bytes": 312998
+    },
+    {
+      "path": "art-delivery/large/C-shiba-f4c19f31f127.webp",
+      "sha256": "f4c19f31f127b78da9dde5650a99a0b278ce72eeb5c055a2fbc8f4cc76128e1f",
+      "bytes": 286486
+    },
+    {
+      "path": "art-delivery/large/C-snail-222d49426445.webp",
+      "sha256": "222d4942644586e6adfc3635d3809315fe4be4a221991596b94d7d40c2cb9ff1",
+      "bytes": 222036
+    },
+    {
+      "path": "art-delivery/large/C-squirrel-489196cdebda.webp",
+      "sha256": "489196cdebda831a265a9be626f98d9644c3ef4d218bf6d0098c624491dff256",
+      "bytes": 280876
+    },
+    {
+      "path": "art-delivery/large/C-tanuki-d1a61b140346.webp",
+      "sha256": "d1a61b140346d4fd810e598f198bc25be3f23801670b5487fd4d08bcf1a190f9",
+      "bytes": 261192
+    },
+    {
+      "path": "art-delivery/large/C-unicorn-85fa9ad0b1c8.webp",
+      "sha256": "85fa9ad0b1c853404aadc7d1482eda35ffc7e0741832e3963e8ed833ea8c0a5f",
+      "bytes": 310674
+    },
+    {
+      "path": "art-delivery/large/C-watcher-6efe34f7aab6.webp",
+      "sha256": "6efe34f7aab6eead4a9a67aaa8ee9f902986b668f1d9cfc94d7efc3714fe1efe",
+      "bytes": 276280
+    },
+    {
+      "path": "art-delivery/large/E-big-illness-25c396bc8639.webp",
+      "sha256": "25c396bc863932666e4e567cb08e16063e65150533853e17bd1d0d974136a6ef",
+      "bytes": 238460
+    },
+    {
+      "path": "art-delivery/large/E-boss-7412ce342dc1.webp",
+      "sha256": "7412ce342dc1b3bce6c2e0240050e11b3744acde52a3e16d9bcdfcd01146fb8a",
+      "bytes": 262392
+    },
+    {
+      "path": "art-delivery/large/E-fateful-transform-06a6fb8010c4.webp",
+      "sha256": "06a6fb8010c4be3f0f53787a4201cae59f5c9eb253803da9e1a5491ef476853b",
+      "bytes": 274946
+    },
+    {
+      "path": "art-delivery/large/E-final-time-10e5a590e357.webp",
+      "sha256": "10e5a590e35739249ce6b22d0e08ee41e8cbc3ed2e602ec699b9de0cb1c48d8c",
+      "bytes": 264148
+    },
+    {
+      "path": "art-delivery/large/E-first-date-3392a16dd72a.webp",
+      "sha256": "3392a16dd72a0fe62fff1dab21cbaef03140216e18479dd70e7cb4a69d57fa95",
+      "bytes": 304556
+    },
+    {
+      "path": "art-delivery/large/E-gate-7061bfc86814.webp",
+      "sha256": "7061bfc8681448d61d1de4c5a1466a1c63db741ff34441a337e1a31315a051fa",
+      "bytes": 266390
+    },
+    {
+      "path": "art-delivery/large/E-lamp-780304e79790.webp",
+      "sha256": "780304e797902cc2d6b3ea718651be4d6e639d477280b35e4836e33f05333a7b",
+      "bytes": 277444
+    },
+    {
+      "path": "art-delivery/large/E-midlife-50th-e6eb26276d09.webp",
+      "sha256": "e6eb26276d094295650581cbd075a24f20115fc50afeae2448a498ecc7e896e9",
+      "bytes": 276480
+    },
+    {
+      "path": "art-delivery/large/E-midlife-album-d8220b7fc698.webp",
+      "sha256": "d8220b7fc698622c449894f3bc66e91f222e97dd5d5edf484a5a897653ad7d00",
+      "bytes": 244738
+    },
+    {
+      "path": "art-delivery/large/E-midlife-flower-120c74981893.webp",
+      "sha256": "120c749818930bbfd9e7dca58babe11dbab2fcd698e9e8b7fff65cd5fc868770",
+      "bytes": 304058
+    },
+    {
+      "path": "art-delivery/large/E-midlife-hobby-2ed7a9233c9d.webp",
+      "sha256": "2ed7a9233c9de672de7dd25e28f91ebbe783bb24101c20cc3139cf7a3387a73b",
+      "bytes": 272724
+    },
+    {
+      "path": "art-delivery/large/E-midlife-travel-plan-47ef099bd664.webp",
+      "sha256": "47ef099bd6645238ed46b9bb2b1c5029ed26612c0ce0abcc74bd0fb6a11fb36f",
+      "bytes": 263832
+    },
+    {
+      "path": "art-delivery/large/E-mirror-b57a1a01274a.webp",
+      "sha256": "b57a1a01274a35e6c082cb9261c3974cb313f191d21bb169de61e438a0dcf356",
+      "bytes": 281096
+    },
+    {
+      "path": "art-delivery/large/E-misunderstanding-5970d16b97eb.webp",
+      "sha256": "5970d16b97eb3fadb0155e75e4bb0e90a612f364243a26b069d6716ca7b04d10",
+      "bytes": 305990
+    },
+    {
+      "path": "art-delivery/large/E-naoto-b09282f6492b.webp",
+      "sha256": "b09282f6492b6ac6efb5f11100086252bbb46c3cd3e01def9ee793676c00eb0f",
+      "bytes": 300000
+    },
+    {
+      "path": "art-delivery/large/E-new-encounter-606671641964.webp",
+      "sha256": "606671641964866f2e3f96961a29cc39ec82bc775c590708dadfdb83778ef1d3",
+      "bytes": 256286
+    },
+    {
+      "path": "art-delivery/large/E-reconciliation-416b11840580.webp",
+      "sha256": "416b11840580d5ea0b48c4061883d5566d6a0bfb73f783d1011c8ac780d28ced",
+      "bytes": 287722
+    },
+    {
+      "path": "art-delivery/large/E-special-trip-memory-52a1f2458a78.webp",
+      "sha256": "52a1f2458a7843ec32daafd2d53501c7a9293c58ab1c2d965ac4e6aa0cb0af4b",
+      "bytes": 339654
+    },
+    {
+      "path": "art-delivery/large/E-stairs-2b3f3c5754e2.webp",
+      "sha256": "2b3f3c5754e2a29486efef55ba9bac9a087723818b06ab0014626695786e6523",
+      "bytes": 251736
+    },
+    {
+      "path": "art-delivery/large/E-sudden-trip-34959a1b86d2.webp",
+      "sha256": "34959a1b86d2e9c9798799ef733cc044dd32feadd0969ee4ee532e3b03ee1f9c",
+      "bytes": 309518
+    },
+    {
+      "path": "art-delivery/large/E-wedding-anniversary-aceade2b391a.webp",
+      "sha256": "aceade2b391a68cd217eb3897e3d2d899b46d3151520bfadd25d91e69eb0f787",
+      "bytes": 304156
+    },
+    {
+      "path": "art-delivery/large/G-air-hockey-92716e598eb6.webp",
+      "sha256": "92716e598eb635136666a95424e83d5bf93c0bd3d7a420469085467fc2312fce",
+      "bytes": 262250
+    },
+    {
+      "path": "art-delivery/large/G-animal-shogi-8e4462d2058d.webp",
+      "sha256": "8e4462d2058d89fd70bdb6a76942760446a6c6d5eaac0527b7ed47e63d3b47b4",
+      "bytes": 271166
+    },
+    {
+      "path": "art-delivery/large/G-archery-3d-473b62a83493.webp",
+      "sha256": "473b62a83493bec7b58a49cf96c83d105439116f7fe5277929748a7a8c6ecd3f",
+      "bytes": 333142
+    },
+    {
+      "path": "art-delivery/large/G-area-claim-81c71c42595a.webp",
+      "sha256": "81c71c42595a2d1fc79b37b6db5bcdeea7a2eb62a9a3fbf615d2f2e450dc35c5",
+      "bytes": 273980
+    },
+    {
+      "path": "art-delivery/large/G-asteroids-classic-7f3a22ffff91.webp",
+      "sha256": "7f3a22ffff91c34e692f293a9ab07016d5e056b464f548d98a7615ffc09a9fcc",
+      "bytes": 315248
+    },
+    {
+      "path": "art-delivery/large/G-baseball-batting-1a4f6df8d63f.webp",
+      "sha256": "1a4f6df8d63fe1107092bc344abf730855280aa18ca41f5cf0e6f8ec15b270a4",
+      "bytes": 291792
+    },
+    {
+      "path": "art-delivery/large/G-basketball-3d-ed9b0084fdbd.webp",
+      "sha256": "ed9b0084fdbd28c14214d5974f55b82c6df6e9e86742cea3952b8138a519b83a",
+      "bytes": 324182
+    },
+    {
+      "path": "art-delivery/large/G-beach-volley-db035f0ca0bc.webp",
+      "sha256": "db035f0ca0bc5abe944a355d2b4486680d8d7372474f80b4b12eaf52216dde43",
+      "bytes": 292686
+    },
+    {
+      "path": "art-delivery/large/G-billiards-6-67eec80eaaf3.webp",
+      "sha256": "67eec80eaaf3aa9f0f05f222ce6eb971a98fbb22bb4db62dcbb46d6e8e4606a6",
+      "bytes": 273808
+    },
+    {
+      "path": "art-delivery/large/G-blackjack-21-d773aed9d6f6.webp",
+      "sha256": "d773aed9d6f6547c88537a6f8e1dc309c09e8c5bf76947f1b6b4c25865175fa2",
+      "bytes": 257512
+    },
+    {
+      "path": "art-delivery/large/G-bomber-maze-d538236cce4c.webp",
+      "sha256": "d538236cce4c7738c366acb8f0ef8e02b468885ec416a2dcb2d3f8925f5980f7",
+      "bytes": 291326
+    },
+    {
+      "path": "art-delivery/large/G-bowling-3d-c799835e9695.webp",
+      "sha256": "c799835e9695e9e4f7b240c1608f7fc619fb0b1e2d0a9c8ad36df8268fd73d72",
+      "bytes": 253720
+    },
+    {
+      "path": "art-delivery/large/G-breakout-classic-224f40dad822.webp",
+      "sha256": "224f40dad82280d529cf58b02b557e059a8b75ae4074870416dacb88a0d221e8",
+      "bytes": 264430
+    },
+    {
+      "path": "art-delivery/large/G-bubble-shooter-28da803e3156.webp",
+      "sha256": "28da803e3156884973cde73f2c2b17355096d316a84233908bacb3aeca939911",
+      "bytes": 285260
+    },
+    {
+      "path": "art-delivery/large/G-catapult-castle-f4ef23a5dbb2.webp",
+      "sha256": "f4ef23a5dbb2d32ef364034be01b12863c08d776486138673144aa8e06cc3b92",
+      "bytes": 348848
+    },
+    {
+      "path": "art-delivery/large/G-chain-puzzle-4f9be09828d1.webp",
+      "sha256": "4f9be09828d1cc199686dad73371732ff604e2bd117a202ffe4b3e69277f276a",
+      "bytes": 282504
+    },
+    {
+      "path": "art-delivery/large/G-checkers-6-2cf8b296f255.webp",
+      "sha256": "2cf8b296f2558c9700de218388222f5b06aacda7f2c590bbe69ed4430eca3e3e",
+      "bytes": 287204
+    },
+    {
+      "path": "art-delivery/large/G-connect-four-f5ebf23c0d46.webp",
+      "sha256": "f5ebf23c0d4606376d8dc5a77494a1d8eb3afe7bffc6a34e71c01572b7fb9535",
+      "bytes": 289226
+    },
+    {
+      "path": "art-delivery/large/G-crane-game-3d-9a678dc72e20.webp",
+      "sha256": "9a678dc72e201980d311b85d0a92d28682cb8a73967a0f71f3f543ea7329905f",
+      "bytes": 223438
+    },
+    {
+      "path": "art-delivery/large/G-curling-ice-63b0d15c2308.webp",
+      "sha256": "63b0d15c23080441ac0e05303fec592a1c9df3e40ce55bcdd9ab3a03669c7669",
+      "bytes": 225476
+    },
+    {
+      "path": "art-delivery/large/G-curling-winter-4d1088afed8d.webp",
+      "sha256": "4d1088afed8d3cb818cfda93b095de1dd3a9e918f7d6253dd8b35a3e8a66723a",
+      "bytes": 291258
+    },
+    {
+      "path": "art-delivery/large/G-darts-board-ecc53c538a05.webp",
+      "sha256": "ecc53c538a0505b04cf64c3f449b0bd89cadd9004960a699921242ddc256d3e1",
+      "bytes": 292270
+    },
+    {
+      "path": "art-delivery/large/G-domino-run-535b16ff37b6.webp",
+      "sha256": "535b16ff37b6212ec547ebdf11bc16d8bd53b46f6e0e578ef6b58132917488d1",
+      "bytes": 225844
+    },
+    {
+      "path": "art-delivery/large/G-doodle-jump-f6dfc15f836c.webp",
+      "sha256": "f6dfc15f836c30b015cf338651a1802ff0d050ea5c86dbab623a0584ded4d719",
+      "bytes": 261690
+    },
+    {
+      "path": "art-delivery/large/G-dot-eater-bd2540fad1cf.webp",
+      "sha256": "bd2540fad1cf5f42412455e3e51668e18a3b92f95811abaebd85128b0166ae4d",
+      "bytes": 250460
+    },
+    {
+      "path": "art-delivery/large/G-downhill-mountain-cea1abcb37a9.webp",
+      "sha256": "cea1abcb37a969521e58fec842dfc6df1df1372bd381e475e4f3a5b62b30bea5",
+      "bytes": 305562
+    },
+    {
+      "path": "art-delivery/large/G-downhill-snow-e456a2da4b77.webp",
+      "sha256": "e456a2da4b77aba7c8244d69c6ee3988a7e498a761424b64bd3792f5ab0bc227",
+      "bytes": 256508
+    },
+    {
+      "path": "art-delivery/large/G-dragDecorate-bento-9a784cd2766e.webp",
+      "sha256": "9a784cd2766ef69faa8649d701a57fee677ed47fed6705bb0305a83979f5ceb8",
+      "bytes": 293920
+    },
+    {
+      "path": "art-delivery/large/G-dragDecorate-cake-49a1c9e04e5a.webp",
+      "sha256": "49a1c9e04e5ae930cffb5dce15387e52efa79046e24500c950d0a6171452ff25",
+      "bytes": 249002
+    },
+    {
+      "path": "art-delivery/large/G-falling-block-puzzle-e6d3df04a15e.webp",
+      "sha256": "e6d3df04a15ef12d6e1c4c28320d0bebce5fe63bb8ccf776e7eb501d637668b2",
+      "bytes": 273320
+    },
+    {
+      "path": "art-delivery/large/G-fishing-deepsea-6bacd86ba2d6.webp",
+      "sha256": "6bacd86ba2d6d1f28e71e8d9b68fb2dc169e783c035652659178d84b7a6bb89a",
+      "bytes": 246502
+    },
+    {
+      "path": "art-delivery/large/G-fishing-river-5b224401ab96.webp",
+      "sha256": "5b224401ab9634a021a9cd48f849e3aada606e262f6db533e2311e0704eda240",
+      "bytes": 255444
+    },
+    {
+      "path": "art-delivery/large/G-fishing-sea-032122ba258b.webp",
+      "sha256": "032122ba258b4ffcb7ea3922a0e3ca537bf20d6cf11d59592ca9aad6ddb067e7",
+      "bytes": 335562
+    },
+    {
+      "path": "art-delivery/large/G-fp-dungeon-29d3b5714c60.webp",
+      "sha256": "29d3b5714c608ad8e8f7976eba83dd7812b57fc0f89f208357631ffe2722b4dc",
+      "bytes": 257326
+    },
+    {
+      "path": "art-delivery/large/G-free-kick-3d-31f8c9a7b1f7.webp",
+      "sha256": "31f8c9a7b1f7d8b4f49acaf54e2962d8632bd0f6f2e5017d4e1b7877c9273853",
+      "bytes": 326852
+    },
+    {
+      "path": "art-delivery/large/G-frogger-road-874473e58eac.webp",
+      "sha256": "874473e58eac4e2420a045fe4ef10dca760405db2e39fadacbd609a7940c5d1b",
+      "bytes": 351334
+    },
+    {
+      "path": "art-delivery/large/G-fruit-slice-e6a24999e92c.webp",
+      "sha256": "e6a24999e92cbf1a4d3b91be5f5ff2651894025f4646dd5a5575394b533b96a4",
+      "bytes": 346502
+    },
+    {
+      "path": "art-delivery/large/G-gomoku-9-06951617c07a.webp",
+      "sha256": "06951617c07a7f8538c82a67baa8c49ebc71c60f0343f72c09da58029dc7c0eb",
+      "bytes": 219132
+    },
+    {
+      "path": "art-delivery/large/G-grand-prix-3d-46c093f3fd46.webp",
+      "sha256": "46c093f3fd469e4a09243c0632e84840bbfd609366c8b74e5efad63241f5d753",
+      "bytes": 288116
+    },
+    {
+      "path": "art-delivery/large/G-halfpipe-skate-6cdf7083a7a2.webp",
+      "sha256": "6cdf7083a7a27d551e13598d36108be9d7f5ce092a767079390ab95ab9f8908f",
+      "bytes": 303576
+    },
+    {
+      "path": "art-delivery/large/G-hang-glider-3d-915546356a90.webp",
+      "sha256": "915546356a903218beb4101122ba1422fe909e5653b32ebfa3a7689b1a71df01",
+      "bytes": 278840
+    },
+    {
+      "path": "art-delivery/large/G-haunted-house-3d-c4cfcfe867fe.webp",
+      "sha256": "c4cfcfe867fe94f5a9982d84d781ad90a5150cca9433119417ea39277db83240",
+      "bytes": 269982
+    },
+    {
+      "path": "art-delivery/large/G-hit-blow-faa7d1bfc3fe.webp",
+      "sha256": "faa7d1bfc3fe8d42b4df2e99f5e833c16850ef9cfe1cdaa78182dc04867d747b",
+      "bytes": 279296
+    },
+    {
+      "path": "art-delivery/large/G-jenga-tower-cbed7bcb00ae.webp",
+      "sha256": "cbed7bcb00ae23f81acb9c3dbedd23adf7f7fa26b660a92f71423fd570d7c24b",
+      "bytes": 221644
+    },
+    {
+      "path": "art-delivery/large/G-jump-quest-9270c322f5b5.webp",
+      "sha256": "9270c322f5b5b385165f32f78e8bb089a2a8d91ccd4ad314de33be52d78b10c6",
+      "bytes": 337102
+    },
+    {
+      "path": "art-delivery/large/G-lights-out-5d1a6357290b.webp",
+      "sha256": "5d1a6357290b208abdf25bdc79c2ef53aa6f4c8e0761dbc7e89ea50255a0fb32",
+      "bytes": 246476
+    },
+    {
+      "path": "art-delivery/large/G-line-trace-85b40c6fe6e2.webp",
+      "sha256": "85b40c6fe6e2475464e2f95671fd960724c00a256dabed4dfa5416a23e741001",
+      "bytes": 218286
+    },
+    {
+      "path": "art-delivery/large/G-lunar-lander-ab479065393f.webp",
+      "sha256": "ab479065393f6e8a2ee7bcd0813f788f2e9ab8f76b0a23db06a0fe542a505f0c",
+      "bytes": 328960
+    },
+    {
+      "path": "art-delivery/large/G-mancala-kalah-291825f93545.webp",
+      "sha256": "291825f93545f803f25d023b0845ef9923edd864e9d6c521997d6329ad0fd719",
+      "bytes": 257338
+    },
+    {
+      "path": "art-delivery/large/G-match-3-fb10b436dad7.webp",
+      "sha256": "fb10b436dad78ad60688cdd822c21bec16497a46cb6e90c1616bdd316818cc2d",
+      "bytes": 280664
+    },
+    {
+      "path": "art-delivery/large/G-memory-cards-5165080f555a.webp",
+      "sha256": "5165080f555aa559c6f5874150956df999344db48bd0d10120b5d7781a24317d",
+      "bytes": 312160
+    },
+    {
+      "path": "art-delivery/large/G-minesweeper-8-09fd99f7f8c1.webp",
+      "sha256": "09fd99f7f8c16373072092608648ed4f759601693a73432384b2bee5a5ebe8de",
+      "bytes": 188708
+    },
+    {
+      "path": "art-delivery/large/G-mini-golf-physics-6a67a7a7003a.webp",
+      "sha256": "6a67a7a7003a41e4cfd70ee0fe6c2e55c5b3636bc9d745aac767adf282e2ff57",
+      "bytes": 263598
+    },
+    {
+      "path": "art-delivery/large/G-missile-command-2ae744880842.webp",
+      "sha256": "2ae74488084205469e6560d54e1f2583bc896c16df3184126a7e3d49ced2bd66",
+      "bytes": 292858
+    },
+    {
+      "path": "art-delivery/large/G-p3-drive-211c0614f45f.webp",
+      "sha256": "211c0614f45f1ac22c7dd5ab673bed2b0e4030b0734719829c66fd76fa987fba",
+      "bytes": 283662
+    },
+    {
+      "path": "art-delivery/large/G-p3-space-bf3ec4f8b2fb.webp",
+      "sha256": "bf3ec4f8b2fbfa0baa53bae78274fbb24f2e9155cb28851c4351948454cf3d7f",
+      "bytes": 333734
+    },
+    {
+      "path": "art-delivery/large/G-picross-5-a3c735bcc2c9.webp",
+      "sha256": "a3c735bcc2c937e83a88fb894565719bc950ea290328f5b3eec48df30907dbc5",
+      "bytes": 277410
+    },
+    {
+      "path": "art-delivery/large/G-pinball-physics-3294e628e7a3.webp",
+      "sha256": "3294e628e7a370f7ae602e45af94ed49b0327b3acf8d9e091d4f28d1e7043ebc",
+      "bytes": 255474
+    },
+    {
+      "path": "art-delivery/large/G-pingpong-3d-d86fa873a287.webp",
+      "sha256": "d86fa873a287f2dbbc45ce8a8c04cc5ca6391a58b77aaae9b8c71e2071b37a85",
+      "bytes": 316700
+    },
+    {
+      "path": "art-delivery/large/G-pipe-connect-39be96a06c39.webp",
+      "sha256": "39be96a06c39f69ccb73bd195b2c3d96671549f1e9a6cbc8361ba9e65a10b56e",
+      "bytes": 310740
+    },
+    {
+      "path": "art-delivery/large/G-plane-landing-690a90b3da6a.webp",
+      "sha256": "690a90b3da6a5bbb996431bf6028ca949a0d6bce29d05b63254c3f94f3fc8b5f",
+      "bytes": 267146
+    },
+    {
+      "path": "art-delivery/large/G-push-puzzle-c9b533307260.webp",
+      "sha256": "c9b5333072605e21618428dfdef4544c73d5c442906697857e99ca7b26aef4dc",
+      "bytes": 237132
+    },
+    {
+      "path": "art-delivery/large/G-puzzle-2048-3409fb9df805.webp",
+      "sha256": "3409fb9df80573cc975a23a60d39db51b0600bc1e377b9110eb77d79f923a162",
+      "bytes": 200190
+    },
+    {
+      "path": "art-delivery/large/G-race-3d-33e3fb44f472.webp",
+      "sha256": "33e3fb44f4729ecafc2cab93e345e671f3280828dae8e04cd86fb739f57ea6f5",
+      "bytes": 328868
+    },
+    {
+      "path": "art-delivery/large/G-real-fishing-23caf53cd4c1.webp",
+      "sha256": "23caf53cd4c13e748f6d2297452b34eb649135f0ce27175321551fafc9d2602b",
+      "bytes": 293414
+    },
+    {
+      "path": "art-delivery/large/G-reversi-6-10aa4c58236d.webp",
+      "sha256": "10aa4c58236df3449c56bd3a8fd8bea246f3b01e37c59231b20ee6e61d11438b",
+      "bytes": 282296
+    },
+    {
+      "path": "art-delivery/large/G-rhythm-highway-3d-a99a56d78efd.webp",
+      "sha256": "a99a56d78efd64f7c960bbd34bf957bf253385c3fc42fe1614bbf171363fa721",
+      "bytes": 295180
+    },
+    {
+      "path": "art-delivery/large/G-ring-flight-3d-c90c98056cfc.webp",
+      "sha256": "c90c98056cfc422792fd2015241b222bbd320212cd43765fb0393a6e0d7ffe28",
+      "bytes": 268900
+    },
+    {
+      "path": "art-delivery/large/G-ring-flight-summer-61387898e82e.webp",
+      "sha256": "61387898e82e70c736e33e6b7f9f0e2706d4be73c289675e86b0acd462792c5b",
+      "bytes": 311078
+    },
+    {
+      "path": "art-delivery/large/G-road-city-7dc860c1b5a6.webp",
+      "sha256": "7dc860c1b5a65be53f1c728b3d5bd17ac9a55d97187108e8ee3a89917d73c2af",
+      "bytes": 310968
+    },
+    {
+      "path": "art-delivery/large/G-road-desert-b913b02e9099.webp",
+      "sha256": "b913b02e90994763f20a5df6084e36874a3e4a4a3d6dbffef113a3ed446dda41",
+      "bytes": 295486
+    },
+    {
+      "path": "art-delivery/large/G-road-jungle-12ee677e5d81.webp",
+      "sha256": "12ee677e5d8186e4d9c4063b9ad4644ef5e07cb687e066c713a8ae42f320ca69",
+      "bytes": 353690
+    },
+    {
+      "path": "art-delivery/large/G-road-themed-011bdfc2fe67.webp",
+      "sha256": "011bdfc2fe67f9f9a32658ccfe37a398e13e4fc346c03c31704049e168edec9c",
+      "bytes": 300054
+    },
+    {
+      "path": "art-delivery/large/G-roguelike-dungeon-0ebe966451d0.webp",
+      "sha256": "0ebe966451d09e860d43e65ee920618e02a81c20e091c84406d9411312f70c38",
+      "bytes": 303176
+    },
+    {
+      "path": "art-delivery/large/G-shanghai-tiles-011239b0939e.webp",
+      "sha256": "011239b0939e96c4b10360352e0e8444352890f9f61b96299bd45701a097cb4b",
+      "bytes": 297258
+    },
+    {
+      "path": "art-delivery/large/G-ski-jump-36f95eb87563.webp",
+      "sha256": "36f95eb87563f5a7ac0fceee70bd00cf745a0976d791406e4eda7a46e052f3e2",
+      "bytes": 280408
+    },
+    {
+      "path": "art-delivery/large/G-sky-shooter-a3a4fa3b4425.webp",
+      "sha256": "a3a4fa3b4425416031d37967928f84d0bce92f66a245ce28203b68b88234be18",
+      "bytes": 258226
+    },
+    {
+      "path": "art-delivery/large/G-slide-puzzle-751572eebab0.webp",
+      "sha256": "751572eebab0aa58b862674dddb48696c57e6cea8bef569918ac57594ffdf734",
+      "bytes": 250114
+    },
+    {
+      "path": "art-delivery/large/G-snake-classic-3a84f90ec4cd.webp",
+      "sha256": "3a84f90ec4cd5d21cd147197b9e669393e48b5270d4fb873eb8a7ba6ffd259d8",
+      "bytes": 312284
+    },
+    {
+      "path": "art-delivery/large/G-solitaire-klondike-c0b7216f8800.webp",
+      "sha256": "c0b7216f8800605012a9a8dc888d03a83813af2e713ffc11e3a3921dfce6ceb5",
+      "bytes": 277852
+    },
+    {
+      "path": "art-delivery/large/G-space-gunner-3d-a0e28074fc97.webp",
+      "sha256": "a0e28074fc975e59aaa85f58e7747131d8122844a8d80d4556b3e9bc3fe92414",
+      "bytes": 290666
+    },
+    {
+      "path": "art-delivery/large/G-stack-acorn-9407b6cf8c2c.webp",
+      "sha256": "9407b6cf8c2c0c36677561d4b69fc254bcb95788888a4f76aa0f05730e76b6db",
+      "bytes": 290880
+    },
+    {
+      "path": "art-delivery/large/G-stack-harvest-d25e036cf6ac.webp",
+      "sha256": "d25e036cf6ac4b3bb7d468998e10a00c8655f21e350c6cb9c1c54ea33602bce9",
+      "bytes": 323054
+    },
+    {
+      "path": "art-delivery/large/G-stack-leaves-86c44c54ec29.webp",
+      "sha256": "86c44c54ec295c7e5762c47701e3f2a50ea24d8eb8d8bbb76317593b0b7ac489",
+      "bytes": 264922
+    },
+    {
+      "path": "art-delivery/large/G-stack-sakura-fb7868d87711.webp",
+      "sha256": "fb7868d87711dc77664b5f2406770c18d72a6b061131ab4687912f46782c1cb7",
+      "bytes": 293388
+    },
+    {
+      "path": "art-delivery/large/G-stack-snowman-906e6c01b1eb.webp",
+      "sha256": "906e6c01b1eb8fe494a6244435371b19653ae0e6099769dc1bc2b52cf17d680b",
+      "bytes": 217712
+    },
+    {
+      "path": "art-delivery/large/G-stack-themed-fd4d709f747c.webp",
+      "sha256": "fd4d709f747c04dcf276ab54556f9c13c8807907f835c545be82c9250d50755b",
+      "bytes": 255726
+    },
+    {
+      "path": "art-delivery/large/G-street-fight-9e30deeab53f.webp",
+      "sha256": "9e30deeab53feeed49129bdabee71f6a2665f06e9e3fdc6696f3f680ff11ae4d",
+      "bytes": 345246
+    },
+    {
+      "path": "art-delivery/large/G-submarine-3d-a33f20c230fb.webp",
+      "sha256": "a33f20c230fb7c263bdec15e534388ec87fc90d0c1d5f3ba4dd47b2beda8ec76",
+      "bytes": 343390
+    },
+    {
+      "path": "art-delivery/large/G-sudoku-mini-9fdc52e04521.webp",
+      "sha256": "9fdc52e04521a93e2fba9f4f361845c7cad2e9504d01e0ea7f0668ed00727eff",
+      "bytes": 256776
+    },
+    {
+      "path": "art-delivery/large/G-sugoroku-race-466e7edbc1cc.webp",
+      "sha256": "466e7edbc1cc4071fa4b206e05377600f98b0b642e620e144b5c5fa313cd40b0",
+      "bytes": 303842
+    },
+    {
+      "path": "art-delivery/large/G-sushi-belt-c894788623e9.webp",
+      "sha256": "c894788623e9a94707bf49d7a36fc150db05e158ce3093c8913c27b3bd026400",
+      "bytes": 240216
+    },
+    {
+      "path": "art-delivery/large/G-takoyaki-grill-41361c8913ee.webp",
+      "sha256": "41361c8913ee21708b3a7943b49aa516c211ec705d4e884c3aab3893d2bf8c78",
+      "bytes": 276200
+    },
+    {
+      "path": "art-delivery/large/G-tank-battle-8974a8633f6d.webp",
+      "sha256": "8974a8633f6d0f6e699ea7802797fda93f06e81340a29fbdbb5ba2891e5a24ee",
+      "bytes": 213146
+    },
+    {
+      "path": "art-delivery/large/G-tennis-rally-6d6b56ccf983.webp",
+      "sha256": "6d6b56ccf983836feb4be16a75854a59ac38e4509f891539b56233f820e482e2",
+      "bytes": 345938
+    },
+    {
+      "path": "art-delivery/large/G-tilt-maze-3d-55b24e57bb25.webp",
+      "sha256": "55b24e57bb25cef9a08609d3be08ab6fed579e7614e33e8e23554c1ba8380874",
+      "bytes": 293726
+    },
+    {
+      "path": "art-delivery/large/G-tower-defense-7aa8aabad4c0.webp",
+      "sha256": "7aa8aabad4c094f6e6c427255f335eb1259b1acc62c9b4d613da10102f970927",
+      "bytes": 267026
+    },
+    {
+      "path": "art-delivery/large/G-track-field-64cbd8eaecfd.webp",
+      "sha256": "64cbd8eaecfd7ca24981cc648ab36b5c8bd759dffde771ccb14cc0be5eb597d5",
+      "bytes": 273394
+    },
+    {
+      "path": "art-delivery/large/G-voxel-mine-83fdea9ca2ea.webp",
+      "sha256": "83fdea9ca2ea3054e4d9cd6f620efe08083569fe9c3c0ffa9fcaaec71f14861d",
+      "bytes": 271446
+    },
+    {
+      "path": "art-delivery/large/G-yacht-dice-47507b2d7e12.webp",
+      "sha256": "47507b2d7e12add24bec493324c584a450355f54c89a029f7e4121a7ddfc68da",
+      "bytes": 240530
+    },
+    {
+      "path": "art-delivery/large/I-bond1-a2b67464d0c8.webp",
+      "sha256": "a2b67464d0c81b0b33730b5ac3fe4381496475fc80af7d5f614a27571f3c5422",
+      "bytes": 235424
+    },
+    {
+      "path": "art-delivery/large/I-bowtie-764abdcc8911.webp",
+      "sha256": "764abdcc891118e3309bfa2af1a5feb3bab7e0dc59a91ed9ba14b43742df67e9",
+      "bytes": 278622
+    },
+    {
+      "path": "art-delivery/large/I-c_coin2-53bd8410d3de.webp",
+      "sha256": "53bd8410d3de8e4c3ec0fdc99325d78105b460b105733452d29c45bbe27f9706",
+      "bytes": 288486
+    },
+    {
+      "path": "art-delivery/large/I-c_dex-057608d01fe5.webp",
+      "sha256": "057608d01fe50c1cbfe5c79dc3f5515aea30a594ec7abba8be2c8274107a452b",
+      "bytes": 290978
+    },
+    {
+      "path": "art-delivery/large/I-c_egg_normal-2978c4e51774.webp",
+      "sha256": "2978c4e51774404f635a49f563505b78a90f1114e566b1f1e69d6ab3b9c00385",
+      "bytes": 241568
+    },
+    {
+      "path": "art-delivery/large/I-c_egg_rare-50381a958fa7.webp",
+      "sha256": "50381a958fa734976b17d3fbca8533416eecf31514b127be0884ff5a1bf69ccc",
+      "bytes": 264622
+    },
+    {
+      "path": "art-delivery/large/I-c_friend-30705d382b1e.webp",
+      "sha256": "30705d382b1e6eb9ec1c6b0c17bee29ff37b305adb36738b2faa6e4d20a07359",
+      "bytes": 228904
+    },
+    {
+      "path": "art-delivery/large/I-c_life-df9a86725299.webp",
+      "sha256": "df9a86725299730ff98ba59a3441f098c5732f05a4e7fb3cf71de9b51cc3754b",
+      "bytes": 284556
+    },
+    {
+      "path": "art-delivery/large/I-c_life_charm-a98c7fe266d2.webp",
+      "sha256": "a98c7fe266d20722b5bd5ed5fb7040a8b2ae5b15ba34578099e09b367c7a8e01",
+      "bytes": 250206
+    },
+    {
+      "path": "art-delivery/large/I-c_match-ef4d6ecb820c.webp",
+      "sha256": "ef4d6ecb820c93757009a59dd3c302e2f31ba94c8c1c3e7dba7a768388803091",
+      "bytes": 233574
+    },
+    {
+      "path": "art-delivery/large/I-c_rare_friend-37aad2485f03.webp",
+      "sha256": "37aad2485f033b02437137aba7138cb8692dc02da6f18e504d0d510df2b63fcb",
+      "bytes": 201034
+    },
+    {
+      "path": "art-delivery/large/I-c_time_back-b3875cc43a43.webp",
+      "sha256": "b3875cc43a43faa104046b7e616fc7de755053a227a7ea9540f620a01cdd9c58",
+      "bytes": 252970
+    },
+    {
+      "path": "art-delivery/large/I-c_time_forward-e25d0722e0ac.webp",
+      "sha256": "e25d0722e0ac24c9d4a313d19a5729ef1f9a242a734a0b0ce4b03b10f50bfe62",
+      "bytes": 197362
+    },
+    {
+      "path": "art-delivery/large/I-c_transform-d8489000832b.webp",
+      "sha256": "d8489000832b2ef5aef670682754d70910c73213648520176cb5c8300f8fa333",
+      "bytes": 354244
+    },
+    {
+      "path": "art-delivery/large/I-gamepass1-e4c3290812f3.webp",
+      "sha256": "e4c3290812f34968911578a0578799792b77687705763062418c2ac14193b3b6",
+      "bytes": 212462
+    },
+    {
+      "path": "art-delivery/large/I-naoto_charm-aca063d9532d.webp",
+      "sha256": "aca063d9532d5c4d5ac800c5c09df03a75208d38294c9070e44ec4f360d80e63",
+      "bytes": 269774
+    },
+    {
+      "path": "art-delivery/large/I-naoto_crown-d7177a074c02.webp",
+      "sha256": "d7177a074c025eef5315bd44d6946f70afc9c5939fb03e1266ac6c89b0c613a7",
+      "bytes": 270580
+    },
+    {
+      "path": "art-delivery/large/I-naoto_lantern-d467ff54c57c.webp",
+      "sha256": "d467ff54c57cf78151d1156db65e46f2aff1cc38553c804e77c32d9cb5d3fbef",
+      "bytes": 294588
+    },
+    {
+      "path": "art-delivery/large/I-naoto_ring-948adfb52b2e.webp",
+      "sha256": "948adfb52b2eb7c23caf787c74943d971390beaa1d27d7f3fb87558470982177",
+      "bytes": 232330
+    },
+    {
+      "path": "art-delivery/large/I-partner1-eb8a35f754d1.webp",
+      "sha256": "eb8a35f754d162abeb60ea64d298a1412bcf74e033ffc8b715abf77f2a5d34fe",
+      "bytes": 264490
+    },
+    {
+      "path": "art-delivery/large/I-poop1-4e876ded70bb.webp",
+      "sha256": "4e876ded70bbc660291dfb6fcfe435c055fdf17372cbdc26865fa525139e75be",
+      "bytes": 173108
+    },
+    {
+      "path": "art-delivery/large/I-ribbon-9aae276eff80.webp",
+      "sha256": "9aae276eff80ff847df7f7d898ed6ac8a3a5f516682e1890d190335e7bd1f998",
+      "bytes": 173498
+    },
+    {
+      "path": "art-delivery/large/I-scarf-1f5a6b511391.webp",
+      "sha256": "1f5a6b5113918dbb7cc43b35715577f9d2dbfe431615caba33b9bec642a4787e",
+      "bytes": 259470
+    },
+    {
+      "path": "art-delivery/large/I-sleepboost1-eabee0d3e76f.webp",
+      "sha256": "eabee0d3e76f64ce9d10b0273288d526fe64872db036716f833030656c2cddd7",
+      "bytes": 251038
+    },
+    {
+      "path": "art-delivery/large/I-star-d5a003103f15.webp",
+      "sha256": "d5a003103f157bf4d760d9ff997f774d0239310006bc65a7ec1e078b28549d49",
+      "bytes": 194834
+    },
+    {
+      "path": "art-delivery/large/I-travel1-25513b09c427.webp",
+      "sha256": "25513b09c427859dfa7e888434fe0578c01087cd513dd4bfa89b531b8df2746d",
+      "bytes": 249048
+    },
+    {
+      "path": "art-delivery/large/M-antlion-01-414e179cd736.webp",
+      "sha256": "414e179cd736072ed85e6164c913c26975ab0abc55a677f8e49c627de60e4bf4",
+      "bytes": 247060
+    },
+    {
+      "path": "art-delivery/large/M-antlion-02-56ac4fe188b9.webp",
+      "sha256": "56ac4fe188b9d00e66a1306846d0c74dae3c923cf695b9d6bc1e2e53a4b40583",
+      "bytes": 324770
+    },
+    {
+      "path": "art-delivery/large/M-antlion-03-714fd44339f4.webp",
+      "sha256": "714fd44339f4f24a0df27e3347431dec044e76d0311813a212ed7b48eaba6e18",
+      "bytes": 206666
+    },
+    {
+      "path": "art-delivery/large/M-antlion-04-5d1c33fa650c.webp",
+      "sha256": "5d1c33fa650c80000229004cca2e854a1c545e68121595b3fc4d5001d4502a0a",
+      "bytes": 277550
+    },
+    {
+      "path": "art-delivery/large/M-antlion-05-1c93d0247574.webp",
+      "sha256": "1c93d024757463a016e45f3c0185b56d237d6e356a9d8b123436210383f36d4d",
+      "bytes": 270590
+    },
+    {
+      "path": "art-delivery/large/M-antlion-06-cb6851f35ccc.webp",
+      "sha256": "cb6851f35ccc3e79ceb652c53e8d9013213a6e2dba1f0d3972ec4401df99deb2",
+      "bytes": 254316
+    },
+    {
+      "path": "art-delivery/large/M-antlion-07-6fde8f3260a3.webp",
+      "sha256": "6fde8f3260a32831d83bfc69a418172eb1d6c5e65222abfc54926a39d5e5aebe",
+      "bytes": 250168
+    },
+    {
+      "path": "art-delivery/large/M-antlion-08-e30213aa9af8.webp",
+      "sha256": "e30213aa9af85cff6892548376c81fe5e08807d9174c4b89c421aaee7503367a",
+      "bytes": 213180
+    },
+    {
+      "path": "art-delivery/large/M-beetle-01-ee0fa8d3f005.webp",
+      "sha256": "ee0fa8d3f005d69788173162df3a56af3b4b5a97b52704d47e9a6fe838dae241",
+      "bytes": 213440
+    },
+    {
+      "path": "art-delivery/large/M-beetle-02-5bdb49187391.webp",
+      "sha256": "5bdb49187391f6ca30b88fa57f6d4a61c7f5c5f68c00fb9facf283442f200186",
+      "bytes": 256046
+    },
+    {
+      "path": "art-delivery/large/M-beetle-03-162d711e30bf.webp",
+      "sha256": "162d711e30bfa45c7dc27f86c51fce20c9803ef64b49d6e5dd51931d5bf269bf",
+      "bytes": 209208
+    },
+    {
+      "path": "art-delivery/large/M-beetle-04-6f5ea945ed64.webp",
+      "sha256": "6f5ea945ed6458bff84661c9b5b4a57685a42fe3dca6f75f63928fe2eca5cd73",
+      "bytes": 219750
+    },
+    {
+      "path": "art-delivery/large/M-beetle-05-8ce3e78af131.webp",
+      "sha256": "8ce3e78af1317b0d563d98da4426d059328366a9992f367969db9da81e826744",
+      "bytes": 235602
+    },
+    {
+      "path": "art-delivery/large/M-beetle-06-bf7008d98d33.webp",
+      "sha256": "bf7008d98d33eefca8931f963fc88c6cc4fd677397f0da1cba3d632643c87505",
+      "bytes": 237774
+    },
+    {
+      "path": "art-delivery/large/M-beetle-07-e8642e8b1c94.webp",
+      "sha256": "e8642e8b1c941dab12d731442bc4676addf93d3f9ff3d8c881db3c7d86e30c5d",
+      "bytes": 178060
+    },
+    {
+      "path": "art-delivery/large/M-beetle-08-cdfdba7bf9fd.webp",
+      "sha256": "cdfdba7bf9fd4ffb358fa64d5ef94f196a54c8445a9b712eefead43b25766402",
+      "bytes": 218594
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-01-3e7ac17c36b2.webp",
+      "sha256": "3e7ac17c36b227db151ff1de564971396884c2ea0a6df7e206ff8d9e2ec3eb63",
+      "bytes": 146048
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-02-171b3d48c76a.webp",
+      "sha256": "171b3d48c76a4749222fa3db0e1a2da41182d7e0da7f8d55492eefcb62d900db",
+      "bytes": 147286
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-03-52c1130155e0.webp",
+      "sha256": "52c1130155e08c8b8905621299da85036b9c0c9b864c1faf7d558709a1a08c26",
+      "bytes": 194778
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-04-91d45c22991e.webp",
+      "sha256": "91d45c22991e13c440c53f496df53eed6504d60fcd1bd7c8f70a33ef2fe73cdb",
+      "bytes": 173978
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-05-ecc672230128.webp",
+      "sha256": "ecc672230128a722259bcb5fd91ddfd98d038d87fcc079e44c8f13ac14a83d96",
+      "bytes": 203506
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-06-2ac64010e06d.webp",
+      "sha256": "2ac64010e06d950e61544f7517a2097b33badc42ab28a7cbb3bb083209a6c486",
+      "bytes": 176956
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-07-a18ef941449b.webp",
+      "sha256": "a18ef941449b97e4bccc7f85b02ad8697c425b35c20c187a0ff6b0777614ad6b",
+      "bytes": 233180
+    },
+    {
+      "path": "art-delivery/large/M-butterfly-08-fcbabb6e029b.webp",
+      "sha256": "fcbabb6e029b7186d348e1246b74fc93fa573fb29053f7513fac7320d45e1ef1",
+      "bytes": 213926
+    },
+    {
+      "path": "art-delivery/large/M-cat-01-bdb2a936fdef.webp",
+      "sha256": "bdb2a936fdef402f661a86a134d142d309e112d617eede40a1a67e5cf422f946",
+      "bytes": 167224
+    },
+    {
+      "path": "art-delivery/large/M-cat-02-2108e3dfbb97.webp",
+      "sha256": "2108e3dfbb9754aa14108ff0f92f89bd37f33527a30ef1879ae31c207eaffefb",
+      "bytes": 198066
+    },
+    {
+      "path": "art-delivery/large/M-cat-03-9c43e0ad610b.webp",
+      "sha256": "9c43e0ad610bfaaefe3630b46714dc3bc6d963e845cb5e4f561c05dc89427328",
+      "bytes": 223864
+    },
+    {
+      "path": "art-delivery/large/M-cat-04-7955fdef5497.webp",
+      "sha256": "7955fdef5497ebec0dcc96a64aaa4a7147be3e26758ebc190e0d3f355039b9db",
+      "bytes": 235886
+    },
+    {
+      "path": "art-delivery/large/M-cat-05-17f1d243247c.webp",
+      "sha256": "17f1d243247ca9fdcefec5ec014a7463a1cdfb124217693bf3f25309d038bda9",
+      "bytes": 209640
+    },
+    {
+      "path": "art-delivery/large/M-cat-06-44003cc9412c.webp",
+      "sha256": "44003cc9412cd42dc24df341034e1bbd65cc6e77f2a3f0880f4e13eb5b66b3e4",
+      "bytes": 220134
+    },
+    {
+      "path": "art-delivery/large/M-cat-07-6e15b1905872.webp",
+      "sha256": "6e15b1905872516b648440caa1dc28f9b5df53847e53b52f0ee39aa91938b195",
+      "bytes": 238196
+    },
+    {
+      "path": "art-delivery/large/M-cat-08-ae0c2785a677.webp",
+      "sha256": "ae0c2785a677c1bd673995a12cb24daeed32ecdc35ed0c3261c92a3864068dab",
+      "bytes": 167334
+    },
+    {
+      "path": "art-delivery/large/M-cicada-01-6f1d72465574.webp",
+      "sha256": "6f1d724655747386840d00e5bcb82aaeb6ea97fd27880da89e04a896d5eb9648",
+      "bytes": 268056
+    },
+    {
+      "path": "art-delivery/large/M-cicada-02-13e399a45169.webp",
+      "sha256": "13e399a45169500b0b712fbefdb366363d22eadd025142ee25a13f774e55ba5b",
+      "bytes": 227000
+    },
+    {
+      "path": "art-delivery/large/M-cicada-03-6b7a1d6894e9.webp",
+      "sha256": "6b7a1d6894e94fe20384447cddeffd75d0da5b72557debb55bc5580ddd9d3fe6",
+      "bytes": 231988
+    },
+    {
+      "path": "art-delivery/large/M-cicada-04-649086f8f7f8.webp",
+      "sha256": "649086f8f7f8c3bb293a7966145a120bd1ba2d14f2ccf5d9dee1a804736049e0",
+      "bytes": 260672
+    },
+    {
+      "path": "art-delivery/large/M-cicada-05-a43e48118205.webp",
+      "sha256": "a43e481182054eacac0ac7e5ee44ad5efc1976afaf9c20c5ec7f85a6cdaff8b7",
+      "bytes": 275034
+    },
+    {
+      "path": "art-delivery/large/M-cicada-06-f144f05b709a.webp",
+      "sha256": "f144f05b709a192287c60ea6245751cd2883829aaf373be566c43340cece273b",
+      "bytes": 216990
+    },
+    {
+      "path": "art-delivery/large/M-cicada-07-47c8f22917fa.webp",
+      "sha256": "47c8f22917fa2cf79d98ac0e1472dfd025dc477666026db691b1ced09d1c0c30",
+      "bytes": 303400
+    },
+    {
+      "path": "art-delivery/large/M-cicada-08-cd7725cb25a2.webp",
+      "sha256": "cd7725cb25a2492b75e0338825e6424d33e44e637e2ceb946ee6147cfc7ac3a9",
+      "bytes": 246048
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-01-cd731abf6445.webp",
+      "sha256": "cd731abf6445404cd4c60659bfa94be520ec4d8af7e3f716fe7878779f2d3d80",
+      "bytes": 205788
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-02-bac2534ff0c5.webp",
+      "sha256": "bac2534ff0c536b751555fcab304d8b80042e3606cabd9809634757e109d6de7",
+      "bytes": 253264
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-03-59f2df000000.webp",
+      "sha256": "59f2df0000005434b76dba3561594c018d40693144bd213c8c4e8cc75f2ecbf1",
+      "bytes": 286086
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-04-896b35c9f96f.webp",
+      "sha256": "896b35c9f96f6ad002353e307dfe5f99c92bc9eeb0ba95c98185b3b340fce756",
+      "bytes": 250074
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-05-6434d0f0fc6b.webp",
+      "sha256": "6434d0f0fc6bf1a95690c0cf46905d4cb9fa13846e24f65749d887d1b6bed158",
+      "bytes": 327110
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-06-22be81f85a7d.webp",
+      "sha256": "22be81f85a7de84793cb3b4b74dfddbfbb9a2cc6f7d83878251627f7fdd2a022",
+      "bytes": 322302
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-07-db4f9a7b307e.webp",
+      "sha256": "db4f9a7b307e266e3c7626c5244f40dbbec2fa4d964b36c5d51e155e6e5c7d1c",
+      "bytes": 286422
+    },
+    {
+      "path": "art-delivery/large/M-clownfish-08-5e9111e95b97.webp",
+      "sha256": "5e9111e95b97475582bee2052fa3f35a39de9f62ee06270db61bc65a203a702a",
+      "bytes": 284814
+    },
+    {
+      "path": "art-delivery/large/M-coral-01-c2e7113507a5.webp",
+      "sha256": "c2e7113507a5e881e6710be29ae1b030a7de120ce33b1142e281a92563e37205",
+      "bytes": 179186
+    },
+    {
+      "path": "art-delivery/large/M-coral-02-fe7cc3d79f18.webp",
+      "sha256": "fe7cc3d79f18fb01feb6b756a7a097c6c1a07339cb3134231eafd69eb5dc4320",
+      "bytes": 190222
+    },
+    {
+      "path": "art-delivery/large/M-coral-03-cd635e929c72.webp",
+      "sha256": "cd635e929c728b1e568138b84b6212898f7cd1bd94de8b848aecdc7b2aa07fdd",
+      "bytes": 250642
+    },
+    {
+      "path": "art-delivery/large/M-coral-04-acbc0880fb61.webp",
+      "sha256": "acbc0880fb6179b5e07ae830b63cf2abec7915b7eb2dcf7c035071ca4864f707",
+      "bytes": 249160
+    },
+    {
+      "path": "art-delivery/large/M-coral-05-8808ca7f815a.webp",
+      "sha256": "8808ca7f815aca83501ad89684a1fc1337f1e45a924acac34e89fa0bf52d731b",
+      "bytes": 290588
+    },
+    {
+      "path": "art-delivery/large/M-coral-06-168e90de614e.webp",
+      "sha256": "168e90de614ee6cef14b9b46b3bb27578520f09433181ac3d6fc25b4a42acc4f",
+      "bytes": 282978
+    },
+    {
+      "path": "art-delivery/large/M-coral-07-ede4f33b0ec9.webp",
+      "sha256": "ede4f33b0ec92985b29d8a068f57042d91a5139b233db577fca16d58df6346ba",
+      "bytes": 367590
+    },
+    {
+      "path": "art-delivery/large/M-coral-08-e88ae2e6f7f2.webp",
+      "sha256": "e88ae2e6f7f21db29fd26ae1b517648b207cfa018651b1e7fa5fcce223eb6e65",
+      "bytes": 333484
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-01-affbcab6c6e4.webp",
+      "sha256": "affbcab6c6e4422f8da0e7b7d6ec0b94d6c31f08dac6dec6aae950b0482f47b8",
+      "bytes": 205364
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-02-8ab8f41537ee.webp",
+      "sha256": "8ab8f41537eef396c3f154e41febc30da0f3aeb52f968ac7c96aad94a3d9eeba",
+      "bytes": 261728
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-03-9d608afeefca.webp",
+      "sha256": "9d608afeefca00cdb7ff0ed0531af81a60cb4b447ca304a7d3dbf8a791b635fd",
+      "bytes": 286858
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-04-66ad47d3fec2.webp",
+      "sha256": "66ad47d3fec2984bc9e9fc3c753c4105fe0f6837fc056877ceb012d66a6e7b33",
+      "bytes": 305246
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-05-daaa6507da92.webp",
+      "sha256": "daaa6507da92139bf5d1900b0e666f1ce09cb4a96185d3ca2973c9ab6dfe198d",
+      "bytes": 290290
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-06-3f3eeb74ecd1.webp",
+      "sha256": "3f3eeb74ecd1e417f39e293a98a3d424fbae3eeb8e61707d404abb0712af067a",
+      "bytes": 257788
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-07-35d60eff2846.webp",
+      "sha256": "35d60eff284633ac2b127dd03818cf253a0e9ab169be8de1ce9e511d7be35f6a",
+      "bytes": 216116
+    },
+    {
+      "path": "art-delivery/large/M-dandelion-08-2620b6229d5d.webp",
+      "sha256": "2620b6229d5d415414061886b31494e34dfc1428efbef5a33d64081a00dc85fe",
+      "bytes": 289552
+    },
+    {
+      "path": "art-delivery/large/M-dog-01-2eb9daaa47a4.webp",
+      "sha256": "2eb9daaa47a491e3cfdf058a6c8f80a12e9f19e478692c94c9ab466cf078deb5",
+      "bytes": 200988
+    },
+    {
+      "path": "art-delivery/large/M-dog-02-9c83332b8de2.webp",
+      "sha256": "9c83332b8de2fa9ff475a493b0d46ddbac99a5db5689d0aa5d22013bf5b329c2",
+      "bytes": 250216
+    },
+    {
+      "path": "art-delivery/large/M-dog-03-997e5b4210a5.webp",
+      "sha256": "997e5b4210a51e8e5a04bb61d645d62784f9a00ce97568f6b04365f89bc79b3b",
+      "bytes": 251466
+    },
+    {
+      "path": "art-delivery/large/M-dog-04-263be4e80167.webp",
+      "sha256": "263be4e80167d811b15d549289f70fa784024dd9cc7854ce396d0273326b67e0",
+      "bytes": 235820
+    },
+    {
+      "path": "art-delivery/large/M-dog-05-da20f304a896.webp",
+      "sha256": "da20f304a896255998d0506a8d071d84f1d9a04a2d2f0a19afc411aea456524c",
+      "bytes": 318314
+    },
+    {
+      "path": "art-delivery/large/M-dog-06-9ee01d95d7de.webp",
+      "sha256": "9ee01d95d7de8f453c6f29d14effe0b6a8967154c209d92fc9eb38f3fd14b5b1",
+      "bytes": 254614
+    },
+    {
+      "path": "art-delivery/large/M-dog-07-bd5d19cfe2b0.webp",
+      "sha256": "bd5d19cfe2b0d404a8c4d3d3f17da39879f71f02cfeeb5476691601ccbb78aff",
+      "bytes": 251234
+    },
+    {
+      "path": "art-delivery/large/M-dog-08-7a272cb98204.webp",
+      "sha256": "7a272cb982047882fd1da1be53f1887d5ede935f7699b7097634427761a2d325",
+      "bytes": 191098
+    },
+    {
+      "path": "art-delivery/large/M-dragon-01-733a96b5b418.webp",
+      "sha256": "733a96b5b418f380055fa92e5adeb48e81a671b139e17cbde57bf2b5e93a84c4",
+      "bytes": 211700
+    },
+    {
+      "path": "art-delivery/large/M-dragon-02-cc8d4b5fc679.webp",
+      "sha256": "cc8d4b5fc679ee1929a4eabc6aef538b90f61e3a91400a0f0e7dfdbf4061258e",
+      "bytes": 267896
+    },
+    {
+      "path": "art-delivery/large/M-dragon-03-cb17a63a0d9a.webp",
+      "sha256": "cb17a63a0d9a8580e8553d0142d119ae9497798d788bc3f753ad7a3394039798",
+      "bytes": 340684
+    },
+    {
+      "path": "art-delivery/large/M-dragon-04-c442a49958ec.webp",
+      "sha256": "c442a49958ec15b303a46cb001e307d6dd417f917ce5cd6cb916d38333879471",
+      "bytes": 267266
+    },
+    {
+      "path": "art-delivery/large/M-dragon-05-26ba44d234a1.webp",
+      "sha256": "26ba44d234a19d15c604b758324e9dfbd35c8cf2c7336fda4c8c8f87754ad2fb",
+      "bytes": 273016
+    },
+    {
+      "path": "art-delivery/large/M-dragon-06-fdf27cc80f90.webp",
+      "sha256": "fdf27cc80f90a2e73facb512a6fcea3c04f72f145542f2a23ed9a4fabc4d9360",
+      "bytes": 294224
+    },
+    {
+      "path": "art-delivery/large/M-dragon-07-b218423368de.webp",
+      "sha256": "b218423368dedb5fb7e3ca7862eed47fb77f98082e83fe0ea237723c7580218d",
+      "bytes": 327366
+    },
+    {
+      "path": "art-delivery/large/M-dragon-08-168acbdce9f6.webp",
+      "sha256": "168acbdce9f68126ca020d5fd61eada66b7cba0269ecd2e03fbefce6b761077e",
+      "bytes": 322826
+    },
+    {
+      "path": "art-delivery/large/M-frog-01-d1417b320420.webp",
+      "sha256": "d1417b320420e3343a5e4010cde82cf954340e1e4da73cefe913f13b989d1d37",
+      "bytes": 177996
+    },
+    {
+      "path": "art-delivery/large/M-frog-02-7dfd799793b3.webp",
+      "sha256": "7dfd799793b3a04ee9576e2e356ab3ab6e773be68338832dfbc2dbce8c3e84c5",
+      "bytes": 205590
+    },
+    {
+      "path": "art-delivery/large/M-frog-03-7f43e66f2eaf.webp",
+      "sha256": "7f43e66f2eaf0d81236fd09a9a8ba09e1dbf0b6863b4485af509d1d0140dee89",
+      "bytes": 224732
+    },
+    {
+      "path": "art-delivery/large/M-frog-04-b06e84811597.webp",
+      "sha256": "b06e84811597977f178173b7b65b64f5971d45c5176b569a7bee937ccf1619e6",
+      "bytes": 225960
+    },
+    {
+      "path": "art-delivery/large/M-frog-05-5525c7d371f1.webp",
+      "sha256": "5525c7d371f15b4ed2d54caee8145c3681bd06f17e8c6720d952c29dcf827387",
+      "bytes": 218174
+    },
+    {
+      "path": "art-delivery/large/M-frog-06-27173346c6be.webp",
+      "sha256": "27173346c6bee17b7dd0f75af5fbd4d3567c6cab57e92f7009799a098dcf6342",
+      "bytes": 256828
+    },
+    {
+      "path": "art-delivery/large/M-frog-07-37984482f30e.webp",
+      "sha256": "37984482f30ee271c4452adc3b783f7387a027a9c649f04216475cc5e4301218",
+      "bytes": 251462
+    },
+    {
+      "path": "art-delivery/large/M-frog-08-16a0b4111a31.webp",
+      "sha256": "16a0b4111a318d01a87455fa04955a7aae6eca713f8ca06dd721e62ae9931680",
+      "bytes": 236852
+    },
+    {
+      "path": "art-delivery/large/M-ghost-01-3b409afdd7b1.webp",
+      "sha256": "3b409afdd7b1380e3cd42af407b707b073862c4a927bd67a7a7a6d31b232f395",
+      "bytes": 233720
+    },
+    {
+      "path": "art-delivery/large/M-ghost-02-48a724527ad7.webp",
+      "sha256": "48a724527ad788ce5454d87615c450bd22b21a25f15eed455c63c95b00f212dd",
+      "bytes": 241212
+    },
+    {
+      "path": "art-delivery/large/M-ghost-03-396c8edae168.webp",
+      "sha256": "396c8edae16806b1862dae2a502e473edb17dce49f31547e69abd4a983172705",
+      "bytes": 203334
+    },
+    {
+      "path": "art-delivery/large/M-ghost-04-ad268469b567.webp",
+      "sha256": "ad268469b567767cede534ecb0d883a4cac35121d4b3e5fe0612972ed694a019",
+      "bytes": 287238
+    },
+    {
+      "path": "art-delivery/large/M-ghost-05-291eae747ae2.webp",
+      "sha256": "291eae747ae22afb431caa19e9ccf64d08c489eb622c261ac40337b69bd35400",
+      "bytes": 257938
+    },
+    {
+      "path": "art-delivery/large/M-ghost-06-3ff1b7571a8f.webp",
+      "sha256": "3ff1b7571a8ff622b68bd736c76c60325998df098ced5ee6b2c8e522c88f3256",
+      "bytes": 285394
+    },
+    {
+      "path": "art-delivery/large/M-ghost-07-a7268043e30c.webp",
+      "sha256": "a7268043e30cedc26d65f69c54ca206415ed296127777df307b90f57be72f879",
+      "bytes": 309092
+    },
+    {
+      "path": "art-delivery/large/M-ghost-08-97075ec7838f.webp",
+      "sha256": "97075ec7838fc1582a15b3d6b4bd6efde48d79fdf128f94332672b70a7ada482",
+      "bytes": 217962
+    },
+    {
+      "path": "art-delivery/large/M-god-01-b322975afb5f.webp",
+      "sha256": "b322975afb5fe2d678dae7dba83e27585e1ca7ab7f0e8704f151bd73b57c5011",
+      "bytes": 150794
+    },
+    {
+      "path": "art-delivery/large/M-god-02-ecfb93b138e9.webp",
+      "sha256": "ecfb93b138e9f547beb909d56a46066402463855c572a17cc7fe490ffa8fca26",
+      "bytes": 177162
+    },
+    {
+      "path": "art-delivery/large/M-god-03-b6790784ad3c.webp",
+      "sha256": "b6790784ad3cee81ff21d705ec5a80195a592ff55b72e27d63c32b13da3520bf",
+      "bytes": 261984
+    },
+    {
+      "path": "art-delivery/large/M-god-04-f0d9f058ca0f.webp",
+      "sha256": "f0d9f058ca0f75a3eb14a26a8238f99e045f8bc325f3d40bf090cc378a0ff941",
+      "bytes": 232956
+    },
+    {
+      "path": "art-delivery/large/M-god-05-cdd6b1b90710.webp",
+      "sha256": "cdd6b1b9071019e8694252b700ca6d87693caad815592d3adeeecbfc4c38a51b",
+      "bytes": 235664
+    },
+    {
+      "path": "art-delivery/large/M-god-06-e638f5e18e7f.webp",
+      "sha256": "e638f5e18e7fd5ffc5ec6e2dcc4e17e804a9ae2f5dcebbcfcb417feea336da79",
+      "bytes": 292066
+    },
+    {
+      "path": "art-delivery/large/M-god-07-5a9f4f7148cf.webp",
+      "sha256": "5a9f4f7148cfb74855d2c4e332fdefde82e02590da179eb25070ccbccd63540d",
+      "bytes": 288942
+    },
+    {
+      "path": "art-delivery/large/M-god-08-298edf4d7dd8.webp",
+      "sha256": "298edf4d7dd86ee7b8b064996f07dab33205401d37bfa00b2ff690a7f6c885bf",
+      "bytes": 225590
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-01-9bee8647f8cb.webp",
+      "sha256": "9bee8647f8cbb84eb1efe8ef487e971da7fce5e4dceeb2b4daea6ceaec9f1b59",
+      "bytes": 183266
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-02-13c28137c673.webp",
+      "sha256": "13c28137c6738c8d21159e3f317d245223b8b7788b74b4f1cb5be7e9e8d71bef",
+      "bytes": 201176
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-03-66c9c3680b2b.webp",
+      "sha256": "66c9c3680b2b05b4b3935183535e000ccfb5be3a16b269437b41f9c8b484ef3e",
+      "bytes": 273142
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-04-12f5393fc238.webp",
+      "sha256": "12f5393fc238625af3942fcb9118449bdf264ffff6fc10a504a5a08660a8ee19",
+      "bytes": 250848
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-05-8587c43a11aa.webp",
+      "sha256": "8587c43a11aa75f1181c9b77d884370cfb5f8b89edfecaa384e0f474edf8f66f",
+      "bytes": 235746
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-06-0b2198821142.webp",
+      "sha256": "0b21988211427598fffe83b052d3ed246b5f0f9a47ed67761a1b6d3b31df0402",
+      "bytes": 281994
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-07-70e87b71590a.webp",
+      "sha256": "70e87b71590a573ea51725444e6b2b683e73c9ef05111922dbeec469d8a6be35",
+      "bytes": 304292
+    },
+    {
+      "path": "art-delivery/large/M-hermit_crab-08-38e40cf7c622.webp",
+      "sha256": "38e40cf7c62210220160b535531df0e7c69ad5a90ec880950e96535b673b19a6",
+      "bytes": 259162
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-01-caba0bf92ecf.webp",
+      "sha256": "caba0bf92ecf35e0f5db34596d317d51371962da20a83a0082d9e579a18efa2e",
+      "bytes": 222998
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-02-bad4ce3f7822.webp",
+      "sha256": "bad4ce3f7822e11835f6ef3764947b862ea5f8e971b6021b96a9390ccbfa2c4b",
+      "bytes": 269872
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-03-2b4172d953da.webp",
+      "sha256": "2b4172d953da35a2e6e385f0e845324ba3f644dd258f9c835899ff84acf02831",
+      "bytes": 285840
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-04-34f480d41310.webp",
+      "sha256": "34f480d41310a8ce817a3929377909f6ed97ee1491181b18f3341b9197e294bc",
+      "bytes": 174110
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-05-88d7abccd070.webp",
+      "sha256": "88d7abccd0708fb8249ed746ee7a63ebcb807c596fb0ae781a5b40ba827d3060",
+      "bytes": 256916
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-06-28455a67e386.webp",
+      "sha256": "28455a67e386a7340c43fa573eba920e0771d4decc91ecabd28b922614d42f46",
+      "bytes": 277890
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-07-bdc05ddf59e0.webp",
+      "sha256": "bdc05ddf59e0d0679b094ddbc174379945866c7e8aa565e752fdcd2272893c87",
+      "bytes": 365562
+    },
+    {
+      "path": "art-delivery/large/M-jellyfish-08-84f3dd2b3990.webp",
+      "sha256": "84f3dd2b3990dc7de2b3ff4245a7da893c502414e0ce1b252c2b0026699c072a",
+      "bytes": 321022
+    },
+    {
+      "path": "art-delivery/large/M-man-01-8b5259fefbee.webp",
+      "sha256": "8b5259fefbeedb64139024d0557084364455f311622ddcac12d41906c4a8533d",
+      "bytes": 245676
+    },
+    {
+      "path": "art-delivery/large/M-man-02-0e741de5c18a.webp",
+      "sha256": "0e741de5c18a0708ce85d15fad177de1fbd82bcebae687d17f26db690644876f",
+      "bytes": 226292
+    },
+    {
+      "path": "art-delivery/large/M-man-03-f7a901240dc8.webp",
+      "sha256": "f7a901240dc880cb8d4299a262a571d5956821ed371475daace3c57662dec00a",
+      "bytes": 328788
+    },
+    {
+      "path": "art-delivery/large/M-man-04-5305006b898a.webp",
+      "sha256": "5305006b898a0c6baa45602e97ef2ff527895d93d09d311dbaf97e82568a5536",
+      "bytes": 256940
+    },
+    {
+      "path": "art-delivery/large/M-man-05-5f7a03d3191e.webp",
+      "sha256": "5f7a03d3191eec4310c359a25bafdfaea25ccfc1a15d5b4ae4d20bf78f05fbf1",
+      "bytes": 254350
+    },
+    {
+      "path": "art-delivery/large/M-man-06-482a24d0429e.webp",
+      "sha256": "482a24d0429eeff2236aba484a5a3f4a54cdc7ece3958111f0d07e45127e41d3",
+      "bytes": 282994
+    },
+    {
+      "path": "art-delivery/large/M-man-07-2acb143b0881.webp",
+      "sha256": "2acb143b08813094d6c0a151e08df98e0389a7a548b8f4c301f3bcc04b3c39df",
+      "bytes": 320708
+    },
+    {
+      "path": "art-delivery/large/M-man-08-459e011b7a7e.webp",
+      "sha256": "459e011b7a7e825632a0b306d4018243051009e329e901b31ffb9f567085a8dd",
+      "bytes": 284338
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-01-1d132566100e.webp",
+      "sha256": "1d132566100e0274388730130dadfca26c71f0c687947572d48b10c474127b3f",
+      "bytes": 203530
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-02-22ecfb68440b.webp",
+      "sha256": "22ecfb68440bd4aec4e258bdabf8022d194a7837c936a3c0f7dc6d3707c8b67b",
+      "bytes": 335060
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-03-83f5c4404224.webp",
+      "sha256": "83f5c4404224a53ab555739a3eb13db52d8e4c886836cfe94f004e32418ec3b8",
+      "bytes": 194040
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-04-30d22fde6d5f.webp",
+      "sha256": "30d22fde6d5f78dbf04c73121823fe299fc1594ebe9d89b4289842d4f8e7c6de",
+      "bytes": 276748
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-05-d20041a36082.webp",
+      "sha256": "d20041a36082aa7993c88ff49419f51309d01c12e7e1e6f2dd8630cced4380d7",
+      "bytes": 262226
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-06-d788252c4c1b.webp",
+      "sha256": "d788252c4c1ba8e3b1aa719003756f3b6145c1a12a90d21fd1add3ced663793a",
+      "bytes": 224060
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-07-27e26b4312ba.webp",
+      "sha256": "27e26b4312baae3fc9dd19729f4fe4a1db5a3573b9ff2ba5fb77393ce0a72741",
+      "bytes": 233332
+    },
+    {
+      "path": "art-delivery/large/M-mushroom-08-1b317ab316aa.webp",
+      "sha256": "1b317ab316aa69ff5ce2ce9d7614ed98a5dc68083bcd887e12ac03cabe71a21d",
+      "bytes": 251230
+    },
+    {
+      "path": "art-delivery/large/M-penguin-01-0dda2448ccf1.webp",
+      "sha256": "0dda2448ccf12178fccb7ef6dbc76f1483bbf2f50fd19f700dd37fbaaf708a03",
+      "bytes": 143668
+    },
+    {
+      "path": "art-delivery/large/M-penguin-02-7df24381e04a.webp",
+      "sha256": "7df24381e04a5338c2d267bd70570fae42bc85039c9cb8c0c49687f1e579c4e7",
+      "bytes": 192624
+    },
+    {
+      "path": "art-delivery/large/M-penguin-03-c48562a6a0b1.webp",
+      "sha256": "c48562a6a0b1f291bb7509805108b2f5754dc235b27623b79a47b7fd20c9dff7",
+      "bytes": 178618
+    },
+    {
+      "path": "art-delivery/large/M-penguin-04-abda3e16c054.webp",
+      "sha256": "abda3e16c0542e4a83d7bece63feff33adacea4f1bbd520158edbe823895d955",
+      "bytes": 252134
+    },
+    {
+      "path": "art-delivery/large/M-penguin-05-afea4e7cf870.webp",
+      "sha256": "afea4e7cf870f871d42867bedd7409b96a783d7869e8fd15a5496b3ce813d329",
+      "bytes": 167442
+    },
+    {
+      "path": "art-delivery/large/M-penguin-06-69ac28cde93a.webp",
+      "sha256": "69ac28cde93a87b274c0ef7d44d047725c354565762feaee91ee5c798809489b",
+      "bytes": 294936
+    },
+    {
+      "path": "art-delivery/large/M-penguin-07-5130fb5f9364.webp",
+      "sha256": "5130fb5f93640a8d3eff21b3aa9b45a48008724ce6853f9408642762141fe8c5",
+      "bytes": 244108
+    },
+    {
+      "path": "art-delivery/large/M-penguin-08-fa8c618c30f8.webp",
+      "sha256": "fa8c618c30f842b328e6edfbec91911729890295243044a0512ab711ffb959ec",
+      "bytes": 232960
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-01-1877f58da885.webp",
+      "sha256": "1877f58da88593b4046bb02cbe4a1334675ce867139631039b611b4e0c82a9ac",
+      "bytes": 279226
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-02-ad563633efd0.webp",
+      "sha256": "ad563633efd0072d201592851de55175eb88e036aae462d8127334b8feb086b0",
+      "bytes": 263274
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-03-547df22c047e.webp",
+      "sha256": "547df22c047e967b5ce6e191bbb91e278245af95e9a7b80d3c662b1ca0520549",
+      "bytes": 278186
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-04-90286b2c35c7.webp",
+      "sha256": "90286b2c35c7a145596506467895e3fb003eaff8766073c63aaf95d4c62877d4",
+      "bytes": 250298
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-05-2c2fae138b23.webp",
+      "sha256": "2c2fae138b23c1890d0d277e5bca3cdfb827f521439b289c1daf60adddbe2d7d",
+      "bytes": 251976
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-06-e4165109fec3.webp",
+      "sha256": "e4165109fec31e626030db958acdd7cdaa4cc285a90e84ddd49fbe045e136ea8",
+      "bytes": 231674
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-07-e5c9d7f4208e.webp",
+      "sha256": "e5c9d7f4208e8036fdb51ad61ba7c0fd12eb3cf944a60dd26e1d14c40f71096e",
+      "bytes": 304284
+    },
+    {
+      "path": "art-delivery/large/M-phoenix-08-74cd245b522e.webp",
+      "sha256": "74cd245b522e038955e30b67d5b769b49a48229fb64b2403fe2e6bb38c1daee5",
+      "bytes": 204422
+    },
+    {
+      "path": "art-delivery/large/M-plush-01-ef552894b981.webp",
+      "sha256": "ef552894b981df0d90cd1e5696aacfbdf11b80a71328e0bfd44998abe88b2403",
+      "bytes": 228308
+    },
+    {
+      "path": "art-delivery/large/M-plush-02-f56944344b53.webp",
+      "sha256": "f56944344b53d30d14efed249181e748e24203edd1207f6d430ca05eecb46464",
+      "bytes": 169376
+    },
+    {
+      "path": "art-delivery/large/M-plush-03-386031bbc5e9.webp",
+      "sha256": "386031bbc5e99ece0a9e2ab15ab868d56b18f5faf6e47a2cd13ea71061f39b87",
+      "bytes": 240462
+    },
+    {
+      "path": "art-delivery/large/M-plush-04-9b6971d5f20e.webp",
+      "sha256": "9b6971d5f20ea09622422976b62b6f9c6a9a95ba0a27241f28c794b7c2eb0a14",
+      "bytes": 303502
+    },
+    {
+      "path": "art-delivery/large/M-plush-05-20effd273223.webp",
+      "sha256": "20effd2732236f511c57d150be4bacb81ec0698e303b0c253de99fd8feb72ef3",
+      "bytes": 308770
+    },
+    {
+      "path": "art-delivery/large/M-plush-06-ccd38cebffc3.webp",
+      "sha256": "ccd38cebffc3e8e93d1c0b934373d2e82fdcc6b175c025310c9a1d4db385aa6d",
+      "bytes": 258486
+    },
+    {
+      "path": "art-delivery/large/M-plush-07-abc68be64335.webp",
+      "sha256": "abc68be643351d3103479e69fecb68105c58583e9cd7b1cc0c4bd1cdb96d4b99",
+      "bytes": 220084
+    },
+    {
+      "path": "art-delivery/large/M-plush-08-55651646b2d3.webp",
+      "sha256": "55651646b2d33c8986b4bdbb8212032f6489e4e639d0bf37da7ff9ddd693213a",
+      "bytes": 249600
+    },
+    {
+      "path": "art-delivery/large/M-ren-01-5d1b74423ad3.webp",
+      "sha256": "5d1b74423ad379c2808baad6bdfa354c6bdf1b89d65256d057bb33172dfb0161",
+      "bytes": 243200
+    },
+    {
+      "path": "art-delivery/large/M-ren-02-1ba5437e8a0e.webp",
+      "sha256": "1ba5437e8a0e1ce9dcd5f3ef225ca83c97c29d21536b0bb34250bd957e1cbd33",
+      "bytes": 297252
+    },
+    {
+      "path": "art-delivery/large/M-ren-03-b4e57ddd9429.webp",
+      "sha256": "b4e57ddd94294709ef7bcee943008bc6d0ecfab0bc5eecc1ff9afd051cf47989",
+      "bytes": 222828
+    },
+    {
+      "path": "art-delivery/large/M-ren-04-99a2c3e3647b.webp",
+      "sha256": "99a2c3e3647bf1aad6600048c54479d1efffcd562b46ef493054e0d1a9d8818b",
+      "bytes": 350250
+    },
+    {
+      "path": "art-delivery/large/M-ren-05-3df85976cce0.webp",
+      "sha256": "3df85976cce008484822902973882ced3c37ad9246886261941e1db727045e00",
+      "bytes": 314702
+    },
+    {
+      "path": "art-delivery/large/M-ren-06-9750505001d7.webp",
+      "sha256": "9750505001d74eca6e24d9d5ae46596bf104d0f8fe32b1e98df32891d94cf1dd",
+      "bytes": 325610
+    },
+    {
+      "path": "art-delivery/large/M-ren-07-c506aab54c66.webp",
+      "sha256": "c506aab54c664669de1d2d1cc97dc9b93508c4ca1affe875c0479d1322148318",
+      "bytes": 280346
+    },
+    {
+      "path": "art-delivery/large/M-ren-08-ed75e3004f07.webp",
+      "sha256": "ed75e3004f071c778e67472d7d6b28c662e99ffda33f95dc4a04ad105601bc5d",
+      "bytes": 266382
+    },
+    {
+      "path": "art-delivery/large/M-sakura-01-f4a7a8d755c8.webp",
+      "sha256": "f4a7a8d755c8616f759a7b027e2188c33e4acad769e119b7dcb526e135c3aa2b",
+      "bytes": 206698
+    },
+    {
+      "path": "art-delivery/large/M-sakura-02-a07cd7b43d8e.webp",
+      "sha256": "a07cd7b43d8e6272e4698f249911c460925c658e8e5581b9a86b2e1bf6caef62",
+      "bytes": 186504
+    },
+    {
+      "path": "art-delivery/large/M-sakura-03-7f4763cd19fd.webp",
+      "sha256": "7f4763cd19fd04c44cbfa729b827ac05f114432d13b9b6b08147168622680ccb",
+      "bytes": 346584
+    },
+    {
+      "path": "art-delivery/large/M-sakura-04-6ceeafaf83d9.webp",
+      "sha256": "6ceeafaf83d9d3c190c33d108fd66ea23e5835b95bcbccfe992f2ea0b0c6779f",
+      "bytes": 341368
+    },
+    {
+      "path": "art-delivery/large/M-sakura-05-f9c87ca6af6a.webp",
+      "sha256": "f9c87ca6af6a16b7a76868597fab1ebff75f892c76d8453b8ecfbfeb34ee0d36",
+      "bytes": 249358
+    },
+    {
+      "path": "art-delivery/large/M-sakura-06-d96e92e6ecc4.webp",
+      "sha256": "d96e92e6ecc49c7dd515ffa769b1d418e1d08fd379a0ab659e3e40932ea4baba",
+      "bytes": 208326
+    },
+    {
+      "path": "art-delivery/large/M-sakura-07-4cfbd26ae53b.webp",
+      "sha256": "4cfbd26ae53bfb6baea8e08fac51084e76e1d9974e467c9b0e7def1fca693820",
+      "bytes": 238182
+    },
+    {
+      "path": "art-delivery/large/M-sakura-08-5c4c3ae465ee.webp",
+      "sha256": "5c4c3ae465eeae3a3b188eb9d816c8b2ba6013cc427451ecf40f6e80e928e7de",
+      "bytes": 328318
+    },
+    {
+      "path": "art-delivery/large/M-salmon-01-4c84826aa1ea.webp",
+      "sha256": "4c84826aa1ea366054d8cf489fada625f4befcb419903faaaae742321037587b",
+      "bytes": 213392
+    },
+    {
+      "path": "art-delivery/large/M-salmon-02-5a8ca0937d33.webp",
+      "sha256": "5a8ca0937d33fbfa4793cf24efe585189a3350ec5513a43a12aec21e438859b0",
+      "bytes": 198712
+    },
+    {
+      "path": "art-delivery/large/M-salmon-03-469ff1921057.webp",
+      "sha256": "469ff1921057362078a7b986fc925d00e4a3c33636249961ead455e0707d02d3",
+      "bytes": 286646
+    },
+    {
+      "path": "art-delivery/large/M-salmon-04-8b5338c1f463.webp",
+      "sha256": "8b5338c1f46369f2038c29c8a706f6e7e93eb9b6b790298b2572e5a89317c01f",
+      "bytes": 296598
+    },
+    {
+      "path": "art-delivery/large/M-salmon-05-859cbedbdd12.webp",
+      "sha256": "859cbedbdd125db46c05c8dfb1c69a2d509af2213346852a47b8bc155583cfa8",
+      "bytes": 261460
+    },
+    {
+      "path": "art-delivery/large/M-salmon-06-18b121a8e0cb.webp",
+      "sha256": "18b121a8e0cb4e5caef35b75d7f4c27b62fc2ea0e392414492c15152b08dbf5a",
+      "bytes": 280094
+    },
+    {
+      "path": "art-delivery/large/M-salmon-07-a46c66700ed0.webp",
+      "sha256": "a46c66700ed064399b0d8265ebd65db8758809f8f91af88843569547389f2d2e",
+      "bytes": 339044
+    },
+    {
+      "path": "art-delivery/large/M-salmon-08-8c688f38ad26.webp",
+      "sha256": "8c688f38ad26fe51e557cc055fa997f7450444fa917327df252308cf7c77416d",
+      "bytes": 312908
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-01-96c46a286760.webp",
+      "sha256": "96c46a286760334250ceca26abe293204d42854894d86b0c503ac624bdc3e473",
+      "bytes": 289596
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-02-469321737296.webp",
+      "sha256": "46932173729698a4b3b21acf7613811ec3369fb6cfe4c4cc1e20d5881c476bbe",
+      "bytes": 284532
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-03-2d65bd31eda8.webp",
+      "sha256": "2d65bd31eda868a4eea2a89bd7a747ef314b760ff7cf5decb91ed8dcc9f6e169",
+      "bytes": 267718
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-04-ee301db5aa96.webp",
+      "sha256": "ee301db5aa96bc66ca8a066433e65a2b80dd042cdcb26885cdc032e60a0847b7",
+      "bytes": 270248
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-05-473d5cdfa87e.webp",
+      "sha256": "473d5cdfa87e425f08af28d69279550938b6b268f5bdbcefef654210a956ecbd",
+      "bytes": 253298
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-06-80ac068d926a.webp",
+      "sha256": "80ac068d926a6ed986a8db713308682d63ca2b685203e0a54597d79999cb5940",
+      "bytes": 296622
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-07-005dd6714786.webp",
+      "sha256": "005dd6714786c423c399416b9abdf6311376a2a4d56ccf53304d6ba6715f0c5a",
+      "bytes": 326188
+    },
+    {
+      "path": "art-delivery/large/M-stagbeetle-08-cb545a169eac.webp",
+      "sha256": "cb545a169eac7a7f03f496ec64f2f7b784542a95f6315ef1f6f1dcfe162911fc",
+      "bytes": 274092
+    },
+    {
+      "path": "art-delivery/large/M-star-01-706988e24cf7.webp",
+      "sha256": "706988e24cf741bab5c4ed3f3e8f2d4c4219f691b6f3537e212516e674ec5733",
+      "bytes": 244794
+    },
+    {
+      "path": "art-delivery/large/M-star-02-ab4b12c7176c.webp",
+      "sha256": "ab4b12c7176ca2a82ee643b1729b847218a8f6d879b6fdb21ac3682033a111d9",
+      "bytes": 324670
+    },
+    {
+      "path": "art-delivery/large/M-star-03-1e80da1ff5ca.webp",
+      "sha256": "1e80da1ff5cabf2f8689fd9e89d7ed9daf2c5a9ddc0cdbae8148d8cf739ca47f",
+      "bytes": 341724
+    },
+    {
+      "path": "art-delivery/large/M-star-04-fccf2136ee59.webp",
+      "sha256": "fccf2136ee595a790a0135b34b6cc51eb05d2601d5e34ec9ac85164baa86f2b0",
+      "bytes": 258890
+    },
+    {
+      "path": "art-delivery/large/M-star-05-f2739add3a75.webp",
+      "sha256": "f2739add3a75fa49e42567d925ba0e0df9e95d4c9b79ee640539ed39ace5d0aa",
+      "bytes": 233120
+    },
+    {
+      "path": "art-delivery/large/M-star-06-0aab0867fc55.webp",
+      "sha256": "0aab0867fc559189cd083d0b61052640d228da2a31312ed5f259176fe0bbafe1",
+      "bytes": 245726
+    },
+    {
+      "path": "art-delivery/large/M-star-07-c4b181bc1652.webp",
+      "sha256": "c4b181bc16529bff866e33448375ec1b97c64315c2bd21dfdfddd197fda23fc5",
+      "bytes": 353596
+    },
+    {
+      "path": "art-delivery/large/M-star-08-4eb50e4e47a7.webp",
+      "sha256": "4eb50e4e47a7de7bf51c15e1072fcae126251abeac4eb62eb2a07621f1847a21",
+      "bytes": 288396
+    },
+    {
+      "path": "art-delivery/large/M-starfish-01-1756bf33da8b.webp",
+      "sha256": "1756bf33da8bea23c31045da048b49e29018d9ce0800deb98ca2dde0cd220660",
+      "bytes": 209936
+    },
+    {
+      "path": "art-delivery/large/M-starfish-02-85ac9ac01b8b.webp",
+      "sha256": "85ac9ac01b8b80688048e0cff4b3ad5f805d64f70ddf98ea616004d06d96f801",
+      "bytes": 198190
+    },
+    {
+      "path": "art-delivery/large/M-starfish-03-b49e025d9a8d.webp",
+      "sha256": "b49e025d9a8dc05dcbf8cedca941d4117a75cc001a541d9eae0f67ef449f2596",
+      "bytes": 212002
+    },
+    {
+      "path": "art-delivery/large/M-starfish-04-b5607d0561fe.webp",
+      "sha256": "b5607d0561fec00494234fbd8e7f6dcb1a9b4a1124e3ebf434c0b86adcc7cf3e",
+      "bytes": 301542
+    },
+    {
+      "path": "art-delivery/large/M-starfish-05-8ec33e2c5135.webp",
+      "sha256": "8ec33e2c513565f64b42ba4e50d5f2493ec9fede6d84fe96310b6c72d16c16ad",
+      "bytes": 232700
+    },
+    {
+      "path": "art-delivery/large/M-starfish-06-ad32d738a58e.webp",
+      "sha256": "ad32d738a58e86568bb5373aa5180e4dfab3b2316fa37dab762f4ca4ea86b815",
+      "bytes": 215816
+    },
+    {
+      "path": "art-delivery/large/M-starfish-07-95e2668a494c.webp",
+      "sha256": "95e2668a494cee32012b95e734c296fafe79df30baac14f1965a0c160b998561",
+      "bytes": 283876
+    },
+    {
+      "path": "art-delivery/large/M-starfish-08-a3fc2414eeff.webp",
+      "sha256": "a3fc2414eeff020969ae71f47078bba1e89021da487c65b0a024039f87d11e49",
+      "bytes": 299770
+    },
+    {
+      "path": "art-delivery/large/M-turtle-01-8726d522bc6b.webp",
+      "sha256": "8726d522bc6b0ebffa92f760db5d4716e033033375efd11b8c4d790d282a077d",
+      "bytes": 205302
+    },
+    {
+      "path": "art-delivery/large/M-turtle-02-2898613c7dd1.webp",
+      "sha256": "2898613c7dd17647e3e5b1ae57dbab13ff74be9a5cef63b561871c31a7d22be5",
+      "bytes": 202236
+    },
+    {
+      "path": "art-delivery/large/M-turtle-03-6558a3f01d6d.webp",
+      "sha256": "6558a3f01d6d3540d8ffdba5364f661c24778640aced781c5bda23ff4e5da565",
+      "bytes": 244178
+    },
+    {
+      "path": "art-delivery/large/M-turtle-04-a51011f052fb.webp",
+      "sha256": "a51011f052fb2e1dda508544cfab001cc6594ff97a7e35ac7e792dcccc47bb00",
+      "bytes": 252844
+    },
+    {
+      "path": "art-delivery/large/M-turtle-05-f27bf85bd384.webp",
+      "sha256": "f27bf85bd384d36141544c4be2927a2ea74fa741d27e33a82bed6acbc0ac4708",
+      "bytes": 263266
+    },
+    {
+      "path": "art-delivery/large/M-turtle-06-9f3f8d552b57.webp",
+      "sha256": "9f3f8d552b5777cec546f74027162e7bd631a4cfadcc02c2e69f2e4097baece2",
+      "bytes": 255270
+    },
+    {
+      "path": "art-delivery/large/M-turtle-07-b91b7bc6895d.webp",
+      "sha256": "b91b7bc6895decce2d24cd359c4ae4614df14b73cbb6e8025c2f8be17bbea384",
+      "bytes": 342298
+    },
+    {
+      "path": "art-delivery/large/M-turtle-08-97933c220071.webp",
+      "sha256": "97933c2200712a2f9ad6ac170352b308ed792f3251a11867989b21d6151845bb",
+      "bytes": 260762
+    },
+    {
+      "path": "art-delivery/large/M-unknown-01-5afffff37621.webp",
+      "sha256": "5afffff3762182bec11851120664e3d324dc1c35434c2d35475eb8e174af8935",
+      "bytes": 167672
+    },
+    {
+      "path": "art-delivery/large/M-unknown-02-be07222de737.webp",
+      "sha256": "be07222de7371c8201b6b5e018a4f836056443a6f83e1302d985b9f2f6cddbfc",
+      "bytes": 240044
+    },
+    {
+      "path": "art-delivery/large/M-unknown-03-4f4318f164e4.webp",
+      "sha256": "4f4318f164e462df7e1362b595d6e1d4437fa62130b99c322874f011d26e4f0b",
+      "bytes": 272710
+    },
+    {
+      "path": "art-delivery/large/M-unknown-04-248b2c6b0984.webp",
+      "sha256": "248b2c6b09849b3a7526cb33eca69291e6a1851de50a4f5de62b8097b7c4d75f",
+      "bytes": 279472
+    },
+    {
+      "path": "art-delivery/large/M-unknown-05-f2c4d5c79178.webp",
+      "sha256": "f2c4d5c79178cd3e172c2dd34a1499b18b6009361cca9627517e2c001423f08a",
+      "bytes": 280548
+    },
+    {
+      "path": "art-delivery/large/M-unknown-06-901266a5a7c2.webp",
+      "sha256": "901266a5a7c273c61c7fc534b6ee59eec122945cc336bd374c4ed8145e89658b",
+      "bytes": 334596
+    },
+    {
+      "path": "art-delivery/large/M-unknown-07-84a0684b9fc0.webp",
+      "sha256": "84a0684b9fc08142f5d12496a92577420f29ec552e6dd41aaf0e4e38a46d9276",
+      "bytes": 156042
+    },
+    {
+      "path": "art-delivery/large/M-unknown-08-0dfff0643b01.webp",
+      "sha256": "0dfff0643b01888cff688379298bafc3a7766955ca138bf6194e7b14ca631b6f",
+      "bytes": 200120
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-01-9df3088a8910.webp",
+      "sha256": "9df3088a8910fa61473239d7085e45f4c16598cf6310577fc8691eab246dfe2e",
+      "bytes": 227054
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-02-38d8fb5335d1.webp",
+      "sha256": "38d8fb5335d1b0ca8bfa4f2ce417062c2e98e3ff82a116e1318fb236892eaa6b",
+      "bytes": 202322
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-03-3ea50aaef67c.webp",
+      "sha256": "3ea50aaef67c6e40125f26a86679c98166d029555ce4d13e15d24dd51866dce5",
+      "bytes": 307550
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-04-ef1e5d9c1f58.webp",
+      "sha256": "ef1e5d9c1f5823e921d42e4eb708c56852adeaf5404dde9df3f46d0c664da93a",
+      "bytes": 217472
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-05-d6f2a3bec568.webp",
+      "sha256": "d6f2a3bec568650c05a4fc699f589649e6bcf3116172d16af97934511de8c750",
+      "bytes": 256596
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-06-a22f0ed183b0.webp",
+      "sha256": "a22f0ed183b06ece5ddc93deb65bffbb30c30caf88d8af838599308fc2119af6",
+      "bytes": 245852
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-07-b2d362de188c.webp",
+      "sha256": "b2d362de188c3d5d799fb7ce7eea6552537a97015073da574c1b2653904679e7",
+      "bytes": 291332
+    },
+    {
+      "path": "art-delivery/large/M-venus_flytrap-08-1453e56d9f2a.webp",
+      "sha256": "1453e56d9f2a61cdc8d17c8d266c41748ed08b7804259a003881de68388a4311",
+      "bytes": 237162
+    },
+    {
+      "path": "art-delivery/large/M-woman-01-6a631d0fcf0c.webp",
+      "sha256": "6a631d0fcf0ccc21c2128c190916be379a7c65720e64c6c4567f26cbc51aacee",
+      "bytes": 174170
+    },
+    {
+      "path": "art-delivery/large/M-woman-02-f4277b75091e.webp",
+      "sha256": "f4277b75091e876a23ab386367537c37e3bea2b4890a767ba0cdf574ed34a7a0",
+      "bytes": 247674
+    },
+    {
+      "path": "art-delivery/large/M-woman-03-3f75c13ead81.webp",
+      "sha256": "3f75c13ead8173cb16e5806e060bc3ed127a9094c41b058a0e8cff654d15e6cc",
+      "bytes": 291626
+    },
+    {
+      "path": "art-delivery/large/M-woman-04-1b73d089c85b.webp",
+      "sha256": "1b73d089c85b4c0466b29812c2c64314d8d596f6172a6c8e06f409841af73e21",
+      "bytes": 223066
+    },
+    {
+      "path": "art-delivery/large/M-woman-05-0bbc3b87033e.webp",
+      "sha256": "0bbc3b87033e927a474a0c5334af65375c27e57709b3fe1470d5315fd9d7d1f5",
+      "bytes": 283880
+    },
+    {
+      "path": "art-delivery/large/M-woman-06-d792c35c1435.webp",
+      "sha256": "d792c35c14352c931cc962e68b51157d1e5f60481db4f73ec54b0ff52a02bdc5",
+      "bytes": 335208
+    },
+    {
+      "path": "art-delivery/large/M-woman-07-47cb1125d9e1.webp",
+      "sha256": "47cb1125d9e1619469a16518cd159bc86946233eec30b7b4ca0fcee33e9d59b5",
+      "bytes": 266114
+    },
+    {
+      "path": "art-delivery/large/M-woman-08-9d40b5524607.webp",
+      "sha256": "9d40b55246072b17f16e5121eacd116d9a6b01ca16e52d78a28c0f4471b8e494",
+      "bytes": 255658
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-01-09fe768d655f.webp",
+      "sha256": "09fe768d655f9b30f03f30d2aa304c4ecf6cc143cd9cf760abd9246d6d2b6f40",
+      "bytes": 222804
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-02-89af858c5b8c.webp",
+      "sha256": "89af858c5b8cd9e4a589d82d014efdd54bb031a761dd2773b10c857bdf26cdd6",
+      "bytes": 289084
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-03-5097a4d64dcb.webp",
+      "sha256": "5097a4d64dcb9e840ee25945e708db503ce5b73a5748bf237f1d8d8904823505",
+      "bytes": 258784
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-04-c2337d7a0c49.webp",
+      "sha256": "c2337d7a0c49f6466207372fbcc4cc8cad9409d01f858efb9206b3c905d96655",
+      "bytes": 234238
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-05-15b92df61b93.webp",
+      "sha256": "15b92df61b93bf43f94e630055d1fef6d6d0d2dcd81e43f1f6dc77eaa0fc1e3f",
+      "bytes": 351404
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-06-bf47fae971f8.webp",
+      "sha256": "bf47fae971f82e1d37945f2741048a4df66cb7e8b588f6f15ad08cfa05f46462",
+      "bytes": 323494
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-07-484f5083e6de.webp",
+      "sha256": "484f5083e6de71416ecd6bc5de1414672d1474f7c6459595b687e80f5e4c065d",
+      "bytes": 308478
+    },
+    {
+      "path": "art-delivery/large/M-world_tree-08-0b2986d92865.webp",
+      "sha256": "0b2986d928656b2109d133590621c48a3006b5516243de9b066b3860fa66f168",
+      "bytes": 278502
+    },
+    {
+      "path": "art-delivery/large/P-anglerfish-4bfe4c2af202.webp",
+      "sha256": "4bfe4c2af2024fd42b10658d24c60437b3eb65f3c06ac96d69a8cd6f42a088bd",
+      "bytes": 270572
+    },
+    {
+      "path": "art-delivery/large/P-cat_ceo-adc982109400.webp",
+      "sha256": "adc9821094005e4115598837d6ea7e1d5aef4eede01eb17bfa78215ac4528e9d",
+      "bytes": 262204
+    },
+    {
+      "path": "art-delivery/large/P-cliff_goat-1bf48351750a.webp",
+      "sha256": "1bf48351750aa44d40ea636efec3c09c883c3017f9339081f3813e74575c5ac8",
+      "bytes": 322448
+    },
+    {
+      "path": "art-delivery/large/P-desert_scorpion-8397dd24a0cf.webp",
+      "sha256": "8397dd24a0cfae15606e326fc08583dbba2eb4c023640ccdd3d49a2098618ba1",
+      "bytes": 283348
+    },
+    {
+      "path": "art-delivery/large/P-field_cow-8e085ef8d2f6.webp",
+      "sha256": "8e085ef8d2f68b446835c1e532399c1f403778c8841764d3fe0df7c1acbbe0ee",
+      "bytes": 346132
+    },
+    {
+      "path": "art-delivery/large/P-forest_bear-5523748b9578.webp",
+      "sha256": "5523748b95783db15124d2d1e59a7df7ec0e00ae2e756191450411587a66291e",
+      "bytes": 260322
+    },
+    {
+      "path": "art-delivery/large/P-gentle_gorilla-f61c9cd4de2c.webp",
+      "sha256": "f61c9cd4de2c00e6825a968b0d3bc5132db2e8c651ff97253326dd6c34e48ada",
+      "bytes": 278204
+    },
+    {
+      "path": "art-delivery/large/P-grove_deer-c642b7a6e5be.webp",
+      "sha256": "c642b7a6e5be84b61d5089f72af516bf4556312deeeaf30c97b067b2a76df9d1",
+      "bytes": 318368
+    },
+    {
+      "path": "art-delivery/large/P-high_eagle-d71f829137fe.webp",
+      "sha256": "d71f829137fe35ce274ab3559d8b3114d11958fb99664ccc11119d9e95ff6ef1",
+      "bytes": 323858
+    },
+    {
+      "path": "art-delivery/large/P-knitting_spider-49d89f06d2d5.webp",
+      "sha256": "49d89f06d2d5bf6f51af8fad954d02c659d3502d8aa04cfb269ce8013bbf1295",
+      "bytes": 233738
+    },
+    {
+      "path": "art-delivery/large/P-oasis_cactus-62f06ddbf716.webp",
+      "sha256": "62f06ddbf716693567e7c7d535b582867b1cd0be072accbd642bdcfd0f49fc41",
+      "bytes": 325582
+    },
+    {
+      "path": "art-delivery/large/P-robot_neighbor-5c0849b36834.webp",
+      "sha256": "5c0849b36834eebe83a7557451f44ae7c26a8ae931609c5ded4c3cde1b1386c3",
+      "bytes": 317246
+    },
+    {
+      "path": "art-delivery/large/P-rock_octopus-62f7ea30cdca.webp",
+      "sha256": "62f7ea30cdca8f2bf5ed8f5ea68b3214237ddb7bf49993e3d768a5e6712356bb",
+      "bytes": 321670
+    },
+    {
+      "path": "art-delivery/large/P-sea_mermaid-eca32762bb5d.webp",
+      "sha256": "eca32762bb5d4c6424443d5dce31e7e999e3700616a45bdcf67afbb471ff1904",
+      "bytes": 314806
+    },
+    {
+      "path": "art-delivery/large/P-snow_spirit-a0aa266bd33b.webp",
+      "sha256": "a0aa266bd33bc64cc3c9350d5b615dfe1e58a55c9100f5707661d53f2f8380ad",
+      "bytes": 239512
+    },
+    {
+      "path": "art-delivery/large/P-snowman-06ab3da4f786.webp",
+      "sha256": "06ab3da4f78687f2740bfd27512bd187ddd912bd77c33c73124cf5bd32e680a5",
+      "bytes": 288426
+    },
+    {
+      "path": "art-delivery/large/P-sunflower_partner-ecc1cfd080e1.webp",
+      "sha256": "ecc1cfd080e13de56c9ea21b427014a84d1ddbeaee55e7d1f6c7f10924af7b92",
+      "bytes": 266742
+    },
+    {
+      "path": "art-delivery/large/P-swamp_croc-2aca34cdac6f.webp",
+      "sha256": "2aca34cdac6feca6e2f2fe90c6274c0f92fa6d5e51b3e9e8b1fbbc9f7cd25af8",
+      "bytes": 322608
+    },
+    {
+      "path": "art-delivery/large/W-city-904f6000adee.webp",
+      "sha256": "904f6000adee1d63ec5faff132a6b6d9204aff32e66067e7c510ffa1f86c909a",
+      "bytes": 366726
+    },
+    {
+      "path": "art-delivery/large/W-countryside-7203e9d3e879.webp",
+      "sha256": "7203e9d3e879939f21ee17ca0bf89bfc8932d6afc214d9d7bac4ff6c9b6d7304",
+      "bytes": 382088
+    },
+    {
+      "path": "art-delivery/large/W-deepsea-d42dd00c1501.webp",
+      "sha256": "d42dd00c15012b2cf0efa69b8f6f15cddfb7425ba2710c9f086409e1f6669658",
+      "bytes": 284192
+    },
+    {
+      "path": "art-delivery/large/W-desert-abef5efa4634.webp",
+      "sha256": "abef5efa46340ffe64e4bb9d416142c5e457c6b23183b635ee2dcb33b07d5fa8",
+      "bytes": 260968
+    },
+    {
+      "path": "art-delivery/large/W-forest-e43d761f4e14.webp",
+      "sha256": "e43d761f4e14b1be19e2919e6303931b03ddae1ccdfd6eb631d1237e85498fe7",
+      "bytes": 434570
+    },
+    {
+      "path": "art-delivery/large/W-home-50a47037c1d7.webp",
+      "sha256": "50a47037c1d7226bb3cd60a5526a601bea4c6ae95554b5805738e3d73e54cda0",
+      "bytes": 328942
+    },
+    {
+      "path": "art-delivery/large/W-jungle-912a12e267fb.webp",
+      "sha256": "912a12e267fbee72657f93a50c945df7e90b4870e2a4b9df7a9ea3e22115a5a7",
+      "bytes": 451800
+    },
+    {
+      "path": "art-delivery/large/W-memory_lake-60dfb8c0c07a.webp",
+      "sha256": "60dfb8c0c07adac8f148bf5a8a79b371e2cdb232a55d8b158b616c43efd94490",
+      "bytes": 363212
+    },
+    {
+      "path": "art-delivery/large/W-mountain-42357556fc9e.webp",
+      "sha256": "42357556fc9e4e1c4a374b1a914788105e12a1e08db040f3e65714ff789a8355",
+      "bytes": 396272
+    },
+    {
+      "path": "art-delivery/large/W-river_lake-7f30cc6051e3.webp",
+      "sha256": "7f30cc6051e3762dde6fda006b9779330400591972f45349f50d3f00fde224c3",
+      "bytes": 366128
+    },
+    {
+      "path": "art-delivery/large/W-sea-7e09e17b2444.webp",
+      "sha256": "7e09e17b244440f5813fb328f084ecaf6e476c756544b2dd974fd1fc74847ae9",
+      "bytes": 331814
+    },
+    {
+      "path": "art-delivery/large/W-snow-ce23110ff050.webp",
+      "sha256": "ce23110ff050519be625a1c3ab1da212d6bc375185cb080cb749441cb35dc984",
+      "bytes": 307656
+    },
+    {
+      "path": "art-delivery/large/W-star_stop-41579954963c.webp",
+      "sha256": "41579954963c0ec7e3fa282932c15f8d709e6de91e70fc6057860d908c2eb04d",
+      "bytes": 417646
+    },
+    {
+      "path": "art-delivery/manifest.json",
+      "sha256": "fcb0335f599782ad8c90a05bd01fa22ecfcc389b8474c38055af023d1f4a0931",
+      "bytes": 323217
+    },
+    {
+      "path": "art-delivery/small/C-bat-e2a6f384cd5f.webp",
+      "sha256": "e2a6f384cd5f7f57b41b153bf4841ec66f8256ac2ee764c24174cace7cc0531d",
+      "bytes": 42514
+    },
+    {
+      "path": "art-delivery/small/C-box-add49dd2c786.webp",
+      "sha256": "add49dd2c78657f4715119e3c3479b343f3aafa89475dd3970b45dbe578db09b",
+      "bytes": 38336
+    },
+    {
+      "path": "art-delivery/small/C-cat_friend-347c304c0736.webp",
+      "sha256": "347c304c0736fce392e156a09abb4555a1ccde860d69f88c97216722653c804a",
+      "bytes": 32290
+    },
+    {
+      "path": "art-delivery/small/C-chameleon-5262853d67fb.webp",
+      "sha256": "5262853d67fbe21918e2590ebfbc6b03aaffa1e51364343301ef986888ccd58c",
+      "bytes": 45780
+    },
+    {
+      "path": "art-delivery/small/C-chicken-0894efefc84d.webp",
+      "sha256": "0894efefc84d3baea6c97765eea43c001f7820cc753c4fbbab934a18ef6c3208",
+      "bytes": 43198
+    },
+    {
+      "path": "art-delivery/small/C-clock-66a310a6a51b.webp",
+      "sha256": "66a310a6a51b7f1c871297d5246096d19b219253d3b9e1b439fb6ac216536790",
+      "bytes": 37832
+    },
+    {
+      "path": "art-delivery/small/C-hamster-75440384b0f5.webp",
+      "sha256": "75440384b0f55aff6ced98fc834c78b08706f118d370402320c53c4c736f46da",
+      "bytes": 42370
+    },
+    {
+      "path": "art-delivery/small/C-hedgehog-6635f848f6f9.webp",
+      "sha256": "6635f848f6f9cb43939a63adc92abaf315b5e199567a5a954bc913887c34deed",
+      "bytes": 43580
+    },
+    {
+      "path": "art-delivery/small/C-many_tail_fox-11e48ad0f798.webp",
+      "sha256": "11e48ad0f798cfcb523dbb3be54c2bf98dc1ab812cda350cfa79f31c4f3d2ab9",
+      "bytes": 48652
+    },
+    {
+      "path": "art-delivery/small/C-monkey-bfd4d09bf30f.webp",
+      "sha256": "bfd4d09bf30f9c1087c690d297d3130eb66fe81023dcc7442d87a14b466735da",
+      "bytes": 45162
+    },
+    {
+      "path": "art-delivery/small/C-otter-1b5b86a7eb99.webp",
+      "sha256": "1b5b86a7eb99d2295d4a4c0ba24289da75e405fb2dc97ad80b16fa7d660249ab",
+      "bytes": 44180
+    },
+    {
+      "path": "art-delivery/small/C-owl-3ad407fee522.webp",
+      "sha256": "3ad407fee5226d442f9321abbca2aa907a130ad1e809675e518ec4f4bdc78285",
+      "bytes": 38436
+    },
+    {
+      "path": "art-delivery/small/C-panda-c6bbfabcbfcf.webp",
+      "sha256": "c6bbfabcbfcf7820faedfff23dcc895c3dcb29bcb866e11c08b60e1f445e9ec5",
+      "bytes": 43318
+    },
+    {
+      "path": "art-delivery/small/C-parrot-b20b9fa83c7f.webp",
+      "sha256": "b20b9fa83c7fc20fa02ce92b833de2ec1ae3f543b9ae46bf2d5eba3916e5bfe0",
+      "bytes": 38646
+    },
+    {
+      "path": "art-delivery/small/C-penguin_friend-24adce7b997b.webp",
+      "sha256": "24adce7b997b8439b2b9e81cbb2e9aebc7d85a0cd9d9a3956b3700bbe03305db",
+      "bytes": 33460
+    },
+    {
+      "path": "art-delivery/small/C-punyu-5cb823afc8dc.webp",
+      "sha256": "5cb823afc8dc5821d9adb0c9ddc21f7cbe5121d3f70bbcec3b03535339482899",
+      "bytes": 39360
+    },
+    {
+      "path": "art-delivery/small/C-rabbit_friend-d5842d4c2726.webp",
+      "sha256": "d5842d4c27263e4e0d8db8df5733e54d7b4e289bcccce36ce88c61ebb0a465e6",
+      "bytes": 43780
+    },
+    {
+      "path": "art-delivery/small/C-seal-16faa083cba7.webp",
+      "sha256": "16faa083cba753b1682bccf3fbc888b9e8aa06d21822ec3aecabf3cf31c29bdc",
+      "bytes": 42880
+    },
+    {
+      "path": "art-delivery/small/C-sekizou-7fd0bfa325b4.webp",
+      "sha256": "7fd0bfa325b4a640c60a948c6d9d486660c87f4066af93b4023d21e0a00c361a",
+      "bytes": 41494
+    },
+    {
+      "path": "art-delivery/small/C-sheep-63ae488669f9.webp",
+      "sha256": "63ae488669f923ef075a8b4278edeb442d44444da33794c60f9ae2f6a25eb3cf",
+      "bytes": 44910
+    },
+    {
+      "path": "art-delivery/small/C-shiba-00ea13fe6197.webp",
+      "sha256": "00ea13fe61977c97bf293a00af2aae537f47548f72fb920335da175d9d076280",
+      "bytes": 43844
+    },
+    {
+      "path": "art-delivery/small/C-snail-4da581be2a4b.webp",
+      "sha256": "4da581be2a4b925890e00c42924bc8e217b8e85ab178501f005f6685f15ddb18",
+      "bytes": 37016
+    },
+    {
+      "path": "art-delivery/small/C-squirrel-16a9dfc3189f.webp",
+      "sha256": "16a9dfc3189fb478051db710c1532406021b1018569cbeaf7d78d2b942369137",
+      "bytes": 43132
+    },
+    {
+      "path": "art-delivery/small/C-tanuki-84a2501a5bba.webp",
+      "sha256": "84a2501a5bba097e9cc9bb4ac29255b862d594c228c0761af2179aab2ee32bfa",
+      "bytes": 40936
+    },
+    {
+      "path": "art-delivery/small/C-unicorn-da157ef709df.webp",
+      "sha256": "da157ef709dfe4fe85462d45d22bb7e6cb0e7173018d50f269eb238ff881882a",
+      "bytes": 45478
+    },
+    {
+      "path": "art-delivery/small/C-watcher-f9b26cad6941.webp",
+      "sha256": "f9b26cad6941c35021de0930050a1ce9ceb3b46f70c9d366aa429a51d6d4a7a0",
+      "bytes": 43624
+    },
+    {
+      "path": "art-delivery/small/E-big-illness-230c0e1e4258.webp",
+      "sha256": "230c0e1e4258b33975de7f6c4c985fac5a3111d5a377becf0beb00b7e4374ba9",
+      "bytes": 36526
+    },
+    {
+      "path": "art-delivery/small/E-boss-cf75c740ab12.webp",
+      "sha256": "cf75c740ab12dc2ae96e403ebc433ec80e80567f4ef1ff815c727b98be3b5c84",
+      "bytes": 37808
+    },
+    {
+      "path": "art-delivery/small/E-fateful-transform-25ccf11a3907.webp",
+      "sha256": "25ccf11a390760a3b351e7cce816694d9cc9c751c6bbb34b2d2047c695526c5b",
+      "bytes": 40560
+    },
+    {
+      "path": "art-delivery/small/E-final-time-70a4b156d539.webp",
+      "sha256": "70a4b156d539893adc3c2f14d5d0708412c8c845eb9ebd7e6677956e3248c05e",
+      "bytes": 37872
+    },
+    {
+      "path": "art-delivery/small/E-first-date-c38d4c4ce69d.webp",
+      "sha256": "c38d4c4ce69d2457ade02397db008a96b0746c02dbf204e55744b8fbb79a7e2b",
+      "bytes": 45560
+    },
+    {
+      "path": "art-delivery/small/E-gate-de5ff92b4445.webp",
+      "sha256": "de5ff92b4445e65d696e7f71033ccba79dc4efb6e25388a96217b890b935ad46",
+      "bytes": 35684
+    },
+    {
+      "path": "art-delivery/small/E-lamp-cb22a26b768b.webp",
+      "sha256": "cb22a26b768bad7d6024538821870b28e26fdaadc9c11572371cb9870d97f27c",
+      "bytes": 41118
+    },
+    {
+      "path": "art-delivery/small/E-midlife-50th-49fa3ead2352.webp",
+      "sha256": "49fa3ead23528d6e0e376491646931738e694c4448571ae6a03587cfbabe9727",
+      "bytes": 42266
+    },
+    {
+      "path": "art-delivery/small/E-midlife-album-1644278b6d8d.webp",
+      "sha256": "1644278b6d8dffacb7702f11c50d83d2888a49beae0bf0a25769d6f189a1f89f",
+      "bytes": 35610
+    },
+    {
+      "path": "art-delivery/small/E-midlife-flower-0853007b3e18.webp",
+      "sha256": "0853007b3e18a6fc817287ba46cf8e505dd781432179a94cc4bef2027f470eb1",
+      "bytes": 45798
+    },
+    {
+      "path": "art-delivery/small/E-midlife-hobby-95bb9f158a36.webp",
+      "sha256": "95bb9f158a36df164756eb7a549d78a76c986058f7b1fce8e4fd91613a2ab08f",
+      "bytes": 41580
+    },
+    {
+      "path": "art-delivery/small/E-midlife-travel-plan-35e7b26ccff0.webp",
+      "sha256": "35e7b26ccff0713d5f4576e9d4ff57069d4c4b5f0c7af62a2fcbd727393c6389",
+      "bytes": 38950
+    },
+    {
+      "path": "art-delivery/small/E-mirror-d4746c8b9e8f.webp",
+      "sha256": "d4746c8b9e8f2f231c0bc6cceaf51dcb30621b8c7012109844c256034e67e954",
+      "bytes": 44188
+    },
+    {
+      "path": "art-delivery/small/E-misunderstanding-ad6e14f70488.webp",
+      "sha256": "ad6e14f7048851e1f8ec978cc7fad3af50437027be99a4289ad942cb25e7e32a",
+      "bytes": 44000
+    },
+    {
+      "path": "art-delivery/small/E-naoto-29cc81e5e577.webp",
+      "sha256": "29cc81e5e577e2c4880d9eda3e48710d5324ac95ff5b26273f5f423dc82c717a",
+      "bytes": 45890
+    },
+    {
+      "path": "art-delivery/small/E-new-encounter-a3671398177e.webp",
+      "sha256": "a3671398177e4072a7c1824015e13df3971eab9ec829f571cd5e8b22149627f2",
+      "bytes": 38200
+    },
+    {
+      "path": "art-delivery/small/E-reconciliation-43feb77f1628.webp",
+      "sha256": "43feb77f1628c947f5e9aca7d6f460105d1c460bed55747b8652734a4be82c43",
+      "bytes": 42226
+    },
+    {
+      "path": "art-delivery/small/E-special-trip-memory-2b45d1cc711f.webp",
+      "sha256": "2b45d1cc711f380dd1a1205b0a6d85cea970de2ba41798d953f933b8c0142c69",
+      "bytes": 45858
+    },
+    {
+      "path": "art-delivery/small/E-stairs-5c36556721b4.webp",
+      "sha256": "5c36556721b4414f742be0282a5d0c9a1a515d0f1be7e0c0564cdaca113addf7",
+      "bytes": 36740
+    },
+    {
+      "path": "art-delivery/small/E-sudden-trip-338536216fe9.webp",
+      "sha256": "338536216fe934ac3016545365db6b70008dd3eeec7ccc60688b425e40275339",
+      "bytes": 44904
+    },
+    {
+      "path": "art-delivery/small/E-wedding-anniversary-0ea762cbd5c1.webp",
+      "sha256": "0ea762cbd5c12fda76d3112c5af0cec80fea804aaa21094ce57e5ca978e3c638",
+      "bytes": 42322
+    },
+    {
+      "path": "art-delivery/small/G-air-hockey-9ac69b860bb2.webp",
+      "sha256": "9ac69b860bb24f90ba2fb1f74636f48a6969167973e1581bce62d75589a14c02",
+      "bytes": 37970
+    },
+    {
+      "path": "art-delivery/small/G-animal-shogi-de98f043a265.webp",
+      "sha256": "de98f043a26568d89ab5d90099dd6c016f3e6bc4365c2d24cf879b987e0b159b",
+      "bytes": 39842
+    },
+    {
+      "path": "art-delivery/small/G-archery-3d-a52a90a59bf6.webp",
+      "sha256": "a52a90a59bf6c7494ecf31f22b1a7f6eabd54ca91d5cb2def8979e5c7ca8d6fc",
+      "bytes": 44716
+    },
+    {
+      "path": "art-delivery/small/G-area-claim-c812edc10571.webp",
+      "sha256": "c812edc105712046a91657eadae7e3e224e053770d088969e493c7766b713af5",
+      "bytes": 36066
+    },
+    {
+      "path": "art-delivery/small/G-asteroids-classic-2af93e204ba2.webp",
+      "sha256": "2af93e204ba23363618b3ee3755918431a29a9005c4443de8cdfa60388dc141f",
+      "bytes": 40538
+    },
+    {
+      "path": "art-delivery/small/G-baseball-batting-fee614cdbdfa.webp",
+      "sha256": "fee614cdbdfa30d991f8e8cfb62700d6b64ba5a5d1a7fb6d5792ba49c004532f",
+      "bytes": 38548
+    },
+    {
+      "path": "art-delivery/small/G-basketball-3d-de833a17715c.webp",
+      "sha256": "de833a17715ce62fb56361cddf97be5a07ee49f5a302789249f5bb6b3ca3a725",
+      "bytes": 41614
+    },
+    {
+      "path": "art-delivery/small/G-beach-volley-d75de2007059.webp",
+      "sha256": "d75de20070596b5f0faaf45e2bf83e9c5c4d60a4e65057264d3b12b9fc5e37a4",
+      "bytes": 37258
+    },
+    {
+      "path": "art-delivery/small/G-billiards-6-2dcd02cfb564.webp",
+      "sha256": "2dcd02cfb5643bd741e811d9de1fe85968122a47a16d16706423b60986150cf4",
+      "bytes": 33572
+    },
+    {
+      "path": "art-delivery/small/G-blackjack-21-4abaced17361.webp",
+      "sha256": "4abaced173617f37c27033f22bd3400ab5f0c33d0cd3645d95ca827593eec325",
+      "bytes": 37506
+    },
+    {
+      "path": "art-delivery/small/G-bomber-maze-f0766b5e5a23.webp",
+      "sha256": "f0766b5e5a2330bcae1efdc854b986ff8029c0f4a5f4cbbc102b9a22432ee26d",
+      "bytes": 41482
+    },
+    {
+      "path": "art-delivery/small/G-bowling-3d-10e08e829c0a.webp",
+      "sha256": "10e08e829c0a05109896f1bb970336fe221b7be0a4a30d15eead3d3cd4184ca0",
+      "bytes": 33694
+    },
+    {
+      "path": "art-delivery/small/G-breakout-classic-577d2a7a1d72.webp",
+      "sha256": "577d2a7a1d72b8545694ffb7cdcf73c2e4603a85bc85bf002326dbf907620b6a",
+      "bytes": 36356
+    },
+    {
+      "path": "art-delivery/small/G-bubble-shooter-5a69b9e6b3a4.webp",
+      "sha256": "5a69b9e6b3a404b2104bde17207bfb79fba017750d947653b0055bd75af89d30",
+      "bytes": 42190
+    },
+    {
+      "path": "art-delivery/small/G-catapult-castle-c1436e951b2c.webp",
+      "sha256": "c1436e951b2c256d18730e382b7908d3268649710680050e4ba8d36a8b7beb80",
+      "bytes": 46494
+    },
+    {
+      "path": "art-delivery/small/G-chain-puzzle-724894754922.webp",
+      "sha256": "7248947549228988733df23514039c0314530a506a6f2cba3bf0e375930671e2",
+      "bytes": 40160
+    },
+    {
+      "path": "art-delivery/small/G-checkers-6-c50c1548d6ef.webp",
+      "sha256": "c50c1548d6ef7ffb0e03443ba730101c2339ef5c3dd737814390d0b44ec28720",
+      "bytes": 39454
+    },
+    {
+      "path": "art-delivery/small/G-connect-four-3f8e301ebde2.webp",
+      "sha256": "3f8e301ebde2ed6c136144863d80493768a1b1ed2f23e7f6e215a3b123f38c75",
+      "bytes": 41542
+    },
+    {
+      "path": "art-delivery/small/G-crane-game-3d-9cba4c252cdc.webp",
+      "sha256": "9cba4c252cdc8f3be86ed11a11ac725381f974cf9eff5f45f7639d7ef4aaca2d",
+      "bytes": 30374
+    },
+    {
+      "path": "art-delivery/small/G-curling-ice-dd71e4392941.webp",
+      "sha256": "dd71e4392941990665a3eec6505875adb912d33a0915ce12ca084b952994d23a",
+      "bytes": 31912
+    },
+    {
+      "path": "art-delivery/small/G-curling-winter-62a5aaf99d8b.webp",
+      "sha256": "62a5aaf99d8be46acdcae39567bbcf309e9fe375c948bde8e4cc807e994c0f8b",
+      "bytes": 37944
+    },
+    {
+      "path": "art-delivery/small/G-darts-board-103a1e1a61d3.webp",
+      "sha256": "103a1e1a61d34797fb8fd893639f7424f1c1d122f08f696674bd417dfa852a81",
+      "bytes": 43390
+    },
+    {
+      "path": "art-delivery/small/G-domino-run-4b9ddc29bec4.webp",
+      "sha256": "4b9ddc29bec42523b27042106cff2a1a7036f5cce1439393d29f03260b79e8de",
+      "bytes": 33416
+    },
+    {
+      "path": "art-delivery/small/G-doodle-jump-89a4152368e7.webp",
+      "sha256": "89a4152368e769259928d49c25d05cc57139e9e550f261d5cff353e7ef4456ef",
+      "bytes": 35346
+    },
+    {
+      "path": "art-delivery/small/G-dot-eater-b05186c4050e.webp",
+      "sha256": "b05186c4050e86716a543b89a012383ccba9b3529244425cfa238beb8f44d643",
+      "bytes": 44322
+    },
+    {
+      "path": "art-delivery/small/G-downhill-mountain-0b4ef9a6f6f8.webp",
+      "sha256": "0b4ef9a6f6f87189168728a4e671db0408cd482208f17dede4098122736e8846",
+      "bytes": 40094
+    },
+    {
+      "path": "art-delivery/small/G-downhill-snow-7ffded4246af.webp",
+      "sha256": "7ffded4246af78872807694441c9e7e6382d4cc41a947a55d9425aef0c02ff39",
+      "bytes": 34796
+    },
+    {
+      "path": "art-delivery/small/G-dragDecorate-bento-7ef4ce68f40c.webp",
+      "sha256": "7ef4ce68f40ca471b20bf5c2d15f02d99f4a3cc84c819bf2dd66d5e546dc706b",
+      "bytes": 39646
+    },
+    {
+      "path": "art-delivery/small/G-dragDecorate-cake-3b97e5f80b3a.webp",
+      "sha256": "3b97e5f80b3a7b82c62fbbfc4bf0dc516d769203b83942fd32287e894d027159",
+      "bytes": 38492
+    },
+    {
+      "path": "art-delivery/small/G-falling-block-puzzle-f6eb0fff6514.webp",
+      "sha256": "f6eb0fff65140948ac30fddff68d1e401997405ac5c4a076fc8452c078ebd9d6",
+      "bytes": 35512
+    },
+    {
+      "path": "art-delivery/small/G-fishing-deepsea-90e89a8002b9.webp",
+      "sha256": "90e89a8002b9945dbe04e7911a4e0d0fd46ffbbd71b8b5b7efb4b3d5ab7d2605",
+      "bytes": 30970
+    },
+    {
+      "path": "art-delivery/small/G-fishing-river-c5a1230dd4ba.webp",
+      "sha256": "c5a1230dd4ba9c15beadef293223b923658df632e446990034197a529a2ada51",
+      "bytes": 36808
+    },
+    {
+      "path": "art-delivery/small/G-fishing-sea-994119f7b7e2.webp",
+      "sha256": "994119f7b7e25b32b247bbcac2a97702ab508fb705aaae811a9172f5bdd25246",
+      "bytes": 42900
+    },
+    {
+      "path": "art-delivery/small/G-fp-dungeon-6dffb16b9624.webp",
+      "sha256": "6dffb16b9624b9319acde56c38ebf0c5575bc86ccb925c23c1612d6551bdbc90",
+      "bytes": 37206
+    },
+    {
+      "path": "art-delivery/small/G-free-kick-3d-f838a51646e3.webp",
+      "sha256": "f838a51646e31adf61fe8b4e73304ef27f0868cc66f3c7e7e5b4e47041c9cff0",
+      "bytes": 43778
+    },
+    {
+      "path": "art-delivery/small/G-frogger-road-da4187394473.webp",
+      "sha256": "da418739447342e670c3212f3809764afd3041b22e5efb0c82bcb69ca49a2d83",
+      "bytes": 47608
+    },
+    {
+      "path": "art-delivery/small/G-fruit-slice-4c2920a59392.webp",
+      "sha256": "4c2920a593920f9235b5892f054c6444335521fc8a6721b53bfe3f0cfacdd2c1",
+      "bytes": 46722
+    },
+    {
+      "path": "art-delivery/small/G-gomoku-9-319ffb8a9a6f.webp",
+      "sha256": "319ffb8a9a6fbd9063e37158c7585d1a94c3eb44d95614a3753c4fca10a8062e",
+      "bytes": 29440
+    },
+    {
+      "path": "art-delivery/small/G-grand-prix-3d-43952b313f56.webp",
+      "sha256": "43952b313f563111d1df75cd83439725dcac2a25d290497257bdce31e4800161",
+      "bytes": 40856
+    },
+    {
+      "path": "art-delivery/small/G-halfpipe-skate-fefb5e5ef8c2.webp",
+      "sha256": "fefb5e5ef8c24d6de8a06a35d62b5bff0c428eb869fbc360c8ffc5f29bda6b5f",
+      "bytes": 38462
+    },
+    {
+      "path": "art-delivery/small/G-hang-glider-3d-198288f42e12.webp",
+      "sha256": "198288f42e127b631cc96ea1ead734cad7dc47682a0baeab3e263cea5e6ed109",
+      "bytes": 35626
+    },
+    {
+      "path": "art-delivery/small/G-haunted-house-3d-69d609ad5f33.webp",
+      "sha256": "69d609ad5f336eb1682664b3483fe498d5a32ca92d9a7ea1181814283ab59743",
+      "bytes": 35498
+    },
+    {
+      "path": "art-delivery/small/G-hit-blow-90cc6d106022.webp",
+      "sha256": "90cc6d106022748415623ccc9c562abbc3c1bdec2721aabede487aebc0398e4e",
+      "bytes": 41448
+    },
+    {
+      "path": "art-delivery/small/G-jenga-tower-bba1cdf550a6.webp",
+      "sha256": "bba1cdf550a6b8d7d64f96faf76c2d66c04fb4c060aa645590f1d0a363ff441a",
+      "bytes": 32806
+    },
+    {
+      "path": "art-delivery/small/G-jump-quest-ad2e2c27aef3.webp",
+      "sha256": "ad2e2c27aef32abbea1415644ded1aa62d2321b9e9936afebfc983e186086b98",
+      "bytes": 46382
+    },
+    {
+      "path": "art-delivery/small/G-lights-out-6d022ffcf9a0.webp",
+      "sha256": "6d022ffcf9a005e76fccc505b7c6a290bb7fcd2e31a4d40f8b67a1137ceb4314",
+      "bytes": 34482
+    },
+    {
+      "path": "art-delivery/small/G-line-trace-00b005402fa6.webp",
+      "sha256": "00b005402fa6e7d87c420dd8088e0501b2aeb67a3f663844c9a3de4256294576",
+      "bytes": 31984
+    },
+    {
+      "path": "art-delivery/small/G-lunar-lander-8788c7f641fd.webp",
+      "sha256": "8788c7f641fd80b71d82606654740a7de8ce9b2366cd38dbff9dd5514017a5e4",
+      "bytes": 39310
+    },
+    {
+      "path": "art-delivery/small/G-mancala-kalah-2dccdf42afe4.webp",
+      "sha256": "2dccdf42afe4e2b2597b5f0aa10a1702de06a28c07ce79849770cab38221a941",
+      "bytes": 35658
+    },
+    {
+      "path": "art-delivery/small/G-match-3-8949154f3073.webp",
+      "sha256": "8949154f307389d81f98ae4020d3e2322996ea52a98d68cfd1d5dc173bcc3e72",
+      "bytes": 41310
+    },
+    {
+      "path": "art-delivery/small/G-memory-cards-211e0fcb5107.webp",
+      "sha256": "211e0fcb51077cb3cea5c03f842fd0e2632adaef666f84155e56cc20dca78684",
+      "bytes": 44628
+    },
+    {
+      "path": "art-delivery/small/G-minesweeper-8-51d82591bdef.webp",
+      "sha256": "51d82591bdef8942a14948eca21ef4c8be63c3a56259a9596e22dc194014fa41",
+      "bytes": 25562
+    },
+    {
+      "path": "art-delivery/small/G-mini-golf-physics-0fd06a66e7ea.webp",
+      "sha256": "0fd06a66e7ea96534b6d0803612abede5f1cb91ca424a47c2e6204381927b029",
+      "bytes": 36614
+    },
+    {
+      "path": "art-delivery/small/G-missile-command-b408d2fa84db.webp",
+      "sha256": "b408d2fa84db694624601061e00afe24d4376024e0e91b87423b11985d9dbf35",
+      "bytes": 38360
+    },
+    {
+      "path": "art-delivery/small/G-p3-drive-63decd5d1f0d.webp",
+      "sha256": "63decd5d1f0dd1c618a35f2197c7e469cc846b24aacb0b10f9e79459e2f00bfb",
+      "bytes": 37068
+    },
+    {
+      "path": "art-delivery/small/G-p3-space-a17714ca9c7f.webp",
+      "sha256": "a17714ca9c7f53d9cb2673519d903b0c6c5caf1de354a3d7a4fb4d7ca6c21369",
+      "bytes": 40828
+    },
+    {
+      "path": "art-delivery/small/G-picross-5-42e730a831e9.webp",
+      "sha256": "42e730a831e96541e3372bd06c60f5a798f7cbe836da23c02b9697024d19cf43",
+      "bytes": 37366
+    },
+    {
+      "path": "art-delivery/small/G-pinball-physics-a010d03441d6.webp",
+      "sha256": "a010d03441d68312cefef7a5e7e822794ebaaba87d31616ea20c807904dc9755",
+      "bytes": 38960
+    },
+    {
+      "path": "art-delivery/small/G-pingpong-3d-23f896337666.webp",
+      "sha256": "23f896337666788fa6efc641927310178dc37bc7be201e7990bc25a0d4bfeb04",
+      "bytes": 41186
+    },
+    {
+      "path": "art-delivery/small/G-pipe-connect-88e4636005ba.webp",
+      "sha256": "88e4636005baec93aef7327fcd4a8372ef63a55f14f41448e15c96a9a9acd96e",
+      "bytes": 44802
+    },
+    {
+      "path": "art-delivery/small/G-plane-landing-a42d2ab0b018.webp",
+      "sha256": "a42d2ab0b018fe04c7a181582a0953303569f0181185cfde74848ba0988a0f57",
+      "bytes": 34424
+    },
+    {
+      "path": "art-delivery/small/G-push-puzzle-11000de88145.webp",
+      "sha256": "11000de881457613b4eebf0ea476e5e822a503c0eabe8e79becf857c17d57f7a",
+      "bytes": 33252
+    },
+    {
+      "path": "art-delivery/small/G-puzzle-2048-921bd4d1fd83.webp",
+      "sha256": "921bd4d1fd83a689cd582a1187ceb2c36db8de2309b9d3353192923676c45e80",
+      "bytes": 24096
+    },
+    {
+      "path": "art-delivery/small/G-race-3d-cb11108f7a04.webp",
+      "sha256": "cb11108f7a04eb011dec46bfd53c78cacad06c1615fd8be8a27141913671f5fd",
+      "bytes": 45662
+    },
+    {
+      "path": "art-delivery/small/G-real-fishing-7b030ebd896d.webp",
+      "sha256": "7b030ebd896d1a79b74410668a357caab29299dc73d618eac216a037f11ea01b",
+      "bytes": 39786
+    },
+    {
+      "path": "art-delivery/small/G-reversi-6-865334b5b05a.webp",
+      "sha256": "865334b5b05acc48b74233a30e5cafa32c917840ddcb0ad6dbb0e5e691665c6b",
+      "bytes": 42254
+    },
+    {
+      "path": "art-delivery/small/G-rhythm-highway-3d-b156e4939911.webp",
+      "sha256": "b156e4939911a82968004c9455e7ee930c8d89a4b47167303f911727ff498ed3",
+      "bytes": 39576
+    },
+    {
+      "path": "art-delivery/small/G-ring-flight-3d-ebb318a1b5bd.webp",
+      "sha256": "ebb318a1b5bd6b1b61cedad03ddf83169b1a663f16e756e662fe31003bbb9617",
+      "bytes": 36692
+    },
+    {
+      "path": "art-delivery/small/G-ring-flight-summer-b44a81a35dc1.webp",
+      "sha256": "b44a81a35dc113136cb8f0376f31f5359a5537ebcd4bd548e2bb41505ee4bb64",
+      "bytes": 41096
+    },
+    {
+      "path": "art-delivery/small/G-road-city-51690d8addca.webp",
+      "sha256": "51690d8addcab13a8c6944cff6426551baf219e6038089ee642770d9b6b5ca6d",
+      "bytes": 45524
+    },
+    {
+      "path": "art-delivery/small/G-road-desert-8468551da3be.webp",
+      "sha256": "8468551da3be9f82a90b95a161a285c233e2517ae9d60b3ee526915da204a07e",
+      "bytes": 38208
+    },
+    {
+      "path": "art-delivery/small/G-road-jungle-fbd8143684d9.webp",
+      "sha256": "fbd8143684d95ff2a6e63480f50e5df66bcfe07dec22fc96e54e1d90a22360b1",
+      "bytes": 48576
+    },
+    {
+      "path": "art-delivery/small/G-road-themed-6e551297f323.webp",
+      "sha256": "6e551297f32319c7d0510190f5855994a70d5e34becb9f41b855b73c0d0d9c3f",
+      "bytes": 45212
+    },
+    {
+      "path": "art-delivery/small/G-roguelike-dungeon-53e17faa93a2.webp",
+      "sha256": "53e17faa93a21abc2495dc00716b0b6ef7c2cc2f865e71850eb0519fbf6e6f0e",
+      "bytes": 37620
+    },
+    {
+      "path": "art-delivery/small/G-shanghai-tiles-c078358a43c4.webp",
+      "sha256": "c078358a43c4a9ddf20c5a0557368681da91e60fea26d5e119cd896b400299bf",
+      "bytes": 42416
+    },
+    {
+      "path": "art-delivery/small/G-ski-jump-3b51c6f6d9f7.webp",
+      "sha256": "3b51c6f6d9f7a912dd7974d28795fef2a51f54efda300938c3041dc4c5752f02",
+      "bytes": 39564
+    },
+    {
+      "path": "art-delivery/small/G-sky-shooter-ba433b37fdeb.webp",
+      "sha256": "ba433b37fdeb0e08a9e8c9c2caeb6d5fa8ee146e1b63cce3526362b874b2ca9f",
+      "bytes": 34650
+    },
+    {
+      "path": "art-delivery/small/G-slide-puzzle-64d73df44405.webp",
+      "sha256": "64d73df44405b662fc50647b8b1d2ca33f19d15899143844e0de3aa060cc558f",
+      "bytes": 37666
+    },
+    {
+      "path": "art-delivery/small/G-snake-classic-d7dbc983defd.webp",
+      "sha256": "d7dbc983defd20d6e57548b52ee25bbba7c67f81f5ed11f425824ce8fae61245",
+      "bytes": 43312
+    },
+    {
+      "path": "art-delivery/small/G-solitaire-klondike-a3f1a7ba6567.webp",
+      "sha256": "a3f1a7ba6567cffb2437fc029167d2872da6088e99e95ab661a4ab77d2dca398",
+      "bytes": 38082
+    },
+    {
+      "path": "art-delivery/small/G-space-gunner-3d-fd22e4edfb95.webp",
+      "sha256": "fd22e4edfb9595ad07e09737c29eebf8b0b93f4f0bf222a6586bea2282a4c49e",
+      "bytes": 36664
+    },
+    {
+      "path": "art-delivery/small/G-stack-acorn-c6b291d90a1b.webp",
+      "sha256": "c6b291d90a1b499c25071883c8de0fb615a96cefe31b7a4e2cb9eb9acd00309f",
+      "bytes": 43270
+    },
+    {
+      "path": "art-delivery/small/G-stack-harvest-8adf9591de75.webp",
+      "sha256": "8adf9591de75f3157b9b805fb2d4939b6d9aa13dacaa812a627a8bd12a4513eb",
+      "bytes": 41070
+    },
+    {
+      "path": "art-delivery/small/G-stack-leaves-42e351d5387f.webp",
+      "sha256": "42e351d5387f8ce7d5a2ad6009f4945a05e64c0b7ab9cdd8de5bee7fbe2cac23",
+      "bytes": 40758
+    },
+    {
+      "path": "art-delivery/small/G-stack-sakura-3738ee6a6efd.webp",
+      "sha256": "3738ee6a6efd5f05a062930e4a31658729067eb15e63a6ef1cdb6d85b8649828",
+      "bytes": 40752
+    },
+    {
+      "path": "art-delivery/small/G-stack-snowman-6702557115a6.webp",
+      "sha256": "6702557115a676ccc6b0c42ce05745cdcd102a495d04139d6ee8469b6de1ee9d",
+      "bytes": 33906
+    },
+    {
+      "path": "art-delivery/small/G-stack-themed-f102478ce080.webp",
+      "sha256": "f102478ce080ec01459d68d818a5aa562a9679a61e27f7322d7a3ef493b9bad1",
+      "bytes": 32908
+    },
+    {
+      "path": "art-delivery/small/G-street-fight-68d972d9861a.webp",
+      "sha256": "68d972d9861ad5ee7aa17b3bf48e711c1b71afedc6ee352e98c1fa5757e4c12c",
+      "bytes": 44112
+    },
+    {
+      "path": "art-delivery/small/G-submarine-3d-a8922859dee1.webp",
+      "sha256": "a8922859dee1a733fc8eee6b4768ff4c48776d1ba0134c0d682cb8622a4bf907",
+      "bytes": 46276
+    },
+    {
+      "path": "art-delivery/small/G-sudoku-mini-fd010b9c7890.webp",
+      "sha256": "fd010b9c78901a105d06cbbc8ba280aaf69b14ff12b05ac5207b7a8da1b83dc6",
+      "bytes": 38124
+    },
+    {
+      "path": "art-delivery/small/G-sugoroku-race-f1092c918b0b.webp",
+      "sha256": "f1092c918b0ba76913242112d83ca2a8af3f091db130c27ed79206ff1e858508",
+      "bytes": 43842
+    },
+    {
+      "path": "art-delivery/small/G-sushi-belt-8c4b3806ba80.webp",
+      "sha256": "8c4b3806ba8037bef26304fd62d91a4583e163653b4eba5df196be2384a9a9ae",
+      "bytes": 35066
+    },
+    {
+      "path": "art-delivery/small/G-takoyaki-grill-d27b54b220b9.webp",
+      "sha256": "d27b54b220b9ac199affaeaa972797028d7df4869e5f74e6a8b3df82394f8856",
+      "bytes": 39852
+    },
+    {
+      "path": "art-delivery/small/G-tank-battle-bec0befee9a4.webp",
+      "sha256": "bec0befee9a4694df14518f97066d14eccb9450119acb3e96310b10c5d8d36f4",
+      "bytes": 29010
+    },
+    {
+      "path": "art-delivery/small/G-tennis-rally-2400489c1341.webp",
+      "sha256": "2400489c1341683c036a357e5851d0f8cea6f7d4e58e8c3d2802bd0b14c1d43f",
+      "bytes": 44560
+    },
+    {
+      "path": "art-delivery/small/G-tilt-maze-3d-1e640cb9ab83.webp",
+      "sha256": "1e640cb9ab83d1e65f4727c4946549fd4571ae620c4fb2a61fe8335a0c17d634",
+      "bytes": 42360
+    },
+    {
+      "path": "art-delivery/small/G-tower-defense-99754a87b87d.webp",
+      "sha256": "99754a87b87d4f09877dce97243e0cddcf5cd67ee31f0a54af736e392b333133",
+      "bytes": 37918
+    },
+    {
+      "path": "art-delivery/small/G-track-field-978959466b46.webp",
+      "sha256": "978959466b46719f57776ff5049dfd0582f7036ea4bb8c4c7acb33878a429886",
+      "bytes": 38732
+    },
+    {
+      "path": "art-delivery/small/G-voxel-mine-385aad81cf7d.webp",
+      "sha256": "385aad81cf7dcde534153db65073aebcfb3f7c3f7b76e77ba33d0ed640321855",
+      "bytes": 38086
+    },
+    {
+      "path": "art-delivery/small/G-yacht-dice-f8ee7db6503c.webp",
+      "sha256": "f8ee7db6503cdd4a3e960d5ef6c353e02e1cf4572135d217f90bd24bf6fa3de5",
+      "bytes": 39064
+    },
+    {
+      "path": "art-delivery/small/I-bond1-6a5e17a5a00c.webp",
+      "sha256": "6a5e17a5a00c5b95fa2b2a04c5898e270bca3f112b0e05152935860a0578fea4",
+      "bytes": 35040
+    },
+    {
+      "path": "art-delivery/small/I-bowtie-d5317f1528aa.webp",
+      "sha256": "d5317f1528aa4c0c073b0eff0eb0baf346c324920b5e3cf41d72348fd8294125",
+      "bytes": 40870
+    },
+    {
+      "path": "art-delivery/small/I-c_coin2-cb5b286a86d0.webp",
+      "sha256": "cb5b286a86d0a6e02f7fa3e79a5e2db62ec1ca2f268e4cbb296c648bb8d53b0b",
+      "bytes": 41964
+    },
+    {
+      "path": "art-delivery/small/I-c_dex-7f5707489c87.webp",
+      "sha256": "7f5707489c876651fecbcc179902c4ac2c0e65bda39e34f8e28a108724777aa3",
+      "bytes": 42384
+    },
+    {
+      "path": "art-delivery/small/I-c_egg_normal-7569b64d43e5.webp",
+      "sha256": "7569b64d43e5cfed8e2594f4341a35432a3623ddbfa115df5628a0294e3ada94",
+      "bytes": 38466
+    },
+    {
+      "path": "art-delivery/small/I-c_egg_rare-ed943fd3b095.webp",
+      "sha256": "ed943fd3b0951abe8bdb01133f0543bd0fb2dcae1f23ee91fab16c1744de011e",
+      "bytes": 40704
+    },
+    {
+      "path": "art-delivery/small/I-c_friend-708e1324af2a.webp",
+      "sha256": "708e1324af2a213b4ebda605695d14e22a250a426a59d4624eedde530819b42a",
+      "bytes": 37520
+    },
+    {
+      "path": "art-delivery/small/I-c_life-993193d26a63.webp",
+      "sha256": "993193d26a6303f84147140a436f161d4fd011386daf888766efe10736162621",
+      "bytes": 41686
+    },
+    {
+      "path": "art-delivery/small/I-c_life_charm-e10808bfc89b.webp",
+      "sha256": "e10808bfc89b50a0b2d2335d971b6c3a1081e4325d6ff8194594453d9f384b72",
+      "bytes": 41996
+    },
+    {
+      "path": "art-delivery/small/I-c_match-ac9718efd641.webp",
+      "sha256": "ac9718efd6417f6f584f8ecb1996897b556bd982c045680907918cb5c1a6a657",
+      "bytes": 35494
+    },
+    {
+      "path": "art-delivery/small/I-c_rare_friend-f2fc4704dce7.webp",
+      "sha256": "f2fc4704dce7a8a6ff49887bf1de7876c1003b24cfc45fe15b2ce9e7eff3c5a2",
+      "bytes": 31572
+    },
+    {
+      "path": "art-delivery/small/I-c_time_back-27eaa465d034.webp",
+      "sha256": "27eaa465d0340a63ec8a2d961ee8b31b866f6d3d79f511ef4961f273ce2a20c2",
+      "bytes": 33636
+    },
+    {
+      "path": "art-delivery/small/I-c_time_forward-8dc816f90b3a.webp",
+      "sha256": "8dc816f90b3a026107f17e003a22df7dc23c91d8fce811075497bcfc7b20c412",
+      "bytes": 29820
+    },
+    {
+      "path": "art-delivery/small/I-c_transform-cdca22ab0686.webp",
+      "sha256": "cdca22ab06862485c4f47fc29f4790a4a3483440e39cad23fb0f3051060da14d",
+      "bytes": 46004
+    },
+    {
+      "path": "art-delivery/small/I-gamepass1-00b41dea1f70.webp",
+      "sha256": "00b41dea1f70d325c8d8983b267217a900869adb148a65b7a5654ec760713501",
+      "bytes": 33172
+    },
+    {
+      "path": "art-delivery/small/I-naoto_charm-237b422b7903.webp",
+      "sha256": "237b422b7903606ae08d1bfbf6143cc0c0fb45e77c312d097a17d802314c8a66",
+      "bytes": 38212
+    },
+    {
+      "path": "art-delivery/small/I-naoto_crown-551078ffeeaa.webp",
+      "sha256": "551078ffeeaa6402b12031d2c91dbbcca9987c36a1ac1c9b4f5128ea511bbc1d",
+      "bytes": 42504
+    },
+    {
+      "path": "art-delivery/small/I-naoto_lantern-16ccf17f98c0.webp",
+      "sha256": "16ccf17f98c0ed663333ae51bcc103f2991341185447d28e2c63ce2a243ca130",
+      "bytes": 45306
+    },
+    {
+      "path": "art-delivery/small/I-naoto_ring-0efb4212e9b8.webp",
+      "sha256": "0efb4212e9b8f43c9316adcb69be432a7b8ecef894c0c076764f7f8e0630b82a",
+      "bytes": 38050
+    },
+    {
+      "path": "art-delivery/small/I-partner1-58d838e0fd71.webp",
+      "sha256": "58d838e0fd7115bbcc8290fee641482a6b57a0d0a614fd5a8ddfe34e78e50f01",
+      "bytes": 35908
+    },
+    {
+      "path": "art-delivery/small/I-poop1-06e481c9e53f.webp",
+      "sha256": "06e481c9e53f4ac66fb3cb13792b9e129cea008c0b8497ee60e6820f978a7c34",
+      "bytes": 25068
+    },
+    {
+      "path": "art-delivery/small/I-ribbon-4b5164a7ed59.webp",
+      "sha256": "4b5164a7ed59daa0765a09e5ebd077d3f80b8a2a87ef955f098bd20310b934ca",
+      "bytes": 29588
+    },
+    {
+      "path": "art-delivery/small/I-scarf-eca0ecab9df4.webp",
+      "sha256": "eca0ecab9df456deb9f7e23967a9042248044dcf4a0f9205d6ce491f74fb2d36",
+      "bytes": 39466
+    },
+    {
+      "path": "art-delivery/small/I-sleepboost1-d6db51ac4a6d.webp",
+      "sha256": "d6db51ac4a6dca068393608ecc8731e6012a5da6a39639a6e12541e4fc97bc1f",
+      "bytes": 33624
+    },
+    {
+      "path": "art-delivery/small/I-star-de6d998b1a3f.webp",
+      "sha256": "de6d998b1a3f27fba6a9e9144c3462be92030f8cccc775760104218cd361be75",
+      "bytes": 30288
+    },
+    {
+      "path": "art-delivery/small/I-travel1-cb357ad0a00f.webp",
+      "sha256": "cb357ad0a00f6c92d7853b758a402cf7b12ba0adb9dc3aaff77a531a209391c4",
+      "bytes": 38266
+    },
+    {
+      "path": "art-delivery/small/M-antlion-01-0dbca2a715bd.webp",
+      "sha256": "0dbca2a715bdaed293a300b1763d65853017b859c76831593581f6bc7606b84f",
+      "bytes": 38624
+    },
+    {
+      "path": "art-delivery/small/M-antlion-02-9aa4e71eed04.webp",
+      "sha256": "9aa4e71eed04301038902782d9fb515d51cd24b02b7728772adfc0cf15c7572b",
+      "bytes": 41268
+    },
+    {
+      "path": "art-delivery/small/M-antlion-03-ae553d1bd531.webp",
+      "sha256": "ae553d1bd531fef06e6e49c8914584d2da2156472a897d0bddc5eec931dfed3a",
+      "bytes": 30758
+    },
+    {
+      "path": "art-delivery/small/M-antlion-04-e7244ddab656.webp",
+      "sha256": "e7244ddab6566f0566d6f8f66a61540c6efe44d822f2701b6acb4096748289d0",
+      "bytes": 39748
+    },
+    {
+      "path": "art-delivery/small/M-antlion-05-56c18276973d.webp",
+      "sha256": "56c18276973d460b9432bdf39b8292a695848ca23ec66abde686412f999cafac",
+      "bytes": 39404
+    },
+    {
+      "path": "art-delivery/small/M-antlion-06-ab6f66e750ea.webp",
+      "sha256": "ab6f66e750eafdf520dee8a67e59ff1df8376c9a8ebd1ff2cdce435104c8ac11",
+      "bytes": 37772
+    },
+    {
+      "path": "art-delivery/small/M-antlion-07-445c5510ffe8.webp",
+      "sha256": "445c5510ffe88f08d99ccca837c07fd509ccd1322da6e0edab854225a3b1e167",
+      "bytes": 35880
+    },
+    {
+      "path": "art-delivery/small/M-antlion-08-ca0b96696418.webp",
+      "sha256": "ca0b96696418889072fafabfa4ee4b4ef04703f2ed2685f76279cac4a359c0a2",
+      "bytes": 33314
+    },
+    {
+      "path": "art-delivery/small/M-beetle-01-3329021bf8bb.webp",
+      "sha256": "3329021bf8bb3ca938912e6cd3e595a8d44e35fe858a2e71f7a8403936fe1de6",
+      "bytes": 34994
+    },
+    {
+      "path": "art-delivery/small/M-beetle-02-18c8bb8d2e4f.webp",
+      "sha256": "18c8bb8d2e4f91f358e006a27c1d9457faac419125ce990ab405caceb67b2197",
+      "bytes": 40924
+    },
+    {
+      "path": "art-delivery/small/M-beetle-03-1bbf019c6fdc.webp",
+      "sha256": "1bbf019c6fdc96b59c70a850ad302c7dabbc8773e9949ee661ca619402e56841",
+      "bytes": 34008
+    },
+    {
+      "path": "art-delivery/small/M-beetle-04-704b52783a4a.webp",
+      "sha256": "704b52783a4af29c814b839c97b02c2edab0b2894749507e6baf1ee3e67e83cc",
+      "bytes": 35486
+    },
+    {
+      "path": "art-delivery/small/M-beetle-05-fc3b22fa4d3d.webp",
+      "sha256": "fc3b22fa4d3d53a1e7ac320df8587945f7324f04e856a95cb30eb40d3853fc16",
+      "bytes": 37534
+    },
+    {
+      "path": "art-delivery/small/M-beetle-06-0af2d68e547d.webp",
+      "sha256": "0af2d68e547daff6c5268c7597b355e1a01eda0543c286067b5c67442a79690d",
+      "bytes": 38426
+    },
+    {
+      "path": "art-delivery/small/M-beetle-07-591c17a6d28f.webp",
+      "sha256": "591c17a6d28fef5655f1d76170ccd5e569a9fb1d26c46eb83fc0d2373be4ddce",
+      "bytes": 30744
+    },
+    {
+      "path": "art-delivery/small/M-beetle-08-3749bf859f53.webp",
+      "sha256": "3749bf859f5368682ff4af99812f03ee10c06ce1faf7baa5fc7970b15b5765e0",
+      "bytes": 34572
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-01-b3525c88db34.webp",
+      "sha256": "b3525c88db343be26cf29b2639d2bd37332ad149da80214fb5254352c74b09d2",
+      "bytes": 22796
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-02-33f30b1bce7d.webp",
+      "sha256": "33f30b1bce7d3dc5bf35e43f7b14eaf1f4cdd5c327ab517a04abf59f06065fb3",
+      "bytes": 24122
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-03-02dd64c0d65d.webp",
+      "sha256": "02dd64c0d65d4553b731c0836db4c2554714b9144c6fe406b3daf41eba43cff1",
+      "bytes": 31478
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-04-4fc6499f0418.webp",
+      "sha256": "4fc6499f041869504a30d003249395f99c2ba0517eb745c8e1793e93941153e5",
+      "bytes": 28514
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-05-71bb0bd94cda.webp",
+      "sha256": "71bb0bd94cdae9ac91b2c94c4e40946a6500a6c05c67dc87b42a1e87af52011e",
+      "bytes": 28278
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-06-12dc39ffed55.webp",
+      "sha256": "12dc39ffed55c6423d7ce0ef7ca8725b2511d0330f381d461828ca00f4ec9d28",
+      "bytes": 27746
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-07-189247b6f606.webp",
+      "sha256": "189247b6f60650c10c43f5a15f7421259b688d24b37ba39455dac8549ccdc358",
+      "bytes": 38550
+    },
+    {
+      "path": "art-delivery/small/M-butterfly-08-0b36117ac588.webp",
+      "sha256": "0b36117ac588ff2afe14fb1e1aac9b6883afb7f4d8f1071d0c97d2adb86e0dc2",
+      "bytes": 34344
+    },
+    {
+      "path": "art-delivery/small/M-cat-01-e7147f063a85.webp",
+      "sha256": "e7147f063a85377b78ba34b8a940e46c29d223e17f5cd9b79d8486ffe8a88da1",
+      "bytes": 27292
+    },
+    {
+      "path": "art-delivery/small/M-cat-02-8e9af2fdcbf1.webp",
+      "sha256": "8e9af2fdcbf1a21ad837ab153440cc215a7ca121e821f5eaa1b13ac3be254613",
+      "bytes": 31612
+    },
+    {
+      "path": "art-delivery/small/M-cat-03-3e7007b235d6.webp",
+      "sha256": "3e7007b235d67fe5b2f9cf90059874dd9db7b188bd7ddbde35cfbf6656e55e97",
+      "bytes": 37024
+    },
+    {
+      "path": "art-delivery/small/M-cat-04-f8fe45b0f64c.webp",
+      "sha256": "f8fe45b0f64c815b9541a322713205eea83862f78d7827ac351fab49b3f1a576",
+      "bytes": 39002
+    },
+    {
+      "path": "art-delivery/small/M-cat-05-780b25a8a386.webp",
+      "sha256": "780b25a8a3862ba703e982b47be58eda1d19b535c16f77af8087c3566433d273",
+      "bytes": 32160
+    },
+    {
+      "path": "art-delivery/small/M-cat-06-7fc428712009.webp",
+      "sha256": "7fc428712009f433fdab7f48f40947dc7e4009b91d9ccf52c44a98a0301f5648",
+      "bytes": 33666
+    },
+    {
+      "path": "art-delivery/small/M-cat-07-e663c3e0a8f3.webp",
+      "sha256": "e663c3e0a8f328e5db5a96c7f6aee9903a67e74a0a41ec76fa222313c03da17f",
+      "bytes": 33790
+    },
+    {
+      "path": "art-delivery/small/M-cat-08-00a39da5fc37.webp",
+      "sha256": "00a39da5fc372b124ea220458b69fa2ce2231de6b498d10f65c4334464ef485a",
+      "bytes": 28630
+    },
+    {
+      "path": "art-delivery/small/M-cicada-01-abdce3111854.webp",
+      "sha256": "abdce31118542d2a2200e39d67e21eab62d5adf608e6baee0609f20aaadf5a70",
+      "bytes": 37366
+    },
+    {
+      "path": "art-delivery/small/M-cicada-02-79a2628cf442.webp",
+      "sha256": "79a2628cf44218cb1023c05bb207789ee577ded8bb78abca3a4e6898fec8243b",
+      "bytes": 32574
+    },
+    {
+      "path": "art-delivery/small/M-cicada-03-e1e3cdb50686.webp",
+      "sha256": "e1e3cdb50686b83d70158addc5f895124302aec77a6fe9366cd17268e2521bb2",
+      "bytes": 33916
+    },
+    {
+      "path": "art-delivery/small/M-cicada-04-5c5c16587471.webp",
+      "sha256": "5c5c1658747182c7c2ff4e3ff3359de5ea6aeb335d2ed7218be0844dc8087b7e",
+      "bytes": 39372
+    },
+    {
+      "path": "art-delivery/small/M-cicada-05-24668cf51f77.webp",
+      "sha256": "24668cf51f773b6fc585ca6d265b4bf30c0dc0e977de2022fc61e324f52d9089",
+      "bytes": 36976
+    },
+    {
+      "path": "art-delivery/small/M-cicada-06-3f2e7593dbcb.webp",
+      "sha256": "3f2e7593dbcb1fcc4b89ca5e7afa89795035e1695a956a665fc18fba85054acf",
+      "bytes": 31410
+    },
+    {
+      "path": "art-delivery/small/M-cicada-07-ba15b4348991.webp",
+      "sha256": "ba15b4348991aed0caef2290166e453d7a63d949a9851b0f41122f1655c71dbc",
+      "bytes": 43192
+    },
+    {
+      "path": "art-delivery/small/M-cicada-08-a640d3717a9a.webp",
+      "sha256": "a640d3717a9aec5a445af5b19b70c76badb7c0f137a7f3952fc4303d300e34b6",
+      "bytes": 34320
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-01-ddaa198183c1.webp",
+      "sha256": "ddaa198183c16bc52603bdda0f18c3ca7ad1d549ca003d87833aa091404830d9",
+      "bytes": 35474
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-02-66121eeb0dd2.webp",
+      "sha256": "66121eeb0dd23d81b1ee3f2dd8dea626eaa6f157b3566393ee75024ae7e9aa55",
+      "bytes": 39528
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-03-c61de6fe4495.webp",
+      "sha256": "c61de6fe44953f1c1a5837f2a3fa1b2664c6027940405cd2ae7afee047f08e14",
+      "bytes": 39544
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-04-28304b89356e.webp",
+      "sha256": "28304b89356e7f8db5446c0afce3d96a01d286d3d5e1c9fbe90759f126874ee3",
+      "bytes": 39714
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-05-970b39c48d9e.webp",
+      "sha256": "970b39c48d9e63c66c50cecedeac52ee49fd6dc04a4131b64c57af468835e18f",
+      "bytes": 47524
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-06-1cde8b229872.webp",
+      "sha256": "1cde8b22987261760a4314f6e0f691ebb9199d8005bb28d42f3982172f73a996",
+      "bytes": 46954
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-07-33b4bebed7a0.webp",
+      "sha256": "33b4bebed7a007b30acd8aa290ed337d7888e76121339342347e1e9b0484b5bb",
+      "bytes": 41052
+    },
+    {
+      "path": "art-delivery/small/M-clownfish-08-4a1511b34a09.webp",
+      "sha256": "4a1511b34a09ba50ac529dad4f7f6b53cc0660d93562a1a2c2500be633f31c68",
+      "bytes": 36564
+    },
+    {
+      "path": "art-delivery/small/M-coral-01-b66c22759ad5.webp",
+      "sha256": "b66c22759ad503fd5088a92d53d3e4d459244667cc9c3b8789c39e116ecc0dc9",
+      "bytes": 29290
+    },
+    {
+      "path": "art-delivery/small/M-coral-02-ddd8b327ac52.webp",
+      "sha256": "ddd8b327ac5224db88cf2311cd8c84eb258ba1524e2e7c0a794f24a36aa53ad0",
+      "bytes": 32924
+    },
+    {
+      "path": "art-delivery/small/M-coral-03-a9e36d7e65c3.webp",
+      "sha256": "a9e36d7e65c306d516e94f42593e1ca95e83b0a659520c94ab717a1fdf3736ab",
+      "bytes": 34796
+    },
+    {
+      "path": "art-delivery/small/M-coral-04-db8f3fa2d66c.webp",
+      "sha256": "db8f3fa2d66ce9e0b6a0c2104e84a59aa05e3c2816ff8630d05f9346c102a726",
+      "bytes": 34418
+    },
+    {
+      "path": "art-delivery/small/M-coral-05-e58a7a9b0440.webp",
+      "sha256": "e58a7a9b044054518a3ef1d8c3d1f755ee53fbb6a8ccbe78bc7137836763ca12",
+      "bytes": 40484
+    },
+    {
+      "path": "art-delivery/small/M-coral-06-619e2b84df33.webp",
+      "sha256": "619e2b84df33b99d2e2b4bd4657b3d42a4c2941ac87e00d9089a40ad138ac654",
+      "bytes": 46206
+    },
+    {
+      "path": "art-delivery/small/M-coral-07-0a3751be5a60.webp",
+      "sha256": "0a3751be5a60c8b4a48c3b7c270c855d07e335a3e6fe71520a8ce7d1c7a21ac7",
+      "bytes": 51610
+    },
+    {
+      "path": "art-delivery/small/M-coral-08-21579750a6bb.webp",
+      "sha256": "21579750a6bbded024484fa0cfc3b931aa84e0c67d5bddf73ac34d4ebb961c47",
+      "bytes": 44572
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-01-4cb40336c691.webp",
+      "sha256": "4cb40336c6911cf8f1cde88604cc3bac58bb938a8fd446e57f9187d7b8c7f6e3",
+      "bytes": 33592
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-02-c79b73585f14.webp",
+      "sha256": "c79b73585f1418a9b8d547b292c67b69531b6b229dea3bf9a55bd5cbeedba9a6",
+      "bytes": 43262
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-03-d5e14f97b63d.webp",
+      "sha256": "d5e14f97b63d12cd19dc4c8e567b6dd2564c1db64315622a8871f30d1776d6d6",
+      "bytes": 44486
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-04-c078ceb35796.webp",
+      "sha256": "c078ceb357963cba3115422840c108e4fa959e01f6c9519f6f315f5ed1657ea0",
+      "bytes": 47800
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-05-f4ea9ad8a73c.webp",
+      "sha256": "f4ea9ad8a73ce8cec23b654d374c52f200c295c053f485ddc9bb322ad4ee8175",
+      "bytes": 45176
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-06-9cf138d5b034.webp",
+      "sha256": "9cf138d5b034893d1892c5a32e2449fc890fb3223723d6d460df5bd76d6b65be",
+      "bytes": 41242
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-07-09f65d26d65b.webp",
+      "sha256": "09f65d26d65b47e59df4c69820153e0ef32dc80d79300fa0e013567435f80177",
+      "bytes": 36520
+    },
+    {
+      "path": "art-delivery/small/M-dandelion-08-4f7ca35a95b4.webp",
+      "sha256": "4f7ca35a95b494efc7a599ad636bc5ee2f995e2e06951dc1d2d2e2d316f400ca",
+      "bytes": 44024
+    },
+    {
+      "path": "art-delivery/small/M-dog-01-46049c55984a.webp",
+      "sha256": "46049c55984ab3d698c5eabd96275bf4f29fa25f8cbaaa4ad31ec4a2a8dfced4",
+      "bytes": 27936
+    },
+    {
+      "path": "art-delivery/small/M-dog-02-10fe27cf948d.webp",
+      "sha256": "10fe27cf948dd84f9e967062c06fc213d4a22c83fb04513968d8792cee74f9e8",
+      "bytes": 34784
+    },
+    {
+      "path": "art-delivery/small/M-dog-03-2dc89e718cf4.webp",
+      "sha256": "2dc89e718cf4c32958c9f516027507b8303b71017a5e90c09f3f9e7e1f75bb8b",
+      "bytes": 37210
+    },
+    {
+      "path": "art-delivery/small/M-dog-04-e1789b301f20.webp",
+      "sha256": "e1789b301f20f61b73facf5c2737fd3ef68a1363aea441607b4094ca1d54fd46",
+      "bytes": 35138
+    },
+    {
+      "path": "art-delivery/small/M-dog-05-e90f0bfb64b9.webp",
+      "sha256": "e90f0bfb64b919b650f56a6d4a1d67340e9b3bd6de945c1ed6df8206866385ea",
+      "bytes": 43342
+    },
+    {
+      "path": "art-delivery/small/M-dog-06-08fc62014eb0.webp",
+      "sha256": "08fc62014eb0973a9d5ebefeea8b82eebb93ba4153adfd6397df9614ce513d7f",
+      "bytes": 36176
+    },
+    {
+      "path": "art-delivery/small/M-dog-07-7a72e26cf509.webp",
+      "sha256": "7a72e26cf50900879a89049db45a7920a1dd9c1d110291dc0f3a972bc0071b89",
+      "bytes": 34914
+    },
+    {
+      "path": "art-delivery/small/M-dog-08-fc6c34e4add9.webp",
+      "sha256": "fc6c34e4add9c1562d257a5d19089684409815309855825d41e3a847aa408ea8",
+      "bytes": 26546
+    },
+    {
+      "path": "art-delivery/small/M-dragon-01-38d6629cfadf.webp",
+      "sha256": "38d6629cfadf5b6c868609387a6302c17213587cfacdce6a6fe7c79a31b2acca",
+      "bytes": 33404
+    },
+    {
+      "path": "art-delivery/small/M-dragon-02-756e8dedb015.webp",
+      "sha256": "756e8dedb0150f0adf5e7457b9ae779b5e275d7e446ae0fd3065032fa72dab20",
+      "bytes": 42004
+    },
+    {
+      "path": "art-delivery/small/M-dragon-03-bb0e4f46be38.webp",
+      "sha256": "bb0e4f46be387343f14ebb1ed252cfc96d1cfa35c4ff33a3c521c47a695b6737",
+      "bytes": 45336
+    },
+    {
+      "path": "art-delivery/small/M-dragon-04-a08b05fc4e33.webp",
+      "sha256": "a08b05fc4e337168a46fac7ae1a4f55834acdc53c26f8c36954ab1ad8a594a0a",
+      "bytes": 39870
+    },
+    {
+      "path": "art-delivery/small/M-dragon-05-6897e53cbeca.webp",
+      "sha256": "6897e53cbeca31e3cac38bb5d76be8ba64665a372d4fa10b7386c8600b98ca76",
+      "bytes": 35066
+    },
+    {
+      "path": "art-delivery/small/M-dragon-06-35af2f69f500.webp",
+      "sha256": "35af2f69f500dbb28966750030e1ff099b0c6be4afa83c9ad42e6a9df2c62011",
+      "bytes": 39054
+    },
+    {
+      "path": "art-delivery/small/M-dragon-07-01246e809438.webp",
+      "sha256": "01246e8094381a9207ce2d95b5c1ae21d952a2ffa57196d7a84fde5eb9e9a010",
+      "bytes": 40388
+    },
+    {
+      "path": "art-delivery/small/M-dragon-08-d53670f15f75.webp",
+      "sha256": "d53670f15f756a78f08cc47e2d6f64986f9979496c26cfe68cec5cee5ebe31c4",
+      "bytes": 40238
+    },
+    {
+      "path": "art-delivery/small/M-frog-01-4962ac4732d3.webp",
+      "sha256": "4962ac4732d32db6a3d950299ca3287d985950465a9e53429fcca7f495b6a142",
+      "bytes": 29744
+    },
+    {
+      "path": "art-delivery/small/M-frog-02-365921f82d20.webp",
+      "sha256": "365921f82d20dd98edcada58fcdd756af2218482ed95d88397591b799030cef8",
+      "bytes": 32760
+    },
+    {
+      "path": "art-delivery/small/M-frog-03-f043a723554f.webp",
+      "sha256": "f043a723554f1f9d8f29fe4611ee49ac4b9374255a8438474a4c15e330b4a7e3",
+      "bytes": 34466
+    },
+    {
+      "path": "art-delivery/small/M-frog-04-1c99b9746a0b.webp",
+      "sha256": "1c99b9746a0b4f0c19f4a80a5415c8bb01a491754bb462963bc52d5acce202ec",
+      "bytes": 35110
+    },
+    {
+      "path": "art-delivery/small/M-frog-05-d20720b3ae0e.webp",
+      "sha256": "d20720b3ae0e4dfb2e85c78460d5b465aad80ecb642dfc0023fe7851941a522c",
+      "bytes": 34652
+    },
+    {
+      "path": "art-delivery/small/M-frog-06-ed54404da713.webp",
+      "sha256": "ed54404da713eff2ea184bbcb1fa7f3dacf6896a9f7348419fa3b7b603029b67",
+      "bytes": 37958
+    },
+    {
+      "path": "art-delivery/small/M-frog-07-ecc770b955c0.webp",
+      "sha256": "ecc770b955c02ef21d083f098892e9e07764e734ac5b3b68ac0ba4bbb006d41e",
+      "bytes": 39120
+    },
+    {
+      "path": "art-delivery/small/M-frog-08-ba09c9df6d41.webp",
+      "sha256": "ba09c9df6d414745f0ca900b86154c646c040af47225d510a3451d778586de38",
+      "bytes": 35478
+    },
+    {
+      "path": "art-delivery/small/M-ghost-01-0d366b64c564.webp",
+      "sha256": "0d366b64c5646886841af0b43830cc1f21737178e89c28bf30f167b8d950417c",
+      "bytes": 31790
+    },
+    {
+      "path": "art-delivery/small/M-ghost-02-e99a2562fa27.webp",
+      "sha256": "e99a2562fa275993492eb43a758c2f3c1c8473a2118a7ddd2c7f1e7dab4fb118",
+      "bytes": 36160
+    },
+    {
+      "path": "art-delivery/small/M-ghost-03-1d2b82917787.webp",
+      "sha256": "1d2b82917787f615e826f1cf14e8dddcb45abb74e1df70ab4e215e3299f5ec84",
+      "bytes": 29640
+    },
+    {
+      "path": "art-delivery/small/M-ghost-04-e9d8283c2b49.webp",
+      "sha256": "e9d8283c2b49078a6b38344a762b15b6648772d2ebb5e3edb361bccc85f68b12",
+      "bytes": 36794
+    },
+    {
+      "path": "art-delivery/small/M-ghost-05-a1523738928d.webp",
+      "sha256": "a1523738928dd7fd28a5a1fef7f75e7c43b50ef0dae85199e8754cf99bd13d60",
+      "bytes": 32290
+    },
+    {
+      "path": "art-delivery/small/M-ghost-06-67f72230226f.webp",
+      "sha256": "67f72230226f1b2c75a81ccdf52f4e100b58946bed35307134d7a64fb3c6b857",
+      "bytes": 35556
+    },
+    {
+      "path": "art-delivery/small/M-ghost-07-1e405fdb748c.webp",
+      "sha256": "1e405fdb748ce6bca760bc7bdf1fbc090973712061a330ac7014a1ce7ed73cb3",
+      "bytes": 43512
+    },
+    {
+      "path": "art-delivery/small/M-ghost-08-34a5405fb006.webp",
+      "sha256": "34a5405fb00603914e5bbc18234e447d1ed81e1040eff6d27e6fd3a19ff3cfe8",
+      "bytes": 25730
+    },
+    {
+      "path": "art-delivery/small/M-god-01-f0c8b1d5407f.webp",
+      "sha256": "f0c8b1d5407fe93f94e0e9f7e7981deb4a568b8b855bd5c63fe3859ba208d5d8",
+      "bytes": 26086
+    },
+    {
+      "path": "art-delivery/small/M-god-02-cd93a2509762.webp",
+      "sha256": "cd93a2509762055b01241fb29f845ded4f1bb6fd8fac56c7f1723c61d20cdbe6",
+      "bytes": 25560
+    },
+    {
+      "path": "art-delivery/small/M-god-03-b98685fe760d.webp",
+      "sha256": "b98685fe760d2e27eb6dc443b272e9b934cffafa13253d0ea22db04120f13103",
+      "bytes": 38198
+    },
+    {
+      "path": "art-delivery/small/M-god-04-035a50b04a47.webp",
+      "sha256": "035a50b04a4750eb06efb145a67bbfaa1eb9fdf292ba048e76e00b5800b24fda",
+      "bytes": 34004
+    },
+    {
+      "path": "art-delivery/small/M-god-05-a1b56114f844.webp",
+      "sha256": "a1b56114f844211efae638ff91532e2cd08b38f38a65c33e2a3a793f975390f0",
+      "bytes": 33520
+    },
+    {
+      "path": "art-delivery/small/M-god-06-d13a7a1c6fa0.webp",
+      "sha256": "d13a7a1c6fa06d8517ddd58b6e2fd760a28a9084ec530560fa98aeb1a84b73ce",
+      "bytes": 36214
+    },
+    {
+      "path": "art-delivery/small/M-god-07-c42921cf4414.webp",
+      "sha256": "c42921cf4414919eb30bddf37305cced2409948ba3fd6259a377d8179e6ebea9",
+      "bytes": 40772
+    },
+    {
+      "path": "art-delivery/small/M-god-08-f8b13e67175d.webp",
+      "sha256": "f8b13e67175dc50470f3d4656576706e83f2e99977f1ec265c1eb65fb54bdccd",
+      "bytes": 28942
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-01-1efbe84641cf.webp",
+      "sha256": "1efbe84641cf405aa65f7a1650a9ed419fdd55e3ede769205479f3507a63b96c",
+      "bytes": 27902
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-02-e9708e28ea26.webp",
+      "sha256": "e9708e28ea2639748b2554cfcd53a7872edc82734af64a2f7be396428460c7d2",
+      "bytes": 31040
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-03-53ea6f2e6e5f.webp",
+      "sha256": "53ea6f2e6e5f63359f9164e5ce245312daae25f4954c5766276cdd947ab71cd6",
+      "bytes": 42560
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-04-0b2f3de95598.webp",
+      "sha256": "0b2f3de95598f4b716fd06087e344be9b81496193fbd43316cf227f06531cc3e",
+      "bytes": 36846
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-05-e067978ca937.webp",
+      "sha256": "e067978ca9375dfbf6e4987029a67da4ffe523ac93340c12adb6923dd8a19b70",
+      "bytes": 35206
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-06-b2a4e238c458.webp",
+      "sha256": "b2a4e238c4584e9c47054a33c82f94555396c0122566c95e7dd8f42502b191f2",
+      "bytes": 40126
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-07-795f3ec96852.webp",
+      "sha256": "795f3ec96852e0b5359554de5fa7a6dd6df45aed16f26250dd41f90639ec1fe7",
+      "bytes": 45404
+    },
+    {
+      "path": "art-delivery/small/M-hermit_crab-08-11b14a3bfa16.webp",
+      "sha256": "11b14a3bfa16a0ab761eb4b7bb00a6b797a6dcbb00c746e796c78f1853ba278a",
+      "bytes": 37152
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-01-709f8ba50b0d.webp",
+      "sha256": "709f8ba50b0d973a6bcd8b248ae71f8a8fc1196cd43e67ea08c9189956652108",
+      "bytes": 36574
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-02-f857519a0e6c.webp",
+      "sha256": "f857519a0e6cfa169947e2ffb1d358d5a0cbb6b308e897ea9796995f45c0240b",
+      "bytes": 39276
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-03-24de2af59217.webp",
+      "sha256": "24de2af5921779b26f2eeda133fd85fb83e6675f6907fc287c75d4605ebadbba",
+      "bytes": 39270
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-04-b8fd0e323592.webp",
+      "sha256": "b8fd0e3235921d2303fce8072aec5612d5ddcef0d5f983f5eb69d150e826fdcc",
+      "bytes": 31936
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-05-1af9b6e36fe6.webp",
+      "sha256": "1af9b6e36fe6d3ce6c653968eece5e9693c1341a5b200568957f6c546b897d8a",
+      "bytes": 35426
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-06-f6f65597bdf9.webp",
+      "sha256": "f6f65597bdf9323900198dde292523fd6305628c6a636df1d912dfb76e82630c",
+      "bytes": 34732
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-07-5d854c0d976a.webp",
+      "sha256": "5d854c0d976a2b07b61f46775178a2e2a9346ac88471147d1f22c5d52249e756",
+      "bytes": 44282
+    },
+    {
+      "path": "art-delivery/small/M-jellyfish-08-59297c9231e5.webp",
+      "sha256": "59297c9231e560f85ab931ba072031292b01209bce48cd30c6ba408de0dd25bb",
+      "bytes": 42518
+    },
+    {
+      "path": "art-delivery/small/M-man-01-de23c9317454.webp",
+      "sha256": "de23c9317454c06787888946bceddc864ab87834b9aeda5f8d6f16f9ededefc6",
+      "bytes": 36390
+    },
+    {
+      "path": "art-delivery/small/M-man-02-d22fc1ade9e5.webp",
+      "sha256": "d22fc1ade9e5eed6048b341b006cf55f9bfdc5f52e5b706728217a6b5fd808ea",
+      "bytes": 36260
+    },
+    {
+      "path": "art-delivery/small/M-man-03-a153c703e45d.webp",
+      "sha256": "a153c703e45d3d1105a48628f905497fe187bd27de72ca4daefdd4ea02036f88",
+      "bytes": 41672
+    },
+    {
+      "path": "art-delivery/small/M-man-04-e9cd39d5d74f.webp",
+      "sha256": "e9cd39d5d74f5b6e70f4c90bec354f46a66391ed015bc5e6014e7cd435525d3e",
+      "bytes": 37982
+    },
+    {
+      "path": "art-delivery/small/M-man-05-747ae4f4a7ff.webp",
+      "sha256": "747ae4f4a7ffdf4ae5c0cb03f5b74bffaaefd8de0d5f422999d47a621a5b15c1",
+      "bytes": 39914
+    },
+    {
+      "path": "art-delivery/small/M-man-06-24b89cb6b09f.webp",
+      "sha256": "24b89cb6b09f2e1e423a6eb894307e8c60ae368309879397ebcbcb752d0b96ed",
+      "bytes": 38366
+    },
+    {
+      "path": "art-delivery/small/M-man-07-8332e0427e82.webp",
+      "sha256": "8332e0427e82829322ad150853f01a130a2b28027b220310ec9ed5bc8cce296c",
+      "bytes": 42084
+    },
+    {
+      "path": "art-delivery/small/M-man-08-e9305adf7d23.webp",
+      "sha256": "e9305adf7d232b957ace8d0b45f51d5cc5b2e2df2afdcbcae8619ed17f21c43b",
+      "bytes": 35062
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-01-acecc7c302f2.webp",
+      "sha256": "acecc7c302f2cc67c1cbf61003c622cdf18975b23b09a97db251571deba170ef",
+      "bytes": 31088
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-02-db7e8e4ea209.webp",
+      "sha256": "db7e8e4ea20919b032a3a6e0195bc9ac4509ab0768e69c296cd4f0b1f7bf2fa0",
+      "bytes": 45396
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-03-d77e8c72808a.webp",
+      "sha256": "d77e8c72808a27d3454d0788149e1cf772b16e7b5947c71d74f8ff368fe8d5ec",
+      "bytes": 29866
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-04-88bf2044ec96.webp",
+      "sha256": "88bf2044ec966b64bf19da88da8568df200c966b69be9e0b4a89cbed79ceba13",
+      "bytes": 37056
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-05-827826c6b1c8.webp",
+      "sha256": "827826c6b1c81452aeea9a16f313ce58034740fe6c8b9c9fcfe4e7412e6bfe39",
+      "bytes": 37926
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-06-4eac93f95db2.webp",
+      "sha256": "4eac93f95db2de2141a608bf3a0dd5356991a59046534b2b37fdd163a952effe",
+      "bytes": 33486
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-07-6885899dc03f.webp",
+      "sha256": "6885899dc03f6715b444c1268d1febc1a63fc1dabff720e85949a8c8cde2ce03",
+      "bytes": 35850
+    },
+    {
+      "path": "art-delivery/small/M-mushroom-08-810aa537fe48.webp",
+      "sha256": "810aa537fe489e09cf0132cd647a389815fb043abb39655417b1428ff16f1758",
+      "bytes": 39874
+    },
+    {
+      "path": "art-delivery/small/M-penguin-01-a9af1c5deac9.webp",
+      "sha256": "a9af1c5deac9a7914305150c26350b7ca2bd51824dc72363d709ba88d606e600",
+      "bytes": 20912
+    },
+    {
+      "path": "art-delivery/small/M-penguin-02-f2932e580d3f.webp",
+      "sha256": "f2932e580d3f7dd3a9472917ff96bcf5fe07ea0f76e7656a7df971c5dcc0e6cd",
+      "bytes": 26042
+    },
+    {
+      "path": "art-delivery/small/M-penguin-03-0c9583858cc2.webp",
+      "sha256": "0c9583858cc23132913e15aca5b9419d6e222b36005ab84b75d119c53bad5277",
+      "bytes": 25838
+    },
+    {
+      "path": "art-delivery/small/M-penguin-04-823c3a78a0db.webp",
+      "sha256": "823c3a78a0db43b91394d4327f4d1950ef9ad0cf3422a864ca469815b49b8e30",
+      "bytes": 32648
+    },
+    {
+      "path": "art-delivery/small/M-penguin-05-21a26d67307f.webp",
+      "sha256": "21a26d67307f0464d65cd9a2a62970854717a961b6451a4e28c52a4f55e6ad0b",
+      "bytes": 24744
+    },
+    {
+      "path": "art-delivery/small/M-penguin-06-265a3d23ddaa.webp",
+      "sha256": "265a3d23ddaa67bf462a1f3d7ffc2d07dc1a42d046a0880e5a5edc7db28cfc6a",
+      "bytes": 36200
+    },
+    {
+      "path": "art-delivery/small/M-penguin-07-720f778616af.webp",
+      "sha256": "720f778616afa53e46e40bdc2b7bfa1387e793d1ddbc5b2a35b678dc4eda26b3",
+      "bytes": 31242
+    },
+    {
+      "path": "art-delivery/small/M-penguin-08-e621b3ebc819.webp",
+      "sha256": "e621b3ebc81945bed6fdff4723615b5ead3d8c7abc2b4477fa5f80238669d94d",
+      "bytes": 31970
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-01-ceeac93972db.webp",
+      "sha256": "ceeac93972db8e1839e4e08430ad9981663b490e59285f1e88cdc47212c86f21",
+      "bytes": 37160
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-02-0d132e4cc34d.webp",
+      "sha256": "0d132e4cc34d5c9f3e2f8446ba3ff032cefa526ad4b4cdc098db8ae82dfd7a25",
+      "bytes": 35452
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-03-a2e4ad960580.webp",
+      "sha256": "a2e4ad960580b35873573584fa5c8b3c69b2b6408aeffe6f89b605f01343946f",
+      "bytes": 39178
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-04-fa499d6a0b13.webp",
+      "sha256": "fa499d6a0b13e7a60ead31c6a99040fc83eef758cacef80d70f47a911e33e757",
+      "bytes": 33732
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-05-093a82e4aa9e.webp",
+      "sha256": "093a82e4aa9ec87f7e318aa5240dc7b0b2de4bf6c386d62839a062951e6efa3f",
+      "bytes": 33468
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-06-b38349e9774a.webp",
+      "sha256": "b38349e9774a8c901f6e467cc47303253ff2a52b0289f13f0bafefd24a0c54f7",
+      "bytes": 30550
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-07-b32da5364550.webp",
+      "sha256": "b32da5364550e1a8b94b757562787f349430777494b5f032003168c4a99b4507",
+      "bytes": 36902
+    },
+    {
+      "path": "art-delivery/small/M-phoenix-08-53620c874313.webp",
+      "sha256": "53620c8743138be840a5654f2cfc943cb293b3d7531a16e53abebe28aa4c1629",
+      "bytes": 30880
+    },
+    {
+      "path": "art-delivery/small/M-plush-01-9fc2637eaae1.webp",
+      "sha256": "9fc2637eaae1c61601c64fbffa236c09a58dd4314345ac5311bb0dcfc82d1225",
+      "bytes": 26804
+    },
+    {
+      "path": "art-delivery/small/M-plush-02-6dcf8198aa29.webp",
+      "sha256": "6dcf8198aa2905f93cdb5408e9cccf99b34979c550cd3f88656d6cc14452c1d5",
+      "bytes": 25104
+    },
+    {
+      "path": "art-delivery/small/M-plush-03-c581385d7726.webp",
+      "sha256": "c581385d772621730ef8c776b1dd97ba07af26456b58b27cfee406ea08f9e5f3",
+      "bytes": 33604
+    },
+    {
+      "path": "art-delivery/small/M-plush-04-c239d70a29ad.webp",
+      "sha256": "c239d70a29ad028fbfe05eedaf632d004d0467f6e41f9aadee1d0ee38a82afd9",
+      "bytes": 40824
+    },
+    {
+      "path": "art-delivery/small/M-plush-05-852c1715086f.webp",
+      "sha256": "852c1715086fda9dd6ebd551fc1f637d87cd9418fc11fb508dc4b1bf6e3386d4",
+      "bytes": 39712
+    },
+    {
+      "path": "art-delivery/small/M-plush-06-4e08af2f0ff9.webp",
+      "sha256": "4e08af2f0ff915f414cc79b45163c178ceaf65802e1bd4328c82f4d50c80d0c5",
+      "bytes": 37376
+    },
+    {
+      "path": "art-delivery/small/M-plush-07-79a73d340b68.webp",
+      "sha256": "79a73d340b686c89774f05b1a7f17d5dc07e333a53c0e1a30d1e48f8594a4ace",
+      "bytes": 32512
+    },
+    {
+      "path": "art-delivery/small/M-plush-08-f8b361369b62.webp",
+      "sha256": "f8b361369b628badfa3bb41491921308d1afde138bcc8b5a07c395a9eb89133f",
+      "bytes": 33512
+    },
+    {
+      "path": "art-delivery/small/M-ren-01-01018980550d.webp",
+      "sha256": "01018980550db831e4920dc8e5620955700e6fbf2be3985791cb938b3596bfc1",
+      "bytes": 38590
+    },
+    {
+      "path": "art-delivery/small/M-ren-02-570e47f97617.webp",
+      "sha256": "570e47f97617038292f89a4910180ba8f75d4961396cd5a111dd5af32b73502e",
+      "bytes": 43516
+    },
+    {
+      "path": "art-delivery/small/M-ren-03-4a73bb12aea0.webp",
+      "sha256": "4a73bb12aea027be07e425b92b095530e33e82b32b5ec42603f37cb5fe611ccf",
+      "bytes": 33792
+    },
+    {
+      "path": "art-delivery/small/M-ren-04-62126357c4bb.webp",
+      "sha256": "62126357c4bb186dea846a3e97f619be6f8cb1e28eda565d625f54e15da1c865",
+      "bytes": 47792
+    },
+    {
+      "path": "art-delivery/small/M-ren-05-b1bb818217b0.webp",
+      "sha256": "b1bb818217b0be681d309cb2816aac31df48afa6da0c9035fd67fb0ceabda426",
+      "bytes": 40584
+    },
+    {
+      "path": "art-delivery/small/M-ren-06-90c0de934d0d.webp",
+      "sha256": "90c0de934d0ddecf699eb9e796703805cd2ca88e9036f3b9ab56167d77e7f987",
+      "bytes": 44110
+    },
+    {
+      "path": "art-delivery/small/M-ren-07-33cfc4e3d54e.webp",
+      "sha256": "33cfc4e3d54efbf2490b53dda05d049b48a7878faada1b26588f67965cc7a5c4",
+      "bytes": 43454
+    },
+    {
+      "path": "art-delivery/small/M-ren-08-9bb7ae977317.webp",
+      "sha256": "9bb7ae977317c192d6ea2aa7245dd11f9d6a7f996dbb71d350a331743f83d305",
+      "bytes": 42858
+    },
+    {
+      "path": "art-delivery/small/M-sakura-01-93c94733368b.webp",
+      "sha256": "93c94733368b76e03f019e01cacfadec8767144142f8f912e81dee3d5b6d9c35",
+      "bytes": 30834
+    },
+    {
+      "path": "art-delivery/small/M-sakura-02-c9899d49d280.webp",
+      "sha256": "c9899d49d280ec26b3bff26a31aef905fdd50c0025815ca8b7dc50ca11ddc9c8",
+      "bytes": 31116
+    },
+    {
+      "path": "art-delivery/small/M-sakura-03-bba13f5c9f80.webp",
+      "sha256": "bba13f5c9f80189ecc284bce5da5ddd6ccafc357307b024e3ec7a0afd89d6f7b",
+      "bytes": 46162
+    },
+    {
+      "path": "art-delivery/small/M-sakura-04-fb53c4b828cc.webp",
+      "sha256": "fb53c4b828cc32cd41d225cd9dfb1ca35ced8c9e006f7465af503a8f6a48578b",
+      "bytes": 41894
+    },
+    {
+      "path": "art-delivery/small/M-sakura-05-336a410f9fc3.webp",
+      "sha256": "336a410f9fc3b16a126df80303f9fa06d1244d54a95982787257045b96b43af8",
+      "bytes": 35820
+    },
+    {
+      "path": "art-delivery/small/M-sakura-06-b8ac1823df4a.webp",
+      "sha256": "b8ac1823df4a12005d36ff3f9f8c3911f6b576fa780e6fd9a5fef472c2abfa95",
+      "bytes": 33190
+    },
+    {
+      "path": "art-delivery/small/M-sakura-07-4d766304455e.webp",
+      "sha256": "4d766304455e3b8ec826b35be410c8ed2e28c13e8a27505e3317b83ac5a16cbe",
+      "bytes": 36034
+    },
+    {
+      "path": "art-delivery/small/M-sakura-08-935e984cf874.webp",
+      "sha256": "935e984cf8743646a61b465fc6061a1b7f4735e0f574834ea6ef5701afcb02b1",
+      "bytes": 41912
+    },
+    {
+      "path": "art-delivery/small/M-salmon-01-b7fe3ba6e2d1.webp",
+      "sha256": "b7fe3ba6e2d1de3223265135861f1ee29976c14a6e6610ac7672b05156da882a",
+      "bytes": 36044
+    },
+    {
+      "path": "art-delivery/small/M-salmon-02-6271b7fb0c4e.webp",
+      "sha256": "6271b7fb0c4eb1bc96acbb5cfa8224084079b3baa226f3a805d764306463b73c",
+      "bytes": 32914
+    },
+    {
+      "path": "art-delivery/small/M-salmon-03-179505e469b5.webp",
+      "sha256": "179505e469b5feaeafc6cff0563707114220bf3afb2801e48b504570986ea021",
+      "bytes": 42026
+    },
+    {
+      "path": "art-delivery/small/M-salmon-04-c81d11b60792.webp",
+      "sha256": "c81d11b6079200095a8bb8b9106af5f4a92fdcf8623df9f13ccc105a69ddc64a",
+      "bytes": 37620
+    },
+    {
+      "path": "art-delivery/small/M-salmon-05-d14d5dc8b629.webp",
+      "sha256": "d14d5dc8b629e78f188387b206808f55bfd45ea5ca217f723ff64fd044daee02",
+      "bytes": 35920
+    },
+    {
+      "path": "art-delivery/small/M-salmon-06-ec368bff9d11.webp",
+      "sha256": "ec368bff9d117a6cbb5c4e7449f6769bdc99f4abd3ff869d4b8dc8091e100055",
+      "bytes": 36298
+    },
+    {
+      "path": "art-delivery/small/M-salmon-07-9910ece79748.webp",
+      "sha256": "9910ece79748fdb2aa96fad84b94d0013c1865f58562c7a603c73a5c40393686",
+      "bytes": 42946
+    },
+    {
+      "path": "art-delivery/small/M-salmon-08-b2edf681c446.webp",
+      "sha256": "b2edf681c446eaff477778a376e0130f6a631e0b9f00645fe3abeb031140a402",
+      "bytes": 41790
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-01-4f9c8814e85c.webp",
+      "sha256": "4f9c8814e85c4b654e2c06cc5399a081ae17e4266420864e9d5ba78d407589c1",
+      "bytes": 41536
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-02-9fc3af702b9d.webp",
+      "sha256": "9fc3af702b9d0106e448917e49a3874da6e382b812e5d848686644b319e21b51",
+      "bytes": 34900
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-03-75bd0cd0409a.webp",
+      "sha256": "75bd0cd0409a78ac390897a2bb7c4bccf0ba99d01311dec7afcab04a07f71cb5",
+      "bytes": 37016
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-04-0599498e1fef.webp",
+      "sha256": "0599498e1feffdb0e8b1d15a5a3ec0456839958118ac423facc27284f502c833",
+      "bytes": 38412
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-05-f97c62141390.webp",
+      "sha256": "f97c621413907dd1b121a0f98f934cf32ea573310514680d82a6142903504902",
+      "bytes": 36820
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-06-9db798ca0d35.webp",
+      "sha256": "9db798ca0d35b63510691c585fce0d8ff27042c99b2326bda0cb73b05076df38",
+      "bytes": 38400
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-07-ea08c1997f3d.webp",
+      "sha256": "ea08c1997f3d0c667362d231ebd7e1b9696a68c17368192ec14140152057a6f9",
+      "bytes": 46902
+    },
+    {
+      "path": "art-delivery/small/M-stagbeetle-08-961b99ac8f56.webp",
+      "sha256": "961b99ac8f564d2a95d0408730809d38ecb9677b227976e8424a42e670856155",
+      "bytes": 37350
+    },
+    {
+      "path": "art-delivery/small/M-star-01-8131b68a4d18.webp",
+      "sha256": "8131b68a4d183037cd57e6acfbcd96e18189a46ae244802d9edf70f1dfca6338",
+      "bytes": 27716
+    },
+    {
+      "path": "art-delivery/small/M-star-02-1724abe5ddf0.webp",
+      "sha256": "1724abe5ddf0d6e8a83353a43b7c3c1fe15651deaeee18a2ba04d98b45593dbc",
+      "bytes": 36796
+    },
+    {
+      "path": "art-delivery/small/M-star-03-35a78a56bdd7.webp",
+      "sha256": "35a78a56bdd775d17e5f5af7ea349337b655fe9f7fbc82f3c7d488e6dc083b9b",
+      "bytes": 37942
+    },
+    {
+      "path": "art-delivery/small/M-star-04-6fecbe79d1f4.webp",
+      "sha256": "6fecbe79d1f4a8410076586dd881bbc3eaeb6792072b63a622d9bdcd82dfe5da",
+      "bytes": 29844
+    },
+    {
+      "path": "art-delivery/small/M-star-05-2b460bdf2991.webp",
+      "sha256": "2b460bdf2991da06c3b3e1a167be6c8579b0036afe98d171fa0d65075f086d15",
+      "bytes": 28822
+    },
+    {
+      "path": "art-delivery/small/M-star-06-47bba2082cf8.webp",
+      "sha256": "47bba2082cf8782cd4740ad43aea8907218d49be27694087c2612875eee93460",
+      "bytes": 29614
+    },
+    {
+      "path": "art-delivery/small/M-star-07-d610ab3b515a.webp",
+      "sha256": "d610ab3b515a414904e959e22b4fa6ef1c12fc89fdf550253538f80725e62ef1",
+      "bytes": 43222
+    },
+    {
+      "path": "art-delivery/small/M-star-08-3986f13700d6.webp",
+      "sha256": "3986f13700d6af9038fb0cdf6e1dda154d465dd70fc518b68c8d517aa3ab8532",
+      "bytes": 31582
+    },
+    {
+      "path": "art-delivery/small/M-starfish-01-f0ed938a996d.webp",
+      "sha256": "f0ed938a996d540bae903de77e360eb14dc94e254540134751112db910a5f027",
+      "bytes": 34268
+    },
+    {
+      "path": "art-delivery/small/M-starfish-02-ab3d4e6894bc.webp",
+      "sha256": "ab3d4e6894bc39085a451ea171dc096c040515fa16b2ab8d9b3d6825d1ebf076",
+      "bytes": 30036
+    },
+    {
+      "path": "art-delivery/small/M-starfish-03-dbc018991274.webp",
+      "sha256": "dbc01899127416a7480ed27d02e2595121f48332f8510bd1132c9198e345f7d1",
+      "bytes": 33166
+    },
+    {
+      "path": "art-delivery/small/M-starfish-04-e80859541a13.webp",
+      "sha256": "e80859541a1372139857f576c065877f9b4b3d235ce17819ac1f3c0826faefa1",
+      "bytes": 38560
+    },
+    {
+      "path": "art-delivery/small/M-starfish-05-6ea0d18b1353.webp",
+      "sha256": "6ea0d18b1353ae015b65653745ab63abee087dc58d9537519fa1a21729138f40",
+      "bytes": 34338
+    },
+    {
+      "path": "art-delivery/small/M-starfish-06-109cb9294f88.webp",
+      "sha256": "109cb9294f880e90721d1e4fc1fa587adc24a640a8dbad228fd578b7ca1ae5f9",
+      "bytes": 35210
+    },
+    {
+      "path": "art-delivery/small/M-starfish-07-5551436c2a72.webp",
+      "sha256": "5551436c2a72be0457237f276714981d470b368194076e52d9bd1f4709253227",
+      "bytes": 38130
+    },
+    {
+      "path": "art-delivery/small/M-starfish-08-509914bdb768.webp",
+      "sha256": "509914bdb7685e877c42b061a979439326931d3c06d2f19e3595e9b9ef4ea107",
+      "bytes": 44608
+    },
+    {
+      "path": "art-delivery/small/M-turtle-01-d1b7d27cc63e.webp",
+      "sha256": "d1b7d27cc63e9a3e65f9580d5e54295520d061a186d75e06a4f7441ef4b67971",
+      "bytes": 31080
+    },
+    {
+      "path": "art-delivery/small/M-turtle-02-be016de66a33.webp",
+      "sha256": "be016de66a33afd539ecd2e8a9d5720231ce571d4fb5108d8739d0ea7f31e92f",
+      "bytes": 33266
+    },
+    {
+      "path": "art-delivery/small/M-turtle-03-419e65cb892e.webp",
+      "sha256": "419e65cb892ef6ba983fc8a42214ae6a0a968f088b5193d79da931030f7cc699",
+      "bytes": 37448
+    },
+    {
+      "path": "art-delivery/small/M-turtle-04-37200ab68824.webp",
+      "sha256": "37200ab68824fa75a1dccd007ae7d417b853c13278e33ebfa8e7bcc8a2894b83",
+      "bytes": 38398
+    },
+    {
+      "path": "art-delivery/small/M-turtle-05-215e453cfbe1.webp",
+      "sha256": "215e453cfbe1e770c8a90caab1f7472d59585eb46be4856a342a0d08ae4e1bc6",
+      "bytes": 40634
+    },
+    {
+      "path": "art-delivery/small/M-turtle-06-45fdd7f8ae7b.webp",
+      "sha256": "45fdd7f8ae7b7c11aa58d7b048a1d4a8e978482f8f5999687c0d99cfba81608a",
+      "bytes": 34108
+    },
+    {
+      "path": "art-delivery/small/M-turtle-07-408d58e26c70.webp",
+      "sha256": "408d58e26c7017530e001be194098b034e8986dcab7ad8ab0d9368bbb3228d1f",
+      "bytes": 42804
+    },
+    {
+      "path": "art-delivery/small/M-turtle-08-886922a9d972.webp",
+      "sha256": "886922a9d972874e86b04b11446da53ff5951354d3ad9c00082ac12c61c085e3",
+      "bytes": 37852
+    },
+    {
+      "path": "art-delivery/small/M-unknown-01-9715906a6ce0.webp",
+      "sha256": "9715906a6ce074b9a695725d18805b80cba7d4312b6d6f95583259b4a7556525",
+      "bytes": 26192
+    },
+    {
+      "path": "art-delivery/small/M-unknown-02-3d08e33db929.webp",
+      "sha256": "3d08e33db929011241114f5db719d93dcb80fc0762e8e9bbae3b246577f19f9a",
+      "bytes": 36210
+    },
+    {
+      "path": "art-delivery/small/M-unknown-03-468332a54311.webp",
+      "sha256": "468332a54311652ca3cb8ea62067130c54ae62dfaf37f1a51ca434584bd2e870",
+      "bytes": 38960
+    },
+    {
+      "path": "art-delivery/small/M-unknown-04-24808bc814aa.webp",
+      "sha256": "24808bc814aa561f38e10e83ca2633b42f724680788e096c6205e3e1ddecece6",
+      "bytes": 42698
+    },
+    {
+      "path": "art-delivery/small/M-unknown-05-61eaa1953933.webp",
+      "sha256": "61eaa195393360bebb47d9a8b6b0189117c30b92445684ce945c1af732261cf2",
+      "bytes": 37138
+    },
+    {
+      "path": "art-delivery/small/M-unknown-06-84fc5c5299a9.webp",
+      "sha256": "84fc5c5299a927cb5c431622cba2dac1bcb1894ac42909718711a82c5b4b672c",
+      "bytes": 39590
+    },
+    {
+      "path": "art-delivery/small/M-unknown-07-eda24a844514.webp",
+      "sha256": "eda24a844514d3ddf32de35b044fa3379e731af8f3448744ff04c42f11409cb5",
+      "bytes": 26122
+    },
+    {
+      "path": "art-delivery/small/M-unknown-08-d14dc3e1bbcf.webp",
+      "sha256": "d14dc3e1bbcfa236e695cc00eefbc5c4384da74a9750aa444571e9b0b3732a06",
+      "bytes": 28040
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-01-17d243c97afa.webp",
+      "sha256": "17d243c97afac1d93fbc6a62d6ca43107cb269761b6cf642107a4a1299826c42",
+      "bytes": 33438
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-02-573bb4a087a8.webp",
+      "sha256": "573bb4a087a874af8316c979fcc681ff0cea531d61bb78fd7555f6bffe3bd14d",
+      "bytes": 33266
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-03-a4ec235cbc8e.webp",
+      "sha256": "a4ec235cbc8e0413985b6a5027945650eebd75fd827a08568e31058f151bb4bd",
+      "bytes": 44020
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-04-ba69ca9ef281.webp",
+      "sha256": "ba69ca9ef281ae7b04e43e2f63eaeacf842abb512fa4fdcaedb03983931c5535",
+      "bytes": 35546
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-05-f8209c651614.webp",
+      "sha256": "f8209c651614dff30af19b9905a7ec44feb81f7af48062116788aa2f7c90178f",
+      "bytes": 43950
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-06-c9714f365f6e.webp",
+      "sha256": "c9714f365f6e8bd133b7072bdaa8c8979f7f6b5a699790bef5524b4f0aad4149",
+      "bytes": 36070
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-07-06f5fc654103.webp",
+      "sha256": "06f5fc6541039d7025511237cab40238206f15354aba9e03e6dbc5d5f1ec36f3",
+      "bytes": 43990
+    },
+    {
+      "path": "art-delivery/small/M-venus_flytrap-08-d0faf826fc85.webp",
+      "sha256": "d0faf826fc854e8ab872baf53a860f39f05b92736c40f063ae9dc727e94be098",
+      "bytes": 39598
+    },
+    {
+      "path": "art-delivery/small/M-woman-01-dc4bf8a086a9.webp",
+      "sha256": "dc4bf8a086a9b9cc34f08930754fa9a029f7455923e73bda87ec8c312dd4195d",
+      "bytes": 27478
+    },
+    {
+      "path": "art-delivery/small/M-woman-02-9a0b44dea72e.webp",
+      "sha256": "9a0b44dea72e5b5c75fa410c239e93201c4bc632a2fa214072533f0608aa527d",
+      "bytes": 36322
+    },
+    {
+      "path": "art-delivery/small/M-woman-03-9fb8cfd9683b.webp",
+      "sha256": "9fb8cfd9683b8c619fa7e55df5faf6ab0548ea11bd1c26cd8ac29954c741fccd",
+      "bytes": 39396
+    },
+    {
+      "path": "art-delivery/small/M-woman-04-5444ef857cb5.webp",
+      "sha256": "5444ef857cb5b882348b63e3dfc85ef3d530f8639beb1ee43ee5cf8d02b83da7",
+      "bytes": 34590
+    },
+    {
+      "path": "art-delivery/small/M-woman-05-df62165335ef.webp",
+      "sha256": "df62165335ef2ce6d0b1ad25ac9397218fbd678a3798891fe3860ef869abe9f2",
+      "bytes": 38502
+    },
+    {
+      "path": "art-delivery/small/M-woman-06-4f628949a937.webp",
+      "sha256": "4f628949a9377a82610d07fb9dac783eebf77ef2c67770e1eb9186ab608231e0",
+      "bytes": 38482
+    },
+    {
+      "path": "art-delivery/small/M-woman-07-fd60d2382dce.webp",
+      "sha256": "fd60d2382dceb24f219e0de56b10d1d4ec9c234f8c4375440ec51a5175bfdc38",
+      "bytes": 36798
+    },
+    {
+      "path": "art-delivery/small/M-woman-08-e450a55a1eaf.webp",
+      "sha256": "e450a55a1eafd7020463e11022492b4cb93cfe4d83c530e4f451d63fafa18793",
+      "bytes": 35392
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-01-65b4a739e7e4.webp",
+      "sha256": "65b4a739e7e4527deccf74c58b9f7643855da275eff6ddb1c3fa4ef257b22c84",
+      "bytes": 32452
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-02-ff540a8ff54e.webp",
+      "sha256": "ff540a8ff54ef201b6dcd4ec7c8a92ed29cefa5c4ecc4efd363d33b5eebdd5d4",
+      "bytes": 44242
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-03-3cbfb720a54d.webp",
+      "sha256": "3cbfb720a54dc40285631d80edd46bab102a97a66f95e2ddf63b0fc52f63e76d",
+      "bytes": 43188
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-04-9da2a0417fca.webp",
+      "sha256": "9da2a0417fcac927ac30df479a6fadf69c406b2917dbf91483a14e0055a24494",
+      "bytes": 32034
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-05-af26e2ba4abd.webp",
+      "sha256": "af26e2ba4abd551fd1b390d44f025ebe21817899ece65b820c3eb9df80c53636",
+      "bytes": 46802
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-06-bbcc7bcfcbc1.webp",
+      "sha256": "bbcc7bcfcbc1616fad9551bb48cb982006b5f89b7338f8580dd9cb1416b78b25",
+      "bytes": 43724
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-07-6fb336f2b1f2.webp",
+      "sha256": "6fb336f2b1f240c9cc37ee285036e4075c75f246b370ab87bdb5d85945d28d33",
+      "bytes": 41392
+    },
+    {
+      "path": "art-delivery/small/M-world_tree-08-32218e830e14.webp",
+      "sha256": "32218e830e143e22f9c527904de89dc8df3281922a781cbe3a980bd23728344a",
+      "bytes": 34464
+    },
+    {
+      "path": "art-delivery/small/P-anglerfish-d2df521c3875.webp",
+      "sha256": "d2df521c3875299b878612350a7d685e13905e654702e1fde77028e770f97b40",
+      "bytes": 35244
+    },
+    {
+      "path": "art-delivery/small/P-cat_ceo-63384c5d746d.webp",
+      "sha256": "63384c5d746d95dbab55c58e402988045963606ce59360648fd9aeb82c3c1316",
+      "bytes": 39898
+    },
+    {
+      "path": "art-delivery/small/P-cliff_goat-c4a44c62e826.webp",
+      "sha256": "c4a44c62e82656150cdf361386f16468e53166e08bf8a4dd85ba716b5d5bd6b9",
+      "bytes": 45740
+    },
+    {
+      "path": "art-delivery/small/P-desert_scorpion-f4e0518eb274.webp",
+      "sha256": "f4e0518eb274f379dfd3c2a671601eabe0c98de959493e01d752fcbea47f3027",
+      "bytes": 41062
+    },
+    {
+      "path": "art-delivery/small/P-field_cow-61ab463af518.webp",
+      "sha256": "61ab463af518ea1d1e207ec77453a967b6c608e7eda7da43fd9d5323dc892d84",
+      "bytes": 48020
+    },
+    {
+      "path": "art-delivery/small/P-forest_bear-972ee60df4dd.webp",
+      "sha256": "972ee60df4ddac91d10431692c12e139a72d207169f0246301f34f26ed6dd7e9",
+      "bytes": 38352
+    },
+    {
+      "path": "art-delivery/small/P-gentle_gorilla-bf3ca25d90d5.webp",
+      "sha256": "bf3ca25d90d5332b94b821a0028a187b3830532c4828a6af7d094d3dfd0fa342",
+      "bytes": 41632
+    },
+    {
+      "path": "art-delivery/small/P-grove_deer-dccfaa12d96f.webp",
+      "sha256": "dccfaa12d96f9be2378f43d4085e06be74a53512a623816ca7f2702c4d12d645",
+      "bytes": 47110
+    },
+    {
+      "path": "art-delivery/small/P-high_eagle-49040776fb3e.webp",
+      "sha256": "49040776fb3e4a97cb2c2fa826cb48fb26c783fdcf17ba02b496ada166dcaa8f",
+      "bytes": 42382
+    },
+    {
+      "path": "art-delivery/small/P-knitting_spider-05bb4e46cf6a.webp",
+      "sha256": "05bb4e46cf6a2a0f2a82d812510ea8d8130d1d65de3797f502f0f327bb375998",
+      "bytes": 38702
+    },
+    {
+      "path": "art-delivery/small/P-oasis_cactus-0c1aae259c9b.webp",
+      "sha256": "0c1aae259c9b9c5b0bc0898549530bde530f37d63e39338e485a49181f925088",
+      "bytes": 44868
+    },
+    {
+      "path": "art-delivery/small/P-robot_neighbor-b12b9ea7a9c5.webp",
+      "sha256": "b12b9ea7a9c58908f2acaf0f90d8e7e448b8f5e3e8e5cbc1146f1de59bdb1be5",
+      "bytes": 44368
+    },
+    {
+      "path": "art-delivery/small/P-rock_octopus-9937d692bde5.webp",
+      "sha256": "9937d692bde5396fed7268bd75a1d202992d0b2523827e8a23f10f425c6d3b34",
+      "bytes": 47124
+    },
+    {
+      "path": "art-delivery/small/P-sea_mermaid-f96b4223934b.webp",
+      "sha256": "f96b4223934b59f4ec12bbd8d5f475a27304d55c1fac01091961c2c2a97a67f8",
+      "bytes": 43684
+    },
+    {
+      "path": "art-delivery/small/P-snow_spirit-b8a47f288077.webp",
+      "sha256": "b8a47f288077bfab8eaf0af7434f054eade534a866a3b8e661d7657ab369f5a2",
+      "bytes": 36808
+    },
+    {
+      "path": "art-delivery/small/P-snowman-c53525fec296.webp",
+      "sha256": "c53525fec29650054860ac894d979230cc608dc12070982a8a77f0e9c749f1ba",
+      "bytes": 43366
+    },
+    {
+      "path": "art-delivery/small/P-sunflower_partner-16761dd844fe.webp",
+      "sha256": "16761dd844fecbf33fdd24e97df21453b6feb18738d4cea49bf913efe04cce14",
+      "bytes": 43978
+    },
+    {
+      "path": "art-delivery/small/P-swamp_croc-106b8c629a04.webp",
+      "sha256": "106b8c629a0427920a3691c80b3f13f2514b14d47dd2d0df1b4a968be3ef0d4a",
+      "bytes": 45776
+    },
+    {
+      "path": "art-delivery/small/W-city-c984132319f6.webp",
+      "sha256": "c984132319f60ce252509a48af4a819f1bef529c07be64bcd29dde4df3f5f468",
+      "bytes": 42890
+    },
+    {
+      "path": "art-delivery/small/W-countryside-036a4de34b72.webp",
+      "sha256": "036a4de34b72f9d1fde6d7974174756b50164410effddb951f8e840d37219d8e",
+      "bytes": 42798
+    },
+    {
+      "path": "art-delivery/small/W-deepsea-ca9a7b0d25dd.webp",
+      "sha256": "ca9a7b0d25dd86659b57c9a774636f0dc05ce5917069d527d0f40af5f33f02c1",
+      "bytes": 31144
+    },
+    {
+      "path": "art-delivery/small/W-desert-04e0499fffd9.webp",
+      "sha256": "04e0499fffd96c1ca8dea2752b76f63737e8c6bf7c2b1c4375147e9cfd223cd9",
+      "bytes": 31582
+    },
+    {
+      "path": "art-delivery/small/W-forest-73e5da00d963.webp",
+      "sha256": "73e5da00d96398e65ed030970685f57a262f0a1070fd1339cad45de5948cd037",
+      "bytes": 50526
+    },
+    {
+      "path": "art-delivery/small/W-home-12e504940312.webp",
+      "sha256": "12e504940312ea7bfe2d4378a7ae3f670186268f7257ddfa5562b921eed2d017",
+      "bytes": 36628
+    },
+    {
+      "path": "art-delivery/small/W-jungle-2351fe93f225.webp",
+      "sha256": "2351fe93f225f32962fa18245ec26915020508747f6655229f7a7b068e8f8b6c",
+      "bytes": 50156
+    },
+    {
+      "path": "art-delivery/small/W-memory_lake-79db4b2e2596.webp",
+      "sha256": "79db4b2e259657cfc1a9276e830bb9bacf6d768a9983e272d8e3a5bb44a37c79",
+      "bytes": 41882
+    },
+    {
+      "path": "art-delivery/small/W-mountain-07edf523e818.webp",
+      "sha256": "07edf523e81822c3e313865b802d9e4b3d5211fee5fa3d7d18f5a018859f1366",
+      "bytes": 46534
+    },
+    {
+      "path": "art-delivery/small/W-river_lake-4b083faf7723.webp",
+      "sha256": "4b083faf772329ee2d8ccd816cfc56c636c8905be5bf03a2bd591034a9971bb1",
+      "bytes": 44032
+    },
+    {
+      "path": "art-delivery/small/W-sea-9a64b716920d.webp",
+      "sha256": "9a64b716920daff855b9f40f365c6ac2aabf4468248d0196f8d0deaec4845639",
+      "bytes": 43054
+    },
+    {
+      "path": "art-delivery/small/W-snow-6e090bec3d2d.webp",
+      "sha256": "6e090bec3d2dae4cfab395c05cdb177e25a8610159db6999480b83cf49a76eec",
+      "bytes": 39244
+    },
+    {
+      "path": "art-delivery/small/W-star_stop-d054b7846bdf.webp",
+      "sha256": "d054b7846bdf75b75cfdd639568bc31fcdc0f0e58d4401515b2e13ba1a8d4c85",
+      "bytes": 45950
+    },
+    {
+      "path": "art-pilot/approved-colors.mjs",
+      "sha256": "45ddaa3a75449f534052fbe17a3c73c233ff232b32d975db6652f953ace128be",
+      "bytes": 1390
+    },
+    {
+      "path": "art-pilot/symbols/attributes.mjs",
+      "sha256": "9edcc355708f781f680afddf9851dab7e3c98de5a33d300da388c649517b0d1d",
+      "bytes": 1815
+    },
+    {
+      "path": "auto-capabilities.mjs",
+      "sha256": "ca806bedbe86e01cbede12829726084ac325ebdf07efbdbf53b17671df7fbaf3",
+      "bytes": 3543
+    },
+    {
+      "path": "auto-progress.mjs",
+      "sha256": "466e25507e5cbe3d91ddb837af3e707d879fcf1f088182acf49c16966ee6b83c",
+      "bytes": 3637
+    },
+    {
+      "path": "cards.mjs",
+      "sha256": "d1cb610608860d83d69a8577ac624b9d9248f3cf1cf6b5535337a5d48276563a",
+      "bytes": 7380
+    },
+    {
+      "path": "costs.mjs",
+      "sha256": "f500b1b421f74ee6a37aa7b2864a198b87e5ddd94671668f61ac3df6da82f1d7",
+      "bytes": 5387
+    },
+    {
+      "path": "cpu-observation.mjs",
+      "sha256": "970a5940ba31022cc861526ae3d32d9a4eefc8c4c02f6adb9baacf69d51959cd",
+      "bytes": 3208
+    },
+    {
+      "path": "cpu-policy.mjs",
+      "sha256": "9ebc397fee474d38ab83fffb3cab510f2887494893f7a1ed7a8af3669e6ddf84",
+      "bytes": 6008
+    },
+    {
+      "path": "cpu-scheduler.mjs",
+      "sha256": "082917562bf83be16dfd48953b6435bdeea1ce9e58d1e8d5b01844e0cbe827ac",
+      "bytes": 822
+    },
+    {
+      "path": "cpu-session.mjs",
+      "sha256": "e26a01270f0553ad958c2543049c23bc2d643adfd23d997062f9953f1f08888d",
+      "bytes": 5132
+    },
+    {
+      "path": "effects.mjs",
+      "sha256": "e7a87fef819a2d80510d4a0f0a2fce8406328726b40131d85fd5d312be0d114c",
+      "bytes": 43739
+    },
+    {
+      "path": "engine.mjs",
+      "sha256": "6712c0347d544c0660f6f94771f05bffdb4ed81e87aef9bb2ebd2fca9060f29b",
+      "bytes": 46060
+    },
+    {
+      "path": "equipment-rules.mjs",
+      "sha256": "d81eb4bb47b72dc6a59ae19cc1161f62000876624828f32a5e553fa0093619af",
+      "bytes": 1581
+    },
+    {
+      "path": "event-effects.mjs",
+      "sha256": "32c57042d84713e741c02a106ca89228b91f6aea666a6d6f6d8297e20854cbf0",
+      "bytes": 1635
+    },
+    {
+      "path": "full-catalog.mjs",
+      "sha256": "9e573c85ce1f933973376612590b76bfa4b0e91ba05e5d4b3f3396d3800738c7",
+      "bytes": 297533
+    },
+    {
+      "path": "index.html",
+      "sha256": "c92c284875cb0e3f6c0db31c49089bef48bb74c79ce038d485722ae9d72b8392",
+      "bytes": 4126
+    },
+    {
+      "path": "late-conditions.mjs",
+      "sha256": "3610e87155d00ccb58b0322dbedcfcb1efd5d726982cb82496746e59f5a5a202",
+      "bytes": 5566
+    },
+    {
+      "path": "legacy-engine.mjs",
+      "sha256": "8d78d0d9936caeeaf4cd819802e881c62a9c23c4e023111b73f4d9342dbd32bf",
+      "bytes": 17647
+    },
+    {
+      "path": "main-rules.mjs",
+      "sha256": "fdea46657b7a7d537e67d0194ee6b860197e041c87d780bd551c45a3cd99a8f6",
+      "bytes": 23144
+    },
+    {
+      "path": "remaining-rules.mjs",
+      "sha256": "99235409eac06d739a005e8875f6968d1dd931a4b6fbe78f334d90c45eba85dd",
+      "bytes": 17430
+    },
+    {
+      "path": "replacements.mjs",
+      "sha256": "63b5313fa654c1a95c4e766dc3585ef88deb29ffd1ad91d71c7a0ebd27af75f6",
+      "bytes": 4858
+    },
+    {
+      "path": "rules.mjs",
+      "sha256": "bde3a32930f9c2b2acf9764561cb19c908600dfda067d57aa5e58a0ae4a55c3b",
+      "bytes": 20246
+    },
+    {
+      "path": "selection.mjs",
+      "sha256": "a0b1a39293701945d114dae0461f0c5b0e3773ce9bbd6022e261040e6478430c",
+      "bytes": 7336
+    },
+    {
+      "path": "style.css",
+      "sha256": "e790e52236fb233c90d11f46250c1c012ed18e7ee90f54adc7e3dcd8087ebcab",
+      "bytes": 41671
+    },
+    {
+      "path": "ui-art-loading.mjs",
+      "sha256": "21563ff97627c292e02b890cb52f60764151207101e375493f202ad2c6b7dfe8",
+      "bytes": 1051
+    },
+    {
+      "path": "ui-art.mjs",
+      "sha256": "b6a9eac88bddfa41fe8732f6c94768f437f6e3acac78b380de616f344149cbfe",
+      "bytes": 70717
+    },
+    {
+      "path": "ui-assets/card-back-approved.png",
+      "sha256": "028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872",
+      "bytes": 2600292
+    },
+    {
+      "path": "ui-context.mjs",
+      "sha256": "a5a55a11e37a080bbe1def0aa8837ecaa404da406a5afbd31e76bb35b0016f77",
+      "bytes": 4560
+    },
+    {
+      "path": "ui-drag.mjs",
+      "sha256": "16fe32677d3948856287207e07095b998a7989111d70a3bcb3fc25c8f79dd312",
+      "bytes": 5153
+    },
+    {
+      "path": "ui-hand.mjs",
+      "sha256": "d1de129db70925dbb1893114e737a6995cf19a6b79dae0d298bcfd1e9be7a756",
+      "bytes": 1311
+    },
+    {
+      "path": "ui-presentation.mjs",
+      "sha256": "6232e268b1b1e1d7d46cf3326442730a6e30da91f403c7add7e3c110e6cce826",
+      "bytes": 33445
+    },
+    {
+      "path": "ui-render.mjs",
+      "sha256": "f7e8891a8a5eb02d2d29803ee3d5944654d3164604e114b0b7487d96e6e17b4b",
+      "bytes": 3692
+    },
+    {
+      "path": "ui-result-feedback.mjs",
+      "sha256": "ad5e6f92f82b1cbf774a1b82dcb2945059c60fb3df21b2b89785c8f621e7cf66",
+      "bytes": 2769
+    },
+    {
+      "path": "ui-results.mjs",
+      "sha256": "6381f6ded6c58bad6343ce6cbe7720ba1994ff8fb6d887a973be41b5768e6822",
+      "bytes": 9487
+    },
+    {
+      "path": "ui-session.mjs",
+      "sha256": "a4a9c6bd613a7edcd7f15da3a1f3c77899c0d462ea0b5dcec4a5582f32ae976d",
+      "bytes": 5546
+    },
+    {
+      "path": "ui-viewport.mjs",
+      "sha256": "19b0bccea8474fd979fe7162a1cceaac9468102d7dea47ffeaf82701977a6c42",
+      "bytes": 1711
+    }
+  ]
+}

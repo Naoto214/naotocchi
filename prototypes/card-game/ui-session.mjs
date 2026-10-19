@@ -1,5 +1,6 @@
 // UI session boundary. Game legality, revisions, replay and saving stay in engine.mjs.
 import {actor,act,view,save,restore,legalActions} from './engine.mjs';
+import {observeCpu} from './cpu-observation.mjs';
 import {appendResult,projectResults,replayResults} from './ui-results.mjs';
 import {advanceResponses,responsePassLog} from './auto-progress.mjs';
 import {needsConfirmation,passLabel} from './ui-presentation.mjs';
@@ -17,6 +18,7 @@ export class HotseatSession {
  #advance(){if(!this.#automatic)return;const r=advanceResponses(this.#state,{onTransition:(before,after)=>this.#record(before,after)});this.#state=r.state;this.#autoLog.push(...r.steps);this.automationStop=r.halted?r.reason:null;}
  viewer=null;
  start(state){this.resultSince=state.revision;this.resultEpoch++;this.#results=[];this.#record(null,state);this.#state=state;this.viewer=null;this.#autoLog=[];this.automationStop=null;this.#advance();}
+ decisionInput(seat=this.viewer){return observeCpu(this.#state,seat);}
  get active(){return Boolean(this.#state);}
  get actor(){return this.#state?actor(this.#state):null;}
  get finished(){return this.#state?.phase==='finished';}
@@ -29,6 +31,7 @@ export class HotseatSession {
    const safeIds=new Set(cards.map(c=>c.id)),raw=legalActions(this.#state),b=v.players[this.viewer].board;
    v.actions=v.actions.map((a,i)=>{
     const r=raw[i],extra={};
+    if(r.declare)extra.declare=r.declare; // Public declaration from the exact legal command.
     if(a.kind==='choose'&&safeIds.has(r.value))extra.choiceCard=r.value;
     if(safeIds.has(r.target))extra.targetCard=r.target;
     if(r.slot){

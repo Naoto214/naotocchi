@@ -1,0 +1,134 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "id": "M-butterfly-01",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-butterfly-02",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-butterfly-03",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-butterfly-04",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-butterfly-05",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-butterfly-06",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-butterfly-07",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-butterfly-08",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#F2D12E",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "title": true,
+      "attributeCount": 1
+    }
+  ],
+  "mobile": [
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430
+    }
+  ],
+  "errors": [],
+  "physicalSafari": false,
+  "browser": "153.0.8010.0"
+}

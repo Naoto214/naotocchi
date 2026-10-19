@@ -1,0 +1,150 @@
+[
+  {
+    "path": "remaining-rules.mjs",
+    "sha256": "99235409eac06d739a005e8875f6968d1dd931a4b6fbe78f334d90c45eba85dd"
+  },
+  {
+    "path": "full-catalog.mjs",
+    "sha256": "9e573c85ce1f933973376612590b76bfa4b0e91ba05e5d4b3f3396d3800738c7"
+  },
+  {
+    "path": "cpu-policy.mjs",
+    "sha256": "9ebc397fee474d38ab83fffb3cab510f2887494893f7a1ed7a8af3669e6ddf84"
+  },
+  {
+    "path": "ui-viewport.mjs",
+    "sha256": "19b0bccea8474fd979fe7162a1cceaac9468102d7dea47ffeaf82701977a6c42"
+  },
+  {
+    "path": "effects.mjs",
+    "sha256": "e7a87fef819a2d80510d4a0f0a2fce8406328726b40131d85fd5d312be0d114c"
+  },
+  {
+    "path": "equipment-rules.mjs",
+    "sha256": "d81eb4bb47b72dc6a59ae19cc1161f62000876624828f32a5e553fa0093619af"
+  },
+  {
+    "path": "costs.mjs",
+    "sha256": "f500b1b421f74ee6a37aa7b2864a198b87e5ddd94671668f61ac3df6da82f1d7"
+  },
+  {
+    "path": "event-effects.mjs",
+    "sha256": "32c57042d84713e741c02a106ca89228b91f6aea666a6d6f6d8297e20854cbf0"
+  },
+  {
+    "path": "legacy-engine.mjs",
+    "sha256": "8d78d0d9936caeeaf4cd819802e881c62a9c23c4e023111b73f4d9342dbd32bf"
+  },
+  {
+    "path": "cpu-session.mjs",
+    "sha256": "e26a01270f0553ad958c2543049c23bc2d643adfd23d997062f9953f1f08888d"
+  },
+  {
+    "path": "replacements.mjs",
+    "sha256": "63b5313fa654c1a95c4e766dc3585ef88deb29ffd1ad91d71c7a0ebd27af75f6"
+  },
+  {
+    "path": "ui-hand.mjs",
+    "sha256": "d1de129db70925dbb1893114e737a6995cf19a6b79dae0d298bcfd1e9be7a756"
+  },
+  {
+    "path": "advanced-inspection.mjs",
+    "sha256": "5918ae6f58150294be9336ba64dc785f6e88181c84cf6957facc977f7000166a"
+  },
+  {
+    "path": "ability-copy.mjs",
+    "sha256": "00f51aabdd6a8a2195fbfed7da52a33914b62897919041874b6f56807e47526b"
+  },
+  {
+    "path": "auto-progress.mjs",
+    "sha256": "466e25507e5cbe3d91ddb837af3e707d879fcf1f088182acf49c16966ee6b83c"
+  },
+  {
+    "path": "ui-drag.mjs",
+    "sha256": "16fe32677d3948856287207e07095b998a7989111d70a3bcb3fc25c8f79dd312"
+  },
+  {
+    "path": "main-rules.mjs",
+    "sha256": "fdea46657b7a7d537e67d0194ee6b860197e041c87d780bd551c45a3cd99a8f6"
+  },
+  {
+    "path": "ui-session.mjs",
+    "sha256": "a122e8aec878690a2a99ebb8cb2ef6d778899446d39871e9a2b2b7d84a5deac9"
+  },
+  {
+    "path": "selection.mjs",
+    "sha256": "a0b1a39293701945d114dae0461f0c5b0e3773ce9bbd6022e261040e6478430c"
+  },
+  {
+    "path": "cpu-observation.mjs",
+    "sha256": "970a5940ba31022cc861526ae3d32d9a4eefc8c4c02f6adb9baacf69d51959cd"
+  },
+  {
+    "path": "ui-presentation.mjs",
+    "sha256": "d4fc25a1b0d14c0a5a1338805b2497884b1640974b002470ad8fd6cfabcb4e40"
+  },
+  {
+    "path": "ui-context.mjs",
+    "sha256": "a5a55a11e37a080bbe1def0aa8837ecaa404da406a5afbd31e76bb35b0016f77"
+  },
+  {
+    "path": "ui-art.mjs",
+    "sha256": "5d15d1c8d2b3a8656073d14079bc34b6ea2fa5cbcac84fb2d0120077542d1b99"
+  },
+  {
+    "path": "app.mjs",
+    "sha256": "65275c56bd24962a1e9b17220e1dab7267a770d3a58c7b8063ff9c34895d0e51"
+  },
+  {
+    "path": "ui-results.mjs",
+    "sha256": "7b56c3a901e58bf78b3a1919bd2424ad856326560d0ab4f21819d86249de92ef"
+  },
+  {
+    "path": "style.css",
+    "sha256": "491581179fac04d46f2736e6a3dcef96927b6d0e785e8ccc67468082fd0d795a"
+  },
+  {
+    "path": "rules.mjs",
+    "sha256": "bde3a32930f9c2b2acf9764561cb19c908600dfda067d57aa5e58a0ae4a55c3b"
+  },
+  {
+    "path": "late-conditions.mjs",
+    "sha256": "3610e87155d00ccb58b0322dbedcfcb1efd5d726982cb82496746e59f5a5a202"
+  },
+  {
+    "path": "advanced-equipment.mjs",
+    "sha256": "cedaf38d64c5f4c46b24551d6d385c95e30167b963151248548287c34036cf15"
+  },
+  {
+    "path": "cards.mjs",
+    "sha256": "d1cb610608860d83d69a8577ac624b9d9248f3cf1cf6b5535337a5d48276563a"
+  },
+  {
+    "path": "ui-render.mjs",
+    "sha256": "6ae8028806a4473de68fb356ccd63eab5871c74c01641a76ca214da56211141c"
+  },
+  {
+    "path": "engine.mjs",
+    "sha256": "6712c0347d544c0660f6f94771f05bffdb4ed81e87aef9bb2ebd2fca9060f29b"
+  },
+  {
+    "path": "advanced-effects.mjs",
+    "sha256": "b9b844ebae604993e5c93900a9ccc41a24af113b6a816e2a1367255e26f378a5"
+  },
+  {
+    "path": "ui-result-feedback.mjs",
+    "sha256": "ad5e6f92f82b1cbf774a1b82dcb2945059c60fb3df21b2b89785c8f621e7cf66"
+  },
+  {
+    "path": "auto-capabilities.mjs",
+    "sha256": "ca806bedbe86e01cbede12829726084ac325ebdf07efbdbf53b17671df7fbaf3"
+  },
+  {
+    "path": "cpu-scheduler.mjs",
+    "sha256": "082917562bf83be16dfd48953b6435bdeea1ce9e58d1e8d5b01844e0cbe827ac"
+  },
+  {
+    "path": "index.html",
+    "sha256": "c92c284875cb0e3f6c0db31c49089bef48bb74c79ce038d485722ae9d72b8392"
+  }
+]

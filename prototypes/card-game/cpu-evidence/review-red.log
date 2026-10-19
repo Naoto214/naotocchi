@@ -1,0 +1,88 @@
+✔ hidden hand, deck order, seed and trap identity do not change CPU observation or decision (14.94243ms)
+✔ CPU preserves affordable birth card during egg return and chooses birth before spending time (3.465916ms)
+✔ CPU avoids losing public-stat challenge and prefers higher winning parameter (3.161068ms)
+✔ all 452 definitions use the same bounded legal candidate interface (751.117856ms)
+✔ policy rejects unknown difficulty and empty inventory instead of making up commands (2.277962ms)
+✖ growth reduction values denial at cap and does not waste increases at100 (5.084528ms)
+✖ removal selection prefers valuable opponent target and discards expendable own cards (2.028058ms)
+✔ CPU and human both seats complete ten rounds using real commands and hidden opponent hand (1594.180144ms)
+✔ save during CPU choice resumes identically without duplicate and preserves history (1666.992572ms)
+✔ hidden background session cannot execute and resume retains human viewpoint (1.651701ms)
+✔ old hotseat save loads as unchanged hotseat and bad CPU envelope is rejected (4.193798ms)
+✔ unknown policy command stops safely and persisted diagnostic does not restart on restore (5.961785ms)
+✔ scheduler cancels stale callbacks, pauses in background, and performs one committed step per tick (14.913935ms)
+✖ long-press hand gesture pauses CPU from pointerdown through release (3.419303ms)
+ℹ Error: Test "long-press hand gesture pauses CPU from pointerdown through release" at prototypes/card-game/tests/cpu-session.test.mjs:17:1 generated asynchronous activity after the test ended. This activity created the error "TypeError: card.getBoundingClientRect is not a function" and would have caused the test to fail, but instead triggered an uncaughtException event.
+ℹ tests 14
+ℹ suites 0
+ℹ pass 11
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4117.380793
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/cpu-policy.test.mjs:33:1
+✖ growth reduction values denial at cap and does not waste increases at100 (5.084528ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'opponent'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8fa3220c2d49/naotocchi/prototypes/card-game/tests/cpu-policy.test.mjs:35:149)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'opponent',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/cpu-policy.test.mjs:37:1
+✖ removal selection prefers valuable opponent target and discards expendable own cards (2.028058ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'B'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8fa3220c2d49/naotocchi/prototypes/card-game/tests/cpu-policy.test.mjs:38:463)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'B',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/cpu-session.test.mjs:17:1
+✖ long-press hand gesture pauses CPU from pointerdown through release (3.419303ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   true
+  - ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8fa3220c2d49/naotocchi/prototypes/card-game/tests/cpu-session.test.mjs:21:210)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ true ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

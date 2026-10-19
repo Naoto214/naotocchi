@@ -1,0 +1,30 @@
+✔ CPU commits three distinct-type costs exactly once and resolves draw (27.141816ms)
+✔ CPU resolves dependent payment and recovery target without cancel loop (10.07372ms)
+✔ CPU handles multiple public targets, resolution selections and hidden search ordering (11.647923ms)
+✔ opaque hidden trap candidates never carry identity-bearing values or targets (4.148932ms)
+✔ CPU action does not supersede the ongoing four-second notification batch (9.191467ms)
+✔ hidden hand, deck order, seed and trap identity do not change CPU observation or decision (15.941033ms)
+✔ CPU preserves affordable birth card during egg return and chooses birth before spending time (2.940817ms)
+✔ CPU avoids losing public-stat challenge and prefers higher winning parameter (2.135871ms)
+✔ all 452 definitions use the same bounded legal candidate interface (615.770057ms)
+✔ policy rejects unknown difficulty and empty inventory instead of making up commands (1.848409ms)
+✔ growth reduction values denial at cap and does not waste increases at100 (3.013466ms)
+✔ removal selection prefers valuable opponent target and discards expendable own cards (3.128133ms)
+✔ CPU and human both seats complete ten rounds using real commands and hidden opponent hand (1384.353837ms)
+✔ save during CPU choice resumes identically without duplicate and preserves history (1516.134818ms)
+✔ hidden background session cannot execute and resume retains human viewpoint (1.660461ms)
+✔ old hotseat save loads as unchanged hotseat and bad CPU envelope is rejected (2.672411ms)
+✔ unknown policy command stops safely and persisted diagnostic does not restart on restore (1.950259ms)
+✔ scheduler cancels stale callbacks, pauses in background, and performs one committed step per tick (3.512865ms)
+✔ long-press hand gesture pauses CPU from pointerdown through release (2.781558ms)
+✔ repeated cancelled activation stops at a bounded safe boundary without silent pass (16.745319ms)
+✔ human B stays in front and keeps inspectable hand while CPU A operates (7.479402ms)
+✔ CPU workflow has readable history while human actions are absent (1.604367ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3118.709962

@@ -1,0 +1,13 @@
+✔ old response taps cannot execute after a state transition in CPU or hotseat (59.490926ms)
+✔ a gesture cannot be replayed, retargeted, or survive a render (4.566411ms)
+✔ restore to the same revision, hide, and fresh accessibility activation (2.514125ms)
+✔ held keyboard and browser multi-click cannot end a newly displayed turn (1.361454ms)
+✔ response and end-turn have distinct permanent slots and labels (10.634485ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 279.132284

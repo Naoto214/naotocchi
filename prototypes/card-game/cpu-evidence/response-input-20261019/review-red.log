@@ -1,0 +1,38 @@
+✔ old response taps cannot execute after a state transition in CPU or hotseat (66.892185ms)
+✔ a gesture cannot be replayed, retargeted, or survive a render (1.344626ms)
+✔ restore to the same revision, hide, and fresh accessibility activation (2.231958ms)
+✔ held keyboard and browser multi-click cannot end a newly displayed turn (1.906378ms)
+✔ response and end-turn have distinct permanent slots and labels (8.653543ms)
+✔ capture listener blocks stale and retargeted DOM events before the action handler (1.066771ms)
+✖ held Enter is cancelled before native click and a pre-render select gesture is refused (2.053008ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 356.832439
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/ui-input.test.mjs:83:1
+✖ held Enter is cancelled before native click and a pre-render select gesture is refused (2.053008ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:90:42)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

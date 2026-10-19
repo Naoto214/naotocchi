@@ -15,6 +15,20 @@ export function captureResult(before,after){
  const old=before?locations(before):new Map(),now=locations(after),events=(after.history??[]).slice(before?.history?.length??0),trace=after.log.slice(before?.log?.length??0);
  const resolving=trace.filter(t=>t.includes('を解決')||t.includes('予約効果'));
  const heading=!before?'対戦開始時点':resolving.length?resolving.join(' → '):before.choice?.kind==='egg_bottom'?'たまご・手札返却':trace[0]??(before.choice?'選択後の結果':'処理後の結果');
+ // History-only annotations: never change the result notice or execute a rule.
+ const historyNotes=[];
+ const start=(!before&&after.revision===0)||(before&&before.serial!==after.serial);
+ if(start&&!after.result){
+  const seat=after.turn,p=after.players[seat],available=before?before.players[seat].deck.length:(after.decks?.[seat]?.length??40)-5;
+  const normal=Math.min(1,available),extra=p.board.main?0:Math.min(1,Math.max(0,available-normal));
+  historyNotes.push(`${seat}：通常ドロー：${normal}枚`);
+  if(!p.board.main)historyNotes.push(`${seat}：たまご追加ドロー：${extra}枚 → 手札1枚を山札の下へ（必須・引ける分だけ実行）`);
+ }
+ if(before?.choice?.kind==='egg_bottom'){
+  const seat=before.choice.actor,p=before.players[seat],n=after.players[seat],command=JSON.parse(after.commands[before.commands.length]??'null');
+  const returned=command?.kind==='choose'&&p.hand.includes(command.value)?1:0;
+  historyNotes.push(`${seat}：たまご返却：${returned}枚を山札の下へ · 処理全体の手札 ${p.hand.length} → ${n.hand.length}枚`);
+ }
  const rowSpecs=[];
  if(!before){for(const seat of ['A','B'])rowSpecs.push({kind:'initial',seat,ids:[...after.players[seat].hand],publicCards:false,text:'開始時の手札'});}
  else{
@@ -48,6 +62,13 @@ export function captureResult(before,after){
   if(!same(before.scheduled??[],after.scheduled??[]))rowSpecs.push({kind:'reservation',seat:after.turn,text:'予約状態が更新されました'});
  }
  for(const line of trace.filter(t=>/防止|置換|公開：|つけ替え|ちょうせん .*対|コピー/.test(t)))rowSpecs.push({kind:'event',text:line});
+ // Public milestones describe committed transitions only; no effect is executed here.
+ if(before)for(const event of events.filter(e=>e.kind==='marriage')){
+  const seat=event.actor,p=after.players[seat];
+  if(before.players[seat].relationship!==4&&p.relationship===4)
+   rowSpecs.push({kind:'marriage',seat,ids:[p.board.main,p.board.partner].filter(Boolean),publicCards:true,text:'けっこん成立'});
+ }
+ if(before&&!before.result&&after.result)rowSpecs.push({kind:'finish',text:`${after.result.winner?after.result.winner+' の勝利':'引き分け'} · ${after.result.reason} · A ${after.players.A.growth} / B ${after.players.B.growth}`});
  const historyOnly=!rowSpecs.length&&!resolving.length;
  // Turn boundaries come from committed state; never infer an end from a pass request.
  if(before&&(before.serial!==after.serial||(!before.result&&after.result)))trace.unshift(`R${before.round} ${before.turn}のターン終了`);
@@ -56,10 +77,10 @@ export function captureResult(before,after){
  const audiences={};for(const viewer of [null,'A','B']){
   const rows=rowSpecs.map(({ids,publicCards,label,...r})=>{
    const cards=ids&&(publicCards||r.seat===viewer)?ids.map(id=>describe(after,id)):[];
-   const number=label?`${label} ${r.before??'—'} → ${r.after??'—'}${r.delta===null?'':`（${r.delta>0?'+':r.delta<0?'−':''}${Math.abs(r.delta)}）`}`:r.text;
+   const number=label?`${label} ${r.before??'—'} → ${r.kind==='relationship'&&r.after===4?'結婚':r.after??'—'}${r.delta===null||r.kind==='relationship'?'':`（${r.delta>0?'+':r.delta<0?'−':''}${Math.abs(r.delta)}）`}`:r.text;
    return {...r,text:`${r.seat?r.seat+'：':''}${number}${ids?` ${cards.length?cards.map(c=>c.name).join('・'):ids.length+'枚'}`:''}`,cards};
   });
-  audiences[viewer??'public']={id:after.revision,revision:after.revision,turn:after.turn,round:after.round,historyOnly,heading,combined:resolving.length>1||events.filter(e=>e.kind==='effectApplied').length>1,trace:[...trace],rows};
+  audiences[viewer??'public']={id:after.revision,revision:after.revision,actor:before?actor(before):null,turn:before?.turn??after.turn,round:before?.round??after.round,historyOnly,historyNotes:[...historyNotes],heading,combined:resolving.length>1||events.filter(e=>e.kind==='effectApplied').length>1,trace:[...trace],rows};
  }
  return audiences;
 }
