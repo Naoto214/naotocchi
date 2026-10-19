@@ -1,5 +1,9 @@
 # 通常たまごカード — デザイン・物理版
 
+## 最終改善（C案採用）
+
+現行original.png・egg-card-print.png・配信WebPは、メインカードの領域構造に合わせたC案。表面は「たまご」と「自分のターン開始時、通常ドローの後にさらに1枚引き、手札1枚を山札の一番下に戻す。」のみ。以前の説明2文を削除した。A/B/C比較・採用理由・検証は[refinement/README.md](refinement/README.md)を参照。以下は初回制作時の記録であり、旧採用原画はrefinement/A.pngに保持。
+
 正本参照: assets/characters/egg/intact.png と ui-assets/card-back-approved.png。
 本編たまごのクリーム色・青灰色の斑点・ドット絵の形を参照して制作。顔や手足を追加しない。青銀の地・銀色植物・外枠は承認済み裏面を参照し、中央だけ温かな淡金色の光を加えた。
 

@@ -1,0 +1,12 @@
+{
+  "passed": 7,
+  "ratio": "2:3",
+  "derivativeHashes": "match",
+  "comparisonWidths": [
+    80,
+    110,
+    320
+  ],
+  "runtimeSourcesChanged": false,
+  "pagesAllowlistChanged": false
+}
