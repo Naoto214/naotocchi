@@ -34,6 +34,6 @@ Managed environment has no control-browser skill. Browser screenshots and iPhone
 
 ## Publication
 New owner-private Site only: appgprj_6ad5dde4cb288191a4a7c366a3217b22.
-Expected URL: https://naotocchi-card-integrated-20261019.kerzion214.chatgpt.site/
-Publication status and exact source/version/deployment are recorded separately after deployment succeeds.
+Deployed URL: https://naotocchi-card-integrated-20261019.kerzion214.chatgpt.site/
+Deployment succeeded. Site source 42859308e4fd8670a39da913616882e545dabdc9; deployment appgdep_6ad5e03a83dc8191bcaadd70c6e075e1. Exact metadata and 947-file package hash manifest are in integration-evidence/publication.json and package-verification.json. GitHub Draft PR: https://github.com/Naoto214/naotocchi/pull/399.
 Main merge and production Pages require separate approval after user iPhone QA.
