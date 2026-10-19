@@ -128,3 +128,10 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 .detail-command:has([data-declaration]){flex:none;max-height:none}
 .detail-actions:has([data-declaration]){flex:none;overflow:visible}
 @media(prefers-reduced-motion:reduce){.field-turn-active::after{animation:none!important;transition:none!important}}
+
+/* Response never occupies the end-turn hit area. Empty slots retain their width. */
+.pass-rail.actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;flex:none}
+.pass-rail>span{min-width:0;display:block}.pass-rail button{width:100%;min-height:44px;padding:4px;font-size:11px;text-align:center;touch-action:manipulation}
+.actions button[data-pass-intent="response"]{background:#254e68;border-color:#91c7e8;color:#f1f9ff}
+.actions button[data-pass-intent="end-turn"]{background:#edd49a;border-color:#edd49a;color:#34341d}
+@media(orientation:portrait){.operation-notice:has(.pass-rail){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}.operation-notice:has(.pass-rail) .notice-expand{min-height:44px}.pass-rail button{font-size:10px}}

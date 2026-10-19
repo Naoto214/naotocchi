@@ -7,13 +7,14 @@ import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
 import {ResultFeedback} from './ui-result-feedback.mjs';
-import {updateGameDOM,TurnFeedback} from './ui-render.mjs';
+import {updateGameDOM,TurnFeedback,installActionInputGuard} from './ui-render.mjs';
 import {installViewport} from './ui-viewport.mjs';
 installViewport();
 const ORDER_KEY='naotocchi-hand-order-v1';
 let handOrder;try{handOrder=new HandOrder(localStorage.getItem(ORDER_KEY));}catch{handOrder=new HandOrder();}
 const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',CPU_KEY='naotocchi-cpu-match-v1';
 let session=new HotseatSession({autoAdvance:true});
+const input=installActionInputGuard(document,()=>({session,revision:session.projection?.revision,viewer:session.viewer}));
 let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
 const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog'].some(id=>$(id).open),onStep:()=>{persist();render();}});
@@ -33,8 +34,9 @@ function button(text,handler){const n=el('button',text);n.type='button';n.addEve
 function message(text){$('status').textContent=text;}
 function persist(){try{localStorage.setItem(session.mode==='cpu'?CPU_KEY:KEY,session.save());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}}
 function closeDialogs({focus=true}={}){
+ input.invalidate();
  for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();delete d.dataset.browseSeat;delete d.dataset.browseZone;}
- pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;cpu.schedule();
+ input.stamp();pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;cpu.schedule();
 }
 function showAutomationStop(){
  cpu.cancel();feedback.hide();turnFeedback.hide();
@@ -42,6 +44,7 @@ function showAutomationStop(){
  $('game').innerHTML='<section class="panel" role="alert"><h2>自動進行を停止しました</h2><p>最後に確定した状態を保持しています。対戦を保存し、復帰または調査に利用できます。</p><button type="button" data-menu>保存メニュー</button></section>';
 }
 function hide(){
+ input.invalidate();
  cpu.cancel();feedback.hide();turnFeedback.hide();
  if(!session.active)return;
  if(session.automationStop){showAutomationStop();return;}
@@ -51,14 +54,15 @@ function hide(){
 }
 function start(next){turnFeedback.hide();session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();if(session.mode==='cpu'){session.reveal();$('curtain').hidden=true;render();}else hide();}
 function render(){
+ input.invalidate();
  if(session.automationStop){showAutomationStop();return;}
  const scrolls=[...document.querySelectorAll('.board-shell')].map(n=>n.scrollTop);dragCleanup();const v=session.projection,hand=session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):null;
- const next=document.createElement('template');next.innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});updateGameDOM($('game'),next.content,feedbackHost);turnFeedback.present(document.querySelector('.turn-indicator'),v,window.matchMedia('(prefers-reduced-motion: reduce)').matches,document.querySelector('.field-turn-active'));$('hide').hidden=!session.viewer||!!v.result;$('hide').textContent=session.mode==='cpu'?'対戦を一時停止':'手札を隠して渡す';if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
+ const next=document.createElement('template');next.innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});updateGameDOM($('game'),next.content,feedbackHost);turnFeedback.present(document.querySelector('.turn-indicator'),v,window.matchMedia('(prefers-reduced-motion: reduce)').matches,document.querySelector('.field-turn-active'));$('hide').hidden=!session.viewer||!!v.result;$('hide').textContent=session.mode==='cpu'?'対戦を一時停止':'手札を隠して渡す';input.stamp();if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
  document.querySelectorAll('.board-shell').forEach((n,i)=>{n.scrollTop=scrolls[i]??0;});
  dragCleanup=mountHandDrag(document.querySelector('#hand .cards'),{onTap:id=>inspect(id),onReorder:ids=>{if(!session.viewer)return;const scroll=document.querySelector('#hand .cards').scrollLeft;handOrder.reorder(session.viewer,session.projection.players[session.viewer].hand,ids);persistOrder();render();document.querySelector('#hand .cards').scrollLeft=scroll;},onAnnounce:message,onInteraction:active=>{dragging=active;if(active)cpu.cancel();else cpu.schedule();}});cpu.schedule();
 }
 function applyHandVisibility(){const panel=$('hand');if(!panel)return;const open=handOpen??(window.innerHeight>=400||window.innerWidth>window.innerHeight);panel.classList.toggle('hand-collapsed',!open);panel.querySelector('[data-hand-toggle]').setAttribute('aria-expanded',String(open));}
-function openWorkflow(){if(!session.viewer||session.finished)return;closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML=workflowMarkup(session.projection,session.viewer);d.showModal();d.scrollTop=0;d.querySelector('[data-close]').focus();}
+function openWorkflow(){if(!session.viewer||session.finished)return;closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML=workflowMarkup(session.projection,session.viewer);d.showModal();input.stamp();d.scrollTop=0;d.querySelector('[data-close]').focus();}
 function continuePriority(){const panel=$('operation-panel');if(panel){panel.setAttribute('tabindex','-1');panel.focus({preventScroll:true});}}
 function highlight(action=null){
  document.querySelectorAll('.is-selected,.is-destination,.is-target').forEach(n=>n.classList.remove('is-selected','is-destination','is-target'));
@@ -77,7 +81,7 @@ function inspect(id,{catalog=false,origin=null,readOnly=false}={}){
  const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');d.innerHTML=detailMarkup(c,{v,viewer:session.viewer,catalog,readOnly,handPosition:index<0?null:{index,total:hand.length}});
 
  if(readOnly&&zone&&seat){const back=button('一覧へ',()=>showZone(seat,zone,null));d.querySelector('.detail-toolbar').prepend(back);}
- d.showModal();d.querySelector('[data-close]').focus();
+ d.showModal();input.stamp();d.querySelector('[data-close]').focus();
 }
 function perform(action,revision,who){
  if(busy)return;busy=true;
@@ -89,7 +93,7 @@ function requestAction(id){
  let prepared;try{prepared=session.prepare(id);}catch(e){message(e.message);return;}
  if(!prepared.required){perform(a,v.revision,v.actor);return;}
  returnWorkflow=$('card-dialog').open&&$('card-dialog').classList.contains('workflow-dialog');returnDetail=$('card-dialog').open&&!returnWorkflow?selected:null;const origin=dialogOrigin??document.activeElement;closeDialogs({focus:false});dialogOrigin=origin;pending=prepared;highlight(prepared.action);
- const d=$('confirm-dialog');d.innerHTML=confirmationMarkup(prepared);d.showModal();d.querySelector('[data-cancel]').focus();
+ const d=$('confirm-dialog');d.innerHTML=confirmationMarkup(prepared);d.showModal();input.stamp();d.querySelector('[data-cancel]').focus();
 }
 // Native select exposes every legal declaration even on short iPhone dialogs.
 document.addEventListener('change',event=>{
@@ -100,14 +104,14 @@ document.addEventListener('change',event=>{
 function showZone(seat,zone,origin){
  const v=session.projection;if(!v||(!session.viewer&&!v.result))return;
  const html=zoneMarkup(v,seat,zone);if(!html)return;closeDialogs({focus:false});dialogOrigin=origin;
- const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.dataset.browseSeat=seat;d.dataset.browseZone=zone;d.innerHTML=html;d.showModal();d.querySelector('[data-close]').focus();
+ const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.dataset.browseSeat=seat;d.dataset.browseZone=zone;d.innerHTML=html;d.showModal();input.stamp();d.querySelector('[data-close]').focus();
 }
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||b.disabled)return;
  if(b.hasAttribute('data-result-collapse')){feedback.collapse();document.querySelector('[data-result-reopen]')?.focus({preventScroll:true});return;}
  if(b.hasAttribute('data-result-reopen')){feedback.reopen();return;}
  if(b.hasAttribute('data-close')||b.hasAttribute('data-cancel')){const back=b.hasAttribute('data-cancel')?returnDetail:null;const flow=b.hasAttribute('data-cancel')&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();return;}
- if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();d.scrollTop=0;return;}
+ if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();input.stamp();d.scrollTop=0;return;}
  if(b.hasAttribute('data-workflow')){openWorkflow();return;}
  if(b.hasAttribute('data-hand-toggle')){handOpen=$('hand').classList.contains('hand-collapsed');applyHandVisibility();return;}
  if(b.hasAttribute('data-menu')){closeDialogs({focus:false});$('menu-dialog').showModal();return;}

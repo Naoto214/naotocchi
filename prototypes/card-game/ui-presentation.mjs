@@ -82,7 +82,7 @@ export function actionMarkup(actions,{selected=null}={}){
    const options=actions.filter(x=>x.source===a.source&&x.declare);
    return `<label class="declaration-picker">宣言するカード種を選ぶ<select data-declaration aria-label="宣言するカード種"><option value="" disabled selected>種類を選択してください</option>${options.map(x=>`<option value="${h(x.id)}">${h(x.displayLabel??x.label)}</option>`).join('')}</select></label>`;
   }
-  return `<button type="button" data-kind="${h(a.kind)}" data-action="${h(a.id)}"${a.choiceCard?` data-choice-card="${h(a.choiceCard)}"`:''}${a.choiceCard===selected?' class="selected-choice"':''}>${h(a.displayLabel??a.label)}${a.destination?`<small class="action-destination">配置先：${['セカイ','メイン','こいびと','なかま①','なかま②','なかま③','準備①','準備②','準備③'][a.destination.index]}</small>`:''}</button>`;}).join('');}
+  return `<button type="button" data-kind="${h(a.kind)}"${a.kind==='pass'?` data-pass-intent="${a.displayLabel==='ターン終了を申し出る'?'end-turn':'response'}"`:''} data-action="${h(a.id)}"${a.choiceCard?` data-choice-card="${h(a.choiceCard)}"`:''}${a.choiceCard===selected?' class="selected-choice"':''}>${h(a.displayLabel??a.label)}${a.destination?`<small class="action-destination">配置先：${['セカイ','メイン','こいびと','なかま①','なかま②','なかま③','準備①','準備②','準備③'][a.destination.index]}</small>`:''}</button>`;}).join('');}
 export function phaseLabel(v){return v.result?'対戦終了':v.choice?'必須選択':v.phase==='normal'?'カードを使う':v.phase==='trigger'?'効果を使う':'応答を選ぶ';}
 // Shared public state labels: response priority is independent of turn ownership.
 export function turnStatus(v){
@@ -204,7 +204,7 @@ export function compactOperationMarkup(v,viewer){
  const hint=v.choice?(v.actions.some(a=>a.choiceCard)?(v.choice.kind==='egg_bottom'?'手札をタップ → 山札の下へ戻す':'対象カードをタップして選択'):'選択肢から必要な操作を選ぶ'):v.phase==='response'?v.autoEnabled?'光るカードで応答／パス':`${v.actor} の応答待ち · ${v.actions.some(a=>a.kind!=='pass')?'カードで応答／パス':'応答できるカードなし'} · 連続パス ${v.progress?.passes??0}/2`:v.phase==='trigger'?'効果を使うか選んでください':v.actions.some(a=>a.kind==='place'&&a.label.includes('たんじょう'))?'手札からたんじょうできます':'カードを選んでください';
  const stage=v.choice?'必須選択':v.phase==='response'?'応答':v.phase==='trigger'?'効果選択':'通常行動';
  const more=indirect.length>1?'選択肢を開く':priority?'効果・選択肢の詳細':'操作・履歴';
- return `<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="${h(source)}。操作 ${h(v.actor)} · ${stage}。${h(hint)}。${more}"><span class="notice-copy"><strong>操作 ${h(v.actor)} · ${stage}</strong><span>${h(hint)}</span></span><span class="notice-more">${indirect.length>1?'選択肢を開く':'詳細'} ›</span></button>${inline.length?`<div class="notice-actions actions">${actionMarkup(inline)}</div>`:''}</div>${responseOptionsMarkup(v,viewer)}`;
+ return `<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="${h(source)}。操作 ${h(v.actor)} · ${stage}。${h(hint)}。${more}"><span class="notice-copy"><strong>操作 ${h(v.actor)} · ${stage}</strong><span>${h(hint)}</span></span><span class="notice-more">${indirect.length>1?'選択肢を開く':'詳細'} ›</span></button>${pass?`<div class="pass-rail actions"><span data-pass-slot="response">${v.phase!=='normal'?actionMarkup([pass]):''}</span><span data-pass-slot="end-turn">${v.phase==='normal'?actionMarkup([pass]):''}</span></div>`:inline.length?`<div class="notice-actions actions">${actionMarkup(inline)}</div>`:''}</div>${responseOptionsMarkup(v,viewer)}`;
 }
 export function operationMarkup(v,viewer){
  if(!viewer||viewer!==v.actor||v.result)return '';

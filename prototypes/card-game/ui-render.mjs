@@ -30,3 +30,40 @@ export class TurnFeedback {
   this.key=key;this.epoch=v.resultEpoch;
  }
 }
+
+// UI-only tickets. No timer, persistent state, or engine command remapping.
+export class ActionInputGuard {
+ constructor(context){this.context=context;this.generation=0;this.nodes=new WeakMap();this.gesture=null;}
+ invalidate(){this.generation++;}
+ stamp(nodes){const context=this.context();for(const node of nodes)this.nodes.set(node,{...context,generation:this.generation});}
+ current(node,ticket=this.nodes.get(node)){
+  const now=this.context();
+  return Boolean(node?.isConnected&&!node.disabled&&ticket&&ticket.generation===this.generation&&ticket.session===now.session&&ticket.revision===now.revision&&ticket.viewer===now.viewer);
+ }
+ begin(node){this.gesture={node,ticket:this.nodes.get(node)};}
+ cancel(){this.gesture=null;}
+ accept(node,{detail=0}={}){
+  const gesture=this.gesture;this.gesture=null;
+  if(!this.current(node))return false;
+  // A click from assistive technology has no pointerdown. A pointer click must.
+  if((detail>0||gesture)&&(!gesture||gesture.node!==node||!this.current(node,gesture.ticket)))return false;
+  if(node.dataset.passIntent==='end-turn'&&detail>1)return false;
+  return true;
+ }
+}
+
+export function installActionInputGuard(doc,context){
+ const guard=new ActionInputGuard(context),selector='[data-action],[data-confirm],select[data-declaration]';
+ const control=event=>event.target.closest?.(selector);
+ doc.addEventListener('pointerdown',event=>guard.begin(control(event)),true);
+ doc.addEventListener('pointercancel',()=>guard.cancel(),true);
+ doc.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)&&!event.repeat)guard.begin(control(event));},true);
+ doc.addEventListener('click',event=>{
+  const node=control(event);if(!node||node.matches?.('select'))return;
+  if(!guard.accept(node,event)){event.preventDefault();event.stopImmediatePropagation();}
+ },true);
+ doc.addEventListener('change',event=>{
+  const node=control(event);if(node&&!guard.current(node)){event.preventDefault();event.stopImmediatePropagation();}
+ },true);
+ return {invalidate:()=>guard.invalidate(),stamp:()=>guard.stamp(doc.querySelectorAll(selector))};
+}
