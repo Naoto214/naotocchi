@@ -777,23 +777,18 @@ for prefix, number, count in (("C", 35, 26), ("P", 36, 18), ("W", 40, 13)):
     ids = re.findall(rf"^### {prefix}-([\w-]+)", doc(number), re.M)
     check(len(ids) == len(set(ids)) == count and set(ids) == {s["id"] for s in catalogs[prefix]}, f"{prefix} source/role mismatch")
 
-# Historical registered 38: the unmerged branch's source baseline.
-# Current main items are checked separately against the pinned 76 snapshot.
-script = (ROOT / "script.js").read_text()
-item_ids = []
-item_groups = {}
-for name, count in (("SHOP_ITEMS", 15), ("NAOTO_ITEMS", 4), ("CONSUMABLE_ITEMS", 11), ("FUN_ITEMS", 7), ("RECOVERY_ITEMS", 1)):
-    block = re.search(rf"  const {name} = \[\n(.*?)\n  \];", script, re.S)
-    if not block:
-        raise ValueError(f"Cannot find current array {name}")
-    ids = re.findall(r"(?:\bid|\"id\"):\s*['\"]([^'\"]+)['\"]", block[1])
-    check(len(ids) == count, f"{name}: expected {count}, got {len(ids)}")
-    item_groups[name] = ids
-    item_ids.extend(ids)
-item_role_ids = re.findall(r"^### I-([\w-]+)", doc(37), re.M)
-check(len(item_role_ids) == len(set(item_role_ids)) == len(set(item_ids)) == 38 and set(item_ids) == set(item_role_ids), "Item role/source mismatch")
+# Historical registered 38 belong to the pinned design baseline, not today's
+# runtime arrays (FUN_ITEMS / RECOVERY_ITEMS were retired). The same snapshot
+# also defines the current core; check-item-source below validates all 26
+# canonical current card bodies against it and the 77 primary document.
+item_snapshot = json.loads((DOCS / "data/item-source-20260917.json").read_text())
+item_ids = list(item_snapshot["legacy_names"])
+item_roles = dict(re.findall(r"^### I-([\w-]+) — (.+)$", doc(37), re.M))
+check(len(item_ids) == len(item_roles) == 38 and
+      item_roles == item_snapshot["legacy_names"], "Historical item role/source mismatch")
 held_items = re.findall(r"^### I-([\w-]+)", doc(37).split("## E. RECOVERY_ITEMS 1 — HOLD")[1].split("## F.")[0], re.M)
-check(set(held_items) == set(item_groups["RECOVERY_ITEMS"]), "Item HOLD/source mismatch")
+check(held_items == ["reward"] and "reward" in item_ids and
+      "reward" in item_snapshot["retired_source_ids"], "Historical item HOLD/source mismatch")
 
 check(collections.Counter(g["source"] for g in games) == {"general": 86, "region": 10, "season": 4}, "Game source counts changed")
 game_map = {g["id"]: g for g in games}
