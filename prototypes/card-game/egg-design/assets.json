@@ -7,29 +7,29 @@
       "path": "original.png",
       "width": 1024,
       "height": 1536,
-      "bytes": 1852564,
-      "sha256": "77b98d713c81a87e441e4d5afc8616d54c4506394ff1d015309ce3a6248083a0"
+      "bytes": 1853701,
+      "sha256": "f5ec6e8f6d5b2a3cb86ca0c60d0ce30d49e4a33cb59c098c391ae9a155965129"
     },
     {
       "path": "egg-card-print.png",
       "width": 1024,
       "height": 1536,
-      "bytes": 1853087,
-      "sha256": "ab36f89e72688fe9ecd2955f8a076e6f066ecd584e69565447009bd7526b8b3c"
+      "bytes": 1854224,
+      "sha256": "6dd9ec8d20dcf203d8372d95965503cdefb5da0ecdfd5ba130272950b88d5d25"
     },
     {
       "path": "../ui-assets/egg-card-small.webp",
       "width": 320,
       "height": 480,
-      "bytes": 32392,
-      "sha256": "285632bc9107c52ae5a9a9eb74c863dd8b9d7b1d70af88802922becd97144dba"
+      "bytes": 32824,
+      "sha256": "70882bf3cb6352fdedeabe6f656087d3b265202179653f6e3392f23d1a439541"
     },
     {
       "path": "../ui-assets/egg-card-large.webp",
       "width": 1024,
       "height": 1536,
-      "bytes": 156354,
-      "sha256": "5c67bb9e7ceade200922cd3e7275c059992b16339f60622598e07b491e391438"
+      "bytes": 158320,
+      "sha256": "467ec87b64eb85ad5022abc5c2842a5d8437e9c34b35b69717ff07a778b52028"
     }
   ]
 }

@@ -1,5 +1,11 @@
 import fs from 'node:fs';import path from 'node:path';import {createRequire} from 'node:module';import {fileURLToPath} from 'node:url';import {cardMarkup} from '../../ui-presentation.mjs';import {CATALOG} from '../../full-catalog.mjs';
 const require=createRequire(import.meta.url),sharp=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/sharp'),dir=path.dirname(fileURLToPath(import.meta.url));
+const css=fs.readFileSync(path.join(dir,'../../style.css'),'utf8');
+const footerRules=[...css.matchAll(/\.card-footer\{([^}]+)\}/g)].map(m=>m[1]);
+const declaration=(name)=>footerRules.flatMap(r=>[...r.matchAll(new RegExp('(?:^|;)'+name+':([^;]+)','g'))].map(m=>m[1])).at(-1);
+const signatureColor=declaration('color'), signatureSize=Number.parseFloat(declaration('font-size'))*552/100, signatureSpacing=Number.parseFloat(declaration('letter-spacing'))*signatureSize;
+const signatureFont=css.match(/:root\{font-family:([^;]+)/)[1];
+const signatureAttrs=`font-family="${signatureFont.replaceAll('"','&quot;')}" font-size="${signatureSize.toFixed(3)}" letter-spacing="${signatureSpacing.toFixed(5)}" font-weight="400" opacity="1" fill="${signatureColor}"`;
 const canonical=cardMarkup(CATALOG['M-beetle-01']);
 const ornament=canonical.match(/<svg class="botanical"[\s\S]*?<\/svg>/)[0];
 fs.writeFileSync(path.join(dir,'shared-botanical.svg'),ornament);
@@ -18,11 +24,11 @@ const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" vi
 <rect x="25" y="205" width="550" height="415" rx="71.5" ry="53.95" fill="#f5ead5" stroke="#8e9fab"/><image href="${data(art)}" x="25" y="205" width="550" height="415" preserveAspectRatio="xMidYMid meet" clip-path="url(#art)"/>
 <rect x="25" y="630" width="550" height="210" rx="44" ry="16.8" fill="url(#copy)" stroke="#91a3ae"/><rect x="26.5" y="631.5" width="547" height="207" rx="43" ry="16" fill="none" stroke="#f5f8fa"/><path d="M43 681H557" stroke="#91a3ae"/>
 <image href="${data(copy)}" x="43" y="700" width="400" height="110.53"/>
-<ellipse cx="300" cy="861.3" rx="252" ry="9" fill="#638da9" stroke="#91a3ae"/>
-<text x="300" y="865" text-anchor="middle" font-family="Arial,sans-serif" font-size="14.904" letter-spacing="2.68272" fill="#637c8d">NAOTOCCHI</text></g></svg>`;
+<ellipse cx="300" cy="861.3" rx="252" ry="9" fill="#fffef3" stroke="#91a3ae"/>
+<text x="300" y="865" text-anchor="middle" ${signatureAttrs}>NAOTOCCHI</text></g></svg>`;
 fs.writeFileSync(path.join(dir,'egg-template.svg'),svg);
 await sharp(Buffer.from(svg)).png().toFile(path.join(dir,'../original.png'));
 // A true common-template HTML source retained for maintainers, never runtime replacement.
 const eggHTML=canonical.replace(/<div class="card-heading">[\s\S]*?<div class="card-art">/, '<div class="card-heading"><strong class="card-title">たまご</strong></div><div class="card-art">').replace(/<div class="card-art">[\s\S]*?<div class="card-stats">/,'<div class="card-art"><img class="dedicated-art" src="preserved-art.png"></div><div class="card-stats">').replace(/<div class="card-stats">[\s\S]*?<div class="card-copy"/,'<div class="card-copy"').replace(/<div class="card-copy"[\s\S]*?<small class="card-footer">/,'<div class="card-copy"><p>自分のターン開始時、通常ドローの後にさらに1枚引き、手札1枚を山札の一番下に戻す。</p></div><small class="card-footer">');
 const paletteCSS=fs.readFileSync(path.join(dir,'../../style.css'),'utf8').replace(/#([0-9a-f]{6})([0-9a-f]{2})?\b/gi,(whole,hex,alpha='')=>{const r=parseInt(hex.slice(0,2),16),g=parseInt(hex.slice(2,4),16),b=parseInt(hex.slice(4,6),16);if(!(r>g&&g>b))return whole;const l=Math.round(.2126*r+.7152*g+.0722*b);return '#'+[Math.max(0,l-9),l,Math.min(255,l+7)].map(v=>v.toString(16).padStart(2,'0')).join('')+alpha;});
-fs.writeFileSync(path.join(dir,'common-template.html'),`<!doctype html><meta charset="utf-8"><style>${paletteCSS}.card-face{width:600px;height:900px;--card-color:#638da9!important;grid-template-rows:20% minmax(0,1fr) 25% 3%}.botanical{color:#8c9da8}.leaf-filagree{fill:#b7c6d1}.card-footer{color:#637c8d}</style>${eggHTML.replace('aria-label="カブトムシ①"','aria-label="たまご"')}`);
+fs.writeFileSync(path.join(dir,'common-template.html'),`<!doctype html><meta charset="utf-8"><style>${paletteCSS}.card-face{width:600px;height:900px;--card-color:#638da9!important;grid-template-rows:20% minmax(0,1fr) 25% 3%}.botanical{color:#8c9da8}.leaf-filagree{fill:#b7c6d1}.card-footer{color:${signatureColor};font-family:${signatureFont};font-weight:400;opacity:1;background:#fffef3}</style>${eggHTML.replace('aria-label="カブトムシ①"','aria-label="たまご"')}`);
