@@ -98,3 +98,22 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(orientation:portrait){.opponent .egg-parking{margin-top:2px}.opponent .management{padding-bottom:14px}}
 /* Same gold/ivory badge palette; reserve the existing heading side lane. */
 .card-cost{width:22cqw;height:22cqw;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;font-size:18cqw;font-weight:900;font-variant-numeric:lining-nums tabular-nums;line-height:1;letter-spacing:0;color:#241b12;background:#fff8e2;border-width:max(1px,.8cqw);box-shadow:0 0 0 1px #fff5c9,inset 0 0 0 1px #ead8a6;isolation:isolate}
+
+/* Turn status stays in the existing 44px header; no extra layout row. */
+.table-top .turn-indicator{border-left:3px solid #91cfa4;border-radius:5px;padding:3px 5px;background:#204b3c;overflow:hidden}
+.table-top .turn-other{border-color:#92bee9;background:#203e56}
+.table-top .turn-finished{border-color:#e3cd93;background:#3b453e}
+.table-top .turn-indicator strong{font-size:13px;line-height:17px;white-space:nowrap}
+.table-top .turn-indicator small{font-size:10px;line-height:13px;white-space:nowrap}
+.result-important{border-color:#ebc1ab;max-height:134px}
+.milestone-symbol{display:inline-block;color:#f0bbc5;animation:milestone-glow 1.4s ease-out}
+.milestone-cause{font-size:11px;line-height:14px;margin:2px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.milestone-values{display:flex;flex-wrap:wrap;gap:1px 8px;max-height:42px;overflow-y:auto;pointer-events:auto;font-size:11px;line-height:14px}
+.milestone-values>span{display:block}
+@keyframes milestone-glow{0%{transform:scale(.8)}30%{transform:scale(1.18);text-shadow:0 0 10px #f3c3b0}100%{transform:scale(1);text-shadow:none}}
+@media(max-width:360px){.table-top .turn-indicator strong{font-size:12px}.table-top .turn-indicator small{font-size:9px}.table-top{gap:4px}}
+@media(prefers-reduced-motion:reduce){.milestone-symbol{animation:none!important}}
+
+/* Reserve the result button's width, including while a notice is visible. */
+.table-top button{width:44px;min-width:44px;padding:2px;overflow-wrap:anywhere}
+.table-top .result-reopen[hidden]{display:block!important;visibility:hidden;pointer-events:none}

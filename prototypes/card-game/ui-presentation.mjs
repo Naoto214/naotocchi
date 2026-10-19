@@ -137,8 +137,24 @@ export function detailMarkup(c,{v=null,viewer=null,catalog=false,handPosition=nu
  const actions=cardActions(v,viewer,c),hidden=c.hidden,ability=c.source?.match(/「([^」]+)」/)?.[1],priority=v&&(v.choice||v.phase!=='normal');
  return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':readOnly?'カード閲覧':h(turnStatus(v))}</span><button type="button" class="dialog-close" data-close>盤面へ ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${cardMarkup(c)}</div></div><div class="detail-copy"><header class="detail-summary"><h2>${h(hidden?'しかけたカード':c.form??c.name)}</h2>${!hidden?`<p>${h(CATEGORIES[c.type]?.[0])}${c.type==='main'?' · '+h(c.name.replace(/[①-⑧]/g,''))+' · '+h(c.attribute):''}</p><p>${c.type==='main'?`ちから <b>${c.power}</b> · ちえ <b>${c.wisdom}</b> · `:''}通常時コスト <b>${c.type==='main'?c.stage:c.cost}</b></p>`:''}</header><section class="effect-scroll" tabindex="0" aria-label="能力全文">${hidden?'<p>相手の伏せ札は確認できません。</p>':`${ability?`<h3>${h(ability)}</h3>`:''}<p class="full-effect">${h(c.text)}</p>`}</section>${readOnly&&!hidden&&actions.length?`<button type="button" data-inspect="${h(c.id)}">このカードの操作を開く</button>`:''}${!catalog&&!readOnly&&!hidden?`<section class="detail-command"><h3>${v.choice?'必須選択：このカードを選ぶ':actions.length===1?'このカードでできる行動':'行動を選択'}</h3>${priority?`<p class="choice-guide">${v.effect?`${h(v.effect.name)}：`:''}${h(choiceGuide(v))}</p>`:''}<div class="detail-actions actions${actions.length===1?' single-action':''}">${actionMarkup(actions,{selected:c.id})}${!actions.length?`<p class="unavailable">${h(unavailableReason(v,viewer,c))}</p>`:''}</div>${priority?`<div class="detail-pass actions">${actionMarkup(v.actions.filter(a=>a.kind==='pass'))}</div>`:''}</section>`:''}</div></div>`;
 }
+// Derived solely from audience-filtered result rows.
+export function importantResult(g){
+ const rows=g?.rows??[];
+ if(rows.some(r=>r.kind==='finish'))return {kind:'finish',title:'対戦終了！',symbol:'⚑'};
+ if(rows.some(r=>r.kind==='marriage'))return {kind:'marriage',title:'けっこん！',symbol:'♥'};
+ if(rows.some(r=>r.kind==='birth'))return {kind:'birth',title:'たんじょう！',symbol:'✦'};
+ if(rows.some(r=>r.kind==='main'&&r.text.includes('ときおくり')))return {kind:'main',title:'成長！',symbol:'↑'};
+ // Ten points is a display threshold, never a rule or a changed amount.
+ if(rows.some(r=>r.kind==='growth'&&Math.abs(r.delta)>=10))return {kind:'growth',title:'そだちが変化！',symbol:'✦'};
+ return null;
+}
 export function resultNoticeMarkup(g){
  if(!g)return '';
+ const special=importantResult(g);
+ if(special){
+  const eventRows=g.rows.filter(r=>['marriage','birth','main','finish'].includes(r.kind)),numbers=g.rows.filter(r=>['growth','time','power','wisdom','relationship'].includes(r.kind));
+  return `<section class="result-notice result-important" data-milestone="${special.kind}"><button type="button" class="result-collapse" data-result-collapse aria-label="結果通知を収納">×</button><strong><span class="milestone-symbol" aria-hidden="true">${special.symbol}</span> ${special.title}</strong><p class="milestone-cause">${h(eventRows.map(r=>r.text).join(' / ')||g.heading)}</p><div class="milestone-values">${numbers.map(r=>`<span>${h(r.text)}</span>`).join('')}</div><small>${g.combined?'この処理全体の変化 · ':''}次は上部の操作担当を確認 · 詳細は操作・履歴</small></section>`;
+ }
  const rows=g.rows.slice(0,1);
  return `<section class="result-notice"><button type="button" class="result-collapse" data-result-collapse aria-label="結果通知を収納">×</button><strong>結果 · ${h(g.heading)}</strong><ul>${rows.map(r=>`<li class="result-${h(r.kind)}">${r.cards.slice(0,3).map(c=>`<span class="result-mini" aria-hidden="true">${cardMarkup(c,{compact:true})}</span>`).join('')}<span>${h(r.cards.length>3?r.text.replace(r.cards.map(c=>c.name).join('・'),r.cards.slice(0,3).map(c=>c.name).join('・')+` ほか${r.cards.length-3}枚`):r.text)}</span></li>`).join('')}</ul><small>${g.rows.length>1?`ほか${g.rows.length-1}件 · `:''}${g.combined?'処理全体の変化 · ':''}詳細は操作・履歴</small></section>`;
 }
@@ -146,6 +162,7 @@ export function resultNoticeMarkup(g){
 function historyLines(g){
  const rows=g.rows??[],kinds=new Set(rows.map(r=>r.kind));
  const trace=(g.trace??[]).filter(t=>{
+  if(/^[AB][：:]?\s*パス$/.test(t))return false;
   if(/手札.*山札/.test(t)&&kinds.has('return'))return false;
   if(/を配置/.test(t)&&['birth','main','move'].some(k=>kinds.has(k)))return false;
   return true;
@@ -153,7 +170,10 @@ function historyLines(g){
  const texts=rows.filter(r=>!(r.kind==='activate'&&trace.some(t=>/発動/.test(t)))).map(r=>r.text);
  return [...trace,...texts.filter(t=>!trace.includes(t))];
 }
-export function resultHistoryMarkup(v,viewer){return `<details class="result-history"><summary>対戦履歴 · 操作と効果結果${viewer?'（自分だけのカード情報を含む）':'（公開情報）'}</summary>${(v.results??[]).map(g=>`<section><h3>${g.round?'R'+h(g.round)+' · ':''}${h(g.turn??'')}のターン <small>手順${g.revision}</small></h3>${g.combined?'<p>解決は記載順。数値・移動はこの手順全体の結果です。</p>':''}<ul>${historyLines(g).map(t=>`<li>${h(t)}</li>`).join('')}</ul></section>`).join('')||'<p>履歴はまだありません。</p>'}</details>`;}
+export function resultHistoryMarkup(v,viewer){
+ const groups=[...(v.results??[])].reverse().map(g=>({g,lines:historyLines(g)})).filter(({lines})=>lines.length);
+ return `<details class="result-history"><summary>対戦履歴 · 最新から過去へ${viewer?'（自分だけのカード情報を含む）':'（公開情報）'}</summary>${groups.map(({g,lines})=>`<section data-result-revision="${g.revision}"><h3>${g.round?'R'+h(g.round)+' · ':''}${h(g.turn??'')}のターン${g.actor?' · 操作 '+h(g.actor):''} <small>手順${g.revision}</small></h3>${g.combined?'<p>解決は記載順。数値・移動はこの手順全体の結果です。</p>':''}<ul>${lines.map(t=>`<li>${h(t)}</li>`).join('')}</ul></section>`).join('')||'<p>履歴はまだありません。</p>'}</details>`;
+}
 function chainMarkup(v,viewer){return `<details class="chain"><summary>処理中のチェーン ${v.chain.length} · 履歴</summary>${[...v.chain].reverse().map((l,i)=>`<p>${v.chain.length-i}. ${l.actor}：${h(l.name)}${l.target?' → '+h(l.target):''}${l.declare?' / '+h(l.declare):''}</p>`).join('')||'<p>処理中のカードはありません。</p>'}${resultHistoryMarkup(v,viewer)}</details>`;}
 export function effectFocusMarkup(v){
  const e=v?.effect;if(!e)return '';
@@ -192,9 +212,15 @@ export function needsConfirmation(action){
 export function confirmationMarkup({action,details=[],paidTime=0}){
  return `<h2>この行動で確定しますか？</h2><p class="confirmation-label">${h(action.displayLabel??action.label)}</p>${paidTime?`<p>支払う時：<b>${paidTime}</b></p>`:''}${details.length?`<ul class="selection-summary">${details.map(line=>`<li>${h(line)}</li>`).join('')}</ul>`:''}<p>確定した行動は取り消せません。</p><div class="dialog-buttons"><button type="button" data-cancel>戻る</button><button type="button" class="primary" data-confirm>確定する</button></div>`;
 }
+export function turnIndicatorMarkup(v){
+ const name=seat=>v.mode==='cpu'?(seat===v.humanSeat?'あなた':'CPU'):seat;
+ const owner=name(v.turn),operator=name(v.actor),work=v.choice?'選択中':v.phase==='response'?'応答中':v.phase==='trigger'?'選択中':'操作中';
+ const tone=v.result?'finished':v.turn===(v.humanSeat??'A')?'self':'other';
+ return `<div class="turn-indicator turn-${tone}" data-turn-owner="${h(v.turn)}" role="status" aria-live="polite"><strong>${v.result?'⚑ 対戦終了':`${tone==='self'?'▶':'◆'} ${h(owner)}のターン`}</strong><small>ROUND ${v.round}/10${v.result?'':` · ${h(operator)}が${work}`}</small></div>`;
+}
 export function gameMarkup(v,viewer,{selected=null,reordering=false,hand=null}={}){
  const mine=viewer??v.humanSeat??v.actor??'A',opponent=mine==='A'?'B':'A',priority=Boolean(v.choice||v.phase!=='normal');
- return `<header class="table-top"><div><small>ROUND ${v.round}/10 · 手番 ${v.turn}</small><strong>${h(v.cpuThinking?'CPUが考えています':turnStatus(v))}</strong></div>${viewer&&!v.result?`<button type="button" ${v.cpuThinking?'data-result-history':'data-workflow'} aria-label="操作と履歴を開く">操作・履歴</button>`:v.result?'<button type="button" data-result-history>結果履歴</button>':''}<button type="button" class="result-reopen" data-result-reopen hidden aria-label="直近の結果通知を再表示">↺<small>結果</small></button><button type="button" data-menu aria-label="保存・受け渡しメニュー">☰</button></header>
+ return `<header class="table-top">${turnIndicatorMarkup(v)}${viewer&&!v.result?`<button type="button" ${v.cpuThinking?'data-result-history':'data-workflow'} aria-label="操作と履歴を開く">操作・履歴</button>`:v.result?'<button type="button" data-result-history>結果履歴</button>':''}<button type="button" class="result-reopen" data-result-reopen hidden aria-label="直近の結果通知を再表示">↺<small>結果</small></button><button type="button" data-menu aria-label="保存・受け渡しメニュー">☰</button></header>
  ${v.result?`<section id="result" class="panel"><h2>${v.result.winner?v.result.winner+' の勝利':'引き分け'}</h2><p>${h(v.result.reason)} · A ${v.result.growth.A} / B ${v.result.growth.B}</p><button type="button" data-home>開始画面へ</button></section>`:''}
  <div class="battle-area"><div class="board-shell opponent-shell" tabindex="0" aria-label="相手の盤面">${boardMarkup(v.players[opponent],opponent,viewer,v.chain,v,mine)}</div><div class="board-shell own-shell" tabindex="0" aria-label="自分の盤面">${boardMarkup(v.players[mine],mine,viewer,v.chain,v,mine)}</div>${viewer&&!v.result?`<aside id="operation-panel" aria-label="操作案内" data-operation-stage="${v.choice?'choice':v.phase}">${v.cpuThinking?'<div class="operation-notice cpu-thinking" role="status"><span class="notice-copy"><strong>CPUが考えています</strong><span>カードの詳細・履歴を開くと一時停止します</span></span></div>':compactOperationMarkup(v,viewer)}</aside>`:''}</div>
  ${viewer&&!v.result?`<section id="hand" class="hand-panel${reordering?' reordering':''}"><header class="hand-heading"><button type="button" data-hand-toggle aria-expanded="true">手札 ${v.players[viewer].hand.length}枚 <small>長押しで並び替え</small></button><button type="button" data-reorder aria-pressed="${reordering}" aria-label="左右ボタンで並び替え">${reordering?'補助操作を閉じる':'補助操作'}</button></header><div class="cards">${(hand??v.players[viewer].hand).map((c,i,list)=>`<div class="hand-entry${c.id===selected?' is-selected':''}" data-hand-entry="${h(c.id)}">${inspectButton(c,'card-tap hand-card',v,viewer)}${reordering?`<div class="hand-moves"><button type="button" data-move="-1" data-hand-id="${h(c.id)}" aria-label="${h(c.name)}を左へ" ${i===0?'disabled':''}>←</button><button type="button" data-move="1" data-hand-id="${h(c.id)}" aria-label="${h(c.name)}を右へ" ${i===list.length-1?'disabled':''}>→</button></div>`:''}</div>`).join('')}</div></section>`:''}`;

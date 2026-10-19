@@ -7,7 +7,7 @@ import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
 import {ResultFeedback} from './ui-result-feedback.mjs';
-import {updateGameDOM} from './ui-render.mjs';
+import {updateGameDOM,TurnFeedback} from './ui-render.mjs';
 import {installViewport} from './ui-viewport.mjs';
 installViewport();
 const ORDER_KEY='naotocchi-hand-order-v1';
@@ -17,12 +17,13 @@ let session=new HotseatSession({autoAdvance:true});
 let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
 const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog'].some(id=>$(id).open),onStep:()=>{persist();render();}});
+const turnFeedback=new TurnFeedback();
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
 const feedback=new ResultFeedback({dock:available=>{const b=document.querySelector('[data-result-reopen]');if(b)b.hidden=!available;},clear:()=>{feedbackHost.replaceChildren();clearResultMotion();},paint:g=>{
  feedbackHost.innerHTML=resultNoticeMarkup(g);clearResultMotion();
  for(const r of g.rows){if(r.to==='deck')document.querySelector(`[data-player="${r.seat}"] [data-zone="deck"]`)?.classList.add('result-deck');
-  if(['draw','birth','main','move'].includes(r.kind))for(const c of r.cards)for(const n of document.querySelectorAll('[data-inspect],[data-browse]'))if((n.dataset.inspect??n.dataset.browse)===c.id)n.classList.add('result-arrive');
+  if(['draw','birth','main','move','marriage'].includes(r.kind))for(const c of r.cards)for(const n of document.querySelectorAll('[data-inspect],[data-browse]'))if((n.dataset.inspect??n.dataset.browse)===c.id)n.classList.add('result-arrive');
  }
 }});
 function persistOrder(){try{localStorage.setItem(ORDER_KEY,handOrder.serialize());}catch{message("手札の表示順はこの画面だけで保持します");}}
@@ -36,28 +37,28 @@ function closeDialogs({focus=true}={}){
  pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;cpu.schedule();
 }
 function showAutomationStop(){
- cpu.cancel();feedback.hide();
+ cpu.cancel();feedback.hide();turnFeedback.hide();
  dragCleanup();session.hide();closeDialogs({focus:false});$('curtain').hidden=true;$('hide').hidden=true;
  $('game').innerHTML='<section class="panel" role="alert"><h2>自動進行を停止しました</h2><p>最後に確定した状態を保持しています。対戦を保存し、復帰または調査に利用できます。</p><button type="button" data-menu>保存メニュー</button></section>';
 }
 function hide(){
- cpu.cancel();feedback.hide();
+ cpu.cancel();feedback.hide();turnFeedback.hide();
  if(!session.active)return;
  if(session.automationStop){showAutomationStop();return;}
  dragCleanup();session.hide();returnWorkflow=false;selected=null;reordering=false;returnDetail=null;closeDialogs({focus:false});$('game').replaceChildren();
  $('curtain').hidden=session.finished;$('handoff-title').textContent=session.mode==='cpu'?'対戦を一時停止しました':handoffMessage(session.projection);$('curtain').querySelector('p').textContent=session.mode==='cpu'?'準備OKで自分の手札を表示し、CPU対戦を再開します。':'前のプレイヤーは画面から目を離してください。確認するまで手札は表示されません。';$('hide').hidden=true;
  if(session.finished)render();else $('reveal').focus();
 }
-function start(next){session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();if(session.mode==='cpu'){session.reveal();$('curtain').hidden=true;render();}else hide();}
+function start(next){turnFeedback.hide();session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();if(session.mode==='cpu'){session.reveal();$('curtain').hidden=true;render();}else hide();}
 function render(){
  if(session.automationStop){showAutomationStop();return;}
  const scrolls=[...document.querySelectorAll('.board-shell')].map(n=>n.scrollTop);dragCleanup();const v=session.projection,hand=session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):null;
- const next=document.createElement('template');next.innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});updateGameDOM($('game'),next.content,feedbackHost);$('hide').hidden=!session.viewer||!!v.result;$('hide').textContent=session.mode==='cpu'?'対戦を一時停止':'手札を隠して渡す';if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
+ const next=document.createElement('template');next.innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});updateGameDOM($('game'),next.content,feedbackHost);turnFeedback.present(document.querySelector('.turn-indicator'),v,window.matchMedia('(prefers-reduced-motion: reduce)').matches);$('hide').hidden=!session.viewer||!!v.result;$('hide').textContent=session.mode==='cpu'?'対戦を一時停止':'手札を隠して渡す';if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
  document.querySelectorAll('.board-shell').forEach((n,i)=>{n.scrollTop=scrolls[i]??0;});
  dragCleanup=mountHandDrag(document.querySelector('#hand .cards'),{onTap:id=>inspect(id),onReorder:ids=>{if(!session.viewer)return;const scroll=document.querySelector('#hand .cards').scrollLeft;handOrder.reorder(session.viewer,session.projection.players[session.viewer].hand,ids);persistOrder();render();document.querySelector('#hand .cards').scrollLeft=scroll;},onAnnounce:message,onInteraction:active=>{dragging=active;if(active)cpu.cancel();else cpu.schedule();}});cpu.schedule();
 }
 function applyHandVisibility(){const panel=$('hand');if(!panel)return;const open=handOpen??(window.innerHeight>=400||window.innerWidth>window.innerHeight);panel.classList.toggle('hand-collapsed',!open);panel.querySelector('[data-hand-toggle]').setAttribute('aria-expanded',String(open));}
-function openWorkflow(){if(!session.viewer||session.finished)return;closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML=workflowMarkup(session.projection,session.viewer);d.showModal();d.querySelector('[data-close]').focus();}
+function openWorkflow(){if(!session.viewer||session.finished)return;closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML=workflowMarkup(session.projection,session.viewer);d.showModal();d.scrollTop=0;d.querySelector('[data-close]').focus();}
 function continuePriority(){const panel=$('operation-panel');if(panel){panel.setAttribute('tabindex','-1');panel.focus({preventScroll:true});}}
 function highlight(action=null){
  document.querySelectorAll('.is-selected,.is-destination,.is-target').forEach(n=>n.classList.remove('is-selected','is-destination','is-target'));
@@ -100,7 +101,7 @@ document.addEventListener('click',e=>{
  if(b.hasAttribute('data-result-collapse')){feedback.collapse();document.querySelector('[data-result-reopen]')?.focus({preventScroll:true});return;}
  if(b.hasAttribute('data-result-reopen')){feedback.reopen();return;}
  if(b.hasAttribute('data-close')||b.hasAttribute('data-cancel')){const back=b.hasAttribute('data-cancel')?returnDetail:null;const flow=b.hasAttribute('data-cancel')&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();return;}
- if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();return;}
+ if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();d.scrollTop=0;return;}
  if(b.hasAttribute('data-workflow')){openWorkflow();return;}
  if(b.hasAttribute('data-hand-toggle')){handOpen=$('hand').classList.contains('hand-collapsed');applyHandVisibility();return;}
  if(b.hasAttribute('data-menu')){closeDialogs({focus:false});$('menu-dialog').showModal();return;}

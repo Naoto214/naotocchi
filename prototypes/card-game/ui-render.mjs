@@ -17,3 +17,14 @@ export function updateGameDOM(game,next,feedbackHost){
   if(after)game.append(n);else game.insertBefore(n,battle);
  }
 }
+
+// UI-local, non-persistent turn identity. Responding does not change the turn.
+export class TurnFeedback {
+ hide(){this.key=null;}
+ present(node,v,reduced=false){
+  const key=`${v.resultEpoch}:${v.round}:${v.turn}`;
+  if(this.key&&this.epoch===v.resultEpoch&&this.key!==key&&!reduced&&!v.result)
+   node?.animate?.([{filter:'brightness(1.4)'},{filter:'brightness(1)'}],{duration:700,easing:'ease-out'});
+  this.key=key;this.epoch=v.resultEpoch;
+ }
+}
