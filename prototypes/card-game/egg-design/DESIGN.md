@@ -1,5 +1,9 @@
 # 通常たまごカード — デザイン・物理版
 
+## 共通枠・署名の最終統一
+
+現行版は正式メインカードのbotanical SVGを直接再利用した共通枠版。最下部にNAOTOCCHIを追加。前回C原画はframe-unification/previous-C.pngに保持。詳細・比較・検証は[frame-unification/README.md](frame-unification/README.md)。以下は制作履歴。
+
 ## 最終改善（C案採用）
 
 現行original.png・egg-card-print.png・配信WebPは、メインカードの領域構造に合わせたC案。表面は「たまご」と「自分のターン開始時、通常ドローの後にさらに1枚引き、手札1枚を山札の一番下に戻す。」のみ。以前の説明2文を削除した。A/B/C比較・採用理由・検証は[refinement/README.md](refinement/README.md)を参照。以下は初回制作時の記録であり、旧採用原画はrefinement/A.pngに保持。

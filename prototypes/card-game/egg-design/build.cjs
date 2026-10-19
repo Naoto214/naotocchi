@@ -1,4 +1,4 @@
-// Derivatives only; canonical imagegen output is retained unchanged.
+// Derivatives only. Current source is exported by frame-unification/build.mjs; prior imagegen C is retained.
 const fs=require('node:fs'),path=require('node:path');
 const sharp=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES,'sharp'):'sharp');
 (async()=>{
