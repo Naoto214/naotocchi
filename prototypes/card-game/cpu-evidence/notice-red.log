@@ -1,0 +1,36 @@
+✔ CPU commits three distinct-type costs exactly once and resolves draw (19.998852ms)
+✔ CPU resolves dependent payment and recovery target without cancel loop (9.395009ms)
+✔ CPU handles multiple public targets, resolution selections and hidden search ordering (9.613853ms)
+✔ opaque hidden trap candidates never carry identity-bearing values or targets (3.481065ms)
+✖ CPU action does not supersede the ongoing four-second notification batch (12.083257ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 245.685435
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/cpu-effects.test.mjs:15:1
+✖ CPU action does not supersede the ongoing four-second notification batch (12.083257ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8fa3220c2d49/naotocchi/prototypes/card-game/tests/cpu-effects.test.mjs:15:235)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

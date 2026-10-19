@@ -1,5 +1,7 @@
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
+import {CpuSession,restoreMatch} from './cpu-session.mjs';
+import {CpuScheduler} from './cpu-scheduler.mjs';
 import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
@@ -9,8 +11,11 @@ import {installViewport} from './ui-viewport.mjs';
 installViewport();
 const ORDER_KEY='naotocchi-hand-order-v1';
 let handOrder;try{handOrder=new HandOrder(localStorage.getItem(ORDER_KEY));}catch{handOrder=new HandOrder();}
-const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',session=new HotseatSession({autoAdvance:true});
+const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',CPU_KEY='naotocchi-cpu-match-v1';
+let session=new HotseatSession({autoAdvance:true});
+let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
+const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog'].some(id=>$(id).open),onStep:()=>{persist();render();}});
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
 const feedback=new ResultFeedback({dock:available=>{const b=document.querySelector('[data-result-reopen]');if(b)b.hidden=!available;},clear:()=>{feedbackHost.replaceChildren();clearResultMotion();},paint:g=>{
@@ -20,35 +25,35 @@ const feedback=new ResultFeedback({dock:available=>{const b=document.querySelect
  }
 }});
 function persistOrder(){try{localStorage.setItem(ORDER_KEY,handOrder.serialize());}catch{message("手札の表示順はこの画面だけで保持します");}}
-function bindOrder(){handOrder.bind(session.save());persistOrder();}
+function bindOrder(){handOrder.bind(session.engineSave??session.save());persistOrder();}
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 function button(text,handler){const n=el('button',text);n.type='button';n.addEventListener('click',handler);return n;}
 function message(text){$('status').textContent=text;}
-function persist(){try{localStorage.setItem(KEY,session.save());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}}
+function persist(){try{localStorage.setItem(session.mode==='cpu'?CPU_KEY:KEY,session.save());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}}
 function closeDialogs({focus=true}={}){
  for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();delete d.dataset.browseSeat;delete d.dataset.browseZone;}
- pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;
+ pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;cpu.schedule();
 }
 function showAutomationStop(){
- feedback.hide();
+ cpu.cancel();feedback.hide();
  dragCleanup();session.hide();closeDialogs({focus:false});$('curtain').hidden=true;$('hide').hidden=true;
  $('game').innerHTML='<section class="panel" role="alert"><h2>自動進行を停止しました</h2><p>最後に確定した状態を保持しています。対戦を保存し、復帰または調査に利用できます。</p><button type="button" data-menu>保存メニュー</button></section>';
 }
 function hide(){
- feedback.hide();
+ cpu.cancel();feedback.hide();
  if(!session.active)return;
  if(session.automationStop){showAutomationStop();return;}
  dragCleanup();session.hide();returnWorkflow=false;selected=null;reordering=false;returnDetail=null;closeDialogs({focus:false});$('game').replaceChildren();
- $('curtain').hidden=session.finished;$('handoff-title').textContent=handoffMessage(session.projection);$('hide').hidden=true;
+ $('curtain').hidden=session.finished;$('handoff-title').textContent=session.mode==='cpu'?'対戦を一時停止しました':handoffMessage(session.projection);$('curtain').querySelector('p').textContent=session.mode==='cpu'?'準備OKで自分の手札を表示し、CPU対戦を再開します。':'前のプレイヤーは画面から目を離してください。確認するまで手札は表示されません。';$('hide').hidden=true;
  if(session.finished)render();else $('reveal').focus();
 }
-function start(next){session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();}
+function start(next){session.start(next);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();if(session.mode==='cpu'){session.reveal();$('curtain').hidden=true;render();}else hide();}
 function render(){
  if(session.automationStop){showAutomationStop();return;}
  const scrolls=[...document.querySelectorAll('.board-shell')].map(n=>n.scrollTop);dragCleanup();const v=session.projection,hand=session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):null;
- feedbackHost.remove();$('game').innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});document.querySelector('#game .battle-area').append(feedbackHost);$('hide').hidden=!session.viewer||!!v.result;if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
+ feedbackHost.remove();$('game').innerHTML=gameMarkup(v,session.viewer,{selected,reordering,hand});document.querySelector('#game .battle-area').append(feedbackHost);$('hide').hidden=!session.viewer||!!v.result;$('hide').textContent=session.mode==='cpu'?'対戦を一時停止':'手札を隠して渡す';if(hand)persistOrder();applyHandVisibility();highlight();feedback.present(v.results,session.viewer??(v.result?'public':null),v.resultEpoch,v.resultSince);
  document.querySelectorAll('.board-shell').forEach((n,i)=>{n.scrollTop=scrolls[i]??0;});
- dragCleanup=mountHandDrag(document.querySelector('#hand .cards'),{onTap:id=>inspect(id),onReorder:ids=>{if(!session.viewer)return;const scroll=document.querySelector('#hand .cards').scrollLeft;handOrder.reorder(session.viewer,session.projection.players[session.viewer].hand,ids);persistOrder();render();document.querySelector('#hand .cards').scrollLeft=scroll;},onAnnounce:message});
+ dragCleanup=mountHandDrag(document.querySelector('#hand .cards'),{onTap:id=>inspect(id),onReorder:ids=>{if(!session.viewer)return;const scroll=document.querySelector('#hand .cards').scrollLeft;handOrder.reorder(session.viewer,session.projection.players[session.viewer].hand,ids);persistOrder();render();document.querySelector('#hand .cards').scrollLeft=scroll;},onAnnounce:message,onInteraction:active=>{dragging=active;if(active)cpu.cancel();else cpu.schedule();}});cpu.schedule();
 }
 function applyHandVisibility(){const panel=$('hand');if(!panel)return;const open=handOpen??(window.innerHeight>=400||window.innerWidth>window.innerHeight);panel.classList.toggle('hand-collapsed',!open);panel.querySelector('[data-hand-toggle]').setAttribute('aria-expanded',String(open));}
 function openWorkflow(){if(!session.viewer||session.finished)return;closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML=workflowMarkup(session.projection,session.viewer);d.showModal();d.querySelector('[data-close]').focus();}
@@ -75,7 +80,7 @@ function inspect(id,{catalog=false,origin=null,readOnly=false}={}){
 function perform(action,revision,who){
  if(busy)return;busy=true;
  try{const handoff=session.commit(action.id,revision,who);closeDialogs({focus:false});persist();returnDetail=null;if(handoff)hide();else{render();continuePriority();}}
- catch(e){message(e.message);closeDialogs();}finally{busy=false;}
+ catch(e){message(e.message);closeDialogs();}finally{busy=false;cpu.schedule();}
 }
 function requestAction(id){
  const v=session.projection,a=v?.actions.find(a=>a.id===id);if(!a||!session.viewer)return;
@@ -110,14 +115,15 @@ document.addEventListener('click',e=>{
  if(b.dataset.inspect){inspect(b.dataset.inspect,{catalog:b.hasAttribute('data-catalog'),origin:b});return;}
  if(b.dataset.browse){inspect(b.dataset.browse,{readOnly:true,origin:b});return;}
  if(b.dataset.zone){showZone(b.dataset.seat,b.dataset.zone,b);return;}
- if(b.hasAttribute('data-home')){feedback.reset();session.clear();closeDialogs();$('game').replaceChildren();$('welcome').hidden=false;$('game').hidden=true;$('export').hidden=true;document.body.classList.remove('playing');renderDeck();$('new').focus();}
+ if(b.hasAttribute('data-home')){cpu.cancel();feedback.reset();session.clear();closeDialogs();$('game').replaceChildren();$('welcome').hidden=false;$('game').hidden=true;$('export').hidden=true;document.body.classList.remove('playing');renderDeck();$('new').focus();}
 });
+for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('close',()=>cpu.schedule());
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});
-$('new').onclick=()=>{try{const seed=crypto.getRandomValues(new Uint32Array(1))[0];validateDeck(decks.A);validateDeck(decks.B);start(createGame(seed,decks));persist();}catch(e){message(e.message);}};
-$('restore').onclick=()=>{try{const raw=localStorage.getItem(KEY);if(!raw)throw Error('保存された対戦がありません');session.restore(raw);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
+$('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(2)),seed=seeds[0];validateDeck(decks.A);validateDeck(decks.B);cpu.cancel();session=$('match-mode').value==='cpu'?new CpuSession({humanSeat:$('human-seat').value,difficulty:$('cpu-level').value,policySeed:seeds[1]}):new HotseatSession({autoAdvance:true});start(createGame(seed,decks));persist();}catch(e){message(e.message);}};
+$('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();session=restoreMatch(raw);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
-$('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([session.save()],{type:'application/json'})),a=el('a');a.href=url;a.download='naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-$('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');session.restore(await file.text());bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
+$('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([session.save()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=restoreMatch(await file.text());cpu.cancel();session=restored;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');$('deck-list').replaceChildren();$('catalog-list').replaceChildren();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 const DECK_KEY='naotocchi-deck-drafts-v1';
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
@@ -141,3 +147,6 @@ $('deck-default').onclick=()=>{decks[$('deck-seat').value]=[...DEFAULT_DECK];sav
 $('deck-export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({version:1,decks},null,2)],{type:'application/json'})),a=el('a');a.href=url;a.download='naotocchi-decks.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 $('deck-import').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>100000)throw Error('ファイルが大きすぎます');const data=JSON.parse(await file.text()),next=data.decks??data;validateDeck(next.A);validateDeck(next.B);decks={A:[...next.A],B:[...next.B]};saveDraft();message('A・Bのデッキを読み込みました');}catch(error){message(`デッキ読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
 renderDeck();
+
+function modeGuide(){const solo=$('match-mode').value==='cpu';document.querySelectorAll('[data-cpu-setting]').forEach(n=>n.hidden=!solo);$('mode-guide').textContent=solo?`自分が${$('human-seat').value}、CPUが${$('human-seat').value==='A'?'B':'A'}を担当します。デッキ編集で双方のカードを選べます。`:'交代時は手札を隠して端末を渡してください。従来の2人対戦セーブはこちらから復帰できます。';}
+$('match-mode').onchange=modeGuide;$('human-seat').onchange=modeGuide;modeGuide();

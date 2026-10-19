@@ -80,3 +80,5 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(orientation:landscape){#operation-panel{max-height:100%;overflow-y:auto}.notice-expand{min-height:52px}}
 
 @media(orientation:landscape) and (max-height:330px){.result-notice{min-height:48px}.result-notice>small{display:none}.result-notice li{min-height:20px}.result-mini,.result-mini>.card-face{width:12px;height:18px}}
+
+.match-options{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.match-options label{display:grid;gap:5px;min-width:130px;flex:1}.match-options select{width:100%;min-height:44px}.match-options [hidden]{display:none}.cpu-thinking{justify-content:center;min-height:44px;padding:4px 6px}
