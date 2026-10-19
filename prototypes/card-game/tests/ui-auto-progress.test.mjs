@@ -4,7 +4,7 @@ const opening=()=>{const x=new HotseatSession({autoAdvance:true});x.start(create
 test('response picker only enables engine candidate sources, including discard and board',()=>{
  const x=opening(),v=x.projection;assert.equal(v.phase,'response');const cards=v.players.A.hand;
  for(const c of cards){const eligible=v.actions.some(a=>a.source===c.id);assert.equal(ui.canInspectCard(v,'A',c),eligible);const button=ui.inspectButton(c,'card-tap',v,'A');assert.equal(button.includes(' disabled'),!eligible);assert.equal(button.includes('response-unavailable'),!eligible);}
- const c=cards.find(c=>v.actions.some(a=>a.source===c.id));assert.ok(c);const html=ui.gameMarkup(v,'A');assert.match(html,/response-options/);assert.match(html,new RegExp('data-inspect="'+c.id+'"'));assert.match(ui.detailMarkup(c,{v,viewer:'A'}),/data-action=/);
+ const c=cards.find(c=>v.actions.some(a=>a.source===c.id));assert.ok(c);const html=ui.gameMarkup(v,'A');assert.doesNotMatch(html,/response-options/);assert.match(html,new RegExp('data-inspect="'+c.id+'"'));assert.match(ui.detailMarkup(c,{v,viewer:'A'}),/data-action=/);
  const moved=structuredClone(v);moved.players.A.hand=moved.players.A.hand.filter(x=>x.id!==c.id);moved.players.A.discard.push(c);assert.match(ui.responseOptionsMarkup(moved,'A'),new RegExp('data-inspect="'+c.id+'"'));
  moved.players.A.discard=[];moved.players.A.board.world=c;assert.match(ui.boardMarkup(moved.players.A,'A','A',[],moved),/is-eligible/);
 });

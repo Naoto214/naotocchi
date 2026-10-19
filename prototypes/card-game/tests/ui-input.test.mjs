@@ -64,3 +64,30 @@ test('response and end-turn have distinct permanent slots and labels',()=>{
  assert.match(normal,/data-pass-slot="end-turn"[^>]*>[\s\S]*data-pass-intent="end-turn"/);
  assert.match(normal,/ターン終了/);assert.match(response,/応答しない/);
 });
+
+test('capture listener blocks stale and retargeted DOM events before the action handler',()=>{
+ const handlers={},session={},nodes=[];let revision=0;
+ const doc={addEventListener:(type,fn,capture)=>{assert.equal(capture,true);handlers[type]=fn;},querySelectorAll:()=>nodes};
+ const guard=input.installActionInputGuard(doc,()=>({session,revision,viewer:'A'}));
+ const node=()=>{const n={dataset:{},isConnected:true,disabled:false,closest:()=>n,matches:()=>false};nodes.push(n);return n;};
+ const emit=(type,n,extra={})=>{let blocked=false;handlers[type]({target:n,detail:1,preventDefault(){},stopImmediatePropagation(){blocked=true;},...extra});return blocked;};
+ const old=node();guard.stamp();emit('pointerdown',old);assert.equal(emit('click',old),false);
+ assert.equal(emit('click',old),true,'same click cannot be dispatched twice');
+ emit('pointerdown',old);revision++;guard.invalidate();const fresh=node();guard.stamp();
+ assert.equal(emit('click',fresh),true,'old gesture cannot target a new action');
+ emit('pointerdown',fresh);assert.equal(emit('click',fresh),false);
+ emit('pointerdown',fresh);emit('pointercancel',fresh);assert.equal(emit('click',fresh),true);
+ revision++;assert.equal(emit('change',fresh),true,'stale native declaration selection');
+});
+
+test('held Enter is cancelled before native click and a pre-render select gesture is refused',()=>{
+ const handlers={},session={},nodes=[];
+ const doc={addEventListener:(type,fn)=>handlers[type]=fn,querySelectorAll:()=>nodes};
+ const guard=input.installActionInputGuard(doc,()=>({session,revision:1,viewer:'A'}));
+ const n={dataset:{},isConnected:true,disabled:false,closest:()=>n,matches:()=>false};nodes.push(n);guard.stamp();
+ const emit=(type,extra={})=>{let blocked=false;handlers[type]({target:n,detail:0,preventDefault(){blocked=true;},stopImmediatePropagation(){blocked=true;},...extra});return blocked;};
+ emit('keydown',{key:'Enter',repeat:false});assert.equal(emit('click'),false);
+ guard.invalidate();guard.stamp();assert.equal(emit('keydown',{key:'Enter',repeat:true}),true);
+ emit('pointerdown');guard.invalidate();guard.stamp();assert.equal(emit('change'),true);
+ emit('pointerdown');assert.equal(emit('change'),false,'fresh select immediately works');
+});

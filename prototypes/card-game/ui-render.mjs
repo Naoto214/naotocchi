@@ -57,13 +57,17 @@ export function installActionInputGuard(doc,context){
  const control=event=>event.target.closest?.(selector);
  doc.addEventListener('pointerdown',event=>guard.begin(control(event)),true);
  doc.addEventListener('pointercancel',()=>guard.cancel(),true);
- doc.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)&&!event.repeat)guard.begin(control(event));},true);
+ doc.addEventListener('keydown',event=>{
+  if(!['Enter',' '].includes(event.key))return;
+  if(event.repeat&&control(event)){event.preventDefault();event.stopImmediatePropagation();return;}
+  if(!event.repeat)guard.begin(control(event));
+ },true);
  doc.addEventListener('click',event=>{
   const node=control(event);if(!node||node.matches?.('select'))return;
   if(!guard.accept(node,event)){event.preventDefault();event.stopImmediatePropagation();}
  },true);
  doc.addEventListener('change',event=>{
-  const node=control(event);if(node&&!guard.current(node)){event.preventDefault();event.stopImmediatePropagation();}
+  const node=control(event);if(node&&!guard.accept(node)){event.preventDefault();event.stopImmediatePropagation();}
  },true);
  return {invalidate:()=>guard.invalidate(),stamp:()=>guard.stamp(doc.querySelectorAll(selector))};
 }

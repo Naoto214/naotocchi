@@ -48,7 +48,7 @@ export function cardMarkup(c,{compact=false}={}){
  <small class="card-footer">${c.rare?'◆ RARE':'NAOTOCCHI'}</small>`:''}</article>`;
 }
 export function canInspectCard(v,viewer,c){if(v?.mode==='cpu'&&viewer===v.humanSeat&&!c.hidden)return true;return !v||v.phase!=='response'||Boolean(viewer===v.actor&&!c.hidden&&v.actions.some(a=>a.kind!=='pass'&&a.source===c.id));}
-export function inspectButton(c,cls='card-tap',v=null,viewer=null){const restricted=v?.phase==='response',allowed=canInspectCard(v,viewer,c);return `<button type="button"${allowed?'':' disabled aria-disabled="true"'} class="${cls}${restricted?(allowed?' is-eligible':' response-unavailable'):''}" data-inspect="${h(c.id)}" aria-label="${h(c.hidden?'しかけたカード':c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`;}
+export function inspectButton(c,cls='card-tap',v=null,viewer=null){const restricted=v?.phase==='response',allowed=canInspectCard(v,viewer,c),eligible=cardActions(v,viewer,c).length>0;return `<button type="button"${allowed?'':' disabled aria-disabled="true"'} class="${cls}${restricted?(eligible?' is-eligible':' response-unavailable'):''}" data-inspect="${h(c.id)}" aria-label="${h(c.hidden?'しかけたカード':c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`;}
 // Browsing uses only the safe projected card; it never enumerates or executes actions.
 export function browseButton(c,cls='card-tap',v=null,viewer=null){return `<button type="button" class="${cls}${cardActions(v,viewer,c).length?' is-eligible':''}" data-browse="${h(c.id)}" aria-label="${h(c.hidden?'裏向きカード':c.name)}の詳細を閲覧">${cardMarkup(c,{compact:true})}</button>`;}
 export function zoneMarkup(v,seat,zone){
@@ -191,7 +191,8 @@ export function effectFocusMarkup(v){
 // detail and the expanded fallback (including private peek / numeric choices).
 export function responseOptionsMarkup(v,viewer){
  if(v.phase!=='response'||viewer!==v.actor)return '';
- const ids=new Set(v.actions.filter(a=>a.kind!=='pass').map(a=>a.source)),cards=[...new Map(visibleCards(v).filter(c=>!c.hidden&&ids.has(c.id)).map(c=>[c.id,c])).values()];
+ const inHand=new Set((v.players[viewer].hand??[]).map(c=>c.id));
+ const ids=new Set(v.actions.filter(a=>a.kind!=='pass'&&!inHand.has(a.source)).map(a=>a.source)),cards=[...new Map(visibleCards(v).filter(c=>!c.hidden&&ids.has(c.id)).map(c=>[c.id,c])).values()];
  return cards.length?`<div class="response-options" aria-label="応答可能なカード">${cards.map(c=>`<button type="button" class="is-eligible" data-inspect="${h(c.id)}">${h(c.name)}</button>`).join('')}</div>`:'';
 }
 export function compactOperationMarkup(v,viewer){
@@ -204,7 +205,7 @@ export function compactOperationMarkup(v,viewer){
  const hint=v.choice?(v.actions.some(a=>a.choiceCard)?(v.choice.kind==='egg_bottom'?'手札をタップ → 山札の下へ戻す':'対象カードをタップして選択'):'選択肢から必要な操作を選ぶ'):v.phase==='response'?v.autoEnabled?'光るカードで応答／パス':`${v.actor} の応答待ち · ${v.actions.some(a=>a.kind!=='pass')?'カードで応答／パス':'応答できるカードなし'} · 連続パス ${v.progress?.passes??0}/2`:v.phase==='trigger'?'効果を使うか選んでください':v.actions.some(a=>a.kind==='place'&&a.label.includes('たんじょう'))?'手札からたんじょうできます':'カードを選んでください';
  const stage=v.choice?'必須選択':v.phase==='response'?'応答':v.phase==='trigger'?'効果選択':'通常行動';
  const more=indirect.length>1?'選択肢を開く':priority?'効果・選択肢の詳細':'操作・履歴';
- return `<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="${h(source)}。操作 ${h(v.actor)} · ${stage}。${h(hint)}。${more}"><span class="notice-copy"><strong>操作 ${h(v.actor)} · ${stage}</strong><span>${h(hint)}</span></span><span class="notice-more">${indirect.length>1?'選択肢を開く':'詳細'} ›</span></button>${pass?`<div class="pass-rail actions"><span data-pass-slot="response">${v.phase!=='normal'?actionMarkup([pass]):''}</span><span data-pass-slot="end-turn">${v.phase==='normal'?actionMarkup([pass]):''}</span></div>`:inline.length?`<div class="notice-actions actions">${actionMarkup(inline)}</div>`:''}</div>${responseOptionsMarkup(v,viewer)}`;
+ return `<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="${h(source)}。操作 ${h(v.actor)} · ${stage}。${h(hint)}。${more}"><span class="notice-copy"><strong>${v.phase==='response'?h(source):`操作 ${h(v.actor)} · ${stage}`}</strong><span>${h(hint)}</span></span><span class="notice-more">${indirect.length>1?'選択肢を開く':'詳細'} ›</span></button>${pass?`<div class="pass-rail actions"><span data-pass-slot="response">${v.phase!=='normal'?actionMarkup([pass]):''}</span><span data-pass-slot="end-turn">${v.phase==='normal'?actionMarkup([pass]):''}</span></div>`:inline.length?`<div class="notice-actions actions">${actionMarkup(inline)}</div>`:''}</div>${responseOptionsMarkup(v,viewer)}`;
 }
 export function operationMarkup(v,viewer){
  if(!viewer||viewer!==v.actor||v.result)return '';

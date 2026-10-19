@@ -1,0 +1,22 @@
+✔ jintori text, time and method match the immutable official source (4.097231ms)
+✔ jintori can respond to own and opponent ordinary actions; fewer than seven is legal (26.969197ms)
+✔ a passed opportunity returns only after a new opposing link; same physical card cannot be reused (5.699391ms)
+✔ jintori counts the field at resolution, excludes egg and activation; 0/7/8/9 produce 0/10/10/15 (15.984047ms)
+✔ one explicit pass completes an empty response with no duplicate decision in CPU and two-player modes (31.033113ms)
+✔ old response taps cannot execute after a state transition in CPU or hotseat (75.52413ms)
+✔ a gesture cannot be replayed, retargeted, or survive a render (1.779429ms)
+✔ restore to the same revision, hide, and fresh accessibility activation (2.276389ms)
+✔ held keyboard and browser multi-click cannot end a newly displayed turn (1.274037ms)
+✔ response and end-turn have distinct permanent slots and labels (7.694187ms)
+✔ capture listener blocks stale and retargeted DOM events before the action handler (0.669549ms)
+✔ held Enter is cancelled before native click and a pre-render select gesture is refused (0.319757ms)
+✔ hand responses use the hand only; off-hand legal sources keep a reachable shortcut (29.884244ms)
+✔ CPU read-only inspection does not highlight cards that cannot respond (18.42798ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 317.468324
