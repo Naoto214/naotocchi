@@ -70,7 +70,7 @@ export function boardMarkup(p,seat,viewer,chain=[],v=null,frontSeat=viewer){
  const b=p.board,own=seat===frontSeat,parked=Boolean(b.main),slots=[['セカイ',b.world],['メイン',b.main],['こいびと',b.partner],...[0,1,2].map(i=>['なかま'+['①','②','③'][i],b.companions[i]]),...[0,1,2].map(i=>['準備'+['①','②','③'][i],b.prepared[i]])];
  return `<section data-player="${seat}" class="player-board ${own?'own':'opponent'}" data-depth="${own?'near':'far'}"><header class="player-heading"><strong>${own?'手前 · あなた':'奥 · 相手'} · ${seat}</strong><span>そだち <b>${p.growth}</b> / 時 <b>${p.time}</b></span></header>
  <div class="board-layout"><div class="board-field"><div class="egg-parking" data-egg-location="${parked?'parking':'main'}"><span>たまご置き場</span>${parked?egg:'<span class="egg-empty">―</span>'}</div>
- <div class="slots">${slots.map(([label,c],i)=>({label,c,i})).sort((a,b)=>own?a.i-b.i:b.i-a.i).map(({label,c,i})=>`<div class="slot" data-slot="${i}"><small>${label}</small>${c?`<div class="slot-content">${(v&&(v.choice||v.phase!=='normal')&&cardActions(v,viewer,c).length?inspectButton(c,'card-tap',v,viewer):browseButton(c,'card-tap',v,viewer)).replace('</button>','<span class="board-card-name">'+h(c.hidden?'伏せ札':c.form??c.name)+'</span></button>')}</div>`:i===1?`<div class="egg-main">${egg}</div>`:'<span class="empty-slot">·</span>'}${c?.target?`<span class="attachment">${h(c.target)}</span>`:''}</div>`).join('')}</div></div>
+ <div class="slots">${slots.map(([label,c],i)=>({label,c,i})).sort((a,b)=>own?a.i-b.i:b.i-a.i).map(({label,c,i})=>`<div class="slot" data-slot="${i}"><small>${label}</small>${c?`<div class="slot-content">${(v&&cardActions(v,viewer,c).length&&(v.choice||v.phase!=='normal'||cardActions(v,viewer,c).some(a=>['challenge','relationship'].includes(a.kind)))?inspectButton(c,'card-tap',v,viewer):browseButton(c,'card-tap',v,viewer)).replace('</button>','<span class="board-card-name">'+h(c.hidden?'伏せ札':c.form??c.name)+'</span></button>')}</div>`:i===1?`<div class="egg-main">${egg}</div>`:'<span class="empty-slot">·</span>'}${c?.target?`<span class="attachment">${h(c.target)}</span>`:''}</div>`).join('')}</div></div>
  <aside class="management"><button type="button" data-zone="discard" data-seat="${seat}" aria-label="${seat}の捨て札 ${p.discard.length}枚"><span>捨て札</span><b>${p.discard.length}</b></button><button type="button" data-zone="activation" data-seat="${seat}" aria-label="${seat}の発動領域を閲覧"><span>発動領域</span><b>${chain.filter(l=>l.actor===seat).length+(v?.choice&&v.effect?.actor===seat?1:0)}</b>${chain.filter(l=>l.actor===seat).map(l=>`<small>${h(l.name)}</small>`).join('')}</button><button type="button" data-zone="deck" data-seat="${seat}" aria-label="${seat}の山札 残り${p.deckCount}枚"><span>山札</span>${cardMarkup(null)}<b>${p.deckCount}</b></button></aside></div>
  <footer class="board-metrics"><span>${icon('fist')} ${p.stats?.power??'—'}</span><span>${icon('brain')} ${p.stats?.wisdom??'—'}</span><span>交際 ${p.relationship===null?'—':p.relationship===4?'結婚':p.relationship}</span><span>手札 ${p.handCount}</span></footer></section>`;
 }
@@ -112,8 +112,18 @@ export function choiceGuide(v){
  return 'カードをタップ → 行動を選択。必要な対象・支払いは続けて選びます。';
 }
 export function cardActions(v,viewer,c){
- if(!v||!viewer||v.actor!==viewer||c.hidden)return [];
- return v.actions.filter(a=>v.choice?a.choiceCard===c.id:a.source===c.id);
+ if(!v||!viewer||v.actor!==viewer||v.result||c.hidden)return [];
+ const own=v.players[viewer]?.board,other=v.players[viewer==='A'?'B':'A']?.board;
+ // Shortcuts only associate existing legal actions with their public field cards.
+ // Challenge participants remain the two engine-selected mains; no UI-made target.
+ return v.actions.filter(a=>{
+  if(v.choice)return a.choiceCard===c.id;
+  if(a.source===c.id)return true;
+  if(v.phase!=='normal')return false;
+  if(a.kind==='challenge')return c.id===own?.main?.id||c.id===other?.main?.id;
+  if(a.kind==='relationship')return c.id===own?.partner?.id;
+  return false;
+ });
 }
 function unavailableReason(v,viewer,c){
  if(c.hidden)return '相手の伏せ札は確認・操作できません。';

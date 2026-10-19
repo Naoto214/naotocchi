@@ -2,7 +2,7 @@ import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from '.
 import {HotseatSession} from './ui-session.mjs';
 import {CpuSession,restoreMatch} from './cpu-session.mjs';
 import {CpuScheduler} from './cpu-scheduler.mjs';
-import {cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
+import {cardActions,cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
@@ -62,8 +62,8 @@ function continuePriority(){const panel=$('operation-panel');if(panel){panel.set
 function highlight(action=null){
  document.querySelectorAll('.is-selected,.is-destination,.is-target').forEach(n=>n.classList.remove('is-selected','is-destination','is-target'));
  if(!session.viewer)return;
- const v=session.projection,actions=action?[action]:v.actions.filter(a=>a.source===selected||a.choiceCard===selected);
- document.querySelectorAll('[data-inspect],[data-browse]').forEach(n=>{const id=n.dataset.inspect??n.dataset.browse;n.classList.toggle('is-eligible',v.actions.some(a=>(v.choice?a.choiceCard:a.source)===id));if(id===selected)n.classList.add('is-selected');if(actions.some(a=>a.targetCard===id))n.classList.add('is-target');});
+ const v=session.projection,cards=visibleCards(v),selectedCard=cards.find(c=>c.id===selected),actions=action?[action]:selectedCard?cardActions(v,session.viewer,selectedCard):[];
+ document.querySelectorAll('[data-inspect],[data-browse]').forEach(n=>{const id=n.dataset.inspect??n.dataset.browse;const card=cards.find(c=>c.id===id);n.classList.toggle('is-eligible',Boolean(card&&cardActions(v,session.viewer,card).length));if(id===selected)n.classList.add('is-selected');if(actions.some(a=>a.targetCard===id))n.classList.add('is-target');});
  for(const a of actions)if(a.destination)document.querySelector(`[data-player="${a.destination.seat}"] [data-slot="${a.destination.index}"]`)?.classList.add('is-destination');
 }
 function inspect(id,{catalog=false,origin=null,readOnly=false}={}){

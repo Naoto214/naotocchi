@@ -90,3 +90,11 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 .opponent .management>[data-zone="deck"]{grid-row:1}
 .opponent .management>[data-zone="activation"]{grid-row:2}
 .opponent .management>[data-zone="discard"]{grid-row:3}
+
+/* Opponent parking follows the reversed main row; keep card contents upright. */
+.opponent .board-field{display:flex;flex-direction:column}
+.opponent .egg-parking{order:1;flex:none;margin-top:3px;margin-bottom:0}
+.opponent .management{padding-top:0;padding-bottom:23px}
+@media(orientation:portrait){.opponent .egg-parking{margin-top:2px}.opponent .management{padding-bottom:14px}}
+/* Same gold/ivory badge palette; reserve the existing heading side lane. */
+.card-cost{width:22cqw;height:22cqw;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;font-size:18cqw;font-weight:900;font-variant-numeric:lining-nums tabular-nums;line-height:1;letter-spacing:0;color:#241b12;background:#fff8e2;border-width:max(1px,.8cqw);box-shadow:0 0 0 1px #fff5c9,inset 0 0 0 1px #ead8a6;isolation:isolate}
