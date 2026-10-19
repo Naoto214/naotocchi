@@ -1,0 +1,20 @@
+{
+  "id": "appgdep_6ad5527302108191a7c73fc9b37353dc",
+  "project_id": "appgprj_6ad54c3b81588191b6496d2aab0a6638",
+  "title": "なおとっち CARD GAME — 全452枚アート試遊",
+  "version_id": "appgprj_6ad54c3b81588191b6496d2aab0a6638~appgver_092b90840f1c81918deb4f5af39215bc",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://naotocchi-card-art-452-20261019.kerzion214.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ad54c3b81588191b6496d2aab0a6638",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-18T23:13:46.920909+00:00",
+  "source_commit": "92677074070ab678cdb85f8d5f3b855c51183465",
+  "archive_sha256": "906c2892ae740b092270815b137cdcbb98f80b68f5dad4632c2c912326cda7d8",
+  "access": "owner-private",
+  "browser_qa": "not performed; managed environment lacks permitted control-browser",
+  "iphone_safari_qa": "pending user physical device QA"
+}

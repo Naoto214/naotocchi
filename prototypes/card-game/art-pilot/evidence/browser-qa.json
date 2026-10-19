@@ -1,0 +1,717 @@
+{
+  "browser": "153.0.8010.0",
+  "method": "Chromium actual existing cardMarkup + style.css, preview-only art replacement; viewport simulation, not physical iPhone Safari",
+  "errors": [],
+  "checks": [
+    {
+      "id": "M-beetle-04",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "C-cat_friend",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "P-forest_bear",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "W-forest",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "G-fishing-river",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "I-travel1",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "E-new-encounter",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-01",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-02",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-03",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-04",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-05",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-06",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-07",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "M-dandelion-08",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 1,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "C-otter",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "C-owl",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "P-grove_deer",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "W-sea",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "G-dragDecorate-cake",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "G-beach-volley",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "I-naoto_lantern",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    },
+    {
+      "id": "E-midlife-flower",
+      "width": 600,
+      "height": 900,
+      "ratio": 0.6666666666666666,
+      "canonicalText": true,
+      "textVisible": true,
+      "attributeCount": 0,
+      "artBeforeCopy": true,
+      "textFits": true,
+      "imageFit": "contain"
+    }
+  ],
+  "mobile": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "cards": [
+        {
+          "name": "カブトムシ④",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "きまぐれなねこ",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "もりのクマさん",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "もり",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "みずべのさかなつり",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "リュックサック",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "あたらしいであい",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ①",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ②",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ③",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ④",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑤",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑥",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑦",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑧",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "あそびずきカワウソ",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ものしりふくろう",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "こだちのシカ",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "うみ",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ケーキのかざりつけ",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ビーチバレー",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "なおとのランタン",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "庭に小さな花を植えた",
+          "width": 256,
+          "height": 384,
+          "artBeforeCopy": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "cards": [
+        {
+          "name": "カブトムシ④",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "きまぐれなねこ",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "もりのクマさん",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "もり",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "みずべのさかなつり",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "リュックサック",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "あたらしいであい",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ①",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ②",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ③",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ④",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑤",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑥",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑦",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑧",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "あそびずきカワウソ",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ものしりふくろう",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "こだちのシカ",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "うみ",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ケーキのかざりつけ",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ビーチバレー",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "なおとのランタン",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "庭に小さな花を植えた",
+          "width": 326,
+          "height": 489,
+          "artBeforeCopy": true
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430,
+      "cards": [
+        {
+          "name": "カブトムシ④",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "きまぐれなねこ",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "もりのクマさん",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "もり",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "みずべのさかなつり",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "リュックサック",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "あたらしいであい",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ①",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ②",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ③",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ④",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑤",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑥",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑦",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "タンポポ⑧",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "あそびずきカワウソ",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ものしりふくろう",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "こだちのシカ",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "うみ",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ケーキのかざりつけ",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "ビーチバレー",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "なおとのランタン",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        },
+        {
+          "name": "庭に小さな花を植えた",
+          "width": 366,
+          "height": 549,
+          "artBeforeCopy": true
+        }
+      ]
+    }
+  ]
+}

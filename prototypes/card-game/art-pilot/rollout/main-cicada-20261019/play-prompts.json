@@ -1,0 +1,150 @@
+[
+  {
+    "id": "M-cicada-01",
+    "scene": "Tiny amber brown cicada nymph with tiny segmented abdomen, black eyes and six legs rests beside a fine tree root in a cosy soil pocket; intimate side view facing left, warm filtered morning light from tiny opening; no wings.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage1: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Tiny amber brown cicada nymph with tiny segmented abdomen, black eyes and six legs rests beside a fine tree root in a cosy soil pocket; intimate side view facing left, warm filtered morning light from tiny opening; no wings. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage1 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/01.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-89bdf8d3-ded2-4a08-a26a-d79eeed01351.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/01.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "43b56bbb099763db7e6a4b804fc4a72385acf010"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-cicada-02",
+    "scene": "Exact reference young amber-orange cicada nymph, six legs ONLY (three pairs) attached to thorax, two antennae, no wings. Side profile facing LEFT, crawling horizontally along a thick root inside cosy earth tunnel. Near side three legs clearly separated: one strong digging foreleg, one slender middle leg, one slender rear leg; far side legs mostly occluded. Small plump abdomen, curious face. Close side view, patch of sunlight enters from upper left. No eight-legged insect.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage2: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Young amber orange nymph with slightly larger plump segmented abdomen digs gently forward through soil tunnel beside branching roots, broad digging forelegs clear and six legs total, view looking along tunnel toward a sunlit opening; no wings. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage2 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/02.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-67d0119a-9a72-4dba-aaa2-a8c9a4e487b7.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-d25151f6-f69a-46bf-9f91-ea108c0bc72f.png",
+    "revision_prompt": "Create ONE revised Naotocchi dedicated illustration1536x1024 PNG3:2, no text,numbers,frame. Use only exact2D reference morphology and face. Cute delicate watercolor/gouache picturebook with natural soft light. Exact reference young amber-orange cicada nymph, six legs ONLY (three pairs) attached to thorax, two antennae, no wings. Side profile facing LEFT, crawling horizontally along a thick root inside cosy earth tunnel. Near side three legs clearly separated: one strong digging foreleg, one slender middle leg, one slender rear leg; far side legs mostly occluded. Small plump abdomen, curious face. Close side view, patch of sunlight enters from upper left. No eight-legged insect.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/02.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "3d689711c9258e5d8da7f7ceeeb955d31cfd7473"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-cicada-03",
+    "scene": "Exact reference mature elongated orange cicada nymph with long segmented abdomen and six legs, no adult wings. Composition must differ from lower stage: straight upright VERTICAL body with head at upper LEFT and abdomen pointing down. Climbing steeply upward on a ROOT inside vertical soil shaft, camera looks DOWN from soil surface; body and large digging forelegs visible, peeking toward exit, a little ring of sky above. A generous full-scene view with larva occupying central half, not huge diagonal closeup.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage3: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Large elongated orange brown mature nymph with longer forelegs and large abdomen pauses just below soil surface beside a descending root, looks upward toward light; three-quarter low view, clear bigger silhouette and no wings. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage3 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/03.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-af2478c9-ac51-441e-94d5-cd1f32571527.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-c4f6b1f7-e26c-4b34-9e2b-2560de013dcf.png",
+    "revision_prompt": "Create ONE revised Naotocchi dedicated illustration1536x1024 PNG3:2, no text,numbers,frame. Use only exact2D reference morphology and face. Cute delicate watercolor/gouache picturebook with natural soft light. Exact reference mature elongated orange cicada nymph with long segmented abdomen and six legs, no adult wings. Composition must differ from lower stage: straight upright VERTICAL body with head at upper LEFT and abdomen pointing down. Climbing steeply upward on a ROOT inside vertical soil shaft, camera looks DOWN from soil surface; body and large digging forelegs visible, peeking toward exit, a little ring of sky above. A generous full-scene view with larva occupying central half, not huge diagonal closeup.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/03.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "a5d89767ed4cd26b1f8c064d532414e0585da88c"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-cicada-04",
+    "scene": "Large orange nymph climbs up from a round earth hole at base of tree, whole body now above ground, front legs reaching bark, side view toward right, soft early evening forest greens; no adult wings.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage4: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Large orange nymph climbs up from a round earth hole at base of tree, whole body now above ground, front legs reaching bark, side view toward right, soft early evening forest greens; no adult wings. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage4 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/04.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-75319031-458c-40a4-916b-4a48c8b1ea17.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/04.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "0cb9a4cd711db0cdb29567b68f5e7a1beb5bd916"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-cicada-05",
+    "scene": "Fresh vivid green adult cicada is emerging above its empty amber brown nymph exoskeleton clinging to tree bark, translucent pale mint wings hanging downward, green head and abdomen, red brown eyes; intimate front-three-quarter moonlit dawn scene, preserve reference emergence state.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage5: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Fresh vivid green adult cicada is emerging above its empty amber brown nymph exoskeleton clinging to tree bark, translucent pale mint wings hanging downward, green head and abdomen, red brown eyes; intimate front-three-quarter moonlit dawn scene, preserve reference emergence state. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage5 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/05.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-f984a13d-cc50-4427-bc0f-805d675c8875.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "dd3db5b9fe8df11b166d05f7249e66ba73d6502f"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-cicada-06",
+    "scene": "Young bright lime green adult cicada with red brown eyes, long segmented green abdomen, delicate translucent wings outlined amber, perched along slender twig facing left and beginning to sing in warm morning leaves; low angle, six insect legs, no empty shell.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage6: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Young bright lime green adult cicada with red brown eyes, long segmented green abdomen, delicate translucent wings outlined amber, perched along slender twig facing left and beginning to sing in warm morning leaves; low angle, six insect legs, no empty shell. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage6 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/06.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-207e5dad-a77c-45be-a92f-707e68f46ced.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "ab1bb7ec7a96e1fb00d3941e6c42d35782c2e22e"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-cicada-07",
+    "scene": "Mature olive green adult cicada with broader olive head and dark ochre segmented abdomen, large reddish brown eyes and clear long wings with orange veins, singing on sunlit trunk high in summer canopy; frontal elevated view, reference face exactly, no musical symbols.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage7: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Mature olive green adult cicada with broader olive head and dark ochre segmented abdomen, large reddish brown eyes and clear long wings with orange veins, singing on sunlit trunk high in summer canopy; frontal elevated view, reference face exactly, no musical symbols. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage7 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/07.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-dee490be-df5a-4947-a040-a2184fb31d45.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/07.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "121f1f5cea54e9106732efece19ec9f2781ef79d"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-cicada-08",
+    "scene": "Older gray brown adult cicada with muted ochre gray face and abdomen, translucent warm veined wings, gently resting on weathered branch overlooking soft sunset meadow; calm close three-quarter right view, subdued warm light, retain exact gray mature morphology.",
+    "prompt": "Create ONE Naotocchi dedicated card illustration1536x1024 PNG landscape3:2. Faithful delicate watercolor/gouache picturebook, soft natural light, fine texture, adorable restrained insect character. Input is authoritative 2D reference for EXACT stage8: preserve body shape,face,color,segmentation,number of legs,wing status. Scene:Older gray brown adult cicada with muted ochre gray face and abdomen, translucent warm veined wings, gently resting on weathered branch overlooking soft sunset meadow; calm close three-quarter right view, subdued warm light, retain exact gray mature morphology. Main subject large and readable at smallcard scale, distinct setting and pose. Do not introduce other growth-stage morphology. No letters,numbers,frame,watermark.",
+    "identity": "Canonical cicada stage8 exact morphology, face, colors and wing status.",
+    "sources": [
+      "assets/characters/cicada/08.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-ab2e13ee-744f-4dc5-af55-de91e30d6419.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/cicada/08.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "b48bf2fc4d563b7dfa6db81c49a6713da1460394"
+      }
+    ],
+    "qa_status": "complete_qa"
+  }
+]

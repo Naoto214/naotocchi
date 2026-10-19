@@ -1,4 +1,5 @@
 // Presentation queue only. No game timers, commands or private-state access.
+import {importantResult} from './ui-presentation.mjs';
 export class ResultFeedback {
  constructor({paint,clear,dock=()=>{},schedule=(fn,ms)=>globalThis.setTimeout(fn,ms),cancel=id=>globalThis.clearTimeout(id)}){Object.assign(this,{paint,clear,dock,schedule,cancel});this.seen=new Map();this.ticket=0;this.reset();}
  reset(){this.hide();this.seen=new Map();this.epoch=null;this.batch=null;}
@@ -17,13 +18,21 @@ export class ResultFeedback {
  present(groups,viewer,epoch,batch=0){
   if(epoch!==this.epoch){this.reset();this.epoch=epoch;}
   if(!viewer){this.hide();return;}
-  // New human action supersedes transient notices. All prior results remain in history.
-  if(this.viewer!==viewer||this.batch!==batch){this.hide();this.viewer=viewer;this.batch=batch;}
+  if(this.viewer!==viewer){this.hide();this.viewer=viewer;this.batch=batch;}
+  else if(this.batch!==batch){
+   // Human input can supersede ordinary notices, but must not skip important
+   // transitions already queued for this same viewer. Handoff still clears all.
+   this.queue=this.queue.filter(g=>importantResult(g));
+   this.retained=this.retained.filter(g=>importantResult(g));
+   if(!importantResult(this.current)){this.stopTimer();this.current=null;this.clear();}
+   this.batch=batch;
+  }
   const last=Math.max(this.seen.get(viewer)??-1,...this.queue.map(g=>g.revision));
   const fresh=groups.filter(g=>!g.historyOnly&&g.revision>last&&g.revision>=batch);
   this.queue.push(...fresh);this.retained.push(...fresh);
-  if(this.queue.length>8)this.queue.splice(0,this.queue.length-8);
-  if(this.retained.length>8)this.retained.splice(0,this.retained.length-8);
+  // Keep important transitions in order even during a burst. Ordinary older
+  // notices may still be condensed; the complete journal remains available.
+  for(const list of [this.queue,this.retained])while(list.length>8){const i=list.findIndex(g=>!importantResult(g));if(i<0)break;list.splice(i,1);}
   if(!this.current)this.next();
  }
  next(){

@@ -1,0 +1,34 @@
+Initial failing-test summary (full terminal output retained during implementation).
+✖ history renders newest first without mutating chronological journal and survives replay (20.865856ms)
+✖ turn ownership and response operator stay distinct for either human seat and hotseat (4.187213ms)
+✖ marriage derives from actual transition and reports capped growth, payment, public couple, operator (5.006088ms)
+✖ birth and main growth emphasize the actual card and stats, ordinary effects stay ordinary (3.297324ms)
+✖ history labels the command owner and turn before a turn boundary, no repeated pass-only rows (1.454235ms)
+✖ finished result is public and explicitly states the actual outcome (1.434418ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 225.850613
+✖ failing tests:
+test at prototypes/card-game/tests/ui-milestones.test.mjs:10:1
+✖ history renders newest first without mutating chronological journal and survives replay (20.865856ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+test at prototypes/card-game/tests/ui-milestones.test.mjs:16:1
+✖ turn ownership and response operator stay distinct for either human seat and hotseat (4.187213ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /あなたのターン/. Input:
+test at prototypes/card-game/tests/ui-milestones.test.mjs:23:1
+✖ marriage derives from actual transition and reports capped growth, payment, public couple, operator (5.006088ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /けっこん！/. Input:
+test at prototypes/card-game/tests/ui-milestones.test.mjs:30:1
+✖ birth and main growth emphasize the actual card and stats, ordinary effects stay ordinary (3.297324ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /たんじょう！/. Input:
+test at prototypes/card-game/tests/ui-milestones.test.mjs:35:1
+✖ history labels the command owner and turn before a turn boundary, no repeated pass-only rows (1.454235ms)
+  TypeError: Cannot read properties of null (reading 'public')
+test at prototypes/card-game/tests/ui-milestones.test.mjs:40:1
+✖ finished result is public and explicitly states the actual outcome (1.434418ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /対戦終了！/. Input:

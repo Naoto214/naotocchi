@@ -1,0 +1,14 @@
+✔ either main opens exact legal challenge choices in both seats and match modes (42.044588ms)
+✔ own partner opens the existing costed relationship action and commits once (27.859255ms)
+✔ no shortcuts for absent candidates, wrong cards, nonacting viewer or hidden cards (6.408259ms)
+✔ mandatory choices still route only their exact choice card and browsing stays read-only (1.435118ms)
+✔ opponent egg parking is below the grid while own parking remains above (0.93145ms)
+✔ cost badge uses bold high contrast numerals without changing any of 452 values (4.478233ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 295.819835

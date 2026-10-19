@@ -1,0 +1,29 @@
+{
+  "id": "appgdep_6ad5cf162dd88191a59306c3b91c8cc8",
+  "project_id": "appgprj_6ad59d0af478819190a03552d586bbeb",
+  "title": "なおとっち CARD GAME CPU試遊版",
+  "version_id": "appgprj_6ad59d0af478819190a03552d586bbeb~appgver_7abdb061d1388191823ec06312380a6e",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://naotocchi-card-cpu-20261019.kerzion214.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ad59d0af478819190a03552d586bbeb",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-19T08:04:51.789569+00:00",
+  "runtimeHead": "9780e9119c8c3e33272cc1480396ea41c97b961c",
+  "runtimeTree": "ca1bdddb35be6d3f8a109f528821e1145664c409",
+  "siteSource": "eb99c96a9192fd3669d89b5d13d92f7c4962eb42",
+  "runtimeFileCount": 37,
+  "baselineAssets": 290,
+  "tests": {
+    "total": 314,
+    "pass": 313,
+    "knownFailure": "FUN_ITEMS catalog regeneration",
+    "focused": 10,
+    "cpuMatches": 12
+  },
+  "iphoneQa": "pending",
+  "mainChanged": false
+}

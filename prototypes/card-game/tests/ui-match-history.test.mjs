@@ -12,7 +12,7 @@ test('history retains the whole match and restore reproduces it beyond forty res
  assert.ok(journal.length>40);assert.equal(journal[0].A.revision,0);
  assert.deepEqual(replayResults(e.restore(e.save(s))),journal);
  const html=resultHistoryMarkup({results:projectResults(journal,'A')},'A');
- assert.ok(html.indexOf('手順0')<html.indexOf('手順1'));assert.match(html,/ターン終了/);assert.match(html,/ターン開始/);
+ assert.ok(html.indexOf('手順0</small>')>html.indexOf('手順1</small>'));assert.match(html,/ターン終了/);assert.match(html,/ターン開始/);
 });
 test('trace-only operations enter history without generating extra result notices',()=>{
  const s=e.createGame(4),n=structuredClone(s);n.revision++;n.log.push('A：ちょうせんを宣言');

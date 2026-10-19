@@ -1,0 +1,152 @@
+[
+  {
+    "id": "M-salmon-01",
+    "scene": "Newborn tiny peachsalmon with largegoldenyolksac underbelly exactlyreference, resting close to gravel in crystalclear shallowstream, leftfacing sideview, magnifiedmacro, sunrays gentle, no adultcolors.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage1: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Newborn tiny peachsalmon with largegoldenyolksac underbelly exactlyreference, resting close to gravel in crystalclear shallowstream, leftfacing sideview, magnifiedmacro, sunrays gentle, no adultcolors. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage1 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/01.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-906896a9-c8cc-4e08-a7ae-2d0000f2671c.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-8af45e47-c196-4323-bb87-3a32ec9841c8.png",
+    "revision_prompt": "Match second reference's cute simple black rounded eye, small gentle mouth and compact baby fish proportions; reduce realistic anatomy detailing on face. Preserve peach fry, grey tail, orange yolk sac and bright pebble stream scene.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/01.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "181edad66cb1bf2506889e45bb6929ed29ed78ea"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-salmon-02",
+    "scene": "Small peachfry withoutyolksac swims right among finefreshwatergrass, close sideview lowangle, softgreenlight, exact roundface fins and orangetail.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage2: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Small peachfry withoutyolksac swims right among finefreshwatergrass, close sideview lowangle, softgreenlight, exact roundface fins and orangetail. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage2 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/02.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-8219d089-360f-47f3-b544-bce771b2c434.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/02.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2e9fe7a7e5639d206757505e195b11ddbc890bff"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-salmon-03",
+    "scene": "Peachyoung parr with distinct verticaldarkstripes and roundedhead darts left beneath an arching root, rippledstreambackground, exact stripes highlyvisible, diagonalbody.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage3: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Peachyoung parr with distinct verticaldarkstripes and roundedhead darts left beneath an arching root, rippledstreambackground, exact stripes highlyvisible, diagonalbody. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage3 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/03.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-f1144221-b55a-4aa5-971a-54ba0ed22629.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-968b2a9a-198e-40ec-9262-e773e9102ef2.png",
+    "revision_prompt": "Match second reference's cute simple black eye and gentle tiny smiling mouth, compact chubby juvenile fish proportions. Preserve peach body with dark vertical parr stripes and tree-root stream scene. Pose swimming diagonally toward upper RIGHT, tail toward lower LEFT.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/03.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "a0bb30768eee958ebf97166353f574f9513b837e"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-salmon-04",
+    "scene": "Slender silver smolt with grayback whitedots asreference swimming right toward riverestuary, wideclearwater with mixed bluegreen light, slighttopview, slimbody and forkedtail.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage4: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Slender silver smolt with grayback whitedots asreference swimming right toward riverestuary, wideclearwater with mixed bluegreen light, slighttopview, slimbody and forkedtail. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage4 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/04.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-a45d6864-9cea-402e-9e96-6374bba724bb.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/04.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "e6a6a8dd7bd5bf4956da8c89b7dde112fbb235a6"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-salmon-05",
+    "scene": "Youngsilver ocean salmon with growingbody and spottedback gliding left through brightblue kelpedge, close sideview, soft surfacebeams, no redspawningcolor.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage5: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Youngsilver ocean salmon with growingbody and spottedback gliding left through brightblue kelpedge, close sideview, soft surfacebeams, no redspawningcolor. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage5 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/05.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-00a0c884-0d43-4380-bb0f-61ea7c70c8fb.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "d227b3b879fe2b0db4096b60973935bd640dc9da"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-salmon-06",
+    "scene": "Large mature silver salmon broadbody and darkspeckledback cruising right in openocean below sunlitwaves, slightlybelowview, powerful but cute calmface, clearlylargerbody proportion.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage6: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Large mature silver salmon broadbody and darkspeckledback cruising right in openocean below sunlitwaves, slightlybelowview, powerful but cute calmface, clearlylargerbody proportion. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage6 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/06.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-f8418457-ebf8-4c16-9d2f-3f3ba90887c7.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-24bae4e3-3045-443d-9329-061cc50cab9e.png",
+    "revision_prompt": "Turn mature silver salmon to swim toward RIGHT with tail on LEFT, in slight low three-quarter view. Preserve cute rounded black eye, smiling mouth, chunky adult silver spotted body and ocean sunlight. One fish only.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "94ef299aa4914cec54a13ccc23281a579f1da2f7"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-salmon-07",
+    "scene": "Redspawning salmon with olivehead exact hookedmouthandolivetail jumping upstream over smallclear cascade towardleft, autumn riverbanks, keepfishbody coherent, no aggression.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage7: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Redspawning salmon with olivehead exact hookedmouthandolivetail jumping upstream over smallclear cascade towardleft, autumn riverbanks, keepfishbody coherent, no aggression. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage7 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/07.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-2965b65e-9cc2-44b5-95db-3eb3a7de7590.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/07.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "00f47329aaee32b70bc71f776d0b27c24fb678d6"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-salmon-08",
+    "scene": "Older redbrown salmon with darkbrownfins and wiseeyes resting justabove gravel in calm shallow spawningstream, facingrightthreequarter, warmautumn leaves reflectedabove, serene returnhome. Entirefishvisible.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage8: preserve face,bodyproportions,colors,markings and transformationstate. Follow canonical salmon stage anatomy and color exactly. Singlefish main subject, fish fins only, no humanlimbs. Stage1 yolksac, stage2 plain peachfry, stage3 darkparrstripes, stages4-6 silver, stages7-8 red/olivebrown. Natural readable water scenes with varied direction and scale. Scene:Older redbrown salmon with darkbrownfins and wiseeyes resting justabove gravel in calm shallow spawningstream, facingrightthreequarter, warmautumn leaves reflectedabove, serene returnhome. Entirefishvisible. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical salmon stage8 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/salmon/08.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-7bbe8c43-49c5-4d6a-983b-204516c08568.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/salmon/08.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "66ee6080d6f596e52c7c99c2b486c1720851314b"
+      }
+    ],
+    "qa_status": "complete_qa"
+  }
+]

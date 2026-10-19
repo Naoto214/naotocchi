@@ -20,7 +20,7 @@ test('empty-chain response after birth resolution cannot claim normal action',()
  const x=start();opening(x);step(x,'place',a=>a.source.includes('M-beetle-01'));step(x,'trigger');step(x,'pass');step(x,'pass');step(x,'choose');
  const v=x.projection;assert.equal(v.phase,'response');assert.equal(v.chain.length,0);assert.equal(v.effect,null);
  const html=ui.compactOperationMarkup(v,'A');assert.doesNotMatch(html,/>通常行動</);assert.match(html,/行動後の応答/);
- assert.match(ui.gameMarkup(v,'A'),/Aのターン・Aの応答待ち/);
+ assert.match(ui.gameMarkup(v,'A'),/Aのターン/);assert.match(ui.gameMarkup(v,'A'),/Aが応答中/);
 });
 test('opening handoff states owner, response reason, no response and exact pass destination',()=>{
  const x=start();step(x,'choose',a=>!a.choiceCard.includes('M-beetle-01'));

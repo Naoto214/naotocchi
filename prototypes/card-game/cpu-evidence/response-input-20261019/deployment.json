@@ -1,0 +1,17 @@
+{
+  "id": "appgdep_6ad5dc33b408819180493b793bd3b9ae",
+  "project_id": "appgprj_6ad59d0af478819190a03552d586bbeb",
+  "title": "なおとっち CARD GAME CPU試遊版",
+  "version_id": "appgprj_6ad59d0af478819190a03552d586bbeb~appgver_6368cc522c7c81918eadccbfeafde66e",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://naotocchi-card-cpu-20261019.kerzion214.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ad59d0af478819190a03552d586bbeb",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-19T09:00:50.515009+00:00",
+  "siteSourceCommit": "bd55935e553d8a034b47163cf2a9f88ba5433c3d",
+  "runtimeGitHubHead": "b95a560520931aa46f3126d45ad77a46427dc4b1"
+}

@@ -1,0 +1,100 @@
+✖ CPU refresh leaves the visible notice and its ancestor continuously connected (2.181031ms)
+✔ initial render attaches the feedback host once (0.223863ms)
+✖ both human seats reverse opponent positions only, preserving slot IDs and card taps (6.903078ms)
+✖ notification frame has no opacity entrance animation to restart between results (0.817186ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 158.940723
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/ui-continuity.test.mjs:19:1
+✖ CPU refresh leaves the visible notice and its ancestor continuously connected (2.181031ms)
+  AssertionError [ERR_ASSERTION]: render detached an animated result notice
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8fa3220c2d49/naotocchi/prototypes/card-game/tests/ui-continuity.test.mjs:24:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-continuity.test.mjs:34:1
+✖ both human seats reverse opponent positions only, preserving slot IDs and card taps (6.903078ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   0,
+  +   1,
+  +   2,
+  +   3,
+  +   4,
+  +   5,
+  +   6,
+  +   7,
+      8,
+  -   7,
+  -   6,
+  -   5,
+  -   4,
+  -   3,
+  -   2,
+  -   1,
+  -   0
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8fa3220c2d49/naotocchi/prototypes/card-game/tests/ui-continuity.test.mjs:41:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [
+      0, 1, 2, 3, 4,
+      5, 6, 7, 8
+    ],
+    expected: [
+      8, 7, 6, 5, 4,
+      3, 2, 1, 0
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-continuity.test.mjs:47:1
+✖ notification frame has no opacity entrance animation to restart between results (0.817186ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /animation:/. Input:
+  
+  'position:relative;min-height:64px;overflow:hidden;padding:5px 48px 5px 8px;border:1px solid #bdaa77;border-radius:8px;background:#122f2a;color:#fff2cf;pointer-events:none;animation:result-enter .2s ease-out'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8fa3220c2d49/naotocchi/prototypes/card-game/tests/ui-continuity.test.mjs:49:63)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'position:relative;min-height:64px;overflow:hidden;padding:5px 48px 5px 8px;border:1px solid #bdaa77;border-radius:8px;background:#122f2a;color:#fff2cf;pointer-events:none;animation:result-enter .2s ease-out',
+    expected: /animation:/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

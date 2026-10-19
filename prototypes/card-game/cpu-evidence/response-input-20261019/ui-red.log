@@ -1,0 +1,54 @@
+✖ hand responses use the hand only; off-hand legal sources keep a reachable shortcut (20.193871ms)
+✖ CPU read-only inspection does not highlight cards that cannot respond (5.890531ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 229.936428
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/ui-response-compact.test.mjs:7:1
+✖ hand responses use the hand only; off-hand legal sources keep a reachable shortcut (20.193871ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '<div class="response-options" aria-label="応答可能なカード"><button type="button" class="is-eligible" data-inspect="A:G-hit-blow:1">ヒット&amp;ブロー</button></div>'
+  - ''
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-response-compact.test.mjs:9:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<div class="response-options" aria-label="応答可能なカード"><button type="button" class="is-eligible" data-inspect="A:G-hit-blow:1">ヒット&amp;ブロー</button></div>',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-response-compact.test.mjs:13:1
+✖ CPU read-only inspection does not highlight cards that cannot respond (5.890531ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-response-compact.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

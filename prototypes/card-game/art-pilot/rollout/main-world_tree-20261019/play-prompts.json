@@ -1,0 +1,150 @@
+[
+  {
+    "id": "M-world_tree-01",
+    "scene": "Glowing golden teardrop-shaped seed with cute face and orange rim rests upright in soft forest moss, warm inner light and dewdrops, close macro low view.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage1: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Glowing golden teardrop-shaped seed with cute face and orange rim rests upright in soft forest moss, warm inner light and dewdrops, close macro low view. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage1 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/01.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-11ad001c-a5b9-4ede-845c-c2e2fb23a211.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/01.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "a5fa2560987cee999c204bc4d4f9d724038fcddd"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-world_tree-02",
+    "scene": "Tiny cream-faced sprout in curled brown roots with TWO teal leaves marked by glowing golden veins, growing in sunlit woodland soil beside a stream, slight diagonal right view.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage2: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Tiny cream-faced sprout in curled brown roots with TWO teal leaves marked by glowing golden veins, growing in sunlit woodland soil beside a stream, slight diagonal right view. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage2 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/02.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-0dd71374-ab92-4beb-afc4-4014306ee547.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/02.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "db6d38a2dd2b895328ab7749b9fece476af44d75"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-world_tree-03",
+    "scene": "Small cheerful tree with short thick orange-brown trunk face, exposed spreading roots and dense rounded lime-green crown, beside woodland path with little flowers, eye-level left three-quarter.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage3: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Small cheerful tree with short thick orange-brown trunk face, exposed spreading roots and dense rounded lime-green crown, beside woodland path with little flowers, eye-level left three-quarter. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage3 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/03.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-0b8f6733-5af8-4875-ae75-6ebe0a9e6770.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-8afb7f69-e3a0-4c35-b9db-e318bc7504b3.png",
+    "revision_prompt": "Remove ALL hanging blue/gold orbs, jewels, chains and ornaments from branches. This early growth stage has NO hanging fruit or ornaments in canonical second reference. Preserve the tree shape, cute trunk face, green foliage, roots and current landscape exactly; fill removed areas naturally.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/03.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "b31306bca468b6662b9a676ea734854aa2d16bd6"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-world_tree-04",
+    "scene": "Slender golden spirit tree with THREE distinct leafy bough clusters and fine tall trunk with tiny face, growing on a misty ridge, upward low viewpoint and open airy silhouette.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage4: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Slender golden spirit tree with THREE distinct leafy bough clusters and fine tall trunk with tiny face, growing on a misty ridge, upward low viewpoint and open airy silhouette. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage4 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/04.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-f05baa8f-1fe7-48d2-9eb8-942db1703872.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-1619deab-69b4-48a4-a7ae-4c5b8b099efc.png",
+    "revision_prompt": "Remove ALL hanging blue/gold orbs, jewels, chains and ornaments from branches. This early growth stage has NO hanging fruit or ornaments in canonical second reference. Preserve the tree shape, cute trunk face, green foliage, roots and current landscape exactly; fill removed areas naturally.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/04.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "e100bfa4115b61be3054a7305ffcb9a40ee480b5"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-world_tree-05",
+    "scene": "Large broad-trunk green tree with clear sweet face and hanging blue glowing fruit/orbs, rooted by a woodland pool, front three-quarter, sparkling midday natural light.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage5: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Large broad-trunk green tree with clear sweet face and hanging blue glowing fruit/orbs, rooted by a woodland pool, front three-quarter, sparkling midday natural light. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage5 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/05.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-8c055f21-d674-4257-ab20-df1fda8a011b.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "5e5c370bf8dbfa043953c7b1be9335c2c9ccaa01"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-world_tree-06",
+    "scene": "Huge wide layered canopy tree with thick golden face-bearing trunk and dangling cyan diamond crystals, viewed from across a small river, low panoramic landscape gives scale.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage6: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Huge wide layered canopy tree with thick golden face-bearing trunk and dangling cyan diamond crystals, viewed from across a small river, low panoramic landscape gives scale. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage6 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/06.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-d892d92e-12ae-43ec-8b9d-ee981798f792.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "476a7506e8098c73dcaef228cf850f80e93d022f"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-world_tree-07",
+    "scene": "Tall ancient tree extending above white clouds, thick amber trunk and hanging round GOLDEN fruits, green crown luminous, warm sunrise side view, preserve face on trunk.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage7: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Tall ancient tree extending above white clouds, thick amber trunk and hanging round GOLDEN fruits, green crown luminous, warm sunrise side view, preserve face on trunk. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage7 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/07.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-b80f0993-b4fa-4f2d-8d58-f5248f94a90a.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/07.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "eb5224c55b09b29cd2ff19f14608853c48ca0beb"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-world_tree-08",
+    "scene": "Majestic green world tree with radiant gold trunk, spreading roots and TWO thin cyan orbital light rings around crown and root area as canonical, floating above misty island landscape at soft dawn, full silhouette and readable face.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage8: preserve face,bodyproportions,colors,markings and transformationstate. One exact stage only, no growth chart. Preserve canonical foliage silhouette, leaf hue, face, root form and blue/gold hanging ornaments. Stage01 is golden seed,02 two-leaf sprout,03 short dense tree,04 sparse slender spirit tree,05 blue orbs,06 cyan diamonds,07 golden round fruits,08 cyan rings. Cute delicate picturebook, avoid realistic bark face distortion. Scene:Majestic green world tree with radiant gold trunk, spreading roots and TWO thin cyan orbital light rings around crown and root area as canonical, floating above misty island landscape at soft dawn, full silhouette and readable face. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical world_tree stage8 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/world_tree/08.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-e23a6c7d-bd68-40fd-8d8c-2d651bc62b01.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/world_tree/08.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "a2b13879946a97f290f1b9b442f5f00d72ea7b7e"
+      }
+    ],
+    "qa_status": "complete_qa"
+  }
+]

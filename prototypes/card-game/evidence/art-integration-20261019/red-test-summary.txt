@@ -1,0 +1,16 @@
+✖ all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art (2.198274ms)
+✔ hidden identity is never read, embedded or requested by art rendering (0.325222ms)
+✖ safe hand, both boards, discard and activation use shared dedicated thumbnails (10.360811ms)
+✖ private draws appear as images only in the owner result notice and history (1.426328ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.652948
+✖ failing tests:
+✖ all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art (2.198274ms)
+✖ safe hand, both boards, discard and activation use shared dedicated thumbnails (10.360811ms)
+✖ private draws appear as images only in the owner result notice and history (1.426328ms)
