@@ -117,3 +117,14 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 /* Reserve the result button's width, including while a notice is visible. */
 .table-top button{width:44px;min-width:44px;padding:2px;overflow-wrap:anywhere}
 .table-top .result-reopen[hidden]{display:block!important;visibility:hidden;pointer-events:none}
+
+/* Overlay only: preserve gold border, field metrics and scroll geometry. */
+.player-board{position:relative}
+.player-board.field-turn-self{--field-turn-color:#83ffc0;--field-turn-glow:#61efaa80}
+.player-board.field-turn-other{--field-turn-color:#75caff;--field-turn-glow:#59baff80}
+.player-board.field-turn-active::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 2px var(--field-turn-color),0 0 8px 2px var(--field-turn-glow);pointer-events:none;z-index:2}
+.declaration-picker{display:grid;gap:6px;flex:none;font-size:13px;padding:4px 0}
+.declaration-picker select{width:100%;min-width:0;min-height:44px;font-size:16px;color:#fff4d2;background:#18392f;border:1px solid #dfc17d;border-radius:6px;padding:8px}
+.detail-command:has([data-declaration]){flex:none;max-height:none}
+.detail-actions:has([data-declaration]){flex:none;overflow:visible}
+@media(prefers-reduced-motion:reduce){.field-turn-active::after{animation:none!important;transition:none!important}}

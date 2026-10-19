@@ -31,6 +31,7 @@ export class HotseatSession {
    const safeIds=new Set(cards.map(c=>c.id)),raw=legalActions(this.#state),b=v.players[this.viewer].board;
    v.actions=v.actions.map((a,i)=>{
     const r=raw[i],extra={};
+    if(r.declare)extra.declare=r.declare; // Public declaration from the exact legal command.
     if(a.kind==='choose'&&safeIds.has(r.value))extra.choiceCard=r.value;
     if(safeIds.has(r.target))extra.targetCard=r.target;
     if(r.slot){

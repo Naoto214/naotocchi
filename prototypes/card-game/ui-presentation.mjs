@@ -68,13 +68,21 @@ export function zoneMarkup(v,seat,zone){
 const egg='<img class="egg-image" src="../../assets/characters/egg/intact.png" alt="たまご" draggable="false">';
 export function boardMarkup(p,seat,viewer,chain=[],v=null,frontSeat=viewer){
  const b=p.board,own=seat===frontSeat,parked=Boolean(b.main),slots=[['セカイ',b.world],['メイン',b.main],['こいびと',b.partner],...[0,1,2].map(i=>['なかま'+['①','②','③'][i],b.companions[i]]),...[0,1,2].map(i=>['準備'+['①','②','③'][i],b.prepared[i]])];
- return `<section data-player="${seat}" class="player-board ${own?'own':'opponent'}" data-depth="${own?'near':'far'}"><header class="player-heading"><strong>${own?'手前 · あなた':'奥 · 相手'} · ${seat}</strong><span>そだち <b>${p.growth}</b> / 時 <b>${p.time}</b></span></header>
+ return `<section data-player="${seat}" class="player-board ${own?'own':'opponent'}${v&&!v.result&&v.turn===seat?' field-turn-active field-turn-'+(own?'self':'other'):''}" data-depth="${own?'near':'far'}"><header class="player-heading"><strong>${own?'手前 · あなた':'奥 · 相手'} · ${seat}</strong><span>そだち <b>${p.growth}</b> / 時 <b>${p.time}</b></span></header>
  <div class="board-layout"><div class="board-field"><div class="egg-parking" data-egg-location="${parked?'parking':'main'}"><span>たまご置き場</span>${parked?egg:'<span class="egg-empty">―</span>'}</div>
  <div class="slots">${slots.map(([label,c],i)=>({label,c,i})).sort((a,b)=>own?a.i-b.i:b.i-a.i).map(({label,c,i})=>`<div class="slot" data-slot="${i}"><small>${label}</small>${c?`<div class="slot-content">${(v&&cardActions(v,viewer,c).length&&(v.choice||v.phase!=='normal'||cardActions(v,viewer,c).some(a=>['challenge','relationship'].includes(a.kind)))?inspectButton(c,'card-tap',v,viewer):browseButton(c,'card-tap',v,viewer)).replace('</button>','<span class="board-card-name">'+h(c.hidden?'伏せ札':c.form??c.name)+'</span></button>')}</div>`:i===1?`<div class="egg-main">${egg}</div>`:'<span class="empty-slot">·</span>'}${c?.target?`<span class="attachment">${h(c.target)}</span>`:''}</div>`).join('')}</div></div>
  <aside class="management"><button type="button" data-zone="discard" data-seat="${seat}" aria-label="${seat}の捨て札 ${p.discard.length}枚"><span>捨て札</span><b>${p.discard.length}</b></button><button type="button" data-zone="activation" data-seat="${seat}" aria-label="${seat}の発動領域を閲覧"><span>発動領域</span><b>${chain.filter(l=>l.actor===seat).length+(v?.choice&&v.effect?.actor===seat?1:0)}</b>${chain.filter(l=>l.actor===seat).map(l=>`<small>${h(l.name)}</small>`).join('')}</button><button type="button" data-zone="deck" data-seat="${seat}" aria-label="${seat}の山札 残り${p.deckCount}枚"><span>山札</span>${cardMarkup(null)}<b>${p.deckCount}</b></button></aside></div>
  <footer class="board-metrics"><span>${icon('fist')} ${p.stats?.power??'—'}</span><span>${icon('brain')} ${p.stats?.wisdom??'—'}</span><span>交際 ${p.relationship===null?'—':p.relationship===4?'結婚':p.relationship}</span><span>手札 ${p.handCount}</span></footer></section>`;
 }
-export function actionMarkup(actions,{selected=null}={}){return actions.map(a=>`<button type="button" data-kind="${h(a.kind)}" data-action="${h(a.id)}"${a.choiceCard?` data-choice-card="${h(a.choiceCard)}"`:''}${a.choiceCard===selected?' class="selected-choice"':''}>${h(a.displayLabel??a.label)}${a.destination?`<small class="action-destination">配置先：${['セカイ','メイン','こいびと','なかま①','なかま②','なかま③','準備①','準備②','準備③'][a.destination.index]}</small>`:''}</button>`).join('');}
+export function actionMarkup(actions,{selected=null}={}){
+ const declared=new Set();
+ return actions.map(a=>{
+  if(a.declare){
+   if(declared.has(a.source))return '';declared.add(a.source);
+   const options=actions.filter(x=>x.source===a.source&&x.declare);
+   return `<label class="declaration-picker">宣言するカード種を選ぶ<select data-declaration aria-label="宣言するカード種"><option value="" disabled selected>種類を選択してください</option>${options.map(x=>`<option value="${h(x.id)}">${h(x.displayLabel??x.label)}</option>`).join('')}</select></label>`;
+  }
+  return `<button type="button" data-kind="${h(a.kind)}" data-action="${h(a.id)}"${a.choiceCard?` data-choice-card="${h(a.choiceCard)}"`:''}${a.choiceCard===selected?' class="selected-choice"':''}>${h(a.displayLabel??a.label)}${a.destination?`<small class="action-destination">配置先：${['セカイ','メイン','こいびと','なかま①','なかま②','なかま③','準備①','準備②','準備③'][a.destination.index]}</small>`:''}</button>`;}).join('');}
 export function phaseLabel(v){return v.result?'対戦終了':v.choice?'必須選択':v.phase==='normal'?'カードを使う':v.phase==='trigger'?'効果を使う':'応答を選ぶ';}
 // Shared public state labels: response priority is independent of turn ownership.
 export function turnStatus(v){
@@ -168,7 +176,7 @@ function historyLines(g){
   return true;
  });
  const texts=rows.filter(r=>!(r.kind==='activate'&&trace.some(t=>/発動/.test(t)))).map(r=>r.text);
- return [...trace,...texts.filter(t=>!trace.includes(t))];
+ return [...trace,...(g.historyNotes??[]),...texts.filter(t=>!trace.includes(t))];
 }
 export function resultHistoryMarkup(v,viewer){
  const groups=[...(v.results??[])].reverse().map(g=>({g,lines:historyLines(g)})).filter(({lines})=>lines.length);
