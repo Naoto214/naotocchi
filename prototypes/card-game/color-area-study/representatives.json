@@ -1,0 +1,72 @@
+[
+  {
+    "id": "M-man-05",
+    "name": "おとこのひと⑤",
+    "classification": "ひと"
+  },
+  {
+    "id": "M-cat-05",
+    "name": "ねこ⑤",
+    "classification": "けもの"
+  },
+  {
+    "id": "M-frog-05",
+    "name": "かえる⑤",
+    "classification": "みずべ"
+  },
+  {
+    "id": "M-clownfish-05",
+    "name": "カクレクマノミ⑤",
+    "classification": "うみ"
+  },
+  {
+    "id": "M-beetle-05",
+    "name": "カブトムシ⑤",
+    "classification": "むし"
+  },
+  {
+    "id": "M-dandelion-05",
+    "name": "タンポポ⑤",
+    "classification": "くさ"
+  },
+  {
+    "id": "M-dragon-05",
+    "name": "りゅう⑤",
+    "classification": "げんそう"
+  },
+  {
+    "id": "M-unknown-05",
+    "name": "？？？⑤",
+    "classification": "ふしぎ"
+  },
+  {
+    "id": "C-cat_friend",
+    "name": "きまぐれなねこ",
+    "classification": "なかま"
+  },
+  {
+    "id": "P-sea_mermaid",
+    "name": "うみのにんぎょ",
+    "classification": "こいびと"
+  },
+  {
+    "id": "W-forest",
+    "name": "もり",
+    "classification": "セカイ"
+  },
+  {
+    "id": "G-area-claim",
+    "name": "じんとり",
+    "classification": "あそび"
+  },
+  {
+    "id": "I-bowtie",
+    "name": "おべんとうばこ",
+    "classification": "あいてむ"
+  },
+  {
+    "id": "E-new-encounter",
+    "name": "あたらしいであい",
+    "classification": "できごと"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "scope": "Structural checks only; not browser or visual QA",
+  "classifications": 14,
+  "catalog": 452,
+  "unchangedMarkupComparisons": 3616,
+  "baselineExact": true,
+  "pngRendered": false,
+  "browserQA": false,
+  "physicalIPhoneQA": false
+}
