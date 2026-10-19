@@ -65,3 +65,15 @@ Stage 1 saved to GitHub via connected API (CLI push has no credential): **24b9c9
 ## iPhone実機QA残件
 
 縦横で青い応答パスを連打し、通常復帰後にターン終了へ化けないこと。右側の金色ターン終了の新規タップがすぐ効くこと。画面回転・背景復帰・保存復帰・カード詳細／支払い確定／宣言選択、応答表示の省スペース化、通知と演出の重なり。これは実機確認待ちであり視覚品質の最終完成宣言ではない。
+
+## 配信結果
+
+同じ本人専用URLへ更新成功（owner-private、succeeded）:
+https://naotocchi-card-cpu-20261019.kerzion214.chatgpt.site/
+
+- 実行コードGitHub HEAD: b95a560520931aa46f3126d45ad77a46427dc4b1
+- 実行コードtree: a7431135fcf63ec112d422ed28cbd99719861e93
+- Site source: bd55935e553d8a034b47163cf2a9f88ba5433c3d
+- Deployment: appgdep_6ad5dc33b408819180493b793bd3b9ae
+- Version: appgprj_6ad59d0af478819190a03552d586bbeb~appgver_6368cc522c7c81918eadccbfeafde66e
+- 37実行ファイル一致、既存画像290枚Git blob一致。配信後の追加保存は証跡・報告だけ。
