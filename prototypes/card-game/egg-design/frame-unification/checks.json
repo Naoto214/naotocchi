@@ -1,0 +1,17 @@
+{
+  "passed": 11,
+  "checks": [
+    "common botanical SVG exact equality",
+    "single signature and common 2.7cqw / .18em metrics",
+    "C illustration crop pixel equality",
+    "decode / ratio / hash original.png",
+    "decode / ratio / hash egg-card-print.png",
+    "decode / ratio / hash ../ui-assets/egg-card-small.webp",
+    "decode / ratio / hash ../ui-assets/egg-card-large.webp",
+    "comparison 80",
+    "comparison 110",
+    "comparison 600",
+    "exact effect text / no unwanted annotation"
+  ],
+  "physicalIphone": false
+}

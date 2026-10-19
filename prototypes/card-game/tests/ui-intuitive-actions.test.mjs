@@ -59,12 +59,11 @@ test('mandatory choices still route only their exact choice card and browsing st
  const w={...v,choice:{kind:'test'},actions:[{id:'pick',kind:'choose',choiceCard:c.id,label:'選択'},...v.actions]};
  assert.deepEqual(cardActions(w,'A',c).map(a=>a.id),['pick']);assert.doesNotMatch(detailMarkup(c,{v,viewer:'A',readOnly:true}),/data-action=/);
 });
-test('opponent egg parking is below the grid while own parking remains above',()=>{
+test('removed egg parking leaves both management columns aligned with the grid',()=>{
  const css=readFileSync(new URL('../style.css',import.meta.url),'utf8');
- assert.match(css,/\.opponent \.board-field\{[^}]*display:flex;flex-direction:column/);
- assert.match(css,/\.opponent \.egg-parking\{[^}]*order:1/);
- assert.match(css,/\.opponent \.management\{[^}]*padding-top:0/);
- assert.doesNotMatch(css,/\.own \.egg-parking\{[^}]*order:/);
+ assert.doesNotMatch(css,/egg-parking/);
+ assert.match(css,/\.management\{padding-top:0;display:grid/);
+ assert.match(css,/\.opponent \.management\{padding-top:0;padding-bottom:0/);
 });
 test('cost badge uses bold high contrast numerals without changing any of 452 values',()=>{
  const css=readFileSync(new URL('../style.css',import.meta.url),'utf8');

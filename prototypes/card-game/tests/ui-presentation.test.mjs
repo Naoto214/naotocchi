@@ -21,17 +21,17 @@ test('hidden cards never look up or embed supplied private identity',()=>{
  const html=cardMarkup({...CARDS['M-beetle-04'],hidden:true});
  assert.match(html,/card-back-approved/);assert.doesNotMatch(html,/カブト|さなぎ|M-beetle|ちから/);
 });
-test('board has nine ordered slots, shared preparation, management order and exactly one egg',()=>{
+test('board has nine ordered slots, shared preparation, management order and only the visible top state card',()=>{
  const p=view(createGame(719),'A').players.A;
  const html=boardMarkup(p,'A','A',[]);
  assert.equal((html.match(/data-slot=/g)||[]).length,9);
  assert.ok(html.indexOf('data-zone="discard"')<html.indexOf('data-zone="activation"'));
  assert.ok(html.indexOf('data-zone="activation"')<html.indexOf('data-zone="deck"'));
- assert.equal((html.match(/class="egg-image"/g)||[]).length,1);
- assert.match(html,/data-egg-location="main"/);assert.match(html,/準備③/);
+ assert.equal((html.match(/data-egg-detail=/g)||[]).length,1);
+ assert.match(html,/data-main-top="egg"/);assert.match(html,/準備③/);
  p.board.main={...CARDS['M-beetle-01'],cardId:'M-beetle-01',id:'A:0'};
- const born=boardMarkup(p,'A','A',[]);assert.match(born,/data-egg-location="parking"/);
- assert.equal((born.match(/class="egg-image"/g)||[]).length,1);
+ const born=boardMarkup(p,'A','A',[]);assert.doesNotMatch(born,/egg-parking|data-egg-detail/);
+ assert.equal((born.match(/data-egg-detail=/g)||[]).length,0);
 });
 test('null viewer has no private hand or controls, and acting player is the large board',()=>{
  const s=createGame(719),hidden=gameMarkup(view(s,null),null);
