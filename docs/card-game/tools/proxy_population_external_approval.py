@@ -16,8 +16,12 @@ from proxy_mandatory_policy_contract import ROOT,canonical
 
 REPOSITORY='Naoto214/naotocchi'
 AUTHORITY=323909980
-PR=259
-BRANCH='design/card-pool-master-20260914'
+# 2026-10-20 owner decision: PR #259 is merged, so new approvals live on #408.
+# Only the PR location moved; author, exact text, draft/open/unmerged and head
+# checks are unchanged. A #259 request has a different digest and is rejected.
+PR=transport.PULL_REQUEST
+BRANCH='claude/fixed400-restart-20261020'
+HISTORICAL_PULL_REQUESTS={259:'design/card-pool-master-20260914'}
 API='https://api.github.com/repos/'+REPOSITORY
 CONTRACTS=('107-normal-decision-match-protocol.md','463-precommitted-mandatory-policy-detail.md',
  '464-approved-mandatory-policy-contract.md','465-mandatory-boundary-and-population-input.md')
@@ -164,7 +168,7 @@ def _comment_projection(comment):
 
 def _check_comment(comment,request,comment_id):
  if type(comment['id']) is not int or comment['id']!=comment_id or not _owner(comment['user']):raise ValueError('approval author or comment identity differs')
- if comment['issue_url']!=API+'/issues/259' or comment['html_url']!='https://github.com/'+REPOSITORY+'/pull/259#issuecomment-'+str(comment_id):raise ValueError('approval belongs to another PR')
+ if comment['issue_url']!=API+'/issues/'+str(PR) or comment['html_url']!='https://github.com/'+REPOSITORY+'/pull/'+str(PR)+'#issuecomment-'+str(comment_id):raise ValueError('approval belongs to another PR')
  if comment['body']!=approval_text(request):raise ValueError('approval text or request digest differs')
  for key in ('created_at','updated_at'):
   value=comment[key]
@@ -180,12 +184,12 @@ def verify_live(request,comment_id):
 def _observation(request,comment_id,expected_head,read):
  repo=read('')
  if repo['full_name']!=REPOSITORY or not _owner(repo['owner']):raise ValueError('repository authority differs')
- pr=read('/pulls/259')
+ pr=read('/pulls/'+str(PR))
  if type(pr['number']) is not int or pr['number']!=PR or pr['state']!='open' or pr['draft'] is not True or pr['merged'] is not False or pr['head']['repo']['full_name']!=REPOSITORY or pr['head']['ref']!=BRANCH or pr['head']['sha']!=expected_head:raise ValueError('live PR edition/state differs')
  comment=read('/issues/comments/'+str(comment_id));_check_comment(comment,request,comment_id)
  ids=set();found=[];pages=[]
  for page in range(1,101):
-  rows=read('/issues/259/comments?per_page=100&page='+str(page))
+  rows=read('/issues/'+str(PR)+'/comments?per_page=100&page='+str(page))
   if type(rows) is not list or len(rows)>100:raise ValueError('invalid comment page')
   pages.append(dict(page=page,sha256=digest(rows),count=len(rows)))
   for row in rows:
