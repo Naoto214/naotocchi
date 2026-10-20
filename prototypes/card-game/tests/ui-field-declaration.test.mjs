@@ -33,7 +33,12 @@ test('CPU observes and chooses from the seven legal declarations without seeing 
  assert.deepEqual(as.map(a=>a.declare),types);
  const seen=new Set();for(const difficulty of ['beginner','intermediate'])for(let seed=1;seed<=30;seed++){
   const pick=chooseCpuAction({...o,actions:as},{difficulty,seed,step:0}),a=as.find(a=>a.id===pick.id);assert.ok(a);seen.add(a.declare);assert.equal(e.act(s,'A',s.revision,pick.id).chain.at(-1).declare,a.declare);
- }assert.ok(seen.size>1);
+ }
+ // 2026-10-20 CPU legacy-card fix: declarations are now ranked by the match chance estimated from A's own known cards
+ // (previously all seven scored identically, so only the seeded tie-break varied the pick). Deck order must not matter.
+ assert.equal(seen.size,1);const t=structuredClone(s);t.players.A.deck.reverse();t.players.B.deck.reverse();
+ const ot=observeCpu(t,'A'),bt=ot.actions.filter(a=>a.card?.cardId==='G-hit-blow'||a.card?.id?.includes('G-hit-blow'));
+ assert.deepEqual(bt.map(a=>a.program),as.map(a=>a.program));assert.equal(bt.find(a=>a.id===chooseCpuAction({...ot,actions:bt}).id).declare,[...seen][0]);
 });
 test('only the turn owner field is marked, independent of human seat and response actor',()=>{
  for(const humanSeat of ['A','B'])for(const turn of ['A','B'])for(const actor of ['A','B']){
