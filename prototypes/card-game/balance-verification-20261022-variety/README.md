@@ -2,6 +2,7 @@
 
 積み重ね: main ← #404 ← #406 ← #407 ← **本ブランチ**（`claude/card-cpu-variety-20261021`、base = #407 のブランチ）。
 過去の結果ディレクトリ（`../balance-verification-20261020*/`、`../balance-verification-20261021-strategy/`）は変更しません。考察は [REPORT.md](REPORT.md) にあります。
+**統合の引き継ぎ（PR依存・競合・Pages allowlist・回帰テスト・残る実機QA）は [HANDOFF-ASTRA.md](HANDOFF-ASTRA.md) にあります。CPUの追加チューニングは、本人のiPhone試遊まで停止しています。**
 
 ## 変更
 
