@@ -1,0 +1,968 @@
+{
+ "manifest": "../balance-verification-20261020-cpufix/runs/E1-manifest.json",
+ "shard": "0",
+ "shards": "4",
+ "responses": {
+  "R2_value_but_cost": 16380,
+  "window:start:R2_value_but_cost": 5090,
+  "window:normal:R2_value_but_cost": 3022,
+  "window:compare:R2_value_but_cost": 1966,
+  "window:challenge_end:R2_value_but_cost": 1633,
+  "window:end:R2_value_but_cost": 3653,
+  "window:end_request:R2_value_but_cost": 1016,
+  "R3_used": 3680,
+  "window:start:R3_used": 2918,
+  "R1_legal_but_low_value": 20579,
+  "window:start:R1_legal_but_low_value": 5564,
+  "window:normal:R3_used": 377,
+  "window:normal:R1_legal_but_low_value": 3340,
+  "window:compare:R1_legal_but_low_value": 2493,
+  "window:challenge_end:R1_legal_but_low_value": 2020,
+  "window:end:R1_legal_but_low_value": 5365,
+  "window:end_request:R1_legal_but_low_value": 1797,
+  "window:end:R3_used": 206,
+  "window:compare:R3_used": 96,
+  "window:challenge_end:R3_used": 83
+ },
+ "turnEnds": {
+  "T_none_left": 1877,
+  "timeLeft:T_none_left": 0,
+  "T3_time_actions_valued_but_cost": 2156,
+  "timeLeft:T3_time_actions_valued_but_cost": 11133,
+  "T2_time_actions_low_value": 2202,
+  "timeLeft:T2_time_actions_low_value": 13562,
+  "T0_no_legal_time_action": 1071,
+  "timeLeft:T0_no_legal_time_action": 4431,
+  "T1_only_free_actions_left": 1090,
+  "timeLeft:T1_only_free_actions_left": 5775
+ },
+ "limits": {
+  "turnsWithTime": 6519,
+  "handCardsTotal": 35650,
+  "handUnaffordable": 2851,
+  "personUsed": 1821,
+  "challengeUsed": 3352,
+  "costAverse:I-c_coin2": 211,
+  "costAverse:M-antlion-01": 13,
+  "relationshipUsed": 1480,
+  "preparedFull": 860,
+  "costAverse:G-hit-blow": 52,
+  "costAverse:E-mirror": 57,
+  "costAverse:M-beetle-07": 131,
+  "costAverse:I-c_egg_normal": 23,
+  "costAverse:G-race-3d": 109,
+  "costAverse:E-fateful-transform": 261,
+  "costAverse:M-dog-04": 48,
+  "costAverse:M-dog-02": 13,
+  "costAverse:G-stack-acorn": 243,
+  "costAverse:E-new-encounter": 126,
+  "costAverse:I-c_friend": 301,
+  "costAverse:E-wedding-anniversary": 83,
+  "costAverse:G-basketball-3d": 291,
+  "costAverse:M-beetle-02": 52,
+  "costAverse:M-beetle-03": 102,
+  "costAverse:M-beetle-05": 74,
+  "costAverse:E-midlife-flower": 117,
+  "costAverse:G-plane-landing": 75,
+  "costAverse:G-lunar-lander": 76,
+  "costAverse:G-mini-golf-physics": 716,
+  "costAverse:G-sugoroku-race": 112,
+  "costAverse:M-beetle-06": 87,
+  "costAverse:M-dog-06": 8,
+  "costAverse:M-dog-05": 4,
+  "costAverse:G-animal-shogi": 20,
+  "costAverse:W-jungle": 1,
+  "costAverse:M-phoenix-02": 1
+ },
+ "autoPass": 53135,
+ "cards": {
+  "I-c_coin2": {
+   "offered": 3461,
+   "chosen": 413,
+   "positive": 580,
+   "freePositive": 3461,
+   "best": 0.75,
+   "decisionsOffered": 2837
+  },
+  "M-beetle-01": {
+   "offered": 3419,
+   "chosen": 284,
+   "positive": 372,
+   "freePositive": 372,
+   "best": 40.75,
+   "decisionsOffered": 2405
+  },
+  "C-cat_friend": {
+   "offered": 3222,
+   "chosen": 229,
+   "positive": 546,
+   "freePositive": 546,
+   "best": 15,
+   "decisionsOffered": 1263
+  },
+  "C-chameleon": {
+   "offered": 241,
+   "chosen": 63,
+   "positive": 139,
+   "freePositive": 139,
+   "best": 15,
+   "decisionsOffered": 173
+  },
+  "C-box": {
+   "offered": 220,
+   "chosen": 67,
+   "positive": 118,
+   "freePositive": 118,
+   "best": 15,
+   "decisionsOffered": 152
+  },
+  "W-deepsea": {
+   "offered": 784,
+   "chosen": 115,
+   "positive": 367,
+   "freePositive": 367,
+   "best": 6.5,
+   "decisionsOffered": 683
+  },
+  "M-antlion-01": {
+   "offered": 420,
+   "chosen": 102,
+   "positive": 219,
+   "freePositive": 263,
+   "best": 41.75,
+   "decisionsOffered": 339
+  },
+  "G-area-claim": {
+   "offered": 4692,
+   "chosen": 95,
+   "positive": 100,
+   "freePositive": 100,
+   "best": 26.25,
+   "decisionsOffered": 4340
+  },
+  "P-cliff_goat": {
+   "offered": 185,
+   "chosen": 114,
+   "positive": 185,
+   "freePositive": 185,
+   "best": 26,
+   "decisionsOffered": 153
+  },
+  "E-first-date": {
+   "offered": 12100,
+   "chosen": 184,
+   "positive": 224,
+   "freePositive": 224,
+   "best": 9.75,
+   "decisionsOffered": 9560
+  },
+  "I-bowtie": {
+   "offered": 1757,
+   "chosen": 249,
+   "positive": 1747,
+   "freePositive": 1747,
+   "best": 9,
+   "decisionsOffered": 580
+  },
+  "G-archery-3d": {
+   "offered": 242,
+   "chosen": 116,
+   "positive": 237,
+   "freePositive": 242,
+   "best": 1.5,
+   "decisionsOffered": 126
+  },
+  "I-sleepboost1": {
+   "offered": 2037,
+   "chosen": 752,
+   "positive": 1369,
+   "freePositive": 1369,
+   "best": 7.75,
+   "decisionsOffered": 1181
+  },
+  "G-hit-blow": {
+   "offered": 3437,
+   "chosen": 262,
+   "positive": 786,
+   "freePositive": 2734,
+   "best": 3.8,
+   "decisionsOffered": 461
+  },
+  "G-doodle-jump": {
+   "offered": 5743,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 0,
+   "best": -2,
+   "decisionsOffered": 5390
+  },
+  "W-snow": {
+   "offered": 1064,
+   "chosen": 453,
+   "positive": 569,
+   "freePositive": 569,
+   "best": 6.5,
+   "decisionsOffered": 675
+  },
+  "E-mirror": {
+   "offered": 906,
+   "chosen": 120,
+   "positive": 146,
+   "freePositive": 906,
+   "best": 2,
+   "decisionsOffered": 798
+  },
+  "M-beetle-03": {
+   "offered": 1271,
+   "chosen": 589,
+   "positive": 624,
+   "freePositive": 884,
+   "best": 41.25,
+   "decisionsOffered": 1194
+  },
+  "M-dog-03": {
+   "offered": 250,
+   "chosen": 38,
+   "positive": 67,
+   "freePositive": 67,
+   "best": 41.25,
+   "decisionsOffered": 237
+  },
+  "C-rabbit_friend": {
+   "offered": 2714,
+   "chosen": 1039,
+   "positive": 1483,
+   "freePositive": 1483,
+   "best": 15,
+   "decisionsOffered": 1362
+  },
+  "M-dog-05": {
+   "offered": 153,
+   "chosen": 72,
+   "positive": 105,
+   "freePositive": 117,
+   "best": 26,
+   "decisionsOffered": 129
+  },
+  "M-beetle-06": {
+   "offered": 386,
+   "chosen": 32,
+   "positive": 58,
+   "freePositive": 255,
+   "best": 23.75,
+   "decisionsOffered": 370
+  },
+  "M-beetle-07": {
+   "offered": 373,
+   "chosen": 38,
+   "positive": 58,
+   "freePositive": 373,
+   "best": 27.5,
+   "decisionsOffered": 373
+  },
+  "P-snow_spirit": {
+   "offered": 108,
+   "chosen": 81,
+   "positive": 105,
+   "freePositive": 105,
+   "best": 26,
+   "decisionsOffered": 99
+  },
+  "M-dog-01": {
+   "offered": 384,
+   "chosen": 64,
+   "positive": 77,
+   "freePositive": 77,
+   "best": 40.75,
+   "decisionsOffered": 317
+  },
+  "C-shiba": {
+   "offered": 473,
+   "chosen": 200,
+   "positive": 322,
+   "freePositive": 322,
+   "best": 15,
+   "decisionsOffered": 311
+  },
+  "M-dog-06": {
+   "offered": 172,
+   "chosen": 57,
+   "positive": 131,
+   "freePositive": 151,
+   "best": 21.75,
+   "decisionsOffered": 172
+  },
+  "I-c_egg_normal": {
+   "offered": 268,
+   "chosen": 1,
+   "positive": 1,
+   "freePositive": 268,
+   "best": 0.75,
+   "decisionsOffered": 262
+  },
+  "M-dog-02": {
+   "offered": 298,
+   "chosen": 41,
+   "positive": 87,
+   "freePositive": 115,
+   "best": 40.5,
+   "decisionsOffered": 253
+  },
+  "G-race-3d": {
+   "offered": 2281,
+   "chosen": 134,
+   "positive": 183,
+   "freePositive": 2281,
+   "best": 1.25,
+   "decisionsOffered": 2091
+  },
+  "G-picross-5": {
+   "offered": 5832,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 0,
+   "best": -0.75,
+   "decisionsOffered": 5423
+  },
+  "M-dog-04": {
+   "offered": 375,
+   "chosen": 100,
+   "positive": 152,
+   "freePositive": 257,
+   "best": 42,
+   "decisionsOffered": 283
+  },
+  "E-fateful-transform": {
+   "offered": 3469,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 2129,
+   "best": -0.25,
+   "decisionsOffered": 3242
+  },
+  "I-c_time_forward": {
+   "offered": 1843,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 0,
+   "best": -3.25,
+   "decisionsOffered": 1843
+  },
+  "C-owl": {
+   "offered": 4693,
+   "chosen": 688,
+   "positive": 922,
+   "freePositive": 922,
+   "best": 15,
+   "decisionsOffered": 1851
+  },
+  "M-mushroom-01": {
+   "offered": 246,
+   "chosen": 160,
+   "positive": 166,
+   "freePositive": 166,
+   "best": 42.75,
+   "decisionsOffered": 160
+  },
+  "C-otter": {
+   "offered": 2960,
+   "chosen": 303,
+   "positive": 576,
+   "freePositive": 576,
+   "best": 15,
+   "decisionsOffered": 1198
+  },
+  "M-mushroom-02": {
+   "offered": 306,
+   "chosen": 61,
+   "positive": 115,
+   "freePositive": 115,
+   "best": 42.5,
+   "decisionsOffered": 302
+  },
+  "M-mushroom-03": {
+   "offered": 173,
+   "chosen": 69,
+   "positive": 169,
+   "freePositive": 169,
+   "best": 41.25,
+   "decisionsOffered": 164
+  },
+  "M-mushroom-04": {
+   "offered": 119,
+   "chosen": 62,
+   "positive": 119,
+   "freePositive": 119,
+   "best": 41,
+   "decisionsOffered": 119
+  },
+  "C-chicken": {
+   "offered": 6988,
+   "chosen": 1448,
+   "positive": 2148,
+   "freePositive": 2148,
+   "best": 15,
+   "decisionsOffered": 2810
+  },
+  "C-hamster": {
+   "offered": 2376,
+   "chosen": 40,
+   "positive": 141,
+   "freePositive": 141,
+   "best": 15,
+   "decisionsOffered": 805
+  },
+  "W-forest": {
+   "offered": 756,
+   "chosen": 110,
+   "positive": 369,
+   "freePositive": 369,
+   "best": 6.5,
+   "decisionsOffered": 687
+  },
+  "C-sheep": {
+   "offered": 2160,
+   "chosen": 48,
+   "positive": 174,
+   "freePositive": 174,
+   "best": 15,
+   "decisionsOffered": 758
+  },
+  "G-stack-acorn": {
+   "offered": 3004,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 3004,
+   "best": -0.5,
+   "decisionsOffered": 2404
+  },
+  "I-bond1": {
+   "offered": 455,
+   "chosen": 70,
+   "positive": 455,
+   "freePositive": 455,
+   "best": 6.5,
+   "decisionsOffered": 170
+  },
+  "M-mushroom-05": {
+   "offered": 148,
+   "chosen": 72,
+   "positive": 144,
+   "freePositive": 144,
+   "best": 16,
+   "decisionsOffered": 144
+  },
+  "E-new-encounter": {
+   "offered": 2221,
+   "chosen": 240,
+   "positive": 318,
+   "freePositive": 2221,
+   "best": 0.75,
+   "decisionsOffered": 2049
+  },
+  "C-punyu": {
+   "offered": 2499,
+   "chosen": 20,
+   "positive": 72,
+   "freePositive": 72,
+   "best": 15,
+   "decisionsOffered": 1777
+  },
+  "G-beach-volley": {
+   "offered": 631,
+   "chosen": 87,
+   "positive": 95,
+   "freePositive": 125,
+   "best": 0.55,
+   "decisionsOffered": 552
+  },
+  "C-many_tail_fox": {
+   "offered": 4900,
+   "chosen": 27,
+   "positive": 109,
+   "freePositive": 109,
+   "best": 15,
+   "decisionsOffered": 2288
+  },
+  "I-c_friend": {
+   "offered": 4191,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 4191,
+   "best": -0.5,
+   "decisionsOffered": 3968
+  },
+  "P-robot_neighbor": {
+   "offered": 65,
+   "chosen": 26,
+   "positive": 65,
+   "freePositive": 65,
+   "best": 26,
+   "decisionsOffered": 53
+  },
+  "M-cat-01": {
+   "offered": 228,
+   "chosen": 142,
+   "positive": 157,
+   "freePositive": 157,
+   "best": 40.75,
+   "decisionsOffered": 144
+  },
+  "P-grove_deer": {
+   "offered": 258,
+   "chosen": 123,
+   "positive": 176,
+   "freePositive": 176,
+   "best": 26,
+   "decisionsOffered": 165
+  },
+  "M-cat-04": {
+   "offered": 216,
+   "chosen": 132,
+   "positive": 156,
+   "freePositive": 156,
+   "best": 41,
+   "decisionsOffered": 149
+  },
+  "E-reconciliation": {
+   "offered": 9481,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 0,
+   "best": -1.85,
+   "decisionsOffered": 7758
+  },
+  "C-seal": {
+   "offered": 2877,
+   "chosen": 1228,
+   "positive": 2287,
+   "freePositive": 2287,
+   "best": 15,
+   "decisionsOffered": 1919
+  },
+  "P-high_eagle": {
+   "offered": 596,
+   "chosen": 168,
+   "positive": 347,
+   "freePositive": 347,
+   "best": 26,
+   "decisionsOffered": 327
+  },
+  "M-cat-02": {
+   "offered": 264,
+   "chosen": 111,
+   "positive": 205,
+   "freePositive": 205,
+   "best": 40.5,
+   "decisionsOffered": 188
+  },
+  "W-home": {
+   "offered": 1250,
+   "chosen": 183,
+   "positive": 751,
+   "freePositive": 751,
+   "best": 6.5,
+   "decisionsOffered": 1168
+  },
+  "I-partner1": {
+   "offered": 863,
+   "chosen": 94,
+   "positive": 863,
+   "freePositive": 863,
+   "best": 7.75,
+   "decisionsOffered": 342
+  },
+  "E-wedding-anniversary": {
+   "offered": 1129,
+   "chosen": 122,
+   "positive": 148,
+   "freePositive": 1129,
+   "best": 0.8,
+   "decisionsOffered": 925
+  },
+  "P-cat_ceo": {
+   "offered": 56,
+   "chosen": 26,
+   "positive": 56,
+   "freePositive": 56,
+   "best": 26,
+   "decisionsOffered": 55
+  },
+  "M-cat-05": {
+   "offered": 169,
+   "chosen": 110,
+   "positive": 119,
+   "freePositive": 119,
+   "best": 41.75,
+   "decisionsOffered": 119
+  },
+  "M-cat-03": {
+   "offered": 165,
+   "chosen": 45,
+   "positive": 165,
+   "freePositive": 165,
+   "best": 40.25,
+   "decisionsOffered": 150
+  },
+  "P-gentle_gorilla": {
+   "offered": 138,
+   "chosen": 101,
+   "positive": 138,
+   "freePositive": 138,
+   "best": 26,
+   "decisionsOffered": 128
+  },
+  "M-phoenix-01": {
+   "offered": 367,
+   "chosen": 62,
+   "positive": 56,
+   "freePositive": 58,
+   "best": 40.4,
+   "decisionsOffered": 218
+  },
+  "G-basketball-3d": {
+   "offered": 4190,
+   "chosen": 89,
+   "positive": 134,
+   "freePositive": 4190,
+   "best": 0.7,
+   "decisionsOffered": 3662
+  },
+  "M-phoenix-02": {
+   "offered": 223,
+   "chosen": 29,
+   "positive": 45,
+   "freePositive": 52,
+   "best": 42.5,
+   "decisionsOffered": 223
+  },
+  "W-jungle": {
+   "offered": 359,
+   "chosen": 101,
+   "positive": 264,
+   "freePositive": 266,
+   "best": 6.5,
+   "decisionsOffered": 332
+  },
+  "G-ski-jump": {
+   "offered": 455,
+   "chosen": 157,
+   "positive": 400,
+   "freePositive": 400,
+   "best": 6.5,
+   "decisionsOffered": 319
+  },
+  "M-beetle-05": {
+   "offered": 246,
+   "chosen": 33,
+   "positive": 61,
+   "freePositive": 233,
+   "best": 38.75,
+   "decisionsOffered": 191
+  },
+  "W-mountain": {
+   "offered": 237,
+   "chosen": 77,
+   "positive": 206,
+   "freePositive": 206,
+   "best": 6.5,
+   "decisionsOffered": 206
+  },
+  "M-beetle-02": {
+   "offered": 423,
+   "chosen": 76,
+   "positive": 119,
+   "freePositive": 248,
+   "best": 37.8,
+   "decisionsOffered": 342
+  },
+  "G-grand-prix-3d": {
+   "offered": 39,
+   "chosen": 32,
+   "positive": 35,
+   "freePositive": 35,
+   "best": 16.5,
+   "decisionsOffered": 36
+  },
+  "E-boss": {
+   "offered": 68,
+   "chosen": 46,
+   "positive": 48,
+   "freePositive": 64,
+   "best": 5.5,
+   "decisionsOffered": 68
+  },
+  "E-midlife-flower": {
+   "offered": 1408,
+   "chosen": 156,
+   "positive": 180,
+   "freePositive": 1365,
+   "best": 2.9,
+   "decisionsOffered": 1199
+  },
+  "G-plane-landing": {
+   "offered": 776,
+   "chosen": 92,
+   "positive": 214,
+   "freePositive": 768,
+   "best": 2.19,
+   "decisionsOffered": 705
+  },
+  "C-panda": {
+   "offered": 775,
+   "chosen": 339,
+   "positive": 568,
+   "freePositive": 568,
+   "best": 15,
+   "decisionsOffered": 449
+  },
+  "M-turtle-01": {
+   "offered": 88,
+   "chosen": 78,
+   "positive": 88,
+   "freePositive": 88,
+   "best": 40.75,
+   "decisionsOffered": 78
+  },
+  "G-lunar-lander": {
+   "offered": 1101,
+   "chosen": 115,
+   "positive": 239,
+   "freePositive": 1101,
+   "best": 2.05,
+   "decisionsOffered": 1021
+  },
+  "M-turtle-02": {
+   "offered": 336,
+   "chosen": 174,
+   "positive": 220,
+   "freePositive": 220,
+   "best": 40.5,
+   "decisionsOffered": 214
+  },
+  "G-mini-golf-physics": {
+   "offered": 6495,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 5581,
+   "best": -0.16,
+   "decisionsOffered": 4540
+  },
+  "P-field_cow": {
+   "offered": 864,
+   "chosen": 339,
+   "positive": 488,
+   "freePositive": 488,
+   "best": 26,
+   "decisionsOffered": 484
+  },
+  "G-sugoroku-race": {
+   "offered": 1450,
+   "chosen": 147,
+   "positive": 243,
+   "freePositive": 1450,
+   "best": 0.75,
+   "decisionsOffered": 1256
+  },
+  "M-turtle-04": {
+   "offered": 157,
+   "chosen": 97,
+   "positive": 157,
+   "freePositive": 157,
+   "best": 40,
+   "decisionsOffered": 149
+  },
+  "W-countryside": {
+   "offered": 1372,
+   "chosen": 302,
+   "positive": 592,
+   "freePositive": 592,
+   "best": 11,
+   "decisionsOffered": 952
+  },
+  "E-midlife-50th": {
+   "offered": 34,
+   "chosen": 31,
+   "positive": 34,
+   "freePositive": 34,
+   "best": 5.5,
+   "decisionsOffered": 31
+  },
+  "I-naoto_lantern": {
+   "offered": 265,
+   "chosen": 101,
+   "positive": 166,
+   "freePositive": 166,
+   "best": 11,
+   "decisionsOffered": 178
+  },
+  "G-connect-four": {
+   "offered": 23,
+   "chosen": 16,
+   "positive": 19,
+   "freePositive": 19,
+   "best": 16.5,
+   "decisionsOffered": 20
+  },
+  "M-turtle-03": {
+   "offered": 710,
+   "chosen": 260,
+   "positive": 412,
+   "freePositive": 412,
+   "best": 40.25,
+   "decisionsOffered": 403
+  },
+  "M-hermit_crab-01": {
+   "offered": 243,
+   "chosen": 154,
+   "positive": 166,
+   "freePositive": 166,
+   "best": 40.75,
+   "decisionsOffered": 154
+  },
+  "M-hermit_crab-03": {
+   "offered": 839,
+   "chosen": 61,
+   "positive": 81,
+   "freePositive": 81,
+   "best": 40.25,
+   "decisionsOffered": 834
+  },
+  "I-c_life_charm": {
+   "offered": 247,
+   "chosen": 53,
+   "positive": 247,
+   "freePositive": 247,
+   "best": 7.75,
+   "decisionsOffered": 218
+  },
+  "G-space-gunner-3d": {
+   "offered": 250,
+   "chosen": 64,
+   "positive": 227,
+   "freePositive": 227,
+   "best": 12,
+   "decisionsOffered": 221
+  },
+  "G-missile-command": {
+   "offered": 208,
+   "chosen": 62,
+   "positive": 197,
+   "freePositive": 197,
+   "best": 13.35,
+   "decisionsOffered": 186
+  },
+  "G-pingpong-3d": {
+   "offered": 112,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 14,
+   "best": -0.75,
+   "decisionsOffered": 74
+  },
+  "C-parrot": {
+   "offered": 807,
+   "chosen": 430,
+   "positive": 165,
+   "freePositive": 165,
+   "best": 15,
+   "decisionsOffered": 502
+  },
+  "M-hermit_crab-04": {
+   "offered": 261,
+   "chosen": 143,
+   "positive": 97,
+   "freePositive": 97,
+   "best": 40,
+   "decisionsOffered": 168
+  },
+  "I-star": {
+   "offered": 130,
+   "chosen": 20,
+   "positive": 129,
+   "freePositive": 129,
+   "best": 8,
+   "decisionsOffered": 126
+  },
+  "I-poop1": {
+   "offered": 230,
+   "chosen": 98,
+   "positive": 230,
+   "freePositive": 230,
+   "best": 9,
+   "decisionsOffered": 197
+  },
+  "G-tower-defense": {
+   "offered": 252,
+   "chosen": 55,
+   "positive": 239,
+   "freePositive": 239,
+   "best": 7.75,
+   "decisionsOffered": 217
+  },
+  "C-watcher": {
+   "offered": 103,
+   "chosen": 68,
+   "positive": 87,
+   "freePositive": 87,
+   "best": 15,
+   "decisionsOffered": 83
+  },
+  "M-hermit_crab-02": {
+   "offered": 113,
+   "chosen": 67,
+   "positive": 93,
+   "freePositive": 93,
+   "best": 40.5,
+   "decisionsOffered": 85
+  },
+  "G-domino-run": {
+   "offered": 297,
+   "chosen": 126,
+   "positive": 256,
+   "freePositive": 256,
+   "best": 9,
+   "decisionsOffered": 215
+  },
+  "G-animal-shogi": {
+   "offered": 318,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 318,
+   "best": -1,
+   "decisionsOffered": 318
+  },
+  "G-downhill-mountain": {
+   "offered": 2,
+   "chosen": 2,
+   "positive": 2,
+   "freePositive": 2,
+   "best": 10.15,
+   "decisionsOffered": 2
+  },
+  "G-air-hockey": {
+   "offered": 12,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 0,
+   "best": -8.25,
+   "decisionsOffered": 8
+  },
+  "I-c_match": {
+   "offered": 4,
+   "chosen": 0,
+   "positive": 0,
+   "freePositive": 4,
+   "best": -3.2,
+   "decisionsOffered": 2
+  },
+  "G-tank-battle": {
+   "offered": 59,
+   "chosen": 40,
+   "positive": 59,
+   "freePositive": 59,
+   "best": 2.75,
+   "decisionsOffered": 40
+  }
+ }
+}

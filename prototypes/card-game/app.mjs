@@ -4,6 +4,7 @@ import {mountMyDecks} from './my-decks-ui.mjs';
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
 import {CpuSession,restoreMatch} from './cpu-session.mjs';
+import {CPU_DECKS,resolveCpuDeck,cpuDeck} from './cpu-decks.mjs';
 import {CpuScheduler} from './cpu-scheduler.mjs';
 import {eggDetailMarkup,cardActions,cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
@@ -144,14 +145,18 @@ document.addEventListener('click',e=>{
 });
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('close',()=>cpu.schedule());
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});
-$('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(2)),seed=seeds[0];validateDeck(decks.A);validateDeck(decks.B);cpu.cancel();session=$('match-mode').value==='cpu'?new CpuSession({humanSeat:$('human-seat').value,difficulty:$('cpu-level').value,policySeed:seeds[1]}):new HotseatSession({autoAdvance:true});start(createGame(seed,decks));persist();}catch(e){message(e.message);}};
+$('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(3)),seed=seeds[0],solo=$('match-mode').value==='cpu',human=$('human-seat').value,cpuSeat=human==='A'?'B':'A';
+ // The CPU seat may use a strategy deck instead of a My Deck; the human seat always uses the selected My Deck.
+ const label=solo?resolveCpuDeck({mode:$('cpu-deck-mode').value,chosen:$('cpu-deck-type').value,last:readPref().last,seed:seeds[2]}):null,match={...decks,...(label?{[cpuSeat]:label.cards}:{})};
+ validateDeck(match.A);validateDeck(match.B);cpu.cancel();session=solo?new CpuSession({humanSeat:human,difficulty:$('cpu-level').value,policySeed:seeds[1],cpuDeck:label}):new HotseatSession({autoAdvance:true});start(createGame(seed,match));if(label)writePref({last:label.id});persist();}catch(e){message(e.message);}};
 $('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();session=restoreMatch(raw);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
 $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([session.save()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=restoreMatch(await file.text());cpu.cancel();session=restored;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
-const myDecks=mountMyDecks({inspect,message,onChange:next=>{decks=next;}});
+const strategyDeck=()=>$('match-mode').value==='cpu'&&$('cpu-deck-mode').value!=='mydeck';
+const myDecks=mountMyDecks({inspect,message,onChange:next=>{decks=next;},seats:()=>strategyDeck()?[$('human-seat').value]:['A','B']});
 const collection=mountCollection({onRule:(chapter,origin)=>learning.openBook(chapter,origin),decks:myDecks,onOpen:()=>cpu.cancel(),onClose:()=>{learning.collectionClosed();cpu.schedule();}});
 $('collection-open').onclick=e=>collection.open(e.currentTarget);
 $('deck-collection-open').onclick=e=>collection.open(e.currentTarget,true);
@@ -159,7 +164,19 @@ $('menu-collection-open').onclick=e=>collection.open(e.currentTarget);
 function renderDeck(){myDecks.refresh();}
 $('coverage').textContent=`全${Object.keys(CARDS).length+1}種類のカードをコレクションで見られます。`;
 
-function modeGuide(){const solo=$('match-mode').value==='cpu';document.querySelectorAll('[data-cpu-setting]').forEach(n=>n.hidden=!solo);$('solo-open').setAttribute('aria-pressed',String(solo));$('hotseat-open').setAttribute('aria-pressed',String(!solo));$('mode-guide').textContent=solo?`あなたは${$('human-seat').value}、CPUは${$('human-seat').value==='A'?'B':'A'}です。それぞれのデッキを選んで始めましょう。`:'同じ端末を交代で使います。手札を隠してから相手に渡しましょう。';}
+// CPU deck preferences are a per-device convenience only (mode, chosen type, last CPU deck); failures are ignored.
+const PREF_KEY='naotocchi-cpu-deck-pref-v1';
+function readPref(){try{const p=JSON.parse(localStorage.getItem(PREF_KEY)??'{}');return p&&typeof p==='object'?p:{};}catch{return {};}}
+function writePref(change){try{localStorage.setItem(PREF_KEY,JSON.stringify({...readPref(),...change}));}catch{}}
+for(const d of CPU_DECKS){const o=document.createElement('option');o.value=d.id;o.textContent=d.name;$('cpu-deck-type').append(o);}
+{const p=readPref();if(['auto','choose','fixed','mydeck'].includes(p.mode))$('cpu-deck-mode').value=p.mode;if(CPU_DECKS.some(d=>d.id===p.chosen))$('cpu-deck-type').value=p.chosen;}
+function deckGuide(){const mode=$('cpu-deck-mode').value,cpuSeat=$('human-seat').value==='A'?'B':'A';$('cpu-deck-type-wrap').hidden=$('match-mode').value!=='cpu'||mode!=='choose';
+ const last=readPref().last,lastDeck=CPU_DECKS.find(d=>d.id===last);
+ $('cpu-deck-guide').textContent=mode==='auto'?`対戦ごとに${CPU_DECKS.length}つの戦略デッキから1つを選びます。どのデッキかは対戦の後に表示します。`:mode==='choose'?`${cpuDeck($('cpu-deck-type').value).name}：${cpuDeck($('cpu-deck-type').value).summary}`:mode==='fixed'?(lastDeck?`前回と同じ「${lastDeck.name}」で練習します。カードの並びは毎回変わります。`:'まだ前回のCPUデッキがありません。「バランス」で始めます。'):`CPUは${cpuSeat}の使用デッキ（マイデッキ）を使います。`;
+ for(const s of ['A','B'])$('select-deck-'+s).disabled=strategyDeck()&&s===cpuSeat;myDecks.refresh();}
+$('cpu-deck-mode').onchange=()=>{writePref({mode:$('cpu-deck-mode').value});modeGuide();};
+$('cpu-deck-type').onchange=()=>{writePref({chosen:$('cpu-deck-type').value});deckGuide();};
+function modeGuide(){const solo=$('match-mode').value==='cpu';document.querySelectorAll('[data-cpu-setting]').forEach(n=>n.hidden=!solo);$('solo-open').setAttribute('aria-pressed',String(solo));$('hotseat-open').setAttribute('aria-pressed',String(!solo));$('mode-guide').textContent=solo?`あなたは${$('human-seat').value}、CPUは${$('human-seat').value==='A'?'B':'A'}です。${strategyDeck()?'自分のデッキを選んで始めましょう。CPUは戦略デッキを使います。':'それぞれのマイデッキを選んで始めましょう。'}`:'同じ端末を交代で使います。手札を隠してから相手に渡しましょう。';deckGuide();}
 $('match-mode').onchange=modeGuide;$('human-seat').onchange=modeGuide;modeGuide();
 for(const [id,mode] of [['solo-open','cpu'],['hotseat-open','hotseat']])$(id).onclick=()=>{$('match-mode').value=mode;modeGuide();$('match-setup').scrollIntoView?.({block:'start'});$('new').focus({preventScroll:true});};
 $('my-decks-open').onclick=()=>{const editor=$('deck-editor');editor.open=true;renderDeck();editor.scrollIntoView?.({block:'start'});editor.querySelector('summary').focus({preventScroll:true});};

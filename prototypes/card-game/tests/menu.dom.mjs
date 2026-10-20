@@ -24,7 +24,7 @@ const replayDOM=new JSDOM('<style>'+readFileSync(new URL('../style.css',import.m
 const replay=replayDOM.window.document.querySelector('button');assert.equal(replayDOM.window.getComputedStyle(replay).display,'none');replay.hidden=false;assert.notEqual(replayDOM.window.getComputedStyle(replay).display,'none');replayDOM.window.close();
 assert.deepEqual([...document.querySelectorAll('.main-menu button')].map(n=>n.textContent),['ひとりであそぶ','ふたりであそぶ','マイデッキ','カードコレクション','あそびかたを覚える','ルールブック']);
 click('hotseat-open');assert.equal($('match-mode').value,'hotseat');assert.equal($('hotseat-open').getAttribute('aria-pressed'),'true');assert.ok([...document.querySelectorAll('[data-cpu-setting]')].every(n=>n.hidden));assert.equal(document.activeElement.id,'new');
-click('solo-open');assert.equal($('match-mode').value,'cpu');assert.equal($('solo-open').getAttribute('aria-pressed'),'true');assert.ok([...document.querySelectorAll('[data-cpu-setting]')].every(n=>!n.hidden));
+click('solo-open');assert.equal($('match-mode').value,'cpu');assert.equal($('solo-open').getAttribute('aria-pressed'),'true');assert.ok([...document.querySelectorAll('[data-cpu-setting]')].every(n=>n.id==='cpu-deck-type-wrap'?n.hidden:!n.hidden));
 click('my-decks-open');assert.equal($('deck-editor').open,true);assert.ok($('catalog-list').children.length);assert.equal(document.activeElement,$('deck-editor').querySelector('summary'));
 click('collection-open');assert.equal(top(),'collection-dialog');click('collection-close');
 click('tutorial-open');assert.equal(top(),'tutorial-dialog');click('tutorial-close');

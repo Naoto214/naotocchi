@@ -226,3 +226,6 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 .compact.card-face:not(.main-face){grid-template-rows:27% minmax(0,1fr) 3%}
 
 .card-face::after{bottom:2%;height:.8%}
+/* CPU strategy deck selection (welcome screen) */
+.cpu-deck-guide{margin:.25rem 0 .5rem;font-size:.9rem;line-height:1.5;opacity:.85}
+.cpu-deck-reveal{font-weight:600}
