@@ -113,9 +113,8 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(max-width:360px){.table-top .turn-indicator strong{font-size:12px}.table-top .turn-indicator small{font-size:9px}.table-top{gap:4px}}
 @media(prefers-reduced-motion:reduce){.milestone-symbol{animation:none!important}}
 
-/* Reserve the result button's width, including while a notice is visible. */
+/* Result replay joins the header only when available; hidden controls take no space. */
 .table-top button{width:44px;min-width:44px;padding:2px;overflow-wrap:anywhere}
-.table-top .result-reopen[hidden]{display:block!important;visibility:hidden;pointer-events:none}
 
 /* Overlay only: preserve gold border, field metrics and scroll geometry. */
 .player-board{position:relative}
@@ -186,3 +185,44 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(max-width:480px){.match-decks{grid-template-columns:1fr}.deck-filters{grid-template-columns:repeat(2,minmax(0,1fr))}#catalog-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.catalog-preview{width:90px}.deck-card-controls{grid-template-columns:44px 1fr 44px}.deck-edit-sticky{position:static}}
 @media(max-height:500px) and (orientation:landscape){.deck-edit-sticky{position:static}.deck-filters{grid-template-columns:repeat(4,minmax(0,1fr))}#catalog-list{max-height:62dvh}}
 #deck-editor[open] #deck-count{position:fixed;left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));bottom:0;z-index:12;margin:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#12392ff5;border:1px solid #b59b61;border-radius:12px 12px 0 0;box-shadow:0 -4px 18px #0004;font-size:13px;pointer-events:none}.playing #deck-count{display:none}body:has(#deck-editor[open]){padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+
+/* Main menu routes to the existing match, deck and learning controls. */
+.main-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}.main-menu button{min-height:58px;font-weight:700;padding:12px 8px}.main-menu #collection-open{margin:0;width:auto}
+#match-setup{border-top:1px solid #718567;padding-top:20px;margin-top:18px}#match-setup h2{color:#edd49a}#mode-guide{font-size:13px;color:#d1d9c5}.match-start-actions{display:flex;flex-wrap:wrap;gap:8px}.save-note,.welcome-collection-count{font-size:12px;color:var(--muted);margin-top:12px}#welcome>.welcome-collection-count{margin-bottom:0}.main-menu button[aria-pressed=true]{border-color:#ead69e;box-shadow:inset 0 0 0 1px #ead69e}
+@media(max-width:360px){.main-menu{gap:8px}.main-menu button{font-size:13px}}
+
+/* Main names reserve two lines even for a one-line name. Only the text changes;
+   heading/art/stats/copy/footer tracks retain their existing fixed coordinates. */
+.main-face .card-heading{display:grid;grid-template-rows:6cqw 17cqw 5cqw;align-content:center;justify-content:stretch;justify-items:center;gap:0}
+.main-face .card-title,.compact.main-face .card-title{font-size:7.2cqw;line-height:1.13;letter-spacing:.02em;margin:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow-wrap:normal;word-break:normal}
+.main-face .card-title>span{display:block;white-space:nowrap}
+.main-face .card-category,.main-face .card-species{align-self:center}
+/* Heading-local lanes: fixed center text tracks, equal inset side lanes.
+   Proportional borders and explicit line boxes also hold at board-card sizes. */
+.main-face .card-category{height:5.4cqw;line-height:1;display:grid;place-items:center;padding:0 2cqw;border-width:.45cqw;box-shadow:none}
+.main-face .card-attribute{left:1%;top:50%;transform:translateY(-50%);width:21%;gap:0}
+.main-face .card-attribute .icon{display:block;border-width:.65cqw;box-shadow:none}
+.main-face .card-attribute span{display:grid;place-items:center;min-height:4.5cqw;line-height:1;padding:0 .5cqw;min-width:95%;margin-top:-.5cqw;border-width:.45cqw}
+.main-face .card-cost{right:1%;top:50%;transform:translateY(-50%);width:20cqw;height:20cqw;font-size:16cqw;border-width:.65cqw;box-shadow:none}
+/* One shared main-slot centering rule for ordinary matches and the tutorial.
+   The outer slot label is separate; an inline duplicate name cannot displace art. */
+.player-board .slot[data-slot="1"] .slot-content{container-type:size}
+.player-board .slot[data-slot="1"] .slot-content .card-tap{display:grid;place-items:center;width:min(100cqw,66.6667cqh);height:min(100cqh,150cqw);aspect-ratio:2/3;gap:0;overflow:visible}
+.player-board .slot[data-slot="1"] .card-tap>.card-face,.player-board .slot[data-slot="1"] .card-tap>.card-back,.player-board .slot[data-slot="1"] .card-tap>.egg-card{width:100%;height:100%;aspect-ratio:2/3}
+.player-board .slot[data-slot="1"] .board-card-name{display:none}
+
+/* Shared numeric lanes: lining tabular digits, no Georgia old-style figures or
+   normal line-height intrinsic growth. The same box fits both 1 and 2 digits. */
+.card-stats>span{display:grid;grid-template-columns:9cqw minmax(0,1fr) 15cqw;align-items:center;justify-content:normal;gap:1cqw;min-width:0;min-height:0;padding:0 1.4cqw}
+.card-stats .icon{width:9cqw;height:9cqw;justify-self:center}
+.card-stats small{display:grid;place-items:center;height:10cqw;min-width:0;white-space:nowrap;line-height:1}
+.card-stats b{display:grid;place-items:center;width:15cqw;height:12cqw;min-width:0;min-height:0;padding:0;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12cqw;font-weight:700;font-variant-numeric:lining-nums tabular-nums;line-height:1;letter-spacing:0;white-space:nowrap}
+.compact .card-stats>span{grid-template-columns:10cqw 15cqw;justify-content:center;gap:4cqw}
+/* The signature and the data-driven UI marker share the clear bottom margin,
+   above the colored curve and between the botanical corner ornaments. */
+.card-face .card-footer{position:absolute;left:35%;right:35%;bottom:3.1%;height:2.2%;display:grid;place-items:center;font-size:2.7cqw;line-height:1;letter-spacing:.18em;color:#94703c;white-space:nowrap;pointer-events:none}
+.card-rarity{position:absolute;left:67%;bottom:3.1%;height:2.2%;display:grid;place-items:center;font-size:3.5cqw;line-height:1;color:#94703c;z-index:1;pointer-events:none}
+.compact.card-face{grid-template-rows:27% minmax(0,1fr) 16% 3%}
+.compact.card-face:not(.main-face){grid-template-rows:27% minmax(0,1fr) 3%}
+
+.card-face::after{bottom:2%;height:.8%}

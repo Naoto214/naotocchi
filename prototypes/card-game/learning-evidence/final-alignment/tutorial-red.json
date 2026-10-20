@@ -1,0 +1,91 @@
+{
+  "passed": false,
+  "failures": [
+    "board has no clipped internal scroll area"
+  ],
+  "cards": [],
+  "tutorial": {
+    "own": {
+      "x": 15,
+      "y": 426.28125,
+      "width": 350,
+      "height": 218,
+      "top": 426.28125,
+      "right": 365,
+      "bottom": 644.28125,
+      "left": 15
+    },
+    "cpu": {
+      "x": 13,
+      "y": 288.28125,
+      "width": 364,
+      "height": 132,
+      "top": 288.28125,
+      "right": 377,
+      "bottom": 420.28125,
+      "left": 13
+    },
+    "panel": {
+      "x": 13,
+      "y": 642,
+      "width": 364,
+      "height": 60,
+      "top": 642,
+      "right": 377,
+      "bottom": 702,
+      "left": 13
+    },
+    "hand": {
+      "x": 13,
+      "y": 706,
+      "width": 364,
+      "height": 109,
+      "top": 706,
+      "right": 377,
+      "bottom": 815,
+      "left": 13
+    },
+    "shells": [
+      {
+        "client": 132,
+        "scroll": 132
+      },
+      {
+        "client": 214,
+        "scroll": 222
+      }
+    ],
+    "preparation": [
+      {
+        "x": 22,
+        "y": 573.328125,
+        "width": 96,
+        "height": 54,
+        "top": 573.328125,
+        "right": 118,
+        "bottom": 627.328125,
+        "left": 22
+      },
+      {
+        "x": 122,
+        "y": 573.328125,
+        "width": 96,
+        "height": 54,
+        "top": 573.328125,
+        "right": 218,
+        "bottom": 627.328125,
+        "left": 122
+      },
+      {
+        "x": 222,
+        "y": 573.328125,
+        "width": 96,
+        "height": 54,
+        "top": 573.328125,
+        "right": 318,
+        "bottom": 627.328125,
+        "left": 222
+      }
+    ]
+  }
+}

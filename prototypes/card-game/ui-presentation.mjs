@@ -1,3 +1,4 @@
+import {relatedChapter} from './rulebook-content.mjs';
 // Presentation only. Input is the engine's safe view/catalog, never raw state.
 import {visibleCards} from './ui-context.mjs';
 import {CARD_ART} from './ui-art.mjs';
@@ -30,6 +31,78 @@ export function icon(key){if(marks[key])return attributeIcon(key);return `<svg c
 const leafSprig='<path d="M5 37Q4 10 26 4M5 23Q0 17 5 12Q11 17 5 23M9 14Q8 5 16 5Q18 12 9 14M16 8Q20 1 27 4Q25 10 16 8"/><path d="M6 31Q12 21 14 27Q14 33 6 31M3 39Q7 33 10 36Q8 42 3 39"/>';
 const ornament=`<svg class="botanical" viewBox="0 0 100 150" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".42"><rect x="2" y="2" width="96" height="146" rx="4"/><rect x="3.3" y="3.3" width="93.4" height="143.4" rx="3"/><path d="M23 5H77M23 145Q50 158 77 145M3 57l2-3 2 3-2 3ZM93 57l2-3 2 3-2 3Z"/></g><g class="leaf-filagree" stroke="currentColor" stroke-width=".25">${leafSprig}<g transform="translate(100 0) scale(-1 1)">${leafSprig}</g><g transform="translate(0 150) scale(1 -1)">${leafSprig}</g><g transform="translate(100 150) scale(-1 -1)">${leafSprig}</g></g></svg>`;
 
+// Presentation-only line breaks; canonical names, IDs and art stay untouched.
+// Seven full-width glyphs fit the shared main-title band. Longer names have reviewed breaks.
+const MAIN_TITLE_LINES = new Map(`丸い|あかちゃん
+巣作り|アリジゴク
+大きな|アリジゴク
+まゆの中の|さなぎ
+出たての|ウスバカゲロウ
+飛び回る|ウスバカゲロウ
+羽休めの|ウスバカゲロウ
+うまれたての|幼虫
+育ちざかりの|幼虫
+出たての|カブトムシ
+りっぱな|カブトムシ
+長生き|カブトムシ
+うまれたての|いもむし
+育ちざかりの|いもむし
+羽を広げた|ちょう
+花めぐりの|ちょう
+年を重ねた|ちょう
+おとしよりの|ねこ
+ぬけがらをぬぐ|セミ
+透けた|あかちゃん
+メスへ変わる|途中
+群れの|リーダーのメス
+小さな|サンゴの森
+色とりどりの|サンゴ
+大きな|サンゴの森
+広がる|サンゴの海
+葉がしげる|タンポポ
+おとしよりの|いぬ
+つのの生えた|りゅう
+小さなつばさの|りゅう
+つばさの育った|りゅう
+いにしえの|りゅう
+後ろ足が出た|おたま
+しっぽつき|かえる
+陸に上がった|かえる
+おとしよりの|かえる
+昔からいる|おばけ
+おだやかな|おばけ
+旅立ち前の|おばけ
+大いなる|かみさま
+ベテラン|ヤドカリ
+年を重ねた|クラゲ
+キノコの|小さな粒
+広がる|キノコの糸
+小さな|キノコの芽
+育ちざかりの|キノコ
+かさを広げた|キノコ
+粉を飛ばす|キノコ
+年を重ねた|キノコ
+ベテラン|ペンギン
+おとしより|ペンギン
+燃えさかる|火の鳥
+年を重ねた|火の鳥
+灰から|よみがえる鳥
+新品の|ぬいぐるみ
+よごれた|ぬいぐるみ
+ほつれた|ぬいぐるみ
+おじいちゃん|れん
+年を重ねた|サクラ
+うまれたての|さけ
+出たての|クワガタ
+りっぱな|クワガタ
+ぶつぶつ|子ヒトデ
+うまれたての|かめ
+若葉の|ハエトリグサ
+花咲く|ハエトリグサ`.split('\n').map(row=>{const lines=row.split('|');return [lines.join(''),lines];}));
+
+// Safe catalog/projected card data is the only rarity source; never infer from ID or art.
+export function cardRarityLabel(c){return c.rare?'レア · 同名1枚まで':'通常 · 同名3枚まで';}
+
 export function cardMarkup(c,{compact=false,detail=false}={}){
  if(!c||c.hidden)return `<div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div>`;
  const main=c.type==='main',id=c.cardId??c.id,category=CATEGORIES[c.type]??['カード','#A5A7AE'];
@@ -38,15 +111,15 @@ export function cardMarkup(c,{compact=false,detail=false}={}){
  const asset=CARD_ART[id],src=asset?.[detail?'large':'small'];
  const fallback=`<div class="art-fallback" role="img" aria-label="${h(title)}・画像を表示できません">${icon(main?c.attribute:c.type)}<small>画像を表示できません</small></div>`;
  const art=fallback+(src?`<img class="dedicated-art" src="${h(src)}" alt="${h(title)}の専用イラスト" width="${detail?1152:384}" height="${detail?768:256}" loading="${detail?'eager':'lazy'}" decoding="async" draggable="false">`:'');
- return `<article class="card-face${main?' main-face':''}${compact?' compact':''}${c.text?.length>140?' long-copy':''}" style="--card-color:${color};--mark-ink:${markInk??'#353024'};--title-size:${[...title].length>13?5.8:[...title].length>8?6.8:8}cqw" aria-label="${h(c.name)}">
+ return `<article class="card-face${main?' main-face':''}${compact?' compact':''}${c.text?.length>140?' long-copy':''}" style="--card-color:${color};--mark-ink:${markInk??'#353024'};--title-size:${main?7.2:[...title].length>13?5.8:[...title].length>8?6.8:8}cqw" aria-label="${h(c.name)}">
  ${ornament}<div class="card-heading"><small class="card-category">${category[0]}</small>
  ${main?`<div class="card-attribute">${icon(c.attribute)}<span>${h(c.attribute)}</span></div>`:''}
  <span class="card-cost" aria-label="通常時コスト ${main?c.stage:c.cost}">${main?c.stage:c.cost}</span>
- <strong class="card-title">${h(title)}</strong>${main?`<span class="card-species">${h(species)}</span>`:''}</div>
+ <strong class="card-title">${main?(MAIN_TITLE_LINES.get(title)??[title]).map(line=>`<span>${h(line)}</span>`).join(''):h(title)}</strong>${main?`<span class="card-species">${h(species)}</span>`:''}</div>
  <div class="card-art">${art}</div>
  ${main?`<div class="card-stats"><span>${icon('fist')}${compact?'':'<small>ちから</small>'}<b>${c.power}</b></span><span>${icon('brain')}${compact?'':'<small>ちえ</small>'}<b>${c.wisdom}</b></span></div>`:''}
  ${!compact?`<div class="card-copy"${detail&&['M-cat-07','M-antlion-06','M-antlion-07'].includes(id)?' style="font-size:2.9cqw"':''}>${ability?`<strong>${h(ability)}</strong>`:''}<p>${h(c.text)}</p></div>
- <small class="card-footer">${c.rare?'◆ RARE':'NAOTOCCHI'}</small>`:''}</article>`;
+ `:''}<small class="card-footer">NAOTOCCHI</small>${c.rare?`<span class="card-rarity" role="img" aria-label="${cardRarityLabel(c)}">◆</span>`:''}</article>`;
 }
 export function canInspectCard(v,viewer,c){if(v?.mode==='cpu'&&viewer===v.humanSeat&&!c.hidden)return true;return !v||v.phase!=='response'||Boolean(viewer===v.actor&&!c.hidden&&v.actions.some(a=>a.kind!=='pass'&&a.source===c.id));}
 export function inspectButton(c,cls='card-tap',v=null,viewer=null){const restricted=v?.phase==='response',allowed=canInspectCard(v,viewer,c),eligible=cardActions(v,viewer,c).length>0;return `<button type="button"${allowed?'':' disabled aria-disabled="true"'} class="${cls}${restricted?(eligible?' is-eligible':' response-unavailable'):''}" data-inspect="${h(c.id)}" aria-label="${h(c.hidden?'しかけたカード':c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`;}
@@ -152,7 +225,7 @@ function unavailableReason(v,viewer,c){
 }
 export function detailMarkup(c,{v=null,viewer=null,catalog=false,handPosition=null,readOnly=false}={}){
  const actions=cardActions(v,viewer,c),hidden=c.hidden,ability=c.source?.match(/「([^」]+)」/)?.[1],priority=v&&(v.choice||v.phase!=='normal');
- return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':readOnly?'カード閲覧':h(turnStatus(v))}</span><button type="button" class="dialog-close" data-close>盤面へ ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${cardMarkup(c,{detail:true})}</div></div><div class="detail-copy"><header class="detail-summary"><h2>${h(hidden?'しかけたカード':c.form??c.name)}</h2>${!hidden?`<p>${h(CATEGORIES[c.type]?.[0])}${c.type==='main'?' · '+h(c.name.replace(/[①-⑧]/g,''))+' · '+h(c.attribute):''}</p><p>${c.type==='main'?`ちから <b>${c.power}</b> · ちえ <b>${c.wisdom}</b> · `:''}通常時コスト <b>${c.type==='main'?c.stage:c.cost}</b></p>`:''}</header><section class="effect-scroll" tabindex="0" aria-label="能力全文">${hidden?'<p>相手の伏せ札は確認できません。</p>':`${ability?`<h3>${h(ability)}</h3>`:''}<p class="full-effect">${h(c.text)}</p>`}</section>${readOnly&&!hidden&&actions.length?`<button type="button" data-inspect="${h(c.id)}">このカードの操作を開く</button>`:''}${!catalog&&!readOnly&&!hidden?`<section class="detail-command"><h3>${v.choice?'必須選択：このカードを選ぶ':actions.length===1?'このカードでできる行動':'行動を選択'}</h3>${priority?`<p class="choice-guide">${v.effect?`${h(v.effect.name)}：`:''}${h(choiceGuide(v))}</p>`:''}<div class="detail-actions actions${actions.length===1?' single-action':''}">${actionMarkup(actions,{selected:c.id})}${!actions.length?`<p class="unavailable">${h(unavailableReason(v,viewer,c))}</p>`:''}</div>${priority?`<div class="detail-pass actions">${actionMarkup(v.actions.filter(a=>a.kind==='pass'))}</div>`:''}</section>`:''}</div></div>`;
+ return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':readOnly?'カード閲覧':h(turnStatus(v))}</span><button type="button" class="dialog-close" data-close>盤面へ ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${cardMarkup(c,{detail:true})}</div></div><div class="detail-copy"><header class="detail-summary"><h2>${h(hidden?'しかけたカード':c.form??c.name)}</h2>${!hidden?`<p>${h(CATEGORIES[c.type]?.[0])}${c.type==='main'?' · '+h(c.name.replace(/[①-⑧]/g,''))+' · '+h(c.attribute):''}</p><p>${c.type==='main'?`ちから <b>${c.power}</b> · ちえ <b>${c.wisdom}</b> · `:''}通常時コスト <b>${c.type==='main'?c.stage:c.cost}</b></p><p class="card-rarity-description">${cardRarityLabel(c)}</p>`:''}</header><section class="effect-scroll" tabindex="0" aria-label="能力全文">${hidden?'<p>相手の伏せ札は確認できません。</p>':`${ability?`<h3>${h(ability)}</h3>`:''}<p class="full-effect">${h(c.text)}</p>`}</section>${!hidden?`<button type="button" class="learning-related" data-related-rule="${relatedChapter(c)}">関連ルールを読む</button>`:''}${readOnly&&!hidden&&actions.length?`<button type="button" data-inspect="${h(c.id)}">このカードの操作を開く</button>`:''}${!catalog&&!readOnly&&!hidden?`<section class="detail-command"><h3>${v.choice?'必須選択：このカードを選ぶ':actions.length===1?'このカードでできる行動':'行動を選択'}</h3>${priority?`<p class="choice-guide">${v.effect?`${h(v.effect.name)}：`:''}${h(choiceGuide(v))}</p>`:''}<div class="detail-actions actions${actions.length===1?' single-action':''}">${actionMarkup(actions,{selected:c.id})}${!actions.length?`<p class="unavailable">${h(unavailableReason(v,viewer,c))}</p>`:''}</div>${priority?`<div class="detail-pass actions">${actionMarkup(v.actions.filter(a=>a.kind==='pass'))}</div>`:''}</section>`:''}</div></div>`;
 }
 // Derived solely from audience-filtered result rows.
 export function importantResult(g){

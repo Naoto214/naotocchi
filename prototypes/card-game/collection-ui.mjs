@@ -1,15 +1,16 @@
+import {relatedChapter} from './rulebook-content.mjs';
 import {CARDS,TYPE_NAMES} from './engine.mjs';
 import {collectionCards,collectionPage,CollectionPreferences,COLLECTION_KEY,EGG} from './collection.mjs';
-import {cardMarkup,eggCardMarkup,eggDetailMarkup,escapeHTML as h} from './ui-presentation.mjs';
+import {cardMarkup,cardRarityLabel,eggCardMarkup,eggDetailMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {fitMainCardCopy} from './ui-art-loading.mjs';
 
-export function mountCollection({decks,onOpen=()=>{},onClose=()=>{}}){
+export function mountCollection({decks,onRule=()=>{},onOpen=()=>{},onClose=()=>{}}){
  const $=id=>document.getElementById(id),dialog=document.createElement('dialog');
  dialog.id='collection-dialog';dialog.setAttribute('aria-label','カードコレクション');
  dialog.innerHTML=`<header class="collection-toolbar"><div><small>NAOTOCCHI</small><h2>カードコレクション</h2></div><button id="collection-close" type="button">戻る ×</button></header>
  <p id="collection-status" role="status" aria-live="polite"></p>
  <section id="collection-notice" hidden><p>カードコレクションには、なおとっち本編でまだ出会っていないキャラクターや出来事も登場します。</p><button id="collection-ack" type="button">確認してひらく</button></section>
- <div id="collection-shelf"><button id="collection-cover" type="button" aria-label="カードファイルを開く"><span class="binder-spine"></span><img src="ui-assets/card-back-approved.png" class="binder-cover-art" alt="正式カード裏面の植物紋章" draggable="false"><span class="binder-title"><strong>NAOTOCCHI</strong><span>CARD COLLECTION</span></span><span class="binder-caption">453 CARDS · 51 PAGES<br>タップしてひらく</span></button></div>
+ <div id="collection-shelf"><button id="collection-cover" type="button" aria-label="カードファイルを開く" aria-describedby="collection-cover-caption"><span class="binder-spine"></span><img src="ui-assets/card-back-approved.png" class="binder-cover-art" alt="正式カード裏面の植物紋章" draggable="false"><span class="binder-title"><strong>NAOTOCCHI</strong><span>CARD COLLECTION</span></span></button><span class="binder-caption" id="collection-cover-caption">453 CARDS · 51 PAGES<br>タップしてひらく</span></div>
  <section id="collection-book" hidden><div class="collection-book-tools"><button id="collection-to-cover" type="button">表紙へ</button><span id="collection-count"></span><button id="collection-favorites-only" type="button" aria-pressed="false">♡ お気に入り</button></div>
  <label class="collection-search">カード名・効果を検索<input id="collection-query" type="search" placeholder="カード名・効果・ID"></label>
  <details class="collection-filter-panel"><summary>分類・属性などで絞り込む</summary><div class="collection-filters">${[['type','分類'],['attribute','属性'],['species','メインの種族'],['stage','成長段階'],['rarity','レア区分']].map(([key,label])=>`<label>${label}<select id="collection-${key}"><option value="">すべて</option></select></label>`).join('')}</div></details>
@@ -18,7 +19,7 @@ export function mountCollection({decks,onOpen=()=>{},onClose=()=>{}}){
  <nav class="collection-pagination" aria-label="ページ移動"><button id="collection-prev" type="button">‹ 前へ</button><span id="collection-page" role="status" aria-live="polite"></span><button id="collection-next" type="button">次へ ›</button></nav><p class="collection-hint">左右にスワイプでページ移動 · カードをタップで詳細</p></section>
  <section id="collection-detail" hidden aria-label="カード詳細"><div class="collection-toolbar"><button id="collection-detail-close" type="button">‹ ファイルに戻る</button><span id="collection-detail-position"></span></div>
  <div class="collection-detail-layout"><div class="collection-detail-visual"><button id="collection-flip-card" type="button" aria-label="カードを裏返す"><span id="collection-flipper" data-side="front"><span class="collection-front"></span><span class="collection-back"><img src="ui-assets/card-back-approved.png" alt="正式カード裏面・青銀の植物紋章" draggable="false"></span></span></button><div class="collection-detail-nav"><button id="collection-card-prev" type="button" aria-label="前のカード">‹</button><button id="collection-flip" type="button">裏を見る</button><button id="collection-card-next" type="button" aria-label="次のカード">›</button></div></div>
- <div class="collection-detail-copy"><h2 id="collection-card-name"></h2><p id="collection-card-meta"></p><div id="collection-card-effect"></div><button id="collection-favorite" type="button" aria-pressed="false">♡ お気に入り</button><button id="collection-add" type="button">デッキに追加</button><div id="collection-deck-picker" hidden><label>追加先のマイデッキ<select id="collection-deck-target"></select></label><button id="collection-add-confirm" type="button">このデッキに1枚追加</button><button id="collection-picker-close" type="button">選択を閉じる</button></div><p id="collection-detail-status" role="status" aria-live="polite"></p></div></div></section>
+ <div class="collection-detail-copy"><h2 id="collection-card-name"></h2><p id="collection-card-meta"></p><div id="collection-card-effect"></div><button id="collection-rulebook" type="button">関連ルールを読む</button><button id="collection-favorite" type="button" aria-pressed="false">♡ お気に入り</button><button id="collection-add" type="button">デッキに追加</button><div id="collection-deck-picker" hidden><label>追加先のマイデッキ<select id="collection-deck-target"></select></label><button id="collection-add-confirm" type="button">このデッキに1枚追加</button><button id="collection-picker-close" type="button">選択を閉じる</button></div><p id="collection-detail-status" role="status" aria-live="polite"></p></div></div></section>
  <svg class="collection-filter-defs" width="0" height="0" aria-hidden="true"><filter id="collection-gold" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1.5 1 -1.5 0 -.12 1.5 1 -1.5 0 -.12 1.5 1 -1.5 0 -.12 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".035 .08 .68 .96"/><feFuncG type="table" tableValues=".12 .23 .55 .84"/><feFuncB type="table" tableValues=".095 .17 .28 .51"/></feComponentTransfer></filter></svg>`;
  document.body.append(dialog);
  let prefs,storageError='';
@@ -50,7 +51,7 @@ export function mountCollection({decks,onOpen=()=>{},onClose=()=>{}}){
   detailIndex=index;const c=detailList[index];$('collection-detail').hidden=false;$('collection-book').hidden=true;$('collection-shelf').hidden=true;
   $('collection-flipper').dataset.side='front';$('collection-flip').textContent='裏を見る';$('collection-flip-card').setAttribute('aria-label','カードを裏返す');
   $('collection-flipper').querySelector('.collection-front').innerHTML=c.viewOnly?eggCardMarkup({detail:true}):cardMarkup(c,{detail:true});
-  $('collection-card-name').textContent=c.name;$('collection-card-meta').textContent=[c.viewOnly?'特別カード・閲覧専用':TYPE_NAMES[c.type],c.attribute,c.stage?`成長段階 ${c.stage}`:'',c.viewOnly?'':`時コスト ${c.cost}`,c.type==='main'?`ちから ${c.power} · ちえ ${c.wisdom}`:'',c.viewOnly?'':c.rare?'レア':'通常'].filter(Boolean).join(' · ');
+  $('collection-card-name').textContent=c.name;$('collection-card-meta').textContent=[c.viewOnly?'特別カード・閲覧専用':TYPE_NAMES[c.type],c.attribute,c.stage?`成長段階 ${c.stage}`:'',c.viewOnly?'':`時コスト ${c.cost}`,c.type==='main'?`ちから ${c.power} · ちえ ${c.wisdom}`:'',c.viewOnly?'':cardRarityLabel(c)].filter(Boolean).join(' · ');
   if(c.viewOnly){const tmp=document.createElement('div');tmp.innerHTML=eggDetailMarkup();$('collection-card-effect').replaceChildren(tmp.querySelector('.effect-scroll'));}else $('collection-card-effect').textContent=c.text;
   $('collection-add').disabled=!!c.viewOnly;$('collection-add').textContent=c.viewOnly?'たまごはデッキに追加できません':'デッキに追加';favoriteButton($('collection-favorite'),c.id);
   $('collection-card-prev').disabled=index===0;$('collection-card-next').disabled=index===detailList.length-1;$('collection-detail-position').textContent=`${index+1} / ${detailList.length}`;
@@ -82,5 +83,6 @@ export function mountCollection({decks,onOpen=()=>{},onClose=()=>{}}){
  swipes($('collection-grid'),movePage);swipes($('collection-flip-card'),moveCard);
  dialog.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName))return;if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const delta=e.key==='ArrowLeft'?-1:1;if(detailIndex>=0)moveCard(delta);else if(opened)movePage(delta);}});
  window.addEventListener('storage',e=>{if(e.key!==COLLECTION_KEY)return;try{prefs=new CollectionPreferences(localStorage);if(dialog.open&&opened)renderPage();if(detailIndex>=0)favoriteButton($('collection-favorite'),detailList[detailIndex].id);}catch(err){announce(err.message);}});
- return {open};
+ $('collection-rulebook').onclick=e=>onRule(relatedChapter(detailList[detailIndex]),e.currentTarget);
+ return {open,close};
 }
