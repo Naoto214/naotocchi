@@ -36,9 +36,10 @@ for(let lesson=0;lesson<9;lesson++){
  let safety=0;
  while(!$('tutorial-finish') && safety++<70){
   const go=document.querySelector('[data-learn-continue]');if(go){go.click();continue;}
+  if(document.querySelector('.learn-cpu-status')){await new Promise(r=>setTimeout(r,850));continue;}
   const target=document.querySelector('.learn-next-card[data-learn-card]');if(target){target.click();assert.equal($('learning-card-dialog').open,true);click('learning-card-confirm');continue;}
-  const action=document.querySelector('[data-learn-action]');if(action){action.click();continue;}
-  const read=document.querySelector('[data-learn-read]');assert.ok(read,'step is actionable');read.click();
+  const action=document.querySelector('#tutorial-match [data-learn-command]');if(action){action.click();continue;}
+  assert.fail('step must expose a legal operation or CPU transition');
  }
  assert.ok(safety<70);assert.ok($('tutorial-finish'));
  click('tutorial-lessons');

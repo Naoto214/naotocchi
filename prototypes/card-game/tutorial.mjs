@@ -1,5 +1,6 @@
 // Practice-only fixed positions. All transitions use the unchanged canonical engine.
 // Never pass these fixtures to match save/restore: progress stores lesson coordinates only.
+import {HotseatSession} from './ui-session.mjs';
 import {CARDS,DEFAULT_DECK,createGame,legalActions,act,actor,view,validate,validateDeck} from './engine.mjs';
 export const LEARNING_KEY='naotocchi-learning-v1';
 const required=['M-turtle-01','M-turtle-03','M-starfish-01','M-cat-03','M-beetle-07','C-box','C-cat_friend','C-shiba','P-cliff_goat','W-forest','I-c_coin2','I-bowtie','G-curling-ice','G-area-claim','E-first-date'];
@@ -42,16 +43,16 @@ const item=(title,copy,match=null,extra={})=>({title,copy,match,...extra});
 function chainFixture(){
  const s=fixed({turn:'B',round:5,handA:['G-area-claim'],handB:['I-c_coin2']});
  put(s,'A','C-box','companions');put(s,'A','C-cat_friend','companions');put(s,'A','C-shiba','companions');put(s,'A','P-cliff_goat','partner');put(s,'A','W-forest','world');put(s,'A','I-bowtie','prepared',s.players.A.board.main);
- // B has already activated its public card and passed; A may respond now.
- return command(command(s,a=>a.source&&s.cards[a.source].cardId==='I-c_coin2'&&a.kind==='play'),a=>a.kind==='pass');
+ return s;
 }
 export const LESSONS=[
- {title:'ゲームの目的',chapter:2,setup:()=>fixed({round:1,mainA:null,mainB:null}),steps:[
-  item('そだちを育てよう','そだちは20から始まります。相手のHPを削るゲームではありません。盤面の「そだち20」を確認しましょう。'),
-  item('10ラウンドで人生をつくる','先攻A→後攻Bで1ラウンド。R10の最後にそだちを比べます。R1〜R9は、100到達後に始まる最初の相手ターン終了まで100を維持すれば早期勝利です。')],outcome:'100は即勝利ではなく、維持する時間が必要です。'},
+ {title:'ゲームの目的',chapter:2,setup:()=>fixed({round:1,handB:['C-box']}),steps:[
+  item('そだち20から、10ラウンド','そだちを育てるゲームです。まず「ターン終了」を押し、あなた→CPUの順で進む様子を見ましょう。R10の最後に高い方が勝ちます。',matches('pass'),{settle:true}),
+  item('CPUがなかまを出します','CPUは時0で「ただのはこ」を配置します。上の相手フィールドを見てください。',matches('place',{card:'C-box',slot:'companions'}),{cpu:true,settle:true}),
+  item('CPUもターン終了','CPUのターンが終わるとR2です。1ラウンドは、あなたとCPUの1ターンずつです。',matches('pass'),{cpu:true,settle:true})],outcome:'R2へ進みました。そだち20から開始し、R10終了時に比較。R1〜R9では100到達後に始まる最初の相手ターン終了まで100を維持すると早期勝利です。'},
  {title:'盤面とたまご',chapter:5,setup:()=>createGame(214,{A:PRACTICE_DECK,B:PRACTICE_DECK}),steps:[
   item('手札から1枚、山札の下へ','実際のR1開始局面です。通常ドローと、たまごの追加ドローが済みました。光る手札をタップし、内容を確認して返しましょう。',a=>a.kind==='choose',{settle:true}),
-  item('盤面を見てみよう','上段の中央がメイン枠です。今はたまご。手札は自分だけ、捨て札は公開、山札の順序は非公開です。カードや枠をタップして確かめられます。')],outcome:'返却は非公開で山札の一番下へ。シャッフルしません。'},
+  item('たまごのままターン終了','手札・山札・捨て札は通常対戦と同じ場所です。「ターン終了」でCPUに渡しましょう。',matches('pass'),{settle:true})],outcome:'返却は非公開で山札の一番下へ。シャッフルしません。'},
  {title:'たんじょう',chapter:6,setup:()=>fixed({round:1,mainA:null,mainB:null,handA:['M-turtle-01']}),steps:[
   item('かめ①を選ぼう','光る手札のかめ①をタップ。通常時コストは1です。確認してたんじょうすると、メイン枠のたまごに完全に重なります。',matches('place',{variant:'birth',card:'M-turtle-01'}),{settle:true})],outcome:'時1を払い、かめ①がたんじょう。①以外へ直接たんじょうすることもできます。'},
  {title:'ときおくり・へんしん',chapter:7,setup:()=>fixed({handA:['M-turtle-03','M-starfish-01']}),steps:[
@@ -72,25 +73,52 @@ export const LESSONS=[
   item('ちからで比べる','両者にメインがいます。自分のちからが高い固定局面です。時0でちょうせんを宣言し、応答後の比較とそだち+5を確認しましょう。',matches('challenge',{parameter:'power'}),{settle:true}),
   item('ちえでも挑める','別の固定局面です。今度はちえで挑みましょう。同じ能力同士を比べます。勝者+5、敗者の基本ペナルティはありません。',matches('challenge',{parameter:'wisdom'}),{setup:()=>fixed({mainA:'M-cat-03',mainB:'M-turtle-01'}),settle:true})],outcome:'自分ターン1回。たまごは挑戦できず、挑まれません。比較前に参加メインが離れたら途中終了です。'},
  {title:'応答・チェーン',chapter:13,setup:chainFixture,steps:[
-  item('相手ターンに、じんとりで応答','Bがラッキーコインを発動し、Bは追加発動せずパス済みです。自分の場には7枚ある固定局面。時3を使い、じんとりを重ねましょう。',matches('play',{card:'G-area-claim'})),
-  item('自分は追加しない','発動したAに最初の追加発動の機会があります。「応答しない」でBへ渡しましょう。ターン終了ではありません。',matches('pass')),
-  item('相手もパス → 逆順解決','Bも応答しない固定の進行を確認します。双方連続パスで、後に積んだじんとり→先のラッキーコインの順に解決します。',matches('pass')),
-  item('結果と履歴を確認','じんとりでAのそだち+10。その後にBのラッキーコインが解決しました。解決中には新しく割り込めません。通常任意の誘発やしかけた札は、条件と機会に従います。')],outcome:'双方パスで最後の発動から解決。「応答しない」と「ターン終了」は別の操作です。'},
- {title:'ターン終了・勝利',chapter:14,setup:()=>fixed({round:9,turn:'B'}),steps:[
-  item('R9の後攻ターンを終える','Bの通常行動です。終了を申し出て、相手も発動しない場合の終了処理とR10への進行を確認しましょう。',matches('pass'),{settle:true}),
-  item('最後のターンの固定局面','R10後攻、Aのそだち25・Bは20の固定局面です。終了を申し出て、すべての終了処理後の最終比較を確認しましょう。',matches('pass'),{setup:()=>fixed({round:10,turn:'B',growthA:25,growthB:20}),settle:true})],outcome:'R10の最終比較でAが勝利。同値なら結婚状態に関係なく引き分けです。'}
+  item('CPUがラッキーコインを発動','CPUの時が1減り、カードが発動領域へ移ります。まだ効果は解決していません。',matches('play',{card:'I-c_coin2'}),{cpu:true}),
+  item('CPUは追加発動せずパス','最初に発動したCPUから、次にあなたへ応答の機会が移ります。',matches('pass'),{cpu:true}),
+  item('じんとりで応答する','光る手札の「じんとり」を選び、時3で応答しましょう。自分の場が7枚ある局面です。',matches('play',{card:'G-area-claim'})),
+  item('追加せず「応答しない」','発動したあなたに、追加発動の機会があります。「応答しない」でCPUへ渡します。ターン終了にはなりません。',matches('pass')),
+  item('CPUもパス → 逆順に解決','双方が続けてパスしたので、後に積んだじんとり→先のラッキーコインの順に解決します。',matches('pass'),{cpu:true,settle:true})],outcome:'あなたのじんとり→CPUのラッキーコインの順に解決。そだち+10を確認しましょう。「応答しない」はターン終了とは別です。'},
+ {title:'ターン終了・勝利',chapter:14,setup:()=>fixed({round:9,turn:'A'}),steps:[
+  item('R9：自分のターンを終える','「ターン終了」を押しましょう。相手の応答と終了処理の後、CPUのターンです。',matches('pass'),{settle:true}),
+  item('CPUが終了してR10へ','CPUも終了します。両者のターンが終わると次のラウンドです。',matches('pass'),{cpu:true,settle:true}),
+  item('R10：最後の自分ターン','そだち25対20の終盤局面へ切り替えました。あなたの最後のターンを終了してください。',matches('pass'),{setup:()=>fixed({round:10,turn:'A',growthA:25,growthB:20}),settle:true}),
+  item('CPUの最後のターン・最終比較','CPUが最後のターンを終了します。終了処理をすべて終えてから、そだちを比較します。',matches('pass'),{cpu:true,settle:true})],outcome:'R10の最終比較であなたが勝利。同じそだちなら引き分けです。CPU初級でも同じ盤面と操作で遊べます。'}
+
 ];
 export class TutorialSession{
- constructor(lesson=0,step=0){this.lesson=Number.isInteger(lesson)&&LESSONS[lesson]?lesson:0;this.step=0;this.state=LESSONS[this.lesson].setup();this.done=false;this.epoch=0;this.enter();const target=Math.min(Math.max(Number.isInteger(step)?step:0,0),this.definition.steps.length);for(let i=0;i<target;i++){const a=this.expectedAction;if(a)this.perform(a.id,this.state.revision,this.epoch);else this.next();}}
+ constructor(lesson=0,step=0){
+  this.lesson=Number.isInteger(lesson)&&LESSONS[lesson]?lesson:0;this.step=0;this.state=LESSONS[this.lesson].setup();this.done=false;this.epoch=0;this.enter();
+  const target=Math.min(Math.max(Number.isInteger(step)?step:0,0),this.definition.steps.length);
+  for(let i=0;i<target;i++){const a=this.expectedAction;if(this.isCpu)this.advanceCpu(this.state.revision,this.epoch);else if(a)this.perform(a.id,this.state.revision,this.epoch);else this.next();}
+ }
  get definition(){return LESSONS[this.lesson];}
  get current(){return this.definition.steps[this.step]??null;}
  get outcome(){return this.definition.outcome;}
- get expectedAction(){if(!this.current?.match)return null;const a=legalActions(this.state).find(a=>this.current.match(a,this.state));if(!a)throw Error('練習の指定操作が合法手にありません：'+this.current.title);return a;}
- get projection(){return view(this.state,'A');}
+ get isCpu(){return Boolean(this.current?.cpu);}
+ get expectedAction(){
+  if(!this.current?.match)return null;
+  const a=legalActions(this.state).find(a=>this.current.match(a,this.state));
+  if(!a)throw Error('練習の指定操作が合法手にありません：'+this.current.title);
+  if(actor(this.state)!==(this.isCpu?'B':'A'))throw Error('練習の操作担当が一致しません：'+this.current.title);
+  return a;
+ }
+ get projection(){
+  const screen=new HotseatSession();screen.start(this.state);screen.viewer='A';
+  const v=screen.projection,legal=legalActions(this.state);
+  return {...v,actions:v.actions.map((a,i)=>({...a,id:legal[i].id})),mode:'cpu',humanSeat:'A',cpuSeat:'B',cpuThinking:this.isCpu,autoEnabled:true};
+ }
  enter(){if(this.current?.setup)this.state=this.current.setup();validate(this.state);this.epoch++;}
- perform(id,revision,epoch){if(revision!==this.state.revision||epoch!==this.epoch)return false;const a=this.expectedAction;if(!a||id!==a.id)return false;this.state=act(this.state,actor(this.state),revision,id);if(this.current.settle)this.state=settle(this.state);this.lastResult=view(this.state,'A');this.step++;this.done=this.step>=this.definition.steps.length;this.enter();return true;}
- // Read-only orientation pages advance without issuing an engine command.
- next(){if(this.done)return false;if(this.current?.match)return false;this.step++;this.done=this.step>=this.definition.steps.length;this.enter();return true;}
+ perform(id,revision,epoch){if(this.isCpu)return false;return this.commit(id,revision,epoch);}
+ advanceCpu(revision,epoch){if(!this.isCpu||revision!==this.state.revision||epoch!==this.epoch)return false;return this.commit(this.expectedAction.id,revision,epoch);}
+ commit(id,revision,epoch){
+  if(revision!==this.state.revision||epoch!==this.epoch)return false;
+  const a=this.expectedAction;if(!a||id!==a.id)return false;
+  this.lastAction={label:a.label,actor:actor(this.state)};
+  this.state=act(this.state,actor(this.state),revision,id);
+  if(this.current.settle)this.state=settle(this.state);
+  this.lastResult=this.projection;this.step++;this.done=this.step>=this.definition.steps.length;this.enter();return true;
+ }
+ next(){if(this.done||this.current?.match)return false;this.step++;this.done=this.step>=this.definition.steps.length;this.enter();return true;}
  prepareStep(){this.enter();}
 }
 export class LearningProgress{

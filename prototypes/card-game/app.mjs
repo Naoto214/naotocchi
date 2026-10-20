@@ -157,10 +157,12 @@ $('collection-open').onclick=e=>collection.open(e.currentTarget);
 $('deck-collection-open').onclick=e=>collection.open(e.currentTarget,true);
 $('menu-collection-open').onclick=e=>collection.open(e.currentTarget);
 function renderDeck(){myDecks.refresh();}
-$('coverage').textContent=`全${Object.keys(CARDS).length}種類を収録・実行対応${Object.keys(CARDS).filter(supported).length}種類。`;
+$('coverage').textContent=`全${Object.keys(CARDS).length+1}種類のカードをコレクションで見られます。`;
 
-function modeGuide(){const solo=$('match-mode').value==='cpu';document.querySelectorAll('[data-cpu-setting]').forEach(n=>n.hidden=!solo);$('mode-guide').textContent=solo?`自分が${$('human-seat').value}、CPUが${$('human-seat').value==='A'?'B':'A'}を担当します。下のA・Bで自分とCPUのデッキを選べます。`:'交代時は手札を隠して端末を渡してください。従来の2人対戦セーブはこちらから復帰できます。';}
+function modeGuide(){const solo=$('match-mode').value==='cpu';document.querySelectorAll('[data-cpu-setting]').forEach(n=>n.hidden=!solo);$('solo-open').setAttribute('aria-pressed',String(solo));$('hotseat-open').setAttribute('aria-pressed',String(!solo));$('mode-guide').textContent=solo?`あなたは${$('human-seat').value}、CPUは${$('human-seat').value==='A'?'B':'A'}です。それぞれのデッキを選んで始めましょう。`:'同じ端末を交代で使います。手札を隠してから相手に渡しましょう。';}
 $('match-mode').onchange=modeGuide;$('human-seat').onchange=modeGuide;modeGuide();
+for(const [id,mode] of [['solo-open','cpu'],['hotseat-open','hotseat']])$(id).onclick=()=>{$('match-mode').value=mode;modeGuide();$('match-setup').scrollIntoView?.({block:'start'});$('new').focus({preventScroll:true});};
+$('my-decks-open').onclick=()=>{const editor=$('deck-editor');editor.open=true;renderDeck();editor.scrollIntoView?.({block:'start'});editor.querySelector('summary').focus({preventScroll:true});};
 
 const learning=mountLearning({onOpen:()=>{cpu.cancel();input.invalidate();},onClose:()=>{input.stamp();cpu.schedule();},onCollection:origin=>collection.open(origin),onCpu:()=>{
  cpu.cancel();hide();collection.close();closeDialogs({focus:false});feedback.reset();session.clear();$('game').replaceChildren();$('game').hidden=true;$('curtain').hidden=true;$('welcome').hidden=false;$('export').hidden=true;document.body.classList.remove('playing');$('match-mode').value='cpu';$('cpu-level').value='beginner';$('human-seat').value='A';modeGuide();renderDeck();message('CPU初級の対戦準備です。保存済み対戦は保持しています。「新しい対戦を開始」で始められます。');$('new').focus();

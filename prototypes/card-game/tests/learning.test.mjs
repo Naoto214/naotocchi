@@ -14,12 +14,12 @@ test('all nine lessons execute canonical legal commands and validate every check
  assert.ok(tutorial,'tutorial missing');assert.equal(tutorial.LESSONS.length,9);
  for(let i=0;i<9;i++){
   const t=new tutorial.TutorialSession(i);let count=0;
-  while(!t.done&&count++<35){validate(t.state);assert.equal(t.projection.players.B.hand,undefined,'opponent hand stays private');const before=JSON.stringify(t.state);const a=t.expectedAction;if(a){assert.ok(legalActions(t.state).some(x=>x.id===a.id));assert.equal(t.perform('forged',t.state.revision,t.epoch),false);assert.equal(JSON.stringify(t.state),before);const rev=t.state.revision,epoch=t.epoch;assert.equal(t.perform(a.id,rev,epoch),true);assert.equal(t.perform(a.id,rev,epoch),false,'stale click rejected');}else t.next();}
+  while(!t.done&&count++<35){validate(t.state);assert.equal(t.projection.players.B.hand,undefined,'opponent hand stays private');const before=JSON.stringify(t.state);const a=t.expectedAction;if(a){assert.ok(legalActions(t.state).some(x=>x.id===a.id));assert.equal(t.perform('forged',t.state.revision,t.epoch),false);assert.equal(JSON.stringify(t.state),before);const rev=t.state.revision,epoch=t.epoch;assert.equal(t.isCpu?t.advanceCpu(rev,epoch):t.perform(a.id,rev,epoch),true);assert.equal(t.perform(a.id,rev,epoch),false,'stale click rejected');}else t.next();}
   assert.ok(t.done,'lesson '+i+' finishes');validate(t.state);assert.ok(count<35);assert.ok(t.outcome);
  }
 });
 test('fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain',()=>{
- assert.ok(tutorial);const run=i=>{const t=new tutorial.TutorialSession(i);while(!t.done){const a=t.expectedAction;if(a)t.perform(a.id,t.state.revision,t.epoch);else t.next();}return t;};
+ assert.ok(tutorial);const run=i=>{const t=new tutorial.TutorialSession(i);while(!t.done){const a=t.expectedAction;if(t.isCpu)t.advanceCpu(t.state.revision,t.epoch);else if(a)t.perform(a.id,t.state.revision,t.epoch);else t.next();}return t;};
  const birth=run(2);assert.equal(birth.state.players.A.time,0);assert.ok(birth.state.players.A.board.main);
  const change=run(3);assert.equal(change.state.cards[change.state.players.A.board.main].cardId,'M-starfish-01');assert.equal(change.state.players.A.time,2);
  const prep=run(5);assert.equal(prep.state.players.A.board.prepared.length,2);
