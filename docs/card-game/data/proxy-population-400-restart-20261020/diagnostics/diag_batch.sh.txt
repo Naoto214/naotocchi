@@ -1,0 +1,4 @@
+#!/bin/bash
+# diagnostic-only: run match ids from stdin, 4 at a time, outputs in scratch
+cd /tmp
+xargs -P 4 -I{} sh -c '[ -e $SCRATCH/diag/{}/summary.json ] && exit 0; rm -rf $SCRATCH/diag/{}; $SCRATCH/py/inst/python/bin/python3.12 -I -B $SCRATCH/diag_run.py $SCRATCH/frozen $SCRATCH/diag-manifest.json {} $SCRATCH/diag/{} 512 >> $SCRATCH/diag-batch.log 2>&1'

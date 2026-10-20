@@ -1,0 +1,2263 @@
+{
+ "schema": "fixed400_diagnostic_census.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "outcomes_aggregated": false,
+ "source_commit": "aee9186dfd871d501c283655da6dad10d54934a7",
+ "docs_card_game_tree": "aa179ab36ef3e527ea60c1c76207537dcced9195",
+ "counts": {
+  "completed": 8,
+  "boundary_stop": 13,
+  "exception": 1,
+  "not_run": 378
+ },
+ "first_non_completed_in_schedule": {
+  "schedule_index": 3,
+  "match_id": "group-002-B-first"
+ },
+ "note": "Supervisor stops at its first non-completed row; win/loss and growth are intentionally not tabulated here.",
+ "rows": [
+  {
+   "schedule_index": 1,
+   "match_id": "group-001-A-first",
+   "diagnostic_status": "completed",
+   "steps": 241,
+   "events": 307,
+   "record_sha256": "9eee19c76313a1b9b3b2190f9357b86719abdd0cb1ec6291cb31ee40e6882313",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 384.5,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 2,
+   "match_id": "group-001-B-first",
+   "diagnostic_status": "completed",
+   "steps": 191,
+   "events": 250,
+   "record_sha256": "3f30a09433ef9b610e0aab90536a84f10152091fa63a5565a2e2921e8234d4a8",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 255.0,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 3,
+   "match_id": "group-002-B-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 182,
+   "events": 230,
+   "record_sha256": "7a1aff51a06efd3e5a99ff111afd5139aabe3308cd02a480c788e39422ced617",
+   "stop_phase": "turn_end_response",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 472.5,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 4,
+   "match_id": "group-002-A-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 112,
+   "events": 141,
+   "record_sha256": "06f3d9a8d85cd43d943d0e772917347123fbe17bc377481b4ed81d00ec19dccf",
+   "stop_phase": "post_placement_response",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 201.2,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 5,
+   "match_id": "group-003-A-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 105,
+   "events": 138,
+   "record_sha256": "18abfd7c8415c6938e03a7b2601b9c19faefe01e3e04719866bc2e8e23ecb35f",
+   "stop_phase": "response_window",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 181.9,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 6,
+   "match_id": "group-003-B-first",
+   "diagnostic_status": "completed",
+   "steps": 186,
+   "events": 247,
+   "record_sha256": "c1938992ad825a6d9b765f4a213c902fd711fb2de0d102bbccf01ccd7a2757c3",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 534.8,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 7,
+   "match_id": "group-004-B-first",
+   "diagnostic_status": "completed",
+   "steps": 237,
+   "events": 305,
+   "record_sha256": "8469c3f0b2ace73bbdafbd31db425e183922bb3cf44a2f9e2ffa84eb525e9471",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 876.8,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 8,
+   "match_id": "group-004-A-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 177,
+   "events": 224,
+   "record_sha256": "a819b07117d6b47bd3010a72e605ce620cc67ce68f911f5d0e8cef2209f91710",
+   "stop_phase": "response_window",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "resolution choice obligation unproved: ['batch capability unproved: I-bowtie']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 553.5,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 9,
+   "match_id": "group-005-A-first",
+   "diagnostic_status": "exception",
+   "steps": null,
+   "events": null,
+   "record_sha256": null,
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": "ValueError",
+   "error": "ordinary processing before pending source obligation",
+   "elapsed_seconds": 282.3,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 10,
+   "match_id": "group-005-B-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 139,
+   "events": 177,
+   "record_sha256": "96a083650f25ba75ab5e5ebd4c4af0f0ebfc6ce70b16fb90717d69ab635315e2",
+   "stop_phase": "post_placement_response",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 283.7,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 11,
+   "match_id": "group-006-B-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 118,
+   "events": 156,
+   "record_sha256": "2ce60b657671cffc3cb3cd4e3ec0b259e5796f6c9f92e56132001bc23d02bf9a",
+   "stop_phase": "response_window",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "automatic output binding differs: ['native final hash differs']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 182.4,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 12,
+   "match_id": "group-006-A-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 205,
+   "events": 272,
+   "record_sha256": "625e650d67a91ad5273067c4a51803353947cf60fed5d0321326c45650572d59",
+   "stop_phase": "post_placement_response",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 493.9,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 13,
+   "match_id": "group-007-A-first",
+   "diagnostic_status": "completed",
+   "steps": 225,
+   "events": 295,
+   "record_sha256": "4d8f1e5162bfd61afbaf77cf8cf2145981d78fe8997405cfc5ac9b2be20c78c6",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 444.4,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 14,
+   "match_id": "group-007-B-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 184,
+   "events": 238,
+   "record_sha256": "203e9b1ff7d779c1808307311e79d85d7eea43e8b69ff563f5d3097d38501feb",
+   "stop_phase": "turn_end",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 343.4,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 15,
+   "match_id": "group-008-B-first",
+   "diagnostic_status": "completed",
+   "steps": 251,
+   "events": 326,
+   "record_sha256": "2e86006988cf3edbd7e04aa6fbec0e884cf6be88aabd30c8e958c92a33d90fe3",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 597.6,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 16,
+   "match_id": "group-008-A-first",
+   "diagnostic_status": "completed",
+   "steps": 206,
+   "events": 270,
+   "record_sha256": "3956c97006e4462082259b43cfbb2d91117380a1b56ddbeb2227b3e7f625694a",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 441.5,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 17,
+   "match_id": "group-009-A-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 91,
+   "events": 115,
+   "record_sha256": "0175fb71d0c6d41f52a926a46389be062ef5a329aa6ae3acb98e079fc8bb800a",
+   "stop_phase": "turn_end",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 129.1,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 18,
+   "match_id": "group-009-B-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 122,
+   "events": 152,
+   "record_sha256": "f2e7a63df1fa66304db087bb60e9946043215006dbb2de4c1fc8d2d24ac9662a",
+   "stop_phase": "turn_end",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 160.8,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 19,
+   "match_id": "group-010-B-first",
+   "diagnostic_status": "completed",
+   "steps": 202,
+   "events": 259,
+   "record_sha256": "895cc6e1d9488ce9dd5a4a93fd656aa8e79b2e8aed0ae5316216b76811632a7d",
+   "stop_phase": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 412.6,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 20,
+   "match_id": "group-010-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 21,
+   "match_id": "group-011-A-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 169,
+   "events": 225,
+   "record_sha256": "a9e20914162d352688954a71ba387233442a7e2298234d7351c4df8d76f74aff",
+   "stop_phase": "turn_end",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 300.9,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 22,
+   "match_id": "group-011-B-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 152,
+   "events": 200,
+   "record_sha256": "25930637b36dd0947f474502f755257e2ad79228a96b445329805e8a80438ae5",
+   "stop_phase": "turn_end",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 229.3,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 23,
+   "match_id": "group-012-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 24,
+   "match_id": "group-012-A-first",
+   "diagnostic_status": "boundary_stop",
+   "steps": 98,
+   "events": 129,
+   "record_sha256": "ae27c998740fc52832a7666085966a485ecad6723ca89690a2ecddfdc9702e9e",
+   "stop_phase": "response_window",
+   "stop_code": "unsupported_contract_boundary",
+   "stop_detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+   "error_type": null,
+   "error": null,
+   "elapsed_seconds": 125.1,
+   "bundle_canonical_sha256": "97b4f34eb9a5d5480d480140e2c303d3200522c48895702d4add117a0c732dff",
+   "tools_fingerprint_unchanged": true
+  },
+  {
+   "schedule_index": 25,
+   "match_id": "group-013-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 26,
+   "match_id": "group-013-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 27,
+   "match_id": "group-014-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 28,
+   "match_id": "group-014-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 29,
+   "match_id": "group-015-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 30,
+   "match_id": "group-015-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 31,
+   "match_id": "group-016-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 32,
+   "match_id": "group-016-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 33,
+   "match_id": "group-017-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 34,
+   "match_id": "group-017-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 35,
+   "match_id": "group-018-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 36,
+   "match_id": "group-018-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 37,
+   "match_id": "group-019-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 38,
+   "match_id": "group-019-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 39,
+   "match_id": "group-020-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 40,
+   "match_id": "group-020-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 41,
+   "match_id": "group-021-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 42,
+   "match_id": "group-021-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 43,
+   "match_id": "group-022-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 44,
+   "match_id": "group-022-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 45,
+   "match_id": "group-023-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 46,
+   "match_id": "group-023-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 47,
+   "match_id": "group-024-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 48,
+   "match_id": "group-024-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 49,
+   "match_id": "group-025-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 50,
+   "match_id": "group-025-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 51,
+   "match_id": "group-026-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 52,
+   "match_id": "group-026-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 53,
+   "match_id": "group-027-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 54,
+   "match_id": "group-027-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 55,
+   "match_id": "group-028-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 56,
+   "match_id": "group-028-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 57,
+   "match_id": "group-029-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 58,
+   "match_id": "group-029-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 59,
+   "match_id": "group-030-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 60,
+   "match_id": "group-030-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 61,
+   "match_id": "group-031-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 62,
+   "match_id": "group-031-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 63,
+   "match_id": "group-032-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 64,
+   "match_id": "group-032-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 65,
+   "match_id": "group-033-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 66,
+   "match_id": "group-033-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 67,
+   "match_id": "group-034-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 68,
+   "match_id": "group-034-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 69,
+   "match_id": "group-035-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 70,
+   "match_id": "group-035-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 71,
+   "match_id": "group-036-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 72,
+   "match_id": "group-036-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 73,
+   "match_id": "group-037-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 74,
+   "match_id": "group-037-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 75,
+   "match_id": "group-038-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 76,
+   "match_id": "group-038-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 77,
+   "match_id": "group-039-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 78,
+   "match_id": "group-039-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 79,
+   "match_id": "group-040-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 80,
+   "match_id": "group-040-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 81,
+   "match_id": "group-041-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 82,
+   "match_id": "group-041-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 83,
+   "match_id": "group-042-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 84,
+   "match_id": "group-042-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 85,
+   "match_id": "group-043-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 86,
+   "match_id": "group-043-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 87,
+   "match_id": "group-044-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 88,
+   "match_id": "group-044-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 89,
+   "match_id": "group-045-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 90,
+   "match_id": "group-045-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 91,
+   "match_id": "group-046-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 92,
+   "match_id": "group-046-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 93,
+   "match_id": "group-047-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 94,
+   "match_id": "group-047-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 95,
+   "match_id": "group-048-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 96,
+   "match_id": "group-048-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 97,
+   "match_id": "group-049-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 98,
+   "match_id": "group-049-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 99,
+   "match_id": "group-050-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 100,
+   "match_id": "group-050-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 101,
+   "match_id": "group-051-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 102,
+   "match_id": "group-051-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 103,
+   "match_id": "group-052-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 104,
+   "match_id": "group-052-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 105,
+   "match_id": "group-053-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 106,
+   "match_id": "group-053-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 107,
+   "match_id": "group-054-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 108,
+   "match_id": "group-054-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 109,
+   "match_id": "group-055-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 110,
+   "match_id": "group-055-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 111,
+   "match_id": "group-056-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 112,
+   "match_id": "group-056-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 113,
+   "match_id": "group-057-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 114,
+   "match_id": "group-057-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 115,
+   "match_id": "group-058-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 116,
+   "match_id": "group-058-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 117,
+   "match_id": "group-059-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 118,
+   "match_id": "group-059-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 119,
+   "match_id": "group-060-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 120,
+   "match_id": "group-060-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 121,
+   "match_id": "group-061-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 122,
+   "match_id": "group-061-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 123,
+   "match_id": "group-062-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 124,
+   "match_id": "group-062-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 125,
+   "match_id": "group-063-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 126,
+   "match_id": "group-063-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 127,
+   "match_id": "group-064-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 128,
+   "match_id": "group-064-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 129,
+   "match_id": "group-065-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 130,
+   "match_id": "group-065-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 131,
+   "match_id": "group-066-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 132,
+   "match_id": "group-066-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 133,
+   "match_id": "group-067-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 134,
+   "match_id": "group-067-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 135,
+   "match_id": "group-068-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 136,
+   "match_id": "group-068-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 137,
+   "match_id": "group-069-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 138,
+   "match_id": "group-069-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 139,
+   "match_id": "group-070-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 140,
+   "match_id": "group-070-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 141,
+   "match_id": "group-071-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 142,
+   "match_id": "group-071-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 143,
+   "match_id": "group-072-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 144,
+   "match_id": "group-072-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 145,
+   "match_id": "group-073-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 146,
+   "match_id": "group-073-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 147,
+   "match_id": "group-074-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 148,
+   "match_id": "group-074-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 149,
+   "match_id": "group-075-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 150,
+   "match_id": "group-075-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 151,
+   "match_id": "group-076-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 152,
+   "match_id": "group-076-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 153,
+   "match_id": "group-077-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 154,
+   "match_id": "group-077-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 155,
+   "match_id": "group-078-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 156,
+   "match_id": "group-078-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 157,
+   "match_id": "group-079-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 158,
+   "match_id": "group-079-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 159,
+   "match_id": "group-080-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 160,
+   "match_id": "group-080-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 161,
+   "match_id": "group-081-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 162,
+   "match_id": "group-081-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 163,
+   "match_id": "group-082-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 164,
+   "match_id": "group-082-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 165,
+   "match_id": "group-083-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 166,
+   "match_id": "group-083-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 167,
+   "match_id": "group-084-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 168,
+   "match_id": "group-084-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 169,
+   "match_id": "group-085-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 170,
+   "match_id": "group-085-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 171,
+   "match_id": "group-086-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 172,
+   "match_id": "group-086-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 173,
+   "match_id": "group-087-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 174,
+   "match_id": "group-087-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 175,
+   "match_id": "group-088-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 176,
+   "match_id": "group-088-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 177,
+   "match_id": "group-089-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 178,
+   "match_id": "group-089-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 179,
+   "match_id": "group-090-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 180,
+   "match_id": "group-090-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 181,
+   "match_id": "group-091-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 182,
+   "match_id": "group-091-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 183,
+   "match_id": "group-092-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 184,
+   "match_id": "group-092-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 185,
+   "match_id": "group-093-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 186,
+   "match_id": "group-093-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 187,
+   "match_id": "group-094-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 188,
+   "match_id": "group-094-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 189,
+   "match_id": "group-095-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 190,
+   "match_id": "group-095-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 191,
+   "match_id": "group-096-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 192,
+   "match_id": "group-096-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 193,
+   "match_id": "group-097-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 194,
+   "match_id": "group-097-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 195,
+   "match_id": "group-098-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 196,
+   "match_id": "group-098-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 197,
+   "match_id": "group-099-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 198,
+   "match_id": "group-099-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 199,
+   "match_id": "group-100-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 200,
+   "match_id": "group-100-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 201,
+   "match_id": "group-101-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 202,
+   "match_id": "group-101-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 203,
+   "match_id": "group-102-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 204,
+   "match_id": "group-102-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 205,
+   "match_id": "group-103-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 206,
+   "match_id": "group-103-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 207,
+   "match_id": "group-104-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 208,
+   "match_id": "group-104-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 209,
+   "match_id": "group-105-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 210,
+   "match_id": "group-105-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 211,
+   "match_id": "group-106-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 212,
+   "match_id": "group-106-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 213,
+   "match_id": "group-107-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 214,
+   "match_id": "group-107-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 215,
+   "match_id": "group-108-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 216,
+   "match_id": "group-108-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 217,
+   "match_id": "group-109-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 218,
+   "match_id": "group-109-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 219,
+   "match_id": "group-110-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 220,
+   "match_id": "group-110-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 221,
+   "match_id": "group-111-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 222,
+   "match_id": "group-111-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 223,
+   "match_id": "group-112-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 224,
+   "match_id": "group-112-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 225,
+   "match_id": "group-113-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 226,
+   "match_id": "group-113-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 227,
+   "match_id": "group-114-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 228,
+   "match_id": "group-114-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 229,
+   "match_id": "group-115-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 230,
+   "match_id": "group-115-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 231,
+   "match_id": "group-116-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 232,
+   "match_id": "group-116-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 233,
+   "match_id": "group-117-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 234,
+   "match_id": "group-117-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 235,
+   "match_id": "group-118-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 236,
+   "match_id": "group-118-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 237,
+   "match_id": "group-119-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 238,
+   "match_id": "group-119-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 239,
+   "match_id": "group-120-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 240,
+   "match_id": "group-120-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 241,
+   "match_id": "group-121-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 242,
+   "match_id": "group-121-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 243,
+   "match_id": "group-122-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 244,
+   "match_id": "group-122-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 245,
+   "match_id": "group-123-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 246,
+   "match_id": "group-123-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 247,
+   "match_id": "group-124-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 248,
+   "match_id": "group-124-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 249,
+   "match_id": "group-125-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 250,
+   "match_id": "group-125-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 251,
+   "match_id": "group-126-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 252,
+   "match_id": "group-126-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 253,
+   "match_id": "group-127-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 254,
+   "match_id": "group-127-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 255,
+   "match_id": "group-128-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 256,
+   "match_id": "group-128-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 257,
+   "match_id": "group-129-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 258,
+   "match_id": "group-129-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 259,
+   "match_id": "group-130-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 260,
+   "match_id": "group-130-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 261,
+   "match_id": "group-131-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 262,
+   "match_id": "group-131-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 263,
+   "match_id": "group-132-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 264,
+   "match_id": "group-132-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 265,
+   "match_id": "group-133-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 266,
+   "match_id": "group-133-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 267,
+   "match_id": "group-134-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 268,
+   "match_id": "group-134-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 269,
+   "match_id": "group-135-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 270,
+   "match_id": "group-135-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 271,
+   "match_id": "group-136-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 272,
+   "match_id": "group-136-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 273,
+   "match_id": "group-137-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 274,
+   "match_id": "group-137-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 275,
+   "match_id": "group-138-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 276,
+   "match_id": "group-138-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 277,
+   "match_id": "group-139-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 278,
+   "match_id": "group-139-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 279,
+   "match_id": "group-140-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 280,
+   "match_id": "group-140-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 281,
+   "match_id": "group-141-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 282,
+   "match_id": "group-141-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 283,
+   "match_id": "group-142-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 284,
+   "match_id": "group-142-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 285,
+   "match_id": "group-143-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 286,
+   "match_id": "group-143-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 287,
+   "match_id": "group-144-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 288,
+   "match_id": "group-144-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 289,
+   "match_id": "group-145-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 290,
+   "match_id": "group-145-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 291,
+   "match_id": "group-146-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 292,
+   "match_id": "group-146-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 293,
+   "match_id": "group-147-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 294,
+   "match_id": "group-147-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 295,
+   "match_id": "group-148-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 296,
+   "match_id": "group-148-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 297,
+   "match_id": "group-149-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 298,
+   "match_id": "group-149-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 299,
+   "match_id": "group-150-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 300,
+   "match_id": "group-150-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 301,
+   "match_id": "group-151-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 302,
+   "match_id": "group-151-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 303,
+   "match_id": "group-152-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 304,
+   "match_id": "group-152-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 305,
+   "match_id": "group-153-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 306,
+   "match_id": "group-153-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 307,
+   "match_id": "group-154-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 308,
+   "match_id": "group-154-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 309,
+   "match_id": "group-155-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 310,
+   "match_id": "group-155-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 311,
+   "match_id": "group-156-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 312,
+   "match_id": "group-156-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 313,
+   "match_id": "group-157-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 314,
+   "match_id": "group-157-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 315,
+   "match_id": "group-158-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 316,
+   "match_id": "group-158-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 317,
+   "match_id": "group-159-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 318,
+   "match_id": "group-159-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 319,
+   "match_id": "group-160-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 320,
+   "match_id": "group-160-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 321,
+   "match_id": "group-161-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 322,
+   "match_id": "group-161-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 323,
+   "match_id": "group-162-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 324,
+   "match_id": "group-162-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 325,
+   "match_id": "group-163-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 326,
+   "match_id": "group-163-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 327,
+   "match_id": "group-164-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 328,
+   "match_id": "group-164-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 329,
+   "match_id": "group-165-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 330,
+   "match_id": "group-165-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 331,
+   "match_id": "group-166-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 332,
+   "match_id": "group-166-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 333,
+   "match_id": "group-167-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 334,
+   "match_id": "group-167-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 335,
+   "match_id": "group-168-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 336,
+   "match_id": "group-168-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 337,
+   "match_id": "group-169-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 338,
+   "match_id": "group-169-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 339,
+   "match_id": "group-170-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 340,
+   "match_id": "group-170-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 341,
+   "match_id": "group-171-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 342,
+   "match_id": "group-171-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 343,
+   "match_id": "group-172-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 344,
+   "match_id": "group-172-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 345,
+   "match_id": "group-173-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 346,
+   "match_id": "group-173-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 347,
+   "match_id": "group-174-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 348,
+   "match_id": "group-174-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 349,
+   "match_id": "group-175-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 350,
+   "match_id": "group-175-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 351,
+   "match_id": "group-176-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 352,
+   "match_id": "group-176-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 353,
+   "match_id": "group-177-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 354,
+   "match_id": "group-177-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 355,
+   "match_id": "group-178-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 356,
+   "match_id": "group-178-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 357,
+   "match_id": "group-179-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 358,
+   "match_id": "group-179-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 359,
+   "match_id": "group-180-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 360,
+   "match_id": "group-180-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 361,
+   "match_id": "group-181-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 362,
+   "match_id": "group-181-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 363,
+   "match_id": "group-182-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 364,
+   "match_id": "group-182-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 365,
+   "match_id": "group-183-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 366,
+   "match_id": "group-183-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 367,
+   "match_id": "group-184-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 368,
+   "match_id": "group-184-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 369,
+   "match_id": "group-185-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 370,
+   "match_id": "group-185-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 371,
+   "match_id": "group-186-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 372,
+   "match_id": "group-186-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 373,
+   "match_id": "group-187-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 374,
+   "match_id": "group-187-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 375,
+   "match_id": "group-188-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 376,
+   "match_id": "group-188-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 377,
+   "match_id": "group-189-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 378,
+   "match_id": "group-189-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 379,
+   "match_id": "group-190-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 380,
+   "match_id": "group-190-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 381,
+   "match_id": "group-191-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 382,
+   "match_id": "group-191-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 383,
+   "match_id": "group-192-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 384,
+   "match_id": "group-192-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 385,
+   "match_id": "group-193-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 386,
+   "match_id": "group-193-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 387,
+   "match_id": "group-194-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 388,
+   "match_id": "group-194-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 389,
+   "match_id": "group-195-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 390,
+   "match_id": "group-195-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 391,
+   "match_id": "group-196-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 392,
+   "match_id": "group-196-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 393,
+   "match_id": "group-197-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 394,
+   "match_id": "group-197-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 395,
+   "match_id": "group-198-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 396,
+   "match_id": "group-198-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 397,
+   "match_id": "group-199-A-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 398,
+   "match_id": "group-199-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 399,
+   "match_id": "group-200-B-first",
+   "diagnostic_status": "not_run"
+  },
+  {
+   "schedule_index": 400,
+   "match_id": "group-200-A-first",
+   "diagnostic_status": "not_run"
+  }
+ ]
+}

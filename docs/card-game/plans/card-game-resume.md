@@ -1,5 +1,16 @@
 # CARD GAME 最小再開メモ
 
+## 最新状態 — 第4の停止原因（R10最終比較のincarnation zone検査）を修正、本番は未起動（2026-10-20）
+
+ブランチ `claude/fixed400-restart-20261020` は `0a9df8f0` から作成。mainの `f76c5866`（01/02のたまご表示改訂）は468 source anchorと一致しないため起点にしない。詳細は `data/proxy-population-400-restart-20261020/REPORT.md`。
+
+- 2ec0c668版の第1戦の診断：R10最終比較で `RouteIntegrityStop: instance_zone_duplicate_or_missing` の例外。退役前身 `A-035#1` の保持が原因。`aee9186d` で、incarnation scope内のR10最終比較に限りregistryで束縛した現役ビューを渡すよう修正。215モジュール/1156テストPASS（Python 3.12.14完全一致）。
+- 診断（本番外・算入しない）：group-001の鏡像2戦は完走し、record SHA-256は2回とも一致。先頭22行は完走8・境界停止13・例外1。本番を起動すると第3行 group-002-B-first（W-city predicate coverage）で停止する見込み。
+- 承認ゲート：`external_approval.py` が `PR=259` のopen/draft/未マージを要求する。PR #259はマージ済みなので、どの承認でもfail-closedになる。承認権威の移転は本人判断が必要で、未変更。request・承認・消費・supervisorはいずれも0。
+- 累計は引き続き着手1・完走0・未完了1・未実施399。balance標本0、全体結論null。
+
+以下は過去時点の履歴。
+
 ## 最新状態 — 新edition 400戦は第1戦R10で規定停止（2026-10-13）
 
 本人コメント `6127373548` をGitHub APIで認証し、開始承認request `6f65a4befc71db7b5b7684c5a6342f7ba62981010d4dd49ca2a5109915e3ecca` の消費記録を `e1467d68480fc2650f4ad45f4765d1d1c94ef7b6` に単独保存。再消費禁止。execution editionは `bd514e5c1830a0f7e599643024358d5b7b6beae3`、binding/派生manifest公開は `7ff9524989d507bcf12f9bd82386c43a0306226d`。旧・新preflight、旧独立checkout生成来歴、公開binding再構成の実監査が成立してから、一度だけsupervisorを起動した。

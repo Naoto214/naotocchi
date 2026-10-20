@@ -1,0 +1,1518 @@
+{
+ "all_ok": true,
+ "failed_modules": [],
+ "modules": 215,
+ "note": "one module per process; test_proxy_population_execution_binding and test_proxy_population_input_history first failed only because the clone was shallow (missing a5a475f0); rerun after unshallow; first logs in regression-shallow/",
+ "per_module": {
+  "test_proxy_continuation_actions": {
+   "exit": 0,
+   "log_sha256": "2b95b3d964d424627015715e78c2982c8757944153e57aee04e1f527e53e2a59",
+   "ok": true,
+   "seconds": 1.701,
+   "tests": 6
+  },
+  "test_proxy_continuation_batch": {
+   "exit": 0,
+   "log_sha256": "375a8feaef59957362c1f1d9b8933bc0dd9f728356b773a0a9f6b9b0a1d77b75",
+   "ok": true,
+   "seconds": 1.582,
+   "tests": 35
+  },
+  "test_proxy_continuation_board_links": {
+   "exit": 0,
+   "log_sha256": "1a0d99fabe2c79085c6e357f49f1b29db523f1e2582a36593ec7073931915883",
+   "ok": true,
+   "seconds": 0.005,
+   "tests": 6
+  },
+  "test_proxy_continuation_capabilities": {
+   "exit": 0,
+   "log_sha256": "cf8083f6f6855b94ee6c8e21364c2b239157f1a04f3d0ab6363d29a6d40a73e4",
+   "ok": true,
+   "seconds": 0.282,
+   "tests": 12
+  },
+  "test_proxy_continuation_capability_runner": {
+   "exit": 0,
+   "log_sha256": "f6a9e2d8344387a51744eaa4173dc10aa9af5b54178f4e25cff57ad8fcae82a6",
+   "ok": true,
+   "seconds": 32.024,
+   "tests": 3
+  },
+  "test_proxy_continuation_challenge": {
+   "exit": 0,
+   "log_sha256": "ee922ac81fa00efce842c7b1b3e9d3db3e828a53f7201de4589f3beb68b2a4d1",
+   "ok": true,
+   "seconds": 1.921,
+   "tests": 8
+  },
+  "test_proxy_continuation_choices": {
+   "exit": 0,
+   "log_sha256": "fe75024aef4d58cbbd19f0435e195ba23686051f2ff8c35a5d36f5eec6897b85",
+   "ok": true,
+   "seconds": 2.647,
+   "tests": 2
+  },
+  "test_proxy_continuation_condition_runner": {
+   "exit": 0,
+   "log_sha256": "a3dace6ab4122034ce726a648ece57a858c12512b382a7d0ed02716c06bc02be",
+   "ok": true,
+   "seconds": 48.0,
+   "tests": 6
+  },
+  "test_proxy_continuation_conditions": {
+   "exit": 0,
+   "log_sha256": "c11efde54b72b185f0a2408a57f33b76f4fcaa65675453ee5591460b557b6913",
+   "ok": true,
+   "seconds": 0.163,
+   "tests": 14
+  },
+  "test_proxy_continuation_end": {
+   "exit": 0,
+   "log_sha256": "23c564571c1b7753e5f1317fac43340ec10a263049f9718c9d6fe5af22c8cbb8",
+   "ok": true,
+   "seconds": 4.124,
+   "tests": 15
+  },
+  "test_proxy_continuation_end_runner": {
+   "exit": 0,
+   "log_sha256": "5a8e7d3f01ee02bbcdb1c618360bf52eca79391992a369d45ab4531e07489ddb",
+   "ok": true,
+   "seconds": 45.582,
+   "tests": 5
+  },
+  "test_proxy_continuation_payments": {
+   "exit": 0,
+   "log_sha256": "da7ddd9f4884fe6fce36cdcd5dac53f4f18c45ea0fa5bdcd5ac28f2a0dd74cd0",
+   "ok": true,
+   "seconds": 4.902,
+   "tests": 29
+  },
+  "test_proxy_continuation_preparation": {
+   "exit": 0,
+   "log_sha256": "6b9d3c91c5c617460fbaed0227862954fed3bb87a9fc3adbaa2a8282334168d4",
+   "ok": true,
+   "seconds": 0.447,
+   "tests": 2
+  },
+  "test_proxy_continuation_public_history": {
+   "exit": 0,
+   "log_sha256": "82065e3aba2edbc7722eb18dd17fe53944f39c336a05b4238c3044d5c74e8b93",
+   "ok": true,
+   "seconds": 0.366,
+   "tests": 2
+  },
+  "test_proxy_continuation_quick": {
+   "exit": 0,
+   "log_sha256": "6182d5164f93baea281112e445a7d108ba9779b0b519a5fc14737ade9017f1a2",
+   "ok": true,
+   "seconds": 0.646,
+   "tests": 4
+  },
+  "test_proxy_continuation_rules": {
+   "exit": 0,
+   "log_sha256": "aab7009e3538d6698e899c6225521bf4ff0e39c64318a9e5fc6198f08282ecf3",
+   "ok": true,
+   "seconds": 3.672,
+   "tests": 10
+  },
+  "test_proxy_continuation_runner": {
+   "exit": 0,
+   "log_sha256": "8490322bef1951d741f7fd88b89c0890972f4d3dcedf64281b3ed241c6f73882",
+   "ok": true,
+   "seconds": 34.623,
+   "tests": 9
+  },
+  "test_proxy_continuation_state": {
+   "exit": 0,
+   "log_sha256": "b7ba92b31213cdd1776c8ad85c2951b799d9c87fd47dd076b439444f55924ab6",
+   "ok": true,
+   "seconds": 1.451,
+   "tests": 9
+  },
+  "test_proxy_continuation_triggers": {
+   "exit": 0,
+   "log_sha256": "3d54789edd56534bf84517d2f2f6af02ceed4d3679e13b713c776a8013199f8f",
+   "ok": true,
+   "seconds": 9.575,
+   "tests": 21
+  },
+  "test_proxy_continuation_world_runner": {
+   "exit": 0,
+   "log_sha256": "3a1dcfeb64c4da30598a45c41b349eb0123226e1fb17baa2d201a998db847f11",
+   "ok": true,
+   "seconds": 30.857,
+   "tests": 4
+  },
+  "test_proxy_continuation_worlds": {
+   "exit": 0,
+   "log_sha256": "873331769539f6390424784e2b8f35c5cecea5b73f1d7a77d92aba565c7a0595",
+   "ok": true,
+   "seconds": 0.319,
+   "tests": 11
+  },
+  "test_proxy_mandatory_choice_boundary": {
+   "exit": 0,
+   "log_sha256": "35bac05039fcc51528f029b26e6542f2798c9de4ca14b9bdfc1f148a86b49cca",
+   "ok": true,
+   "seconds": 0.136,
+   "tests": 14
+  },
+  "test_proxy_mandatory_policy_audit": {
+   "exit": 0,
+   "log_sha256": "892709804c10a03768947220155f3e764eca5bd54fc945538ef6e756e2dfbdbb",
+   "ok": true,
+   "seconds": 0.302,
+   "tests": 7
+  },
+  "test_proxy_mandatory_policy_contract": {
+   "exit": 0,
+   "log_sha256": "102f0cb1636844d0f770a88415ec3899f55dd62f65f74bbf8a5e92d4aeeb314b",
+   "ok": true,
+   "seconds": 0.033,
+   "tests": 5
+  },
+  "test_proxy_mandatory_policy_journal": {
+   "exit": 0,
+   "log_sha256": "6e57f6b396753b3696949864ddc00df7c2b3899760372297629bbb4107ff8485",
+   "ok": true,
+   "seconds": 0.901,
+   "tests": 7
+  },
+  "test_proxy_mandatory_policy_local": {
+   "exit": 0,
+   "log_sha256": "fcf7ec82351862ed8afebc5692a6c777e8688fb65060c63c9210b8ed12e1a637",
+   "ok": true,
+   "seconds": 0.329,
+   "tests": 6
+  },
+  "test_proxy_mandatory_policy_random": {
+   "exit": 0,
+   "log_sha256": "98b81f4d9509221a92841853877a926ebecdc5cb070bcd92404926b905c25eff",
+   "ok": true,
+   "seconds": 0.004,
+   "tests": 6
+  },
+  "test_proxy_mandatory_population_input": {
+   "exit": 0,
+   "log_sha256": "75a77ec5b5d729144f4503b66f72e9b73fe234706c5104857660e74a499642ee",
+   "ok": true,
+   "seconds": 17.008,
+   "tests": 9
+  },
+  "test_proxy_population_activation_legality": {
+   "exit": 0,
+   "log_sha256": "4288eea2504fa73ddff21faf2f4f7a95847ba0ef32065504dc03fa238eb8f01b",
+   "ok": true,
+   "seconds": 0.25,
+   "tests": 4
+  },
+  "test_proxy_population_activation_reference": {
+   "exit": 0,
+   "log_sha256": "acdd1c769d2d9c7d0d62ca63f226bf7c2fddd3fe168b6b85ec5c0db47789bf0d",
+   "ok": true,
+   "seconds": 0.099,
+   "tests": 3
+  },
+  "test_proxy_population_admission": {
+   "exit": 0,
+   "log_sha256": "4e5d36f3c90dcf7daa78c51ab2d1abf5fb94d83a908240c9f7a9ceac06cf709f",
+   "ok": true,
+   "seconds": 34.385,
+   "tests": 15
+  },
+  "test_proxy_population_approval_publication": {
+   "exit": 0,
+   "log_sha256": "e59e6ab71a1d240dc84ac8448ce468db42ad85ee35a002ed732be6ce77417d9f",
+   "ok": true,
+   "seconds": 6.859,
+   "tests": 7
+  },
+  "test_proxy_population_approval_read_retry": {
+   "exit": 0,
+   "log_sha256": "cc4a7d9c40895337db1da1a52b34c0149026f732c0698b0884bcf697866444b5",
+   "ok": true,
+   "seconds": 12.475,
+   "tests": 20
+  },
+  "test_proxy_population_arrival_predicates": {
+   "exit": 0,
+   "log_sha256": "345972afe3498075d46763c77b64e98bba2b86a61f76e259eedef5b95d633249",
+   "ok": true,
+   "seconds": 0.798,
+   "tests": 4
+  },
+  "test_proxy_population_attempt_runner": {
+   "exit": 0,
+   "log_sha256": "daff0245e9ed1b9b6f12fd22834bc5a5564fbf807bbf6b822ddc85be2d7c9078",
+   "ok": true,
+   "seconds": 11.302,
+   "tests": 3
+  },
+  "test_proxy_population_automatic_binding": {
+   "exit": 0,
+   "log_sha256": "0babab43a40919f8b945f0ee172e62b4ea93037846b073751b8a8c37fd03f08a",
+   "ok": true,
+   "seconds": 15.485,
+   "tests": 6
+  },
+  "test_proxy_population_batch_supervisor": {
+   "exit": 0,
+   "log_sha256": "6254391839bbc78043c5222440e2e95d3bc3f490fbd0c8ec42cd3946136f1d60",
+   "ok": true,
+   "seconds": 17.992,
+   "tests": 4
+  },
+  "test_proxy_population_board_group_effect": {
+   "exit": 0,
+   "log_sha256": "cd54598a7330d9ac9fe3bb51a5f245335847cff7094c488fbf27fe0ffa23ab16",
+   "ok": true,
+   "seconds": 1.65,
+   "tests": 4
+  },
+  "test_proxy_population_board_payment_binding": {
+   "exit": 0,
+   "log_sha256": "4d4b1fd66ff32f8f7b5f50bf973c1458df6952a7bc20c0bd5bc758b5325c2049",
+   "ok": true,
+   "seconds": 0.23,
+   "tests": 2
+  },
+  "test_proxy_population_board_predicates": {
+   "exit": 0,
+   "log_sha256": "957192900869496ad96a07befa4f3a7fd39a261c3916d8f5b219416ea01eb09d",
+   "ok": true,
+   "seconds": 4.93,
+   "tests": 6
+  },
+  "test_proxy_population_boundary_response": {
+   "exit": 0,
+   "log_sha256": "c5f80dc3916e014a217232d1d4b00e3c520905a0a105666719fefc1bbcf3243b",
+   "ok": true,
+   "seconds": 0.091,
+   "tests": 3
+  },
+  "test_proxy_population_candidate_expansions": {
+   "exit": 0,
+   "log_sha256": "ef12317857fb18e683cff6ae05708e82e9442d4e44f155ed9f1a394e14326b3d",
+   "ok": true,
+   "seconds": 4.816,
+   "tests": 9
+  },
+  "test_proxy_population_cat_activation_effect": {
+   "exit": 0,
+   "log_sha256": "816ac07f28d0ec74dd68c1aebf7f446320e72b841e543c33ce27588cdf1bc1f6",
+   "ok": true,
+   "seconds": 0.588,
+   "tests": 4
+  },
+  "test_proxy_population_chain_resolution": {
+   "exit": 0,
+   "log_sha256": "6531cf44fbba748b037ea808973e865d97169584ec330d87fb07b389d4b6d14e",
+   "ok": true,
+   "seconds": 0.156,
+   "tests": 8
+  },
+  "test_proxy_population_challenge_declaration_effect": {
+   "exit": 0,
+   "log_sha256": "063dd4daf364487a9da45b11d131b944c546cad7d21a0d67e1c6754c82df4ea3",
+   "ok": true,
+   "seconds": 0.895,
+   "tests": 3
+  },
+  "test_proxy_population_challenge_lifetime": {
+   "exit": 0,
+   "log_sha256": "140ace706ffeda4f568578bebd23b689d9231086272e74f3a8dc8921c2ee5d72",
+   "ok": true,
+   "seconds": 1.949,
+   "tests": 6
+  },
+  "test_proxy_population_challenge_operands": {
+   "exit": 0,
+   "log_sha256": "be35839cff20711edd38c4e152d23bccba9d07512f7526ce443058a060ec28ae",
+   "ok": true,
+   "seconds": 2.056,
+   "tests": 10
+  },
+  "test_proxy_population_challenge_predicates": {
+   "exit": 0,
+   "log_sha256": "e253a87addd14912a23a9b6e9fdd2b46c2b0715eecbf3f4731a1422b587cb1d8",
+   "ok": true,
+   "seconds": 0.493,
+   "tests": 3
+  },
+  "test_proxy_population_challenge_window": {
+   "exit": 0,
+   "log_sha256": "8293a7309a00e760846969e894222bb9e4e6a1c5ef1e7d2834b6eac4604805d2",
+   "ok": true,
+   "seconds": 755.428,
+   "tests": 2
+  },
+  "test_proxy_population_city_predicates": {
+   "exit": 0,
+   "log_sha256": "89d61a482a4dbb24111a642d7544e40ebb47b4e50ba7969ae9d50884db05df55",
+   "ok": true,
+   "seconds": 1.095,
+   "tests": 7
+  },
+  "test_proxy_population_closure_binding": {
+   "exit": 0,
+   "log_sha256": "535f69922627a82cec38e5421a7d4dfe99a7e30622a38ef6ff4e754a8bc3c82f",
+   "ok": true,
+   "seconds": 0.38,
+   "tests": 8
+  },
+  "test_proxy_population_comparison_evidence": {
+   "exit": 0,
+   "log_sha256": "d29af0fc965f3e5e8269d77b7cc595505001d4eb9891432a8101d30c5f196bd3",
+   "ok": true,
+   "seconds": 0.822,
+   "tests": 9
+  },
+  "test_proxy_population_connected_entry": {
+   "exit": 0,
+   "log_sha256": "23bd18066f7a4fcd83495d57f451fe8df365bea31861ef115e9c139046463193",
+   "ok": true,
+   "seconds": 37.847,
+   "tests": 3
+  },
+  "test_proxy_population_contract": {
+   "exit": 0,
+   "log_sha256": "82e9775c89688293eda4d79af7b33a3c97975985303a5325bd2ba69215cd7357",
+   "ok": true,
+   "seconds": 2.82,
+   "tests": 10
+  },
+  "test_proxy_population_core_predicates": {
+   "exit": 0,
+   "log_sha256": "e604098bbd8aeeb3a66c365b99a232f966336461020fec4e58b859a6f670de3a",
+   "ok": true,
+   "seconds": 5.436,
+   "tests": 6
+  },
+  "test_proxy_population_current_preflight": {
+   "exit": 0,
+   "log_sha256": "bb01df3b45d1ae111c0ad78f4b76f2371c600b260061d20f2df889cdc613eea8",
+   "ok": true,
+   "seconds": 0.278,
+   "tests": 11
+  },
+  "test_proxy_population_decision_binding": {
+   "exit": 0,
+   "log_sha256": "24d6d292d44099f82b639b4b2ecb3153d6a686da0d13a679eac810eff71d9894",
+   "ok": true,
+   "seconds": 4.856,
+   "tests": 5
+  },
+  "test_proxy_population_departure": {
+   "exit": 0,
+   "log_sha256": "4a8bcd4cef88bd6c3be58ba21a7d0f271075976611f102ec6574da1b223420f5",
+   "ok": true,
+   "seconds": 0.47,
+   "tests": 6
+  },
+  "test_proxy_population_departure_order": {
+   "exit": 0,
+   "log_sha256": "9324ab88f1aff1abe933310e470b38fcb54af12cb6f7f756a3dc45569d7be186",
+   "ok": true,
+   "seconds": 1.003,
+   "tests": 3
+  },
+  "test_proxy_population_designated_effects": {
+   "exit": 0,
+   "log_sha256": "60fa4910adc6ddea5b83c1acc61d3ae2db911a36c4536fe29ad94395e664e4a6",
+   "ok": true,
+   "seconds": 7.651,
+   "tests": 3
+  },
+  "test_proxy_population_discard_recovery": {
+   "exit": 0,
+   "log_sha256": "bd1926b6c0ab35879a7ed54f94559931f262e5c2c8f1855649e1e43383f01c4a",
+   "ok": true,
+   "seconds": 0.4,
+   "tests": 7
+  },
+  "test_proxy_population_draw_effects": {
+   "exit": 0,
+   "log_sha256": "30380b8886e4b564a1c8f05e8a9181de454614e6ff0c2043abd1078fc8af6558",
+   "ok": true,
+   "seconds": 3.176,
+   "tests": 5
+  },
+  "test_proxy_population_early_finish_effect": {
+   "exit": 0,
+   "log_sha256": "10f455b4cd8d48893b3d8ec8111558ff6da20d07f68d44ba25ec9ed873f1112b",
+   "ok": true,
+   "seconds": 0.378,
+   "tests": 5
+  },
+  "test_proxy_population_effect_application_runtime": {
+   "exit": 0,
+   "log_sha256": "4ce40bace4ed57728a1b9c9a74afdde5110fc173982bfad8f93b803b5e3e49d4",
+   "ok": true,
+   "seconds": 0.218,
+   "tests": 5
+  },
+  "test_proxy_population_effect_creation": {
+   "exit": 0,
+   "log_sha256": "7663a8e2d413e3e43c0f2dec725c196d06da473f6fd996703934f1452198ef22",
+   "ok": true,
+   "seconds": 0.688,
+   "tests": 9
+  },
+  "test_proxy_population_effect_expiry": {
+   "exit": 0,
+   "log_sha256": "e4a86e8efc214dd2403c64f05fa4f9659e0d584a7a2a439e223aead142b95373",
+   "ok": true,
+   "seconds": 0.318,
+   "tests": 8
+  },
+  "test_proxy_population_effective_application": {
+   "exit": 0,
+   "log_sha256": "67d00c431fd7a05546d0bddecc275bd99f019004f7d32db183b1ce0396d3a89b",
+   "ok": true,
+   "seconds": 0.0,
+   "tests": 2
+  },
+  "test_proxy_population_egg_choice_effect": {
+   "exit": 0,
+   "log_sha256": "cd22a8a2dd1ec7c90b1c79a6b08ba8efb3bdb9e2b0fb50f81c2bed9180aea6b0",
+   "ok": true,
+   "seconds": 4.143,
+   "tests": 3
+  },
+  "test_proxy_population_end_dispatch": {
+   "exit": 0,
+   "log_sha256": "80a525f270fe94417647f18274b5e980a6c96787cc7ca054309c545ef771876d",
+   "ok": true,
+   "seconds": 0.385,
+   "tests": 4
+  },
+  "test_proxy_population_end_predicates": {
+   "exit": 0,
+   "log_sha256": "e6d924e09949fe852cf97d857e7894273bd10aa3d9fb6372ab45671dcee8fc19",
+   "ok": true,
+   "seconds": 0.633,
+   "tests": 5
+  },
+  "test_proxy_population_end_victory": {
+   "exit": 0,
+   "log_sha256": "216414d4c8e8d5329f5f113cbe6b96f5f3258812bb174862429bb61e30ea52fb",
+   "ok": true,
+   "seconds": 0.222,
+   "tests": 5
+  },
+  "test_proxy_population_end_window_effect": {
+   "exit": 0,
+   "log_sha256": "14ea1fa815003c6f640c00f17891ec0173689fc9645abb49655115e24d709ace",
+   "ok": true,
+   "seconds": 0.182,
+   "tests": 3
+  },
+  "test_proxy_population_entry_history": {
+   "exit": 0,
+   "log_sha256": "1c3f20ae6541cd90fd616f81d9f243e2b7dd22d1a82362e1ae39bf56ecb0ae02",
+   "ok": true,
+   "seconds": 4.347,
+   "tests": 8
+  },
+  "test_proxy_population_equipment_effects": {
+   "exit": 0,
+   "log_sha256": "bf7ddafeb5fe1256636983750abe17bd416ee42aa781bd5b6b2988d08e5371d6",
+   "ok": true,
+   "seconds": 0.983,
+   "tests": 6
+  },
+  "test_proxy_population_equipment_predicates": {
+   "exit": 0,
+   "log_sha256": "3bf034aa50e103819b1f9c43b9de41b4c85e42ae85151c495eed36121abdb6cb",
+   "ok": true,
+   "seconds": 5.216,
+   "tests": 6
+  },
+  "test_proxy_population_execution_binding": {
+   "exit": 0,
+   "log_sha256": "3c492e977fc69d107ccf2aa64a0b75daad6516317c72a67dab163a3dcbf3064b",
+   "ok": true,
+   "seconds": 80.175,
+   "tests": 11
+  },
+  "test_proxy_population_execution_edition": {
+   "exit": 0,
+   "log_sha256": "2467202c4cb2f36c0e6f95a4babf58e72c1403a42f90f109e18e985be5a12221",
+   "ok": true,
+   "seconds": 0.913,
+   "tests": 2
+  },
+  "test_proxy_population_external_approval": {
+   "exit": 0,
+   "log_sha256": "3a88fa70e506fad72b7644dafa62c97fe544d162ad55b1dfe3317aafe0589e81",
+   "ok": true,
+   "seconds": 0.226,
+   "tests": 8
+  },
+  "test_proxy_population_fallback_payment": {
+   "exit": 0,
+   "log_sha256": "fd7ab52ccc38e311f934472a53df6690c615fd87799dfb5d51ab38161fde0dca",
+   "ok": true,
+   "seconds": 0.383,
+   "tests": 3
+  },
+  "test_proxy_population_final_comparison_incarnation": {
+   "exit": 0,
+   "log_sha256": "15a826fa8b61b7fe2a5767080e4fa0d5b31774636bf545493b9ba1baa65856c2",
+   "ok": true,
+   "seconds": 0.555,
+   "tests": 7
+  },
+  "test_proxy_population_final_time_boundary": {
+   "exit": 0,
+   "log_sha256": "e099764479d229b7f04a9547001745b018bcf60619f62fdd076e7bc919fb3c8a",
+   "ok": true,
+   "seconds": 0.515,
+   "tests": 2
+  },
+  "test_proxy_population_final_time_outer": {
+   "exit": 0,
+   "log_sha256": "b114a735f7aa5b94f0317fae8be80406faf268524888c6ada2575df555410cb8",
+   "ok": true,
+   "seconds": 1.658,
+   "tests": 3
+  },
+  "test_proxy_population_first_date_effect": {
+   "exit": 0,
+   "log_sha256": "af6f281f789b0e86b5c60cfcbe89db2352078634d7e0409fc0c0509ffa41037b",
+   "ok": true,
+   "seconds": 0.926,
+   "tests": 4
+  },
+  "test_proxy_population_first_response": {
+   "exit": 0,
+   "log_sha256": "5b6c1011e55e8c9801b03d79d9007d45230243832dc1e7f215627520cd790d14",
+   "ok": true,
+   "seconds": 5.414,
+   "tests": 5
+  },
+  "test_proxy_population_generation_authorization": {
+   "exit": 0,
+   "log_sha256": "63f83cabc7907b3e5f5bb7bb25d54034cff4ed7a102bdcaf78d864d74bd70554",
+   "ok": true,
+   "seconds": 6.929,
+   "tests": 8
+  },
+  "test_proxy_population_generation_entry": {
+   "exit": 0,
+   "log_sha256": "499c7ec87fec65188c38154d51f03ffc328968b1eeb95fedea22963c1c39cb6a",
+   "ok": true,
+   "seconds": 0.082,
+   "tests": 4
+  },
+  "test_proxy_population_generation_journal": {
+   "exit": 0,
+   "log_sha256": "d2b9746dadf651752556088efcb78d236abd57139bd8f6a5ed60634446632609",
+   "ok": true,
+   "seconds": 0.179,
+   "tests": 5
+  },
+  "test_proxy_population_generation_operation": {
+   "exit": 0,
+   "log_sha256": "5facd5536c2018f0d56e535c0ed3eb7eb631d59119381df17ecf408a3808498c",
+   "ok": true,
+   "seconds": 14.535,
+   "tests": 5
+  },
+  "test_proxy_population_generation_package": {
+   "exit": 0,
+   "log_sha256": "a85df04e8ad02da1ff59f1de6657d3cd02d6670bf4c8079bb5a5bc7a71f3f547",
+   "ok": true,
+   "seconds": 25.999,
+   "tests": 5
+  },
+  "test_proxy_population_growth_runtime": {
+   "exit": 0,
+   "log_sha256": "fb8f96928048b3984f0cae389dc04dd70d98a34a48aa83780d8adef14cdbf460",
+   "ok": true,
+   "seconds": 0.365,
+   "tests": 4
+  },
+  "test_proxy_population_hand_activation_effect": {
+   "exit": 0,
+   "log_sha256": "867b0ddcfaad22044e8b493c9da3084f2ff68f58a93834a20c0850b160b52da2",
+   "ok": true,
+   "seconds": 0.438,
+   "tests": 3
+  },
+  "test_proxy_population_hand_group_effect": {
+   "exit": 0,
+   "log_sha256": "d09513a4d9bcfcf81d1aa896e0397eea43e7843e6759e0866e8e33f653a90317",
+   "ok": true,
+   "seconds": 2.087,
+   "tests": 1
+  },
+  "test_proxy_population_hand_predicates": {
+   "exit": 0,
+   "log_sha256": "194972c82554c0a24faa048f6522f4633171ec0246d14784a39302a9d7160d64",
+   "ok": true,
+   "seconds": 5.464,
+   "tests": 3
+  },
+  "test_proxy_population_hand_prepared_trigger": {
+   "exit": 0,
+   "log_sha256": "280888113ee177b69492019a68f4da69187e651deef0902601e8b89a20b3eed7",
+   "ok": true,
+   "seconds": 0.067,
+   "tests": 1
+  },
+  "test_proxy_population_hand_timing": {
+   "exit": 0,
+   "log_sha256": "b76605520f930fc88f3fffe181f33151309775bee41e2cfad3f143ad8f1c297c",
+   "ok": true,
+   "seconds": 5.908,
+   "tests": 8
+  },
+  "test_proxy_population_history_incarnation_dispatch": {
+   "exit": 0,
+   "log_sha256": "9017a8d67e737aa01e7d3856fc5e95155f06b4c47a92e2b9257a8b0d8906a474",
+   "ok": true,
+   "seconds": 1.781,
+   "tests": 7
+  },
+  "test_proxy_population_history_projection": {
+   "exit": 0,
+   "log_sha256": "7cf1a076511e35143090347306ca68b0d6b3129ca1e46e46a81e2756894dc184",
+   "ok": true,
+   "seconds": 11.35,
+   "tests": 4
+  },
+  "test_proxy_population_immediate_growth": {
+   "exit": 0,
+   "log_sha256": "a475f20e9b1c3ec3ab2321c3398624fb3a0c4bbf271606b1c8432333707e245a",
+   "ok": true,
+   "seconds": 1.463,
+   "tests": 5
+  },
+  "test_proxy_population_incarnation": {
+   "exit": 0,
+   "log_sha256": "1728438118a0536ceeb83d4db3bd299a8bf5a8d9df86f42bd55a90d7d14f6002",
+   "ok": true,
+   "seconds": 0.029,
+   "tests": 3
+  },
+  "test_proxy_population_incarnation_policy": {
+   "exit": 0,
+   "log_sha256": "17ac48c2b1a4f6d689e531329406e537dac5156564b1bae40a4287cb2e4c4979",
+   "ok": true,
+   "seconds": 0.17,
+   "tests": 3
+  },
+  "test_proxy_population_incarnation_runtime": {
+   "exit": 0,
+   "log_sha256": "d341afadf5d659a8e7455dd1aaaee33e9d07361e75f13bc58bd61850157c9c44",
+   "ok": true,
+   "seconds": 1.128,
+   "tests": 5
+  },
+  "test_proxy_population_incarnation_window": {
+   "exit": 0,
+   "log_sha256": "beb78cb283c4c6e60a9e4a936cb2f8f320f58d70f86b2c2c43e083e35b3f91f0",
+   "ok": true,
+   "seconds": 0.837,
+   "tests": 2
+  },
+  "test_proxy_population_information_use": {
+   "exit": 0,
+   "log_sha256": "2245b6a7d7eaacb42cde06357a9b0157507d008566b7df55d673837a99c9bb85",
+   "ok": true,
+   "seconds": 2.299,
+   "tests": 3
+  },
+  "test_proxy_population_initial_obligations": {
+   "exit": 0,
+   "log_sha256": "d987b04ce2d2bd53884c5040dadadcb2eb72f71ca7e9bf0e4df1bfd33c220b04",
+   "ok": true,
+   "seconds": 18.518,
+   "tests": 6
+  },
+  "test_proxy_population_input_history": {
+   "exit": 0,
+   "log_sha256": "58247d4cc5e1e60004c9c8a914cabab093767c8de7c7b139c2efac95e866554f",
+   "ok": true,
+   "seconds": 16.851,
+   "tests": 5
+  },
+  "test_proxy_population_input_lock": {
+   "exit": 0,
+   "log_sha256": "d43e39a6e547351c19bd7ce0ac8cf8d6f00d9cd17641a38a10961e18234ce9e6",
+   "ok": true,
+   "seconds": 0.328,
+   "tests": 1
+  },
+  "test_proxy_population_instance_boundary": {
+   "exit": 0,
+   "log_sha256": "54e272f3fea1f7db8f2b5f7702d5f90bb1d5990b2dc1b1c35b88535380612089",
+   "ok": true,
+   "seconds": 0.016,
+   "tests": 2
+  },
+  "test_proxy_population_launch_authorization": {
+   "exit": 0,
+   "log_sha256": "4a35464c6b21545bdeea8f43c0a96cd897ff82765da8aa0946fcd7ebd418c33f",
+   "ok": true,
+   "seconds": 8.99,
+   "tests": 6
+  },
+  "test_proxy_population_legacy_choice_obligations": {
+   "exit": 0,
+   "log_sha256": "332c2e40408b344005721d50a453ab7ea1e383249a81c106a004ca1779f2ad45",
+   "ok": true,
+   "seconds": 0.293,
+   "tests": 4
+  },
+  "test_proxy_population_loss_reward": {
+   "exit": 0,
+   "log_sha256": "0921009a28e6c7f6e91f23d2f88e54e91bdfc0f4191476c9423645372b949a29",
+   "ok": true,
+   "seconds": 0.175,
+   "tests": 4
+  },
+  "test_proxy_population_main_movement_effect": {
+   "exit": 0,
+   "log_sha256": "b03b90c160eebf0afab516486f38695b41079bb2c3b9636fb94185aeaf527849",
+   "ok": true,
+   "seconds": 1.77,
+   "tests": 4
+  },
+  "test_proxy_population_main_routes": {
+   "exit": 0,
+   "log_sha256": "002e2f815ae867df67cb76abe367492aaf90d7904ae9a0c40c9d22b080e62a99",
+   "ok": true,
+   "seconds": 1.068,
+   "tests": 4
+  },
+  "test_proxy_population_manifest_builder": {
+   "exit": 0,
+   "log_sha256": "5a493a6fd3e5ea46060d9dbd2f2c8bae56f2905fd3459923c4d80b0df49b3959",
+   "ok": true,
+   "seconds": 3.386,
+   "tests": 1
+  },
+  "test_proxy_population_material_protocol": {
+   "exit": 0,
+   "log_sha256": "ff0377877879bd5aa5b5cbdf80f66e214f09916448d031c1640f4bc1492ed2d8",
+   "ok": true,
+   "seconds": 5.033,
+   "tests": 6
+  },
+  "test_proxy_population_movement_lifetime": {
+   "exit": 0,
+   "log_sha256": "5d949c3a514d46189a766b6aa798485ea1a76f267c9292758cc2081dd44ab766",
+   "ok": true,
+   "seconds": 0.676,
+   "tests": 2
+  },
+  "test_proxy_population_movement_payment": {
+   "exit": 0,
+   "log_sha256": "29076656855834709816c8f995d19f1ca130067b213fa7884a4dfb894ebf19a8",
+   "ok": true,
+   "seconds": 1.067,
+   "tests": 2
+  },
+  "test_proxy_population_native_collection": {
+   "exit": 0,
+   "log_sha256": "448dd54a2354e5c8d0d9580419c16c1a0b9a8ff8a8915bd5b79caa9af960d64b",
+   "ok": true,
+   "seconds": 0.878,
+   "tests": 7
+  },
+  "test_proxy_population_nonresolution_semantics": {
+   "exit": 0,
+   "log_sha256": "b1fe3175312fd2b6ae889df296144fa8bdc67b9b85d4e55a238093b19735ee41",
+   "ok": true,
+   "seconds": 3.236,
+   "tests": 3
+  },
+  "test_proxy_population_normal_frontier": {
+   "exit": 0,
+   "log_sha256": "634ded75836f71928bf0a665f19ae2ffcd92e3a07c2ae5c4d2a750662a560e1a",
+   "ok": true,
+   "seconds": 0.423,
+   "tests": 1
+  },
+  "test_proxy_population_normal_pass_effect": {
+   "exit": 0,
+   "log_sha256": "b2a75799d5fcff65e0b0dd318ae6fb3028bf8c48c8000b9fba6ee62530e9ac39",
+   "ok": true,
+   "seconds": 0.616,
+   "tests": 3
+  },
+  "test_proxy_population_opening": {
+   "exit": 0,
+   "log_sha256": "50fc9c4e4e767f83f04dc53ef495fee53d0c4ad912cc11a72a93358077243bf6",
+   "ok": true,
+   "seconds": 35.898,
+   "tests": 10
+  },
+  "test_proxy_population_operation_edition": {
+   "exit": 0,
+   "log_sha256": "0cecade79ecd31c39c405f345ac3981802c3270dfbdef8e2ed2b48c2213f6009",
+   "ok": true,
+   "seconds": 2.375,
+   "tests": 2
+  },
+  "test_proxy_population_opportunity_ledger": {
+   "exit": 0,
+   "log_sha256": "63c10ca3bf290a8431c88ac360ac1ad742a0d3fab0ea841c6497ee029d862b8b",
+   "ok": true,
+   "seconds": 0.002,
+   "tests": 4
+  },
+  "test_proxy_population_opportunity_order": {
+   "exit": 0,
+   "log_sha256": "a3cd1c14c8c97a346c515207a20ee2ecebb3fb7e69bb9e78eeec1d0b3a3d35d7",
+   "ok": true,
+   "seconds": 0.003,
+   "tests": 3
+  },
+  "test_proxy_population_paid_activation_effect": {
+   "exit": 0,
+   "log_sha256": "fa96a2f1c7e817db79f7b9ee17a046de72db536b852b7336ef2194496722d128",
+   "ok": true,
+   "seconds": 0.492,
+   "tests": 3
+  },
+  "test_proxy_population_paid_draw": {
+   "exit": 0,
+   "log_sha256": "be730a0c5061d759d5c17488980f34bd0e669ce85e17e6173297fbe712c031fa",
+   "ok": true,
+   "seconds": 0.231,
+   "tests": 4
+  },
+  "test_proxy_population_partner_cycle": {
+   "exit": 0,
+   "log_sha256": "aca51f5db1a3b2df265046df14c7c83be5bec179f9ea030d376733bf5bd64317",
+   "ok": true,
+   "seconds": 0.427,
+   "tests": 6
+  },
+  "test_proxy_population_partner_draw": {
+   "exit": 0,
+   "log_sha256": "50a9d4520be47da35eac24d25b74778b0f5c0f890910549414cf4d718877646f",
+   "ok": true,
+   "seconds": 0.271,
+   "tests": 3
+  },
+  "test_proxy_population_pass_end_unknown": {
+   "exit": 0,
+   "log_sha256": "60ba06a8e0bd3fca22a25eb0c6c21a052fc877c9e43376a997de32101c7cb842",
+   "ok": true,
+   "seconds": 0.512,
+   "tests": 7
+  },
+  "test_proxy_population_payment_consumption": {
+   "exit": 0,
+   "log_sha256": "ed0d00516f52ac40e2e23e5064df50a610aa09a8e9aa6d458884a85e156ad9bb",
+   "ok": true,
+   "seconds": 1.379,
+   "tests": 5
+  },
+  "test_proxy_population_payment_gate": {
+   "exit": 0,
+   "log_sha256": "93dd1d425e2593c801ea25e6d11b932eb2fb67c7ff8e3088d7188998ea5c474f",
+   "ok": true,
+   "seconds": 4.775,
+   "tests": 4
+  },
+  "test_proxy_population_payment_operands": {
+   "exit": 0,
+   "log_sha256": "a2535cd01185857cbf590593aa116a0eaf5031f7bf8c9e010215a740cd4216ef",
+   "ok": true,
+   "seconds": 1.26,
+   "tests": 12
+  },
+  "test_proxy_population_permitted_inputs": {
+   "exit": 0,
+   "log_sha256": "adb3c517dca790cc5c272a18e76ad113fe34933860a249af97bc048c19d24419",
+   "ok": true,
+   "seconds": 22.199,
+   "tests": 2
+  },
+  "test_proxy_population_person_placement_effect": {
+   "exit": 0,
+   "log_sha256": "46efd17894ec64cbf91f359216218202e1ff364c0f2972f5bcd6286b434e19c1",
+   "ok": true,
+   "seconds": 3.792,
+   "tests": 5
+  },
+  "test_proxy_population_policy_bridge": {
+   "exit": 0,
+   "log_sha256": "f7543d9e4317449adb2372e95533b0dd5d5798746af6a0464cff0262684706ee",
+   "ok": true,
+   "seconds": 0.47,
+   "tests": 7
+  },
+  "test_proxy_population_policy_journal": {
+   "exit": 0,
+   "log_sha256": "7a09eed7c3946725c09eb06a3234bb280fc335ed58727770d9450218d59a8547",
+   "ok": true,
+   "seconds": 671.139,
+   "tests": 5
+  },
+  "test_proxy_population_positive_activation_effect": {
+   "exit": 0,
+   "log_sha256": "576f43764bc8c3ee357f2a5b23c2f273bb4b9fde3c60961565f102488417d5ae",
+   "ok": true,
+   "seconds": 1.363,
+   "tests": 4
+  },
+  "test_proxy_population_positive_provenance": {
+   "exit": 0,
+   "log_sha256": "8993dd385f5bfa68fffadf3577cda76591384b69031e1a2b62979417f09c59b5",
+   "ok": true,
+   "seconds": 1.809,
+   "tests": 8
+  },
+  "test_proxy_population_positive_saved_history": {
+   "exit": 0,
+   "log_sha256": "0816440777f43551eeb5b8550074cc1584ed696d89c84feffb7d93ce0ef89ef8",
+   "ok": true,
+   "seconds": 4.037,
+   "tests": 1
+  },
+  "test_proxy_population_positive_window": {
+   "exit": 0,
+   "log_sha256": "371f697c32f4617c330e6d85e1eea8089f51295dbf5ec3dbe8045af1884e6dba",
+   "ok": true,
+   "seconds": 8.074,
+   "tests": 4
+  },
+  "test_proxy_population_predicate_gate": {
+   "exit": 0,
+   "log_sha256": "e0811fb76b3480a036fd0ce00b047e1c3e57e925b6966d7efe8d5bac68c32355",
+   "ok": true,
+   "seconds": 7.02,
+   "tests": 2
+  },
+  "test_proxy_population_prepared_board_routes": {
+   "exit": 0,
+   "log_sha256": "4cc261412e7823ff0c8e086c9722cb42bdaf4c0698420eea9e80f71962925efa",
+   "ok": true,
+   "seconds": 0.998,
+   "tests": 4
+  },
+  "test_proxy_population_prepared_information": {
+   "exit": 0,
+   "log_sha256": "5e3b98dc628b32f88e618035b6548bd6cf16f977579cc38d277c1b6cd8712e0b",
+   "ok": true,
+   "seconds": 2.218,
+   "tests": 7
+  },
+  "test_proxy_population_prepared_placement_effect": {
+   "exit": 0,
+   "log_sha256": "f38bb3cd91640675de9c87890e19cfc261febc01b27aa00601f6f4e983d955c1",
+   "ok": true,
+   "seconds": 2.325,
+   "tests": 4
+  },
+  "test_proxy_population_prepared_predicates": {
+   "exit": 0,
+   "log_sha256": "ab4abc156cbc6f079b97ee20c6eba474b588e65b49ddabb7e755197f284de4f3",
+   "ok": true,
+   "seconds": 4.774,
+   "tests": 8
+  },
+  "test_proxy_population_public_application": {
+   "exit": 0,
+   "log_sha256": "00a39302cf6989df935f9f90a351737770f34d985cdfb875945ae0f032aefd17",
+   "ok": true,
+   "seconds": 0.112,
+   "tests": 4
+  },
+  "test_proxy_population_public_history": {
+   "exit": 0,
+   "log_sha256": "dc529c43cae23bc876aed6dd7de689d4793a84cec00f95a1e5b28369d27481c5",
+   "ok": true,
+   "seconds": 14.47,
+   "tests": 5
+  },
+  "test_proxy_population_public_sources": {
+   "exit": 0,
+   "log_sha256": "cfdbaefdec6f8172a8c7f601497d21c6117e9cb5889547e83228648d650a62b9",
+   "ok": true,
+   "seconds": 0.543,
+   "tests": 9
+  },
+  "test_proxy_population_public_turn": {
+   "exit": 0,
+   "log_sha256": "5d643b5f174f8325e5ece07352bc0b60775764873a8ee35400441fb0f0d85e38",
+   "ok": true,
+   "seconds": 0.163,
+   "tests": 5
+  },
+  "test_proxy_population_quick_recovery_effect": {
+   "exit": 0,
+   "log_sha256": "72abd8cb147aba2db4dd10c80ea185708b4164d9256ac1852f275d9e3c8c9c26",
+   "ok": true,
+   "seconds": 0.567,
+   "tests": 3
+  },
+  "test_proxy_population_quick_reveal": {
+   "exit": 0,
+   "log_sha256": "a9c591ecf7f016a469fb7d06b9707fa6dad5bd85dda38ab68b4ce48e290a0a40",
+   "ok": true,
+   "seconds": 1.621,
+   "tests": 5
+  },
+  "test_proxy_population_readiness": {
+   "exit": 0,
+   "log_sha256": "75f29be8dfcc9a7905fb2f35e194c0137a918e5793d575d66a55b71d3722a62c",
+   "ok": true,
+   "seconds": 0.187,
+   "tests": 8
+  },
+  "test_proxy_population_rebinding_launch": {
+   "exit": 0,
+   "log_sha256": "ac4ddf8dafdca5b32b7705d31be3f79ba229221d19a784bed6ff55a3c0e2ca46",
+   "ok": true,
+   "seconds": 8.272,
+   "tests": 5
+  },
+  "test_proxy_population_relationship_consumption": {
+   "exit": 0,
+   "log_sha256": "2df500a01c743b0b21d3c844fce8b895cb1c2722f4a9d689dfdd357140f19db8",
+   "ok": true,
+   "seconds": 1.061,
+   "tests": 4
+  },
+  "test_proxy_population_relationship_predicates": {
+   "exit": 0,
+   "log_sha256": "8d309e1ad1bfa9f1a374a00fcf7c46cb146d5a3ae9e7c3b63a4512a874a602e8",
+   "ok": true,
+   "seconds": 0.122,
+   "tests": 2
+  },
+  "test_proxy_population_remote_publication": {
+   "exit": 0,
+   "log_sha256": "70dd4c39cf9b417775e1abf4b05140fead4bf601895f5f4ef41f11af08188124",
+   "ok": true,
+   "seconds": 1.406,
+   "tests": 4
+  },
+  "test_proxy_population_resolution_choices": {
+   "exit": 0,
+   "log_sha256": "4db8286282a46bd740bca9361689b7c6304a1102f74024c926229ccb10d08423",
+   "ok": true,
+   "seconds": 0.304,
+   "tests": 9
+  },
+  "test_proxy_population_resolution_order": {
+   "exit": 0,
+   "log_sha256": "0655c69b8a1253480e67eeca2311b94ea3846d17fdc5c0008c071d4378781cec",
+   "ok": true,
+   "seconds": 0.051,
+   "tests": 4
+  },
+  "test_proxy_population_resolution_semantics": {
+   "exit": 0,
+   "log_sha256": "6cf3d77f55a21a277db425899071e0119372b3dbb92409d7b67f664a49f49114",
+   "ok": true,
+   "seconds": 2.663,
+   "tests": 3
+  },
+  "test_proxy_population_response_activation_closure": {
+   "exit": 0,
+   "log_sha256": "1b52c5bd3f46e692257cfa5d8136311f4fbffa2df3467d894ea1b3944b7300af",
+   "ok": true,
+   "seconds": 1.366,
+   "tests": 4
+  },
+  "test_proxy_population_response_board_predicates": {
+   "exit": 0,
+   "log_sha256": "9e3ee5d85b4709a19314ee04dbc8d575b1a7328131a47bfcdf2fb7f6fed4bc32",
+   "ok": true,
+   "seconds": 5.522,
+   "tests": 5
+  },
+  "test_proxy_population_response_composition": {
+   "exit": 0,
+   "log_sha256": "1e2af4840f6845705cc7fffa080f84af5f9c0f0dbd8ebd3fa1f1ed49614262ed",
+   "ok": true,
+   "seconds": 4.481,
+   "tests": 4
+  },
+  "test_proxy_population_response_context": {
+   "exit": 0,
+   "log_sha256": "e1f555ce0c6b0678e72e175175f77af473fdb9f82f800a08fa3e11ee2076f9f6",
+   "ok": true,
+   "seconds": 0.399,
+   "tests": 2
+  },
+  "test_proxy_population_response_end_predicates": {
+   "exit": 0,
+   "log_sha256": "e8da2e511bd85f27b5120f748b9bb96b321b34c1c1a80ce62d7048ef6b14cb3d",
+   "ok": true,
+   "seconds": 0.443,
+   "tests": 3
+  },
+  "test_proxy_population_response_event_predicates": {
+   "exit": 0,
+   "log_sha256": "842a7c3bdb7a487406135d1800dee8395fb3b12f1360364fb8bcf4d454ce002d",
+   "ok": true,
+   "seconds": 0.799,
+   "tests": 2
+  },
+  "test_proxy_population_response_expansions": {
+   "exit": 0,
+   "log_sha256": "5add332e121a1f6df3fdbf661dbf952076eff9f8bb0924852e830786a852bc37",
+   "ok": true,
+   "seconds": 4.611,
+   "tests": 4
+  },
+  "test_proxy_population_response_group_closure": {
+   "exit": 0,
+   "log_sha256": "60ac62b02d8ada6d404c6bb7311e4188d9c84b37d2b80d22ad78e7bfe0e23ffd",
+   "ok": true,
+   "seconds": 3.786,
+   "tests": 5
+  },
+  "test_proxy_population_response_latched_predicates": {
+   "exit": 0,
+   "log_sha256": "f9960d0b82bd4b2996000483a867865cad83f064c04651aa919fa0761f14d12e",
+   "ok": true,
+   "seconds": 0.206,
+   "tests": 2
+  },
+  "test_proxy_population_response_operands": {
+   "exit": 0,
+   "log_sha256": "db11d7b6967a76646e524bdf7a953c340806e7e784042015df29c46b75351e1e",
+   "ok": true,
+   "seconds": 0.589,
+   "tests": 6
+  },
+  "test_proxy_population_response_pass_effect": {
+   "exit": 0,
+   "log_sha256": "db107e7bcbc0892850c0e64ff25bbcbf3da1120bcaccb41ecf6f71b083307327",
+   "ok": true,
+   "seconds": 0.596,
+   "tests": 3
+  },
+  "test_proxy_population_response_predicates": {
+   "exit": 0,
+   "log_sha256": "7eef820126e0d8fc86fc623d67c7ae29b83d61b6d74c5bd8a859058b89afa43f",
+   "ok": true,
+   "seconds": 6.944,
+   "tests": 4
+  },
+  "test_proxy_population_response_reactions": {
+   "exit": 0,
+   "log_sha256": "2cfd829c83612258caaf80369e7050420175648b777e3ddf65a625fc9edcfb06",
+   "ok": true,
+   "seconds": 5.184,
+   "tests": 5
+  },
+  "test_proxy_population_response_start_negative": {
+   "exit": 0,
+   "log_sha256": "51952b8b14e9cee6f2a7986d819b38565f970c55455f208741834b20c40fc4ef",
+   "ok": true,
+   "seconds": 2.756,
+   "tests": 3
+  },
+  "test_proxy_population_return_challenge": {
+   "exit": 0,
+   "log_sha256": "cb915075c7e942ada487f611b5931bd2b6fdee96f6f0246c477d93f4e582dd77",
+   "ok": true,
+   "seconds": 0.772,
+   "tests": 2
+  },
+  "test_proxy_population_return_effects": {
+   "exit": 0,
+   "log_sha256": "ecb17cee3a309084486e2934ba223d5436bfc1af7a59fab49e59735b5e1b8283",
+   "ok": true,
+   "seconds": 1.045,
+   "tests": 6
+  },
+  "test_proxy_population_reveal_effects": {
+   "exit": 0,
+   "log_sha256": "5016cfdbe7cf4f6599d3a5e8ec321811889052331e4d14707d2068d6f679161c",
+   "ok": true,
+   "seconds": 0.465,
+   "tests": 3
+  },
+  "test_proxy_population_runtime": {
+   "exit": 0,
+   "log_sha256": "60f92bf7819fdbe348fb61397bd47fb94b081c6555ec3452745719a8f466262f",
+   "ok": true,
+   "seconds": 4.049,
+   "tests": 7
+  },
+  "test_proxy_population_runtime_completion": {
+   "exit": 0,
+   "log_sha256": "912c0bc2d0a4cafdcdb819a5c0b6de042a4de5f15c01b18160a461d26ca774e0",
+   "ok": true,
+   "seconds": 0.233,
+   "tests": 3
+  },
+  "test_proxy_population_runtime_entry": {
+   "exit": 0,
+   "log_sha256": "8474faeed851133a46275491da42cd5563d5d460b1f70da60d57b95a0023c996",
+   "ok": true,
+   "seconds": 5.892,
+   "tests": 3
+  },
+  "test_proxy_population_schedule": {
+   "exit": 0,
+   "log_sha256": "d35c01312813ee6d948122f023d6ebedf5c8b23b8978a7829fc9ec82940d49e4",
+   "ok": true,
+   "seconds": 4.765,
+   "tests": 4
+  },
+  "test_proxy_population_selection_basis": {
+   "exit": 0,
+   "log_sha256": "0b136544959449691cf18a93612a058b14df44536dfb904d2fb8285837a9c286",
+   "ok": true,
+   "seconds": 0.009,
+   "tests": 3
+  },
+  "test_proxy_population_selection_entry": {
+   "exit": 0,
+   "log_sha256": "c76e4c414b68f43914d69d0fb16c7c03282704552d9092b7972f2fa3e77b61ba",
+   "ok": true,
+   "seconds": 3.044,
+   "tests": 5
+  },
+  "test_proxy_population_source_conservation": {
+   "exit": 0,
+   "log_sha256": "feda220ea07f26b92fcc66d21be74d8024771508c89a1022a339af79174d383f",
+   "ok": true,
+   "seconds": 14.765,
+   "tests": 5
+  },
+  "test_proxy_population_source_invariants": {
+   "exit": 0,
+   "log_sha256": "86cea866836c8d8f46ded2389e3cc310906191a0566ca3df2b30faa99761b3a6",
+   "ok": true,
+   "seconds": 4.507,
+   "tests": 5
+  },
+  "test_proxy_population_source_inventory": {
+   "exit": 0,
+   "log_sha256": "02e78b570425b71c679b37ceaa59568d69aa70907b4c3afe578973baeee8d4ea",
+   "ok": true,
+   "seconds": 5.387,
+   "tests": 6
+  },
+  "test_proxy_population_source_responsibilities": {
+   "exit": 0,
+   "log_sha256": "de258020232c595c441f41bba1f9227710a21f1da314abb5de8ba2b909ef2a23",
+   "ok": true,
+   "seconds": 20.766,
+   "tests": 3
+  },
+  "test_proxy_population_source_root": {
+   "exit": 0,
+   "log_sha256": "8c6af3da908528fdf9fb86ad03c25f0121f81c3f2aee6da873bf7f5d0f1b4c31",
+   "ok": true,
+   "seconds": 4.609,
+   "tests": 2
+  },
+  "test_proxy_population_start_condition_history": {
+   "exit": 0,
+   "log_sha256": "7713444a7c4bf7162040575398e1eb7d8c1c6a2973c6267b3ca44d14d57bed60",
+   "ok": true,
+   "seconds": 1.002,
+   "tests": 3
+  },
+  "test_proxy_population_start_draw_effect": {
+   "exit": 0,
+   "log_sha256": "9f134dba59d00666190ba16a776b6d00dd3dbf5f187b3c9c613ffec4a22ef0a4",
+   "ok": true,
+   "seconds": 0.774,
+   "tests": 4
+  },
+  "test_proxy_population_start_effects": {
+   "exit": 0,
+   "log_sha256": "9a70aebdf2778c9332c2a6cc0bb4e307a0347f38a4aa6da304b99cc079a5943b",
+   "ok": true,
+   "seconds": 0.062,
+   "tests": 2
+  },
+  "test_proxy_population_start_obligations": {
+   "exit": 0,
+   "log_sha256": "733f470271539ee21dd56e160902ecf9e4083b95aefa8862b8a051f64f57f849",
+   "ok": true,
+   "seconds": 0.065,
+   "tests": 4
+  },
+  "test_proxy_population_start_window": {
+   "exit": 0,
+   "log_sha256": "a9b0913e4a581261d2f2e5db8aea9006dd210b99333c109a1d8444d4adcfb183",
+   "ok": true,
+   "seconds": 26.762,
+   "tests": 12
+  },
+  "test_proxy_population_supervisor_interrupt": {
+   "exit": 0,
+   "log_sha256": "99ea030905304dbfcc64ba18bf5e92f74f299d0addab94498d3aeb1005a0d3af",
+   "ok": true,
+   "seconds": 4.294,
+   "tests": 3
+  },
+  "test_proxy_population_timing_occurrence": {
+   "exit": 0,
+   "log_sha256": "761f97d6bdcdb2ff6e16709f1a78f7f4f88b9eea2cee460aa5778ca886c397f9",
+   "ok": true,
+   "seconds": 0.421,
+   "tests": 4
+  },
+  "test_proxy_population_trace_obligations": {
+   "exit": 0,
+   "log_sha256": "71364aad868e71b1e901bf29e666702a9e25effaaca1c26f91fa2fef1f095eb7",
+   "ok": true,
+   "seconds": 55.514,
+   "tests": 3
+  },
+  "test_proxy_population_trigger_closure": {
+   "exit": 0,
+   "log_sha256": "f5295bde4669a5df4f063e6ceb39d4120ce2411f28b64d6a3747a169990cc141",
+   "ok": true,
+   "seconds": 0.004,
+   "tests": 2
+  },
+  "test_proxy_population_trigger_closure_effect": {
+   "exit": 0,
+   "log_sha256": "3eb04f573affa6e42dceb4fbe1107bfc3abf219d872008c8626ddb5fe413c08b",
+   "ok": true,
+   "seconds": 1.047,
+   "tests": 5
+  },
+  "test_proxy_population_trigger_connection": {
+   "exit": 0,
+   "log_sha256": "83e6fec508bd44e43cf41632b7c78e6d53cc73aa0fcbd31ae402b529b179db62",
+   "ok": true,
+   "seconds": 0.124,
+   "tests": 2
+  },
+  "test_proxy_population_trigger_coverage": {
+   "exit": 0,
+   "log_sha256": "d0b918d07d106e673f5b91c64dc41a8fb6729cef7401095cda7ec891895317ab",
+   "ok": true,
+   "seconds": 0.022,
+   "tests": 3
+  },
+  "test_proxy_population_trigger_effects": {
+   "exit": 0,
+   "log_sha256": "6155f856318522dfe5dd13a27981e4f1e9ac73a6be6a56d5469a6fcd1881f7f2",
+   "ok": true,
+   "seconds": 0.32,
+   "tests": 5
+  },
+  "test_proxy_population_trigger_existing": {
+   "exit": 0,
+   "log_sha256": "a1e9b2f3b0ca0784d1fc9b9d92cdde4c1218cd34277c4f054acdf5c9efd5902f",
+   "ok": true,
+   "seconds": 0.419,
+   "tests": 5
+  },
+  "test_proxy_population_trigger_latching": {
+   "exit": 0,
+   "log_sha256": "e306d495c87f14d5ea8cdefd012ba1cd4571218c0f0c464fc81d42aecd86b0a3",
+   "ok": true,
+   "seconds": 0.245,
+   "tests": 7
+  },
+  "test_proxy_population_trigger_multiturn": {
+   "exit": 0,
+   "log_sha256": "78d9579166b1de1d8fb4a67f3bfce100eb054b82bb5518eb87911c76f48978d5",
+   "ok": true,
+   "seconds": 30.673,
+   "tests": 1
+  },
+  "test_proxy_population_trigger_observation": {
+   "exit": 0,
+   "log_sha256": "9a2b02ffab6b3fc6cf45449d7a42a246fc52cf3af8d3e83c3afe8999c53c4fb5",
+   "ok": true,
+   "seconds": 0.001,
+   "tests": 2
+  },
+  "test_proxy_population_trigger_predicates": {
+   "exit": 0,
+   "log_sha256": "fb2d6e4b1c7242e1638aae5c104d9fc57c41068ff1df9b42e7a3baa2c84b4fc1",
+   "ok": true,
+   "seconds": 1.242,
+   "tests": 8
+  },
+  "test_proxy_population_trigger_replay": {
+   "exit": 0,
+   "log_sha256": "3e8f04a45c2703aac444428ccd021ed3151b71a861410958327589906feb8857",
+   "ok": true,
+   "seconds": 0.64,
+   "tests": 3
+  },
+  "test_proxy_population_trigger_sequential": {
+   "exit": 0,
+   "log_sha256": "f0efb40661e4a967919fad0d1ac9d965fb48e35d05f3e4ecaf22a3955045fb63",
+   "ok": true,
+   "seconds": 0.297,
+   "tests": 4
+  },
+  "test_proxy_population_trigger_window": {
+   "exit": 0,
+   "log_sha256": "2e2fbb351e4c5edeea525b6e133ecfc6a698fdfcfc160ee82c43fc3c6c6bd0ac",
+   "ok": true,
+   "seconds": 0.755,
+   "tests": 4
+  },
+  "test_proxy_population_turn_boundary": {
+   "exit": 0,
+   "log_sha256": "a99d868052f32ca96af2b970e81dd912c1247322fcda1750dc46fba79a365f9c",
+   "ok": true,
+   "seconds": 0.392,
+   "tests": 6
+  },
+  "test_proxy_population_turn_finish_effect": {
+   "exit": 0,
+   "log_sha256": "f3c6fd98ebdc856da275f9226806e6760db603684a4f1a388d0c7be0769cbc34",
+   "ok": true,
+   "seconds": 0.657,
+   "tests": 4
+  },
+  "test_proxy_population_typed_resolution": {
+   "exit": 0,
+   "log_sha256": "e772753a3611648716cb7d5a1d3f13d6ab9e2b4fe9762ace55fff144970821ee",
+   "ok": true,
+   "seconds": 2.017,
+   "tests": 7
+  },
+  "test_proxy_population_unproved_priority": {
+   "exit": 0,
+   "log_sha256": "46de43dbb591fd56114c4531e905790b16d033325c94ef2e25ed45355a418afc",
+   "ok": true,
+   "seconds": 1.168,
+   "tests": 9
+  },
+  "test_proxy_population_victory_history": {
+   "exit": 0,
+   "log_sha256": "12c9e165bc4d063d08010019eb5fbfb2af139c7173e55fab7a9a11746d937340",
+   "ok": true,
+   "seconds": 0.04,
+   "tests": 5
+  },
+  "test_proxy_population_world_placement_effect": {
+   "exit": 0,
+   "log_sha256": "fa8778100da5563104e6a7934684423a9e237cfe4e2d0ed24664d047f5de51df",
+   "ok": true,
+   "seconds": 1.978,
+   "tests": 3
+  },
+  "test_proxy_population_zone_effects": {
+   "exit": 0,
+   "log_sha256": "36211f3316d7ecf6769b64816935ce378a4e80a8243c27f3a6a6d333bf884863",
+   "ok": true,
+   "seconds": 0.856,
+   "tests": 3
+  }
+ },
+ "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+ "schema": "fixed400_restart_regression.v1",
+ "source_commit": "aee9186dfd871d501c283655da6dad10d54934a7",
+ "source_tree_docs_card_game": "aa179ab36ef3e527ea60c1c76207537dcced9195",
+ "tests": 1156
+}
