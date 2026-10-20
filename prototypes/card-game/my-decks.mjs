@@ -3,7 +3,7 @@ export const MY_DECK_KEY='naotocchi-my-decks-v1';
 export const LEGACY_DECK_KEY='naotocchi-deck-drafts-v1';
 export const MAX_DECKS=20;
 const fail=message=>{throw Error(message);};
-const newID=()=>crypto.randomUUID();
+const newID=()=>crypto.randomUUID?.()??Array.from(crypto.getRandomValues(new Uint8Array(16)),v=>v.toString(16).padStart(2,'0')).join('');
 function name(value){if(typeof value!=='string'||!value.trim()||value.length>48)fail('名前は1〜48文字で入力してください');return value.trim();}
 function cards(value){
  if(!Array.isArray(value)||value.length>40)fail('デッキは最大40枚です');

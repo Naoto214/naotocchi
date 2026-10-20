@@ -1,3 +1,4 @@
+import {addCollectionCard} from './collection.mjs';
 import {CARDS,TYPE_NAMES,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {DeckLibrary,MAX_DECKS,MY_DECK_KEY,filterCards} from './my-decks.mjs';
 import {cardMarkup} from './ui-presentation.mjs';
@@ -6,6 +7,7 @@ import {cardMarkup} from './ui-presentation.mjs';
 export function mountMyDecks({inspect,message,onChange}){
  const $=id=>document.getElementById(id),node=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
  const action=(text,fn)=>{const b=node('button',text);b.type='button';b.onclick=fn;return b;};
+ let suspended=false;
  let library,blocked='',saved=false,edited,signature='',rows=new Map();
  try{library=new DeckLibrary(localStorage);}catch(e){blocked='保存データを読み込めません。元データは変更せず、この画面のみで編集します。'+e.message;library=new DeckLibrary({getItem:()=>null,setItem:()=>{throw Error(blocked);}});}
  edited=library.data.selected.A;
@@ -42,7 +44,7 @@ export function mountMyDecks({inspect,message,onChange}){
   for(const [id,n] of m){const row=node('div');row.className='deck-row';const b=action(CARDS[id].name,()=>inspect(id,{catalog:true,origin:b}));row.append(b,node('span',`×${n}`),action('− 1枚',()=>run(()=>library.change(edited,id,-1))));list.append(row);}list.scrollTop=scroll;
   $('deck-contents-count').textContent=`投入中のカード（${d.cards.length}枚）`;
  }
- function refresh(force=false){renderLibrary();if($('deck-editor').open){buildCatalog(force);counts();}const decks=library.selectedDecks();onChange(decks);$('new').disabled=!['A','B'].every(s=>{try{validateDeck(decks[s]);return true;}catch{return false;}});for(const s of ['A','B'])$('deck-valid-'+s).textContent=valid(library.get(library.data.selected[s]));}
+ function refresh(force=false){renderLibrary();if($('deck-editor').open&&!suspended&&!$('welcome').hidden){buildCatalog(force);counts();}const decks=library.selectedDecks();onChange(decks);$('new').disabled=!['A','B'].every(s=>{try{validateDeck(decks[s]);return true;}catch{return false;}});for(const s of ['A','B'])$('deck-valid-'+s).textContent=valid(library.get(library.data.selected[s]));}
  for(const [id,label] of Object.entries(TYPE_NAMES)){const o=node('option',label);o.value=id;$('card-type').append(o);}
  for(const attr of [...new Set(Object.values(CARDS).map(c=>c.attribute).filter(Boolean))]){const o=node('option',attr);o.value=attr;$('card-attribute').append(o);}
  for(const c of Object.values(CARDS).filter(c=>c.type==='main'&&c.stage===1)){const o=node('option',c.name.replace(/[①-⑧]/g,''));o.value=c.species;$('card-species').append(o);}
@@ -66,5 +68,5 @@ export function mountMyDecks({inspect,message,onChange}){
  window.addEventListener('storage',e=>{if(e.key!==MY_DECK_KEY)return;blocked='別タブでデッキが変更されました。編集内容を書き出してから再読込してください。';library.storage={getItem:()=>{throw Error(blocked);},setItem:()=>{throw Error(blocked);}};inform(blocked);});
  window.addEventListener('beforeunload',e=>{if(!saved){e.preventDefault();e.returnValue='';}});
  if(blocked)inform(blocked);else persist();refresh();
- return {refresh:()=>refresh(true),release:()=>{rows.clear();signature='';$('catalog-list').replaceChildren();$('deck-list').replaceChildren();}};
+ return {list:()=>library.data.decks.map(d=>({id:d.id,name:d.name,cards:[...d.cards]})),edited:()=>edited,add:(id,card)=>{const result=addCollectionCard(library,id,card);saved=true;refresh();return result;},suspend:()=>{suspended=true;rows.clear();signature='';$('catalog-list').replaceChildren();},resume:()=>{suspended=false;refresh(true);},refresh:()=>refresh(true),release:()=>{rows.clear();signature='';$('catalog-list').replaceChildren();$('deck-list').replaceChildren();}};
 }

@@ -1,3 +1,4 @@
+import {mountCollection} from './collection-ui.mjs';
 import {mountMyDecks} from './my-decks-ui.mjs';
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
@@ -20,7 +21,7 @@ let session=new HotseatSession({autoAdvance:true});
 const input=installActionInputGuard(document,()=>({session,revision:session.projection?.revision,viewer:session.viewer}));
 let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
-const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog'].some(id=>$(id).open),onStep:()=>{persist();render();}});
+const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
 const turnFeedback=new TurnFeedback();
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
@@ -150,6 +151,10 @@ $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
 const myDecks=mountMyDecks({inspect,message,onChange:next=>{decks=next;}});
+const collection=mountCollection({decks:myDecks,onOpen:()=>cpu.cancel(),onClose:()=>cpu.schedule()});
+$('collection-open').onclick=e=>collection.open(e.currentTarget);
+$('deck-collection-open').onclick=e=>collection.open(e.currentTarget,true);
+$('menu-collection-open').onclick=e=>collection.open(e.currentTarget);
 function renderDeck(){myDecks.refresh();}
 $('coverage').textContent=`全${Object.keys(CARDS).length}種類を収録・実行対応${Object.keys(CARDS).filter(supported).length}種類。`;
 

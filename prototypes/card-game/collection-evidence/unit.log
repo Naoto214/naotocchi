@@ -1,0 +1,22 @@
+✔ 453 unique cards, egg first, 31 contiguous eight-stage families and 51 nine-pocket pages (1.972969ms)
+✔ filters compose for name/effect/type/attribute/species/stage/rarity/favorites (1.231839ms)
+✔ preferences persist independently, merge latest fields, preserve corrupt data and reject failed saves (0.726759ms)
+✔ deck additions share original schema, reject egg/full/normal4/rare2 and roll back quota/conflicts (1.756998ms)
+✔ deck creation works where secure-context randomUUID is unavailable (0.959955ms)
+✔ migrates A/B independently, never changes legacy or match saves and persists names and selections (2.310531ms)
+✔ create clone edit delete and independent selection retain distinct identities (1.839792ms)
+✔ copy limits and forty-card bound are enforced; invalid inputs never mutate (0.366974ms)
+✔ JSON roundtrip and old A/B import append without loss and reject malicious schema atomically (0.952755ms)
+✔ bad existing data stays untouched; quota failures leave edits available for export (0.425922ms)
+✔ catalog filters cover all cards, attribute, species and stage in combination (0.696404ms)
+✔ selected arrays are independent from the library and valid for existing engine (1.064771ms)
+✔ explicit restore can recover a full 20-deck backup with selected seats; default import never replaces (0.541534ms)
+✔ stale writers fail even before a storage event and retain edits for export (0.519311ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 107.040762
