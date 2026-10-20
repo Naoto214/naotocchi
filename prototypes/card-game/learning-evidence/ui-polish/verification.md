@@ -77,6 +77,12 @@ CPU側3×3の対面配置、正立画像、スロットID、正式状態、gameM
 ## 保存・試遊版
 
 GitHubは既存PRブランチへ保存し、Draftを維持。mainマージ・本番GitHub Pages更新は行わない。
-同じ本人専用URLを更新する: https://naotocchi-learn-20261020.kerzion214.chatgpt.site/
+同じ本人専用URLの更新成功（owner-private維持）: https://naotocchi-learn-20261020.kerzion214.chatgpt.site/
 公開結果・実装HEAD/tree・Site版の対応は `publication.json` に記録する。最終証跡コミットはこの記録を加えるだけでruntimeは同一。
 配信960ファイル／141,520,412 bytes、959 source/assetsがGitHubとバイト一致、root redirectは従来どおり。詳細は `runtime-integrity.json`。
+
+配信後にも通常メニューから表紙を開き、transform:noneとcaptionが表紙外にあることを確認。
+
+![配信後の表紙](published-cover.jpg)
+
+実装コミットのPages CI job `118662529164` は既存のlearning-ui.mjs / rulebook-content.mjs / learning.cssのallowlist未登録で失敗。deployはskipped。本番Pagesへの公開はない。その他CIは公開記録時点で実行中。
