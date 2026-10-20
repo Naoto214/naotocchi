@@ -20,6 +20,9 @@ import proxy_continuation_preparation as preparation
 import proxy_continuation_quick as quick
 import proxy_resource_value_trajectory as old
 import proxy_response_window_contract as response_contract
+import proxy_normal_action_seeded_restart as restart_122
+from proxy_mandatory_policy_contract import canonical
+LEGACY_VERIFY_STEP=restart_122._verify_step
 
 
 def active_cards(cards):
@@ -32,6 +35,14 @@ def active_cards(cards):
   if any(life.digest(cards[s])!=life.digest(cards[physical+'#1']) for s in instances):raise ValueError('incarnation card definition changed')
   active[physical]=physical+'#'+str(len(instances))
  return active
+
+
+def retains_predecessor(cards):
+ # A full reentry state keeps physical#n-1 metadata beside physical#n.
+ for source in cards:
+  match=life.INSTANCE_RE.fullmatch(source)
+  if match and int(match.group(2))>1 and match.group(1)+'#'+str(int(match.group(2))-1) in cards:return True
+ return False
 
 
 def verify_hashes(before,after,events):
@@ -122,6 +133,7 @@ class Connection:
   prior_guard=guard.require_initial_entry;prior_departure=departure.replace_companion;prior_transition=batch.transition;prior_apply=actions.apply;prior_bind=actions.bind_event;prior_verify=old.extension._verify_extended_step;prior_validate=state.validate;prior_detail=response_contract._instance_detail;prior_set=preparation.set_card;prior_attach=actions.attach
   prior_placement=history_replay.legacy_placement
   prior_final_verify=quick.final_time.verify_transition
+  prior_step=restart_122._verify_step
   def final_verify(row,after,event):
    before=quick.final_time.contracts.current(row)
    outer_board=[link for link in before['activation_zone'][:-1] if link.get('source_zone')=='board']
@@ -158,6 +170,24 @@ class Connection:
     checker._snapshot_instance_errors=snapshot
     return prior_final_verify(row,after,event)
    finally:checker._snapshot_instance_errors=prior_snapshot
+  def final_comparison(before,after,events):
+   # turn_boundary's R10 final comparison calls the unchanged 122 verifier
+   # directly. Only that transition receives the registry-bound active view;
+   # every other caller, every non-reentry game and every state already
+   # projected by verify() above keeps the legacy check.
+   if len(events)!=1 or events[0].get('action_type')!='r10_final_comparison' or not any(retains_predecessor(c['game_state']['cards']) for c in (before,after)):return prior_step(before,after,events)
+   if before['game_state']['round']!=10 or after['game_state']['phase']!='completed' or canonical(before['game_state']['cards'])!=canonical(after['game_state']['cards']):raise ValueError('R10 incarnation final comparison state differs')
+   record=self.registry(before['game_state'])
+   for current in (before,after):life.check(record,dict(legacy_continuation=current))
+   r=restart_122.response_120;event=events[0]
+   # Prove the full-state step first; the legacy zone check then sees active cards only.
+   if after['last_event_seq']!=before['last_event_seq']+1 or after['continuation_state_sha256']!=r.continuation_state_sha256(r._continuation_payload(after)):raise r.RouteIntegrityStop('event_hash_discontinuity',restart_122._snapshot(before),{'field':'continuation_state_sha256'})
+   if event['seq']!=after['last_event_seq'] or event['game_state_before_sha256']!=r.game_state_sha256(before['game_state']) or event['continuation_state_before_sha256']!=before['continuation_state_sha256'] or event['game_state_after_sha256']!=r.game_state_sha256(after['game_state']) or event['continuation_state_after_sha256']!=after['continuation_state_sha256']:raise r.RouteIntegrityStop('event_hash_discontinuity',restart_122._snapshot(before),{'seq':event.get('seq')})
+   def project(c):
+    p=copy.deepcopy(c);p['game_state']=life.project_game(record,c['game_state']);p['continuation_state_sha256']=r.continuation_state_sha256(r._continuation_payload(p));return p
+   b=project(before);a=project(after);private=copy.deepcopy(events)
+   private[0].update(game_state_before_sha256=r.game_state_sha256(b['game_state']),continuation_state_before_sha256=b['continuation_state_sha256'],game_state_after_sha256=r.game_state_sha256(a['game_state']),continuation_state_after_sha256=a['continuation_state_sha256'])
+   return prior_step(b,a,private)
   def validate(e):
    prior_validate(e);active=active_cards(life.game(e)['cards'])
    # Existing information-only projections deliberately omit inactive hidden
@@ -214,8 +244,8 @@ class Connection:
   try:
    history_replay.legacy_placement=legacy_placement
    quick.final_time.verify_transition=final_verify
-   preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;yield
+   preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;restart_122._verify_step=final_comparison;yield
   finally:
    history_replay.legacy_placement=prior_placement
    quick.final_time.verify_transition=prior_final_verify
-   preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;_SCOPE_LOCK.release()
+   preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;restart_122._verify_step=prior_step;_SCOPE_LOCK.release()
