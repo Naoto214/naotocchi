@@ -11,21 +11,30 @@ function cardValue(c,o){
  if(c.type==='world')return b.world?.cardId===c.cardId?1:b.world?3:8;
  return 5-Math.min(5,c.cost??0)*.4+(c.rare?1:0);
 }
+// Draw-equivalent scale: a random draw is worth 3, so a known/selected card is worth 3 x (its value / own deck mean).
+function deckMean(o){let n=0,t=0;for(const c of o.deck??[]){t+=Math.max(0,cardValue(c,o))*c.count;n+=c.count;}return n?Math.max(1,t/n):null;}
+const choose=(n,k)=>{if(k<0||k>n)return 0;let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r;};
+// E[min(X,max)] for X ~ Hypergeometric(N deck, K matching, n looked at).
+function expectedHits(N,K,n,max){n=Math.min(n,N);if(!N||!K||!n)return 0;let e=0;const all=choose(N,n);for(let x=1;x<=Math.min(K,n);x++)e+=Math.min(x,max)*choose(K,x)*choose(N-K,n-x)/all;return e;}
+function searchValue(s,o){const mean=deckMean(o);if(!s.hit||!mean)return null;const K=s.hit.matches.reduce((n,c)=>n+c.count,0);if(!K)return 0;
+ const best=Math.max(0,...s.hit.matches.map(c=>cardValue(c,o)));return 3*expectedHits(s.hit.N,K,s.n,s.max??1)*best/mean;}
 function stepValue(steps,o,a){
  const p=o.players[o.seat],opp=o.players[other(o.seat)],targetSign=a.targetSeat&&a.targetSeat!==o.seat?-1:1;
  return steps.reduce((total,s)=>{let n=Number(s.n??1),v=0;
  switch(s.op){
  case 'growth':v=(s.to==='opponent'?-1:1)*Math.min(Math.abs(n),n<0?(s.to==='opponent'?opp.growth:p.growth):100-(s.to==='opponent'?opp.growth:p.growth))*(n<0?-1:1)*(o.round>=8?2.2:1.6);break;
  case 'draw':v=(s.to==='opponent'?-1:1)*Math.min(n,p.deckCount)*3;break;
- case 'search':case 'chooseTop':case 'revealTopType':case 'deepseaFishing':v=p.deckCount?5:0;break;
+ case 'search':v=searchValue(s,o)??(p.deckCount?5:0);break;
+ case 'chooseTop':case 'revealTopType':case 'deepseaFishing':v=p.deckCount?5:0;break;
  case 'stat':v=targetSign*((s.power??0)+(s.wisdom??0))*(o.challenge?2.4:s.duration==='turn'&&o.turn!==o.seat?.2:1.1);break;
  case 'chosenStat':case 'battleStat':v=n*(o.challenge?2:1);break;
- case 'move':case 'selectedMove':v=a.targetSeat===o.seat?(s.destination==='hand'?3:-6):a.targetSeat?7:2;break;
+ case 'move':case 'selectedMove':{const mean=deckMean(o);v=a.targetSeat===o.seat?(s.destination==='hand'?(a.targetZone==='ownDiscard'&&a.target&&!a.target.hidden&&mean?3*Math.max(0,cardValue(a.target,o))/mean:3):-6):a.targetSeat?7:2;break;}
  case 'negate':v=o.chain.some(l=>l.actor!==o.seat)?12:0;break;
  case 'discount':v=o.turn===o.seat?n*2:0.5;break;
  case 'handBottom':case 'handTop':v=-3;break;
  case 'schedule':v=stepValue(s.steps,o,a)*(o.round===10?.1:.65);break;
- case 'if':v=stepValue(s.steps,o,a)*.45;break;
+ // targetPresent re-checks the action's own target, which is on the field whenever the action is offered.
+ case 'if':v=stepValue(s.steps,o,a)*(s.condition==='targetPresent'&&a.target?1:.45);break;
  case 'chance':v=stepValue(s.steps,o,a)*Math.max(0,Math.min(1,Number(s.p)||0));break;
  case 'coin':v=5;break;
  case 'growthVariant':v=Math.min(5,a.variant==='opponent'?opp.growth:100-p.growth)*(o.round>=8?2.2:1.6);break;
@@ -43,12 +52,14 @@ function choiceScore(a,o){
  if(c){const discard=/bottom|handTop|handBottom/.test(q?.kind??'')||q?.selection?.cost||q?.selection?.destination==='discard'||q?.destination==='discard';const enemy=a.targetSeat&&a.targetSeat!==o.seat;return (discard?-1:1)*worth*(enemy?-1:1);}
  return 2; // Legal opaque alternatives (orders/declarations/replacements); deterministic tie break.
 }
-export function scoreCpuAction(a,o){
+// Previous flat time penalty. Still used where later normal actions compete for the same time (own-turn response/choice).
+export const legacySpend=(a,o)=>(a.cost??0)*(o.round<4?2.6:1.25);
+export function scoreCpuAction(a,o,spendOf=legacySpend){
  const p=o.players[o.seat],opp=o.players[other(o.seat)],b=p.board,c=a.card;
  if(a.kind==='choose')return choiceScore(a,o);
  if(a.kind==='pass')return 0;
  if(a.kind==='skip')return -0.1;
- const cost=a.cost??0,spend=cost*(o.round<4?2.6:1.25);
+ const spend=spendOf(a,o);
  if(a.kind==='place'){
   if(a.slot==='main'){if(a.variant==='birth')return 40+Math.max(c?.power??0,c?.wisdom??0)-spend;const improvement=Math.max(c?.power??0,c?.wisdom??0)-Math.max(p.stats?.power??0,p.stats?.wisdom??0);return (a.variant==='time_skip'?13:0)+improvement*2+(c?.stage??0)-(b.main?.stage??0)-spend;}
   if(a.slot==='partner')return 20+(b.main?6:0);
@@ -74,9 +85,21 @@ export function scoreCpuAction(a,o){
  if(!['programPlay','play','programAbility','ability','trigger'].includes(a.kind))throw Error('Unknown CPU action kind: '+a.kind);
  return value;
 }
+// Time is reset to the round number at each own turn start (engine beginTurn) and never carries over. In the own normal
+// phase and on the opponent's turn, paying time only costs what it makes unaffordable: the best other candidate now,
+// or one card-equivalent (3) when a held reaction card could no longer be paid for.
+export function timeOpportunity(o){
+ const own=o.turn===o.seat;if(!(own&&o.phase==='normal')&&own)return null;
+ const t=o.players[o.seat].time??0,base=o.actions.map(a=>scoreCpuAction(a,o,()=>0));
+ return o.actions.map((a,i)=>{const c=a.cost??0;if(c<=0)return base[i];const left=t-c;
+  let alt=0;o.actions.forEach((b,j)=>{if(j!==i&&(b.cost??0)>left&&(b.cost??0)>0&&!(a.card&&b.card?.id===a.card.id)&&!['pass','choose','skip'].includes(b.kind))alt=Math.max(alt,base[j]);});
+  const reserve=own&&(o.reactive??[]).some(r=>r.id!==a.card?.id&&r.cost<=t&&r.cost>left)?3:0;
+  return base[i]-Math.max(alt,reserve);});
+}
 export function chooseCpuAction(observation,{difficulty='intermediate',seed=1,step=0}={}){
  if(!DIFFICULTIES.includes(difficulty))throw Error('Unsupported CPU difficulty');
  if(!observation?.actions?.length)throw Error('CPU has no legal candidates');
- const ranked=observation.actions.map((a,i)=>{let score=scoreCpuAction(a,observation);if(!Number.isFinite(score))throw Error('Non-finite CPU evaluation');if(difficulty==='beginner'&&score>0&&a.kind!=='choose')score=Math.min(score,12);return {id:a.id,score,tie:tie(seed,step,i)};}).sort((a,b)=>b.score-a.score||b.tie-a.tie);
+ const timed=timeOpportunity(observation);
+ const ranked=observation.actions.map((a,i)=>{let score=timed?timed[i]:scoreCpuAction(a,observation);if(!Number.isFinite(score))throw Error('Non-finite CPU evaluation');if(difficulty==='beginner'&&score>0&&a.kind!=='choose')score=Math.min(score,12);return {id:a.id,score,tie:tie(seed,step,i)};}).sort((a,b)=>b.score-a.score||b.tie-a.tie);
  return {id:ranked[0].id,score:ranked[0].score,policy:POLICY_VERSION};
 }

@@ -1,0 +1,113 @@
+{
+ "games": 3360,
+ "abnormal": 0,
+ "replay_mismatch": 0,
+ "new_wins": 1593,
+ "pr406_wins": 1478,
+ "draws": 289,
+ "new_score": 0.5171,
+ "ci95": [
+  0.5,
+  0.534
+ ],
+ "sign_test_p": 0.0397,
+ "new_score_by_new_side_deck": {
+  "D0_standard": [
+   0.261,
+   480,
+   [
+    0.224,
+    0.303
+   ]
+  ],
+  "D1_main_growth": [
+   0.632,
+   480,
+   [
+    0.588,
+    0.674
+   ]
+  ],
+  "D2_companions": [
+   0.483,
+   480,
+   [
+    0.439,
+    0.528
+   ]
+  ],
+  "D3_partner": [
+   0.739,
+   480,
+   [
+    0.697,
+    0.776
+   ]
+  ],
+  "D4_challenge": [
+   0.509,
+   480,
+   [
+    0.465,
+    0.554
+   ]
+  ],
+  "D5_growth_gain": [
+   0.677,
+   480,
+   [
+    0.634,
+    0.717
+   ]
+  ],
+  "D6_item_response": [
+   0.318,
+   480,
+   [
+    0.278,
+    0.361
+   ]
+  ]
+ },
+ "new_score_by_seat": {
+  "A": 0.521,
+  "B": 0.513
+ },
+ "policy_effect_by_deck": {
+  "D0_standard": {
+   "new_cpu_score": 0.261,
+   "pr406_cpu_score": 0.24,
+   "delta": 0.022
+  },
+  "D1_main_growth": {
+   "new_cpu_score": 0.632,
+   "pr406_cpu_score": 0.582,
+   "delta": 0.05
+  },
+  "D2_companions": {
+   "new_cpu_score": 0.483,
+   "pr406_cpu_score": 0.449,
+   "delta": 0.034
+  },
+  "D3_partner": {
+   "new_cpu_score": 0.739,
+   "pr406_cpu_score": 0.696,
+   "delta": 0.043
+  },
+  "D4_challenge": {
+   "new_cpu_score": 0.509,
+   "pr406_cpu_score": 0.501,
+   "delta": 0.008
+  },
+  "D5_growth_gain": {
+   "new_cpu_score": 0.677,
+   "pr406_cpu_score": 0.602,
+   "delta": 0.075
+  },
+  "D6_item_response": {
+   "new_cpu_score": 0.318,
+   "pr406_cpu_score": 0.31,
+   "delta": 0.007
+  }
+ }
+}
