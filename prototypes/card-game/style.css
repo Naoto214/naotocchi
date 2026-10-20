@@ -186,3 +186,6 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 @media(max-width:480px){.match-decks{grid-template-columns:1fr}.deck-filters{grid-template-columns:repeat(2,minmax(0,1fr))}#catalog-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.catalog-preview{width:90px}.deck-card-controls{grid-template-columns:44px 1fr 44px}.deck-edit-sticky{position:static}}
 @media(max-height:500px) and (orientation:landscape){.deck-edit-sticky{position:static}.deck-filters{grid-template-columns:repeat(4,minmax(0,1fr))}#catalog-list{max-height:62dvh}}
 #deck-editor[open] #deck-count{position:fixed;left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));bottom:0;z-index:12;margin:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#12392ff5;border:1px solid #b59b61;border-radius:12px 12px 0 0;box-shadow:0 -4px 18px #0004;font-size:13px;pointer-events:none}.playing #deck-count{display:none}body:has(#deck-editor[open]){padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+/* CPU strategy deck selection (welcome screen) */
+.cpu-deck-guide{margin:.25rem 0 .5rem;font-size:.9rem;line-height:1.5;opacity:.85}
+.cpu-deck-reveal{font-weight:600}
