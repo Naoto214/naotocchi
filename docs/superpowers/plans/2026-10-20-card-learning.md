@@ -34,6 +34,6 @@ No rule/engine/effect/schema/art/CPU changes, no main merge or production update
 - [x] Fresh whole-branch review, fix important issues with targeted regression coverage.
 
 ### Task 4: Delivery
-- [ ] Commit/push independent branch and create new Draft PR.
-- [ ] New owner-private Site, package exact runtime/assets, deploy and verify native success.
-- [ ] Record HEAD/tree/PR/trial/evidence and confirm remote main unchanged.
+- [x] Commit/push independent branch and create new Draft PR.
+- [x] New owner-private Site, package exact runtime/assets, deploy and verify native success.
+- [x] Record HEAD/tree/PR/trial/evidence and confirm remote main unchanged.

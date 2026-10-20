@@ -130,3 +130,11 @@ Chromeの管理プレビュー内で390×844、320×568、844×390の表示を�
 6. FUN_ITEMS既知監査不整合は別件。mainマージ・Ready化・本番反映は本人実機QA後の別承認。
 
 ルール変更を要する未解決事項は確認範囲ではありません。
+
+## 公開結果
+
+本人専用試遊版: https://naotocchi-learn-20261020.kerzion214.chatgpt.site
+
+Draft PR: https://github.com/Naoto214/naotocchi/pull/403
+
+2026-10-20にowner-private公開成功をnative deployment応答で確認。960ファイル・141,406,910 bytesのruntimeと画像が検証済み内容に完全一致。公開版・source commit・main不変の記録は `learning-evidence/publication.json`。既存の本番・試遊先には公開していません。
