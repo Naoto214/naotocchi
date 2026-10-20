@@ -1,0 +1,21 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="style.css"><title>Main title layout QA</title><style>body{padding:12px;overflow:auto}h1{margin:8px 0}.samples{display:flex;gap:16px;align-items:start}.sample{width:240px;flex:none}.sample>.card-face{width:240px;height:360px}.small{display:flex;gap:12px;margin-top:12px;align-items:end}.small>.card-face{width:48px;height:72px}.small>.card-face:last-child{width:100px;height:150px}#audit{white-space:pre-wrap;font:13px monospace;margin:12px 0}.all{display:grid;grid-template-columns:repeat(5,240px);gap:12px}.all .card-face{width:240px;height:360px}</style><h1>共通タイトル帯 · 1行／2行 · 詳細／盤面／コレクション</h1><div class="samples" id="samples"></div><pre id="audit">計測中</pre><details><summary>全248メインカード（タイトル表示のみの確認）</summary><div class="all" id="all"></div></details><script type="module">
+import {CARDS} from './engine.mjs';import {cardMarkup} from './ui-presentation.mjs';
+const ids=['M-starfish-01','M-turtle-03','M-antlion-06','M-plush-04','M-starfish-08'];
+const cards=ids.map(id=>CARDS[id]).filter(Boolean);
+samples.innerHTML=cards.map(c=>`<section class="sample"><p>${c.id}</p>${cardMarkup(c,{detail:true})}<div class="small">${cardMarkup(c,{compact:true})}${cardMarkup(c)}</div></section>`).join('');
+const allCards=Object.values(CARDS).filter(c=>c.type==='main');all.innerHTML=allCards.map(c=>cardMarkup(c)).join('');
+// Make every title measurable, then retain the full gallery in a collapsible section.
+const details=document.querySelector('details');details.open=true;
+await document.fonts.ready;await new Promise(requestAnimationFrame);
+const rows=[...all.children].map(el=>{
+ const box=e=>{const r=e.getBoundingClientRect(),a=el.getBoundingClientRect();return {x:r.x-a.x,y:r.y-a.y,w:r.width,h:r.height}};
+ const t=el.querySelector('.card-title'),heading=el.querySelector('.card-heading'),a=box(el.querySelector('.card-art'));
+ const lines=[...t.children],tr=t.getBoundingClientRect();
+ const overflow=lines.some(line=>{const r=line.getBoundingClientRect();return r.width>tr.width+.5||r.top<tr.top-.5||r.bottom>tr.bottom+.5});
+ const r={name:el.getAttribute('aria-label'),font:getComputedStyle(t).fontSize,title:box(t),heading:box(heading),art:a,stats:box(el.querySelector('.card-stats')),copy:box(el.querySelector('.card-copy')),footer:box(el.querySelector('.card-footer')),overflow};
+ return r;
+});
+const geometries=new Set(rows.map(r=>JSON.stringify([r.font,r.title.y,r.title.h,r.art.y,r.stats.y,r.copy.y,r.footer.y])));
+const result={count:rows.length,uniformGeometry:geometries.size,overflow:rows.filter(r=>r.overflow),rows};
+window.uiPolishAudit=result;audit.textContent=JSON.stringify({count:result.count,uniformGeometry:result.uniformGeometry,overflow:result.overflow},null,2);details.open=false;
+</script></html>

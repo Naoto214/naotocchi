@@ -31,6 +31,75 @@ export function icon(key){if(marks[key])return attributeIcon(key);return `<svg c
 const leafSprig='<path d="M5 37Q4 10 26 4M5 23Q0 17 5 12Q11 17 5 23M9 14Q8 5 16 5Q18 12 9 14M16 8Q20 1 27 4Q25 10 16 8"/><path d="M6 31Q12 21 14 27Q14 33 6 31M3 39Q7 33 10 36Q8 42 3 39"/>';
 const ornament=`<svg class="botanical" viewBox="0 0 100 150" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".42"><rect x="2" y="2" width="96" height="146" rx="4"/><rect x="3.3" y="3.3" width="93.4" height="143.4" rx="3"/><path d="M23 5H77M23 145Q50 158 77 145M3 57l2-3 2 3-2 3ZM93 57l2-3 2 3-2 3Z"/></g><g class="leaf-filagree" stroke="currentColor" stroke-width=".25">${leafSprig}<g transform="translate(100 0) scale(-1 1)">${leafSprig}</g><g transform="translate(0 150) scale(1 -1)">${leafSprig}</g><g transform="translate(100 150) scale(-1 -1)">${leafSprig}</g></g></svg>`;
 
+// Presentation-only line breaks; canonical names, IDs and art stay untouched.
+// Seven full-width glyphs fit the shared main-title band. Longer names have reviewed breaks.
+const MAIN_TITLE_LINES = new Map(`丸い|あかちゃん
+巣作り|アリジゴク
+大きな|アリジゴク
+まゆの中の|さなぎ
+出たての|ウスバカゲロウ
+飛び回る|ウスバカゲロウ
+羽休めの|ウスバカゲロウ
+うまれたての|幼虫
+育ちざかりの|幼虫
+出たての|カブトムシ
+りっぱな|カブトムシ
+長生き|カブトムシ
+うまれたての|いもむし
+育ちざかりの|いもむし
+羽を広げた|ちょう
+花めぐりの|ちょう
+年を重ねた|ちょう
+おとしよりの|ねこ
+ぬけがらをぬぐ|セミ
+透けた|あかちゃん
+メスへ変わる|途中
+群れの|リーダーのメス
+小さな|サンゴの森
+色とりどりの|サンゴ
+大きな|サンゴの森
+広がる|サンゴの海
+葉がしげる|タンポポ
+おとしよりの|いぬ
+つのの生えた|りゅう
+小さなつばさの|りゅう
+つばさの育った|りゅう
+いにしえの|りゅう
+後ろ足が出た|おたま
+しっぽつき|かえる
+陸に上がった|かえる
+おとしよりの|かえる
+昔からいる|おばけ
+おだやかな|おばけ
+旅立ち前の|おばけ
+大いなる|かみさま
+ベテラン|ヤドカリ
+年を重ねた|クラゲ
+キノコの|小さな粒
+広がる|キノコの糸
+小さな|キノコの芽
+育ちざかりの|キノコ
+かさを広げた|キノコ
+粉を飛ばす|キノコ
+年を重ねた|キノコ
+ベテラン|ペンギン
+おとしより|ペンギン
+燃えさかる|火の鳥
+年を重ねた|火の鳥
+灰から|よみがえる鳥
+新品の|ぬいぐるみ
+よごれた|ぬいぐるみ
+ほつれた|ぬいぐるみ
+おじいちゃん|れん
+年を重ねた|サクラ
+うまれたての|さけ
+出たての|クワガタ
+りっぱな|クワガタ
+ぶつぶつ|子ヒトデ
+うまれたての|かめ
+若葉の|ハエトリグサ
+花咲く|ハエトリグサ`.split('\n').map(row=>{const lines=row.split('|');return [lines.join(''),lines];}));
+
 export function cardMarkup(c,{compact=false,detail=false}={}){
  if(!c||c.hidden)return `<div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div>`;
  const main=c.type==='main',id=c.cardId??c.id,category=CATEGORIES[c.type]??['カード','#A5A7AE'];
@@ -39,11 +108,11 @@ export function cardMarkup(c,{compact=false,detail=false}={}){
  const asset=CARD_ART[id],src=asset?.[detail?'large':'small'];
  const fallback=`<div class="art-fallback" role="img" aria-label="${h(title)}・画像を表示できません">${icon(main?c.attribute:c.type)}<small>画像を表示できません</small></div>`;
  const art=fallback+(src?`<img class="dedicated-art" src="${h(src)}" alt="${h(title)}の専用イラスト" width="${detail?1152:384}" height="${detail?768:256}" loading="${detail?'eager':'lazy'}" decoding="async" draggable="false">`:'');
- return `<article class="card-face${main?' main-face':''}${compact?' compact':''}${c.text?.length>140?' long-copy':''}" style="--card-color:${color};--mark-ink:${markInk??'#353024'};--title-size:${[...title].length>13?5.8:[...title].length>8?6.8:8}cqw" aria-label="${h(c.name)}">
+ return `<article class="card-face${main?' main-face':''}${compact?' compact':''}${c.text?.length>140?' long-copy':''}" style="--card-color:${color};--mark-ink:${markInk??'#353024'};--title-size:${main?7.2:[...title].length>13?5.8:[...title].length>8?6.8:8}cqw" aria-label="${h(c.name)}">
  ${ornament}<div class="card-heading"><small class="card-category">${category[0]}</small>
  ${main?`<div class="card-attribute">${icon(c.attribute)}<span>${h(c.attribute)}</span></div>`:''}
  <span class="card-cost" aria-label="通常時コスト ${main?c.stage:c.cost}">${main?c.stage:c.cost}</span>
- <strong class="card-title">${h(title)}</strong>${main?`<span class="card-species">${h(species)}</span>`:''}</div>
+ <strong class="card-title">${main?(MAIN_TITLE_LINES.get(title)??[title]).map(line=>`<span>${h(line)}</span>`).join(''):h(title)}</strong>${main?`<span class="card-species">${h(species)}</span>`:''}</div>
  <div class="card-art">${art}</div>
  ${main?`<div class="card-stats"><span>${icon('fist')}${compact?'':'<small>ちから</small>'}<b>${c.power}</b></span><span>${icon('brain')}${compact?'':'<small>ちえ</small>'}<b>${c.wisdom}</b></span></div>`:''}
  ${!compact?`<div class="card-copy"${detail&&['M-cat-07','M-antlion-06','M-antlion-07'].includes(id)?' style="font-size:2.9cqw"':''}>${ability?`<strong>${h(ability)}</strong>`:''}<p>${h(c.text)}</p></div>

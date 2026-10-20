@@ -1,0 +1,18 @@
+
+learning.dom.mjs mode=default
+Learning DOM PASS: 15 chapters, search/diagram, all nine lesson card taps, progress, resume/restart/skip, match/deck isolation, collection navigation, CPU beginner setup
+
+tutorial-board.dom.mjs mode=default
+Tutorial shared board DOM PASS: 18 slots, production detail, wrong inspection, CPU lifecycle, reverse chain, save isolation
+
+collection.dom.mjs mode=default
+Collection DOM: menu, once-only notice, nine pockets, filter/page restore, flip, egg exclusion, favorites, shared editor addition/limits, swipe suppression, save preservation PASS
+
+menu.dom.mjs mode=default
+Menu DOM PASS: six entries, mode/focus routing, deck editor, help dialogs, 453-card count, save isolation, start and restore
+
+my-decks.dom.mjs mode=default
+{"catalog":452,"lazyImages":452,"closedCatalogImages":0,"createRenameCloneDelete":true,"filters":true,"copyLimits":true,"catalogDOMStable":true,"scrollPreserved":true,"legacyUnchanged":true,"matchMode":"cpu","startAndRestore":true,"handoffPrivacy":true,"rendering":"unverified: DOM test only"}
+
+my-decks.dom.mjs mode=hotseat
+{"catalog":452,"lazyImages":452,"closedCatalogImages":0,"createRenameCloneDelete":true,"filters":true,"copyLimits":true,"catalogDOMStable":true,"scrollPreserved":true,"legacyUnchanged":true,"matchMode":"hotseat","startAndRestore":true,"handoffPrivacy":true,"rendering":"unverified: DOM test only"}

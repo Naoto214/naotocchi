@@ -48,12 +48,12 @@
 #learning-card-dialog h3{font-size:14px;margin:0 0 5px;line-height:1.4}#learning-card-dialog p{line-height:1.6}#learning-card-dialog .learn-small{color:#bdd0c1}
 #learning-card-dialog [data-learn-command]{border:2px solid #ffdf7d}
 @media(orientation:portrait){
- .tutorial-match .battle-area{grid-template-rows:110px minmax(0,1fr) 60px}
- .tutorial-match .player-board.opponent{height:110px}.tutorial-match .opponent .slot{height:22px}
+ .tutorial-match .battle-area{grid-template-rows:132px minmax(0,1fr) 60px}
+ .tutorial-match .player-board.opponent{height:132px}
  .tutorial-match .opponent .management>[data-learn-zone]{flex-direction:row;font-size:7px;gap:2px}
  .tutorial-match .player-board.own{min-height:218px}.tutorial-match .own .slots{grid-template-rows:repeat(3,minmax(54px,1fr))}
  #tutorial-operation-panel{padding:2px 4px;height:60px;max-height:60px;align-self:stretch;overflow:hidden}
- .tutorial-match .battle-area:has(.response-options){grid-template-rows:110px minmax(0,1fr) 108px}
+ .tutorial-match .battle-area:has(.response-options){grid-template-rows:132px minmax(0,1fr) 108px}
  #tutorial-operation-panel:has(.response-options){height:108px;max-height:108px}#tutorial-operation-panel:has(.response-options) .operation-notice{height:56px}
  .tutorial-match .hand-heading{height:30px}.tutorial-match .hand-heading button{min-height:30px;padding:3px 6px;font-size:11px}
  .tutorial-match .cards{height:78px;padding:4px}.tutorial-match .hand-entry{width:46px;flex-basis:46px}.tutorial-match .hand-card{width:46px;height:69px}

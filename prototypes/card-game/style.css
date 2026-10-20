@@ -190,3 +190,16 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 .main-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}.main-menu button{min-height:58px;font-weight:700;padding:12px 8px}.main-menu #collection-open{margin:0;width:auto}
 #match-setup{border-top:1px solid #718567;padding-top:20px;margin-top:18px}#match-setup h2{color:#edd49a}#mode-guide{font-size:13px;color:#d1d9c5}.match-start-actions{display:flex;flex-wrap:wrap;gap:8px}.save-note,.welcome-collection-count{font-size:12px;color:var(--muted);margin-top:12px}#welcome>.welcome-collection-count{margin-bottom:0}.main-menu button[aria-pressed=true]{border-color:#ead69e;box-shadow:inset 0 0 0 1px #ead69e}
 @media(max-width:360px){.main-menu{gap:8px}.main-menu button{font-size:13px}}
+
+/* Main names reserve two lines even for a one-line name. Only the text changes;
+   heading/art/stats/copy/footer tracks retain their existing fixed coordinates. */
+.main-face .card-heading{display:grid;grid-template-rows:4.5cqw 17cqw 4.7cqw;align-content:center;justify-content:stretch;justify-items:center;gap:0}
+.main-face .card-title,.compact.main-face .card-title{font-size:7.2cqw;line-height:1.13;letter-spacing:.02em;margin:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow-wrap:normal;word-break:normal}
+.main-face .card-title>span{display:block;white-space:nowrap}
+.main-face .card-category,.main-face .card-species{align-self:center}
+/* One shared main-slot centering rule for ordinary matches and the tutorial.
+   The outer slot label is separate; an inline duplicate name cannot displace art. */
+.player-board .slot[data-slot="1"] .slot-content{container-type:size}
+.player-board .slot[data-slot="1"] .slot-content .card-tap{display:grid;place-items:center;width:min(100cqw,66.6667cqh);height:min(100cqh,150cqw);aspect-ratio:2/3;gap:0;overflow:visible}
+.player-board .slot[data-slot="1"] .card-tap>.card-face,.player-board .slot[data-slot="1"] .card-tap>.card-back,.player-board .slot[data-slot="1"] .card-tap>.egg-card{width:100%;height:100%;aspect-ratio:2/3}
+.player-board .slot[data-slot="1"] .board-card-name{display:none}
