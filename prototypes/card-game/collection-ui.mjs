@@ -1,9 +1,10 @@
+import {relatedChapter} from './rulebook-content.mjs';
 import {CARDS,TYPE_NAMES} from './engine.mjs';
 import {collectionCards,collectionPage,CollectionPreferences,COLLECTION_KEY,EGG} from './collection.mjs';
 import {cardMarkup,eggCardMarkup,eggDetailMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {fitMainCardCopy} from './ui-art-loading.mjs';
 
-export function mountCollection({decks,onOpen=()=>{},onClose=()=>{}}){
+export function mountCollection({decks,onRule=()=>{},onOpen=()=>{},onClose=()=>{}}){
  const $=id=>document.getElementById(id),dialog=document.createElement('dialog');
  dialog.id='collection-dialog';dialog.setAttribute('aria-label','カードコレクション');
  dialog.innerHTML=`<header class="collection-toolbar"><div><small>NAOTOCCHI</small><h2>カードコレクション</h2></div><button id="collection-close" type="button">戻る ×</button></header>
@@ -18,7 +19,7 @@ export function mountCollection({decks,onOpen=()=>{},onClose=()=>{}}){
  <nav class="collection-pagination" aria-label="ページ移動"><button id="collection-prev" type="button">‹ 前へ</button><span id="collection-page" role="status" aria-live="polite"></span><button id="collection-next" type="button">次へ ›</button></nav><p class="collection-hint">左右にスワイプでページ移動 · カードをタップで詳細</p></section>
  <section id="collection-detail" hidden aria-label="カード詳細"><div class="collection-toolbar"><button id="collection-detail-close" type="button">‹ ファイルに戻る</button><span id="collection-detail-position"></span></div>
  <div class="collection-detail-layout"><div class="collection-detail-visual"><button id="collection-flip-card" type="button" aria-label="カードを裏返す"><span id="collection-flipper" data-side="front"><span class="collection-front"></span><span class="collection-back"><img src="ui-assets/card-back-approved.png" alt="正式カード裏面・青銀の植物紋章" draggable="false"></span></span></button><div class="collection-detail-nav"><button id="collection-card-prev" type="button" aria-label="前のカード">‹</button><button id="collection-flip" type="button">裏を見る</button><button id="collection-card-next" type="button" aria-label="次のカード">›</button></div></div>
- <div class="collection-detail-copy"><h2 id="collection-card-name"></h2><p id="collection-card-meta"></p><div id="collection-card-effect"></div><button id="collection-favorite" type="button" aria-pressed="false">♡ お気に入り</button><button id="collection-add" type="button">デッキに追加</button><div id="collection-deck-picker" hidden><label>追加先のマイデッキ<select id="collection-deck-target"></select></label><button id="collection-add-confirm" type="button">このデッキに1枚追加</button><button id="collection-picker-close" type="button">選択を閉じる</button></div><p id="collection-detail-status" role="status" aria-live="polite"></p></div></div></section>
+ <div class="collection-detail-copy"><h2 id="collection-card-name"></h2><p id="collection-card-meta"></p><div id="collection-card-effect"></div><button id="collection-rulebook" type="button">関連ルールを読む</button><button id="collection-favorite" type="button" aria-pressed="false">♡ お気に入り</button><button id="collection-add" type="button">デッキに追加</button><div id="collection-deck-picker" hidden><label>追加先のマイデッキ<select id="collection-deck-target"></select></label><button id="collection-add-confirm" type="button">このデッキに1枚追加</button><button id="collection-picker-close" type="button">選択を閉じる</button></div><p id="collection-detail-status" role="status" aria-live="polite"></p></div></div></section>
  <svg class="collection-filter-defs" width="0" height="0" aria-hidden="true"><filter id="collection-gold" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1.5 1 -1.5 0 -.12 1.5 1 -1.5 0 -.12 1.5 1 -1.5 0 -.12 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".035 .08 .68 .96"/><feFuncG type="table" tableValues=".12 .23 .55 .84"/><feFuncB type="table" tableValues=".095 .17 .28 .51"/></feComponentTransfer></filter></svg>`;
  document.body.append(dialog);
  let prefs,storageError='';
@@ -82,5 +83,6 @@ export function mountCollection({decks,onOpen=()=>{},onClose=()=>{}}){
  swipes($('collection-grid'),movePage);swipes($('collection-flip-card'),moveCard);
  dialog.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName))return;if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const delta=e.key==='ArrowLeft'?-1:1;if(detailIndex>=0)moveCard(delta);else if(opened)movePage(delta);}});
  window.addEventListener('storage',e=>{if(e.key!==COLLECTION_KEY)return;try{prefs=new CollectionPreferences(localStorage);if(dialog.open&&opened)renderPage();if(detailIndex>=0)favoriteButton($('collection-favorite'),detailList[detailIndex].id);}catch(err){announce(err.message);}});
- return {open};
+ $('collection-rulebook').onclick=e=>onRule(relatedChapter(detailList[detailIndex]),e.currentTarget);
+ return {open,close};
 }

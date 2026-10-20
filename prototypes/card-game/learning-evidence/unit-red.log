@@ -1,0 +1,90 @@
+✖ 15 searchable chapters retain canonical examples, glossary and exact official sources (1.170977ms)
+✖ all nine lessons execute canonical legal commands and validate every checkpoint (0.201659ms)
+✖ fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain (5.278222ms)
+✖ progress is independently persisted, reconstructable and invalid data safe (0.477839ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121.150096
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/learning.test.mjs:6:1
+✖ 15 searchable chapters retain canonical examples, glossary and exact official sources (1.170977ms)
+  AssertionError [ERR_ASSERTION]: rulebook missing
+      at TestContext.<anonymous> (file:///workspace/scratch/aa15ef583f7d/naotocchi/prototypes/card-game/tests/learning.test.mjs:7:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/learning.test.mjs:13:1
+✖ all nine lessons execute canonical legal commands and validate every checkpoint (0.201659ms)
+  AssertionError [ERR_ASSERTION]: tutorial missing
+      at TestContext.<anonymous> (file:///workspace/scratch/aa15ef583f7d/naotocchi/prototypes/card-game/tests/learning.test.mjs:14:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/learning.test.mjs:21:1
+✖ fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain (5.278222ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(tutorial)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/aa15ef583f7d/naotocchi/prototypes/card-game/tests/learning.test.mjs:22:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/learning.test.mjs:30:1
+✖ progress is independently persisted, reconstructable and invalid data safe (0.477839ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(tutorial)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/aa15ef583f7d/naotocchi/prototypes/card-game/tests/learning.test.mjs:31:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,8 @@
+{
+  "production_allowlist_unchanged": true,
+  "baseline_allowlist_bytes": 213539572,
+  "new_runtime_bytes": 167238,
+  "existing_runtime_delta_bytes": 2681,
+  "future_raw_bytes_if_approved": 213709491,
+  "budget_bytes": 350000000
+}

@@ -1,3 +1,4 @@
+import {mountLearning} from './learning-ui.mjs';
 import {mountCollection} from './collection-ui.mjs';
 import {mountMyDecks} from './my-decks-ui.mjs';
 import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
@@ -21,7 +22,7 @@ let session=new HotseatSession({autoAdvance:true});
 const input=installActionInputGuard(document,()=>({session,revision:session.projection?.revision,viewer:session.viewer}));
 let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
-const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
+const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog','rulebook-dialog','tutorial-dialog','learning-card-dialog','learning-term-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
 const turnFeedback=new TurnFeedback();
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
@@ -151,7 +152,7 @@ $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
 const myDecks=mountMyDecks({inspect,message,onChange:next=>{decks=next;}});
-const collection=mountCollection({decks:myDecks,onOpen:()=>cpu.cancel(),onClose:()=>cpu.schedule()});
+const collection=mountCollection({onRule:(chapter,origin)=>learning.openBook(chapter,origin),decks:myDecks,onOpen:()=>cpu.cancel(),onClose:()=>{learning.collectionClosed();cpu.schedule();}});
 $('collection-open').onclick=e=>collection.open(e.currentTarget);
 $('deck-collection-open').onclick=e=>collection.open(e.currentTarget,true);
 $('menu-collection-open').onclick=e=>collection.open(e.currentTarget);
@@ -160,3 +161,12 @@ $('coverage').textContent=`全${Object.keys(CARDS).length}種類を収録・実�
 
 function modeGuide(){const solo=$('match-mode').value==='cpu';document.querySelectorAll('[data-cpu-setting]').forEach(n=>n.hidden=!solo);$('mode-guide').textContent=solo?`自分が${$('human-seat').value}、CPUが${$('human-seat').value==='A'?'B':'A'}を担当します。下のA・Bで自分とCPUのデッキを選べます。`:'交代時は手札を隠して端末を渡してください。従来の2人対戦セーブはこちらから復帰できます。';}
 $('match-mode').onchange=modeGuide;$('human-seat').onchange=modeGuide;modeGuide();
+
+const learning=mountLearning({onOpen:()=>{cpu.cancel();input.invalidate();},onClose:()=>{input.stamp();cpu.schedule();},onCollection:origin=>collection.open(origin),onCpu:()=>{
+ cpu.cancel();hide();collection.close();closeDialogs({focus:false});feedback.reset();session.clear();$('game').replaceChildren();$('game').hidden=true;$('curtain').hidden=true;$('welcome').hidden=false;$('export').hidden=true;document.body.classList.remove('playing');$('match-mode').value='cpu';$('cpu-level').value='beginner';$('human-seat').value='A';modeGuide();renderDeck();message('CPU初級の対戦準備です。保存済み対戦は保持しています。「新しい対戦を開始」で始められます。');$('new').focus();
+}});
+$('rulebook-open').onclick=e=>learning.openBook(0,e.currentTarget);
+$('menu-rulebook-open').onclick=e=>learning.openBook(0,e.currentTarget);
+$('deck-rulebook-open').onclick=e=>learning.openBook(3,e.currentTarget);
+for(const id of ['tutorial-open','menu-tutorial-open','learning-start'])$(id).onclick=e=>learning.openTutorial(e.currentTarget);
+document.addEventListener('click',e=>{const b=e.target.closest('[data-related-rule]');if(b)learning.openBook(Number(b.dataset.relatedRule),b);});
