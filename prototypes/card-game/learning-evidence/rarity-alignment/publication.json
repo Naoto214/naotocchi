@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-21",
+  "github": {
+    "pr": 403,
+    "branch": "feat/card-rulebook-tutorial-20261020",
+    "start_head": "6a7f271b702bb1e8d56ce6f1337db2b13131e06b",
+    "start_tree": "1d9d8254a723da231271359b10c4adbacfefc608",
+    "implementation_head": "5c32f835a62468f0f858e7f01466cb1fc5bfef99",
+    "implementation_tree": "c243679d53bd357b8d57893fd91748d9242525a9",
+    "write_method": "Connected GitHub Git-data API; exact tested tree; non-force expected_sha branch update",
+    "main_untouched": "db9ea8e8d86c632a68ed8ab4880968803f78a243"
+  },
+  "site": {
+    "id": "appgdep_6ad785b790248191a3b0ea27a4cf0744",
+    "project_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9",
+    "title": "なおとっち CARD GAME｜ルールブックと練習",
+    "version_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9~appgver_f769e0a053cc8191a81b5ab5d96baefa",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naotocchi-learn-20261020.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad6fa1914c88191aa80d1bf654d9cb9",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-20T15:16:29.449219+00:00",
+    "source_commit": "941f6e1fd40f5532843809ff9a59c9809d5cf2d1",
+    "audience": "owner-private (unchanged)",
+    "total_runtime_files": 960,
+    "repository_files_byte_equal": 959,
+    "qa_files_excluded": true
+  },
+  "verification": {
+    "focused_tests": {
+      "pass": 178,
+      "fail": 0
+    },
+    "dom_suites_passed": 6,
+    "full_card_suite": {
+      "total": 375,
+      "pass": 373,
+      "preexisting_failures": [
+        "FUN_ITEMS regeneration audit",
+        "adopted-color-design CSS scope assertion (reproduced at starting HEAD)"
+      ]
+    },
+    "rarity_toggle": "Both directions passed with copied data; official definitions and artwork unchanged",
+    "changed_card_images": 0,
+    "unchanged_delivery_art_files": 904,
+    "physical_iPhone_Safari": "not tested; final device QA remains",
+    "pages_production": "not changed"
+  }
+}
