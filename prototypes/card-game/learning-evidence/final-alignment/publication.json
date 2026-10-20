@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-20",
+  "github": {
+    "pr": 403,
+    "branch": "feat/card-rulebook-tutorial-20261020",
+    "start_head": "66bd7e3b80c869c5588773afaceb766bea11d59e",
+    "start_tree": "d533829ec089890a6c4fb18415556c874ab5a538",
+    "implementation_head": "d2a9bbc7c8e7f056c77ef94ef97d93569c1d99cd",
+    "implementation_tree": "eb0edd051bcfd0ea70d689828e70523511c86f36",
+    "write_method": "Connected GitHub blob/tree/commit API and non-force update_ref with expected_sha; tree equals locally tested git commit",
+    "main_untouched": "db9ea8e8d86c632a68ed8ab4880968803f78a243"
+  },
+  "site": {
+    "id": "appgdep_6ad779430bf0819187106fb5d5942439",
+    "project_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9",
+    "title": "なおとっち CARD GAME｜ルールブックと練習",
+    "version_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9~appgver_bc66a13734f08191a253efd4922db937",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naotocchi-learn-20261020.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad6fa1914c88191aa80d1bf654d9cb9",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-20T14:23:15.680819+00:00",
+    "source_commit": "26557e3b53d155efec4b335fdc98fa2d4c170c49",
+    "audience": "owner-private (unchanged)",
+    "repository_files_byte_equal": 959,
+    "total_runtime_files": 960
+  },
+  "verification": {
+    "unit_tests": {
+      "passed": 175,
+      "failed": 0
+    },
+    "dom_suites_passed": 6,
+    "tutorial_steps": 9,
+    "browser": "Chromium, iframe viewports 390x844 / 320x568 / 844x390 / 390x700",
+    "physical_iPhone_Safari": "not tested",
+    "pages_production": "not changed",
+    "art_files_changed": 0
+  }
+}
