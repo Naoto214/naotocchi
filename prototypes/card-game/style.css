@@ -193,10 +193,17 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 
 /* Main names reserve two lines even for a one-line name. Only the text changes;
    heading/art/stats/copy/footer tracks retain their existing fixed coordinates. */
-.main-face .card-heading{display:grid;grid-template-rows:4.5cqw 17cqw 4.7cqw;align-content:center;justify-content:stretch;justify-items:center;gap:0}
+.main-face .card-heading{display:grid;grid-template-rows:6cqw 17cqw 5cqw;align-content:center;justify-content:stretch;justify-items:center;gap:0}
 .main-face .card-title,.compact.main-face .card-title{font-size:7.2cqw;line-height:1.13;letter-spacing:.02em;margin:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow-wrap:normal;word-break:normal}
 .main-face .card-title>span{display:block;white-space:nowrap}
 .main-face .card-category,.main-face .card-species{align-self:center}
+/* Heading-local lanes: fixed center text tracks, equal inset side lanes.
+   Proportional borders and explicit line boxes also hold at board-card sizes. */
+.main-face .card-category{height:5.4cqw;line-height:1;display:grid;place-items:center;padding:0 2cqw;border-width:.45cqw;box-shadow:none}
+.main-face .card-attribute{left:1%;top:50%;transform:translateY(-50%);width:21%;gap:0}
+.main-face .card-attribute .icon{display:block;border-width:.65cqw;box-shadow:none}
+.main-face .card-attribute span{display:grid;place-items:center;min-height:4.5cqw;line-height:1;padding:0 .5cqw;min-width:95%;margin-top:-.5cqw;border-width:.45cqw}
+.main-face .card-cost{right:1%;top:50%;transform:translateY(-50%);width:20cqw;height:20cqw;font-size:16cqw;border-width:.65cqw;box-shadow:none}
 /* One shared main-slot centering rule for ordinary matches and the tutorial.
    The outer slot label is separate; an inline duplicate name cannot displace art. */
 .player-board .slot[data-slot="1"] .slot-content{container-type:size}

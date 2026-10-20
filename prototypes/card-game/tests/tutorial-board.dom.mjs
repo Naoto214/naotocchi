@@ -13,6 +13,14 @@ assert.equal(document.querySelectorAll('#tutorial-match .player-board').length,2
 assert.equal(document.querySelectorAll('#tutorial-match .slot').length,18);
 assert.equal(document.querySelectorAll('#tutorial-match #hand').length,0,'no duplicate production IDs');
 const hand=$('tutorial-hand'),toggle=hand.querySelector('[data-learn-hand-toggle]');toggle.click();assert.equal(hand.classList.contains('hand-collapsed'),true);toggle.click();assert.equal(hand.classList.contains('hand-collapsed'),false);assert.equal(hand.querySelector('[data-reorder],[data-learn-reorder]'),null);
+// The guide must reopen a deliberately collapsed hand without issuing a command.
+const guide=document.querySelector('[data-learn-target]');
+assert.ok(guide,'offscreen operation has a reachable guide');
+const explanation=$('tutorial-explanation');assert.ok(explanation);assert.equal(explanation.open,false);
+explanation.open=true;const beforeGuide=localStorage.getItem('naotocchi-learning-v1');
+toggle.click();guide.click();assert.equal(hand.classList.contains('hand-collapsed'),false,'guide exposes hidden hand');
+assert.equal(toggle.getAttribute('aria-expanded'),'true');
+assert.equal(localStorage.getItem('naotocchi-learning-v1'),beforeGuide,'guide cannot advance game');
 const step=$('tutorial-progress').textContent;
 document.querySelector('#tutorial-match [data-learn-egg]').click();assert.equal($('learning-card-dialog').open,true);click('learning-card-close');assert.equal($('tutorial-progress').textContent,step,'inspection cannot advance');
 document.querySelector('#tutorial-match .hand-card.learn-next-card').click();

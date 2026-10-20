@@ -112,7 +112,7 @@ export function mountLearning({onOpen=()=>{},onClose=()=>{},onCollection=()=>{},
   $('tutorial-lesson-list').innerHTML=`<section class="learn-welcome"><span class="learn-kicker">9 STEPS · 自分のペースで</span><h3>カードを触って、<br>あそびかたを覚えよう。</h3><p>CPUと同じ盤面で、1操作ずつ覚えましょう。練習用の局面は通常対戦のセーブに影響しません。</p><p><strong>${n} / 9 STEPを練習済み</strong> · 好きなSTEPから始められます。</p></section><div class="learn-lesson-grid">${LESSONS.map((l,i)=>`<button type="button" data-learn-lesson="${i}"><span>STEP ${i+1}</span><strong>${h(l.title)}</strong><small>${progress.data.completed.includes(i)?'✓ 練習済み':'タップして練習 →'}</small></button>`).join('')}</div><button id="tutorial-cpu" class="learn-primary" type="button">CPU初級の対戦準備へ →</button><p class="learn-small">保存済みの対戦は保持します。対戦準備で「新しい対戦を開始」を選ぶまで開始しません。</p>`;
   $('tutorial-cpu').onclick=()=>{closeAll();onCpu();};
  }
- function startLesson(i,step=0){cancelCpu();$('tutorial-tools').open=false;t=new TutorialSession(i,step);resultMode=false;paused=false;saveProgress({lesson:i,step:t.step,seen:true});renderPractice();}
+ function startLesson(i,step=0){cancelCpu();$('tutorial-play').scrollTop=0;$('tutorial-tools').open=false;t=new TutorialSession(i,step);resultMode=false;paused=false;saveProgress({lesson:i,step:t.step,seen:true});renderPractice();}
  function openTutorial(origin=document.activeElement){practiceOrigin=origin;lessonMenu();show(practice);$('tutorial-close').focus();}
  $('tutorial-lessons').onclick=lessonMenu;$('tutorial-resume').onclick=()=>startLesson(progress.data.lesson,progress.data.step);
  $('tutorial-restart').onclick=()=>startLesson(t?.lesson??progress.data.lesson);$('tutorial-all-restart').onclick=()=>startLesson(0);
@@ -123,7 +123,8 @@ export function mountLearning({onOpen=()=>{},onClose=()=>{},onCollection=()=>{},
  }
  practice.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||e.detail>1)return;
   if(b.dataset.learnLesson!==undefined){startLesson(Number(b.dataset.learnLesson));return;}
-  if(b.hasAttribute('data-learn-continue')){resultMode=false;renderPractice();return;}
+  if(b.hasAttribute('data-learn-continue')){resultMode=false;renderPractice(true);return;}
+  if(b.hasAttribute('data-learn-target')){revealPracticeTarget();return;}
   if(b.dataset.learnCommand){perform({id:b.dataset.learnCommand,revision:Number(b.dataset.revision),epoch:Number(b.dataset.epoch)});return;}
   if(b.dataset.learnCard){const v=practiceView(),cards=Object.values(v.players).flatMap(p=>[...(p.hand??[]),...p.discard,p.board.main,p.board.partner,p.board.world,...p.board.companions,...p.board.prepared]).filter(c=>c&&!c.hidden),c=cards.find(c=>c.id===b.dataset.learnCard);if(!c){$('tutorial-hint').textContent='相手の伏せ札は非公開です。';return;}const a=cardActions(v,'A',c)[0];openCard(c,a??null,b);return;}
   if(b.hasAttribute('data-learn-egg')){openCard(null,null,b);return;}
@@ -137,32 +138,43 @@ export function mountLearning({onOpen=()=>{},onClose=()=>{},onCollection=()=>{},
  });
  function saveCurrent(){saveProgress({lesson:t.lesson,step:t.step,completed:t.done?[...new Set([...progress.data.completed,t.lesson])]:progress.data.completed,seen:true});}
  function perform(a){if(paused||resultMode||!t||t.isCpu)return;try{if(!t.perform(a.id,a.revision,a.epoch))return;afterCommand();}catch(error){stopPractice(error);}}
- function afterCommand(){resultMode=Boolean(!t.done&&t.current?.setup);saveCurrent();renderPractice();}
+ function afterCommand(){resultMode=Boolean(!t.done&&t.current?.setup);saveCurrent();renderPractice(true);}
  function stopPractice(error){cancelCpu();paused=true;$('tutorial-hint').textContent='練習を停止しました。「このSTEPを最初から」で再開できます。';console.error('Tutorial stopped:',error);}
  function scheduleCpu(){
   cancelCpu();if(!practice.open||card.open||book.open||term.open||paused||resultMode||!t?.isCpu||$('tutorial-play').hidden||document.hidden)return;
   const active=t,revision=t.state.revision,epoch=t.epoch;
   cpuTimer=setTimeout(()=>{cpuTimer=null;if(t!==active||!practice.open||paused||resultMode||document.hidden)return;try{if(t.advanceCpu(revision,epoch))afterCommand();}catch(error){stopPractice(error);}},800);
  }
- function renderPractice(){
-  cancelCpu();$('tutorial-lesson-list').hidden=true;$('tutorial-play').hidden=false;
+ function revealPracticeTarget(){
+  const root=$('tutorial-play');
+  const target=root.querySelector('.learn-next-card')??root.querySelector('.learn-next-command')??root.querySelector('[data-learn-continue],#tutorial-finish button');
+  if(!practice.open||!target)return;
+  const hand=target.closest('.hand-panel');
+  if(hand?.classList.contains('hand-collapsed')){hand.classList.remove('hand-collapsed');hand.querySelector('[data-learn-hand-toggle]')?.setAttribute('aria-expanded','true');}
+  const box=target.getBoundingClientRect(),view=root.getBoundingClientRect();
+  if(box.top<view.top+8||box.bottom>view.bottom-8||box.left<view.left||box.right>view.right){
+   target.scrollIntoView?.({block:'nearest',inline:'nearest',behavior:'instant'});
+  }
+ }
+ function renderPractice(guide=false){
+  cancelCpu();const previousScroll=$('tutorial-play').scrollTop,expanded=$('tutorial-explanation')?.open??false;$('tutorial-lesson-list').hidden=true;$('tutorial-play').hidden=false;
   if(paused){$('tutorial-play').innerHTML='<section class="learn-welcome"><h3>練習を一時停止しました</h3><button type="button" data-learn-unpause>練習を再開する</button></section>';stampCommands();return;}
   const l=t.definition,v=practiceView(),a=resultMode||t.done||t.isCpu?null:t.expectedAction,done=t.done&&!resultMode;
   const result=t.lastAction?`${t.lastAction.actor==='A'?'あなた':'CPU'}：${t.lastAction.label}`:'';
   $('tutorial-play').innerHTML=`<div class="learn-coach"><div id="tutorial-progress" class="learn-kicker">STEP ${t.lesson+1} / 9 · ${h(l.title)} · ${Math.min(t.step+1,l.steps.length)} / ${l.steps.length}</div><progress value="${t.lesson+(t.done?1:t.step/l.steps.length)}" max="9" aria-label="練習の進行"></progress>
-  <section class="learn-instruction"><div><h3>${done?'このSTEPをクリア！':resultMode?'ここまでの結果':h(t.current.title)}</h3><p>${done?h(t.outcome):resultMode?'配置・時・そだちを確認したら、次の練習局面へ進みましょう。':h(t.current.copy)}</p></div><button type="button" data-learn-rules>ルールを見る</button></section>
+  <section class="learn-instruction"><div><h3>${done?'このSTEPをクリア！':resultMode?'ここまでの結果':h(t.current.title)}</h3><details id="tutorial-explanation"${expanded?' open':''}><summary>説明を読む</summary><p>${done?h(t.outcome):resultMode?'配置・時・そだちを確認したら、次の練習局面へ進みましょう。':h(t.current.copy)}</p></details></div><button type="button" data-learn-rules>ルールを見る</button></section>
   ${result?`<p class="learn-last-result" role="status">✓ ${h(result)}</p>`:''}
   ${t.isCpu&&!resultMode?'<p class="learn-cpu-status" role="status">CPUが操作しています…</p>':''}
   ${resultMode?'<button type="button" class="learn-primary" data-learn-continue>次の練習局面へ →</button>':''}
   ${done?`<div id="tutorial-finish"><button type="button" class="learn-primary" ${t.lesson<8?`data-learn-lesson="${t.lesson+1}"`:'data-learn-cpu'}>${t.lesson<8?'次のSTEPへ →':'CPU初級であそぶ →'}</button></div>`:''}
-  <p id="tutorial-hint" role="status" aria-live="polite">${a?'金色の枠が次の操作です。ほかのカードは確認だけできます。':'練習用の固定局面 · 通常対戦のセーブは変わりません。'}</p>
+  <p id="tutorial-hint" role="status" aria-live="polite">${a?'金色の枠が次の操作です。ほかのカードは確認だけできます。':'練習用の固定局面 · 通常対戦のセーブは変わりません。'}</p>${a?'<button type="button" class="learn-target-guide" data-learn-target>次の操作へ ↓</button>':''}
   </div><div id="tutorial-match" class="tutorial-match">${practiceMarkup(gameMarkup(v,'A'))}</div>`;
   $('tutorial-match').querySelectorAll('[data-learn-card]').forEach(n=>{
    const id=n.dataset.learnCard,p=v.players.A,b=p.board,focus=a&&(a.source===id||a.value===id||a.kind==='relationship'&&b.partner?.id===id||a.kind==='challenge'&&b.main?.id===id);
    if(focus){n.classList.add('learn-next-card');n.setAttribute('aria-label',n.getAttribute('aria-label')+'・次にタップ');}
   });
   $('tutorial-match').querySelectorAll('[data-learn-command]').forEach(n=>{n.dataset.revision=t.state.revision;n.dataset.epoch=t.epoch;n.classList.add('learn-next-command');});
-  $('tutorial-play').scrollTop=0;stampCommands();scheduleCpu();
+  $('tutorial-play').scrollTop=previousScroll;stampCommands();scheduleCpu();if(guide)window.requestAnimationFrame(()=>revealPracticeTarget());
  }
  function privacyPause(){cancelCpu();if(practice.open&&t&&!$('tutorial-play').hidden){paused=true;closeCard();renderPractice();}}
  window.addEventListener('blur',privacyPause);document.addEventListener('visibilitychange',()=>{if(document.hidden)privacyPause();});

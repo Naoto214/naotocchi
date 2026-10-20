@@ -47,49 +47,52 @@
 #learning-card-dialog{width:calc(var(--ui-vw,100vw) - env(safe-area-inset-left) - env(safe-area-inset-right) - 16px);max-height:none;padding:8px;background:#18392f;color:#f9f1d9;border-radius:14px}
 #learning-card-dialog h3{font-size:14px;margin:0 0 5px;line-height:1.4}#learning-card-dialog p{line-height:1.6}#learning-card-dialog .learn-small{color:#bdd0c1}
 #learning-card-dialog [data-learn-command]{border:2px solid #ffdf7d}
-@media(orientation:portrait){
- .tutorial-match .battle-area{grid-template-rows:132px minmax(0,1fr) 60px}
- .tutorial-match .player-board.opponent{height:132px}
- .tutorial-match .opponent .management>[data-learn-zone]{flex-direction:row;font-size:7px;gap:2px}
- .tutorial-match .player-board.own{min-height:218px}.tutorial-match .own .slots{grid-template-rows:repeat(3,minmax(54px,1fr))}
- #tutorial-operation-panel{padding:2px 4px;height:60px;max-height:60px;align-self:stretch;overflow:hidden}
- .tutorial-match .battle-area:has(.response-options){grid-template-rows:132px minmax(0,1fr) 108px}
- #tutorial-operation-panel:has(.response-options){height:108px;max-height:108px}#tutorial-operation-panel:has(.response-options) .operation-notice{height:56px}
- .tutorial-match .hand-heading{height:30px}.tutorial-match .hand-heading button{min-height:30px;padding:3px 6px;font-size:11px}
- .tutorial-match .cards{height:78px;padding:4px}.tutorial-match .hand-entry{width:46px;flex-basis:46px}.tutorial-match .hand-card{width:46px;height:69px}
-}
-@media(orientation:landscape){
- #tutorial-play{display:grid;grid-template-columns:minmax(180px,.35fr) minmax(0,1fr);gap:8px}
- .learn-coach{max-height:none;min-height:0;height:100%;padding:4px;overflow:auto}.tutorial-match{height:100%;min-height:0}
- #tutorial-dialog .learn-instruction{display:block}#tutorial-dialog .learn-instruction [data-learn-rules]{width:auto;margin-top:6px}
- #tutorial-dialog>.learn-header{min-height:44px}#tutorial-dialog .learn-header small{display:none}
- .tutorial-match .hand-heading small{display:none}.tutorial-match .hand-panel:not(.hand-collapsed){grid-template-columns:82px minmax(0,1fr)}
- .tutorial-match .hand-panel:not(.hand-collapsed) .hand-heading{height:68px}.tutorial-match .cards{height:68px}.tutorial-match .hand-entry{width:40px;flex-basis:40px}.tutorial-match .hand-card{width:40px;height:60px}
-}
 @media(max-width:620px){.learn-book-tools>label:first-child{flex:1 1 100%}.learn-book-tools .learn-search-scope{flex:1 1 110px}.learn-book-tools>button{flex:1 1 60px}}
-@media(orientation:landscape){
- #tutorial-tools{position:absolute;top:4px;right:148px;z-index:5;max-width:210px;max-height:75%;background:#173e32;color:#f6edcf;border:1px solid #80916a;border-radius:7px}
- #tutorial-tools>summary{min-height:36px;line-height:36px;font-size:10px}#tutorial-tools[open]{width:210px}#tutorial-tools .learn-practice-tools button{flex:1}
- .tutorial-match .player-board{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:4px}
- .tutorial-match .board-layout,.tutorial-match .board-field{min-height:0}.tutorial-match .slots{height:100%;grid-template-rows:repeat(3,minmax(0,1fr))}
- .tutorial-match .slot{aspect-ratio:auto;min-height:0}.tutorial-match .slot-content{container-type:size}
- .tutorial-match .slot-content .card-tap{height:100%;width:100%;aspect-ratio:auto;display:flex;align-items:center;justify-content:center}
- .tutorial-match .slot .card-face,.tutorial-match .slot .card-back{height:100%;width:auto;max-width:100%;aspect-ratio:2/3}
- .tutorial-match .player-heading{min-height:30px}.tutorial-match .board-metrics{font-size:7px;gap:2px;min-height:16px}
-}
-/* Bound the implicit layout row too; card min-content must not push metrics over row 3. */
-.tutorial-match .board-layout{grid-template-rows:minmax(0,1fr)}
+/* Practice is one scroll surface. Board rows never compete with coach/hand height. */
+#tutorial-play{display:block;overflow-y:auto;overscroll-behavior:contain;scroll-padding:8px;padding-bottom:12px}
+.learn-coach{max-height:none;height:auto;overflow:visible;padding:0 4px 6px}
+#tutorial-dialog .learn-instruction details{margin-top:4px}
+#tutorial-dialog .learn-instruction summary{min-height:32px;line-height:32px;font-size:12px}
+#tutorial-dialog .learn-instruction details p{padding:4px 0 8px}
+.learn-target-guide{min-height:44px;padding:6px 10px;font-size:12px;border:1px solid #a18b40;background:#234b38;color:#fff5d1}
+.tutorial-match{height:auto;min-height:0;flex:none;gap:6px}
+.tutorial-match .battle-area,.tutorial-match .battle-area:has(.response-options){flex:none;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;gap:6px}
+.tutorial-match .board-shell{overflow:visible;min-height:0;padding:2px}
+.tutorial-match .player-board{width:100%;max-width:none;display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+.tutorial-match .player-board.own{height:260px;min-height:260px}
+.tutorial-match .player-board.opponent{height:132px;min-height:132px}
+.tutorial-match .board-layout{grid-template-rows:minmax(0,1fr);min-height:0}
+.tutorial-match .board-field{min-height:0;display:flex;flex-direction:column}
+.tutorial-match .slots{flex:1;height:100%;grid-template-rows:repeat(3,minmax(0,1fr))}
+.tutorial-match .slot{height:auto;min-height:0;aspect-ratio:auto}
+.tutorial-match .own .slot{min-height:54px}
+.tutorial-match .slot-content{container-type:size}
+.tutorial-match .own .slot-content .card-tap{height:min(100cqh,150cqw);width:min(100cqw,66.6667cqh);aspect-ratio:2/3;display:grid;place-items:center}
+.tutorial-match .own .slot .card-face,.tutorial-match .own .slot .card-back{height:100%;width:100%;aspect-ratio:2/3}
 .tutorial-match .opponent .management>[data-learn-zone=deck]{grid-row:1}
 .tutorial-match .opponent .management>[data-learn-zone=activation]{grid-row:2}
 .tutorial-match .opponent .management>[data-learn-zone=discard]{grid-row:3}
+#tutorial-operation-panel,#tutorial-operation-panel:has(.response-options){position:static;grid-column:1/-1;align-self:stretch;height:auto;min-height:60px;max-height:none;overflow:visible;padding:4px}
+#tutorial-operation-panel .operation-notice{height:auto;min-height:50px}
+#tutorial-operation-panel .notice-actions{max-height:none;overflow:visible}
+#tutorial-operation-panel .notice-expand{height:auto}
+.tutorial-match .hand-panel:not(.hand-collapsed){display:block}
+.tutorial-match .hand-panel .hand-heading{height:44px;flex-direction:row}
+.tutorial-match .hand-heading button{min-height:44px;height:auto;padding:5px 8px;font-size:12px;width:auto}
+.tutorial-match .hand-panel .cards{height:86px;padding:5px 5px 9px}
+.tutorial-match .hand-entry{width:48px;flex-basis:48px}.tutorial-match .hand-card{width:48px;height:72px}
+#tutorial-tools{position:static;max-width:none;max-height:35%;flex-shrink:0}
 @media(orientation:portrait){
- .tutorial-match .player-board.opponent{display:grid;grid-template-rows:18px minmax(0,1fr) 14px}
- .tutorial-match .opponent .slots{height:100%;grid-template-rows:repeat(3,minmax(0,1fr))}
- .tutorial-match .opponent .slot{height:auto;min-height:0}
+ .tutorial-match .opponent .player-heading{min-height:18px;height:18px}
+ .tutorial-match .opponent .board-metrics{min-height:14px}
+ .tutorial-match .opponent .management>[data-learn-zone]{flex-direction:row;font-size:7px;gap:2px}
 }
-/* Short portrait viewports scroll the full practice surface instead of collapsing a field. */
-@media(orientation:portrait) and (max-height:740px){
- #tutorial-play{display:block;overflow-y:auto;overscroll-behavior:contain}
- .learn-coach{max-height:none;overflow:visible;margin-bottom:6px}
- .tutorial-match{height:560px;min-height:560px;flex:none}
+@media(orientation:landscape){
+ .tutorial-match .slot-content .card-tap{height:min(100cqh,150cqw);width:min(100cqw,66.6667cqh);aspect-ratio:2/3;display:grid;place-items:center}
+ .tutorial-match .slot .card-face,.tutorial-match .slot .card-back{height:100%;width:100%;aspect-ratio:2/3}
+ #tutorial-play{display:grid;grid-template-columns:minmax(170px,.32fr) minmax(0,1fr);align-items:start;gap:8px}
+ .tutorial-match .battle-area,.tutorial-match .battle-area:has(.response-options){grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto}
+ .tutorial-match .player-board.opponent,.tutorial-match .player-board.own{height:280px;min-height:280px}
+ #tutorial-dialog>.learn-header{min-height:44px}#tutorial-dialog .learn-header small{display:none}
+ #tutorial-dialog .learn-instruction{display:block}#tutorial-dialog .learn-instruction [data-learn-rules]{width:auto;margin-top:6px}
 }
