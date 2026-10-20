@@ -39,6 +39,22 @@ function searchHit(f,deck,ctx){
  return {N:ctx.N,matches:deck.filter(ok)};
 }
 function annotate(steps,deck,ctx){for(const st of steps??[]){if(st.op==='search'&&typeof st.n==='number')st.hit=searchHit(st.filter,deck,ctx);annotate(st.steps,deck,ctx);}}
+// Own challenge modifiers known to the seat (own hand, own face-down traps, own field triggers). Conditions that cannot be
+// known before the challenge window are excluded instead of guessed. Opponent: public counts only.
+const STAT_OPS=new Set(['stat','chosenStat','battleStat']);
+function statGain(steps,target){const out=[];for(const st of steps??[]){if(STAT_OPS.has(st.op)){const sign=target==='opponentMain'?-1:1;
+  if(st.op==='stat'){for(const k of ['power','wisdom'])if(sign*(st[k]??0)>0)out.push({param:k,n:sign*st[k]});}else if(sign*(st.n??0)>0)out.push({param:'any',n:sign*st.n});}}return out;}
+function challengeKit(s,seat){
+ const p=s.players[seat],o=s.players[other(seat)],b=p.board,kit=[],cid=id=>s.cards[id].cardId,main=b.main?CARDS[cid(b.main)]:null,omain=o.board.main?CARDS[cid(o.board.main)]:null;
+ const knowable={undefined:true,baseball:true,uphillChallenge:b.world&&cid(b.world)==='W-mountain'&&main&&omain&&main.stage<omain.stage,prepared3:b.prepared.length===3};
+ for(const id of p.hand){const r=RULES[cid(id)];if(r?.mode!=='quick'||r.reaction||!(typeof r.condition==='string'?knowable[r.condition]:r.condition===undefined))continue;
+  for(const g of statGain(r.steps,r.target))kit.push({...g,cost:CARDS[cid(id)].cost??0,card:true,only:r.condition==='baseball'?'power':null});}
+ for(const e of b.prepared){if(!e.faceDown)continue;const r=RULES[cid(e.id)];for(const t of r?.triggers??[]){if(t.when!=='challenge'||t.opponent||t.condition&&!(t.condition==='setEarlier'&&e.setSerial<s.serial))continue;
+  for(const g of statGain(t.steps,t.target))kit.push({...g,cost:0,card:true});}}
+ for(const id of [b.main,b.partner,b.world,...b.companions].filter(Boolean)){const r=RULES[cid(id)];for(const t of r?.triggers??[]){if(t.when!=='challenge'||t.opponent||t.condition)continue;
+  for(const g of statGain(t.steps,t.target))kit.push({...g,cost:t.cost??0,card:false});}}
+ return {own:kit,opponent:{faceDown:o.board.prepared.filter(e=>e.faceDown).length,hand:o.hand.length,time:o.time}};
+}
 const op=(name,n)=>({op:name,n,power:0,wisdom:0,to:'self',destination:null,duration:null,steps:[]});
 export function observeCpu(s,seat){
  if(s.version!==VERSION||!['A','B'].includes(seat)||actor(s)!==seat)throw Error('CPU observation requires current supported actor');
@@ -61,5 +77,5 @@ export function observeCpu(s,seat){
  });
  const selection=spec?{cost:Boolean(spec.cost),zone:spec.zone??null,destination:spec.cost??q?.destination??(d?.rule?.steps??spec.steps??[]).find(x=>x.op==='selectedMove'&&x.key===spec.key)?.destination??null}:null;
  const reactive=(me.hand??[]).filter(x=>RULES[x.cardId]?.reaction||RULES[x.cardId]?.condition==='challengeActive').map(x=>({id:x.id,cost:x.cost??0}));
- return freeze(structuredClone({seat,round:v.round,deck,reactive,turn:v.turn,phase:v.phase,revision:v.revision,window:s.window,players:v.players,chain:v.chain,choice:v.choice?{kind:v.choice.kind,peek:v.choice.peek,selection,destination:q?.search?.destination??q?.destination??null}:null,challenge:s.challenge?{parameter:s.challenge.parameter,completed:Boolean(s.challenge.completed)}:null,actions}));
+ return freeze(structuredClone({seat,round:v.round,deck,reactive,challengeKit:challengeKit(s,seat),turn:v.turn,phase:v.phase,revision:v.revision,window:s.window,players:v.players,chain:v.chain,choice:v.choice?{kind:v.choice.kind,peek:v.choice.peek,selection,destination:q?.search?.destination??q?.destination??null}:null,challenge:s.challenge?{parameter:s.challenge.parameter,completed:Boolean(s.challenge.completed)}:null,actions}));
 }

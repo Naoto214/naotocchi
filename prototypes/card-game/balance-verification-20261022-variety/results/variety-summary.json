@@ -1,0 +1,316 @@
+{
+ "V1": {
+  "planned": 1680,
+  "recorded": 1680,
+  "completed": 1680,
+  "abnormal": [],
+  "replay_mismatch": [],
+  "first_second": {
+   "first_wins": 773,
+   "second_wins": 736,
+   "draws": 171,
+   "first_rate_decisive": 0.512,
+   "ci95": [
+    0.487,
+    0.537
+   ]
+  },
+  "early_rate": 0.0214,
+  "reached100_rate": 0.0833,
+  "time_spent_share": 0.326,
+  "final_growth_mean": 68.53,
+  "challenges_per_game": 10.21,
+  "challenge_declarer_win_rate": 0.981,
+  "challenge_draw_rate": 0.014,
+  "responses_used_per_game": 13.79,
+  "elapsed_ms_mean": 1346,
+  "mirror_pairs": {
+   "same_order_both": 563,
+   "draw": 153,
+   "first_both": 69,
+   "second_both": 55
+  },
+  "deck_vs_others": {
+   "main": {
+    "score": 0.578,
+    "n": 360,
+    "ci95": [
+     0.526,
+     0.628
+    ],
+    "growth_mean": 65.2
+   },
+   "item": {
+    "score": 0.574,
+    "n": 360,
+    "ci95": [
+     0.522,
+     0.624
+    ],
+    "growth_mean": 69.5
+   },
+   "companion": {
+    "score": 0.535,
+    "n": 360,
+    "ci95": [
+     0.483,
+     0.586
+    ],
+    "growth_mean": 72.0
+   },
+   "challenge": {
+    "score": 0.474,
+    "n": 360,
+    "ci95": [
+     0.423,
+     0.525
+    ],
+    "growth_mean": 64.1
+   },
+   "partner": {
+    "score": 0.469,
+    "n": 360,
+    "ci95": [
+     0.418,
+     0.521
+    ],
+    "growth_mean": 63.6
+   },
+   "balance": {
+    "score": 0.444,
+    "n": 360,
+    "ci95": [
+     0.394,
+     0.496
+    ],
+    "growth_mean": 71.1
+   },
+   "growth": {
+    "score": 0.426,
+    "n": 360,
+    "ci95": [
+     0.376,
+     0.478
+    ],
+    "growth_mean": 74.2
+   }
+  },
+  "deck_matrix": {
+   "balance|balance": 0.5,
+   "balance|challenge": 0.508,
+   "balance|companion": 0.45,
+   "balance|growth": 0.633,
+   "balance|item": 0.417,
+   "balance|main": 0.4,
+   "balance|partner": 0.258,
+   "challenge|balance": 0.492,
+   "challenge|challenge": 0.5,
+   "challenge|companion": 0.383,
+   "challenge|growth": 0.608,
+   "challenge|item": 0.517,
+   "challenge|main": 0.367,
+   "challenge|partner": 0.475,
+   "companion|balance": 0.55,
+   "companion|challenge": 0.617,
+   "companion|companion": 0.5,
+   "companion|growth": 0.45,
+   "companion|item": 0.308,
+   "companion|main": 0.558,
+   "companion|partner": 0.725,
+   "growth|balance": 0.367,
+   "growth|challenge": 0.392,
+   "growth|companion": 0.55,
+   "growth|growth": 0.5,
+   "growth|item": 0.275,
+   "growth|main": 0.433,
+   "growth|partner": 0.542,
+   "item|balance": 0.583,
+   "item|challenge": 0.483,
+   "item|companion": 0.692,
+   "item|growth": 0.725,
+   "item|item": 0.5,
+   "item|main": 0.45,
+   "item|partner": 0.508,
+   "main|balance": 0.6,
+   "main|challenge": 0.633,
+   "main|companion": 0.442,
+   "main|growth": 0.567,
+   "main|item": 0.55,
+   "main|main": 0.5,
+   "main|partner": 0.675,
+   "partner|balance": 0.742,
+   "partner|challenge": 0.525,
+   "partner|companion": 0.275,
+   "partner|growth": 0.458,
+   "partner|item": 0.492,
+   "partner|main": 0.325,
+   "partner|partner": 0.5
+  },
+  "deck_card_use": {
+   "balance": {
+    "distinct_used": 21,
+    "distinct_in_deck": 21,
+    "never_used": []
+   },
+   "challenge": {
+    "distinct_used": 21,
+    "distinct_in_deck": 21,
+    "never_used": []
+   },
+   "companion": {
+    "distinct_used": 18,
+    "distinct_in_deck": 18,
+    "never_used": []
+   },
+   "growth": {
+    "distinct_used": 17,
+    "distinct_in_deck": 17,
+    "never_used": []
+   },
+   "item": {
+    "distinct_used": 19,
+    "distinct_in_deck": 19,
+    "never_used": []
+   },
+   "main": {
+    "distinct_used": 21,
+    "distinct_in_deck": 21,
+    "never_used": []
+   },
+   "partner": {
+    "distinct_used": 16,
+    "distinct_in_deck": 18,
+    "never_used": [
+     "E-reconciliation",
+     "I-c_match"
+    ]
+   }
+  }
+ },
+ "V2": {
+  "planned": 840,
+  "recorded": 840,
+  "completed": 840,
+  "abnormal": [],
+  "replay_mismatch": [],
+  "first_second": {
+   "first_wins": 404,
+   "second_wins": 357,
+   "draws": 79,
+   "first_rate_decisive": 0.531,
+   "ci95": [
+    0.495,
+    0.566
+   ]
+  },
+  "early_rate": 0.0179,
+  "reached100_rate": 0.0607,
+  "time_spent_share": 0.316,
+  "final_growth_mean": 60.41,
+  "challenges_per_game": 7.08,
+  "challenge_declarer_win_rate": 0.975,
+  "challenge_draw_rate": 0.02,
+  "responses_used_per_game": 14.87,
+  "elapsed_ms_mean": 1201,
+  "difficulty_score": {
+   "beginner": {
+    "score": 0.468,
+    "n": 840,
+    "ci95": [
+     0.435,
+     0.502
+    ]
+   },
+   "intermediate": {
+    "score": 0.532,
+    "n": 840,
+    "ci95": [
+     0.498,
+     0.565
+    ]
+   }
+  },
+  "intermediate_score_by_deck": {
+   "balance": [
+    0.692,
+    120,
+    [
+     0.604,
+     0.767
+    ]
+   ],
+   "challenge": [
+    0.533,
+    120,
+    [
+     0.444,
+     0.62
+    ]
+   ],
+   "companion": [
+    0.463,
+    120,
+    [
+     0.376,
+     0.551
+    ]
+   ],
+   "growth": [
+    0.579,
+    120,
+    [
+     0.49,
+     0.664
+    ]
+   ],
+   "item": [
+    0.512,
+    120,
+    [
+     0.424,
+     0.6
+    ]
+   ],
+   "main": [
+    0.442,
+    120,
+    [
+     0.356,
+     0.531
+    ]
+   ],
+   "partner": [
+    0.5,
+    120,
+    [
+     0.412,
+     0.588
+    ]
+   ]
+  },
+  "identical_under_difficulty_swap": 0,
+  "wins": {
+   "beginner": 354,
+   "intermediate": 407,
+   "draw": 79
+  },
+  "by_difficulty": {
+   "beginner": {
+    "challenges_per_game": 3.33,
+    "declarer_win": 0.986,
+    "declarer_loss": 0.004,
+    "final_growth": 59.2,
+    "time_used_share": 0.305,
+    "responses_per_game": 7.95
+   },
+   "intermediate": {
+    "challenges_per_game": 3.75,
+    "declarer_win": 0.966,
+    "declarer_loss": 0.005,
+    "final_growth": 61.6,
+    "time_used_share": 0.327,
+    "responses_per_game": 6.92
+   }
+  }
+ }
+}
