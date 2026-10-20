@@ -26,6 +26,7 @@ function stepValue(steps,o,a){
  case 'handBottom':case 'handTop':v=-3;break;
  case 'schedule':v=stepValue(s.steps,o,a)*(o.round===10?.1:.65);break;
  case 'if':v=stepValue(s.steps,o,a)*.45;break;
+ case 'chance':v=stepValue(s.steps,o,a)*Math.max(0,Math.min(1,Number(s.p)||0));break;
  case 'coin':v=5;break;
  case 'growthVariant':v=Math.min(5,a.variant==='opponent'?opp.growth:100-p.growth)*(o.round>=8?2.2:1.6);break;
  case 'look':v=p.deckCount?1.5:0;break;
