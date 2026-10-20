@@ -1,0 +1,4044 @@
+{
+ "decks_containing_changed_cards": [
+  "D0_standard",
+  "D2_companions",
+  "D3_partner",
+  "D5_growth_gain",
+  "D6_item_response"
+ ],
+ "experiments": {
+  "E1": {
+   "completed": [
+    1680,
+    1680
+   ],
+   "abnormal": [
+    0,
+    0
+   ],
+   "replay_mismatch": [
+    0,
+    0
+   ],
+   "first_second": {
+    "first_wins": [
+     769,
+     776
+    ],
+    "second_wins": [
+     751,
+     772
+    ],
+    "draws": [
+     160,
+     132
+    ],
+    "first_rate_decisive": [
+     0.506,
+     0.501
+    ],
+    "ci95": [
+     [
+      0.481,
+      0.531
+     ],
+     [
+      0.476,
+      0.526
+     ]
+    ],
+    "sign_test_p": [
+     0.6628,
+     0.9392
+    ]
+   },
+   "mirror_pairs": [
+    {
+     "contains_draw": 134,
+     "second_won_both": 26,
+     "same_order_won_both": 639,
+     "first_won_both": 41
+    },
+    {
+     "same_order_won_both": 668,
+     "second_won_both": 24,
+     "contains_draw": 115,
+     "first_won_both": 33
+    }
+   ],
+   "decision": {
+    "early_rate": [
+     0.0179,
+     0.0298
+    ],
+    "r10_completion_rate": [
+     0.9821,
+     0.9702
+    ],
+    "round_hist": [
+     {
+      "7": 1,
+      "8": 3,
+      "9": 26,
+      "10": 1650
+     },
+     {
+      "7": 2,
+      "8": 16,
+      "9": 32,
+      "10": 1630
+     }
+    ]
+   },
+   "progress": {
+    "reached100_any_rate": [
+     0.054,
+     0.069
+    ],
+    "final_growth_mean": [
+     59.321,
+     59.368
+    ],
+    "final_growth_median_winner": [
+     70.0,
+     70.0
+    ],
+    "growth_stuck_at_20_rate": [
+     0.039,
+     0.04
+    ],
+    "draw_rate": [
+     0.0952,
+     0.0786
+    ],
+    "abs_growth_gap_mean": [
+     22.0,
+     22.408
+    ],
+    "challenges_per_game": [
+     9.631,
+     9.545
+    ],
+    "challenge_draw_share": [
+     0.004,
+     0.004
+    ],
+    "no_action_turn_rate": [
+     0.0073,
+     0.0071
+    ],
+    "time_left_at_turn_end_mean": [
+     4.143,
+     4.012
+    ],
+    "time_spent_share": [
+     0.248,
+     0.274
+    ],
+    "unaffordable_hand_cards_at_turn_end_mean": [
+     1.092,
+     1.117
+    ],
+    "manual_response_decisions_per_game": [
+     95.713,
+     81.467
+    ],
+    "responses_used_per_game": [
+     8.789,
+     7.274
+    ],
+    "auto_pass_per_game": [
+     127.938,
+     146.674
+    ],
+    "chain_links_ge2_per_game": [
+     6.342,
+     5.158
+    ],
+    "decisions_per_game": [
+     177.358,
+     164.785
+    ],
+    "elapsed_ms_mean": [
+     1022.577,
+     1032.877
+    ],
+    "elapsed_ms_max": [
+     2815,
+     2407
+    ]
+   },
+   "max_chain_hist": [
+    {
+     "1": 143,
+     "2": 603,
+     "3": 575,
+     "4": 275,
+     "5": 60,
+     "6": 17,
+     "7": 7
+    },
+    {
+     "0": 2,
+     "1": 213,
+     "2": 819,
+     "3": 536,
+     "4": 92,
+     "5": 15,
+     "6": 2,
+     "7": 1
+    }
+   ],
+   "action_kinds_per_game": [
+    {
+     "ability": 0.01,
+     "challenge": 9.63,
+     "choose": 16.58,
+     "pass": 106.88,
+     "place": 15.73,
+     "play": 2.51,
+     "programAbility": 2.71,
+     "programPlay": 3.56,
+     "relationship": 4.62,
+     "skip": 0.82,
+     "trigger": 14.32
+    },
+    {
+     "ability": 0.01,
+     "challenge": 9.55,
+     "choose": 16.19,
+     "pass": 94.1,
+     "place": 15.86,
+     "play": 2.53,
+     "programAbility": 2.66,
+     "programPlay": 4.03,
+     "relationship": 4.63,
+     "skip": 0.82,
+     "trigger": 14.4
+    }
+   ],
+   "growth_by_round_mean": [
+    [
+     20.49,
+     22.51,
+     25.21,
+     29.22,
+     34.77,
+     40.3,
+     45.1,
+     51.0,
+     55.34,
+     59.01
+    ],
+    [
+     20.54,
+     22.8,
+     25.84,
+     29.66,
+     34.68,
+     40.46,
+     45.98,
+     51.12,
+     55.25,
+     58.9
+    ]
+   ],
+   "deck_overall_vs_others": {
+    "D0_standard": [
+     {
+      "score": 0.168,
+      "n": 360,
+      "ci95": [
+       0.133,
+       0.21
+      ]
+     },
+     {
+      "score": 0.171,
+      "n": 360,
+      "ci95": [
+       0.135,
+       0.213
+      ]
+     }
+    ],
+    "D1_main_growth": [
+     {
+      "score": 0.656,
+      "n": 360,
+      "ci95": [
+       0.605,
+       0.703
+      ]
+     },
+     {
+      "score": 0.631,
+      "n": 360,
+      "ci95": [
+       0.58,
+       0.679
+      ]
+     }
+    ],
+    "D2_companions": [
+     {
+      "score": 0.463,
+      "n": 360,
+      "ci95": [
+       0.412,
+       0.514
+      ]
+     },
+     {
+      "score": 0.44,
+      "n": 360,
+      "ci95": [
+       0.39,
+       0.492
+      ]
+     }
+    ],
+    "D3_partner": [
+     {
+      "score": 0.779,
+      "n": 360,
+      "ci95": [
+       0.733,
+       0.819
+      ]
+     },
+     {
+      "score": 0.808,
+      "n": 360,
+      "ci95": [
+       0.765,
+       0.846
+      ]
+     }
+    ],
+    "D4_challenge": [
+     {
+      "score": 0.537,
+      "n": 360,
+      "ci95": [
+       0.486,
+       0.588
+      ]
+     },
+     {
+      "score": 0.474,
+      "n": 360,
+      "ci95": [
+       0.423,
+       0.525
+      ]
+     }
+    ],
+    "D5_growth_gain": [
+     {
+      "score": 0.636,
+      "n": 360,
+      "ci95": [
+       0.585,
+       0.684
+      ]
+     },
+     {
+      "score": 0.726,
+      "n": 360,
+      "ci95": [
+       0.678,
+       0.77
+      ]
+     }
+    ],
+    "D6_item_response": [
+     {
+      "score": 0.261,
+      "n": 360,
+      "ci95": [
+       0.218,
+       0.309
+      ]
+     },
+     {
+      "score": 0.25,
+      "n": 360,
+      "ci95": [
+       0.208,
+       0.297
+      ]
+     }
+    ]
+   },
+   "deck_matrix": {
+    "D0_standard|D0_standard": [
+     0.5,
+     0.5,
+     120
+    ],
+    "D0_standard|D1_main_growth": [
+     0.267,
+     0.275,
+     60
+    ],
+    "D0_standard|D2_companions": [
+     0.242,
+     0.292,
+     60
+    ],
+    "D0_standard|D3_partner": [
+     0.05,
+     0.025,
+     60
+    ],
+    "D0_standard|D4_challenge": [
+     0.133,
+     0.183,
+     60
+    ],
+    "D0_standard|D5_growth_gain": [
+     0.075,
+     0.075,
+     60
+    ],
+    "D0_standard|D6_item_response": [
+     0.242,
+     0.175,
+     60
+    ],
+    "D1_main_growth|D0_standard": [
+     0.733,
+     0.725,
+     60
+    ],
+    "D1_main_growth|D1_main_growth": [
+     0.5,
+     0.5,
+     120
+    ],
+    "D1_main_growth|D2_companions": [
+     0.667,
+     0.642,
+     60
+    ],
+    "D1_main_growth|D3_partner": [
+     0.525,
+     0.475,
+     60
+    ],
+    "D1_main_growth|D4_challenge": [
+     0.642,
+     0.725,
+     60
+    ],
+    "D1_main_growth|D5_growth_gain": [
+     0.492,
+     0.3,
+     60
+    ],
+    "D1_main_growth|D6_item_response": [
+     0.875,
+     0.917,
+     60
+    ],
+    "D2_companions|D0_standard": [
+     0.758,
+     0.708,
+     60
+    ],
+    "D2_companions|D1_main_growth": [
+     0.333,
+     0.358,
+     60
+    ],
+    "D2_companions|D2_companions": [
+     0.5,
+     0.5,
+     120
+    ],
+    "D2_companions|D3_partner": [
+     0.217,
+     0.208,
+     60
+    ],
+    "D2_companions|D4_challenge": [
+     0.275,
+     0.292,
+     60
+    ],
+    "D2_companions|D5_growth_gain": [
+     0.342,
+     0.225,
+     60
+    ],
+    "D2_companions|D6_item_response": [
+     0.85,
+     0.85,
+     60
+    ],
+    "D3_partner|D0_standard": [
+     0.95,
+     0.975,
+     60
+    ],
+    "D3_partner|D1_main_growth": [
+     0.475,
+     0.525,
+     60
+    ],
+    "D3_partner|D2_companions": [
+     0.783,
+     0.792,
+     60
+    ],
+    "D3_partner|D3_partner": [
+     0.5,
+     0.5,
+     120
+    ],
+    "D3_partner|D4_challenge": [
+     0.933,
+     0.975,
+     60
+    ],
+    "D3_partner|D5_growth_gain": [
+     0.617,
+     0.65,
+     60
+    ],
+    "D3_partner|D6_item_response": [
+     0.917,
+     0.933,
+     60
+    ],
+    "D4_challenge|D0_standard": [
+     0.867,
+     0.817,
+     60
+    ],
+    "D4_challenge|D1_main_growth": [
+     0.358,
+     0.275,
+     60
+    ],
+    "D4_challenge|D2_companions": [
+     0.725,
+     0.708,
+     60
+    ],
+    "D4_challenge|D3_partner": [
+     0.067,
+     0.025,
+     60
+    ],
+    "D4_challenge|D4_challenge": [
+     0.5,
+     0.5,
+     120
+    ],
+    "D4_challenge|D5_growth_gain": [
+     0.383,
+     0.2,
+     60
+    ],
+    "D4_challenge|D6_item_response": [
+     0.825,
+     0.817,
+     60
+    ],
+    "D5_growth_gain|D0_standard": [
+     0.925,
+     0.925,
+     60
+    ],
+    "D5_growth_gain|D1_main_growth": [
+     0.508,
+     0.7,
+     60
+    ],
+    "D5_growth_gain|D2_companions": [
+     0.658,
+     0.775,
+     60
+    ],
+    "D5_growth_gain|D3_partner": [
+     0.383,
+     0.35,
+     60
+    ],
+    "D5_growth_gain|D4_challenge": [
+     0.617,
+     0.8,
+     60
+    ],
+    "D5_growth_gain|D5_growth_gain": [
+     0.5,
+     0.5,
+     120
+    ],
+    "D5_growth_gain|D6_item_response": [
+     0.725,
+     0.808,
+     60
+    ],
+    "D6_item_response|D0_standard": [
+     0.758,
+     0.825,
+     60
+    ],
+    "D6_item_response|D1_main_growth": [
+     0.125,
+     0.083,
+     60
+    ],
+    "D6_item_response|D2_companions": [
+     0.15,
+     0.15,
+     60
+    ],
+    "D6_item_response|D3_partner": [
+     0.083,
+     0.067,
+     60
+    ],
+    "D6_item_response|D4_challenge": [
+     0.175,
+     0.183,
+     60
+    ],
+    "D6_item_response|D5_growth_gain": [
+     0.275,
+     0.192,
+     60
+    ],
+    "D6_item_response|D6_item_response": [
+     0.5,
+     0.5,
+     120
+    ]
+   },
+   "deck_behaviour": {
+    "D0_standard": {
+     "growth": [
+      51.062,
+      50.646
+     ],
+     "time_left": [
+      36.81,
+      36.479
+     ],
+     "ch_declared": [
+      1.271,
+      1.219
+     ],
+     "ch_won": [
+      1.269,
+      1.217
+     ],
+     "responses": [
+      6.56,
+      5.979
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D1_main_growth": {
+     "growth": [
+      61.25,
+      60.615
+     ],
+     "time_left": [
+      43.771,
+      39.692
+     ],
+     "ch_declared": [
+      6.592,
+      6.608
+     ],
+     "ch_won": [
+      6.592,
+      6.608
+     ],
+     "responses": [
+      2.898,
+      1.408
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D2_companions": {
+     "growth": [
+      56.469,
+      56.438
+     ],
+     "time_left": [
+      46.148,
+      45.185
+     ],
+     "ch_declared": [
+      7.06,
+      7.029
+     ],
+     "ch_won": [
+      7.046,
+      7.004
+     ],
+     "responses": [
+      6.496,
+      5.812
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D3_partner": {
+     "growth": [
+      67.427,
+      67.74
+     ],
+     "time_left": [
+      40.544,
+      39.865
+     ],
+     "ch_declared": [
+      5.763,
+      5.783
+     ],
+     "ch_won": [
+      5.744,
+      5.763
+     ],
+     "responses": [
+      2.796,
+      2.138
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D4_challenge": {
+     "growth": [
+      63.854,
+      61.729
+     ],
+     "time_left": [
+      41.35,
+      40.817
+     ],
+     "ch_declared": [
+      5.323,
+      5.277
+     ],
+     "ch_won": [
+      5.321,
+      5.275
+     ],
+     "responses": [
+      5.415,
+      4.921
+     ],
+     "reached100": [
+      0.052,
+      0.023
+     ]
+    },
+    "D5_growth_gain": {
+     "growth": [
+      74.125,
+      77.917
+     ],
+     "time_left": [
+      38.604,
+      35.706
+     ],
+     "ch_declared": [
+      3.483,
+      3.406
+     ],
+     "ch_won": [
+      3.404,
+      3.34
+     ],
+     "responses": [
+      6.006,
+      4.542
+     ],
+     "reached100": [
+      0.138,
+      0.219
+     ]
+    },
+    "D6_item_response": {
+     "growth": [
+      41.062,
+      40.49
+     ],
+     "time_left": [
+      42.148,
+      41.785
+     ],
+     "ch_declared": [
+      4.217,
+      4.085
+     ],
+     "ch_won": [
+      4.185,
+      4.06
+     ],
+     "responses": [
+      0.59,
+      0.658
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "match_attribution": {
+    "changed": 1671,
+    "winner_changed": 357,
+    "identical": 9
+   },
+   "legacy_cards": {
+    "I-c_coin2": {
+     "name": [
+      "ラッキーコイン",
+      "ラッキーコイン"
+     ],
+     "drawn": [
+      "1665",
+      "1681"
+     ],
+     "played": [
+      "1610",
+      "1621"
+     ],
+     "activated": [
+      "1610",
+      "1621"
+     ],
+     "play_or_activate_per_draw": [
+      "1.934",
+      "1.929"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.0"
+     ],
+     "score_when_used": [
+      "0.409",
+      "0.455"
+     ],
+     "n_used": [
+      "837",
+      "836"
+     ],
+     "score_when_drawn_unused": [
+      "0.5",
+      "0.421"
+     ]
+    },
+    "G-hit-blow": {
+     "name": [
+      "ヒット&ブロー",
+      "ヒット&ブロー"
+     ],
+     "drawn": [
+      "1000",
+      "975"
+     ],
+     "played": [
+      "993",
+      "968"
+     ],
+     "activated": [
+      "993",
+      "968"
+     ],
+     "play_or_activate_per_draw": [
+      "1.986",
+      "1.986"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.0"
+     ],
+     "score_when_used": [
+      "0.258",
+      "0.259"
+     ],
+     "n_used": [
+      "450",
+      "444"
+     ],
+     "score_when_drawn_unused": [
+      "",
+      ""
+     ]
+    },
+    "G-area-claim": {
+     "name": [
+      "じんとり",
+      "じんとり"
+     ],
+     "drawn": [
+      "1129",
+      "1143"
+     ],
+     "played": [
+      "365",
+      "345"
+     ],
+     "activated": [
+      "365",
+      "345"
+     ],
+     "play_or_activate_per_draw": [
+      "0.647",
+      "0.604"
+     ],
+     "hand_end_per_draw": [
+      "0.28",
+      "0.29"
+     ],
+     "score_when_used": [
+      "0.31",
+      "0.323"
+     ],
+     "n_used": [
+      "268",
+      "248"
+     ],
+     "score_when_drawn_unused": [
+      "0.475",
+      "0.521"
+     ]
+    },
+    "E-first-date": {
+     "name": [
+      "はじめてのデート",
+      "はじめてのデート"
+     ],
+     "drawn": [
+      "1788",
+      "1762"
+     ],
+     "played": [
+      "770",
+      "797"
+     ],
+     "activated": [
+      "770",
+      "797"
+     ],
+     "play_or_activate_per_draw": [
+      "0.861",
+      "0.905"
+     ],
+     "hand_end_per_draw": [
+      "0.529",
+      "0.507"
+     ],
+     "score_when_used": [
+      "0.499",
+      "0.512"
+     ],
+     "n_used": [
+      "530",
+      "543"
+     ],
+     "score_when_drawn_unused": [
+      "0.447",
+      "0.452"
+     ]
+    },
+    "G-animal-shogi": {
+     "name": [
+      "どうぶつしょうぎ",
+      "どうぶつしょうぎ"
+     ],
+     "drawn": [
+      "1451",
+      "1475"
+     ],
+     "played": [
+      "0",
+      "26"
+     ],
+     "activated": [
+      "0",
+      "26"
+     ],
+     "play_or_activate_per_draw": [
+      "0.0",
+      "0.035"
+     ],
+     "hand_end_per_draw": [
+      "0.756",
+      "0.727"
+     ],
+     "score_when_used": [
+      "",
+      "0.538"
+     ],
+     "n_used": [
+      "0",
+      "26"
+     ],
+     "score_when_drawn_unused": [
+      "0.343",
+      "0.331"
+     ]
+    },
+    "G-archery-3d": {
+     "name": [
+      "アーチェリー",
+      "アーチェリー"
+     ],
+     "drawn": [
+      "1499",
+      "1508"
+     ],
+     "played": [
+      "476",
+      "491"
+     ],
+     "activated": [
+      "476",
+      "491"
+     ],
+     "play_or_activate_per_draw": [
+      "0.635",
+      "0.651"
+     ],
+     "hand_end_per_draw": [
+      "0.438",
+      "0.43"
+     ],
+     "score_when_used": [
+      "0.339",
+      "0.37"
+     ],
+     "n_used": [
+      "345",
+      "334"
+     ],
+     "score_when_drawn_unused": [
+      "0.251",
+      "0.24"
+     ]
+    }
+   },
+   "search_cards": {
+    "I-c_match": {
+     "name": [
+      "おみあいチケット",
+      "おみあいチケット"
+     ],
+     "drawn": [
+      "510",
+      "505"
+     ],
+     "played": [
+      "0",
+      "6"
+     ],
+     "activated": [
+      "0",
+      "6"
+     ],
+     "hand_end_per_draw": [
+      "0.745",
+      "0.723"
+     ],
+     "score_when_used": [
+      "",
+      "0.667"
+     ],
+     "n_used": [
+      "0",
+      "6"
+     ]
+    },
+    "I-c_friend": {
+     "name": [
+      "おともだちチケット",
+      "おともだちチケット"
+     ],
+     "drawn": [
+      "465",
+      "453"
+     ],
+     "played": [
+      "0",
+      "57"
+     ],
+     "activated": [
+      "0",
+      "57"
+     ],
+     "hand_end_per_draw": [
+      "0.671",
+      "0.532"
+     ],
+     "score_when_used": [
+      "",
+      "0.52"
+     ],
+     "n_used": [
+      "0",
+      "50"
+     ]
+    },
+    "I-c_time_forward": {
+     "name": [
+      "ときのチケット・あと",
+      "ときのチケット・あと"
+     ],
+     "drawn": [
+      "206",
+      "217"
+     ],
+     "played": [
+      "0",
+      "0"
+     ],
+     "activated": [
+      "0",
+      "0"
+     ],
+     "hand_end_per_draw": [
+      "0.558",
+      "0.594"
+     ],
+     "score_when_used": [
+      "",
+      ""
+     ],
+     "n_used": [
+      "0",
+      "0"
+     ]
+    },
+    "G-picross-5": {
+     "name": [
+      "ピクロス",
+      "ピクロス"
+     ],
+     "drawn": [
+      "396",
+      "411"
+     ],
+     "played": [
+      "0",
+      "4"
+     ],
+     "activated": [
+      "0",
+      "4"
+     ],
+     "hand_end_per_draw": [
+      "0.828",
+      "0.822"
+     ],
+     "score_when_used": [
+      "",
+      "0.5"
+     ],
+     "n_used": [
+      "0",
+      "4"
+     ]
+    },
+    "G-stack-acorn": {
+     "name": [
+      "きのみタワー",
+      "きのみタワー"
+     ],
+     "drawn": [
+      "450",
+      "440"
+     ],
+     "played": [
+      "0",
+      "244"
+     ],
+     "activated": [
+      "0",
+      "244"
+     ],
+     "hand_end_per_draw": [
+      "0.68",
+      "0.105"
+     ],
+     "score_when_used": [
+      "",
+      "0.465"
+     ],
+     "n_used": [
+      "0",
+      "212"
+     ]
+    },
+    "E-new-encounter": {
+     "name": [
+      "あたらしいであい",
+      "あたらしいであい"
+     ],
+     "drawn": [
+      "1050",
+      "1019"
+     ],
+     "played": [
+      "941",
+      "703"
+     ],
+     "activated": [
+      "941",
+      "703"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.207"
+     ],
+     "score_when_used": [
+      "0.591",
+      "0.687"
+     ],
+     "n_used": [
+      "730",
+      "563"
+     ]
+    },
+    "E-mirror": {
+     "name": [
+      "としをとったじぶん",
+      "としをとったじぶん"
+     ],
+     "drawn": [
+      "601",
+      "609"
+     ],
+     "played": [
+      "488",
+      "220"
+     ],
+     "activated": [
+      "488",
+      "220"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.432"
+     ],
+     "score_when_used": [
+      "0.638",
+      "0.599"
+     ],
+     "n_used": [
+      "341",
+      "182"
+     ]
+    },
+    "I-c_egg_normal": {
+     "name": [
+      "ふしぎなたまご",
+      "ふしぎなたまご"
+     ],
+     "drawn": [
+      "411",
+      "424"
+     ],
+     "played": [
+      "4",
+      "65"
+     ],
+     "activated": [
+      "4",
+      "65"
+     ],
+     "hand_end_per_draw": [
+      "0.796",
+      "0.726"
+     ],
+     "score_when_used": [
+      "1.0",
+      "0.508"
+     ],
+     "n_used": [
+      "4",
+      "65"
+     ]
+    },
+    "G-animal-shogi": {
+     "name": [
+      "どうぶつしょうぎ",
+      "どうぶつしょうぎ"
+     ],
+     "drawn": [
+      "1451",
+      "1475"
+     ],
+     "played": [
+      "0",
+      "26"
+     ],
+     "activated": [
+      "0",
+      "26"
+     ],
+     "hand_end_per_draw": [
+      "0.756",
+      "0.727"
+     ],
+     "score_when_used": [
+      "",
+      "0.538"
+     ],
+     "n_used": [
+      "0",
+      "26"
+     ]
+    },
+    "C-cat_friend": {
+     "name": [
+      "きまぐれなねこ",
+      "きまぐれなねこ"
+     ],
+     "drawn": [
+      "1483",
+      "1522"
+     ],
+     "played": [
+      "940",
+      "915"
+     ],
+     "activated": [
+      "21",
+      "20"
+     ],
+     "hand_end_per_draw": [
+      "0.296",
+      "0.336"
+     ],
+     "score_when_used": [
+      "0.323",
+      "0.316"
+     ],
+     "n_used": [
+      "603",
+      "591"
+     ]
+    },
+    "G-jump-quest": {
+     "name": [
+      "ジャンプクエスト",
+      "ジャンプクエスト"
+     ],
+     "drawn": [
+      "206",
+      "204"
+     ],
+     "played": [
+      "1",
+      "5"
+     ],
+     "activated": [
+      "1",
+      "5"
+     ],
+     "hand_end_per_draw": [
+      "0.845",
+      "0.804"
+     ],
+     "score_when_used": [
+      "0.0",
+      "0.8"
+     ],
+     "n_used": [
+      "1",
+      "5"
+     ]
+    }
+   },
+   "distinct_cards_used": [
+    100,
+    109
+   ],
+   "other_cards_use_rate_mean_abs_change": 0.1154,
+   "other_cards_largest_change": [
+    [
+     "G-mini-golf-physics",
+     "ミニゴルフ",
+     0.0,
+     1.716
+    ],
+    [
+     "G-stack-acorn",
+     "きのみタワー",
+     0.0,
+     1.109
+    ],
+    [
+     "E-fateful-transform",
+     "うんめいのへんしん",
+     0.0,
+     1.018
+    ],
+    [
+     "E-mirror",
+     "としをとったじぶん",
+     1.624,
+     0.722
+    ],
+    [
+     "W-snow",
+     "ゆきぐに",
+     5.298,
+     4.671
+    ],
+    [
+     "E-new-encounter",
+     "あたらしいであい",
+     1.792,
+     1.38
+    ],
+    [
+     "M-beetle-07",
+     "カブトムシ⑦",
+     0.324,
+     0.69
+    ],
+    [
+     "I-c_egg_normal",
+     "ふしぎなたまご",
+     0.019,
+     0.307
+    ],
+    [
+     "C-owl",
+     "ものしりふくろう",
+     3.507,
+     3.235
+    ],
+    [
+     "M-mushroom-01",
+     "キノコ①",
+     1.199,
+     0.938
+    ],
+    [
+     "M-beetle-02",
+     "カブトムシ②",
+     0.679,
+     0.938
+    ],
+    [
+     "I-c_friend",
+     "おともだちチケット",
+     0.0,
+     0.252
+    ]
+   ],
+   "never_used_after": [
+    "E-reconciliation",
+    "G-air-hockey",
+    "G-doodle-jump",
+    "I-c_time_forward"
+   ]
+  },
+  "E2": {
+   "completed": [
+    840,
+    840
+   ],
+   "abnormal": [
+    0,
+    0
+   ],
+   "replay_mismatch": [
+    0,
+    0
+   ],
+   "first_second": {
+    "first_wins": [
+     402,
+     404
+    ],
+    "second_wins": [
+     351,
+     362
+    ],
+    "draws": [
+     87,
+     74
+    ],
+    "first_rate_decisive": [
+     0.534,
+     0.527
+    ],
+    "ci95": [
+     [
+      0.498,
+      0.569
+     ],
+     [
+      0.492,
+      0.563
+     ]
+    ],
+    "sign_test_p": [
+     0.0684,
+     0.1385
+    ]
+   },
+   "mirror_pairs": [
+    null,
+    null
+   ],
+   "decision": {
+    "early_rate": [
+     0.0083,
+     0.0143
+    ],
+    "r10_completion_rate": [
+     0.9917,
+     0.9857
+    ],
+    "round_hist": [
+     {
+      "8": 4,
+      "9": 3,
+      "10": 833
+     },
+     {
+      "8": 5,
+      "9": 7,
+      "10": 828
+     }
+    ]
+   },
+   "progress": {
+    "reached100_any_rate": [
+     0.019,
+     0.033
+    ],
+    "final_growth_mean": [
+     51.211,
+     51.649
+    ],
+    "final_growth_median_winner": [
+     60.0,
+     60.0
+    ],
+    "growth_stuck_at_20_rate": [
+     0.0775,
+     0.079
+    ],
+    "draw_rate": [
+     0.1036,
+     0.0881
+    ],
+    "abs_growth_gap_mean": [
+     20.601,
+     20.869
+    ],
+    "challenges_per_game": [
+     6.93,
+     6.868
+    ],
+    "challenge_draw_share": [
+     0.014,
+     0.014
+    ],
+    "no_action_turn_rate": [
+     0.0101,
+     0.0084
+    ],
+    "time_left_at_turn_end_mean": [
+     4.107,
+     3.997
+    ],
+    "time_spent_share": [
+     0.254,
+     0.275
+    ],
+    "unaffordable_hand_cards_at_turn_end_mean": [
+     1.12,
+     1.157
+    ],
+    "manual_response_decisions_per_game": [
+     91.519,
+     78.052
+    ],
+    "responses_used_per_game": [
+     9.231,
+     7.692
+    ],
+    "auto_pass_per_game": [
+     121.76,
+     140.346
+    ],
+    "chain_links_ge2_per_game": [
+     5.844,
+     4.473
+    ],
+    "decisions_per_game": [
+     169.225,
+     157.381
+    ],
+    "elapsed_ms_mean": [
+     910.387,
+     946.098
+    ],
+    "elapsed_ms_max": [
+     2092,
+     2027
+    ]
+   },
+   "max_chain_hist": [
+    {
+     "1": 82,
+     "2": 299,
+     "3": 262,
+     "4": 114,
+     "5": 44,
+     "6": 32,
+     "7": 5,
+     "8": 2
+    },
+    {
+     "1": 157,
+     "2": 390,
+     "3": 240,
+     "4": 46,
+     "5": 4,
+     "6": 3
+    }
+   ],
+   "action_kinds_per_game": [
+    {
+     "ability": 0.03,
+     "challenge": 6.93,
+     "choose": 16.41,
+     "pass": 102.26,
+     "place": 15.94,
+     "play": 2.57,
+     "programAbility": 2.95,
+     "programPlay": 3.68,
+     "relationship": 4.47,
+     "skip": 0.51,
+     "trigger": 13.47
+    },
+    {
+     "ability": 0.01,
+     "challenge": 6.87,
+     "choose": 16.05,
+     "pass": 90.32,
+     "place": 15.97,
+     "play": 2.6,
+     "programAbility": 2.93,
+     "programPlay": 4.18,
+     "relationship": 4.5,
+     "skip": 0.52,
+     "trigger": 13.42
+    }
+   ],
+   "growth_by_round_mean": [
+    [
+     20.27,
+     21.83,
+     24.06,
+     27.48,
+     32.05,
+     37.0,
+     40.86,
+     45.21,
+     48.14,
+     50.95
+    ],
+    [
+     20.26,
+     22.15,
+     24.65,
+     27.84,
+     32.03,
+     37.09,
+     41.52,
+     45.61,
+     48.76,
+     51.18
+    ]
+   ],
+   "deck_overall_vs_others": {},
+   "deck_matrix": {
+    "D0_standard|D0_standard": [
+     0.5,
+     0.5,
+     240
+    ],
+    "D1_main_growth|D1_main_growth": [
+     0.5,
+     0.5,
+     240
+    ],
+    "D2_companions|D2_companions": [
+     0.5,
+     0.5,
+     240
+    ],
+    "D3_partner|D3_partner": [
+     0.5,
+     0.5,
+     240
+    ],
+    "D4_challenge|D4_challenge": [
+     0.5,
+     0.5,
+     240
+    ],
+    "D5_growth_gain|D5_growth_gain": [
+     0.5,
+     0.5,
+     240
+    ],
+    "D6_item_response|D6_item_response": [
+     0.5,
+     0.5,
+     240
+    ]
+   },
+   "deck_behaviour": {
+    "D0_standard": {
+     "growth": [
+      49.854,
+      49.146
+     ],
+     "time_left": [
+      36.663,
+      36.888
+     ],
+     "ch_declared": [
+      1.746,
+      1.817
+     ],
+     "ch_won": [
+      1.746,
+      1.817
+     ],
+     "responses": [
+      6.446,
+      5.871
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D1_main_growth": {
+     "growth": [
+      48.229,
+      47.521
+     ],
+     "time_left": [
+      43.821,
+      40.15
+     ],
+     "ch_declared": [
+      4.35,
+      4.279
+     ],
+     "ch_won": [
+      4.35,
+      4.279
+     ],
+     "responses": [
+      2.871,
+      1.054
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D2_companions": {
+     "growth": [
+      42.542,
+      42.125
+     ],
+     "time_left": [
+      45.917,
+      45.104
+     ],
+     "ch_declared": [
+      4.375,
+      4.321
+     ],
+     "ch_won": [
+      4.329,
+      4.287
+     ],
+     "responses": [
+      6.808,
+      6.067
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D3_partner": {
+     "growth": [
+      55.583,
+      54.792
+     ],
+     "time_left": [
+      40.746,
+      40.221
+     ],
+     "ch_declared": [
+      3.542,
+      3.383
+     ],
+     "ch_won": [
+      3.542,
+      3.383
+     ],
+     "responses": [
+      2.508,
+      2.0
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D4_challenge": {
+     "growth": [
+      61.271,
+      61.021
+     ],
+     "time_left": [
+      41.633,
+      41.092
+     ],
+     "ch_declared": [
+      5.1,
+      5.325
+     ],
+     "ch_won": [
+      5.1,
+      5.325
+     ],
+     "responses": [
+      5.842,
+      5.408
+     ],
+     "reached100": [
+      0.013,
+      0.025
+     ]
+    },
+    "D5_growth_gain": {
+     "growth": [
+      66.792,
+      72.521
+     ],
+     "time_left": [
+      38.337,
+      35.55
+     ],
+     "ch_declared": [
+      2.342,
+      2.104
+     ],
+     "ch_won": [
+      2.058,
+      1.792
+     ],
+     "responses": [
+      6.296,
+      5.008
+     ],
+     "reached100": [
+      0.054,
+      0.092
+     ]
+    },
+    "D6_item_response": {
+     "growth": [
+      34.208,
+      34.417
+     ],
+     "time_left": [
+      39.983,
+      40.104
+     ],
+     "ch_declared": [
+      2.8,
+      2.808
+     ],
+     "ch_won": [
+      2.8,
+      2.808
+     ],
+     "responses": [
+      1.538,
+      1.512
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "difficulty_score": [
+    {
+     "beginner": {
+      "score": 0.495,
+      "n": 840,
+      "ci95": [
+       0.461,
+       0.528
+      ]
+     },
+     "intermediate": {
+      "score": 0.505,
+      "n": 840,
+      "ci95": [
+       0.472,
+       0.539
+      ]
+     }
+    },
+    {
+     "beginner": {
+      "score": 0.504,
+      "n": 840,
+      "ci95": [
+       0.47,
+       0.537
+      ]
+     },
+     "intermediate": {
+      "score": 0.496,
+      "n": 840,
+      "ci95": [
+       0.463,
+       0.53
+      ]
+     }
+    }
+   ],
+   "match_attribution": {
+    "changed": 822,
+    "winner_changed": 171,
+    "identical": 18
+   },
+   "legacy_cards": {
+    "I-c_coin2": {
+     "name": [
+      "ラッキーコイン",
+      "ラッキーコイン"
+     ],
+     "drawn": [
+      "788",
+      "821"
+     ],
+     "played": [
+      "758",
+      "804"
+     ],
+     "activated": [
+      "758",
+      "804"
+     ],
+     "play_or_activate_per_draw": [
+      "1.924",
+      "1.959"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.0"
+     ],
+     "score_when_used": [
+      "0.505",
+      "0.526"
+     ],
+     "n_used": [
+      "423",
+      "429"
+     ],
+     "score_when_drawn_unused": [
+      "0.625",
+      "0.667"
+     ]
+    },
+    "G-hit-blow": {
+     "name": [
+      "ヒット&ブロー",
+      "ヒット&ブロー"
+     ],
+     "drawn": [
+      "432",
+      "428"
+     ],
+     "played": [
+      "424",
+      "420"
+     ],
+     "activated": [
+      "424",
+      "420"
+     ],
+     "play_or_activate_per_draw": [
+      "1.963",
+      "1.963"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.0"
+     ],
+     "score_when_used": [
+      "0.505",
+      "0.491"
+     ],
+     "n_used": [
+      "217",
+      "214"
+     ],
+     "score_when_drawn_unused": [
+      "0.833",
+      "1.0"
+     ]
+    },
+    "G-area-claim": {
+     "name": [
+      "じんとり",
+      "じんとり"
+     ],
+     "drawn": [
+      "492",
+      "509"
+     ],
+     "played": [
+      "101",
+      "90"
+     ],
+     "activated": [
+      "101",
+      "90"
+     ],
+     "play_or_activate_per_draw": [
+      "0.411",
+      "0.354"
+     ],
+     "hand_end_per_draw": [
+      "0.366",
+      "0.401"
+     ],
+     "score_when_used": [
+      "0.713",
+      "0.712"
+     ],
+     "n_used": [
+      "82",
+      "73"
+     ],
+     "score_when_drawn_unused": [
+      "0.479",
+      "0.477"
+     ]
+    },
+    "E-first-date": {
+     "name": [
+      "はじめてのデート",
+      "はじめてのデート"
+     ],
+     "drawn": [
+      "814",
+      "796"
+     ],
+     "played": [
+      "356",
+      "349"
+     ],
+     "activated": [
+      "356",
+      "349"
+     ],
+     "play_or_activate_per_draw": [
+      "0.875",
+      "0.877"
+     ],
+     "hand_end_per_draw": [
+      "0.518",
+      "0.518"
+     ],
+     "score_when_used": [
+      "0.517",
+      "0.519"
+     ],
+     "n_used": [
+      "238",
+      "240"
+     ],
+     "score_when_drawn_unused": [
+      "0.43",
+      "0.443"
+     ]
+    },
+    "G-animal-shogi": {
+     "name": [
+      "どうぶつしょうぎ",
+      "どうぶつしょうぎ"
+     ],
+     "drawn": [
+      "663",
+      "675"
+     ],
+     "played": [
+      "0",
+      "12"
+     ],
+     "activated": [
+      "0",
+      "12"
+     ],
+     "play_or_activate_per_draw": [
+      "0.0",
+      "0.036"
+     ],
+     "hand_end_per_draw": [
+      "0.722",
+      "0.719"
+     ],
+     "score_when_used": [
+      "",
+      "0.75"
+     ],
+     "n_used": [
+      "0",
+      "12"
+     ],
+     "score_when_drawn_unused": [
+      "0.479",
+      "0.479"
+     ]
+    },
+    "G-archery-3d": {
+     "name": [
+      "アーチェリー",
+      "アーチェリー"
+     ],
+     "drawn": [
+      "786",
+      "773"
+     ],
+     "played": [
+      "517",
+      "509"
+     ],
+     "activated": [
+      "517",
+      "509"
+     ],
+     "play_or_activate_per_draw": [
+      "1.316",
+      "1.317"
+     ],
+     "hand_end_per_draw": [
+      "0.121",
+      "0.122"
+     ],
+     "score_when_used": [
+      "0.506",
+      "0.506"
+     ],
+     "n_used": [
+      "335",
+      "335"
+     ],
+     "score_when_drawn_unused": [
+      "0.505",
+      "0.5"
+     ]
+    }
+   },
+   "search_cards": {
+    "I-c_match": {
+     "name": [
+      "おみあいチケット",
+      "おみあいチケット"
+     ],
+     "drawn": [
+      "256",
+      "248"
+     ],
+     "played": [
+      "0",
+      "0"
+     ],
+     "activated": [
+      "0",
+      "0"
+     ],
+     "hand_end_per_draw": [
+      "0.68",
+      "0.677"
+     ],
+     "score_when_used": [
+      "",
+      ""
+     ],
+     "n_used": [
+      "0",
+      "0"
+     ]
+    },
+    "I-c_friend": {
+     "name": [
+      "おともだちチケット",
+      "おともだちチケット"
+     ],
+     "drawn": [
+      "205",
+      "204"
+     ],
+     "played": [
+      "0",
+      "45"
+     ],
+     "activated": [
+      "0",
+      "45"
+     ],
+     "hand_end_per_draw": [
+      "0.746",
+      "0.534"
+     ],
+     "score_when_used": [
+      "",
+      "0.731"
+     ],
+     "n_used": [
+      "0",
+      "39"
+     ]
+    },
+    "I-c_time_forward": {
+     "name": [
+      "ときのチケット・あと",
+      "ときのチケット・あと"
+     ],
+     "drawn": [
+      "89",
+      "82"
+     ],
+     "played": [
+      "0",
+      "0"
+     ],
+     "activated": [
+      "0",
+      "0"
+     ],
+     "hand_end_per_draw": [
+      "0.775",
+      "0.78"
+     ],
+     "score_when_used": [
+      "",
+      ""
+     ],
+     "n_used": [
+      "0",
+      "0"
+     ]
+    },
+    "G-picross-5": {
+     "name": [
+      "ピクロス",
+      "ピクロス"
+     ],
+     "drawn": [
+      "224",
+      "200"
+     ],
+     "played": [
+      "0",
+      "0"
+     ],
+     "activated": [
+      "0",
+      "0"
+     ],
+     "hand_end_per_draw": [
+      "0.835",
+      "0.845"
+     ],
+     "score_when_used": [
+      "",
+      ""
+     ],
+     "n_used": [
+      "0",
+      "0"
+     ]
+    },
+    "G-stack-acorn": {
+     "name": [
+      "きのみタワー",
+      "きのみタワー"
+     ],
+     "drawn": [
+      "211",
+      "199"
+     ],
+     "played": [
+      "0",
+      "111"
+     ],
+     "activated": [
+      "0",
+      "111"
+     ],
+     "hand_end_per_draw": [
+      "0.716",
+      "0.136"
+     ],
+     "score_when_used": [
+      "",
+      "0.561"
+     ],
+     "n_used": [
+      "0",
+      "99"
+     ]
+    },
+    "E-new-encounter": {
+     "name": [
+      "あたらしいであい",
+      "あたらしいであい"
+     ],
+     "drawn": [
+      "492",
+      "497"
+     ],
+     "played": [
+      "413",
+      "315"
+     ],
+     "activated": [
+      "413",
+      "315"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.207"
+     ],
+     "score_when_used": [
+      "0.506",
+      "0.528"
+     ],
+     "n_used": [
+      "335",
+      "252"
+     ]
+    },
+    "E-mirror": {
+     "name": [
+      "としをとったじぶん",
+      "としをとったじぶん"
+     ],
+     "drawn": [
+      "319",
+      "314"
+     ],
+     "played": [
+      "265",
+      "126"
+     ],
+     "activated": [
+      "265",
+      "126"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.382"
+     ],
+     "score_when_used": [
+      "0.516",
+      "0.51"
+     ],
+     "n_used": [
+      "186",
+      "104"
+     ]
+    },
+    "I-c_egg_normal": {
+     "name": [
+      "ふしぎなたまご",
+      "ふしぎなたまご"
+     ],
+     "drawn": [
+      "245",
+      "225"
+     ],
+     "played": [
+      "8",
+      "36"
+     ],
+     "activated": [
+      "8",
+      "36"
+     ],
+     "hand_end_per_draw": [
+      "0.816",
+      "0.698"
+     ],
+     "score_when_used": [
+      "0.688",
+      "0.667"
+     ],
+     "n_used": [
+      "8",
+      "36"
+     ]
+    },
+    "G-animal-shogi": {
+     "name": [
+      "どうぶつしょうぎ",
+      "どうぶつしょうぎ"
+     ],
+     "drawn": [
+      "663",
+      "675"
+     ],
+     "played": [
+      "0",
+      "12"
+     ],
+     "activated": [
+      "0",
+      "12"
+     ],
+     "hand_end_per_draw": [
+      "0.722",
+      "0.719"
+     ],
+     "score_when_used": [
+      "",
+      "0.75"
+     ],
+     "n_used": [
+      "0",
+      "12"
+     ]
+    },
+    "C-cat_friend": {
+     "name": [
+      "きまぐれなねこ",
+      "きまぐれなねこ"
+     ],
+     "drawn": [
+      "647",
+      "666"
+     ],
+     "played": [
+      "480",
+      "453"
+     ],
+     "activated": [
+      "22",
+      "12"
+     ],
+     "hand_end_per_draw": [
+      "0.229",
+      "0.3"
+     ],
+     "score_when_used": [
+      "0.489",
+      "0.493"
+     ],
+     "n_used": [
+      "309",
+      "293"
+     ]
+    },
+    "G-jump-quest": {
+     "name": [
+      "ジャンプクエスト",
+      "ジャンプクエスト"
+     ],
+     "drawn": [
+      "90",
+      "78"
+     ],
+     "played": [
+      "3",
+      "3"
+     ],
+     "activated": [
+      "3",
+      "3"
+     ],
+     "hand_end_per_draw": [
+      "0.756",
+      "0.667"
+     ],
+     "score_when_used": [
+      "0.667",
+      "1.0"
+     ],
+     "n_used": [
+      "3",
+      "3"
+     ]
+    }
+   },
+   "distinct_cards_used": [
+    100,
+    105
+   ],
+   "other_cards_use_rate_mean_abs_change": 0.1166,
+   "other_cards_largest_change": [
+    [
+     "G-mini-golf-physics",
+     "ミニゴルフ",
+     0.0,
+     1.683
+    ],
+    [
+     "G-stack-acorn",
+     "きのみタワー",
+     0.0,
+     1.116
+    ],
+    [
+     "E-fateful-transform",
+     "うんめいのへんしん",
+     0.0,
+     1.0
+    ],
+    [
+     "E-mirror",
+     "としをとったじぶん",
+     1.661,
+     0.803
+    ],
+    [
+     "W-snow",
+     "ゆきぐに",
+     5.065,
+     4.455
+    ],
+    [
+     "I-c_friend",
+     "おともだちチケット",
+     0.0,
+     0.441
+    ],
+    [
+     "E-new-encounter",
+     "あたらしいであい",
+     1.679,
+     1.268
+    ],
+    [
+     "W-countryside",
+     "いなか",
+     1.421,
+     1.789
+    ],
+    [
+     "M-beetle-07",
+     "カブトムシ⑦",
+     0.415,
+     0.721
+    ],
+    [
+     "M-mushroom-01",
+     "キノコ①",
+     1.158,
+     0.878
+    ],
+    [
+     "I-naoto_lantern",
+     "なおとのランタン",
+     1.724,
+     1.984
+    ],
+    [
+     "I-c_egg_normal",
+     "ふしぎなたまご",
+     0.065,
+     0.32
+    ]
+   ],
+   "never_used_after": [
+    "E-reconciliation",
+    "G-air-hockey",
+    "G-baseball-batting",
+    "G-doodle-jump",
+    "G-picross-5",
+    "G-pingpong-3d",
+    "I-c_match",
+    "I-c_time_forward"
+   ]
+  },
+  "E3": {
+   "completed": [
+    560,
+    560
+   ],
+   "abnormal": [
+    0,
+    0
+   ],
+   "replay_mismatch": [
+    0,
+    0
+   ],
+   "first_second": {
+    "first_wins": [
+     263,
+     251
+    ],
+    "second_wins": [
+     253,
+     251
+    ],
+    "draws": [
+     44,
+     58
+    ],
+    "first_rate_decisive": [
+     0.51,
+     0.5
+    ],
+    "ci95": [
+     [
+      0.467,
+      0.553
+     ],
+     [
+      0.456,
+      0.544
+     ]
+    ],
+    "sign_test_p": [
+     0.692,
+     1.0
+    ]
+   },
+   "mirror_pairs": [
+    {
+     "same_order_won_both": 217,
+     "first_won_both": 17,
+     "contains_draw": 37,
+     "second_won_both": 9
+    },
+    {
+     "same_order_won_both": 216,
+     "contains_draw": 46,
+     "first_won_both": 10,
+     "second_won_both": 8
+    }
+   ],
+   "decision": {
+    "early_rate": [
+     0.0179,
+     0.0232
+    ],
+    "r10_completion_rate": [
+     0.9821,
+     0.9768
+    ],
+    "round_hist": [
+     {
+      "8": 2,
+      "9": 8,
+      "10": 550
+     },
+     {
+      "8": 6,
+      "9": 7,
+      "10": 547
+     }
+    ]
+   },
+   "progress": {
+    "reached100_any_rate": [
+     0.036,
+     0.041
+    ],
+    "final_growth_mean": [
+     57.754,
+     58.406
+    ],
+    "final_growth_median_winner": [
+     70.0,
+     70.0
+    ],
+    "growth_stuck_at_20_rate": [
+     0.034,
+     0.0345
+    ],
+    "draw_rate": [
+     0.0786,
+     0.1036
+    ],
+    "abs_growth_gap_mean": [
+     21.955,
+     22.455
+    ],
+    "challenges_per_game": [
+     9.202,
+     9.302
+    ],
+    "challenge_draw_share": [
+     0.006,
+     0.007
+    ],
+    "no_action_turn_rate": [
+     0.0086,
+     0.0082
+    ],
+    "time_left_at_turn_end_mean": [
+     4.137,
+     4.009
+    ],
+    "time_spent_share": [
+     0.25,
+     0.274
+    ],
+    "unaffordable_hand_cards_at_turn_end_mean": [
+     1.074,
+     1.108
+    ],
+    "manual_response_decisions_per_game": [
+     90.616,
+     78.946
+    ],
+    "responses_used_per_game": [
+     8.479,
+     7.08
+    ],
+    "auto_pass_per_game": [
+     130.495,
+     147.602
+    ],
+    "chain_links_ge2_per_game": [
+     6.623,
+     5.493
+    ],
+    "decisions_per_game": [
+     172.455,
+     162.589
+    ],
+    "elapsed_ms_mean": [
+     982.646,
+     1057.638
+    ],
+    "elapsed_ms_max": [
+     1930,
+     1885
+    ]
+   },
+   "max_chain_hist": [
+    {
+     "1": 52,
+     "2": 193,
+     "3": 199,
+     "4": 97,
+     "5": 16,
+     "6": 1,
+     "7": 2
+    },
+    {
+     "1": 76,
+     "2": 248,
+     "3": 189,
+     "4": 41,
+     "5": 6
+    }
+   ],
+   "action_kinds_per_game": [
+    {
+     "ability": 0.01,
+     "challenge": 9.2,
+     "choose": 16.94,
+     "pass": 102.09,
+     "place": 15.9,
+     "play": 2.53,
+     "programAbility": 2.49,
+     "programPlay": 3.44,
+     "relationship": 4.49,
+     "skip": 0.96,
+     "trigger": 14.4
+    },
+    {
+     "ability": 0.01,
+     "challenge": 9.3,
+     "choose": 16.39,
+     "pass": 91.79,
+     "place": 16.02,
+     "play": 2.64,
+     "programAbility": 2.42,
+     "programPlay": 3.89,
+     "relationship": 4.49,
+     "skip": 0.98,
+     "trigger": 14.66
+    }
+   ],
+   "growth_by_round_mean": [
+    [
+     20.54,
+     22.38,
+     24.95,
+     28.79,
+     34.17,
+     39.54,
+     43.96,
+     49.45,
+     53.6,
+     57.46
+    ],
+    [
+     20.6,
+     22.63,
+     25.55,
+     29.34,
+     34.26,
+     40.04,
+     44.99,
+     50.04,
+     54.04,
+     57.95
+    ]
+   ],
+   "deck_overall_vs_others": {
+    "D0_standard": [
+     {
+      "score": 0.158,
+      "n": 120,
+      "ci95": [
+       0.104,
+       0.234
+      ]
+     },
+     {
+      "score": 0.138,
+      "n": 120,
+      "ci95": [
+       0.087,
+       0.21
+      ]
+     }
+    ],
+    "D1_main_growth": [
+     {
+      "score": 0.708,
+      "n": 120,
+      "ci95": [
+       0.622,
+       0.782
+      ]
+     },
+     {
+      "score": 0.679,
+      "n": 120,
+      "ci95": [
+       0.591,
+       0.756
+      ]
+     }
+    ],
+    "D2_companions": [
+     {
+      "score": 0.4,
+      "n": 120,
+      "ci95": [
+       0.317,
+       0.489
+      ]
+     },
+     {
+      "score": 0.367,
+      "n": 120,
+      "ci95": [
+       0.286,
+       0.456
+      ]
+     }
+    ],
+    "D3_partner": [
+     {
+      "score": 0.758,
+      "n": 120,
+      "ci95": [
+       0.674,
+       0.826
+      ]
+     },
+     {
+      "score": 0.762,
+      "n": 120,
+      "ci95": [
+       0.679,
+       0.83
+      ]
+     }
+    ],
+    "D4_challenge": [
+     {
+      "score": 0.571,
+      "n": 120,
+      "ci95": [
+       0.481,
+       0.656
+      ]
+     },
+     {
+      "score": 0.517,
+      "n": 120,
+      "ci95": [
+       0.428,
+       0.604
+      ]
+     }
+    ],
+    "D5_growth_gain": [
+     {
+      "score": 0.608,
+      "n": 120,
+      "ci95": [
+       0.519,
+       0.691
+      ]
+     },
+     {
+      "score": 0.775,
+      "n": 120,
+      "ci95": [
+       0.692,
+       0.841
+      ]
+     }
+    ],
+    "D6_item_response": [
+     {
+      "score": 0.296,
+      "n": 120,
+      "ci95": [
+       0.222,
+       0.383
+      ]
+     },
+     {
+      "score": 0.263,
+      "n": 120,
+      "ci95": [
+       0.192,
+       0.348
+      ]
+     }
+    ]
+   },
+   "deck_matrix": {
+    "D0_standard|D0_standard": [
+     0.5,
+     0.5,
+     40
+    ],
+    "D0_standard|D1_main_growth": [
+     0.175,
+     0.2,
+     20
+    ],
+    "D0_standard|D2_companions": [
+     0.35,
+     0.275,
+     20
+    ],
+    "D0_standard|D3_partner": [
+     0.05,
+     0.0,
+     20
+    ],
+    "D0_standard|D4_challenge": [
+     0.0,
+     0.025,
+     20
+    ],
+    "D0_standard|D5_growth_gain": [
+     0.1,
+     0.0,
+     20
+    ],
+    "D0_standard|D6_item_response": [
+     0.275,
+     0.325,
+     20
+    ],
+    "D1_main_growth|D0_standard": [
+     0.825,
+     0.8,
+     20
+    ],
+    "D1_main_growth|D1_main_growth": [
+     0.5,
+     0.5,
+     40
+    ],
+    "D1_main_growth|D2_companions": [
+     0.8,
+     0.875,
+     20
+    ],
+    "D1_main_growth|D3_partner": [
+     0.4,
+     0.325,
+     20
+    ],
+    "D1_main_growth|D4_challenge": [
+     0.775,
+     0.7,
+     20
+    ],
+    "D1_main_growth|D5_growth_gain": [
+     0.575,
+     0.45,
+     20
+    ],
+    "D1_main_growth|D6_item_response": [
+     0.875,
+     0.925,
+     20
+    ],
+    "D2_companions|D0_standard": [
+     0.65,
+     0.725,
+     20
+    ],
+    "D2_companions|D1_main_growth": [
+     0.2,
+     0.125,
+     20
+    ],
+    "D2_companions|D2_companions": [
+     0.5,
+     0.5,
+     40
+    ],
+    "D2_companions|D3_partner": [
+     0.225,
+     0.225,
+     20
+    ],
+    "D2_companions|D4_challenge": [
+     0.2,
+     0.3,
+     20
+    ],
+    "D2_companions|D5_growth_gain": [
+     0.25,
+     0.1,
+     20
+    ],
+    "D2_companions|D6_item_response": [
+     0.875,
+     0.725,
+     20
+    ],
+    "D3_partner|D0_standard": [
+     0.95,
+     1.0,
+     20
+    ],
+    "D3_partner|D1_main_growth": [
+     0.6,
+     0.675,
+     20
+    ],
+    "D3_partner|D2_companions": [
+     0.775,
+     0.775,
+     20
+    ],
+    "D3_partner|D3_partner": [
+     0.5,
+     0.5,
+     40
+    ],
+    "D3_partner|D4_challenge": [
+     0.725,
+     0.775,
+     20
+    ],
+    "D3_partner|D5_growth_gain": [
+     0.7,
+     0.5,
+     20
+    ],
+    "D3_partner|D6_item_response": [
+     0.8,
+     0.85,
+     20
+    ],
+    "D4_challenge|D0_standard": [
+     1.0,
+     0.975,
+     20
+    ],
+    "D4_challenge|D1_main_growth": [
+     0.225,
+     0.3,
+     20
+    ],
+    "D4_challenge|D2_companions": [
+     0.8,
+     0.7,
+     20
+    ],
+    "D4_challenge|D3_partner": [
+     0.275,
+     0.225,
+     20
+    ],
+    "D4_challenge|D4_challenge": [
+     0.5,
+     0.5,
+     40
+    ],
+    "D4_challenge|D5_growth_gain": [
+     0.325,
+     0.15,
+     20
+    ],
+    "D4_challenge|D6_item_response": [
+     0.8,
+     0.75,
+     20
+    ],
+    "D5_growth_gain|D0_standard": [
+     0.9,
+     1.0,
+     20
+    ],
+    "D5_growth_gain|D1_main_growth": [
+     0.425,
+     0.55,
+     20
+    ],
+    "D5_growth_gain|D2_companions": [
+     0.75,
+     0.9,
+     20
+    ],
+    "D5_growth_gain|D3_partner": [
+     0.3,
+     0.5,
+     20
+    ],
+    "D5_growth_gain|D4_challenge": [
+     0.675,
+     0.85,
+     20
+    ],
+    "D5_growth_gain|D5_growth_gain": [
+     0.5,
+     0.5,
+     40
+    ],
+    "D5_growth_gain|D6_item_response": [
+     0.6,
+     0.85,
+     20
+    ],
+    "D6_item_response|D0_standard": [
+     0.725,
+     0.675,
+     20
+    ],
+    "D6_item_response|D1_main_growth": [
+     0.125,
+     0.075,
+     20
+    ],
+    "D6_item_response|D2_companions": [
+     0.125,
+     0.275,
+     20
+    ],
+    "D6_item_response|D3_partner": [
+     0.2,
+     0.15,
+     20
+    ],
+    "D6_item_response|D4_challenge": [
+     0.2,
+     0.25,
+     20
+    ],
+    "D6_item_response|D5_growth_gain": [
+     0.4,
+     0.15,
+     20
+    ],
+    "D6_item_response|D6_item_response": [
+     0.5,
+     0.5,
+     40
+    ]
+   },
+   "deck_behaviour": {
+    "D0_standard": {
+     "growth": [
+      49.875,
+      49.906
+     ],
+     "time_left": [
+      36.944,
+      36.5
+     ],
+     "ch_declared": [
+      1.194,
+      1.25
+     ],
+     "ch_won": [
+      1.194,
+      1.244
+     ],
+     "responses": [
+      6.487,
+      6.075
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D1_main_growth": {
+     "growth": [
+      59.062,
+      60.031
+     ],
+     "time_left": [
+      43.612,
+      39.631
+     ],
+     "ch_declared": [
+      6.381,
+      6.681
+     ],
+     "ch_won": [
+      6.381,
+      6.681
+     ],
+     "responses": [
+      2.612,
+      1.194
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D2_companions": {
+     "growth": [
+      53.25,
+      54.406
+     ],
+     "time_left": [
+      45.819,
+      44.694
+     ],
+     "ch_declared": [
+      6.531,
+      6.631
+     ],
+     "ch_won": [
+      6.487,
+      6.588
+     ],
+     "responses": [
+      6.588,
+      5.706
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D3_partner": {
+     "growth": [
+      66.812,
+      67.312
+     ],
+     "time_left": [
+      40.394,
+      39.694
+     ],
+     "ch_declared": [
+      5.606,
+      5.681
+     ],
+     "ch_won": [
+      5.581,
+      5.656
+     ],
+     "responses": [
+      2.812,
+      2.175
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    },
+    "D4_challenge": {
+     "growth": [
+      63.844,
+      61.344
+     ],
+     "time_left": [
+      41.4,
+      40.856
+     ],
+     "ch_declared": [
+      5.4,
+      5.419
+     ],
+     "ch_won": [
+      5.4,
+      5.406
+     ],
+     "responses": [
+      4.669,
+      4.281
+     ],
+     "reached100": [
+      0.031,
+      0.019
+     ]
+    },
+    "D5_growth_gain": {
+     "growth": [
+      71.406,
+      75.562
+     ],
+     "time_left": [
+      38.519,
+      36.156
+     ],
+     "ch_declared": [
+      3.106,
+      2.881
+     ],
+     "ch_won": [
+      3.031,
+      2.812
+     ],
+     "responses": [
+      5.881,
+      4.644
+     ],
+     "reached100": [
+      0.094,
+      0.125
+     ]
+    },
+    "D6_item_response": {
+     "growth": [
+      40.031,
+      40.281
+     ],
+     "time_left": [
+      42.175,
+      41.994
+     ],
+     "ch_declared": [
+      3.987,
+      4.013
+     ],
+     "ch_won": [
+      3.931,
+      3.944
+     ],
+     "responses": [
+      0.625,
+      0.706
+     ],
+     "reached100": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "match_attribution": {
+    "changed": 556,
+    "winner_changed": 105,
+    "identical": 4
+   },
+   "legacy_cards": {
+    "I-c_coin2": {
+     "name": [
+      "ラッキーコイン",
+      "ラッキーコイン"
+     ],
+     "drawn": [
+      "574",
+      "594"
+     ],
+     "played": [
+      "547",
+      "576"
+     ],
+     "activated": [
+      "547",
+      "576"
+     ],
+     "play_or_activate_per_draw": [
+      "1.906",
+      "1.939"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.0"
+     ],
+     "score_when_used": [
+      "0.405",
+      "0.458"
+     ],
+     "n_used": [
+      "284",
+      "286"
+     ],
+     "score_when_drawn_unused": [
+      "0.714",
+      "0.5"
+     ]
+    },
+    "G-hit-blow": {
+     "name": [
+      "ヒット&ブロー",
+      "ヒット&ブロー"
+     ],
+     "drawn": [
+      "344",
+      "340"
+     ],
+     "played": [
+      "342",
+      "338"
+     ],
+     "activated": [
+      "342",
+      "338"
+     ],
+     "play_or_activate_per_draw": [
+      "1.988",
+      "1.988"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.0"
+     ],
+     "score_when_used": [
+      "0.257",
+      "0.221"
+     ],
+     "n_used": [
+      "152",
+      "147"
+     ],
+     "score_when_drawn_unused": [
+      "",
+      ""
+     ]
+    },
+    "G-area-claim": {
+     "name": [
+      "じんとり",
+      "じんとり"
+     ],
+     "drawn": [
+      "379",
+      "364"
+     ],
+     "played": [
+      "100",
+      "92"
+     ],
+     "activated": [
+      "100",
+      "92"
+     ],
+     "play_or_activate_per_draw": [
+      "0.528",
+      "0.505"
+     ],
+     "hand_end_per_draw": [
+      "0.306",
+      "0.299"
+     ],
+     "score_when_used": [
+      "0.311",
+      "0.278"
+     ],
+     "n_used": [
+      "82",
+      "79"
+     ],
+     "score_when_drawn_unused": [
+      "0.464",
+      "0.534"
+     ]
+    },
+    "E-first-date": {
+     "name": [
+      "はじめてのデート",
+      "はじめてのデート"
+     ],
+     "drawn": [
+      "551",
+      "551"
+     ],
+     "played": [
+      "265",
+      "286"
+     ],
+     "activated": [
+      "265",
+      "286"
+     ],
+     "play_or_activate_per_draw": [
+      "0.962",
+      "1.038"
+     ],
+     "hand_end_per_draw": [
+      "0.481",
+      "0.446"
+     ],
+     "score_when_used": [
+      "0.485",
+      "0.452"
+     ],
+     "n_used": [
+      "197",
+      "207"
+     ],
+     "score_when_drawn_unused": [
+      "0.41",
+      "0.427"
+     ]
+    },
+    "G-animal-shogi": {
+     "name": [
+      "どうぶつしょうぎ",
+      "どうぶつしょうぎ"
+     ],
+     "drawn": [
+      "512",
+      "508"
+     ],
+     "played": [
+      "0",
+      "6"
+     ],
+     "activated": [
+      "0",
+      "6"
+     ],
+     "play_or_activate_per_draw": [
+      "0.0",
+      "0.024"
+     ],
+     "hand_end_per_draw": [
+      "0.723",
+      "0.683"
+     ],
+     "score_when_used": [
+      "",
+      "0.417"
+     ],
+     "n_used": [
+      "0",
+      "6"
+     ],
+     "score_when_drawn_unused": [
+      "0.312",
+      "0.29"
+     ]
+    },
+    "G-archery-3d": {
+     "name": [
+      "アーチェリー",
+      "アーチェリー"
+     ],
+     "drawn": [
+      "516",
+      "530"
+     ],
+     "played": [
+      "165",
+      "178"
+     ],
+     "activated": [
+      "165",
+      "178"
+     ],
+     "play_or_activate_per_draw": [
+      "0.64",
+      "0.672"
+     ],
+     "hand_end_per_draw": [
+      "0.434",
+      "0.406"
+     ],
+     "score_when_used": [
+      "0.357",
+      "0.381"
+     ],
+     "n_used": [
+      "112",
+      "122"
+     ],
+     "score_when_drawn_unused": [
+      "0.201",
+      "0.167"
+     ]
+    }
+   },
+   "search_cards": {
+    "I-c_match": {
+     "name": [
+      "おみあいチケット",
+      "おみあいチケット"
+     ],
+     "drawn": [
+      "153",
+      "149"
+     ],
+     "played": [
+      "0",
+      "1"
+     ],
+     "activated": [
+      "0",
+      "1"
+     ],
+     "hand_end_per_draw": [
+      "0.725",
+      "0.705"
+     ],
+     "score_when_used": [
+      "",
+      "0.0"
+     ],
+     "n_used": [
+      "0",
+      "1"
+     ]
+    },
+    "I-c_friend": {
+     "name": [
+      "おともだちチケット",
+      "おともだちチケット"
+     ],
+     "drawn": [
+      "146",
+      "132"
+     ],
+     "played": [
+      "0",
+      "19"
+     ],
+     "activated": [
+      "0",
+      "19"
+     ],
+     "hand_end_per_draw": [
+      "0.658",
+      "0.5"
+     ],
+     "score_when_used": [
+      "",
+      "0.706"
+     ],
+     "n_used": [
+      "0",
+      "17"
+     ]
+    },
+    "I-c_time_forward": {
+     "name": [
+      "ときのチケット・あと",
+      "ときのチケット・あと"
+     ],
+     "drawn": [
+      "63",
+      "66"
+     ],
+     "played": [
+      "0",
+      "0"
+     ],
+     "activated": [
+      "0",
+      "0"
+     ],
+     "hand_end_per_draw": [
+      "0.54",
+      "0.561"
+     ],
+     "score_when_used": [
+      "",
+      ""
+     ],
+     "n_used": [
+      "0",
+      "0"
+     ]
+    },
+    "G-picross-5": {
+     "name": [
+      "ピクロス",
+      "ピクロス"
+     ],
+     "drawn": [
+      "132",
+      "148"
+     ],
+     "played": [
+      "0",
+      "0"
+     ],
+     "activated": [
+      "0",
+      "0"
+     ],
+     "hand_end_per_draw": [
+      "0.826",
+      "0.845"
+     ],
+     "score_when_used": [
+      "",
+      ""
+     ],
+     "n_used": [
+      "0",
+      "0"
+     ]
+    },
+    "G-stack-acorn": {
+     "name": [
+      "きのみタワー",
+      "きのみタワー"
+     ],
+     "drawn": [
+      "143",
+      "143"
+     ],
+     "played": [
+      "0",
+      "75"
+     ],
+     "activated": [
+      "0",
+      "75"
+     ],
+     "hand_end_per_draw": [
+      "0.601",
+      "0.084"
+     ],
+     "score_when_used": [
+      "",
+      "0.447"
+     ],
+     "n_used": [
+      "0",
+      "66"
+     ]
+    },
+    "E-new-encounter": {
+     "name": [
+      "あたらしいであい",
+      "あたらしいであい"
+     ],
+     "drawn": [
+      "317",
+      "317"
+     ],
+     "played": [
+      "298",
+      "230"
+     ],
+     "activated": [
+      "298",
+      "230"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.218"
+     ],
+     "score_when_used": [
+      "0.581",
+      "0.619"
+     ],
+     "n_used": [
+      "234",
+      "181"
+     ]
+    },
+    "E-mirror": {
+     "name": [
+      "としをとったじぶん",
+      "としをとったじぶん"
+     ],
+     "drawn": [
+      "224",
+      "230"
+     ],
+     "played": [
+      "190",
+      "78"
+     ],
+     "activated": [
+      "190",
+      "78"
+     ],
+     "hand_end_per_draw": [
+      "0.0",
+      "0.513"
+     ],
+     "score_when_used": [
+      "0.658",
+      "0.563"
+     ],
+     "n_used": [
+      "130",
+      "63"
+     ]
+    },
+    "I-c_egg_normal": {
+     "name": [
+      "ふしぎなたまご",
+      "ふしぎなたまご"
+     ],
+     "drawn": [
+      "123",
+      "114"
+     ],
+     "played": [
+      "0",
+      "18"
+     ],
+     "activated": [
+      "0",
+      "18"
+     ],
+     "hand_end_per_draw": [
+      "0.813",
+      "0.702"
+     ],
+     "score_when_used": [
+      "",
+      "0.583"
+     ],
+     "n_used": [
+      "0",
+      "18"
+     ]
+    },
+    "G-animal-shogi": {
+     "name": [
+      "どうぶつしょうぎ",
+      "どうぶつしょうぎ"
+     ],
+     "drawn": [
+      "512",
+      "508"
+     ],
+     "played": [
+      "0",
+      "6"
+     ],
+     "activated": [
+      "0",
+      "6"
+     ],
+     "hand_end_per_draw": [
+      "0.723",
+      "0.683"
+     ],
+     "score_when_used": [
+      "",
+      "0.417"
+     ],
+     "n_used": [
+      "0",
+      "6"
+     ]
+    },
+    "C-cat_friend": {
+     "name": [
+      "きまぐれなねこ",
+      "きまぐれなねこ"
+     ],
+     "drawn": [
+      "500",
+      "520"
+     ],
+     "played": [
+      "320",
+      "320"
+     ],
+     "activated": [
+      "7",
+      "5"
+     ],
+     "hand_end_per_draw": [
+      "0.316",
+      "0.344"
+     ],
+     "score_when_used": [
+      "0.303",
+      "0.26"
+     ],
+     "n_used": [
+      "208",
+      "206"
+     ]
+    },
+    "G-jump-quest": {
+     "name": [
+      "ジャンプクエスト",
+      "ジャンプクエスト"
+     ],
+     "drawn": [
+      "67",
+      "72"
+     ],
+     "played": [
+      "1",
+      "3"
+     ],
+     "activated": [
+      "1",
+      "3"
+     ],
+     "hand_end_per_draw": [
+      "0.806",
+      "0.75"
+     ],
+     "score_when_used": [
+      "1.0",
+      "0.333"
+     ],
+     "n_used": [
+      "1",
+      "3"
+     ]
+    }
+   },
+   "distinct_cards_used": [
+    99,
+    107
+   ],
+   "other_cards_use_rate_mean_abs_change": 0.1127,
+   "other_cards_largest_change": [
+    [
+     "G-mini-golf-physics",
+     "ミニゴルフ",
+     0.0,
+     1.685
+    ],
+    [
+     "E-fateful-transform",
+     "うんめいのへんしん",
+     0.0,
+     1.154
+    ],
+    [
+     "G-stack-acorn",
+     "きのみタワー",
+     0.0,
+     1.049
+    ],
+    [
+     "E-mirror",
+     "としをとったじぶん",
+     1.696,
+     0.678
+    ],
+    [
+     "C-rabbit_friend",
+     "すばしっこいうさぎ",
+     4.305,
+     4.811
+    ],
+    [
+     "E-new-encounter",
+     "あたらしいであい",
+     1.88,
+     1.451
+    ],
+    [
+     "M-beetle-07",
+     "カブトムシ⑦",
+     0.441,
+     0.799
+    ],
+    [
+     "I-c_egg_normal",
+     "ふしぎなたまご",
+     0.0,
+     0.316
+    ],
+    [
+     "I-c_friend",
+     "おともだちチケット",
+     0.0,
+     0.288
+    ],
+    [
+     "M-beetle-06",
+     "カブトムシ⑥",
+     0.405,
+     0.655
+    ],
+    [
+     "C-panda",
+     "ぐうたらパンダ",
+     1.569,
+     1.345
+    ],
+    [
+     "W-snow",
+     "ゆきぐに",
+     4.772,
+     4.553
+    ]
+   ],
+   "never_used_after": [
+    "E-reconciliation",
+    "G-air-hockey",
+    "G-baseball-batting",
+    "G-doodle-jump",
+    "G-picross-5",
+    "I-c_time_forward"
+   ]
+  }
+ }
+}

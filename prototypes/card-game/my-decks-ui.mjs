@@ -4,7 +4,7 @@ import {DeckLibrary,MAX_DECKS,MY_DECK_KEY,filterCards} from './my-decks.mjs';
 import {cardMarkup,cardRarityLabel} from './ui-presentation.mjs';
 
 // Editor owns only deck drafts. Match sessions receive fresh arrays at their existing boundary.
-export function mountMyDecks({inspect,message,onChange}){
+export function mountMyDecks({inspect,message,onChange,seats=()=>['A','B']}){
  const $=id=>document.getElementById(id),node=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
  const action=(text,fn)=>{const b=node('button',text);b.type='button';b.onclick=fn;return b;};
  let suspended=false;
@@ -44,7 +44,7 @@ export function mountMyDecks({inspect,message,onChange}){
   for(const [id,n] of m){const row=node('div');row.className='deck-row';const b=action(CARDS[id].name,()=>inspect(id,{catalog:true,origin:b}));row.append(b,node('span',`×${n}`),action('− 1枚',()=>run(()=>library.change(edited,id,-1))));list.append(row);}list.scrollTop=scroll;
   $('deck-contents-count').textContent=`投入中のカード（${d.cards.length}枚）`;
  }
- function refresh(force=false){renderLibrary();if($('deck-editor').open&&!suspended&&!$('welcome').hidden){buildCatalog(force);counts();}const decks=library.selectedDecks();onChange(decks);$('new').disabled=!['A','B'].every(s=>{try{validateDeck(decks[s]);return true;}catch{return false;}});for(const s of ['A','B'])$('deck-valid-'+s).textContent=valid(library.get(library.data.selected[s]));}
+ function refresh(force=false){renderLibrary();if($('deck-editor').open&&!suspended&&!$('welcome').hidden){buildCatalog(force);counts();}const decks=library.selectedDecks();onChange(decks);$('new').disabled=!seats().every(s=>{try{validateDeck(decks[s]);return true;}catch{return false;}});for(const s of ['A','B'])$('deck-valid-'+s).textContent=valid(library.get(library.data.selected[s]));}
  for(const [id,label] of Object.entries(TYPE_NAMES)){const o=node('option',label);o.value=id;$('card-type').append(o);}
  for(const attr of [...new Set(Object.values(CARDS).map(c=>c.attribute).filter(Boolean))]){const o=node('option',attr);o.value=attr;$('card-attribute').append(o);}
  for(const c of Object.values(CARDS).filter(c=>c.type==='main'&&c.stage===1)){const o=node('option',c.name.replace(/[①-⑧]/g,''));o.value=c.species;$('card-species').append(o);}
