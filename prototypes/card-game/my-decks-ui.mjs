@@ -1,7 +1,7 @@
 import {addCollectionCard} from './collection.mjs';
 import {CARDS,TYPE_NAMES,DEFAULT_DECK,validateDeck} from './engine.mjs';
 import {DeckLibrary,MAX_DECKS,MY_DECK_KEY,filterCards} from './my-decks.mjs';
-import {cardMarkup} from './ui-presentation.mjs';
+import {cardMarkup,cardRarityLabel} from './ui-presentation.mjs';
 
 // Editor owns only deck drafts. Match sessions receive fresh arrays at their existing boundary.
 export function mountMyDecks({inspect,message,onChange}){
@@ -32,7 +32,7 @@ export function mountMyDecks({inspect,message,onChange}){
  function buildCatalog(force=false){
   const f=filters(),key=JSON.stringify(f);if(!force&&signature===key&&$('catalog-list').children.length)return;signature=key;
   const entries=filterCards(f),list=$('catalog-list');rows=new Map();const fragment=document.createDocumentFragment();
-  for(const c of entries){const row=node('article');row.className='catalog-card';row.dataset.cardId=c.id;row.append(preview(c),node('strong',c.name),node('small',`${TYPE_NAMES[c.type]}${c.attribute?' · '+c.attribute:''}${c.stage?' · '+c.stage+'段階':''} · ${c.rare?'レア':'通常'}`));
+  for(const c of entries){const row=node('article');row.className='catalog-card';row.dataset.cardId=c.id;row.append(preview(c),node('strong',c.name),node('small',`${TYPE_NAMES[c.type]}${c.attribute?' · '+c.attribute:''}${c.stage?' · '+c.stage+'段階':''} · ${cardRarityLabel(c)}`));
    const controls=node('div');controls.className='deck-card-controls';const minus=action('−',()=>run(()=>library.change(edited,c.id,-1))),count=node('span'),plus=action('＋',()=>run(()=>library.change(edited,c.id,1)));minus.setAttribute('aria-label',c.name+'を1枚減らす');plus.setAttribute('aria-label',c.name+'を1枚追加');plus.dataset.add=c.id;minus.dataset.remove=c.id;controls.append(minus,count,plus);row.append(controls);fragment.append(row);rows.set(c.id,{minus,plus,count});
   }
   list.replaceChildren(fragment);list.scrollTop=0;$('catalog-count').textContent=`${entries.length} / 452種類を表示`;

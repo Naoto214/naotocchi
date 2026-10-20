@@ -6,8 +6,8 @@ test('dedicated compact guidance names current operator and phase; closing resul
  const response={...v,choice:null,effect:null,phase:'response',actor:'B',actions:[{id:'test-pass',kind:'pass',label:'パス'}]};assert.match(ui.compactOperationMarkup(response,'B'),/操作 B · 応答/);assert.match(ui.compactOperationMarkup(response,'B'),/data-action="test-pass"/);
  const normal={...response,phase:'normal',actor:'A',actions:[{id:'test-end',kind:'pass',displayLabel:'ターン終了を申し出る'}]};const n=ui.compactOperationMarkup(normal,'A');assert.match(n,/操作 A · 通常行動/);assert.match(n,/ターン終了を申し出る/);
 });
-test('compact card markup omits full-copy/footer and tiny stat labels across all 452 definitions',()=>{
- for(const c of Object.values(CARDS)){const thumb=ui.cardMarkup(c,{compact:true});assert.doesNotMatch(thumb,/class="card-copy"|class="card-footer"|<small>ちから|<small>ちえ/);assert.match(thumb,/card-title/);assert.match(thumb,/card-art/);assert.equal(thumb.includes('class="card-stats"'),c.type==='main');const full=ui.cardMarkup(c);assert.match(full,/class="card-copy"/);assert.match(full,/class="card-footer"/);}
+test('compact card markup keeps shared signature, omits full-copy and tiny stat labels across all 452 definitions',()=>{
+ for(const c of Object.values(CARDS)){const thumb=ui.cardMarkup(c,{compact:true});assert.doesNotMatch(thumb,/class="card-copy"|<small>ちから|<small>ちえ/);assert.match(thumb,/<small class="card-footer">NAOTOCCHI<\/small>/);assert.match(thumb,/card-title/);assert.match(thumb,/card-art/);assert.equal(thumb.includes('class="card-stats"'),c.type==='main');const full=ui.cardMarkup(c);assert.match(full,/class="card-copy"/);assert.match(full,/class="card-footer"/);}
 });
 test('result overlay is outside flow and anchored to the opponent grid cell without a spacer',()=>{
  const app=readFileSync(new URL('../app.mjs',import.meta.url),'utf8'),css=readFileSync(new URL('../style.css',import.meta.url),'utf8');

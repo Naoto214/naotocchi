@@ -23,10 +23,12 @@ click('deck-create');assert.equal(data().decks.length,3);input('deck-name','好�
 input('select-deck-A',data().decks[2].id,'change');assert.equal($('new').disabled,true);
 const c=Object.values(CARDS).find(c=>c.type==='main'&&!c.rare),r=Object.values(CARDS).find(c=>c.rare);
 input('card-search',c.id);assert.equal(document.querySelectorAll('.catalog-card').length,1);
+assert.match(document.querySelector('.catalog-card').textContent,/通常 · 同名3枚まで/);assert.equal(document.querySelectorAll('.catalog-card .card-rarity').length,0);
 const first=document.querySelector('[data-add]'),row=first.closest('article');$('catalog-list').scrollTop=80;
 for(let i=0;i<3;i++)first.click();assert.equal(first.disabled,true);assert.equal(first.closest('article'),row,'add must not reconstruct catalog');assert.equal($('catalog-list').scrollTop,80);
 document.querySelector('[data-remove]').click();assert.equal(first.disabled,false);
 input('card-search',r.id);document.querySelector(`[data-add="${r.id}"]`).click();assert.equal(document.querySelector(`[data-add="${r.id}"]`).disabled,true);
+assert.match(document.querySelector('.catalog-card').textContent,/レア · 同名1枚まで/);assert.equal(document.querySelectorAll('.catalog-card .card-rarity').length,1);
 document.querySelector('.catalog-preview').click();assert.equal($('card-dialog').open,true);assert.ok($('card-dialog').querySelector('.dedicated-art[src*="/large/"]'));$('card-dialog').close();
 click('filter-reset');input('card-species',c.species,'change');assert.equal(document.querySelectorAll('.catalog-card').length,8);input('card-stage','3','change');assert.equal(document.querySelectorAll('.catalog-card').length,1);input('card-attribute',c.attribute,'change');assert.equal(document.querySelectorAll('.catalog-card').length,1);click('filter-reset');input('card-type','item','change');assert.ok([...document.querySelectorAll('.catalog-card')].every(n=>CARDS[n.dataset.cardId].type==='item'));
 click('deck-duplicate');assert.equal(data().decks.length,4);consent=false;click('deck-delete');assert.equal(data().decks.length,4);consent=true;click('deck-delete');assert.equal(data().decks.length,3);

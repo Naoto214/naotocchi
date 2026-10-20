@@ -1,7 +1,7 @@
 import {relatedChapter} from './rulebook-content.mjs';
 import {CARDS,TYPE_NAMES} from './engine.mjs';
 import {collectionCards,collectionPage,CollectionPreferences,COLLECTION_KEY,EGG} from './collection.mjs';
-import {cardMarkup,eggCardMarkup,eggDetailMarkup,escapeHTML as h} from './ui-presentation.mjs';
+import {cardMarkup,cardRarityLabel,eggCardMarkup,eggDetailMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {fitMainCardCopy} from './ui-art-loading.mjs';
 
 export function mountCollection({decks,onRule=()=>{},onOpen=()=>{},onClose=()=>{}}){
@@ -51,7 +51,7 @@ export function mountCollection({decks,onRule=()=>{},onOpen=()=>{},onClose=()=>{
   detailIndex=index;const c=detailList[index];$('collection-detail').hidden=false;$('collection-book').hidden=true;$('collection-shelf').hidden=true;
   $('collection-flipper').dataset.side='front';$('collection-flip').textContent='裏を見る';$('collection-flip-card').setAttribute('aria-label','カードを裏返す');
   $('collection-flipper').querySelector('.collection-front').innerHTML=c.viewOnly?eggCardMarkup({detail:true}):cardMarkup(c,{detail:true});
-  $('collection-card-name').textContent=c.name;$('collection-card-meta').textContent=[c.viewOnly?'特別カード・閲覧専用':TYPE_NAMES[c.type],c.attribute,c.stage?`成長段階 ${c.stage}`:'',c.viewOnly?'':`時コスト ${c.cost}`,c.type==='main'?`ちから ${c.power} · ちえ ${c.wisdom}`:'',c.viewOnly?'':c.rare?'レア':'通常'].filter(Boolean).join(' · ');
+  $('collection-card-name').textContent=c.name;$('collection-card-meta').textContent=[c.viewOnly?'特別カード・閲覧専用':TYPE_NAMES[c.type],c.attribute,c.stage?`成長段階 ${c.stage}`:'',c.viewOnly?'':`時コスト ${c.cost}`,c.type==='main'?`ちから ${c.power} · ちえ ${c.wisdom}`:'',c.viewOnly?'':cardRarityLabel(c)].filter(Boolean).join(' · ');
   if(c.viewOnly){const tmp=document.createElement('div');tmp.innerHTML=eggDetailMarkup();$('collection-card-effect').replaceChildren(tmp.querySelector('.effect-scroll'));}else $('collection-card-effect').textContent=c.text;
   $('collection-add').disabled=!!c.viewOnly;$('collection-add').textContent=c.viewOnly?'たまごはデッキに追加できません':'デッキに追加';favoriteButton($('collection-favorite'),c.id);
   $('collection-card-prev').disabled=index===0;$('collection-card-next').disabled=index===detailList.length-1;$('collection-detail-position').textContent=`${index+1} / ${detailList.length}`;

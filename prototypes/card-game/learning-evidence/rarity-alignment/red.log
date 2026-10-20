@@ -1,0 +1,55 @@
+✖ every official card keeps NAOTOCCHI and independent rarity in full, detail and compact views (2.10699ms)
+✖ normal→rare and rare→normal change only rarity UI; art, name, numbers and signature stay identical (5.001121ms)
+✔ hidden cards reveal no rarity or signature (0.249651ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 129.614433
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/ui-rarity.test.mjs:7:1
+✖ every official card keeps NAOTOCCHI and independent rarity in full, detail and compact views (2.10699ms)
+  AssertionError [ERR_ASSERTION]: C-bat
+  + actual - expected
+  
+  + undefined
+  - 'NAOTOCCHI'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/dc16cce7c18a/naotocchi/prototypes/card-game/tests/ui-rarity.test.mjs:9:40)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'NAOTOCCHI',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-rarity.test.mjs:13:1
+✖ normal→rare and rare→normal change only rarity UI; art, name, numbers and signature stay identical (5.001121ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(rare.includes('class="card-rarity"'))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/dc16cce7c18a/naotocchi/prototypes/card-game/tests/ui-rarity.test.mjs:17:61)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
