@@ -1,0 +1,8 @@
+test_connected_scope_installs_adapter_over_native_challenge_return (test_proxy_population_challenge_return.ChallengeReturnTests.test_connected_scope_installs_adapter_over_native_challenge_return) ... ok
+test_rebind_is_fail_closed_and_leaves_other_results_untouched (test_proxy_population_challenge_return.ChallengeReturnTests.test_rebind_is_fail_closed_and_leaves_other_results_untouched) ... ok
+test_scope_requires_native_adapter_and_restores_it (test_proxy_population_challenge_return.ChallengeReturnTests.test_scope_requires_native_adapter_and_restores_it) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.120s
+
+OK

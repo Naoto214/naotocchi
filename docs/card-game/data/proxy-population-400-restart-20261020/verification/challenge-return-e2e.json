@@ -1,0 +1,124 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree; after = tree with first-date, timing, bowtie, city and challenge-return fixes. group-001-A/004-B/007-A/017-B are completed control rows with E-final-time or challenge-window resolutions (play digest = decisions + event skeleton + final game state).",
+ "rows": [
+  {
+   "match_id": "group-006-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "automatic output binding differs: ['native final hash differs']",
+     "phase": "response_window"
+    },
+    "steps": 118,
+    "events": 156,
+    "record_sha256": "2ce60b657671cffc3cb3cd4e3ec0b259e5796f6c9f92e56132001bc23d02bf9a"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 230,
+    "events": 301,
+    "record_sha256": "15a7d434a8e9dc1d6db5cc9da798697c89e41bc209291d12f5ff3cbd6712f658"
+   },
+   "play_digest_equal": null
+  },
+  {
+   "match_id": "group-013-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "automatic output binding differs: ['native final hash differs']",
+     "phase": "response_window"
+    },
+    "steps": 210,
+    "events": 275,
+    "record_sha256": "1ed86af180d2c6d069f6fe09a98f7472c738c305817516c959223c01eff6f446"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 220,
+    "events": 289,
+    "record_sha256": "57d5a84b2e8f0ec169d308953eaf677dd0343bf96bdc0de60e691dba815e2d76"
+   },
+   "play_digest_equal": null
+  },
+  {
+   "match_id": "group-001-A-first",
+   "before": {
+    "completed": true,
+    "stop": null,
+    "steps": 241,
+    "events": 307,
+    "record_sha256": "9eee19c76313a1b9b3b2190f9357b86719abdd0cb1ec6291cb31ee40e6882313"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 241,
+    "events": 307,
+    "record_sha256": "51d15121a171bee9547ba20ceaf27588b0f80db29f39d3cf913ee207257df91c"
+   },
+   "play_digest_equal": true
+  },
+  {
+   "match_id": "group-004-B-first",
+   "before": {
+    "completed": true,
+    "stop": null,
+    "steps": 237,
+    "events": 305,
+    "record_sha256": "8469c3f0b2ace73bbdafbd31db425e183922bb3cf44a2f9e2ffa84eb525e9471"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 237,
+    "events": 305,
+    "record_sha256": "8a640c79712c2a65d23ef920741303c9da3697b684170da177dd650ac3d52c81"
+   },
+   "play_digest_equal": true
+  },
+  {
+   "match_id": "group-007-A-first",
+   "before": {
+    "completed": true,
+    "stop": null,
+    "steps": 225,
+    "events": 295,
+    "record_sha256": "4d8f1e5162bfd61afbaf77cf8cf2145981d78fe8997405cfc5ac9b2be20c78c6"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 225,
+    "events": 295,
+    "record_sha256": "ef7b00ba643dab04751b67293cbd0995eb5c27e00cc257e6fdb9cb3bb0a69dd4"
+   },
+   "play_digest_equal": true
+  },
+  {
+   "match_id": "group-017-B-first",
+   "before": {
+    "completed": true,
+    "stop": null,
+    "steps": 248,
+    "events": 321,
+    "record_sha256": "840cc5345c96b6c13e2bd4d20d64d12990f9eb13ec7bfb56a6f448ee027af814"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 248,
+    "events": 321,
+    "record_sha256": "e6bcb0b44741fc08bd618820d785d50d9b35e0d87bfd5383b787cd8e708c1890"
+   },
+   "play_digest_equal": true
+  }
+ ]
+}
