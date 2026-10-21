@@ -89,7 +89,14 @@ class Connection:
   if key!=self.root:raise ValueError('field-entry selected history incomplete')
   return record
  def registry(self,game):
-  found=[r for r in self.records.values() if life.digest(r['metadata'])==life.digest(game['cards'])]
+  key=life.digest(game['cards'])
+  found=[r for r in self.records.values() if life.digest(r['metadata'])==key]
+  if not found:
+   # A465 local frame already projected to the active copies (incarnation_policy
+   # hands the projected frame to the shared prepare) resolves to the full record
+   # whose active projection it is; disagreeing full records stay ambiguous.
+   found=[r for r in self.records.values() if life.digest({s:r['metadata'][s] for s in r['active'].values()})==key]
+   if any(life.digest(r['metadata'])!=life.digest(found[0]['metadata']) for r in found[1:]):raise ValueError('incarnation metadata registry absent or ambiguous')
   if not found or any(r['active']!=found[0]['active'] for r in found):raise ValueError('incarnation metadata registry absent or ambiguous')
   return copy.deepcopy(found[0])
  def capture(self,before,after,event):
