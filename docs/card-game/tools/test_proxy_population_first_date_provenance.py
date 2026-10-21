@@ -15,13 +15,13 @@ class FirstDateProvenanceTests(unittest.TestCase):
   def run(forced):
    for stage,mode,expected in ((0,'normal',5),(1,'normal',0),(0,'stale1',0),(0,'departed',0)):
     b,a,ev=actual(forced,stage,growth=20,mode=mode)
-    rows=growth.first_date_proofs([ev],[b,a],set())
+    rows=growth.first_date_proofs([ev],[b,a],[])
     with self.subTest(stage=stage,mode=mode):
      self.assertEqual(len(rows),1);row=rows[0]
      self.assertEqual((row['event_seq'],row['kind'],row['card_id'],row['duration']),(ev['seq'],'resolve_event','E-first-date','none'))
      self.assertEqual(row['certain_growth_difference'],expected)
      self.assertEqual(a['legacy_continuation']['game_state']['players']['A']['growth']-b['legacy_continuation']['game_state']['players']['A']['growth'],expected)
-   b,a,ev=actual(forced,0,growth=98);self.assertEqual(growth.first_date_proofs([ev],[b,a],set())[0]['certain_growth_difference'],2)
+   b,a,ev=actual(forced,0,growth=98);self.assertEqual(growth.first_date_proofs([ev],[b,a],[])[0]['certain_growth_difference'],2)
    return {}
   self.run_case(run)
 
@@ -31,16 +31,20 @@ class FirstDateProvenanceTests(unittest.TestCase):
    for mutate in (lambda e,x:e['result'].update(growth_added=5),lambda e,x:x['legacy_continuation']['game_state']['players']['A'].update(growth=25),
                   lambda e,x:e['result']['target_recheck'].update(legal=True)):
     event=copy.deepcopy(ev);after=copy.deepcopy(a);mutate(event,after)
-    with self.assertRaises(ValueError):growth.first_date_proofs([event],[b,after],set())
-   with self.assertRaises(ValueError):growth.first_date_proofs([ev],[b,a],{ev['seq']})
+    with self.assertRaises(ValueError):growth.first_date_proofs([event],[b,after],[])
+   # Another verifier may already carry the same certified row; only a conflict stops.
+   same=dict(event_seq=ev['seq'],kind='resolve_event',card_id='E-first-date',source_reference='x',source_raw_sha256='y',duration='none',certain_growth_difference=ev['result']['growth_added'])
+   self.assertEqual(growth.first_date_proofs([ev],[b,a],[same]),[])
+   for bad in (dict(same,certain_growth_difference=ev['result']['growth_added']+5),dict(same,kind='resolve_item'),dict(same,duration='activation_until_resolution')):
+    with self.assertRaises(ValueError):growth.first_date_proofs([ev],[b,a],[bad])
    return {}
   self.run_case(run)
 
  def test_other_events_are_ignored(self):
   def run(forced):
    b,a,ev=actual(forced)
-   other=dict(ev,action_type='resolve_item');self.assertEqual(growth.first_date_proofs([other],[b,a],set()),[])
-   self.assertEqual(growth.first_date_proofs([ev],[a],set()),[])
+   other=dict(ev,action_type='resolve_item');self.assertEqual(growth.first_date_proofs([other],[b,a],[]),[])
+   self.assertEqual(growth.first_date_proofs([ev],[a],[]),[])
    return {}
   self.run_case(run)
 

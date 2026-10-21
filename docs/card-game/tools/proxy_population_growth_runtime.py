@@ -59,23 +59,28 @@ def expire(native,envelope):
  return payments.forced_result(envelope,after,event)
 
 
-def first_date_proofs(events,runtime,proven):
+def first_date_proofs(events,runtime,proofs):
  """Resolved first-date grows only for a still-legal stage-0 partner (91/474).
 
  The static text row assumes +5. Each actual resolution is re-verified by the
  existing full-delta audit and contributes its certified growth_added instead.
+ A row another verifier already supplied (chain_resolution, when it is not
+ shadowed) must agree with the audit; a conflicting row fails closed.
  """
  import proxy_population_first_date_effect as first_date
- byseq={e['event_seq']:e for e in runtime};rows=[]
+ byseq={e['event_seq']:e for e in runtime};rows=[];prior={p['event_seq']:p for p in proofs}
  for event in events:
   if event.get('action_type')!='resolve_event' or event['seq']-1 not in byseq or event['seq'] not in byseq:continue
   before=byseq[event['seq']-1];source=event.get('source_instance_id')
   if before['legacy_continuation']['game_state']['cards'].get(source,{}).get('card_id')!='E-first-date':continue
-  if event['seq'] in proven:raise ValueError('first-date resolution already has another provenance')
   audit=first_date.audit(before,byseq[event['seq']],event)
   if audit['supplied_first_date_verified'] is not True:raise ValueError('first-date resolution provenance unproved: '+str(audit['errors']))
-  ruling.status(event);cap=challenge.batch.classification('E-first-date')
-  rows.append(dict(event_seq=event['seq'],kind='resolve_event',card_id='E-first-date',source_reference=cap['reference'],source_raw_sha256=cap['source_raw_sha256'],duration='none',certain_growth_difference=event['result']['growth_added']))
+  ruling.status(event);cap=challenge.batch.classification('E-first-date');growth=event['result']['growth_added']
+  existing=prior.get(event['seq'])
+  if existing is not None:
+   if existing.get('kind')!='resolve_event' or existing.get('card_id')!='E-first-date' or existing.get('certain_growth_difference')!=growth or existing.get('duration')!='none':raise ValueError('first-date resolution provenance conflicts with another verifier')
+   continue
+  rows.append(dict(event_seq=event['seq'],kind='resolve_event',card_id='E-first-date',source_reference=cap['reference'],source_raw_sha256=cap['source_raw_sha256'],duration='none',certain_growth_difference=growth))
  return rows
 
 
@@ -91,7 +96,7 @@ def scope():
    prior_envelope=byseq[event['seq']-1];result=resolve_board(prior_board,state.current(prior_envelope),None);result=triggers.actions.normalize_resolution_result(prior_envelope,result)
    if canonical(result['new_events'][0])!=canonical(event) or canonical(state.advance(prior_envelope,result['new_snapshots'][0]['continuation_state'],event['seq']))!=canonical(byseq[event['seq']]):raise ValueError('bounded board provenance differs')
    ruling.status(event);proof['certain_growth_difference']=event['result']['growth_added']
-  proofs.extend(first_date_proofs(events,runtime,{p['event_seq'] for p in proofs}))
+  proofs.extend(first_date_proofs(events,runtime,proofs))
   return proofs
  try:
   payments.expire=lambda envelope:expire(prior_expire,envelope)
