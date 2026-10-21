@@ -270,7 +270,9 @@
         const W = g.W, H = g.H;
         const pe = partner(); const comps = companions();
         const answer = pe || pick(comps);
-        const decoyPool = ['🐻', '🦊', '🐱', '🐶', '🐰', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸'].filter((e) => e !== answer);
+        // こいびとが いない ときは、じぶんの なかま ぜんいんを はずれから のぞく(こたえが 2つに ならない ように)
+        const own = pe ? [pe] : comps;
+        const decoyPool = ['🐻', '🦊', '🐱', '🐶', '🐰', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸'].filter((e) => !own.includes(e));
         const n = 3 + (g.level >= 4 ? 1 : 0);
         const faces = shuffle([answer, ...shuffle(decoyPool).slice(0, n - 1)]).map((ch, i) => ({ ch, x: W * ((i + 0.5) / n), y: H * 0.45, ans: ch === answer }));
         let done = false;

@@ -90,6 +90,7 @@ global.window = { addEventListener: noop, innerWidth: 390, innerHeight: 844 };
 global.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = master;
 global.window.NaotocchiCast = require('../cast-layout.js');
 global.window.NaotocchiCastMotion = require('../cast-motion.js');
+global.window.NaotocchiMinigameReactions = require('../minigame-reactions.js');
 global.window.NaotocchiEnvironment = require('../world-environment.js');
 global.window.NaotocchiCareStatus = require('../care-status.js');
 global.window.NaotocchiItems = require('../item-system.js');

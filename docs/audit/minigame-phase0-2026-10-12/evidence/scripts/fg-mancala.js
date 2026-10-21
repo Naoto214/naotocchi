@@ -1,0 +1,13 @@
+// replica of games.js 8225-8240 sow/search/aiMove; human = greedy (extra turn > capture > random). Time per games.js 8234-8239.
+function sow(p,i){const b=p.slice();const who=i<6?0:1;let seeds=b[i];b[i]=0;let k=i;const path=[];while(seeds>0){k=(k+1)%14;if((who===0&&k===13)||(who===1&&k===6))continue;b[k]++;seeds--;path.push(k);}let extra=false,captured=0;const store=who===0?6:13;if(k===store)extra=true;else if(b[k]===1&&((who===0&&k<6)||(who===1&&k>=7&&k<13))){const opp=12-k;if(b[opp]>0){captured=b[opp]+1;b[store]+=captured;b[opp]=0;b[k]=0;}}return{b,extra,captured,path};}
+const sideEmpty=(b,w)=>(w===0?b.slice(0,6):b.slice(7,13)).every(v=>v===0);
+function finishBoard(b){const nb=b.slice();for(let i=0;i<6;i++){nb[6]+=nb[i];nb[i]=0;}for(let i=7;i<13;i++){nb[13]+=nb[i];nb[i]=0;}return nb;}
+function evaluate(b){return(b[13]-b[6])+(b.slice(7,13).reduce((a,v)=>a+v,0)-b.slice(0,6).reduce((a,v)=>a+v,0))*0.15;}
+function search(b,who,depth){if(sideEmpty(b,0)||sideEmpty(b,1)){const f=finishBoard(b);return(f[13]-f[6])*3;}if(depth===0)return evaluate(b);const ms=[];for(let i=who===0?0:7;i<(who===0?6:13);i++)if(b[i]>0)ms.push(i);if(!ms.length)return evaluate(b);let best=who===1?-Infinity:Infinity;for(const m of ms){const r=sow(b,m);const v=r.extra?search(r.b,who,depth-1):search(r.b,1-who,depth-1);best=who===1?Math.max(best,v):Math.min(best,v);}return best;}
+function game(THINK,d){let pits=Array(14).fill(4);pits[6]=0;pits[13]=0;let turn=0,t=0,moves=[0,0];
+ while(true){ let i; if(turn===0){ t+=THINK; const opts=[];for(let k=0;k<6;k++)if(pits[k]>0)opts.push(k); const ex=opts.filter(k=>sow(pits,k).extra); const cp=opts.filter(k=>sow(pits,k).captured); i=ex.length?ex[ex.length-1]:cp.length?cp[0]:opts[Math.floor(Math.random()*opts.length)]; }
+  else { t+=700; const opts=[];for(let k=7;k<13;k++)if(pits[k]>0)opts.push(k); let bv=-Infinity; i=opts[0]; const depth=d<0.35?1:3; for(const m of opts){const r=sow(pits,m);let v=(r.extra?search(r.b,1,depth):search(r.b,0,depth))+(Math.random()-0.5)*(2+(0.2-2)*d); if(v>bv){bv=v;i=m;}} }
+  const r=sow(pits,i); t+=r.path.length*90+200; moves[turn]++; pits=r.b; if(sideEmpty(pits,0)||sideEmpty(pits,1)) return {t,moves};
+  if(!r.extra) turn=1-turn; }
+}
+for (const [TH,d] of [[1500,0.3],[2500,0.3],[4000,0.3],[2500,0.55]]) { const ts=[]; let mv=0; for(let k=0;k<300;k++){const g=game(TH,d); ts.push(g.t/1000); mv+=g.moves[0];} ts.sort((a,b)=>a-b); const q=p=>ts[Math.floor(p*ts.length)].toFixed(1); console.log(`human think ${TH}ms d=${d}: game length median ${q(0.5)}s (p10 ${q(0.1)}, p90 ${q(0.9)}); human moves avg ${(mv/300).toFixed(1)}; >60s ${(ts.filter(x=>x>60).length/3).toFixed(0)}%; >42s ${(ts.filter(x=>x>42).length/3).toFixed(0)}%`); }
