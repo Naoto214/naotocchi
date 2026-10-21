@@ -4,10 +4,10 @@
 
 本人指示（10-21）：承認チェックを#259→#408へ移行（PR番号以外の条件は維持）、censusは4並列で継続、証拠不足は既存の独立監査の再利用で補い、fail-closedを維持、auto-modeの安全制限は回避しない、本番は条件が揃うまで開始しない。
 
-- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威移転 `7a4d71f2`。10-21の修復は26件（first-date来歴 `f74b3a89` から 再入場後の次ターン egg 選択 `c64a889e` まで）。一覧・各RED/GREEN/関連・代表行の再実行結果は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
+- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威移転 `7a4d71f2`。10-21の修復は27件（first-date来歴 `f74b3a89` から E-final-time 判定の中間capture束縛 `f306426a` まで）。一覧・各RED/GREEN/関連・代表行の再実行結果は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
 - 各修復は RED→GREEN、関連モジュール、代表行の診断再実行で確認。完走済み対照行は決定・イベント骨格・最終盤面が一致。診断は本番ではなく400戦に算入しない。
-- 本人判断として残るのは2区分：pending source obligation（連鎖解決中に生じた発生を実行駆動が提示しない。005-A・044-B・106-A）と、R10・メイン不在の E-final-time を凍結列挙が除外する件（068-A）。どちらも直すと合法候補・CPUの選択が変わる。
-- baseline census（凍結木 c1966ae4、4並列）は継続中。固定tree（HEAD `c64a889e`）で未完走の372行を2並列で再実行中（scratch `diag26`、約1日）。全行の分類はその完了後。
+- 本人判断として残るのは2区分：pending source obligation（連鎖解決中に生じた発生を実行駆動が提示しない。005-A・044-B・106-A・030-B）と、R10・メイン不在の E-final-time を凍結列挙が除外する件（068-A）。どちらも直すと合法候補・CPUの選択が変わる。
+- baseline census（凍結木 c1966ae4、4並列）は継続中。固定tree（HEAD `f306426a`）で未完走の308行を2並列で再実行中（scratch `diag27`）。コンテナはセッションが待機すると回収されるため、実行中はMonitorを張り続ける。全行の分類はその完了後。
 - 本番400戦・承認request・消費・supervisor・worker・retry・resumeは引き続き0。累計は着手1・完走0・未完了1・未実施399。
 
 以下は過去時点の履歴。
