@@ -11,6 +11,40 @@ import proxy_continuation_state as state
 from proxy_mandatory_policy_contract import canonical
 
 
+def start_draw_rows(events,boundaries,records,proofs):
+    """77 I-bowtie board events certified by the existing start-group audits.
+
+    The frozen trigger registry has no row for I-bowtie, so the shared trigger
+    verifier emits no provenance for its activation or draw. The activation is
+    bound to its actual group receipt by board_group_effect.audit and the draw
+    by the independent one-draw full-delta audit; growth is 0 in both and the
+    durations are the registry's own activation/resolution classes.
+    """
+    import proxy_population_board_group_effect as group_effect
+    import proxy_population_draw_effects as draw_effects
+    import proxy_population_start_obligations as starts
+    rows=[]
+    for event in events:
+        seq=event['seq'];kind=event.get('action_type');source=event.get('source_instance_id')
+        if event.get('source_zone')!='board' or kind not in ('activate_response','resolve_board_ability') or seq-1 not in boundaries or seq not in boundaries:continue
+        before=boundaries[seq-1];after=boundaries[seq]
+        if before['legacy_continuation']['game_state']['cards'].get(source,{}).get('card_id')!='I-bowtie':continue
+        if any(p['event_seq']==seq for p in proofs):raise ValueError('start draw provenance already supplied')
+        if kind=='activate_response':
+            matching=[r for r in records if len(r['events'])==1 and r['events'][0]['seq']==seq and r.get('chosen',{}).get('action')=='activate']
+            if len(matching)!=1:raise ValueError('start draw activation receipt absent or ambiguous')
+            proof=group_effect.audit(before,after,event,matching[0])
+            if proof['errors'] or proof['supplied_board_group_verified'] is not True:raise ValueError('start draw activation full delta differs: '+str(proof['errors']))
+            duration='activation_until_resolution'
+        else:
+            proof=draw_effects.audit(before,after,event)
+            if proof['errors'] or proof['supplied_draw_resolution_verified'] is not True:raise ValueError('start draw resolution full delta differs: '+str(proof['errors']))
+            duration='none'
+        row=starts.catalog()['cards']['I-bowtie']
+        rows.append(dict(event_seq=seq,kind=kind,card_id='I-bowtie',source_reference=row['reference'],source_raw_sha256=row['source_raw_sha256'],certain_growth_difference=0,duration=duration,start_draw_audit=proof))
+    return rows
+
+
 @contextmanager
 def scope(records=()):
     original=end.RUNTIME_TRANSITION_VERIFIER;prior_history=end.verify_new_events;prior_activate=triggers.activate
@@ -62,6 +96,7 @@ def scope(records=()):
             proof=closure.audit(boundaries[seq-1],boundaries[seq],event,matching[0])
             if proof['errors'] or proof['supplied_trigger_closure_verified'] is not True:raise ValueError('closure provenance full delta differs: '+str(proof['errors']))
             proofs.append(dict(event_seq=seq,card_id=None,kind=event['action_type'],source_reference=closure.order.SOURCE,source_raw_sha256=closure.order.SOURCE_SHA,certain_growth_difference=0,duration='none',closure_delta_audit=proof))
+        proofs.extend(start_draw_rows(events,boundaries,records,proofs))
         return proofs
     try:
         triggers.activate=activate
