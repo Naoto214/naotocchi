@@ -124,3 +124,23 @@
 - `tests/conversation-director-integration-test.cjs`(7 件・実ゲーム): Director が読み込まれ放置会話が 24 発話内で重複しない、間合い(最初 3 分・長い放置・タップ後)、表示されなかった beat が履歴に残らない、reload 後に重複しない・セーブ本体と schema に会話データが入らない、壊れた/書けない履歴でも遊べる、「ぜんぶ さいしょから」で消える、はこが専用台詞を中心に時々汎用も言う
 - `tests/conversation-hygiene-test.cjs`(8 件・Phase 1)は main の自由生活に合わせて在宅 fixture を使うよう更新
 - Pages: `python -m unittest discover -s tests/pages`(11 件)通過、package / verify も欠落 0・hash 不一致 0
+
+## 8. 本人専用の iPhone 試遊版(本番 Pages は変更しない)
+
+commit 固定の CDN URL(repo の `tools/preview-url.sh` 方式。中身は 3 つとも同じ commit `97372c72`)。どれかが開かなければ次を試す。セーブはその CDN の origin に入るので本番のセーブとは別。
+
+- https://rawcdn.githack.com/Naoto214/naotocchi/97372c726e00d34a8b995b0d61c10d388ca1d632/index.html
+- https://cdn.jsdelivr.net/gh/Naoto214/naotocchi@97372c726e00d34a8b995b0d61c10d388ca1d632/index.html
+- https://cdn.statically.io/gh/Naoto214/naotocchi/97372c726e00d34a8b995b0d61c10d388ca1d632/index.html
+
+間合いの比較(保存しない QA 用): 上の URL の末尾に `?talkpace=0.5`(速い)/`?talkpace=1.5`(ゆっくり)。
+
+到達確認: この作業環境からは 3 つとも proxy の CONNECT が 403(環境のネットワーク制限)で確認できていない。iPhone Safari から開けるかは未確認。開けない場合は「アクセス不可」と記録し、本番 Pages には手を入れない。
+
+見てほしいこと(合否の数値基準ではなく体感):
+1. Home を何もせず 5〜10 分眺める: 同じ台詞が続かないか、間が長すぎて寂しくないか
+2. 世話やじゃれるを数回したあと: 会話が従来どおり賑やかに戻るか
+3. こいびと・なかまがいる人生: 本人以外がほとんど話さない(§3 の自由生活の仕様)ことをどう感じるか
+4. 空腹・病気のとき: 周りが陽気すぎないか
+5. reload して続ける: 直前と同じ台詞から始まらないか
+6. 笑った台詞・寒かった台詞があればメモ(次工程の掛け合い・新規台詞の材料にする)
