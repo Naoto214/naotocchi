@@ -8,6 +8,7 @@
   const CARE_STATUS = window.NaotocchiCareStatus || null;
   const EMOTION_STATE = window.NaotocchiEmotionState || null;
   const PET_EXPRESSION = window.NaotocchiPetExpression || null;
+  const MINIGAME_REACTIONS = window.NaotocchiMinigameReactions || null;
   const RELATIONSHIP_EXPRESSION = window.NaotocchiRelationshipExpression || null;
   let relationshipRenderTimer = null;
   let homeSocialReactions = null;
@@ -2923,7 +2924,7 @@
   // difficulty knobs off of this so the whole game gets meaner as the pet
   // gets older, instead of staying at "baby" difficulty forever
   // 「せかい」がめんで えらぶ ミニゲームの むずかしさ。ねんれいで あがる
-  // むずかしさの のびを おさえ(やさしい 0.4倍 / ふつう 0.7倍 / むずかしい 1倍)、
+  // むずかしさの のびを おさえ(やさしい 0.3倍 / ふつう 0.55倍 / むずかしい 1倍)、
   // せいげん時間を ながくする(mgDuration)
   const DIFFICULTY_CHOICES = { easy: ['🌱', 'やさしい'], normal: ['🙂', 'ふつう'], hard: ['🔥', 'むずかしい'] };
   const GAME_LENGTH_CHOICES = { normal: ['⏱️', 'ふつう'], short: ['⚡', 'みじかめ'] };
@@ -6291,6 +6292,9 @@
   }
 
   function speakEvent(eventKey, ctx = {}) {
+    // ミニゲームの けっか処理の さいちゅう(そだち・とし など)は、けっかトーストを けさない よう
+    // いったん ためて、トーストの あとに まわす(dispatchMinigameReaction)
+    if (minigameResultSpeechHold) { minigameResultSpeechHold.push([eventKey, ctx]); return; }
     const dialogueKey = eventKey === 'evolve' ? 'age' : eventKey === 'companion_new' ? 'minigame_great' : eventKey;
     const pool = CONVERSATION_POOLS[dialogueKey];
     if (!pool) return;
@@ -14676,7 +14680,8 @@
   const QUICK_FOOD_EMOJI = ['🍙', '🍎', '🍰', '🍓', '🍩', '🍇'];
   const quickMod = typeof installNaotocchiQuick === 'function' ? installNaotocchiQuick({
     sfx: (name) => audio.play(name),
-    voice: (text) => audio.voice(text),
+    // 第2引数(question など よみかたの しじ)も おとさず わたす
+    voice: (text, opts) => audio.voice(text, opts),
     clamp, lerp, escapeHtml, createMgCanvas,
     currentSprite: () => currentSprite(),
     partnerEmoji: () => (state.partner && state.partner.emoji) || null,
@@ -15029,9 +15034,15 @@
     if (!q.single || typeof q.single !== 'object') q.single = {};
     return q;
   }
+  // 「1本ずつ」の けっかカードは、50本で 1枠の minigameRecords['quick-solo'] ではなく、
+  // その 1本の きろく(quick.single)と くらべる。onRunEnd は onComplete より さきに よばれるので、
+  // うわがき まえの ベストを ここで おぼえておく(セーブには のこさない)
+  let quickSoloPrev = null;
   function recordQuickRun(stats) {
     const q = quickStats();
     if (stats.solo) {
+      const before = q.single[stats.solo];
+      quickSoloPrev = { id: stats.solo, best: before && before.runs > 0 ? Math.round(before.best * 100 / (stats.total || 1)) : null };
       const r = q.single[stats.solo] || (q.single[stats.solo] = { runs: 0, best: 0 });
       r.runs += 1; r.best = Math.max(r.best, stats.cleared);
     } else {
@@ -15042,6 +15053,14 @@
     q.totalCleared += stats.cleared;
     for (const [id, n] of Object.entries(stats.plays || {})) q.plays[id] = (q.plays[id] || 0) + n;
     for (const [id, n] of Object.entries(stats.clears || {})) q.clears[id] = (q.clears[id] || 0) + n;
+  }
+  function quickSoloToastRecord(game, record) {
+    const prev = quickSoloPrev;
+    quickSoloPrev = null;
+    if (!record || game.id !== 'quick-solo' || !prev || prev.id !== game.quickGameId) return record;
+    const isNewBest = prev.best == null || record.score > prev.best;
+    const best = isNewBest ? record.score : prev.best;
+    return { ...record, best, prevBest: prev.best, isNewBest, bestRank: minigameRankOf(best) };
   }
   // gameId を わたすと その 1本だけの ラン、なしなら ぜんぶ まぜた ラン
   function startQuickRun(gameId) {
@@ -15296,7 +15315,7 @@
     "checkers-6": "こまをタップして、光ったマスへ。ななめ前に1マス進める。相手のこまを飛びこすと取れる（続けて飛べる）。奥まで行くと👑キングになり、後ろにも進める。",
     "memory-cards": "カードを2枚タップしてめくる。同じ絵ならそのまま、ちがえばもどる。場所を覚えて、少ない回数で全部そろえよう。",
     "halfpipe-skate": "下り坂で「ポンプ」を長おしすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!",
-    "domino-run": "道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。余った手持ちはボーナス。",
+    "domino-run": "道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。",
     "sudoku-mini": "難易度により4×4（1〜4）か6×6（1〜6）。たて・横・太いわくの中に、それぞれの数字を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。",
     "mancala-kalah": "下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。",
     "plane-landing": "緑の線にのせて飛べば▲に着陸できる。接地の直前に機首を上げるとふわっと浮いて◎までのびる（これが高得点）。風で流されるので線にのせ直そう。",
@@ -16155,14 +16174,13 @@
     return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
   }
 
-  // ミニゲームの 出やすさは「質の ティア」で きめる。
-  //  S: 物理/3D/れんぞく操作が ある、いちばん あそびごたえの ある ゲーム(追加チケット2枚)
-  //  A: 操作感や 展開に 変化が あって しっかり あそべる ゲーム(追加チケット1枚)
-  //  B: みじかい タイミング/選択の ゲーム(そのまま)
-  // ゲームid に ついた ティアが 優先、なければ カテゴリの ティア、それも なければ B
-  // 出やすさは ぜんゲーム 同確率。いま いる地域 / いまの きせつの ゲームだけ
-  // 袋に 2まい 入れて、滞在中は 約2ばい 出やすくする(ほかの 地域でも
-  // ふつうの 確率で 出る。「出ない ゲーム」は つくらない)
+  // ミニゲームの 出やすさ(シャッフルの おもみ)。
+  //  - まだ あそんでいない ゲームは 2.2、あそんだ ものは かいすうに おうじて
+  //    1/(1+かいすう×0.12) に へっていく
+  //  - いま いる地域の ゲームは ×1.45、いまの きせつの ゲームは ×1.25
+  //  - さいごに 天気・時間・季節・地域の 環境補正(environmentGameWeight)を かける
+  // ほかの 地域・きせつの ゲームも ふつうに 出る(「出ない ゲーム」は つくらない)。
+  // いまの 地域・きせつの ゲームには 下の refillMinigameQueue で 追加の 券も 1まい 入る
   function minigameDrawWeight(game) {
     const played = minigamePlayCount(game);
     let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
@@ -16199,10 +16217,11 @@
     weighted.sort((a, b) => a.key - b.key);
     minigameQueue = weighted.map((w) => w.i);
 
-    // ティアに おうじて 追加チケット(S:2枚 A:1枚)。質の高いゲームへ明確に寄せつつ、
-    // 元のプールも残すので同じ数本だけに固定はしない。
-    // 未プレイ優遇・地域/季節優遇と競合しないよう、追加チケットも同じ
-    // キューに混ぜてから軽くシャッフルする。
+    // いま いる地域・いまの きせつの ゲームには 追加チケットを 1まい 足し、
+    // 滞在中は さらに 出やすくする。元のプールも残すので同じ数本だけに固定はしない。
+    // 追加チケットは 同じ キューの ランダムな 位置に 混ぜる。
+    // そのあと、おうかんの 実績に ひつような ゲームは refreshCrownMinigameQueue で
+    // おもみを 2ばいに して 並べ直す(crownAchievementWeight)。
     const spotlightTickets = [];
     currentMinigamePool.forEach((game, i) => {
       if (isRegionExclusiveGame(game) || isSeasonExclusiveGame(game)) spotlightTickets.push(i);
@@ -16591,7 +16610,35 @@
       finishMinigameInner(game, score, customMessage);
     } finally {
       mgCodeDepth = savedDepth;
+      minigameResultSpeechHold = null;
     }
+  }
+
+  // --- ミニゲームの けっか → キャラの はんのう(minigame-reactions.js の v0) ---
+  // ちょっと まえの けっか(ほぞんしない)。連敗・くりかえし などの 判定に つかう
+  const recentMinigameResults = [];
+  let minigameResultSpeechHold = null;
+  const MINIGAME_REACTION_FALLBACK = {
+    recruit: { eventKey: 'companion_new', partnerChance: 0.5, companionChance: 0.6 },
+    great: { eventKey: 'minigame_great', partnerChance: 0.5, companionChance: 0.6 },
+    bad: { eventKey: 'minigame_bad', partnerChance: 0.45, companionChance: 0.5 },
+    mid: { eventKey: null },
+  };
+  function minigameReactionPlan(input) {
+    if (!MINIGAME_REACTIONS) return MINIGAME_REACTION_FALLBACK[input.recruited === true ? 'recruit' : input.band];
+    return MINIGAME_REACTIONS.resolve(MINIGAME_REACTIONS.buildContext(input));
+  }
+  // プランを 既存の 部品に ながす。会話は speakEvent を 名前で よぶ(イベントキーは ふやさない)
+  function dispatchMinigameReaction(plan, held, delayMs, motionTarget) {
+    if (plan && plan.eventKey) {
+      const ctx = { delayMs, partnerChance: plan.partnerChance, companionChance: plan.companionChance };
+      if (plan.eventKey === 'companion_new' && motionTarget) ctx.motionTarget = motionTarget;
+      if (plan.petText) ctx.petText = plan.petText;
+      speakEvent(plan.eventKey, ctx);
+      return;
+    }
+    // 会話の ない 帯: けっか処理の あいだに たまった 吹き出しは、トーストを 読んだ あとに 出す
+    for (const [key, ctx] of held) speakEvent(key, { ...ctx, delayMs: ((ctx && ctx.delayMs) || 0) + delayMs });
   }
 
   function ordinaryMinigameCoins(result, equipmentId) {
@@ -16619,12 +16666,14 @@
       pendingCompanionId = null;
       setMessage((customMessage || resultMessageForScore(score)) + (coins ? '／100コインをもらった!' : ''));
       closeMinigameScreen();
-      showMinigameResultToast(record);
+      showMinigameResultToast(quickSoloToastRecord(game, record));
       audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
       saveState(); // 実績・記録は残し、育成・勧誘・ストーリーの結果処理を通さない。
       render();
       return;
     }
+    minigameResultSpeechHold = [];
+    const fromCompanion = !!pendingCompanionId;
     state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
     const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
     state.energy = clamp(state.energy - energyCost, 0, 100);
@@ -16707,9 +16756,17 @@
     closeMinigameScreen();
     const resultDuration = showMinigameResultToast(record) || 0;
     // 成績を読んでから感想を出す。別のお世話や再プレイで会話は取り消せる。
-    if (recruitedMotionTarget) speakEvent('companion_new', {delayMs:resultDuration,motionTarget:recruitedMotionTarget,partnerChance:0.5,companionChance:0.6});
-    else if (isGreat) speakEvent('minigame_great', { delayMs: resultDuration, partnerChance: 0.5, companionChance: 0.6 });
-    else if (isBad) speakEvent('minigame_bad', { delayMs: resultDuration, partnerChance: 0.45, companionChance: 0.5 });
+    const band = isGreat ? 'great' : isBad ? 'bad' : 'mid';
+    recentMinigameResults.push({ gameId: game.id, band, score: rawScore });
+    if (recentMinigameResults.length > 8) recentMinigameResults.shift();
+    const heldSpeech = minigameResultSpeechHold || [];
+    minigameResultSpeechHold = null;
+    dispatchMinigameReaction(minigameReactionPlan({
+      kind: 'normal', gameId: game.id, category: minigameCategoryOf.get(game) || null, genre: minigameGenreId(game),
+      score: rawScore, band, record, playCount: minigamePlayCount(game), recent: recentMinigameResults,
+      source: fromCompanion ? 'companion' : 'play', recruited: fromCompanion ? recruitedNow : null,
+      hasPartner: !!state.partner, companionCount: state.companions.length,
+    }), heldSpeech, resultDuration, recruitedMotionTarget);
     audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
 
     // checkStoryEvents() no-ops while gameActive, so this must run after
@@ -17352,6 +17409,13 @@
   // 共通いりぐち。chosenGame が あれば その ゲームを、なければ 抽選する。
   // えらんで あそんだ ときも プレイ回数・直前ゲーム・ジャンルの きろくは
   // ランダムの ときと おなじように のこす(未プレイ優遇の もとデータ)
+  // じっさいに ミニゲームを はじめた ことの きろく(実績「あそんだ」「雨の日に あそんだ」など)。
+  // 「あそぶ」からでも なかまの さそいからでも おなじ 1かいとして かぞえる
+  function notePlayStarted() {
+    state.actionCounts.play += 1;
+    recordEnvironmentPlay();
+  }
+
   function tryStartPlay(chosenGame) {
     if (gameActive) return false;
     if (state.isSleeping) {
@@ -17373,12 +17437,11 @@
       applyGamePassSuccess();
       return true;
     }
-    state.actionCounts.play += 1;
+    notePlayStarted();
     if (!isQuick) {
       state.affectionStreak = 0;
       state.travelStreak = 0;
     }
-    recordEnvironmentPlay();
     let game;
     if (chosenGame) {
       game = chosenGame;
@@ -17811,7 +17874,7 @@
       const btn = e.target.closest('.theme-swatch');
       if (!btn || !GAME_LENGTH_CHOICES[btn.dataset.id]) return;
       state.lifetime.minigameLength = btn.dataset.id; saveState(); renderEnvironment();
-      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（90秒以上の制限時間を60%にする）' : '⏱️ゲームのながさを「ふつう」にした');
+      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（20秒以上の制限時間を70%にする）' : '⏱️ゲームのながさを「ふつう」にした');
     });
     el.difficultyModeGrid.addEventListener('click', (e) => {
       const btn = e.target.closest('.theme-swatch');
@@ -18049,6 +18112,7 @@
       render();
       return;
     }
+    notePlayStarted();
     startMinigame(pickRandomMinigame());
   });
 
