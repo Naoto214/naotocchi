@@ -1,7 +1,7 @@
 import {spriteData} from './sprite-data.mjs';
 export const speciesNames={dog:'いぬ',fish:'カクレクマノミ',penguin:'ペンギン',frog:'かえる'};
 export function spriteSpec(species,level=1){
- const spec=spriteData[species==='owl'?'owl':`${species}/${String(level).padStart(2,'0')}`];
+ const spec=spriteData[species.startsWith('owl')?species:`${species}/${String(level).padStart(2,'0')}`];
  if(!spec)throw new RangeError(`Unknown official sprite: ${species}/${level}`);
  return spec;
 }
@@ -20,7 +20,7 @@ export async function loadSprites(){
  return failed;
 }
 export function drawSprite(c,species,level,box){
- const spec=spriteSpec(species,level),key=species==='owl'?'owl':`${species}/${String(level).padStart(2,'0')}`;
+ const spec=spriteSpec(species,level),key=species.startsWith('owl')?species:`${species}/${String(level).padStart(2,'0')}`;
  const img=images.get(key);if(!img)return false;
  const r=fitSprite(spec.crop,box);c.save();c.imageSmoothingEnabled=false;
  c.drawImage(img,...spec.crop,r.x,r.y,r.w,r.h);c.restore();return true;

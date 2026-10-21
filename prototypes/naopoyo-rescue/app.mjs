@@ -1,3 +1,4 @@
+import {stageThemes,worldNames} from './themes.mjs';
 import {loadSprites,speciesNames} from './sprites.mjs';
 import {legacyStages} from './legacy-stages.mjs';
 import{stages}from'./stages.mjs';import{clone,createState,move,release,complete,mass}from'./engine.mjs';import{movePointer}from'./input.mjs';import{KEY,pack,restore}from'./store.mjs';import{renderer}from'./render.mjs';
@@ -12,6 +13,7 @@ function begin(){if(!before)before=clone(state)}
 function finish(){drag=null;if(!before)return;const original=before;before=null;if(!release(state)){state=original;$('message').textContent='落下が循環するため、この操作を戻しました。'}else if(JSON.stringify(state)!==JSON.stringify(original)){history.push(original);history=history.slice(-80)}if(complete(state)&&!cleared.includes(state.id))cleared.push(state.id);save();update()}
 function choose(i){finish();index=i;state=createState(stages[i]);history=[];selected=null;before=null;$('message').textContent='';$('hintBox').open=false;save();update();showSolution()}
 function update(){
+ const theme=stageThemes[state.id];$('world').dataset.theme=theme;$('worldName').textContent=worldNames[theme];
  $('levels').replaceChildren(...stages.map((s,i)=>{const b=document.createElement('button');b.textContent=s.id;b.className=(i===index?'active ':'')+(cleared.includes(s.id)?'done':'');b.setAttribute('aria-label',`${s.id} ${s.title}${cleared.includes(s.id)?' クリア済み':''}`);b.setAttribute('aria-current',i===index?'step':'false');b.onclick=()=>choose(i);return b}));
  $('stageNum').textContent=`STAGE ${state.id} / ${stages.length}`;$('title').textContent=stages[index].title;$('lesson').textContent=oldLayout()?'更新前の途中データを継続中。「はじめから」で新しい通路になります。':stages[index].lesson;$('mode').textContent=state.gravity?'↓ 重力あり':'ふわふわ / 重力なし';$('remaining').textContent=`あと ${state.actors.length} 体 / 救出量 ${state.rescued} / ${mass(state)}`;$('moves').textContent=`${history.length} ドラッグ`;$('undo').disabled=!history.length&&!before;$('win').hidden=!complete(state);$('next').textContent=index===stages.length-1?'はじめの帰り道へ ↺':'次の帰り道へ →';$('winText').textContent=`${history.length}回の操作で、全員を救出しました。`;if(storageError)$('message').textContent='保存できません。この画面では続けて遊べます。';
 }

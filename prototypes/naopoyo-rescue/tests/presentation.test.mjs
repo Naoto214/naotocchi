@@ -31,5 +31,5 @@ test('renderer enlarges only while dragging, follows current cell immediately, t
  for(let t=200;t<=700;t+=20)draw(s,'a',t,null);
  assert.ok(Math.abs(images.at(-1)[7]-normal)<.001,'persistent selection after release must not keep enlargement');
  s.gates=[{x:6,y:2,min:1}];draw(s,'a',720,'a');
- assert.ok(images.at(-1)[0].srcValue.endsWith('/owl.png'),'occupied gate guardian must remain above the enlarged actor');
+ assert.ok(images.at(-1)[0].srcValue.endsWith('/relationship/owl/positive.png'),'occupied gate guardian must remain above the enlarged actor');
 });

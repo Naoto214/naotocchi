@@ -1,5 +1,4 @@
 import {matchesCondition} from './conditions.mjs';
-import {gatePassages} from './engine.mjs';
 import {drawTerrain} from './themes.mjs';
 import { drawExit, drawGate, drawCondition, drawOccupiedGuardian } from './fixtures.mjs';
 import {drawSprite} from './sprites.mjs';
@@ -10,23 +9,32 @@ export function actorVisual(a,s,scale=1){
  return {x:Math.max(.025,Math.min(s.w-w-.025,a.x+.5-w/2)),
  y:Math.max(.025,Math.min(s.h-h-.025,a.y+.36-h/2)),w,h};
 }
+// Transient display only: active adjacent actor wins; otherwise a gate occupant.
+// Idle neighbours do not compete. No timed reaction may override current conditions.
+export function guardianVisual(s,g,activeId){
+ const active=s.actors.find(a=>a.id===activeId);
+ const near=active&&Math.max(Math.abs(active.x-g.x),Math.abs(active.y-g.y))<=1;
+ const occupant=s.actors.find(a=>a.x===g.x&&a.y===g.y);
+ const subject=near?active:occupant;
+ // A split child can already be inside a gate it could not newly enter.
+ // Keep the passage clear for departure; entry permission still belongs to the active actor.
+ const permitted=!!subject&&(subject===occupant||matchesCondition(subject,g));
+ return {open:!!occupant||permitted,expression:subject?(permitted?'positive':'sulky'):'normal',subjectId:subject?.id??null};
+}
 export function renderer(canvas){const c=canvas.getContext('2d'),positions=new Map(),gateStates=new Map();let lastState=null,lastRescued=0;const rescues=[];let reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  function draw(s,selected,time,dragging=null){if(s!==lastState){positions.clear();gateStates.clear();rescues.length=0;lastRescued=s.rescued;lastState=s}const r=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);if(canvas.width!==Math.round(r.width*d)||canvas.height!==Math.round(r.width*d*s.h/s.w)){canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.width*d*s.h/s.w)}
  const size=canvas.width/s.w;c.setTransform(size,0,0,size,0,0);c.clearRect(0,0,s.w,s.h);
  drawTerrain(c,s);
  for(const e of s.exits)drawExit(c,e);
  for(const[x,y]of s.spikes){c.fillStyle='#ceaa78';for(let k=0;k<3;k++){c.beginPath();c.moveTo(x+.15+k*.23,y+.75);c.lineTo(x+.27+k*.23,y+.39);c.lineTo(x+.39+k*.23,y+.75);c.fill()}}
+ const gateVisuals=new Map();
  for(const g of s.gates){
- const key=`${g.x},${g.y}`,previous=gateStates.get(key);
- const occupant=s.actors.find(a=>a.x===g.x&&a.y===g.y);
- const count=gatePassages(s).get(key)||0;
- const arriving=count>(previous?.count||0);
- const openedAt=arriving?time:previous?.openedAt??-Infinity;
- gateStates.set(key,{count,openedAt});
- const elapsed=time-openedAt,opening=reduced?(occupant?1:0):Math.max(0,Math.min(1,elapsed/100,(440-elapsed)/140));
- const active=s.actors.find(a=>a.id===dragging);
- const nearby=active&&Math.max(Math.abs(active.x-g.x),Math.abs(active.y-g.y))<=1&&matchesCondition(active,g);
- drawGate(c,{...g,open:!!occupant||!!nearby||opening>0},occupant||nearby?1:opening,!!occupant);
+  const key=`${g.x},${g.y}`,v=guardianVisual(s,g,dragging),previous=gateStates.get(key);
+  const start=previous?.expression===v.expression&&previous?.subjectId===v.subjectId?previous.start:time;
+  const response=reduced?0:Math.min(1,(time-start)/220);
+  const visual={...g,...v,response};gateStates.set(key,{...v,start});gateVisuals.set(g,visual);
+  const occupied=s.actors.some(a=>a.x===g.x&&a.y===g.y);
+  drawGate(c,visual,v.open?1:0,occupied);
  }
  const ids=new Set(s.actors.map(a=>a.id));
  if(s.rescued>lastRescued&&!reduced)for(const e of s.exits)rescues.push({...e,start:time});
@@ -58,7 +66,7 @@ export function renderer(canvas){const c=canvas.getContext('2d'),positions=new M
  c.textAlign='center';c.textBaseline='middle';c.font=`bold ${onGate?.22:.28}px ui-monospace,monospace`;
  c.strokeText(String(a.level),nx,ny);c.fillText(String(a.level),nx,ny);c.restore();
  }
- for(const g of s.gates)if(s.actors.some(a=>a.x===g.x&&a.y===g.y))drawOccupiedGuardian(c,g);
+ for(const g of s.gates)if(s.actors.some(a=>a.x===g.x&&a.y===g.y))drawOccupiedGuardian(c,gateVisuals.get(g));
  // Labels always remain above expanded art, never hidden behind its silhouette.
  for(const fixture of [...s.exits,...s.gates])drawCondition(c,fixture);
 
