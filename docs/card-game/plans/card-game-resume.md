@@ -7,7 +7,7 @@
 - ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威移転 `7a4d71f2`。10-21の修復は28件（first-date来歴 `f74b3a89` から 二重captureの発生集約 `c2e418b9` まで）。一覧・各RED/GREEN/関連・代表行の再実行結果は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
 - 各修復は RED→GREEN、関連モジュール、代表行の診断再実行で確認。完走済み対照行は決定・イベント骨格・最終盤面が一致。診断は本番ではなく400戦に算入しない。
 - 本人判断として残るのは2区分：pending source obligation（連鎖解決中に生じた発生を実行駆動が提示しない。005-A・044-B・106-A・030-B）と、R10・メイン不在の E-final-time を凍結列挙が除外する件（068-A）。どちらも直すと合法候補・CPUの選択が変わる。
-- baseline census（凍結木 c1966ae4、4並列）は継続中。固定tree（HEAD `c2e418b9`）で未完走の行を2並列で再実行中（scratch `diag28`）。コンテナはセッションが待機すると回収されるため、実行中はMonitorを張り続ける。全行の分類はその完了後。
+- baseline census（凍結木 c1966ae4、4並列）は全400行完了：完走155・境界停止216・例外29（`data/proxy-population-400-restart-20261020/diagnostics/census.json`）。固定tree（HEAD `c2e418b9`）で未完走の行を2並列で再実行中（scratch `diag28`）。コンテナはセッションが待機すると回収されるため、実行中はMonitorを張り続ける。全行の分類はその完了後。
 - 本番400戦・承認request・消費・supervisor・worker・retry・resumeは引き続き0。累計は着手1・完走0・未完了1・未実施399。
 
 以下は過去時点の履歴。
