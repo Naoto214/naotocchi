@@ -1,6 +1,17 @@
 # CARD GAME 最小再開メモ
 
-## 最新状態 — 第4の停止原因（R10最終比較のincarnation zone検査）を修正、本番は未起動（2026-10-20）
+## 最新状態 — 承認先を#408へ移し、証明ギャップを順次接続中。本番は未起動（2026-10-21）
+
+本人指示（10-21）：承認チェックを#259→#408へ移行（PR番号以外の条件は維持）、censusは4並列で継続、証拠不足は既存の独立監査の再利用で補い、fail-closedを維持、auto-modeの安全制限は回避しない、本番は条件が揃うまで開始しない。
+
+- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威移転 `7a4d71f2`。修復: first-date来歴 `f74b3a89`、M-antlion-06 typed application `1641abe0`、I-bowtie無選択ルート `54b18c5b`、W-city窓内閉鎖 `80a62c49`、I-bowtie来歴行 `f5ba32ed`。詳細と診断再実行の結果は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
+- 各修復は RED→GREEN、関連モジュール、代表行の診断再実行（完走済み対照行は決定・イベント骨格・最終盤面が一致）で確認。診断は本番ではなく400戦に算入しない。
+- baseline census（凍結木 c1966ae4、4並列）は継続中。停止区分は11。workflow調査はセッション上限で5区分後に中断し再開中。
+- 本番400戦・承認request・消費・supervisor・worker・retry・resumeは引き続き0。累計は着手1・完走0・未完了1・未実施399。
+
+以下は過去時点の履歴。
+
+## 第4の停止原因（R10最終比較のincarnation zone検査）を修正、本番は未起動（2026-10-20）
 
 ブランチ `claude/fixed400-restart-20261020` は `0a9df8f0` から作成。mainの `f76c5866`（01/02のたまご表示改訂）は468 source anchorと一致しないため起点にしない。詳細は `data/proxy-population-400-restart-20261020/REPORT.md`。
 

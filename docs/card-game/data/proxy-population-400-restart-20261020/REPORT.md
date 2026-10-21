@@ -95,7 +95,27 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 
 以上から、本作業は正式実行の直前で停止した。新しいrequestの発行、本人コメントの代筆、承認消費は行っていない。
 
-## 8. 未解決事項
+## 8. 2026-10-21 追記：承認先の移転と証明ギャップの修復
+
+本人指示（10-21）に従い、PR #408 を承認先にし、センサスで見つかった停止区分を「既存の独立監査が証明済みの事実を検証器へ接続する」方針で順に修復した。いずれも fail-closed を維持し、凍結468 source・manifest・seed・policy・停止原本・承認履歴は変更していない。診断実行は本番ではなく、400戦の完走数には算入しない。
+
+| commit | 区分 | 修復内容 | 単体 | 関連 | 診断再実行 |
+|---|---|---|---|---|---|
+| `7a4d71f2` | 承認権威 | `PR=259`→`#408`（経路allowlist・ブランチ・公開refも同時に移動。本人ID・本文一致・編集禁止・取消検査・open/draft/未マージ・head一致・1回限り消費は不変。#259宛てrequestとコメントは拒否） | 5 | 70 PASS | — |
+| `f74b3a89` | six-stage end proof | E-first-date解決のそだちを静的+5ではなく `first_date_effect.audit` の認定値で証明 | 3 | 44 PASS | 10行中7行完走、3行は別区分へ |
+| `1641abe0` | timing typed application | M-antlion-06誘発判定を `effect_creation.audit`（474/67：予約生成＝適用）と474 not_applied証拠から認定 | 7 | 48 PASS | 9行中7行完走、E-final-time小区分1行は残存、1行は別区分へ |
+| `54b18c5b` | I-bowtie batch capability | 開始連結のカタログ束縛descriptor（77節sha＋凍結rules断片）で解決時無選択ルートを証明 | 5 | 115 PASS | 2行ともステップ通過、turn_endの来歴行欠落へ進む |
+| `80a62c49` | W-city predicate coverage | 窓内の応答手札プレイで生じた第2プレイ発生を、既存adapterで実境界に再収集し実受領で閉じる（未使用時の証明形状は不変） | 3 | 65 PASS | 6行中5行完走、turn-start窓の1行は `closed-group source reoffered` へ |
+| `f5ba32ed` | I-bowtie 来歴行 | 凍結registry外のI-bowtie発動・ドローに、実受領（`board_group_effect.audit`）と1枚ドロー全差分監査（`draw_effects.audit`）で認定した来歴行を供給 | 2 | 58 PASS | 1行完走、1行は registry 区分へ |
+| `a6da7466` | native final hash | 勝負窓内でのE-final-time解決後、凍結の勝負復帰が書き換えない406の最終hash欄を、復帰だけが差分であることを証明してから復帰後eventのhashに束縛 | 3 | 71 PASS | 2行とも完走、対照4行は対局内容一致 |
+| `d0a233a8` | incarnation registry | 再入場後、465局所frameは現役射影済みの札図で渡されるため登録簿と一致しなかった。現役射影が一致し全記録が合意する場合だけ完全記録へ解決 | 2 | 59 PASS | 4行とも完走 |
+| `8a81e169` | first-date 来歴の重複 | 保存停止履歴の診断（chain_resolutionの行が遮蔽されない経路）で、同一行の二重供給を誤って停止していた。同値行は受理し、矛盾行だけ停止 | 3+1 | 53 PASS | — |
+
+完走済み対照行（group-001-A/003-B 等）は、修正前後で決定・イベント骨格・最終盤面が一致する（`play_digest`）。record全体のSHA-256はeditionとsource_versionsを含むため版間で一致しないが、これは証明情報の追加で、対局内容の変化ではない。
+
+調査は11区分をworkflow（区分ごとの調査＋3観点の反証＋統合）で行ったが、セッション上限で5区分の調査後に中断した。反証・統合は未完で、残り6区分（pending source obligation例外、historical quick activation、trigger ledger例外、incarnation registry、second-card public source、concealed companion timing）は再開中。
+
+## 9. 未解決事項（10-20時点。10-21の進捗は §8）
 
 1. 承認権威の移転（PR #259 → 新Draft PR）の採否と、その実装・テスト。
 2. センサスで見つかった各証明境界の実装。各カード・各経路について、証明を追加する作業になる。条件緩和では解決しない。
