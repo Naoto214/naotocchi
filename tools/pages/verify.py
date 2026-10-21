@@ -56,7 +56,7 @@ def verify(artifact, report):
             with urlopen(base + quote(url), timeout=30) as response:
                 if hashlib.sha256(response.read()).hexdigest() != expected[entry]:
                     raise ValueError(f'entry point mismatch: {entry}')
-        excluded = ['docs/pages-capacity-20261019/PLAN.md', 'prototypes/card-game/art-pilot/illustrations/C-bat.png', 'tools/pages/allowlist.json']
+        excluded = ['prototypes/growth-chain/player.html', 'prototypes/growth-clear/player.html', 'prototypes/slide08/player.html', 'prototypes/naopoyo/legacy.html', 'docs/pages-capacity-20261019/PLAN.md', 'prototypes/card-game/art-pilot/illustrations/C-bat.png', 'tools/pages/allowlist.json']
         for path in excluded:
             try:
                 urlopen(base + path, timeout=30)

@@ -37,7 +37,15 @@ const root = path.resolve(__dirname, '../../..');
       const entry=page.locator('.independent-game[href="prototypes/naopoyo/"]'); await entry.scrollIntoViewIfNeeded();
       const rect=await entry.boundingBox(); assert.ok(rect.width>=44&&rect.height>=44&&rect.y>=0&&rect.y+rect.height<=height);
       await page.screenshot({path:path.join(output,`main-menu-${width}.png`)});
-      await entry.click(); await page.waitForURL('**/prototypes/naopoyo/');
+      await entry.click(); await page.waitForURL('**/prototypes/naopoyo-rescue/index.html');
+      await page.locator('#stageSelect').waitFor();
+      assert.equal(await page.title(), 'なおぽよ。');
+      assert.equal(await page.locator('.mode-card').count(), 0);
+      const publicSave=await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1'));
+      await page.locator('#retry').click();
+      assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1')), publicSave);
+      // Legacy regression remains reachable only in repository QA.
+      await page.goto(base+'/prototypes/naopoyo/legacy.html');
       assert.equal(await page.locator('.mode-card').count(),2);
       await page.locator('.mode-card[href="../growth-clear/player.html"]').click();
       await page.waitForURL('**/prototypes/growth-clear/player.html');

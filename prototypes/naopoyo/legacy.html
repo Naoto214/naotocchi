@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>なおぽよ — 小さな庭のパズル</title>
+    <link rel="stylesheet" href="series.css" />
+  </head>
+  <body>
+    <main>
+      <a class="back" href="../../">← なおとっち</a>
+      <h1 class="logo">なおぽよ <i>✦</i></h1>
+      <p>小さな庭で、いのちをつなごう。</p>
+      <section id="home">
+        <a class="mode-card" href="../slide08/player.html"
+          ><div id="slidePreview" class="mini-board" aria-hidden="true"></div>
+          <div>
+            <h2>スライド</h2>
+            <p>うごかして、そだてる</p>
+            <small>↑ ↓ ← → スワイプ</small>
+          </div></a
+        ><a class="mode-card" href="../growth-clear/player.html"
+          ><div id="dropPreview" class="mini-board" aria-hidden="true"></div>
+          <div>
+            <h2>ドロップ</h2>
+            <p>おとして、つなげる</p>
+            <small>↓ 落下 · ↻ 回転 · ✦ 連鎖</small>
+          </div></a
+        >
+        <div class="row">
+          <button id="favoritesButton">お気に入り</button
+          ><button id="recordsButton">きろく</button>
+        </div>
+      </section>
+      <section id="favorites" class="panel" hidden>
+        <button class="back" data-home>← モード選択</button>
+        <h2>お気に入りの5種族</h2>
+        <div id="sets" class="row"></div>
+        <div id="gallery" class="choices favorite-grid"></div>
+        <p id="count"></p>
+        <button id="saveFavorites" class="primary">このセットを保存</button>
+      </section>
+      <section id="records" class="panel records" hidden>
+        <button class="back" data-home>← モード選択</button>
+        <h2>育てたきろく</h2>
+        <div class="row">
+          <button id="slideRecords">スライド</button
+          ><button id="dropRecords">ドロップ</button>
+        </div>
+        <details><summary>以前のドロップの記録</summary><button id="legacyDropRecords">旧ルールの記録を見る</button><p><a href="../growth-chain/player.html?series=1">以前の保存・記録を開く</a></p></details>
+        <div id="summary"></div>
+        <h3>最近のプレイ</h3>
+        <div id="history"></div>
+        <p class="subtle">履歴は直近100件。累計は残ります。</p>
+      </section>
+      <p id="notice" class="notice" role="status"></p>
+    </main>
+    <script type="module" src="series.mjs"></script>
+  </body>
+</html>

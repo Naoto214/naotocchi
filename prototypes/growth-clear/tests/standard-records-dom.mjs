@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import {createRequire} from 'node:module';
 import {PlayerStore} from '../../growth-chain/player-store.mjs';
 const {JSDOM}=createRequire(import.meta.url)(process.env.JSDOM_PATH||'/tmp/naopoyo-ui-deps/node_modules/jsdom');
-const dom=new JSDOM(fs.readFileSync(new URL('../../naopoyo/index.html',import.meta.url),'utf8'),{url:'http://localhost/'});
+const dom=new JSDOM(fs.readFileSync(new URL('../../naopoyo/legacy.html',import.meta.url),'utf8'),{url:'http://localhost/'});
 for(const k of ['window','document','localStorage','location'])globalThis[k]=dom.window[k];
 for (const [key, score, gaugeUnit] of [['naopoyo-player-v1',999,8],['naopoyo-growth-clear-phone-v1',123,2]]) {
  const s=new PlayerStore(localStorage,key);s.load();s.save(null,[{id:key,category:'clear',outcome:'clear',gaugeUnit,score,drops:12,deaths:1,maxChain:3}]);

@@ -13,7 +13,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
   await page.locator('[data-mode="clear"]').click();await page.locator('#pause').click();
   const oldBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('naopoyo-player-v1')));assert.ok(oldBefore.snapshot);
   await page.evaluate(()=>{localStorage.setItem('naotocchi-save-v1','protected-main');localStorage.setItem('naopoyo-slide-player-v1','protected-slide');});
-  await page.goto(base+'/prototypes/naopoyo/');
+  await page.goto(base+'/prototypes/naopoyo/legacy.html');
   await page.locator('.mode-card[href="../growth-clear/player.html"]').click();
   await page.locator('#menu').waitFor({state:'visible'});
   const old=await page.evaluate(()=>localStorage.getItem('naopoyo-player-v1'));

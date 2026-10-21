@@ -5,7 +5,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
  const out=path.resolve(__dirname,'../qa-iphone');fs.mkdirSync(out,{recursive:true});
  for(const [width,height] of [[390,664],[375,667],[430,740],[667,320],[844,390]]){
   const context=await browser.newContext({viewport:{width,height},isMobile:true,hasTouch:true,reducedMotion:'reduce'}),page=await context.newPage();
-  await page.goto((process.env.QA_BASE||'http://127.0.0.1:8765')+'/prototypes/naopoyo/');
+  await page.goto((process.env.QA_BASE||'http://127.0.0.1:8765')+(process.env.QA_PHASE==='before'?'/prototypes/naopoyo/':'/prototypes/naopoyo/legacy.html'));
   await page.locator('#dropPreview span').last().waitFor();
   const preview=await page.evaluate(()=>[...document.querySelectorAll('.mini-board')].map(b=>{const r=b.getBoundingClientRect();return [...b.children].every(c=>{const q=c.getBoundingClientRect();return q.right<=r.right+1&&q.bottom<=r.bottom+1&&Math.abs(q.width-q.height)<1})}));
   await page.screenshot({path:path.join(out,`${process.env.QA_PHASE||'after'}-entry-${width}.png`)});
